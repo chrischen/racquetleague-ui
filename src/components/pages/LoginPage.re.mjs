@@ -91,6 +91,15 @@ async function handleMagicLinkLogin(email, returnUrl) {
 
 var pwaClientId = "pwa";
 
+function openInSystemSafari(url) {
+  if (InstallPwa.isIosDevice() && url.startsWith("https://")) {
+    window.location.assign("x-safari-" + url);
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function LoginPage(props) {
   var match = ReactRouterDom.useSearchParams();
   var params = match[0];
@@ -243,8 +252,6 @@ function LoginPage(props) {
         setDeviceCode(function (param) {
               return match;
             });
-        var url = Core__Option.getOr(match.verification_uri_complete, match.verification_uri);
-        window.open(url, "_blank", "noopener,noreferrer");
       } else if (match$1 !== null) {
         setDeviceError(function (param) {
               return match$1.message;
@@ -373,12 +380,19 @@ function LoginPage(props) {
                                                                         ],
                                                                         className: "p-4 bg-blue-50 border border-blue-200 rounded-lg"
                                                                       }),
-                                                                  JsxRuntime.jsx("button", {
+                                                                  JsxRuntime.jsx("a", {
                                                                         children: t`Open browser to continue`,
-                                                                        className: "w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm",
-                                                                        onClick: (function (param) {
+                                                                        className: "block text-center w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm",
+                                                                        href: Core__Option.getOr(deviceCode.verification_uri_complete, deviceCode.verification_uri),
+                                                                        rel: "noopener noreferrer",
+                                                                        target: "_blank",
+                                                                        onClick: (function (e) {
                                                                             var url = Core__Option.getOr(deviceCode.verification_uri_complete, deviceCode.verification_uri);
-                                                                            window.open(url, "_blank", "noopener,noreferrer");
+                                                                            if (openInSystemSafari(url)) {
+                                                                              e.preventDefault();
+                                                                              return ;
+                                                                            }
+                                                                            
                                                                           })
                                                                       }),
                                                                   JsxRuntime.jsx("p", {
@@ -518,6 +532,7 @@ export {
   handleSocialLogin ,
   handleMagicLinkLogin ,
   pwaClientId ,
+  openInSystemSafari ,
   make ,
 }
 /*  Not a pure module */

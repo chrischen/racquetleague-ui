@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginPage.re.mjs:272
+#: src/components/pages/LoginPage.re.mjs:270
 msgid "An error occurred during sign in. Please try again."
 msgstr ""
 
@@ -22,7 +22,7 @@ msgstr ""
 msgid "An error occurred: {message}"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:293
+#: src/components/pages/LoginPage.re.mjs:291
 msgid "Back to events"
 msgstr ""
 
@@ -35,7 +35,7 @@ msgstr ""
 msgid "Check your email for a magic link to sign in!"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:419
+#: src/components/pages/LoginPage.re.mjs:416
 msgid "Continue with LINE"
 msgstr ""
 
@@ -47,7 +47,7 @@ msgstr ""
 #~ msgid "email address"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:451
+#: src/components/pages/LoginPage.re.mjs:448
 msgid "Email address"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Failed to send magic link: {0}"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:364
+#: src/components/pages/LoginPage.re.mjs:362
 msgid "If your browser didn't open, visit:"
 msgstr ""
 
@@ -72,7 +72,7 @@ msgstr ""
 #~ msgid "login with Line"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:337
+#: src/components/pages/LoginPage.re.mjs:335
 msgid "New users will be automatically registered"
 msgstr ""
 
@@ -80,11 +80,11 @@ msgstr ""
 #~ msgid "notification of updates or cancellations to events (you can opt out)"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:377
+#: src/components/pages/LoginPage.re.mjs:375
 msgid "Open browser to continue"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:438
+#: src/components/pages/LoginPage.re.mjs:435
 msgid "or continue with email"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 #~ msgid "publicly displayed on event attendance lists"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:492
+#: src/components/pages/LoginPage.re.mjs:489
 msgid "Send magic link"
 msgstr ""
 
@@ -109,23 +109,23 @@ msgstr ""
 #~ msgid "Sign in to Events"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:333
+#: src/components/pages/LoginPage.re.mjs:331
 msgid "Sign in to Pkuru.com"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:391
+#: src/components/pages/LoginPage.re.mjs:388
 msgid "Sign in via system browser"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:391
+#: src/components/pages/LoginPage.re.mjs:388
 msgid "Starting…"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:347
+#: src/components/pages/LoginPage.re.mjs:345
 msgid "The installed app uses a separate browser, so we'll complete sign-in in your system browser. Tap the button below, sign in there, and we'll automatically sign you in here."
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:385
+#: src/components/pages/LoginPage.re.mjs:382
 msgid "Waiting for sign-in to complete…"
 msgstr ""
 
@@ -133,10 +133,10 @@ msgstr ""
 #~ msgid "we will collect the following information from your Line account"
 #~ msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:355
+#: src/components/pages/LoginPage.re.mjs:353
 msgid "Your code"
 msgstr ""
 
-#: src/components/pages/LoginPage.re.mjs:272
+#: src/components/pages/LoginPage.re.mjs:270
 msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
 msgstr ""

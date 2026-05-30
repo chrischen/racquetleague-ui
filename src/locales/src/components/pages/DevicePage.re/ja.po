@@ -13,45 +13,49 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/DevicePage.re.mjs:178
+#: src/components/pages/DevicePage.re.mjs:190
 msgid "Approve"
 msgstr "承認"
 
-#: src/components/pages/DevicePage.re.mjs:246
+#: src/components/pages/DevicePage.re.mjs:248
 msgid "Approve sign-in"
 msgstr "サインインを承認"
 
-#: src/components/pages/DevicePage.re.mjs:194
+#: src/components/pages/DevicePage.re.mjs:206
 msgid "Code from your app"
 msgstr "アプリのコード"
 
-#: src/components/pages/DevicePage.re.mjs:250
+#: src/components/pages/DevicePage.re.mjs:252
 msgid "Confirm the code shown in your app to finish signing in."
 msgstr "アプリに表示されたコードを確認して、サインインを完了してください。"
 
-#: src/components/pages/DevicePage.re.mjs:170
+#: src/components/pages/DevicePage.re.mjs:182
 msgid "Deny"
 msgstr "拒否"
 
-#: src/components/pages/DevicePage.re.mjs:134
+#: src/components/pages/DevicePage.re.mjs:146
 msgid "Device approved! You can return to the app."
 msgstr "デバイスが承認されました！アプリに戻ってください。"
 
-#: src/components/pages/DevicePage.re.mjs:226
-msgid "Sign in"
-msgstr "サインイン"
+#: src/components/pages/DevicePage.re.mjs:232
+msgid "Redirecting to sign in…"
+msgstr "サインインページへリダイレクト中…"
 
-#: src/components/pages/DevicePage.re.mjs:140
+#: src/components/pages/DevicePage.re.mjs:152
 msgid "Sign-in request denied."
 msgstr "サインインリクエストが拒否されました。"
 
-#: src/components/pages/DevicePage.re.mjs:178
+#: src/components/pages/DevicePage.re.mjs:190
 msgid "Working…"
 msgstr "処理中…"
 
+#: src/components/pages/DevicePage.re.mjs:226
+#~ msgid "Sign in"
+#~ msgstr "サインイン"
+
 #: src/components/pages/DevicePage.re.mjs:222
-msgid ""
-"You need to sign in here first so we can link this device to your account."
-msgstr ""
-"このデバイスをアカウントにリンクするために、まずここでサインインしてくださ"
-"い。"
+#~ msgid ""
+#~ "You need to sign in here first so we can link this device to your account."
+#~ msgstr ""
+#~ "このデバイスをアカウントにリンクするために、まずここでサインインしてくださ"
+#~ "い。"

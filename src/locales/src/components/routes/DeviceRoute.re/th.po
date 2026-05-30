@@ -13,43 +13,47 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/DevicePage.re.mjs:178
+#: src/components/pages/DevicePage.re.mjs:190
 msgid "Approve"
 msgstr "อนุมัติ"
 
-#: src/components/pages/DevicePage.re.mjs:246
+#: src/components/pages/DevicePage.re.mjs:248
 msgid "Approve sign-in"
 msgstr "อนุมัติการเข้าสู่ระบบ"
 
-#: src/components/pages/DevicePage.re.mjs:194
+#: src/components/pages/DevicePage.re.mjs:206
 msgid "Code from your app"
 msgstr "รหัสจากแอปของคุณ"
 
-#: src/components/pages/DevicePage.re.mjs:250
+#: src/components/pages/DevicePage.re.mjs:252
 msgid "Confirm the code shown in your app to finish signing in."
 msgstr "ยืนยันรหัสที่แสดงในแอปของคุณเพื่อเข้าสู่ระบบให้เสร็จสมบูรณ์"
 
-#: src/components/pages/DevicePage.re.mjs:170
+#: src/components/pages/DevicePage.re.mjs:182
 msgid "Deny"
 msgstr "ปฏิเสธ"
 
-#: src/components/pages/DevicePage.re.mjs:134
+#: src/components/pages/DevicePage.re.mjs:146
 msgid "Device approved! You can return to the app."
 msgstr "อนุมัติอุปกรณ์แล้ว! คุณสามารถกลับไปที่แอปได้"
 
-#: src/components/pages/DevicePage.re.mjs:226
-msgid "Sign in"
-msgstr "เข้าสู่ระบบ"
+#: src/components/pages/DevicePage.re.mjs:232
+msgid "Redirecting to sign in…"
+msgstr "กำลังเปลี่ยนเส้นทางไปยังหน้าเข้าสู่ระบบ…"
 
-#: src/components/pages/DevicePage.re.mjs:140
+#: src/components/pages/DevicePage.re.mjs:152
 msgid "Sign-in request denied."
 msgstr "คำขอเข้าสู่ระบบถูกปฏิเสธ"
 
-#: src/components/pages/DevicePage.re.mjs:178
+#: src/components/pages/DevicePage.re.mjs:190
 msgid "Working…"
 msgstr "กำลังดำเนินการ…"
 
+#: src/components/pages/DevicePage.re.mjs:226
+#~ msgid "Sign in"
+#~ msgstr "เข้าสู่ระบบ"
+
 #: src/components/pages/DevicePage.re.mjs:222
-msgid ""
-"You need to sign in here first so we can link this device to your account."
-msgstr "คุณต้องเข้าสู่ระบบที่นี่ก่อน เพื่อให้เราเชื่อมโยงอุปกรณ์นี้กับบัญชีของคุณได้"
+#~ msgid ""
+#~ "You need to sign in here first so we can link this device to your account."
+#~ msgstr "คุณต้องเข้าสู่ระบบที่นี่ก่อน เพื่อให้เราเชื่อมโยงอุปกรณ์นี้กับบัญชีของคุณได้"

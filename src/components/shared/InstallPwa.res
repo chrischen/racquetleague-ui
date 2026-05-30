@@ -9,6 +9,7 @@ type mediaQueryList = {matches: bool}
 @val @scope("window") external matchMedia: string => mediaQueryList = "matchMedia"
 @val @scope("navigator") external navigatorStandalone: Js.Nullable.t<bool> = "standalone"
 @val @scope("navigator") external userAgent: string = "userAgent"
+@val @scope("navigator") external maxTouchPoints: int = "maxTouchPoints"
 
 /** True when running in PWA / standalone display mode. */
 let isStandalone = (): bool =>
@@ -27,6 +28,18 @@ let isIosSafari = (): bool => {
     Js.Re.test_(%re("/safari/i"), ua) &&
     !Js.Re.test_(%re("/chrome|crios|fxios|opios|mercury|fbav|instagram|line|twitter/i"), ua)
   isIos && isSafariOnly
+}
+
+/**
+ * True when running on an iOS device (any browser/webview), including
+ * iPadOS reporting a desktop user agent. Used to decide when iOS-only
+ * tricks like the `x-safari-` URL scheme apply.
+ */
+let isIosDevice = (): bool => {
+  let ua = userAgent
+  Js.Re.test_(%re("/iphone|ipad|ipod/i"), ua) ||
+    // iPadOS 13+ presents a Mac UA but still exposes touch points.
+    (Js.Re.test_(%re("/macintosh/i"), ua) && maxTouchPoints > 1)
 }
 
 // ---------------------------------------------------------------------------
@@ -320,6 +333,8 @@ module IosSafariPanel = {
 let make = () => {
   let {state, dismissed, dismiss, triggerInstall} = usePwaInstall()
   let (showIosInstructions, setShowIosInstructions) = React.useState(() => false)
+  let viewer = GlobalQuery.useViewer()
+  let isLoggedIn = viewer.user->Option.isSome
 
   // Standalone nudge state: check async whether a push subscription already exists
   let (nudgeDismissed, setNudgeDismissed) = React.useState(() => true) // start hidden
@@ -352,8 +367,9 @@ let make = () => {
       } else {
         switch state {
         | Standalone =>
-          // Show a nudge when the app is running as a PWA but push isn't enabled yet
-          if nudgeDismissed || hasSubscription {
+          // Show a nudge when the app is running as a PWA but push isn't enabled yet.
+          // Only relevant for signed-in users (notifications target an account).
+          if nudgeDismissed || hasSubscription || !isLoggedIn {
             React.null
           } else {
             <div
@@ -393,7 +409,7 @@ let make = () => {
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2 min-w-0">
                 <span className="text-amber-900 dark:text-amber-200 font-medium shrink-0">
-                  {t`Install Racquet League`}
+                  {t`Install Pkuru.com App`}
                 </span>
                 <span className="text-amber-700 dark:text-amber-400 hidden sm:inline truncate">
                   {t`— add to your Home Screen for push notifications`}
@@ -440,7 +456,7 @@ let make = () => {
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2 min-w-0">
                 <span className="text-blue-900 dark:text-blue-200 font-medium shrink-0">
-                  {t`Install Racquet League`}
+                  {t`Install Pkuru.com App`}
                 </span>
                 <span className="text-blue-700 dark:text-blue-400 hidden sm:inline truncate">
                   {t`— for a faster, app-like experience`}

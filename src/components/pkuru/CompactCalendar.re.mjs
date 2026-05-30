@@ -93,7 +93,9 @@ function CompactCalendar(props) {
         var offset = mondayOffset + i | 0;
         var date = setup.dateFromOffset(offset);
         var dayOfWeek = date.getDay() | 0;
-        var dayAbbrev = EventsListUtils.getDayName(dayOfWeek);
+        var dayAbbrev = intl.formatDate(date, {
+              weekday: "short"
+            });
         var dateNum = date.getDate() | 0;
         var isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
         var isToday_ = isSameDay(date, today);
@@ -141,14 +143,19 @@ function CompactCalendar(props) {
       });
   var monthLabel = monthName + " " + activeYear.toString();
   var weekHeaders = [
-    "M",
-    "T",
-    "W",
-    "T",
-    "F",
-    "S",
-    "S"
-  ];
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ].map(function (i) {
+        var day = new Date(2024, 0, 1 + i | 0);
+        return intl.formatDate(day, {
+                    weekday: "narrow"
+                  });
+      });
   var monthGrid = getMonthGrid(activeYear, activeMonth);
   return JsxRuntime.jsxs("div", {
               children: [

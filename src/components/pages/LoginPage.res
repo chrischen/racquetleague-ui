@@ -75,11 +75,31 @@ let handleMagicLinkLogin = async (email: string, returnUrl: option<string>) => {
 // Device-authorization client id used by the PWA.
 let pwaClientId = "pwa"
 
-// External browser navigation helpers. The standalone PWA webview keeps its
-// own cookie jar; opening the verification URL in `_blank` hands navigation
-// off to the system browser where third-party OAuth cookies work.
-@val @scope("window") external openInBrowser: (string, string, string) => unit = "open"
+// External browser navigation helpers. On iOS standalone PWAs, neither
+// `target="_blank"`, `window.open`, nor a plain `window.location` escape the
+// PWA webview — same-origin/in-scope links stay inside the app and external
+// ones open an in-app modal web view, not the real Safari app. The only
+// reliable web technique (iOS 17+) is Apple's undocumented `x-safari-` URL
+// scheme, which forces the system Safari app. It requires an https URL.
+// `setHref` is used for the in-PWA redirect once sign-in completes.
 @val @scope(("window", "location")) external setHref: string => unit = "assign"
+
+// Open `url` in the real Safari app from inside a standalone PWA on iOS.
+// On iOS 17+ the undocumented `x-safari-` scheme forces the system Safari
+// app (it requires an https URL). On every other platform — Android, desktop,
+// iOS Safari tabs — a normal `target="_blank"` anchor already opens the
+// default browser correctly, so this returns false there and lets the
+// anchor's default behavior run.
+//
+// Returns true when it handled the navigation (caller should preventDefault).
+let openInSystemSafari = (url: string): bool => {
+  if InstallPwa.isIosDevice() && url->String.startsWith("https://") {
+    setHref("x-safari-" ++ url)
+    true
+  } else {
+    false
+  }
+}
 
 @react.component
 let make = () => {
@@ -153,8 +173,7 @@ let make = () => {
               let _ = Js.Global.setTimeout(() => poll()->ignore, intervalMs)
             | Some("slow_down") =>
               let _ = Js.Global.setTimeout(() => poll()->ignore, intervalMs + 5000)
-            | Some("access_denied") =>
-              setDeviceError(_ => Some("Sign-in was denied."))
+            | Some("access_denied") => setDeviceError(_ => Some("Sign-in was denied."))
             | Some("expired_token") =>
               setDeviceError(_ => Some("The code expired. Please try again."))
               setDeviceCode(_ => None)
@@ -187,9 +206,10 @@ let make = () => {
       let result = await authClient.device.code({client_id: pwaClientId})
       switch (result.data->Js.Null.toOption, result.error->Js.Null.toOption) {
       | (Some(code), _) =>
+        // Don't auto-open: on iOS standalone PWAs, programmatic `window.open`
+        // stays inside the webview. The user must tap a real <a target="_blank">
+        // anchor (rendered below) to break out into the system browser.
         setDeviceCode(_ => Some(code))
-        let url = code.verification_uri_complete->Option.getOr(code.verification_uri)
-        openInBrowser(url, "_blank", "noopener,noreferrer")
       | (_, Some(error)) => setDeviceError(_ => Some(error.message))
       | _ => setDeviceError(_ => Some("Failed to start device authorization"))
       }
@@ -295,15 +315,22 @@ let make = () => {
                         </span>
                       </p>
                     </div>
-                    <button
-                      onClick={_ => {
+                    <a
+                      href={code.verification_uri_complete->Option.getOr(code.verification_uri)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={e => {
                         let url =
                           code.verification_uri_complete->Option.getOr(code.verification_uri)
-                        openInBrowser(url, "_blank", "noopener,noreferrer")
+                        if openInSystemSafari(url) {
+                          // Handled via the iOS `x-safari-` scheme; suppress the
+                          // default in-PWA navigation.
+                          e->ReactEvent.Mouse.preventDefault
+                        }
                       }}
-                      className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm">
+                      className="block text-center w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm">
                       {t`Open browser to continue`}
-                    </button>
+                    </a>
                     <p className="text-xs text-gray-500 text-center">
                       {t`Waiting for sign-in to complete…`}
                     </p>

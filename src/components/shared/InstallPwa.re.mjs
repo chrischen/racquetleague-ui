@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
+import * as GlobalQuery from "./GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "./LangProvider.re.mjs";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
@@ -26,6 +27,17 @@ function isIosSafari() {
   var isSafariOnly = /safari/i.test(ua) && !/chrome|crios|fxios|opios|mercury|fbav|instagram|line|twitter/i.test(ua);
   if (isIos) {
     return isSafariOnly;
+  } else {
+    return false;
+  }
+}
+
+function isIosDevice() {
+  var ua = navigator.userAgent;
+  if (/iphone|ipad|ipod/i.test(ua)) {
+    return true;
+  } else if (/macintosh/i.test(ua)) {
+    return navigator.maxTouchPoints > 1;
   } else {
     return false;
   }
@@ -300,6 +312,8 @@ function InstallPwa(props) {
       });
   var setShowIosInstructions = match$1[1];
   var showIosInstructions = match$1[0];
+  var viewer = GlobalQuery.useViewer();
+  var isLoggedIn = Core__Option.isSome(viewer.user);
   var match$2 = React.useState(function () {
         return true;
       });
@@ -340,7 +354,7 @@ function InstallPwa(props) {
                   }
                   switch (state) {
                     case "Standalone" :
-                        if (nudgeDismissed || hasSubscription) {
+                        if (nudgeDismissed || hasSubscription || !isLoggedIn) {
                           return null;
                         } else {
                           return JsxRuntime.jsx("div", {
@@ -392,7 +406,7 @@ function InstallPwa(props) {
                                               JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx("span", {
-                                                            children: t`Install Racquet League`,
+                                                            children: t`Install Pkuru.com App`,
                                                             className: "text-amber-900 dark:text-amber-200 font-medium shrink-0"
                                                           }),
                                                       JsxRuntime.jsx("span", {
@@ -464,7 +478,7 @@ function InstallPwa(props) {
                                             JsxRuntime.jsxs("div", {
                                                   children: [
                                                     JsxRuntime.jsx("span", {
-                                                          children: t`Install Racquet League`,
+                                                          children: t`Install Pkuru.com App`,
                                                           className: "text-blue-900 dark:text-blue-200 font-medium shrink-0"
                                                         }),
                                                     JsxRuntime.jsx("span", {
@@ -514,6 +528,7 @@ var make = InstallPwa;
 export {
   isStandalone ,
   isIosSafari ,
+  isIosDevice ,
   nudgeDismissalKey ,
   isNudgeDismissed ,
   saveNudgeDismissal ,

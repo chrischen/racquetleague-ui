@@ -69,7 +69,11 @@ let make = (
     let offset = mondayOffset + i
     let date = setup.dateFromOffset(offset->Int.toFloat)
     let dayOfWeek = date->Js.Date.getDay->Float.toInt
-    let dayAbbrev = EventsListUtils.getDayName(dayOfWeek)
+    let dayAbbrev =
+      intl->ReactIntl.Intl.formatDateWithOptions(
+        date,
+        ReactIntl.dateTimeFormatOptions(~weekday=#short, ()),
+      )
     let dateNum = date->Js.Date.getDate->Float.toInt
     let isWeekend = dayOfWeek == 0 || dayOfWeek == 6
     let isToday_ = isSameDay(date, today)
@@ -108,7 +112,15 @@ let make = (
     )
   let monthLabel = monthName ++ " " ++ activeYear->Int.toString
 
-  let weekHeaders = ["M", "T", "W", "T", "F", "S", "S"]
+  // Localized single-letter weekday headers (Mon→Sun). Jan 1 2024 was a
+  // Monday, so we use that week as a reference and format each day narrow.
+  let weekHeaders = [0, 1, 2, 3, 4, 5, 6]->Array.map(i => {
+    let day = Js.Date.makeWithYMD(~year=2024., ~month=0., ~date=(1 + i)->Int.toFloat, ())
+    intl->ReactIntl.Intl.formatDateWithOptions(
+      day,
+      ReactIntl.dateTimeFormatOptions(~weekday=#narrow, ()),
+    )
+  })
   let monthGrid = getMonthGrid(activeYear, activeMonth)
 
   <div className="flex flex-col w-full">

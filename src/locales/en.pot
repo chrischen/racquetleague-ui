@@ -4815,3 +4815,12 @@ msgstr ""
 #: src/components/pages/LoginPage.re.mjs:340
 msgid "Your code"
 msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:232
+msgid "Redirecting to sign in…"
+msgstr ""
+
+#: src/components/shared/InstallPwa.re.mjs:400
+#: src/components/shared/InstallPwa.re.mjs:472
+msgid "Install Pkuru.com App"
+msgstr ""

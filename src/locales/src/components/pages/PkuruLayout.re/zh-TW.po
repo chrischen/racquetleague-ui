@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:399
+#: src/components/shared/InstallPwa.re.mjs:404
 msgid "— add to your Home Screen for push notifications"
 msgstr "— 加入主畫面以接收推播通知"
 
-#: src/components/shared/InstallPwa.re.mjs:356
+#: src/components/shared/InstallPwa.re.mjs:361
 msgid "— enable push notifications for event reminders"
 msgstr "— 啟用推播通知以獲取賽事提醒"
 
-#: src/components/shared/InstallPwa.re.mjs:471
+#: src/components/shared/InstallPwa.re.mjs:476
 msgid "— for a faster, app-like experience"
 msgstr "— 享受更快速的類應用程式體驗"
 
@@ -29,7 +29,7 @@ msgstr "— 享受更快速的類應用程式體驗"
 msgid "(logout)"
 msgstr "（登出）"
 
-#: src/components/shared/InstallPwa.re.mjs:448
+#: src/components/shared/InstallPwa.re.mjs:453
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"加入主畫面\\\""
 
@@ -51,7 +51,7 @@ msgstr "瀏覽"
 msgid "Discover"
 msgstr "探索"
 
-#: src/components/shared/InstallPwa.re.mjs:366
+#: src/components/shared/InstallPwa.re.mjs:371
 msgid "Enable now"
 msgstr "立即啟用"
 
@@ -64,7 +64,7 @@ msgstr "活動已取消"
 msgid "Event Uncanceled"
 msgstr "活動已恢復"
 
-#: src/components/shared/InstallPwa.re.mjs:408
+#: src/components/shared/InstallPwa.re.mjs:413
 msgid "Hide"
 msgstr "隱藏"
 
@@ -72,22 +72,22 @@ msgstr "隱藏"
 msgid "Host Message"
 msgstr "主辦人訊息"
 
-#: src/components/shared/InstallPwa.re.mjs:408
+#: src/components/shared/InstallPwa.re.mjs:413
 msgid "How to install"
 msgstr "安裝說明"
 
-#: src/components/shared/InstallPwa.re.mjs:440
+#: src/components/shared/InstallPwa.re.mjs:445
 msgid "in Safari's toolbar"
 msgstr "在 Safari 的工具列中"
 
-#: src/components/shared/InstallPwa.re.mjs:480
+#: src/components/shared/InstallPwa.re.mjs:485
 msgid "Install"
 msgstr "安裝"
 
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-msgid "Install Racquet League"
-msgstr "安裝 Racquet League"
+#: src/components/shared/InstallPwa.re.mjs:400
+#: src/components/shared/InstallPwa.re.mjs:472
+msgid "Install Pkuru.com App"
+msgstr "安裝 Pkuru.com 應用程式"
 
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
@@ -185,7 +185,7 @@ msgstr "排名"
 msgid "Removed from Event"
 msgstr "已從活動中移除"
 
-#: src/components/shared/InstallPwa.re.mjs:446
+#: src/components/shared/InstallPwa.re.mjs:451
 msgid "Scroll down and tap"
 msgstr "向下捲動並點按"
 
@@ -193,11 +193,11 @@ msgstr "向下捲動並點按"
 msgid "Sports"
 msgstr "遐動"
 
-#: src/components/shared/InstallPwa.re.mjs:352
+#: src/components/shared/InstallPwa.re.mjs:357
 msgid "Stay in the loop"
 msgstr "掌握最新動態"
 
-#: src/components/shared/InstallPwa.re.mjs:438
+#: src/components/shared/InstallPwa.re.mjs:443
 msgid "Tap the Share button"
 msgstr "點按分享按鈕"
 
@@ -216,6 +216,11 @@ msgstr "查看所有通知"
 #: src/components/pages/PkuruLayout.re.mjs:265
 #~ msgid "Host"
 #~ msgstr "主持人"
+
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "安裝 Racquet League"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

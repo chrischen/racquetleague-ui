@@ -13,42 +13,46 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/DevicePage.re.mjs:178
+#: src/components/pages/DevicePage.re.mjs:190
 msgid "Approve"
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:246
+#: src/components/pages/DevicePage.re.mjs:248
 msgid "Approve sign-in"
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:194
+#: src/components/pages/DevicePage.re.mjs:206
 msgid "Code from your app"
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:250
+#: src/components/pages/DevicePage.re.mjs:252
 msgid "Confirm the code shown in your app to finish signing in."
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:170
+#: src/components/pages/DevicePage.re.mjs:182
 msgid "Deny"
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:134
+#: src/components/pages/DevicePage.re.mjs:146
 msgid "Device approved! You can return to the app."
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:226
-msgid "Sign in"
+#: src/components/pages/DevicePage.re.mjs:232
+msgid "Redirecting to sign in…"
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:140
+#: src/components/pages/DevicePage.re.mjs:226
+#~ msgid "Sign in"
+#~ msgstr ""
+
+#: src/components/pages/DevicePage.re.mjs:152
 msgid "Sign-in request denied."
 msgstr ""
 
-#: src/components/pages/DevicePage.re.mjs:178
+#: src/components/pages/DevicePage.re.mjs:190
 msgid "Working…"
 msgstr ""
 
 #: src/components/pages/DevicePage.re.mjs:222
-msgid "You need to sign in here first so we can link this device to your account."
-msgstr ""
+#~ msgid "You need to sign in here first so we can link this device to your account."
+#~ msgstr ""

@@ -22,19 +22,34 @@ let make = () => {
   let initialUserCode = params->Router.SearchParams.get("user_code")->Option.getOr("")
   let (userCode, setUserCode) = React.useState(() => initialUserCode)
   let (status, setStatus) = React.useState(() => Idle)
-  let session = authClient.useSession()
+  let viewer = GlobalQuery.useViewer()
+  let navigate = Router.useNavigate()
 
   // Browser came from the PWA's external `/device` link. The user must be
   // logged in here (system browser) for `device.approve` to associate the
   // pending device with their session.
-  let isLoggedIn = session.data->Option.isSome
+  let isLoggedIn = viewer.user->Option.isSome
 
-  // If not logged in, bounce to the regular login page and return here.
+  // Return back to this device page (preserving the code) after login.
   let returnHref = {
     let base = "/device"
     let qs = userCode == "" ? "" : "?user_code=" ++ userCode
     base ++ qs
   }
+
+  // Approving a device only makes sense when signed in. When there's no user,
+  // bounce to the login page and come back here (with the code) afterwards.
+  // `replace` keeps this redirect out of history so Back doesn't land on an
+  // empty device page.
+  React.useEffect1(() => {
+    if !isLoggedIn {
+      navigate(
+        "/oauth-login?return=" ++ Js.Global.encodeURIComponent(returnHref),
+        Some({replace: true}),
+      )
+    }
+    None
+  }, [isLoggedIn])
 
   let handleApprove = async () => {
     if userCode == "" {
@@ -95,16 +110,11 @@ let make = () => {
           <div
             className="bg-white dark:bg-[#1e1f23] rounded-2xl shadow-xl shadow-gray-200/60 dark:shadow-black/30 p-6 sm:p-8 border border-gray-100 dark:border-[#2a2b30] space-y-4">
             {if !isLoggedIn {
-              <div className="space-y-3">
-                <p className="text-sm text-gray-700 dark:text-gray-300">
-                  {t`You need to sign in here first so we can link this device to your account.`}
-                </p>
-                <a
-                  href={"/oauth-login?return=" ++ Js.Global.encodeURIComponent(returnHref)}
-                  className="block w-full text-center bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm">
-                  {t`Sign in`}
-                </a>
-              </div>
+              // Either the session is still loading or we're about to redirect
+              // to login (see the effect above). Show a neutral placeholder.
+              <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+                {t`Redirecting to sign in…`}
+              </p>
             } else {
               <>
                 <div>

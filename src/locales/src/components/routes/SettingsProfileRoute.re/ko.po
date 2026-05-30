@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/shared/InstallPwa.re.mjs:270
+#: src/components/shared/InstallPwa.re.mjs:271
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"홈 화면에 추가\\\""
 
@@ -21,7 +21,7 @@ msgstr "\\\"홈 화면에 추가\\\""
 msgid "Active"
 msgstr "활성"
 
-#: src/components/shared/InstallPwa.re.mjs:252
+#: src/components/shared/InstallPwa.re.mjs:253
 msgid "Add to Home Screen to enable notifications"
 msgstr "알림을 받으려면 홈 화면에 추가하세요"
 
@@ -89,7 +89,7 @@ msgstr "홍콩"
 msgid "How you appear to other players"
 msgstr "다른 플레이어에게 보이는 이름"
 
-#: src/components/shared/InstallPwa.re.mjs:262
+#: src/components/shared/InstallPwa.re.mjs:263
 msgid "in Safari's toolbar"
 msgstr "Safari 툴바에서"
 
@@ -121,7 +121,7 @@ msgstr ""
 "알림이 차단되어 있습니다. 활성화하려면 기기 또는 브라우저 설정에서 이 사이트"
 "의 알림을 허용해 주세요."
 
-#: src/components/shared/InstallPwa.re.mjs:277
+#: src/components/shared/InstallPwa.re.mjs:278
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "홈 화면에서 앱을 열고 알림을 활성화하세요"
 
@@ -153,7 +153,7 @@ msgstr "등록 재개"
 msgid "Save profile"
 msgstr "프로필 저장"
 
-#: src/components/shared/InstallPwa.re.mjs:268
+#: src/components/shared/InstallPwa.re.mjs:269
 msgid "Scroll down and tap"
 msgstr "아래로 스크롤하고 탭하세요"
 
@@ -187,7 +187,7 @@ msgstr "Stripe Connect"
 msgid "Taiwan"
 msgstr "대만"
 
-#: src/components/shared/InstallPwa.re.mjs:260
+#: src/components/shared/InstallPwa.re.mjs:261
 msgid "Tap the Share button"
 msgstr "공유 버튼을 탭하세요"
 

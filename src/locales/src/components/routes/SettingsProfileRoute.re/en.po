@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/shared/InstallPwa.re.mjs:270
+#: src/components/shared/InstallPwa.re.mjs:271
 msgid "\\\"Add to Home Screen\\\""
 msgstr ""
 
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Active"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:252
+#: src/components/shared/InstallPwa.re.mjs:253
 msgid "Add to Home Screen to enable notifications"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "How you appear to other players"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:262
+#: src/components/shared/InstallPwa.re.mjs:263
 msgid "in Safari's toolbar"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:277
+#: src/components/shared/InstallPwa.re.mjs:278
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Save profile"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:268
+#: src/components/shared/InstallPwa.re.mjs:269
 msgid "Scroll down and tap"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 msgid "Taiwan"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:260
+#: src/components/shared/InstallPwa.re.mjs:261
 msgid "Tap the Share button"
 msgstr ""
 

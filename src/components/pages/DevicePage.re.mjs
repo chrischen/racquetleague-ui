@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Router from "../shared/Router.re.mjs";
+import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -28,10 +29,19 @@ function DevicePage(props) {
       });
   var setStatus = match$2[1];
   var status = match$2[0];
-  var session = authClient.useSession();
-  var isLoggedIn = Core__Option.isSome(session.data);
+  var viewer = GlobalQuery.useViewer();
+  var navigate = ReactRouterDom.useNavigate();
+  var isLoggedIn = Core__Option.isSome(viewer.user);
   var qs = userCode === "" ? "" : "?user_code=" + userCode;
   var returnHref = "/device" + qs;
+  React.useEffect((function () {
+          if (!isLoggedIn) {
+            navigate("/oauth-login?return=" + encodeURIComponent(returnHref), {
+                  replace: true
+                });
+          }
+          
+        }), [isLoggedIn]);
   var handleApprove = async function () {
     if (userCode === "") {
       return setStatus(function (param) {
@@ -216,19 +226,9 @@ function DevicePage(props) {
                           ]
                         });
                   } else {
-                    tmp = JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsx("p", {
-                                  children: t`You need to sign in here first so we can link this device to your account.`,
-                                  className: "text-sm text-gray-700 dark:text-gray-300"
-                                }),
-                            JsxRuntime.jsx("a", {
-                                  children: t`Sign in`,
-                                  className: "block w-full text-center bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-sm",
-                                  href: "/oauth-login?return=" + encodeURIComponent(returnHref)
-                                })
-                          ],
-                          className: "space-y-3"
+                    tmp = JsxRuntime.jsx("p", {
+                          children: t`Redirecting to sign in…`,
+                          className: "text-sm text-gray-600 dark:text-gray-400 text-center"
                         });
                   }
                   return JsxRuntime.jsx("div", {
