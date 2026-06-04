@@ -23,7 +23,7 @@ module Query = %relay(`
       filters: { locationId: $id }
     )
     events(after: $after, first: $first, before: $before, filters: { locationId: $id }, afterDate: $afterDate) {
-      ...PinMap_eventConnection
+      ...PinsMap_eventConnection
     }
   }
 `)
@@ -70,7 +70,7 @@ let make = () => {
             ->Option.getOr(React.null)}
           </div>
           <div className="h-48 border-b border-gray-200 dark:border-[#2a2b30] flex-shrink-0">
-            <PinMap
+            <PinsMap
               connection={events.fragmentRefs}
               onLocationClick={location => setSelectedLocationId(_ => Some(location.id))}
               selected=?selectedLocationId

@@ -1,4 +1,4 @@
-/* @sourceLoc GMap.res */
+/* @sourceLoc LocationMap.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -35,7 +35,7 @@ module Internal = {
 type t
 type fragmentRef
 external getFragmentRef:
-  RescriptRelay.fragmentRefs<[> | #GMap_location]> => fragmentRef = "%identity"
+  RescriptRelay.fragmentRefs<[> | #LocationMap_location]> => fragmentRef = "%identity"
 
 module Utils = {
   @@warning("-33")
@@ -50,7 +50,7 @@ let node: operationType = %raw(json` {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "GMap_location",
+  "name": "LocationMap_location",
   "selections": [
     {
       "alias": null,

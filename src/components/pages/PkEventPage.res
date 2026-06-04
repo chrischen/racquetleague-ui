@@ -53,7 +53,7 @@ module EventQuery = %relay(`
           lat
           lng
         }
-        ...GMap_location
+        ...LocationMap_location
       }
       owner {
         id
@@ -157,17 +157,17 @@ module EventUncancelMutation = %relay(`
 type loaderData = PkEventPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
+type pageParams = {eventId: string}
+@module("react-router-dom")
+external useParams: unit => pageParams = "useParams"
 
-@val @scope(("navigator", "clipboard")) external writeToClipboard: string => Js.Promise.t<unit> = "writeText"
+@val @scope(("navigator", "clipboard"))
+external writeToClipboard: string => Js.Promise.t<unit> = "writeText"
 @val @scope(("window", "location")) external locationHref: string = "href"
 
 module EventTitleSection = {
   @react.component
-  let make = (
-    ~event: PkEventPageQuery_graphql.Types.response_event,
-    ~secret: bool,
-    ~tz: string,
-  ) => {
+  let make = (~event: PkEventPageQuery_graphql.Types.response_event, ~secret: bool) => {
     let ts = Lingui.UtilString.t
     let td = Lingui.UtilString.dynamic
     let (urlCopied, setUrlCopied) = React.useState(() => false)
@@ -265,10 +265,10 @@ module EventLocationSection = {
         className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3">
         {(ts`Location`)->React.string}
       </h2>
-      <div
-        className="h-24 rounded-lg border border-gray-200 dark:border-[#3a3b40] mb-3 overflow-hidden">
-        <GMap location={loc.fragmentRefs} />
-      </div>
+      // <div
+      //   className="h-24 rounded-lg border border-gray-200 dark:border-[#3a3b40] mb-3 overflow-hidden">
+      //   <LocationMap location={loc.fragmentRefs} />
+      // </div>
       <p className="font-mono text-sm font-medium text-gray-900 dark:text-gray-100">
         <Router.Link to={`/locations/${loc.id}`} className="hover:underline">
           {loc.name->Option.getOr("?")->React.string}
@@ -331,11 +331,15 @@ module Inner = {
     let locale = React.useContext(LangProvider.LocaleContext.context)
 
     let containerRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
-    let {pullDistance, isRefreshing, isPullRefreshing, triggerRefresh} =
-      PullToRefresh.usePullToRefresh(
-        containerRef,
-        onRefresh->Option.getOr(() => Js.Promise.resolve()),
-      )
+    let {
+      pullDistance,
+      isRefreshing,
+      isPullRefreshing,
+      triggerRefresh,
+    } = PullToRefresh.usePullToRefresh(
+      containerRef,
+      onRefresh->Option.getOr(() => Js.Promise.resolve()),
+    )
 
     let (mounted, setMounted) = React.useState(() => false)
     React.useEffect0(() => {
@@ -424,7 +428,8 @@ module Inner = {
       </div>
     } else {
       /* Top Bar */
-      <div className="relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"
+      <div
+        className="relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"
         ref={ReactDOM.Ref.domRef(containerRef)}>
         <div
           className="bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0">
@@ -455,20 +460,22 @@ module Inner = {
             ->Option.getOr(React.null)}
             {durationStr->Option.map(d => (" · " ++ d)->React.string)->Option.getOr(React.null)}
           </div>
-          {onRefresh->Option.map(_ =>
+          {onRefresh
+          ->Option.map(_ =>
             <button
               onClick={_ => triggerRefresh()}
               disabled=isRefreshing
               className="text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-              title={(isRefreshing ? ts`Refreshing…` : ts`Refresh event details`)}>
+              title={isRefreshing ? ts`Refreshing…` : ts`Refresh event details`}>
               <Lucide.RefreshCw size=13 className={isRefreshing ? "animate-spin" : ""} />
             </button>
-          )->Option.getOr(React.null)}
+          )
+          ->Option.getOr(React.null)}
         </div>
         <PullToRefresh.Indicator pullDistance isRefreshing={isPullRefreshing} />
         <div className="flex-1 overflow-y-auto pb-24">
           /* Title */
-          <EventTitleSection event secret tz />
+          <EventTitleSection event secret />
           /* Admin controls */
           {switch (event.viewerIsAdmin, viewerUser) {
           | (true, Some(_)) =>
@@ -682,14 +689,26 @@ module Lazy = {
 
 @genType @react.component
 let make = () => {
+  let environment = RescriptRelay.useEnvironmentFromContext()
+  let {eventId} = useParams()
   let query = useLoaderData()
   let {event, viewer, fragmentRefs: queryFragmentRefs} = EventQuery.usePreloaded(
     ~queryRef=query.data,
   )
+  let onRefresh = () => {
+    Js.Promise.make((~resolve, ~reject as _) => {
+      let _ = EventQuery.fetch(
+        ~environment,
+        ~variables={eventId, topic: eventId ++ ".updated"},
+        ~fetchPolicy=RescriptRelay.NetworkOnly,
+        ~onResult=_result => resolve(),
+      )
+    })
+  }
   <WaitForMessages>
     {() =>
       event
-      ->Option.map(event => <Inner event viewer queryFragmentRefs />)
+      ->Option.map(event => <Inner event viewer queryFragmentRefs onRefresh />)
       ->Option.getOr(<div className="p-6 text-center text-gray-500"> {t`Event not found`} </div>)}
   </WaitForMessages>
 }

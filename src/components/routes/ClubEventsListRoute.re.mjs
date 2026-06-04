@@ -39,7 +39,7 @@ async function loader(param) {
         before: before,
         slug: params.slug,
         token: token
-      }, "store-or-network", undefined, undefined);
+      }, "store-and-network", undefined, undefined);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }

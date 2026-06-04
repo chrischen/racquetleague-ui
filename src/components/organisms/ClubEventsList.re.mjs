@@ -175,6 +175,7 @@ var Day = {
 };
 
 function ClubEventsList(props) {
+  var onRefresh = props.onRefresh;
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var viewerUser = props.viewerUser;
@@ -334,7 +335,8 @@ function ClubEventsList(props) {
                               isLoadingPrevious: isLoadingPrevious,
                               onPrevious: onPrevious,
                               hasNext: hasNext,
-                              onNext: onNext
+                              onNext: onNext,
+                              onRefresh: onRefresh
                             });
                 })
             });

@@ -46,7 +46,9 @@ let make = () => {
   <WaitForMessages>
     {() =>
       query.club
-      ->Option.map(club => <ClubEventsList events=club.fragmentRefs query=query.fragmentRefs ?viewerUser />)
+      ->Option.map(club =>
+        <ClubEventsList events=club.fragmentRefs query=query.fragmentRefs ?viewerUser />
+      )
       ->Option.getOr(React.null)}
   </WaitForMessages>
 }

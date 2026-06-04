@@ -54,7 +54,7 @@ module Fragment = %relay(`
           ...EventsListText_event
         }
       }
-      ...PinMap_eventConnection
+      ...PinsMap_eventConnection
       pageInfo {
         hasNextPage
         hasPreviousPage
@@ -610,14 +610,14 @@ let make = (~events, ~header: React.element, ~context: AIAssistantModal.context=
         <div className="shrink-0 border-t border-gray-200 lg:border-l lg:border-t-0">
           <div className="w-full lg:min-h-96 h-96 lg:h-[calc(100vh-50px)] lg:max-h-screen">
             // <ModalDrawer title={"Choose Match"} open_=showMap setOpen={setShowMap}>
-            <PinMap
+            <PinsMap
               connection={eventsQuery.fragmentRefs}
               onLocationClick={location => navigate("/locations/" ++ location.id, None)}
               selected=?selectedEvent
             />
             // {selectedEvent
             // ->Option.flatMap(e => e.location)
-            // ->Option.map(location => <GMap location=location.fragmentRefs />)
+            // ->Option.map(location => <LocationMap location=location.fragmentRefs />)
             // ->Option.getOr(React.null)}
             // </ModalDrawer>
           </div>

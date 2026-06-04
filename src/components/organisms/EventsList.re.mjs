@@ -3,9 +3,9 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Layout from "../shared/Layout.re.mjs";
-import * as PinMap from "./PinMap.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as PinsMap from "./PinsMap.re.mjs";
 import * as Calendar from "./Calendar.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as UiAction from "../atoms/UiAction.re.mjs";
@@ -510,7 +510,7 @@ function EventsList(props) {
                       children: JsxRuntime.jsx("div", {
                             children: JsxRuntime.jsx("div", {
                                   children: JsxRuntime.jsx("div", {
-                                        children: JsxRuntime.jsx(PinMap.make, {
+                                        children: JsxRuntime.jsx(PinsMap.make, {
                                               connection: match.events.fragmentRefs,
                                               onLocationClick: (function ($$location) {
                                                   navigate("/locations/" + $$location.id, undefined);

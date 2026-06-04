@@ -43,7 +43,7 @@ module Types = {
   and fragment_events = {
     edges: option<array<option<fragment_events_edges>>>,
     pageInfo: fragment_events_pageInfo,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinMap_eventConnection]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PinsMap_eventConnection]>,
   }
   and fragment_viewer_clubs_edges_node = {
     @live id: string,
@@ -427,7 +427,7 @@ return {
         {
           "args": null,
           "kind": "FragmentSpread",
-          "name": "PinMap_eventConnection"
+          "name": "PinsMap_eventConnection"
         },
         {
           "alias": null,

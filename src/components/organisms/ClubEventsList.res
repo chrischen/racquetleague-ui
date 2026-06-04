@@ -42,7 +42,6 @@ module Fragment = %relay(`
 let ts = Lingui.UtilString.t
 
 module Day = {
-  open Lingui.Util
   @react.component
   let make = (
     ~label: string,
@@ -131,12 +130,22 @@ let make = (
   ~onHoverLocation: option<option<string> => unit>=?,
   ~selectedLocationId: option<string>=?,
 ) => {
-  let {data, hasNext, isLoadingNext: _, isLoadingPrevious} = Fragment.usePagination(events)
+  let {data, refetch, hasNext, isLoadingNext: _, isLoadingPrevious} = Fragment.usePagination(events)
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
 
   let ctx = DrawerContext.use()
+
+  let onRefresh = () => {
+    Js.Promise.make((~resolve, ~reject as _) => {
+      let _ = refetch(
+        ~variables=Fragment.makeRefetchVariables(~id=data.id),
+        ~fetchPolicy=RescriptRelay.NetworkOnly,
+        ~onComplete=_err => resolve(),
+      )
+    })
+  }
 
   let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
 
@@ -208,9 +217,8 @@ let make = (
       (label, formatDate(date), date)
     }
 
-  let eventDates = events->Array.filterMap(e =>
-    e.startDate->Option.map(d => d->Util.Datetime.toDate)
-  )
+  let eventDates =
+    events->Array.filterMap(e => e.startDate->Option.map(d => d->Util.Datetime.toDate))
 
   let bucketEventsDict = EventsListUtils.bucketEvents(
     ~setup=bucketSetup,
@@ -276,6 +284,7 @@ let make = (
         ?onPrevious
         hasNext
         ?onNext
+        onRefresh
       />}
   </WaitForMessages>
 }

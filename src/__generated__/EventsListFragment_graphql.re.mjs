@@ -350,7 +350,7 @@ return {
         {
           "args": null,
           "kind": "FragmentSpread",
-          "name": "PinMap_eventConnection"
+          "name": "PinsMap_eventConnection"
         },
         {
           "alias": null,

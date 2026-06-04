@@ -1,5 +1,5 @@
 module Fragment = %relay(`
-  fragment PinMap_eventConnection on EventConnection {
+  fragment PinsMap_eventConnection on EventConnection {
     edges {
       node {
         id
@@ -18,7 +18,7 @@ module Fragment = %relay(`
 `)
 @react.component
 let make = (
-  ~connection: RescriptRelay.fragmentRefs<[#PinMap_eventConnection]>,
+  ~connection: RescriptRelay.fragmentRefs<[#PinsMap_eventConnection]>,
   ~onLocationClick,
   ~selected: option<string>=?,
   ~navigateOnClick: bool=true,
@@ -37,12 +37,10 @@ let make = (
       ),
     )
 
-  <GoogleMap.APIProvider
-    apiKey="AIzaSyCZWn4QS-HcYV_KDt9dOSy-EiJ9s3m8WIk" libraries=["maps", "places"]>
-    <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6495, lng: 139.7417} gestureHandling="cooperative">
-      <GoogleMap.CooperativeGestureHandler.make />
-      {locations
-      ->Array.mapWithIndex((location, i) => {
+  <GoogleMap.Map mapId="eventsListMap" defaultZoom=12 defaultCenter={lat: 35.6495, lng: 139.7417} gestureHandling="cooperative">
+    <GoogleMap.CooperativeGestureHandler.make />
+    {locations
+    ->Array.mapWithIndex((location, i) => {
         location
         ->Option.flatMap(((_, location)) =>
           location.coords->Option.map(
@@ -69,8 +67,7 @@ let make = (
           )
         )
         ->Option.getOr(React.null)
-      })
-      ->React.array}
-    </GoogleMap.Map>
-  </GoogleMap.APIProvider>
+    })
+    ->React.array}
+  </GoogleMap.Map>
 }

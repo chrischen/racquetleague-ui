@@ -43,7 +43,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       ?afterDate,
       ?token,
     },
-    ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+    ~fetchPolicy=RescriptRelay.StoreAndNetwork,
   )
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({

@@ -23,7 +23,7 @@ var node = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "GMap_location",
+  "name": "LocationMap_location",
   "selections": [
     {
       "alias": null,
