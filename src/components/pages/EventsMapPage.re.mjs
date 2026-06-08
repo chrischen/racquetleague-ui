@@ -4,7 +4,7 @@ import * as React from "react";
 import * as PinsMap from "../organisms/PinsMap.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as PkEventsList from "../pkuru/PkEventsList.re.mjs";
+import * as PkEventsList from "../organisms/PkEventsList.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";

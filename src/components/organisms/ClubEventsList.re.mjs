@@ -5,7 +5,7 @@ import * as Router from "../shared/Router.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
-import * as PkEventRow from "../pkuru/PkEventRow.re.mjs";
+import * as PkEventRow from "./PkEventRow.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -13,7 +13,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as DrawerContext from "../shared/DrawerContext.re.mjs";
-import * as PkEventDrawer from "../pkuru/PkEventDrawer.re.mjs";
+import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -175,12 +175,12 @@ var Day = {
 };
 
 function ClubEventsList(props) {
-  var onRefresh = props.onRefresh;
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var viewerUser = props.viewerUser;
   var query = props.query;
   var match = usePagination(props.events);
+  var refetch = match.refetch;
   var isLoadingPrevious = match.isLoadingPrevious;
   var hasNext = match.hasNext;
   var data = match.data;
@@ -188,6 +188,13 @@ function ClubEventsList(props) {
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
   var ctx = DrawerContext.use();
+  var onRefresh = function () {
+    return new Promise((function (resolve, param) {
+                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, data.id, undefined), "network-only", (function (_err) {
+                          resolve();
+                        }));
+                }));
+  };
   var match$1 = ReactRouterDom.useSearchParams();
   var setSearchParams = match$1[1];
   var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(match$1[0]), "afterDate"), (function (d) {

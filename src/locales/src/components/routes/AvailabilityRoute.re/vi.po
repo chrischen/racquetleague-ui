@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 17:41+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
+msgid "Add time windows above"
+msgstr "Thêm khung giờ ở trên"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:596
+msgid "Clear"
+msgstr "Xóa"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:766
+msgid "Let hosts schedule events when most of you are free"
+msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "Đang lưu…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:550
+msgid "Schedule"
+msgstr "Lịch"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid ""
+"Set your availability for the next 2 weeks. Tap a day to add a time window, "
+"drag to move, grab the edges to resize."
+msgstr ""
+"Đặt lịch rảnh cho 2 tuần tới. Nhấn vào một ngày để thêm khung giờ, kéo để di "
+"chuyển, kéo các cạnh để thay đổi kích thước."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:762
+msgid "Share with your club"
+msgstr "Chia sẻ với câu lạc bộ của bạn"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid ""
+"Tap an empty area of a day to add a window · drag to move · grab the edges "
+"to resize"
+msgstr ""
+"Nhấn vào vùng trống trong ngày để thêm khung giờ · kéo để di chuyển · kéo "
+"các cạnh để thay đổi kích thước"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:572
+msgid "Weekday eves"
+msgstr "Tối các ngày trong tuần"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:584
+msgid "Weekend morns"
+msgstr "Sáng cuối tuần"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:554
+msgid "When can you play?"
+msgstr "Bạn có thể chơi lúc nào?"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:700
+msgid "Your availability"
+msgstr "Lịch rảnh của bạn"

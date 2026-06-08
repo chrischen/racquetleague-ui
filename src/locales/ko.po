@@ -3669,7 +3669,251 @@ msgstr "로그인 페이지로 이동 중…"
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.com 앱 설치"
 
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · 날짜"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · 시간"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · 종류"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "오후"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "언제든지"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+msgstr "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙은 직접 정합니다."
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "저녁"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "이벤트 주최"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "가능 표시"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "오전"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "새 계획"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "아무 곳이나 탭하여 시간 창 추가"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgstr "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "언제 플레이하고 싶으신가요?"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
+msgid "Add time windows above"
+msgstr "위에서 시간 창 추가"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:222
+msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "각 날에 시간 창을 추가하세요. 드래그하여 이동, 가장자리를 잡아 크기 조절."
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:298
+msgid "Clear"
+msgstr "지우기"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:370
+msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "창을 드래그하여 이동 · 가장자리를 드래그하여 크기 조절 · +를 탭하여 추가"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:436
+msgid "Let hosts schedule events when most of you are free"
+msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 합니다"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
+msgid "One-off"
+msgstr "일회성"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Saving…"
+msgstr "저장 중…"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:214
+msgid "Schedule"
+msgstr "일정"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:432
+msgid "Share with your club"
+msgstr "클럽과 공유"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:274
+msgid "Weekday eves"
+msgstr "평일 저녁"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:286
+msgid "Weekend morns"
+msgstr "주말 오전"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
+msgid "Weekly"
+msgstr "매주"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:218
+msgid "When can you play?"
+msgstr "언제 플레이할 수 있나요?"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:378
+msgid "Your availability"
+msgstr "내 가능 시간"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:386
+#: src/components/molecules/PlayIntentRow.re.mjs:561
+#: src/components/molecules/PlayIntentRow.re.mjs:613
+msgid "· peak {0}–{1}"
+msgstr "· 피크 {0}–{1}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+msgid "· plan your time"
+msgstr "· 시간을 계획하세요"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+msgid "{0} other wants to play {dayWord}"
+msgstr "{0}명이 {dayWord} 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+msgid "{0} others want to play {dayWord}"
+msgstr "{0}명이 {dayWord} 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:384
+msgid "{0} people"
+msgstr "{0}명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:559
+msgid "{0} people want to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:383
+msgid "{0} person"
+msgstr "{0}명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:558
+msgid "{0} person wants to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:557
+#: src/components/molecules/PlayIntentRow.re.mjs:605
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Host an event at this time"
+msgstr "이 시간에 이벤트 주최하기"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:486
+msgid "Host event"
+msgstr "이벤트 주최"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Pick one time window to host an event"
+msgstr "이벤트를 주최할 시간대를 선택하세요"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+msgid "Pick time →"
+msgstr "시간 선택 →"
+
+#: src/components/organisms/PkEventsList.re.mjs:183
+msgid "Play today"
+msgstr "오늘 플레이"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:465
+msgid "Remove all"
+msgstr "모두 삭제"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+msgid "Want to play {dayWord}? Mark yourself available or host an event."
+msgstr "{dayWord}에 플레이하고 싶으신가요? 가능 여부를 표시하거나 이벤트를 주최하세요."
+
+#: src/components/molecules/PlayIntentRow.re.mjs:294
+msgid "When can you play {dayWord}?"
+msgstr "{dayWord}에 언제 플레이할 수 있나요?"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:539
+msgid "You want to play {dayWord}"
+msgstr "{dayWord}에 플레이를 원합니다"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "저장 중…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+msgstr "다음 2주 동안의 가능 시간을 설정하세요. 날짜를 탭하여 시간대를 추가하고, 드래그하여 이동하거나, 가장자리를 잡아 크기를 조절하세요."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+msgstr "날짜의 빈 영역을 탭하여 시간대 추가 · 드래그하여 이동 · 가장자리를 잡아 크기 조절"
+
+#: src/components/pages/PkuruLayout.re.mjs:137
+msgid "Availability"
+msgstr "가능 시간"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "나 포함 {0}{othersWord} 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "참여 가능"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "플레이 가능합니다"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
 #~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "내 가능 시간"

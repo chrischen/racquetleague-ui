@@ -16,6 +16,8 @@ let make = () => {
   let clubIdParam = params->Router.SearchParams.get("clubId")
   let activitySlugParam = params->Router.SearchParams.get("activitySlug")
   let dateParam = params->Router.SearchParams.get("date")
+  let startHourParam = params->Router.SearchParams.get("startHour")
+  let endHourParam = params->Router.SearchParams.get("endHour")
 
   let queryData = Query.use(
     ~variables={
@@ -36,8 +38,15 @@ let make = () => {
   let (aiLocationAddress, setAiLocationAddress) = React.useState(() => None)
 
   // Create initial prefilled values with clubId, activitySlug, and date from URL if present
-  let initialPrefilledValues = React.useMemo3(() => {
-    let startDate = dateParam->Option.map(isoDate => isoDate ++ "T10:00")
+  let initialPrefilledValues = React.useMemo5(() => {
+    let timeStr = startHourParam
+      ->Option.flatMap(h => h->Int.fromString)
+      ->Option.map(h => "T" ++ h->Int.toString->String.padStart(2, "0") ++ ":00")
+      ->Option.getOr("T10:00")
+    let startDate = dateParam->Option.map(isoDate => isoDate ++ timeStr)
+    let endDate = endHourParam
+      ->Option.flatMap(h => h->Int.fromString)
+      ->Option.map(h => h->Int.toString->String.padStart(2, "0") ++ ":00")
     switch (clubIdParam, activitySlugParam, startDate) {
     | (None, None, None) => None
     | _ =>
@@ -46,11 +55,12 @@ let make = () => {
           clubId: ?clubIdParam,
           activitySlug: ?activitySlugParam,
           ?startDate,
+          ?endDate,
         }
         initial
       })
     }
-  }, (clubIdParam, activitySlugParam, dateParam))
+  }, (clubIdParam, activitySlugParam, dateParam, startHourParam, endHourParam))
 
   let handleSingleEventSuggested = (eventDetails: AITypes.eventDetails) => {
     // Convert AITypes.eventDetails to CreateLocationEventForm.prefilledValues

@@ -175,12 +175,12 @@ msgstr "参与者在此截止时间后无法取消报名"
 msgid "Brief description of the club..."
 msgstr "俱乐部的简要描述..."
 
-#: src/components/pages/CreateEventPage.re.mjs:145
+#: src/components/pages/CreateEventPage.re.mjs:161
 msgid "Bulk create"
 msgstr "批量创建"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:134
+#: src/components/pages/CreateEventPage.re.mjs:150
 msgid "Cancel"
 msgstr "取消"
 
@@ -240,7 +240,7 @@ msgid "Create Club"
 msgstr "创建俱乐部"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389
-#: src/components/pages/CreateEventPage.re.mjs:140
+#: src/components/pages/CreateEventPage.re.mjs:156
 msgid "Create Event"
 msgstr "创建活动"
 
@@ -381,7 +381,7 @@ msgstr "让 AI 帮助您填写以下详细信息"
 msgid "List your event publicly to help fill open spots"
 msgstr "公开列出您的活动以填补空位"
 
-#: src/components/pages/CreateEventPage.re.mjs:179
+#: src/components/pages/CreateEventPage.re.mjs:195
 msgid "Location"
 msgstr "地点"
 

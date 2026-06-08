@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · 日付"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · 時間"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · 種類は？"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "午後"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "いつでも"
+
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "続ける"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr ""
+"この時間にホストイベントを作成します。他の人が参加でき、会場とルールはあなた"
+"が決めます。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "夜"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "イベントをホストする"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "イベントのホストには時間枠をひとつだけ選択してください。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "参加可能にする"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "午前"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "新しいプラン"
+
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "イベントをホストするには時間枠をひとつ選択してください"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "タップして時間枠を追加"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr "プレー希望を伝えましょう。時間が重なるプレーヤーからお誘いが届きます。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "今日"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "明日"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "いつプレーしたいですか？"

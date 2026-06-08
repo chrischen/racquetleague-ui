@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/LoginPage.re.mjs:270
+#: src/components/pages/LoginPage.re.mjs:279
 msgid "An error occurred during sign in. Please try again."
 msgstr "로그인 중 오류가 발생했습니다. 다시 시도하세요."
 
@@ -22,7 +22,7 @@ msgstr "로그인 중 오류가 발생했습니다. 다시 시도하세요."
 msgid "An error occurred: {message}"
 msgstr "오류 발생: {message}"
 
-#: src/components/pages/LoginPage.re.mjs:291
+#: src/components/pages/LoginPage.re.mjs:300
 msgid "Back to events"
 msgstr "이벤트로 돌아가기"
 
@@ -31,11 +31,11 @@ msgstr "이벤트로 돌아가기"
 msgid "Check your email for a magic link to sign in!"
 msgstr "이메일에서 로그인 마법 링크를 확인하세요!"
 
-#: src/components/pages/LoginPage.re.mjs:416
+#: src/components/pages/LoginPage.re.mjs:433
 msgid "Continue with LINE"
 msgstr "LINE으로 계속"
 
-#: src/components/pages/LoginPage.re.mjs:448
+#: src/components/pages/LoginPage.re.mjs:465
 msgid "Email address"
 msgstr "이메일 주소"
 
@@ -43,7 +43,7 @@ msgstr "이메일 주소"
 msgid "Failed to send magic link: {0}"
 msgstr "마법 링크 전송 실패: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:362
+#: src/components/pages/LoginPage.re.mjs:371
 msgid "If your browser didn't open, visit:"
 msgstr "브라우저가 열리지 않으면 다음 주소를 방문하세요:"
 
@@ -51,35 +51,35 @@ msgstr "브라우저가 열리지 않으면 다음 주소를 방문하세요:"
 msgid "Login failed: {0}"
 msgstr "로그인 실패: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:335
+#: src/components/pages/LoginPage.re.mjs:344
 msgid "New users will be automatically registered"
 msgstr "새 사용자는 자동으로 등록됩니다"
 
-#: src/components/pages/LoginPage.re.mjs:375
+#: src/components/pages/LoginPage.re.mjs:384
 msgid "Open browser to continue"
 msgstr "계속하려면 브라우저를 여세요"
 
-#: src/components/pages/LoginPage.re.mjs:435
+#: src/components/pages/LoginPage.re.mjs:452
 msgid "or continue with email"
 msgstr "또는 이메일로 계속"
 
-#: src/components/pages/LoginPage.re.mjs:489
+#: src/components/pages/LoginPage.re.mjs:506
 msgid "Send magic link"
 msgstr "마법 링크 보내기"
 
-#: src/components/pages/LoginPage.re.mjs:331
+#: src/components/pages/LoginPage.re.mjs:340
 msgid "Sign in to Pkuru.com"
 msgstr "Pkuru.com에 로그인"
 
-#: src/components/pages/LoginPage.re.mjs:388
+#: src/components/pages/LoginPage.re.mjs:405
 msgid "Sign in via system browser"
 msgstr "시스템 브라우저로 로그인"
 
-#: src/components/pages/LoginPage.re.mjs:388
+#: src/components/pages/LoginPage.re.mjs:405
 msgid "Starting…"
 msgstr "시작 중…"
 
-#: src/components/pages/LoginPage.re.mjs:345
+#: src/components/pages/LoginPage.re.mjs:354
 msgid ""
 "The installed app uses a separate browser, so we'll complete sign-in in your "
 "system browser. Tap the button below, sign in there, and we'll automatically "
@@ -88,15 +88,15 @@ msgstr ""
 "설치된 앱은 별도의 브라우저를 사용하므로 시스템 브라우저에서 로그인을 완료합"
 "니다. 아래 버튼을 탭하여 로그인하면 자동으로 로그인됩니다."
 
-#: src/components/pages/LoginPage.re.mjs:382
+#: src/components/pages/LoginPage.re.mjs:399
 msgid "Waiting for sign-in to complete…"
 msgstr "로그인 완료를 기다리는 중…"
 
-#: src/components/pages/LoginPage.re.mjs:353
+#: src/components/pages/LoginPage.re.mjs:362
 msgid "Your code"
 msgstr "내 코드"
 
-#: src/components/pages/LoginPage.re.mjs:270
+#: src/components/pages/LoginPage.re.mjs:279
 msgid ""
 "Your LINE account does not have an email associated. Please set an email "
 "address for your account from the LINE app, and then try again."

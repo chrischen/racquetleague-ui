@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
+msgid "Add time windows above"
+msgstr "在上方添加时间段"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:222
+msgid ""
+"Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "为每天添加时间段。拖动可移动，拖动边缘可调整大小。"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:298
+msgid "Clear"
+msgstr "清除"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:370
+msgid ""
+"Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "拖动时间段移动 · 拖动边缘调整大小 · 点击 + 添加更多"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:436
+msgid "Let hosts schedule events when most of you are free"
+msgstr "让发起人在大多数人空闲时安排活动"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
+msgid "One-off"
+msgstr "单次"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Saving…"
+msgstr "保存中…"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:214
+msgid "Schedule"
+msgstr "日程"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:432
+msgid "Share with your club"
+msgstr "与你的俱乐部分享"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "点击任意位置添加时间段"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:274
+msgid "Weekday eves"
+msgstr "工作日傍晚"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:286
+msgid "Weekend morns"
+msgstr "周末上午"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
+msgid "Weekly"
+msgstr "每周"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:218
+msgid "When can you play?"
+msgstr "你什么时候有空打球？"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:378
+msgid "Your availability"
+msgstr "你的空闲时间"

@@ -4131,6 +4131,245 @@ msgstr "正在重新導向至登入頁面…"
 msgid "Install Pkuru.com App"
 msgstr "安裝 Pkuru.com 應用程式"
 
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · 日期"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · 時間"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · 類型？"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "下午"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "任何時間"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "傍晚"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "主辦活動"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "主辦活動需要恰好一個時間段——請選擇一個。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "標記為有空"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "上午"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "新計劃"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "請選擇恰好一個時間段來主辦活動"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "點擊任意處以新增時間段"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "你想什麼時候打球？"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
+msgid "Add time windows above"
+msgstr "在上方新增時間段"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:222
+msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "為每天新增時間段，拖曳以移動，拉動邊緣以調整大小。"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:298
+msgid "Clear"
+msgstr "清除"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:370
+msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "拖曳視窗以移動・拖曳邊緣以調整大小・點擊 + 新增其他"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:436
+msgid "Let hosts schedule events when most of you are free"
+msgstr "讓主辦人在大多數人有空時安排活動"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
+msgid "One-off"
+msgstr "單次"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Saving…"
+msgstr "儲存中…"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:214
+msgid "Schedule"
+msgstr "排程"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:432
+msgid "Share with your club"
+msgstr "與你的俱樂部分享"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:274
+msgid "Weekday eves"
+msgstr "平日傍晚"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:286
+msgid "Weekend morns"
+msgstr "週末上午"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
+msgid "Weekly"
+msgstr "每週"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:218
+msgid "When can you play?"
+msgstr "你什麼時候可以打球？"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:378
+msgid "Your availability"
+msgstr "你的空閒時間"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:386
+#: src/components/molecules/PlayIntentRow.re.mjs:561
+#: src/components/molecules/PlayIntentRow.re.mjs:613
+msgid "· peak {0}–{1}"
+msgstr "· 高峰 {0}–{1}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+msgid "· plan your time"
+msgstr "· 規劃你的時間"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+msgid "{0} other wants to play {dayWord}"
+msgstr "{0} 位其他人想在{dayWord}打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+msgid "{0} others want to play {dayWord}"
+msgstr "{0} 位其他人想在{dayWord}打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:384
+msgid "{0} people"
+msgstr "{0} 人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:559
+msgid "{0} people want to play"
+msgstr "{0} 人想打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:383
+msgid "{0} person"
+msgstr "{0} 人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:558
+msgid "{0} person wants to play"
+msgstr "{0} 人想打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:557
+#: src/components/molecules/PlayIntentRow.re.mjs:605
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Host an event at this time"
+msgstr "在此時段舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:486
+msgid "Host event"
+msgstr "舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Pick one time window to host an event"
+msgstr "選擇一個時間段來舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+msgid "Pick time →"
+msgstr "選擇時間 →"
+
+#: src/components/organisms/PkEventsList.re.mjs:183
+msgid "Play today"
+msgstr "今天打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:465
+msgid "Remove all"
+msgstr "全部移除"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+msgid "Want to play {dayWord}? Mark yourself available or host an event."
+msgstr "想在{dayWord}打球嗎？標記你的空閒時間或舉辦活動。"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:294
+msgid "When can you play {dayWord}?"
+msgstr "你{dayWord}什麼時候可以打球？"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:539
+msgid "You want to play {dayWord}"
+msgstr "你想在{dayWord}打球"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "儲存中…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+msgstr "設定未來 2 週的空閒時間。點擊某天以新增時間段，拖曳可移動，拉動邊緣可調整大小。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+msgstr "點擊某天的空白區域以新增時間段・拖曳可移動・拉動邊緣可調整大小"
+
+#: src/components/pages/PkuruLayout.re.mjs:137
+msgid "Availability"
+msgstr "空閒時間"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0} 人想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0} 人想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "你和其他 {0} {othersWord}想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "你有空"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "你有空打球"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -4185,3 +4424,8 @@ msgstr "安裝 Pkuru.com 應用程式"
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
 #~ msgstr "某些活動需要您在證件上顯示的法定姓名。"
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "你的空閒時間"

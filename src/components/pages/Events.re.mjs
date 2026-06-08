@@ -9,7 +9,7 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as PkEventsList from "../pkuru/PkEventsList.re.mjs";
+import * as PkEventsList from "../organisms/PkEventsList.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -126,6 +126,8 @@ async function loader(param) {
           data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
                 afterDate: afterDate,
+                availabilityFromDate: new Date().toISOString().slice(0, 10),
+                availabilityToDate: new Date(Date.now() + 28 * 86400000).toISOString().slice(0, 10),
                 before: before,
                 filters: {
                   activitySlug: params.activitySlug,

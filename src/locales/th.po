@@ -4131,6 +4131,245 @@ msgstr "กำลังเปลี่ยนเส้นทางไปยัง
 msgid "Install Pkuru.com App"
 msgstr "ติดตั้งแอป Pkuru.com"
 
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · วัน"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · เวลา"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · ประเภทไหน?"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "บ่าย"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "เวลาใดก็ได้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+msgstr "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "เย็น"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "จัดอีเวนต์"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "ระบุว่าว่าง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "เช้า"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "แผนใหม่"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "คุณอยากเล่นเมื่อไหร่?"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
+msgid "Add time windows above"
+msgstr "เพิ่มช่วงเวลาด้านบน"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:222
+msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "เพิ่มช่วงเวลาในแต่ละวัน ลากเพื่อย้าย หรือจับขอบเพื่อปรับขนาด"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:298
+msgid "Clear"
+msgstr "ล้าง"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:370
+msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "ลากหน้าต่างเพื่อย้าย · ลากขอบเพื่อปรับขนาด · แตะ + เพื่อเพิ่ม"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:436
+msgid "Let hosts schedule events when most of you are free"
+msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
+msgid "One-off"
+msgstr "ครั้งเดียว"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Saving…"
+msgstr "กำลังบันทึก…"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:214
+msgid "Schedule"
+msgstr "ตารางเวลา"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:432
+msgid "Share with your club"
+msgstr "แชร์กับชมรมของคุณ"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:274
+msgid "Weekday eves"
+msgstr "เย็นวันธรรมดา"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:286
+msgid "Weekend morns"
+msgstr "เช้าวันหยุด"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
+msgid "Weekly"
+msgstr "รายสัปดาห์"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:218
+msgid "When can you play?"
+msgstr "คุณเล่นได้เมื่อไหร่?"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:378
+msgid "Your availability"
+msgstr "เวลาว่างของคุณ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:386
+#: src/components/molecules/PlayIntentRow.re.mjs:561
+#: src/components/molecules/PlayIntentRow.re.mjs:613
+msgid "· peak {0}–{1}"
+msgstr "· ช่วงพีค {0}–{1}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+msgid "· plan your time"
+msgstr "· วางแผนเวลาของคุณ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+msgid "{0} other wants to play {dayWord}"
+msgstr "{0} คนอื่นอยากเล่น{dayWord}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+msgid "{0} others want to play {dayWord}"
+msgstr "{0} คนอื่นอยากเล่น{dayWord}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:384
+msgid "{0} people"
+msgstr "{0} คน"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:559
+msgid "{0} people want to play"
+msgstr "{0} คนอยากเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:383
+msgid "{0} person"
+msgstr "{0} คน"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:558
+msgid "{0} person wants to play"
+msgstr "{0} คนอยากเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:557
+#: src/components/molecules/PlayIntentRow.re.mjs:605
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Host an event at this time"
+msgstr "จัดกิจกรรมในช่วงเวลานี้"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:486
+msgid "Host event"
+msgstr "จัดกิจกรรม"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Pick one time window to host an event"
+msgstr "เลือกช่วงเวลาเพื่อจัดกิจกรรม"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+msgid "Pick time →"
+msgstr "เลือกเวลา →"
+
+#: src/components/organisms/PkEventsList.re.mjs:183
+msgid "Play today"
+msgstr "เล่นวันนี้"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:465
+msgid "Remove all"
+msgstr "ลบทั้งหมด"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+msgid "Want to play {dayWord}? Mark yourself available or host an event."
+msgstr "อยากเล่น{dayWord}ไหม? ระบุว่าคุณว่าง หรือจัดกิจกรรมเอง"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:294
+msgid "When can you play {dayWord}?"
+msgstr "คุณเล่นได้เมื่อไหร่{dayWord}?"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:539
+msgid "You want to play {dayWord}"
+msgstr "คุณอยากเล่น{dayWord}"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "กำลังบันทึก…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+msgstr "ตั้งเวลาว่างของคุณสำหรับ 2 สัปดาห์ข้างหน้า แตะวันเพื่อเพิ่มช่วงเวลา ลากเพื่อย้าย จับขอบเพื่อปรับขนาด"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+msgstr "แตะพื้นที่ว่างในวันเพื่อเพิ่มช่วงเวลา · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
+
+#: src/components/pages/PkuruLayout.re.mjs:137
+msgid "Availability"
+msgstr "ตารางเวลาว่าง"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0} คนที่ต้องการเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0} คนที่ต้องการเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "คนอื่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "คนอื่นๆ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "คุณ + {0} {othersWord} ที่ต้องการเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "คุณว่างอยู่"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "คุณว่างสำหรับการเล่น"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -4180,3 +4419,8 @@ msgstr "ติดตั้งแอป Pkuru.com"
 #, fuzzy
 #~ msgid "Round Robin Tournament"
 #~ msgstr "จับคู่แบบพบกันหมด"
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "เวลาว่างของคุณ"

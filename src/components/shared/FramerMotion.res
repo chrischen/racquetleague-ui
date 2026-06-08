@@ -14,6 +14,7 @@ type transition = {
   stiffness?: int,
   damping?: int,
   mass?: float,
+  duration?: float,
 }
 
 type cssWithTransition = {
@@ -61,6 +62,10 @@ module DivCss = {
     ~animate: css=?, // Can be cssAnimate, variantAnimate, or any other type
     ~initial: css=?,
     ~exit: css=?,
+    ~transition: transition=?,
+    ~role: string=?,
+    ~\"aria-modal": string=?,
+    ~\"aria-labelledby": string=?,
     ~onMouseDown: ReactEvent.Mouse.t => unit=?,
     ~onMouseUp: ReactEvent.Mouse.t => unit=?,
     ~onPointerUp: ReactEvent.Pointer.t => unit=?,

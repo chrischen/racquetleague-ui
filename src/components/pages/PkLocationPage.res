@@ -8,6 +8,8 @@ module Query = %relay(`
     $first: Int
     $before: String
     $afterDate: Datetime
+    $availabilityFromDate: String!
+    $availabilityToDate: String!
   ) {
     location(id: $id) {
       name
@@ -20,6 +22,8 @@ module Query = %relay(`
       first: $first
       before: $before
       afterDate: $afterDate
+      availabilityFromDate: $availabilityFromDate
+      availabilityToDate: $availabilityToDate
       filters: { locationId: $id }
     )
     events(after: $after, first: $first, before: $before, filters: { locationId: $id }, afterDate: $afterDate) {

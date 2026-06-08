@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr "...更多"
 
@@ -66,7 +66,7 @@ msgstr "平衡"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr "取消活動"
 
@@ -96,7 +96,7 @@ msgstr "取消期限已過。請在此頁面聯絡主辦方以取消。"
 msgid "Cancelling..."
 msgstr "取消中…"
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr "無法存取變數 \\\"title\\\""
 
@@ -167,7 +167,7 @@ msgstr "請輸入顯示名稱"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr "編輯活動"
 
@@ -203,8 +203,8 @@ msgstr "輸入比賽比分"
 msgid "even"
 msgstr "均衡"
 
-#: src/components/pages/PkEventPage.re.mjs:807
-#: src/components/pages/PkEventPage.re.mjs:831
+#: src/components/pages/PkEventPage.re.mjs:800
+#: src/components/pages/PkEventPage.re.mjs:838
 msgid "Event not found"
 msgstr "找不到活動"
 
@@ -261,7 +261,7 @@ msgstr "離開候補名單"
 msgid "Leaving..."
 msgstr "離開中..."
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr "收起"
 
@@ -310,7 +310,7 @@ msgstr "技能等級無限制。對所有球員開放。"
 msgid "No Score"
 msgstr "無比分"
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr "主持人的備註"
 
@@ -389,12 +389,12 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr "重新整理活動詳情"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refreshing…"
 msgstr "重新整理中…"
 
@@ -532,7 +532,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr "取消取消活動"
 

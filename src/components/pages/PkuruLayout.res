@@ -86,6 +86,14 @@ module SidebarContent = {
             : React.null}
           {isLoggedIn
             ? <SidebarItem
+                icon={<Lucide.Clock className="w-4 h-4 text-gray-500 dark:text-gray-400" />}
+                label={ts`Availability`}
+                active={pathname == "/availability"}
+                href="/availability"
+              />
+            : React.null}
+          {isLoggedIn
+            ? <SidebarItem
                 icon={<Lucide.User size=16 className="text-gray-500 dark:text-gray-400" />}
                 label={ts`Profile`}
                 href="/settings/profile"
@@ -157,16 +165,16 @@ module BrandLogo = {
 
 module Topbar = {
   @react.component
-  let make = (~onToggleSidebar: unit => unit, ~viewer: option<Query.Types.response_viewer>) => {
+  let make = (
+    ~onToggleSidebar: unit => unit,
+    ~viewer: option<Query.Types.response_viewer>,
+    ~onNewPlan: unit => unit,
+  ) => {
     let ts = Lingui.UtilString.t
     let navigate = LangProvider.Router.useNavigate()
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
     let (showBell, setShowBell) = React.useState(() => false)
-    let hostHref = if isLoggedIn {
-      "/events/create"
-    } else {
-      "/oauth-login?return=/events/create"
-    }
+    let loginHref = "/oauth-login?return=/events/create"
 
     <div
       className="h-14 border-b border-gray-200 dark:border-[#2a2b30] flex items-center justify-between px-4 bg-white dark:bg-[#1e1f23] flex-shrink-0 touch-none">
@@ -190,12 +198,17 @@ module Topbar = {
       </div> */
       // Right side actions
       <div className="flex items-center gap-3 md:gap-4 text-gray-600 dark:text-gray-400 ml-auto">
-        <LangProvider.Router.Link
-          to=hostHref
+        <button
+          onClick={_ =>
+            if isLoggedIn {
+              onNewPlan()
+            } else {
+              navigate(loginHref, None)
+            }}
           className="hidden md:flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black rounded-md transition-colors shadow-sm">
           <Lucide.CalendarDays size=14 />
           <span> {(ts`New event`)->React.string} </span>
-        </LangProvider.Router.Link>
+        </button>
         <LangProvider.Router.Link to="/events" className="hover:text-black dark:hover:text-white">
           <Lucide.Calendar size=18 />
         </LangProvider.Router.Link>
@@ -283,7 +296,7 @@ module MobileSidebar = {
 
 module MobileTabs = {
   @react.component
-  let make = (~hostHref: string) => {
+  let make = (~onNewPlan: unit => unit) => {
     let ts = Lingui.UtilString.t
     let location = Router.useLocation()
     let pathname = location.pathname
@@ -312,8 +325,8 @@ module MobileTabs = {
         <Lucide.Map size=20 />
         {(ts`Map`)->React.string}
       </LangProvider.Router.Link>
-      <LangProvider.Router.Link
-        to=hostHref className="flex flex-col items-center justify-center -mt-3">
+      <button
+        onClick={_ => onNewPlan()} className="flex flex-col items-center justify-center -mt-3">
         <div
           className="w-11 h-11 rounded-full bg-[#bdf25d] hover:bg-[#aee050] flex items-center justify-center shadow-md active:scale-95 transition-transform">
           <Lucide.Plus size=20 className="text-black" />
@@ -321,7 +334,7 @@ module MobileTabs = {
         <span className="text-[10px] font-medium text-gray-400 dark:text-gray-500 mt-0.5">
           {(ts`New`)->React.string}
         </span>
-      </LangProvider.Router.Link>
+      </button>
       <LangProvider.Router.Link
         className={tabClass(pathname->String.includes("/events"))} to="/events">
         <Lucide.CalendarDays size=20 />
@@ -339,6 +352,26 @@ module MobileTabs = {
   }
 }
 
+module PkuruLayoutSetAvailabilityMutation = %relay(`
+  mutation PkuruLayoutSetAvailabilityMutation($input: SetAvailabilityDayInput!) {
+    setAvailabilityDay(input: $input) {
+      day {
+        id
+        localDate
+        intervals {
+          startHour
+          endHour
+        }
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+let defaultActivityId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+
 module Layout = {
   @react.component
   let make = (
@@ -346,11 +379,9 @@ module Layout = {
     ~children: React.element,
   ) => {
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
-    let hostHref = if isLoggedIn {
-      "/events/create"
-    } else {
-      "/oauth-login?return=/events/create"
-    }
+    let (showModal, setShowModal) = React.useState(() => false)
+    let (commitSetAvailability, _) = PkuruLayoutSetAvailabilityMutation.use()
+    let env = RescriptRelay.useEnvironmentFromContext()
     let (sidebarOpen, setSidebarOpen) = React.useState(() => false)
     let (drawerContent, setDrawerContent) = React.useState((): option<React.element> => None)
     let (drawerUrl, setDrawerUrl) = React.useState((): option<string> => None)
@@ -359,6 +390,60 @@ module Layout = {
     let (darkMode, setDarkMode) = React.useState(() => false)
     let navigate = Router.useNavigate()
     let location = Router.useLocation()
+    let userLocation = UseUserLocation.use()
+
+    let handleMarkAvailable = (localDate: string, intents: array<TimeWindowPicker.playIntent>) => {
+      let intervals: array<RelaySchemaAssets_graphql.input_IntervalInput> = intents->Array.map((
+        i
+      ): RelaySchemaAssets_graphql.input_IntervalInput => {
+        startHour: i.start->Float.toInt,
+        endHour: i.end->Float.toInt,
+      })
+      let _ = commitSetAvailability(
+        ~variables={
+          input: {
+            localDate,
+            activityId: defaultActivityId,
+            location: userLocation,
+            intervals,
+          },
+        },
+        ~onCompleted=(res, _err) => {
+          if res.setAvailabilityDay.day->Option.isSome {
+            RescriptRelay.commitLocalUpdate(~environment=env, ~updater=store =>
+              store
+              ->RescriptRelay.RecordSourceSelectorProxy.getRoot
+              ->RescriptRelay.RecordProxy.invalidateRecord
+            )
+          }
+        },
+      )
+    }
+
+    let handleCreateEvent = (localDate: string, intent: TimeWindowPicker.playIntent) => {
+      let startHour = intent.start->Float.toInt
+      let endHour = intent.end->Float.toInt
+      navigate(
+        "/events/create?date=" ++
+        localDate ++
+        "&startHour=" ++
+        startHour->Int.toString ++
+        "&endHour=" ++
+        endHour->Int.toString,
+        None,
+      )
+    }
+
+    let handleNewPlan = () => {
+      navigate(
+        if isLoggedIn {
+          "/events/create"
+        } else {
+          "/oauth-login?return=/events/create"
+        },
+        None,
+      )
+    }
     let localePath = LangProvider.Router.useLocalePath()
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
 
@@ -440,12 +525,16 @@ module Layout = {
                 // Main content + top bar wrapper
                 <div
                   className="flex-1 flex flex-col min-w-0 overflow-hidden bg-white dark:bg-[#222326]">
-                  <Topbar onToggleSidebar={() => setSidebarOpen(prev => !prev)} viewer />
+                  <Topbar
+                    onToggleSidebar={() => setSidebarOpen(prev => !prev)}
+                    viewer
+                    onNewPlan=handleNewPlan
+                  />
                   <InstallPwa />
                   <div className="flex-1 overflow-y-auto overscroll-contain">
                     <React.Suspense fallback={React.null}> {children} </React.Suspense>
                   </div>
-                  <MobileTabs hostHref />
+                  <MobileTabs onNewPlan=handleNewPlan />
                 </div>
                 {mounted
                   ? ReactDOM.createPortal(
@@ -511,6 +600,12 @@ module Layout = {
                           )
                           ->Option.getOr(React.null)}
                         </FramerMotion.AnimatePresence>
+                        <NewPlanModal.make
+                          isOpen=showModal
+                          onClose={() => setShowModal(_ => false)}
+                          onMarkAvailable=handleMarkAvailable
+                          onCreateEvent=handleCreateEvent
+                        />
                       </div>,
                       documentBody,
                     )

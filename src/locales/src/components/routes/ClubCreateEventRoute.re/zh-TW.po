@@ -174,12 +174,12 @@ msgstr "參加者在此期限後無法取消報名"
 msgid "Brief description of the club..."
 msgstr "俱樂部的簡要描述..."
 
-#: src/components/pages/CreateEventPage.re.mjs:145
+#: src/components/pages/CreateEventPage.re.mjs:161
 msgid "Bulk create"
 msgstr "批量建立"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:134
+#: src/components/pages/CreateEventPage.re.mjs:150
 msgid "Cancel"
 msgstr "取消"
 
@@ -239,7 +239,7 @@ msgid "Create Club"
 msgstr "建立俱樂部"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389
-#: src/components/pages/CreateEventPage.re.mjs:140
+#: src/components/pages/CreateEventPage.re.mjs:156
 msgid "Create Event"
 msgstr "建立活動"
 
@@ -380,7 +380,7 @@ msgstr "讓 AI 幫助您填寫以下詳細資料"
 msgid "List your event publicly to help fill open spots"
 msgstr "公開列出您的活動以填補空位"
 
-#: src/components/pages/CreateEventPage.re.mjs:179
+#: src/components/pages/CreateEventPage.re.mjs:195
 msgid "Location"
 msgstr "地點"
 

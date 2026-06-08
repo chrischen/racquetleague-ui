@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:404
+#: src/components/shared/InstallPwa.re.mjs:413
 msgid "— add to your Home Screen for push notifications"
 msgstr "— 添加到主屏幕以接收推送通知"
 
-#: src/components/shared/InstallPwa.re.mjs:361
+#: src/components/shared/InstallPwa.re.mjs:370
 msgid "— enable push notifications for event reminders"
 msgstr "— 启用推送通知以获取赛事提醒"
 
-#: src/components/shared/InstallPwa.re.mjs:476
+#: src/components/shared/InstallPwa.re.mjs:485
 msgid "— for a faster, app-like experience"
 msgstr "— 享受更快速的类应用体验"
 
@@ -29,31 +29,69 @@ msgstr "— 享受更快速的类应用体验"
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/shared/InstallPwa.re.mjs:453
+#: src/components/shared/InstallPwa.re.mjs:462
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"添加到主屏幕\\\""
+
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · 日期"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · 时间"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · 类型"
 
 #: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
 msgstr "已加入活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:155
-#: src/components/pages/PkuruLayout.re.mjs:185
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "下午"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "任意时间"
+
+#: src/components/pages/PkuruLayout.re.mjs:137
+msgid "Availability"
+msgstr "空闲时间"
+
+#: src/components/pages/PkuruLayout.re.mjs:169
+#: src/components/pages/PkuruLayout.re.mjs:199
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/PkuruLayout.re.mjs:98
+#: src/components/pages/PkuruLayout.re.mjs:104
 msgid "Browse"
 msgstr "浏览"
 
-#: src/components/pages/PkuruLayout.re.mjs:108
-#: src/components/pages/PkuruLayout.re.mjs:417
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "继续"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr "在此时间创建一个托管活动，其他人可以加入，由你选择场地和规则。"
+
+#: src/components/pages/PkuruLayout.re.mjs:114
+#: src/components/pages/PkuruLayout.re.mjs:438
 msgid "Discover"
 msgstr "发现"
 
-#: src/components/shared/InstallPwa.re.mjs:371
+#: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
 msgstr "立即启用"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "晚上"
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
@@ -64,28 +102,36 @@ msgstr "活动已取消"
 msgid "Event Uncanceled"
 msgstr "活动已恢复"
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "隐藏"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "发起活动"
 
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "主办方消息"
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "发起活动需要恰好选择一个时间段——请选择一个。"
+
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
 msgstr "安装方法"
 
-#: src/components/shared/InstallPwa.re.mjs:445
+#: src/components/shared/InstallPwa.re.mjs:454
 msgid "in Safari's toolbar"
 msgstr "在 Safari 工具栏中"
 
-#: src/components/shared/InstallPwa.re.mjs:485
+#: src/components/shared/InstallPwa.re.mjs:494
 msgid "Install"
 msgstr "安装"
 
-#: src/components/shared/InstallPwa.re.mjs:400
-#: src/components/shared/InstallPwa.re.mjs:472
+#: src/components/shared/InstallPwa.re.mjs:409
+#: src/components/shared/InstallPwa.re.mjs:481
 msgid "Install Pkuru.com App"
 msgstr "安装 Pkuru.com 应用"
 
@@ -114,13 +160,21 @@ msgstr "加载中..."
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/pages/PkuruLayout.re.mjs:427
+#: src/components/pages/PkuruLayout.re.mjs:448
 msgid "Map"
 msgstr "地图"
 
-#: src/components/pages/PkuruLayout.re.mjs:116
+#: src/components/pages/PkuruLayout.re.mjs:122
 msgid "Map view"
 msgstr "地图视图"
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "标记为空闲"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "上午"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:173
 msgid "My clubs"
@@ -130,15 +184,15 @@ msgstr "我的俧乐部"
 msgid "My Clubs"
 msgstr "我的俱乐部"
 
-#: src/components/pages/PkuruLayout.re.mjs:124
+#: src/components/pages/PkuruLayout.re.mjs:130
 msgid "My events"
 msgstr "我的活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:454
+#: src/components/pages/PkuruLayout.re.mjs:477
 msgid "My Events"
 msgstr "我的活动"
 
-#: src/components/pages/PkuruLayout.re.mjs:442
+#: src/components/pages/PkuruLayout.re.mjs:462
 msgid "New"
 msgstr "新建"
 
@@ -146,9 +200,13 @@ msgstr "新建"
 msgid "New Comment"
 msgstr "新评论"
 
-#: src/components/pages/PkuruLayout.re.mjs:265
+#: src/components/pages/PkuruLayout.re.mjs:278
 msgid "New event"
 msgstr "新建活动"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "新计划"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
@@ -159,7 +217,7 @@ msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:292
+#: src/components/pages/PkuruLayout.re.mjs:312
 msgid "Notifications"
 msgstr "通知"
 
@@ -167,17 +225,17 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已离开候补名单"
 
-#: src/components/pages/PkuruLayout.re.mjs:149
-#: src/components/pages/PkuruLayout.re.mjs:177
+#: src/components/pages/PkuruLayout.re.mjs:163
+#: src/components/pages/PkuruLayout.re.mjs:191
 msgid "Pickleball"
 msgstr "匹克球"
 
-#: src/components/pages/PkuruLayout.re.mjs:132
-#: src/components/pages/PkuruLayout.re.mjs:464
+#: src/components/pages/PkuruLayout.re.mjs:146
+#: src/components/pages/PkuruLayout.re.mjs:487
 msgid "Profile"
 msgstr "个人资料"
 
-#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:182
 msgid "Rankings"
 msgstr "排名"
 
@@ -185,25 +243,55 @@ msgstr "排名"
 msgid "Removed from Event"
 msgstr "已从活动中移除"
 
-#: src/components/shared/InstallPwa.re.mjs:451
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "保存"
+
+#: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "向下滚动并点击"
 
-#: src/components/pages/PkuruLayout.re.mjs:143
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "请选择恰好一个时间段来发起活动"
+
+#: src/components/pages/PkuruLayout.re.mjs:157
 msgid "Sports"
 msgstr "运动"
 
-#: src/components/shared/InstallPwa.re.mjs:357
+#: src/components/shared/InstallPwa.re.mjs:366
 msgid "Stay in the loop"
 msgstr "保持关注"
 
-#: src/components/shared/InstallPwa.re.mjs:443
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "点击任意位置添加时间段"
+
+#: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "点击分享按钮"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr "告诉其他人你有空打球，时间重叠的玩家可以邀请你。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "今天"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "明天"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "查看所有通知"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "你想什么时候打球？"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"

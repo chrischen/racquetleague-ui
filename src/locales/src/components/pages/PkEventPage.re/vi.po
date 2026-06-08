@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr "...thêm"
 
@@ -66,7 +66,7 @@ msgstr "cân bằng"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
@@ -96,7 +96,7 @@ msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để
 msgid "Cancelling..."
 msgstr "Đang hủy..."
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr "Không thể truy cập biến \\\"title\\\""
 
@@ -167,7 +167,7 @@ msgstr "Cần có tên hiển thị"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -203,8 +203,8 @@ msgstr "Nhập điểm số trận đấu"
 msgid "even"
 msgstr "đồng đều"
 
-#: src/components/pages/PkEventPage.re.mjs:807
-#: src/components/pages/PkEventPage.re.mjs:831
+#: src/components/pages/PkEventPage.re.mjs:800
+#: src/components/pages/PkEventPage.re.mjs:838
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -261,7 +261,7 @@ msgstr "Rời danh sách chờ"
 msgid "Leaving..."
 msgstr "Đang rời..."
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr "thu gọn"
 
@@ -310,7 +310,7 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
@@ -389,12 +389,12 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr "Làm mới chi tiết sự kiện"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refreshing…"
 msgstr "Đang làm mới…"
 
@@ -539,7 +539,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 

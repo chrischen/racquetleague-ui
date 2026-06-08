@@ -1,0 +1,202 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
+msgid "[missing title]"
+msgstr "[tiêu đề bị thiếu]"
+
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "Người chơi nâng cao"
+
+#: src/components/organisms/PkEventRow.re.mjs:742
+msgid "Canceled"
+msgstr "Đã hủy"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "Hoàn thiện hồ sơ của bạn"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "Tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "Cần có tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "Địa chỉ email"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "Không thể thay đổi email"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "Cần có email"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "Thẻ sự kiện: {tag}"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "Nữ"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "Để nhận cập nhật và thông báo về sự kiện"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "Giới tính"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "Người chơi trình độ cao"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
+msgid "Join"
+msgstr "Tham gia"
+
+#: src/components/organisms/PkEventRow.re.mjs:240
+msgid "Joined"
+msgstr "Đã tham gia"
+
+#: src/components/organisms/PkEventRow.re.mjs:608
+msgid "Leave"
+msgstr "Rời"
+
+#: src/components/organisms/PkEventRow.re.mjs:1009
+msgid "Leave event"
+msgstr "Rời sự kiện"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "Trung cấp thấp trở lên"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "Nam"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi người."
+
+#: src/components/organisms/PkEventRow.re.mjs:279
+msgid "Pending"
+msgstr "Đang chờ"
+
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
+msgid "player"
+msgstr "người chơi"
+
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
+msgid "players"
+msgstr "người chơi"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "Không muốn tiết lộ"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
+msgid "Private"
+msgstr "Riêng tư"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "Người chơi chuyên nghiệp"
+
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
+msgid "Rated"
+msgstr "Có xếp hạng"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "Lưu & Tham gia sự kiện"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
+
+#: src/components/organisms/PkEventRow.re.mjs:1010
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr ""
+"Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
+"người tiếp theo. Bạn có chắc không?"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
+"ban tổ chức."
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "Đây là cách người khác sẽ thấy bạn"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "Trung cấp cao trở lên"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
+msgid "Waitlist"
+msgstr "Danh sách chờ"
+
+#: src/components/organisms/PkEventRow.re.mjs:272
+msgid "Waitlisted"
+msgstr "Đã vào danh sách chờ"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"

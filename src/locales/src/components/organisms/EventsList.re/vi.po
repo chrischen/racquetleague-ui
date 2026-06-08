@@ -82,9 +82,25 @@ msgstr "{totalHiddenCount, plural, one {sự kiện} other {sự kiện}}"
 msgid "🚫 CANCELED"
 msgstr "🚫 ĐÃ HỦY"
 
-#: src/components/organisms/AddEventButton.re.mjs:68
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · Ngày"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · Giờ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · Loại gì?"
+
+#: src/components/organisms/AddEventButton.re.mjs:160
 msgid "Add an Event"
 msgstr "Thêm sự kiện"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "Buổi chiều"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
 msgid "AI Assistant"
@@ -93,6 +109,10 @@ msgstr "Trợ lý AI"
 #: src/components/organisms/AIAssistantModal.re.mjs:120
 msgid "An error occurred. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "Bất kỳ lúc nào"
 
 #: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
@@ -109,6 +129,18 @@ msgstr "Cầu lông mỗi thứ Năm tháng tới tại Trường tiểu học A
 #: src/components/organisms/EventsList.re.mjs:424
 msgid "clear filter"
 msgstr "xóa bộ lọc"
+
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr ""
+"Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
+"bạn chọn địa điểm và luật chơi."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
 msgid "Create All Events"
@@ -131,6 +163,10 @@ msgstr "Mô tả:"
 msgid "Error creating events. Please try again."
 msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."
 
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "Buổi tối"
+
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
@@ -142,6 +178,14 @@ msgstr "lọc theo ngày"
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
 msgstr "Google Calendar"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "Tổ chức sự kiện"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 msgid "I can create events for you. Just give me your schedule."
@@ -168,6 +212,14 @@ msgstr "rời sự kiện"
 msgid "Location:"
 msgstr "Địa điểm:"
 
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "Đánh dấu rảnh"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "Buổi sáng"
+
 #: src/components/organisms/AIAssistantModal.re.mjs:149
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "Cần 5 người cho KPI Park ngày mai 18-21h. Chia sẻ chi phí."
@@ -175,6 +227,10 @@ msgstr "Cần 5 người cho KPI Park ngày mai 18-21h. Chia sẻ chi phí."
 #: src/components/organisms/AIAssistantModal.re.mjs:279
 msgid "New"
 msgstr "Mới"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "Kế hoạch mới"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
@@ -192,6 +248,14 @@ msgstr "Đang xử lý..."
 msgid "Reply"
 msgstr "Trả lời"
 
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
+
 #: src/components/organisms/EventsList.re.mjs:381
 msgid "share as text"
 msgstr "chia sẻ dưới dạng văn bản"
@@ -208,6 +272,10 @@ msgstr "Sự kiện được đề xuất"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+
 #: src/components/organisms/AIAssistantModal.re.mjs:230
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
@@ -217,10 +285,29 @@ msgstr ""
 "nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm "
 "chí có thể thêm bản dịch."
 
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr ""
+"Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
+
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
 msgstr "Tiêu đề:"
 
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "Hôm nay"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "Ngày mai"
+
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "danh sách chờ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "Bạn muốn chơi lúc nào?"

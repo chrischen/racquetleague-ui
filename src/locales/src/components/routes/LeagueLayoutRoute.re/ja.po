@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:404
+#: src/components/shared/InstallPwa.re.mjs:413
 msgid "— add to your Home Screen for push notifications"
 msgstr "— プッシュ通知を受け取るにはホーム画面に追加"
 
-#: src/components/shared/InstallPwa.re.mjs:361
+#: src/components/shared/InstallPwa.re.mjs:370
 msgid "— enable push notifications for event reminders"
 msgstr "— イベントリマインダーのプッシュ通知を有効にする"
 
-#: src/components/shared/InstallPwa.re.mjs:476
+#: src/components/shared/InstallPwa.re.mjs:485
 msgid "— for a faster, app-like experience"
 msgstr "— より快適なアプリのような体験のために"
 
@@ -29,7 +29,7 @@ msgstr "— より快適なアプリのような体験のために"
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/shared/InstallPwa.re.mjs:453
+#: src/components/shared/InstallPwa.re.mjs:462
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"ホーム画面に追加\\\""
 
@@ -41,7 +41,7 @@ msgstr "について"
 msgid "copyright the racquet league contributors"
 msgstr "著作権ラケットリーグの寄稿者"
 
-#: src/components/shared/InstallPwa.re.mjs:371
+#: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
 msgstr "今すぐ有効にする"
 
@@ -49,24 +49,24 @@ msgstr "今すぐ有効にする"
 msgid "Find Games"
 msgstr "ゲームを見つける"
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "非表示"
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
 msgstr "インストール方法"
 
-#: src/components/shared/InstallPwa.re.mjs:445
+#: src/components/shared/InstallPwa.re.mjs:454
 msgid "in Safari's toolbar"
 msgstr "Safariのツールバー内"
 
-#: src/components/shared/InstallPwa.re.mjs:485
+#: src/components/shared/InstallPwa.re.mjs:494
 msgid "Install"
 msgstr "インストール"
 
-#: src/components/shared/InstallPwa.re.mjs:400
-#: src/components/shared/InstallPwa.re.mjs:472
+#: src/components/shared/InstallPwa.re.mjs:409
+#: src/components/shared/InstallPwa.re.mjs:481
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.comアプリをインストール"
 
@@ -96,15 +96,15 @@ msgstr "プロフィール写真"
 msgid "Rankings"
 msgstr "ランキング"
 
-#: src/components/shared/InstallPwa.re.mjs:451
+#: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "下にスクロールしてタップ"
 
-#: src/components/shared/InstallPwa.re.mjs:357
+#: src/components/shared/InstallPwa.re.mjs:366
 msgid "Stay in the loop"
 msgstr "最新情報をチェック"
 
-#: src/components/shared/InstallPwa.re.mjs:443
+#: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "共有ボタンをタップ"
 

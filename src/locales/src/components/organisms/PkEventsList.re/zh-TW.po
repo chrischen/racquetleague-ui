@@ -1,0 +1,886 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/PkEventPage.re.mjs:323
+msgid "...more"
+msgstr "...更多"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:444
+msgid "· {0} pending"
+msgstr "· {0} 待處理"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+msgid "· +{0} waitlist"
+msgstr "· +{0} 候補"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+#: src/components/molecules/PlayIntentRow.re.mjs:623
+msgid "· peak {0}–{1}"
+msgstr "· 高峰 {0}–{1}"
+
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
+msgid "[missing title]"
+msgstr "[標題缺失]"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/organisms/PkEventsList.re.mjs:164
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:439
+msgid "{0} joined"
+msgstr "{0} 已參加"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:493
+msgid "{0} people"
+msgstr "{0} 人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0} 人想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:621
+msgid "{0} people want to play"
+msgstr "{0} 人想打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:492
+msgid "{0} person"
+msgstr "{0} 人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0} 人想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:620
+msgid "{0} person wants to play"
+msgstr "{0} 人想打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:304
+#: src/components/molecules/PlayIntentRow.re.mjs:310
+#: src/components/molecules/PlayIntentRow.re.mjs:619
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:136
+msgid "{totalEvents, plural, one {{0}} other {{1}}}"
+msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/shared/EventsListView.re.mjs:171
+msgid "← previous"
+msgstr "← 上一頁"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:505
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 技術"
+
+#: src/components/organisms/PkEventMessages.re.mjs:146
+msgid "Activity"
+msgstr "活動"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "新增訊息..."
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "進階球員"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:274
+msgid "Afternoon"
+msgstr "下午"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:262
+msgid "Anytime"
+msgstr "任何時間"
+
+#: src/components/molecules/AddToCalendar.re.mjs:30
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RsvpOptions.re.mjs:164
+msgid "Approve RSVP"
+msgstr "批准報名"
+
+#: src/components/organisms/RsvpOptions.re.mjs:253
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "您確定要將此人從活動中移除嗎？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:92
+msgid "Authorize deposit"
+msgstr "授權押金"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:214
+msgid "balanced"
+msgstr "平衡"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:55
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/pages/PkEventPage.re.mjs:512
+msgid "cancel event"
+msgstr "取消活動"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "取消報名"
+
+#: src/components/organisms/PkEventRow.re.mjs:742
+msgid "Canceled"
+msgstr "已取消"
+
+#: src/components/pages/PkEventPage.re.mjs:192
+msgid "CANCELED"
+msgstr "已取消"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:407
+msgid "Cancellation deadline"
+msgstr "取消截止日期"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "已超過取消截止日期。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:305
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "取消期限已過。請在此頁面聯絡主辦方以取消。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "取消中…"
+
+#: src/components/pages/PkEventPage.re.mjs:483
+msgid "Cannot access variable \\\"title\\\""
+msgstr "無法存取變數 \\\"title\\\""
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "收取款項"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:433
+#: src/components/organisms/EventStickyFooter.re.mjs:555
+msgid "Claim spot"
+msgstr "報名參加"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:429
+msgid "Claim spot · {0}"
+msgstr "預約名額 · {0}"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:92
+msgid "Complete payment"
+msgstr "完成付款"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "完善個人資料"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:589
+msgid "Confirmed · {0}"
+msgstr "已確認 · {0}"
+
+#: src/components/pages/PkEventPage.re.mjs:227
+msgid "Copied!"
+msgstr "已複製！"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "場地 {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "場地 {0} - 編輯中"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "場地數："
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "刪除比賽"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "刪除這場比賽？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "需支付訂金以確認您的名額"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "請輸入顯示名稱"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:479
+#: src/components/organisms/PkRSVPSection.re.mjs:496
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/PkEventPage.re.mjs:495
+msgid "edit event"
+msgstr "編輯活動"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "編輯比賽"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "電子郵件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
+"件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "電子郵件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "請輸入電子郵件"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "輸入比賽比分"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:210
+msgid "even"
+msgstr "均衡"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:280
+msgid "Evening"
+msgstr "傍晚"
+
+#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/organisms/PkEventsList.re.mjs:167
+msgid "event"
+msgstr "活動"
+
+#: src/components/pages/PkEventPage.re.mjs:800
+msgid "Event not found"
+msgstr "找不到活動"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "活動標籤：{tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "活動已更新"
+
+#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/organisms/PkEventsList.re.mjs:168
+msgid "events"
+msgstr "活動"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/shared/EventsListView.re.mjs:113
+msgid "Filtered by date"
+msgstr "按日期篩選"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "用於活動更新和通知"
+
+#: src/components/pages/PkEventPage.re.mjs:275
+msgid "Free"
+msgstr "免費"
+
+#: src/components/organisms/PkEventsList.re.mjs:378
+msgid "Friday"
+msgstr "星期五"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性別"
+
+#: src/components/molecules/AddToCalendar.re.mjs:35
+msgid "Google Calendar"
+msgstr "Google 日曆"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "高技能球員"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Host an event at this time"
+msgstr "在此時段舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:547
+msgid "Host event"
+msgstr "舉辦活動"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
+msgid "Join"
+msgstr "加入"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:555
+msgid "Join waitlist"
+msgstr "加入候補名單"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:426
+msgid "Join waitlist (#{0})"
+msgstr "加入候補名單 (#{0})"
+
+#: src/components/organisms/PkEventRow.re.mjs:240
+msgid "Joined"
+msgstr "已加入"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "上一輪"
+
+#: src/components/organisms/PkEventRow.re.mjs:608
+msgid "Leave"
+msgstr "退出"
+
+#: src/components/organisms/PkEventRow.re.mjs:1009
+#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:508
+msgid "Leave event"
+msgstr "退出活動"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:380
+msgid "Leave waitlist"
+msgstr "離開候補名單"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:379
+msgid "Leaving..."
+msgstr "離開中..."
+
+#: src/components/pages/PkEventPage.re.mjs:323
+msgid "less"
+msgstr "收起"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Loading..."
+msgstr "載入中..."
+
+#: src/components/pages/PkEventPage.re.mjs:305
+msgid "Location"
+msgstr "地點"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "輸球隊（隊伍 {0}）"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "中下等級及以上"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:566
+msgid "Mark available"
+msgstr "標記為有空"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "比賽將提交至 DUPR。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:488
+msgid "MEDIAN"
+msgstr "中位數"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:217
+msgid "mixed"
+msgstr "混合"
+
+#: src/components/organisms/PkEventsList.re.mjs:366
+msgid "Monday"
+msgstr "星期一"
+
+#: src/components/shared/EventsListView.re.mjs:194
+msgid "more →"
+msgstr "更多 →"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:268
+msgid "Morning"
+msgstr "上午"
+
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
+msgid "Move to Pending List"
+msgstr "移至待審核名單"
+
+#: src/components/organisms/PkEventsList.re.mjs:387
+msgid "Next {dayName}"
+msgstr "下週{dayName}"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "技能等級無限制。對所有球員開放。"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "無比分"
+
+#: src/components/pages/PkEventPage.re.mjs:643
+msgid "Notes from the host"
+msgstr "主持人的備註"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "On waitlist"
+msgstr "候補中"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "其他人"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:409
+msgid "Participants"
+msgstr "參與者"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "支付 {priceStr}"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:62
+msgid "Pay now"
+msgstr "立即付款"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "付款已授權"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "付款已完成"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:35
+msgid "Payment failed"
+msgstr "付款失敗"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "需完成付款以確認您的名額"
+
+#: src/components/organisms/PkEventRow.re.mjs:279
+msgid "Pending"
+msgstr "待審核"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:720
+msgid "Pending · {0}"
+msgstr "待處理 · {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:259
+msgid "Pending approval"
+msgstr "待審核"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Pick one time window to host an event"
+msgstr "選擇一個時間段來舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:291
+msgid "Play today"
+msgstr "今天打球"
+
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
+msgid "player"
+msgstr "玩家"
+
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
+msgid "players"
+msgstr "球員"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不願透露"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
+msgid "Private"
+msgstr "非公開"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:62
+msgid "Processing…"
+msgstr "處理中…"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "職業球員"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr "下拉以重新整理"
+
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
+msgid "Rated"
+msgstr "計分賽"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "重新平衡比賽"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
+
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refresh"
+msgstr "重新整理"
+
+#: src/components/pages/PkEventPage.re.mjs:609
+msgid "Refresh event details"
+msgstr "重新整理活動詳情"
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:609
+#: src/components/shared/EventsListView.re.mjs:151
+msgid "Refreshing…"
+msgstr "重新整理中…"
+
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "退款"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr "放開以重新整理"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:526
+msgid "Remove all"
+msgstr "全部移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
+msgid "Remove from event"
+msgstr "從活動中移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:252
+msgid "Remove this RSVP"
+msgstr "移除此 RSVP"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "重複"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:335
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "需要: DUPR {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:356
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "參加需要 DUPR {minDuprStr}以上"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "結果將提交至競技評分。"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "第 {0} 回合"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "循環賽抽籤"
+
+#: src/components/organisms/PkEventsList.re.mjs:381
+msgid "Saturday"
+msgstr "星期六"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "儲存"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "儲存並參加活動"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "保存比分"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "比分"
+
+#: src/components/pages/PkEventPage.re.mjs:227
+msgid "Share"
+msgstr "分享"
+
+#: src/components/organisms/PkEventsList.re.mjs:241
+msgid "Show {0} more"
+msgstr "顯示更多 {0} 筆"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "顯示全部 {0} 條"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show less"
+msgstr "顯示更少"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "技能練習和訓練，專注於技術改進"
+
+#: src/components/shared/EventsListView.re.mjs:139
+msgid "SORTED BY START TIME"
+msgstr "按開始時間排序"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:549
+msgid "SPREAD"
+msgstr "分布"
+
+#: src/components/organisms/PkEventsList.re.mjs:363
+msgid "Sunday"
+msgstr "星期日"
+
+#: src/components/molecules/AddToCalendar.re.mjs:107
+msgid "sync calendar"
+msgstr "同步日曆"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "點擊任意處以新增時間段"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "隊伍 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "隊伍 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
+
+#: src/components/organisms/PkEventRow.re.mjs:1010
+#: src/components/organisms/EventStickyFooter.re.mjs:509
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "候補名單中有球員。如果您退出，您的位置將會給下一位。確定嗎？"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"此為僅供保留的訂金——款項須於活動現場支付給主辦方。保留款將於活動結束後解除。"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:98
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"此為僅供保留的訂金。您仍需於活動現場向主辦方全額付款。保留款將於活動結束後解"
+"除。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "這是其他人會看到的名字"
+
+#: src/components/organisms/RsvpOptions.re.mjs:269
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
+"限制其報名嗎？"
+
+#: src/components/organisms/PkEventsList.re.mjs:375
+msgid "Thursday"
+msgstr "星期四"
+
+#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/organisms/PkEventsList.re.mjs:346
+msgid "Today"
+msgstr "今天"
+
+#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/organisms/PkEventsList.re.mjs:352
+msgid "Tomorrow"
+msgstr "明天"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:471
+msgid "TOP 6 AVG"
+msgstr "前6均值"
+
+#: src/components/organisms/PkEventsList.re.mjs:369
+msgid "Tuesday"
+msgstr "星期二"
+
+#: src/components/pages/PkEventPage.re.mjs:501
+msgid "uncancel event"
+msgstr "取消取消活動"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "中上等級及以上"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "查看完整抽籤"
+
+#: src/components/organisms/RsvpOptions.re.mjs:239
+msgid "View Profile"
+msgstr "查看個人資料"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
+msgid "Waitlist"
+msgstr "等待列表"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:655
+msgid "Waitlist · {0}"
+msgstr "候補名單 · {0}"
+
+#: src/components/organisms/PkEventRow.re.mjs:272
+msgid "Waitlisted"
+msgstr "已在候補名單"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr "在您參加此活動之前，我們需要一些資訊"
+
+#: src/components/organisms/PkEventsList.re.mjs:372
+msgid "Wednesday"
+msgstr "星期三"
+
+#: src/components/shared/EventsListView.re.mjs:91
+msgid "Weekend"
+msgstr "週末"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:403
+msgid "When can you play {dayWord}?"
+msgstr "你{dayWord}什麼時候可以打球？"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "獲勝隊（隊伍 {0}）"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:273
+msgid "Withdraw RSVP"
+msgstr "取消報名"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:273
+msgid "Withdrawing..."
+msgstr "取消中..."
+
+#: src/components/organisms/PkEventsList.re.mjs:386
+msgid "Yesterday"
+msgstr "昨天"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "你和其他 {0} {othersWord}想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:601
+msgid "You want to play {dayWord}"
+msgstr "你想在{dayWord}打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "你有空"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "你有空打球"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "You're in"
+msgstr "已報名"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:339
+msgid ""
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"您的評分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}）低於最低標準。您將被放入待定名單。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:263
+msgid "Your RSVP is awaiting admin approval"
+msgstr "您的報名正在等待管理員審核"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+#~ msgid "· plan your time"
+#~ msgstr "· 規劃你的時間"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+#~ msgid "{0} other wants to play {dayWord}"
+#~ msgstr "{0} 位其他人想在{dayWord}打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+#~ msgid "{0} others want to play {dayWord}"
+#~ msgstr "{0} 位其他人想在{dayWord}打球"
+
+#: src/components/organisms/PkEventsList.re.mjs:243
+#~ msgid "Add to {0}"
+#~ msgstr "新增到{0}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+#~ msgid "Pick time →"
+#~ msgstr "選擇時間 →"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+#~ msgid "Want to play {dayWord}? Mark yourself available or host an event."
+#~ msgstr "想在{dayWord}打球嗎？標記你的空閒時間或舉辦活動。"
+
+#: src/components/organisms/PkEventsList.re.mjs:224
+#~ msgid "When can you play?"
+#~ msgstr "你什麼時候可以打球？"
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "你的空閒時間"

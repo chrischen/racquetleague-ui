@@ -8,7 +8,7 @@ import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as AddToCalendar from "../molecules/AddToCalendar.re.mjs";
 import * as PullToRefresh from "./PullToRefresh.re.mjs";
-import * as CompactCalendar from "../pkuru/CompactCalendar.re.mjs";
+import * as CompactCalendar from "../molecules/CompactCalendar.re.mjs";
 import * as EventsListUtils from "./EventsListUtils.re.mjs";
 import * as WaitForMessages from "./i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";

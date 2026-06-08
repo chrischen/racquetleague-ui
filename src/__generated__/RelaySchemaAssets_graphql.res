@@ -272,6 +272,18 @@ and input_GetUserClubMembershipInput_nullable = {
 }
 
 @live
+and input_IntervalInput = {
+  endHour: int,
+  startHour: int,
+}
+
+@live
+and input_IntervalInput_nullable = {
+  endHour: int,
+  startHour: int,
+}
+
+@live
 and input_IsUserBannedInput = {
   clubId: string,
   userId: string,
@@ -328,6 +340,32 @@ and input_LeagueRatingInput_nullable = {
 }
 
 @live
+and input_LocationInput = {
+  lat: float,
+  lng: float,
+}
+
+@live
+and input_LocationInput_nullable = {
+  lat: float,
+  lng: float,
+}
+
+@live
+and input_OverlapScopeInput = {
+  activityId: string,
+  clubId?: string,
+  userIds?: array<string>,
+}
+
+@live
+and input_OverlapScopeInput_nullable = {
+  activityId: string,
+  clubId?: Js.Null.t<string>,
+  userIds?: Js.Null.t<array<string>>,
+}
+
+@live
 and input_PredictMatchInput = {
   team1RatingIds: array<string>,
   team2RatingIds: array<string>,
@@ -365,6 +403,32 @@ and input_RemoveUserFromClubInput = {
 and input_RemoveUserFromClubInput_nullable = {
   clubId: string,
   userId: string,
+}
+
+@live
+and input_SetAvailabilityDayInput = {
+  activityId: string,
+  intervals: array<input_IntervalInput>,
+  localDate: string,
+  location: input_LocationInput,
+}
+
+@live
+and input_SetAvailabilityDayInput_nullable = {
+  activityId: string,
+  intervals: array<input_IntervalInput_nullable>,
+  localDate: string,
+  location: input_LocationInput_nullable,
+}
+
+@live
+and input_SetAvailabilityDaysInput = {
+  days: array<input_SetAvailabilityDayInput>,
+}
+
+@live
+and input_SetAvailabilityDaysInput_nullable = {
+  days: array<input_SetAvailabilityDayInput_nullable>,
 }
 
 @live

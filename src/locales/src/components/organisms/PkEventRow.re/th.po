@@ -1,0 +1,195 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
+msgid "[missing title]"
+msgstr "[ไม่มีหัวข้อ]"
+
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
+msgid "{filled, plural, one {{0}} other {{1}}}"
+msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "ผู้เล่นระดับสูง"
+
+#: src/components/organisms/PkEventRow.re.mjs:742
+msgid "Canceled"
+msgstr "ยกเลิกแล้ว"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "แท็กกิจกรรม: {tag}"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "เพศ"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "ผู้เล่นที่มีทักษะสูงมาก"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
+msgid "Join"
+msgstr "เข้าร่วม"
+
+#: src/components/organisms/PkEventRow.re.mjs:240
+msgid "Joined"
+msgstr "เข้าร่วมแล้ว"
+
+#: src/components/organisms/PkEventRow.re.mjs:608
+msgid "Leave"
+msgstr "ออก"
+
+#: src/components/organisms/PkEventRow.re.mjs:1009
+msgid "Leave event"
+msgstr "ออกจากกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "ระดับกลางขั้นต้นขึ้นไป"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "ชาย"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
+
+#: src/components/organisms/PkEventRow.re.mjs:279
+msgid "Pending"
+msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
+msgid "player"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
+msgid "players"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "ไม่ต้องการระบุ"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
+msgid "Private"
+msgstr "ไม่เปิดเผย"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "ผู้เล่นมืออาชีพ"
+
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
+msgid "Rated"
+msgstr "มีการจัดอันดับ"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
+
+#: src/components/organisms/PkEventRow.re.mjs:1010
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "มีผู้เล่นในรายชื่อคอย ถ้าคุณออก ที่ของคุณจะถูกให้กับคนถัดไป คุณแน่ใจหรือไม่?"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "ระดับกลางขั้นบนขึ้นไป"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
+msgid "Waitlist"
+msgstr "รายชื่อคอย"
+
+#: src/components/organisms/PkEventRow.re.mjs:272
+msgid "Waitlisted"
+msgstr "อยู่ในรายชื่อคอย"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"

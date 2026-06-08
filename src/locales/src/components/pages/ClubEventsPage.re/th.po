@@ -13,25 +13,109 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AddEventButton.re.mjs:68
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · วัน"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · เวลา"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · ประเภทไหน?"
+
+#: src/components/organisms/AddEventButton.re.mjs:160
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "บ่าย"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "เวลาใดก็ได้"
 
 #: src/components/pages/ClubEventsPage.re.mjs:128
 msgid "Club not found"
 msgstr "ไม่พบคลับ"
 
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "ดำเนินการต่อ"
+
 #: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
 msgstr "คัดลอกแล้ว!"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "เย็น"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "จัดอีเวนต์"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
 
 #: src/components/pages/ClubEventsPage.re.mjs:121
 msgid "Loading events..."
 msgstr "กำลังโหลดกิจกรรม..."
 
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "ระบุว่าว่าง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "เช้า"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "แผนใหม่"
+
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "บันทึก"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
+
 #: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
 msgstr "แชร์ลิงก์"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "วันนี้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "พรุ่งนี้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "คุณอยากเล่นเมื่อไหร่?"
 
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:209

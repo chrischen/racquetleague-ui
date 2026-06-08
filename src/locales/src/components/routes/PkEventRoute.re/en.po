@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:831
+#: src/components/pages/PkEventPage.re.mjs:838
 msgid "Event not found"
 msgstr ""
 
@@ -284,7 +284,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr ""
 
@@ -338,7 +338,7 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr ""
 
@@ -424,12 +424,12 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refreshing…"
 msgstr ""
 
@@ -562,7 +562,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr ""
 

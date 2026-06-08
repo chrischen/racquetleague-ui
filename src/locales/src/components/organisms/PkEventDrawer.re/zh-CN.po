@@ -1,0 +1,590 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/PkEventPage.re.mjs:323
+msgid "...more"
+msgstr "...更多"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:444
+msgid "· {0} pending"
+msgstr "· {0} 待处理"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+msgid "· +{0} waitlist"
+msgstr "· +{0} 候补"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:439
+msgid "{0} joined"
+msgstr "{0} 已参加"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:505
+msgid "♂/♀ SKILL"
+msgstr "♂/♀ 技术"
+
+#: src/components/organisms/PkEventMessages.re.mjs:146
+msgid "Activity"
+msgstr "活动"
+
+#: src/components/organisms/PkEventMessages.re.mjs:433
+msgid "Add a message..."
+msgstr "添加消息..."
+
+#: src/components/atoms/EventTag.re.mjs:38
+msgid "Advanced players"
+msgstr "高级球员"
+
+#: src/components/organisms/RsvpOptions.re.mjs:164
+msgid "Approve RSVP"
+msgstr "批准报名"
+
+#: src/components/organisms/RsvpOptions.re.mjs:253
+msgid "Are you sure you want to remove this person from the event?"
+msgstr "您确定要将这个人从活动中移除吗？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/StripePaymentEmbed.tsx:92
+msgid "Authorize deposit"
+msgstr "授权押金"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:214
+msgid "balanced"
+msgstr "平衡"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:55
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/pages/PkEventPage.re.mjs:512
+msgid "cancel event"
+msgstr "取消活动"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancel RSVP"
+msgstr "取消报名"
+
+#: src/components/pages/PkEventPage.re.mjs:192
+msgid "CANCELED"
+msgstr "已取消"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:407
+msgid "Cancellation deadline"
+msgstr "取消截止时间"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:415
+msgid "Cancellation deadline passed."
+msgstr "取消截止日期已过。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:305
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "取消截止日期已过。请在此页面联系组织者取消。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Cancelling..."
+msgstr "取消中..."
+
+#: src/components/pages/PkEventPage.re.mjs:483
+msgid "Cannot access variable \\\"title\\\""
+msgstr "无法访问变量 \\\"title\\\""
+
+#: src/components/organisms/RsvpOptions.re.mjs:198
+msgid "Capture payment"
+msgstr "收取付款"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:433
+#: src/components/organisms/EventStickyFooter.re.mjs:555
+msgid "Claim spot"
+msgstr "报名参加"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:429
+msgid "Claim spot · {0}"
+msgstr "占位 · {0}"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:92
+msgid "Complete payment"
+msgstr "完成付款"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+msgid "Complete your profile"
+msgstr "完善个人资料"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:589
+msgid "Confirmed · {0}"
+msgstr "已确认 · {0}"
+
+#: src/components/pages/PkEventPage.re.mjs:227
+msgid "Copied!"
+msgstr "已复制！"
+
+#: src/components/organisms/MatchCard.re.mjs:387
+msgid "Court {0}"
+msgstr "场地 {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:132
+msgid "Court {0} - Editing"
+msgstr "场地 {0} - 编辑中"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+msgid "Courts:"
+msgstr "场地数："
+
+#: src/components/organisms/MatchCardEdit.re.mjs:142
+#: src/components/organisms/MatchCard.re.mjs:428
+msgid "Delete match"
+msgstr "删除比赛"
+
+#: src/components/organisms/MatchCard.re.mjs:432
+msgid "Delete this match?"
+msgstr "删除这场比赛？"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Deposit required to confirm your spot"
+msgstr "需支付定金以确认您的名额"
+
+#: src/components/organisms/ProfileModal.re.mjs:358
+msgid "Display name"
+msgstr "显示名称"
+
+#: src/components/organisms/ProfileModal.re.mjs:106
+msgid "Display name is required"
+msgstr "请输入显示名称"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:479
+#: src/components/organisms/PkRSVPSection.re.mjs:496
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/PkEventPage.re.mjs:495
+msgid "edit event"
+msgstr "编辑活动"
+
+#: src/components/organisms/MatchCard.re.mjs:441
+msgid "Edit match"
+msgstr "编辑比赛"
+
+#: src/components/organisms/ProfileModal.re.mjs:375
+msgid "Email address"
+msgstr "电子邮件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:226
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
+"件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "Email cannot be changed"
+msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Email is required"
+msgstr "请输入电子邮件"
+
+#: src/components/organisms/ScoreModal.re.mjs:77
+msgid "Enter Match Score"
+msgstr "输入比赛比分"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:210
+msgid "even"
+msgstr "均衡"
+
+#: src/components/pages/PkEventPage.re.mjs:800
+msgid "Event not found"
+msgstr "找不到活动"
+
+#: src/components/atoms/EventTag.re.mjs:56
+msgid "Event tag: {tag}"
+msgstr "活动标签：{tag}"
+
+#: src/components/organisms/PkEventMessages.re.mjs:294
+msgid "Event updated"
+msgstr "活动已更新"
+
+#: src/components/organisms/ProfileModal.re.mjs:405
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "For event updates and notifications"
+msgstr "用于活动更新和通知"
+
+#: src/components/pages/PkEventPage.re.mjs:275
+msgid "Free"
+msgstr "免费"
+
+#: src/components/organisms/ProfileModal.re.mjs:391
+msgid "Gender"
+msgstr "性别"
+
+#: src/components/atoms/EventTag.re.mjs:40
+msgid "Highly skilled players"
+msgstr "高技能球员"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:555
+msgid "Join waitlist"
+msgstr "加入候补名单"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:426
+msgid "Join waitlist (#{0})"
+msgstr "加入候补名单 (#{0})"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Last Round"
+msgstr "上一轮"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:508
+msgid "Leave event"
+msgstr "退出活动"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:380
+msgid "Leave waitlist"
+msgstr "退出候补名单"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:379
+msgid "Leaving..."
+msgstr "离开中..."
+
+#: src/components/pages/PkEventPage.re.mjs:323
+msgid "less"
+msgstr "收起"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:169
+msgid "Loading..."
+msgstr "加载中..."
+
+#: src/components/pages/PkEventPage.re.mjs:305
+msgid "Location"
+msgstr "地点"
+
+#: src/components/organisms/ScoreModal.re.mjs:165
+msgid "Losing Team (Team {0})"
+msgstr "输球队（队伍 {0}）"
+
+#: src/components/atoms/EventTag.re.mjs:34
+msgid "Lower intermediate and above"
+msgstr "中级初级及以上"
+
+#: src/components/organisms/ProfileModal.re.mjs:401
+msgid "Male"
+msgstr "男性"
+
+#: src/components/atoms/EventTag.re.mjs:50
+msgid "Matches will be submitted to DUPR."
+msgstr "比赛结果将提交至 DUPR。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:488
+msgid "MEDIAN"
+msgstr "中位数"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:217
+msgid "mixed"
+msgstr "混合"
+
+#: src/components/organisms/RsvpOptions.re.mjs:174
+#: src/components/organisms/RsvpOptions.re.mjs:268
+msgid "Move to Pending List"
+msgstr "移至待审核列表"
+
+#: src/components/atoms/EventTag.re.mjs:44
+msgid "No restriction on skill level. Open to all players."
+msgstr "没有技能等级限制。对所有球员开放。"
+
+#: src/components/organisms/ScoreModal.re.mjs:236
+msgid "No Score"
+msgstr "无比分"
+
+#: src/components/pages/PkEventPage.re.mjs:643
+msgid "Notes from the host"
+msgstr "主持人的备注"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "On waitlist"
+msgstr "候补中"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:409
+msgid "Participants"
+msgstr "参与者"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:177
+msgid "Pay {priceStr}"
+msgstr "支付 {priceStr}"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:62
+msgid "Pay now"
+msgstr "立即付款"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment authorized"
+msgstr "付款已授权"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:73
+msgid "Payment captured"
+msgstr "付款已完成"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:35
+msgid "Payment failed"
+msgstr "付款失败"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:187
+msgid "Payment required to confirm your spot"
+msgstr "需完成付款以确认您的名额"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:720
+msgid "Pending · {0}"
+msgstr "待处理 · {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:259
+msgid "Pending approval"
+msgstr "待审批"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+msgid "Prefer not to say"
+msgstr "不愿透露"
+
+#: src/components/atoms/EventTag.re.mjs:89
+#: src/components/atoms/EventTag.re.mjs:91
+msgid "Private"
+msgstr "非公开"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:62
+msgid "Processing…"
+msgstr "处理中…"
+
+#: src/components/atoms/EventTag.re.mjs:42
+msgid "Professional players"
+msgstr "职业球员"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Pull to refresh"
+msgstr "下拉刷新"
+
+#: src/components/atoms/EventTag.re.mjs:74
+#: src/components/atoms/EventTag.re.mjs:76
+msgid "Rated"
+msgstr "计分赛"
+
+#: src/components/organisms/MatchCard.re.mjs:395
+msgid "Rebalance match"
+msgstr "重新平衡比赛"
+
+#: src/components/atoms/EventTag.re.mjs:52
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
+
+#: src/components/pages/PkEventPage.re.mjs:609
+msgid "Refresh event details"
+msgstr "刷新赛事详情"
+
+#: src/components/shared/PullToRefresh.re.mjs:243
+#: src/components/pages/PkEventPage.re.mjs:609
+msgid "Refreshing…"
+msgstr "刷新中…"
+
+#: src/components/organisms/RsvpOptions.re.mjs:190
+msgid "Refund payment"
+msgstr "退款"
+
+#: src/components/shared/PullToRefresh.re.mjs:244
+msgid "Release to refresh"
+msgstr "释放即可刷新"
+
+#: src/components/organisms/RsvpOptions.re.mjs:212
+msgid "Remove from event"
+msgstr "从活动中移除"
+
+#: src/components/organisms/RsvpOptions.re.mjs:252
+msgid "Remove this RSVP"
+msgstr "移除此 RSVP"
+
+#: src/components/organisms/MatchCard.re.mjs:408
+msgid "Repeat"
+msgstr "重复"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:335
+msgid "Required: DUPR {minDuprStr}+"
+msgstr "需要: DUPR {minDuprStr}以上"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:356
+msgid "Requires DUPR {minDuprStr}+ to join"
+msgstr "参加需要 DUPR {minDuprStr}以上"
+
+#: src/components/atoms/EventTag.re.mjs:46
+msgid "Results will be submitted to competitive ratings."
+msgstr "比赛结果将提交至竞技评分系统。"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+msgid "Round {0}"
+msgstr "第 {0} 回合"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+msgid "Round Robin Draws"
+msgstr "循环赛抽签"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:153
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+msgid "Save & Join Event"
+msgstr "保存并参加活动"
+
+#: src/components/organisms/ScoreModal.re.mjs:244
+msgid "Save Score"
+msgstr "保存比分"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:180
+#: src/components/organisms/MatchCardEdit.re.mjs:217
+msgid "Score"
+msgstr "比分"
+
+#: src/components/pages/PkEventPage.re.mjs:227
+msgid "Share"
+msgstr "分享"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show all {0} items"
+msgstr "显示全部 {0} 条"
+
+#: src/components/organisms/PkEventMessages.re.mjs:421
+msgid "Show less"
+msgstr "收起"
+
+#: src/components/atoms/EventTag.re.mjs:48
+msgid "Skills practice and drills focused on technique improvement"
+msgstr "技能练习和专注于技术提高的训练"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:549
+msgid "SPREAD"
+msgstr "分布"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:173
+msgid "TEAM 1"
+msgstr "队伍 1"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:210
+msgid "TEAM 2"
+msgstr "队伍 2"
+
+#: src/components/organisms/MatchCard.re.mjs:433
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:509
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
+
+#: src/components/atoms/EventTag.re.mjs:54
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"此为仅限定金预授权——款项须在活动现场支付给组织者。预授权将在活动结束后解除。"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:98
+msgid ""
+"This is a deposit hold only. You still need to pay the organizer in full at "
+"the event. The hold will be released after the event."
+msgstr ""
+"此为仅限定金预授权。您仍需在活动现场向组织者全额付款。预授权将在活动结束后解"
+"除。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+msgid "This is how others will see you"
+msgstr "这是其他人会看到的名字"
+
+#: src/components/organisms/RsvpOptions.re.mjs:269
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
+"制其报名吗？"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:471
+msgid "TOP 6 AVG"
+msgstr "前6均值"
+
+#: src/components/pages/PkEventPage.re.mjs:501
+msgid "uncancel event"
+msgstr "取消取消活动"
+
+#: src/components/atoms/EventTag.re.mjs:36
+msgid "Upper intermediate and above"
+msgstr "中高级及以上"
+
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+msgid "View Full Draws"
+msgstr "查看完整抽签"
+
+#: src/components/organisms/RsvpOptions.re.mjs:239
+msgid "View Profile"
+msgstr "查看资料"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:198
+#: src/components/organisms/MatchCard.re.mjs:562
+#: src/components/organisms/MatchCard.re.mjs:569
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:655
+msgid "Waitlist · {0}"
+msgstr "候补名单 · {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:339
+msgid "We need a few details before you can join this event"
+msgstr "在您参加此活动之前，我们需要一些信息"
+
+#: src/components/organisms/ScoreModal.re.mjs:106
+msgid "Winning Team (Team {0})"
+msgstr "获胜队（队伍 {0}）"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:273
+msgid "Withdraw RSVP"
+msgstr "撤回报名"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:273
+msgid "Withdrawing..."
+msgstr "撤回中..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:361
+msgid "You're in"
+msgstr "已报名"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:339
+msgid ""
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"您的评分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}）低于最低标准。您将被放入待定名单。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:263
+msgid "Your RSVP is awaiting admin approval"
+msgstr "您的报名正在等待管理员审批"

@@ -69,6 +69,42 @@ function makeGuest(name) {
         };
 }
 
+function predictScoreDifferential(teams, maxScoreOpt) {
+  var maxScore = maxScoreOpt !== undefined ? maxScoreOpt : 21;
+  var wins = Openskill.predictWin(teams);
+  var p1 = wins[0];
+  var p2 = wins[1];
+  return (p1 - p2) * (maxScore * 0.5);
+}
+
+function predictWinnerScore(teams, loserScore, maxScoreOpt) {
+  var maxScore = maxScoreOpt !== undefined ? maxScoreOpt : 21;
+  var wins = Openskill.predictWin(teams);
+  var p1 = wins[0];
+  var p2 = wins[1];
+  var diff = Math.abs((p1 - p2) * (maxScore * 0.5));
+  var score = Math.max(loserScore + 1, loserScore + diff);
+  var confidence = Math.abs(p1 - p2);
+  return {
+          score: score,
+          confidence: confidence
+        };
+}
+
+function predictLoserScore(teams, winnerScore, maxScoreOpt) {
+  var maxScore = maxScoreOpt !== undefined ? maxScoreOpt : 21;
+  var wins = Openskill.predictWin(teams);
+  var p1 = wins[0];
+  var p2 = wins[1];
+  var diff = Math.abs((p1 - p2) * (maxScore * 0.5));
+  var score = Math.max(0, winnerScore - diff);
+  var confidence = Math.abs(p1 - p2);
+  return {
+          score: score,
+          confidence: confidence
+        };
+}
+
 function get_rating(t) {
   return t.mu;
 }
@@ -115,7 +151,10 @@ var Rating = {
   predictWin: Rating_predictWin,
   ordinal: Rating_ordinal,
   rate: Rating_rate,
-  decay_by_factor: decay_by_factor
+  decay_by_factor: decay_by_factor,
+  predictScoreDifferential: predictScoreDifferential,
+  predictWinnerScore: predictWinnerScore,
+  predictLoserScore: predictLoserScore
 };
 
 function makeDefaultRatingPlayer(name, gender, intId) {

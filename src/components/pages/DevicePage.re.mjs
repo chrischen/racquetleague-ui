@@ -55,6 +55,7 @@ function DevicePage(props) {
           return "Submitting";
         });
     try {
+      await fetch("/api/auth/device?user_code=" + userCode);
       var result = await authClient.device.approve({
             userCode: userCode
           });
@@ -98,6 +99,7 @@ function DevicePage(props) {
           return "Submitting";
         });
     try {
+      await fetch("/api/auth/device?user_code=" + userCode);
       var result = await authClient.device.deny({
             userCode: userCode
           });

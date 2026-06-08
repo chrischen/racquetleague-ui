@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 17:41+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
+msgid "Add time windows above"
+msgstr "在上方添加时间段"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:596
+msgid "Clear"
+msgstr "清除"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:766
+msgid "Let hosts schedule events when most of you are free"
+msgstr "让发起人在大多数人空闲时安排活动"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "保存中…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:550
+msgid "Schedule"
+msgstr "日程"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid ""
+"Set your availability for the next 2 weeks. Tap a day to add a time window, "
+"drag to move, grab the edges to resize."
+msgstr ""
+"设置未来两周的空闲时间。点击某天可添加时间段，拖动可移动，拖动边缘可调整大"
+"小。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:762
+msgid "Share with your club"
+msgstr "与你的俱乐部分享"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid ""
+"Tap an empty area of a day to add a window · drag to move · grab the edges "
+"to resize"
+msgstr "点击空白区域添加时间段 · 拖动可移动 · 拖动边缘可调整大小"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:572
+msgid "Weekday eves"
+msgstr "工作日傍晚"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:584
+msgid "Weekend morns"
+msgstr "周末上午"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:554
+msgid "When can you play?"
+msgstr "你什么时候有空打球？"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:700
+msgid "Your availability"
+msgstr "你的空闲时间"

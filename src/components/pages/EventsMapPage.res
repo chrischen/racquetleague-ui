@@ -2,13 +2,15 @@
 open Lingui.Util
 
 module EventsMapPageQuery = %relay(`
-  query EventsMapPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
+  query EventsMapPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!) {
     ...PkEventsListFragment @arguments(
       after: $after,
       first: $first,
       before: $before,
       afterDate: $afterDate,
-      filters: $filters
+      filters: $filters,
+      availabilityFromDate: $availabilityFromDate,
+      availabilityToDate: $availabilityToDate
     )
     events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {
       ...PinsMap_eventConnection

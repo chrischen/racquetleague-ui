@@ -14,7 +14,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as SwipeAction from "../molecules/SwipeAction.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
-import * as ProfileModal from "../organisms/ProfileModal.re.mjs";
+import * as ProfileModal from "./ProfileModal.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";

@@ -155,6 +155,14 @@ var CreditCard = {};
 
 var Printer = {};
 
+var CalendarRange = {};
+
+var Moon = {};
+
+var Repeat = {};
+
+var Sun = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -233,5 +241,9 @@ export {
   CheckCircle2 ,
   CreditCard ,
   Printer ,
+  CalendarRange ,
+  Moon ,
+  Repeat ,
+  Sun ,
 }
 /* No side effect */

@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · Ngày"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · Giờ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · Loại gì?"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "Buổi chiều"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "Bất kỳ lúc nào"
+
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "Tiếp tục"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr ""
+"Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
+"bạn chọn địa điểm và luật chơi."
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "Buổi tối"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "Tổ chức sự kiện"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "Đánh dấu rảnh"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "Buổi sáng"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "Kế hoạch mới"
+
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "Lưu"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr ""
+"Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
+
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "Hôm nay"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "Ngày mai"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "Bạn muốn chơi lúc nào?"

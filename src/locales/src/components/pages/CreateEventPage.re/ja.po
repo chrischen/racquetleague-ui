@@ -175,12 +175,12 @@ msgstr "この期限後、参加者はRSVPをキャンセルできません"
 msgid "Brief description of the club..."
 msgstr "クラブの簡単な説明..."
 
-#: src/components/pages/CreateEventPage.re.mjs:145
+#: src/components/pages/CreateEventPage.re.mjs:161
 msgid "Bulk create"
 msgstr "一括作成"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:134
+#: src/components/pages/CreateEventPage.re.mjs:150
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -241,7 +241,7 @@ msgid "Create Club"
 msgstr "クラブを作成"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389
-#: src/components/pages/CreateEventPage.re.mjs:140
+#: src/components/pages/CreateEventPage.re.mjs:156
 msgid "Create Event"
 msgstr "イベントを作成"
 
@@ -383,7 +383,7 @@ msgstr "AIに下記の詳細を入力してもらいましょう"
 msgid "List your event publicly to help fill open spots"
 msgstr "空き枠を埋めるためにイベントを公開する"
 
-#: src/components/pages/CreateEventPage.re.mjs:179
+#: src/components/pages/CreateEventPage.re.mjs:195
 msgid "Location"
 msgstr "場所"
 

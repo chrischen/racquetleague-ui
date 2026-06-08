@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr "...thêm"
 
@@ -25,8 +25,8 @@ msgstr "· {0} đang chờ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/pkuru/PkEventRow.re.mjs:738
-#: src/components/pkuru/PkEventRow.re.mjs:826
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[tiêu đề bị thiếu]"
 
@@ -38,8 +38,8 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -96,7 +96,7 @@ msgstr "cân bằng"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
@@ -104,7 +104,7 @@ msgstr "hủy sự kiện"
 msgid "Cancel RSVP"
 msgstr "Hủy đăng ký"
 
-#: src/components/pkuru/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "Đã hủy"
 
@@ -130,7 +130,7 @@ msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để
 msgid "Cancelling..."
 msgstr "Đang hủy..."
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr "Không thể truy cập biến \\\"title\\\""
 
@@ -201,7 +201,7 @@ msgstr "Cần có tên hiển thị"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -242,7 +242,7 @@ msgstr "đồng đều"
 msgid "event"
 msgstr "sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:800
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -275,7 +275,7 @@ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 msgid "Free"
 msgstr "Miễn phí"
 
-#: src/components/organisms/ClubEventsList.re.mjs:253
+#: src/components/organisms/ClubEventsList.re.mjs:261
 msgid "Friday"
 msgstr "Thứ Sáu"
 
@@ -291,7 +291,7 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "Người chơi trình độ cao"
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "Tham gia"
 
@@ -303,7 +303,7 @@ msgstr "Vào danh sách chờ"
 msgid "Join waitlist (#{0})"
 msgstr "Vào danh sách chờ (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr "Đã tham gia"
 
@@ -311,11 +311,11 @@ msgstr "Đã tham gia"
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/pkuru/PkEventRow.re.mjs:608
+#: src/components/organisms/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "Rời"
 
-#: src/components/pkuru/PkEventRow.re.mjs:1009
+#: src/components/organisms/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -329,7 +329,7 @@ msgstr "Rời danh sách chờ"
 msgid "Leaving..."
 msgstr "Đang rời..."
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr "thu gọn"
 
@@ -365,7 +365,7 @@ msgstr "TRUNG VỊ"
 msgid "mixed"
 msgstr "đa dạng"
 
-#: src/components/organisms/ClubEventsList.re.mjs:241
+#: src/components/organisms/ClubEventsList.re.mjs:249
 msgid "Monday"
 msgstr "Thứ Hai"
 
@@ -378,7 +378,7 @@ msgstr "thêm →"
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
-#: src/components/organisms/ClubEventsList.re.mjs:262
+#: src/components/organisms/ClubEventsList.re.mjs:270
 msgid "Next {dayName}"
 msgstr "{dayName} tới"
 
@@ -390,7 +390,7 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
@@ -426,7 +426,7 @@ msgstr "Thanh toán thất bại"
 msgid "Payment required to confirm your spot"
 msgstr "Cần thanh toán để xác nhận chỗ của bạn"
 
-#: src/components/pkuru/PkEventRow.re.mjs:279
+#: src/components/organisms/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "Đang chờ"
 
@@ -438,13 +438,13 @@ msgstr "Đang chờ · {0}"
 msgid "Pending approval"
 msgstr "Chờ phê duyệt"
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
 msgid "player"
 msgstr "người chơi"
 
-#: src/components/pkuru/PkEventRow.re.mjs:151
-#: src/components/pkuru/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
 msgid "players"
 msgstr "người chơi"
 
@@ -487,12 +487,12 @@ msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 msgid "Refresh"
 msgstr "Làm mới"
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr "Làm mới chi tiết sự kiện"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "Đang làm mới…"
@@ -537,7 +537,7 @@ msgstr "Vòng {0}"
 msgid "Round Robin Draws"
 msgstr "Bốc thăm Round Robin"
 
-#: src/components/organisms/ClubEventsList.re.mjs:256
+#: src/components/organisms/ClubEventsList.re.mjs:264
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
@@ -582,7 +582,7 @@ msgstr "SẮP XẾP THEO GIỜ BẮT ĐẦU"
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
-#: src/components/organisms/ClubEventsList.re.mjs:238
+#: src/components/organisms/ClubEventsList.re.mjs:246
 msgid "Sunday"
 msgstr "Chủ Nhật"
 
@@ -606,7 +606,7 @@ msgstr ""
 "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
 
-#: src/components/pkuru/PkEventRow.re.mjs:1010
+#: src/components/organisms/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -651,17 +651,17 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/ClubEventsList.re.mjs:250
+#: src/components/organisms/ClubEventsList.re.mjs:258
 msgid "Thursday"
 msgstr "Thứ Năm"
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/ClubEventsList.re.mjs:221
+#: src/components/organisms/ClubEventsList.re.mjs:229
 msgid "Today"
 msgstr "Hôm nay"
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/ClubEventsList.re.mjs:227
+#: src/components/organisms/ClubEventsList.re.mjs:235
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
@@ -669,11 +669,11 @@ msgstr "Ngày mai"
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
-#: src/components/organisms/ClubEventsList.re.mjs:244
+#: src/components/organisms/ClubEventsList.re.mjs:252
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 
@@ -695,7 +695,7 @@ msgstr "Xem hồ sơ"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
@@ -703,7 +703,7 @@ msgstr "Danh sách chờ"
 msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr "Đã vào danh sách chờ"
 
@@ -712,7 +712,7 @@ msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
-#: src/components/organisms/ClubEventsList.re.mjs:247
+#: src/components/organisms/ClubEventsList.re.mjs:255
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
@@ -732,7 +732,7 @@ msgstr "Hủy RSVP"
 msgid "Withdrawing..."
 msgstr "Đang hủy..."
 
-#: src/components/organisms/ClubEventsList.re.mjs:261
+#: src/components/organisms/ClubEventsList.re.mjs:269
 msgid "Yesterday"
 msgstr "Hôm qua"
 

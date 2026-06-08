@@ -7,6 +7,10 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 @module("../../entry/auth-client")
 external authClient: BetterAuth.authClient = "authClient"
 
+// Calls GET /api/auth/device?user_code=... to claim the device code with the
+// current session. The plugin has no JS method for this endpoint; use fetch.
+@val external fetch: string => promise<'a> = "fetch"
+
 // Status of the user-code approval flow.
 type status =
   | Idle
@@ -57,6 +61,9 @@ let make = () => {
     } else {
       setStatus(_ => Submitting)
       try {
+        // Claim the device code with the current session before approving.
+        // The approve endpoint requires this claim first.
+        let _ = await fetch("/api/auth/device?user_code=" ++ userCode)
         let result = await authClient.device.approve({userCode: userCode})
         switch result.error->Js.Null.toOption {
         | None => setStatus(_ => Approved)
@@ -77,6 +84,8 @@ let make = () => {
     } else {
       setStatus(_ => Submitting)
       try {
+        // Claim the device code with the current session before denying.
+        let _ = await fetch("/api/auth/device?user_code=" ++ userCode)
         let result = await authClient.device.deny({userCode: userCode})
         switch result.error->Js.Null.toOption {
         | None => setStatus(_ => Denied)

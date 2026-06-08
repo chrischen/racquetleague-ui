@@ -70,8 +70,24 @@ msgstr ""
 #~ msgid "🚫 CANCELED"
 #~ msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:68
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr ""
+
+#: src/components/organisms/AddEventButton.re.mjs:160
 msgid "Add an Event"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
@@ -81,6 +97,10 @@ msgstr ""
 #: src/components/organisms/AIAssistantModal.re.mjs:120
 #~ msgid "An error occurred. Please try again."
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:269
 #~ msgid "Ask"
@@ -110,8 +130,16 @@ msgstr ""
 msgid "Club not found"
 msgstr ""
 
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr ""
+
 #: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
@@ -135,6 +163,10 @@ msgstr ""
 #~ msgid "Error creating events. Please try again."
 #~ msgstr ""
 
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr ""
+
 #: src/components/molecules/AIResponseCard.re.mjs:36
 #~ msgid "Event Details"
 #~ msgstr ""
@@ -142,6 +174,14 @@ msgstr ""
 #: src/components/organisms/ClubEventsList.re.mjs:441
 #~ msgid "filtering by date"
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid "I can create events for you. Just give me your schedule."
@@ -172,6 +212,14 @@ msgstr ""
 #~ msgid "Location:"
 #~ msgstr ""
 
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:149
 #~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 #~ msgstr ""
@@ -179,6 +227,10 @@ msgstr ""
 #: src/components/organisms/AIAssistantModal.re.mjs:279
 #~ msgid "New"
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:272
 #~ msgid "pending"
@@ -195,6 +247,14 @@ msgstr ""
 #: src/components/organisms/AIAssistantModal.re.mjs:269
 #~ msgid "Reply"
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:399
 #~ msgid "share as text"
@@ -216,14 +276,34 @@ msgstr ""
 #~ msgid "Suggested Events"
 #~ msgstr ""
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:230
 #~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 #~ msgid "Title:"
 #~ msgstr ""
 
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr ""
+
 #: src/components/organisms/EventItem.re.mjs:266
 #~ msgid "waitlist"
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr ""

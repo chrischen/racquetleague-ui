@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 19:30+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
+msgid "Add time windows above"
+msgstr "上に時間枠を追加してください"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:222
+msgid ""
+"Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr ""
+"各日に時間枠を追加してください。ドラッグで移動、端をドラッグしてサイズ変更で"
+"きます。"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:298
+msgid "Clear"
+msgstr "クリア"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:370
+msgid ""
+"Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr ""
+"ウィンドウをドラッグして移動・端をドラッグしてサイズ変更・＋をタップして追加"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:436
+msgid "Let hosts schedule events when most of you are free"
+msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
+msgid "One-off"
+msgstr "単発"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Saving…"
+msgstr "保存中…"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:214
+msgid "Schedule"
+msgstr "スケジュール"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:432
+msgid "Share with your club"
+msgstr "クラブと共有"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "タップして時間枠を追加"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:274
+msgid "Weekday eves"
+msgstr "平日の夜"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:286
+msgid "Weekend morns"
+msgstr "週末の朝"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
+msgid "Weekly"
+msgstr "毎週"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:218
+msgid "When can you play?"
+msgstr "いつプレーできますか？"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:378
+msgid "Your availability"
+msgstr "あなたの空き時間"

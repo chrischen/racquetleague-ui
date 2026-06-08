@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr "...더 보기"
 
@@ -25,12 +25,18 @@ msgstr "· {0} 대기 중"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
-#: src/components/pkuru/PkEventRow.re.mjs:738
-#: src/components/pkuru/PkEventRow.re.mjs:826
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+#: src/components/molecules/PlayIntentRow.re.mjs:623
+msgid "· peak {0}–{1}"
+msgstr "· 피크 {0}–{1}"
+
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[제목 없음]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:147
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/organisms/PkEventsList.re.mjs:164
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -38,8 +44,38 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/molecules/PlayIntentRow.re.mjs:493
+msgid "{0} people"
+msgstr "{0}명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:621
+msgid "{0} people want to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:492
+msgid "{0} person"
+msgstr "{0}명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:620
+msgid "{0} person wants to play"
+msgstr "{0}명이 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:304
+#: src/components/molecules/PlayIntentRow.re.mjs:310
+#: src/components/molecules/PlayIntentRow.re.mjs:619
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -63,13 +99,17 @@ msgstr "종목"
 msgid "Add a message..."
 msgstr "메시지 추가..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:165
-msgid "Add to {0}"
-msgstr "{0}에 추가"
-
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "상급자"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:274
+msgid "Afternoon"
+msgstr "오후"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:262
+msgid "Anytime"
+msgstr "언제든지"
 
 #: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
@@ -96,7 +136,7 @@ msgstr "균형"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr "이벤트 취소"
 
@@ -104,7 +144,7 @@ msgstr "이벤트 취소"
 msgid "Cancel RSVP"
 msgstr "참가 취소"
 
-#: src/components/pkuru/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "취소됨"
 
@@ -131,7 +171,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
@@ -202,7 +242,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -238,12 +278,16 @@ msgstr "경기 점수 입력"
 msgid "even"
 msgstr "균등"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:280
+msgid "Evening"
+msgstr "저녁"
+
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/pkuru/PkEventsList.re.mjs:150
+#: src/components/organisms/PkEventsList.re.mjs:167
 msgid "event"
 msgstr "이벤트"
 
-#: src/components/pages/PkEventPage.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:800
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -256,7 +300,7 @@ msgid "Event updated"
 msgstr "이벤트가 업데이트되었습니다"
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/pkuru/PkEventsList.re.mjs:151
+#: src/components/organisms/PkEventsList.re.mjs:168
 msgid "events"
 msgstr "이벤트"
 
@@ -276,7 +320,7 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Free"
 msgstr "무료"
 
-#: src/components/pkuru/PkEventsList.re.mjs:314
+#: src/components/organisms/PkEventsList.re.mjs:378
 msgid "Friday"
 msgstr "금요일"
 
@@ -292,7 +336,15 @@ msgstr "Google 캘린더"
 msgid "Highly skilled players"
 msgstr "고급 플레이어"
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Host an event at this time"
+msgstr "이 시간에 이벤트 주최하기"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:547
+msgid "Host event"
+msgstr "이벤트 주최"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "참가"
 
@@ -304,7 +356,7 @@ msgstr "대기자 명단 등록"
 msgid "Join waitlist (#{0})"
 msgstr "대기자 명단 등록 (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr "참가함"
 
@@ -312,11 +364,11 @@ msgstr "참가함"
 msgid "Last Round"
 msgstr "지난 라운드"
 
-#: src/components/pkuru/PkEventRow.re.mjs:608
+#: src/components/organisms/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "나가기"
 
-#: src/components/pkuru/PkEventRow.re.mjs:1009
+#: src/components/organisms/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -330,7 +382,7 @@ msgstr "대기 명단에서 나가기"
 msgid "Leaving..."
 msgstr "나가는 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr "간략히"
 
@@ -354,6 +406,10 @@ msgstr "중하급 이상"
 msgid "Male"
 msgstr "남성"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:566
+msgid "Mark available"
+msgstr "가능 표시"
+
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "경기 결과가 DUPR에 제출됩니다."
@@ -366,7 +422,7 @@ msgstr "중간값"
 msgid "mixed"
 msgstr "혼합"
 
-#: src/components/pkuru/PkEventsList.re.mjs:302
+#: src/components/organisms/PkEventsList.re.mjs:366
 msgid "Monday"
 msgstr "월요일"
 
@@ -374,12 +430,16 @@ msgstr "월요일"
 msgid "more →"
 msgstr "더 보기 →"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:268
+msgid "Morning"
+msgstr "오전"
+
 #: src/components/organisms/RsvpOptions.re.mjs:174
 #: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/pkuru/PkEventsList.re.mjs:323
+#: src/components/organisms/PkEventsList.re.mjs:387
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
@@ -391,13 +451,21 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
 msgstr "대기 중"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "명"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "명"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:409
 msgid "Participants"
@@ -427,7 +495,7 @@ msgstr "결제 실패"
 msgid "Payment required to confirm your spot"
 msgstr "자리 확정을 위해 결제가 필요합니다"
 
-#: src/components/pkuru/PkEventRow.re.mjs:279
+#: src/components/organisms/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "대기 중"
 
@@ -439,13 +507,21 @@ msgstr "대기 중 · {0}"
 msgid "Pending approval"
 msgstr "승인 대기 중"
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Pick one time window to host an event"
+msgstr "이벤트를 주최할 시간대를 선택하세요"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:291
+msgid "Play today"
+msgstr "오늘 플레이"
+
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
 msgid "player"
 msgstr "플레이어"
 
-#: src/components/pkuru/PkEventRow.re.mjs:151
-#: src/components/pkuru/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
 msgid "players"
 msgstr "플레이어"
 
@@ -488,12 +564,12 @@ msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 �
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr "이벤트 세부 정보 새로 고침"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "새로 고침 중…"
@@ -505,6 +581,10 @@ msgstr "결제 환불"
 #: src/components/shared/PullToRefresh.re.mjs:244
 msgid "Release to refresh"
 msgstr "놓아서 새로 고침"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:526
+msgid "Remove all"
+msgstr "모두 삭제"
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -538,7 +618,7 @@ msgstr "라운드 {0}"
 msgid "Round Robin Draws"
 msgstr "라운드 로빈 대진"
 
-#: src/components/pkuru/PkEventsList.re.mjs:317
+#: src/components/organisms/PkEventsList.re.mjs:381
 msgid "Saturday"
 msgstr "토요일"
 
@@ -563,7 +643,7 @@ msgstr "점수"
 msgid "Share"
 msgstr "공유"
 
-#: src/components/pkuru/PkEventsList.re.mjs:215
+#: src/components/organisms/PkEventsList.re.mjs:241
 msgid "Show {0} more"
 msgstr "{0}개 더 보기"
 
@@ -587,13 +667,17 @@ msgstr "시작 시간 순 정렬"
 msgid "SPREAD"
 msgstr "분산"
 
-#: src/components/pkuru/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:363
 msgid "Sunday"
 msgstr "일요일"
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "캘린더 동기화"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "아무 곳이나 탭하여 시간 창 추가"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:173
 msgid "TEAM 1"
@@ -611,7 +695,7 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/pkuru/PkEventRow.re.mjs:1010
+#: src/components/organisms/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -654,17 +738,17 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/pkuru/PkEventsList.re.mjs:311
+#: src/components/organisms/PkEventsList.re.mjs:375
 msgid "Thursday"
 msgstr "목요일"
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/pkuru/PkEventsList.re.mjs:282
+#: src/components/organisms/PkEventsList.re.mjs:346
 msgid "Today"
 msgstr "오늘"
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/pkuru/PkEventsList.re.mjs:288
+#: src/components/organisms/PkEventsList.re.mjs:352
 msgid "Tomorrow"
 msgstr "내일"
 
@@ -672,11 +756,11 @@ msgstr "내일"
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/pkuru/PkEventsList.re.mjs:305
+#: src/components/organisms/PkEventsList.re.mjs:369
 msgid "Tuesday"
 msgstr "화요일"
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 
@@ -698,7 +782,7 @@ msgstr "프로필 보기"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "대기자 명단"
 
@@ -706,7 +790,7 @@ msgstr "대기자 명단"
 msgid "Waitlist · {0}"
 msgstr "대기자 명단 · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr "대기자 명단 등록됨"
 
@@ -714,13 +798,17 @@ msgstr "대기자 명단 등록됨"
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
-#: src/components/pkuru/PkEventsList.re.mjs:308
+#: src/components/organisms/PkEventsList.re.mjs:372
 msgid "Wednesday"
 msgstr "수요일"
 
 #: src/components/shared/EventsListView.re.mjs:91
 msgid "Weekend"
 msgstr "주말"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:403
+msgid "When can you play {dayWord}?"
+msgstr "{dayWord}에 언제 플레이할 수 있나요?"
 
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
@@ -734,9 +822,25 @@ msgstr "참가 취소"
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:322
+#: src/components/organisms/PkEventsList.re.mjs:386
 msgid "Yesterday"
 msgstr "어제"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "나 포함 {0}{othersWord} 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:601
+msgid "You want to play {dayWord}"
+msgstr "{dayWord}에 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "참여 가능"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "플레이 가능합니다"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "You're in"
@@ -754,9 +858,21 @@ msgstr ""
 msgid "Your RSVP is awaiting admin approval"
 msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+#~ msgid "· plan your time"
+#~ msgstr "· 시간을 계획하세요"
+
 #: src/components/pkuru/PkEventsList.re.mjs:192
 #~ msgid "{0} {hiddenDesc} hidden — show"
 #~ msgstr "{0} {hiddenDesc} 숨김 — 표시"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+#~ msgid "{0} other wants to play {dayWord}"
+#~ msgstr "{0}명이 {dayWord} 플레이를 원합니다"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+#~ msgid "{0} others want to play {dayWord}"
+#~ msgstr "{0}명이 {dayWord} 플레이를 원합니다"
 
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
@@ -771,6 +887,10 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ "A small hold will be placed on your card and fully refunded after the "
 #~ "event."
 #~ msgstr "카드에 소액이 임시 청구되며 이벤트 종료 후 전액 환불됩니다."
+
+#: src/components/organisms/PkEventsList.re.mjs:243
+#~ msgid "Add to {0}"
+#~ msgstr "{0}에 추가"
 
 #: src/components/pages/PkEventPage.re.mjs:379
 #~ msgid "Cancellation deadline passed"
@@ -791,6 +911,10 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgid "Pay {0}"
 #~ msgstr "{0} 결제"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+#~ msgid "Pick time →"
+#~ msgstr "시간 선택 →"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:182
 #~ msgid "Release spot"
 #~ msgstr "참가 취소"
@@ -802,6 +926,21 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 #~ msgid "Spot held — pay to confirm"
 #~ msgstr "자리 확보됨 — 결제하여 확정하세요"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+#~ msgid "Want to play {dayWord}? Mark yourself available or host an event."
+#~ msgstr ""
+#~ "{dayWord}에 플레이하고 싶으신가요? 가능 여부를 표시하거나 이벤트를 주최하"
+#~ "세요."
+
+#: src/components/organisms/PkEventsList.re.mjs:224
+#~ msgid "When can you play?"
+#~ msgstr "언제 플레이할 수 있나요?"
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "내 가능 시간"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

@@ -13,9 +13,9 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
-import * as LucideReact from "lucide-react";
 import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
+import * as PlayIntentRow from "../molecules/PlayIntentRow.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -79,6 +79,9 @@ function ts(prim0, prim1) {
 }
 
 function PkEventsList$Day(props) {
+  var onAvailabilityCommitted = props.onAvailabilityCommitted;
+  var userDays = props.userDays;
+  var activityId = props.activityId;
   var onHoverLocation = props.onHoverLocation;
   var onEventClick = props.onEventClick;
   var query = props.query;
@@ -91,11 +94,23 @@ function PkEventsList$Day(props) {
   var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
   var d = (date.getDate() | 0).toString().padStart(2, "0");
   var isoDate = y + "-" + m + "-" + d;
+  var navigate = LangProvider.Router.useNavigate();
   var match = React.useState(function () {
         return false;
       });
   var setShowShadow = match[1];
   var showShadow = match[0];
+  ReactRouterDom.useLocation();
+  var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
+              return v.user;
+            })));
+  var availabilityDay = Core__Option.map(Core__Option.flatMap(viewer, (function (v) {
+              return v.availability.find(function (d) {
+                          return d.localDate === isoDate;
+                        });
+            })), (function (d) {
+          return d.fragmentRefs;
+        }));
   var defaultHide = function (edge, _viewer) {
     return Core__Option.getOr(edge.shadow, false);
   };
@@ -129,46 +144,57 @@ function PkEventsList$Day(props) {
   };
   var hasHiddenPreview = totalHiddenCount > 0 && !showShadow;
   var previewHiddenEvent = Belt_Array.get(hiddenEvents, 0);
+  var handleSaveAvailability = function (_newIntents) {
+    
+  };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
+                  var renderHeader = function (trigger) {
+                    return JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsx("h3", {
+                                                children: label,
+                                                className: "font-semibold text-gray-900 dark:text-gray-100"
+                                              }),
+                                          JsxRuntime.jsx("span", {
+                                                children: dateDetails + " · " + events.filter(function (e) {
+                                                        return Core__Option.isNone(e.deleted);
+                                                      }).length.toString() + " " + plural(events.filter(function (e) {
+                                                          return Core__Option.isNone(e.deleted);
+                                                        }).length, {
+                                                      one: t`event`,
+                                                      other: t`events`
+                                                    }),
+                                                className: "font-mono text-xs text-gray-400 dark:text-gray-500"
+                                              })
+                                        ],
+                                        className: "flex items-baseline gap-3"
+                                      }),
+                                  trigger
+                                ],
+                                className: "px-4 md:px-6 py-3 flex items-center justify-between"
+                              });
+                  };
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("h3", {
-                                                      children: label,
-                                                      className: "font-semibold text-gray-900 dark:text-gray-100"
-                                                    }),
-                                                JsxRuntime.jsx("span", {
-                                                      children: dateDetails + " · " + events.filter(function (e) {
-                                                              return Core__Option.isNone(e.deleted);
-                                                            }).length.toString() + " " + plural(events.filter(function (e) {
-                                                                return Core__Option.isNone(e.deleted);
-                                                              }).length, {
-                                                            one: t`event`,
-                                                            other: t`events`
-                                                          }),
-                                                      className: "font-mono text-xs text-gray-400 dark:text-gray-500"
-                                                    })
-                                              ],
-                                              className: "flex items-baseline gap-3"
-                                            }),
-                                        JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                              to: "/events/create?date=" + isoDate,
-                                              children: [
-                                                JsxRuntime.jsx(LucideReact.Plus, {
-                                                      size: 11
-                                                    }),
-                                                JsxRuntime.jsx("span", {
-                                                      children: t`Add to ${label.toLowerCase()}`
-                                                    })
-                                              ],
-                                              className: "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
-                                            })
-                                      ],
-                                      className: "px-4 md:px-6 py-3 flex items-center justify-between"
+                                JsxRuntime.jsx(React.Suspense, {
+                                      children: Caml_option.some(JsxRuntime.jsx(PlayIntentRow.make, {
+                                                localDate: isoDate,
+                                                dateGroup: label,
+                                                availabilityDay: availabilityDay,
+                                                activityId: activityId,
+                                                userDays: userDays,
+                                                onAvailabilityCommitted: onAvailabilityCommitted,
+                                                onChange: handleSaveAvailability,
+                                                onCreateEvent: (function () {
+                                                    navigate("/events/create?date=" + isoDate, undefined);
+                                                  }),
+                                                renderHeader: renderHeader,
+                                                isLoggedIn: isLoggedIn
+                                              })),
+                                      fallback: Caml_option.some(renderHeader(null))
                                     }),
                                 visibleEvents.map(function (edge, idx) {
                                       var waitlistCount = getWaitlistCount(edge);
@@ -238,6 +264,7 @@ var Day = {
 
 function PkEventsList(props) {
   var shouldHideEvent = props.shouldHideEvent;
+  var activityId = props.activityId;
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
   var match = usePagination(props.events);
@@ -269,6 +296,43 @@ function PkEventsList(props) {
   };
   var bucketSetup = EventsListUtils.makeBucketSetup();
   var intl = ReactIntl.useIntl();
+  var isoDateOf = function (date) {
+    var y = (date.getFullYear() | 0).toString();
+    var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
+    var d = (date.getDate() | 0).toString().padStart(2, "0");
+    return y + "-" + m + "-" + d;
+  };
+  var allUserDays = data.availabilityUsersForDateRange.map(function (d) {
+        return {
+                id: d.id,
+                localDate: d.localDate,
+                user: Core__Option.map(d.user, (function (u) {
+                        return {
+                                id: u.id,
+                                lineUsername: u.lineUsername,
+                                picture: u.picture
+                              };
+                      })),
+                intervals: d.intervals.map(function (iv) {
+                      return {
+                              startHour: iv.startHour,
+                              endHour: iv.endHour
+                            };
+                    })
+              };
+      });
+  var onAvailabilityCommitted = function (updatedDay) {
+    var needsRefetch = updatedDay !== undefined ? !allUserDays.some(function (d) {
+            return d.id === updatedDay.id;
+          }) : true;
+    if (needsRefetch) {
+      refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (param) {
+              
+            }));
+      return ;
+    }
+    
+  };
   var formatDate = function (date) {
     return intl.formatDate(date, {
                 month: "short",
@@ -345,12 +409,30 @@ function PkEventsList(props) {
                           return ;
                         }
                         var match = getBucketMeta(key);
+                        var date = match[2];
+                        var isoDate = isoDateOf(date);
+                        var viewerUserId = Core__Option.map(Core__Option.flatMap(viewer, (function (v) {
+                                    return v.user;
+                                  })), (function (u) {
+                                return u.id;
+                              }));
+                        var userDaysForDate = allUserDays.filter(function (d) {
+                                return d.localDate === isoDate;
+                              }).filter(function (d) {
+                              if (viewerUserId !== undefined) {
+                                return Core__Option.getOr(Core__Option.map(d.user, (function (u) {
+                                                  return u.id;
+                                                })), "") !== viewerUserId;
+                              } else {
+                                return true;
+                              }
+                            });
                         return [
                                 key,
                                 JsxRuntime.jsx(PkEventsList$Day, {
                                       label: match[0],
                                       dateDetails: match[1],
-                                      date: match[2],
+                                      date: date,
                                       events: filteredEvents,
                                       viewer: viewer,
                                       query: data.fragmentRefs,
@@ -360,6 +442,9 @@ function PkEventsList(props) {
                                                   }), "/events/" + id);
                                         }),
                                       onHoverLocation: onHoverLocation,
+                                      activityId: activityId,
+                                      userDays: userDaysForDate,
+                                      onAvailabilityCommitted: onAvailabilityCommitted,
                                       shouldHideEvent: shouldHideEvent
                                     })
                               ];
@@ -383,7 +468,7 @@ function PkEventsList(props) {
         }));
   var onRefresh = function () {
     return new Promise((function (resolve, param) {
-                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
+                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
                           resolve();
                         }));
                 }));
@@ -415,10 +500,13 @@ function PkEventsList(props) {
             });
 }
 
+var defaultActivityId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
+
 var make = PkEventsList;
 
 export {
   Fragment ,
+  defaultActivityId ,
   ts ,
   Day ,
   make ,

@@ -13,6 +13,92 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/AddEventButton.re.mjs:68
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · 날짜"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · 시간"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · 종류"
+
+#: src/components/organisms/AddEventButton.re.mjs:160
 msgid "Add an Event"
 msgstr "이벤트 추가"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "오후"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "언제든지"
+
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "계속"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr ""
+"이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙"
+"은 직접 정합니다."
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "저녁"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "이벤트 주최"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "가능 표시"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "오전"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "새 계획"
+
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "저장"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "아무 곳이나 탭하여 시간 창 추가"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
+
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "오늘"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "내일"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "언제 플레이하고 싶으신가요?"

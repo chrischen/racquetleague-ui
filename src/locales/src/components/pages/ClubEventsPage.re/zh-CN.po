@@ -13,25 +13,109 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AddEventButton.re.mjs:68
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · 日期"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · 时间"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · 类型"
+
+#: src/components/organisms/AddEventButton.re.mjs:160
 msgid "Add an Event"
 msgstr "添加活动"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "下午"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "任意时间"
 
 #: src/components/pages/ClubEventsPage.re.mjs:128
 msgid "Club not found"
 msgstr "找不到俧乐部"
 
+#: src/components/organisms/NewPlanModal.re.mjs:404
+msgid "Continue"
+msgstr "继续"
+
 #: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Copied!"
 msgstr "已复制！"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr "在此时间创建一个托管活动，其他人可以加入，由你选择场地和规则。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "晚上"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "发起活动"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "发起活动需要恰好选择一个时间段——请选择一个。"
 
 #: src/components/pages/ClubEventsPage.re.mjs:121
 msgid "Loading events..."
 msgstr "正在加载活动..."
 
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "标记为空闲"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "上午"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "新计划"
+
+#: src/components/organisms/NewPlanModal.re.mjs:370
+msgid "Save"
+msgstr "保存"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "请选择恰好一个时间段来发起活动"
+
 #: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
 msgstr "分享链接"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "点击任意位置添加时间段"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr "告诉其他人你有空打球，时间重叠的玩家可以邀请你。"
+
+#: src/components/organisms/NewPlanModal.re.mjs:55
+msgid "Today"
+msgstr "今天"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+msgid "Tomorrow"
+msgstr "明天"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "你想什么时候打球？"
 
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:209

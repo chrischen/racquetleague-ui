@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr ""
 
@@ -25,12 +25,22 @@ msgstr ""
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:738
-#: src/components/pkuru/PkEventRow.re.mjs:826
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+#: src/components/molecules/PlayIntentRow.re.mjs:623
+msgid "· peak {0}–{1}"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+#~ msgid "· plan your time"
+#~ msgstr ""
+
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:147
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/organisms/PkEventsList.re.mjs:164
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
@@ -42,12 +52,50 @@ msgstr ""
 msgid "{0} joined"
 msgstr ""
 
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+#~ msgid "{0} other wants to play {dayWord}"
+#~ msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+#~ msgid "{0} others want to play {dayWord}"
+#~ msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:493
+msgid "{0} people"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:621
+msgid "{0} people want to play"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:492
+msgid "{0} person"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:620
+msgid "{0} person wants to play"
+msgstr ""
+
 #: src/components/pages/PkEventPage.re.mjs:380
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/molecules/PlayIntentRow.re.mjs:304
+#: src/components/molecules/PlayIntentRow.re.mjs:310
+#: src/components/molecules/PlayIntentRow.re.mjs:619
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -79,12 +127,20 @@ msgstr ""
 msgid "Add a message..."
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:165
-msgid "Add to {0}"
-msgstr ""
+#: src/components/organisms/PkEventsList.re.mjs:243
+#~ msgid "Add to {0}"
+#~ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:274
+msgid "Afternoon"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:262
+msgid "Anytime"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:30
@@ -112,7 +168,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr ""
 
@@ -120,7 +176,7 @@ msgstr ""
 msgid "Cancel RSVP"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr ""
 
@@ -149,7 +205,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -224,7 +280,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr ""
 
@@ -256,12 +312,16 @@ msgstr ""
 msgid "even"
 msgstr ""
 
+#: src/components/molecules/PlayIntentRow.re.mjs:280
+msgid "Evening"
+msgstr ""
+
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/pkuru/PkEventsList.re.mjs:150
+#: src/components/organisms/PkEventsList.re.mjs:167
 msgid "event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:800
 msgid "Event not found"
 msgstr ""
 
@@ -274,7 +334,7 @@ msgid "Event updated"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/pkuru/PkEventsList.re.mjs:151
+#: src/components/organisms/PkEventsList.re.mjs:168
 msgid "events"
 msgstr ""
 
@@ -294,7 +354,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:314
+#: src/components/organisms/PkEventsList.re.mjs:378
 msgid "Friday"
 msgstr ""
 
@@ -314,12 +374,20 @@ msgstr ""
 #~ msgid "Host"
 #~ msgstr ""
 
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Host an event at this time"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:547
+msgid "Host event"
+msgstr ""
+
 #: src/components/pages/PkEventPage.re.mjs:366
 #: src/components/pages/PkEventPage.re.mjs:368
 #~ msgid "hr"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr ""
 
@@ -331,7 +399,7 @@ msgstr ""
 msgid "Join waitlist (#{0})"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr ""
 
@@ -339,11 +407,11 @@ msgstr ""
 msgid "Last Round"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:608
+#: src/components/organisms/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:1009
+#: src/components/organisms/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -357,7 +425,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr ""
 
@@ -385,6 +453,10 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
+#: src/components/molecules/PlayIntentRow.re.mjs:566
+msgid "Mark available"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr ""
@@ -402,7 +474,7 @@ msgstr ""
 msgid "mixed"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:302
+#: src/components/organisms/PkEventsList.re.mjs:366
 msgid "Monday"
 msgstr ""
 
@@ -410,12 +482,16 @@ msgstr ""
 msgid "more →"
 msgstr ""
 
+#: src/components/molecules/PlayIntentRow.re.mjs:268
+msgid "Morning"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:174
 #: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:323
+#: src/components/organisms/PkEventsList.re.mjs:387
 msgid "Next {dayName}"
 msgstr ""
 
@@ -427,12 +503,20 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:409
@@ -467,7 +551,7 @@ msgstr ""
 msgid "Payment required to confirm your spot"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:279
+#: src/components/organisms/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr ""
 
@@ -479,8 +563,20 @@ msgstr ""
 msgid "Pending approval"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Pick one time window to host an event"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+#~ msgid "Pick time →"
+#~ msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:291
+msgid "Play today"
+msgstr ""
+
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
 msgid "player"
 msgstr ""
 
@@ -488,8 +584,8 @@ msgstr ""
 #~ msgid "Player"
 #~ msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:151
-#: src/components/pkuru/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
 msgid "players"
 msgstr ""
 
@@ -531,12 +627,12 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr ""
@@ -556,6 +652,10 @@ msgstr ""
 #: src/components/organisms/EventStickyFooter.re.mjs:182
 #~ msgid "Releasing..."
 #~ msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:526
+msgid "Remove all"
+msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -589,7 +689,7 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:317
+#: src/components/organisms/PkEventsList.re.mjs:381
 msgid "Saturday"
 msgstr ""
 
@@ -614,7 +714,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:215
+#: src/components/organisms/PkEventsList.re.mjs:241
 msgid "Show {0} more"
 msgstr ""
 
@@ -642,12 +742,16 @@ msgstr ""
 msgid "SPREAD"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:363
 msgid "Sunday"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:173
@@ -662,7 +766,7 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:1010
+#: src/components/organisms/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
@@ -687,17 +791,17 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:311
+#: src/components/organisms/PkEventsList.re.mjs:375
 msgid "Thursday"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/pkuru/PkEventsList.re.mjs:282
+#: src/components/organisms/PkEventsList.re.mjs:346
 msgid "Today"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/pkuru/PkEventsList.re.mjs:288
+#: src/components/organisms/PkEventsList.re.mjs:352
 msgid "Tomorrow"
 msgstr ""
 
@@ -705,11 +809,11 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:305
+#: src/components/organisms/PkEventsList.re.mjs:369
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr ""
 
@@ -731,7 +835,7 @@ msgstr ""
 msgid "VS"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr ""
 
@@ -739,21 +843,33 @@ msgstr ""
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/pkuru/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+#~ msgid "Want to play {dayWord}? Mark yourself available or host an event."
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:339
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:308
+#: src/components/organisms/PkEventsList.re.mjs:372
 msgid "Wednesday"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:91
 msgid "Weekend"
 msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:403
+msgid "When can you play {dayWord}?"
+msgstr ""
+
+#: src/components/organisms/PkEventsList.re.mjs:224
+#~ msgid "When can you play?"
+#~ msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
@@ -767,13 +883,33 @@ msgstr ""
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/pkuru/PkEventsList.re.mjs:322
+#: src/components/organisms/PkEventsList.re.mjs:386
 msgid "Yesterday"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:601
+msgid "You want to play {dayWord}"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
 msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "You're in"
 msgstr ""
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#~ msgid "Your availability for {0}"
+#~ msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:339
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."

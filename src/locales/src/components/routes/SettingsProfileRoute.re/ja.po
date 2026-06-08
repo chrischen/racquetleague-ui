@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:271
+#: src/components/shared/InstallPwa.re.mjs:282
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"ホーム画面に追加\\\""
 
@@ -21,7 +21,7 @@ msgstr "\\\"ホーム画面に追加\\\""
 msgid "Active"
 msgstr "有効"
 
-#: src/components/shared/InstallPwa.re.mjs:253
+#: src/components/shared/InstallPwa.re.mjs:264
 msgid "Add to Home Screen to enable notifications"
 msgstr "通知を有効にするにはホーム画面に追加してください"
 
@@ -90,7 +90,7 @@ msgstr "香港"
 msgid "How you appear to other players"
 msgstr "他のプレイヤーへの表示方法"
 
-#: src/components/shared/InstallPwa.re.mjs:263
+#: src/components/shared/InstallPwa.re.mjs:274
 msgid "in Safari's toolbar"
 msgstr "Safariのツールバー内"
 
@@ -122,7 +122,7 @@ msgstr ""
 "通知がブロックされています。有効にするには、デバイスまたはブラウザの設定でこ"
 "のサイトの通知を許可してください。"
 
-#: src/components/shared/InstallPwa.re.mjs:278
+#: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "ホーム画面からアプリを開き、通知を有効にしてください"
 
@@ -154,7 +154,7 @@ msgstr "登録を再開"
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
-#: src/components/shared/InstallPwa.re.mjs:269
+#: src/components/shared/InstallPwa.re.mjs:280
 msgid "Scroll down and tap"
 msgstr "下にスクロールしてタップ"
 
@@ -190,7 +190,7 @@ msgstr "Stripe Connect"
 msgid "Taiwan"
 msgstr "台湾"
 
-#: src/components/shared/InstallPwa.re.mjs:261
+#: src/components/shared/InstallPwa.re.mjs:272
 msgid "Tap the Share button"
 msgstr "共有ボタンをタップ"
 

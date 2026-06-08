@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr "...もっと見る"
 
@@ -66,7 +66,7 @@ msgstr "バランス"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr "変数 \\\"title\\\" にアクセスできません"
 
@@ -169,7 +169,7 @@ msgstr "表示名は必須です"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -205,8 +205,8 @@ msgstr "試合のスコアを入力"
 msgid "even"
 msgstr "均等"
 
-#: src/components/pages/PkEventPage.re.mjs:807
-#: src/components/pages/PkEventPage.re.mjs:831
+#: src/components/pages/PkEventPage.re.mjs:800
+#: src/components/pages/PkEventPage.re.mjs:838
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -263,7 +263,7 @@ msgstr "キャンセル待ちを取り消す"
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr "閉じる"
 
@@ -312,7 +312,7 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
@@ -391,12 +391,12 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr "イベント詳細を更新"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refreshing…"
 msgstr "更新中…"
 
@@ -539,7 +539,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 

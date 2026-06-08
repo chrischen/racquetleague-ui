@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:271
+#: src/components/shared/InstallPwa.re.mjs:282
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"添加到主屏幕\\\""
 
@@ -21,7 +21,7 @@ msgstr "\\\"添加到主屏幕\\\""
 msgid "Active"
 msgstr "进行中"
 
-#: src/components/shared/InstallPwa.re.mjs:253
+#: src/components/shared/InstallPwa.re.mjs:264
 msgid "Add to Home Screen to enable notifications"
 msgstr "添加到主屏幕以启用通知"
 
@@ -89,7 +89,7 @@ msgstr "香港"
 msgid "How you appear to other players"
 msgstr "您在其他球员面前的显示名称"
 
-#: src/components/shared/InstallPwa.re.mjs:263
+#: src/components/shared/InstallPwa.re.mjs:274
 msgid "in Safari's toolbar"
 msgstr "在 Safari 工具栏中"
 
@@ -119,7 +119,7 @@ msgid ""
 "settings and allow notifications for this site."
 msgstr "通知已被屏蔽。如需启用，请前往设备或浏览器设置，允许该网站发送通知。"
 
-#: src/components/shared/InstallPwa.re.mjs:278
+#: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "从主屏幕打开应用并启用通知"
 
@@ -149,7 +149,7 @@ msgstr "继续注册"
 msgid "Save profile"
 msgstr "保存个人资料"
 
-#: src/components/shared/InstallPwa.re.mjs:269
+#: src/components/shared/InstallPwa.re.mjs:280
 msgid "Scroll down and tap"
 msgstr "向下滚动并点击"
 
@@ -183,7 +183,7 @@ msgstr "Stripe Connect"
 msgid "Taiwan"
 msgstr "台湾"
 
-#: src/components/shared/InstallPwa.re.mjs:261
+#: src/components/shared/InstallPwa.re.mjs:272
 msgid "Tap the Share button"
 msgstr "点击分享按钮"
 

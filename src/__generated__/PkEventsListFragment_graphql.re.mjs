@@ -10,7 +10,7 @@ import * as PkEventsListRefetchQuery_graphql from "./PkEventsListRefetchQuery_gr
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"":{"f":""}}};
+var fragmentConverter = {"__root":{"viewer_user":{"f":""},"viewer_availability":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"":{"f":""}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -58,23 +58,40 @@ function makeNode(rescript_graphql_node_PkEventsListRefetchQuery) {
 var v0 = [
   "events"
 ],
-v1 = [
-  {
-    "kind": "Literal",
-    "name": "first",
-    "value": 100
-  }
-],
-v2 = {
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
+v2 = [
+  {
+    "kind": "Literal",
+    "name": "first",
+    "value": 100
+  }
+],
 v3 = [
-  (v2/*: any*/)
-];
+  (v1/*: any*/)
+],
+v4 = {
+  "kind": "Variable",
+  "name": "fromDate",
+  "variableName": "availabilityFromDate"
+},
+v5 = {
+  "kind": "Variable",
+  "name": "toDate",
+  "variableName": "availabilityToDate"
+},
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "localDate",
+  "storageKey": null
+};
 return {
   "argumentDefinitions": [
     {
@@ -86,6 +103,16 @@ return {
       "defaultValue": null,
       "kind": "LocalArgument",
       "name": "afterDate"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "availabilityFromDate"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "availabilityToDate"
     },
     {
       "defaultValue": null,
@@ -149,6 +176,7 @@ return {
           "name": "user",
           "plural": false,
           "selections": [
+            (v1/*: any*/),
             {
               "args": null,
               "kind": "FragmentSpread",
@@ -159,7 +187,7 @@ return {
         },
         {
           "alias": null,
-          "args": (v1/*: any*/),
+          "args": (v2/*: any*/),
           "concreteType": "ClubConnection",
           "kind": "LinkedField",
           "name": "clubs",
@@ -188,6 +216,105 @@ return {
             }
           ],
           "storageKey": "clubs(first:100)"
+        },
+        {
+          "alias": null,
+          "args": [
+            {
+              "kind": "Literal",
+              "name": "activityId",
+              "value": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+            },
+            (v4/*: any*/),
+            (v5/*: any*/)
+          ],
+          "concreteType": "AvailabilityDay",
+          "kind": "LinkedField",
+          "name": "availability",
+          "plural": true,
+          "selections": [
+            (v6/*: any*/),
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "PlayIntentRow_availabilityDay"
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": [
+        (v4/*: any*/),
+        {
+          "kind": "Literal",
+          "name": "scope",
+          "value": {
+            "activityId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          }
+        },
+        (v5/*: any*/)
+      ],
+      "concreteType": "AvailabilityDay",
+      "kind": "LinkedField",
+      "name": "availabilityUsersForDateRange",
+      "plural": true,
+      "selections": [
+        (v1/*: any*/),
+        (v6/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "User",
+          "kind": "LinkedField",
+          "name": "user",
+          "plural": false,
+          "selections": [
+            (v1/*: any*/),
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lineUsername",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "picture",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "AvailabilityInterval",
+          "kind": "LinkedField",
+          "name": "intervals",
+          "plural": true,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "startHour",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endHour",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
         }
       ],
       "storageKey": null
@@ -227,7 +354,7 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v2/*: any*/),
+                (v1/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -292,7 +419,7 @@ return {
                 },
                 {
                   "alias": null,
-                  "args": (v1/*: any*/),
+                  "args": (v2/*: any*/),
                   "concreteType": "EventRsvpConnection",
                   "kind": "LinkedField",
                   "name": "rsvps",
@@ -314,7 +441,7 @@ return {
                           "name": "node",
                           "plural": false,
                           "selections": [
-                            (v2/*: any*/),
+                            (v1/*: any*/),
                             {
                               "alias": null,
                               "args": null,

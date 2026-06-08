@@ -3669,7 +3669,251 @@ msgstr "Đang chuyển hướng đến trang đăng nhập…"
 msgid "Install Pkuru.com App"
 msgstr "Cài đặt ứng dụng Pkuru.com"
 
+#: src/components/organisms/NewPlanModal.re.mjs:232
+msgid "1 · Day"
+msgstr "1 · Ngày"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+msgid "2 · Time"
+msgstr "2 · Giờ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:334
+msgid "3 · What kind?"
+msgstr "3 · Loại gì?"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+msgid "Afternoon"
+msgstr "Buổi chiều"
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+msgid "Anytime"
+msgstr "Bất kỳ lúc nào"
+
+#: src/components/organisms/NewPlanModal.re.mjs:399
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+msgstr "Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, bạn chọn địa điểm và luật chơi."
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+msgid "Evening"
+msgstr "Buổi tối"
+
+#: src/components/organisms/NewPlanModal.re.mjs:392
+msgid "Host an event"
+msgstr "Tổ chức sự kiện"
+
+#: src/components/organisms/NewPlanModal.re.mjs:422
+msgid "Hosting an event needs exactly one time window — pick one."
+msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
+
+#: src/components/organisms/NewPlanModal.re.mjs:354
+msgid "Mark available"
+msgstr "Đánh dấu rảnh"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+msgid "Morning"
+msgstr "Buổi sáng"
+
+#: src/components/organisms/NewPlanModal.re.mjs:203
+msgid "New plan"
+msgstr "Kế hoạch mới"
+
+#: src/components/organisms/NewPlanModal.re.mjs:414
+msgid "Select exactly one time window to host an event"
+msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:361
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgstr "Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+msgid "When do you want to play?"
+msgstr "Bạn muốn chơi lúc nào?"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
+msgid "Add time windows above"
+msgstr "Thêm khung giờ ở trên"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:222
+msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "Thêm khung giờ cho mỗi ngày. Kéo để di chuyển, kéo cạnh để thay đổi kích thước."
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:298
+msgid "Clear"
+msgstr "Xóa"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:370
+msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "Kéo cửa sổ để di chuyển · kéo cạnh để thay đổi kích thước · nhấn + để thêm"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:436
+msgid "Let hosts schedule events when most of you are free"
+msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
+msgid "One-off"
+msgstr "Một lần"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
+msgid "Saving…"
+msgstr "Đang lưu…"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:214
+msgid "Schedule"
+msgstr "Lịch"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:432
+msgid "Share with your club"
+msgstr "Chia sẻ với câu lạc bộ của bạn"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:274
+msgid "Weekday eves"
+msgstr "Tối các ngày trong tuần"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:286
+msgid "Weekend morns"
+msgstr "Sáng cuối tuần"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
+msgid "Weekly"
+msgstr "Hàng tuần"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:218
+msgid "When can you play?"
+msgstr "Bạn có thể chơi lúc nào?"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:378
+msgid "Your availability"
+msgstr "Lịch rảnh của bạn"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:386
+#: src/components/molecules/PlayIntentRow.re.mjs:561
+#: src/components/molecules/PlayIntentRow.re.mjs:613
+msgid "· peak {0}–{1}"
+msgstr "· cao điểm {0}–{1}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+msgid "· plan your time"
+msgstr "· lên kế hoạch thời gian"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+msgid "{0} other wants to play {dayWord}"
+msgstr "{0} người khác muốn chơi {dayWord}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+msgid "{0} others want to play {dayWord}"
+msgstr "{0} người khác muốn chơi {dayWord}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:384
+msgid "{0} people"
+msgstr "{0} người"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:559
+msgid "{0} people want to play"
+msgstr "{0} người muốn chơi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:383
+msgid "{0} person"
+msgstr "{0} người"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:558
+msgid "{0} person wants to play"
+msgstr "{0} người muốn chơi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:557
+#: src/components/molecules/PlayIntentRow.re.mjs:605
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Host an event at this time"
+msgstr "Tổ chức sự kiện vào thời điểm này"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:486
+msgid "Host event"
+msgstr "Tổ chức sự kiện"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:489
+msgid "Pick one time window to host an event"
+msgstr "Chọn một khung giờ để tổ chức sự kiện"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+msgid "Pick time →"
+msgstr "Chọn giờ →"
+
+#: src/components/organisms/PkEventsList.re.mjs:183
+msgid "Play today"
+msgstr "Chơi hôm nay"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:465
+msgid "Remove all"
+msgstr "Xóa tất cả"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+msgid "Want to play {dayWord}? Mark yourself available or host an event."
+msgstr "Muốn chơi {dayWord}? Đánh dấu bạn sẵn sàng hoặc tổ chức sự kiện."
+
+#: src/components/molecules/PlayIntentRow.re.mjs:294
+msgid "When can you play {dayWord}?"
+msgstr "Bạn có thể chơi {dayWord} lúc nào?"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:539
+msgid "You want to play {dayWord}"
+msgstr "Bạn muốn chơi {dayWord}"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "Đang lưu…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
+msgstr "Đặt lịch rảnh cho 2 tuần tới. Nhấn vào một ngày để thêm khung giờ, kéo để di chuyển, kéo các cạnh để thay đổi kích thước."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
+msgstr "Nhấn vào vùng trống trong ngày để thêm khung giờ · kéo để di chuyển · kéo các cạnh để thay đổi kích thước"
+
+#: src/components/pages/PkuruLayout.re.mjs:137
+msgid "Availability"
+msgstr "Lịch rảnh"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0} người muốn chơi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0} người muốn chơi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "người khác"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "người khác"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "Bạn + {0} {othersWord} muốn chơi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "Bạn rảnh"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "Bạn có thể chơi"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
 #~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "Lịch rảnh của bạn"

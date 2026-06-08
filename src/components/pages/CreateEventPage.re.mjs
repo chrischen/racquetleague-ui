@@ -3,6 +3,7 @@
 import * as React from "react";
 import * as Router from "../shared/Router.re.mjs";
 import * as DateFns from "date-fns";
+import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -48,6 +49,8 @@ function CreateEventPage(props) {
   var clubIdParam = Router.SearchParams.get(params, "clubId");
   var activitySlugParam = Router.SearchParams.get(params, "activitySlug");
   var dateParam = Router.SearchParams.get(params, "date");
+  var startHourParam = Router.SearchParams.get(params, "startHour");
+  var endHourParam = Router.SearchParams.get(params, "endHour");
   var queryData = use({
         locationId: Core__Option.getOr(locationParam, "")
       }, undefined, undefined, undefined);
@@ -76,8 +79,18 @@ function CreateEventPage(props) {
   var setAiLocationAddress = match$4[1];
   var aiLocationAddress = match$4[0];
   var initialPrefilledValues = React.useMemo((function () {
+          var timeStr = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(startHourParam, (function (h) {
+                          return Core__Int.fromString(h, undefined);
+                        })), (function (h) {
+                      return "T" + h.toString().padStart(2, "0") + ":00";
+                    })), "T10:00");
           var startDate = Core__Option.map(dateParam, (function (isoDate) {
-                  return isoDate + "T10:00";
+                  return isoDate + timeStr;
+                }));
+          var endDate = Core__Option.map(Core__Option.flatMap(endHourParam, (function (h) {
+                      return Core__Int.fromString(h, undefined);
+                    })), (function (h) {
+                  return h.toString().padStart(2, "0") + ":00";
                 }));
           if (clubIdParam === undefined && activitySlugParam === undefined && startDate === undefined) {
             return ;
@@ -85,12 +98,15 @@ function CreateEventPage(props) {
           return {
                   activitySlug: activitySlugParam,
                   clubId: clubIdParam,
-                  startDate: startDate
+                  startDate: startDate,
+                  endDate: endDate
                 };
         }), [
         clubIdParam,
         activitySlugParam,
-        dateParam
+        dateParam,
+        startHourParam,
+        endHourParam
       ]);
   var handleSingleEventSuggested = function (eventDetails) {
     var startDate = new Date(eventDetails.date);

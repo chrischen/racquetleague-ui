@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "...more"
 msgstr "...もっと見る"
 
@@ -25,12 +25,18 @@ msgstr "· {0} 保留中"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/pkuru/PkEventRow.re.mjs:738
-#: src/components/pkuru/PkEventRow.re.mjs:826
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+#: src/components/molecules/PlayIntentRow.re.mjs:623
+msgid "· peak {0}–{1}"
+msgstr "· ピーク {0}–{1}"
+
+#: src/components/organisms/PkEventRow.re.mjs:738
+#: src/components/organisms/PkEventRow.re.mjs:826
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/pkuru/PkEventsList.re.mjs:147
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/organisms/PkEventsList.re.mjs:164
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -38,8 +44,38 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
-#: src/components/pkuru/PkEventRow.re.mjs:149
-#: src/components/pkuru/PkEventRow.re.mjs:206
+#: src/components/molecules/PlayIntentRow.re.mjs:493
+msgid "{0} people"
+msgstr "{0}人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0}人がプレーを希望中"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:621
+msgid "{0} people want to play"
+msgstr "{0}人がプレーしたがっています"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:492
+msgid "{0} person"
+msgstr "{0}人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0}人がプレーを希望中"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:620
+msgid "{0} person wants to play"
+msgstr "{0}人がプレーしたがっています"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:304
+#: src/components/molecules/PlayIntentRow.re.mjs:310
+#: src/components/molecules/PlayIntentRow.re.mjs:619
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -63,13 +99,17 @@ msgstr "アクティビティ"
 msgid "Add a message..."
 msgstr "メッセージを追加..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:165
-msgid "Add to {0}"
-msgstr "{0}に追加"
-
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "上級プレイヤー"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:274
+msgid "Afternoon"
+msgstr "午後"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:262
+msgid "Anytime"
+msgstr "いつでも"
 
 #: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
@@ -96,7 +136,7 @@ msgstr "バランス"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:518
+#: src/components/pages/PkEventPage.re.mjs:512
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -104,7 +144,7 @@ msgstr "イベントをキャンセル"
 msgid "Cancel RSVP"
 msgstr "参加をキャンセルする"
 
-#: src/components/pkuru/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:742
 msgid "Canceled"
 msgstr "キャンセル済み"
 
@@ -132,7 +172,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:489
+#: src/components/pages/PkEventPage.re.mjs:483
 msgid "Cannot access variable \\\"title\\\""
 msgstr "変数 \\\"title\\\" にアクセスできません"
 
@@ -203,7 +243,7 @@ msgstr "表示名は必須です"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:495
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -239,12 +279,16 @@ msgstr "試合のスコアを入力"
 msgid "even"
 msgstr "均等"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:280
+msgid "Evening"
+msgstr "夜"
+
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/pkuru/PkEventsList.re.mjs:150
+#: src/components/organisms/PkEventsList.re.mjs:167
 msgid "event"
 msgstr "イベント"
 
-#: src/components/pages/PkEventPage.re.mjs:807
+#: src/components/pages/PkEventPage.re.mjs:800
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -257,7 +301,7 @@ msgid "Event updated"
 msgstr "イベントを更新しました"
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/pkuru/PkEventsList.re.mjs:151
+#: src/components/organisms/PkEventsList.re.mjs:168
 msgid "events"
 msgstr "イベント"
 
@@ -277,7 +321,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/pkuru/PkEventsList.re.mjs:314
+#: src/components/organisms/PkEventsList.re.mjs:378
 msgid "Friday"
 msgstr "金曜日"
 
@@ -293,7 +337,15 @@ msgstr "Google カレンダー"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Host an event at this time"
+msgstr "この時間帯にイベントを主催する"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:547
+msgid "Host event"
+msgstr "イベントを主催"
+
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr "参加"
 
@@ -305,7 +357,7 @@ msgstr "キャンセル待ちに登録"
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
 
-#: src/components/pkuru/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:240
 msgid "Joined"
 msgstr "参加"
 
@@ -313,11 +365,11 @@ msgstr "参加"
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/pkuru/PkEventRow.re.mjs:608
+#: src/components/organisms/PkEventRow.re.mjs:608
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/pkuru/PkEventRow.re.mjs:1009
+#: src/components/organisms/PkEventRow.re.mjs:1009
 #: src/components/organisms/EventStickyFooter.re.mjs:380
 #: src/components/organisms/EventStickyFooter.re.mjs:508
 msgid "Leave event"
@@ -331,7 +383,7 @@ msgstr "キャンセル待ちを取り消す"
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:329
+#: src/components/pages/PkEventPage.re.mjs:323
 msgid "less"
 msgstr "閉じる"
 
@@ -355,6 +407,10 @@ msgstr "初中級以上"
 msgid "Male"
 msgstr "男性"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:566
+msgid "Mark available"
+msgstr "参加可能にする"
+
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
@@ -367,7 +423,7 @@ msgstr "中央値"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/pkuru/PkEventsList.re.mjs:302
+#: src/components/organisms/PkEventsList.re.mjs:366
 msgid "Monday"
 msgstr "月曜日"
 
@@ -375,12 +431,16 @@ msgstr "月曜日"
 msgid "more →"
 msgstr "もっと見る →"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:268
+msgid "Morning"
+msgstr "午前"
+
 #: src/components/organisms/RsvpOptions.re.mjs:174
 #: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/pkuru/PkEventsList.re.mjs:323
+#: src/components/organisms/PkEventsList.re.mjs:387
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -392,13 +452,21 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:650
+#: src/components/pages/PkEventPage.re.mjs:643
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
 msgstr "キャンセル待ち中"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "他の人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "他の人たち"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:409
 msgid "Participants"
@@ -428,7 +496,7 @@ msgstr "支払いに失敗しました"
 msgid "Payment required to confirm your spot"
 msgstr "スポットを確定するには支払いが必要です"
 
-#: src/components/pkuru/PkEventRow.re.mjs:279
+#: src/components/organisms/PkEventRow.re.mjs:279
 msgid "Pending"
 msgstr "保留中"
 
@@ -440,13 +508,21 @@ msgstr "保留中 · {0}"
 msgid "Pending approval"
 msgstr "承認待ち"
 
-#: src/components/pkuru/PkEventRow.re.mjs:150
-#: src/components/pkuru/PkEventRow.re.mjs:207
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Pick one time window to host an event"
+msgstr "イベントを主催する時間帯を選択"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:291
+msgid "Play today"
+msgstr "今日プレーする"
+
+#: src/components/organisms/PkEventRow.re.mjs:150
+#: src/components/organisms/PkEventRow.re.mjs:207
 msgid "player"
 msgstr "プレイヤー"
 
-#: src/components/pkuru/PkEventRow.re.mjs:151
-#: src/components/pkuru/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:151
+#: src/components/organisms/PkEventRow.re.mjs:208
 msgid "players"
 msgstr "プレイヤー"
 
@@ -489,12 +565,12 @@ msgstr "競技レーティングやDUPRに提出されないレクリエーシ�
 msgid "Refresh"
 msgstr "更新"
 
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 msgid "Refresh event details"
 msgstr "イベント詳細を更新"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:615
+#: src/components/pages/PkEventPage.re.mjs:609
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "更新中…"
@@ -506,6 +582,10 @@ msgstr "返金処理"
 #: src/components/shared/PullToRefresh.re.mjs:244
 msgid "Release to refresh"
 msgstr "離して更新"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:526
+msgid "Remove all"
+msgstr "すべて削除"
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -539,7 +619,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/pkuru/PkEventsList.re.mjs:317
+#: src/components/organisms/PkEventsList.re.mjs:381
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -564,7 +644,7 @@ msgstr "スコア"
 msgid "Share"
 msgstr "共有"
 
-#: src/components/pkuru/PkEventsList.re.mjs:215
+#: src/components/organisms/PkEventsList.re.mjs:241
 msgid "Show {0} more"
 msgstr "{0}件をさらに表示"
 
@@ -588,13 +668,17 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/pkuru/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:363
 msgid "Sunday"
 msgstr "日曜日"
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
 msgstr "カレンダー同期"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "タップして時間枠を追加"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:173
 msgid "TEAM 1"
@@ -612,7 +696,7 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/pkuru/PkEventRow.re.mjs:1010
+#: src/components/organisms/PkEventRow.re.mjs:1010
 #: src/components/organisms/EventStickyFooter.re.mjs:509
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
@@ -655,17 +739,17 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/pkuru/PkEventsList.re.mjs:311
+#: src/components/organisms/PkEventsList.re.mjs:375
 msgid "Thursday"
 msgstr "木曜日"
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/pkuru/PkEventsList.re.mjs:282
+#: src/components/organisms/PkEventsList.re.mjs:346
 msgid "Today"
 msgstr "今日"
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/pkuru/PkEventsList.re.mjs:288
+#: src/components/organisms/PkEventsList.re.mjs:352
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -673,11 +757,11 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/pkuru/PkEventsList.re.mjs:305
+#: src/components/organisms/PkEventsList.re.mjs:369
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: src/components/pages/PkEventPage.re.mjs:507
+#: src/components/pages/PkEventPage.re.mjs:501
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -699,7 +783,7 @@ msgstr "プロフィールを表示"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/pkuru/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
@@ -707,7 +791,7 @@ msgstr "キャンセル待ち"
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
-#: src/components/pkuru/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:272
 msgid "Waitlisted"
 msgstr "キャンセル待ち中"
 
@@ -715,13 +799,17 @@ msgstr "キャンセル待ち中"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/pkuru/PkEventsList.re.mjs:308
+#: src/components/organisms/PkEventsList.re.mjs:372
 msgid "Wednesday"
 msgstr "水曜日"
 
 #: src/components/shared/EventsListView.re.mjs:91
 msgid "Weekend"
 msgstr "週末"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:403
+msgid "When can you play {dayWord}?"
+msgstr "{dayWord}はいつプレーできますか？"
 
 #: src/components/organisms/ScoreModal.re.mjs:106
 msgid "Winning Team (Team {0})"
@@ -735,9 +823,25 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/pkuru/PkEventsList.re.mjs:322
+#: src/components/organisms/PkEventsList.re.mjs:386
 msgid "Yesterday"
 msgstr "昨日"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "あなたと{0}人の{othersWord}がプレーを希望中"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:601
+msgid "You want to play {dayWord}"
+msgstr "{dayWord}にプレーしたい"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "参加可能です"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "プレーに参加できます"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "You're in"
@@ -759,6 +863,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/EventsList.re.mjs:454
 #~ msgid "...load past events"
 #~ msgstr "...過去のイベントを読み込む"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:618
+#~ msgid "· plan your time"
+#~ msgstr "· 時間を計画する"
 
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/EventsList.re.mjs:144
@@ -806,6 +914,14 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "{0} minutes"
 #~ msgstr "{0}分"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:606
+#~ msgid "{0} other wants to play {dayWord}"
+#~ msgstr "{0}人が{dayWord}にプレーしたがっています"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:607
+#~ msgid "{0} others want to play {dayWord}"
+#~ msgstr "{0}人が{dayWord}にプレーしたがっています"
+
 #: src/components/organisms/EventsList.re.mjs:231
 #~ msgid "{0} private {shadowCountDesc} hidden"
 #~ msgstr "{0}件のプライベート{shadowCountDesc}が非表示"
@@ -849,6 +965,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/AddEventButton.re.mjs:79
 #~ msgid "Add an Event"
 #~ msgstr "イベントを追加"
+
+#: src/components/organisms/PkEventsList.re.mjs:243
+#~ msgid "Add to {0}"
+#~ msgstr "{0}に追加"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
 #~ msgid "AI Assistant"
@@ -1020,6 +1140,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "pending"
 #~ msgstr "保留中"
 
+#: src/components/molecules/PlayIntentRow.re.mjs:626
+#~ msgid "Pick time →"
+#~ msgstr "時間を選択 →"
+
 #: src/components/pages/Events.re.mjs:58
 #~ msgid "Pickleball"
 #~ msgstr "ピックルボール"
@@ -1088,6 +1212,21 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/EventItem.re.mjs:266
 #~ msgid "waitlist"
 #~ msgstr "ウェイトリスト"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:622
+#~ msgid "Want to play {dayWord}? Mark yourself available or host an event."
+#~ msgstr ""
+#~ "{dayWord}にプレーしたいですか？空き時間を登録するかイベントを主催しましょ"
+#~ "う。"
+
+#: src/components/organisms/PkEventsList.re.mjs:224
+#~ msgid "When can you play?"
+#~ msgstr "いつプレーできますか？"
+
+#: src/components/organisms/PkEventsList.re.mjs:257
+#, fuzzy
+#~ msgid "Your availability for {0}"
+#~ msgstr "あなたの空き時間"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

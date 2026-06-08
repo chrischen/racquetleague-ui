@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-07 02:03+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
+msgid "Add time windows above"
+msgstr "위에서 시간 창 추가"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:596
+msgid "Clear"
+msgstr "지우기"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:766
+msgid "Let hosts schedule events when most of you are free"
+msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 합니다"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Save"
+msgstr "저장"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+msgid "Savingâ¦"
+msgstr "저장 중…"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:550
+msgid "Schedule"
+msgstr "일정"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+msgid ""
+"Set your availability for the next 2 weeks. Tap a day to add a time window, "
+"drag to move, grab the edges to resize."
+msgstr ""
+"다음 2주 동안의 가능 시간을 설정하세요. 날짜를 탭하여 시간대를 추가하고, 드래"
+"그하여 이동하거나, 가장자리를 잡아 크기를 조절하세요."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:762
+msgid "Share with your club"
+msgstr "클럽과 공유"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+msgid ""
+"Tap an empty area of a day to add a window · drag to move · grab the edges "
+"to resize"
+msgstr ""
+"날짜의 빈 영역을 탭하여 시간대 추가 · 드래그하여 이동 · 가장자리를 잡아 크기 "
+"조절"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:572
+msgid "Weekday eves"
+msgstr "평일 저녁"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:584
+msgid "Weekend morns"
+msgstr "주말 오전"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:554
+msgid "When can you play?"
+msgstr "언제 플레이할 수 있나요?"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:700
+msgid "Your availability"
+msgstr "내 가능 시간"
