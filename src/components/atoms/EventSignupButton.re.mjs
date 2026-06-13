@@ -3,6 +3,7 @@
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as ConfirmButton from "../molecules/ConfirmButton.re.mjs";
+import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
@@ -70,6 +71,7 @@ function EventSignupButton(props) {
     }
   }
   var buttonClassName = props.className + " " + colorClassName;
+  var match = ReactRouterDom.useLocation();
   if (status.TAG === "Joined") {
     if (requireConfirmation) {
       return JsxRuntime.jsx(ConfirmButton.make, {
@@ -112,7 +114,7 @@ function EventSignupButton(props) {
         break;
     case "Login" :
         return JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                    to: "/oauth-login",
+                    to: "/oauth-login?return=" + match.pathname,
                     children: [
                       JsxRuntime.jsx(LucideReact.Check, {
                             size: 16

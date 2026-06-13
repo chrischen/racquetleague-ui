@@ -66,12 +66,12 @@ let make = (
   ~waitlistCount: int,
   ~maxRsvps: int,
   ~tz: string,
-  ~locale: LangProvider.locale,
   ~queryFragmentRefs: RescriptRelay.fragmentRefs<[> #ProfileModal_viewer]>,
   ~charging: bool,
   ~onPayClick: unit => unit,
 ) => {
   let ts = Lingui.UtilString.t
+  let {pathname} = Router.useLocation()
 
   let (joinEvent, joining) = JoinEventMutation.use()
   let (leaveEvent, leaving) = LeaveEventMutation.use()
@@ -465,7 +465,7 @@ let make = (
         </div>
         <div className="flex items-center gap-2.5">
           <Router.Link
-            to={"oauth-login?return=" ++ I18n.getLangPath(locale.lang) ++ "/events/" ++ event.id}
+            to={"/oauth-login?return=" ++ pathname}
             className={Util.cx([
               "px-4 py-2 text-sm font-semibold rounded-md transition-colors border",
               isFull

@@ -7,7 +7,7 @@ type notJoinedStatus = JoinWaitlist | Join | Login
 type status = Joined(joinedStatus) | NotJoined(notJoinedStatus)
 
 @react.component
-let make = (~onClick, ~status: status, ~className: string, ~requireConfirmation: bool= false) => {
+let make = (~onClick, ~status: status, ~className: string, ~requireConfirmation: bool=false) => {
   let colorClassName = switch status {
   | Joined(Pending) => "bg-red-100 text-red-800"
   | Joined(Going) => "bg-green-600 text-white"
@@ -27,30 +27,29 @@ let make = (~onClick, ~status: status, ~className: string, ~requireConfirmation:
   }
 
   let buttonClassName = `${className} ${colorClassName}`
+  let {pathname} = Router.useLocation()
 
   switch status {
   | NotJoined(Login) =>
-    <Link to="/oauth-login" className=buttonClassName>
+    <Link to={"/oauth-login?return=" ++ pathname} className=buttonClassName>
       <Lucide.Check size=16 />
       <span> {buttonText} </span>
     </Link>
   | Joined(Going) | Joined(Waitlisted) | Joined(Pending) =>
     requireConfirmation
-    ? <ConfirmButton
-        button={
-          <button type_="button" className=buttonClassName>
+      ? <ConfirmButton
+          button={<button type_="button" className=buttonClassName>
             <Lucide.Check size=16 />
             <span> {buttonText} </span>
-          </button>
-        }
-        title={t`You will lose your spot`}
-        description={t`This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?`}
-        onConfirmed={onClick}
-      />
-    : <button onClick={_ => onClick()} className=buttonClassName>
-        <Lucide.Check size=16 />
-        <span> {buttonText} </span>
-      </button>
+          </button>}
+          title={t`You will lose your spot`}
+          description={t`This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?`}
+          onConfirmed={onClick}
+        />
+      : <button onClick={_ => onClick()} className=buttonClassName>
+          <Lucide.Check size=16 />
+          <span> {buttonText} </span>
+        </button>
   | NotJoined(JoinWaitlist) | NotJoined(Join) =>
     <button onClick={_ => onClick()} className=buttonClassName>
       <Lucide.Check size=16 />

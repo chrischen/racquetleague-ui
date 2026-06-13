@@ -328,7 +328,6 @@ module Inner = {
   ) => {
     let viewerUser = viewer->Option.flatMap(v => v.user)
     let ts = Lingui.UtilString.t
-    let locale = React.useContext(LangProvider.LocaleContext.context)
 
     let containerRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
     let {
@@ -613,7 +612,6 @@ module Inner = {
           waitlistCount={waitlistPlayers->Array.length}
           maxRsvps
           tz
-          locale
           queryFragmentRefs
           charging={charging || authorizingPlatform}
           isPlatformPayment

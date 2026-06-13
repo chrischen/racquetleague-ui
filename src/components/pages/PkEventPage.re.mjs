@@ -10,7 +10,6 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core$1 from "@linaria/core";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
@@ -363,7 +362,6 @@ function PkEventPage$Inner(props) {
   var viewerUser = Core__Option.flatMap(props.viewer, (function (v) {
           return v.user;
         }));
-  var locale = React.useContext(LangProvider.LocaleContext.context);
   var containerRef = React.useRef(null);
   var match = PullToRefresh.usePullToRefresh(containerRef, Core__Option.getOr(onRefresh, (function () {
               return Promise.resolve();
@@ -695,7 +693,6 @@ function PkEventPage$Inner(props) {
                       waitlistCount: waitlistPlayers.length,
                       maxRsvps: maxRsvps,
                       tz: tz,
-                      locale: locale,
                       queryFragmentRefs: queryFragmentRefs,
                       charging: match$4[1] || match$5[1],
                       onPayClick: (function () {
