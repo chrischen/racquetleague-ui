@@ -154,11 +154,11 @@ msgstr "Người chơi trình độ cao"
 msgid "hosted by {name}"
 msgstr "tổ chức bởi {name}"
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "Tham gia sự kiện"
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr "Vào danh sách chờ"
 
@@ -186,7 +186,7 @@ msgstr "Tải thêm"
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "Đăng nhập để tham gia"
 
@@ -289,7 +289,7 @@ msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
 msgid "RSVP"
 msgstr "RSVP"
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr "Đang xử lý RSVP..."
 
@@ -337,7 +337,7 @@ msgstr "đăng ký tất cả sự kiện {activityName}"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -411,7 +411,7 @@ msgstr "đã được admin thêm vào sự kiện"
 msgid "was removed from the event by admin"
 msgstr "đã bị admin xóa khỏi sự kiện"
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "Bạn sẽ mất chỗ của mình"
 
@@ -419,11 +419,11 @@ msgstr "Bạn sẽ mất chỗ của mình"
 msgid "you will receive email notifications for new events"
 msgstr "bạn sẽ nhận thông báo email cho các sự kiện mới"
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr "Bạn đang tham dự"
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 

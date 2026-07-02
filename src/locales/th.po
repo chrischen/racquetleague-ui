@@ -4370,6 +4370,14 @@ msgstr "คุณว่างอยู่"
 msgid "You're available to play"
 msgstr "คุณว่างสำหรับการเล่น"
 
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
+msgstr "คัดลอกกิจกรรม"
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr "คัดลอกกิจกรรม"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

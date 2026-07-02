@@ -3908,6 +3908,14 @@ msgstr "참여 가능"
 msgid "You're available to play"
 msgstr "플레이 가능합니다"
 
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
+msgstr "이벤트 복사"
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr "이벤트 복사"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

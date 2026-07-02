@@ -43,7 +43,7 @@ var HourlyCountsQuery = {
   retain: retain
 };
 
-var defaultActivityId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890";
+var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function TimePickerWithHeatmap(props) {
   var resolvedActivityId = Core__Option.getOr(props.activityId, defaultActivityId);

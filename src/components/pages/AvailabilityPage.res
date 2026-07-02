@@ -5,7 +5,7 @@ module Query = %relay(`
     availabilityUsersForDateRange(
       fromDate: $fromDate
       toDate: $toDate
-      scope: {activityId: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"}
+      scope: {activityId: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"}
     ) {
       id
       localDate
@@ -65,7 +65,7 @@ module SetAvailabilityMutation = %relay(`
 external useLoaderData: unit => WaitForMessages.data<AvailabilityPageQuery_graphql.queryRef> =
   "useLoaderData"
 
-let defaultActivityId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
 module AvailabilityContent = {
   @react.component

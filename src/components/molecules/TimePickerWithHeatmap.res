@@ -15,7 +15,7 @@ module HourlyCountsQuery = %relay(`
   }
 `)
 
-let defaultActivityId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
 @react.component
 let make = (

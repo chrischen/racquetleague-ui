@@ -55,29 +55,29 @@ function CreateEventPage(props) {
         locationId: Core__Option.getOr(locationParam, "")
       }, undefined, undefined, undefined);
   var match$1 = React.useState(function () {
+        
+      });
+  var setPrefilledValues = match$1[1];
+  var prefilledValues = match$1[0];
+  var match$2 = React.useState(function () {
+        
+      });
+  var setAiLocationAddress = match$2[1];
+  var aiLocationAddress = match$2[0];
+  var match$3 = React.useState(function () {
         return {
                 clubId: clubIdParam,
                 activityId: undefined,
                 isAddingClub: false
               };
       });
-  var setClubSelection = match$1[1];
-  var clubSelection = match$1[0];
-  var match$2 = React.useState(function () {
+  var setClubSelection = match$3[1];
+  var clubSelection = match$3[0];
+  var match$4 = React.useState(function () {
         return 0;
       });
-  var setShakeCounter = match$2[1];
-  var shakeCounter = match$2[0];
-  var match$3 = React.useState(function () {
-        
-      });
-  var setPrefilledValues = match$3[1];
-  var prefilledValues = match$3[0];
-  var match$4 = React.useState(function () {
-        
-      });
-  var setAiLocationAddress = match$4[1];
-  var aiLocationAddress = match$4[0];
+  var setShakeCounter = match$4[1];
+  var shakeCounter = match$4[0];
   var initialPrefilledValues = React.useMemo((function () {
           var timeStr = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(startHourParam, (function (h) {
                           return Core__Int.fromString(h, undefined);
@@ -171,17 +171,6 @@ function CreateEventPage(props) {
                             children: (function () {
                                 return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                             children: [
-                                              JsxRuntime.jsx(ClubActivitySelector.make, {
-                                                    query: queryData.fragmentRefs,
-                                                    initialClubId: clubIdParam,
-                                                    initialActivitySlug: activitySlugParam,
-                                                    onChange: (function (sel) {
-                                                        setClubSelection(function (param) {
-                                                              return sel;
-                                                            });
-                                                      }),
-                                                    triggerShake: shakeCounter
-                                                  }),
                                               JsxRuntime.jsx(AIAssistantEmbed.make, {
                                                     context: {
                                                       activitySlug: "pickleball",
@@ -212,45 +201,33 @@ function CreateEventPage(props) {
                                               JsxRuntime.jsx(FramerMotion.AnimatePresence, {
                                                     mode: "wait",
                                                     children: Core__Option.getOr(Core__Option.map(queryData.location, (function ($$location) {
-                                                                if (prefilledValues !== undefined) {
-                                                                  return JsxRuntime.jsx(CreateLocationEventForm.make, {
-                                                                              location: $$location.fragmentRefs,
-                                                                              prefilledValues: prefilledValues,
-                                                                              selectedClub: clubSelection.clubId,
-                                                                              selectedActivity: clubSelection.activityId,
-                                                                              isClubFormOpen: clubSelection.isAddingClub,
-                                                                              onClubFormSubmitBlocked: (function () {
-                                                                                  setShakeCounter(function (n) {
-                                                                                        return n + 1 | 0;
-                                                                                      });
-                                                                                })
-                                                                            });
-                                                                } else if (initialPrefilledValues !== undefined) {
-                                                                  return JsxRuntime.jsx(CreateLocationEventForm.make, {
-                                                                              location: $$location.fragmentRefs,
-                                                                              prefilledValues: initialPrefilledValues,
-                                                                              selectedClub: clubSelection.clubId,
-                                                                              selectedActivity: clubSelection.activityId,
-                                                                              isClubFormOpen: clubSelection.isAddingClub,
-                                                                              onClubFormSubmitBlocked: (function () {
-                                                                                  setShakeCounter(function (n) {
-                                                                                        return n + 1 | 0;
-                                                                                      });
-                                                                                })
-                                                                            });
-                                                                } else {
-                                                                  return JsxRuntime.jsx(CreateLocationEventForm.make, {
-                                                                              location: $$location.fragmentRefs,
-                                                                              selectedClub: clubSelection.clubId,
-                                                                              selectedActivity: clubSelection.activityId,
-                                                                              isClubFormOpen: clubSelection.isAddingClub,
-                                                                              onClubFormSubmitBlocked: (function () {
-                                                                                  setShakeCounter(function (n) {
-                                                                                        return n + 1 | 0;
-                                                                                      });
-                                                                                })
-                                                                            });
-                                                                }
+                                                                return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                            children: [
+                                                                              JsxRuntime.jsx(ClubActivitySelector.make, {
+                                                                                    query: queryData.fragmentRefs,
+                                                                                    initialClubId: clubIdParam,
+                                                                                    initialActivitySlug: activitySlugParam,
+                                                                                    onChange: (function (sel) {
+                                                                                        setClubSelection(function (param) {
+                                                                                              return sel;
+                                                                                            });
+                                                                                      }),
+                                                                                    triggerShake: shakeCounter
+                                                                                  }),
+                                                                              JsxRuntime.jsx(CreateLocationEventForm.make, {
+                                                                                    location: $$location.fragmentRefs,
+                                                                                    prefilledValues: Core__Option.orElse(prefilledValues, initialPrefilledValues),
+                                                                                    selectedClub: clubSelection.clubId,
+                                                                                    selectedActivity: clubSelection.activityId,
+                                                                                    isClubFormOpen: clubSelection.isAddingClub,
+                                                                                    onClubFormSubmitBlocked: (function () {
+                                                                                        setShakeCounter(function (n) {
+                                                                                              return n + 1 | 0;
+                                                                                            });
+                                                                                      })
+                                                                                  })
+                                                                            ]
+                                                                          });
                                                               })), null)
                                                   })
                                             ]

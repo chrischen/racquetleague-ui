@@ -3908,6 +3908,14 @@ msgstr "Bạn rảnh"
 msgid "You're available to play"
 msgstr "Bạn có thể chơi"
 
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
+msgstr "sao chép sự kiện"
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr "Sao Chép Sự Kiện"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

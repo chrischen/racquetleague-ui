@@ -165,6 +165,11 @@ const mainRoutes: RouteObject[] =
       ]
     },
     {
+      path: "events/copy/:eventId/:locationId",
+      lazy: () => import("./components/routes/CopyEventRoute.gen"),
+      handle: "src/components/routes/CopyEventRoute.gen.tsx",
+    },
+    {
       path: "events/update/:eventId/:locationId",
       lazy: () => import("./components/routes/UpdateEventRoute.gen"),
       handle: "src/components/routes/UpdateEventRoute.gen.tsx",

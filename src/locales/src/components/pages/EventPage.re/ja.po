@@ -203,11 +203,11 @@ msgstr "Google カレンダー"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "イベントに参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
@@ -235,7 +235,7 @@ msgstr "もっと読み込む"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "ログインして参加"
 
@@ -359,7 +359,7 @@ msgstr "ラウンドロビン組み合わせ"
 msgid "RSVP"
 msgstr "参加申込"
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
@@ -421,7 +421,7 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -517,15 +517,15 @@ msgstr "イベント参加に必要な情報を入力してください"
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "あなたのスポットを失います"
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr "参加中"
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 

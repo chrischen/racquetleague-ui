@@ -144,7 +144,7 @@ v9 = [
         "kind": "Literal",
         "name": "scope",
         "value": {
-          "activityId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          "activityId": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
         }
       },
       (v5/*: any*/)
@@ -328,12 +328,12 @@ return {
     "selections": (v9/*: any*/)
   },
   "params": {
-    "cacheID": "9601d87b6cb069424ac7d70f5cf3b2ed",
+    "cacheID": "c1370e6cc70a28e1d0841ebfd61b8b43",
     "id": null,
     "metadata": {},
     "name": "AvailabilityPageQuery",
     "operationKind": "query",
-    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, scope: {activityId: \"a1b2c3d4-e5f6-7890-abcd-ef1234567890\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  viewer {\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  viewer {\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })());

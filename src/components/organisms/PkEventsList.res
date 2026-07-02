@@ -26,7 +26,7 @@ module Fragment = %relay(`
           }
         }
       }
-      availability(activityId: "a1b2c3d4-e5f6-7890-abcd-ef1234567890", fromDate: $availabilityFromDate, toDate: $availabilityToDate) {
+      availability(activityId: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61", fromDate: $availabilityFromDate, toDate: $availabilityToDate) {
         localDate
         ...PlayIntentRow_availabilityDay
       }
@@ -34,7 +34,7 @@ module Fragment = %relay(`
     availabilityUsersForDateRange(
       fromDate: $availabilityFromDate
       toDate: $availabilityToDate
-      scope: {activityId: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"}
+      scope: {activityId: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"}
     ) {
       id
       localDate
@@ -82,7 +82,7 @@ module Fragment = %relay(`
   }
 `)
 
-let defaultActivityId = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
 let ts = Lingui.UtilString.t
 

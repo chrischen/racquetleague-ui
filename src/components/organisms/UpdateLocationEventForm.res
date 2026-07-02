@@ -27,7 +27,7 @@ module EventFragment = %relay(`
 `)
 
 @react.component
-let make = (~event, ~location, ~query) => {
+let make = (~event, ~location, ~query, ~isCopy=false) => {
   let eventData = EventFragment.use(event)
 
   let (clubSelection, setClubSelection) = React.useState((): ClubActivitySelector.selection => {
@@ -37,19 +37,49 @@ let make = (~event, ~location, ~query) => {
   })
   let (shakeCounter, setShakeCounter) = React.useState(() => 0)
 
-  // Convert event data to prefilled values for CreateLocationEventForm
+  // For copy: today's date + source time-of-day. For update: source datetime.
+  let startDate = if isCopy {
+    eventData.startDate->Option.map(sd => {
+      let sourceStart = sd->Util.Datetime.toDate
+      let timeStr = sourceStart->DateFns.formatWithPattern("HH:mm")
+      let todayStr = Js.Date.make()->DateFns.formatWithPattern("yyyy-MM-dd")
+      todayStr ++ "T" ++ timeStr
+    })
+  } else {
+    eventData.startDate->Option.map(d =>
+      d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:mm")
+    )
+  }
+
+  // For copy: today's start + source duration. For update: source end time.
+  let endDate = if isCopy {
+    switch (eventData.startDate, eventData.endDate, startDate) {
+    | (Some(sd), Some(ed), Some(newStart)) => {
+        let sourceStart = sd->Util.Datetime.toDate
+        let sourceEnd = ed->Util.Datetime.toDate
+        let durationHours =
+          (sourceEnd->DateFns.getTime -. sourceStart->DateFns.getTime) /. (1000.0 *. 60.0 *. 60.0)
+        Some(
+          newStart
+          ->DateFns.parseISO
+          ->DateFns.addHours(durationHours)
+          ->DateFns.formatWithPattern("HH:mm"),
+        )
+      }
+    | _ => None
+    }
+  } else {
+    eventData.endDate->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("HH:mm"))
+  }
+
   let prefilledValues: CreateLocationEventForm.prefilledValues = {
     title: ?eventData.title,
     activitySlug: ?eventData.activity->Option.flatMap(a => a.slug),
     clubId: ?eventData.club->Option.map(c => c.id),
     maxRsvps: ?eventData.maxRsvps,
     minRating: ?eventData.minRating,
-    startDate: ?eventData.startDate->Option.map(d =>
-      d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:mm")
-    ),
-    endDate: ?eventData.endDate->Option.map(d =>
-      d->Util.Datetime.toDate->DateFns.formatWithPattern("HH:mm")
-    ),
+    ?startDate,
+    ?endDate,
     details: ?eventData.details,
     listed: ?eventData.listed,
     timezone: ?eventData.timezone,
@@ -67,11 +97,11 @@ let make = (~event, ~location, ~query) => {
       triggerShake=shakeCounter
     />
     <CreateLocationEventForm
-      eventId=eventData.id
+      eventId=?{isCopy ? None : Some(eventData.id)}
       location
-      stripeChargesEnabled={eventData.owner
-      ->Option.flatMap(o => o.stripeChargesEnabled)
-      ->Option.getOr(false)}
+      stripeChargesEnabled={isCopy
+        ? false
+        : eventData.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)}
       prefilledValues
       selectedClub=?clubSelection.clubId
       selectedActivity=?clubSelection.activityId

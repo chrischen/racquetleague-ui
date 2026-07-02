@@ -487,6 +487,14 @@ module Inner = {
                   event.location->Option.map(l => l.id)->Option.getOr("")}>
                   {t`edit event`}
                 </Button.Button>
+                {event.location
+                ->Option.map(loc =>
+                  <Button.Button
+                    href={"/events/copy/" ++ event.id ++ "/" ++ loc.id}>
+                    {t`copy event`}
+                  </Button.Button>
+                )
+                ->Option.getOr(React.null)}
                 {switch event.deleted {
                 | Some(_) =>
                   <Button.Button

@@ -154,11 +154,11 @@ msgstr "高技能プレイヤー"
 msgid "hosted by {name}"
 msgstr "{name}主催"
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "イベントに参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
@@ -186,7 +186,7 @@ msgstr "もっと読み込む"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "ログインして参加"
 
@@ -289,7 +289,7 @@ msgstr "結果は競技レーティングに提出されます。"
 msgid "RSVP"
 msgstr "参加申込"
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
@@ -339,7 +339,7 @@ msgstr "{activityName} のすべてのイベントに登録"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -413,7 +413,7 @@ msgstr "管理者によってイベントに追加されました"
 msgid "was removed from the event by admin"
 msgstr "管理者によってイベントから削除されました"
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "あなたのスポットを失います"
 
@@ -421,11 +421,11 @@ msgstr "あなたのスポットを失います"
 msgid "you will receive email notifications for new events"
 msgstr "新しいイベントについてメール通知を受け取ります"
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr "参加中"
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 

@@ -1,0 +1,405 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-07-03 01:40+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1405
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
+msgid "Table Tennis"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1413
+msgid "Pickleball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1417
+msgid "Futsal"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1421
+msgid "Basketball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1425
+msgid "Volleyball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1429
+msgid "Crossminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1433
+msgid "Padel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
+msgid "drill"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1441
+msgid "comp"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1445
+msgid "rec"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1449
+msgid "all level"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:501
+msgid "{0} hours"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:501
+msgid "{0} hours and {1} minutes"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:503
+msgid "{0} minutes"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:191
+msgid "+ Add new club..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:737
+msgid "1 hour before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "1 week before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:749
+msgid "12 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+msgid "2 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:753
+msgid "24 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:757
+msgid "48 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:745
+msgid "6 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:761
+msgid "72 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:831
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:824
+#: src/components/organisms/CreateLocationEventForm.re.mjs:846
+msgid "Active"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:243
+msgid "Activity"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:67
+msgid "activity is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:782
+msgid "Add any additional information about the event..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:425
+msgid "at"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:770
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+#: src/components/pages/CopyEventPage.re.mjs:71
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+msgid "Cancel deadline (optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:174
+msgid "Club"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:362
+msgid "Club & Activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:436
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1199
+msgid "Competitive"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:859
+msgid "Connect a Stripe account"
+msgstr ""
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1389
+msgid "Create Event"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:276
+msgid "Done"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:444
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1282
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1312
+msgid "Drill session"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:441
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1263
+msgid "DUPR rated"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "End time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+msgid "end time is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:809
+msgid "Enter price"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:76
+msgid "event date is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1057
+msgid "Event Details"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:778
+msgid "Event details (optional)"
+msgstr ""
+
+#: src/components/pages/CopyEventPage.re.mjs:97
+msgid "Event or Location doesn't exist."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:572
+msgid "Event schedule"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:702
+msgid "Event title"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1188
+msgid "Event type"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
+msgid "Find Players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+msgid "Find players for your event?"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1150
+msgid "Format"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1307
+msgid "Format options"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:706
+msgid "Friday Night Pickleball"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:991
+msgid "List your event publicly to help fill open spots"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:714
+msgid "Max RSVPs (optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:955
+msgid "Minimum rating (optional)"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:324
+msgid "No club"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:181
+msgid "No club / Independent event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:733
+msgid "No deadline"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:718
+msgid "No limit"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:959
+msgid "No minimum"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:430
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+msgid "Not set"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1118
+msgid "Paid event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:799
+msgid "Price"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:454
+msgid "Private event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:468
+msgid "Public"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:470
+msgid "Public event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+msgid "Read more..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:438
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1195
+msgid "Recreational"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1123
+msgid "Require payment from attendees"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+msgid "Show less"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:901
+msgid "Skill level"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:668
+msgid "Start date and time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:854
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+msgid "This event is private"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+msgid "This event is public"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:64
+msgid "title is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1389
+msgid "Update Event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid "With Stripe"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+msgid "Without Stripe"
+msgstr ""

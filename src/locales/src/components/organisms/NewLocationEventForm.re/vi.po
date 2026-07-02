@@ -1,0 +1,416 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-03 01:40+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1405
+msgid "Badminton"
+msgstr "Cầu lông"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
+msgid "Table Tennis"
+msgstr "Bóng bàn"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1413
+msgid "Pickleball"
+msgstr "Pickleball"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1417
+msgid "Futsal"
+msgstr "Futsal"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1421
+msgid "Basketball"
+msgstr "Bóng rổ"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1425
+msgid "Volleyball"
+msgstr "Bóng chuyền"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1429
+msgid "Crossminton"
+msgstr "Crossminton"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1433
+msgid "Padel"
+msgstr "Padel"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
+msgid "drill"
+msgstr "luyện tập"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1441
+msgid "comp"
+msgstr "thi đấu"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1445
+msgid "rec"
+msgstr "giải trí"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1449
+msgid "all level"
+msgstr "mọi trình độ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:501
+msgid "{0} hours"
+msgstr "{0} giờ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:501
+msgid "{0} hours and {1} minutes"
+msgstr "{0} giờ {1} phút"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:503
+msgid "{0} minutes"
+msgstr "{0} phút"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:191
+msgid "+ Add new club..."
+msgstr "+ Thêm câu lạc bộ mới..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:737
+msgid "1 hour before"
+msgstr "1 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "1 week before"
+msgstr "1 tuần trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:749
+msgid "12 hours before"
+msgstr "12 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+msgid "2 hours before"
+msgstr "2 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:753
+msgid "24 hours before"
+msgstr "24 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:757
+msgid "48 hours before"
+msgstr "48 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:745
+msgid "6 hours before"
+msgstr "6 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:761
+msgid "72 hours before"
+msgstr "72 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:831
+msgid ""
+"A refundable deposit is collected when someone joins. You can manually "
+"approve attendees by clicking their name in the RSVP list."
+msgstr ""
+"Một khoản đặt cọc hoàn lại được thu khi có người tham gia. Bạn có thể chấp "
+"thuận người tham dự thủ công bằng cách nhấp vào tên của họ trong danh sách "
+"RSVP."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:824
+#: src/components/organisms/CreateLocationEventForm.re.mjs:846
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:243
+msgid "Activity"
+msgstr "Môn thể thao"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:67
+msgid "activity is required"
+msgstr "cần có môn thể thao"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:782
+msgid "Add any additional information about the event..."
+msgstr "Thêm bất kỳ thông tin bổ sung nào về sự kiện..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:425
+msgid "at"
+msgstr "lúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:770
+msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr "Người tham gia không thể hủy RSVP sau thời hạn này"
+
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "Mô tả ngắn về câu lạc bộ..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+msgid "Cancel deadline (optional)"
+msgstr "Hạn hủy (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr ""
+"Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả "
+"trình độ."
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:174
+msgid "Club"
+msgstr "Câu lạc bộ"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:362
+msgid "Club & Activity"
+msgstr "Câu lạc bộ & Môn thể thao"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "Tên câu lạc bộ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "URL câu lạc bộ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "ten-clb"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:436
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1199
+msgid "Competitive"
+msgstr "Thi đấu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:859
+msgid "Connect a Stripe account"
+msgstr "Kết nối tài khoản Stripe"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "Tạo câu lạc bộ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1389
+msgid "Create Event"
+msgstr "Tạo sự kiện"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "Môn thể thao mặc định của câu lạc bộ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "Mô tả"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:276
+msgid "Done"
+msgstr "Xong"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:444
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1282
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1312
+msgid "Drill session"
+msgstr "Buổi luyện tập"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:441
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1263
+msgid "DUPR rated"
+msgstr "Có xếp hạng DUPR"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "ví dụ: Câu lạc bộ City Ballers"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "End time"
+msgstr "Giờ kết thúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:79
+msgid "end time is required"
+msgstr "cần có giờ kết thúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:809
+msgid "Enter price"
+msgstr "Nhập giá"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:76
+msgid "event date is required"
+msgstr "cần có ngày sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1057
+msgid "Event Details"
+msgstr "Chi tiết sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:778
+msgid "Event details (optional)"
+msgstr "Chi tiết sự kiện (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:572
+msgid "Event schedule"
+msgstr "Lịch trình sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:702
+msgid "Event title"
+msgstr "Tiêu đề sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1188
+msgid "Event type"
+msgstr "Loại sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
+msgid "Find Players"
+msgstr "Tìm người chơi"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+msgid "Find players for your event?"
+msgstr "Tìm người chơi cho sự kiện của bạn?"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1150
+msgid "Format"
+msgstr "Định dạng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1307
+msgid "Format options"
+msgstr "Tùy chọn định dạng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:706
+msgid "Friday Night Pickleball"
+msgstr "Pickleball tối thứ Sáu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:991
+msgid "List your event publicly to help fill open spots"
+msgstr "Liệt kê sự kiện của bạn công khai để giúp lấp đầy chỗ trống"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:714
+msgid "Max RSVPs (optional)"
+msgstr "RSVP tối đa (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:955
+msgid "Minimum rating (optional)"
+msgstr "Xếp hạng tối thiểu (tùy chọn)"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:324
+msgid "No club"
+msgstr "Không có câu lạc bộ"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:181
+msgid "No club / Independent event"
+msgstr "Không có câu lạc bộ / Sự kiện độc lập"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:733
+msgid "No deadline"
+msgstr "Không có hạn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:718
+msgid "No limit"
+msgstr "Không giới hạn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:959
+msgid "No minimum"
+msgstr "Không có tối thiểu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:430
+#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+msgid "Not set"
+msgstr "Chưa đặt"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1118
+msgid "Paid event"
+msgstr "Sự kiện có phí"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:799
+msgid "Price"
+msgstr "Giá"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:454
+msgid "Private event"
+msgstr "Sự kiện riêng tư"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:468
+msgid "Public"
+msgstr "Công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:470
+msgid "Public event"
+msgstr "Sự kiện công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+msgid "Read more..."
+msgstr "Đọc thêm..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:438
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1195
+msgid "Recreational"
+msgstr "Giải trí"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1123
+msgid "Require payment from attendees"
+msgstr "Yêu cầu thanh toán từ người tham dự"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+"Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng "
+"đến xếp hạng của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+msgid "Show less"
+msgstr "Thu gọn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:901
+msgid "Skill level"
+msgstr "Trình độ kỹ năng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:668
+msgid "Start date and time"
+msgstr "Ngày và giờ bắt đầu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:854
+msgid ""
+"The participation fee is charged automatically and transferred to your "
+"Stripe account."
+msgstr "Phí tham gia được tính tự động và chuyển vào tài khoản Stripe của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+msgid "This event is private"
+msgstr "Sự kiện này ở chế độ riêng tư"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+msgid "This event is public"
+msgstr "Sự kiện này ở chế độ công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:64
+msgid "title is required"
+msgstr "cần có tiêu đề"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1389
+msgid "Update Event"
+msgstr "Cập nhật sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid "With Stripe"
+msgstr "Với Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+msgid "Without Stripe"
+msgstr "Không có Stripe"

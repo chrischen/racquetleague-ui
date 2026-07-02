@@ -224,6 +224,22 @@ and input_DeleteActivitySubscriptionInput_nullable = {
 }
 
 @live
+and input_DeleteAvailabilityForTimeWindowInput = {
+  activityId: string,
+  endHour: int,
+  localDate: string,
+  startHour: int,
+}
+
+@live
+and input_DeleteAvailabilityForTimeWindowInput_nullable = {
+  activityId: string,
+  endHour: int,
+  localDate: string,
+  startHour: int,
+}
+
+@live
 and input_DoublesMatchInput = {
   createdAt: Util.Datetime.t,
   losers: array<string>,

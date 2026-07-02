@@ -222,7 +222,7 @@ msgstr ""
 #~ msgid "join event"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgstr ""
 #~ msgid "join waitlist"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgstr ""
 #~ msgid "login"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr ""
 
@@ -418,7 +418,7 @@ msgstr ""
 msgid "RSVP"
 msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr ""
 
@@ -481,7 +481,7 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
 
@@ -549,7 +549,7 @@ msgstr ""
 msgid "was removed from the event by admin"
 msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr ""
 
@@ -557,7 +557,7 @@ msgstr ""
 msgid "you will receive email notifications for new events"
 msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr ""
 
@@ -565,7 +565,7 @@ msgstr ""
 #~ msgid "you're going :)"
 #~ msgstr ""
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr ""
 

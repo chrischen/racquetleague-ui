@@ -42,11 +42,11 @@ msgstr "折叠"
 msgid "Going"
 msgstr "将参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "加入活动"
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr "加入候补名单"
 
@@ -58,7 +58,7 @@ msgstr "加载更多"
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "登录加入"
 
@@ -106,7 +106,7 @@ msgstr "最低评分要求：{0}（DUPR {1}）"
 msgid "RSVP"
 msgstr "报名"
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr "报名待审..."
 
@@ -122,7 +122,7 @@ msgstr "查看全部"
 msgid "Show less"
 msgstr "收起"
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -153,15 +153,15 @@ msgstr "查看资料"
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "您将失去您的位置"
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr "您将参加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 

@@ -495,6 +495,12 @@ function PkEventPage$Inner(props) {
                                     return l.id;
                                   })), "")
                       }),
+                  Core__Option.getOr(Core__Option.map($$event.location, (function (loc) {
+                              return JsxRuntime.jsx(Button.Button.make, {
+                                          children: t`copy event`,
+                                          href: "/events/copy/" + $$event.id + "/" + loc.id
+                                        });
+                            })), null),
                   match$11 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
                           children: t`uncancel event`,
                           onClick: (function (param) {

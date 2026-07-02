@@ -154,11 +154,11 @@ msgstr "高技能球員"
 msgid "hosted by {name}"
 msgstr "由 {name} 主辦"
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "加入活動"
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr "加入等待列表"
 
@@ -186,7 +186,7 @@ msgstr "載入更多"
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "登入以加入"
 
@@ -289,7 +289,7 @@ msgstr "結果將提交至競技評分。"
 msgid "RSVP"
 msgstr "RSVP"
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr "RSVP 待審核..."
 
@@ -337,7 +337,7 @@ msgstr "訂閱所有 {activityName} 活動"
 msgid "sync calendar"
 msgstr "同步日曆"
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -408,7 +408,7 @@ msgstr "已被管理員新增至活動"
 msgid "was removed from the event by admin"
 msgstr "已被管理員從活動中移除"
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "您將失去您的名額"
 
@@ -416,11 +416,11 @@ msgstr "您將失去您的名額"
 msgid "you will receive email notifications for new events"
 msgstr "您將收到新活動的電子郵件通知"
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr "您正在參加"
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr "您在等待列表"
 

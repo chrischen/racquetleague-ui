@@ -5073,3 +5073,11 @@ msgstr ""
 #: src/components/molecules/PlayIntentRow.re.mjs:309
 msgid "You're available to play"
 msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
+msgstr ""
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr ""

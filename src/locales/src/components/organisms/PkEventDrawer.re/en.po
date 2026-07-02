@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:323
+#: src/components/pages/PkEventPage.re.mjs:322
 msgid "...more"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:512
+#: src/components/pages/PkEventPage.re.mjs:516
 msgid "cancel event"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Cancel RSVP"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:192
+#: src/components/pages/PkEventPage.re.mjs:191
 msgid "CANCELED"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:483
+#: src/components/pages/PkEventPage.re.mjs:481
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -124,8 +124,12 @@ msgstr ""
 msgid "Confirmed · {0}"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:227
+#: src/components/pages/PkEventPage.re.mjs:226
 msgid "Copied!"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:387
@@ -166,7 +170,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:495
+#: src/components/pages/PkEventPage.re.mjs:493
 msgid "edit event"
 msgstr ""
 
@@ -198,7 +202,7 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:800
+#: src/components/pages/PkEventPage.re.mjs:803
 msgid "Event not found"
 msgstr ""
 
@@ -218,7 +222,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:275
+#: src/components/pages/PkEventPage.re.mjs:274
 msgid "Free"
 msgstr ""
 
@@ -255,7 +259,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:323
+#: src/components/pages/PkEventPage.re.mjs:322
 msgid "less"
 msgstr ""
 
@@ -263,7 +267,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:305
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Location"
 msgstr ""
 
@@ -304,7 +308,7 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:643
+#: src/components/pages/PkEventPage.re.mjs:647
 msgid "Notes from the host"
 msgstr ""
 
@@ -382,12 +386,12 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:609
+#: src/components/pages/PkEventPage.re.mjs:613
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:609
+#: src/components/pages/PkEventPage.re.mjs:613
 msgid "Refreshing…"
 msgstr ""
 
@@ -448,7 +452,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:227
+#: src/components/pages/PkEventPage.re.mjs:226
 msgid "Share"
 msgstr ""
 
@@ -508,7 +512,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:501
+#: src/components/pages/PkEventPage.re.mjs:505
 msgid "uncancel event"
 msgstr ""
 

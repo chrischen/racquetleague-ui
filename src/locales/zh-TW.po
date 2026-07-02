@@ -4370,6 +4370,14 @@ msgstr "你有空"
 msgid "You're available to play"
 msgstr "你有空打球"
 
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
+msgstr "複製賽事"
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr "複製賽事"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

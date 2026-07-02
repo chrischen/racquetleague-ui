@@ -30,6 +30,8 @@ var EventFragment = {
 };
 
 function UpdateLocationEventForm(props) {
+  var __isCopy = props.isCopy;
+  var isCopy = __isCopy !== undefined ? __isCopy : false;
   var eventData = use(props.event);
   var match = React.useState(function () {
         return {
@@ -48,6 +50,31 @@ function UpdateLocationEventForm(props) {
         return 0;
       });
   var setShakeCounter = match$1[1];
+  var startDate = isCopy ? Core__Option.map(eventData.startDate, (function (sd) {
+            var sourceStart = Util.Datetime.toDate(sd);
+            var timeStr = DateFns.format(sourceStart, "HH:mm");
+            var todayStr = DateFns.format(new Date(), "yyyy-MM-dd");
+            return todayStr + "T" + timeStr;
+          })) : Core__Option.map(eventData.startDate, (function (d) {
+            return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:mm");
+          }));
+  var endDate;
+  if (isCopy) {
+    var match$2 = eventData.startDate;
+    var match$3 = eventData.endDate;
+    if (match$2 !== undefined && match$3 !== undefined && startDate !== undefined) {
+      var sourceStart = Util.Datetime.toDate(Caml_option.valFromOption(match$2));
+      var sourceEnd = Util.Datetime.toDate(Caml_option.valFromOption(match$3));
+      var durationHours = (DateFns.getTime(sourceEnd) - DateFns.getTime(sourceStart)) / (1000.0 * 60.0 * 60.0);
+      endDate = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), durationHours), "HH:mm");
+    } else {
+      endDate = undefined;
+    }
+  } else {
+    endDate = Core__Option.map(eventData.endDate, (function (d) {
+            return DateFns.format(Util.Datetime.toDate(d), "HH:mm");
+          }));
+  }
   var prefilledValues_title = eventData.title;
   var prefilledValues_activitySlug = Core__Option.flatMap(eventData.activity, (function (a) {
           return a.slug;
@@ -57,12 +84,6 @@ function UpdateLocationEventForm(props) {
         }));
   var prefilledValues_maxRsvps = eventData.maxRsvps;
   var prefilledValues_minRating = eventData.minRating;
-  var prefilledValues_startDate = Core__Option.map(eventData.startDate, (function (d) {
-          return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:mm");
-        }));
-  var prefilledValues_endDate = Core__Option.map(eventData.endDate, (function (d) {
-          return DateFns.format(Util.Datetime.toDate(d), "HH:mm");
-        }));
   var prefilledValues_details = eventData.details;
   var prefilledValues_listed = eventData.listed;
   var prefilledValues_timezone = eventData.timezone;
@@ -75,8 +96,8 @@ function UpdateLocationEventForm(props) {
     clubId: prefilledValues_clubId,
     maxRsvps: prefilledValues_maxRsvps,
     minRating: prefilledValues_minRating,
-    startDate: prefilledValues_startDate,
-    endDate: prefilledValues_endDate,
+    startDate: startDate,
+    endDate: endDate,
     details: prefilledValues_details,
     listed: prefilledValues_listed,
     timezone: prefilledValues_timezone,
@@ -102,11 +123,11 @@ function UpdateLocationEventForm(props) {
                       triggerShake: match$1[0]
                     }),
                 JsxRuntime.jsx(CreateLocationEventForm.make, {
-                      eventId: eventData.id,
+                      eventId: isCopy ? undefined : eventData.id,
                       location: props.location,
-                      stripeChargesEnabled: Core__Option.getOr(Core__Option.flatMap(eventData.owner, (function (o) {
-                                  return o.stripeChargesEnabled;
-                                })), false),
+                      stripeChargesEnabled: isCopy ? false : Core__Option.getOr(Core__Option.flatMap(eventData.owner, (function (o) {
+                                    return o.stripeChargesEnabled;
+                                  })), false),
                       prefilledValues: prefilledValues,
                       selectedClub: clubSelection.clubId,
                       selectedActivity: clubSelection.activityId,

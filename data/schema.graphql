@@ -246,6 +246,18 @@ input DeleteActivitySubscriptionInput {
   subscriptionId: String!
 }
 
+input DeleteAvailabilityForTimeWindowInput {
+  activityId: ID!
+  endHour: Int!
+  localDate: String!
+  startHour: Int!
+}
+
+type DeleteAvailabilityForTimeWindowResult implements HasErrors {
+  day: AvailabilityDay
+  errors: [Error!]
+}
+
 type DisciplineRating {
   mu: Float!
   sigma: Float!
@@ -383,6 +395,7 @@ input JoinClubInput {
 }
 
 type JoinEventResult implements HasErrors {
+  availability: [AvailabilityDay!]
   edge: EventRsvpEdge
   errors: [Error!]
 }
@@ -447,6 +460,7 @@ type LeagueUserStatEntry {
 }
 
 type LeaveEventResult implements HasErrors {
+  availability: [AvailabilityDay!]
   errors: [Error!]
   eventIds: [ID!]
 }
@@ -648,6 +662,7 @@ type Mutation {
   """
   createStripeOnboardingLink(country: String!, refreshUrl: String!, returnUrl: String!): StripeOnboardingLinkResult!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
+  deleteAvailabilityForTimeWindow(input: DeleteAvailabilityForTimeWindowInput!): DeleteAvailabilityForTimeWindowResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!

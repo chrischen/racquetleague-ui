@@ -4624,6 +4624,14 @@ msgstr "参加可能です"
 msgid "You're available to play"
 msgstr "プレーに参加できます"
 
+#: src/components/pages/PkEventPage.re.mjs:500
+msgid "copy event"
+msgstr "イベントをコピー"
+
+#: src/components/pages/CopyEventPage.re.mjs:76
+msgid "Copy Event"
+msgstr "イベントをコピー"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

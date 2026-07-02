@@ -154,11 +154,11 @@ msgstr "고급 플레이어"
 msgid "hosted by {name}"
 msgstr "{name} 주최"
 
-#: src/components/atoms/EventSignupButton.re.mjs:64
+#: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "이벤트 참가"
 
-#: src/components/atoms/EventSignupButton.re.mjs:61
+#: src/components/atoms/EventSignupButton.re.mjs:62
 msgid "Join Waitlist"
 msgstr "대기자 명단 등록"
 
@@ -186,7 +186,7 @@ msgstr "더 불러오기"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/atoms/EventSignupButton.re.mjs:67
+#: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "로그인하여 참가"
 
@@ -289,7 +289,7 @@ msgstr "결과가 경쟁 레이팅에 제출됩니다."
 msgid "RSVP"
 msgstr "RSVP"
 
-#: src/components/atoms/EventSignupButton.re.mjs:48
+#: src/components/atoms/EventSignupButton.re.mjs:49
 msgid "RSVP Pending..."
 msgstr "RSVP 처리 중..."
 
@@ -337,7 +337,7 @@ msgstr "모든 {activityName} 이벤트 구독"
 msgid "sync calendar"
 msgstr "캘린더 동기화"
 
-#: src/components/atoms/EventSignupButton.re.mjs:89
+#: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
 "the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
@@ -408,7 +408,7 @@ msgstr "관리자에 의해 이벤트에 추가되었습니다"
 msgid "was removed from the event by admin"
 msgstr "관리자에 의해 이벤트에서 제거되었습니다"
 
-#: src/components/atoms/EventSignupButton.re.mjs:88
+#: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "자리를 잃게 됩니다"
 
@@ -416,11 +416,11 @@ msgstr "자리를 잃게 됩니다"
 msgid "you will receive email notifications for new events"
 msgstr "새 이벤트에 대한 이메일 알림을 받게 됩니다"
 
-#: src/components/atoms/EventSignupButton.re.mjs:51
+#: src/components/atoms/EventSignupButton.re.mjs:52
 msgid "You're Going"
 msgstr "참가 중"
 
-#: src/components/atoms/EventSignupButton.re.mjs:54
+#: src/components/atoms/EventSignupButton.re.mjs:55
 msgid "You're Waitlisted"
 msgstr "대기 중"
 

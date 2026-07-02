@@ -18,12 +18,16 @@ let make = () => {
   let dateParam = params->Router.SearchParams.get("date")
   let startHourParam = params->Router.SearchParams.get("startHour")
   let endHourParam = params->Router.SearchParams.get("endHour")
-
   let queryData = Query.use(
     ~variables={
       locationId: locationParam->Option.getOr(""),
     },
   )
+
+  // State to hold prefilled event values from AI
+  let (prefilledValues, setPrefilledValues) = React.useState(() => None)
+  // State to hold AI-suggested location address for auto-search
+  let (aiLocationAddress, setAiLocationAddress) = React.useState(() => None)
 
   let (clubSelection, setClubSelection) = React.useState((): ClubActivitySelector.selection => {
     clubId: clubIdParam,
@@ -32,19 +36,16 @@ let make = () => {
   })
   let (shakeCounter, setShakeCounter) = React.useState(() => 0)
 
-  // State to hold prefilled event values from AI
-  let (prefilledValues, setPrefilledValues) = React.useState(() => None)
-  // State to hold AI-suggested location address for auto-search
-  let (aiLocationAddress, setAiLocationAddress) = React.useState(() => None)
-
   // Create initial prefilled values with clubId, activitySlug, and date from URL if present
   let initialPrefilledValues = React.useMemo5(() => {
-    let timeStr = startHourParam
+    let timeStr =
+      startHourParam
       ->Option.flatMap(h => h->Int.fromString)
       ->Option.map(h => "T" ++ h->Int.toString->String.padStart(2, "0") ++ ":00")
       ->Option.getOr("T10:00")
     let startDate = dateParam->Option.map(isoDate => isoDate ++ timeStr)
-    let endDate = endHourParam
+    let endDate =
+      endHourParam
       ->Option.flatMap(h => h->Int.fromString)
       ->Option.map(h => h->Int.toString->String.padStart(2, "0") ++ ":00")
     switch (clubIdParam, activitySlugParam, startDate) {
@@ -114,13 +115,6 @@ let make = () => {
     <div className="max-w-2xl mx-auto px-4 py-8 space-y-6">
       <WaitForMessages>
         {() => <>
-          <ClubActivitySelector
-            query=queryData.fragmentRefs
-            initialClubId=?clubIdParam
-            initialActivitySlug=?activitySlugParam
-            onChange={sel => setClubSelection(_ => sel)}
-            triggerShake=shakeCounter
-          />
           <AIAssistantEmbed
             context={{
               activitySlug: ?Some("pickleball"),
@@ -147,36 +141,23 @@ let make = () => {
           </div>
           <FramerMotion.AnimatePresence mode="wait">
             {queryData.location
-            ->Option.map(location =>
-              switch (prefilledValues, initialPrefilledValues) {
-              | (Some(aiValues), _) =>
-                <CreateLocationEventForm
-                  location=location.fragmentRefs
-                  prefilledValues=aiValues
-                  selectedClub=?clubSelection.clubId
-                  selectedActivity=?clubSelection.activityId
-                  isClubFormOpen=clubSelection.isAddingClub
-                  onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
-                />
-              | (None, Some(initial)) =>
-                <CreateLocationEventForm
-                  location=location.fragmentRefs
-                  prefilledValues=initial
-                  selectedClub=?clubSelection.clubId
-                  selectedActivity=?clubSelection.activityId
-                  isClubFormOpen=clubSelection.isAddingClub
-                  onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
-                />
-              | (None, None) =>
-                <CreateLocationEventForm
-                  location=location.fragmentRefs
-                  selectedClub=?clubSelection.clubId
-                  selectedActivity=?clubSelection.activityId
-                  isClubFormOpen=clubSelection.isAddingClub
-                  onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
-                />
-              }
-            )
+            ->Option.map(location => <>
+              <ClubActivitySelector
+                query=queryData.fragmentRefs
+                initialClubId=?clubIdParam
+                initialActivitySlug=?activitySlugParam
+                onChange={sel => setClubSelection(_ => sel)}
+                triggerShake=shakeCounter
+              />
+              <CreateLocationEventForm
+                location=location.fragmentRefs
+                prefilledValues=?{prefilledValues->Option.orElse(initialPrefilledValues)}
+                selectedClub=?clubSelection.clubId
+                selectedActivity=?clubSelection.activityId
+                isClubFormOpen=clubSelection.isAddingClub
+                onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
+              />
+            </>)
             ->Option.getOr(React.null)}
           </FramerMotion.AnimatePresence>
         </>}
