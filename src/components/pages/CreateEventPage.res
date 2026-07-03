@@ -5,6 +5,11 @@ module Query = %relay(`
     location(id: $locationId) {
       ...CreateLocationEventForm_location
     }
+    viewer {
+      user {
+        stripeChargesEnabled
+      }
+    }
     ...ClubActivitySelector_query @arguments(after: $after, first: $first, before: $before)
   }
   `)
@@ -18,6 +23,20 @@ let make = () => {
   let dateParam = params->Router.SearchParams.get("date")
   let startHourParam = params->Router.SearchParams.get("startHour")
   let endHourParam = params->Router.SearchParams.get("endHour")
+  // Prefill params used when linking here from an event's "copy event" button
+  // (see PkEventPage.res) — full-precision date/time, distinct from the
+  // coarse date/startHour/endHour slot params above.
+  let titleParam = params->Router.SearchParams.get("title")
+  let detailsParam = params->Router.SearchParams.get("details")
+  let maxRsvpsParam = params->Router.SearchParams.get("maxRsvps")
+  let minRatingParam = params->Router.SearchParams.get("minRating")
+  let listedParam = params->Router.SearchParams.get("listed")
+  let timezoneParam = params->Router.SearchParams.get("timezone")
+  let tagsParam = params->Router.SearchParams.get("tags")
+  let priceParam = params->Router.SearchParams.get("price")
+  let cancelDeadlineParam = params->Router.SearchParams.get("cancelDeadline")
+  let startDateTimeParam = params->Router.SearchParams.get("startDateTime")
+  let endTimeParam = params->Router.SearchParams.get("endTime")
   let queryData = Query.use(
     ~variables={
       locationId: locationParam->Option.getOr(""),
@@ -62,6 +81,47 @@ let make = () => {
       })
     }
   }, (clubIdParam, activitySlugParam, dateParam, startHourParam, endHourParam))
+
+  // Prefilled values sourced from the "copy event" link (PkEventPage.res) —
+  // no query needed, since the source event's data travels via URL params.
+  // Distinct from, and higher priority than, the coarse slot-based
+  // initialPrefilledValues above.
+  let copyPrefilledValues: option<CreateLocationEventForm.prefilledValues> = {
+    let hasAny =
+      [
+        titleParam,
+        detailsParam,
+        maxRsvpsParam,
+        minRatingParam,
+        listedParam,
+        timezoneParam,
+        tagsParam,
+        priceParam,
+        cancelDeadlineParam,
+        startDateTimeParam,
+        endTimeParam,
+      ]->Array.some(Option.isSome)
+    hasAny
+      ? Some({
+          let values: CreateLocationEventForm.prefilledValues = {
+            title: ?titleParam,
+            details: ?detailsParam,
+            clubId: ?clubIdParam,
+            activitySlug: ?activitySlugParam,
+            maxRsvps: ?maxRsvpsParam->Option.flatMap(v => Int.fromString(v)),
+            minRating: ?minRatingParam->Option.flatMap(v => Float.fromString(v)),
+            listed: ?listedParam->Option.map(v => v == "true"),
+            timezone: ?timezoneParam,
+            tags: ?tagsParam->Option.map(v => v->String.split(",")),
+            price: ?priceParam->Option.flatMap(v => Int.fromString(v)),
+            cancelDeadline: ?cancelDeadlineParam->Option.flatMap(v => Int.fromString(v)),
+            startDate: ?startDateTimeParam,
+            endDate: ?endTimeParam,
+          }
+          values
+        })
+      : None
+  }
 
   let handleSingleEventSuggested = (eventDetails: AITypes.eventDetails) => {
     // Convert AITypes.eventDetails to CreateLocationEventForm.prefilledValues
@@ -151,7 +211,13 @@ let make = () => {
               />
               <CreateLocationEventForm
                 location=location.fragmentRefs
-                prefilledValues=?{prefilledValues->Option.orElse(initialPrefilledValues)}
+                stripeChargesEnabled={queryData.viewer
+                  ->Option.flatMap(v => v.user)
+                  ->Option.flatMap(u => u.stripeChargesEnabled)
+                  ->Option.getOr(false)}
+                prefilledValues=?{prefilledValues
+                  ->Option.orElse(copyPrefilledValues)
+                  ->Option.orElse(initialPrefilledValues)}
                 selectedClub=?clubSelection.clubId
                 selectedActivity=?clubSelection.activityId
                 isClubFormOpen=clubSelection.isAddingClub

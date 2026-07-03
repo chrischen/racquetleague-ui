@@ -11,9 +11,16 @@ module Types = {
   and response_location = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #CreateLocationEventForm_location]>,
   }
+  and response_viewer_user = {
+    stripeChargesEnabled: option<bool>,
+  }
+  and response_viewer = {
+    user: option<response_viewer_user>,
+  }
   type response = {
     event: option<response_event>,
     location: option<response_location>,
+    viewer: option<response_viewer>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #ClubActivitySelector_query]>,
   }
   @live
@@ -138,19 +145,26 @@ v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "stripeChargesEnabled",
   "storageKey": null
 },
 v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "details",
   "storageKey": null
 },
-v6 = [
+v7 = [
   (v3/*: any*/),
-  (v4/*: any*/),
+  (v5/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -159,10 +173,14 @@ v6 = [
     "storageKey": null
   }
 ],
-v7 = [
+v8 = [
   (v3/*: any*/)
 ],
-v8 = [
+v9 = [
+  (v4/*: any*/),
+  (v3/*: any*/)
+],
+v10 = [
   {
     "kind": "Literal",
     "name": "first",
@@ -210,6 +228,29 @@ return {
         "storageKey": null
       },
       {
+        "alias": null,
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v4/*: any*/)
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
         "args": null,
         "kind": "FragmentSpread",
         "name": "ClubActivitySelector_query"
@@ -233,8 +274,8 @@ return {
         "plural": false,
         "selections": [
           (v3/*: any*/),
-          (v4/*: any*/),
-          (v5/*: any*/)
+          (v5/*: any*/),
+          (v6/*: any*/)
         ],
         "storageKey": null
       },
@@ -254,7 +295,7 @@ return {
             "name": "title",
             "storageKey": null
           },
-          (v5/*: any*/),
+          (v6/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -276,7 +317,7 @@ return {
             "kind": "LinkedField",
             "name": "activity",
             "plural": false,
-            "selections": (v6/*: any*/),
+            "selections": (v7/*: any*/),
             "storageKey": null
           },
           {
@@ -286,7 +327,7 @@ return {
             "kind": "LinkedField",
             "name": "club",
             "plural": false,
-            "selections": (v7/*: any*/),
+            "selections": (v8/*: any*/),
             "storageKey": null
           },
           {
@@ -345,29 +386,10 @@ return {
             "kind": "LinkedField",
             "name": "owner",
             "plural": false,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "stripeChargesEnabled",
-                "storageKey": null
-              },
-              (v3/*: any*/)
-            ],
+            "selections": (v9/*: any*/),
             "storageKey": null
           }
         ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Activity",
-        "kind": "LinkedField",
-        "name": "activities",
-        "plural": true,
-        "selections": (v6/*: any*/),
         "storageKey": null
       },
       {
@@ -380,7 +402,17 @@ return {
         "selections": [
           {
             "alias": null,
-            "args": (v8/*: any*/),
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": (v9/*: any*/),
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": (v10/*: any*/),
             "concreteType": "ClubConnection",
             "kind": "LinkedField",
             "name": "adminClubs",
@@ -403,7 +435,7 @@ return {
                     "plural": false,
                     "selections": [
                       (v3/*: any*/),
-                      (v4/*: any*/),
+                      (v5/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -411,7 +443,7 @@ return {
                         "kind": "LinkedField",
                         "name": "defaultActivity",
                         "plural": false,
-                        "selections": (v7/*: any*/),
+                        "selections": (v8/*: any*/),
                         "storageKey": null
                       },
                       {
@@ -464,7 +496,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v8/*: any*/),
+            "args": (v10/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "viewer_adminClubs",
@@ -485,16 +517,26 @@ return {
           }
         ],
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Activity",
+        "kind": "LinkedField",
+        "name": "activities",
+        "plural": true,
+        "selections": (v7/*: any*/),
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "549c582a65dfa161f13e889c722b1fce",
+    "cacheID": "7bb06a31d633e5f0f7730b06ee5297b4",
     "id": null,
     "metadata": {},
     "name": "CopyEventPageQuery",
     "operationKind": "query",
-    "text": "query CopyEventPageQuery(\n  $copyEventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $copyEventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n  owner {\n    stripeChargesEnabled\n    id\n  }\n}\n"
+    "text": "query CopyEventPageQuery(\n  $copyEventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $copyEventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  viewer {\n    user {\n      stripeChargesEnabled\n      id\n    }\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n  owner {\n    stripeChargesEnabled\n    id\n  }\n}\n"
   }
 };
 })() `)

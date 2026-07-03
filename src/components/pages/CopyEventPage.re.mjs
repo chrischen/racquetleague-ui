@@ -91,7 +91,12 @@ function CopyEventPage(props) {
                                                                                   event: $$event.fragmentRefs,
                                                                                   location: $$location.fragmentRefs,
                                                                                   query: query.fragmentRefs,
-                                                                                  isCopy: true
+                                                                                  isCopy: true,
+                                                                                  viewerStripeChargesEnabled: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (v) {
+                                                                                                  return v.user;
+                                                                                                })), (function (u) {
+                                                                                              return u.stripeChargesEnabled;
+                                                                                            })), false)
                                                                                 });
                                                                     }));
                                                       })), t`Event or Location doesn't exist.`),

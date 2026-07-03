@@ -4,6 +4,7 @@ import * as React from "react";
 import * as Router from "../shared/Router.re.mjs";
 import * as DateFns from "date-fns";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
+import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -51,6 +52,17 @@ function CreateEventPage(props) {
   var dateParam = Router.SearchParams.get(params, "date");
   var startHourParam = Router.SearchParams.get(params, "startHour");
   var endHourParam = Router.SearchParams.get(params, "endHour");
+  var titleParam = Router.SearchParams.get(params, "title");
+  var detailsParam = Router.SearchParams.get(params, "details");
+  var maxRsvpsParam = Router.SearchParams.get(params, "maxRsvps");
+  var minRatingParam = Router.SearchParams.get(params, "minRating");
+  var listedParam = Router.SearchParams.get(params, "listed");
+  var timezoneParam = Router.SearchParams.get(params, "timezone");
+  var tagsParam = Router.SearchParams.get(params, "tags");
+  var priceParam = Router.SearchParams.get(params, "price");
+  var cancelDeadlineParam = Router.SearchParams.get(params, "cancelDeadline");
+  var startDateTimeParam = Router.SearchParams.get(params, "startDateTime");
+  var endTimeParam = Router.SearchParams.get(params, "endTime");
   var queryData = use({
         locationId: Core__Option.getOr(locationParam, "")
       }, undefined, undefined, undefined);
@@ -108,6 +120,46 @@ function CreateEventPage(props) {
         startHourParam,
         endHourParam
       ]);
+  var hasAny = [
+      titleParam,
+      detailsParam,
+      maxRsvpsParam,
+      minRatingParam,
+      listedParam,
+      timezoneParam,
+      tagsParam,
+      priceParam,
+      cancelDeadlineParam,
+      startDateTimeParam,
+      endTimeParam
+    ].some(Core__Option.isSome);
+  var copyPrefilledValues = hasAny ? ({
+        title: titleParam,
+        activitySlug: activitySlugParam,
+        clubId: clubIdParam,
+        maxRsvps: Core__Option.flatMap(maxRsvpsParam, (function (v) {
+                return Core__Int.fromString(v, undefined);
+              })),
+        minRating: Core__Option.flatMap(minRatingParam, (function (v) {
+                return Core__Float.fromString(v);
+              })),
+        startDate: startDateTimeParam,
+        endDate: endTimeParam,
+        details: detailsParam,
+        listed: Core__Option.map(listedParam, (function (v) {
+                return v === "true";
+              })),
+        timezone: timezoneParam,
+        tags: Core__Option.map(tagsParam, (function (v) {
+                return v.split(",");
+              })),
+        price: Core__Option.flatMap(priceParam, (function (v) {
+                return Core__Int.fromString(v, undefined);
+              })),
+        cancelDeadline: Core__Option.flatMap(cancelDeadlineParam, (function (v) {
+                return Core__Int.fromString(v, undefined);
+              }))
+      }) : undefined;
   var handleSingleEventSuggested = function (eventDetails) {
     var startDate = new Date(eventDetails.date);
     var endDate = new Date(eventDetails.time);
@@ -216,7 +268,12 @@ function CreateEventPage(props) {
                                                                                   }),
                                                                               JsxRuntime.jsx(CreateLocationEventForm.make, {
                                                                                     location: $$location.fragmentRefs,
-                                                                                    prefilledValues: Core__Option.orElse(prefilledValues, initialPrefilledValues),
+                                                                                    stripeChargesEnabled: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(queryData.viewer, (function (v) {
+                                                                                                    return v.user;
+                                                                                                  })), (function (u) {
+                                                                                                return u.stripeChargesEnabled;
+                                                                                              })), false),
+                                                                                    prefilledValues: Core__Option.orElse(Core__Option.orElse(prefilledValues, copyPrefilledValues), initialPrefilledValues),
                                                                                     selectedClub: clubSelection.clubId,
                                                                                     selectedActivity: clubSelection.activityId,
                                                                                     isClubFormOpen: clubSelection.isAddingClub,

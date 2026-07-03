@@ -9,6 +9,11 @@ module Query = %relay(`
       id
       ...UpdateLocationEventForm_event
     }
+    viewer {
+      user {
+        stripeChargesEnabled
+      }
+    }
     ...ClubActivitySelector_query
   }
 `)
@@ -46,6 +51,10 @@ let make = () => {
             query.event->Option.map(event =>
               <UpdateLocationEventForm
                 isCopy=true
+                viewerStripeChargesEnabled={query.viewer
+                ->Option.flatMap(v => v.user)
+                ->Option.flatMap(u => u.stripeChargesEnabled)
+                ->Option.getOr(false)}
                 event=event.fragmentRefs
                 location=location.fragmentRefs
                 query=query.fragmentRefs

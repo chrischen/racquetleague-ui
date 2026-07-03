@@ -30,8 +30,10 @@ var EventFragment = {
 };
 
 function UpdateLocationEventForm(props) {
+  var __viewerStripeChargesEnabled = props.viewerStripeChargesEnabled;
   var __isCopy = props.isCopy;
   var isCopy = __isCopy !== undefined ? __isCopy : false;
+  var viewerStripeChargesEnabled = __viewerStripeChargesEnabled !== undefined ? __viewerStripeChargesEnabled : false;
   var eventData = use(props.event);
   var match = React.useState(function () {
         return {
@@ -125,7 +127,7 @@ function UpdateLocationEventForm(props) {
                 JsxRuntime.jsx(CreateLocationEventForm.make, {
                       eventId: isCopy ? undefined : eventData.id,
                       location: props.location,
-                      stripeChargesEnabled: isCopy ? false : Core__Option.getOr(Core__Option.flatMap(eventData.owner, (function (o) {
+                      stripeChargesEnabled: isCopy ? viewerStripeChargesEnabled : Core__Option.getOr(Core__Option.flatMap(eventData.owner, (function (o) {
                                     return o.stripeChargesEnabled;
                                   })), false),
                       prefilledValues: prefilledValues,

@@ -27,7 +27,7 @@ module EventFragment = %relay(`
 `)
 
 @react.component
-let make = (~event, ~location, ~query, ~isCopy=false) => {
+let make = (~event, ~location, ~query, ~isCopy=false, ~viewerStripeChargesEnabled=false) => {
   let eventData = EventFragment.use(event)
 
   let (clubSelection, setClubSelection) = React.useState((): ClubActivitySelector.selection => {
@@ -100,7 +100,7 @@ let make = (~event, ~location, ~query, ~isCopy=false) => {
       eventId=?{isCopy ? None : Some(eventData.id)}
       location
       stripeChargesEnabled={isCopy
-        ? false
+        ? viewerStripeChargesEnabled
         : eventData.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)}
       prefilledValues
       selectedClub=?clubSelection.clubId

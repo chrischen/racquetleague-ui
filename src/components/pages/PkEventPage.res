@@ -33,6 +33,7 @@ module EventQuery = %relay(`
       shadow
       details
       maxRsvps
+      minRating
       cancelDeadline
       price
       activity {
@@ -40,6 +41,7 @@ module EventQuery = %relay(`
         slug
       }
       club {
+        id
         name
         slug
       }
@@ -489,8 +491,7 @@ module Inner = {
                 </Button.Button>
                 {event.location
                 ->Option.map(loc =>
-                  <Button.Button
-                    href={"/events/copy/" ++ event.id ++ "/" ++ loc.id}>
+                  <Button.Button href={"/events/copy/" ++ event.id ++ "/" ++ loc.id}>
                     {t`copy event`}
                   </Button.Button>
                 )
