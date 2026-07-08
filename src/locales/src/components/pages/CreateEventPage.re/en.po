@@ -203,7 +203,7 @@ msgstr ""
 msgid "Brief description of the club..."
 msgstr ""
 
-#: src/components/pages/CreateEventPage.re.mjs:146
+#: src/components/pages/CreateEventPage.re.mjs:213
 msgid "Bulk create"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:135
+#: src/components/pages/CreateEventPage.re.mjs:202
 msgid "Cancel"
 msgstr ""
 
@@ -278,7 +278,7 @@ msgid "Create Club"
 msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389
-#: src/components/pages/CreateEventPage.re.mjs:141
+#: src/components/pages/CreateEventPage.re.mjs:208
 msgid "Create Event"
 msgstr ""
 
@@ -440,7 +440,7 @@ msgstr ""
 #~ msgid "location"
 #~ msgstr ""
 
-#: src/components/pages/CreateEventPage.re.mjs:169
+#: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Location"
 msgstr ""
 

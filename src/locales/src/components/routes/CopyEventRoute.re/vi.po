@@ -268,7 +268,7 @@ msgstr "Chi tiết sự kiện"
 msgid "Event details (optional)"
 msgstr "Chi tiết sự kiện (tùy chọn)"
 
-#: src/components/pages/CopyEventPage.re.mjs:97
+#: src/components/pages/CopyEventPage.re.mjs:102
 msgid "Event or Location doesn't exist."
 msgstr "Sự kiện hoặc địa điểm không tồn tại."
 

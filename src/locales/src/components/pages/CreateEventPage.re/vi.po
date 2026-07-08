@@ -176,12 +176,12 @@ msgstr "Người tham gia không thể hủy RSVP sau thời hạn này"
 msgid "Brief description of the club..."
 msgstr "Mô tả ngắn về câu lạc bộ..."
 
-#: src/components/pages/CreateEventPage.re.mjs:146
+#: src/components/pages/CreateEventPage.re.mjs:213
 msgid "Bulk create"
 msgstr "Tạo hàng loạt"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:135
+#: src/components/pages/CreateEventPage.re.mjs:202
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -243,7 +243,7 @@ msgid "Create Club"
 msgstr "Tạo câu lạc bộ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389
-#: src/components/pages/CreateEventPage.re.mjs:141
+#: src/components/pages/CreateEventPage.re.mjs:208
 msgid "Create Event"
 msgstr "Tạo sự kiện"
 
@@ -385,7 +385,7 @@ msgstr "Để AI giúp bạn điền các thông tin bên dưới"
 msgid "List your event publicly to help fill open spots"
 msgstr "Liệt kê sự kiện của bạn công khai để giúp lấp đầy chỗ trống"
 
-#: src/components/pages/CreateEventPage.re.mjs:169
+#: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Location"
 msgstr "Địa điểm"
 
