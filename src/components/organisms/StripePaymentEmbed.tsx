@@ -71,10 +71,10 @@ interface Props {
   stripeAccountId: string
   onSuccess: (paymentIntentId: string) => void
   onClose: () => void
-  isDepositOnly?: boolean
+  isAuthorization?: boolean
 }
 
-export function StripePaymentEmbed({ clientSecret, stripeAccountId, onSuccess, onClose, isDepositOnly }: Props) {
+export function StripePaymentEmbed({ clientSecret, stripeAccountId, onSuccess, onClose, isAuthorization }: Props) {
   const { i18n } = useLingui()
   const stripePromise = useMemo(
     () => loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY as string, { stripeAccount: stripeAccountId }),
@@ -89,9 +89,9 @@ export function StripePaymentEmbed({ clientSecret, stripeAccountId, onSuccess, o
     >
       <div className="w-full max-w-md bg-white dark:bg-[#1e1f23] rounded-t-2xl sm:rounded-2xl p-6 shadow-xl">
         <h2 className="text-base font-semibold text-gray-900 dark:text-white mb-4">
-          {isDepositOnly ? <Trans>Authorize deposit</Trans> : <Trans>Complete payment</Trans>}
+          {isAuthorization ? <Trans>Authorize deposit</Trans> : <Trans>Complete payment</Trans>}
         </h2>
-        {isDepositOnly && (
+        {isAuthorization && (
           <div className="mb-5 rounded-lg bg-amber-50 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 px-4 py-3 flex gap-3 items-start">
             <span className="text-amber-500 text-lg leading-none mt-0.5">⚠️</span>
             <p className="text-sm font-semibold text-amber-800 dark:text-amber-200 leading-snug">

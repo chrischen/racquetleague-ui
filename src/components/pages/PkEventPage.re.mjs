@@ -32,6 +32,7 @@ import * as PkEventPageUncancelMutation_graphql from "../../__generated__/PkEven
 import * as PkEventPageChargePaymentMutation_graphql from "../../__generated__/PkEventPageChargePaymentMutation_graphql.re.mjs";
 import * as PkEventPageConfirmPaymentMutation_graphql from "../../__generated__/PkEventPageConfirmPaymentMutation_graphql.re.mjs";
 import * as PkEventPageAuthorizePlatformPaymentMutation_graphql from "../../__generated__/PkEventPageAuthorizePlatformPaymentMutation_graphql.re.mjs";
+import * as PkEventPageAuthorizeConnectedPaymentMutation_graphql from "../../__generated__/PkEventPageAuthorizeConnectedPaymentMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -112,17 +113,17 @@ var AuthorizePlatformPaymentMutation = {
   use: use$2
 };
 
-var convertVariables$3 = PkEventPageConfirmPaymentMutation_graphql.Internal.convertVariables;
+var convertVariables$3 = PkEventPageAuthorizeConnectedPaymentMutation_graphql.Internal.convertVariables;
 
-var convertResponse$3 = PkEventPageConfirmPaymentMutation_graphql.Internal.convertResponse;
+var convertResponse$3 = PkEventPageAuthorizeConnectedPaymentMutation_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse$3 = PkEventPageConfirmPaymentMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse$3 = PkEventPageAuthorizeConnectedPaymentMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$3, PkEventPageConfirmPaymentMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$3, PkEventPageAuthorizeConnectedPaymentMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
 
-var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$3, PkEventPageConfirmPaymentMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$3, PkEventPageAuthorizeConnectedPaymentMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
 
-var ConfirmPaymentMutation = {
+var AuthorizeConnectedPaymentMutation = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$3,
@@ -132,23 +133,17 @@ var ConfirmPaymentMutation = {
   use: use$3
 };
 
-var make = StripePaymentEmbed.StripePaymentEmbed;
+var convertVariables$4 = PkEventPageConfirmPaymentMutation_graphql.Internal.convertVariables;
 
-var StripePaymentEmbed$1 = {
-  make: make
-};
+var convertResponse$4 = PkEventPageConfirmPaymentMutation_graphql.Internal.convertResponse;
 
-var convertVariables$4 = PkEventPageCancelMutation_graphql.Internal.convertVariables;
+var convertWrapRawResponse$4 = PkEventPageConfirmPaymentMutation_graphql.Internal.convertWrapRawResponse;
 
-var convertResponse$4 = PkEventPageCancelMutation_graphql.Internal.convertResponse;
+var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$4, PkEventPageConfirmPaymentMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
 
-var convertWrapRawResponse$4 = PkEventPageCancelMutation_graphql.Internal.convertWrapRawResponse;
+var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$4, PkEventPageConfirmPaymentMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
 
-var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$4, PkEventPageCancelMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
-
-var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$4, PkEventPageCancelMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
-
-var EventCancelMutation = {
+var ConfirmPaymentMutation = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$4,
@@ -158,17 +153,23 @@ var EventCancelMutation = {
   use: use$4
 };
 
-var convertVariables$5 = PkEventPageUncancelMutation_graphql.Internal.convertVariables;
+var make = StripePaymentEmbed.StripePaymentEmbed;
 
-var convertResponse$5 = PkEventPageUncancelMutation_graphql.Internal.convertResponse;
+var StripePaymentEmbed$1 = {
+  make: make
+};
 
-var convertWrapRawResponse$5 = PkEventPageUncancelMutation_graphql.Internal.convertWrapRawResponse;
+var convertVariables$5 = PkEventPageCancelMutation_graphql.Internal.convertVariables;
 
-var commitMutation$4 = RescriptRelay_Mutation.commitMutation(convertVariables$5, PkEventPageUncancelMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+var convertResponse$5 = PkEventPageCancelMutation_graphql.Internal.convertResponse;
 
-var use$5 = RescriptRelay_Mutation.useMutation(convertVariables$5, PkEventPageUncancelMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+var convertWrapRawResponse$5 = PkEventPageCancelMutation_graphql.Internal.convertWrapRawResponse;
 
-var EventUncancelMutation = {
+var commitMutation$4 = RescriptRelay_Mutation.commitMutation(convertVariables$5, PkEventPageCancelMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+
+var use$5 = RescriptRelay_Mutation.useMutation(convertVariables$5, PkEventPageCancelMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+
+var EventCancelMutation = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$5,
@@ -176,6 +177,26 @@ var EventUncancelMutation = {
   convertWrapRawResponse: convertWrapRawResponse$5,
   commitMutation: commitMutation$4,
   use: use$5
+};
+
+var convertVariables$6 = PkEventPageUncancelMutation_graphql.Internal.convertVariables;
+
+var convertResponse$6 = PkEventPageUncancelMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$6 = PkEventPageUncancelMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$5 = RescriptRelay_Mutation.commitMutation(convertVariables$6, PkEventPageUncancelMutation_graphql.node, convertResponse$6, convertWrapRawResponse$6);
+
+var use$6 = RescriptRelay_Mutation.useMutation(convertVariables$6, PkEventPageUncancelMutation_graphql.node, convertResponse$6, convertWrapRawResponse$6);
+
+var EventUncancelMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$6,
+  convertResponse: convertResponse$6,
+  convertWrapRawResponse: convertWrapRawResponse$6,
+  commitMutation: commitMutation$5,
+  use: use$6
 };
 
 function PkEventPage$EventTitleSection(props) {
@@ -377,23 +398,24 @@ function PkEventPage$Inner(props) {
                 return true;
               });
         }), []);
-  var match$2 = use$4();
+  var match$2 = use$5();
   var canceling = match$2[1];
   var cancelEvent = match$2[0];
-  var match$3 = use$5();
+  var match$3 = use$6();
   var uncanceling = match$3[1];
   var uncancelEvent = match$3[0];
   var match$4 = use$1();
-  var chargePayment = match$4[0];
   var match$5 = use$2();
   var authorizePlatformPayment = match$5[0];
   var match$6 = use$3();
-  var confirmPayment = match$6[0];
-  var match$7 = React.useState(function () {
+  var authorizeConnectedPayment = match$6[0];
+  var match$7 = use$4();
+  var confirmPayment = match$7[0];
+  var match$8 = React.useState(function () {
         
       });
-  var setPaymentClientSecret = match$7[1];
-  var paymentClientSecret = match$7[0];
+  var setPaymentClientSecret = match$8[1];
+  var paymentClientSecret = match$8[0];
   var secret = Core__Option.getOr($$event.shadow, false);
   var tz = Core__Option.getOr($$event.timezone, "Asia/Tokyo");
   var maxRsvps = Core__Option.getOr($$event.maxRsvps, 0);
@@ -445,15 +467,15 @@ function PkEventPage$Inner(props) {
             })), false);
   var viewerIsInGoingList;
   if (viewerRsvpNode !== undefined) {
-    var match$8 = viewerRsvpNode.listType;
-    viewerIsInGoingList = match$8 !== undefined ? match$8 === 0 : true;
+    var match$9 = viewerRsvpNode.listType;
+    viewerIsInGoingList = match$9 !== undefined ? match$9 === 0 : true;
   } else {
     viewerIsInGoingList = false;
   }
   var viewerHasPayment;
   if (viewerRsvpNode !== undefined) {
-    var match$9 = viewerRsvpNode.payment;
-    viewerHasPayment = match$9 !== undefined ? (match$9.status >>> 0) <= 1 : false;
+    var match$10 = viewerRsvpNode.payment;
+    viewerHasPayment = match$10 !== undefined ? (match$10.status >>> 0) <= 1 : false;
   } else {
     viewerHasPayment = false;
   }
@@ -473,7 +495,7 @@ function PkEventPage$Inner(props) {
                         return p.currency;
                       }));
         }));
-  var isPlatformPayment = !Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
+  var ownerHasConnectedAccount = Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
               return o.stripeChargesEnabled;
             })), false);
   if (Core__Option.getOr($$event.viewerIsBanned, false)) {
@@ -482,10 +504,10 @@ function PkEventPage$Inner(props) {
                 className: "p-6 text-center text-gray-500"
               });
   }
-  var match$10 = $$event.viewerIsAdmin;
+  var match$11 = $$event.viewerIsAdmin;
   var tmp;
-  if (match$10 && viewerUser !== undefined) {
-    var match$11 = $$event.deleted;
+  if (match$11 && viewerUser !== undefined) {
+    var match$12 = $$event.deleted;
     tmp = JsxRuntime.jsx("div", {
           children: JsxRuntime.jsxs("div", {
                 children: [
@@ -501,7 +523,7 @@ function PkEventPage$Inner(props) {
                                           href: "/events/copy/" + $$event.id + "/" + loc.id
                                         });
                             })), null),
-                  match$11 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                  match$12 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
                           children: t`uncancel event`,
                           onClick: (function (param) {
                               if (!uncanceling) {
@@ -532,7 +554,7 @@ function PkEventPage$Inner(props) {
   } else {
     tmp = null;
   }
-  var match$12 = $$event.location;
+  var match$13 = $$event.location;
   var activity = $$event.activity;
   var tmp$1;
   if (activity !== undefined) {
@@ -631,8 +653,8 @@ function PkEventPage$Inner(props) {
                               secret: secret
                             }),
                         tmp,
-                        match$12 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$12
+                        match$13 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: match$13
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {
                               event: $$event.fragmentRefs,
@@ -693,17 +715,32 @@ function PkEventPage$Inner(props) {
                       isUnpaid: isUnpaid,
                       viewerJoinTime: viewerJoinTime,
                       isPaidEvent: isPaidEvent,
-                      isPlatformPayment: isPlatformPayment,
+                      isAuthorization: true,
                       isFull: isFull,
                       confirmedCount: confirmedPlayers.length,
                       waitlistCount: waitlistPlayers.length,
                       maxRsvps: maxRsvps,
                       tz: tz,
                       queryFragmentRefs: queryFragmentRefs,
-                      charging: match$4[1] || match$5[1],
+                      charging: match$4[1] || match$5[1] || match$6[1],
                       onPayClick: (function () {
                           Core__Option.forEach(viewerRsvpNode, (function (rsvp) {
-                                  if (isPlatformPayment) {
+                                  if (ownerHasConnectedAccount) {
+                                    authorizeConnectedPayment({
+                                          rsvpId: rsvp.id
+                                        }, undefined, undefined, undefined, (function (response, param) {
+                                            var secret = response.authorizeRsvpPayment.clientSecret;
+                                            if (secret !== undefined) {
+                                              return setPaymentClientSecret(function (param) {
+                                                          return [
+                                                                  secret,
+                                                                  Core__Option.getOr(response.authorizeRsvpPayment.connectedAccountId, "")
+                                                                ];
+                                                        });
+                                            }
+                                            
+                                          }), undefined, undefined);
+                                  } else {
                                     authorizePlatformPayment({
                                           rsvpId: rsvp.id
                                         }, undefined, undefined, undefined, (function (response, param) {
@@ -713,21 +750,6 @@ function PkEventPage$Inner(props) {
                                                           return [
                                                                   secret,
                                                                   ""
-                                                                ];
-                                                        });
-                                            }
-                                            
-                                          }), undefined, undefined);
-                                  } else {
-                                    chargePayment({
-                                          rsvpId: rsvp.id
-                                        }, undefined, undefined, undefined, (function (response, param) {
-                                            var secret = response.chargeRsvpPayment.clientSecret;
-                                            if (secret !== undefined) {
-                                              return setPaymentClientSecret(function (param) {
-                                                          return [
-                                                                  secret,
-                                                                  Core__Option.getOr(response.chargeRsvpPayment.connectedAccountId, "")
                                                                 ];
                                                         });
                                             }
@@ -756,7 +778,7 @@ function PkEventPage$Inner(props) {
                                   
                                 });
                           }),
-                        isDepositOnly: isPlatformPayment
+                        isAuthorization: true
                       }) : null
               ],
               ref: Caml_option.some(containerRef),
@@ -851,6 +873,7 @@ export {
   EventQuery ,
   ChargePaymentMutation ,
   AuthorizePlatformPaymentMutation ,
+  AuthorizeConnectedPaymentMutation ,
   ConfirmPaymentMutation ,
   StripePaymentEmbed$1 as StripePaymentEmbed,
   EventCancelMutation ,

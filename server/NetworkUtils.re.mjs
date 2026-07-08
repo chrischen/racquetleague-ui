@@ -229,7 +229,27 @@ function makeFetchQuery() {
             });
 }
 
-function makeServerFetchQuery(onQuery, headers) {
+var ExpressResponse = {};
+
+var getSetCookies = (function (r) {
+  const headers = r.headers;
+  if (typeof headers.getSetCookie === "function") return headers.getSetCookie();
+  if (typeof headers.getAll === "function") return headers.getAll("set-cookie");
+  const single = headers.get("set-cookie");
+  return single ? [single] : [];
+});
+
+function forwardSetCookies(r, expressResponse) {
+  if (!expressResponse.headersSent) {
+    getSetCookies(r).forEach(function (cookie) {
+          expressResponse.append("Set-Cookie", cookie);
+        });
+    return ;
+  }
+  
+}
+
+function makeServerFetchQuery(onQuery, headers, expressResponse) {
   return RelaySSRUtils.makeServerFetchFunction(onQuery, (function (sink, operation, variables, _cacheConfig, _uploads) {
                 Core__Promise.$$catch(WebFetch.fetch(serverApiEndpoint(), {
                             mode: "no-cors",
@@ -243,6 +263,7 @@ function makeServerFetchQuery(onQuery, headers) {
                                       variables: variables
                                     }), "")
                           }).then(function (r) {
+                          forwardSetCookies(r, expressResponse);
                           return RelayRouter__NetworkUtils.getChunks(r, (function (part) {
                                         adaptJsonIncrementalResponseToRelay(part).map(sink.next);
                                       }), (function (err) {
@@ -265,6 +286,9 @@ export {
   RelayDeferResponse ,
   adaptJsonIncrementalResponseToRelay ,
   makeFetchQuery ,
+  ExpressResponse ,
+  getSetCookies ,
+  forwardSetCookies ,
   makeServerFetchQuery ,
 }
 /* RelaySSRUtils Not a pure module */

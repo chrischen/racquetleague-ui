@@ -69,7 +69,7 @@ function EventStickyFooter(props) {
   var waitlistCount = props.waitlistCount;
   var confirmedCount = props.confirmedCount;
   var isFull = props.isFull;
-  var isPlatformPayment = props.isPlatformPayment;
+  var isAuthorization = props.isAuthorization;
   var isWaitlisted = props.isWaitlisted;
   var viewerUser = props.viewerUser;
   var $$event = props.event;
@@ -167,7 +167,7 @@ function EventStickyFooter(props) {
       var tmp$1;
       if (charging) {
         tmp$1 = t`Loading...`;
-      } else if (isPlatformPayment) {
+      } else if (isAuthorization) {
         tmp$1 = t`Authorize deposit`;
       } else {
         var currencyStr = Core__Option.getOr(Core__Option.map($$event.currency, PaymentIndicator.getCurrencySymbol), "¥");
@@ -184,13 +184,13 @@ function EventStickyFooter(props) {
                             className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                           }),
                       JsxRuntime.jsx("span", {
-                            children: isPlatformPayment ? t`Deposit required to confirm your spot` : t`Payment required to confirm your spot`,
+                            children: isAuthorization ? t`Deposit required to confirm your spot` : t`Payment required to confirm your spot`,
                             className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight"
                           })
                     ],
                     className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
                   }),
-              isPlatformPayment ? JsxRuntime.jsx("div", {
+              isAuthorization ? JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx("span", {
                             children: t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`,
                             className: "font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight"

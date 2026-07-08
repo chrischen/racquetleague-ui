@@ -220,7 +220,38 @@ let makeFetchQuery = () =>
     None
   })
 
-let makeServerFetchQuery = (~onQuery, ~headers: Js.Dict.t<string>): /* ~preloadAsset, */
+// The SSR fetch forwards the user's session cookie to the backend, which may
+// respond with a refreshed session cookie (sliding expiry). Copy any
+// Set-Cookie headers onto the Express response so they reach the browser
+// instead of being silently dropped with the rest of the response headers.
+module ExpressResponse = {
+  type t
+  @get external headersSent: t => bool = "headersSent"
+  @send external append: (t, string, string) => unit = "append"
+}
+
+// @remix-run/web-fetch's Headers has the non-standard getAll() instead of the
+// standard getSetCookie(); support both in case the fetch impl changes.
+let getSetCookies: RelayRouter.NetworkUtils.response => array<string> = %raw(`function (r) {
+  const headers = r.headers;
+  if (typeof headers.getSetCookie === "function") return headers.getSetCookie();
+  if (typeof headers.getAll === "function") return headers.getAll("set-cookie");
+  const single = headers.get("set-cookie");
+  return single ? [single] : [];
+}`)
+
+let forwardSetCookies = (r, expressResponse) =>
+  if !(expressResponse->ExpressResponse.headersSent) {
+    r
+    ->getSetCookies
+    ->Array.forEach(cookie => expressResponse->ExpressResponse.append("Set-Cookie", cookie))
+  }
+
+let makeServerFetchQuery = (
+  ~onQuery,
+  ~headers: Js.Dict.t<string>,
+  ~expressResponse: ExpressResponse.t,
+): /* ~preloadAsset, */
 RescriptRelay.Network.fetchFunctionObservable => {
   RelaySSRUtils.makeServerFetchFunction(onQuery, (
     sink,
@@ -245,6 +276,7 @@ RescriptRelay.Network.fetchFunctionObservable => {
       },
     )
     ->Promise.then(r => {
+      r->forwardSetCookies(expressResponse)
       r->getChunks(
         ~onNext=part => {
           /* part->preloadFromResponse(~preloadAsset) */

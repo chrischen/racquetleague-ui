@@ -105,6 +105,16 @@ module AuthorizePlatformPaymentMutation = %relay(`
   }
 `)
 
+module AuthorizeConnectedPaymentMutation = %relay(`
+  mutation PkEventPageAuthorizeConnectedPaymentMutation($rsvpId: ID!) {
+    authorizeRsvpPayment(rsvpId: $rsvpId) {
+      clientSecret
+      connectedAccountId
+      errors { message }
+    }
+  }
+`)
+
 module ConfirmPaymentMutation = %relay(`
   mutation PkEventPageConfirmPaymentMutation($rsvpId: ID!, $paymentIntentId: String!) {
     confirmRsvpPayment(rsvpId: $rsvpId, paymentIntentId: $paymentIntentId) {
@@ -128,7 +138,7 @@ module StripePaymentEmbed = {
     ~stripeAccountId: string,
     ~onSuccess: string => unit,
     ~onClose: unit => unit,
-    ~isDepositOnly: bool=?,
+    ~isAuthorization: bool=?,
   ) => React.element = "StripePaymentEmbed"
 }
 
@@ -352,6 +362,7 @@ module Inner = {
     let (uncancelEvent, uncanceling) = EventUncancelMutation.use()
     let (chargePayment, charging) = ChargePaymentMutation.use()
     let (authorizePlatformPayment, authorizingPlatform) = AuthorizePlatformPaymentMutation.use()
+    let (authorizeConnectedPayment, authorizingConnected) = AuthorizeConnectedPaymentMutation.use()
     let (confirmPayment, _confirming) = ConfirmPaymentMutation.use()
     let (paymentClientSecret, setPaymentClientSecret) = React.useState(() => None)
 
@@ -419,9 +430,9 @@ module Inner = {
     | None => false
     }
     let eventCurrency = allRsvpNodes->Array.findMap(n => n.payment->Option.map(p => p.currency))
-    let isPlatformPayment = !(
+    let ownerHasConnectedAccount =
       event.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)
-    )
+    let isAuthorization = true
 
     if event.viewerIsBanned->Option.getOr(false) {
       <div className="p-6 text-center text-gray-500">
@@ -622,17 +633,38 @@ module Inner = {
           maxRsvps
           tz
           queryFragmentRefs
-          charging={charging || authorizingPlatform}
-          isPlatformPayment
+          charging={charging || authorizingPlatform || authorizingConnected}
+          isAuthorization
           onPayClick={() =>
             viewerRsvpNode->Option.forEach(rsvp =>
-              if isPlatformPayment {
-                authorizePlatformPayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
-                  switch response.authorizePlatformRsvpPayment.clientSecret {
-                  | Some(secret) => setPaymentClientSecret(_ => Some((secret, "")))
-                  | None => ()
-                  }
-                )->RescriptRelay.Disposable.ignore
+              if isAuthorization {
+                if ownerHasConnectedAccount {
+                  authorizeConnectedPayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(
+                    response,
+                    _,
+                  ) =>
+                    switch response.authorizeRsvpPayment.clientSecret {
+                    | Some(secret) =>
+                      setPaymentClientSecret(
+                        _ => Some((
+                          secret,
+                          response.authorizeRsvpPayment.connectedAccountId->Option.getOr(""),
+                        )),
+                      )
+                    | None => ()
+                    }
+                  )->RescriptRelay.Disposable.ignore
+                } else {
+                  authorizePlatformPayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(
+                    response,
+                    _,
+                  ) =>
+                    switch response.authorizePlatformRsvpPayment.clientSecret {
+                    | Some(secret) => setPaymentClientSecret(_ => Some((secret, "")))
+                    | None => ()
+                    }
+                  )->RescriptRelay.Disposable.ignore
+                }
               } else {
                 chargePayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
                   switch response.chargeRsvpPayment.clientSecret {
@@ -654,7 +686,7 @@ module Inner = {
           <StripePaymentEmbed
             clientSecret=secret
             stripeAccountId=accountId
-            isDepositOnly={isPlatformPayment}
+            isAuthorization={isAuthorization}
             onSuccess={paymentIntentId => {
               setPaymentClientSecret(_ => None)
               viewerRsvpNode->Option.forEach(rsvp =>

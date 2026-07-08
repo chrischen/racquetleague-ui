@@ -60,7 +60,7 @@ let make = (
   ~isUnpaid: bool,
   ~viewerJoinTime: option<float>,
   ~isPaidEvent: bool,
-  ~isPlatformPayment: bool,
+  ~isAuthorization: bool,
   ~isFull: bool,
   ~confirmedCount: int,
   ~waitlistCount: int,
@@ -161,12 +161,12 @@ let make = (
                   />
                   <span
                     className="font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight">
-                    {isPlatformPayment
+                    {isAuthorization
                       ? t`Deposit required to confirm your spot`
                       : t`Payment required to confirm your spot`}
                   </span>
                 </div>
-                {isPlatformPayment
+                {isAuthorization
                   ? <div
                       className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-2">
                       <span
@@ -190,7 +190,7 @@ let make = (
                     <Lucide.CreditCard className="w-3 h-3" />
                     {if charging {
                       (ts`Loading...`)->React.string
-                    } else if isPlatformPayment {
+                    } else if isAuthorization {
                       t`Authorize deposit`
                     } else {
                       let currencyStr =

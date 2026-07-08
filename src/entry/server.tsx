@@ -164,7 +164,7 @@ export async function render(
   // Wrap routes with error boundary for consistent error handling
   // const routesWithErrorBoundary = wrapRoutesWithErrorBoundary(routes);
   
-  const environment = makeServer(transformStream.onQuery.bind(transformStream), req);
+  const environment = makeServer(transformStream.onQuery.bind(transformStream), req, res);
   /* React Router */
   const handler = createStaticHandler(routes);
   const fetchRequest = createFetchRequest(req);
