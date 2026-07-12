@@ -102,11 +102,11 @@ msgstr "이벤트 추가"
 msgid "Afternoon"
 msgstr "오후"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:175
+#: src/components/organisms/AIAssistantModal.re.mjs:176
 msgid "AI Assistant"
 msgstr "AI 어시스턴트"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:120
+#: src/components/organisms/AIAssistantModal.re.mjs:121
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
@@ -118,11 +118,11 @@ msgstr "언제든지"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Ask"
 msgstr "질문"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:151
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "다음 달 매주 목요일 아카바네 초등학교에서 오후 7-9시 배드민턴."
 
@@ -187,11 +187,11 @@ msgstr "이벤트 주최"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
+#: src/components/organisms/AIAssistantModal.re.mjs:181
 msgid "I can create events for you. Just give me your schedule."
 msgstr "이벤트를 만들어 드릴 수 있습니다. 일정을 알려주세요."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:108
+#: src/components/organisms/AIAssistantModal.re.mjs:109
 msgid "I couldn't process that request. Please try again."
 msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
 
@@ -224,11 +224,11 @@ msgstr "가능 표시"
 msgid "Morning"
 msgstr "오전"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:149
+#: src/components/organisms/AIAssistantModal.re.mjs:150
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "내일 오후 6-9시 KPI 파크에 5명 필요합니다. 비용 분담."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:279
+#: src/components/organisms/AIAssistantModal.re.mjs:280
 msgid "New"
 msgstr "새로 만들기"
 
@@ -248,11 +248,11 @@ msgstr "대기 중"
 msgid "players"
 msgstr "플레이어"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:265
+#: src/components/organisms/AIAssistantModal.re.mjs:266
 msgid "Processing..."
 msgstr "처리 중..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Reply"
 msgstr "답장"
 
@@ -284,7 +284,7 @@ msgstr "캘린더 동기화"
 msgid "Tap anywhere to add a time window"
 msgstr "아무 곳이나 탭하여 시간 창 추가"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:230
+#: src/components/organisms/AIAssistantModal.re.mjs:231
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."

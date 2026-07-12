@@ -17,19 +17,19 @@ msgstr ""
 msgid "{0} events created!"
 msgstr "Đã tạo {0} sự kiện!"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:175
+#: src/components/organisms/AIAssistantModal.re.mjs:176
 msgid "AI Assistant"
 msgstr "Trợ lý AI"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:120
+#: src/components/organisms/AIAssistantModal.re.mjs:121
 msgid "An error occurred. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Ask"
 msgstr "Hỏi"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:151
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "Cầu lông mỗi thứ Năm tháng tới tại Trường tiểu học Akabane 19-21h."
 
@@ -58,11 +58,11 @@ msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
+#: src/components/organisms/AIAssistantModal.re.mjs:181
 msgid "I can create events for you. Just give me your schedule."
 msgstr "Tôi có thể tạo sự kiện cho bạn. Chỉ cần cho tôi biết lịch của bạn."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:108
+#: src/components/organisms/AIAssistantModal.re.mjs:109
 msgid "I couldn't process that request. Please try again."
 msgstr "Không thể xử lý yêu cầu đó. Vui lòng thử lại."
 
@@ -71,19 +71,19 @@ msgstr "Không thể xử lý yêu cầu đó. Vui lòng thử lại."
 msgid "Location:"
 msgstr "Địa điểm:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:149
+#: src/components/organisms/AIAssistantModal.re.mjs:150
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "Cần 5 người cho KPI Park ngày mai 18-21h. Chia sẻ chi phí."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:279
+#: src/components/organisms/AIAssistantModal.re.mjs:280
 msgid "New"
 msgstr "Mới"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:265
+#: src/components/organisms/AIAssistantModal.re.mjs:266
 msgid "Processing..."
 msgstr "Đang xử lý..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Reply"
 msgstr "Trả lời"
 
@@ -91,7 +91,7 @@ msgstr "Trả lời"
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:230
+#: src/components/organisms/AIAssistantModal.re.mjs:231
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."

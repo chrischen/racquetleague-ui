@@ -17,19 +17,19 @@ msgstr ""
 msgid "{0} events created!"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:175
+#: src/components/organisms/AIAssistantModal.re.mjs:176
 msgid "AI Assistant"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:120
+#: src/components/organisms/AIAssistantModal.re.mjs:121
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Ask"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:151
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr ""
 
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
+#: src/components/organisms/AIAssistantModal.re.mjs:181
 msgid "I can create events for you. Just give me your schedule."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:108
+#: src/components/organisms/AIAssistantModal.re.mjs:109
 msgid "I couldn't process that request. Please try again."
 msgstr ""
 
@@ -79,19 +79,19 @@ msgstr ""
 msgid "Location:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:149
+#: src/components/organisms/AIAssistantModal.re.mjs:150
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:279
+#: src/components/organisms/AIAssistantModal.re.mjs:280
 msgid "New"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:265
+#: src/components/organisms/AIAssistantModal.re.mjs:266
 msgid "Processing..."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Reply"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Suggested Events"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:230
+#: src/components/organisms/AIAssistantModal.re.mjs:231
 msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 msgstr ""
 

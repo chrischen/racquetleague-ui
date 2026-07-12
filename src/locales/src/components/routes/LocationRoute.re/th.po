@@ -102,11 +102,11 @@ msgstr "เพิ่มกิจกรรม"
 msgid "Afternoon"
 msgstr "บ่าย"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:175
+#: src/components/organisms/AIAssistantModal.re.mjs:176
 msgid "AI Assistant"
 msgstr "ผู้ช่วย AI"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:120
+#: src/components/organisms/AIAssistantModal.re.mjs:121
 msgid "An error occurred. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
@@ -118,11 +118,11 @@ msgstr "เวลาใดก็ได้"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Ask"
 msgstr "ถาม"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:151
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
@@ -185,11 +185,11 @@ msgstr "จัดอีเวนต์"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
+#: src/components/organisms/AIAssistantModal.re.mjs:181
 msgid "I can create events for you. Just give me your schedule."
 msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:108
+#: src/components/organisms/AIAssistantModal.re.mjs:109
 msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
 
@@ -222,11 +222,11 @@ msgstr "ระบุว่าว่าง"
 msgid "Morning"
 msgstr "เช้า"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:149
+#: src/components/organisms/AIAssistantModal.re.mjs:150
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "ต้องการ 5 คน สำหรับ KPI Park พรุ่งนี้ 18:00-21:00 แชร์ค่าใช้จ่าย"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:279
+#: src/components/organisms/AIAssistantModal.re.mjs:280
 msgid "New"
 msgstr "ใหม่"
 
@@ -246,11 +246,11 @@ msgstr "รอการอนุมัติ"
 msgid "players"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:265
+#: src/components/organisms/AIAssistantModal.re.mjs:266
 msgid "Processing..."
 msgstr "กำลังประมวลผล..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Reply"
 msgstr "ตอบกลับ"
 
@@ -282,7 +282,7 @@ msgstr "ซิงค์ปฏิทิน"
 msgid "Tap anywhere to add a time window"
 msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:230
+#: src/components/organisms/AIAssistantModal.re.mjs:231
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."

@@ -5,13 +5,18 @@ module Types = {
   @@warning("-30")
 
   @live type chatInput = RelaySchemaAssets_graphql.input_ChatInput
+  @live type actionResultInput = RelaySchemaAssets_graphql.input_ActionResultInput
+  @tag("__typename") type response_chat_messages = 
+    | @live AgentMessage(
+      {
+        @live __typename: [ | #AgentMessage],
+        content: string,
+      }
+    )
+    | @live @as("__unselected") UnselectedUnionMember(string)
+
   @live
-  type rec response_chat_message = {
-    content: string,
-    messageType: RelaySchemaAssets_graphql.enum_MessageType,
-  }
-  @live
-  and response_chat_suggestedEvents = {
+  type rec response_chat_suggestedEvents = {
     address: string,
     details: option<string>,
     endDate: Util.Datetime.t,
@@ -23,7 +28,7 @@ module Types = {
   @live
   and response_chat = {
     error: option<string>,
-    message: option<response_chat_message>,
+    messages: array<response_chat_messages>,
     suggestedEvents: option<array<response_chat_suggestedEvents>>,
   }
   @live
@@ -38,10 +43,14 @@ module Types = {
   }
 }
 
+@live
+let unwrap_response_chat_messages: Types.response_chat_messages => Types.response_chat_messages = RescriptRelay_Internal.unwrapUnion(_, ["AgentMessage"])
+@live
+let wrap_response_chat_messages: Types.response_chat_messages => Types.response_chat_messages = RescriptRelay_Internal.wrapUnion
 module Internal = {
   @live
   let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"chatInput":{},"__root":{"input":{"r":"chatInput"}}}`
+    json`{"chatInput":{"actionResult":{"r":"actionResultInput"}},"actionResultInput":{},"__root":{"input":{"r":"chatInput"}}}`
   )
   @live
   let variablesConverterMap = ()
@@ -55,10 +64,11 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"u":"response_chat_messages"}}}`
   )
   @live
   let wrapResponseConverterMap = {
+    "response_chat_messages": wrap_response_chat_messages,
     "Util.Datetime": Util.Datetime.serialize,
   }
   @live
@@ -71,10 +81,11 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"u":"response_chat_messages"}}}`
   )
   @live
   let responseConverterMap = {
+    "response_chat_messages": unwrap_response_chat_messages,
     "Util.Datetime": Util.Datetime.parse,
   }
   @live
@@ -93,21 +104,6 @@ module Internal = {
 module Utils = {
   @@warning("-33")
   open Types
-  @live
-  external messageType_toString: RelaySchemaAssets_graphql.enum_MessageType => string = "%identity"
-  @live
-  external messageType_input_toString: RelaySchemaAssets_graphql.enum_MessageType_input => string = "%identity"
-  @live
-  let messageType_decode = (enum: RelaySchemaAssets_graphql.enum_MessageType): option<RelaySchemaAssets_graphql.enum_MessageType_input> => {
-    switch enum {
-      | FutureAddedValue(_) => None
-      | valid => Some(Obj.magic(valid))
-    }
-  }
-  @live
-  let messageType_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_MessageType_input> => {
-    messageType_decode(Obj.magic(str))
-  }
 }
 
 type relayOperationNode
@@ -140,24 +136,31 @@ v1 = [
       {
         "alias": null,
         "args": null,
-        "concreteType": "ChatMessage",
+        "concreteType": null,
         "kind": "LinkedField",
-        "name": "message",
-        "plural": false,
+        "name": "messages",
+        "plural": true,
         "selections": [
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "content",
+            "name": "__typename",
             "storageKey": null
           },
           {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "messageType",
-            "storageKey": null
+            "kind": "InlineFragment",
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "content",
+                "storageKey": null
+              }
+            ],
+            "type": "AgentMessage",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -251,12 +254,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "ccd3e83b9b50cbe2343aea753cf052d2",
+    "cacheID": "83e7382559eaa030813a3475cc32e412",
     "id": null,
     "metadata": {},
     "name": "AIAssistantModalChatMutation",
     "operationKind": "mutation",
-    "text": "mutation AIAssistantModalChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    message {\n      content\n      messageType\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n"
+    "text": "mutation AIAssistantModalChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ... on AgentMessage {\n        content\n      }\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n"
   }
 };
 })() `)

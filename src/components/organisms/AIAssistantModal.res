@@ -6,12 +6,17 @@ type context = {
   locationId?: string,
 }
 
+// This modal is a one-shot Q&A (no history, no tool-call approval), so it only
+// needs the assistant's text reply. It reads the last AgentMessage's content
+// from the turn's persisted rows.
 module ChatMutation = %relay(`
   mutation AIAssistantModalChatMutation($input: ChatInput!) {
     chat(input: $input) {
-      message {
-        content
-        messageType
+      messages {
+        __typename
+        ... on AgentMessage {
+          content
+        }
       }
       suggestedEvents {
         title
@@ -52,8 +57,17 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
         ~onCompleted=(result, _errors) => {
           let chatResponse = result.chat
 
-          switch chatResponse.message {
-          | Some(message) => {
+          // The turn's last assistant text row is the reply to show.
+          let lastAgentContent =
+            chatResponse.messages->Belt.Array.reduce(None, (acc, message) =>
+              switch message {
+              | AgentMessage({content}) => Some(content)
+              | _ => acc
+              }
+            )
+
+          switch lastAgentContent {
+          | Some(content) => {
               // Convert suggested events from GraphQL to our type
               let suggestedEvents = chatResponse.suggestedEvents->Option.map(events =>
                 events->Array.map((event): AITypes.eventDetails => {
@@ -73,7 +87,7 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
               )
 
               setResponse(_ => Some({
-                summary: message.content,
+                summary: content,
                 eventDetails: None,
                 suggestedEvents,
               }))

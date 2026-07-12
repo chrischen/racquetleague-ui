@@ -17,19 +17,19 @@ msgstr ""
 msgid "{0} events created!"
 msgstr "{0}개 이벤트가 생성되었습니다!"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:175
+#: src/components/organisms/AIAssistantModal.re.mjs:176
 msgid "AI Assistant"
 msgstr "AI 어시스턴트"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:120
+#: src/components/organisms/AIAssistantModal.re.mjs:121
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Ask"
 msgstr "질문"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:151
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "다음 달 매주 목요일 아카바네 초등학교에서 오후 7-9시 배드민턴."
 
@@ -58,11 +58,11 @@ msgstr "이벤트 생성 오류. 다시 시도하세요."
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
+#: src/components/organisms/AIAssistantModal.re.mjs:181
 msgid "I can create events for you. Just give me your schedule."
 msgstr "이벤트를 만들어 드릴 수 있습니다. 일정을 알려주세요."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:108
+#: src/components/organisms/AIAssistantModal.re.mjs:109
 msgid "I couldn't process that request. Please try again."
 msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
 
@@ -71,19 +71,19 @@ msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
 msgid "Location:"
 msgstr "장소:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:149
+#: src/components/organisms/AIAssistantModal.re.mjs:150
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "내일 오후 6-9시 KPI 파크에 5명 필요합니다. 비용 분담."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:279
+#: src/components/organisms/AIAssistantModal.re.mjs:280
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:265
+#: src/components/organisms/AIAssistantModal.re.mjs:266
 msgid "Processing..."
 msgstr "처리 중..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Reply"
 msgstr "답장"
 
@@ -91,7 +91,7 @@ msgstr "답장"
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:230
+#: src/components/organisms/AIAssistantModal.re.mjs:231
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."

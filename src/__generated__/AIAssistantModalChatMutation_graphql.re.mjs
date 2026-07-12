@@ -3,18 +3,24 @@
 
 import * as Util from "../components/shared/Util.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
+import * as RescriptRelay_Internal from "rescript-relay/src/RescriptRelay_Internal.re.mjs";
 
 var Types = {};
 
-var variablesConverter = {"chatInput":{},"__root":{"input":{"r":"chatInput"}}};
+function unwrap_response_chat_messages(__x) {
+  return RescriptRelay_Internal.unwrapUnion(__x, ["AgentMessage"]);
+}
+
+var variablesConverter = {"chatInput":{"actionResult":{"r":"actionResultInput"}},"actionResultInput":{},"__root":{"input":{"r":"chatInput"}}};
 
 function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"}}};
+var wrapResponseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"u":"response_chat_messages"}}};
 
 var wrapResponseConverterMap = {
+  response_chat_messages: RescriptRelay_Internal.wrapUnion,
   "Util.Datetime": Util.Datetime.serialize
 };
 
@@ -22,9 +28,10 @@ function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, wrapResponseConverterMap, null);
 }
 
-var responseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"}}};
+var responseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"u":"response_chat_messages"}}};
 
 var responseConverterMap = {
+  response_chat_messages: unwrap_response_chat_messages,
   "Util.Datetime": Util.Datetime.parse
 };
 
@@ -46,21 +53,7 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-function messageType_decode($$enum) {
-  if ($$enum === "Function" || $$enum === "Agent" || $$enum === "User") {
-    return $$enum;
-  }
-  
-}
-
-function messageType_fromString(str) {
-  return messageType_decode(str);
-}
-
-var Utils = {
-  messageType_decode: messageType_decode,
-  messageType_fromString: messageType_fromString
-};
+var Utils = {};
 
 var node = ((function(){
 var v0 = [
@@ -88,24 +81,31 @@ v1 = [
       {
         "alias": null,
         "args": null,
-        "concreteType": "ChatMessage",
+        "concreteType": null,
         "kind": "LinkedField",
-        "name": "message",
-        "plural": false,
+        "name": "messages",
+        "plural": true,
         "selections": [
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "content",
+            "name": "__typename",
             "storageKey": null
           },
           {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "messageType",
-            "storageKey": null
+            "kind": "InlineFragment",
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "content",
+                "storageKey": null
+              }
+            ],
+            "type": "AgentMessage",
+            "abstractKey": null
           }
         ],
         "storageKey": null
@@ -199,18 +199,22 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "ccd3e83b9b50cbe2343aea753cf052d2",
+    "cacheID": "83e7382559eaa030813a3475cc32e412",
     "id": null,
     "metadata": {},
     "name": "AIAssistantModalChatMutation",
     "operationKind": "mutation",
-    "text": "mutation AIAssistantModalChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    message {\n      content\n      messageType\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n"
+    "text": "mutation AIAssistantModalChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ... on AgentMessage {\n        content\n      }\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n"
   }
 };
 })());
 
+var wrap_response_chat_messages = RescriptRelay_Internal.wrapUnion;
+
 export {
   Types ,
+  unwrap_response_chat_messages ,
+  wrap_response_chat_messages ,
   Internal ,
   Utils ,
   node ,

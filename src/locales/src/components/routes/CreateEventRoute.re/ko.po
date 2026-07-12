@@ -133,6 +133,10 @@ msgstr ""
 "참가자가 등록할 때 환불 가능한 보증금이 청구됩니다. RSVP 목록에서 참가자 이름"
 "을 클릭하여 수동으로 승인할 수 있습니다."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+msgid "Action proposal"
+msgstr "액션 제안"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:824
 #: src/components/organisms/CreateLocationEventForm.re.mjs:846
 msgid "Active"
@@ -150,18 +154,30 @@ msgstr "종목이 필요합니다"
 msgid "Add any additional information about the event..."
 msgstr "이벤트에 대한 추가 정보를 입력하세요..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:184
-#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+#: src/components/organisms/AIAssistantEmbed.re.mjs:416
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "AI Assistant"
 msgstr "AI 어시스턴트"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:149
+#: src/components/organisms/AIAssistantEmbed.re.mjs:268
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
 msgid "Answer the questions or provide more details..."
 msgstr "질문에 답하거나 세부 정보를 제공하세요..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:585
+msgid "Approve"
+msgstr "승인"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Approve or deny the pending action to continue."
+msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+msgid "Approved"
+msgstr "승인됨"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:425
 msgid "at"
@@ -170,6 +186,10 @@ msgstr "에"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:770
 msgid "Attendees cannot cancel their RSVP after this deadline"
 msgstr "이 마감 시간 이후에는 참석자가 RSVP를 취소할 수 없습니다"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:539
+msgid "Awaiting approval"
+msgstr "승인 대기 중"
 
 #: src/components/organisms/CreateClubForm.re.mjs:205
 msgid "Brief description of the club..."
@@ -223,11 +243,11 @@ msgstr "경쟁"
 msgid "Connect a Stripe account"
 msgstr "Stripe 계정 연결"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+#: src/components/organisms/AIAssistantEmbed.re.mjs:820
 msgid "Continue"
 msgstr "계속"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+#: src/components/organisms/AIAssistantEmbed.re.mjs:460
 msgid "Continue the conversation"
 msgstr "대화 계속하기"
 
@@ -257,7 +277,15 @@ msgstr "날짜:"
 msgid "Default club activity"
 msgstr "기본 클럽 종목"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+#: src/components/organisms/AIAssistantEmbed.re.mjs:551
+msgid "Denied"
+msgstr "거부됨"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:639
+msgid "Deny"
+msgstr "거부"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "Describe your event"
 msgstr "이벤트를 설명하세요"
 
@@ -288,7 +316,7 @@ msgstr "DUPR 레이팅"
 msgid "e.g., City Ballers Club"
 msgstr "예: City Ballers 클럽"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+#: src/components/organisms/AIAssistantEmbed.re.mjs:768
 msgid ""
 "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
 "competitive play for 3.5+ players..."
@@ -336,7 +364,15 @@ msgstr "이벤트 제목"
 msgid "Event type"
 msgstr "이벤트 유형"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+msgid "Executed"
+msgstr "실행됨"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:562
+msgid "Execution failed"
+msgstr "실행 실패"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:820
 msgid "Fill with AI"
 msgstr "AI로 채우기"
 
@@ -348,7 +384,7 @@ msgstr "플레이어 찾기"
 msgid "Find players for your event?"
 msgstr "이벤트를 위한 플레이어를 찾으시겠습니까?"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
 msgid "Form filled • Click to expand"
 msgstr "양식 완성 • 클릭하여 펼치기"
 
@@ -365,21 +401,21 @@ msgstr "형식 옵션"
 msgid "Friday Night Pickleball"
 msgstr "금요일 밤 피클볼"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+#: src/components/organisms/AIAssistantEmbed.re.mjs:811
 msgid "Generating..."
 msgstr "생성 중..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:137
-msgid "I couldn't process that request. Please try again."
-msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+#: src/components/organisms/AIAssistantEmbed.re.mjs:460
 msgid "Let AI help you fill out the details below"
 msgstr "AI가 아래 세부 정보를 채우도록 도와드립니다"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:991
 msgid "List your event publicly to help fill open spots"
 msgstr "빈 자리를 채우기 위해 이벤트를 공개로 나열하세요"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:490
+msgid "Loading conversation history..."
+msgstr "대화 기록 불러오는 중..."
 
 #: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Location"
@@ -423,15 +459,19 @@ msgstr "최소값 없음"
 msgid "Not set"
 msgstr "설정 안 됨"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+msgid "Operation:"
+msgstr "작업:"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1118
 msgid "Paid event"
 msgstr "유료 이벤트"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+#: src/components/organisms/AIAssistantEmbed.re.mjs:791
 msgid "Press ⌘+Enter to continue"
 msgstr "⌘+Enter를 눌러 계속"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+#: src/components/organisms/AIAssistantEmbed.re.mjs:791
 msgid "Press ⌘+Enter to generate"
 msgstr "⌘+Enter를 눌러 생성"
 
@@ -464,7 +504,7 @@ msgstr "레크리에이션"
 msgid "Require payment from attendees"
 msgstr "참가자에게 결제 요구"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:338
+#: src/components/organisms/AIAssistantEmbed.re.mjs:797
 msgid "Reset"
 msgstr "초기화"
 
@@ -491,6 +531,10 @@ msgstr "시작 날짜 및 시간"
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:613
+msgid "The action completed with GraphQL errors."
+msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:854
 msgid ""
 "The participation fee is charged automatically and transferred to your "
@@ -512,6 +556,10 @@ msgstr "제목이 필요합니다"
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
 msgstr "제목:"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:282
+msgid "Too many automated steps were requested. Please continue manually."
+msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389
 msgid "Update Event"
@@ -537,6 +585,10 @@ msgstr "Stripe 미사용"
 #~ "며, 이벤트 종료 후 승인이 자동으로 취소됩니다. 참가비는 현장에서 직접 수령"
 #~ "하시기 바랍니다. 또한 RSVP 목록에서 참가자 이름을 클릭하여 수동으로 승인"
 #~ "할 수도 있습니다."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:137
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:850
 #~ msgid ""

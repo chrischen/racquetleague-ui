@@ -2,6 +2,7 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -25,13 +26,7 @@ var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, AIA
 
 var use = RescriptRelay_Mutation.useMutation(convertVariables, AIAssistantModalChatMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
-var ChatMutation_messageType_decode = AIAssistantModalChatMutation_graphql.Utils.messageType_decode;
-
-var ChatMutation_messageType_fromString = AIAssistantModalChatMutation_graphql.Utils.messageType_fromString;
-
 var ChatMutation = {
-  messageType_decode: ChatMutation_messageType_decode,
-  messageType_fromString: ChatMutation_messageType_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -76,8 +71,14 @@ function AIAssistantModal(props) {
             }
           }, undefined, undefined, undefined, (function (result, _errors) {
               var chatResponse = result.chat;
-              var message = chatResponse.message;
-              if (message !== undefined) {
+              var lastAgentContent = Belt_Array.reduce(chatResponse.messages, undefined, (function (acc, message) {
+                      if (message.__typename === "AgentMessage") {
+                        return message.content;
+                      } else {
+                        return acc;
+                      }
+                    }));
+              if (lastAgentContent !== undefined) {
                 var suggestedEvents = Core__Option.map(chatResponse.suggestedEvents, (function (events) {
                         return events.map(function ($$event) {
                                     var startDateStr = Util.Datetime.toDate($$event.startDate).toISOString();
@@ -94,7 +95,7 @@ function AIAssistantModal(props) {
                       }));
                 setResponse(function (param) {
                       return {
-                              summary: message.content,
+                              summary: lastAgentContent,
                               eventDetails: undefined,
                               suggestedEvents: suggestedEvents
                             };

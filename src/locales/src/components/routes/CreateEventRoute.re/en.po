@@ -133,6 +133,10 @@ msgstr ""
 msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
 msgstr ""
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+msgid "Action proposal"
+msgstr ""
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:824
 #: src/components/organisms/CreateLocationEventForm.re.mjs:846
 msgid "Active"
@@ -150,17 +154,29 @@ msgstr ""
 msgid "Add any additional information about the event..."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:184
-#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+#: src/components/organisms/AIAssistantEmbed.re.mjs:416
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "AI Assistant"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:149
+#: src/components/organisms/AIAssistantEmbed.re.mjs:268
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
 msgid "Answer the questions or provide more details..."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:585
+msgid "Approve"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Approve or deny the pending action to continue."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+msgid "Approved"
 msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:425
@@ -169,6 +185,10 @@ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:770
 msgid "Attendees cannot cancel their RSVP after this deadline"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:539
+msgid "Awaiting approval"
 msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:205
@@ -225,11 +245,11 @@ msgstr ""
 msgid "Connect a Stripe account"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+#: src/components/organisms/AIAssistantEmbed.re.mjs:820
 msgid "Continue"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+#: src/components/organisms/AIAssistantEmbed.re.mjs:460
 msgid "Continue the conversation"
 msgstr ""
 
@@ -259,7 +279,15 @@ msgstr ""
 msgid "Default club activity"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:224
+#: src/components/organisms/AIAssistantEmbed.re.mjs:551
+msgid "Denied"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:639
+msgid "Deny"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "Describe your event"
 msgstr ""
 
@@ -290,7 +318,7 @@ msgstr ""
 msgid "e.g., City Ballers Club"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:309
+#: src/components/organisms/AIAssistantEmbed.re.mjs:768
 msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
 msgstr ""
 
@@ -339,7 +367,15 @@ msgstr ""
 msgid "Event type"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:361
+#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+msgid "Executed"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:562
+msgid "Execution failed"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:820
 msgid "Fill with AI"
 msgstr ""
 
@@ -351,7 +387,7 @@ msgstr ""
 msgid "Find players for your event?"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:188
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
 msgid "Form filled • Click to expand"
 msgstr ""
 
@@ -368,20 +404,24 @@ msgstr ""
 msgid "Friday Night Pickleball"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:352
+#: src/components/organisms/AIAssistantEmbed.re.mjs:811
 msgid "Generating..."
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
-msgid "I couldn't process that request. Please try again."
-msgstr ""
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:228
+#: src/components/organisms/AIAssistantEmbed.re.mjs:460
 msgid "Let AI help you fill out the details below"
 msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:991
 msgid "List your event publicly to help fill open spots"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:490
+msgid "Loading conversation history..."
 msgstr ""
 
 #: src/components/pages/CreateEventPage.re.mjs:236
@@ -430,15 +470,19 @@ msgstr ""
 msgid "Not set"
 msgstr ""
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+msgid "Operation:"
+msgstr ""
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1118
 msgid "Paid event"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+#: src/components/organisms/AIAssistantEmbed.re.mjs:791
 msgid "Press ⌘+Enter to continue"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:332
+#: src/components/organisms/AIAssistantEmbed.re.mjs:791
 msgid "Press ⌘+Enter to generate"
 msgstr ""
 
@@ -471,7 +515,7 @@ msgstr ""
 msgid "Require payment from attendees"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:338
+#: src/components/organisms/AIAssistantEmbed.re.mjs:797
 msgid "Reset"
 msgstr ""
 
@@ -493,6 +537,10 @@ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:138
 msgid "Suggested Events"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:613
+msgid "The action completed with GraphQL errors."
 msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:854
@@ -517,6 +565,10 @@ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:282
+msgid "Too many automated steps were requested. Please continue manually."
 msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1389

@@ -6,13 +6,13 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var variablesConverter = {"chatInput":{},"__root":{"input":{"r":"chatInput"}}};
+var variablesConverter = {"chatInput":{"actionResult":{"r":"actionResultInput"}},"actionResultInput":{},"__root":{"input":{"r":"chatInput"}}};
 
 function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"}}};
+var wrapResponseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"f":""}}};
 
 var wrapResponseConverterMap = {
   "Util.Datetime": Util.Datetime.serialize
@@ -22,7 +22,7 @@ function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, wrapResponseConverterMap, null);
 }
 
-var responseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"}}};
+var responseConverter = {"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"f":""}}};
 
 var responseConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -46,21 +46,7 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-function messageType_decode($$enum) {
-  if ($$enum === "Function" || $$enum === "Agent" || $$enum === "User") {
-    return $$enum;
-  }
-  
-}
-
-function messageType_fromString(str) {
-  return messageType_decode(str);
-}
-
-var Utils = {
-  messageType_decode: messageType_decode,
-  messageType_fromString: messageType_fromString
-};
+var Utils = {};
 
 var node = ((function(){
 var v0 = [
@@ -72,122 +58,227 @@ var v0 = [
 ],
 v1 = [
   {
-    "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "input",
-        "variableName": "input"
-      }
-    ],
-    "concreteType": "ChatResponse",
-    "kind": "LinkedField",
-    "name": "chat",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "ChatMessage",
-        "kind": "LinkedField",
-        "name": "message",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "content",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "messageType",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "SuggestedEvent",
-        "kind": "LinkedField",
-        "name": "suggestedEvents",
-        "plural": true,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "title",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "startDate",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "endDate",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "timezone",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "address",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "details",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "maxRsvps",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "error",
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
+    "kind": "Variable",
+    "name": "input",
+    "variableName": "input"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "content",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "operationName",
+  "storageKey": null
+},
+v6 = {
+  "kind": "InlineFragment",
+  "selections": [
+    (v3/*: any*/),
+    (v4/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "AgentActionResult",
+      "kind": "LinkedField",
+      "name": "actionResult",
+      "plural": false,
+      "selections": [
+        (v5/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "proposalId",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "resultJson",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "type": "UserMessage",
+  "abstractKey": null
+},
+v7 = {
+  "kind": "InlineFragment",
+  "selections": [
+    (v3/*: any*/),
+    (v4/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "AgentClientAction",
+      "kind": "LinkedField",
+      "name": "action",
+      "plural": false,
+      "selections": [
+        (v5/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "query",
+          "storageKey": null
+        },
+        {
+          "alias": "variablesJson",
+          "args": null,
+          "kind": "ScalarField",
+          "name": "variables",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "summary",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "type": "AgentMessage",
+  "abstractKey": null
+},
+v8 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "SuggestedEvent",
+  "kind": "LinkedField",
+  "name": "suggestedEvents",
+  "plural": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "title",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "startDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "endDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "timezone",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "address",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "details",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "maxRsvps",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v9 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "error",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "AIAssistantEmbedChatMutation",
-    "selections": (v1/*: any*/),
+    "selections": [
+      {
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": "ChatResponse",
+        "kind": "LinkedField",
+        "name": "chat",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "messages",
+            "plural": true,
+            "selections": [
+              (v2/*: any*/),
+              {
+                "kind": "InlineDataFragmentSpread",
+                "name": "AIChatMessage_entry",
+                "selections": [
+                  (v2/*: any*/),
+                  (v6/*: any*/),
+                  (v7/*: any*/)
+                ],
+                "args": null,
+                "argumentDefinitions": []
+              }
+            ],
+            "storageKey": null
+          },
+          (v8/*: any*/),
+          (v9/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ],
     "type": "Mutation",
     "abstractKey": null
   },
@@ -196,15 +287,47 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "AIAssistantEmbedChatMutation",
-    "selections": (v1/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": "ChatResponse",
+        "kind": "LinkedField",
+        "name": "chat",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "messages",
+            "plural": true,
+            "selections": [
+              (v2/*: any*/),
+              {
+                "kind": "TypeDiscriminator",
+                "abstractKey": "__isChatEntry"
+              },
+              (v6/*: any*/),
+              (v7/*: any*/)
+            ],
+            "storageKey": null
+          },
+          (v8/*: any*/),
+          (v9/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ]
   },
   "params": {
-    "cacheID": "1cd18e8a3e2a90fcd3c5c66b46612877",
+    "cacheID": "7a98daffe6bc795d1bbc9e55b8cdf1f5",
     "id": null,
     "metadata": {},
     "name": "AIAssistantEmbedChatMutation",
     "operationKind": "mutation",
-    "text": "mutation AIAssistantEmbedChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    message {\n      content\n      messageType\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n"
+    "text": "mutation AIAssistantEmbedChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ...AIChatMessage_entry\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n\nfragment AIChatMessage_entry on ChatEntry {\n  __isChatEntry: __typename\n  __typename\n  ... on UserMessage {\n    id\n    content\n    actionResult {\n      operationName\n      proposalId\n      resultJson\n    }\n  }\n  ... on AgentMessage {\n    id\n    content\n    action {\n      operationName\n      query\n      variablesJson: variables\n      summary\n    }\n  }\n}\n"
   }
 };
 })());

@@ -2,13 +2,22 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
+import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Js_json from "rescript/lib/es6/js_json.js";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as AIChatMessage from "../shared/AIChatMessage.re.mjs";
 import * as AIResponseCard from "../molecules/AIResponseCard.re.mjs";
+import * as Belt_MapString from "rescript/lib/es6/belt_MapString.js";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as AgentActionExecutor from "../../lib/AgentActionExecutor.re.mjs";
+import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as AuthClient from "../../entry/auth-client";
 import * as AIAssistantEmbedChatMutation_graphql from "../../__generated__/AIAssistantEmbedChatMutation_graphql.re.mjs";
+import * as AIAssistantEmbedChatHistoryQuery_graphql from "../../__generated__/AIAssistantEmbedChatHistoryQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -23,13 +32,7 @@ var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, AIA
 
 var use = RescriptRelay_Mutation.useMutation(convertVariables, AIAssistantEmbedChatMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
-var ChatMutation_messageType_decode = AIAssistantEmbedChatMutation_graphql.Utils.messageType_decode;
-
-var ChatMutation_messageType_fromString = AIAssistantEmbedChatMutation_graphql.Utils.messageType_fromString;
-
 var ChatMutation = {
-  messageType_decode: ChatMutation_messageType_decode,
-  messageType_fromString: ChatMutation_messageType_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -37,6 +40,62 @@ var ChatMutation = {
   convertWrapRawResponse: convertWrapRawResponse,
   commitMutation: commitMutation,
   use: use
+};
+
+var authClient = AuthClient.authClient;
+
+var convertVariables$1 = AIAssistantEmbedChatHistoryQuery_graphql.Internal.convertVariables;
+
+var convertResponse$1 = AIAssistantEmbedChatHistoryQuery_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = AIAssistantEmbedChatHistoryQuery_graphql.Internal.convertWrapRawResponse;
+
+var use$1 = RescriptRelay_Query.useQuery(convertVariables$1, AIAssistantEmbedChatHistoryQuery_graphql.node, convertResponse$1);
+
+var useLoader = RescriptRelay_Query.useLoader(convertVariables$1, AIAssistantEmbedChatHistoryQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
+
+var usePreloaded = RescriptRelay_Query.usePreloaded(AIAssistantEmbedChatHistoryQuery_graphql.node, convertResponse$1, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch = RescriptRelay_Query.$$fetch(AIAssistantEmbedChatHistoryQuery_graphql.node, convertResponse$1, convertVariables$1);
+
+var fetchPromised = RescriptRelay_Query.fetchPromised(AIAssistantEmbedChatHistoryQuery_graphql.node, convertResponse$1, convertVariables$1);
+
+var retain = RescriptRelay_Query.retain(AIAssistantEmbedChatHistoryQuery_graphql.node, convertVariables$1);
+
+var ChatHistoryQuery = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  use: use$1,
+  useLoader: useLoader,
+  usePreloaded: usePreloaded,
+  $$fetch: $$fetch,
+  fetchPromised: fetchPromised,
+  retain: retain
+};
+
+function AIAssistantEmbed$ChatHistoryLoader(props) {
+  var onLoaded = props.onLoaded;
+  var data = use$1({
+        limit: 50
+      }, undefined, undefined, undefined);
+  React.useEffect((function () {
+          var historyMessages = Belt_Array.keepMap(data.chatMessages, (function (m) {
+                  return AIChatMessage.fromFragmentRef(m.fragmentRefs);
+                }));
+          onLoaded(historyMessages);
+        }), []);
+  return null;
+}
+
+var ChatHistoryLoader = {
+  make: AIAssistantEmbed$ChatHistoryLoader
 };
 
 function AIAssistantEmbed(props) {
@@ -53,108 +112,232 @@ function AIAssistantEmbed(props) {
   var setIsLoading = match$1[1];
   var isLoading = match$1[0];
   var match$2 = React.useState(function () {
+        return [];
+      });
+  var setMessages = match$2[1];
+  var messages = match$2[0];
+  var match$3 = React.useState(function () {
         
       });
-  var setResponse = match$2[1];
-  var response = match$2[0];
-  var match$3 = React.useState(function () {
+  var setOverlay = match$3[1];
+  var overlay = match$3[0];
+  var match$4 = React.useState(function () {
+        
+      });
+  var setEnrichments = match$4[1];
+  var enrichments = match$4[0];
+  var match$5 = React.useState(function () {
         return false;
       });
-  var setIsCollapsed = match$3[1];
+  var setIsHydrating = match$5[1];
+  var isHydrating = match$5[0];
+  var match$6 = React.useState(function () {
+        return false;
+      });
+  var setIsCollapsed = match$6[1];
   var chatContainerRef = React.useRef(null);
-  var match$4 = use();
-  var chatMutate = match$4[0];
+  var stepCounterRef = React.useRef(0);
+  var localIdCounterRef = React.useRef(0);
+  var isExecutingRef = React.useRef(false);
+  var hasHydratedRef = React.useRef(false);
+  var match$7 = use();
+  var chatMutate = match$7[0];
+  var session = authClient.useSession();
+  var turns = React.useMemo((function () {
+          return AIChatMessage.deriveTurns(messages, overlay, enrichments);
+        }), [
+        messages,
+        overlay,
+        enrichments
+      ]);
+  var nextLocalId = function () {
+    localIdCounterRef.current = localIdCounterRef.current + 1 | 0;
+    return "local-" + localIdCounterRef.current.toString();
+  };
+  var messageId = function (m) {
+    return m.id;
+  };
+  var keepNonLocal = function (msgs) {
+    return msgs.filter(function (m) {
+                return !messageId(m).startsWith("local-");
+              });
+  };
+  var scrollToBottom = function () {
+    setTimeout((function () {
+            Core__Option.map(Caml_option.nullable_to_opt(chatContainerRef.current), (function (_elem) {
+                    return (chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight);
+                  }));
+          }), 60);
+  };
+  var toSuggestedEvents = function (suggestedEvents) {
+    return Core__Option.map(suggestedEvents, (function (events) {
+                  return events.map(function ($$event) {
+                              var startDateStr = Util.Datetime.toDate($$event.startDate).toISOString();
+                              var endDateStr = Util.Datetime.toDate($$event.endDate).toISOString();
+                              return {
+                                      title: $$event.title,
+                                      date: startDateStr,
+                                      time: endDateStr,
+                                      location: $$event.address,
+                                      description: $$event.details,
+                                      maxRsvps: $$event.maxRsvps
+                                    };
+                            });
+                }));
+  };
+  var hasGraphQLErrors = function (json) {
+    var obj = Js_json.decodeObject(json);
+    if (obj === undefined) {
+      return false;
+    }
+    var errors = Core__Option.flatMap(Js_dict.get(obj, "errors"), Js_json.decodeArray);
+    if (errors !== undefined) {
+      return errors.length > 0;
+    } else {
+      return false;
+    }
+  };
+  var serializeError = function (message) {
+    return Core__Option.getOr(JSON.stringify(Js_dict.fromArray([[
+                          "error",
+                          message
+                        ]])), "{\"error\":\"unknown error\"}");
+  };
+  var lastAgentTextId = function (msgs) {
+    return Belt_Array.reduce(msgs, undefined, (function (acc, m) {
+                  if (m.TAG === "UserMessage" || m.action !== undefined) {
+                    return acc;
+                  } else {
+                    return m.id;
+                  }
+                }));
+  };
+  var applyResponse = function (response, clearOverlayFor) {
+    isExecutingRef.current = false;
+    var chat = response.chat;
+    var newMessages = Belt_Array.keepMap(chat.messages, (function (m) {
+            return AIChatMessage.fromFragmentRef(m.fragmentRefs);
+          }));
+    var suggestedEvents = toSuggestedEvents(chat.suggestedEvents);
+    var match = chat.error;
+    var match$1 = newMessages.length;
+    var finalNew = match !== undefined && match$1 === 0 ? [{
+          TAG: "AgentMessage",
+          id: nextLocalId(),
+          content: match,
+          action: undefined
+        }] : newMessages;
+    setMessages(function (prev) {
+          return keepNonLocal(prev).concat(finalNew);
+        });
+    if (clearOverlayFor !== undefined) {
+      setOverlay(function (prev) {
+            return Belt_MapString.remove(prev, clearOverlayFor);
+          });
+    }
+    if (suggestedEvents !== undefined) {
+      var id = lastAgentTextId(newMessages);
+      if (id !== undefined) {
+        setEnrichments(function (prev) {
+              return Belt_MapString.set(prev, id, suggestedEvents);
+            });
+      }
+      if (suggestedEvents.length === 1) {
+        var singleEvent = suggestedEvents[0];
+        if (onSingleEventSuggested !== undefined) {
+          onSingleEventSuggested(singleEvent);
+          setIsCollapsed(function (param) {
+                return true;
+              });
+        }
+        
+      }
+      
+    }
+    setIsLoading(function (param) {
+          return false;
+        });
+    scrollToBottom();
+  };
+  var handleChatError = function (_error) {
+    isExecutingRef.current = false;
+    setMessages(function (prev) {
+          return prev.concat([{
+                        TAG: "AgentMessage",
+                        id: nextLocalId(),
+                        content: t`An error occurred. Please try again.`,
+                        action: undefined
+                      }]);
+        });
+    setIsLoading(function (param) {
+          return false;
+        });
+  };
+  var sendActionResult = function (proposalId, operationName, resultJson) {
+    if (stepCounterRef.current >= 5) {
+      setMessages(function (prev) {
+            return prev.concat([{
+                          TAG: "AgentMessage",
+                          id: nextLocalId(),
+                          content: t`Too many automated steps were requested. Please continue manually.`,
+                          action: undefined
+                        }]);
+          });
+      setOverlay(function (prev) {
+            return Belt_MapString.remove(prev, proposalId);
+          });
+      return setIsLoading(function (param) {
+                  return false;
+                });
+    } else {
+      stepCounterRef.current = stepCounterRef.current + 1 | 0;
+      chatMutate({
+            input: {
+              actionResult: {
+                operationName: operationName,
+                proposalId: proposalId,
+                resultJson: resultJson
+              }
+            }
+          }, undefined, undefined, undefined, (function (response, _errors) {
+              applyResponse(response, proposalId);
+            }), (function (error) {
+              setOverlay(function (prev) {
+                    return Belt_MapString.remove(prev, proposalId);
+                  });
+              handleChatError(error);
+            }), undefined);
+      return ;
+    }
+  };
   var handleAsk = function () {
-    if (prompt.trim() === "") {
+    var userMessage = prompt.trim();
+    if (userMessage === "") {
       return ;
     } else {
+      stepCounterRef.current = 0;
+      setMessages(function (prev) {
+            return prev.concat([{
+                          TAG: "UserMessage",
+                          id: nextLocalId(),
+                          content: userMessage,
+                          actionResult: undefined
+                        }]);
+          });
+      setPrompt(function (param) {
+            return "";
+          });
       setIsLoading(function (param) {
             return true;
           });
+      scrollToBottom();
       chatMutate({
             input: {
-              message: prompt
+              message: userMessage
             }
-          }, undefined, undefined, undefined, (function (result, _errors) {
-              var chatResponse = result.chat;
-              var message = chatResponse.message;
-              if (message !== undefined) {
-                var suggestedEvents = Core__Option.map(chatResponse.suggestedEvents, (function (events) {
-                        return events.map(function ($$event) {
-                                    var startDateStr = Util.Datetime.toDate($$event.startDate).toISOString();
-                                    var endDateStr = Util.Datetime.toDate($$event.endDate).toISOString();
-                                    return {
-                                            title: $$event.title,
-                                            date: startDateStr,
-                                            time: endDateStr,
-                                            location: $$event.address,
-                                            description: $$event.details,
-                                            maxRsvps: $$event.maxRsvps
-                                          };
-                                  });
-                      }));
-                var exit = 0;
-                if (suggestedEvents !== undefined && suggestedEvents.length === 1) {
-                  var singleEvent = suggestedEvents[0];
-                  if (onSingleEventSuggested !== undefined) {
-                    onSingleEventSuggested(singleEvent);
-                    setPrompt(function (param) {
-                          return "";
-                        });
-                    setResponse(function (param) {
-                          
-                        });
-                    setIsCollapsed(function (param) {
-                          return true;
-                        });
-                  } else {
-                    exit = 1;
-                  }
-                } else {
-                  exit = 1;
-                }
-                if (exit === 1) {
-                  setResponse(function (param) {
-                        return {
-                                summary: message.content,
-                                eventDetails: undefined,
-                                suggestedEvents: suggestedEvents
-                              };
-                      });
-                  setPrompt(function (param) {
-                        return "";
-                      });
-                  setTimeout((function () {
-                          Core__Option.map(Caml_option.nullable_to_opt(chatContainerRef.current), (function (_elem) {
-                                  return (chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight);
-                                }));
-                        }), 100);
-                }
-                
-              } else {
-                setResponse(function (param) {
-                      return {
-                              summary: Core__Option.getOr(chatResponse.error, t`I couldn't process that request. Please try again.`),
-                              eventDetails: undefined,
-                              suggestedEvents: undefined
-                            };
-                    });
-              }
-              setIsLoading(function (param) {
-                    return false;
-                  });
-            }), (function (_error) {
-              setResponse(function (param) {
-                    return {
-                            summary: t`An error occurred. Please try again.`,
-                            eventDetails: undefined,
-                            suggestedEvents: undefined
-                          };
-                  });
-              setIsLoading(function (param) {
-                    return false;
-                  });
-            }), undefined);
+          }, undefined, undefined, undefined, (function (response, _errors) {
+              applyResponse(response, undefined);
+            }), handleChatError, undefined);
       return ;
     }
   };
@@ -162,13 +345,62 @@ function AIAssistantEmbed(props) {
     setPrompt(function (param) {
           return "";
         });
-    setResponse(function (param) {
+    setMessages(function (param) {
+          return [];
+        });
+    setOverlay(function (param) {
           
         });
+    setEnrichments(function (param) {
+          
+        });
+    stepCounterRef.current = 0;
   };
-  var hasHistory = Core__Option.isSome(response);
+  var handleHistoryLoaded = function (historyMessages) {
+    hasHydratedRef.current = true;
+    if (historyMessages.length > 0) {
+      setMessages(function (prevMessages) {
+            if (prevMessages.length === 0) {
+              return historyMessages;
+            } else {
+              return prevMessages;
+            }
+          });
+      scrollToBottom();
+    }
+    setIsHydrating(function (param) {
+          return false;
+        });
+  };
+  var sessionUserId = Core__Option.map(Caml_option.nullable_to_opt(session.data), (function (sessionData) {
+          return sessionData.user.id;
+        }));
+  React.useEffect((function () {
+          if (sessionUserId !== undefined && !hasHydratedRef.current) {
+            setIsHydrating(function (param) {
+                  return true;
+                });
+          }
+          
+        }), [sessionUserId]);
+  var hasHistory = turns.length > 0;
+  var hasPendingProposal = turns.some(function (turn) {
+        switch (turn.TAG) {
+          case "UserTurn" :
+          case "AssistantTurn" :
+              return false;
+          case "ProposalTurn" :
+              var tmp = turn.status;
+              if (typeof tmp !== "object" && tmp === "Pending") {
+                return true;
+              } else {
+                return false;
+              }
+          
+        }
+      });
   return JsxRuntime.jsx("div", {
-              children: match$3[0] ? JsxRuntime.jsxs("button", {
+              children: match$6[0] ? JsxRuntime.jsxs("button", {
                       children: [
                         JsxRuntime.jsxs("div", {
                               children: [
@@ -247,16 +479,32 @@ function AIAssistantEmbed(props) {
                               ],
                               className: "flex items-start gap-4 mb-4"
                             }),
-                        Core__Option.getOr(Core__Option.map(response, (function (resp) {
-                                    return JsxRuntime.jsxs("div", {
-                                                children: [
-                                                  JsxRuntime.jsx(AIResponseCard.make, {
-                                                        response: resp,
-                                                        activitySlug: Core__Option.getOr(context.activitySlug, "pickleball"),
-                                                        clubId: context.clubId,
-                                                        locationAddress: context.locationAddress
-                                                      }),
-                                                  isLoading ? JsxRuntime.jsxs("div", {
+                        hasHistory || isLoading || isHydrating ? JsxRuntime.jsxs("div", {
+                                children: [
+                                  sessionUserId !== undefined && !hasHydratedRef.current ? JsxRuntime.jsx(React.Suspense, {
+                                          children: Caml_option.some(JsxRuntime.jsx(AIAssistantEmbed$ChatHistoryLoader, {
+                                                    onLoaded: handleHistoryLoaded
+                                                  })),
+                                          fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsx("span", {
+                                                          children: t`Loading conversation history...`,
+                                                          className: "text-xs text-gray-400 dark:text-gray-500"
+                                                        }),
+                                                    className: "flex justify-center py-2"
+                                                  }))
+                                        }) : null,
+                                  turns.map(function (turn) {
+                                        switch (turn.TAG) {
+                                          case "UserTurn" :
+                                              return JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx("div", {
+                                                                children: turn.content,
+                                                                className: "max-w-[85%] bg-[#a3e635] text-gray-900 rounded-2xl px-4 py-3 text-sm leading-relaxed font-medium"
+                                                              }),
+                                                          className: "flex justify-end"
+                                                        }, turn.id);
+                                          case "AssistantTurn" :
+                                              return JsxRuntime.jsxs("div", {
                                                           children: [
                                                             JsxRuntime.jsx("div", {
                                                                   children: JsxRuntime.jsx("div", {
@@ -265,48 +513,259 @@ function AIAssistantEmbed(props) {
                                                                             }),
                                                                         className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
                                                                       }),
-                                                                  className: "flex-shrink-0 mr-3"
+                                                                  className: "flex-shrink-0"
                                                                 }),
                                                             JsxRuntime.jsx("div", {
-                                                                  children: JsxRuntime.jsxs("div", {
-                                                                        children: [
-                                                                          JsxRuntime.jsx("div", {
-                                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
-                                                                                style: {
-                                                                                  animationDelay: "0ms"
-                                                                                }
-                                                                              }),
-                                                                          JsxRuntime.jsx("div", {
-                                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
-                                                                                style: {
-                                                                                  animationDelay: "150ms"
-                                                                                }
-                                                                              }),
-                                                                          JsxRuntime.jsx("div", {
-                                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
-                                                                                style: {
-                                                                                  animationDelay: "300ms"
-                                                                                }
-                                                                              })
-                                                                        ],
-                                                                        className: "flex items-center gap-2"
+                                                                  children: JsxRuntime.jsx(AIResponseCard.make, {
+                                                                        response: turn.response,
+                                                                        activitySlug: Core__Option.getOr(context.activitySlug, "pickleball"),
+                                                                        clubId: context.clubId,
+                                                                        locationAddress: context.locationAddress
                                                                       }),
-                                                                  className: "bg-white dark:bg-[#222222] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                                                                  className: "max-w-[90%]"
                                                                 })
                                                           ],
-                                                          className: "flex justify-start"
-                                                        }) : null
-                                                ],
-                                                ref: Caml_option.some(chatContainerRef),
-                                                className: "max-h-48 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
-                                              });
-                                  })), null),
+                                                          className: "flex justify-start gap-3"
+                                                        }, turn.id);
+                                          case "ProposalTurn" :
+                                              var status = turn.status;
+                                              var action = turn.action;
+                                              var id = turn.id;
+                                              var match;
+                                              if (typeof status !== "object") {
+                                                switch (status) {
+                                                  case "Pending" :
+                                                      match = [
+                                                        t`Awaiting approval`,
+                                                        "text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 border-amber-200 dark:border-amber-700"
+                                                      ];
+                                                      break;
+                                                  case "Approved" :
+                                                      match = [
+                                                        t`Approved`,
+                                                        "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-700"
+                                                      ];
+                                                      break;
+                                                  case "Denied" :
+                                                      match = [
+                                                        t`Denied`,
+                                                        "text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-600"
+                                                      ];
+                                                      break;
+                                                  
+                                                }
+                                              } else {
+                                                match = status.wasSuccessful ? [
+                                                    t`Executed`,
+                                                    "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-700"
+                                                  ] : [
+                                                    t`Execution failed`,
+                                                    "text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-700"
+                                                  ];
+                                              }
+                                              var tmp;
+                                              if (typeof status !== "object") {
+                                                tmp = null;
+                                              } else {
+                                                var details = status.details;
+                                                tmp = details !== undefined ? JsxRuntime.jsx("p", {
+                                                        children: details,
+                                                        className: "text-xs text-gray-600 dark:text-gray-300"
+                                                      }) : null;
+                                              }
+                                              var tmp$1;
+                                              tmp$1 = typeof status !== "object" && status === "Pending" ? JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsxs("button", {
+                                                              children: [
+                                                                JsxRuntime.jsx(LucideReact.Check, {
+                                                                      className: "w-4 h-4"
+                                                                    }),
+                                                                JsxRuntime.jsx("span", {
+                                                                      children: t`Approve`
+                                                                    })
+                                                              ],
+                                                              className: "inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#a3e635] text-gray-900 font-medium hover:bg-[#84cc16] transition-colors",
+                                                              disabled: isLoading,
+                                                              type: "button",
+                                                              onClick: (function (param) {
+                                                                  if (isExecutingRef.current) {
+                                                                    return ;
+                                                                  }
+                                                                  isExecutingRef.current = true;
+                                                                  setOverlay(function (prev) {
+                                                                        return Belt_MapString.set(prev, id, "Approved");
+                                                                      });
+                                                                  setIsLoading(function (param) {
+                                                                        return true;
+                                                                      });
+                                                                  var runAction = async function () {
+                                                                    var actionResult = await AgentActionExecutor.execute(action.query, action.variablesJson);
+                                                                    var resultJson;
+                                                                    if (actionResult.TAG === "Ok") {
+                                                                      var json = actionResult._0;
+                                                                      var jsonBody = Core__Option.getOr(JSON.stringify(json), "{}");
+                                                                      var wasSuccessful = !hasGraphQLErrors(json);
+                                                                      setOverlay(function (prev) {
+                                                                            return Belt_MapString.set(prev, id, {
+                                                                                        TAG: "Executed",
+                                                                                        wasSuccessful: wasSuccessful,
+                                                                                        details: wasSuccessful ? undefined : t`The action completed with GraphQL errors.`
+                                                                                      });
+                                                                          });
+                                                                      resultJson = jsonBody;
+                                                                    } else {
+                                                                      var message = actionResult._0;
+                                                                      setOverlay(function (prev) {
+                                                                            return Belt_MapString.set(prev, id, {
+                                                                                        TAG: "Executed",
+                                                                                        wasSuccessful: false,
+                                                                                        details: message
+                                                                                      });
+                                                                          });
+                                                                      resultJson = serializeError(message);
+                                                                    }
+                                                                    return sendActionResult(id, action.operationName, resultJson);
+                                                                  };
+                                                                  runAction();
+                                                                })
+                                                            }),
+                                                        JsxRuntime.jsxs("button", {
+                                                              children: [
+                                                                JsxRuntime.jsx(LucideReact.X, {
+                                                                      className: "w-4 h-4"
+                                                                    }),
+                                                                JsxRuntime.jsx("span", {
+                                                                      children: t`Deny`
+                                                                    })
+                                                              ],
+                                                              className: "inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors",
+                                                              disabled: isLoading,
+                                                              type: "button",
+                                                              onClick: (function (param) {
+                                                                  if (isExecutingRef.current) {
+                                                                    return ;
+                                                                  }
+                                                                  isExecutingRef.current = true;
+                                                                  setOverlay(function (prev) {
+                                                                        return Belt_MapString.set(prev, id, "Denied");
+                                                                      });
+                                                                  setIsLoading(function (param) {
+                                                                        return true;
+                                                                      });
+                                                                  var resultJson = Core__Option.getOr(JSON.stringify(Js_dict.fromArray([[
+                                                                                  "cancelled",
+                                                                                  true
+                                                                                ]])), "{\"cancelled\":true}");
+                                                                  sendActionResult(id, action.operationName, resultJson);
+                                                                })
+                                                            })
+                                                      ],
+                                                      className: "flex items-center gap-2"
+                                                    }) : null;
+                                              return JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsx("div", {
+                                                                        children: JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                                              className: "w-3.5 h-3.5 text-gray-900"
+                                                                            }),
+                                                                        className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
+                                                                      }),
+                                                                  className: "flex-shrink-0"
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("p", {
+                                                                                  children: t`Action proposal`,
+                                                                                  className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                                                                }),
+                                                                            JsxRuntime.jsx("span", {
+                                                                                  children: match[0],
+                                                                                  className: "text-xs font-medium px-2 py-1 rounded-full border " + match[1]
+                                                                                })
+                                                                          ],
+                                                                          className: "flex items-center justify-between gap-2"
+                                                                        }),
+                                                                    JsxRuntime.jsx("p", {
+                                                                          children: action.summary,
+                                                                          className: "text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
+                                                                        }),
+                                                                    JsxRuntime.jsx("p", {
+                                                                          children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                children: [
+                                                                                  t`Operation:`,
+                                                                                  " ",
+                                                                                  action.operationName
+                                                                                ]
+                                                                              }),
+                                                                          className: "text-xs text-gray-500 dark:text-gray-400"
+                                                                        }),
+                                                                    tmp,
+                                                                    tmp$1
+                                                                  ],
+                                                                  className: "w-full max-w-[90%] rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#222222] p-4 space-y-3"
+                                                                })
+                                                          ],
+                                                          className: "flex justify-start gap-3"
+                                                        }, id);
+                                          
+                                        }
+                                      }),
+                                  isLoading ? JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("div", {
+                                                  children: JsxRuntime.jsx("div", {
+                                                        children: JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                              className: "w-3.5 h-3.5 text-gray-900"
+                                                            }),
+                                                        className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
+                                                      }),
+                                                  className: "flex-shrink-0 mr-3"
+                                                }),
+                                            JsxRuntime.jsx("div", {
+                                                  children: JsxRuntime.jsxs("div", {
+                                                        children: [
+                                                          JsxRuntime.jsx("div", {
+                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
+                                                                style: {
+                                                                  animationDelay: "0ms"
+                                                                }
+                                                              }),
+                                                          JsxRuntime.jsx("div", {
+                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
+                                                                style: {
+                                                                  animationDelay: "150ms"
+                                                                }
+                                                              }),
+                                                          JsxRuntime.jsx("div", {
+                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
+                                                                style: {
+                                                                  animationDelay: "300ms"
+                                                                }
+                                                              })
+                                                        ],
+                                                        className: "flex items-center gap-2"
+                                                      }),
+                                                  className: "bg-white dark:bg-[#222222] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
+                                                })
+                                          ],
+                                          className: "flex justify-start"
+                                        }) : null
+                                ],
+                                ref: Caml_option.some(chatContainerRef),
+                                className: "max-h-96 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
+                              }) : null,
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("textarea", {
                                       className: "w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500",
-                                      disabled: isLoading,
-                                      placeholder: hasHistory ? t`Answer the questions or provide more details...` : t`e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players...`,
+                                      disabled: isLoading || hasPendingProposal || isHydrating,
+                                      placeholder: hasHistory ? (
+                                          hasPendingProposal ? t`Approve or deny the pending action to continue.` : t`Answer the questions or provide more details...`
+                                        ) : t`e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players...`,
                                       rows: hasHistory ? 2 : 3,
                                       value: prompt,
                                       onKeyDown: (function (e) {
@@ -363,7 +822,7 @@ function AIAssistantEmbed(props) {
                                                               ]
                                                             }),
                                                       className: "inline-flex items-center gap-2 px-4 py-2 bg-[#a3e635] text-gray-900 rounded-lg font-medium hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#1a1a1a] disabled:opacity-50 disabled:cursor-not-allowed transition-all",
-                                                      disabled: prompt.trim() === "" || isLoading,
+                                                      disabled: prompt.trim() === "" || isLoading || hasPendingProposal || isHydrating,
                                                       type: "button",
                                                       onClick: (function (param) {
                                                           handleAsk();
@@ -388,6 +847,9 @@ var make = AIAssistantEmbed;
 
 export {
   ChatMutation ,
+  authClient ,
+  ChatHistoryQuery ,
+  ChatHistoryLoader ,
   make ,
 }
 /*  Not a pure module */

@@ -2,10 +2,14 @@
 Directs the executor to defer this fragment when the `if` argument is true or undefined.
 """
 directive @defer(
-  """Deferred when true or undefined."""
+  """
+  Deferred when true or undefined.
+  """
   if: Boolean! = true
 
-  """Unique name"""
+  """
+  Unique name
+  """
   label: String
 ) on FRAGMENT_SPREAD | INLINE_FRAGMENT
 
@@ -13,15 +17,27 @@ directive @defer(
 Directs the executor to stream plural fields when the `if` argument is true or undefined.
 """
 directive @stream(
-  """Stream when true or undefined."""
+  """
+  Stream when true or undefined.
+  """
   if: Boolean! = true
 
-  """Number of items to return immediately"""
+  """
+  Number of items to return immediately
+  """
   initialCount: Int = 0
 
-  """Unique name"""
+  """
+  Unique name
+  """
   label: String
 ) on FIELD
+
+input ActionResultInput {
+  operationName: String!
+  proposalId: String!
+  resultJson: String!
+}
 
 type Activity implements Node {
   id: ID!
@@ -46,6 +62,26 @@ type AddUserToClubResult implements HasErrors {
   membership: Membership
 }
 
+type AgentActionResult {
+  operationName: String!
+  proposalId: String
+  resultJson: String!
+}
+
+type AgentClientAction {
+  operationName: String!
+  query: String!
+  summary: String!
+  variables: String!
+}
+
+type AgentMessage {
+  action: AgentClientAction
+  content: String!
+  createdAt: Datetime!
+  id: String!
+}
+
 type AuthorizePaymentResult implements HasErrors {
   clientSecret: String
   connectedAccountId: String
@@ -62,7 +98,9 @@ input AutocompleteLocationInput {
   plusCode: String
 }
 
-"""A user's declared availability for a single calendar day."""
+"""
+A user's declared availability for a single calendar day.
+"""
 type AvailabilityDay implements Node {
   activityId: ID!
   id: ID!
@@ -73,25 +111,33 @@ type AvailabilityDay implements Node {
   userId: ID!
 }
 
-"""Available-user count for a specific calendar day."""
+"""
+Available-user count for a specific calendar day.
+"""
 type AvailabilityDayCount {
   count: Int!
   localDate: String!
 }
 
-"""Available-user count for a specific hour slot (0–23)."""
+"""
+Available-user count for a specific hour slot (0–23).
+"""
 type AvailabilityHourCount {
   count: Int!
   hour: Int!
 }
 
-"""A half-open hourly time slot [startHour, endHour)."""
+"""
+A half-open hourly time slot [startHour, endHour).
+"""
 type AvailabilityInterval {
   endHour: Int!
   startHour: Int!
 }
 
-"""A calendar day with overlapping availability intervals and user count."""
+"""
+A calendar day with overlapping availability intervals and user count.
+"""
 type AvailabilityOverlapDay {
   intervals: [AvailabilityInterval!]!
   localDate: String!
@@ -108,29 +154,29 @@ type CapturePaymentResult implements HasErrors {
   payment: Payment
 }
 
-input ChatInput {
-  message: String!
-}
+union ChatEntry = AgentMessage | UserMessage
 
-type ChatMessage {
-  content: String!
-  createdAt: Datetime!
-  id: String!
-  messageType: MessageType!
-  toolCallId: String
-  toolCalls: String
+input ChatInput {
+  actionResult: ActionResultInput
+  message: String
 }
 
 type ChatResponse {
   error: String
-  message: ChatMessage
+  messages: [ChatEntry!]!
   suggestedEvents: [SuggestedEvent!]
 }
 
 type Club implements Node {
   defaultActivity: Activity
   description: String
-  events(after: String, afterDate: Datetime, before: String, first: Int, token: String): EventConnection!
+  events(
+    after: String
+    afterDate: Datetime
+    before: String
+    first: Int
+    token: String
+  ): EventConnection!
   id: ID!
   name: String
   shareLink: String
@@ -138,21 +184,33 @@ type Club implements Node {
   viewerMembership: Membership
 }
 
-"""A connection to clubs."""
+"""
+A connection to clubs.
+"""
 type ClubConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [ClubEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
-"""An edge to a club."""
+"""
+An edge to a club.
+"""
 type ClubEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Club
 }
 
@@ -239,7 +297,9 @@ type CreateRatingResponse implements HasErrors {
   rating: Rating
 }
 
-"""A date."""
+"""
+A date.
+"""
 scalar Datetime
 
 input DeleteActivitySubscriptionInput {
@@ -299,21 +359,33 @@ type Event implements Node {
   viewerIsBanned: Boolean
 }
 
-"""A connection to users."""
+"""
+A connection to users.
+"""
 type EventConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [EventEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
-"""An edge to a user."""
+"""
+An edge to a user.
+"""
 type EventEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Event
 }
 
@@ -327,37 +399,59 @@ input EventFilters {
 }
 
 type EventMessageConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [EventMessageEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
-"""An edge to a user."""
+"""
+An edge to a user.
+"""
 type EventMessageEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Message
 }
 
-"""A connection to users."""
+"""
+A connection to users.
+"""
 type EventRsvpConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [EventRsvpEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
-"""An edge to a user."""
+"""
+An edge to a user.
+"""
 type EventRsvpEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Rsvp
 }
 
@@ -477,21 +571,33 @@ type Location implements Node {
   name: String
 }
 
-"""A connection to locations."""
+"""
+A connection to locations.
+"""
 type LocationConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [LocationEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
-"""An edge to a location."""
+"""
+An edge to a location.
+"""
 type LocationEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Location
 }
 
@@ -527,20 +633,30 @@ type MatchClub {
   slug: String
 }
 
-"""A connection to users."""
+"""
+A connection to users.
+"""
 type MatchConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [MatchEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
 type MatchEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Match
 }
 
@@ -561,21 +677,33 @@ type Membership implements Node {
   user: User
 }
 
-"""A connection to memberships."""
+"""
+A connection to memberships.
+"""
 type MembershipConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [MembershipEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
-"""An edge to a membership."""
+"""
+An edge to a membership.
+"""
 type MembershipEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Membership
 }
 
@@ -585,12 +713,6 @@ type Message {
   isRead: Boolean!
   payload: String
   topic: String!
-}
-
-enum MessageType {
-  Agent
-  Function
-  User
 }
 
 type Mutation {
@@ -639,8 +761,13 @@ type Mutation {
      * Call this from the frontend after stripe.confirmPayment() succeeds.
      * Verifies the PaymentIntent succeeded server-side, then marks the payment Captured.
   """
-  confirmRsvpPayment(paymentIntentId: String!, rsvpId: ID!): CreatePaymentResult!
-  createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
+  confirmRsvpPayment(
+    paymentIntentId: String!
+    rsvpId: ID!
+  ): CreatePaymentResult!
+  createActivitySubscription(
+    input: CreateActivitySubscriptionInput!
+  ): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
   createEvents(input: CreateEventsInput!): CreateEventsResult!
@@ -660,9 +787,17 @@ type Mutation {
      * Creates a new Express account if the user doesn't have one yet.
      * Returns the onboarding URL to redirect the user to.
   """
-  createStripeOnboardingLink(country: String!, refreshUrl: String!, returnUrl: String!): StripeOnboardingLinkResult!
-  deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
-  deleteAvailabilityForTimeWindow(input: DeleteAvailabilityForTimeWindowInput!): DeleteAvailabilityForTimeWindowResult!
+  createStripeOnboardingLink(
+    country: String!
+    refreshUrl: String!
+    returnUrl: String!
+  ): StripeOnboardingLinkResult!
+  deleteActivitySubscription(
+    input: DeleteActivitySubscriptionInput!
+  ): ActivitySubscriptionMutationResult!
+  deleteAvailabilityForTimeWindow(
+    input: DeleteAvailabilityForTimeWindowInput!
+  ): DeleteAvailabilityForTimeWindowResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
@@ -683,10 +818,14 @@ type Mutation {
   Register a Web Push subscription for the current user.
    * The client calls this after receiving a PushSubscription from the browser.
   """
-  registerPushSubscription(input: RegisterPushSubscriptionInput!): PushSubscriptionResult!
+  registerPushSubscription(
+    input: RegisterPushSubscriptionInput!
+  ): PushSubscriptionResult!
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   setAvailabilityDay(input: SetAvailabilityDayInput!): SetAvailabilityDayResult!
-  setAvailabilityDays(input: SetAvailabilityDaysInput!): SetAvailabilityDaysResult!
+  setAvailabilityDays(
+    input: SetAvailabilityDaysInput!
+  ): SetAvailabilityDaysResult!
   uncancelEvent(eventId: ID!): MutationResult2!
 
   """
@@ -695,11 +834,17 @@ type Mutation {
   unregisterPushSubscription(endpoint: String!): PushSubscriptionResult!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
   updateLocale(input: UpdateLocaleInput!): UpdateLocaleResult!
-  updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
+  updateMembershipStatus(
+    input: UpdateMembershipStatusInput!
+  ): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
   updateRsvpListType(input: UpdateRsvpListTypeInput!): UpdateRsvpListTypeResult!
-  updateViewerContact(input: UpdateViewerContactInput!): UpdateViewerContactResult!
-  updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): UpdateViewerRsvpMessageResult
+  updateViewerContact(
+    input: UpdateViewerContactInput!
+  ): UpdateViewerContactResult!
+  updateViewerRsvpMessage(
+    input: UpdateViewerRsvpMessageInput!
+  ): UpdateViewerRsvpMessageResult
 }
 
 type MutationResult implements HasErrors {
@@ -723,18 +868,28 @@ input OverlapScopeInput {
   userIds: [ID!]
 }
 
-"""Information about pagination in a connection."""
+"""
+Information about pagination in a connection.
+"""
 type PageInfo {
-  """When paginating forwards, the cursor to continue."""
+  """
+  When paginating forwards, the cursor to continue.
+  """
   endCursor: String
 
-  """When paginating forwards, are there more items?"""
+  """
+  When paginating forwards, are there more items?
+  """
   hasNextPage: Boolean!
 
-  """When paginating backwards, are there more items?"""
+  """
+  When paginating backwards, are there more items?
+  """
   hasPreviousPage: Boolean!
 
-  """When paginating backwards, the cursor to continue."""
+  """
+  When paginating backwards, the cursor to continue.
+  """
   startCursor: String
 }
 
@@ -760,7 +915,9 @@ type ProcessEventPaymentResult implements HasErrors {
   errors: [Error!]
 }
 
-"""Mutation result for push subscription operations"""
+"""
+Mutation result for push subscription operations
+"""
 type PushSubscriptionResult implements HasErrors {
   errors: [Error!]
   success: Boolean
@@ -770,36 +927,94 @@ type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
   availabilityCountForDay(activityId: ID!, clubId: ID, localDate: String!): Int!
-  availabilityDailyCounts(activityId: ID!, fromDate: String!, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
-  availabilityHourlyCounts(activityId: ID!, clubId: ID, localDate: String!): [AvailabilityHourCount!]!
-  availabilityOverlap(fromDate: String!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
-  availabilityUsersForDateRange(fromDate: String!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityDay!]!
-  availabilityUsersForDay(localDate: String!, scope: OverlapScopeInput!): [AvailabilityDay!]!
-  chatMessages(limit: Int, sessionId: String!): [ChatMessage!]!
+  availabilityDailyCounts(
+    activityId: ID!
+    fromDate: String!
+    toDate: String!
+    userIds: [ID!]!
+  ): [AvailabilityDayCount!]!
+  availabilityHourlyCounts(
+    activityId: ID!
+    clubId: ID
+    localDate: String!
+  ): [AvailabilityHourCount!]!
+  availabilityOverlap(
+    fromDate: String!
+    scope: OverlapScopeInput!
+    toDate: String!
+  ): [AvailabilityOverlapDay!]!
+  availabilityUsersForDateRange(
+    fromDate: String!
+    scope: OverlapScopeInput!
+    toDate: String!
+  ): [AvailabilityDay!]!
+  availabilityUsersForDay(
+    localDate: String!
+    scope: OverlapScopeInput!
+  ): [AvailabilityDay!]!
+  chatMessages(limit: Int): [ChatEntry!]!
   club(id: ID, slug: String): Club
-  clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!
+  clubMembers(
+    after: String
+    first: Int
+    input: ClubMembersInput!
+  ): MembershipConnection!
   clubs(after: String, before: String, first: Int): ClubConnection!
 
-  """The current time on the server, as a timestamp."""
+  """
+  The current time on the server, as a timestamp.
+  """
   currentTime: Float
 
-  """Delayed current time to test @defer and streaming."""
+  """
+  Delayed current time to test @defer and streaming.
+  """
   currentTime2: Float
   event(id: ID!): Event
-  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
-  getUserClubMembership(input: GetUserClubMembershipInput!): GetUserClubMembershipResult!
+  events(
+    after: String
+    afterDate: Datetime
+    before: String
+    filters: EventFilters
+    first: Int
+  ): EventConnection!
+  getUserClubMembership(
+    input: GetUserClubMembershipInput!
+  ): GetUserClubMembershipResult!
   isUserBanned(input: IsUserBannedInput!): Boolean
   location(id: ID!): Location
   locations(after: String, before: String, first: Int): LocationConnection!
-  matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
-  messagesByTopic(after: String, before: String, first: Int, topic: String!): EventMessageConnection
+  matches(
+    activitySlug: String!
+    after: String
+    before: String
+    first: Int
+    namespace: String
+    userId: ID
+  ): MatchConnection!
+  messagesByTopic(
+    after: String
+    before: String
+    first: Int
+    topic: String!
+  ): EventMessageConnection
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
-  ratings(activitySlug: String!, after: String, before: String, clubId: ID, clubSlug: String, first: Int, namespace: String!): RatingConnection!
+  ratings(
+    activitySlug: String!
+    after: String
+    before: String
+    clubId: ID
+    clubSlug: String
+    first: Int
+    namespace: String!
+  ): RatingConnection!
   user(id: ID!): User
 
-  """Return the server's VAPID public key so the browser can subscribe."""
+  """
+  Return the server's VAPID public key so the browser can subscribe.
+  """
   vapidPublicKey: String
   viewer: Viewer
 }
@@ -815,20 +1030,30 @@ type Rating {
   user: User
 }
 
-"""A connection to users."""
+"""
+A connection to users.
+"""
 type RatingConnection {
-  """A list of edges."""
+  """
+  A list of edges.
+  """
   edges: [RatingEdge]
 
-  """Information to aid in pagination."""
+  """
+  Information to aid in pagination.
+  """
   pageInfo: PageInfo!
 }
 
 type RatingEdge {
-  """A cursor for use in pagination."""
+  """
+  A cursor for use in pagination.
+  """
   cursor: String!
 
-  """The item at the end of the edge."""
+  """
+  The item at the end of the edge.
+  """
   node: Rating
 }
 
@@ -985,20 +1210,47 @@ type User implements Node {
   fullName: String
   gender: Gender
   id: ID!
-  leagueUserStats(activity: String!, clubId: ID, clubSlug: String, namespace: String!): LeagueUserStat
+  leagueUserStats(
+    activity: String!
+    clubId: ID
+    clubSlug: String
+    namespace: String!
+  ): LeagueUserStat
   lineUsername: String
   locale: String
   picture: String
-  rating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): Rating
+  rating(
+    activitySlug: String!
+    clubId: ID
+    clubSlug: String
+    namespace: String
+  ): Rating
   stripeAccountId: String
   stripeChargesEnabled: Boolean
 }
 
+type UserMessage {
+  actionResult: AgentActionResult
+  content: String!
+  createdAt: Datetime!
+  id: String!
+}
+
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
-  availability(activityId: ID!, fromDate: String!, toDate: String!): [AvailabilityDay!]!
+  availability(
+    activityId: ID!
+    fromDate: String!
+    toDate: String!
+  ): [AvailabilityDay!]!
   clubs(after: String, before: String, first: Int): ClubConnection!
-  events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
+  events(
+    _filters: EventFilters
+    after: String
+    afterDate: Datetime
+    before: String
+    first: Int!
+  ): EventConnection!
   inbox(after: String, before: String, first: Int): EventMessageConnection
   profile: User
   subscriptions: [Subscription!]!

@@ -5081,3 +5081,47 @@ msgstr ""
 #: src/components/pages/CopyEventPage.re.mjs:76
 msgid "Copy Event"
 msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+msgid "Action proposal"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Approve or deny the pending action to continue."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+msgid "Approved"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:539
+msgid "Awaiting approval"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:551
+msgid "Denied"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+msgid "Executed"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:562
+msgid "Execution failed"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:490
+msgid "Loading conversation history..."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+msgid "Operation:"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:613
+msgid "The action completed with GraphQL errors."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:282
+msgid "Too many automated steps were requested. Please continue manually."
+msgstr ""

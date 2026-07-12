@@ -102,11 +102,11 @@ msgstr "添加活动"
 msgid "Afternoon"
 msgstr "下午"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:175
+#: src/components/organisms/AIAssistantModal.re.mjs:176
 msgid "AI Assistant"
 msgstr "AI助手"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:120
+#: src/components/organisms/AIAssistantModal.re.mjs:121
 msgid "An error occurred. Please try again."
 msgstr "发生错误，请重试。"
 
@@ -118,11 +118,11 @@ msgstr "任意时间"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Ask"
 msgstr "询问"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:151
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "下个月每周四晚上7-9点在赤羽小学打羽毛球。"
 
@@ -185,11 +185,11 @@ msgstr "发起活动"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "发起活动需要恰好选择一个时间段——请选择一个。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
+#: src/components/organisms/AIAssistantModal.re.mjs:181
 msgid "I can create events for you. Just give me your schedule."
 msgstr "我可以为您创建活动。只需告诉我您的时间安排。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:108
+#: src/components/organisms/AIAssistantModal.re.mjs:109
 msgid "I couldn't process that request. Please try again."
 msgstr "无法处理该请求，请重试。"
 
@@ -223,11 +223,11 @@ msgstr "上午"
 msgid "my events"
 msgstr "我的活动"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:149
+#: src/components/organisms/AIAssistantModal.re.mjs:150
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "明天下午6-9点KPI公园需要5个人。费用平摊。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:279
+#: src/components/organisms/AIAssistantModal.re.mjs:280
 msgid "New"
 msgstr "新建"
 
@@ -243,7 +243,7 @@ msgstr "待审核"
 msgid "players"
 msgstr "球员"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:265
+#: src/components/organisms/AIAssistantModal.re.mjs:266
 msgid "Processing..."
 msgstr "处理中..."
 
@@ -251,7 +251,7 @@ msgstr "处理中..."
 msgid "public events"
 msgstr "公开活动"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:269
+#: src/components/organisms/AIAssistantModal.re.mjs:270
 msgid "Reply"
 msgstr "回复"
 
@@ -283,7 +283,7 @@ msgstr "同步日历"
 msgid "Tap anywhere to add a time window"
 msgstr "点击任意位置添加时间段"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:230
+#: src/components/organisms/AIAssistantModal.re.mjs:231
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."

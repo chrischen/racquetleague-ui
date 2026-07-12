@@ -15,21 +15,6 @@ type enum_Gender_input =
 
 
 @live @unboxed
-type enum_MessageType = 
-  | Agent
-  | Function
-  | User
-  | FutureAddedValue(string)
-
-
-@live @unboxed
-type enum_MessageType_input = 
-  | Agent
-  | Function
-  | User
-
-
-@live @unboxed
 type enum_T = 
   | Active
   | Pending
@@ -60,7 +45,21 @@ type enum_RequiredFieldAction_input =
 
 
 @live
-type rec input_AddUserToClubInput = {
+type rec input_ActionResultInput = {
+  operationName: string,
+  proposalId: string,
+  resultJson: string,
+}
+
+@live
+and input_ActionResultInput_nullable = {
+  operationName: string,
+  proposalId: string,
+  resultJson: string,
+}
+
+@live
+and input_AddUserToClubInput = {
   clubId: string,
   isAdmin?: bool,
   userId: string,
@@ -95,12 +94,14 @@ and input_AutocompleteLocationInput_nullable = {
 
 @live
 and input_ChatInput = {
-  message: string,
+  actionResult?: input_ActionResultInput,
+  message?: string,
 }
 
 @live
 and input_ChatInput_nullable = {
-  message: string,
+  actionResult?: Js.Null.t<input_ActionResultInput_nullable>,
+  message?: Js.Null.t<string>,
 }
 
 @live
