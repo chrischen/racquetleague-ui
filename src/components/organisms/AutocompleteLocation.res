@@ -6,48 +6,7 @@ let ts = Lingui.UtilString.t
 @module("../layouts/appContext")
 external sessionContext: React.Context.t<UserProvider.session> = "SessionContext"
 
-// DOM bindings
-@val @scope("document")
-external createElement: string => Dom.element = "createElement"
-
-// Google Maps Places API bindings
-module GooglePlaces = {
-  type location = {
-    lat: unit => float,
-    lng: unit => float,
-  }
-
-  type geometry = {location: location}
-
-  type placeResult = {
-    name: option<string>,
-    @as("formatted_address") formattedAddress: option<string>,
-    @as("place_id") placeId: option<string>,
-    geometry: option<geometry>,
-  }
-
-  type placesServiceStatus
-
-  @val @scope(("window", "google", "maps", "places", "PlacesServiceStatus"))
-  external ok: placesServiceStatus = "OK"
-
-  type textSearchRequest = {
-    query: string,
-    fields: array<string>,
-  }
-
-  type placesService
-
-  @new @scope(("window", "google", "maps", "places"))
-  external createPlacesService: Dom.element => placesService = "PlacesService"
-
-  @send
-  external textSearch: (
-    placesService,
-    textSearchRequest,
-    (array<placeResult>, placesServiceStatus) => unit,
-  ) => unit = "textSearch"
-}
+// Google Maps Places bindings live in the shared GooglePlaces module.
 
 module AutocompleteLocationMutation = %relay(`
  mutation AutocompleteLocationFormMutation(
@@ -108,7 +67,7 @@ let make = (
     switch autoSearchAddress {
     | Some(address) => {
         // Create a dummy div element for the PlacesService
-        let dummyDiv = createElement("div")
+        let dummyDiv = GooglePlaces.createElement("div")
         let service = GooglePlaces.createPlacesService(dummyDiv)
 
         let request: GooglePlaces.textSearchRequest = {

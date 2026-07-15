@@ -14,74 +14,74 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1405
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1425
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1429
 msgid "Table Tennis"
 msgstr "乿乓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1413
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1433
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1417
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1421
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1441
 msgid "Basketball"
 msgstr "籃球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1425
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1445
 msgid "Volleyball"
 msgstr "排球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1429
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1449
 msgid "Crossminton"
 msgstr "速羽球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1433
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
 msgid "Padel"
 msgstr "板式網球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1457
 msgid "drill"
 msgstr "訓練"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1441
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1461
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1445
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1465
 msgid "rec"
 msgstr "休閒"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1449
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1469
 msgid "all level"
 msgstr "所有等級"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:501
+#: src/components/organisms/CreateLocationEventForm.re.mjs:521
 msgid "{0} hours"
 msgstr "{0} 小時"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:501
+#: src/components/organisms/CreateLocationEventForm.re.mjs:521
 msgid "{0} hours and {1} minutes"
 msgstr "{0} 小時 {1} 分鐘"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:503
+#: src/components/organisms/CreateLocationEventForm.re.mjs:523
 msgid "{0} minutes"
 msgstr "{0} 分鐘"
 
@@ -89,47 +89,47 @@ msgstr "{0} 分鐘"
 msgid "+ Add new club..."
 msgstr "+ 新增俱樂部..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:737
+#: src/components/organisms/CreateLocationEventForm.re.mjs:757
 msgid "1 hour before"
 msgstr "1 小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
 msgid "1 week before"
 msgstr "1 週前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:749
+#: src/components/organisms/CreateLocationEventForm.re.mjs:769
 msgid "12 hours before"
 msgstr "12 小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+#: src/components/organisms/CreateLocationEventForm.re.mjs:761
 msgid "2 hours before"
 msgstr "2 小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:753
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
 msgid "24 hours before"
 msgstr "24 小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:757
+#: src/components/organisms/CreateLocationEventForm.re.mjs:777
 msgid "48 hours before"
 msgstr "48 小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:745
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
 msgid "6 hours before"
 msgstr "6 小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:761
+#: src/components/organisms/CreateLocationEventForm.re.mjs:781
 msgid "72 hours before"
 msgstr "72小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:831
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
 msgid ""
 "A refundable deposit is collected when someone joins. You can manually "
 "approve attendees by clicking their name in the RSVP list."
 msgstr ""
 "當有人加入時將收取可退還的押金。您可以在報名名單中點擊參與者姓名來手動審核。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:824
-#: src/components/organisms/CreateLocationEventForm.re.mjs:846
+#: src/components/organisms/CreateLocationEventForm.re.mjs:844
+#: src/components/organisms/CreateLocationEventForm.re.mjs:866
 msgid "Active"
 msgstr "進行中"
 
@@ -141,15 +141,15 @@ msgstr "活動"
 msgid "activity is required"
 msgstr "活動是必填項目"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:782
+#: src/components/organisms/CreateLocationEventForm.re.mjs:802
 msgid "Add any additional information about the event..."
 msgstr "新增有關活動的任何額外資訊..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:425
+#: src/components/organisms/CreateLocationEventForm.re.mjs:445
 msgid "at"
 msgstr "於"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:770
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
 msgid "Attendees cannot cancel their RSVP after this deadline"
 msgstr "參加者在此期限後無法取消報名"
 
@@ -162,11 +162,11 @@ msgstr "俱樂部的簡要描述..."
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+#: src/components/organisms/CreateLocationEventForm.re.mjs:747
 msgid "Cancel deadline (optional)"
 msgstr "取消期限(選填)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1265
 msgid ""
 "Casual play focused on fun and social interaction. Perfect for all skill "
 "levels."
@@ -192,12 +192,12 @@ msgstr "俱樂部URL"
 msgid "club-name"
 msgstr "俱樂部名稱"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:436
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1199
+#: src/components/organisms/CreateLocationEventForm.re.mjs:456
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1219
 msgid "Competitive"
 msgstr "競技模式"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:859
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
 msgid "Connect a Stripe account"
 msgstr "連結 Stripe 帳戶"
 
@@ -209,7 +209,7 @@ msgstr "複製賽事"
 msgid "Create Club"
 msgstr "建立俱樂部"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1389
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
 msgid "Create Event"
 msgstr "建立活動"
 
@@ -225,14 +225,14 @@ msgstr "描述"
 msgid "Done"
 msgstr "完成"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:444
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1282
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1312
+#: src/components/organisms/CreateLocationEventForm.re.mjs:464
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
 msgid "Drill session"
 msgstr "練習課程"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:441
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1263
+#: src/components/organisms/CreateLocationEventForm.re.mjs:461
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1283
 msgid "DUPR rated"
 msgstr "DUPR評級"
 
@@ -240,7 +240,7 @@ msgstr "DUPR評級"
 msgid "e.g., City Ballers Club"
 msgstr "例如：城市球員俱樂部"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+#: src/components/organisms/CreateLocationEventForm.re.mjs:705
 msgid "End time"
 msgstr "結束時間"
 
@@ -248,7 +248,7 @@ msgstr "結束時間"
 msgid "end time is required"
 msgstr "結束時間是必填項目"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:809
+#: src/components/organisms/CreateLocationEventForm.re.mjs:829
 msgid "Enter price"
 msgstr "輸入價格"
 
@@ -256,11 +256,11 @@ msgstr "輸入價格"
 msgid "event date is required"
 msgstr "活動日期是必填項目"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1057
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1077
 msgid "Event Details"
 msgstr "活動詳情"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:778
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
 msgid "Event details (optional)"
 msgstr "活動詳情（可選）"
 
@@ -268,48 +268,48 @@ msgstr "活動詳情（可選）"
 msgid "Event or Location doesn't exist."
 msgstr "活動或地點不存在。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:572
+#: src/components/organisms/CreateLocationEventForm.re.mjs:592
 msgid "Event schedule"
 msgstr "活動時程"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:702
+#: src/components/organisms/CreateLocationEventForm.re.mjs:722
 msgid "Event title"
 msgstr "活動標題"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1188
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1208
 msgid "Event type"
 msgstr "活動類型"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "Find Players"
 msgstr "尋找球員"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:986
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1006
 msgid "Find players for your event?"
 msgstr "為您的活動尋找球員？"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1150
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1170
 msgid "Format"
 msgstr "格式"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1256
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1307
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1276
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1327
 msgid "Format options"
 msgstr "格式選項"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:706
+#: src/components/organisms/CreateLocationEventForm.re.mjs:726
 msgid "Friday Night Pickleball"
 msgstr "週五晚上的匡克球"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:991
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1011
 msgid "List your event publicly to help fill open spots"
 msgstr "公開列出您的活動以填補空位"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:714
+#: src/components/organisms/CreateLocationEventForm.re.mjs:734
 msgid "Max RSVPs (optional)"
 msgstr "最大RSVP數（可選）"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:955
+#: src/components/organisms/CreateLocationEventForm.re.mjs:975
 msgid "Minimum rating (optional)"
 msgstr "最低評分（可選）"
 
@@ -321,84 +321,84 @@ msgstr "無俱樂部"
 msgid "No club / Independent event"
 msgstr "無俱樂部 / 獨立活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:733
+#: src/components/organisms/CreateLocationEventForm.re.mjs:753
 msgid "No deadline"
 msgstr "無期限"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:718
+#: src/components/organisms/CreateLocationEventForm.re.mjs:738
 msgid "No limit"
 msgstr "無限制"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:959
+#: src/components/organisms/CreateLocationEventForm.re.mjs:979
 msgid "No minimum"
 msgstr "無最低限制"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:430
-#: src/components/organisms/CreateLocationEventForm.re.mjs:449
+#: src/components/organisms/CreateLocationEventForm.re.mjs:450
+#: src/components/organisms/CreateLocationEventForm.re.mjs:469
 msgid "Not set"
 msgstr "未設定"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1118
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1138
 msgid "Paid event"
 msgstr "付費活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:799
+#: src/components/organisms/CreateLocationEventForm.re.mjs:819
 msgid "Price"
 msgstr "價格"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:454
+#: src/components/organisms/CreateLocationEventForm.re.mjs:474
 msgid "Private event"
 msgstr "私人活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:468
+#: src/components/organisms/CreateLocationEventForm.re.mjs:488
 msgid "Public"
 msgstr "公開"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:470
+#: src/components/organisms/CreateLocationEventForm.re.mjs:490
 msgid "Public event"
 msgstr "公開活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1049
 msgid "Read more..."
 msgstr "閱讀更多..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:438
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1195
+#: src/components/organisms/CreateLocationEventForm.re.mjs:458
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1215
 msgid "Recreational"
 msgstr "休閒"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1123
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1143
 msgid "Require payment from attendees"
 msgstr "要求參與者付款"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1245
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1265
 msgid ""
 "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr "嚴肅的比賽，帶有排名和評級。比賽可能影響您的球員評級。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1049
 msgid "Show less"
 msgstr "顯示更少"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:901
+#: src/components/organisms/CreateLocationEventForm.re.mjs:921
 msgid "Skill level"
 msgstr "技能水平"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:668
+#: src/components/organisms/CreateLocationEventForm.re.mjs:688
 msgid "Start date and time"
 msgstr "開始日期和時間"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:854
+#: src/components/organisms/CreateLocationEventForm.re.mjs:874
 msgid ""
 "The participation fee is charged automatically and transferred to your "
 "Stripe account."
 msgstr "參與費用將自動收取並轉入您的 Stripe 帳戶。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1015
 msgid "This event is private"
 msgstr "此活動為私人活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:995
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1015
 msgid "This event is public"
 msgstr "此活動為公開活動"
 
@@ -406,14 +406,14 @@ msgstr "此活動為公開活動"
 msgid "title is required"
 msgstr "標題是必填項目"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1389
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
 msgid "Update Event"
 msgstr "更新活動"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+#: src/components/organisms/CreateLocationEventForm.re.mjs:862
 msgid "With Stripe"
 msgstr "使用 Stripe"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:820
+#: src/components/organisms/CreateLocationEventForm.re.mjs:840
 msgid "Without Stripe"
 msgstr "不使用 Stripe"

@@ -3960,6 +3960,26 @@ msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
 
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "{0}개 이벤트를 생성할 수 없습니다 (이미 존재할 수 있습니다)."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "이벤트를 생성할 수 없습니다. 다시 시도해 주세요."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "활동을 확인할 수 없습니다. 다시 시도해 주세요."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "이 위치를 찾을 수 없습니다 — 직접 선택하세요:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "생성 중..."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

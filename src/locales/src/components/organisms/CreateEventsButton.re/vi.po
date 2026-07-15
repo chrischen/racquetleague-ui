@@ -13,18 +13,38 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "Đã tạo {0} sự kiện!"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "Không thể tạo sự kiện đó. Vui lòng thử lại."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "Không thể xác định hoạt động. Vui lòng thử lại."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "Không tìm thấy địa điểm này — hãy chọn:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "Tạo tất cả sự kiện"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "Tạo sự kiện này"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "Đang tạo..."
+
 #: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."

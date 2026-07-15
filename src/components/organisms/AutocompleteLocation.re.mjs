@@ -27,8 +27,6 @@ function ts(prim0, prim1) {
 
 var sessionContext = AppContext.SessionContext;
 
-var GooglePlaces = {};
-
 var convertVariables = AutocompleteLocationFormMutation_graphql.Internal.convertVariables;
 
 var convertResponse = AutocompleteLocationFormMutation_graphql.Internal.convertResponse;
@@ -181,7 +179,6 @@ var make = AutocompleteLocation;
 export {
   ts ,
   sessionContext ,
-  GooglePlaces ,
   AutocompleteLocationMutation ,
   make ,
 }

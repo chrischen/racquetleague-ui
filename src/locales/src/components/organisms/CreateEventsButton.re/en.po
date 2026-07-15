@@ -13,18 +13,38 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
 msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr ""

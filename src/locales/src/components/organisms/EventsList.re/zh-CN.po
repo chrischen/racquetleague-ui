@@ -37,7 +37,11 @@ msgstr "{1}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隐藏 {0} {hiddenCountDesc}"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "{0} 个赛事无法创建（可能已存在）。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "已创建 {0} 个活动！"
 
@@ -102,11 +106,11 @@ msgstr "添加活动"
 msgid "Afternoon"
 msgstr "下午"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:176
+#: src/components/organisms/AIAssistantModal.re.mjs:163
 msgid "AI Assistant"
 msgstr "AI助手"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:121
+#: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "An error occurred. Please try again."
 msgstr "发生错误，请重试。"
 
@@ -118,11 +122,11 @@ msgstr "任意时间"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Ask"
 msgstr "询问"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:151
+#: src/components/organisms/AIAssistantModal.re.mjs:138
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "下个月每周四晚上7-9点在赤羽小学打羽毛球。"
 
@@ -134,19 +138,35 @@ msgstr "清除筛选"
 msgid "Continue"
 msgstr "继续"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "无法创建该赛事，请重试。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "无法确定活动类型，请重试。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "未找到该位置——请手动选择："
+
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
 msgstr "在此时间创建一个托管活动，其他人可以加入，由你选择场地和规则。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "创建所有活动"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "创建此活动"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "创建中……"
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
@@ -156,10 +176,6 @@ msgstr "日期："
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "描述："
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "创建活动时出错。请重试。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
@@ -185,11 +201,11 @@ msgstr "发起活动"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "发起活动需要恰好选择一个时间段——请选择一个。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:181
+#: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr "我可以为您创建活动。只需告诉我您的时间安排。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:109
+#: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr "无法处理该请求，请重试。"
 
@@ -218,11 +234,11 @@ msgstr "标记为空闲"
 msgid "Morning"
 msgstr "上午"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:137
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "明天下午6-9点KPI公园需要5个人。费用平摊。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:280
+#: src/components/organisms/AIAssistantModal.re.mjs:267
 msgid "New"
 msgstr "新建"
 
@@ -238,11 +254,11 @@ msgstr "待审核"
 msgid "players"
 msgstr "球员"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:266
+#: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
 msgstr "处理中..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
 msgstr "回复"
 
@@ -274,7 +290,7 @@ msgstr "同步日历"
 msgid "Tap anywhere to add a time window"
 msgstr "点击任意位置添加时间段"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:231
+#: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."
@@ -329,6 +345,10 @@ msgstr "你想什么时候打球？"
 #: src/components/organisms/AIAssistantModal.re.mjs:229
 #~ msgid "Describe the event you want to create..."
 #~ msgstr "描述您想要创建的活动..."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "创建活动时出错。请重试。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid ""

@@ -13,18 +13,38 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "ไม่สามารถสร้าง {0} กิจกรรมได้ (อาจมีอยู่แล้ว)"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "ไม่สามารถสร้างกิจกรรมนั้นได้ กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "ไม่สามารถระบุกิจกรรมได้ กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "สร้างกิจกรรมทั้งหมด"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "สร้างกิจกรรมนี้"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "กำลังสร้าง..."
+
 #: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"

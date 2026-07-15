@@ -6,13 +6,17 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var variablesConverter = {"createEventsInput":{},"__root":{"input":{"r":"createEventsInput"}}};
+var variablesConverter = {"createEventInput":{"startDate":{"c":"Util.Datetime"},"endDate":{"c":"Util.Datetime"}},"__root":{"input":{"r":"createEventInput"}}};
+
+var variablesConverterMap = {
+  "Util.Datetime": Util.Datetime.serialize
+};
 
 function convertVariables(v) {
-  return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
+  return RescriptRelay.convertObj(v, variablesConverter, variablesConverterMap, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"createEvents_events_startDate":{"c":"Util.Datetime"},"createEvents_events_endDate":{"c":"Util.Datetime"}}};
+var wrapResponseConverter = {"__root":{"createEvent_event_startDate":{"c":"Util.Datetime"},"createEvent_event_endDate":{"c":"Util.Datetime"}}};
 
 var wrapResponseConverterMap = {
   "Util.Datetime": Util.Datetime.serialize
@@ -22,7 +26,7 @@ function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, wrapResponseConverterMap, null);
 }
 
-var responseConverter = {"__root":{"createEvents_events_startDate":{"c":"Util.Datetime"},"createEvents_events_endDate":{"c":"Util.Datetime"}}};
+var responseConverter = {"__root":{"createEvent_event_startDate":{"c":"Util.Datetime"},"createEvent_event_endDate":{"c":"Util.Datetime"}}};
 
 var responseConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -34,7 +38,7 @@ function convertResponse(v) {
 
 var Internal = {
   variablesConverter: variablesConverter,
-  variablesConverterMap: undefined,
+  variablesConverterMap: variablesConverterMap,
   convertVariables: convertVariables,
   wrapResponseConverter: wrapResponseConverter,
   wrapResponseConverterMap: wrapResponseConverterMap,
@@ -80,8 +84,8 @@ v3 = {
   "args": null,
   "concreteType": "Event",
   "kind": "LinkedField",
-  "name": "events",
-  "plural": true,
+  "name": "event",
+  "plural": false,
   "selections": [
     {
       "alias": null,
@@ -103,6 +107,20 @@ v3 = {
       "args": null,
       "kind": "ScalarField",
       "name": "details",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "maxRsvps",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "minRating",
       "storageKey": null
     },
     {
@@ -151,6 +169,27 @@ v3 = {
       "kind": "ScalarField",
       "name": "listed",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "timezone",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "cancelDeadline",
+      "storageKey": null
     }
   ],
   "storageKey": null
@@ -160,14 +199,14 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "CreateEventsButtonMutation",
+    "name": "CreateEventsButtonCreateEventMutation",
     "selections": [
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "CreateEventsResult",
+        "concreteType": "MutationResult2",
         "kind": "LinkedField",
-        "name": "createEvents",
+        "name": "createEvent",
         "plural": false,
         "selections": [
           (v3/*: any*/)
@@ -182,14 +221,14 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "CreateEventsButtonMutation",
+    "name": "CreateEventsButtonCreateEventMutation",
     "selections": [
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "CreateEventsResult",
+        "concreteType": "MutationResult2",
         "kind": "LinkedField",
-        "name": "createEvents",
+        "name": "createEvent",
         "plural": false,
         "selections": [
           (v3/*: any*/),
@@ -200,7 +239,7 @@ return {
             "handle": "appendNode",
             "key": "",
             "kind": "LinkedHandle",
-            "name": "events",
+            "name": "event",
             "handleArgs": [
               {
                 "kind": "Variable",
@@ -220,12 +259,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "febb914582ec2bdf5fe7e1427d0a249a",
+    "cacheID": "b8a035e427257fb1285b913216844de4",
     "id": null,
     "metadata": {},
-    "name": "CreateEventsButtonMutation",
+    "name": "CreateEventsButtonCreateEventMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateEventsButtonMutation(\n  $input: CreateEventsInput!\n) {\n  createEvents(input: $input) {\n    events {\n      __typename\n      id\n      title\n      details\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
+    "text": "mutation CreateEventsButtonCreateEventMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      timezone\n      tags\n      cancelDeadline\n    }\n  }\n}\n"
   }
 };
 })());

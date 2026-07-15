@@ -13,33 +13,54 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr ""
+"{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "{0} イベントが作成されました！"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:176
+#: src/components/organisms/AIAssistantModal.re.mjs:163
 msgid "AI Assistant"
 msgstr "AIアシスタント"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:121
+#: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "An error occurred. Please try again."
 msgstr "エラーが発生しました。もう一度お試しください。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Ask"
 msgstr "質問"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:151
+#: src/components/organisms/AIAssistantModal.re.mjs:138
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバドミントン。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "イベントを作成できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "アクティビティを特定できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "この場所が見つかりませんでした — こちらから選択してください："
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "すべてのイベントを作成"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "このイベントを作成"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "作成中..."
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
@@ -50,19 +71,15 @@ msgstr "日付:"
 msgid "Description:"
 msgstr "説明:"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
-
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:181
+#: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr "イベントを作成できます。スケジュールを教えてください。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:109
+#: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
 
@@ -71,19 +88,19 @@ msgstr "そのリクエストを処理できませんでした。もう一度お
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:137
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "明日18時から21時、KPIパークで5人必要。費用は割り勘。"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:280
+#: src/components/organisms/AIAssistantModal.re.mjs:267
 msgid "New"
 msgstr "新規"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:266
+#: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
 msgstr "処理中..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
 msgstr "返信"
 
@@ -91,7 +108,7 @@ msgstr "返信"
 msgid "Suggested Events"
 msgstr "提案されたイベント"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:231
+#: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."
@@ -106,6 +123,10 @@ msgstr "タイトル:"
 #: src/components/organisms/AIAssistantModal.re.mjs:229
 #~ msgid "Describe the event you want to create..."
 #~ msgstr "作成したいイベントを説明してください..."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid ""

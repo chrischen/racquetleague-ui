@@ -4,48 +4,55 @@
 module Types = {
   @@warning("-30")
 
-  @live type createEventsInput = RelaySchemaAssets_graphql.input_CreateEventsInput
+  @live type createEventInput = RelaySchemaAssets_graphql.input_CreateEventInput
   @live
-  type rec response_createEvents_events_activity = {
+  type rec response_createEvent_event_activity = {
     @live id: string,
     name: option<string>,
     slug: option<string>,
   }
   @live
-  and response_createEvents_events = {
+  and response_createEvent_event = {
     @live __typename: [ | #Event],
-    activity: option<response_createEvents_events_activity>,
+    activity: option<response_createEvent_event_activity>,
+    cancelDeadline: option<int>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
     listed: option<bool>,
+    maxRsvps: option<int>,
+    minRating: option<float>,
     startDate: option<Util.Datetime.t>,
+    tags: option<array<string>>,
+    timezone: option<string>,
     title: option<string>,
   }
   @live
-  and response_createEvents = {
-    events: option<array<response_createEvents_events>>,
+  and response_createEvent = {
+    event: option<response_createEvent_event>,
   }
   @live
   type response = {
-    createEvents: response_createEvents,
+    createEvent: response_createEvent,
   }
   @live
   type rawResponse = response
   @live
   type variables = {
     connections: array<RescriptRelay.dataId>,
-    input: createEventsInput,
+    input: createEventInput,
   }
 }
 
 module Internal = {
   @live
   let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"createEventsInput":{},"__root":{"input":{"r":"createEventsInput"}}}`
+    json`{"createEventInput":{"startDate":{"c":"Util.Datetime"},"endDate":{"c":"Util.Datetime"}},"__root":{"input":{"r":"createEventInput"}}}`
   )
   @live
-  let variablesConverterMap = ()
+  let variablesConverterMap = {
+    "Util.Datetime": Util.Datetime.serialize,
+  }
   @live
   let convertVariables = v => v->RescriptRelay.convertObj(
     variablesConverter,
@@ -56,7 +63,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"createEvents_events_startDate":{"c":"Util.Datetime"},"createEvents_events_endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"createEvent_event_startDate":{"c":"Util.Datetime"},"createEvent_event_endDate":{"c":"Util.Datetime"}}}`
   )
   @live
   let wrapResponseConverterMap = {
@@ -72,7 +79,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"createEvents_events_startDate":{"c":"Util.Datetime"},"createEvents_events_endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"createEvent_event_startDate":{"c":"Util.Datetime"},"createEvent_event_endDate":{"c":"Util.Datetime"}}}`
   )
   @live
   let responseConverterMap = {
@@ -132,8 +139,8 @@ v3 = {
   "args": null,
   "concreteType": "Event",
   "kind": "LinkedField",
-  "name": "events",
-  "plural": true,
+  "name": "event",
+  "plural": false,
   "selections": [
     {
       "alias": null,
@@ -155,6 +162,20 @@ v3 = {
       "args": null,
       "kind": "ScalarField",
       "name": "details",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "maxRsvps",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "minRating",
       "storageKey": null
     },
     {
@@ -203,6 +224,27 @@ v3 = {
       "kind": "ScalarField",
       "name": "listed",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "timezone",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "tags",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "cancelDeadline",
+      "storageKey": null
     }
   ],
   "storageKey": null
@@ -212,14 +254,14 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "CreateEventsButtonMutation",
+    "name": "CreateEventsButtonCreateEventMutation",
     "selections": [
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "CreateEventsResult",
+        "concreteType": "MutationResult2",
         "kind": "LinkedField",
-        "name": "createEvents",
+        "name": "createEvent",
         "plural": false,
         "selections": [
           (v3/*: any*/)
@@ -234,14 +276,14 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "CreateEventsButtonMutation",
+    "name": "CreateEventsButtonCreateEventMutation",
     "selections": [
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "CreateEventsResult",
+        "concreteType": "MutationResult2",
         "kind": "LinkedField",
-        "name": "createEvents",
+        "name": "createEvent",
         "plural": false,
         "selections": [
           (v3/*: any*/),
@@ -252,7 +294,7 @@ return {
             "handle": "appendNode",
             "key": "",
             "kind": "LinkedHandle",
-            "name": "events",
+            "name": "event",
             "handleArgs": [
               {
                 "kind": "Variable",
@@ -272,12 +314,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "febb914582ec2bdf5fe7e1427d0a249a",
+    "cacheID": "b8a035e427257fb1285b913216844de4",
     "id": null,
     "metadata": {},
-    "name": "CreateEventsButtonMutation",
+    "name": "CreateEventsButtonCreateEventMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateEventsButtonMutation(\n  $input: CreateEventsInput!\n) {\n  createEvents(input: $input) {\n    events {\n      __typename\n      id\n      title\n      details\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n    }\n  }\n}\n"
+    "text": "mutation CreateEventsButtonCreateEventMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      timezone\n      tags\n      cancelDeadline\n    }\n  }\n}\n"
   }
 };
 })() `)

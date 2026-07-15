@@ -13,57 +13,77 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+#: src/components/organisms/AIAssistantEmbed.re.mjs:665
 msgid "Action proposal"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:416
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:399
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
 msgid "AI Assistant"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:268
+#: src/components/organisms/AIAssistantEmbed.re.mjs:251
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+#: src/components/organisms/AIAssistantEmbed.re.mjs:750
 msgid "Answer the questions or provide more details..."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:585
+#: src/components/organisms/AIAssistantEmbed.re.mjs:568
 msgid "Approve"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+#: src/components/organisms/AIAssistantEmbed.re.mjs:750
 msgid "Approve or deny the pending action to continue."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+#: src/components/organisms/AIAssistantEmbed.re.mjs:528
 msgid "Approved"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:539
+#: src/components/organisms/AIAssistantEmbed.re.mjs:522
 msgid "Awaiting approval"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:820
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
 msgid "Continue"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:460
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
 msgid "Continue the conversation"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
 msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
@@ -71,15 +91,15 @@ msgstr ""
 msgid "Date:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:551
+#: src/components/organisms/AIAssistantEmbed.re.mjs:534
 msgid "Denied"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:639
+#: src/components/organisms/AIAssistantEmbed.re.mjs:622
 msgid "Deny"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
 msgid "Describe your event"
 msgstr ""
 
@@ -87,35 +107,35 @@ msgstr ""
 msgid "Description:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:768
+#: src/components/organisms/AIAssistantEmbed.re.mjs:751
 msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr ""
+#~ msgid "Error creating events. Please try again."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:542
 msgid "Executed"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:562
+#: src/components/organisms/AIAssistantEmbed.re.mjs:545
 msgid "Execution failed"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:820
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
 msgid "Fill with AI"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+#: src/components/organisms/AIAssistantEmbed.re.mjs:403
 msgid "Form filled • Click to expand"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:811
+#: src/components/organisms/AIAssistantEmbed.re.mjs:794
 msgid "Generating..."
 msgstr ""
 
@@ -123,11 +143,11 @@ msgstr ""
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:460
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
 msgid "Let AI help you fill out the details below"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:490
+#: src/components/organisms/AIAssistantEmbed.re.mjs:473
 msgid "Loading conversation history..."
 msgstr ""
 
@@ -136,19 +156,19 @@ msgstr ""
 msgid "Location:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+#: src/components/organisms/AIAssistantEmbed.re.mjs:682
 msgid "Operation:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:791
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
 msgid "Press ⌘+Enter to continue"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:791
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
 msgid "Press ⌘+Enter to generate"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:797
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
 msgid "Reset"
 msgstr ""
 
@@ -156,7 +176,7 @@ msgstr ""
 msgid "Suggested Events"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:613
+#: src/components/organisms/AIAssistantEmbed.re.mjs:596
 msgid "The action completed with GraphQL errors."
 msgstr ""
 
@@ -164,6 +184,6 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:282
+#: src/components/organisms/AIAssistantEmbed.re.mjs:265
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr ""

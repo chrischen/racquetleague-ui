@@ -13,73 +13,94 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr ""
+"{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "{0} イベントが作成されました！"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+#: src/components/organisms/AIAssistantEmbed.re.mjs:665
 msgid "Action proposal"
 msgstr "アクションの提案"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:416
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:399
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
 msgid "AI Assistant"
 msgstr "AIアシスタント"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:268
+#: src/components/organisms/AIAssistantEmbed.re.mjs:251
 msgid "An error occurred. Please try again."
 msgstr "エラーが発生しました。もう一度お試しください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+#: src/components/organisms/AIAssistantEmbed.re.mjs:750
 msgid "Answer the questions or provide more details..."
 msgstr "質問に答えるか、詳細を追加してください..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:585
+#: src/components/organisms/AIAssistantEmbed.re.mjs:568
 msgid "Approve"
 msgstr "承認"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+#: src/components/organisms/AIAssistantEmbed.re.mjs:750
 msgid "Approve or deny the pending action to continue."
 msgstr "続行するには、保留中のアクションを承認または拒否してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+#: src/components/organisms/AIAssistantEmbed.re.mjs:528
 msgid "Approved"
 msgstr "承認済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:539
+#: src/components/organisms/AIAssistantEmbed.re.mjs:522
 msgid "Awaiting approval"
 msgstr "承認待ち"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:820
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
 msgid "Continue"
 msgstr "続ける"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:460
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
 msgid "Continue the conversation"
 msgstr "会話を続ける"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "イベントを作成できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "アクティビティを特定できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "この場所が見つかりませんでした — こちらから選択してください："
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "すべてのイベントを作成"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "このイベントを作成"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "作成中..."
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:551
+#: src/components/organisms/AIAssistantEmbed.re.mjs:534
 msgid "Denied"
 msgstr "拒否済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:639
+#: src/components/organisms/AIAssistantEmbed.re.mjs:622
 msgid "Deny"
 msgstr "拒否"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
 msgid "Describe your event"
 msgstr "イベントを説明してください"
 
@@ -87,7 +108,7 @@ msgstr "イベントを説明してください"
 msgid "Description:"
 msgstr "説明:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:768
+#: src/components/organisms/AIAssistantEmbed.re.mjs:751
 msgid ""
 "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
 "competitive play for 3.5+ players..."
@@ -95,39 +116,35 @@ msgstr ""
 "例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上の"
 "プレイヤー向け..."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
-
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:542
 msgid "Executed"
 msgstr "実行済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:562
+#: src/components/organisms/AIAssistantEmbed.re.mjs:545
 msgid "Execution failed"
 msgstr "実行失敗"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:820
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
 msgid "Fill with AI"
 msgstr "AIで入力"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+#: src/components/organisms/AIAssistantEmbed.re.mjs:403
 msgid "Form filled • Click to expand"
 msgstr "フォーム入力済み • クリックで展開"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:811
+#: src/components/organisms/AIAssistantEmbed.re.mjs:794
 msgid "Generating..."
 msgstr "生成中..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:460
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
 msgid "Let AI help you fill out the details below"
 msgstr "AIに下記の詳細を入力してもらいましょう"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:490
+#: src/components/organisms/AIAssistantEmbed.re.mjs:473
 msgid "Loading conversation history..."
 msgstr "会話履歴を読み込み中..."
 
@@ -136,19 +153,19 @@ msgstr "会話履歴を読み込み中..."
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+#: src/components/organisms/AIAssistantEmbed.re.mjs:682
 msgid "Operation:"
 msgstr "操作："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:791
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
 msgid "Press ⌘+Enter to continue"
 msgstr "⌘+Enterで続ける"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:791
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
 msgid "Press ⌘+Enter to generate"
 msgstr "⌘+Enterで生成"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:797
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
 msgid "Reset"
 msgstr "リセット"
 
@@ -156,7 +173,7 @@ msgstr "リセット"
 msgid "Suggested Events"
 msgstr "提案されたイベント"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:613
+#: src/components/organisms/AIAssistantEmbed.re.mjs:596
 msgid "The action completed with GraphQL errors."
 msgstr "アクションはGraphQLエラーで完了しました。"
 
@@ -164,9 +181,13 @@ msgstr "アクションはGraphQLエラーで完了しました。"
 msgid "Title:"
 msgstr "タイトル:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:282
+#: src/components/organisms/AIAssistantEmbed.re.mjs:265
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動ステップの要求が多すぎます。手動で続行してください。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."

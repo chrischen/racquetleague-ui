@@ -37,7 +37,11 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "{0} {hiddenCountDesc} 숨김"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "{0}개 이벤트를 생성할 수 없습니다 (이미 존재할 수 있습니다)."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "{0}개 이벤트가 생성되었습니다!"
 
@@ -102,11 +106,11 @@ msgstr "이벤트 추가"
 msgid "Afternoon"
 msgstr "오후"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:176
+#: src/components/organisms/AIAssistantModal.re.mjs:163
 msgid "AI Assistant"
 msgstr "AI 어시스턴트"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:121
+#: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
@@ -118,11 +122,11 @@ msgstr "언제든지"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Ask"
 msgstr "질문"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:151
+#: src/components/organisms/AIAssistantModal.re.mjs:138
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "다음 달 매주 목요일 아카바네 초등학교에서 오후 7-9시 배드민턴."
 
@@ -134,6 +138,18 @@ msgstr "필터 지우기"
 msgid "Continue"
 msgstr "계속"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "이벤트를 생성할 수 없습니다. 다시 시도해 주세요."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "활동을 확인할 수 없습니다. 다시 시도해 주세요."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "이 위치를 찾을 수 없습니다 — 직접 선택하세요:"
+
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
@@ -142,13 +158,17 @@ msgstr ""
 "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙"
 "은 직접 정합니다."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "모든 이벤트 만들기"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "이 이벤트 만들기"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "생성 중..."
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
@@ -158,10 +178,6 @@ msgstr "날짜:"
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "설명:"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "이벤트 생성 오류. 다시 시도하세요."
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
@@ -187,11 +203,11 @@ msgstr "이벤트 주최"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:181
+#: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr "이벤트를 만들어 드릴 수 있습니다. 일정을 알려주세요."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:109
+#: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
 
@@ -225,11 +241,11 @@ msgstr "오전"
 msgid "my events"
 msgstr "내 이벤트"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:137
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "내일 오후 6-9시 KPI 파크에 5명 필요합니다. 비용 분담."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:280
+#: src/components/organisms/AIAssistantModal.re.mjs:267
 msgid "New"
 msgstr "새로 만들기"
 
@@ -245,7 +261,7 @@ msgstr "대기 중"
 msgid "players"
 msgstr "플레이어"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:266
+#: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
 msgstr "처리 중..."
 
@@ -253,7 +269,7 @@ msgstr "처리 중..."
 msgid "public events"
 msgstr "공개 이벤트"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
 msgstr "답장"
 
@@ -285,7 +301,7 @@ msgstr "캘린더 동기화"
 msgid "Tap anywhere to add a time window"
 msgstr "아무 곳이나 탭하여 시간 창 추가"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:231
+#: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."
@@ -318,3 +334,7 @@ msgstr "대기자 명단"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "언제 플레이하고 싶으신가요?"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "이벤트 생성 오류. 다시 시도하세요."

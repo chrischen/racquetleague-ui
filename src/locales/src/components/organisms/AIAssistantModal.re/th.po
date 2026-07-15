@@ -13,33 +13,53 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "ไม่สามารถสร้าง {0} กิจกรรมได้ (อาจมีอยู่แล้ว)"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:176
+#: src/components/organisms/AIAssistantModal.re.mjs:163
 msgid "AI Assistant"
 msgstr "ผู้ช่วย AI"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:121
+#: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "An error occurred. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Ask"
 msgstr "ถาม"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:151
+#: src/components/organisms/AIAssistantModal.re.mjs:138
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr "ไม่สามารถสร้างกิจกรรมนั้นได้ กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr "ไม่สามารถระบุกิจกรรมได้ กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "สร้างกิจกรรมทั้งหมด"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
 msgstr "สร้างกิจกรรมนี้"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
+msgstr "กำลังสร้าง..."
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
@@ -50,19 +70,15 @@ msgstr "วันที่:"
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
-
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:181
+#: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:109
+#: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
 
@@ -71,19 +87,19 @@ msgstr "ไม่สามารถประมวลผลคำขอนั้
 msgid "Location:"
 msgstr "สถานที่:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:137
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr "ต้องการ 5 คน สำหรับ KPI Park พรุ่งนี้ 18:00-21:00 แชร์ค่าใช้จ่าย"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:280
+#: src/components/organisms/AIAssistantModal.re.mjs:267
 msgid "New"
 msgstr "ใหม่"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:266
+#: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
 msgstr "กำลังประมวลผล..."
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
 msgstr "ตอบกลับ"
 
@@ -91,7 +107,7 @@ msgstr "ตอบกลับ"
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:231
+#: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
 "Tell me the time and place of your event, or any other details. You can also "
 "let me know the details to include and I can even add the translations."
@@ -106,6 +122,10 @@ msgstr "ชื่อ:"
 #: src/components/organisms/AIAssistantModal.re.mjs:229
 #~ msgid "Describe the event you want to create..."
 #~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid ""

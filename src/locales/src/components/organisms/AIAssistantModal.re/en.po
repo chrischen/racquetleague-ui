@@ -13,32 +13,52 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:113
+#: src/components/organisms/CreateEventsButton.re.mjs:390
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:176
+#: src/components/organisms/AIAssistantModal.re.mjs:163
 msgid "AI Assistant"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:121
+#: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Ask"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:151
+#: src/components/organisms/AIAssistantModal.re.mjs:138
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:440
+msgid "Couldn't create that event. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:399
+msgid "Couldn't determine the activity. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:416
+msgid "Couldn't find this location — pick it:"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:42
+#: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create This Event"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:404
+msgid "Creating..."
 msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
@@ -55,18 +75,18 @@ msgid "Description:"
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
-msgid "Error creating events. Please try again."
-msgstr ""
+#~ msgid "Error creating events. Please try again."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:181
+#: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:109
+#: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr ""
 
@@ -79,19 +99,19 @@ msgstr ""
 msgid "Location:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:150
+#: src/components/organisms/AIAssistantModal.re.mjs:137
 msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:280
+#: src/components/organisms/AIAssistantModal.re.mjs:267
 msgid "New"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:266
+#: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:270
+#: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
 msgstr ""
 
@@ -99,7 +119,7 @@ msgstr ""
 msgid "Suggested Events"
 msgstr ""
 
-#: src/components/organisms/AIAssistantModal.re.mjs:231
+#: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 msgstr ""
 
