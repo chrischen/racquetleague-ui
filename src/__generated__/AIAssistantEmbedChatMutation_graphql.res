@@ -12,20 +12,10 @@ module Types = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #AIChatMessage_entry]>,
   }
   @live
-  and response_chat_suggestedEvents = {
-    address: string,
-    details: option<string>,
-    endDate: Util.Datetime.t,
-    maxRsvps: option<int>,
-    startDate: Util.Datetime.t,
-    timezone: option<string>,
-    title: string,
-  }
-  @live
   and response_chat = {
     error: option<string>,
     messages: array<response_chat_messages>,
-    suggestedEvents: option<array<response_chat_suggestedEvents>>,
+    suggestedEvents: option<array<string>>,
   }
   @live
   type response = {
@@ -56,12 +46,10 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"f":""}}}`
+    json`{"__root":{"chat_messages":{"f":""}}}`
   )
   @live
-  let wrapResponseConverterMap = {
-    "Util.Datetime": Util.Datetime.serialize,
-  }
+  let wrapResponseConverterMap = ()
   @live
   let convertWrapResponse = v => v->RescriptRelay.convertObj(
     wrapResponseConverter,
@@ -72,12 +60,10 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"f":""}}}`
+    json`{"__root":{"chat_messages":{"f":""}}}`
   )
   @live
-  let responseConverterMap = {
-    "Util.Datetime": Util.Datetime.parse,
-  }
+  let responseConverterMap = ()
   @live
   let convertResponse = v => v->RescriptRelay.convertObj(
     responseConverter,
@@ -223,61 +209,8 @@ v7 = {
 v8 = {
   "alias": null,
   "args": null,
-  "concreteType": "SuggestedEvent",
-  "kind": "LinkedField",
+  "kind": "ScalarField",
   "name": "suggestedEvents",
-  "plural": true,
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "title",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "startDate",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "endDate",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "timezone",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "address",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "details",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "maxRsvps",
-      "storageKey": null
-    }
-  ],
   "storageKey": null
 },
 v9 = {
@@ -374,12 +307,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7a98daffe6bc795d1bbc9e55b8cdf1f5",
+    "cacheID": "d1bf266cc547e6c609babd96b23ee9a3",
     "id": null,
     "metadata": {},
     "name": "AIAssistantEmbedChatMutation",
     "operationKind": "mutation",
-    "text": "mutation AIAssistantEmbedChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ...AIChatMessage_entry\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n\nfragment AIChatMessage_entry on ChatEntry {\n  __isChatEntry: __typename\n  __typename\n  ... on UserMessage {\n    id\n    content\n    actionResult {\n      operationName\n      proposalId\n      resultJson\n    }\n  }\n  ... on AgentMessage {\n    id\n    content\n    action {\n      operationName\n      query\n      variablesJson: variables\n      summary\n    }\n  }\n}\n"
+    "text": "mutation AIAssistantEmbedChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ...AIChatMessage_entry\n    }\n    suggestedEvents\n    error\n  }\n}\n\nfragment AIChatMessage_entry on ChatEntry {\n  __isChatEntry: __typename\n  __typename\n  ... on UserMessage {\n    id\n    content\n    actionResult {\n      operationName\n      proposalId\n      resultJson\n    }\n  }\n  ... on AgentMessage {\n    id\n    content\n    action {\n      operationName\n      query\n      variablesJson: variables\n      summary\n    }\n  }\n}\n"
   }
 };
 })() `)

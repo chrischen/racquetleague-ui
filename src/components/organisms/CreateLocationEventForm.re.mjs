@@ -257,6 +257,26 @@ function CreateLocationEventForm(props) {
             Core__Option.map(prefilledValues.maxRsvps, (function (v) {
                     setValue("maxRsvps", v.toString(), undefined);
                   }));
+            Core__Option.map(prefilledValues.tags, (function (tags) {
+                    setSelectedTags(function (param) {
+                          return tags;
+                        });
+                  }));
+            Core__Option.map(prefilledValues.price, (function (v) {
+                    setIsPaidEvent(function (param) {
+                          return true;
+                        });
+                    setValue("price", v.toString(), undefined);
+                  }));
+            Core__Option.map(prefilledValues.listed, (function (v) {
+                    setValue("listed", v, undefined);
+                  }));
+            Core__Option.map(prefilledValues.cancelDeadline, (function (v) {
+                    setValue("cancelDeadline", v.toString(), undefined);
+                  }));
+            Core__Option.map(prefilledValues.timezone, (function (v) {
+                    setValue("timezone", v, undefined);
+                  }));
             var match = prefilledValues.startDate;
             var match$1 = prefilledValues.endDate;
             if (match !== undefined && match$1 !== undefined && match !== "" && match$1 !== "") {

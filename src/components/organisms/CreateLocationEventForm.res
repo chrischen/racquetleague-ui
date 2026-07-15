@@ -330,7 +330,11 @@ let make = (
     None
   }, [])
 
-  // Update form values when prefilledValues change (from AI assistant)
+  // Update form values when prefilledValues change (from AI assistant).
+  // These arrive asynchronously (after the user chats), so every prefilled field
+  // must be pushed here - the useState initializers (selectedTags, isPaidEvent)
+  // and react-hook-form defaultValues only run at mount and would otherwise be
+  // stuck at their defaults.
   React.useEffect(() => {
     switch prefilledValues {
     | Some(pf) => {
@@ -339,6 +343,22 @@ let make = (
         pf.endDate->Option.map(v => setValue(EndTime, Value(v)))->ignore
         pf.details->Option.map(v => setValue(Details, Value(v)))->ignore
         pf.maxRsvps->Option.map(v => setValue(MaxRsvps, Value(v->Int.toString)))->ignore
+
+        // Tags drive the competitive/level/format multi-selects; the
+        // selectedTags → minRating effect then derives the numeric rating.
+        pf.tags->Option.map(tags => setSelectedTags(_ => tags))->ignore
+        // Price presence flips the paid/unpaid toggle.
+        pf.price
+        ->Option.map(v => {
+          setIsPaidEvent(_ => true)
+          setValue(Price, Value(v->Int.toString))
+        })
+        ->ignore
+        pf.listed->Option.map(v => setValue(Listed, Value(v)))->ignore
+        pf.cancelDeadline
+        ->Option.map(v => setValue(CancelDeadline, Value(v->Int.toString)))
+        ->ignore
+        pf.timezone->Option.map(v => setValue(Timezone, Value(v)))->ignore
 
         // Calculate and store the duration from prefilled values
         switch (pf.startDate, pf.endDate) {

@@ -18,15 +18,7 @@ module ChatMutation = %relay(`
           content
         }
       }
-      suggestedEvents {
-        title
-        startDate
-        endDate
-        timezone
-        address
-        details
-        maxRsvps
-      }
+      suggestedEvents
       error
     }
   }
@@ -68,23 +60,9 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
 
           switch lastAgentContent {
           | Some(content) => {
-              // Convert suggested events from GraphQL to our type
-              let suggestedEvents = chatResponse.suggestedEvents->Option.map(events =>
-                events->Array.map((event): AITypes.eventDetails => {
-                  // Format dates using Util.Datetime
-                  let startDateStr = event.startDate->Util.Datetime.toDate->Js.Date.toISOString
-                  let endDateStr = event.endDate->Util.Datetime.toDate->Js.Date.toISOString
-
-                  {
-                    title: event.title,
-                    date: startDateStr,
-                    time: endDateStr, // Store endDate in the time field for now
-                    location: Some(event.address),
-                    description: event.details,
-                    maxRsvps: event.maxRsvps,
-                  }
-                })
-              )
+              // suggestedEvents is a list of CreateEventInput-shaped JSON strings;
+              // parse via the shared converter.
+              let suggestedEvents = AIChatMessage.toSuggestedEvents(chatResponse.suggestedEvents)
 
               setResponse(_ => Some({
                 summary: content,

@@ -17,15 +17,7 @@ module ChatMutation = %relay(`
       messages {
         ...AIChatMessage_entry
       }
-      suggestedEvents {
-        title
-        startDate
-        endDate
-        timezone
-        address
-        details
-        maxRsvps
-      }
+      suggestedEvents
       error
     }
   }
@@ -135,26 +127,9 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
     }, 60)
   }
 
-  let toSuggestedEvents = (
-    suggestedEvents: option<
-      array<AIAssistantEmbedChatMutation_graphql.Types.response_chat_suggestedEvents>,
-    >,
-  ) =>
-    suggestedEvents->Option.map(events =>
-      events->Array.map((event): AITypes.eventDetails => {
-        let startDateStr = event.startDate->Util.Datetime.toDate->Js.Date.toISOString
-        let endDateStr = event.endDate->Util.Datetime.toDate->Js.Date.toISOString
-
-        {
-          title: event.title,
-          date: startDateStr,
-          time: endDateStr,
-          location: Some(event.address),
-          description: event.details,
-          maxRsvps: event.maxRsvps,
-        }
-      })
-    )
+  // suggestedEvents is now a list of JSON strings (CreateEventInput-shaped
+  // drafts); parse via the shared converter into eventDetails (+ rawFields).
+  let toSuggestedEvents = AIChatMessage.toSuggestedEvents
 
   let hasGraphQLErrors = json =>
     switch json->Js.Json.decodeObject {

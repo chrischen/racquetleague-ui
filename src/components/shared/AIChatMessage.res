@@ -131,3 +131,36 @@ let deriveTurns = (
     }
   )
 }
+
+// Parse a suggested-event JSON string (a `CreateEventInput`-shaped draft the
+// server passes through from the LLM's create_events call) into the client's
+// `eventDetails`: display fields for rendering, plus the whole parsed object in
+// `rawFields` so the create-form prefill can read any field (minRating, price,
+// tags, …) without per-field wiring. Returns None for malformed JSON.
+let parseSuggestedEvent = (jsonStr: string): option<AITypes.eventDetails> =>
+  switch Js.Json.parseExn(jsonStr)->Js.Json.decodeObject {
+  | Some(dict) =>
+    let getStr = key => dict->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeString)
+    let getNum = key => dict->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeNumber)
+    Some(
+      (
+        {
+          title: getStr("title")->Option.getOr(""),
+          date: getStr("startDate")->Option.getOr(""),
+          time: getStr("endDate")->Option.getOr(""),
+          location: getStr("address"),
+          description: getStr("details"),
+          maxRsvps: getNum("maxRsvps")->Option.map(Float.toInt),
+          rawFields: dict,
+        }: AITypes.eventDetails
+      ),
+    )
+  | None => None
+  | exception _ => None
+  }
+
+// Shared converter used by both AIAssistantEmbed and AIAssistantModal.
+let toSuggestedEvents = (
+  suggestedEvents: option<array<string>>,
+): option<array<AITypes.eventDetails>> =>
+  suggestedEvents->Option.map(events => events->Belt.Array.keepMap(parseSuggestedEvent))

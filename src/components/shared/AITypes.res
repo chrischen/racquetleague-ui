@@ -6,6 +6,12 @@ type eventDetails = {
   location: option<string>,
   description: option<string>,
   maxRsvps: option<int>,
+  // The full parsed suggested-event draft (a `CreateEventInput`-shaped object,
+  // keys matching the mutation's fields). The display fields above are extracted
+  // from it for rendering; `rawFields` carries everything else (minRating, price,
+  // tags, cancelDeadline, listed, timezone, …) so new event fields reach the
+  // create-form prefill with no per-field wiring here.
+  rawFields?: Js.Dict.t<Js.Json.t>,
 }
 
 type aiResponse = {

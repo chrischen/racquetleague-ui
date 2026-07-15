@@ -163,10 +163,48 @@ function deriveTurns(messages, overlay, enrichments) {
               }));
 }
 
+function parseSuggestedEvent(jsonStr) {
+  var dict;
+  try {
+    dict = Js_json.decodeObject(JSON.parse(jsonStr));
+  }
+  catch (exn){
+    return ;
+  }
+  if (dict === undefined) {
+    return ;
+  }
+  var getStr = function (key) {
+    return Core__Option.flatMap(Js_dict.get(dict, key), Js_json.decodeString);
+  };
+  var getNum = function (key) {
+    return Core__Option.flatMap(Js_dict.get(dict, key), Js_json.decodeNumber);
+  };
+  return {
+          title: Core__Option.getOr(getStr("title"), ""),
+          date: Core__Option.getOr(getStr("startDate"), ""),
+          time: Core__Option.getOr(getStr("endDate"), ""),
+          location: getStr("address"),
+          description: getStr("details"),
+          maxRsvps: Core__Option.map(getNum("maxRsvps"), (function (prim) {
+                  return prim | 0;
+                })),
+          rawFields: dict
+        };
+}
+
+function toSuggestedEvents(suggestedEvents) {
+  return Core__Option.map(suggestedEvents, (function (events) {
+                return Belt_Array.keepMap(events, parseSuggestedEvent);
+              }));
+}
+
 export {
   Fragment ,
   fromFragmentRef ,
   classifyResult ,
   deriveTurns ,
+  parseSuggestedEvent ,
+  toSuggestedEvents ,
 }
 /* RescriptRelay_Fragment Not a pure module */

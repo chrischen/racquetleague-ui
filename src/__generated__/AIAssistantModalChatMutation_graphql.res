@@ -16,20 +16,10 @@ module Types = {
     | @live @as("__unselected") UnselectedUnionMember(string)
 
   @live
-  type rec response_chat_suggestedEvents = {
-    address: string,
-    details: option<string>,
-    endDate: Util.Datetime.t,
-    maxRsvps: option<int>,
-    startDate: Util.Datetime.t,
-    timezone: option<string>,
-    title: string,
-  }
-  @live
-  and response_chat = {
+  type rec response_chat = {
     error: option<string>,
     messages: array<response_chat_messages>,
-    suggestedEvents: option<array<response_chat_suggestedEvents>>,
+    suggestedEvents: option<array<string>>,
   }
   @live
   type response = {
@@ -64,12 +54,11 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"u":"response_chat_messages"}}}`
+    json`{"__root":{"chat_messages":{"u":"response_chat_messages"}}}`
   )
   @live
   let wrapResponseConverterMap = {
     "response_chat_messages": wrap_response_chat_messages,
-    "Util.Datetime": Util.Datetime.serialize,
   }
   @live
   let convertWrapResponse = v => v->RescriptRelay.convertObj(
@@ -81,12 +70,11 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"chat_suggestedEvents_startDate":{"c":"Util.Datetime"},"chat_suggestedEvents_endDate":{"c":"Util.Datetime"},"chat_messages":{"u":"response_chat_messages"}}}`
+    json`{"__root":{"chat_messages":{"u":"response_chat_messages"}}}`
   )
   @live
   let responseConverterMap = {
     "response_chat_messages": unwrap_response_chat_messages,
-    "Util.Datetime": Util.Datetime.parse,
   }
   @live
   let convertResponse = v => v->RescriptRelay.convertObj(
@@ -168,61 +156,8 @@ v1 = [
       {
         "alias": null,
         "args": null,
-        "concreteType": "SuggestedEvent",
-        "kind": "LinkedField",
+        "kind": "ScalarField",
         "name": "suggestedEvents",
-        "plural": true,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "title",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "startDate",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "endDate",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "timezone",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "address",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "details",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "maxRsvps",
-            "storageKey": null
-          }
-        ],
         "storageKey": null
       },
       {
@@ -254,12 +189,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "83e7382559eaa030813a3475cc32e412",
+    "cacheID": "81a73e327cfb865bbdc12f76c8514803",
     "id": null,
     "metadata": {},
     "name": "AIAssistantModalChatMutation",
     "operationKind": "mutation",
-    "text": "mutation AIAssistantModalChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ... on AgentMessage {\n        content\n      }\n    }\n    suggestedEvents {\n      title\n      startDate\n      endDate\n      timezone\n      address\n      details\n      maxRsvps\n    }\n    error\n  }\n}\n"
+    "text": "mutation AIAssistantModalChatMutation(\n  $input: ChatInput!\n) {\n  chat(input: $input) {\n    messages {\n      __typename\n      ... on AgentMessage {\n        content\n      }\n    }\n    suggestedEvents\n    error\n  }\n}\n"
   }
 };
 })() `)

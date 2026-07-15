@@ -131,6 +131,31 @@ let make = () => {
     let startDateFormatted = startDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:mm")
     let endTimeFormatted = endDate->DateFns.formatWithPattern("HH:mm")
 
+    // The remaining CreateEventInput fields ride in `rawFields` (keys match the
+    // form's prefilledValues), so new event fields prefill with no change here.
+    let rawFields = eventDetails.rawFields->Option.getOr(Js.Dict.empty())
+    let getStr = key => rawFields->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeString)
+    let getNum = key => rawFields->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeNumber)
+    let getBool = key => rawFields->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeBoolean)
+    let getIntFromNum = key => getNum(key)->Option.map(Float.toInt)
+    let getStrArray = key =>
+      rawFields
+      ->Js.Dict.get(key)
+      ->Option.flatMap(v => v->Js.Json.decodeArray)
+      ->Option.map(arr => arr->Belt.Array.keepMap(v => v->Js.Json.decodeString))
+
+    // minRating is intentionally NOT read here: skill level is expressed via
+    // `tags` (e.g. "3.5+") and the form derives the numeric minRating from them.
+    let price = getIntFromNum("price")
+    let cancelDeadline = getIntFromNum("cancelDeadline")
+    // `listed` defaults to public per the tool contract: the model omits it for
+    // public events, so absence means public (true). Without this the create
+    // form would fall back to its own default (private) and the public/private
+    // toggle would look "not set".
+    let listed = Some(getBool("listed")->Option.getOr(true))
+    let timezone = getStr("timezone")
+    let tags = getStrArray("tags")
+
     let prefilledData: CreateLocationEventForm.prefilledValues = {
       title: ?Some(eventDetails.title),
       startDate: ?Some(startDateFormatted),
@@ -139,6 +164,11 @@ let make = () => {
       maxRsvps: ?eventDetails.maxRsvps,
       activitySlug: ?activitySlugParam,
       clubId: ?clubIdParam,
+      price: ?price,
+      cancelDeadline: ?cancelDeadline,
+      listed: ?listed,
+      timezone: ?timezone,
+      tags: ?tags,
     }
 
     setPrefilledValues(_ => Some(prefilledData))

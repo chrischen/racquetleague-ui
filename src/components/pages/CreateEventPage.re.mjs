@@ -2,8 +2,11 @@
 
 import * as React from "react";
 import * as Router from "../shared/Router.re.mjs";
+import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Js_json from "rescript/lib/es6/js_json.js";
 import * as DateFns from "date-fns";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
@@ -165,6 +168,31 @@ function CreateEventPage(props) {
     var endDate = new Date(eventDetails.time);
     var startDateFormatted = DateFns.format(startDate, "yyyy-MM-dd'T'HH:mm");
     var endTimeFormatted = DateFns.format(endDate, "HH:mm");
+    var rawFields = Core__Option.getOr(eventDetails.rawFields, {});
+    var getStr = function (key) {
+      return Core__Option.flatMap(Js_dict.get(rawFields, key), Js_json.decodeString);
+    };
+    var getNum = function (key) {
+      return Core__Option.flatMap(Js_dict.get(rawFields, key), Js_json.decodeNumber);
+    };
+    var getBool = function (key) {
+      return Core__Option.flatMap(Js_dict.get(rawFields, key), Js_json.decodeBoolean);
+    };
+    var getIntFromNum = function (key) {
+      return Core__Option.map(getNum(key), (function (prim) {
+                    return prim | 0;
+                  }));
+    };
+    var getStrArray = function (key) {
+      return Core__Option.map(Core__Option.flatMap(Js_dict.get(rawFields, key), Js_json.decodeArray), (function (arr) {
+                    return Belt_Array.keepMap(arr, Js_json.decodeString);
+                  }));
+    };
+    var price = getIntFromNum("price");
+    var cancelDeadline = getIntFromNum("cancelDeadline");
+    var listed = Core__Option.getOr(getBool("listed"), true);
+    var timezone = getStr("timezone");
+    var tags = getStrArray("tags");
     var prefilledData_title = eventDetails.title;
     var prefilledData_maxRsvps = eventDetails.maxRsvps;
     var prefilledData_startDate = startDateFormatted;
@@ -177,7 +205,12 @@ function CreateEventPage(props) {
       maxRsvps: prefilledData_maxRsvps,
       startDate: prefilledData_startDate,
       endDate: prefilledData_endDate,
-      details: prefilledData_details
+      details: prefilledData_details,
+      listed: listed,
+      timezone: timezone,
+      tags: tags,
+      price: price,
+      cancelDeadline: cancelDeadline
     };
     setPrefilledValues(function (param) {
           return prefilledData;
