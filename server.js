@@ -119,6 +119,9 @@ export async function createServer(
   // to unknown bug with ssrLoadModule if it gets called again (such as on
   // page reload)
   app.use("*", async (req, res) => {
+    // HTML must always revalidate so stale markup (with old asset hashes)
+    // never survives a deploy; static assets are served by earlier middleware
+    res.setHeader("Cache-Control", "no-cache");
     try {
       const url = req.originalUrl;
 
