@@ -3,11 +3,13 @@ module HourlyCountsQuery = %relay(`
     $localDate: String!
     $activityId: ID!
     $clubId: ID
+    $location: LocationInput!
   ) {
     availabilityHourlyCounts(
       localDate: $localDate
       activityId: $activityId
       clubId: $clubId
+      location: $location
     ) {
       hour
       count
@@ -26,7 +28,12 @@ let make = (
   ~clubId: option<string>=?,
 ) => {
   let resolvedActivityId = activityId->Option.getOr(defaultActivityId)
-  let queryData = HourlyCountsQuery.use(~variables={localDate, activityId: resolvedActivityId, ?clubId})
+  // Only mounted from the availability editor, i.e. after the geolocation
+  // permission has resolved, so this is the resolved location (or fallback).
+  let location = UseUserLocation.use()
+  let queryData = HourlyCountsQuery.use(
+    ~variables={localDate, activityId: resolvedActivityId, ?clubId, location},
+  )
   let hourCounts = queryData.availabilityHourlyCounts
   let maxCount = hourCounts->Array.reduce(0, (acc, hc) => Js.Math.max_int(acc, hc.count))
 

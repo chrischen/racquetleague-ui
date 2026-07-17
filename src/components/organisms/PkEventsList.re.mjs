@@ -15,14 +15,15 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
-import * as PlayIntentRow from "../molecules/PlayIntentRow.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
+import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
+import * as PkEventsAvailabilityDay from "./PkEventsAvailabilityDay.re.mjs";
 import * as PkEventsListFragment_graphql from "../../__generated__/PkEventsListFragment_graphql.re.mjs";
 import * as PkEventsListRefetchQuery_graphql from "../../__generated__/PkEventsListRefetchQuery_graphql.re.mjs";
 
@@ -71,6 +72,8 @@ var Fragment = {
   useBlockingPagination: useBlockingPagination
 };
 
+var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
+
 function ts(prim0, prim1) {
   return Caml_splice_call.spliceApply(t, [
               prim0,
@@ -79,8 +82,10 @@ function ts(prim0, prim1) {
 }
 
 function PkEventsList$Day(props) {
-  var onAvailabilityCommitted = props.onAvailabilityCommitted;
-  var userDays = props.userDays;
+  var onAvailabilityRefetchNeeded = props.onAvailabilityRefetchNeeded;
+  var availabilityFetchKey = props.availabilityFetchKey;
+  var toDate = props.toDate;
+  var fromDate = props.fromDate;
   var activityId = props.activityId;
   var onHoverLocation = props.onHoverLocation;
   var onEventClick = props.onEventClick;
@@ -104,13 +109,7 @@ function PkEventsList$Day(props) {
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
             })));
-  var availabilityDay = Core__Option.map(Core__Option.flatMap(viewer, (function (v) {
-              return v.availability.find(function (d) {
-                          return d.localDate === isoDate;
-                        });
-            })), (function (d) {
-          return d.fragmentRefs;
-        }));
+  var geoStatus = UseUserLocation.useStatus();
   var defaultHide = function (edge, _viewer) {
     return Core__Option.getOr(edge.shadow, false);
   };
@@ -144,9 +143,6 @@ function PkEventsList$Day(props) {
   };
   var hasHiddenPreview = totalHiddenCount > 0 && !showShadow;
   var previewHiddenEvent = Belt_Array.get(hiddenEvents, 0);
-  var handleSaveAvailability = function (_newIntents) {
-    
-  };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   var renderHeader = function (trigger) {
@@ -177,25 +173,28 @@ function PkEventsList$Day(props) {
                                 className: "px-4 md:px-6 py-3 flex items-center justify-between"
                               });
                   };
+                  var tmp;
+                  tmp = typeof geoStatus !== "object" ? renderHeader(null) : JsxRuntime.jsx(React.Suspense, {
+                          children: Caml_option.some(JsxRuntime.jsx(PkEventsAvailabilityDay.make, {
+                                    localDate: isoDate,
+                                    dateGroup: label,
+                                    fromDate: fromDate,
+                                    toDate: toDate,
+                                    activityId: Core__Option.getOr(activityId, defaultActivityId),
+                                    location: geoStatus.location,
+                                    fetchKey: availabilityFetchKey,
+                                    onRefetchNeeded: onAvailabilityRefetchNeeded,
+                                    isLoggedIn: isLoggedIn,
+                                    onCreateEvent: (function () {
+                                        navigate("/events/create?date=" + isoDate, undefined);
+                                      }),
+                                    renderHeader: renderHeader
+                                  })),
+                          fallback: Caml_option.some(renderHeader(null))
+                        });
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
-                                JsxRuntime.jsx(React.Suspense, {
-                                      children: Caml_option.some(JsxRuntime.jsx(PlayIntentRow.make, {
-                                                localDate: isoDate,
-                                                dateGroup: label,
-                                                availabilityDay: availabilityDay,
-                                                activityId: activityId,
-                                                userDays: userDays,
-                                                onAvailabilityCommitted: onAvailabilityCommitted,
-                                                onChange: handleSaveAvailability,
-                                                onCreateEvent: (function () {
-                                                    navigate("/events/create?date=" + isoDate, undefined);
-                                                  }),
-                                                renderHeader: renderHeader,
-                                                isLoggedIn: isLoggedIn
-                                              })),
-                                      fallback: Caml_option.some(renderHeader(null))
-                                    }),
+                                tmp,
                                 visibleEvents.map(function (edge, idx) {
                                       var waitlistCount = getWaitlistCount(edge);
                                       return JsxRuntime.jsx(PkEventRow.make, {
@@ -296,43 +295,30 @@ function PkEventsList(props) {
   };
   var bucketSetup = EventsListUtils.makeBucketSetup();
   var intl = ReactIntl.useIntl();
-  var isoDateOf = function (date) {
-    var y = (date.getFullYear() | 0).toString();
-    var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
-    var d = (date.getDate() | 0).toString().padStart(2, "0");
-    return y + "-" + m + "-" + d;
-  };
-  var allUserDays = data.availabilityUsersForDateRange.map(function (d) {
-        return {
-                id: d.id,
-                localDate: d.localDate,
-                user: Core__Option.map(d.user, (function (u) {
-                        return {
-                                id: u.id,
-                                lineUsername: u.lineUsername,
-                                picture: u.picture
-                              };
-                      })),
-                intervals: d.intervals.map(function (iv) {
-                      return {
-                              startHour: iv.startHour,
-                              endHour: iv.endHour
-                            };
-                    })
-              };
+  var match$2 = React.useState(function () {
+        return 0;
       });
-  var onAvailabilityCommitted = function (updatedDay) {
-    var needsRefetch = updatedDay !== undefined ? !allUserDays.some(function (d) {
-            return d.id === updatedDay.id;
-          }) : true;
-    if (needsRefetch) {
-      refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (param) {
-              
-            }));
-      return ;
-    }
-    
+  var setAvailabilityFetchKey = match$2[1];
+  var availabilityFetchKey = match$2[0];
+  var onAvailabilityRefetchNeeded = function () {
+    setAvailabilityFetchKey(function (k) {
+          return k + 1 | 0;
+        });
   };
+  var match$3 = React.useState(function () {
+        var toIso = function (d) {
+          return d.toISOString().slice(0, 10);
+        };
+        var now = new Date();
+        var to_ = new Date(now.getTime() + 28 * 86400000);
+        return [
+                toIso(now),
+                toIso(to_)
+              ];
+      });
+  var match$4 = match$3[0];
+  var availabilityToDate = match$4[1];
+  var availabilityFromDate = match$4[0];
   var formatDate = function (date) {
     return intl.formatDate(date, {
                 month: "short",
@@ -409,30 +395,12 @@ function PkEventsList(props) {
                           return ;
                         }
                         var match = getBucketMeta(key);
-                        var date = match[2];
-                        var isoDate = isoDateOf(date);
-                        var viewerUserId = Core__Option.map(Core__Option.flatMap(viewer, (function (v) {
-                                    return v.user;
-                                  })), (function (u) {
-                                return u.id;
-                              }));
-                        var userDaysForDate = allUserDays.filter(function (d) {
-                                return d.localDate === isoDate;
-                              }).filter(function (d) {
-                              if (viewerUserId !== undefined) {
-                                return Core__Option.getOr(Core__Option.map(d.user, (function (u) {
-                                                  return u.id;
-                                                })), "") !== viewerUserId;
-                              } else {
-                                return true;
-                              }
-                            });
                         return [
                                 key,
                                 JsxRuntime.jsx(PkEventsList$Day, {
                                       label: match[0],
                                       dateDetails: match[1],
-                                      date: date,
+                                      date: match[2],
                                       events: filteredEvents,
                                       viewer: viewer,
                                       query: data.fragmentRefs,
@@ -443,8 +411,10 @@ function PkEventsList(props) {
                                         }),
                                       onHoverLocation: onHoverLocation,
                                       activityId: activityId,
-                                      userDays: userDaysForDate,
-                                      onAvailabilityCommitted: onAvailabilityCommitted,
+                                      fromDate: availabilityFromDate,
+                                      toDate: availabilityToDate,
+                                      availabilityFetchKey: availabilityFetchKey,
+                                      onAvailabilityRefetchNeeded: onAvailabilityRefetchNeeded,
                                       shouldHideEvent: shouldHideEvent
                                     })
                               ];
@@ -468,7 +438,7 @@ function PkEventsList(props) {
         }));
   var onRefresh = function () {
     return new Promise((function (resolve, param) {
-                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
+                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
                           resolve();
                         }));
                 }));
@@ -499,8 +469,6 @@ function PkEventsList(props) {
               onRefresh: onRefresh
             });
 }
-
-var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 var make = PkEventsList;
 

@@ -6,11 +6,12 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activityId, afterDate, fromDate, toDate) {
+function makeRefetchVariables(activityId, afterDate, fromDate, $$location, toDate) {
   return {
           activityId: activityId,
           afterDate: afterDate,
           fromDate: fromDate,
+          location: $$location,
           toDate: toDate
         };
 }
@@ -19,7 +20,7 @@ var Types = {
   makeRefetchVariables: makeRefetchVariables
 };
 
-var variablesConverter = {"__root":{"afterDate":{"c":"Util.Datetime"}}};
+var variablesConverter = {"locationInput":{},"__root":{"location":{"r":"locationInput"},"afterDate":{"c":"Util.Datetime"}}};
 
 var variablesConverterMap = {
   "Util.Datetime": Util.Datetime.serialize
@@ -84,33 +85,38 @@ v2 = {
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "toDate"
+  "name": "location"
 },
 v4 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "toDate"
+},
+v5 = {
   "kind": "Variable",
   "name": "fromDate",
   "variableName": "fromDate"
 },
-v5 = {
+v6 = {
   "kind": "Variable",
   "name": "toDate",
   "variableName": "toDate"
 },
-v6 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v7 = {
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "localDate",
   "storageKey": null
 },
-v8 = {
+v9 = {
   "alias": null,
   "args": null,
   "concreteType": "AvailabilityInterval",
@@ -135,11 +141,16 @@ v8 = {
   ],
   "storageKey": null
 },
-v9 = [
+v10 = [
   {
     "alias": null,
     "args": [
-      (v4/*: any*/),
+      (v5/*: any*/),
+      {
+        "kind": "Variable",
+        "name": "location",
+        "variableName": "location"
+      },
       {
         "kind": "Literal",
         "name": "scope",
@@ -147,15 +158,15 @@ v9 = [
           "activityId": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
         }
       },
-      (v5/*: any*/)
+      (v6/*: any*/)
     ],
     "concreteType": "AvailabilityDay",
     "kind": "LinkedField",
     "name": "availabilityUsersForDateRange",
     "plural": true,
     "selections": [
-      (v6/*: any*/),
       (v7/*: any*/),
+      (v8/*: any*/),
       {
         "alias": null,
         "args": null,
@@ -164,7 +175,7 @@ v9 = [
         "name": "user",
         "plural": false,
         "selections": [
-          (v6/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -182,7 +193,7 @@ v9 = [
         ],
         "storageKey": null
       },
-      (v8/*: any*/)
+      (v9/*: any*/)
     ],
     "storageKey": null
   },
@@ -202,17 +213,17 @@ v9 = [
             "name": "activityId",
             "variableName": "activityId"
           },
-          (v4/*: any*/),
-          (v5/*: any*/)
+          (v5/*: any*/),
+          (v6/*: any*/)
         ],
         "concreteType": "AvailabilityDay",
         "kind": "LinkedField",
         "name": "availability",
         "plural": true,
         "selections": [
-          (v6/*: any*/),
           (v7/*: any*/),
-          (v8/*: any*/)
+          (v8/*: any*/),
+          (v9/*: any*/)
         ],
         "storageKey": null
       },
@@ -258,7 +269,7 @@ v9 = [
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v6/*: any*/),
+                  (v7/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -306,12 +317,13 @@ return {
       (v0/*: any*/),
       (v1/*: any*/),
       (v2/*: any*/),
-      (v3/*: any*/)
+      (v3/*: any*/),
+      (v4/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "AvailabilityPageQuery",
-    "selections": (v9/*: any*/),
+    "selections": (v10/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -320,20 +332,21 @@ return {
     "argumentDefinitions": [
       (v0/*: any*/),
       (v2/*: any*/),
-      (v3/*: any*/),
-      (v1/*: any*/)
+      (v4/*: any*/),
+      (v1/*: any*/),
+      (v3/*: any*/)
     ],
     "kind": "Operation",
     "name": "AvailabilityPageQuery",
-    "selections": (v9/*: any*/)
+    "selections": (v10/*: any*/)
   },
   "params": {
-    "cacheID": "c1370e6cc70a28e1d0841ebfd61b8b43",
+    "cacheID": "8e131741c34fe0e6ea212bc6873a3c41",
     "id": null,
     "metadata": {},
     "name": "AvailabilityPageQuery",
     "operationKind": "query",
-    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  viewer {\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput!\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  viewer {\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })());

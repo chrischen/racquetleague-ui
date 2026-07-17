@@ -783,12 +783,12 @@ type PushSubscriptionResult implements HasErrors {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
-  availabilityCountForDay(activityId: ID!, clubId: ID, localDate: String!): Int!
-  availabilityDailyCounts(activityId: ID!, fromDate: String!, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
-  availabilityHourlyCounts(activityId: ID!, clubId: ID, localDate: String!): [AvailabilityHourCount!]!
-  availabilityOverlap(fromDate: String!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
-  availabilityUsersForDateRange(fromDate: String!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityDay!]!
-  availabilityUsersForDay(localDate: String!, scope: OverlapScopeInput!): [AvailabilityDay!]!
+  availabilityCountForDay(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput!): Int!
+  availabilityDailyCounts(activityId: ID!, fromDate: String!, location: LocationInput!, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
+  availabilityHourlyCounts(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput!): [AvailabilityHourCount!]!
+  availabilityOverlap(fromDate: String!, location: LocationInput!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
+  availabilityUsersForDateRange(fromDate: String!, location: LocationInput!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityDay!]!
+  availabilityUsersForDay(localDate: String!, location: LocationInput!, scope: OverlapScopeInput!): [AvailabilityDay!]!
   chatMessages(limit: Int): [ChatEntry!]!
   club(id: ID, slug: String): Club
   clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!

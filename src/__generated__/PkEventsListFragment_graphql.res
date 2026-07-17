@@ -4,22 +4,7 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_availabilityUsersForDateRange_intervals = {
-    endHour: int,
-    startHour: int,
-  }
-  and fragment_availabilityUsersForDateRange_user = {
-    @live id: string,
-    lineUsername: option<string>,
-    picture: option<string>,
-  }
-  and fragment_availabilityUsersForDateRange = {
-    @live id: string,
-    intervals: array<fragment_availabilityUsersForDateRange_intervals>,
-    localDate: string,
-    user: option<fragment_availabilityUsersForDateRange_user>,
-  }
-  and fragment_events_edges_node_club = {
+  type rec fragment_events_edges_node_club = {
     @live id: string,
   }
   and fragment_events_edges_node_location = {
@@ -61,10 +46,6 @@ module Types = {
     edges: option<array<option<fragment_events_edges>>>,
     pageInfo: fragment_events_pageInfo,
   }
-  and fragment_viewer_availability = {
-    localDate: string,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PlayIntentRow_availabilityDay]>,
-  }
   and fragment_viewer_clubs_edges_node = {
     @live id: string,
   }
@@ -79,12 +60,10 @@ module Types = {
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PkEventRow_user]>,
   }
   and fragment_viewer = {
-    availability: array<fragment_viewer_availability>,
     clubs: fragment_viewer_clubs,
     user: option<fragment_viewer_user>,
   }
   type fragment = {
-    availabilityUsersForDateRange: array<fragment_availabilityUsersForDateRange>,
     events: fragment_events,
     viewer: option<fragment_viewer>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PkEventRow_query]>,
@@ -96,7 +75,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_user":{"f":""},"viewer_availability":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"":{"f":""}}}`
+    json`{"__root":{"viewer_user":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node_deleted":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = {
@@ -174,24 +153,7 @@ v2 = [
 ],
 v3 = [
   (v1/*: any*/)
-],
-v4 = {
-  "kind": "Variable",
-  "name": "fromDate",
-  "variableName": "availabilityFromDate"
-},
-v5 = {
-  "kind": "Variable",
-  "name": "toDate",
-  "variableName": "availabilityToDate"
-},
-v6 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "localDate",
-  "storageKey": null
-};
+];
 return {
   "argumentDefinitions": [
     {
@@ -203,16 +165,6 @@ return {
       "defaultValue": null,
       "kind": "LocalArgument",
       "name": "afterDate"
-    },
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
-      "name": "availabilityFromDate"
-    },
-    {
-      "defaultValue": null,
-      "kind": "LocalArgument",
-      "name": "availabilityToDate"
     },
     {
       "defaultValue": null,
@@ -316,105 +268,6 @@ return {
             }
           ],
           "storageKey": "clubs(first:100)"
-        },
-        {
-          "alias": null,
-          "args": [
-            {
-              "kind": "Literal",
-              "name": "activityId",
-              "value": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
-            },
-            (v4/*: any*/),
-            (v5/*: any*/)
-          ],
-          "concreteType": "AvailabilityDay",
-          "kind": "LinkedField",
-          "name": "availability",
-          "plural": true,
-          "selections": [
-            (v6/*: any*/),
-            {
-              "args": null,
-              "kind": "FragmentSpread",
-              "name": "PlayIntentRow_availabilityDay"
-            }
-          ],
-          "storageKey": null
-        }
-      ],
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": [
-        (v4/*: any*/),
-        {
-          "kind": "Literal",
-          "name": "scope",
-          "value": {
-            "activityId": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
-          }
-        },
-        (v5/*: any*/)
-      ],
-      "concreteType": "AvailabilityDay",
-      "kind": "LinkedField",
-      "name": "availabilityUsersForDateRange",
-      "plural": true,
-      "selections": [
-        (v1/*: any*/),
-        (v6/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "User",
-          "kind": "LinkedField",
-          "name": "user",
-          "plural": false,
-          "selections": [
-            (v1/*: any*/),
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "lineUsername",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "picture",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "AvailabilityInterval",
-          "kind": "LinkedField",
-          "name": "intervals",
-          "plural": true,
-          "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "startHour",
-              "storageKey": null
-            },
-            {
-              "alias": null,
-              "args": null,
-              "kind": "ScalarField",
-              "name": "endHour",
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
         }
       ],
       "storageKey": null

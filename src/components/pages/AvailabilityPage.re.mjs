@@ -13,7 +13,6 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
 import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
-import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -82,18 +81,41 @@ var SetAvailabilityMutation = {
 
 var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
+function getDateRange() {
+  var now = new Date();
+  var fmtDate = function (d) {
+    var y = (d.getFullYear() | 0).toString();
+    var m = ((d.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
+    var day = (d.getDate() | 0).toString().padStart(2, "0");
+    return y + "-" + m + "-" + day;
+  };
+  var fromDate = fmtDate(now);
+  var toDate = fmtDate(new Date(now.getTime() + 1209600000));
+  return [
+          fromDate,
+          toDate
+        ];
+}
+
 function AvailabilityPage$AvailabilityContent(props) {
-  var match = usePreloaded(props.queryRef);
-  var viewer = match.viewer;
+  var match = React.useMemo(getDateRange, []);
+  var $$location = UseUserLocation.use();
+  var match$1 = use({
+        activityId: defaultActivityId,
+        afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
+        fromDate: match[0],
+        location: $$location,
+        toDate: match[1]
+      }, "store-or-network", undefined, undefined);
+  var viewer = match$1.viewer;
   var intl = ReactIntl.useIntl();
-  var match$1 = React.useState(function () {
+  var match$2 = React.useState(function () {
         return false;
       });
-  var setIsSaving = match$1[1];
-  var match$2 = use$1();
-  var commitSetAvailability = match$2[0];
+  var setIsSaving = match$2[1];
+  var match$3 = use$1();
+  var commitSetAvailability = match$3[0];
   var env = RescriptRelay.useEnvironmentFromContext();
-  var $$location = UseUserLocation.use();
   var getWeekDays = function () {
     var now = new Date();
     return Belt_Array.makeBy(15, (function (i) {
@@ -207,7 +229,7 @@ function AvailabilityPage$AvailabilityContent(props) {
                 initialIntervals: intervals
               };
       });
-  var demand = Core__Array.reduce(match.availabilityUsersForDateRange, {}, (function (acc, d) {
+  var demand = Core__Array.reduce(match$1.availabilityUsersForDateRange, {}, (function (acc, d) {
           var pd_id = d.id.length;
           var pd_intents = d.intervals.map(function (iv, i) {
                 return {
@@ -262,7 +284,7 @@ function AvailabilityPage$AvailabilityContent(props) {
   return JsxRuntime.jsx(VerticalAvailabilityGrid.make, {
               days: days,
               onSave: handleSave,
-              isSaving: match$1[0],
+              isSaving: match$2[0],
               existingEvents: existingEvents,
               demand: demand
             });
@@ -273,12 +295,17 @@ var AvailabilityContent = {
 };
 
 function AvailabilityPage(props) {
-  var loaderData = ReactRouterDom.useLoaderData();
+  var geoStatus = UseUserLocation.useStatus();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
-                  return JsxRuntime.jsx(AvailabilityPage$AvailabilityContent, {
-                              queryRef: loaderData.data
-                            });
+                  if (typeof geoStatus !== "object") {
+                    return null;
+                  } else {
+                    return JsxRuntime.jsx(React.Suspense, {
+                                children: Caml_option.some(JsxRuntime.jsx(AvailabilityPage$AvailabilityContent, {})),
+                                fallback: Caml_option.some(null)
+                              });
+                  }
                 })
             });
 }
@@ -289,6 +316,7 @@ export {
   Query ,
   SetAvailabilityMutation ,
   defaultActivityId ,
+  getDateRange ,
   AvailabilityContent ,
   make ,
 }

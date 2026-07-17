@@ -126,8 +126,6 @@ async function loader(param) {
           data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
                 afterDate: afterDate,
-                availabilityFromDate: new Date().toISOString().slice(0, 10),
-                availabilityToDate: new Date(Date.now() + 28 * 86400000).toISOString().slice(0, 10),
                 before: before,
                 filters: {
                   activitySlug: params.activitySlug,

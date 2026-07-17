@@ -40,10 +40,6 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?after,
         ?before,
         ?afterDate,
-        availabilityFromDate: Js.Date.make()->Js.Date.toISOString->String.slice(~start=0, ~end=10),
-        availabilityToDate: Js.Date.fromFloat(Js.Date.now() +. 28. *. 86400000.)
-          ->Js.Date.toISOString
-          ->String.slice(~start=0, ~end=10),
         filters: {viewer: true},
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,

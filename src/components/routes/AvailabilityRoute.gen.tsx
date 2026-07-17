@@ -13,8 +13,6 @@ import type {data as WaitForMessages_data} from '../../../src/components/shared/
 
 import type {props as AvailabilityPage_props} from '../../../src/components/pages/AvailabilityPage.gen';
 
-import type {queryRef as AvailabilityPageQuery_graphql_queryRef} from '../../../src/__generated__/AvailabilityPageQuery_graphql.gen';
-
 export type params = { readonly lang: (undefined | string) };
 
 export type LoaderArgs_t = {
@@ -25,4 +23,4 @@ export type LoaderArgs_t = {
 
 export const Component: React.ComponentType<{}> = AvailabilityRouteJS.Component as any;
 
-export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<AvailabilityPageQuery_graphql_queryRef>)> = AvailabilityRouteJS.loader as any;
+export const loader: (param:LoaderArgs_t) => Promise<(null | WaitForMessages_data<void>)> = AvailabilityRouteJS.loader as any;

@@ -2,6 +2,7 @@
 
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as TimeWindowPicker from "./TimeWindowPicker.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
@@ -47,10 +48,12 @@ var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function TimePickerWithHeatmap(props) {
   var resolvedActivityId = Core__Option.getOr(props.activityId, defaultActivityId);
+  var $$location = UseUserLocation.use();
   var queryData = use({
         activityId: resolvedActivityId,
         clubId: props.clubId,
-        localDate: props.localDate
+        localDate: props.localDate,
+        location: $$location
       }, undefined, undefined, undefined);
   var hourCounts = queryData.availabilityHourlyCounts;
   var maxCount = Core__Array.reduce(hourCounts, 0, (function (acc, hc) {

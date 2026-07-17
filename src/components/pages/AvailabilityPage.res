@@ -1,10 +1,11 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query AvailabilityPageQuery($activityId: ID!, $fromDate: String!, $toDate: String!, $afterDate: Datetime) {
+  query AvailabilityPageQuery($activityId: ID!, $fromDate: String!, $toDate: String!, $afterDate: Datetime, $location: LocationInput!) {
     availabilityUsersForDateRange(
       fromDate: $fromDate
       toDate: $toDate
+      location: $location
       scope: {activityId: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"}
     ) {
       id
@@ -61,21 +62,40 @@ module SetAvailabilityMutation = %relay(`
   }
 `)
 
-@module("react-router-dom")
-external useLoaderData: unit => WaitForMessages.data<AvailabilityPageQuery_graphql.queryRef> =
-  "useLoaderData"
-
 let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
+
+let getDateRange = () => {
+  let now = Js.Date.make()
+  let fmtDate = (d: Js.Date.t) => {
+    let y = d->Js.Date.getFullYear->Float.toInt->Int.toString
+    let m = (d->Js.Date.getMonth->Float.toInt + 1)->Int.toString->String.padStart(2, "0")
+    let day = d->Js.Date.getDate->Float.toInt->Int.toString->String.padStart(2, "0")
+    y ++ "-" ++ m ++ "-" ++ day
+  }
+  let fromDate = fmtDate(now)
+  let toDate = fmtDate(Js.Date.fromFloat(now->Js.Date.getTime +. Float.fromInt(14 * 86400000)))
+  (fromDate, toDate)
+}
 
 module AvailabilityContent = {
   @react.component
-  let make = (~queryRef: AvailabilityPageQuery_graphql.queryRef) => {
-    let {viewer, availabilityUsersForDateRange} = Query.usePreloaded(~queryRef)
+  let make = () => {
+    let (fromDate, toDate) = React.useMemo0(getDateRange)
+    let location = UseUserLocation.use()
+    let {viewer, availabilityUsersForDateRange} = Query.use(
+      ~variables={
+        activityId: defaultActivityId,
+        fromDate,
+        toDate,
+        afterDate: Util.Datetime.fromDate(Js.Date.make()),
+        location,
+      },
+      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+    )
     let intl = ReactIntl.useIntl()
     let (isSaving, setIsSaving) = React.useState(() => false)
     let (commitSetAvailability, _) = SetAvailabilityMutation.use()
     let env = RescriptRelay.useEnvironmentFromContext()
-    let location = UseUserLocation.use()
 
     let getWeekDays = () => {
       let now = Js.Date.make()
@@ -258,6 +278,17 @@ module AvailabilityContent = {
 
 @react.component
 let make = () => {
-  let loaderData = useLoaderData()
-  <WaitForMessages> {() => <AvailabilityContent queryRef=loaderData.data />} </WaitForMessages>
+  // Availability is client-only: nothing renders during SSR/hydration, then
+  // the page loads once the location permission prompt resolves either way.
+  let geoStatus = UseUserLocation.useStatus()
+  <WaitForMessages>
+    {() =>
+      switch geoStatus {
+      | Resolving => React.null
+      | Resolved(_) =>
+        <React.Suspense fallback={React.null}>
+          <AvailabilityContent />
+        </React.Suspense>
+      }}
+  </WaitForMessages>
 }

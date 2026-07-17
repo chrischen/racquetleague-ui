@@ -9,31 +9,96 @@ var tokyoDefault = {
   lng: 139.745438
 };
 
-function use() {
-  var match = React.useState(function () {
-        return tokyoDefault;
+var current = {
+  contents: "Resolving"
+};
+
+var listeners = {
+  contents: []
+};
+
+function emit() {
+  listeners.contents.forEach(function (l) {
+        l();
       });
-  var setLocation = match[1];
-  React.useEffect((function () {
-          if (Core__Option.isSome((window == null) ? undefined : Caml_option.some(window))) {
-            navigator.geolocation.getCurrentPosition((function (pos) {
-                    setLocation(function (param) {
-                          return {
-                                  lat: pos.coords.latitude,
-                                  lng: pos.coords.longitude
-                                };
-                        });
-                  }), (function (_err) {
-                    
-                  }));
-          }
-          
-        }), []);
-  return match[0];
+}
+
+var started = {
+  contents: false
+};
+
+function start() {
+  if (!(!started.contents && Core__Option.isSome((window == null) ? undefined : Caml_option.some(window)))) {
+    return ;
+  }
+  started.contents = true;
+  var match = navigator.geolocation;
+  if (match == null) {
+    current.contents = {
+      TAG: "Resolved",
+      location: tokyoDefault,
+      granted: false
+    };
+    return emit();
+  } else {
+    navigator.geolocation.getCurrentPosition((function (pos) {
+            current.contents = {
+              TAG: "Resolved",
+              location: {
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude
+              },
+              granted: true
+            };
+            emit();
+          }), (function (_err) {
+            current.contents = {
+              TAG: "Resolved",
+              location: tokyoDefault,
+              granted: false
+            };
+            emit();
+          }));
+    return ;
+  }
+}
+
+function subscribe(cb) {
+  listeners.contents = listeners.contents.concat([cb]);
+  start();
+  return function () {
+    listeners.contents = listeners.contents.filter(function (l) {
+          return l !== cb;
+        });
+  };
+}
+
+function useStatus() {
+  return React.useSyncExternalStore(subscribe, (function () {
+                return current.contents;
+              }), (function () {
+                return "Resolving";
+              }));
+}
+
+function use() {
+  var match = useStatus();
+  if (typeof match !== "object") {
+    return tokyoDefault;
+  } else {
+    return match.location;
+  }
 }
 
 export {
   tokyoDefault ,
+  current ,
+  listeners ,
+  emit ,
+  started ,
+  start ,
+  subscribe ,
+  useStatus ,
   use ,
 }
 /* react Not a pure module */

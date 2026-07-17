@@ -20,37 +20,13 @@ let loadMessages = Lingui.loadMessages({
   vi: Lingui.import("../../locales/src/components/pages/AvailabilityPage.re/vi"),
 })
 
-let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
-
-let getDateRange = () => {
-  let now = Js.Date.make()
-  let fmtDate = (d: Js.Date.t) => {
-    let y = d->Js.Date.getFullYear->Float.toInt->Int.toString
-    let m = (d->Js.Date.getMonth->Float.toInt + 1)->Int.toString->String.padStart(2, "0")
-    let day = d->Js.Date.getDate->Float.toInt->Int.toString->String.padStart(2, "0")
-    y ++ "-" ++ m ++ "-" ++ day
-  }
-  let fromDate = fmtDate(now)
-  let toDate = fmtDate(Js.Date.fromFloat(now->Js.Date.getTime +. Float.fromInt(14 * 86400000)))
-  (fromDate, toDate)
-}
-
+// Availability data is client-only (fetched after the geolocation permission
+// prompt resolves) — the loader only handles i18n; see AvailabilityPage.res.
 @genType
-let loader = async ({context, params}: LoaderArgs.t) => {
-  let (fromDate, toDate) = getDateRange()
-  let query = AvailabilityPageQuery_graphql.load(
-    ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
-    ~variables={
-      activityId: defaultActivityId,
-      fromDate,
-      toDate,
-      afterDate: Util.Datetime.fromDate(Js.Date.make()),
-    },
-    ~fetchPolicy=RescriptRelay.StoreOrNetwork,
-  )
+let loader = async ({params}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   Router.defer({
-    WaitForMessages.data: query,
+    WaitForMessages.data: (),
     i18nLoaders: ?(
       RelaySSRUtils.ssr ? None : Some(Localized.loadMessages(params.lang, loadMessages))
     ),

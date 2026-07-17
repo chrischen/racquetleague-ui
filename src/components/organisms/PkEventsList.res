@@ -8,8 +8,6 @@ module Fragment = %relay(`
     first: { type: "Int", defaultValue: 20 }
     afterDate: { type: "Datetime" }
     filters: { type: "EventFilters" }
-    availabilityFromDate: { type: "String!" }
-    availabilityToDate: { type: "String!" }
   )
   @refetchable(queryName: "PkEventsListRefetchQuery")
   {
@@ -25,27 +23,6 @@ module Fragment = %relay(`
             id
           }
         }
-      }
-      availability(activityId: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61", fromDate: $availabilityFromDate, toDate: $availabilityToDate) {
-        localDate
-        ...PlayIntentRow_availabilityDay
-      }
-    }
-    availabilityUsersForDateRange(
-      fromDate: $availabilityFromDate
-      toDate: $availabilityToDate
-      scope: {activityId: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"}
-    ) {
-      id
-      localDate
-      user {
-        id
-        lineUsername
-        picture
-      }
-      intervals {
-        startHour
-        endHour
       }
     }
     events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate)
@@ -99,8 +76,10 @@ module Day = {
     ~onEventClick: option<string => unit>=?,
     ~onHoverLocation: option<option<string> => unit>=?,
     ~activityId: option<string>=?,
-    ~userDays: array<PlayIntentRow.userDay>,
-    ~onAvailabilityCommitted: option<PlayIntentRow.userDay> => unit,
+    ~fromDate: string,
+    ~toDate: string,
+    ~availabilityFetchKey: int,
+    ~onAvailabilityRefetchNeeded: unit => unit,
     ~shouldHideEvent: option<
       (
         PkEventsListFragment_graphql.Types.fragment_events_edges_node,
@@ -119,11 +98,7 @@ module Day = {
     let {pathname} = Router.useLocation()
 
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
-
-    let availabilityDay =
-      viewer
-      ->Option.flatMap(v => v.availability->Array.find(d => d.localDate == isoDate))
-      ->Option.map(d => d.fragmentRefs)
+    let geoStatus = UseUserLocation.useStatus()
 
     let defaultHide = (
       edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node,
@@ -158,8 +133,6 @@ module Day = {
     let hasHiddenPreview = totalHiddenCount > 0 && !showShadow
     let previewHiddenEvent = hiddenEvents->Belt.Array.get(0)
 
-    let handleSaveAvailability = (_newIntents: array<TimeWindowPicker.playIntent>) => ()
-
     <WaitForMessages>
       {() => {
         let renderHeader = (trigger: React.element) =>
@@ -182,20 +155,29 @@ module Day = {
             {trigger}
           </div>
         <>
-          <React.Suspense fallback={renderHeader(React.null)}>
-            <PlayIntentRow
-              localDate=isoDate
-              dateGroup=label
-              ?availabilityDay
-              ?activityId
-              userDays
-              onAvailabilityCommitted
-              onChange=handleSaveAvailability
-              isLoggedIn
-              onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
-              renderHeader
-            />
-          </React.Suspense>
+          {switch geoStatus {
+          | Resolving =>
+            // Must match the SSR output and the Suspense fallback exactly:
+            // availability is client-only and appears once the location
+            // permission prompt resolves (granted or denied).
+            renderHeader(React.null)
+          | Resolved({location}) =>
+            <React.Suspense fallback={renderHeader(React.null)}>
+              <PkEventsAvailabilityDay
+                localDate=isoDate
+                dateGroup=label
+                fromDate
+                toDate
+                activityId={activityId->Option.getOr(defaultActivityId)}
+                location
+                fetchKey=availabilityFetchKey
+                onRefetchNeeded=onAvailabilityRefetchNeeded
+                isLoggedIn
+                onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
+                renderHeader
+              />
+            </React.Suspense>
+          }}
           {visibleEvents
           ->Array.mapWithIndex((edge, idx) => {
             let waitlistCount = getWaitlistCount(edge)
@@ -297,38 +279,16 @@ let make = (
   let bucketSetup = EventsListUtils.makeBucketSetup()
   let intl = ReactIntl.useIntl()
 
-  let isoDateOf = (date: Js.Date.t): string => {
-    let y = date->Js.Date.getFullYear->Float.toInt->Int.toString
-    let m = (date->Js.Date.getMonth->Float.toInt + 1)->Int.toString->String.padStart(2, "0")
-    let d = date->Js.Date.getDate->Float.toInt->Int.toString->String.padStart(2, "0")
-    y ++ "-" ++ m ++ "-" ++ d
-  }
-  let allUserDays = data.availabilityUsersForDateRange->Array.map((d): PlayIntentRow.userDay => {
-    id: d.id,
-    localDate: d.localDate,
-    user: d.user->Option.map((u): PlayIntentRow.userDayUser => {
-      id: u.id,
-      lineUsername: u.lineUsername,
-      picture: u.picture,
-    }),
-    intervals: d.intervals->Array.map((iv): PlayIntentRow.userDayInterval => {
-      startHour: iv.startHour,
-      endHour: iv.endHour,
-    }),
+  let (availabilityFetchKey, setAvailabilityFetchKey) = React.useState(() => 0)
+  let onAvailabilityRefetchNeeded = () => setAvailabilityFetchKey(k => k + 1)
+  // Computed in the browser (availability is client-only, never SSR-fetched);
+  // useState keeps the range stable for the mount so all Day queries dedupe.
+  let ((availabilityFromDate, availabilityToDate), _) = React.useState(() => {
+    let toIso = (d: Js.Date.t) => d->Js.Date.toISOString->String.slice(~start=0, ~end=10)
+    let now = Js.Date.make()
+    let to_ = Js.Date.fromFloat(now->Js.Date.getTime +. 28. *. 86400000.)
+    (toIso(now), toIso(to_))
   })
-  let onAvailabilityCommitted = (updatedDay: option<PlayIntentRow.userDay>) => {
-    let needsRefetch = switch updatedDay {
-    | None => true // deletion: Relay won't remove the node from linked arrays
-    | Some(day) => !(allUserDays->Array.some(d => d.id == day.id)) // new node
-    }
-    if needsRefetch {
-      let _ = refetch(
-        ~variables=Fragment.makeRefetchVariables(),
-        ~fetchPolicy=RescriptRelay.NetworkOnly,
-        ~onComplete=_ => (),
-      )
-    }
-  }
 
   let formatDate = (date: Js.Date.t): string =>
     intl->ReactIntl.Intl.formatDateWithOptions(
@@ -404,18 +364,6 @@ let make = (
         None
       } else {
         let (label, dateDetails, date) = getBucketMeta(key)
-        let isoDate = isoDateOf(date)
-        let viewerUserId = viewer->Option.flatMap(v => v.user)->Option.map(u => u.id)
-        let userDaysForDate =
-          allUserDays
-          ->Array.filter(d => d.localDate == isoDate)
-          ->Array.filter(
-            d =>
-              switch viewerUserId {
-              | None => true
-              | Some(vid) => d.user->Option.map(u => u.id)->Option.getOr("") != vid
-              },
-          )
         Some((
           key,
           <Day
@@ -428,8 +376,10 @@ let make = (
             onEventClick={id => ctx.openDrawer(<PkEventDrawer eventId=id />, "/events/" ++ id)}
             ?onHoverLocation
             ?activityId
-            userDays=userDaysForDate
-            onAvailabilityCommitted
+            fromDate=availabilityFromDate
+            toDate=availabilityToDate
+            availabilityFetchKey
+            onAvailabilityRefetchNeeded
             ?shouldHideEvent
           />,
         ))

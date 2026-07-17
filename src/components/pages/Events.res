@@ -2,15 +2,13 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module EventsQuery = %relay(`
-  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!) {
+  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
     ...PkEventsListFragment @arguments(
       after: $after,
       first: $first,
       before: $before,
       afterDate: $afterDate,
-      filters: $filters,
-      availabilityFromDate: $availabilityFromDate,
-      availabilityToDate: $availabilityToDate
+      filters: $filters
     )
   }
 `)
@@ -154,10 +152,6 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         ?after,
         ?before,
         ?afterDate,
-        availabilityFromDate: Js.Date.make()->Js.Date.toISOString->String.slice(~start=0, ~end=10),
-        availabilityToDate: Js.Date.fromFloat(Js.Date.now() +. 28. *. 86400000.)
-          ->Js.Date.toISOString
-          ->String.slice(~start=0, ~end=10),
         filters: {
           activitySlug: ?params.activitySlug,
           shadow,

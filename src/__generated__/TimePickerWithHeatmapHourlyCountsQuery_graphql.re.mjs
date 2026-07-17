@@ -5,11 +5,12 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activityId, clubId, localDate) {
+function makeRefetchVariables(activityId, clubId, localDate, $$location) {
   return {
           activityId: activityId,
           clubId: clubId,
-          localDate: localDate
+          localDate: localDate,
+          location: $$location
         };
 }
 
@@ -17,7 +18,7 @@ var Types = {
   makeRefetchVariables: makeRefetchVariables
 };
 
-var variablesConverter = {};
+var variablesConverter = {"locationInput":{},"__root":{"location":{"r":"locationInput"}}};
 
 function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
@@ -67,7 +68,12 @@ v2 = {
   "kind": "LocalArgument",
   "name": "localDate"
 },
-v3 = [
+v3 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "location"
+},
+v4 = [
   {
     "alias": null,
     "args": [
@@ -85,6 +91,11 @@ v3 = [
         "kind": "Variable",
         "name": "localDate",
         "variableName": "localDate"
+      },
+      {
+        "kind": "Variable",
+        "name": "location",
+        "variableName": "location"
       }
     ],
     "concreteType": "AvailabilityHourCount",
@@ -115,12 +126,13 @@ return {
     "argumentDefinitions": [
       (v0/*: any*/),
       (v1/*: any*/),
-      (v2/*: any*/)
+      (v2/*: any*/),
+      (v3/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
-    "selections": (v3/*: any*/),
+    "selections": (v4/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -129,19 +141,20 @@ return {
     "argumentDefinitions": [
       (v2/*: any*/),
       (v0/*: any*/),
-      (v1/*: any*/)
+      (v1/*: any*/),
+      (v3/*: any*/)
     ],
     "kind": "Operation",
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
-    "selections": (v3/*: any*/)
+    "selections": (v4/*: any*/)
   },
   "params": {
-    "cacheID": "b09fe127ffbddcb6afe78ffd64ae8925",
+    "cacheID": "6cf411165139a9e403d3a273c7fda26b",
     "id": null,
     "metadata": {},
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
     "operationKind": "query",
-    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId) {\n    hour\n    count\n  }\n}\n"
+    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $location: LocationInput!\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, location: $location) {\n    hour\n    count\n  }\n}\n"
   }
 };
 })());

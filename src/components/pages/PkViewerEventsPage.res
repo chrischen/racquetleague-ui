@@ -1,13 +1,11 @@
 module Query = %relay(`
-  query PkViewerEventsPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!) {
+  query PkViewerEventsPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters) {
     ...PkEventsListFragment @arguments(
       after: $after
       first: $first
       before: $before
       afterDate: $afterDate
       filters: $filters
-      availabilityFromDate: $availabilityFromDate
-      availabilityToDate: $availabilityToDate
     )
   }
 `)
