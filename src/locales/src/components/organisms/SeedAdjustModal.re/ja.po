@@ -22,8 +22,8 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "プレイヤーをドラッグして初期シードを並び替え"
+msgid "Drag players in order of strongest to weakest."
+msgstr "強い順にプレイヤーをドラッグしてください。"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -32,3 +32,7 @@ msgstr "μ"
 #: src/components/organisms/SeedAdjustModal.re.mjs:251
 msgid "Save Seed Adjustments"
 msgstr "シード調整を保存"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "プレイヤーをドラッグして初期シードを並び替え"

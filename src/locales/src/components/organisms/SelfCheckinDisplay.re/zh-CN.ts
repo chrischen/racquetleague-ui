@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"LWMMin\":\"关闭自助签到显示\",\"WuGCB8\":\"活动签到\",\"iDn7JY\":\"扫描遇到问题？请尝试从俱乐部页面查找活动。\",\"LqoFGd\":\"打开手机摄像头，扫描此二维码，加入活动。\",\"frWExl\":\"扫码签到\"}");

@@ -1,0 +1,125 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-17 22:49+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+#: src/components/molecules/PlayIntentRow.re.mjs:623
+msgid "· peak {0}–{1}"
+msgstr "· 高峰 {0}–{1}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:493
+msgid "{0} people"
+msgstr "{0} 人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:312
+msgid "{0} people looking to play"
+msgstr "{0} 人想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:621
+msgid "{0} people want to play"
+msgstr "{0} 人想打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:492
+msgid "{0} person"
+msgstr "{0} 人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:311
+msgid "{0} person looking to play"
+msgstr "{0} 人想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:620
+msgid "{0} person wants to play"
+msgstr "{0} 人想打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:304
+#: src/components/molecules/PlayIntentRow.re.mjs:310
+#: src/components/molecules/PlayIntentRow.re.mjs:619
+msgid "{demandCount, plural, one {{0}} other {{1}}}"
+msgstr "{demandCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:274
+msgid "Afternoon"
+msgstr "下午"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:262
+msgid "Anytime"
+msgstr "任何時間"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:280
+msgid "Evening"
+msgstr "傍晚"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Host an event at this time"
+msgstr "在此時段舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:547
+msgid "Host event"
+msgstr "舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:566
+msgid "Mark available"
+msgstr "標記為有空"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:268
+msgid "Morning"
+msgstr "上午"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+msgid "other"
+msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:306
+msgid "others"
+msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:550
+msgid "Pick one time window to host an event"
+msgstr "選擇一個時間段來舉辦活動"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:291
+msgid "Play today"
+msgstr "今天打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:526
+msgid "Remove all"
+msgstr "全部移除"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:395
+msgid "Tap anywhere to add a time window"
+msgstr "點擊任意處以新增時間段"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:403
+msgid "When can you play {dayWord}?"
+msgstr "你{dayWord}什麼時候可以打球？"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You + {0} {othersWord} looking to play"
+msgstr "你和其他 {0} {othersWord}想要打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:601
+msgid "You want to play {dayWord}"
+msgstr "你想在{dayWord}打球"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:324
+msgid "You're available"
+msgstr "你有空"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+msgid "You're available to play"
+msgstr "你有空打球"

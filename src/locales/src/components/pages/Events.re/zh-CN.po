@@ -36,7 +36,7 @@ msgid "[missing title]"
 msgstr "[标题缺失]"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:491
-#: src/components/organisms/PkEventsList.re.mjs:164
+#: src/components/organisms/PkEventsList.re.mjs:160
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
@@ -286,7 +286,7 @@ msgid "Evening"
 msgstr "晚上"
 
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:167
+#: src/components/organisms/PkEventsList.re.mjs:163
 msgid "event"
 msgstr "活动"
 
@@ -303,7 +303,7 @@ msgid "Event updated"
 msgstr "活动已更新"
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:168
+#: src/components/organisms/PkEventsList.re.mjs:164
 msgid "events"
 msgstr "活动"
 
@@ -323,7 +323,7 @@ msgstr "用于活动更新和通知"
 msgid "Free"
 msgstr "免费"
 
-#: src/components/organisms/PkEventsList.re.mjs:378
+#: src/components/organisms/PkEventsList.re.mjs:364
 msgid "Friday"
 msgstr "星期五"
 
@@ -425,7 +425,7 @@ msgstr "中位数"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:366
+#: src/components/organisms/PkEventsList.re.mjs:352
 msgid "Monday"
 msgstr "星期一"
 
@@ -442,7 +442,7 @@ msgstr "上午"
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
-#: src/components/organisms/PkEventsList.re.mjs:387
+#: src/components/organisms/PkEventsList.re.mjs:373
 msgid "Next {dayName}"
 msgstr "下周{dayName}"
 
@@ -621,7 +621,7 @@ msgstr "第 {0} 回合"
 msgid "Round Robin Draws"
 msgstr "循环赛抽签"
 
-#: src/components/organisms/PkEventsList.re.mjs:381
+#: src/components/organisms/PkEventsList.re.mjs:367
 msgid "Saturday"
 msgstr "星期六"
 
@@ -646,7 +646,7 @@ msgstr "比分"
 msgid "Share"
 msgstr "分享"
 
-#: src/components/organisms/PkEventsList.re.mjs:241
+#: src/components/organisms/PkEventsList.re.mjs:240
 msgid "Show {0} more"
 msgstr "显示更多 {0} 条"
 
@@ -670,7 +670,7 @@ msgstr "按开始时间排序"
 msgid "SPREAD"
 msgstr "分布"
 
-#: src/components/organisms/PkEventsList.re.mjs:363
+#: src/components/organisms/PkEventsList.re.mjs:349
 msgid "Sunday"
 msgstr "星期日"
 
@@ -736,17 +736,17 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/organisms/PkEventsList.re.mjs:375
+#: src/components/organisms/PkEventsList.re.mjs:361
 msgid "Thursday"
 msgstr "星期四"
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:346
+#: src/components/organisms/PkEventsList.re.mjs:332
 msgid "Today"
 msgstr "今天"
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:352
+#: src/components/organisms/PkEventsList.re.mjs:338
 msgid "Tomorrow"
 msgstr "明天"
 
@@ -754,7 +754,7 @@ msgstr "明天"
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/organisms/PkEventsList.re.mjs:369
+#: src/components/organisms/PkEventsList.re.mjs:355
 msgid "Tuesday"
 msgstr "星期二"
 
@@ -796,7 +796,7 @@ msgstr "已在候补名单"
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
-#: src/components/organisms/PkEventsList.re.mjs:372
+#: src/components/organisms/PkEventsList.re.mjs:358
 msgid "Wednesday"
 msgstr "星期三"
 
@@ -820,7 +820,7 @@ msgstr "撤回报名"
 msgid "Withdrawing..."
 msgstr "撤回中..."
 
-#: src/components/organisms/PkEventsList.re.mjs:386
+#: src/components/organisms/PkEventsList.re.mjs:372
 msgid "Yesterday"
 msgstr "昨天"
 

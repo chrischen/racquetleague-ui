@@ -130,7 +130,7 @@ function SeedAdjustModal(props) {
                                                   className: "text-2xl font-bold text-slate-800"
                                                 }),
                                             JsxRuntime.jsx("p", {
-                                                  children: t`Drag players to reorder their initial seeding`,
+                                                  children: t`Drag players in order of strongest to weakest.`,
                                                   className: "text-sm text-slate-600 mt-1"
                                                 })
                                           ]

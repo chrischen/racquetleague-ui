@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-17 22:49+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "ปิดจอแสดงผลการเช็คอินด้วยตนเอง"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "เช็คอินกิจกรรม"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "เปิดกล้องโทรศัพท์ สแกนโค้ดนี้ และเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "สแกนเพื่อเช็คอิน"

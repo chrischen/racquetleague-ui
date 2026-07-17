@@ -3980,6 +3980,42 @@ msgstr "Không tìm thấy địa điểm này — hãy chọn:"
 msgid "Creating..."
 msgstr "Đang tạo..."
 
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "Thêm khách"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "Đóng màn hình tự check-in"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players in order of strongest to weakest."
+msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "Check-in sự kiện"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "Mời người chơi"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "Mời người chơi bằng mã QR"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "Quét để check-in"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"LWMMin\":\"Close self check-in display\",\"WuGCB8\":\"Event check-in\",\"iDn7JY\":\"Having trouble scanning? Try to find the event from the club page.\",\"LqoFGd\":\"Open your phone camera, scan this code, and join the event.\",\"frWExl\":\"Scan to check in\"}");

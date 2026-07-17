@@ -23,6 +23,8 @@ var MoveRight = {};
 
 var X = {};
 
+var QrCode = {};
+
 var Lock = {};
 
 var Trophy = {};
@@ -175,6 +177,7 @@ export {
   MoveLeft ,
   MoveRight ,
   X ,
+  QrCode ,
   Lock ,
   Trophy ,
   Building ,

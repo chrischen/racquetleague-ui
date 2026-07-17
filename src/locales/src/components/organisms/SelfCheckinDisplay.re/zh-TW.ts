@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"LWMMin\":\"關閉自助報到顯示\",\"WuGCB8\":\"活動報到\",\"iDn7JY\":\"掃描有問題嗎？請嘗試從俱樂部頁面尋找活動。\",\"LqoFGd\":\"開啟手機相機，掃描此碼並加入活動。\",\"frWExl\":\"掃描以報到\"}");

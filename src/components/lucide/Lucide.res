@@ -64,6 +64,11 @@ module X = {
     "X"
 }
 
+module QrCode = {
+  @module("lucide-react") @react.component
+  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "QrCode"
+}
+
 module Lock = {
   @module("lucide-react") @react.component
   external make: (

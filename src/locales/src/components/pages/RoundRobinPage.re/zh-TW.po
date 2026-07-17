@@ -18,7 +18,7 @@ msgstr ""
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "{1} 人中有 {0} 人已報到"
 
@@ -26,7 +26,7 @@ msgstr "{1} 人中有 {0} 人已報到"
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "$"
 
@@ -39,7 +39,11 @@ msgstr "進行中的回合"
 msgid "Add {0}Guest{1}"
 msgstr "新增{0}訪客{1}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "新增訪客"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr "新增訪客球員"
 
@@ -93,6 +97,10 @@ msgstr "關閉"
 #: src/components/organisms/FullScreenRoundView.re.mjs:47
 msgid "Close Full Screen"
 msgstr "關閉全螢幕"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "關閉自助報到顯示"
 
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
@@ -164,8 +172,8 @@ msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "拖曳球員以重新排序他們的初始種子"
+msgid "Drag players in order of strongest to weakest."
+msgstr "依強至弱的順序拖曳排列球員。"
 
 #: src/components/organisms/MatchCard.re.mjs:441
 msgid "Edit match"
@@ -190,6 +198,10 @@ msgstr "輸入比賽比分"
 #: src/components/organisms/TeamManagementModal.re.mjs:71
 msgid "Enter team name"
 msgstr "輸入隊伍名稱"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "活動報到"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
@@ -221,9 +233,21 @@ msgstr "生成對戰表"
 msgid "Guest Names (one per line)"
 msgstr "訪客姓名（每行一個）"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "掃描有問題嗎？請嘗試從俱樂部頁面尋找活動。"
+
 #: src/components/organisms/RoundRobin.re.mjs:1077
 msgid "Help"
 msgstr "說明"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "邀請球員"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "使用 QR 碼邀請球員"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Jane Doe"
@@ -293,15 +317,19 @@ msgstr "無比分"
 msgid "No teams yet"
 msgstr "還沒有隊伍"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr "未付款"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "開啟手機相機，掃描此碼並加入活動。"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr "已付款"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr "球員報到"
 
@@ -401,6 +429,10 @@ msgstr "儲存種子調整"
 msgid "Save Team"
 msgstr "儲存隊伍"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "掃描以報到"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:180
 #: src/components/organisms/MatchCardEdit.re.mjs:217
 msgid "Score"
@@ -496,6 +528,10 @@ msgstr "您的瀏覽器版本過舊，無法使用此功能。"
 #, fuzzy
 #~ msgid "Debug Mode"
 #~ msgstr "調試：開啟"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "拖曳球員以重新排序他們的初始種子"
 
 #: src/components/organisms/RoundRobin.re.mjs:451
 #, fuzzy

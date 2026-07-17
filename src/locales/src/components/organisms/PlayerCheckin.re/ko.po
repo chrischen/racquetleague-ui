@@ -13,15 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "{0}/{1} 체크인"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "게스트 추가"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr "게스트 플레이어 추가"
 
@@ -33,26 +37,58 @@ msgstr "플레이어 시드 조정"
 msgid "Cancel"
 msgstr "취소"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "셀프 체크인 화면 닫기"
+
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
+msgid "Drag players in order of strongest to weakest."
+msgstr "강한 순서대로 플레이어를 드래그하세요."
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "이벤트 체크인"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "스캔에 문제가 있으신가요? 클럽 페이지에서 이벤트를 찾아보세요."
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "플레이어 초대"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "QR 코드로 플레이어 초대"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
 msgstr "뮤"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr "미납"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 참가하세요."
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr "납부됨"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr "플레이어 체크인"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:251
 msgid "Save Seed Adjustments"
 msgstr "시드 조정 저장"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "스캔하여 체크인"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"

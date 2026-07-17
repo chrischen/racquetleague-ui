@@ -22,7 +22,7 @@ msgstr ""
 msgid "{0} {matchText}"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr ""
 
@@ -30,7 +30,7 @@ msgstr ""
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr ""
 
@@ -43,7 +43,11 @@ msgstr ""
 msgid "Add {0}Guest{1}"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr ""
 
@@ -112,6 +116,10 @@ msgstr ""
 
 #: src/components/organisms/FullScreenRoundView.re.mjs:47
 msgid "Close Full Screen"
+msgstr ""
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
 msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:65
@@ -192,8 +200,12 @@ msgid "Delete this match?"
 msgstr ""
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
+msgid "Drag players in order of strongest to weakest."
 msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:441
 msgid "Edit match"
@@ -217,6 +229,10 @@ msgstr ""
 
 #: src/components/organisms/TeamManagementModal.re.mjs:71
 msgid "Enter team name"
+msgstr ""
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
 msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:198
@@ -259,8 +275,20 @@ msgstr ""
 msgid "Guest Names (one per line)"
 msgstr ""
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
 msgstr ""
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
@@ -341,7 +369,7 @@ msgstr ""
 msgid "No teams yet"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr ""
 
@@ -349,11 +377,15 @@ msgstr ""
 #~ msgid "Not Playing This Round"
 #~ msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr ""
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr ""
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr ""
 
@@ -486,6 +518,10 @@ msgstr ""
 
 #: src/components/organisms/TeamManagementModal.re.mjs:159
 msgid "Save Team"
+msgstr ""
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:180

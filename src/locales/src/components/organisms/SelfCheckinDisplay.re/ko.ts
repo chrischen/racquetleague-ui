@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"LWMMin\":\"셀프 체크인 화면 닫기\",\"WuGCB8\":\"이벤트 체크인\",\"iDn7JY\":\"스캔에 문제가 있으신가요? 클럽 페이지에서 이벤트를 찾아보세요.\",\"LqoFGd\":\"휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 참가하세요.\",\"frWExl\":\"스캔하여 체크인\"}");

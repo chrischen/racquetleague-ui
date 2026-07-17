@@ -18,7 +18,7 @@ msgstr ""
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
 
@@ -26,7 +26,7 @@ msgstr "{1}人中{0}人がチェックイン済み"
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "¥"
 
@@ -39,7 +39,11 @@ msgstr "進行中のラウンド"
 msgid "Add {0}Guest{1}"
 msgstr "{0}ゲスト{1}を追加"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "ゲストを追加"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr "ゲストプレイヤーを追加"
 
@@ -97,6 +101,10 @@ msgstr "閉じる"
 #: src/components/organisms/FullScreenRoundView.re.mjs:47
 msgid "Close Full Screen"
 msgstr "全画面表示を閉じる"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "セルフチェックイン画面を閉じる"
 
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
@@ -168,8 +176,8 @@ msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "プレイヤーをドラッグして初期シードを並び替え"
+msgid "Drag players in order of strongest to weakest."
+msgstr "強い順にプレイヤーをドラッグしてください。"
 
 #: src/components/organisms/MatchCard.re.mjs:441
 msgid "Edit match"
@@ -194,6 +202,10 @@ msgstr "試合のスコアを入力"
 #: src/components/organisms/TeamManagementModal.re.mjs:71
 msgid "Enter team name"
 msgstr "チーム名を入力"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "イベントチェックイン"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
@@ -227,9 +239,21 @@ msgstr "組み合わせを生成"
 msgid "Guest Names (one per line)"
 msgstr "ゲスト名（1行に1名）"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
+
 #: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
 msgstr "ヘルプ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "プレイヤーを招待"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "QRコードでプレイヤーを招待"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Jane Doe"
@@ -307,15 +331,21 @@ msgstr "スコアなし"
 msgid "No teams yet"
 msgstr "チームがまだありません"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr "未払い"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr ""
+"スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
+"さい。"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr "支払い済み"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr "プレイヤーチェックイン"
 
@@ -429,6 +459,10 @@ msgstr "シード調整を保存"
 #: src/components/organisms/TeamManagementModal.re.mjs:159
 msgid "Save Team"
 msgstr "チームを保存"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "スキャンしてチェックイン"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:180
 #: src/components/organisms/MatchCardEdit.re.mjs:217
@@ -562,6 +596,10 @@ msgstr "勝利チーム（チーム{0}）"
 #: src/components/molecules/DrawGenerator.re.mjs:107
 #~ msgid "delete all rounds below"
 #~ msgstr "以降のすべてのラウンドを削除"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "プレイヤーをドラッグして初期シードを並び替え"
 
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy

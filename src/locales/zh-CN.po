@@ -4438,6 +4438,42 @@ msgstr "未找到该位置——请手动选择："
 msgid "Creating..."
 msgstr "创建中……"
 
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "添加访客"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "关闭自助签到显示"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players in order of strongest to weakest."
+msgstr "按从强到弱的顺序拖动球员。"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "活动签到"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "扫描遇到问题？请尝试从俱乐部页面查找活动。"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "邀请球员"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "通过二维码邀请球员"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "打开手机摄像头，扫描此二维码，加入活动。"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "扫码签到"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

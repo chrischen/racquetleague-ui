@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"調整球員種子\",\"dEgA5A\":\"取消\",\"B2CXh/\":\"拖曳球員以重新排序他們的初始種子\",\"60TdtF\":\"μ\",\"dQttgC\":\"儲存種子調整\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"調整球員種子\",\"dEgA5A\":\"取消\",\"d1QevP\":\"依強至弱的順序拖曳排列球員。\",\"60TdtF\":\"μ\",\"dQttgC\":\"儲存種子調整\",\"B2CXh/\":\"拖曳球員以重新排序他們的初始種子\"}");

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"LWMMin\":\"Đóng màn hình tự check-in\",\"WuGCB8\":\"Check-in sự kiện\",\"iDn7JY\":\"Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ.\",\"LqoFGd\":\"Mở camera điện thoại, quét mã này và tham gia sự kiện.\",\"frWExl\":\"Quét để check-in\"}");

@@ -118,7 +118,7 @@ let make = (
               {(ts`Adjust Player Seeds`)->React.string}
             </h2>
             <p className="text-sm text-slate-600 mt-1">
-              {(ts`Drag players to reorder their initial seeding`)->React.string}
+              {(ts`Drag players in order of strongest to weakest.`)->React.string}
             </p>
           </div>
           <button

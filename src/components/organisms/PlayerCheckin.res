@@ -27,6 +27,7 @@ let make = (
   let checkedInCount = checkedInPlayerIds->Set.size
   let (isExpanded, setIsExpanded) = React.useState(() => false)
   let (showSeedModal, setShowSeedModal) = React.useState(() => false)
+  let (showSelfCheckin, setShowSelfCheckin) = React.useState(() => false)
   let totalPlayers = players->Array.length
 
   // Calculate rating changes (current mu - initial mu)
@@ -100,12 +101,6 @@ let make = (
           </span>
         </button>
         <div className="flex items-center gap-2">
-          <button
-            onClick={_ => onOpenAddGuests()}
-            className="p-2 rounded-lg transition-colors flex items-center gap-1 bg-green-600 text-white hover:bg-green-700"
-            title={ts`Add guest players`}>
-            <Lucide.UserPlus className="w-4 h-4" />
-          </button>
           <button
             onClick={_ => onOpenTeamManagement()}
             className="p-2 rounded-lg transition-colors flex items-center gap-1 bg-slate-600 text-white hover:bg-slate-700"
@@ -230,6 +225,27 @@ let make = (
               })
               ->React.array}
             </FramerMotion.AnimatePresence>
+            <li className="col-span-2 flex h-12 items-stretch gap-2">
+              <button
+                onClick={_ => onOpenAddGuests()}
+                className="flex-1 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-green-500 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                title={ts`Add guest players`}>
+                <span className="flex items-center justify-center gap-2">
+                  <span
+                    className="flex h-7 w-7 items-center justify-center rounded-full bg-green-100 text-green-700">
+                    <Lucide.UserPlus className="w-4 h-4" />
+                  </span>
+                  <span className="text-sm font-semibold"> {t`Add guest`} </span>
+                </span>
+              </button>
+              <button
+                onClick={_ => setShowSelfCheckin(_ => true)}
+                className="flex flex-1 items-center justify-center gap-2 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                title={ts`Invite player with QR code`}>
+                <Lucide.QrCode className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm font-semibold"> {t`Invite player`} </span>
+              </button>
+            </li>
           </ul>
         </div>
       : React.null}
@@ -240,6 +256,9 @@ let make = (
           onClose={() => setShowSeedModal(_ => false)}
           getUserFragmentRefs
         />
+      : React.null}
+    {showSelfCheckin
+      ? <SelfCheckinDisplay onClose={() => setShowSelfCheckin(_ => false)} />
       : React.null}
   </div>
 }

@@ -13,15 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "{0} trong {1} đã check-in"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "Thêm khách"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr "Thêm người chơi khách"
 
@@ -33,26 +37,58 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Cancel"
 msgstr "Hủy"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "Đóng màn hình tự check-in"
+
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
+msgid "Drag players in order of strongest to weakest."
+msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "Check-in sự kiện"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "Mời người chơi"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "Mời người chơi bằng mã QR"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
 msgstr "mu"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr "Đã thanh toán"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr "Check-in người chơi"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:251
 msgid "Save Seed Adjustments"
 msgstr "Lưu điều chỉnh hạt giống"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "Quét để check-in"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"

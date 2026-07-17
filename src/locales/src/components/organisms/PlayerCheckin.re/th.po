@@ -13,15 +13,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "฿"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "เพิ่มผู้เล่นรับเชิญ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr "เพิ่มผู้เล่นแขก"
 
@@ -33,26 +37,58 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "ปิดจอแสดงผลการเช็คอินด้วยตนเอง"
+
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+msgid "Drag players in order of strongest to weakest."
+msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "เช็คอินกิจกรรม"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "เชิญผู้เล่น"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "เชิญผู้เล่นด้วย QR โค้ด"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
 msgstr "μ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "เปิดกล้องโทรศัพท์ สแกนโค้ดนี้ และเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr "ชำระแล้ว"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr "เช็คอินผู้เล่น"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:251
 msgid "Save Seed Adjustments"
 msgstr "บันทึกการปรับซีด"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "สแกนเพื่อเช็คอิน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"

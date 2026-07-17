@@ -22,8 +22,8 @@ msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+msgid "Drag players in order of strongest to weakest."
+msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -32,3 +32,7 @@ msgstr "μ"
 #: src/components/organisms/SeedAdjustModal.re.mjs:251
 msgid "Save Seed Adjustments"
 msgstr "บันทึกการปรับซีด"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"

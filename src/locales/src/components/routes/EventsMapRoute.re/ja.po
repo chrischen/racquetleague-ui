@@ -36,7 +36,7 @@ msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:491
-#: src/components/organisms/PkEventsList.re.mjs:164
+#: src/components/organisms/PkEventsList.re.mjs:160
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -288,7 +288,7 @@ msgid "Evening"
 msgstr "夜"
 
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:167
+#: src/components/organisms/PkEventsList.re.mjs:163
 msgid "event"
 msgstr "イベント"
 
@@ -305,7 +305,7 @@ msgid "Event updated"
 msgstr "イベントを更新しました"
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:168
+#: src/components/organisms/PkEventsList.re.mjs:164
 msgid "events"
 msgstr "イベント"
 
@@ -325,7 +325,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/organisms/PkEventsList.re.mjs:378
+#: src/components/organisms/PkEventsList.re.mjs:364
 msgid "Friday"
 msgstr "金曜日"
 
@@ -427,7 +427,7 @@ msgstr "中央値"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:366
+#: src/components/organisms/PkEventsList.re.mjs:352
 msgid "Monday"
 msgstr "月曜日"
 
@@ -444,7 +444,7 @@ msgstr "午前"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/organisms/PkEventsList.re.mjs:387
+#: src/components/organisms/PkEventsList.re.mjs:373
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -623,7 +623,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/organisms/PkEventsList.re.mjs:381
+#: src/components/organisms/PkEventsList.re.mjs:367
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -648,7 +648,7 @@ msgstr "スコア"
 msgid "Share"
 msgstr "共有"
 
-#: src/components/organisms/PkEventsList.re.mjs:241
+#: src/components/organisms/PkEventsList.re.mjs:240
 msgid "Show {0} more"
 msgstr "{0}件をさらに表示"
 
@@ -672,7 +672,7 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/organisms/PkEventsList.re.mjs:363
+#: src/components/organisms/PkEventsList.re.mjs:349
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -743,17 +743,17 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkEventsList.re.mjs:375
+#: src/components/organisms/PkEventsList.re.mjs:361
 msgid "Thursday"
 msgstr "木曜日"
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:346
+#: src/components/organisms/PkEventsList.re.mjs:332
 msgid "Today"
 msgstr "今日"
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:352
+#: src/components/organisms/PkEventsList.re.mjs:338
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -761,7 +761,7 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/organisms/PkEventsList.re.mjs:369
+#: src/components/organisms/PkEventsList.re.mjs:355
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -803,7 +803,7 @@ msgstr "キャンセル待ち中"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/PkEventsList.re.mjs:372
+#: src/components/organisms/PkEventsList.re.mjs:358
 msgid "Wednesday"
 msgstr "水曜日"
 
@@ -827,7 +827,7 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/organisms/PkEventsList.re.mjs:386
+#: src/components/organisms/PkEventsList.re.mjs:372
 msgid "Yesterday"
 msgstr "昨日"
 

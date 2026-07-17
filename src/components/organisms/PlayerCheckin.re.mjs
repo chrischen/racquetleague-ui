@@ -9,6 +9,7 @@ import * as LucideReact from "lucide-react";
 import * as FramerMotion from "framer-motion";
 import * as SeedAdjustModal from "./SeedAdjustModal.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as SelfCheckinDisplay from "./SelfCheckinDisplay.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PlayerCheckin_user_graphql from "../../__generated__/PlayerCheckin_user_graphql.re.mjs";
 
@@ -56,6 +57,10 @@ function PlayerCheckin(props) {
         return false;
       });
   var setShowSeedModal = match$1[1];
+  var match$2 = React.useState(function () {
+        return false;
+      });
+  var setShowSelfCheckin = match$2[1];
   var totalPlayers = players.length;
   var ratingChanges = React.useMemo((function () {
           var initialMuMap = Core__Array.reduce(initialPlayers, new Map(), (function (acc, player) {
@@ -88,7 +93,7 @@ function PlayerCheckin(props) {
                       return b.rating.mu - a.rating.mu;
                     });
         }), [players]);
-  var match$2 = React.useMemo((function () {
+  var match$3 = React.useMemo((function () {
           if (players.length === 0) {
             return [
                     0,
@@ -117,8 +122,8 @@ function PlayerCheckin(props) {
                   max
                 ];
         }), [players]);
-  var maxMu = match$2[1];
-  var minMu = match$2[0];
+  var maxMu = match$3[1];
+  var minMu = match$3[0];
   var normalizeSkillLevel = function (mu) {
     if (maxMu === minMu) {
       return 50;
@@ -154,16 +159,6 @@ function PlayerCheckin(props) {
                                   }),
                               JsxRuntime.jsxs("div", {
                                     children: [
-                                      JsxRuntime.jsx("button", {
-                                            children: JsxRuntime.jsx(LucideReact.UserPlus, {
-                                                  className: "w-4 h-4"
-                                                }),
-                                            className: "p-2 rounded-lg transition-colors flex items-center gap-1 bg-green-600 text-white hover:bg-green-700",
-                                            title: t`Add guest players`,
-                                            onClick: (function (param) {
-                                                onOpenAddGuests();
-                                              })
-                                          }),
                                       JsxRuntime.jsx("button", {
                                             children: JsxRuntime.jsx(LucideReact.Users, {
                                                   className: "w-4 h-4"
@@ -211,126 +206,173 @@ function PlayerCheckin(props) {
                       className: "px-6 py-4"
                     }),
                 isExpanded ? JsxRuntime.jsx("div", {
-                        children: JsxRuntime.jsx("ul", {
-                              children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                    children: sortedPlayers.map(function (player) {
-                                          var isCheckedIn = checkedInPlayerIds.has(player.id);
-                                          var playCount = player.count;
-                                          var buttonClass = isCheckedIn ? "relative flex flex-col gap-2 p-2 rounded-lg border-2 transition-all border-green-500 bg-green-50" : "relative flex flex-col gap-2 p-2 rounded-lg border-2 transition-all border-slate-200 bg-slate-50";
-                                          var nameClass = isCheckedIn ? "text-sm font-medium truncate w-full text-slate-800" : "text-sm font-medium truncate w-full text-slate-500";
-                                          var skillLevel = normalizeSkillLevel(player.rating.mu);
-                                          return JsxRuntime.jsx(FramerMotion.motion.li, {
-                                                      style: {
-                                                        originX: 0.05,
-                                                        originY: 0.05
-                                                      },
-                                                      animate: {
-                                                        opacity: 1,
-                                                        scale: 1
-                                                      },
-                                                      initial: {
-                                                        opacity: 0,
-                                                        scale: 0.8
-                                                      },
-                                                      exit: {
-                                                        opacity: 0,
-                                                        scale: 0.8
-                                                      },
-                                                      layout: true,
-                                                      children: Caml_option.some(JsxRuntime.jsxs("div", {
-                                                                children: [
-                                                                  JsxRuntime.jsx("button", {
-                                                                        children: JsxRuntime.jsx(LucideReact.Settings, {
-                                                                              className: "w-3 h-3 text-slate-500"
-                                                                            }),
-                                                                        className: "absolute top-1 right-1 p-1 hover:bg-slate-200 rounded transition-colors z-10",
-                                                                        title: "Player settings",
-                                                                        onClick: (function (e) {
-                                                                            e.stopPropagation();
-                                                                            onOpenPlayerSettings(player);
-                                                                          })
-                                                                      }),
-                                                                  JsxRuntime.jsxs("button", {
-                                                                        children: [
-                                                                          JsxRuntime.jsx(PlayerAvatar.make, {
-                                                                                userFragmentRefs: Core__Option.flatMap(player.data, getUserFragmentRefs),
-                                                                                name: player.name,
-                                                                                skillLevel: skillLevel,
-                                                                                size: "medium"
+                        children: JsxRuntime.jsxs("ul", {
+                              children: [
+                                JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                      children: sortedPlayers.map(function (player) {
+                                            var isCheckedIn = checkedInPlayerIds.has(player.id);
+                                            var playCount = player.count;
+                                            var buttonClass = isCheckedIn ? "relative flex flex-col gap-2 p-2 rounded-lg border-2 transition-all border-green-500 bg-green-50" : "relative flex flex-col gap-2 p-2 rounded-lg border-2 transition-all border-slate-200 bg-slate-50";
+                                            var nameClass = isCheckedIn ? "text-sm font-medium truncate w-full text-slate-800" : "text-sm font-medium truncate w-full text-slate-500";
+                                            var skillLevel = normalizeSkillLevel(player.rating.mu);
+                                            return JsxRuntime.jsx(FramerMotion.motion.li, {
+                                                        style: {
+                                                          originX: 0.05,
+                                                          originY: 0.05
+                                                        },
+                                                        animate: {
+                                                          opacity: 1,
+                                                          scale: 1
+                                                        },
+                                                        initial: {
+                                                          opacity: 0,
+                                                          scale: 0.8
+                                                        },
+                                                        exit: {
+                                                          opacity: 0,
+                                                          scale: 0.8
+                                                        },
+                                                        layout: true,
+                                                        children: Caml_option.some(JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("button", {
+                                                                          children: JsxRuntime.jsx(LucideReact.Settings, {
+                                                                                className: "w-3 h-3 text-slate-500"
                                                                               }),
-                                                                          JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("span", {
-                                                                                        children: player.name,
-                                                                                        className: nameClass
-                                                                                      }),
-                                                                                  JsxRuntime.jsx("span", {
-                                                                                        children: "#" + player.intId.toString(),
-                                                                                        className: "text-xs text-slate-400 font-mono"
-                                                                                      })
-                                                                                ],
-                                                                                className: "flex flex-col items-start min-w-0 flex-1"
-                                                                              }),
-                                                                          isCheckedIn ? JsxRuntime.jsx(LucideReact.UserCheck, {
-                                                                                  className: "w-4 h-4 text-green-600 flex-shrink-0"
-                                                                                }) : JsxRuntime.jsx(LucideReact.UserX, {
-                                                                                  className: "w-4 h-4 text-slate-400 flex-shrink-0"
-                                                                                })
-                                                                        ],
-                                                                        className: "flex items-center gap-2 hover:opacity-80 transition-opacity w-full",
-                                                                        onClick: (function (param) {
-                                                                            onToggleCheckin(player.id);
-                                                                          })
-                                                                      }),
-                                                                  JsxRuntime.jsxs("div", {
-                                                                        children: [
-                                                                          playCount > 0 ? JsxRuntime.jsxs("div", {
+                                                                          className: "absolute top-1 right-1 p-1 hover:bg-slate-200 rounded transition-colors z-10",
+                                                                          title: "Player settings",
+                                                                          onClick: (function (e) {
+                                                                              e.stopPropagation();
+                                                                              onOpenPlayerSettings(player);
+                                                                            })
+                                                                        }),
+                                                                    JsxRuntime.jsxs("button", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx(PlayerAvatar.make, {
+                                                                                  userFragmentRefs: Core__Option.flatMap(player.data, getUserFragmentRefs),
+                                                                                  name: player.name,
+                                                                                  skillLevel: skillLevel,
+                                                                                  size: "medium"
+                                                                                }),
+                                                                            JsxRuntime.jsxs("div", {
                                                                                   children: [
-                                                                                    JsxRuntime.jsx(LucideReact.Play, {
-                                                                                          className: "w-3 h-3"
+                                                                                    JsxRuntime.jsx("span", {
+                                                                                          children: player.name,
+                                                                                          className: nameClass
                                                                                         }),
                                                                                     JsxRuntime.jsx("span", {
-                                                                                          children: playCount.toString(),
-                                                                                          className: "font-medium"
+                                                                                          children: "#" + player.intId.toString(),
+                                                                                          className: "text-xs text-slate-400 font-mono"
                                                                                         })
                                                                                   ],
-                                                                                  className: "flex items-center gap-1 text-xs text-slate-600"
-                                                                                }) : null,
-                                                                          Core__Option.getOr(Core__Option.map(ratingChanges.get(player.id), (function (change) {
-                                                                                      var isPositive = change > 0.0;
-                                                                                      var changeText = change.toFixed(1);
-                                                                                      return JsxRuntime.jsxs("div", {
-                                                                                                  children: [
-                                                                                                    JsxRuntime.jsx("span", {
-                                                                                                          children: isPositive ? JsxRuntime.jsx(LucideReact.TrendingUp, {
-                                                                                                                  className: "w-3 h-3"
-                                                                                                                }) : JsxRuntime.jsx(LucideReact.TrendingDown, {
-                                                                                                                  className: "w-3 h-3"
-                                                                                                                })
-                                                                                                        }),
-                                                                                                    changeText
-                                                                                                  ],
-                                                                                                  className: isPositive ? "flex items-center gap-0.5 text-xs font-bold text-green-600" : "flex items-center gap-0.5 text-xs font-bold text-red-600"
-                                                                                                });
-                                                                                    })), null),
-                                                                          JsxRuntime.jsx("button", {
-                                                                                children: t`$`,
-                                                                                className: player.paid ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700 text-white text-xs font-bold" : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold",
-                                                                                title: player.paid ? t`Paid` : t`Not paid`,
-                                                                                onClick: (function (e) {
-                                                                                    e.stopPropagation();
-                                                                                    onTogglePaid(player.id);
+                                                                                  className: "flex flex-col items-start min-w-0 flex-1"
+                                                                                }),
+                                                                            isCheckedIn ? JsxRuntime.jsx(LucideReact.UserCheck, {
+                                                                                    className: "w-4 h-4 text-green-600 flex-shrink-0"
+                                                                                  }) : JsxRuntime.jsx(LucideReact.UserX, {
+                                                                                    className: "w-4 h-4 text-slate-400 flex-shrink-0"
                                                                                   })
-                                                                              })
-                                                                        ],
-                                                                        className: "flex items-center justify-between gap-2 px-1"
-                                                                      })
-                                                                ],
-                                                                className: buttonClass
-                                                              }))
-                                                    }, player.id);
-                                        })
-                                  }),
+                                                                          ],
+                                                                          className: "flex items-center gap-2 hover:opacity-80 transition-opacity w-full",
+                                                                          onClick: (function (param) {
+                                                                              onToggleCheckin(player.id);
+                                                                            })
+                                                                        }),
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            playCount > 0 ? JsxRuntime.jsxs("div", {
+                                                                                    children: [
+                                                                                      JsxRuntime.jsx(LucideReact.Play, {
+                                                                                            className: "w-3 h-3"
+                                                                                          }),
+                                                                                      JsxRuntime.jsx("span", {
+                                                                                            children: playCount.toString(),
+                                                                                            className: "font-medium"
+                                                                                          })
+                                                                                    ],
+                                                                                    className: "flex items-center gap-1 text-xs text-slate-600"
+                                                                                  }) : null,
+                                                                            Core__Option.getOr(Core__Option.map(ratingChanges.get(player.id), (function (change) {
+                                                                                        var isPositive = change > 0.0;
+                                                                                        var changeText = change.toFixed(1);
+                                                                                        return JsxRuntime.jsxs("div", {
+                                                                                                    children: [
+                                                                                                      JsxRuntime.jsx("span", {
+                                                                                                            children: isPositive ? JsxRuntime.jsx(LucideReact.TrendingUp, {
+                                                                                                                    className: "w-3 h-3"
+                                                                                                                  }) : JsxRuntime.jsx(LucideReact.TrendingDown, {
+                                                                                                                    className: "w-3 h-3"
+                                                                                                                  })
+                                                                                                          }),
+                                                                                                      changeText
+                                                                                                    ],
+                                                                                                    className: isPositive ? "flex items-center gap-0.5 text-xs font-bold text-green-600" : "flex items-center gap-0.5 text-xs font-bold text-red-600"
+                                                                                                  });
+                                                                                      })), null),
+                                                                            JsxRuntime.jsx("button", {
+                                                                                  children: t`$`,
+                                                                                  className: player.paid ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700 text-white text-xs font-bold" : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold",
+                                                                                  title: player.paid ? t`Paid` : t`Not paid`,
+                                                                                  onClick: (function (e) {
+                                                                                      e.stopPropagation();
+                                                                                      onTogglePaid(player.id);
+                                                                                    })
+                                                                                })
+                                                                          ],
+                                                                          className: "flex items-center justify-between gap-2 px-1"
+                                                                        })
+                                                                  ],
+                                                                  className: buttonClass
+                                                                }))
+                                                      }, player.id);
+                                          })
+                                    }),
+                                JsxRuntime.jsxs("li", {
+                                      children: [
+                                        JsxRuntime.jsx("button", {
+                                              children: JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      JsxRuntime.jsx("span", {
+                                                            children: JsxRuntime.jsx(LucideReact.UserPlus, {
+                                                                  className: "w-4 h-4"
+                                                                }),
+                                                            className: "flex h-7 w-7 items-center justify-center rounded-full bg-green-100 text-green-700"
+                                                          }),
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Add guest`,
+                                                            className: "text-sm font-semibold"
+                                                          })
+                                                    ],
+                                                    className: "flex items-center justify-center gap-2"
+                                                  }),
+                                              className: "flex-1 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-green-500 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2",
+                                              title: t`Add guest players`,
+                                              onClick: (function (param) {
+                                                  onOpenAddGuests();
+                                                })
+                                            }),
+                                        JsxRuntime.jsxs("button", {
+                                              children: [
+                                                JsxRuntime.jsx(LucideReact.QrCode, {
+                                                      className: "w-5 h-5 flex-shrink-0"
+                                                    }),
+                                                JsxRuntime.jsx("span", {
+                                                      children: t`Invite player`,
+                                                      className: "text-sm font-semibold"
+                                                    })
+                                              ],
+                                              className: "flex flex-1 items-center justify-center gap-2 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                                              title: t`Invite player with QR code`,
+                                              onClick: (function (param) {
+                                                  setShowSelfCheckin(function (param) {
+                                                        return true;
+                                                      });
+                                                })
+                                            })
+                                      ],
+                                      className: "col-span-2 flex h-12 items-stretch gap-2"
+                                    })
+                              ],
                               className: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 list-none"
                             }),
                         className: "px-6 pb-4"
@@ -344,6 +386,13 @@ function PlayerCheckin(props) {
                                 });
                           }),
                         getUserFragmentRefs: getUserFragmentRefs
+                      }) : null,
+                match$2[0] ? JsxRuntime.jsx(SelfCheckinDisplay.make, {
+                        onClose: (function () {
+                            setShowSelfCheckin(function (param) {
+                                  return false;
+                                });
+                          })
                       }) : null
               ],
               className: "bg-white border-b border-slate-200"

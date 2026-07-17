@@ -22,8 +22,12 @@ msgid "Cancel"
 msgstr ""
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
+msgid "Drag players in order of strongest to weakest."
 msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr ""
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"

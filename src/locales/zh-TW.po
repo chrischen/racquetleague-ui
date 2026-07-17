@@ -4442,6 +4442,42 @@ msgstr "找不到此地點，請選擇："
 msgid "Creating..."
 msgstr "建立中..."
 
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "新增訪客"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "關閉自助報到顯示"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+msgid "Drag players in order of strongest to weakest."
+msgstr "依強至弱的順序拖曳排列球員。"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "活動報到"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "掃描有問題嗎？請嘗試從俱樂部頁面尋找活動。"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "邀請球員"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "使用 QR 碼邀請球員"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "開啟手機相機，掃描此碼並加入活動。"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "掃描以報到"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"플레이어 시드 조정\",\"dEgA5A\":\"취소\",\"B2CXh/\":\"플레이어를 드래그하여 초기 시드를 재정렬하세요\",\"60TdtF\":\"뮤\",\"dQttgC\":\"시드 조정 저장\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"GsQP9B\":\"플레이어 시드 조정\",\"dEgA5A\":\"취소\",\"d1QevP\":\"강한 순서대로 플레이어를 드래그하세요.\",\"60TdtF\":\"뮤\",\"dQttgC\":\"시드 조정 저장\",\"B2CXh/\":\"플레이어를 드래그하여 초기 시드를 재정렬하세요\"}");

@@ -22,8 +22,8 @@ msgid "Cancel"
 msgstr "Hủy"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
+msgid "Drag players in order of strongest to weakest."
+msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -32,3 +32,7 @@ msgstr "mu"
 #: src/components/organisms/SeedAdjustModal.re.mjs:251
 msgid "Save Seed Adjustments"
 msgstr "Lưu điều chỉnh hạt giống"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"

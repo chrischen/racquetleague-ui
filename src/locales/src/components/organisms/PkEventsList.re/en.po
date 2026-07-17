@@ -40,7 +40,7 @@ msgid "[missing title]"
 msgstr ""
 
 #: src/components/molecules/PlayIntentRow.re.mjs:491
-#: src/components/organisms/PkEventsList.re.mjs:164
+#: src/components/organisms/PkEventsList.re.mjs:160
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
@@ -297,7 +297,7 @@ msgid "Evening"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:167
+#: src/components/organisms/PkEventsList.re.mjs:163
 msgid "event"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgid "Event updated"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:168
+#: src/components/organisms/PkEventsList.re.mjs:164
 msgid "events"
 msgstr ""
 
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:378
+#: src/components/organisms/PkEventsList.re.mjs:364
 msgid "Friday"
 msgstr ""
 
@@ -436,7 +436,7 @@ msgstr ""
 msgid "mixed"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:366
+#: src/components/organisms/PkEventsList.re.mjs:352
 msgid "Monday"
 msgstr ""
 
@@ -453,7 +453,7 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:387
+#: src/components/organisms/PkEventsList.re.mjs:373
 msgid "Next {dayName}"
 msgstr ""
 
@@ -635,7 +635,7 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:381
+#: src/components/organisms/PkEventsList.re.mjs:367
 msgid "Saturday"
 msgstr ""
 
@@ -660,7 +660,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:241
+#: src/components/organisms/PkEventsList.re.mjs:240
 msgid "Show {0} more"
 msgstr ""
 
@@ -684,7 +684,7 @@ msgstr ""
 msgid "SPREAD"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:363
+#: src/components/organisms/PkEventsList.re.mjs:349
 msgid "Sunday"
 msgstr ""
 
@@ -733,17 +733,17 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:375
+#: src/components/organisms/PkEventsList.re.mjs:361
 msgid "Thursday"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:346
+#: src/components/organisms/PkEventsList.re.mjs:332
 msgid "Today"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:352
+#: src/components/organisms/PkEventsList.re.mjs:338
 msgid "Tomorrow"
 msgstr ""
 
@@ -751,7 +751,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:369
+#: src/components/organisms/PkEventsList.re.mjs:355
 msgid "Tuesday"
 msgstr ""
 
@@ -797,7 +797,7 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:372
+#: src/components/organisms/PkEventsList.re.mjs:358
 msgid "Wednesday"
 msgstr ""
 
@@ -825,7 +825,7 @@ msgstr ""
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:386
+#: src/components/organisms/PkEventsList.re.mjs:372
 msgid "Yesterday"
 msgstr ""
 

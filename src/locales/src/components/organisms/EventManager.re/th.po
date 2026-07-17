@@ -18,7 +18,7 @@ msgstr ""
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:144
+#: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 
@@ -26,7 +26,7 @@ msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:317
+#: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "฿"
 
@@ -39,7 +39,11 @@ msgstr "รอบปัจจุบัน"
 msgid "Add {0}Guest{1}"
 msgstr "เพิ่ม{0}แขก{1}"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:162
+#: src/components/organisms/PlayerCheckin.re.mjs:342
+msgid "Add guest"
+msgstr "เพิ่มผู้เล่นรับเชิญ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:349
 msgid "Add guest players"
 msgstr "เพิ่มผู้เล่นแขก"
 
@@ -97,6 +101,10 @@ msgstr "ปิด"
 #: src/components/organisms/FullScreenRoundView.re.mjs:47
 msgid "Close Full Screen"
 msgstr "ปิดโหมดเต็มจอ"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+msgid "Close self check-in display"
+msgstr "ปิดจอแสดงผลการเช็คอินด้วยตนเอง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:65
 msgid "Competitive"
@@ -168,8 +176,8 @@ msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
-msgid "Drag players to reorder their initial seeding"
-msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+msgid "Drag players in order of strongest to weakest."
+msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
 
 #: src/components/organisms/MatchCard.re.mjs:441
 msgid "Edit match"
@@ -194,6 +202,10 @@ msgstr "ป้อนคะแนนแมตช์"
 #: src/components/organisms/TeamManagementModal.re.mjs:71
 msgid "Enter team name"
 msgstr "ป้อนชื่อทีม"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+msgid "Event check-in"
+msgstr "เช็คอินกิจกรรม"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
@@ -225,9 +237,21 @@ msgstr "สร้างคู่แข่ง"
 msgid "Guest Names (one per line)"
 msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรทัด)"
 
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+msgid "Having trouble scanning? Try to find the event from the club page."
+msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
+
 #: src/components/organisms/EventManager.re.mjs:1931
 msgid "Help"
 msgstr "ช่วยเหลือ"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:360
+msgid "Invite player"
+msgstr "เชิญผู้เล่น"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:365
+msgid "Invite player with QR code"
+msgstr "เชิญผู้เล่นด้วย QR โค้ด"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Jane Doe"
@@ -303,15 +327,19 @@ msgstr "ไม่มีคะแนน"
 msgid "No teams yet"
 msgstr "ยังไม่มีทีม"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:319
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+msgid "Open your phone camera, scan this code, and join the event."
+msgstr "เปิดกล้องโทรศัพท์ สแกนโค้ดนี้ และเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
 msgstr "ชำระแล้ว"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:140
+#: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
 msgstr "เช็คอินผู้เล่น"
 
@@ -423,6 +451,10 @@ msgstr "บันทึกการปรับซีด"
 #: src/components/organisms/TeamManagementModal.re.mjs:159
 msgid "Save Team"
 msgstr "บันทึกทีม"
+
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+msgid "Scan to check in"
+msgstr "สแกนเพื่อเช็คอิน"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:180
 #: src/components/organisms/MatchCardEdit.re.mjs:217
@@ -555,6 +587,10 @@ msgstr "ทีมชนะ (ทีม {0})"
 #: src/components/molecules/DrawGenerator.re.mjs:107
 #~ msgid "delete all rounds below"
 #~ msgstr "ลบรอบด้านล่างทั้งหมด"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
 
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
