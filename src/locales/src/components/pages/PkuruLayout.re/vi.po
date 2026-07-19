@@ -29,6 +29,18 @@ msgstr "— trải nghiệm nhanh hơn, giống như ứng dụng thực thụ"
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/shared/InstallPwa.re.mjs:462
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
@@ -162,6 +174,10 @@ msgstr "Đang tải..."
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "Khung giờ dài"
+
 #: src/components/pages/PkuruLayout.re.mjs:448
 msgid "Map"
 msgstr "Bản đồ"
@@ -173,6 +189,10 @@ msgstr "Xem bản đồ"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "Khớp giờ của tôi"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -265,7 +285,7 @@ msgstr "Thể thao"
 msgid "Stay in the loop"
 msgstr "Luôn cập nhật tin tức"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
 

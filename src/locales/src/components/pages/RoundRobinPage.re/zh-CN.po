@@ -543,7 +543,6 @@ msgstr "您的浏览器版本过低，无法使用此功能。"
 #~ msgstr "本轮不参赛"
 
 #: src/components/organisms/RoundRobin.re.mjs:359
-#, fuzzy
 #~ msgid "Players"
 #~ msgstr "寻找球员"
 

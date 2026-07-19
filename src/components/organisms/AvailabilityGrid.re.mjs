@@ -33,6 +33,8 @@ var windowConfig = {
 };
 
 function AvailabilityGrid$DayRow(props) {
+  var onUpdate = props.onUpdate;
+  var __courtAvailability = props.courtAvailability;
   var __demand = props.demand;
   var __existingEvents = props.existingEvents;
   var __isToday = props.isToday;
@@ -41,6 +43,7 @@ function AvailabilityGrid$DayRow(props) {
   var isToday = __isToday !== undefined ? __isToday : false;
   var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var demand = __demand !== undefined ? __demand : [];
+  var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var match = demand.length > 0 ? TimeWindowPicker.computeDensity(demand.flatMap(function (d) {
               return d.intents;
             })) : [
@@ -84,14 +87,26 @@ function AvailabilityGrid$DayRow(props) {
                 JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx(TimeWindowPicker.make, {
                             intents: props.windows,
-                            onChange: props.onUpdate,
+                            onChange: onUpdate,
                             config: windowConfig,
                             showAxis: false,
                             className: "h-full",
                             trackClassName: "relative z-10 h-full overflow-hidden cursor-copy",
                             demandCounts: demandHourCounts,
                             maxDemand: match[1],
-                            existingEvents: existingEvents
+                            existingEvents: existingEvents,
+                            courtAvailability: courtAvailability,
+                            onUseCourtSlot: (function (group) {
+                                var ni_id = TimeWindowPicker.wid();
+                                var ni_start = group.start;
+                                var ni_end = group.end;
+                                var ni = {
+                                  id: ni_id,
+                                  start: ni_start,
+                                  end: ni_end
+                                };
+                                onUpdate([ni]);
+                              })
                           }),
                       className: "flex-1"
                     })
@@ -107,6 +122,7 @@ var DayRow = {
 };
 
 function AvailabilityGrid(props) {
+  var courtAvailability = props.courtAvailability;
   var demand = props.demand;
   var existingEvents = props.existingEvents;
   var isSaving = props.isSaving;
@@ -347,6 +363,9 @@ function AvailabilityGrid(props) {
                                                                             return Js_dict.get(dict, d.isoDate);
                                                                           })), []),
                                                                 demand: Core__Option.getOr(Core__Option.flatMap(demand, (function (dict) {
+                                                                            return Js_dict.get(dict, d.isoDate);
+                                                                          })), []),
+                                                                courtAvailability: Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
                                                                             return Js_dict.get(dict, d.isoDate);
                                                                           })), []),
                                                                 windows: windows[i],

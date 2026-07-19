@@ -13,31 +13,115 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:52
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:49
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:132
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:388
+msgid "{0} court"
+msgstr "{0} 場"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:50
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:133
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:389
+msgid "{0} courts"
+msgstr "{0} 場"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+msgid "{0} location"
+msgstr "{0} 個地點"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} locations"
+msgstr "{0} 個地點"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+msgid "{0} time option"
+msgstr "{0} 個時間選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+msgid "{0} time options"
+msgstr "{0} 個時間選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+msgstr "{groupLocationsPhrase} 的 {groupCourtsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:131
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:387
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:824
 msgid "Add time windows above"
 msgstr "在上方新增時間段"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:596
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:703
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:766
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:809
+msgid "Court openings are shown only when they overlap your time."
+msgstr "場地開放時段僅顯示與您的時間重疊的部分。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+msgid "Courts"
+msgstr "場地"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:867
+msgid "Courts available during your time"
+msgstr "您的時段內可用場地"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:908
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+msgid "Long opening"
+msgstr "長時間開放"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+msgid "Match my time"
+msgstr "配合我的時間"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:655
+msgid "Players"
+msgstr "尋找球員"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+msgid "Reserve"
+msgstr "預訂"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:923
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:781
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:923
 msgid "Savingâ¦"
 msgstr "儲存中…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:550
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:623
 msgid "Schedule"
 msgstr "排程"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:558
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:631
 msgid ""
 "Set your availability for the next 2 weeks. Tap a day to add a time window, "
 "drag to move, grab the edges to resize."
@@ -45,28 +129,48 @@ msgstr ""
 "設定未來 2 週的空閒時間。點擊某天以新增時間段，拖曳可移動，拉動邊緣可調整大"
 "小。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:762
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:904
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:795
 msgid ""
-"Tap an empty area of a day to add a window · drag to move · grab the edges "
-"to resize"
-msgstr "點擊某天的空白區域以新增時間段・拖曳可移動・拉動邊緣可調整大小"
+"Tap an empty area to add time · select a cyan court opening up to 4h to "
+"match it · drag to move · grab the edges to resize"
+msgstr ""
+"點擊空白處新增時間・選擇青色場地開放時段（最多4小時）以配合・拖曳移動・拉動邊"
+"緣調整大小"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:572
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+msgid "Use this time"
+msgstr "使用此時段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+msgid "View {groupCourtsPhrase} & reserve"
+msgstr "查看 {groupCourtsPhrase} 並預訂"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:679
 msgid "Weekday eves"
 msgstr "平日傍晚"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:584
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:691
 msgid "Weekend morns"
 msgstr "週末上午"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:554
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:627
 msgid "When can you play?"
 msgstr "你什麼時候可以打球？"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:700
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:805
 msgid "Your availability"
 msgstr "你的空閒時間"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:646
+msgid "Your time"
+msgstr "您的時間"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+#~ msgid ""
+#~ "Tap an empty area of a day to add a window · drag to move · grab the "
+#~ "edges to resize"
+#~ msgstr "點擊某天的空白區域以新增時間段・拖曳可移動・拉動邊緣可調整大小"

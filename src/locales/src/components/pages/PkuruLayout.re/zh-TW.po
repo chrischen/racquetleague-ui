@@ -29,6 +29,18 @@ msgstr "— 享受更快速的類應用程式體驗"
 msgid "(logout)"
 msgstr "（登出）"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} 場"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} 場"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/shared/InstallPwa.re.mjs:462
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"加入主畫面\\\""
@@ -160,6 +172,10 @@ msgstr "載入中..."
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "長時間開放"
+
 #: src/components/pages/PkuruLayout.re.mjs:448
 msgid "Map"
 msgstr "地圖"
@@ -171,6 +187,10 @@ msgstr "地圖檢視"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "標記為有空"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "配合我的時間"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -263,7 +283,7 @@ msgstr "遐動"
 msgid "Stay in the loop"
 msgstr "掌握最新動態"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "點擊任意處以新增時間段"
 

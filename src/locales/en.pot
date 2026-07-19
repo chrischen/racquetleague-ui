@@ -5181,3 +5181,111 @@ msgstr ""
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:37
 msgid "Scan to check in"
 msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+msgid "{0} location"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} locations"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+msgid "{0} time option"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+msgid "{0} time options"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:513
+msgid "Courts"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:534
+msgid "Courts available during your time"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+msgid "Reserve"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+msgid "Use this time"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+msgid "View {groupCourtsPhrase} & reserve"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+msgid "You"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:809
+msgid "Court openings are shown only when they overlap your time."
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:795
+msgid ""
+"Tap an empty area to add time · select a cyan court opening up to 4h to "
+"match it · drag to move · grab the edges to resize"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:646
+msgid "Your time"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:319
+msgid "{0} court available"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:320
+msgid "{0} courts available"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:318
+msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:103
+msgid "Court"
+msgstr ""

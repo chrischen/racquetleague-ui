@@ -9,11 +9,20 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as TimeRangeChip from "../atoms/TimeRangeChip.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
+import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as TimeWindowPicker from "../molecules/TimeWindowPicker.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as CourtAvailabilityGroups from "../molecules/CourtAvailabilityGroups.re.mjs";
 
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 ;
+
+function ts(prim0, prim1) {
+  return Caml_splice_call.spliceApply(t, [
+              prim0,
+              prim1
+            ]);
+}
 
 function VerticalAvailabilityGrid$VerticalWindowChip(props) {
   var getColTranslateX = props.getColTranslateX;
@@ -241,6 +250,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
   var getTargetDayArrayIdx = props.getTargetDayArrayIdx;
   var onMoveDay = props.onMoveDay;
   var onUpdate = props.onUpdate;
+  var __courtAvailability = props.courtAvailability;
   var __demand = props.demand;
   var __existingEvents = props.existingEvents;
   var windows = props.windows;
@@ -251,6 +261,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
   var isToday = __isToday !== undefined ? __isToday : false;
   var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var demand = __demand !== undefined ? __demand : [];
+  var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var handleTrackClick = function (e) {
     var el = colRef.current;
     if (el == null) {
@@ -288,6 +299,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
       0
     ];
   var densityMax = match[1];
+  var courtGroups = TimeWindowPicker.groupCourtAvailabilityByTime(courtAvailability);
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -367,6 +379,55 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                                           }, ev.id);
                               }
                             }),
+                        courtGroups.map(function (group) {
+                              var topPct = (group.start - TimeWindowPicker.hourMin) / TimeWindowPicker.hourRange * 100.0;
+                              var heightPct = (group.end - group.start) / TimeWindowPicker.hourRange * 100.0;
+                              var canMatch = group.end - group.start <= TimeWindowPicker.maxMatchableCourtHours;
+                              var slotCount = group.slots.length;
+                              var courtsPhrase = plural(slotCount, {
+                                    one: t`${slotCount.toString()} court`,
+                                    other: t`${slotCount.toString()} courts`
+                                  });
+                              return JsxRuntime.jsxs("button", {
+                                          children: [
+                                            JsxRuntime.jsx(LucideReact.MapPin, {
+                                                  size: 10,
+                                                  className: "text-cyan-800 dark:text-cyan-200 flex-shrink-0"
+                                                }),
+                                            JsxRuntime.jsx("span", {
+                                                  children: courtsPhrase,
+                                                  className: "max-w-full font-mono text-[8px] font-bold leading-tight text-cyan-900 dark:text-cyan-100 truncate"
+                                                })
+                                          ],
+                                          className: "absolute left-1 right-1 z-[15] rounded border border-cyan-500/70 bg-cyan-200/80 dark:bg-cyan-700/45 overflow-hidden flex flex-col items-center justify-center px-0.5 " + (
+                                            canMatch ? "cursor-pointer hover:bg-cyan-300 dark:hover:bg-cyan-600/55 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-inset" : "pointer-events-none"
+                                          ),
+                                          style: {
+                                            height: heightPct.toString() + "%",
+                                            top: topPct.toString() + "%"
+                                          },
+                                          title: courtsPhrase + " · " + TimeWindowPicker.hourLabel(group.start) + "–" + TimeWindowPicker.hourLabel(group.end) + (
+                                            canMatch ? " · " + t`Match my time` : " · " + t`Long opening`
+                                          ),
+                                          disabled: !canMatch,
+                                          type: "button",
+                                          onClick: (function (e) {
+                                              e.stopPropagation();
+                                              if (!canMatch) {
+                                                return ;
+                                              }
+                                              var ni_id = TimeWindowPicker.wid();
+                                              var ni_start = group.start;
+                                              var ni_end = group.end;
+                                              var ni = {
+                                                id: ni_id,
+                                                start: ni_start,
+                                                end: ni_end
+                                              };
+                                              onUpdate([ni]);
+                                            })
+                                        }, group.key);
+                            }),
                         windows.map(function (w) {
                               return JsxRuntime.jsx(VerticalAvailabilityGrid$VerticalWindowChip, {
                                           dayArrayIdx: dayArrayIdx,
@@ -412,6 +473,7 @@ var VerticalDayColumn = {
 };
 
 function VerticalAvailabilityGrid(props) {
+  var courtAvailability = props.courtAvailability;
   var demand = props.demand;
   var existingEvents = props.existingEvents;
   var isSaving = props.isSaving;
@@ -439,6 +501,17 @@ function VerticalAvailabilityGrid(props) {
                         return React.createRef();
                       }));
         }), []);
+  var updateDay = function (idx, ws) {
+    setWindows(function (prev) {
+          return prev.map(function (w, i) {
+                      if (i === idx) {
+                        return ws;
+                      } else {
+                        return w;
+                      }
+                    });
+        });
+  };
   var getTargetDayArrayIdx = function (pointerX) {
     var best = {
       contents: 0
@@ -561,49 +634,84 @@ function VerticalAvailabilityGrid(props) {
                                             ],
                                             className: "mb-5"
                                           }),
-                                      JsxRuntime.jsx("div", {
-                                            children: JsxRuntime.jsxs("div", {
-                                                  children: [
-                                                    JsxRuntime.jsxs("button", {
-                                                          children: [
-                                                            JsxRuntime.jsx(LucideReact.Moon, {
-                                                                  size: 11
-                                                                }),
-                                                            t`Weekday eves`
-                                                          ],
-                                                          className: "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
-                                                          onClick: (function (param) {
-                                                              applyPreset("weekday-evenings");
-                                                            })
-                                                        }),
-                                                    JsxRuntime.jsxs("button", {
-                                                          children: [
-                                                            JsxRuntime.jsx(LucideReact.Sun, {
-                                                                  size: 11
-                                                                }),
-                                                            t`Weekend morns`
-                                                          ],
-                                                          className: "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
-                                                          onClick: (function (param) {
-                                                              applyPreset("weekend-mornings");
-                                                            })
-                                                        }),
-                                                    JsxRuntime.jsxs("button", {
-                                                          children: [
-                                                            JsxRuntime.jsx(LucideReact.Trash2, {
-                                                                  className: "w-[11px] h-[11px]"
-                                                                }),
-                                                            t`Clear`
-                                                          ],
-                                                          className: "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#2a2b30] hover:text-red-600 dark:hover:text-red-400 transition-colors",
-                                                          onClick: (function (param) {
-                                                              applyPreset("clear");
-                                                            })
-                                                        })
-                                                  ],
-                                                  className: "flex items-center gap-1.5 ml-auto flex-wrap"
-                                                }),
-                                            className: "flex flex-wrap items-center gap-2 mb-4"
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("span", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    className: "h-2.5 w-2.5 rounded-sm bg-[#bdf25d] border border-[#a3d949]"
+                                                                  }),
+                                                              t`Your time`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsxs("span", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    className: "h-2.5 w-2.5 rounded-sm bg-violet-400/70"
+                                                                  }),
+                                                              t`Players`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsxs("span", {
+                                                            children: [
+                                                              JsxRuntime.jsx(LucideReact.MapPin, {
+                                                                    size: 11,
+                                                                    className: "text-cyan-600 dark:text-cyan-400"
+                                                                  }),
+                                                              t`Courts`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1.5"
+                                                          })
+                                                    ],
+                                                    className: "flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("button", {
+                                                            children: [
+                                                              JsxRuntime.jsx(LucideReact.Moon, {
+                                                                    size: 11
+                                                                  }),
+                                                              t`Weekday eves`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
+                                                            onClick: (function (param) {
+                                                                applyPreset("weekday-evenings");
+                                                              })
+                                                          }),
+                                                      JsxRuntime.jsxs("button", {
+                                                            children: [
+                                                              JsxRuntime.jsx(LucideReact.Sun, {
+                                                                    size: 11
+                                                                  }),
+                                                              t`Weekend morns`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
+                                                            onClick: (function (param) {
+                                                                applyPreset("weekend-mornings");
+                                                              })
+                                                          }),
+                                                      JsxRuntime.jsxs("button", {
+                                                            children: [
+                                                              JsxRuntime.jsx(LucideReact.Trash2, {
+                                                                    className: "w-[11px] h-[11px]"
+                                                                  }),
+                                                              t`Clear`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#2a2b30] hover:text-red-600 dark:hover:text-red-400 transition-colors",
+                                                            onClick: (function (param) {
+                                                                applyPreset("clear");
+                                                              })
+                                                          })
+                                                    ],
+                                                    className: "flex items-center gap-1.5 flex-wrap"
+                                                  })
+                                            ],
+                                            className: "flex flex-wrap items-center justify-between gap-3 mb-4"
                                           }),
                                       JsxRuntime.jsx("div", {
                                             children: JsxRuntime.jsxs("div", {
@@ -650,16 +758,11 @@ function VerticalAvailabilityGrid(props) {
                                                                             demand: Core__Option.getOr(Core__Option.flatMap(demand, (function (dict) {
                                                                                         return Js_dict.get(dict, d.isoDate);
                                                                                       })), []),
+                                                                            courtAvailability: Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
+                                                                                        return Js_dict.get(dict, d.isoDate);
+                                                                                      })), []),
                                                                             onUpdate: (function (ws) {
-                                                                                setWindows(function (prev) {
-                                                                                      return prev.map(function (w, i$1) {
-                                                                                                  if (i$1 === i) {
-                                                                                                    return ws;
-                                                                                                  } else {
-                                                                                                    return w;
-                                                                                                  }
-                                                                                                });
-                                                                                    });
+                                                                                updateDay(i, ws);
                                                                               }),
                                                                             onMoveDay: (function (windowId, targetDayArrayIdx, nw) {
                                                                                 setWindows(function (prev) {
@@ -689,23 +792,31 @@ function VerticalAvailabilityGrid(props) {
                                             className: "border border-gray-200 dark:border-[#2a2b30] rounded-lg bg-white dark:bg-[#1e1f23] overflow-x-auto overflow-y-hidden"
                                           }),
                                       JsxRuntime.jsx("p", {
-                                            children: t`Tap an empty area of a day to add a window \xb7 drag to move \xb7 grab the edges to resize`,
+                                            children: t`Tap an empty area to add time \xb7 select a cyan court opening up to 4h to match it \xb7 drag to move \xb7 grab the edges to resize`,
                                             className: "text-[11px] font-mono text-gray-400 dark:text-gray-500 mt-2 px-1"
                                           }),
-                                      JsxRuntime.jsxs("div", {
+                                      JsxRuntime.jsxs("section", {
                                             children: [
                                               JsxRuntime.jsxs("div", {
                                                     children: [
-                                                      JsxRuntime.jsx("h2", {
-                                                            children: t`Your availability`,
-                                                            className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase"
+                                                      JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx("h2", {
+                                                                    children: t`Your availability`,
+                                                                    className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase"
+                                                                  }),
+                                                              JsxRuntime.jsx("p", {
+                                                                    children: t`Court openings are shown only when they overlap your time.`,
+                                                                    className: "mt-1 text-[11px] text-gray-500 dark:text-gray-400"
+                                                                  })
+                                                            ]
                                                           }),
                                                       JsxRuntime.jsx("span", {
                                                             children: totalHours.toString() + "h / 2 weeks",
-                                                            className: "font-mono text-[11px] text-gray-500 dark:text-gray-400"
+                                                            className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap"
                                                           })
                                                     ],
-                                                    className: "flex items-center justify-between mb-3"
+                                                    className: "flex items-start justify-between gap-3 mb-3"
                                                   }),
                                               windows.every(function (ws) {
                                                     return ws.length === 0;
@@ -719,29 +830,60 @@ function VerticalAvailabilityGrid(props) {
                                                                 });
                                                             if (ws.length === 0) {
                                                               return null;
-                                                            } else {
-                                                              return JsxRuntime.jsxs("div", {
-                                                                          children: [
-                                                                            JsxRuntime.jsx("span", {
-                                                                                  children: d.label,
-                                                                                  className: "w-9 flex-shrink-0 font-semibold text-gray-900 dark:text-gray-100"
-                                                                                }),
-                                                                            JsxRuntime.jsx("div", {
-                                                                                  children: ws.map(function (w) {
-                                                                                        return JsxRuntime.jsx(TimeRangeChip.make, {
-                                                                                                    startHour: w.start,
-                                                                                                    endHour: w.end,
-                                                                                                    className: "bg-[#bdf25d]/30 dark:bg-[#bdf25d]/20"
-                                                                                                  }, w.id.toString());
-                                                                                      }),
-                                                                                  className: "flex flex-wrap gap-1.5"
-                                                                                })
-                                                                          ],
-                                                                          className: "flex items-start gap-3 text-sm"
-                                                                        }, d.dayIdx.toString());
                                                             }
+                                                            var overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
+                                                                            return Js_dict.get(dict, d.isoDate);
+                                                                          })), []), ws);
+                                                            return JsxRuntime.jsxs("article", {
+                                                                        children: [
+                                                                          JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsxs("span", {
+                                                                                        children: [
+                                                                                          d.label + " ",
+                                                                                          JsxRuntime.jsx("span", {
+                                                                                                children: d.dateLabel,
+                                                                                                className: "font-mono text-[10px] font-normal text-gray-400 dark:text-gray-500"
+                                                                                              })
+                                                                                        ],
+                                                                                        className: "sm:w-20 flex-shrink-0 text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("div", {
+                                                                                        children: ws.map(function (w) {
+                                                                                              return JsxRuntime.jsx(TimeRangeChip.make, {
+                                                                                                          startHour: w.start,
+                                                                                                          endHour: w.end,
+                                                                                                          className: "bg-[#bdf25d]/30 dark:bg-[#bdf25d]/20"
+                                                                                                        }, w.id.toString());
+                                                                                            }),
+                                                                                        className: "flex flex-1 flex-wrap gap-1.5"
+                                                                                      })
+                                                                                ],
+                                                                                className: "flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4"
+                                                                              }),
+                                                                          overlappingCourts.length > 0 ? JsxRuntime.jsx("div", {
+                                                                                  children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
+                                                                                        courtAvailability: overlappingCourts,
+                                                                                        title: t`Courts available during your time`,
+                                                                                        onUseSlot: (function (group) {
+                                                                                            var ni_id = TimeWindowPicker.wid();
+                                                                                            var ni_start = group.start;
+                                                                                            var ni_end = group.end;
+                                                                                            var ni = {
+                                                                                              id: ni_id,
+                                                                                              start: ni_start,
+                                                                                              end: ni_end
+                                                                                            };
+                                                                                            updateDay(i, [ni]);
+                                                                                          })
+                                                                                      }),
+                                                                                  className: "mt-2 sm:ml-24"
+                                                                                }) : null
+                                                                        ],
+                                                                        className: "rounded-md border border-gray-100 dark:border-[#2a2b30] bg-gray-50/60 dark:bg-[#1c1d21] p-3"
+                                                                      }, d.dayIdx.toString());
                                                           }),
-                                                      className: "space-y-2"
+                                                      className: "space-y-3"
                                                     })
                                             ],
                                             className: "mt-6 border border-gray-200 dark:border-[#2a2b30] rounded-lg p-4 bg-white dark:bg-[#1e1f23]"
@@ -805,6 +947,7 @@ var defaultDurationGrid = 2.0;
 var make = VerticalAvailabilityGrid;
 
 export {
+  ts ,
   snap ,
   minDurationGrid ,
   defaultDurationGrid ,

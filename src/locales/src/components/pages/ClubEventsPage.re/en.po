@@ -29,6 +29,14 @@ msgstr ""
 #~ msgid "{0, plural, one {{1}} other {{2}}}"
 #~ msgstr ""
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr ""
+
 #: src/components/organisms/CreateEventsButton.re.mjs:113
 #~ msgid "{0} events created!"
 #~ msgstr ""
@@ -65,6 +73,10 @@ msgstr ""
 #: src/components/organisms/EventItem.re.mjs:296
 #~ msgid "{playersCount, plural, one {player} other {players}}"
 #~ msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:186
 #~ msgid "🚫 CANCELED"
@@ -212,8 +224,16 @@ msgstr ""
 #~ msgid "Location:"
 #~ msgstr ""
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
@@ -276,7 +296,7 @@ msgstr ""
 #~ msgid "Suggested Events"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr ""
 

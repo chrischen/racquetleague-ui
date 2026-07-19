@@ -497,6 +497,24 @@ type Location implements Node {
   name: String
 }
 
+"""
+A location's (court's) open hours for a single calendar day.
+   `locationId`/`activityId` are kept on the record (they key the row and
+   drive the `location`/`activity` field resolvers) but not exposed — clients
+   read the resolved entities instead.
+"""
+type LocationAvailabilityDay {
+  activity: Activity
+  id: ID!
+  intervals: [AvailabilityInterval!]!
+
+  """Booking-page URL for this court/day, when the scraper captured one."""
+  link: String
+  localDate: String!
+  location: Location
+  updatedAt: Datetime!
+}
+
 """A connection to locations."""
 type LocationConnection {
   """A list of edges."""
@@ -804,7 +822,20 @@ type Query {
   getUserClubMembership(input: GetUserClubMembershipInput!): GetUserClubMembershipResult!
   isUserBanned(input: IsUserBannedInput!): Boolean
   location(id: ID!): Location
+
+  """
+  Open hours for a single court, addressed by its Location id (no coords).
+  """
+  locationAvailability(activityId: ID!, fromDate: String!, locationId: ID!, toDate: String!): [LocationAvailabilityDay!]!
   locations(after: String, before: String, first: Int): LocationConnection!
+
+  """
+  Open hours for courts (Location subjects) near the caller, over a date
+     range. Scoped by the caller's coords like the user availability queries.
+     Geo filtering is not implemented yet, so `location` is accepted but
+     ignored and every court's availability for the activity is returned.
+  """
+  locationsAvailability(activityId: ID!, fromDate: String!, location: LocationInput!, toDate: String!): [LocationAvailabilityDay!]!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
   messagesByTopic(after: String, before: String, first: Int, topic: String!): EventMessageConnection
   node(id: ID!): Node

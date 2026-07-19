@@ -19,6 +19,7 @@ import * as TimePickerWithHeatmap from "./TimePickerWithHeatmap.re.mjs";
 import * as AvailabilityDemandList from "./AvailabilityDemandList.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as CourtAvailabilityGroups from "./CourtAvailabilityGroups.re.mjs";
 import * as PlayIntentRow_availabilityDay_graphql from "../../__generated__/PlayIntentRow_availabilityDay_graphql.re.mjs";
 import * as PlayIntentRowSetAvailabilityMutation_graphql from "../../__generated__/PlayIntentRowSetAvailabilityMutation_graphql.re.mjs";
 
@@ -78,10 +79,12 @@ function PlayIntentRow(props) {
   var onRegisterOpenEditor = props.onRegisterOpenEditor;
   var onChange = props.onChange;
   var onAvailabilityCommitted = props.onAvailabilityCommitted;
+  var __courtAvailability = props.courtAvailability;
   var userDays = props.userDays;
   var __interestedCount = props.interestedCount;
   var localDate = props.localDate;
   var interestedCount = __interestedCount !== undefined ? __interestedCount : 0;
+  var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var isLoggedIn = __isLoggedIn !== undefined ? __isLoggedIn : false;
   var match = use();
   var commitSetAvailability = match[0];
@@ -199,6 +202,15 @@ function PlayIntentRow(props) {
           return true;
         });
   };
+  var useCourtSlot = function (group) {
+    setDraft(function (param) {
+          return [{
+                    id: TimeWindowPicker.wid(),
+                    start: group.start,
+                    end: group.end
+                  }];
+        });
+  };
   var openEditorRef = React.useRef(openEditor);
   openEditorRef.current = openEditor;
   React.useEffect((function () {
@@ -300,17 +312,26 @@ function PlayIntentRow(props) {
             }
           })
       });
-  var showDemandRow = hasAnyDemand || isActive;
+  var availableCourtCount = Core__Array.reduce(courtAvailability, 0, (function (acc, c) {
+          return acc + c.intents.length | 0;
+        }));
+  var courtNoun = plural(availableCourtCount, {
+        one: t`${availableCourtCount.toString()} court available`,
+        other: t`${availableCourtCount.toString()} courts available`
+      });
+  var showDemandRow = hasAnyDemand || isActive || availableCourtCount > 0;
   var othersWord = plural(demandCount, {
         one: t`other`,
         other: t`others`
       });
   var headline = isActive ? (
       demandCount > 0 ? t`You + ${demandCount.toString()} ${othersWord} looking to play` : t`You're available to play`
-    ) : plural(demandCount, {
-          one: t`${demandCount.toString()} person looking to play`,
-          other: t`${demandCount.toString()} people looking to play`
-        });
+    ) : (
+      demandCount > 0 ? plural(demandCount, {
+              one: t`${demandCount.toString()} person looking to play`,
+              other: t`${demandCount.toString()} people looking to play`
+            }) : courtNoun
+    );
   var demandRow = showDemandRow ? JsxRuntime.jsxs("button", {
           children: [
             JsxRuntime.jsxs("div", {
@@ -352,6 +373,14 @@ function PlayIntentRow(props) {
                     demandCount > 4 ? JsxRuntime.jsx("span", {
                             children: "+" + (demandCount - 4 | 0).toString(),
                             className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-300 text-[9px] font-semibold ring-2 ring-white dark:ring-[#222326]"
+                          }) : null,
+                    availableCourtCount > 0 ? JsxRuntime.jsx("span", {
+                            children: JsxRuntime.jsx(LucideReact.MapPin, {
+                                  size: 11,
+                                  strokeWidth: 2.5
+                                }),
+                            className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-200 ring-2 ring-white dark:ring-[#222326]",
+                            title: courtNoun
                           }) : null
                   ],
                   className: "flex items-center -space-x-1.5 flex-shrink-0"
@@ -359,9 +388,21 @@ function PlayIntentRow(props) {
             JsxRuntime.jsx("span", {
                   children: headline,
                   className: "min-w-0 text-xs transition-colors " + (
-                    isActive ? "text-[#3f6212] dark:text-[#bdf25d] font-medium" : "text-violet-700 dark:text-violet-300 group-hover/demand:text-violet-900 dark:group-hover/demand:text-violet-200"
+                    isActive ? "text-[#3f6212] dark:text-[#bdf25d] font-medium" : (
+                        demandCount > 0 ? "text-violet-700 dark:text-violet-300 group-hover/demand:text-violet-900 dark:group-hover/demand:text-violet-200" : "text-cyan-700 dark:text-cyan-300 group-hover/demand:text-cyan-900 dark:group-hover/demand:text-cyan-200"
+                      )
                   )
                 }),
+            availableCourtCount > 0 && (demandCount > 0 || isActive) ? JsxRuntime.jsxs("span", {
+                    children: [
+                      JsxRuntime.jsx(LucideReact.MapPin, {
+                            size: 10,
+                            strokeWidth: 2.5
+                          }),
+                      courtNoun
+                    ],
+                    className: "inline-flex items-center gap-1 font-mono text-[10px] text-cyan-700 dark:text-cyan-300"
+                  }) : null,
             isActive && sortedIntents.length > 0 ? JsxRuntime.jsx("span", {
                     children: sortedIntents.map(function (w) {
                           return JsxRuntime.jsx("span", {
@@ -381,6 +422,7 @@ function PlayIntentRow(props) {
               }
             })
         }) : null;
+  var overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(courtAvailability, draft);
   var editorBlock = JsxRuntime.jsx(FramerMotion.motion.div, {
         className: "overflow-hidden mx-4 md:mx-6 my-2 rounded-lg border border-[#bdf25d]/60 dark:border-[#bdf25d]/30 bg-[#bdf25d]/10 dark:bg-[#bdf25d]/5",
         animate: {
@@ -457,7 +499,9 @@ function PlayIntentRow(props) {
                                             });
                                       }),
                                     activityId: resolvedActivityId,
-                                    clubId: props.clubId
+                                    clubId: props.clubId,
+                                    courtAvailability: courtAvailability,
+                                    onUseCourtSlot: useCourtSlot
                                   })),
                           fallback: Caml_option.some(JsxRuntime.jsx(TimeWindowPicker.make, {
                                     intents: draft,
@@ -465,9 +509,43 @@ function PlayIntentRow(props) {
                                         setDraft(function (param) {
                                               return intents;
                                             });
-                                      })
+                                      }),
+                                    courtAvailability: courtAvailability,
+                                    onUseCourtSlot: useCourtSlot
                                   }))
                         }),
+                    userDays.length > 0 || courtAvailability.length > 0 ? JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("span", {
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            className: "h-2 w-2 rounded-sm bg-[#bdf25d]"
+                                          }),
+                                      t`You`
+                                    ],
+                                    className: "inline-flex items-center gap-1"
+                                  }),
+                              userDays.length > 0 ? JsxRuntime.jsxs("span", {
+                                      children: [
+                                        JsxRuntime.jsx("span", {
+                                              className: "h-2 w-2 rounded-sm bg-violet-400"
+                                            }),
+                                        t`Players`
+                                      ],
+                                      className: "inline-flex items-center gap-1"
+                                    }) : null,
+                              courtAvailability.length > 0 ? JsxRuntime.jsxs("span", {
+                                      children: [
+                                        JsxRuntime.jsx("span", {
+                                              className: "h-2 w-2 rounded-sm bg-cyan-400"
+                                            }),
+                                        t`Courts`
+                                      ],
+                                      className: "inline-flex items-center gap-1"
+                                    }) : null
+                            ],
+                            className: "mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[9px] uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                          }) : null,
                     draft.length > 0 ? JsxRuntime.jsx("div", {
                             children: draft.toSorted(function (a, b) {
                                     return a.start - b.start;
@@ -478,6 +556,14 @@ function PlayIntentRow(props) {
                                             }, w.id.toString());
                                 }),
                             className: "mt-2 flex flex-wrap gap-1.5"
+                          }) : null,
+                    overlappingCourts.length > 0 ? JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
+                                  courtAvailability: overlappingCourts,
+                                  title: t`Courts available during your time`,
+                                  onUseSlot: useCourtSlot
+                                }),
+                            className: "mt-2"
                           }) : null,
                     userDays.length > 0 ? JsxRuntime.jsxs("div", {
                             children: [

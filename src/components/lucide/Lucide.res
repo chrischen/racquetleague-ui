@@ -11,7 +11,18 @@ module CalendarPlus = {
 
 module MapPin = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "MapPin"
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "MapPin"
+}
+
+module ExternalLink = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "ExternalLink"
 }
 
 module CornerDownRight = {

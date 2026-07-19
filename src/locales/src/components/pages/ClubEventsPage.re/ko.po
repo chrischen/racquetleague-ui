@@ -13,6 +13,18 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0}코트"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0}코트"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/NewPlanModal.re.mjs:232
 msgid "1 · Day"
 msgstr "1 · 날짜"
@@ -73,9 +85,17 @@ msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — �
 msgid "Loading events..."
 msgstr "이벤트 로딩 중..."
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "긴 공개 시간"
+
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "가능 표시"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "내 시간에 맞추기"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -97,7 +117,7 @@ msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세
 msgid "Share link"
 msgstr "링크 공유"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "아무 곳이나 탭하여 시간 창 추가"
 

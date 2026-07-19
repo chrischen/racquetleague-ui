@@ -26,6 +26,8 @@ let make = (
   ~onChange: array<TimeWindowPicker.playIntent> => unit,
   ~activityId: option<string>=?,
   ~clubId: option<string>=?,
+  ~courtAvailability: array<TimeWindowPicker.courtAvailability>=[],
+  ~onUseCourtSlot: option<TimeWindowPicker.courtSlotGroup => unit>=?,
 ) => {
   let resolvedActivityId = activityId->Option.getOr(defaultActivityId)
   // Only mounted from the availability editor, i.e. after the geolocation
@@ -45,5 +47,7 @@ let make = (
       count: hc.count,
     })}
     maxDemand=maxCount
+    courtAvailability
+    ?onUseCourtSlot
   />
 }

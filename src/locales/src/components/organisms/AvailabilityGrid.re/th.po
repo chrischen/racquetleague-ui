@@ -13,68 +13,88 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:389
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "สนาม {0}"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} สนาม"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:408
 msgid "Add time windows above"
 msgstr "เพิ่มช่วงเวลาด้านบน"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:222
+#: src/components/organisms/AvailabilityGrid.re.mjs:238
 msgid ""
 "Add time windows to each day. Drag to move them, grab the edges to resize."
 msgstr "เพิ่มช่วงเวลาในแต่ละวัน ลากเพื่อย้าย หรือจับขอบเพื่อปรับขนาด"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:298
+#: src/components/organisms/AvailabilityGrid.re.mjs:314
 msgid "Clear"
 msgstr "ล้าง"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:370
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
 msgid ""
 "Drag a window to move it · drag the edges to resize · tap + to add another"
 msgstr "ลากหน้าต่างเพื่อย้าย · ลากขอบเพื่อปรับขนาด · แตะ + เพื่อเพิ่ม"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:436
+#: src/components/organisms/AvailabilityGrid.re.mjs:455
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:253
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "ช่วงเวลาว่างยาว"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:269
 msgid "One-off"
 msgstr "ครั้งเดียว"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:451
+#: src/components/organisms/AvailabilityGrid.re.mjs:470
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:451
+#: src/components/organisms/AvailabilityGrid.re.mjs:470
 msgid "Saving…"
 msgstr "กำลังบันทึก…"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:214
+#: src/components/organisms/AvailabilityGrid.re.mjs:230
 msgid "Schedule"
 msgstr "ตารางเวลา"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:432
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:274
+#: src/components/organisms/AvailabilityGrid.re.mjs:290
 msgid "Weekday eves"
 msgstr "เย็นวันธรรมดา"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:286
+#: src/components/organisms/AvailabilityGrid.re.mjs:302
 msgid "Weekend morns"
 msgstr "เช้าวันหยุด"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:237
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
 msgid "Weekly"
 msgstr "รายสัปดาห์"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:218
+#: src/components/organisms/AvailabilityGrid.re.mjs:234
 msgid "When can you play?"
 msgstr "คุณเล่นได้เมื่อไหร่?"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:378
+#: src/components/organisms/AvailabilityGrid.re.mjs:397
 msgid "Your availability"
 msgstr "เวลาว่างของคุณ"

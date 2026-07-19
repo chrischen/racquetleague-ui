@@ -13,6 +13,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} 场地"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} 场地"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/NewPlanModal.re.mjs:232
 msgid "1 · Day"
 msgstr "1 · 日期"
@@ -59,9 +71,17 @@ msgstr "发起活动"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "发起活动需要恰好选择一个时间段——请选择一个。"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "长时段空档"
+
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "标记为空闲"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "匹配我的时间"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -79,7 +99,7 @@ msgstr "保存"
 msgid "Select exactly one time window to host an event"
 msgstr "请选择恰好一个时间段来发起活动"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "点击任意位置添加时间段"
 

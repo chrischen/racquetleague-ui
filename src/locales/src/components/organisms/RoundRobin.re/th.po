@@ -540,7 +540,6 @@ msgstr "เบราว์เซอร์ของคุณเก่าเกิ
 #~ msgstr "ยังไม่มีผู้เล่น"
 
 #: src/components/organisms/RoundRobin.re.mjs:359
-#, fuzzy
 #~ msgid "Players"
 #~ msgstr "หาผู้เล่น"
 

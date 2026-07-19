@@ -53,6 +53,7 @@ let make = (
   ~activityId: option<string>=?,
   ~clubId: option<string>=?,
   ~userDays: array<userDay>,
+  ~courtAvailability: array<TimeWindowPicker.courtAvailability>=[],
   ~onAvailabilityCommitted: option<userDay> => unit,
   ~onChange: array<TimeWindowPicker.playIntent> => unit,
   ~onCreateEvent: option<unit => unit>=?,
@@ -176,6 +177,10 @@ let make = (
     setEditing(_ => true)
   }
 
+  // Replace the draft with a court opening's window (picker band or group list).
+  let useCourtSlot = (group: TimeWindowPicker.courtSlotGroup) =>
+    setDraft(_ => [{id: TimeWindowPicker.wid(), start: group.start, end: group.end}])
+
   let openEditorRef = React.useRef(openEditor)
   openEditorRef.current = openEditor
 
@@ -259,7 +264,18 @@ let make = (
       <span> {(ts`Play today`)->React.string} </span>
     </button>
 
-  let showDemandRow = hasAnyDemand || isActive
+  // Keep players, the user's availability, and court inventory in one compact
+  // discovery row so court-only days still surface useful planning context.
+  let availableCourtCount =
+    courtAvailability->Array.reduce(0, (acc, c) => acc + c.intents->Array.length)
+  let courtNoun = Lingui.UtilString.plural(
+    availableCourtCount,
+    {
+      one: ts`${availableCourtCount->Int.toString} court available`,
+      other: ts`${availableCourtCount->Int.toString} courts available`,
+    },
+  )
+  let showDemandRow = hasAnyDemand || isActive || availableCourtCount > 0
   let othersWord = Lingui.UtilString.plural(demandCount, {one: ts`other`, other: ts`others`})
   let headline =
     if isActive {
@@ -268,7 +284,7 @@ let make = (
       } else {
         ts`You're available to play`
       }
-    } else {
+    } else if demandCount > 0 {
       Lingui.UtilString.plural(
         demandCount,
         {
@@ -276,6 +292,8 @@ let make = (
           other: ts`${demandCount->Int.toString} people looking to play`,
         },
       )
+    } else {
+      courtNoun
     }
 
   let demandRow =
@@ -327,13 +345,29 @@ let make = (
                 {("+" ++ (demandCount - 4)->Int.toString)->React.string}
               </span>
             : React.null}
+          {availableCourtCount > 0
+            ? <span
+                title=courtNoun
+                className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-200 ring-2 ring-white dark:ring-[#222326]">
+                <Lucide.MapPin size=11 strokeWidth=2.5 />
+              </span>
+            : React.null}
         </div>
         <span
           className={`min-w-0 text-xs transition-colors ${isActive
               ? "text-[#3f6212] dark:text-[#bdf25d] font-medium"
-              : "text-violet-700 dark:text-violet-300 group-hover/demand:text-violet-900 dark:group-hover/demand:text-violet-200"}`}>
+              : demandCount > 0
+              ? "text-violet-700 dark:text-violet-300 group-hover/demand:text-violet-900 dark:group-hover/demand:text-violet-200"
+              : "text-cyan-700 dark:text-cyan-300 group-hover/demand:text-cyan-900 dark:group-hover/demand:text-cyan-200"}`}>
           {headline->React.string}
         </span>
+        {availableCourtCount > 0 && (demandCount > 0 || isActive)
+          ? <span
+              className="inline-flex items-center gap-1 font-mono text-[10px] text-cyan-700 dark:text-cyan-300">
+              <Lucide.MapPin size=10 strokeWidth=2.5 />
+              {courtNoun->React.string}
+            </span>
+          : React.null}
         {isActive && sortedIntents->Array.length > 0
           ? <span className="flex items-center gap-1 flex-wrap">
               {sortedIntents
@@ -394,7 +428,10 @@ let make = (
         </div>
         <React.Suspense
           fallback={<TimeWindowPicker
-            intents=draft onChange={intents => setDraft(_ => intents)}
+            intents=draft
+            onChange={intents => setDraft(_ => intents)}
+            courtAvailability
+            onUseCourtSlot=useCourtSlot
           />}>
           <TimePickerWithHeatmap
             localDate
@@ -402,8 +439,33 @@ let make = (
             onChange={intents => setDraft(_ => intents)}
             activityId=?resolvedActivityId
             ?clubId
+            courtAvailability
+            onUseCourtSlot=useCourtSlot
           />
         </React.Suspense>
+        // The picker always shows the day's full context; overlap filtering is
+        // summary-only.
+        {userDays->Array.length > 0 || courtAvailability->Array.length > 0
+          ? <div
+              className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[9px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1">
+                <span className="h-2 w-2 rounded-sm bg-[#bdf25d]" />
+                {(ts`You`)->React.string}
+              </span>
+              {userDays->Array.length > 0
+                ? <span className="inline-flex items-center gap-1">
+                    <span className="h-2 w-2 rounded-sm bg-violet-400" />
+                    {(ts`Players`)->React.string}
+                  </span>
+                : React.null}
+              {courtAvailability->Array.length > 0
+                ? <span className="inline-flex items-center gap-1">
+                    <span className="h-2 w-2 rounded-sm bg-cyan-400" />
+                    {(ts`Courts`)->React.string}
+                  </span>
+                : React.null}
+            </div>
+          : React.null}
         {draft->Array.length > 0
           ? <div className="mt-2 flex flex-wrap gap-1.5">
               {draft
@@ -416,6 +478,22 @@ let make = (
               ->React.array}
             </div>
           : React.null}
+        {
+          // Court openings that overlap the user's drafted time windows.
+          let overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(
+            courtAvailability,
+            draft,
+          )
+          overlappingCourts->Array.length > 0
+            ? <div className="mt-2">
+                <CourtAvailabilityGroups
+                  title={ts`Courts available during your time`}
+                  courtAvailability=overlappingCourts
+                  onUseSlot=useCourtSlot
+                />
+              </div>
+            : React.null
+        }
         {userDays->Array.length > 0
           ? <div className="mt-2">
               <button

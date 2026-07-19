@@ -13,6 +13,18 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/NewPlanModal.re.mjs:232
 msgid "1 · Day"
 msgstr "1 · Ngày"
@@ -57,9 +69,17 @@ msgstr "Tổ chức sự kiện"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "Khung giờ dài"
+
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "Khớp giờ của tôi"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -77,7 +97,7 @@ msgstr "Lưu"
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
 

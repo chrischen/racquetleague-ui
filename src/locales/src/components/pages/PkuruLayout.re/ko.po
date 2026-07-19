@@ -29,6 +29,18 @@ msgstr "— 더 빠른 앱 같은 경험을 위해"
 msgid "(logout)"
 msgstr "(로그아웃)"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0}코트"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0}코트"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
 #: src/components/shared/InstallPwa.re.mjs:462
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"홈 화면에 추가\\\""
@@ -162,6 +174,10 @@ msgstr "로딩 중..."
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "긴 공개 시간"
+
 #: src/components/pages/PkuruLayout.re.mjs:448
 msgid "Map"
 msgstr "지도"
@@ -173,6 +189,10 @@ msgstr "지도 보기"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "가능 표시"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "내 시간에 맞추기"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -265,7 +285,7 @@ msgstr "스포츠"
 msgid "Stay in the loop"
 msgstr "최신 소식 받아보기"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "아무 곳이나 탭하여 시간 창 추가"
 

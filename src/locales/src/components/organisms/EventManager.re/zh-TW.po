@@ -615,7 +615,6 @@ msgstr "獲勝隊（隊伍 {0}）"
 #~ msgstr "本輪不上場"
 
 #: src/components/organisms/EventManager.re.mjs:223
-#, fuzzy
 #~ msgid "Players"
 #~ msgstr "尋找球員"
 

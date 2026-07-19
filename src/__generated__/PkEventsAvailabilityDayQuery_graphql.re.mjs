@@ -120,6 +120,11 @@ v10 = {
   "storageKey": null
 },
 v11 = {
+  "kind": "Variable",
+  "name": "location",
+  "variableName": "location"
+},
+v12 = {
   "alias": null,
   "args": null,
   "concreteType": "AvailabilityInterval",
@@ -144,15 +149,11 @@ v11 = {
   ],
   "storageKey": null
 },
-v12 = {
+v13 = {
   "alias": null,
   "args": [
     (v7/*: any*/),
-    {
-      "kind": "Variable",
-      "name": "location",
-      "variableName": "location"
-    },
+    (v11/*: any*/),
     {
       "fields": [
         (v6/*: any*/)
@@ -195,7 +196,52 @@ v12 = {
       ],
       "storageKey": null
     },
-    (v11/*: any*/)
+    (v12/*: any*/)
+  ],
+  "storageKey": null
+},
+v14 = {
+  "alias": null,
+  "args": [
+    (v6/*: any*/),
+    (v7/*: any*/),
+    (v11/*: any*/),
+    (v8/*: any*/)
+  ],
+  "concreteType": "LocationAvailabilityDay",
+  "kind": "LinkedField",
+  "name": "locationsAvailability",
+  "plural": true,
+  "selections": [
+    (v4/*: any*/),
+    (v10/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "link",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Location",
+      "kind": "LinkedField",
+      "name": "location",
+      "plural": false,
+      "selections": [
+        (v4/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "name",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    (v12/*: any*/)
   ],
   "storageKey": null
 };
@@ -241,7 +287,8 @@ return {
         ],
         "storageKey": null
       },
-      (v12/*: any*/)
+      (v13/*: any*/),
+      (v14/*: any*/)
     ],
     "type": "Query",
     "abstractKey": null
@@ -276,23 +323,24 @@ return {
             "selections": [
               (v4/*: any*/),
               (v10/*: any*/),
-              (v11/*: any*/)
+              (v12/*: any*/)
             ],
             "storageKey": null
           }
         ],
         "storageKey": null
       },
-      (v12/*: any*/)
+      (v13/*: any*/),
+      (v14/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "0e529c01c4d89c2bd44ace83d8084965",
+    "cacheID": "2b4139e289efaf985fcc81e04742c517",
     "id": null,
     "metadata": {},
     "name": "PkEventsAvailabilityDayQuery",
     "operationKind": "query",
-    "text": "query PkEventsAvailabilityDayQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $location: LocationInput!\n) {\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      ...PlayIntentRow_availabilityDay\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: $activityId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n"
+    "text": "query PkEventsAvailabilityDayQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $location: LocationInput!\n) {\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      ...PlayIntentRow_availabilityDay\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: $activityId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n"
   }
 };
 })());

@@ -229,6 +229,35 @@ function AvailabilityPage$AvailabilityContent(props) {
                 initialIntervals: intervals
               };
       });
+  var genericCourtName = t`Court`;
+  var courtAvailability = Core__Array.reduce(match$1.locationsAvailability, {}, (function (acc, day) {
+          var loc = day.location;
+          if (loc === undefined) {
+            return acc;
+          }
+          var court_id = day.id;
+          var court_location = {
+            id: loc.id,
+            name: Core__Option.getOr(loc.name, genericCourtName),
+            reservationUrl: day.link
+          };
+          var court_intents = day.intervals.map(function (iv, i) {
+                return {
+                        id: i,
+                        start: iv.startHour,
+                        end: iv.endHour
+                      };
+              });
+          var court = {
+            id: court_id,
+            location: court_location,
+            courtName: undefined,
+            intents: court_intents
+          };
+          var existing = Core__Option.getOr(Js_dict.get(acc, day.localDate), []);
+          acc[day.localDate] = Belt_Array.concat(existing, [court]);
+          return acc;
+        }));
   var demand = Core__Array.reduce(match$1.availabilityUsersForDateRange, {}, (function (acc, d) {
           var pd_id = d.id.length;
           var pd_intents = d.intervals.map(function (iv, i) {
@@ -286,7 +315,8 @@ function AvailabilityPage$AvailabilityContent(props) {
               onSave: handleSave,
               isSaving: match$2[0],
               existingEvents: existingEvents,
-              demand: demand
+              demand: demand,
+              courtAvailability: courtAvailability
             });
 }
 

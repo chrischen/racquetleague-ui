@@ -13,68 +13,88 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:389
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} 场地"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} 场地"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:408
 msgid "Add time windows above"
 msgstr "在上方添加时间段"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:222
+#: src/components/organisms/AvailabilityGrid.re.mjs:238
 msgid ""
 "Add time windows to each day. Drag to move them, grab the edges to resize."
 msgstr "为每天添加时间段。拖动可移动，拖动边缘可调整大小。"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:298
+#: src/components/organisms/AvailabilityGrid.re.mjs:314
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:370
+#: src/components/organisms/AvailabilityGrid.re.mjs:389
 msgid ""
 "Drag a window to move it · drag the edges to resize · tap + to add another"
 msgstr "拖动时间段移动 · 拖动边缘调整大小 · 点击 + 添加更多"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:436
+#: src/components/organisms/AvailabilityGrid.re.mjs:455
 msgid "Let hosts schedule events when most of you are free"
 msgstr "让发起人在大多数人空闲时安排活动"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:253
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "长时段空档"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "匹配我的时间"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:269
 msgid "One-off"
 msgstr "单次"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:451
+#: src/components/organisms/AvailabilityGrid.re.mjs:470
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:451
+#: src/components/organisms/AvailabilityGrid.re.mjs:470
 msgid "Saving…"
 msgstr "保存中…"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:214
+#: src/components/organisms/AvailabilityGrid.re.mjs:230
 msgid "Schedule"
 msgstr "日程"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:432
+#: src/components/organisms/AvailabilityGrid.re.mjs:451
 msgid "Share with your club"
 msgstr "与你的俱乐部分享"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "点击任意位置添加时间段"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:274
+#: src/components/organisms/AvailabilityGrid.re.mjs:290
 msgid "Weekday eves"
 msgstr "工作日傍晚"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:286
+#: src/components/organisms/AvailabilityGrid.re.mjs:302
 msgid "Weekend morns"
 msgstr "周末上午"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:237
+#: src/components/organisms/AvailabilityGrid.re.mjs:253
 msgid "Weekly"
 msgstr "每周"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:218
+#: src/components/organisms/AvailabilityGrid.re.mjs:234
 msgid "When can you play?"
 msgstr "你什么时候有空打球？"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:378
+#: src/components/organisms/AvailabilityGrid.re.mjs:397
 msgid "Your availability"
 msgstr "你的空闲时间"

@@ -616,7 +616,6 @@ msgstr "ทีมชนะ (ทีม {0})"
 #~ msgstr "ผสมผู้เล่นที่มีระดับต่างกัน แต่ยังแยกผู้เล่นที่แข็งกว่าเพื่อสมดุลทีม"
 
 #: src/components/organisms/EventManager.re.mjs:223
-#, fuzzy
 #~ msgid "Players"
 #~ msgstr "หาผู้เล่น"
 

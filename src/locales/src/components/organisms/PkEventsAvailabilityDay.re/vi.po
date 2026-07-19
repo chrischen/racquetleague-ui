@@ -13,113 +13,218 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:495
-#: src/components/molecules/PlayIntentRow.re.mjs:623
+#: src/components/molecules/PlayIntentRow.re.mjs:581
+#: src/components/molecules/PlayIntentRow.re.mjs:709
 msgid "· peak {0}–{1}"
 msgstr "· cao điểm {0}–{1}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:52
+#: src/components/molecules/PlayIntentRow.re.mjs:577
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:493
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:49
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:132
+msgid "{0} court"
+msgstr "{0} sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:319
+msgid "{0} court available"
+msgstr "{0} sân trống"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:50
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:133
+msgid "{0} courts"
+msgstr "{0} sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:320
+msgid "{0} courts available"
+msgstr "{0} sân trống"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+msgid "{0} location"
+msgstr "{0} địa điểm"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} locations"
+msgstr "{0} địa điểm"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:579
 msgid "{0} people"
 msgstr "{0} người"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:312
+#: src/components/molecules/PlayIntentRow.re.mjs:332
 msgid "{0} people looking to play"
 msgstr "{0} người muốn chơi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:621
+#: src/components/molecules/PlayIntentRow.re.mjs:707
 msgid "{0} people want to play"
 msgstr "{0} người muốn chơi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:492
+#: src/components/molecules/PlayIntentRow.re.mjs:578
 msgid "{0} person"
 msgstr "{0} người"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:311
+#: src/components/molecules/PlayIntentRow.re.mjs:331
 msgid "{0} person looking to play"
 msgstr "{0} người muốn chơi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:620
+#: src/components/molecules/PlayIntentRow.re.mjs:706
 msgid "{0} person wants to play"
 msgstr "{0} người muốn chơi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:304
-#: src/components/molecules/PlayIntentRow.re.mjs:310
-#: src/components/molecules/PlayIntentRow.re.mjs:619
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+msgid "{0} time option"
+msgstr "{0} tùy chọn giờ"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+msgid "{0} time options"
+msgstr "{0} tùy chọn giờ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:318
+msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
+msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:323
+#: src/components/molecules/PlayIntentRow.re.mjs:330
+#: src/components/molecules/PlayIntentRow.re.mjs:705
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:274
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+msgstr "{groupCourtsPhrase} tại {groupLocationsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:131
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:286
 msgid "Afternoon"
 msgstr "Buổi chiều"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:262
+#: src/components/molecules/PlayIntentRow.re.mjs:274
 msgid "Anytime"
 msgstr "Bất kỳ lúc nào"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:280
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:103
+msgid "Court"
+msgstr "Sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:542
+msgid "Courts"
+msgstr "Sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:563
+msgid "Courts available during your time"
+msgstr "Sân trống trong giờ của bạn"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:292
 msgid "Evening"
 msgstr "Buổi tối"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:550
+#: src/components/molecules/PlayIntentRow.re.mjs:636
 msgid "Host an event at this time"
 msgstr "Tổ chức sự kiện vào thời điểm này"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:547
+#: src/components/molecules/PlayIntentRow.re.mjs:633
 msgid "Host event"
 msgstr "Tổ chức sự kiện"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:566
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+msgid "Long opening"
+msgstr "Khung giờ dài"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:652
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:268
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "Khớp giờ của tôi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:280
 msgid "Morning"
 msgstr "Buổi sáng"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:305
+#: src/components/molecules/PlayIntentRow.re.mjs:324
 msgid "other"
 msgstr "người khác"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:306
+#: src/components/molecules/PlayIntentRow.re.mjs:325
 msgid "others"
 msgstr "người khác"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:550
+#: src/components/molecules/PlayIntentRow.re.mjs:636
 msgid "Pick one time window to host an event"
 msgstr "Chọn một khung giờ để tổ chức sự kiện"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:291
+#: src/components/molecules/PlayIntentRow.re.mjs:303
 msgid "Play today"
 msgstr "Chơi hôm nay"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:526
+#: src/components/molecules/PlayIntentRow.re.mjs:533
+msgid "Players"
+msgstr "Người chơi"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:612
 msgid "Remove all"
 msgstr "Xóa tất cả"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:395
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+msgid "Reserve"
+msgstr "Đặt sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:506
 msgid "Tap anywhere to add a time window"
 msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:403
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+msgid "Use this time"
+msgstr "Dùng giờ này"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+msgid "View {groupCourtsPhrase} & reserve"
+msgstr "Xem {groupCourtsPhrase} & đặt sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:445
 msgid "When can you play {dayWord}?"
 msgstr "Bạn có thể chơi {dayWord} lúc nào?"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:309
+#: src/components/molecules/PlayIntentRow.re.mjs:524
+msgid "You"
+msgstr "Bạn"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:328
 msgid "You + {0} {othersWord} looking to play"
 msgstr "Bạn + {0} {othersWord} muốn chơi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:601
+#: src/components/molecules/PlayIntentRow.re.mjs:687
 msgid "You want to play {dayWord}"
 msgstr "Bạn muốn chơi {dayWord}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:324
+#: src/components/molecules/PlayIntentRow.re.mjs:345
 msgid "You're available"
 msgstr "Bạn rảnh"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:309
+#: src/components/molecules/PlayIntentRow.re.mjs:328
 msgid "You're available to play"
 msgstr "Bạn có thể chơi"

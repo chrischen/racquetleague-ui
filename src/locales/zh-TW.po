@@ -4478,6 +4478,116 @@ msgstr "開啟手機相機，掃描此碼並加入活動。"
 msgid "Scan to check in"
 msgstr "掃描以報到"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} 場"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} 場"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "長時間開放"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "配合我的時間"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+msgid "{0} location"
+msgstr "{0} 個地點"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} locations"
+msgstr "{0} 個地點"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+msgid "{0} time option"
+msgstr "{0} 個時間選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+msgid "{0} time options"
+msgstr "{0} 個時間選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+msgstr "{groupLocationsPhrase} 的 {groupCourtsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:513
+msgid "Courts"
+msgstr "場地"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:534
+msgid "Courts available during your time"
+msgstr "您的時段內可用場地"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+msgid "Reserve"
+msgstr "預訂"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+msgid "Use this time"
+msgstr "使用此時段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+msgid "View {groupCourtsPhrase} & reserve"
+msgstr "查看 {groupCourtsPhrase} 並預訂"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+msgid "You"
+msgstr "您"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:809
+msgid "Court openings are shown only when they overlap your time."
+msgstr "場地開放時段僅顯示與您的時間重疊的部分。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:795
+msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
+msgstr "點擊空白處新增時間・選擇青色場地開放時段（最多4小時）以配合・拖曳移動・拉動邊緣調整大小"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:646
+msgid "Your time"
+msgstr "您的時間"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:533
+msgid "Players"
+msgstr "尋找球員"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:319
+msgid "{0} court available"
+msgstr "{0} 個場地可用"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:320
+msgid "{0} courts available"
+msgstr "{0} 個場地可用"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:318
+msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
+msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:103
+msgid "Court"
+msgstr "場地"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -4487,11 +4597,6 @@ msgstr "掃描以報到"
 #, fuzzy
 #~ msgid "Event Manager"
 #~ msgstr "賽事管理器圖示"
-
-#: src/components/organisms/EventManager.re.mjs:223
-#, fuzzy
-#~ msgid "Players"
-#~ msgstr "尋找球員"
 
 #: src/components/organisms/EventManager.re.mjs:208
 #, fuzzy

@@ -1,3 +1,5 @@
+%%raw("import { t } from '@lingui/macro'")
+
 // Client-only availability row for one events-list day bucket.
 // Mounted only after the geolocation permission prompt resolves (granted or
 // denied) — see UseUserLocation.useStatus — so `location` is the resolved
@@ -33,6 +35,24 @@ module Query = %relay(`
         id
         lineUsername
         picture
+      }
+      intervals {
+        startHour
+        endHour
+      }
+    }
+    locationsAvailability(
+      activityId: $activityId
+      fromDate: $fromDate
+      toDate: $toDate
+      location: $location
+    ) {
+      id
+      localDate
+      link
+      location {
+        id
+        name
       }
       intervals {
         startHour
@@ -94,6 +114,32 @@ let make = (
     ->Option.flatMap(v => v.availability->Array.find(d => d.localDate == localDate))
     ->Option.map(d => d.fragmentRefs)
 
+  // Court (venue) open hours near the caller for this day bucket. Each row
+  // carries its resolved Location and, when the scraper captured one, a
+  // booking `link`; rows without a location are skipped.
+  let genericCourtName = Lingui.UtilString.t`Court`
+  let courtAvailability: array<TimeWindowPicker.courtAvailability> =
+    data.locationsAvailability
+    ->Array.filter(d => d.localDate == localDate)
+    ->Array.filterMap(d =>
+      d.location->Option.map((loc): TimeWindowPicker.courtAvailability => {
+        id: d.id,
+        location: {
+          id: loc.id,
+          name: loc.name->Option.getOr(genericCourtName),
+          reservationUrl: d.link,
+        },
+        courtName: None,
+        intents: d.intervals->Array.mapWithIndex(
+          (iv, i): TimeWindowPicker.playIntent => {
+            id: i,
+            start: iv.startHour->Float.fromInt,
+            end: iv.endHour->Float.fromInt,
+          },
+        ),
+      })
+    )
+
   let onAvailabilityCommitted = (updatedDay: option<PlayIntentRow.userDay>) => {
     let needsRefetch = switch updatedDay {
     | None => true // deletion: Relay won't remove the node from linked arrays
@@ -110,6 +156,7 @@ let make = (
     ?availabilityDay
     activityId
     userDays
+    courtAvailability
     onAvailabilityCommitted
     onChange={_ => ()}
     isLoggedIn

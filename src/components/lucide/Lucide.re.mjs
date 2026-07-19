@@ -7,6 +7,8 @@ var CalendarPlus = {};
 
 var MapPin = {};
 
+var ExternalLink = {};
+
 var CornerDownRight = {};
 
 var Info = {};
@@ -169,6 +171,7 @@ export {
   CalendarClock ,
   CalendarPlus ,
   MapPin ,
+  ExternalLink ,
   CornerDownRight ,
   Info ,
   ArrowUpNarrowWide ,

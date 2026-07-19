@@ -4016,6 +4016,116 @@ msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
 msgid "Scan to check in"
 msgstr "Quét để check-in"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:475
+msgid "{0} court"
+msgstr "{0} sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:476
+msgid "{0} courts"
+msgstr "{0} sân"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:474
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Long opening"
+msgstr "Khung giờ dài"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+msgid "Match my time"
+msgstr "Khớp giờ của tôi"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+msgid "{0} location"
+msgstr "{0} địa điểm"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} locations"
+msgstr "{0} địa điểm"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+msgid "{0} time option"
+msgstr "{0} tùy chọn giờ"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+msgid "{0} time options"
+msgstr "{0} tùy chọn giờ"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+msgstr "{groupCourtsPhrase} tại {groupLocationsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:513
+msgid "Courts"
+msgstr "Sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:534
+msgid "Courts available during your time"
+msgstr "Sân trống trong giờ của bạn"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:504
+msgid "Players"
+msgstr "Người chơi"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+msgid "Reserve"
+msgstr "Đặt sân"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+msgid "Use this time"
+msgstr "Dùng giờ này"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+msgid "View {groupCourtsPhrase} & reserve"
+msgstr "Xem {groupCourtsPhrase} & đặt sân"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+msgid "You"
+msgstr "Bạn"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:809
+msgid "Court openings are shown only when they overlap your time."
+msgstr "Các khung giờ trống chỉ hiển thị khi trùng với giờ của bạn."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:795
+msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
+msgstr "Nhấn vùng trống để thêm giờ · chọn khung giờ màu xanh lam tối đa 4 giờ để khớp · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:646
+msgid "Your time"
+msgstr "Giờ của bạn"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:319
+msgid "{0} court available"
+msgstr "{0} sân trống"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:320
+msgid "{0} courts available"
+msgstr "{0} sân trống"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:318
+msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
+msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:103
+msgid "Court"
+msgstr "Sân"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

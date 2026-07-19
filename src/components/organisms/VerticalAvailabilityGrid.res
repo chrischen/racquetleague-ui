@@ -1,10 +1,13 @@
-%%raw("import { t } from '@lingui/macro'")
+%%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
+
+let ts = Lingui.UtilString.t
 
 // ─── Public types ─────────────────────────────────────────────────────────────
 
 type existingEvent = TimeWindowPicker.existingEvent
 type playerDemand = TimeWindowPicker.playerDemand
+type courtAvailability = TimeWindowPicker.courtAvailability
 type dayData = AvailabilityGrid.dayData
 type intervalUpdate = AvailabilityGrid.intervalUpdate
 
@@ -227,6 +230,7 @@ module VerticalDayColumn = {
     ~windows: array<TimeWindowPicker.playIntent>,
     ~existingEvents: array<existingEvent>=[],
     ~demand: array<playerDemand>=[],
+    ~courtAvailability: array<courtAvailability>=[],
     ~onUpdate: array<TimeWindowPicker.playIntent> => unit,
     ~onMoveDay: (int, int, TimeWindowPicker.playIntent) => unit,
     ~getTargetDayArrayIdx: float => int,
@@ -275,6 +279,7 @@ module VerticalDayColumn = {
     let demandIntents = demand->Array.flatMap(d => d.intents)
     let (densityCounts, densityMax) =
       demand->Array.length > 0 ? TimeWindowPicker.computeDensity(demandIntents) : ([], 0)
+    let courtGroups = TimeWindowPicker.groupCourtAvailabilityByTime(courtAvailability)
 
     <div
       className={`flex-1 min-w-[60px] md:min-w-[80px] flex flex-col border-r last:border-r-0 border-gray-200 dark:border-[#2a2b30] ${isWeekend
@@ -380,6 +385,57 @@ module VerticalDayColumn = {
           }
         })
         ->React.array}
+        // One time-level overlay per group avoids stacking many courts in a
+        // day column; its label is the available court count.
+        {courtGroups
+        ->Array.map(group => {
+          let topPct = (group.start -. hourMinF) /. hourRangeF *. 100.0
+          let heightPct = (group.end -. group.start) /. hourRangeF *. 100.0
+          let canMatch = group.end -. group.start <= TimeWindowPicker.maxMatchableCourtHours
+          let slotCount = group.slots->Array.length
+          let courtsPhrase = Lingui.UtilString.plural(
+            slotCount,
+            {
+              one: ts`${slotCount->Int.toString} court`,
+              other: ts`${slotCount->Int.toString} courts`,
+            },
+          )
+          <button
+            key={group.key}
+            type_="button"
+            disabled={!canMatch}
+            onClick={e => {
+              e->ReactEvent.Mouse.stopPropagation
+              if canMatch {
+                let ni: TimeWindowPicker.playIntent = {
+                  id: TimeWindowPicker.wid(),
+                  start: group.start,
+                  end: group.end,
+                }
+                onUpdate([ni])
+              }
+            }}
+            className={`absolute left-1 right-1 z-[15] rounded border border-cyan-500/70 bg-cyan-200/80 dark:bg-cyan-700/45 overflow-hidden flex flex-col items-center justify-center px-0.5 ${canMatch
+                ? "cursor-pointer hover:bg-cyan-300 dark:hover:bg-cyan-600/55 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-inset"
+                : "pointer-events-none"}`}
+            style={ReactDOM.Style.make(
+              ~top=topPct->Float.toString ++ "%",
+              ~height=heightPct->Float.toString ++ "%",
+              (),
+            )}
+            title={courtsPhrase ++
+            " · " ++
+            TimeWindowPicker.hourLabel(group.start) ++
+            "–" ++
+            TimeWindowPicker.hourLabel(group.end) ++ (canMatch ? " · " ++ ts`Match my time` : " · " ++ ts`Long opening`)}>
+            <Lucide.MapPin size=10 className="text-cyan-800 dark:text-cyan-200 flex-shrink-0" />
+            <span
+              className="max-w-full font-mono text-[8px] font-bold leading-tight text-cyan-900 dark:text-cyan-100 truncate">
+              {courtsPhrase->React.string}
+            </span>
+          </button>
+        })
+        ->React.array}
         {windows
         ->Array.map(w =>
           <VerticalWindowChip
@@ -409,6 +465,7 @@ let make = (
   ~isSaving: bool=?,
   ~existingEvents: Js.Dict.t<array<existingEvent>>=?,
   ~demand: Js.Dict.t<array<playerDemand>>=?,
+  ~courtAvailability: Js.Dict.t<array<courtAvailability>>=?,
 ) => {
   let (windows, setWindows) = React.useState(() =>
     days->Array.map(day =>
@@ -563,8 +620,23 @@ let make = (
               {t`Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize.`}
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <div className="flex items-center gap-1.5 ml-auto flex-wrap">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+            <div
+              className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-sm bg-[#bdf25d] border border-[#a3d949]" />
+                {t`Your time`}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-sm bg-violet-400/70" />
+                {t`Players`}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Lucide.MapPin size=11 className="text-cyan-600 dark:text-cyan-400" />
+                {t`Courts`}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 flex-wrap">
               <button
                 onClick={_ => applyPreset("weekday-evenings")}
                 className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-mono rounded-md border border-gray-200 dark:border-[#3a3b40] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors">
@@ -636,6 +708,9 @@ let make = (
                     demand={demand
                     ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
                     ->Option.getOr([])}
+                    courtAvailability={courtAvailability
+                    ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
+                    ->Option.getOr([])}
                     onUpdate={ws => updateDay(i, ws)}
                     onMoveDay={(windowId, targetDayArrayIdx, nw) =>
                       handleMoveDay(i, windowId, targetDayArrayIdx, nw)}
@@ -649,16 +724,22 @@ let make = (
             </div>
           </div>
           <p className="text-[11px] font-mono text-gray-400 dark:text-gray-500 mt-2 px-1">
-            {t`Tap an empty area of a day to add a window \xb7 drag to move \xb7 grab the edges to resize`}
+            {t`Tap an empty area to add time \xb7 select a cyan court opening up to 4h to match it \xb7 drag to move \xb7 grab the edges to resize`}
           </p>
-          <div
+          <section
             className="mt-6 border border-gray-200 dark:border-[#2a2b30] rounded-lg p-4 bg-white dark:bg-[#1e1f23]">
-            <div className="flex items-center justify-between mb-3">
-              <h2
-                className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase">
-                {t`Your availability`}
-              </h2>
-              <span className="font-mono text-[11px] text-gray-500 dark:text-gray-400">
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <div>
+                <h2
+                  className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase">
+                  {t`Your availability`}
+                </h2>
+                <p className="mt-1 text-[11px] text-gray-500 dark:text-gray-400">
+                  {t`Court openings are shown only when they overlap your time.`}
+                </p>
+              </div>
+              <span
+                className="font-mono text-[11px] text-gray-500 dark:text-gray-400 whitespace-nowrap">
                 {React.string(totalHours->Float.toString ++ "h / 2 weeks")}
               </span>
             </div>
@@ -667,7 +748,7 @@ let make = (
                   className="text-center py-6 text-xs text-gray-400 dark:text-gray-500 font-mono">
                   {t`Add time windows above`}
                 </div>
-              : <div className="space-y-2">
+              : <div className="space-y-3">
                   {days
                   ->Array.mapWithIndex((d, i) => {
                     let ws =
@@ -680,29 +761,59 @@ let make = (
                     if ws->Array.length === 0 {
                       React.null
                     } else {
-                      <div key={d.dayIdx->Int.toString} className="flex items-start gap-3 text-sm">
-                        <span
-                          className="w-9 flex-shrink-0 font-semibold text-gray-900 dark:text-gray-100">
-                          {React.string(d.label)}
-                        </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {ws
-                          ->Array.map(w =>
-                            <TimeRangeChip
-                              key={w.id->Int.toString}
-                              startHour=w.start
-                              endHour={w.end}
-                              className="bg-[#bdf25d]/30 dark:bg-[#bdf25d]/20"
-                            />
-                          )
-                          ->React.array}
+                      let overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(
+                        courtAvailability
+                        ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
+                        ->Option.getOr([]),
+                        ws,
+                      )
+                      <article
+                        key={d.dayIdx->Int.toString}
+                        className="rounded-md border border-gray-100 dark:border-[#2a2b30] bg-gray-50/60 dark:bg-[#1c1d21] p-3">
+                        <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4">
+                          <span
+                            className="sm:w-20 flex-shrink-0 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                            {React.string(d.label ++ " ")}
+                            <span
+                              className="font-mono text-[10px] font-normal text-gray-400 dark:text-gray-500">
+                              {React.string(d.dateLabel)}
+                            </span>
+                          </span>
+                          <div className="flex flex-1 flex-wrap gap-1.5">
+                            {ws
+                            ->Array.map(w =>
+                              <TimeRangeChip
+                                key={w.id->Int.toString}
+                                startHour=w.start
+                                endHour={w.end}
+                                className="bg-[#bdf25d]/30 dark:bg-[#bdf25d]/20"
+                              />
+                            )
+                            ->React.array}
+                          </div>
                         </div>
-                      </div>
+                        {overlappingCourts->Array.length > 0
+                          ? <div className="mt-2 sm:ml-24">
+                              <CourtAvailabilityGroups
+                                title={ts`Courts available during your time`}
+                                courtAvailability=overlappingCourts
+                                onUseSlot={group => {
+                                  let ni: TimeWindowPicker.playIntent = {
+                                    id: TimeWindowPicker.wid(),
+                                    start: group.start,
+                                    end: group.end,
+                                  }
+                                  updateDay(i, [ni])
+                                }}
+                              />
+                            </div>
+                          : React.null}
+                      </article>
                     }
                   })
                   ->React.array}
                 </div>}
-          </div>
+          </section>
           <div
             className="mt-4 flex items-center justify-between gap-3 p-4 rounded-lg border border-gray-200 dark:border-[#2a2b30] bg-gray-50 dark:bg-[#1e1f23]">
             <div className="flex items-center gap-2.5 min-w-0">

@@ -615,7 +615,6 @@ msgstr "获胜队（队伍 {0}）"
 #~ msgstr "本轮不参赛"
 
 #: src/components/organisms/EventManager.re.mjs:223
-#, fuzzy
 #~ msgid "Players"
 #~ msgstr "寻找球员"
 

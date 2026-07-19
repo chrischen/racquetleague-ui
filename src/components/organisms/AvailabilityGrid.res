@@ -16,6 +16,7 @@ type dayData = {
 }
 
 type playerDemand = TimeWindowPicker.playerDemand
+type courtAvailability = TimeWindowPicker.courtAvailability
 
 type intervalUpdate = {
   isoDate: string,
@@ -49,6 +50,7 @@ module DayRow = {
     ~isToday: bool=false,
     ~existingEvents: array<existingEvent>=[],
     ~demand: array<playerDemand>=[],
+    ~courtAvailability: array<courtAvailability>=[],
     ~windows: array<TimeWindowPicker.playIntent>,
     ~onUpdate: array<TimeWindowPicker.playIntent> => unit,
   ) => {
@@ -106,6 +108,15 @@ module DayRow = {
           existingEvents
           demandCounts=demandHourCounts
           maxDemand
+          courtAvailability
+          onUseCourtSlot={group => {
+            let ni: TimeWindowPicker.playIntent = {
+              id: TimeWindowPicker.wid(),
+              start: group.start,
+              end: group.end,
+            }
+            onUpdate([ni])
+          }}
         />
       </div>
     </div>
@@ -121,6 +132,7 @@ let make = (
   ~isSaving: bool=?,
   ~existingEvents: Js.Dict.t<array<existingEvent>>=?,
   ~demand: Js.Dict.t<array<playerDemand>>=?,
+  ~courtAvailability: Js.Dict.t<array<courtAvailability>>=?,
 ) => {
   // Windows indexed parallel to days array
   let (windows, setWindows) = React.useState(() =>
@@ -334,6 +346,9 @@ let make = (
                 ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
                 ->Option.getOr([])}
                 demand={demand
+                ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
+                ->Option.getOr([])}
+                courtAvailability={courtAvailability
                 ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
                 ->Option.getOr([])}
                 windows={windows->Array.getUnsafe(i)}
