@@ -6,7 +6,12 @@ module CalendarClock = {
 
 module CalendarPlus = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "CalendarPlus"
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "CalendarPlus"
 }
 
 module MapPin = {

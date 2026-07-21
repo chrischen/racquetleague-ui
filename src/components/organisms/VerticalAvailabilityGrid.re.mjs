@@ -3,6 +3,8 @@
 import * as React from "react";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as TimeWindow from "../molecules/TimeWindow.re.mjs";
+import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -13,6 +15,7 @@ import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as TimeWindowPicker from "../molecules/TimeWindowPicker.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as CourtAvailabilityGroups from "../molecules/CourtAvailabilityGroups.re.mjs";
+import * as CourtAvailabilityBandOverlay from "../molecules/CourtAvailabilityBandOverlay.re.mjs";
 
 import { t, plural } from '@lingui/macro'
 ;
@@ -33,6 +36,7 @@ function VerticalAvailabilityGrid$VerticalWindowChip(props) {
   var trackRef = props.trackRef;
   var intent = props.intent;
   var dayArrayIdx = props.dayArrayIdx;
+  var intl = ReactIntl.useIntl();
   var match = React.useState(function () {
         
       });
@@ -191,11 +195,11 @@ function VerticalAvailabilityGrid$VerticalWindowChip(props) {
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("span", {
-                              children: TimeWindowPicker.hourLabel(displayIntent.start),
+                              children: TimeWindow.hourLabelIntl(intl, displayIntent.start),
                               className: "text-[10px] font-mono font-semibold text-black/80 leading-tight"
                             }),
                         JsxRuntime.jsx("span", {
-                              children: TimeWindowPicker.hourLabel(displayIntent.end),
+                              children: TimeWindow.hourLabelIntl(intl, displayIntent.end),
                               className: "text-[10px] font-mono font-semibold text-black/80 leading-tight"
                             })
                       ],
@@ -262,6 +266,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
   var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var demand = __demand !== undefined ? __demand : [];
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
+  var intl = ReactIntl.useIntl();
   var handleTrackClick = function (e) {
     var el = colRef.current;
     if (el == null) {
@@ -299,7 +304,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
       0
     ];
   var densityMax = match[1];
-  var courtGroups = TimeWindowPicker.groupCourtAvailabilityByTime(courtAvailability);
+  var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability);
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -375,58 +380,22 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                                               height: heightPct.toString() + "%",
                                               top: topPct.toString() + "%"
                                             },
-                                            title: ev.title + " \xb7 " + TimeWindowPicker.hourLabel(ev.startHour) + "\xe2\x80\x93" + TimeWindowPicker.hourLabel(ev.endHour)
+                                            title: ev.title + " \xb7 " + TimeWindow.hourLabelIntl(intl, ev.startHour) + "\xe2\x80\x93" + TimeWindow.hourLabelIntl(intl, ev.endHour)
                                           }, ev.id);
                               }
                             }),
-                        courtGroups.map(function (group) {
-                              var topPct = (group.start - TimeWindowPicker.hourMin) / TimeWindowPicker.hourRange * 100.0;
-                              var heightPct = (group.end - group.start) / TimeWindowPicker.hourRange * 100.0;
-                              var canMatch = group.end - group.start <= TimeWindowPicker.maxMatchableCourtHours;
-                              var slotCount = group.slots.length;
-                              var courtsPhrase = plural(slotCount, {
-                                    one: t`${slotCount.toString()} court`,
-                                    other: t`${slotCount.toString()} courts`
-                                  });
-                              return JsxRuntime.jsxs("button", {
-                                          children: [
-                                            JsxRuntime.jsx(LucideReact.MapPin, {
-                                                  size: 10,
-                                                  className: "text-cyan-800 dark:text-cyan-200 flex-shrink-0"
-                                                }),
-                                            JsxRuntime.jsx("span", {
-                                                  children: courtsPhrase,
-                                                  className: "max-w-full font-mono text-[8px] font-bold leading-tight text-cyan-900 dark:text-cyan-100 truncate"
-                                                })
-                                          ],
-                                          className: "absolute left-1 right-1 z-[15] rounded border border-cyan-500/70 bg-cyan-200/80 dark:bg-cyan-700/45 overflow-hidden flex flex-col items-center justify-center px-0.5 " + (
-                                            canMatch ? "cursor-pointer hover:bg-cyan-300 dark:hover:bg-cyan-600/55 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-inset" : "pointer-events-none"
-                                          ),
-                                          style: {
-                                            height: heightPct.toString() + "%",
-                                            top: topPct.toString() + "%"
-                                          },
-                                          title: courtsPhrase + " · " + TimeWindowPicker.hourLabel(group.start) + "–" + TimeWindowPicker.hourLabel(group.end) + (
-                                            canMatch ? " · " + t`Match my time` : " · " + t`Long opening`
-                                          ),
-                                          disabled: !canMatch,
-                                          type: "button",
-                                          onClick: (function (e) {
-                                              e.stopPropagation();
-                                              if (!canMatch) {
-                                                return ;
-                                              }
-                                              var ni_id = TimeWindowPicker.wid();
-                                              var ni_start = group.start;
-                                              var ni_end = group.end;
-                                              var ni = {
-                                                id: ni_id,
-                                                start: ni_start,
-                                                end: ni_end
-                                              };
-                                              onUpdate([ni]);
-                                            })
-                                        }, group.key);
+                        JsxRuntime.jsx(CourtAvailabilityBandOverlay.make, {
+                              bands: courtBands,
+                              hourMin: TimeWindowPicker.hourMin,
+                              hourMax: TimeWindowPicker.hourMax,
+                              orientation: "Vertical",
+                              onUseSegment: (function (segment) {
+                                  onUpdate([{
+                                          id: TimeWindowPicker.wid(),
+                                          start: segment.start,
+                                          end: segment.end
+                                        }]);
+                                })
                             }),
                         windows.map(function (w) {
                               return JsxRuntime.jsx(VerticalAvailabilityGrid$VerticalWindowChip, {
@@ -479,6 +448,7 @@ function VerticalAvailabilityGrid(props) {
   var isSaving = props.isSaving;
   var onSave = props.onSave;
   var days = props.days;
+  var intl = ReactIntl.useIntl();
   var match = React.useState(function () {
         return days.map(function (day) {
                     if (day.initialIntervals.length > 0) {
@@ -726,7 +696,7 @@ function VerticalAvailabilityGrid(props) {
                                                                         var topPct = (h - TimeWindowPicker.hourMin | 0) / TimeWindowPicker.hourRange * 100.0;
                                                                         return JsxRuntime.jsx("div", {
                                                                                     children: JsxRuntime.jsx("span", {
-                                                                                          children: TimeWindowPicker.hourLabel(h),
+                                                                                          children: TimeWindow.hourLabelIntl(intl, h),
                                                                                           className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
                                                                                         }),
                                                                                     className: "absolute left-0 right-2 flex items-center justify-end",
@@ -831,7 +801,7 @@ function VerticalAvailabilityGrid(props) {
                                                             if (ws.length === 0) {
                                                               return null;
                                                             }
-                                                            var overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
+                                                            var overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
                                                                             return Js_dict.get(dict, d.isoDate);
                                                                           })), []), ws);
                                                             return JsxRuntime.jsxs("article", {

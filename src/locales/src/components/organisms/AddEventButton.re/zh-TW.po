@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0} 場"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0} 場"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -37,7 +37,7 @@ msgstr "2 · 時間"
 msgid "3 · What kind?"
 msgstr "3 · 類型？"
 
-#: src/components/organisms/AddEventButton.re.mjs:160
+#: src/components/organisms/AddEventButton.re.mjs:124
 msgid "Add an Event"
 msgstr "新增活動"
 
@@ -71,15 +71,11 @@ msgstr "主辦活動"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "主辦活動需要恰好一個時間段——請選擇一個。"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "長時間開放"
-
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "標記為有空"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "配合我的時間"
 
@@ -91,6 +87,10 @@ msgstr "上午"
 msgid "New plan"
 msgstr "新計劃"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "開放"
+
 #: src/components/organisms/NewPlanModal.re.mjs:370
 msgid "Save"
 msgstr "儲存"
@@ -99,7 +99,7 @@ msgstr "儲存"
 msgid "Select exactly one time window to host an event"
 msgstr "請選擇恰好一個時間段來主辦活動"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "點擊任意處以新增時間段"
 
@@ -120,3 +120,7 @@ msgstr "明天"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "你想什麼時候打球？"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間開放"

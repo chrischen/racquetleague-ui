@@ -13,115 +13,138 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:52
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:49
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:132
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:388
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+msgid "{0} continuous span"
+msgstr "{0} 연속 구간"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+msgid "{0} continuous spans"
+msgstr "{0} 연속 구간"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:172
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:206
 msgid "{0} court"
 msgstr "{0}코트"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:50
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:133
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:389
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:173
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:207
 msgid "{0} courts"
 msgstr "{0}코트"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+msgid "{0} exact option"
+msgstr "{0} 정확한 옵션"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+msgid "{0} exact options"
+msgstr "{0} 정확한 옵션"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:66
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:175
 msgid "{0} location"
 msgstr "{0}장소"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:67
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:176
 msgid "{0} locations"
 msgstr "{0}장소"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-msgid "{0} time option"
-msgstr "{0}시간 옵션"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} segment"
+msgstr "{0} 세그먼트"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-msgid "{0} time options"
-msgstr "{0}시간 옵션"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+msgid "{0} segments"
+msgstr "{0} 세그먼트"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-msgstr "{groupLocationsPhrase}의 {groupCourtsPhrase}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:131
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:387
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+msgid "{segLocations, plural, one {{0}} other {{1}}}"
+msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:171
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:205
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
 msgid "{totalCourts, plural, one {{0}} other {{1}}}"
 msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:824
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:794
 msgid "Add time windows above"
 msgstr "위에서 시간 창 추가"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:703
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:673
 msgid "Clear"
 msgstr "지우기"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:809
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+msgid "Continuous availability"
+msgstr "연속 이용 가능"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
 msgid "Court openings are shown only when they overlap your time."
 msgstr "코트 공개 시간은 내 시간과 겹치는 경우에만 표시됩니다."
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:635
 msgid "Courts"
 msgstr "코트"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:867
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 msgid "Courts available during your time"
 msgstr "내 시간에 이용 가능한 코트"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:908
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:878
 msgid "Let hosts schedule events when most of you are free"
 msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 합니다"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
-msgid "Long opening"
-msgstr "긴 공개 시간"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "내 시간에 맞추기"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:655
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "열림"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
 msgid "Players"
 msgstr "플레이어"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:245
 msgid "Reserve"
 msgstr "예약"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:923
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:893
 msgid "Save"
 msgstr "저장"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:923
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:893
 msgid "Savingâ¦"
 msgstr "저장 중…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:623
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:593
 msgid "Schedule"
 msgstr "일정"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:631
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 msgid ""
 "Set your availability for the next 2 weeks. Tap a day to add a time window, "
 "drag to move, grab the edges to resize."
@@ -129,11 +152,11 @@ msgstr ""
 "다음 2주 동안의 가능 시간을 설정하세요. 날짜를 탭하여 시간대를 추가하고, 드래"
 "그하여 이동하거나, 가장자리를 잡아 크기를 조절하세요."
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:904
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:874
 msgid "Share with your club"
 msgstr "클럽과 공유"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:795
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
 msgid ""
 "Tap an empty area to add time · select a cyan court opening up to 4h to "
 "match it · drag to move · grab the edges to resize"
@@ -141,33 +164,50 @@ msgstr ""
 "빈 영역을 탭하여 시간 추가 · 최대 4시간의 청록색 코트 공개 시간을 선택하여 맞"
 "추기 · 드래그하여 이동 · 가장자리를 잡아 크기 조정"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-msgid "Use this time"
-msgstr "이 시간 사용"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+msgid "View {segCourtsPhrase} & reserve"
+msgstr "{segCourtsPhrase} 보기 및 예약"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-msgid "View {groupCourtsPhrase} & reserve"
-msgstr "{groupCourtsPhrase} 보기 및 예약"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:679
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:649
 msgid "Weekday eves"
 msgstr "평일 저녁"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:691
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:661
 msgid "Weekend morns"
 msgstr "주말 오전"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:627
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:597
 msgid "When can you play?"
 msgstr "언제 플레이할 수 있나요?"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:805
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:775
 msgid "Your availability"
 msgstr "내 가능 시간"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:646
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Your time"
 msgstr "내 시간"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr "{0}시간 옵션"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#~ msgid "{0} time options"
+#~ msgstr "{0}시간 옵션"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr "{groupLocationsPhrase}의 {groupCourtsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#~ msgid "Long opening"
+#~ msgstr "긴 공개 시간"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
 #~ msgid ""
@@ -176,3 +216,11 @@ msgstr "내 시간"
 #~ msgstr ""
 #~ "날짜의 빈 영역을 탭하여 시간대 추가 · 드래그하여 이동 · 가장자리를 잡아 크"
 #~ "기 조절"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+#~ msgid "Use this time"
+#~ msgstr "이 시간 사용"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr "{groupCourtsPhrase} 보기 및 예약"

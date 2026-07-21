@@ -37,11 +37,11 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "{0} {hiddenCountDesc} ẩn"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0} sân"
 
@@ -86,7 +86,7 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {người chơi} other {người chơi}}"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -110,7 +110,7 @@ msgstr "2 · Giờ"
 msgid "3 · What kind?"
 msgstr "3 · Loại gì?"
 
-#: src/components/organisms/AddEventButton.re.mjs:160
+#: src/components/organisms/AddEventButton.re.mjs:124
 msgid "Add an Event"
 msgstr "Thêm sự kiện"
 
@@ -240,15 +240,11 @@ msgstr "rời sự kiện"
 msgid "Location:"
 msgstr "Địa điểm:"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "Khung giờ dài"
-
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "Khớp giờ của tôi"
 
@@ -272,6 +268,10 @@ msgstr "Mới"
 #: src/components/organisms/NewPlanModal.re.mjs:203
 msgid "New plan"
 msgstr "Kế hoạch mới"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "mở"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
@@ -317,7 +317,7 @@ msgstr "Sự kiện được đề xuất"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
 
@@ -360,3 +360,7 @@ msgstr "Bạn muốn chơi lúc nào?"
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "Khung giờ dài"

@@ -13,119 +13,163 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:52
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:49
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:132
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:388
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+msgid "{0} continuous span"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+msgid "{0} continuous spans"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:172
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:206
 msgid "{0} court"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:50
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:133
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:389
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:173
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:207
 msgid "{0} courts"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+msgid "{0} exact option"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+msgid "{0} exact options"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:66
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:175
 msgid "{0} location"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:67
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:176
 msgid "{0} locations"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-msgid "{0} time option"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} segment"
 msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+msgid "{0} segments"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-msgid "{0} time options"
-msgstr ""
+#~ msgid "{0} time options"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-msgstr ""
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-msgstr ""
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:131
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:387
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+msgid "{segLocations, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:171
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:205
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
 msgid "{totalCourts, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:824
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:794
 msgid "Add time windows above"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:703
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:673
 msgid "Clear"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:809
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+msgid "Continuous availability"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
 msgid "Court openings are shown only when they overlap your time."
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:635
 msgid "Courts"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:867
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 msgid "Courts available during your time"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:908
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:878
 msgid "Let hosts schedule events when most of you are free"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
-msgid "Long opening"
-msgstr ""
+#~ msgid "Long opening"
+#~ msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:655
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
 msgid "Players"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:245
 msgid "Reserve"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:923
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:893
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:923
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:893
 msgid "Savingâ¦"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:623
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:593
 msgid "Schedule"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:631
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:904
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:874
 msgid "Share with your club"
 msgstr ""
 
@@ -133,34 +177,38 @@ msgstr ""
 #~ msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
 #~ msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:795
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
 msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-msgid "Use this time"
-msgstr ""
+#~ msgid "Use this time"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-msgid "View {groupCourtsPhrase} & reserve"
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+msgid "View {segCourtsPhrase} & reserve"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:679
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:649
 msgid "Weekday eves"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:691
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:661
 msgid "Weekend morns"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:627
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:597
 msgid "When can you play?"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:805
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:775
 msgid "Your availability"
 msgstr ""
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:646
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Your time"
 msgstr ""

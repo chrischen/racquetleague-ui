@@ -29,11 +29,11 @@ msgstr ""
 #~ msgid "{0, plural, one {{1}} other {{2}}}"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 #~ msgid "{playersCount, plural, one {player} other {players}}"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -94,7 +94,7 @@ msgstr ""
 msgid "3 · What kind?"
 msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:160
+#: src/components/organisms/AddEventButton.re.mjs:124
 msgid "Add an Event"
 msgstr ""
 
@@ -225,14 +225,14 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr ""
+#~ msgid "Long opening"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr ""
 
@@ -250,6 +250,10 @@ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:203
 msgid "New plan"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:272
@@ -296,7 +300,7 @@ msgstr ""
 #~ msgid "Suggested Events"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr ""
 

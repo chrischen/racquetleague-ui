@@ -1,5 +1,8 @@
 %%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
+// Shared time-window model (playIntent, court types + grouping, time
+// formatting) lives in TimeWindow; this file is just the picker UI on top.
+open TimeWindow
 
 let ts = Lingui.UtilString.t
 
@@ -19,12 +22,6 @@ type domRect = {left: float, width: float}
 @get external pointerClientX: ReactEvent.Pointer.t => int = "clientX"
 
 // ─── Public types ─────────────────────────────────────────────────────────────
-
-type playIntent = {
-  id: int,
-  start: float,
-  end: float,
-}
 
 type windowConfig = {
   hourMin?: int,
@@ -59,97 +56,6 @@ type playerDemand = {
   intents: array<playIntent>,
 }
 
-// Court availability uses the same day/time windows as player availability,
-// but belongs to a Location (venue) rather than a User. Courts are kept
-// separate from playerDemand so they never affect player counts or avatars.
-type courtLocation = {
-  id: string,
-  name: string,
-  reservationUrl: option<string>,
-}
-
-type courtAvailability = {
-  id: string,
-  location: courtLocation,
-  courtName: option<string>,
-  intents: array<playIntent>,
-}
-
-type courtSlot = {
-  court: courtAvailability,
-  intent: playIntent,
-}
-
-type courtSlotGroup = {
-  key: string,
-  start: float,
-  end: float,
-  slots: array<courtSlot>,
-}
-
-// Court openings longer than this are venue open-hours, not a bookable play
-// window, so they can't be matched to the user's availability in one tap.
-let maxMatchableCourtHours = 4.0
-
-// Location doesn't expose a booking-page URL yet; fall back to the ONE Court
-// reservation page until it does.
-let defaultReservationUrl = "https://reserva.be/pboneginza"
-
-// Court records stay independent in the data model, but identical time windows
-// are grouped for display so a busy hour remains readable on lists and timelines.
-let groupCourtAvailabilityByTime = (courtAvailability: array<courtAvailability>): array<
-  courtSlotGroup,
-> => {
-  let groups: Js.Dict.t<courtSlotGroup> = Js.Dict.empty()
-  courtAvailability->Array.forEach(court =>
-    court.intents->Array.forEach(intent => {
-      let key = intent.start->Float.toString ++ ":" ++ intent.end->Float.toString
-      switch groups->Js.Dict.get(key) {
-      | Some(group) =>
-        groups->Js.Dict.set(
-          key,
-          {...group, slots: Belt.Array.concat(group.slots, [{court, intent}])},
-        )
-      | None =>
-        groups->Js.Dict.set(key, {key, start: intent.start, end: intent.end, slots: [{court, intent}]})
-      }
-    })
-  )
-  groups
-  ->Js.Dict.values
-  ->Array.toSorted((a, b) =>
-    if a.start == b.start {
-      a.end -. b.end
-    } else {
-      a.start -. b.start
-    }
-  )
-}
-
-// Keep only the individual court openings that overlap at least one of the
-// user's half-open availability windows. A court can carry multiple openings,
-// so filtering happens at the intent level while preserving the court entity.
-let filterCourtAvailabilityByOverlap = (
-  courtAvailability: array<courtAvailability>,
-  userAvailability: array<playIntent>,
-): array<courtAvailability> =>
-  if userAvailability->Array.length == 0 {
-    []
-  } else {
-    courtAvailability
-    ->Array.map(court => {
-      ...court,
-      intents: court.intents->Array.filter(
-        courtWindow =>
-          userAvailability->Array.some(
-            userWindow =>
-              courtWindow.start < userWindow.end && courtWindow.end > userWindow.start,
-          ),
-      ),
-    })
-    ->Array.filter(court => court.intents->Array.length > 0)
-  }
-
 // Counts how many of the supplied intents cover each hour bucket in
 // [hourMin, hourMax). Returns per-hour counts (length = hourRange) + max.
 let computeDensity = (intents: array<playIntent>): (array<int>, int) => {
@@ -175,12 +81,6 @@ let wid = () => {
 }
 
 // ─── Utilities ───────────────────────────────────────────────────────────────
-
-let hourLabel = (h: float): string => {
-  let hh = Js.Math.floor_int(h)
-  let mm = Js.Math.round((h -. Float.fromInt(hh)) *. 60.0)->Float.toInt
-  hh->Int.toString->String.padStart(2, "0") ++ ":" ++ mm->Int.toString->String.padStart(2, "0")
-}
 
 let snapTo = (h: float, step: float): float => Js.Math.round(h /. step) *. step
 
@@ -211,6 +111,7 @@ module WindowChip = {
     let snapStep = config->Option.flatMap(c => c.snap)->Option.getOr(1.0)
     let minDur = config->Option.flatMap(c => c.minDuration)->Option.getOr(minDuration)
     let hourRangeVal = hourMaxVal -. hourMinVal
+    let intl = ReactIntl.useIntl()
 
     let (drag, setDrag) = React.useState(() => None)
     let onChangeRef = React.useRef(onChange)
@@ -307,7 +208,7 @@ module WindowChip = {
       <span
         className="flex-1 min-w-0 px-2 text-center text-[11px] font-mono font-semibold text-black/80 truncate pointer-events-none">
         {widthPct > 18.0
-          ? React.string(hourLabel(intent.start) ++ "–" ++ hourLabel(intent.end))
+          ? React.string(hourLabelIntl(intl, intent.start) ++ "–" ++ hourLabelIntl(intl, intent.end))
           : React.string(
               (duration->Js.Math.floor_int->Int.toString) ++ "h",
             )}
@@ -349,6 +250,7 @@ let make = (
   ~onUseCourtSlot: option<courtSlotGroup => unit>=?,
 ) => {
   let trackRef = React.useRef(Js.Nullable.null)
+  let intl = ReactIntl.useIntl()
 
   let hourMinVal = config->Option.flatMap(c => c.hourMin)->Option.getOr(hourMin)
   let hourMaxVal = config->Option.flatMap(c => c.hourMax)->Option.getOr(hourMax)
@@ -403,7 +305,7 @@ let make = (
 
   let axisHours = Belt.Array.makeBy(hourRangeVal / 3 + 1, i => hourMinVal + i * 3)
 
-  let courtGroups = groupCourtAvailabilityByTime(courtAvailability)
+  let courtBands = groupCourtAvailabilityIntoBands(courtAvailability)
 
   <div className={className->Option.getOr("")}>
     {showAxis
@@ -426,7 +328,7 @@ let make = (
                 (),
               )}>
               <span className="font-mono text-[9px] text-gray-400 dark:text-gray-500">
-                {React.string(hourLabel(Float.fromInt(h)))}
+                {React.string(hourLabelIntl(intl, Float.fromInt(h)))}
               </span>
             </div>
           })
@@ -510,56 +412,9 @@ let make = (
             ->React.array}
           </div>
         : React.null}
-      // One cyan band per time window keeps stacked court inventory readable;
-      // its number is the count of available courts.
-      {courtGroups
-      ->Array.map(group => {
-        let leftPct =
-          (group.start -. Float.fromInt(hourMinVal)) /. Float.fromInt(hourRangeVal) *. 100.0
-        let widthPct = (group.end -. group.start) /. Float.fromInt(hourRangeVal) *. 100.0
-        let canMatch = group.end -. group.start <= maxMatchableCourtHours
-        let slotCount = group.slots->Array.length
-        let courtsPhrase = Lingui.UtilString.plural(
-          slotCount,
-          {
-            one: ts`${slotCount->Int.toString} court`,
-            other: ts`${slotCount->Int.toString} courts`,
-          },
-        )
-        <button
-          key={group.key}
-          type_="button"
-          disabled={!canMatch || onUseCourtSlot->Option.isNone}
-          onClick={e => {
-            e->ReactEvent.Mouse.stopPropagation
-            if canMatch {
-              switch onUseCourtSlot {
-              | Some(cb) => cb(group)
-              | None => ()
-              }
-            }
-          }}
-          title={courtsPhrase ++
-          " · " ++
-          hourLabel(group.start) ++
-          "–" ++
-          hourLabel(group.end) ++ (canMatch ? " · " ++ ts`Match my time` : " · " ++ ts`Long opening`)}
-          className={`absolute top-1 h-3.5 min-w-5 rounded-sm border border-cyan-600/70 bg-cyan-300/80 dark:bg-cyan-500/45 z-[15] flex items-center justify-center px-1 ${canMatch &&
-            onUseCourtSlot->Option.isSome
-              ? "cursor-pointer hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-inset"
-              : "pointer-events-none"}`}
-          style={ReactDOM.Style.make(
-            ~left=leftPct->Float.toString ++ "%",
-            ~width=widthPct->Float.toString ++ "%",
-            (),
-          )}>
-          <span
-            className="font-mono text-[8px] font-bold leading-none text-cyan-950 dark:text-cyan-100 pointer-events-none">
-            {group.slots->Array.length->Int.toString->React.string}
-          </span>
-        </button>
-      })
-      ->React.array}
+      <CourtAvailabilityBandOverlay
+        bands=courtBands hourMin=hourMinVal hourMax=hourMaxVal onUseSegment=?onUseCourtSlot
+      />
       {intents->Array.length === 0 && courtAvailability->Array.length === 0
         ? <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <span className="text-[11px] font-mono text-gray-400 dark:text-gray-500">

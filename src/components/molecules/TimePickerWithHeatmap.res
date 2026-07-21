@@ -22,12 +22,12 @@ let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 @react.component
 let make = (
   ~localDate: string,
-  ~draft: array<TimeWindowPicker.playIntent>,
-  ~onChange: array<TimeWindowPicker.playIntent> => unit,
+  ~draft: array<TimeWindow.playIntent>,
+  ~onChange: array<TimeWindow.playIntent> => unit,
   ~activityId: option<string>=?,
   ~clubId: option<string>=?,
-  ~courtAvailability: array<TimeWindowPicker.courtAvailability>=[],
-  ~onUseCourtSlot: option<TimeWindowPicker.courtSlotGroup => unit>=?,
+  ~courtAvailability: array<TimeWindow.courtAvailability>=[],
+  ~onUseCourtSlot: option<TimeWindow.courtSlotGroup => unit>=?,
 ) => {
   let resolvedActivityId = activityId->Option.getOr(defaultActivityId)
   // Only mounted from the availability editor, i.e. after the geolocation

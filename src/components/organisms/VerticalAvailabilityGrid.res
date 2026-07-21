@@ -7,7 +7,7 @@ let ts = Lingui.UtilString.t
 
 type existingEvent = TimeWindowPicker.existingEvent
 type playerDemand = TimeWindowPicker.playerDemand
-type courtAvailability = TimeWindowPicker.courtAvailability
+type courtAvailability = TimeWindow.courtAvailability
 type dayData = AvailabilityGrid.dayData
 type intervalUpdate = AvailabilityGrid.intervalUpdate
 
@@ -38,8 +38,8 @@ type vertDragMode = VMove | VResizeTop | VResizeBottom
 type vertDragState = {
   mode: vertDragMode,
   startY: float,
-  initial: TimeWindowPicker.playIntent,
-  current: TimeWindowPicker.playIntent,
+  initial: TimeWindow.playIntent,
+  current: TimeWindow.playIntent,
   targetDayIdx: int,
 }
 
@@ -47,17 +47,18 @@ module VerticalWindowChip = {
   @react.component
   let make = (
     ~dayArrayIdx: int,
-    ~intent: TimeWindowPicker.playIntent,
+    ~intent: TimeWindow.playIntent,
     ~trackRef: React.ref<Js.Nullable.t<Dom.element>>,
-    ~onChange: TimeWindowPicker.playIntent => unit,
+    ~onChange: TimeWindow.playIntent => unit,
     ~onDelete: unit => unit,
-    ~onMoveDay: (int, TimeWindowPicker.playIntent) => unit,
+    ~onMoveDay: (int, TimeWindow.playIntent) => unit,
     ~getTargetDayArrayIdx: float => int,
     ~getColTranslateX: (int, int) => float,
   ) => {
     let hourMinF = TimeWindowPicker.hourMin->Float.fromInt
     let hourMaxF = TimeWindowPicker.hourMax->Float.fromInt
     let hourRangeF = TimeWindowPicker.hourRange->Float.fromInt
+    let intl = ReactIntl.useIntl()
 
     let (drag, setDrag) = React.useState(() => None)
     let onChangeRef = React.useRef(onChange)
@@ -193,10 +194,10 @@ module VerticalWindowChip = {
       <div
         className="flex-1 flex flex-col items-center justify-center min-h-0 pointer-events-none overflow-hidden py-2">
         <span className="text-[10px] font-mono font-semibold text-black/80 leading-tight">
-          {React.string(TimeWindowPicker.hourLabel(displayIntent.start))}
+          {React.string(TimeWindow.hourLabelIntl(intl, displayIntent.start))}
         </span>
         <span className="text-[10px] font-mono font-semibold text-black/80 leading-tight">
-          {React.string(TimeWindowPicker.hourLabel(displayIntent.end))}
+          {React.string(TimeWindow.hourLabelIntl(intl, displayIntent.end))}
         </span>
       </div>
       <div
@@ -227,12 +228,12 @@ module VerticalDayColumn = {
     ~dateLabel: string=?,
     ~isWeekend: bool=false,
     ~isToday: bool=false,
-    ~windows: array<TimeWindowPicker.playIntent>,
+    ~windows: array<TimeWindow.playIntent>,
     ~existingEvents: array<existingEvent>=[],
     ~demand: array<playerDemand>=[],
     ~courtAvailability: array<courtAvailability>=[],
-    ~onUpdate: array<TimeWindowPicker.playIntent> => unit,
-    ~onMoveDay: (int, int, TimeWindowPicker.playIntent) => unit,
+    ~onUpdate: array<TimeWindow.playIntent> => unit,
+    ~onMoveDay: (int, int, TimeWindow.playIntent) => unit,
     ~getTargetDayArrayIdx: float => int,
     ~getColTranslateX: (int, int) => float,
     ~colRef: React.ref<Js.Nullable.t<Dom.element>>,
@@ -240,6 +241,7 @@ module VerticalDayColumn = {
     let hourMinF = TimeWindowPicker.hourMin->Float.fromInt
     let hourRangeF = TimeWindowPicker.hourRange->Float.fromInt
     let trackRef = colRef
+    let intl = ReactIntl.useIntl()
 
     let updateWindow = (id, next) =>
       onUpdate(
@@ -279,7 +281,7 @@ module VerticalDayColumn = {
     let demandIntents = demand->Array.flatMap(d => d.intents)
     let (densityCounts, densityMax) =
       demand->Array.length > 0 ? TimeWindowPicker.computeDensity(demandIntents) : ([], 0)
-    let courtGroups = TimeWindowPicker.groupCourtAvailabilityByTime(courtAvailability)
+    let courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability)
 
     <div
       className={`flex-1 min-w-[60px] md:min-w-[80px] flex flex-col border-r last:border-r-0 border-gray-200 dark:border-[#2a2b30] ${isWeekend
@@ -373,9 +375,9 @@ module VerticalDayColumn = {
               )}
               title={ev.title ++
               " \xb7 " ++
-              TimeWindowPicker.hourLabel(ev.startHour) ++
+              TimeWindow.hourLabelIntl(intl, ev.startHour) ++
               "\xe2\x80\x93" ++
-              TimeWindowPicker.hourLabel(ev.endHour)}>
+              TimeWindow.hourLabelIntl(intl, ev.endHour)}>
               <span
                 className="text-[9px] font-mono font-medium text-amber-800 dark:text-amber-300/90 whitespace-nowrap leading-tight"
                 style={ReactDOM.Style.make(~transform="rotate(90deg)", ())}>
@@ -385,57 +387,20 @@ module VerticalDayColumn = {
           }
         })
         ->React.array}
-        // One time-level overlay per group avoids stacking many courts in a
-        // day column; its label is the available court count.
-        {courtGroups
-        ->Array.map(group => {
-          let topPct = (group.start -. hourMinF) /. hourRangeF *. 100.0
-          let heightPct = (group.end -. group.start) /. hourRangeF *. 100.0
-          let canMatch = group.end -. group.start <= TimeWindowPicker.maxMatchableCourtHours
-          let slotCount = group.slots->Array.length
-          let courtsPhrase = Lingui.UtilString.plural(
-            slotCount,
-            {
-              one: ts`${slotCount->Int.toString} court`,
-              other: ts`${slotCount->Int.toString} courts`,
-            },
-          )
-          <button
-            key={group.key}
-            type_="button"
-            disabled={!canMatch}
-            onClick={e => {
-              e->ReactEvent.Mouse.stopPropagation
-              if canMatch {
-                let ni: TimeWindowPicker.playIntent = {
-                  id: TimeWindowPicker.wid(),
-                  start: group.start,
-                  end: group.end,
-                }
-                onUpdate([ni])
-              }
-            }}
-            className={`absolute left-1 right-1 z-[15] rounded border border-cyan-500/70 bg-cyan-200/80 dark:bg-cyan-700/45 overflow-hidden flex flex-col items-center justify-center px-0.5 ${canMatch
-                ? "cursor-pointer hover:bg-cyan-300 dark:hover:bg-cyan-600/55 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-inset"
-                : "pointer-events-none"}`}
-            style={ReactDOM.Style.make(
-              ~top=topPct->Float.toString ++ "%",
-              ~height=heightPct->Float.toString ++ "%",
-              (),
-            )}
-            title={courtsPhrase ++
-            " · " ++
-            TimeWindowPicker.hourLabel(group.start) ++
-            "–" ++
-            TimeWindowPicker.hourLabel(group.end) ++ (canMatch ? " · " ++ ts`Match my time` : " · " ++ ts`Long opening`)}>
-            <Lucide.MapPin size=10 className="text-cyan-800 dark:text-cyan-200 flex-shrink-0" />
-            <span
-              className="max-w-full font-mono text-[8px] font-bold leading-tight text-cyan-900 dark:text-cyan-100 truncate">
-              {courtsPhrase->React.string}
-            </span>
-          </button>
-        })
-        ->React.array}
+        <CourtAvailabilityBandOverlay
+          bands=courtBands
+          hourMin=TimeWindowPicker.hourMin
+          hourMax=TimeWindowPicker.hourMax
+          orientation=Vertical
+          onUseSegment={segment =>
+            onUpdate([
+              {
+                TimeWindow.id: TimeWindowPicker.wid(),
+                start: segment.TimeWindow.start,
+                end: segment.TimeWindow.end,
+              },
+            ])}
+        />
         {windows
         ->Array.map(w =>
           <VerticalWindowChip
@@ -467,11 +432,12 @@ let make = (
   ~demand: Js.Dict.t<array<playerDemand>>=?,
   ~courtAvailability: Js.Dict.t<array<courtAvailability>>=?,
 ) => {
+  let intl = ReactIntl.useIntl()
   let (windows, setWindows) = React.useState(() =>
     days->Array.map(day =>
       if day.initialIntervals->Array.length > 0 {
         day.initialIntervals->Array.map(
-          (iv): TimeWindowPicker.playIntent => {
+          (iv): TimeWindow.playIntent => {
             id: TimeWindowPicker.wid(),
             start: Float.fromInt(iv.startHour),
             end: Float.fromInt(iv.endHour),
@@ -488,7 +454,7 @@ let make = (
     Belt.Array.makeBy(days->Array.length, _ => React.createRef())
   )
 
-  let updateDay = (idx: int, ws: array<TimeWindowPicker.playIntent>) =>
+  let updateDay = (idx: int, ws: array<TimeWindow.playIntent>) =>
     setWindows(prev =>
       prev->Array.mapWithIndex((w, i) =>
         if i === idx {
@@ -503,7 +469,7 @@ let make = (
     sourceDayArrayIdx: int,
     windowId: int,
     targetDayArrayIdx: int,
-    next: TimeWindowPicker.playIntent,
+    next: TimeWindow.playIntent,
   ) => {
     setWindows(prev =>
       prev->Array.mapWithIndex((ws, i) =>
@@ -684,7 +650,7 @@ let make = (
                         (),
                       )}>
                       <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                        {React.string(TimeWindowPicker.hourLabel(Float.fromInt(h)))}
+                        {React.string(TimeWindow.hourLabelIntl(intl, Float.fromInt(h)))}
                       </span>
                     </div>
                   })
@@ -755,13 +721,13 @@ let make = (
                       windows
                       ->Array.getUnsafe(i)
                       ->Array.toSorted((
-                        a: TimeWindowPicker.playIntent,
-                        b: TimeWindowPicker.playIntent,
+                        a: TimeWindow.playIntent,
+                        b: TimeWindow.playIntent,
                       ) => a.start -. b.start)
                     if ws->Array.length === 0 {
                       React.null
                     } else {
-                      let overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(
+                      let overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(
                         courtAvailability
                         ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
                         ->Option.getOr([]),
@@ -798,7 +764,7 @@ let make = (
                                 title={ts`Courts available during your time`}
                                 courtAvailability=overlappingCourts
                                 onUseSlot={group => {
-                                  let ni: TimeWindowPicker.playIntent = {
+                                  let ni: TimeWindow.playIntent = {
                                     id: TimeWindowPicker.wid(),
                                     start: group.start,
                                     end: group.end,

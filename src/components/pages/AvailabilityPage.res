@@ -62,24 +62,6 @@ module Query = %relay(`
   }
 `)
 
-module SetAvailabilityMutation = %relay(`
-  mutation AvailabilityPageSetAvailabilityMutation($input: SetAvailabilityDayInput!) {
-    setAvailabilityDay(input: $input) {
-      day {
-        id
-        localDate
-        intervals {
-          startHour
-          endHour
-        }
-      }
-      errors {
-        message
-      }
-    }
-  }
-`)
-
 let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
 let getDateRange = () => {
@@ -112,7 +94,7 @@ module AvailabilityContent = {
     )
     let intl = ReactIntl.useIntl()
     let (isSaving, setIsSaving) = React.useState(() => false)
-    let (commitSetAvailability, _) = SetAvailabilityMutation.use()
+    let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
     let env = RescriptRelay.useEnvironmentFromContext()
 
     let getWeekDays = () => {
@@ -242,29 +224,30 @@ module AvailabilityContent = {
     let genericCourtName = Lingui.UtilString.t`Court`
     let courtAvailability: Js.Dict.t<array<VerticalAvailabilityGrid.courtAvailability>> =
       locationsAvailability->Array.reduce(Js.Dict.empty(), (acc, day) => {
-        switch day.location {
-        | None => acc
-        | Some(loc) =>
-          let court: VerticalAvailabilityGrid.courtAvailability = {
-            id: day.id,
-            location: {
-              id: loc.id,
-              name: loc.name->Option.getOr(genericCourtName),
-              reservationUrl: day.link,
+        // A row may lack a resolved Location (scraped before the venue was
+        // registered); fall back to the booking `link` as a stable per-venue
+        // identity so the court still renders and reserves.
+        let locId =
+          day.location->Option.map(l => l.id)->Option.orElse(day.link)->Option.getOr(day.id)
+        let court: VerticalAvailabilityGrid.courtAvailability = {
+          id: day.id,
+          location: {
+            id: locId,
+            name: day.location->Option.flatMap(l => l.name)->Option.getOr(genericCourtName),
+            reservationUrl: day.link,
+          },
+          courtName: None,
+          intents: day.intervals->Array.mapWithIndex(
+            (iv, i): TimeWindow.playIntent => {
+              id: i,
+              start: iv.startHour->Float.fromInt,
+              end: iv.endHour->Float.fromInt,
             },
-            courtName: None,
-            intents: day.intervals->Array.mapWithIndex(
-              (iv, i): TimeWindowPicker.playIntent => {
-                id: i,
-                start: iv.startHour->Float.fromInt,
-                end: iv.endHour->Float.fromInt,
-              },
-            ),
-          }
-          let existing = acc->Js.Dict.get(day.localDate)->Option.getOr([])
-          acc->Js.Dict.set(day.localDate, Belt.Array.concat(existing, [court]))
-          acc
+          ),
         }
+        let existing = acc->Js.Dict.get(day.localDate)->Option.getOr([])
+        acc->Js.Dict.set(day.localDate, Belt.Array.concat(existing, [court]))
+        acc
       })
 
     // Build per-ISO-date demand dict from other players' availability
@@ -272,7 +255,7 @@ module AvailabilityContent = {
       availabilityUsersForDateRange->Array.reduce(Js.Dict.empty(), (acc, d) => {
         let pd: VerticalAvailabilityGrid.playerDemand = {
           id: d.id->String.length, // use string hash as int id
-          intents: d.intervals->Array.mapWithIndex((iv, i): TimeWindowPicker.playIntent => {
+          intents: d.intervals->Array.mapWithIndex((iv, i): TimeWindow.playIntent => {
             id: i,
             start: iv.startHour->Float.fromInt,
             end: iv.endHour->Float.fromInt,
@@ -288,22 +271,17 @@ module AvailabilityContent = {
       let pending = ref(changes->Array.length)
       changes->Array.forEach(change => {
         let _ = commitSetAvailability(
-          ~variables={
-            input: {
-              localDate: change.isoDate,
-              activityId: defaultActivityId,
-              location,
-              intervals: change.intervals->Array.map(
-                iv => {
-                  let r: RelaySchemaAssets_graphql.input_IntervalInput = {
-                    startHour: iv.startHour,
-                    endHour: iv.endHour,
-                  }
-                  r
-                },
-              ),
+          ~localDate=change.isoDate,
+          ~activityId=defaultActivityId,
+          ~intervals=change.intervals->Array.map(
+            iv => {
+              let r: RelaySchemaAssets_graphql.input_IntervalInput = {
+                startHour: iv.startHour,
+                endHour: iv.endHour,
+              }
+              r
             },
-          },
+          ),
           ~onCompleted=(_res, _err) => {
             pending := pending.contents - 1
             if pending.contents <= 0 {

@@ -16,7 +16,7 @@ type dayData = {
 }
 
 type playerDemand = TimeWindowPicker.playerDemand
-type courtAvailability = TimeWindowPicker.courtAvailability
+type courtAvailability = TimeWindow.courtAvailability
 
 type intervalUpdate = {
   isoDate: string,
@@ -51,8 +51,8 @@ module DayRow = {
     ~existingEvents: array<existingEvent>=[],
     ~demand: array<playerDemand>=[],
     ~courtAvailability: array<courtAvailability>=[],
-    ~windows: array<TimeWindowPicker.playIntent>,
-    ~onUpdate: array<TimeWindowPicker.playIntent> => unit,
+    ~windows: array<TimeWindow.playIntent>,
+    ~onUpdate: array<TimeWindow.playIntent> => unit,
   ) => {
     let (demandCounts, maxDemand) =
       demand->Array.length > 0
@@ -110,7 +110,7 @@ module DayRow = {
           maxDemand
           courtAvailability
           onUseCourtSlot={group => {
-            let ni: TimeWindowPicker.playIntent = {
+            let ni: TimeWindow.playIntent = {
               id: TimeWindowPicker.wid(),
               start: group.start,
               end: group.end,
@@ -134,12 +134,13 @@ let make = (
   ~demand: Js.Dict.t<array<playerDemand>>=?,
   ~courtAvailability: Js.Dict.t<array<courtAvailability>>=?,
 ) => {
+  let intl = ReactIntl.useIntl()
   // Windows indexed parallel to days array
   let (windows, setWindows) = React.useState(() =>
     days->Array.map(day =>
       if day.initialIntervals->Array.length > 0 {
         day.initialIntervals->Array.map(
-          (iv): TimeWindowPicker.playIntent => {
+          (iv): TimeWindow.playIntent => {
             id: TimeWindowPicker.wid(),
             start: Float.fromInt(iv.startHour),
             end: Float.fromInt(iv.endHour),
@@ -153,7 +154,7 @@ let make = (
 
   let (mode, setMode) = React.useState(() => "specific")
 
-  let updateDay = (idx: int, ws: array<TimeWindowPicker.playIntent>) =>
+  let updateDay = (idx: int, ws: array<TimeWindow.playIntent>) =>
     setWindows(prev =>
       prev->Array.mapWithIndex((w, i) =>
         if i === idx {
@@ -177,7 +178,7 @@ let make = (
                   id: TimeWindowPicker.wid(),
                   start: 18.0,
                   end: 22.0,
-                }: TimeWindowPicker.playIntent
+                }: TimeWindow.playIntent
               ),
             ],
           )
@@ -190,7 +191,7 @@ let make = (
                   id: TimeWindowPicker.wid(),
                   start: 9.0,
                   end: 12.0,
-                }: TimeWindowPicker.playIntent
+                }: TimeWindow.playIntent
               ),
             ],
           )
@@ -208,7 +209,7 @@ let make = (
         windows
         ->Array.getUnsafe(i)
         ->Array.toSorted(
-          (a: TimeWindowPicker.playIntent, b: TimeWindowPicker.playIntent) => a.start -. b.start,
+          (a: TimeWindow.playIntent, b: TimeWindow.playIntent) => a.start -. b.start,
         )
       (d.label, ws)
     })
@@ -327,7 +328,7 @@ let make = (
                       (),
                     )}>
                     <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500 px-1">
-                      {React.string(TimeWindowPicker.hourLabel(Float.fromInt(h)))}
+                      {React.string(TimeWindow.hourLabelIntl(intl, Float.fromInt(h)))}
                     </span>
                   </div>
                 })

@@ -37,11 +37,11 @@ msgstr "{1}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隐藏 {0} {hiddenCountDesc}"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0} 场地"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0} 场地"
 
@@ -86,7 +86,7 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球员"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -110,7 +110,7 @@ msgstr "2 · 时间"
 msgid "3 · What kind?"
 msgstr "3 · 类型"
 
-#: src/components/organisms/AddEventButton.re.mjs:160
+#: src/components/organisms/AddEventButton.re.mjs:124
 msgid "Add an Event"
 msgstr "添加活动"
 
@@ -242,15 +242,11 @@ msgstr "位置"
 msgid "Location:"
 msgstr "地点："
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "长时段空档"
-
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "标记为空闲"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "匹配我的时间"
 
@@ -269,6 +265,10 @@ msgstr "新建"
 #: src/components/organisms/NewPlanModal.re.mjs:203
 msgid "New plan"
 msgstr "新计划"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "开放"
 
 #: src/components/pages/LocationPage.re.mjs:68
 msgid "page not found"
@@ -314,7 +314,7 @@ msgstr "建议的活动"
 msgid "sync calendar"
 msgstr "同步日历"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "点击任意位置添加时间段"
 
@@ -386,6 +386,10 @@ msgstr "你想什么时候打球？"
 #~ msgstr ""
 #~ "告诉我您想在何时何地比赛，我将帮助您创建活动。您可以继续与我对话来完善细"
 #~ "节。"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "长时段空档"
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"

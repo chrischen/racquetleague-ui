@@ -1,4 +1,4 @@
-/* @sourceLoc AvailabilityPage.res */
+/* @sourceLoc UseSetAvailabilityDay.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -13,10 +13,17 @@ module Types = {
     startHour: int,
   }
   @live
+  and response_setAvailabilityDay_day_user = {
+    @live id: string,
+    lineUsername: option<string>,
+    picture: option<string>,
+  }
+  @live
   and response_setAvailabilityDay_day = {
     @live id: string,
     intervals: array<response_setAvailabilityDay_day_intervals>,
     localDate: string,
+    user: option<response_setAvailabilityDay_day_user>,
   }
   @live
   and response_setAvailabilityDay_errors = {
@@ -104,7 +111,14 @@ var v0 = [
     "name": "input"
   }
 ],
-v1 = [
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v2 = [
   {
     "alias": null,
     "args": [
@@ -127,18 +141,38 @@ v1 = [
         "name": "day",
         "plural": false,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
+          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
             "name": "localDate",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v1/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "picture",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lineUsername",
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           },
           {
@@ -196,8 +230,8 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "AvailabilityPageSetAvailabilityMutation",
-    "selections": (v1/*: any*/),
+    "name": "UseSetAvailabilityDayMutation",
+    "selections": (v2/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
@@ -205,16 +239,16 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "AvailabilityPageSetAvailabilityMutation",
-    "selections": (v1/*: any*/)
+    "name": "UseSetAvailabilityDayMutation",
+    "selections": (v2/*: any*/)
   },
   "params": {
-    "cacheID": "aaf117c5f750895f3fbb6a0deaa4992b",
+    "cacheID": "a747d72b4fce6fde757f668e395aa719",
     "id": null,
     "metadata": {},
-    "name": "AvailabilityPageSetAvailabilityMutation",
+    "name": "UseSetAvailabilityDayMutation",
     "operationKind": "mutation",
-    "text": "mutation AvailabilityPageSetAvailabilityMutation(\n  $input: SetAvailabilityDayInput!\n) {\n  setAvailabilityDay(input: $input) {\n    day {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation UseSetAvailabilityDayMutation(\n  $input: SetAvailabilityDayInput!\n) {\n  setAvailabilityDay(input: $input) {\n    day {\n      id\n      localDate\n      user {\n        id\n        picture\n        lineUsername\n      }\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

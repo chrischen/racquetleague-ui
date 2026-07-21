@@ -3,6 +3,8 @@
 import * as React from "react";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as TimeWindow from "../molecules/TimeWindow.re.mjs";
+import * as ReactIntl from "react-intl";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -128,6 +130,7 @@ function AvailabilityGrid(props) {
   var isSaving = props.isSaving;
   var onSave = props.onSave;
   var days = props.days;
+  var intl = ReactIntl.useIntl();
   var match = React.useState(function () {
         return days.map(function (day) {
                     if (day.initialIntervals.length > 0) {
@@ -336,7 +339,7 @@ function AvailabilityGrid(props) {
                                                                   var leftPct = (h - TimeWindowPicker.hourMin | 0) / TimeWindowPicker.hourRange * 100.0;
                                                                   return JsxRuntime.jsx("div", {
                                                                               children: JsxRuntime.jsx("span", {
-                                                                                    children: TimeWindowPicker.hourLabel(h),
+                                                                                    children: TimeWindow.hourLabelIntl(intl, h),
                                                                                     className: "font-mono text-[10px] text-gray-400 dark:text-gray-500 px-1"
                                                                                   }),
                                                                               className: "absolute top-0 bottom-0 flex items-center",

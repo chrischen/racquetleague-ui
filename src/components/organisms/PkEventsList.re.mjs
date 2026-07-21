@@ -17,11 +17,13 @@ import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
+import * as PkEventsDayFeed from "./PkEventsDayFeed.re.mjs";
 import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PkEventsAvailabilityDay from "./PkEventsAvailabilityDay.re.mjs";
 import * as PkEventsListFragment_graphql from "../../__generated__/PkEventsListFragment_graphql.re.mjs";
@@ -105,11 +107,15 @@ function PkEventsList$Day(props) {
       });
   var setShowShadow = match[1];
   var showShadow = match[0];
-  ReactRouterDom.useLocation();
+  var match$1 = ReactRouterDom.useLocation();
+  var pathname = match$1.pathname;
+  var intl = ReactIntl.useIntl();
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
             })));
   var geoStatus = UseUserLocation.useStatus();
+  var match$2 = UseSetAvailabilityDay.use();
+  var commitSetAvailability = match$2[0];
   var defaultHide = function (edge, _viewer) {
     return Core__Option.getOr(edge.shadow, false);
   };
@@ -143,6 +149,58 @@ function PkEventsList$Day(props) {
   };
   var hasHiddenPreview = totalHiddenCount > 0 && !showShadow;
   var previewHiddenEvent = Belt_Array.get(hiddenEvents, 0);
+  var eventStartHour = function (edge) {
+    var dt = edge.startDate;
+    if (dt === undefined) {
+      return 0.0;
+    }
+    var d = Util.Datetime.toDate(Caml_option.valFromOption(dt));
+    var tz = Core__Option.getOr(edge.timezone, "Asia/Tokyo");
+    var opts = {
+      timeZone: tz,
+      hour12: false,
+      hour: "2-digit",
+      minute: "2-digit"
+    };
+    var parts = intl.formatDateToParts(d, opts);
+    var getVal = function (ty) {
+      return Core__Option.getOr(Core__Option.map(parts.find(function (p) {
+                          return p.type === ty;
+                        }), (function (p) {
+                        return p.value;
+                      })), "0");
+    };
+    var h = Core__Option.getOr(Core__Int.fromString(getVal("hour"), undefined), 0);
+    var m = Core__Option.getOr(Core__Int.fromString(getVal("minute"), undefined), 0);
+    return h + m / 60.0;
+  };
+  var eventItems = visibleEvents.map(function (edge) {
+        var waitlistCount = getWaitlistCount(edge);
+        return {
+                startHour: eventStartHour(edge),
+                key: edge.id,
+                render: (function (isLast) {
+                    return JsxRuntime.jsx(PkEventRow.make, {
+                                event: edge.fragmentRefs,
+                                user: Core__Option.flatMap(viewer, (function (v) {
+                                        return Core__Option.map(v.user, (function (u) {
+                                                      return u.fragmentRefs;
+                                                    }));
+                                      })),
+                                isLastInGroup: isLast,
+                                onEventClick: onEventClick,
+                                onHoverLocation: onHoverLocation,
+                                waitlistCount: waitlistCount,
+                                query: query
+                              }, edge.id);
+                  })
+              };
+      });
+  var renderEventsOnly = function () {
+    return eventItems.map(function (e, idx) {
+                return e.render(idx === (eventItems.length - 1 | 0) && !hasHiddenPreview);
+              });
+  };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   var renderHeader = function (trigger) {
@@ -192,25 +250,34 @@ function PkEventsList$Day(props) {
                                   })),
                           fallback: Caml_option.some(renderHeader(null))
                         });
+                  var tmp$1;
+                  tmp$1 = typeof geoStatus !== "object" ? renderEventsOnly() : JsxRuntime.jsx(React.Suspense, {
+                          children: Caml_option.some(JsxRuntime.jsx(PkEventsDayFeed.make, {
+                                    localDate: isoDate,
+                                    fromDate: fromDate,
+                                    toDate: toDate,
+                                    activityId: Core__Option.getOr(activityId, defaultActivityId),
+                                    location: geoStatus.location,
+                                    fetchKey: availabilityFetchKey,
+                                    events: eventItems,
+                                    hasHiddenPreview: hasHiddenPreview,
+                                    onUseCourtTime: (function (slot) {
+                                        if (isLoggedIn) {
+                                          commitSetAvailability(isoDate, Core__Option.getOr(activityId, defaultActivityId), UseSetAvailabilityDay.intervalsOfIntents([slot]), (function (_res, _err) {
+                                                  onAvailabilityRefetchNeeded();
+                                                }));
+                                          return ;
+                                        } else {
+                                          return navigate("/oauth-login?return=" + pathname, undefined);
+                                        }
+                                      })
+                                  })),
+                          fallback: Caml_option.some(renderEventsOnly())
+                        });
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
                                 tmp,
-                                visibleEvents.map(function (edge, idx) {
-                                      var waitlistCount = getWaitlistCount(edge);
-                                      return JsxRuntime.jsx(PkEventRow.make, {
-                                                  event: edge.fragmentRefs,
-                                                  user: Core__Option.flatMap(viewer, (function (v) {
-                                                          return Core__Option.map(v.user, (function (u) {
-                                                                        return u.fragmentRefs;
-                                                                      }));
-                                                        })),
-                                                  isLastInGroup: idx === (visibleEvents.length - 1 | 0) && !hasHiddenPreview,
-                                                  onEventClick: onEventClick,
-                                                  onHoverLocation: onHoverLocation,
-                                                  waitlistCount: waitlistCount,
-                                                  query: query
-                                                }, edge.id);
-                                    }),
+                                tmp$1,
                                 hasHiddenPreview ? Core__Option.getOr(Core__Option.map(previewHiddenEvent, (function (edge) {
                                               var waitlistCount = getWaitlistCount(edge);
                                               return JsxRuntime.jsxs("div", {
@@ -470,11 +537,14 @@ function PkEventsList(props) {
             });
 }
 
+var showInlineCourts = true;
+
 var make = PkEventsList;
 
 export {
   Fragment ,
   defaultActivityId ,
+  showInlineCourts ,
   ts ,
   Day ,
   make ,

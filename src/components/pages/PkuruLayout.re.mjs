@@ -17,7 +17,6 @@ import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
-import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as PkuruSidebarClubs from "./PkuruSidebarClubs.re.mjs";
@@ -25,10 +24,9 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as ReactHelmetAsync from "react-helmet-async";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as NotificationsPreview from "../molecules/NotificationsPreview.re.mjs";
-import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as PkuruLayoutQuery_graphql from "../../__generated__/PkuruLayoutQuery_graphql.re.mjs";
 import PkuruComPng from "/src/assets/pkuru.com.png";
-import * as PkuruLayoutSetAvailabilityMutation_graphql from "../../__generated__/PkuruLayoutSetAvailabilityMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -500,26 +498,6 @@ var MobileTabs = {
   make: PkuruLayout$MobileTabs
 };
 
-var convertVariables$1 = PkuruLayoutSetAvailabilityMutation_graphql.Internal.convertVariables;
-
-var convertResponse$1 = PkuruLayoutSetAvailabilityMutation_graphql.Internal.convertResponse;
-
-var convertWrapRawResponse$1 = PkuruLayoutSetAvailabilityMutation_graphql.Internal.convertWrapRawResponse;
-
-var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables$1, PkuruLayoutSetAvailabilityMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkuruLayoutSetAvailabilityMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var PkuruLayoutSetAvailabilityMutation = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables$1,
-  convertResponse: convertResponse$1,
-  convertWrapRawResponse: convertWrapRawResponse$1,
-  commitMutation: commitMutation,
-  use: use$1
-};
-
 var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function PkuruLayout$Layout(props) {
@@ -533,7 +511,7 @@ function PkuruLayout$Layout(props) {
       });
   var setShowModal = match[1];
   var showModal = match[0];
-  var match$1 = use$1();
+  var match$1 = UseSetAvailabilityDay.use();
   var commitSetAvailability = match$1[0];
   var env = RescriptRelay.useEnvironmentFromContext();
   var match$2 = React.useState(function () {
@@ -568,22 +546,8 @@ function PkuruLayout$Layout(props) {
   var darkMode = match$7[0];
   var navigate = ReactRouterDom.useNavigate();
   var $$location = ReactRouterDom.useLocation();
-  var userLocation = UseUserLocation.use();
   var handleMarkAvailable = function (localDate, intents) {
-    var intervals = intents.map(function (i) {
-          return {
-                  endHour: i.end | 0,
-                  startHour: i.start | 0
-                };
-        });
-    commitSetAvailability({
-          input: {
-            activityId: defaultActivityId,
-            intervals: intervals,
-            localDate: localDate,
-            location: userLocation
-          }
-        }, undefined, undefined, undefined, (function (res, _err) {
+    commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
             if (Core__Option.isSome(res.setAvailabilityDay.day)) {
               RelayRuntime.commitLocalUpdate(env, (function (store) {
                       store.getRoot().invalidateRecord();
@@ -591,7 +555,7 @@ function PkuruLayout$Layout(props) {
               return ;
             }
             
-          }), undefined, undefined);
+          }));
   };
   var handleCreateEvent = function (localDate, intent) {
     var startHour = intent.start | 0;
@@ -921,7 +885,6 @@ export {
   Topbar ,
   MobileSidebar ,
   MobileTabs ,
-  PkuruLayoutSetAvailabilityMutation ,
   defaultActivityId ,
   Layout ,
   make ,

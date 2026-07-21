@@ -25,8 +25,8 @@ msgstr ""
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:581
-#: src/components/molecules/PlayIntentRow.re.mjs:709
+#: src/components/molecules/PlayIntentRow.re.mjs:557
+#: src/components/molecules/PlayIntentRow.re.mjs:685
 msgid "· peak {0}–{1}"
 msgstr ""
 
@@ -39,9 +39,12 @@ msgstr ""
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:52
-#: src/components/molecules/PlayIntentRow.re.mjs:577
-#: src/components/organisms/PkEventsList.re.mjs:160
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:83
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+#: src/components/molecules/PlayIntentRow.re.mjs:553
+#: src/components/organisms/PkEventsList.re.mjs:218
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
@@ -49,37 +52,61 @@ msgstr ""
 #~ msgid "{0} {hiddenDesc} hidden — show"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:49
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:132
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+msgid "{0} continuous span"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+msgid "{0} continuous spans"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:80
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:172
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:206
 msgid "{0} court"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:319
+#: src/components/molecules/PlayIntentRow.re.mjs:296
 msgid "{0} court available"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:50
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:133
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:81
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:173
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:207
 msgid "{0} courts"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:320
+#: src/components/molecules/PlayIntentRow.re.mjs:297
 msgid "{0} courts available"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+msgid "{0} exact option"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+msgid "{0} exact options"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:67
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:66
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:175
 msgid "{0} location"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:68
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:67
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:176
 msgid "{0} locations"
 msgstr ""
 
@@ -91,39 +118,53 @@ msgstr ""
 #~ msgid "{0} others want to play {dayWord}"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:579
+#: src/components/molecules/PlayIntentRow.re.mjs:555
 msgid "{0} people"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:332
+#: src/components/molecules/PlayIntentRow.re.mjs:309
 msgid "{0} people looking to play"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:707
+#: src/components/molecules/PlayIntentRow.re.mjs:683
 msgid "{0} people want to play"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:578
+#: src/components/molecules/PlayIntentRow.re.mjs:554
 msgid "{0} person"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:331
+#: src/components/molecules/PlayIntentRow.re.mjs:308
 msgid "{0} person looking to play"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:706
+#: src/components/molecules/PlayIntentRow.re.mjs:682
 msgid "{0} person wants to play"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-msgid "{0} time option"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+msgid "{0} segment"
 msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+msgid "{0} segments"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-msgid "{0} time options"
+#~ msgid "{0} time options"
+#~ msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
+msgid "{0}–{1} courts"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:318
+#: src/components/molecules/PlayIntentRow.re.mjs:295
 msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -131,9 +172,9 @@ msgstr ""
 #~ msgid "{cancelTimeLeft} left to cancel"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:323
-#: src/components/molecules/PlayIntentRow.re.mjs:330
-#: src/components/molecules/PlayIntentRow.re.mjs:705
+#: src/components/molecules/PlayIntentRow.re.mjs:300
+#: src/components/molecules/PlayIntentRow.re.mjs:307
+#: src/components/molecules/PlayIntentRow.re.mjs:681
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -143,23 +184,37 @@ msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-msgstr ""
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-msgstr ""
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:56
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:66
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:131
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
+msgid "{minCourts, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+msgid "{segLocations, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:171
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:205
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:48
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
 msgid "{totalCourts, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -199,11 +254,11 @@ msgstr ""
 msgid "Advanced players"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:286
+#: src/components/molecules/PlayIntentRow.re.mjs:263
 msgid "Afternoon"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:274
+#: src/components/molecules/PlayIntentRow.re.mjs:251
 msgid "Anytime"
 msgstr ""
 
@@ -277,6 +332,10 @@ msgstr ""
 msgid "Capture payment"
 msgstr ""
 
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+msgid "Choose a segment up to four hours to plan this time."
+msgstr ""
+
 #: src/components/organisms/EventStickyFooter.re.mjs:433
 #: src/components/organisms/EventStickyFooter.re.mjs:555
 msgid "Claim spot"
@@ -298,6 +357,14 @@ msgstr ""
 msgid "Confirmed · {0}"
 msgstr ""
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+msgid "Continuous availability"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
+msgid "Continuous court availability"
+msgstr ""
+
 #: src/components/pages/PkEventPage.re.mjs:247
 msgid "Copied!"
 msgstr ""
@@ -306,7 +373,8 @@ msgstr ""
 msgid "copy event"
 msgstr ""
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:103
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:130
+#: src/components/organisms/PkEventsDayFeed.re.mjs:24
 msgid "Court"
 msgstr ""
 
@@ -318,11 +386,11 @@ msgstr ""
 msgid "Court {0} - Editing"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:542
+#: src/components/molecules/PlayIntentRow.re.mjs:519
 msgid "Courts"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:563
+#: src/components/molecules/PlayIntentRow.re.mjs:540
 msgid "Courts available during your time"
 msgstr ""
 
@@ -388,12 +456,12 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:292
+#: src/components/molecules/PlayIntentRow.re.mjs:269
 msgid "Evening"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:163
+#: src/components/organisms/PkEventsList.re.mjs:221
 msgid "event"
 msgstr ""
 
@@ -410,7 +478,7 @@ msgid "Event updated"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:164
+#: src/components/organisms/PkEventsList.re.mjs:222
 msgid "events"
 msgstr ""
 
@@ -430,7 +498,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:364
+#: src/components/organisms/PkEventsList.re.mjs:431
 msgid "Friday"
 msgstr ""
 
@@ -446,11 +514,11 @@ msgstr ""
 msgid "Highly skilled players"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:636
+#: src/components/molecules/PlayIntentRow.re.mjs:612
 msgid "Host an event at this time"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:633
+#: src/components/molecules/PlayIntentRow.re.mjs:609
 msgid "Host event"
 msgstr ""
 
@@ -511,8 +579,8 @@ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
-msgid "Long opening"
-msgstr ""
+#~ msgid "Long opening"
+#~ msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:165
 msgid "Losing Team (Team {0})"
@@ -526,12 +594,16 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:652
+#: src/components/molecules/PlayIntentRow.re.mjs:628
 msgid "Mark available"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+msgid "Match your availability to the selected segment, then invite players."
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:50
@@ -551,7 +623,7 @@ msgstr ""
 msgid "mixed"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:352
+#: src/components/organisms/PkEventsList.re.mjs:419
 msgid "Monday"
 msgstr ""
 
@@ -559,7 +631,7 @@ msgstr ""
 msgid "more →"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:280
+#: src/components/molecules/PlayIntentRow.re.mjs:257
 msgid "Morning"
 msgstr ""
 
@@ -568,7 +640,7 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:373
+#: src/components/organisms/PkEventsList.re.mjs:440
 msgid "Next {dayName}"
 msgstr ""
 
@@ -588,11 +660,19 @@ msgstr ""
 msgid "On waitlist"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:324
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
+msgid "Open span"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:301
 msgid "other"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:325
+#: src/components/molecules/PlayIntentRow.re.mjs:302
 msgid "others"
 msgstr ""
 
@@ -640,7 +720,7 @@ msgstr ""
 msgid "Pending approval"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:636
+#: src/components/molecules/PlayIntentRow.re.mjs:612
 msgid "Pick one time window to host an event"
 msgstr ""
 
@@ -648,7 +728,11 @@ msgstr ""
 #~ msgid "Pick time →"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:303
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
+msgid "Plan this time"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:280
 msgid "Play today"
 msgstr ""
 
@@ -662,7 +746,7 @@ msgstr ""
 msgid "players"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:533
+#: src/components/molecules/PlayIntentRow.re.mjs:510
 msgid "Players"
 msgstr ""
 
@@ -730,7 +814,7 @@ msgstr ""
 #~ msgid "Releasing..."
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:588
 msgid "Remove all"
 msgstr ""
 
@@ -754,7 +838,8 @@ msgstr ""
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:209
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:264
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:245
 msgid "Reserve"
 msgstr ""
 
@@ -770,7 +855,7 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:367
+#: src/components/organisms/PkEventsList.re.mjs:434
 msgid "Saturday"
 msgstr ""
 
@@ -795,7 +880,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:240
+#: src/components/organisms/PkEventsList.re.mjs:307
 msgid "Show {0} more"
 msgstr ""
 
@@ -823,7 +908,7 @@ msgstr ""
 msgid "SPREAD"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:349
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Sunday"
 msgstr ""
 
@@ -831,7 +916,7 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr ""
 
@@ -872,17 +957,17 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:361
+#: src/components/organisms/PkEventsList.re.mjs:428
 msgid "Thursday"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:332
+#: src/components/organisms/PkEventsList.re.mjs:399
 msgid "Today"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:338
+#: src/components/organisms/PkEventsList.re.mjs:405
 msgid "Tomorrow"
 msgstr ""
 
@@ -890,7 +975,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:355
+#: src/components/organisms/PkEventsList.re.mjs:422
 msgid "Tuesday"
 msgstr ""
 
@@ -903,11 +988,15 @@ msgid "Upper intermediate and above"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-msgid "Use this time"
-msgstr ""
+#~ msgid "Use this time"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-msgid "View {groupCourtsPhrase} & reserve"
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+msgid "View {segCourtsPhrase} & reserve"
 msgstr ""
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
@@ -944,7 +1033,7 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:358
+#: src/components/organisms/PkEventsList.re.mjs:425
 msgid "Wednesday"
 msgstr ""
 
@@ -952,7 +1041,7 @@ msgstr ""
 msgid "Weekend"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:445
+#: src/components/molecules/PlayIntentRow.re.mjs:422
 msgid "When can you play {dayWord}?"
 msgstr ""
 
@@ -972,27 +1061,27 @@ msgstr ""
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:372
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Yesterday"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:524
+#: src/components/molecules/PlayIntentRow.re.mjs:501
 msgid "You"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:328
+#: src/components/molecules/PlayIntentRow.re.mjs:305
 msgid "You + {0} {othersWord} looking to play"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:687
+#: src/components/molecules/PlayIntentRow.re.mjs:663
 msgid "You want to play {dayWord}"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:345
+#: src/components/molecules/PlayIntentRow.re.mjs:322
 msgid "You're available"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:328
+#: src/components/molecules/PlayIntentRow.re.mjs:305
 msgid "You're available to play"
 msgstr ""
 

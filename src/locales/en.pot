@@ -5289,3 +5289,75 @@ msgstr ""
 #: src/components/organisms/PkEventsAvailabilityDay.re.mjs:103
 msgid "Court"
 msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:83
+msgid "{0} segment"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+msgid "{0} segments"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:81
+msgid "{0}–{1} courts"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:78
+msgid "{minCourts, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+msgid "Choose a segment up to four hours to plan this time."
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:127
+msgid "Continuous court availability"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+msgid "Match your availability to the selected segment, then invite players."
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:131
+msgid "Open span"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:296
+msgid "Plan this time"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+msgid "{0} continuous span"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+msgid "{0} continuous spans"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+msgid "{0} exact option"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+msgid "{0} exact options"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:173
+msgid "{segLocations, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+msgid "Continuous availability"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:212
+msgid "View {segCourtsPhrase} & reserve"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:404
+msgid "open"
+msgstr ""

@@ -13,91 +13,95 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0}コート"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0}コート"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:408
+#: src/components/organisms/AvailabilityGrid.re.mjs:411
 msgid "Add time windows above"
 msgstr "上に時間枠を追加してください"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:238
+#: src/components/organisms/AvailabilityGrid.re.mjs:241
 msgid ""
 "Add time windows to each day. Drag to move them, grab the edges to resize."
 msgstr ""
 "各日に時間枠を追加してください。ドラッグで移動、端をドラッグしてサイズ変更で"
 "きます。"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:314
+#: src/components/organisms/AvailabilityGrid.re.mjs:317
 msgid "Clear"
 msgstr "クリア"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:389
+#: src/components/organisms/AvailabilityGrid.re.mjs:392
 msgid ""
 "Drag a window to move it · drag the edges to resize · tap + to add another"
 msgstr ""
 "ウィンドウをドラッグして移動・端をドラッグしてサイズ変更・＋をタップして追加"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:455
+#: src/components/organisms/AvailabilityGrid.re.mjs:458
 msgid "Let hosts schedule events when most of you are free"
 msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "長時間空き"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "自分の時間に合わせる"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:269
+#: src/components/organisms/AvailabilityGrid.re.mjs:272
 msgid "One-off"
 msgstr "単発"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:470
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "空き"
+
+#: src/components/organisms/AvailabilityGrid.re.mjs:473
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:470
+#: src/components/organisms/AvailabilityGrid.re.mjs:473
 msgid "Saving…"
 msgstr "保存中…"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:230
+#: src/components/organisms/AvailabilityGrid.re.mjs:233
 msgid "Schedule"
 msgstr "スケジュール"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:451
+#: src/components/organisms/AvailabilityGrid.re.mjs:454
 msgid "Share with your club"
 msgstr "クラブと共有"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "タップして時間枠を追加"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:290
+#: src/components/organisms/AvailabilityGrid.re.mjs:293
 msgid "Weekday eves"
 msgstr "平日の夜"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:302
+#: src/components/organisms/AvailabilityGrid.re.mjs:305
 msgid "Weekend morns"
 msgstr "週末の朝"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:253
+#: src/components/organisms/AvailabilityGrid.re.mjs:256
 msgid "Weekly"
 msgstr "毎週"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:234
+#: src/components/organisms/AvailabilityGrid.re.mjs:237
 msgid "When can you play?"
 msgstr "いつプレーできますか？"
 
-#: src/components/organisms/AvailabilityGrid.re.mjs:397
+#: src/components/organisms/AvailabilityGrid.re.mjs:400
 msgid "Your availability"
 msgstr "あなたの空き時間"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間空き"

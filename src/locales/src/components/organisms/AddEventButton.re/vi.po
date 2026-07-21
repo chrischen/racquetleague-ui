@@ -13,15 +13,15 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0} sân"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -37,7 +37,7 @@ msgstr "2 · Giờ"
 msgid "3 · What kind?"
 msgstr "3 · Loại gì?"
 
-#: src/components/organisms/AddEventButton.re.mjs:160
+#: src/components/organisms/AddEventButton.re.mjs:124
 msgid "Add an Event"
 msgstr "Thêm sự kiện"
 
@@ -73,15 +73,11 @@ msgstr "Tổ chức sự kiện"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "Khung giờ dài"
-
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "Khớp giờ của tôi"
 
@@ -93,6 +89,10 @@ msgstr "Buổi sáng"
 msgid "New plan"
 msgstr "Kế hoạch mới"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "mở"
+
 #: src/components/organisms/NewPlanModal.re.mjs:370
 msgid "Save"
 msgstr "Lưu"
@@ -101,7 +101,7 @@ msgstr "Lưu"
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
 
@@ -123,3 +123,7 @@ msgstr "Ngày mai"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "Bạn muốn chơi lúc nào?"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "Khung giờ dài"

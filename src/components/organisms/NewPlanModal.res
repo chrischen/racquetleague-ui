@@ -25,8 +25,8 @@ type dayOption = {
 let make = (
   ~isOpen: bool,
   ~onClose: unit => unit,
-  ~onMarkAvailable: (string, array<TimeWindowPicker.playIntent>) => unit,
-  ~onCreateEvent: (string, TimeWindowPicker.playIntent) => unit,
+  ~onMarkAvailable: (string, array<TimeWindow.playIntent>) => unit,
+  ~onCreateEvent: (string, TimeWindow.playIntent) => unit,
 ) => {
   let intl = ReactIntl.useIntl()
 
@@ -96,7 +96,7 @@ let make = (
   }, [isOpen])
 
   let sortedDraft =
-    draft->Array.toSorted((a: TimeWindowPicker.playIntent, b: TimeWindowPicker.playIntent) =>
+    draft->Array.toSorted((a: TimeWindow.playIntent, b: TimeWindow.playIntent) =>
       a.start -. b.start
     )
   let canHost = draft->Array.length === 1

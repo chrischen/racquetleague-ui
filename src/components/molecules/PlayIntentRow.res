@@ -6,30 +6,6 @@ type userDayInterval = AvailabilityUserRow.userDayInterval
 type userDayUser = AvailabilityUserRow.userDayUser
 type userDay = AvailabilityUserRow.userDay
 
-module SetAvailabilityMutation = %relay(`
-  mutation PlayIntentRowSetAvailabilityMutation($input: SetAvailabilityDayInput!) {
-    setAvailabilityDay(input: $input) {
-      day {
-        ...PlayIntentRow_availabilityDay
-        id
-        localDate
-        user {
-          id
-          picture
-          lineUsername
-        }
-        intervals {
-          startHour
-          endHour
-        }
-      }
-      errors {
-        message
-      }
-    }
-  }
-`)
-
 module Fragment = %relay(`
   fragment PlayIntentRow_availabilityDay on AvailabilityDay {
     id
@@ -53,17 +29,43 @@ let make = (
   ~activityId: option<string>=?,
   ~clubId: option<string>=?,
   ~userDays: array<userDay>,
-  ~courtAvailability: array<TimeWindowPicker.courtAvailability>=[],
+  ~courtAvailability: array<TimeWindow.courtAvailability>=[],
   ~onAvailabilityCommitted: option<userDay> => unit,
-  ~onChange: array<TimeWindowPicker.playIntent> => unit,
+  ~onChange: array<TimeWindow.playIntent> => unit,
   ~onCreateEvent: option<unit => unit>=?,
   ~onRegisterOpenEditor: option<(unit => unit) => unit>=?,
   ~renderHeader: option<React.element => React.element>=?,
   ~isLoggedIn: bool=false,
 ) => {
-  let (commitSetAvailability, _isMutating) = SetAvailabilityMutation.use()
-  let location = UseUserLocation.use()
+  let (commitSetAvailability, _isMutating) = UseSetAvailabilityDay.use()
   let resolvedActivityId = activityId->Option.orElse(Some(defaultActivityId))
+
+  let fragmentData = Fragment.useOpt(availabilityDay)
+  let intents: array<TimeWindow.playIntent> =
+    fragmentData
+    ->Option.map(d =>
+      d.intervals->Array.mapWithIndex((interval, i): TimeWindow.playIntent => {
+        id: i,
+        start: interval.startHour->Float.fromInt,
+        end: interval.endHour->Float.fromInt,
+      })
+    )
+    ->Option.getOr([])
+
+  // Show only players whose availability overlaps the viewer's own time windows
+  // (mirrors court-availability overlap filtering). With no windows set, show
+  // everyone.
+  let userDays = if intents->Array.length == 0 {
+    userDays
+  } else {
+    userDays->Array.filter(ud =>
+      ud.intervals->Array.some(iv =>
+        intents->Array.some(w =>
+          iv.startHour->Float.fromInt < w.end && iv.endHour->Float.fromInt > w.start
+        )
+      )
+    )
+  }
 
   // Compute per-hour counts from all user intervals
   let hourCounts: array<TimeWindowPicker.hourCount> = Belt.Array.makeBy(
@@ -130,18 +132,6 @@ let make = (
     }
   }
 
-  let fragmentData = Fragment.useOpt(availabilityDay)
-  let intents: array<TimeWindowPicker.playIntent> =
-    fragmentData
-    ->Option.map(d =>
-      d.intervals->Array.mapWithIndex((interval, i): TimeWindowPicker.playIntent => {
-        id: i,
-        start: interval.startHour->Float.fromInt,
-        end: interval.endHour->Float.fromInt,
-      })
-    )
-    ->Option.getOr([])
-
   let (editing, setEditing) = React.useState(() => false)
   let (draft, setDraft) = React.useState(() => intents)
   let (demandListOpen, setDemandListOpen) = React.useState(() => false)
@@ -178,7 +168,7 @@ let make = (
   }
 
   // Replace the draft with a court opening's window (picker band or group list).
-  let useCourtSlot = (group: TimeWindowPicker.courtSlotGroup) =>
+  let useCourtSlot = (group: TimeWindow.courtSlotGroup) =>
     setDraft(_ => [{id: TimeWindowPicker.wid(), start: group.start, end: group.end}])
 
   let openEditorRef = React.useRef(openEditor)
@@ -192,24 +182,11 @@ let make = (
     None
   })
 
-  let commitAvailability = (newIntents: array<TimeWindowPicker.playIntent>) => {
-    let intervals: array<
-      RelaySchemaAssets_graphql.input_IntervalInput,
-    > = newIntents->Array.map((
-      i: TimeWindowPicker.playIntent,
-    ): RelaySchemaAssets_graphql.input_IntervalInput => {
-      startHour: i.start->Float.toInt,
-      endHour: i.end->Float.toInt,
-    })
+  let commitAvailability = (newIntents: array<TimeWindow.playIntent>) => {
     let _ = commitSetAvailability(
-      ~variables={
-        input: {
-          localDate,
-          activityId: resolvedActivityId->Option.getOr(defaultActivityId),
-          location,
-          intervals,
-        },
-      },
+      ~localDate,
+      ~activityId=resolvedActivityId->Option.getOr(defaultActivityId),
+      ~intervals=UseSetAvailabilityDay.intervalsOfIntents(newIntents),
       ~onCompleted=(res, _err) => {
         let updatedDay = res.setAvailabilityDay.day->Option.map((d): userDay => {
           id: d.id,
@@ -240,7 +217,7 @@ let make = (
   }
 
   let sortedIntents =
-    intents->Array.toSorted((a: TimeWindowPicker.playIntent, b: TimeWindowPicker.playIntent) =>
+    intents->Array.toSorted((a: TimeWindow.playIntent, b: TimeWindow.playIntent) =>
       a.start -. b.start
     )
 
@@ -266,8 +243,10 @@ let make = (
 
   // Keep players, the user's availability, and court inventory in one compact
   // discovery row so court-only days still surface useful planning context.
+  // Count distinct courts, not openings, so a court with several windows (or one
+  // that spans multiple split segments) isn't counted more than once.
   let availableCourtCount =
-    courtAvailability->Array.reduce(0, (acc, c) => acc + c.intents->Array.length)
+    courtAvailability->Array.map(c => c.id)->Belt.Set.String.fromArray->Belt.Set.String.size
   let courtNoun = Lingui.UtilString.plural(
     availableCourtCount,
     {
@@ -460,7 +439,9 @@ let make = (
                 : React.null}
               {courtAvailability->Array.length > 0
                 ? <span className="inline-flex items-center gap-1">
-                    <span className="h-2 w-2 rounded-sm bg-cyan-400" />
+                    <span
+                      className="h-2 w-2 rounded-sm border border-cyan-600 dark:border-cyan-400 bg-transparent"
+                    />
                     {(ts`Courts`)->React.string}
                   </span>
                 : React.null}
@@ -469,7 +450,7 @@ let make = (
         {draft->Array.length > 0
           ? <div className="mt-2 flex flex-wrap gap-1.5">
               {draft
-              ->Array.toSorted((a: TimeWindowPicker.playIntent, b: TimeWindowPicker.playIntent) =>
+              ->Array.toSorted((a: TimeWindow.playIntent, b: TimeWindow.playIntent) =>
                 a.start -. b.start
               )
               ->Array.map(w =>
@@ -480,16 +461,16 @@ let make = (
           : React.null}
         {
           // Court openings that overlap the user's drafted time windows.
-          let overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(
+          let overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(
             courtAvailability,
             draft,
           )
           overlappingCourts->Array.length > 0
             ? <div className="mt-2">
+                // Display-only here: this panel already filters courts to the
+                // user's chosen time, so its segments shouldn't overwrite it.
                 <CourtAvailabilityGroups
-                  title={ts`Courts available during your time`}
-                  courtAvailability=overlappingCourts
-                  onUseSlot=useCourtSlot
+                  title={ts`Courts available during your time`} courtAvailability=overlappingCourts
                 />
               </div>
             : React.null

@@ -15,10 +15,9 @@ import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
-import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as VerticalAvailabilityGrid from "../organisms/VerticalAvailabilityGrid.re.mjs";
 import * as AvailabilityPageQuery_graphql from "../../__generated__/AvailabilityPageQuery_graphql.re.mjs";
-import * as AvailabilityPageSetAvailabilityMutation_graphql from "../../__generated__/AvailabilityPageSetAvailabilityMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -59,26 +58,6 @@ var Query = {
   retain: retain
 };
 
-var convertVariables$1 = AvailabilityPageSetAvailabilityMutation_graphql.Internal.convertVariables;
-
-var convertResponse$1 = AvailabilityPageSetAvailabilityMutation_graphql.Internal.convertResponse;
-
-var convertWrapRawResponse$1 = AvailabilityPageSetAvailabilityMutation_graphql.Internal.convertWrapRawResponse;
-
-var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables$1, AvailabilityPageSetAvailabilityMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, AvailabilityPageSetAvailabilityMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var SetAvailabilityMutation = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables$1,
-  convertResponse: convertResponse$1,
-  convertWrapRawResponse: convertWrapRawResponse$1,
-  commitMutation: commitMutation,
-  use: use$1
-};
-
 var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function getDateRange() {
@@ -113,7 +92,7 @@ function AvailabilityPage$AvailabilityContent(props) {
         return false;
       });
   var setIsSaving = match$2[1];
-  var match$3 = use$1();
+  var match$3 = UseSetAvailabilityDay.use();
   var commitSetAvailability = match$3[0];
   var env = RescriptRelay.useEnvironmentFromContext();
   var getWeekDays = function () {
@@ -231,14 +210,15 @@ function AvailabilityPage$AvailabilityContent(props) {
       });
   var genericCourtName = t`Court`;
   var courtAvailability = Core__Array.reduce(match$1.locationsAvailability, {}, (function (acc, day) {
-          var loc = day.location;
-          if (loc === undefined) {
-            return acc;
-          }
+          var locId = Core__Option.getOr(Core__Option.orElse(Core__Option.map(day.location, (function (l) {
+                          return l.id;
+                        })), day.link), day.id);
           var court_id = day.id;
           var court_location = {
-            id: loc.id,
-            name: Core__Option.getOr(loc.name, genericCourtName),
+            id: locId,
+            name: Core__Option.getOr(Core__Option.flatMap(day.location, (function (l) {
+                        return l.name;
+                      })), genericCourtName),
             reservationUrl: day.link
           };
           var court_intents = day.intervals.map(function (iv, i) {
@@ -283,19 +263,12 @@ function AvailabilityPage$AvailabilityContent(props) {
       contents: changes.length
     };
     changes.forEach(function (change) {
-          commitSetAvailability({
-                input: {
-                  activityId: defaultActivityId,
-                  intervals: change.intervals.map(function (iv) {
-                        return {
-                                endHour: iv.endHour,
-                                startHour: iv.startHour
-                              };
-                      }),
-                  localDate: change.isoDate,
-                  location: $$location
-                }
-              }, undefined, undefined, undefined, (function (_res, _err) {
+          commitSetAvailability(change.isoDate, defaultActivityId, change.intervals.map(function (iv) {
+                    return {
+                            endHour: iv.endHour,
+                            startHour: iv.startHour
+                          };
+                  }), (function (_res, _err) {
                   pending.contents = pending.contents - 1 | 0;
                   if (pending.contents <= 0) {
                     setIsSaving(function (param) {
@@ -307,7 +280,7 @@ function AvailabilityPage$AvailabilityContent(props) {
                     return ;
                   }
                   
-                }), undefined, undefined);
+                }));
         });
   };
   return JsxRuntime.jsx(VerticalAvailabilityGrid.make, {
@@ -344,7 +317,6 @@ var make = AvailabilityPage;
 
 export {
   Query ,
-  SetAvailabilityMutation ,
   defaultActivityId ,
   getDateRange ,
   AvailabilityContent ,

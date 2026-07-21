@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-21 18:37+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:83
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:80
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
+msgid "{0} court"
+msgstr "สนาม {0}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:81
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
+msgid "{0} courts"
+msgstr "{0} สนาม"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:67
+msgid "{0} location"
+msgstr "{0} สถานที่"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:68
+msgid "{0} locations"
+msgstr "{0} สถานที่"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+msgid "{0} segment"
+msgstr "{0} ช่วง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
+msgid "{0} segments"
+msgstr "{0} ช่วง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
+msgid "{0}–{1} courts"
+msgstr "{0}–{1} คอร์ต"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:66
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
+msgid "{minCourts, plural, one {{0}} other {{1}}}"
+msgstr "{minCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+msgid "Choose a segment up to four hours to plan this time."
+msgstr "เลือกช่วงเวลาไม่เกินสี่ชั่วโมงเพื่อวางแผนเวลานี้"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
+msgid "Continuous court availability"
+msgstr "ความพร้อมของคอร์ตแบบต่อเนื่อง"
+
+#: src/components/organisms/PkEventsDayFeed.re.mjs:24
+msgid "Court"
+msgstr "คอร์ท"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+msgid "Match your availability to the selected segment, then invite players."
+msgstr "จับคู่ความพร้อมของคุณกับช่วงที่เลือก แล้วเชิญผู้เล่น"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
+msgid "Open span"
+msgstr "ช่วงเปิด"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
+msgid "Plan this time"
+msgstr "วางแผนเวลานี้"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:264
+msgid "Reserve"
+msgstr "จอง"

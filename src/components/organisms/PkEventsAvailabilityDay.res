@@ -62,6 +62,38 @@ module Query = %relay(`
   }
 `)
 
+// Map the day's `locationsAvailability` rows to court entities. A row may not
+// have a resolved Location yet (the scraper keyed availability before the
+// venue was registered); fall back to the booking `link` as a stable
+// per-venue identity so those courts still render and reserve. Shared with
+// PkEventsDayFeed so the picker and the inline pseudo-event rows agree.
+let courtAvailabilityForDate = (
+  rows: array<PkEventsAvailabilityDayQuery_graphql.Types.response_locationsAvailability>,
+  ~localDate: string,
+  ~genericCourtName: string,
+): array<TimeWindow.courtAvailability> =>
+  rows
+  ->Array.filter(d => d.localDate == localDate)
+  ->Array.map((d): TimeWindow.courtAvailability => {
+    let locId = d.location->Option.map(l => l.id)->Option.orElse(d.link)->Option.getOr(d.id)
+    {
+      id: d.id,
+      location: {
+        id: locId,
+        name: d.location->Option.flatMap(l => l.name)->Option.getOr(genericCourtName),
+        reservationUrl: d.link,
+      },
+      courtName: None,
+      intents: d.intervals->Array.mapWithIndex(
+        (iv, i): TimeWindow.playIntent => {
+          id: i,
+          start: iv.startHour->Float.fromInt,
+          end: iv.endHour->Float.fromInt,
+        },
+      ),
+    }
+  })
+
 @react.component
 let make = (
   ~localDate: string,
@@ -114,31 +146,13 @@ let make = (
     ->Option.flatMap(v => v.availability->Array.find(d => d.localDate == localDate))
     ->Option.map(d => d.fragmentRefs)
 
-  // Court (venue) open hours near the caller for this day bucket. Each row
-  // carries its resolved Location and, when the scraper captured one, a
-  // booking `link`; rows without a location are skipped.
+  // Court (venue) open hours near the caller for this day bucket.
   let genericCourtName = Lingui.UtilString.t`Court`
-  let courtAvailability: array<TimeWindowPicker.courtAvailability> =
-    data.locationsAvailability
-    ->Array.filter(d => d.localDate == localDate)
-    ->Array.filterMap(d =>
-      d.location->Option.map((loc): TimeWindowPicker.courtAvailability => {
-        id: d.id,
-        location: {
-          id: loc.id,
-          name: loc.name->Option.getOr(genericCourtName),
-          reservationUrl: d.link,
-        },
-        courtName: None,
-        intents: d.intervals->Array.mapWithIndex(
-          (iv, i): TimeWindowPicker.playIntent => {
-            id: i,
-            start: iv.startHour->Float.fromInt,
-            end: iv.endHour->Float.fromInt,
-          },
-        ),
-      })
-    )
+  let courtAvailability = courtAvailabilityForDate(
+    data.locationsAvailability,
+    ~localDate,
+    ~genericCourtName,
+  )
 
   let onAvailabilityCommitted = (updatedDay: option<PlayIntentRow.userDay>) => {
     let needsRefetch = switch updatedDay {

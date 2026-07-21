@@ -8,24 +8,6 @@ module ViewerFragment = %relay(`
   }
 `)
 
-module SetAvailabilityMutation = %relay(`
-  mutation AddEventButtonSetAvailabilityMutation($input: SetAvailabilityDayInput!) {
-    setAvailabilityDay(input: $input) {
-      day {
-        id
-        localDate
-        intervals {
-          startHour
-          endHour
-        }
-      }
-      errors {
-        message
-      }
-    }
-  }
-`)
-
 let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
 @react.component
@@ -40,9 +22,8 @@ let make = (
   let navigate = Router.useNavigate()
 
   let (showModal, setShowModal) = React.useState(() => false)
-  let (commitSetAvailability, _) = SetAvailabilityMutation.use()
+  let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
   let env = RescriptRelay.useEnvironmentFromContext()
-  let userLocation = UseUserLocation.use()
 
   let buildCreateUrl = (
     ~localDate: option<string>=?,
@@ -85,23 +66,12 @@ let make = (
 
   let handleMarkAvailable = (
     localDate: string,
-    intents: array<TimeWindowPicker.playIntent>,
+    intents: array<TimeWindow.playIntent>,
   ) => {
-    let intervals: array<RelaySchemaAssets_graphql.input_IntervalInput> = intents->Array.map((
-      i
-    ): RelaySchemaAssets_graphql.input_IntervalInput => {
-      startHour: i.start->Float.toInt,
-      endHour: i.end->Float.toInt,
-    })
     let _ = commitSetAvailability(
-      ~variables={
-        input: {
-          localDate,
-          activityId: defaultActivityId,
-          location: userLocation,
-          intervals,
-        },
-      },
+      ~localDate,
+      ~activityId=defaultActivityId,
+      ~intervals=UseSetAvailabilityDay.intervalsOfIntents(intents),
       ~onCompleted=(res, _err) => {
         if res.setAvailabilityDay.day->Option.isSome {
           RescriptRelay.commitLocalUpdate(
@@ -116,7 +86,7 @@ let make = (
     )
   }
 
-  let handleCreateEvent = (localDate: string, intent: TimeWindowPicker.playIntent) => {
+  let handleCreateEvent = (localDate: string, intent: TimeWindow.playIntent) => {
     let searchParamsObj = Js.Dict.empty()
     context.clubId->Option.map(clubId => searchParamsObj->Js.Dict.set("clubId", clubId))->ignore
     context.locationId

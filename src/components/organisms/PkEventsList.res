@@ -61,6 +61,10 @@ module Fragment = %relay(`
 
 let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
+// Experimental: interleave court openings (CourtPseudoEventRow) among the
+// event rows. Hidden for now — testing only. Flip to true to re-enable.
+let showInlineCourts = true
+
 let ts = Lingui.UtilString.t
 
 module Day = {
@@ -96,9 +100,13 @@ module Day = {
     let navigate = LangProvider.Router.useNavigate()
     let (showShadow, setShowShadow) = React.useState(() => false)
     let {pathname} = Router.useLocation()
+    let intl = ReactIntl.useIntl()
 
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
     let geoStatus = UseUserLocation.useStatus()
+    // "Plan this time" on a court band marks the viewer available for that
+    // segment (same mutation path as PlayIntentRow).
+    let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
 
     let defaultHide = (
       edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node,
@@ -132,6 +140,63 @@ module Day = {
 
     let hasHiddenPreview = totalHiddenCount > 0 && !showShadow
     let previewHiddenEvent = hiddenEvents->Belt.Array.get(0)
+
+    // An event's local hour-of-day (in its own timezone), used to order it
+    // among court openings in the experimental interleaved feed.
+    let eventStartHour = (
+      edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node,
+    ): float =>
+      switch edge.startDate {
+      | None => 0.0
+      | Some(dt) =>
+        let d = dt->Util.Datetime.toDate
+        let tz = edge.timezone->Option.getOr("Asia/Tokyo")
+        let opts = ReactIntl.dateTimeFormatOptions(
+          ~hour=#"2-digit",
+          ~minute=#"2-digit",
+          ~hour12=false,
+          ~timeZone=tz,
+          (),
+        )
+        let parts = intl->ReactIntl.Intl.formatDateWithOptionsToParts(d, opts)
+        let getVal = ty =>
+          parts
+          ->Array.find(p => p.ReactIntl.type_ === ty)
+          ->Option.map(p => p.ReactIntl.value)
+          ->Option.getOr("0")
+        let h = getVal("hour")->Int.fromString->Option.getOr(0)->Float.fromInt
+        let m = getVal("minute")->Int.fromString->Option.getOr(0)->Float.fromInt
+        h +. m /. 60.0
+      }
+
+    // Pre-build each visible event as a feed item so the interleaved feed (and
+    // the plain fallback) can render it with the correct last-in-group flag.
+    let eventItems = visibleEvents->Array.map(edge => {
+      let waitlistCount = getWaitlistCount(edge)
+      let r: PkEventsDayFeed.feedEvent = {
+        startHour: eventStartHour(edge),
+        key: edge.id,
+        render: isLast =>
+          <PkEventRow
+            key=edge.id
+            event=edge.fragmentRefs
+            user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
+            isLastInGroup=isLast
+            waitlistCount
+            query
+            ?onEventClick
+            ?onHoverLocation
+          />,
+      }
+      r
+    })
+
+    let renderEventsOnly = () =>
+      eventItems
+      ->Array.mapWithIndex((e, idx) =>
+        e.render(idx == eventItems->Array.length - 1 && !hasHiddenPreview)
+      )
+      ->React.array
 
     <WaitForMessages>
       {() => {
@@ -178,21 +243,43 @@ module Day = {
               />
             </React.Suspense>
           }}
-          {visibleEvents
-          ->Array.mapWithIndex((edge, idx) => {
-            let waitlistCount = getWaitlistCount(edge)
-            <PkEventRow
-              key=edge.id
-              event=edge.fragmentRefs
-              user={viewer->Option.flatMap(v => v.user->Option.map(u => u.fragmentRefs))}
-              isLastInGroup={idx == Array.length(visibleEvents) - 1 && !hasHiddenPreview}
-              waitlistCount
-              query
-              ?onEventClick
-              ?onHoverLocation
-            />
-          })
-          ->React.array}
+          {if !showInlineCourts {
+            // Inline court availabilities are experimental (testing only) and
+            // hidden for now — see `showInlineCourts`.
+            renderEventsOnly()
+          } else {
+            switch geoStatus {
+            // Pre-geo (incl. SSR): plain event rows, no client-only court data.
+            | Resolving => renderEventsOnly()
+            | Resolved({location}) =>
+              // Experimental: court openings interleaved among the event rows.
+              // Falls back to plain event rows while the court query resolves,
+              // so events stay visible throughout.
+              <React.Suspense fallback={renderEventsOnly()}>
+                <PkEventsDayFeed
+                  localDate=isoDate
+                  fromDate
+                  toDate
+                  activityId={activityId->Option.getOr(defaultActivityId)}
+                  location
+                  fetchKey=availabilityFetchKey
+                  events=eventItems
+                  hasHiddenPreview
+                  onUseCourtTime={slot =>
+                    if !isLoggedIn {
+                      navigate("/oauth-login?return=" ++ pathname, None)
+                    } else {
+                      let _ = commitSetAvailability(
+                        ~localDate=isoDate,
+                        ~activityId=activityId->Option.getOr(defaultActivityId),
+                        ~intervals=UseSetAvailabilityDay.intervalsOfIntents([slot]),
+                        ~onCompleted=(_res, _err) => onAvailabilityRefetchNeeded(),
+                      )
+                    }}
+                />
+              </React.Suspense>
+            }
+          }}
           {hasHiddenPreview
             ? previewHiddenEvent
               ->Option.map(edge => {

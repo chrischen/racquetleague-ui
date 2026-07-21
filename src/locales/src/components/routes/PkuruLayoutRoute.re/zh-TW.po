@@ -29,15 +29,15 @@ msgstr "— 享受更快速的類應用程式體驗"
 msgid "(logout)"
 msgstr "（登出）"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0} 場"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0} 場"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -69,16 +69,16 @@ msgstr "下午"
 msgid "Anytime"
 msgstr "任何時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:137
+#: src/components/pages/PkuruLayout.re.mjs:135
 msgid "Availability"
 msgstr "空閒時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:169
-#: src/components/pages/PkuruLayout.re.mjs:199
+#: src/components/pages/PkuruLayout.re.mjs:167
+#: src/components/pages/PkuruLayout.re.mjs:197
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/PkuruLayout.re.mjs:104
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Browse"
 msgstr "瀏覽"
 
@@ -92,8 +92,8 @@ msgid ""
 "rules."
 msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
 
-#: src/components/pages/PkuruLayout.re.mjs:114
-#: src/components/pages/PkuruLayout.re.mjs:438
+#: src/components/pages/PkuruLayout.re.mjs:112
+#: src/components/pages/PkuruLayout.re.mjs:436
 msgid "Discover"
 msgstr "探索"
 
@@ -172,15 +172,11 @@ msgstr "載入中..."
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "長時間開放"
-
-#: src/components/pages/PkuruLayout.re.mjs:448
+#: src/components/pages/PkuruLayout.re.mjs:446
 msgid "Map"
 msgstr "地圖"
 
-#: src/components/pages/PkuruLayout.re.mjs:122
+#: src/components/pages/PkuruLayout.re.mjs:120
 msgid "Map view"
 msgstr "地圖檢視"
 
@@ -188,7 +184,7 @@ msgstr "地圖檢視"
 msgid "Mark available"
 msgstr "標記為有空"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "配合我的時間"
 
@@ -204,15 +200,15 @@ msgstr "我的俱樂部"
 msgid "My Clubs"
 msgstr "我的俱樂部"
 
-#: src/components/pages/PkuruLayout.re.mjs:130
+#: src/components/pages/PkuruLayout.re.mjs:128
 msgid "My events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:477
+#: src/components/pages/PkuruLayout.re.mjs:475
 msgid "My Events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:462
+#: src/components/pages/PkuruLayout.re.mjs:460
 msgid "New"
 msgstr "新建"
 
@@ -220,7 +216,7 @@ msgstr "新建"
 msgid "New Comment"
 msgstr "新留言"
 
-#: src/components/pages/PkuruLayout.re.mjs:278
+#: src/components/pages/PkuruLayout.re.mjs:276
 msgid "New event"
 msgstr "新增活動"
 
@@ -237,7 +233,7 @@ msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:312
+#: src/components/pages/PkuruLayout.re.mjs:310
 msgid "Notifications"
 msgstr "通知"
 
@@ -245,17 +241,21 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已離開候補"
 
-#: src/components/pages/PkuruLayout.re.mjs:163
-#: src/components/pages/PkuruLayout.re.mjs:191
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "開放"
+
+#: src/components/pages/PkuruLayout.re.mjs:161
+#: src/components/pages/PkuruLayout.re.mjs:189
 msgid "Pickleball"
 msgstr "匹克球"
 
-#: src/components/pages/PkuruLayout.re.mjs:146
-#: src/components/pages/PkuruLayout.re.mjs:487
+#: src/components/pages/PkuruLayout.re.mjs:144
+#: src/components/pages/PkuruLayout.re.mjs:485
 msgid "Profile"
 msgstr "個人資料"
 
-#: src/components/pages/PkuruLayout.re.mjs:182
+#: src/components/pages/PkuruLayout.re.mjs:180
 msgid "Rankings"
 msgstr "排名"
 
@@ -275,7 +275,7 @@ msgstr "向下捲動並點按"
 msgid "Select exactly one time window to host an event"
 msgstr "請選擇恰好一個時間段來主辦活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:157
+#: src/components/pages/PkuruLayout.re.mjs:155
 msgid "Sports"
 msgstr "遐動"
 
@@ -283,7 +283,7 @@ msgstr "遐動"
 msgid "Stay in the loop"
 msgstr "掌握最新動態"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "點擊任意處以新增時間段"
 
@@ -329,6 +329,10 @@ msgstr "你想什麼時候打球？"
 #: src/components/shared/InstallPwa.re.mjs:467
 #~ msgid "Install Racquet League"
 #~ msgstr "安裝 Racquet League"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間開放"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

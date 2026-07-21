@@ -37,11 +37,11 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "{0}5件の{hiddenCountDesc}非表示"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:475
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
 msgid "{0} court"
 msgstr "{0}コート"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:476
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
 msgid "{0} courts"
 msgstr "{0}コート"
 
@@ -87,7 +87,7 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:474
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -111,7 +111,7 @@ msgstr "2 · 時間"
 msgid "3 · What kind?"
 msgstr "3 · 種類は？"
 
-#: src/components/organisms/AddEventButton.re.mjs:160
+#: src/components/organisms/AddEventButton.re.mjs:124
 msgid "Add an Event"
 msgstr "イベントを追加"
 
@@ -245,15 +245,11 @@ msgstr "場所"
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-msgid "Long opening"
-msgstr "長時間空き"
-
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "参加可能にする"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 msgid "Match my time"
 msgstr "自分の時間に合わせる"
 
@@ -272,6 +268,10 @@ msgstr "新規"
 #: src/components/organisms/NewPlanModal.re.mjs:203
 msgid "New plan"
 msgstr "新しいプラン"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+msgid "open"
+msgstr "空き"
 
 #: src/components/pages/LocationPage.re.mjs:68
 msgid "page not found"
@@ -317,7 +317,7 @@ msgstr "提案されたイベント"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:506
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
 msgid "Tap anywhere to add a time window"
 msgstr "タップして時間枠を追加"
 
@@ -421,6 +421,10 @@ msgstr "いつプレーしたいですか？"
 #: src/components/organisms/EventsList.re.mjs:598
 #~ msgid "load more"
 #~ msgstr "もっと読み込む"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間空き"
 
 #: src/components/organisms/EventsList.re.mjs:365
 #~ msgid "my events"

@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as TimeWindow from "./TimeWindow.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -10,18 +11,17 @@ import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as TimeRangeChip from "../atoms/TimeRangeChip.re.mjs";
 import * as FramerMotion from "framer-motion";
-import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
+import * as Belt_SetString from "rescript/lib/es6/belt_SetString.js";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as TimeWindowPicker from "./TimeWindowPicker.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as TimePickerWithHeatmap from "./TimePickerWithHeatmap.re.mjs";
+import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as AvailabilityDemandList from "./AvailabilityDemandList.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
-import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as CourtAvailabilityGroups from "./CourtAvailabilityGroups.re.mjs";
 import * as PlayIntentRow_availabilityDay_graphql from "../../__generated__/PlayIntentRow_availabilityDay_graphql.re.mjs";
-import * as PlayIntentRowSetAvailabilityMutation_graphql from "../../__generated__/PlayIntentRowSetAvailabilityMutation_graphql.re.mjs";
 
 import { t, plural } from '@lingui/macro'
 ;
@@ -33,29 +33,9 @@ function ts(prim0, prim1) {
             ]);
 }
 
-var convertVariables = PlayIntentRowSetAvailabilityMutation_graphql.Internal.convertVariables;
-
-var convertResponse = PlayIntentRowSetAvailabilityMutation_graphql.Internal.convertResponse;
-
-var convertWrapRawResponse = PlayIntentRowSetAvailabilityMutation_graphql.Internal.convertWrapRawResponse;
-
-var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, PlayIntentRowSetAvailabilityMutation_graphql.node, convertResponse, convertWrapRawResponse);
-
-var use = RescriptRelay_Mutation.useMutation(convertVariables, PlayIntentRowSetAvailabilityMutation_graphql.node, convertResponse, convertWrapRawResponse);
-
-var SetAvailabilityMutation = {
-  Operation: undefined,
-  Types: undefined,
-  convertVariables: convertVariables,
-  convertResponse: convertResponse,
-  convertWrapRawResponse: convertWrapRawResponse,
-  commitMutation: commitMutation,
-  use: use
-};
-
 var convertFragment = PlayIntentRow_availabilityDay_graphql.Internal.convertFragment;
 
-function use$1(fRef) {
+function use(fRef) {
   return RescriptRelay_Fragment.useFragment(PlayIntentRow_availabilityDay_graphql.node, convertFragment, fRef);
 }
 
@@ -67,7 +47,7 @@ var Fragment = {
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
-  use: use$1,
+  use: use,
   useOpt: useOpt
 };
 
@@ -86,13 +66,33 @@ function PlayIntentRow(props) {
   var interestedCount = __interestedCount !== undefined ? __interestedCount : 0;
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var isLoggedIn = __isLoggedIn !== undefined ? __isLoggedIn : false;
-  var match = use();
+  var match = UseSetAvailabilityDay.use();
   var commitSetAvailability = match[0];
-  var $$location = UseUserLocation.use();
   var resolvedActivityId = Core__Option.orElse(props.activityId, defaultActivityId);
+  var fragmentData = useOpt(props.availabilityDay);
+  var intents = Core__Option.getOr(Core__Option.map(fragmentData, (function (d) {
+              return d.intervals.map(function (interval, i) {
+                          return {
+                                  id: i,
+                                  start: interval.startHour,
+                                  end: interval.endHour
+                                };
+                        });
+            })), []);
+  var userDays$1 = intents.length === 0 ? userDays : userDays.filter(function (ud) {
+          return ud.intervals.some(function (iv) {
+                      return intents.some(function (w) {
+                                  if (iv.startHour < w.end) {
+                                    return iv.endHour > w.start;
+                                  } else {
+                                    return false;
+                                  }
+                                });
+                    });
+        });
   var hourCounts = Belt_Array.makeBy(TimeWindowPicker.hourMax - TimeWindowPicker.hourMin | 0, (function (i) {
           var hour = TimeWindowPicker.hourMin + i | 0;
-          var count = Core__Array.reduce(userDays, 0, (function (acc, ud) {
+          var count = Core__Array.reduce(userDays$1, 0, (function (acc, ud) {
                   var hasHour = ud.intervals.some(function (iv) {
                         if (iv.startHour <= hour) {
                           return hour < iv.endHour;
@@ -115,7 +115,7 @@ function PlayIntentRow(props) {
           return Math.max(acc, hc.count);
         }));
   var hasAnyDemand = maxCount > 0;
-  var demandCount = interestedCount > 0 ? interestedCount : userDays.length;
+  var demandCount = interestedCount > 0 ? interestedCount : userDays$1.length;
   var peak;
   if (maxCount === 0) {
     peak = undefined;
@@ -154,16 +154,6 @@ function PlayIntentRow(props) {
         bestStart + bestLen | 0
       ];
   }
-  var fragmentData = useOpt(props.availabilityDay);
-  var intents = Core__Option.getOr(Core__Option.map(fragmentData, (function (d) {
-              return d.intervals.map(function (interval, i) {
-                          return {
-                                  id: i,
-                                  start: interval.startHour,
-                                  end: interval.endHour
-                                };
-                        });
-            })), []);
   var match$1 = React.useState(function () {
         return false;
       });
@@ -222,20 +212,7 @@ function PlayIntentRow(props) {
           
         }), []);
   var commitAvailability = function (newIntents) {
-    var intervals = newIntents.map(function (i) {
-          return {
-                  endHour: i.end | 0,
-                  startHour: i.start | 0
-                };
-        });
-    commitSetAvailability({
-          input: {
-            activityId: Core__Option.getOr(resolvedActivityId, defaultActivityId),
-            intervals: intervals,
-            localDate: localDate,
-            location: $$location
-          }
-        }, undefined, undefined, undefined, (function (res, _err) {
+    commitSetAvailability(localDate, Core__Option.getOr(resolvedActivityId, defaultActivityId), UseSetAvailabilityDay.intervalsOfIntents(newIntents), (function (res, _err) {
             var updatedDay = Core__Option.map(res.setAvailabilityDay.day, (function (d) {
                     return {
                             id: d.id,
@@ -256,7 +233,7 @@ function PlayIntentRow(props) {
                           };
                   }));
             onAvailabilityCommitted(updatedDay);
-          }), undefined, undefined);
+          }));
     onChange(newIntents);
   };
   var commit = function () {
@@ -312,9 +289,9 @@ function PlayIntentRow(props) {
             }
           })
       });
-  var availableCourtCount = Core__Array.reduce(courtAvailability, 0, (function (acc, c) {
-          return acc + c.intents.length | 0;
-        }));
+  var availableCourtCount = Belt_SetString.size(Belt_SetString.fromArray(courtAvailability.map(function (c) {
+                return c.id;
+              })));
   var courtNoun = plural(availableCourtCount, {
         one: t`${availableCourtCount.toString()} court available`,
         other: t`${availableCourtCount.toString()} courts available`
@@ -344,7 +321,7 @@ function PlayIntentRow(props) {
                             className: "relative z-10 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#bdf25d] text-black ring-2 ring-white dark:ring-[#222326]",
                             title: t`You're available`
                           }) : null,
-                    Belt_Array.slice(userDays, 0, 4).map(function (ud) {
+                    Belt_Array.slice(userDays$1, 0, 4).map(function (ud) {
                           var name = Core__Option.getOr(Core__Option.flatMap(ud.user, (function (u) {
                                       return u.lineUsername;
                                     })), "?");
@@ -422,7 +399,7 @@ function PlayIntentRow(props) {
               }
             })
         }) : null;
-  var overlappingCourts = TimeWindowPicker.filterCourtAvailabilityByOverlap(courtAvailability, draft);
+  var overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(courtAvailability, draft);
   var editorBlock = JsxRuntime.jsx(FramerMotion.motion.div, {
         className: "overflow-hidden mx-4 md:mx-6 my-2 rounded-lg border border-[#bdf25d]/60 dark:border-[#bdf25d]/30 bg-[#bdf25d]/10 dark:bg-[#bdf25d]/5",
         animate: {
@@ -514,7 +491,7 @@ function PlayIntentRow(props) {
                                     onUseCourtSlot: useCourtSlot
                                   }))
                         }),
-                    userDays.length > 0 || courtAvailability.length > 0 ? JsxRuntime.jsxs("div", {
+                    userDays$1.length > 0 || courtAvailability.length > 0 ? JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsxs("span", {
                                     children: [
@@ -525,7 +502,7 @@ function PlayIntentRow(props) {
                                     ],
                                     className: "inline-flex items-center gap-1"
                                   }),
-                              userDays.length > 0 ? JsxRuntime.jsxs("span", {
+                              userDays$1.length > 0 ? JsxRuntime.jsxs("span", {
                                       children: [
                                         JsxRuntime.jsx("span", {
                                               className: "h-2 w-2 rounded-sm bg-violet-400"
@@ -537,7 +514,7 @@ function PlayIntentRow(props) {
                               courtAvailability.length > 0 ? JsxRuntime.jsxs("span", {
                                       children: [
                                         JsxRuntime.jsx("span", {
-                                              className: "h-2 w-2 rounded-sm bg-cyan-400"
+                                              className: "h-2 w-2 rounded-sm border border-cyan-600 dark:border-cyan-400 bg-transparent"
                                             }),
                                         t`Courts`
                                       ],
@@ -560,12 +537,11 @@ function PlayIntentRow(props) {
                     overlappingCourts.length > 0 ? JsxRuntime.jsx("div", {
                             children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
                                   courtAvailability: overlappingCourts,
-                                  title: t`Courts available during your time`,
-                                  onUseSlot: useCourtSlot
+                                  title: t`Courts available during your time`
                                 }),
                             className: "mt-2"
                           }) : null,
-                    userDays.length > 0 ? JsxRuntime.jsxs("div", {
+                    userDays$1.length > 0 ? JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsxs("button", {
                                     children: [
@@ -574,9 +550,9 @@ function PlayIntentRow(props) {
                                               JsxRuntime.jsx(LucideReact.Users, {
                                                     size: 11
                                                   }),
-                                              plural(userDays.length, {
-                                                    one: t`${userDays.length.toString()} person`,
-                                                    other: t`${userDays.length.toString()} people`
+                                              plural(userDays$1.length, {
+                                                    one: t`${userDays$1.length.toString()} person`,
+                                                    other: t`${userDays$1.length.toString()} people`
                                                   }) + Core__Option.getOr(Core__Option.map(peak, (function (param) {
                                                           return t` · peak ${formatHour(param[0])}–${formatHour(param[1])}`;
                                                         })), "")
@@ -598,7 +574,7 @@ function PlayIntentRow(props) {
                                       })
                                   }),
                               JsxRuntime.jsx(AvailabilityDemandList.make, {
-                                    userDays: userDays,
+                                    userDays: userDays$1,
                                     open_: demandListOpen,
                                     innerClassName: "space-y-1.5 mt-2"
                                   })
@@ -749,7 +725,7 @@ function PlayIntentRow(props) {
                 className: "px-3 py-2 flex items-center gap-2.5"
               }),
           JsxRuntime.jsx(AvailabilityDemandList.make, {
-                userDays: userDays,
+                userDays: userDays$1,
                 open_: demandListOpen
               })
         ],
@@ -777,7 +753,6 @@ var make = PlayIntentRow;
 
 export {
   ts ,
-  SetAvailabilityMutation ,
   Fragment ,
   defaultActivityId ,
   make ,
