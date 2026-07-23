@@ -43,6 +43,10 @@ let hourMax = 24
 let hourRange = hourMax - hourMin
 let minDuration = 1.0
 let defaultDuration = 3.0
+// A tap that lands inside a court-availability band this short (hours) snaps the
+// new window to the band's exact span, so the user matches the whole opening in
+// one tap. Longer openings fall back to a plain defaultDuration window.
+let maxMatchableCourtHours = 4.0
 
 type existingEvent = {
   id: string,
@@ -58,9 +62,14 @@ type playerDemand = {
 
 // Counts how many of the supplied intents cover each hour bucket in
 // [hourMin, hourMax). Returns per-hour counts (length = hourRange) + max.
-let computeDensity = (intents: array<playIntent>): (array<int>, int) => {
-  let counts = Belt.Array.makeBy(hourRange, i => {
-    let h = hourMin + i
+// Per-integer-hour player counts across [hMin, hMax). Full-day callers use the
+// module defaults; the slot-scoped picker passes the band's own bounds.
+let computeDensity = (~hourMin as hMin=hourMin, ~hourMax as hMax=hourMax, intents: array<playIntent>): (
+  array<int>,
+  int,
+) => {
+  let counts = Belt.Array.makeBy(hMax - hMin, i => {
+    let h = hMin + i
     intents->Array.reduce(0, (acc, w) =>
       if Float.fromInt(h) >= w.start && Float.fromInt(h) < w.end {
         acc + 1
@@ -185,7 +194,7 @@ module WindowChip = {
     let duration = intent.end -. intent.start
 
     <div
-      className={`absolute top-1 bottom-1 select-none touch-none group rounded border shadow-sm flex items-center justify-between gap-1 ${drag->Option.isSome
+      className={`absolute top-2 bottom-2 select-none touch-none group rounded border shadow-sm flex items-center justify-between gap-1 ${drag->Option.isSome
           ? "bg-[#aee050] border-[#94c93a] z-30"
           : "bg-[#bdf25d] border-[#a3d949] z-20 hover:bg-[#aee050]"}`}
       style={ReactDOM.Style.make(
@@ -226,7 +235,7 @@ module WindowChip = {
           onDelete()
         }}
         className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#1e1f23] border border-gray-300 dark:border-[#3a3b40] flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity shadow-sm"
-        title="Remove">
+        title={Lingui.UtilString.t`Remove`}>
         <Lucide.X size=10 className="text-gray-600 dark:text-gray-300" />
       </button>
     </div>
@@ -245,9 +254,10 @@ let make = (
   ~trackClassName: string=?,
   ~demandCounts: array<hourCount>=?,
   ~maxDemand: int=0,
+  ~demandIntents: array<playIntent>=?,
   ~existingEvents: array<existingEvent>=[],
   ~courtAvailability: array<courtAvailability>=[],
-  ~onUseCourtSlot: option<courtSlotGroup => unit>=?,
+  ~emptyLabel: string=?,
 ) => {
   let trackRef = React.useRef(Js.Nullable.null)
   let intl = ReactIntl.useIntl()
@@ -272,6 +282,8 @@ let make = (
 
   let removeOne = (id: int) => onChange(intents->Array.filter(i => i.id !== id))
 
+  let courtBands = groupCourtAvailabilityIntoBands(courtAvailability)
+
   let addAtClick = (e: ReactEvent.Mouse.t) => {
     switch trackRef.current->Js.Nullable.toOption {
     | None => ()
@@ -281,40 +293,86 @@ let make = (
         let x = e->mouseClientX->Float.fromInt -. rect.left
         let rawHour = Float.fromInt(hourMinVal) +. x /. rect.width *. Float.fromInt(hourRangeVal)
         let start = clamp(
-          Js.Math.floor_float(rawHour),
+          snapTo(rawHour, snapStep),
           Float.fromInt(hourMinVal),
           Float.fromInt(hourMaxVal) -. minDur,
         )
         let inside = intents->Array.some(w => start >= w.start && start < w.end)
         if !inside {
-          let nextStart = intents->Array.reduce(Float.fromInt(hourMaxVal), (acc, w) =>
-            if w.start >= start && w.start < acc {
-              w.start
-            } else {
-              acc
+          // If the tap lands inside a short court-availability band, snap the new
+          // window to that band's exact opening (as long as it wouldn't overlap
+          // an existing window). Otherwise fall back to a plain window that fills
+          // the gap up to defaultDur.
+          let snapBand =
+            courtBands->Array.find(b =>
+              rawHour >= b.start &&
+              rawHour < b.end &&
+              b.end -. b.start <= maxMatchableCourtHours &&
+              !(intents->Array.some(w => b.start < w.end && b.end > w.start))
+            )
+          switch snapBand {
+          | Some(b) => onChange(Belt.Array.concat(intents, [{id: wid(), start: b.start, end: b.end}]))
+          | None =>
+            let nextStart = intents->Array.reduce(Float.fromInt(hourMaxVal), (acc, w) =>
+              if w.start >= start && w.start < acc {
+                w.start
+              } else {
+                acc
+              }
+            )
+            let duration = Js.Math.min_float(
+              Js.Math.min_float(defaultDur, nextStart -. start),
+              Float.fromInt(hourMaxVal) -. start,
+            )
+            if duration >= minDur {
+              onChange(Belt.Array.concat(intents, [{id: wid(), start, end: start +. duration}]))
             }
-          )
-          let duration = Js.Math.min_float(defaultDur, nextStart -. start)
-          if duration >= minDur {
-            onChange(Belt.Array.concat(intents, [{id: wid(), start, end: start +. duration}]))
           }
         }
       }
     }
   }
 
-  let axisHours = Belt.Array.makeBy(hourRangeVal / 3 + 1, i => hourMinVal + i * 3)
+  // Sparse axis for narrow slot ranges; every 3h for the full-day picker.
+  let axisStep = hourRangeVal <= 4 ? Js.Math.max_float(0.5, Float.fromInt(hourRangeVal) /. 2.0) : 3.0
+  let axisHours = {
+    let arr = []
+    let cursor = ref(Float.fromInt(hourMinVal))
+    while cursor.contents < Float.fromInt(hourMaxVal) {
+      arr->Array.push(cursor.contents)
+      cursor := cursor.contents +. axisStep
+    }
+    arr->Array.push(Float.fromInt(hourMaxVal))
+    arr
+  }
 
-  let courtBands = groupCourtAvailabilityIntoBands(courtAvailability)
+  // Player-demand heatmap source: either raw intents (slot picker, computed over
+  // the visible range) or pre-aggregated hourly counts (full-day feed picker).
+  let heatmap = switch demandIntents {
+  | Some(di) if di->Array.length > 0 =>
+    Some(computeDensity(~hourMin=hourMinVal, ~hourMax=hourMaxVal, di))
+  | _ =>
+    switch demandCounts {
+    | Some(dc) if maxDemand > 0 =>
+      Some((
+        Belt.Array.makeBy(hourRangeVal, i => {
+          let hour = hourMinVal + i
+          dc->Array.find(hc => hc.hour == hour)->Option.map(hc => hc.count)->Option.getOr(0)
+        }),
+        maxDemand,
+      ))
+    | _ => None
+    }
+  }
 
   <div className={className->Option.getOr("")}>
     {showAxis
       ? <div className="relative h-4 mb-0.5">
           {axisHours
           ->Array.mapWithIndex((h, i) => {
-            let lp = Float.fromInt(h - hourMinVal) /. Float.fromInt(hourRangeVal) *. 100.0
+            let lp = (h -. Float.fromInt(hourMinVal)) /. Float.fromInt(hourRangeVal) *. 100.0
             <div
-              key={h->Int.toString}
+              key={h->Float.toString}
               className="absolute top-0 bottom-0 flex items-center"
               style={ReactDOM.Style.make(
                 ~left=lp->Float.toString ++ "%",
@@ -328,7 +386,7 @@ let make = (
                 (),
               )}>
               <span className="font-mono text-[9px] text-gray-400 dark:text-gray-500">
-                {React.string(hourLabelIntl(intl, Float.fromInt(h)))}
+                {React.string(hourLabelIntl(intl, h))}
               </span>
             </div>
           })
@@ -339,52 +397,58 @@ let make = (
       ref={ReactDOM.Ref.domRef(trackRef)}
       onClick=addAtClick
       className={trackClassName->Option.getOr(
-        "relative z-10 h-12 rounded-md border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden cursor-copy",
+        "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden cursor-copy",
       )}>
-      {demandCounts->Option.isSome && maxDemand > 0
-        ? <div className="absolute inset-0 flex pointer-events-none">
-            {Belt.Array.makeBy(hourRangeVal, i => {
-              let hour = hourMinVal + i
-              let count =
-                demandCounts
-                ->Option.getOr([])
-                ->Array.find(hc => hc.hour == hour)
-                ->Option.map(hc => hc.count)
-                ->Option.getOr(0)
-              let intensity = count->Float.fromInt /. maxDemand->Float.fromInt
-              // Subtle in-track wash: 0 → invisible, max → 0.30. Keeps green chips legible.
-              let opacity = if count == 0 {"0"} else {
-                (0.08 +. intensity *. 0.22)->Float.toFixed(~digits=2)
-              }
-              <div
-                key={i->Int.toString}
-                className="flex-1 h-full"
-                style={ReactDOM.Style.make(
-                  ~backgroundColor=if count == 0 {
-                    "transparent"
-                  } else {
-                    "rgba(139, 92, 246, " ++ opacity ++ ")"
-                  },
-                  (),
-                )}
-              />
-            })->React.array}
-          </div>
-        : React.null}
-      <div className="absolute inset-0 pointer-events-none">
-        {Belt.Array.makeBy(hourRangeVal + 1, i => {
-          let h = hourMinVal + i
-          let lp = Float.fromInt(i) /. Float.fromInt(hourRangeVal) *. 100.0
-          let major = mod(h, 3) === 0
-          <div
-            key={i->Int.toString}
-            className={`absolute top-0 bottom-0 border-l ${major
-                ? "border-gray-200 dark:border-[#2a2b30]"
-                : "border-gray-100/70 dark:border-[#262729]"}`}
-            style={ReactDOM.Style.make(~left=lp->Float.toString ++ "%", ())}
-          />
-        })->React.array}
-      </div>
+      {switch heatmap {
+      | Some((counts, maxD)) =>
+        <div
+          className="absolute inset-0 z-0 flex pointer-events-none"
+          role="img"
+          ariaLabel={Lingui.UtilString.t`Player availability heatmap`}>
+          {counts
+          ->Array.mapWithIndex((count, i) => {
+            let intensity = maxD > 0 ? count->Float.fromInt /. maxD->Float.fromInt : 0.0
+            // Background wash: 0 → invisible, max → ~0.28. Faint enough to sit
+            // behind courts, events and the green chips without muddying them.
+            let opacity = if count == 0 {"0"} else {
+              (0.08 +. intensity *. 0.2)->Float.toFixed(~digits=2)
+            }
+            <div
+              key={i->Int.toString}
+              className="flex-1 h-full border-y border-violet-200/40 dark:border-violet-800/25"
+              style={ReactDOM.Style.make(
+                ~backgroundColor=if count == 0 {
+                  "transparent"
+                } else {
+                  "rgba(139, 92, 246, " ++ opacity ++ ")"
+                },
+                (),
+              )}
+            />
+          })
+          ->React.array}
+        </div>
+      | None => React.null
+      }}
+      {
+        // One gridline per snap step; whole hours read as the major lines.
+        let gridLineCount =
+          Js.Math.max_int(1, Js.Math.round(Float.fromInt(hourRangeVal) /. snapStep)->Float.toInt)
+        <div className="absolute inset-0 z-[1] pointer-events-none">
+          {Belt.Array.makeBy(gridLineCount + 1, i => {
+            let hour = Float.fromInt(hourMinVal) +. Float.fromInt(i) *. snapStep
+            let lp = Float.fromInt(i) /. Float.fromInt(gridLineCount) *. 100.0
+            let major = Js.Math.floor_float(hour) == hour
+            <div
+              key={i->Int.toString}
+              className={`absolute top-0 bottom-0 border-l ${major
+                  ? "border-gray-200 dark:border-[#34353a]"
+                  : "border-gray-100/70 dark:border-[#292a2e]"}`}
+              style={ReactDOM.Style.make(~left=lp->Float.toString ++ "%", ())}
+            />
+          })->React.array}
+        </div>
+      }
       {existingEvents->Array.length > 0
         ? <div className="absolute inset-0 pointer-events-none">
             {existingEvents
@@ -396,15 +460,19 @@ let make = (
                 (ev.endHour -. ev.startHour) /. Float.fromInt(hourRangeVal) *. 100.0
               <div
                 key={ev.id}
-                className="absolute top-1 bottom-1 rounded-sm border border-amber-300/70 dark:border-amber-500/40 flex items-center px-1.5 overflow-hidden"
+                title={ev.title ++
+                " · " ++
+                hourLabelIntl(intl, ev.startHour) ++
+                "–" ++
+                hourLabelIntl(intl, ev.endHour)}
+                className="user-event-block absolute inset-y-2 z-[15] flex items-center overflow-hidden rounded border px-1.5 shadow-sm"
                 style={ReactDOM.Style.make(
                   ~left=leftPct->Float.toString ++ "%",
                   ~width=widthPct->Float.toString ++ "%",
-                  ~backgroundImage="repeating-linear-gradient(45deg, rgba(255,176,66,0.18), rgba(255,176,66,0.18) 4px, rgba(255,176,66,0.05) 4px, rgba(255,176,66,0.05) 8px)",
                   (),
                 )}>
                 <span
-                  className="text-[9px] md:text-[10px] font-mono font-medium text-amber-800 dark:text-amber-300/90 truncate leading-tight">
+                  className="min-w-0 truncate font-mono text-[9px] font-semibold text-amber-950 dark:text-amber-200">
                   {React.string(ev.title)}
                 </span>
               </div>
@@ -412,13 +480,20 @@ let make = (
             ->React.array}
           </div>
         : React.null}
+      // Court openings as one smooth cyan silhouette anchored to the bottom of
+      // the track — thickness = court count, blending smoothly at changes.
+      // Read-only — clicks fall through to add.
       <CourtAvailabilityBandOverlay
-        bands=courtBands hourMin=hourMinVal hourMax=hourMaxVal onUseSegment=?onUseCourtSlot
+        bands=courtBands
+        hourMin=hourMinVal
+        hourMax=hourMaxVal
+        placement=CourtAvailabilityBandOverlay.End
       />
-      {intents->Array.length === 0 && courtAvailability->Array.length === 0
-        ? <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <span className="text-[11px] font-mono text-gray-400 dark:text-gray-500">
-              {t`Tap anywhere to add a time window`}
+      {intents->Array.length === 0
+        ? <div
+            className="absolute inset-0 z-[15] flex items-center justify-center pointer-events-none">
+            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-500">
+              {React.string(emptyLabel->Option.getOr(Lingui.UtilString.t`Tap to add your time`))}
             </span>
           </div>
         : React.null}
@@ -435,36 +510,6 @@ let make = (
       )
       ->React.array}
     </div>
-    {demandCounts->Option.isSome && maxDemand > 0
-      ? <div
-          className="relative z-0 h-3 -mt-1.5 flex pointer-events-none"
-          style={ReactDOM.Style.make(~filter="blur(5px)", ())}
-          ariaHidden={true}>
-          {Belt.Array.makeBy(hourRangeVal, i => {
-            let hour = hourMinVal + i
-            let count =
-              demandCounts
-              ->Option.getOr([])
-              ->Array.find(hc => hc.hour == hour)
-              ->Option.map(hc => hc.count)
-              ->Option.getOr(0)
-            if count == 0 {
-              <div key={i->Int.toString} className="flex-1 h-full" />
-            } else {
-              let intensity = count->Float.fromInt /. maxDemand->Float.fromInt
-              let opacity = (0.55 +. intensity *. 0.45)->Float.toFixed(~digits=2)
-              <div
-                key={i->Int.toString}
-                className="flex-1 h-full"
-                style={ReactDOM.Style.make(
-                  ~backgroundColor="rgba(139, 92, 246, " ++ opacity ++ ")",
-                  (),
-                )}
-              />
-            }
-          })->React.array}
-        </div>
-      : React.null}
   </div>
 }
 

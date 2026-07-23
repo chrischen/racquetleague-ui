@@ -109,14 +109,6 @@ module DayRow = {
           demandCounts=demandHourCounts
           maxDemand
           courtAvailability
-          onUseCourtSlot={group => {
-            let ni: TimeWindow.playIntent = {
-              id: TimeWindowPicker.wid(),
-              start: group.start,
-              end: group.end,
-            }
-            onUpdate([ni])
-          }}
         />
       </div>
     </div>

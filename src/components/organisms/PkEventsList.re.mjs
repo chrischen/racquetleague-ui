@@ -23,7 +23,6 @@ import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PkEventsAvailabilityDay from "./PkEventsAvailabilityDay.re.mjs";
 import * as PkEventsListFragment_graphql from "../../__generated__/PkEventsListFragment_graphql.re.mjs";
@@ -84,6 +83,8 @@ function ts(prim0, prim1) {
 }
 
 function PkEventsList$Day(props) {
+  var courtLocationId = props.courtLocationId;
+  var __showInlineCourts = props.showInlineCourts;
   var onAvailabilityRefetchNeeded = props.onAvailabilityRefetchNeeded;
   var availabilityFetchKey = props.availabilityFetchKey;
   var toDate = props.toDate;
@@ -97,6 +98,7 @@ function PkEventsList$Day(props) {
   var date = props.date;
   var dateDetails = props.dateDetails;
   var label = props.label;
+  var showInlineCourts = __showInlineCourts !== undefined ? __showInlineCourts : false;
   var y = (date.getFullYear() | 0).toString();
   var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
   var d = (date.getDate() | 0).toString().padStart(2, "0");
@@ -107,15 +109,12 @@ function PkEventsList$Day(props) {
       });
   var setShowShadow = match[1];
   var showShadow = match[0];
-  var match$1 = ReactRouterDom.useLocation();
-  var pathname = match$1.pathname;
+  ReactRouterDom.useLocation();
   var intl = ReactIntl.useIntl();
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
             })));
   var geoStatus = UseUserLocation.useStatus();
-  var match$2 = UseSetAvailabilityDay.use();
-  var commitSetAvailability = match$2[0];
   var defaultHide = function (edge, _viewer) {
     return Core__Option.getOr(edge.shadow, false);
   };
@@ -246,12 +245,13 @@ function PkEventsList$Day(props) {
                                     onCreateEvent: (function () {
                                         navigate("/events/create?date=" + isoDate, undefined);
                                       }),
-                                    renderHeader: renderHeader
+                                    renderHeader: renderHeader,
+                                    locationId: courtLocationId
                                   })),
                           fallback: Caml_option.some(renderHeader(null))
                         });
                   var tmp$1;
-                  tmp$1 = typeof geoStatus !== "object" ? renderEventsOnly() : JsxRuntime.jsx(React.Suspense, {
+                  tmp$1 = showInlineCourts && typeof geoStatus === "object" ? JsxRuntime.jsx(React.Suspense, {
                           children: Caml_option.some(JsxRuntime.jsx(PkEventsDayFeed.make, {
                                     localDate: isoDate,
                                     fromDate: fromDate,
@@ -261,19 +261,11 @@ function PkEventsList$Day(props) {
                                     fetchKey: availabilityFetchKey,
                                     events: eventItems,
                                     hasHiddenPreview: hasHiddenPreview,
-                                    onUseCourtTime: (function (slot) {
-                                        if (isLoggedIn) {
-                                          commitSetAvailability(isoDate, Core__Option.getOr(activityId, defaultActivityId), UseSetAvailabilityDay.intervalsOfIntents([slot]), (function (_res, _err) {
-                                                  onAvailabilityRefetchNeeded();
-                                                }));
-                                          return ;
-                                        } else {
-                                          return navigate("/oauth-login?return=" + pathname, undefined);
-                                        }
-                                      })
+                                    onRefetchNeeded: onAvailabilityRefetchNeeded,
+                                    locationId: courtLocationId
                                   })),
                           fallback: Caml_option.some(renderEventsOnly())
-                        });
+                        }) : renderEventsOnly();
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
                                 tmp,
@@ -329,10 +321,13 @@ var Day = {
 };
 
 function PkEventsList(props) {
+  var courtLocationId = props.courtLocationId;
+  var __showInlineCourts = props.showInlineCourts;
   var shouldHideEvent = props.shouldHideEvent;
   var activityId = props.activityId;
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
+  var showInlineCourts = __showInlineCourts !== undefined ? __showInlineCourts : false;
   var match = usePagination(props.events);
   var refetch = match.refetch;
   var data = match.data;
@@ -482,7 +477,9 @@ function PkEventsList(props) {
                                       toDate: availabilityToDate,
                                       availabilityFetchKey: availabilityFetchKey,
                                       onAvailabilityRefetchNeeded: onAvailabilityRefetchNeeded,
-                                      shouldHideEvent: shouldHideEvent
+                                      shouldHideEvent: shouldHideEvent,
+                                      showInlineCourts: showInlineCourts,
+                                      courtLocationId: courtLocationId
                                     })
                               ];
                       }));
@@ -537,14 +534,11 @@ function PkEventsList(props) {
             });
 }
 
-var showInlineCourts = true;
-
 var make = PkEventsList;
 
 export {
   Fragment ,
   defaultActivityId ,
-  showInlineCourts ,
   ts ,
   Day ,
   make ,

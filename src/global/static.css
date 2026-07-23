@@ -122,3 +122,29 @@ body {
     width: 100%;
   }
 }
+
+/* Scheduled events: dark amber shading with broad diagonal yellow stripes.
+   Shared by the inline event-time picker and the availability calendars so the
+   user's committed events read consistently. */
+.user-event-block {
+  background-color: rgba(120, 75, 10, 0.14);
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(245, 158, 11, 0.32) 0,
+    rgba(245, 158, 11, 0.32) 7px,
+    rgba(39, 39, 42, 0.12) 7px,
+    rgba(39, 39, 42, 0.12) 14px
+  );
+  border-color: rgba(217, 119, 6, 0.72);
+}
+.dark .user-event-block {
+  background-color: #2b2720;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(245, 158, 11, 0.3) 0,
+    rgba(245, 158, 11, 0.3) 7px,
+    rgba(17, 18, 21, 0.58) 7px,
+    rgba(17, 18, 21, 0.58) 14px
+  );
+  border-color: rgba(245, 158, 11, 0.62);
+}

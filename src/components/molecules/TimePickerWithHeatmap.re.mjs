@@ -47,8 +47,10 @@ var HourlyCountsQuery = {
 var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function TimePickerWithHeatmap(props) {
+  var __existingEvents = props.existingEvents;
   var __courtAvailability = props.courtAvailability;
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
+  var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var resolvedActivityId = Core__Option.getOr(props.activityId, defaultActivityId);
   var $$location = UseUserLocation.use();
   var queryData = use({
@@ -71,8 +73,8 @@ function TimePickerWithHeatmap(props) {
                           };
                   }),
               maxDemand: maxCount,
-              courtAvailability: courtAvailability,
-              onUseCourtSlot: props.onUseCourtSlot
+              existingEvents: existingEvents,
+              courtAvailability: courtAvailability
             });
 }
 

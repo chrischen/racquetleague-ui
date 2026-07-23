@@ -29,15 +29,15 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -204,8 +204,8 @@ msgid "Mark available"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr ""
+#~ msgid "Match my time"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -261,12 +261,16 @@ msgid "Off Waitlist"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr ""
+#~ msgid "open"
+#~ msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:161
 #: src/components/pages/PkuruLayout.re.mjs:189
 msgid "Pickleball"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:144
@@ -276,6 +280,10 @@ msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:180
 msgid "Rankings"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
 msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:148
@@ -315,11 +323,15 @@ msgid "Stay in the loop"
 msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr ""
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:361

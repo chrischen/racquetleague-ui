@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -71,10 +71,6 @@ msgstr "การจัดอีเวนต์ต้องเลือกช่
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "ตรงกับเวลาของฉัน"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "เช้า"
@@ -83,9 +79,13 @@ msgstr "เช้า"
 msgid "New plan"
 msgstr "แผนใหม่"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "เปิด"
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "แผนที่ความพร้อมของผู้เล่น"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "ลบ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:370
 msgid "Save"
@@ -95,9 +95,9 @@ msgstr "บันทึก"
 msgid "Select exactly one time window to host an event"
 msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -120,3 +120,15 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "ช่วงเวลาว่างยาว"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"

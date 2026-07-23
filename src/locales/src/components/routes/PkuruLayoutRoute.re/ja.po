@@ -29,15 +29,15 @@ msgstr "— より快適なアプリのような体験のために"
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0}コート"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0}コート"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -186,10 +186,6 @@ msgstr "マップ表示"
 msgid "Mark available"
 msgstr "参加可能にする"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "自分の時間に合わせる"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "午前"
@@ -243,14 +239,14 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "キャンセル待ち解除"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "空き"
-
 #: src/components/pages/PkuruLayout.re.mjs:161
 #: src/components/pages/PkuruLayout.re.mjs:189
 msgid "Pickleball"
 msgstr "ピックルボール"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "プレイヤーの空き時間ヒートマップ"
 
 #: src/components/pages/PkuruLayout.re.mjs:144
 #: src/components/pages/PkuruLayout.re.mjs:485
@@ -260,6 +256,10 @@ msgstr "プロフィール"
 #: src/components/pages/PkuruLayout.re.mjs:180
 msgid "Rankings"
 msgstr "ランキング"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "削除"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
@@ -285,13 +285,13 @@ msgstr "スポーツ"
 msgid "Stay in the loop"
 msgstr "最新情報をチェック"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "タップして時間枠を追加"
-
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "共有ボタンをタップ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "タップして時間を追加"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -336,6 +336,14 @@ msgstr "いつプレーしたいですか？"
 #~ msgid "Long opening"
 #~ msgstr "長時間空き"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "自分の時間に合わせる"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "空き"
+
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."
 #~ msgstr "イベント、会場、ホストを検索..."
@@ -347,3 +355,7 @@ msgstr "いつプレーしたいですか？"
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"
 #~ msgstr "ステータス更新"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "タップして時間枠を追加"

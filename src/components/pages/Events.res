@@ -96,7 +96,9 @@ let make = () => {
     isPrivate || isFromNonMemberClub
   }
 
-  <WaitForMessages> {() => <PkEventsList events=fragmentRefs shouldHideEvent />} </WaitForMessages>
+  <WaitForMessages>
+    {() => <PkEventsList events=fragmentRefs shouldHideEvent showInlineCourts=true />}
+  </WaitForMessages>
 }
 let \"Component" = make
 

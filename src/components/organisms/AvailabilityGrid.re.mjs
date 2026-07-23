@@ -35,7 +35,6 @@ var windowConfig = {
 };
 
 function AvailabilityGrid$DayRow(props) {
-  var onUpdate = props.onUpdate;
   var __courtAvailability = props.courtAvailability;
   var __demand = props.demand;
   var __existingEvents = props.existingEvents;
@@ -46,7 +45,7 @@ function AvailabilityGrid$DayRow(props) {
   var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var demand = __demand !== undefined ? __demand : [];
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
-  var match = demand.length > 0 ? TimeWindowPicker.computeDensity(demand.flatMap(function (d) {
+  var match = demand.length > 0 ? TimeWindowPicker.computeDensity(undefined, undefined, demand.flatMap(function (d) {
               return d.intents;
             })) : [
       [],
@@ -89,7 +88,7 @@ function AvailabilityGrid$DayRow(props) {
                 JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx(TimeWindowPicker.make, {
                             intents: props.windows,
-                            onChange: onUpdate,
+                            onChange: props.onUpdate,
                             config: windowConfig,
                             showAxis: false,
                             className: "h-full",
@@ -97,18 +96,7 @@ function AvailabilityGrid$DayRow(props) {
                             demandCounts: demandHourCounts,
                             maxDemand: match[1],
                             existingEvents: existingEvents,
-                            courtAvailability: courtAvailability,
-                            onUseCourtSlot: (function (group) {
-                                var ni_id = TimeWindowPicker.wid();
-                                var ni_start = group.start;
-                                var ni_end = group.end;
-                                var ni = {
-                                  id: ni_id,
-                                  start: ni_start,
-                                  end: ni_end
-                                };
-                                onUpdate([ni]);
-                              })
+                            courtAvailability: courtAvailability
                           }),
                       className: "flex-1"
                     })

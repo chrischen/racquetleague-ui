@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:343
+#: src/components/pages/PkEventPage.re.mjs:349
 msgid "...more"
 msgstr "...เพิ่มเติม"
 
@@ -96,7 +96,7 @@ msgstr "สมดุล"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/pages/PkEventPage.re.mjs:538
+#: src/components/pages/PkEventPage.re.mjs:555
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
 
@@ -108,7 +108,7 @@ msgstr "ยกเลิก RSVP"
 msgid "Canceled"
 msgstr "ยกเลิกแล้ว"
 
-#: src/components/pages/PkEventPage.re.mjs:212
+#: src/components/pages/PkEventPage.re.mjs:218
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
@@ -130,7 +130,7 @@ msgstr "เลยกำหนดเวลายกเลิกแล้ว ต�
 msgid "Cancelling..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/pages/PkEventPage.re.mjs:503
+#: src/components/pages/PkEventPage.re.mjs:520
 msgid "Cannot access variable \\\"title\\\""
 msgstr "ไม่สามารถเข้าถึงตัวแปร \\\"title\\\""
 
@@ -159,11 +159,11 @@ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
 msgid "Confirmed · {0}"
 msgstr "⊡ยืนยันแล้ว · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:247
+#: src/components/pages/PkEventPage.re.mjs:253
 msgid "Copied!"
 msgstr "คัดลอกแล้ว!"
 
-#: src/components/pages/PkEventPage.re.mjs:522
+#: src/components/pages/PkEventPage.re.mjs:539
 msgid "copy event"
 msgstr "คัดลอกกิจกรรม"
 
@@ -205,7 +205,7 @@ msgstr "ต้องกรอกชื่อที่แสดง"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:515
+#: src/components/pages/PkEventPage.re.mjs:532
 msgid "edit event"
 msgstr "แก้ไขกิจกรรม"
 
@@ -244,7 +244,7 @@ msgstr "เท่าเทียม"
 msgid "event"
 msgstr "กิจกรรม"
 
-#: src/components/pages/PkEventPage.re.mjs:825
+#: src/components/pages/PkEventPage.re.mjs:842
 msgid "Event not found"
 msgstr "ไม่พบกิจกรรม"
 
@@ -273,7 +273,7 @@ msgstr "กรองตามวันที่"
 msgid "For event updates and notifications"
 msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
-#: src/components/pages/PkEventPage.re.mjs:295
+#: src/components/pages/PkEventPage.re.mjs:301
 msgid "Free"
 msgstr "ฟรี"
 
@@ -331,7 +331,7 @@ msgstr "ออกจากรายชื่อรอ"
 msgid "Leaving..."
 msgstr "กำลังออก..."
 
-#: src/components/pages/PkEventPage.re.mjs:343
+#: src/components/pages/PkEventPage.re.mjs:349
 msgid "less"
 msgstr "ย่อ"
 
@@ -339,7 +339,7 @@ msgstr "ย่อ"
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/pages/PkEventPage.re.mjs:325
+#: src/components/pages/PkEventPage.re.mjs:331
 msgid "Location"
 msgstr "สถานที่"
 
@@ -392,7 +392,7 @@ msgstr "ไม่จำกัดระดับทักษะ เปิดใ�
 msgid "No Score"
 msgstr "ไม่มีคะแนน"
 
-#: src/components/pages/PkEventPage.re.mjs:669
+#: src/components/pages/PkEventPage.re.mjs:686
 msgid "Notes from the host"
 msgstr "หมายเหตุจากผู้จัด"
 
@@ -489,12 +489,12 @@ msgstr "การเล่นเพื่อความบันเทิงท
 msgid "Refresh"
 msgstr "รีเฟรช"
 
-#: src/components/pages/PkEventPage.re.mjs:635
+#: src/components/pages/PkEventPage.re.mjs:652
 msgid "Refresh event details"
 msgstr "รีเฟรชรายละเอียดกิจกรรม"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:635
+#: src/components/pages/PkEventPage.re.mjs:652
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "กำลังรีเฟรช…"
@@ -560,7 +560,7 @@ msgstr "บันทึกคะแนน"
 msgid "Score"
 msgstr "คะแนน"
 
-#: src/components/pages/PkEventPage.re.mjs:247
+#: src/components/pages/PkEventPage.re.mjs:253
 msgid "Share"
 msgstr "แชร์"
 
@@ -669,7 +669,7 @@ msgstr "ค่าเฉลี่ย 6 อันดับ"
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
-#: src/components/pages/PkEventPage.re.mjs:527
+#: src/components/pages/PkEventPage.re.mjs:544
 msgid "uncancel event"
 msgstr "เลิกยกเลิกกิจกรรม"
 

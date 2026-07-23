@@ -41,11 +41,11 @@ msgstr ""
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 #~ msgid "{shadowCount, plural, one {event} other {events}}"
 #~ msgstr ""
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -281,8 +281,8 @@ msgid "Mark available"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr ""
+#~ msgid "Match my time"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -306,11 +306,15 @@ msgid "New plan"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr ""
+#~ msgid "open"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:292
@@ -323,6 +327,10 @@ msgstr ""
 
 #: src/components/pages/ViewerEventsPage.re.mjs:65
 msgid "public events"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:257
@@ -354,7 +362,11 @@ msgid "sync calendar"
 msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218

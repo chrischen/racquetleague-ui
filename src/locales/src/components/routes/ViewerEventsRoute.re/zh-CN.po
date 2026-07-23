@@ -37,11 +37,11 @@ msgstr "{1}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隐藏 {0} {hiddenCountDesc}"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0} 场地"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} 场地"
 
@@ -86,7 +86,7 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球员"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -242,10 +242,6 @@ msgstr "地点："
 msgid "Mark available"
 msgstr "标记为空闲"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "匹配我的时间"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "上午"
@@ -267,13 +263,13 @@ msgstr "新建"
 msgid "New plan"
 msgstr "新计划"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "开放"
-
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr "待审核"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "球员可用时间热力图"
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
@@ -286,6 +282,10 @@ msgstr "处理中..."
 #: src/components/pages/ViewerEventsPage.re.mjs:65
 msgid "public events"
 msgstr "公开活动"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "移除"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
@@ -315,9 +315,9 @@ msgstr "建议的活动"
 msgid "sync calendar"
 msgstr "同步日历"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "点击任意位置添加时间段"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "点击添加您的时间"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
@@ -391,6 +391,18 @@ msgstr "你想什么时候打球？"
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "长时段空档"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "匹配我的时间"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "开放"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "点击任意位置添加时间段"
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"

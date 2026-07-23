@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0} 場"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} 場"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -87,10 +87,6 @@ msgstr "載入活動中..."
 msgid "Mark available"
 msgstr "標記為有空"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "配合我的時間"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "上午"
@@ -99,9 +95,13 @@ msgstr "上午"
 msgid "New plan"
 msgstr "新計劃"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "開放"
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "球員可用性熱力圖"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "移除"
 
 #: src/components/organisms/NewPlanModal.re.mjs:370
 msgid "Save"
@@ -115,9 +115,9 @@ msgstr "請選擇恰好一個時間段來主辦活動"
 msgid "Share link"
 msgstr "分享連結"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "點擊任意處以新增時間段"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "點擊新增您的時間"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -284,6 +284,10 @@ msgstr "你想什麼時候打球？"
 #~ msgid "Long opening"
 #~ msgstr "長時間開放"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "配合我的時間"
+
 #: src/components/organisms/AIAssistantModal.re.mjs:149
 #~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 #~ msgstr "明天下午6-9點KPI公園需要5個人。費用平攤。"
@@ -291,6 +295,10 @@ msgstr "你想什麼時候打球？"
 #: src/components/organisms/AIAssistantModal.re.mjs:279
 #~ msgid "New"
 #~ msgstr "新建"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "開放"
 
 #: src/components/organisms/EventItem.re.mjs:272
 #~ msgid "pending"
@@ -323,6 +331,10 @@ msgstr "你想什麼時候打球？"
 #: src/components/molecules/AIResponseCard.re.mjs:138
 #~ msgid "Suggested Events"
 #~ msgstr "建議的活動"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "點擊任意處以新增時間段"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
 #~ msgid ""

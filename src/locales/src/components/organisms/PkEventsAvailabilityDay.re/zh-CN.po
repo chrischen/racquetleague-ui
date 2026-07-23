@@ -13,240 +13,255 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:557
-#: src/components/molecules/PlayIntentRow.re.mjs:685
+#: src/components/molecules/PlayIntentRow.re.mjs:487
+#: src/components/molecules/PlayIntentRow.re.mjs:615
 msgid "· peak {0}–{1}"
 msgstr "· 高峰 {0}–{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
-#: src/components/molecules/PlayIntentRow.re.mjs:553
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
+#: src/components/molecules/PlayIntentRow.re.mjs:315
+#: src/components/molecules/PlayIntentRow.re.mjs:483
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-msgid "{0} continuous span"
-msgstr "{0} 个连续时段"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:78
+msgid "{0} continuous opening"
+msgstr "{0} 个连续空档"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
-msgid "{0} continuous spans"
-msgstr "{0} 个连续时段"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:79
+msgid "{0} continuous openings"
+msgstr "{0} 个连续空档"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:172
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:206
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
+#: src/components/molecules/CourtOpeningCard.re.mjs:51
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:74
+#: src/components/molecules/PlayIntentRow.re.mjs:340
 msgid "{0} court"
 msgstr "{0} 场地"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:296
-msgid "{0} court available"
-msgstr "{0} 个场地可用"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:173
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:207
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:75
+#: src/components/molecules/PlayIntentRow.re.mjs:341
 msgid "{0} courts"
 msgstr "{0} 场地"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:297
-msgid "{0} courts available"
-msgstr "{0} 个场地可用"
+#: src/components/molecules/PlayIntentRow.re.mjs:316
+msgid "{0} event"
+msgstr "{0} 个活动"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
-msgid "{0} exact option"
-msgstr "{0} 个精确选项"
+#: src/components/molecules/PlayIntentRow.re.mjs:317
+msgid "{0} events"
+msgstr "{0} 个活动"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
-msgid "{0} exact options"
-msgstr "{0} 个精确选项"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:66
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:175
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:82
 msgid "{0} location"
 msgstr "{0} 场馆"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:67
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:176
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:83
 msgid "{0} locations"
 msgstr "{0} 场馆"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:555
+#: src/components/molecules/PlayIntentRow.re.mjs:485
 msgid "{0} people"
 msgstr "{0} 人"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:309
-msgid "{0} people looking to play"
-msgstr "{0} 人想要参与游戏"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:683
+#: src/components/molecules/PlayIntentRow.re.mjs:613
 msgid "{0} people want to play"
 msgstr "{0} 人想打球"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:554
+#: src/components/molecules/PlayIntentRow.re.mjs:484
 msgid "{0} person"
 msgstr "{0} 人"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:308
-msgid "{0} person looking to play"
-msgstr "{0} 人想要参与游戏"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:682
+#: src/components/molecules/PlayIntentRow.re.mjs:612
 msgid "{0} person wants to play"
 msgstr "{0} 人想打球"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
-msgid "{0} segment"
-msgstr "{0} 时间段"
+#: src/components/molecules/PlayIntentRow.re.mjs:328
+msgid "{0} player"
+msgstr "{0} 位球员"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
-msgid "{0} segments"
-msgstr "{0} 时间段"
+#: src/components/molecules/PlayIntentRow.re.mjs:329
+msgid "{0} players"
+msgstr "{0} 位球员"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:295
+#: src/components/molecules/PlayIntentRow.re.mjs:339
 msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:300
-#: src/components/molecules/PlayIntentRow.re.mjs:307
-#: src/components/molecules/PlayIntentRow.re.mjs:681
+#: src/components/molecules/PlayIntentRow.re.mjs:327
+#: src/components/molecules/PlayIntentRow.re.mjs:611
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:65
+#: src/components/molecules/CourtOpeningCard.re.mjs:45
+msgid "{hs}h"
+msgstr "{hs}小时"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:47
+msgid "{hs}h {ms}m"
+msgstr "{hs}小时 {ms}分钟"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:81
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
-msgid "{segLocations, plural, one {{0}} other {{1}}}"
-msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+#: src/components/molecules/CourtOpeningCard.re.mjs:43
+msgid "{ms}m"
+msgstr "{ms}分钟"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
-msgid "{segmentCount, plural, one {{0}} other {{1}}}"
-msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+#: src/components/molecules/CourtOpeningCard.re.mjs:37
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:68
+msgid "{n} indoor"
+msgstr "{n}个室内场地"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:171
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:205
+#: src/components/molecules/CourtOpeningCard.re.mjs:39
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:70
+msgid "{n} outdoor"
+msgstr "{n}个室外场地"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:77
+msgid "{openingCount, plural, one {{0}} other {{1}}}"
+msgstr "{openingCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-msgid "{totalCourts, plural, one {{0}} other {{1}}}"
-msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:263
+#: src/components/molecules/PlayIntentRow.re.mjs:256
 msgid "Afternoon"
 msgstr "下午"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:251
+#: src/components/molecules/PlayIntentRow.re.mjs:244
 msgid "Anytime"
 msgstr "任意时间"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
-msgid "Continuous availability"
-msgstr "连续可用性"
+#: src/components/molecules/PlayIntentRow.re.mjs:387
+msgid "Cancel"
+msgstr "取消"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:130
+#: src/components/molecules/PlayIntentRow.re.mjs:639
+msgid "Change times"
+msgstr "更改时间"
+
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
 msgid "Court"
 msgstr "场地"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:519
-msgid "Courts"
-msgstr "场地"
+#: src/components/molecules/PlayIntentRow.re.mjs:466
+msgid "Courts covering your complete time"
+msgstr "覆盖您完整时间段的场地"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:540
-msgid "Courts available during your time"
-msgstr "您时间段内可用的场地"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:269
+#: src/components/molecules/PlayIntentRow.re.mjs:262
 msgid "Evening"
 msgstr "晚上"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Host an event at this time"
 msgstr "在此时间举办活动"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:609
+#: src/components/molecules/PlayIntentRow.re.mjs:539
 msgid "Host event"
 msgstr "举办活动"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:628
+#: src/components/molecules/PlayIntentRow.re.mjs:558
 msgid "Mark available"
 msgstr "标记为空闲"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "匹配我的时间"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:257
+#: src/components/molecules/PlayIntentRow.re.mjs:250
 msgid "Morning"
 msgstr "上午"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "开放"
+#: src/components/molecules/PlayIntentRow.re.mjs:470
+msgid "No court is currently available for an entire selected window."
+msgstr "当前没有场地在整个所选时间段内可用。"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:301
-msgid "other"
-msgstr "其他人"
+#: src/components/molecules/PlayIntentRow.re.mjs:347
+msgid "Open the {dayWord} timeline to edit your availability"
+msgstr "打开{dayWord}时间轴以编辑您的可用时间"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:302
-msgid "others"
-msgstr "其他人"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Pick one time window to host an event"
 msgstr "选择一个时间段来举办活动"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:280
+#: src/components/molecules/PlayIntentRow.re.mjs:273
 msgid "Play today"
 msgstr "今天打球"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:510
-msgid "Players"
-msgstr "寻找球员"
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "球员可用时间热力图"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:588
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "移除"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:518
+#: src/components/molecules/PlayIntentRow.re.mjs:649
 msgid "Remove all"
 msgstr "全部移除"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:245
+#: src/components/molecules/CourtOpeningCard.re.mjs:109
 msgid "Reserve"
 msgstr "预订"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "点击任意位置添加时间段"
+#: src/components/molecules/PlayIntentRow.re.mjs:307
+msgid "Set your time"
+msgstr "设置您的时间"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
-msgid "View {segCourtsPhrase} & reserve"
-msgstr "查看 {segCourtsPhrase} 并预订"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "点击添加您的时间"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:422
+#: src/components/molecules/PlayIntentRow.re.mjs:379
 msgid "When can you play {dayWord}?"
 msgstr "你{dayWord}什么时候可以打球？"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:501
-msgid "You"
-msgstr "我"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:305
-msgid "You + {0} {othersWord} looking to play"
-msgstr "你和另外 {0} {othersWord}想要参与游戏"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:663
+#: src/components/molecules/PlayIntentRow.re.mjs:593
 msgid "You want to play {dayWord}"
 msgstr "你想{dayWord}打球"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:322
-msgid "You're available"
-msgstr "你有空"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#~ msgid "{0} continuous span"
+#~ msgstr "{0} 个连续时段"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:305
-msgid "You're available to play"
-msgstr "你有空参与游戏"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+#~ msgid "{0} continuous spans"
+#~ msgstr "{0} 个连续时段"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:296
+#~ msgid "{0} court available"
+#~ msgstr "{0} 个场地可用"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:297
+#~ msgid "{0} courts available"
+#~ msgstr "{0} 个场地可用"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+#~ msgid "{0} exact option"
+#~ msgstr "{0} 个精确选项"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+#~ msgid "{0} exact options"
+#~ msgstr "{0} 个精确选项"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+#~ msgid "{0} people looking to play"
+#~ msgstr "{0} 人想要参与游戏"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:308
+#~ msgid "{0} person looking to play"
+#~ msgstr "{0} 人想要参与游戏"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#~ msgid "{0} segment"
+#~ msgstr "{0} 时间段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+#~ msgid "{0} segments"
+#~ msgstr "{0} 时间段"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
 #~ msgid "{0} time option"
@@ -264,10 +279,58 @@ msgstr "你有空参与游戏"
 #~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
 #~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+#~ msgid "Continuous availability"
+#~ msgstr "连续可用性"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:519
+#~ msgid "Courts"
+#~ msgstr "场地"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:540
+#~ msgid "Courts available during your time"
+#~ msgstr "您时间段内可用的场地"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #~ msgid "Long opening"
 #~ msgstr "长时段空档"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "匹配我的时间"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "开放"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:301
+#~ msgid "other"
+#~ msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:302
+#~ msgid "others"
+#~ msgstr "其他人"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:510
+#~ msgid "Players"
+#~ msgstr "寻找球员"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "点击任意位置添加时间段"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
 #~ msgid "Use this time"
@@ -276,3 +339,23 @@ msgstr "你有空参与游戏"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
 #~ msgid "View {groupCourtsPhrase} & reserve"
 #~ msgstr "查看 {groupCourtsPhrase} 并预订"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+#~ msgid "View {segCourtsPhrase} & reserve"
+#~ msgstr "查看 {segCourtsPhrase} 并预订"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:501
+#~ msgid "You"
+#~ msgstr "我"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+#~ msgid "You + {0} {othersWord} looking to play"
+#~ msgstr "你和另外 {0} {othersWord}想要参与游戏"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:322
+#~ msgid "You're available"
+#~ msgstr "你有空"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+#~ msgid "You're available to play"
+#~ msgstr "你有空参与游戏"

@@ -3,12 +3,12 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
-import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as EventTimeline from "../../helpers/EventTimeline.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
 import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
@@ -128,64 +128,20 @@ function AvailabilityPage$AvailabilityContent(props) {
           return acc;
         }));
   var existingEvents = Core__Option.getOr(Core__Option.map(viewer, (function (v) {
-              return Core__Array.reduce(Core__Array.filterMap(Core__Option.getOr(v.events.edges, []), (function (edge) {
-                                return Core__Option.flatMap(edge, (function (e) {
-                                              return e.node;
-                                            }));
-                              })), {}, (function (acc, node) {
-                            var match = node.startDate;
-                            var match$1 = node.endDate;
-                            if (match === undefined) {
-                              return acc;
-                            }
-                            if (match$1 === undefined) {
-                              return acc;
-                            }
-                            var tz = Core__Option.getOr(node.timezone, "Asia/Tokyo");
-                            var startDate = Util.Datetime.toDate(Caml_option.valFromOption(match));
-                            var endDate = Util.Datetime.toDate(Caml_option.valFromOption(match$1));
-                            var opts = {
-                              timeZone: tz,
-                              hour12: false,
-                              year: "numeric",
-                              month: "2-digit",
-                              day: "2-digit",
-                              hour: "2-digit"
-                            };
-                            var parts = intl.formatDateToParts(startDate, opts);
-                            var getVal = function (t) {
-                              return Core__Option.getOr(Core__Option.map(parts.find(function (p) {
-                                                  return p.type === t;
-                                                }), (function (p) {
-                                                return p.value;
-                                              })), "0");
-                            };
-                            var year = getVal("year");
-                            var month = getVal("month");
-                            var day = getVal("day");
-                            var isoDate = year + "-" + month + "-" + day;
-                            var hourStr = getVal("hour");
-                            var startHour = Core__Option.getOr(Core__Int.fromString(hourStr, undefined), 0);
-                            var endParts = intl.formatDateToParts(endDate, opts);
-                            var endHourStr = Core__Option.getOr(Core__Option.map(endParts.find(function (p) {
-                                          return p.type === "hour";
-                                        }), (function (p) {
-                                        return p.value;
-                                      })), "0");
-                            var endHour = Core__Option.getOr(Core__Int.fromString(endHourStr, undefined), 0);
-                            var ev_id = node.id;
-                            var ev_title = Core__Option.getOr(node.title, "");
-                            var ev_endHour = endHour <= startHour ? endHour + 24.0 : endHour;
-                            var ev = {
-                              id: ev_id,
-                              title: ev_title,
-                              startHour: startHour,
-                              endHour: ev_endHour
-                            };
-                            var existing = Core__Option.getOr(Js_dict.get(acc, isoDate), []);
-                            acc[isoDate] = Belt_Array.concat(existing, [ev]);
-                            return acc;
-                          }));
+              var raw = Core__Array.filterMap(Core__Option.getOr(v.events.edges, []), (function (edge) {
+                        return Core__Option.flatMap(edge, (function (e) {
+                                      return e.node;
+                                    }));
+                      })).map(function (node) {
+                    return {
+                            id: node.id,
+                            title: node.title,
+                            startDate: node.startDate,
+                            endDate: node.endDate,
+                            timezone: node.timezone
+                          };
+                  });
+              return EventTimeline.byDate(intl, raw);
             })), {});
   var weekDays = getWeekDays();
   var days = weekDays.map(function (param, i) {
@@ -221,6 +177,15 @@ function AvailabilityPage$AvailabilityContent(props) {
                       })), genericCourtName),
             reservationUrl: day.link
           };
+          var court_hourlyStats = day.hourly.map(function (h) {
+                return {
+                        hour: h.hour,
+                        indoorCount: h.indoorCount,
+                        outdoorCount: h.outdoorCount,
+                        priceMin: h.priceMin,
+                        priceMax: h.priceMax
+                      };
+              });
           var court_intents = day.intervals.map(function (iv, i) {
                 return {
                         id: i,
@@ -232,6 +197,7 @@ function AvailabilityPage$AvailabilityContent(props) {
             id: court_id,
             location: court_location,
             courtName: undefined,
+            hourlyStats: court_hourlyStats,
             intents: court_intents
           };
           var existing = Core__Option.getOr(Js_dict.get(acc, day.localDate), []);

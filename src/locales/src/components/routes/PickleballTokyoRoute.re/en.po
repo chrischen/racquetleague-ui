@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:248
+#: src/components/pages/PickleballTokyoPage.re.mjs:259
 msgid "As mentioned above, public games are not really a thing in Japan. However, you can find some public games on the home page of this website. They will tend to be full with a waitlist so just join the waitlist and cross your fingers. 5-6 spots tend to open up the day of the event as people cancel last minute."
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "How to Find Players in Tokyo"
 msgstr ""
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:244
+#: src/components/pages/PickleballTokyoPage.re.mjs:255
 msgid "How to Find Public Games"
 msgstr ""
 
@@ -101,11 +101,15 @@ msgstr ""
 msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr ""
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:257
+#: src/components/pages/PickleballTokyoPage.re.mjs:268
 msgid "Please do not show up to any events without permission and only if you are in the confirmed going list. Indoor events always require a set of clean indoor only court shoes. They are really serious about this stuff in Japan."
 msgstr ""
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:231
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid "Post it to the Japan Pickleball group on Facebook (if you need help in places other than Tokyo):"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:242
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
 msgstr ""
 
@@ -113,7 +117,7 @@ msgstr ""
 msgid "Post it to the Pickeball in Tokyo Facebook Group:"
 msgstr ""
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:220
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr ""
 
@@ -121,7 +125,7 @@ msgstr ""
 msgid "So, how can one play pickleball in Tokyo then as a tourist, recent transplant, or a beginner?"
 msgstr ""
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:252
+#: src/components/pages/PickleballTokyoPage.re.mjs:263
 msgid "Some events are restricted by level. If you are restricted, just type in your DUPR rating as a comment with your RSVP."
 msgstr ""
 

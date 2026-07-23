@@ -61,10 +61,6 @@ module Fragment = %relay(`
 
 let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
-// Experimental: interleave court openings (CourtPseudoEventRow) among the
-// event rows. Hidden for now — testing only. Flip to true to re-enable.
-let showInlineCourts = true
-
 let ts = Lingui.UtilString.t
 
 module Day = {
@@ -90,6 +86,11 @@ module Day = {
         option<PkEventsListFragment_graphql.Types.fragment_viewer>,
       ) => bool,
     >=?,
+    // Court-availability pseudo-events: the Discover list opts in (coordinate-
+    // scoped courts); a location's events list opts in with `courtLocationId`
+    // set, scoping courts to that one location.
+    ~showInlineCourts: bool=false,
+    ~courtLocationId: option<string>=?,
   ) => {
     let isoDate = {
       let y = date->Js.Date.getFullYear->Float.toInt->Int.toString
@@ -104,9 +105,6 @@ module Day = {
 
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
     let geoStatus = UseUserLocation.useStatus()
-    // "Plan this time" on a court band marks the viewer available for that
-    // segment (same mutation path as PlayIntentRow).
-    let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
 
     let defaultHide = (
       edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node,
@@ -240,6 +238,7 @@ module Day = {
                 isLoggedIn
                 onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
                 renderHeader
+                locationId=?courtLocationId
               />
             </React.Suspense>
           }}
@@ -265,17 +264,8 @@ module Day = {
                   fetchKey=availabilityFetchKey
                   events=eventItems
                   hasHiddenPreview
-                  onUseCourtTime={slot =>
-                    if !isLoggedIn {
-                      navigate("/oauth-login?return=" ++ pathname, None)
-                    } else {
-                      let _ = commitSetAvailability(
-                        ~localDate=isoDate,
-                        ~activityId=activityId->Option.getOr(defaultActivityId),
-                        ~intervals=UseSetAvailabilityDay.intervalsOfIntents([slot]),
-                        ~onCompleted=(_res, _err) => onAvailabilityRefetchNeeded(),
-                      )
-                    }}
+                  onRefetchNeeded=onAvailabilityRefetchNeeded
+                  locationId=?courtLocationId
                 />
               </React.Suspense>
             }
@@ -331,6 +321,11 @@ let make = (
       option<PkEventsListFragment_graphql.Types.fragment_viewer>,
     ) => bool,
   >=?,
+  // Discover list opts in to the court-availability pseudo-events (coordinate-
+  // scoped); a location's events list also sets `courtLocationId` to scope them
+  // to that one location. User/club lists leave both off.
+  ~showInlineCourts: bool=false,
+  ~courtLocationId: option<string>=?,
 ) => {
   let {data, hasNext, isLoadingNext: _, isLoadingPrevious, refetch} = Fragment.usePagination(events)
   let viewer = data.viewer
@@ -468,6 +463,8 @@ let make = (
             availabilityFetchKey
             onAvailabilityRefetchNeeded
             ?shouldHideEvent
+            showInlineCourts
+            ?courtLocationId
           />,
         ))
       }

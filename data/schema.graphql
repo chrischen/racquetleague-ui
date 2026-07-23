@@ -111,6 +111,15 @@ type AvailabilityHourCount {
   hour: Int!
 }
 
+"""Derived per-hour rollup across a location day's courts."""
+type AvailabilityHourStat {
+  hour: Int!
+  indoorCount: Int!
+  outdoorCount: Int!
+  priceMax: Int
+  priceMin: Int
+}
+
 """A half-open hourly time slot [startHour, endHour)."""
 type AvailabilityInterval {
   endHour: Int!
@@ -183,6 +192,25 @@ input ClubMembersInput {
 type Coords {
   lat: Float!
   lng: Float!
+}
+
+"""
+One physical court's open hours for a day, with scraped enrichment. Every
+   field beyond `intervals` is optional (absent = the site didn't expose it).
+"""
+type CourtAvailability {
+  courtType: CourtType
+  intervals: [AvailabilityInterval!]!
+  name: String
+
+  """Booking price for this court, in yen, when the site exposed it."""
+  price: Int
+}
+
+"""Whether a court is indoors or outdoors."""
+enum CourtType {
+  indoor
+  outdoor
 }
 
 input CreateActivitySubscriptionInput {
@@ -505,6 +533,16 @@ A location's (court's) open hours for a single calendar day.
 """
 type LocationAvailabilityDay {
   activity: Activity
+
+  """Per-court breakdown (indoor/outdoor, price, hours), when scraped."""
+  courts: [CourtAvailability!]
+
+  """
+  Per-open-hour rollup derived from the court bitmaps: how many indoor /
+        outdoor courts are free and the cheapest/dearest among them. Only hours
+        with at least one open court are returned.
+  """
+  hourly: [AvailabilityHourStat!]!
   id: ID!
   intervals: [AvailabilityInterval!]!
 

@@ -13,73 +13,217 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:83
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:210
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:515
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:60
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:80
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
+#: src/components/molecules/CourtOpeningCard.re.mjs:51
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
 msgid "{0} court"
 msgstr "{0}코트"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:81
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
+msgid "{0} court available"
+msgstr "{0}개 코트 이용 가능"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} courts"
 msgstr "{0}코트"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:67
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:62
+msgid "{0} courts available"
+msgstr "{0}개 코트 이용 가능"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
 msgid "{0} location"
 msgstr "{0}장소"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:68
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:66
 msgid "{0} locations"
 msgstr "{0}장소"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
-msgid "{0} segment"
-msgstr "{0} 세그먼트"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+msgid "{0} other player available in this slot"
+msgstr "이 슬롯에 {0}명의 다른 플레이어가 가능합니다"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
-msgid "{0} segments"
-msgstr "{0} 세그먼트"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
+msgid "{0} other players available in this slot"
+msgstr "이 슬롯에 {0}명의 다른 플레이어가 가능합니다"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
-msgid "{0}–{1} courts"
-msgstr "{0}–{1} 코트"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+msgid "{0} player"
+msgstr "{0}명"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:66
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
+msgid "{0} players"
+msgstr "{0}명"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:199
+msgid "{first} + {0} more"
+msgstr "{first} 외 {0}명"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:45
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:284
+msgid "{hs}h"
+msgstr "{hs}시간"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:47
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+msgid "{hs}h {ms}m"
+msgstr "{hs}시간 {ms}분"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:214
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:64
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
-msgid "{minCourts, plural, one {{0}} other {{1}}}"
-msgstr "{minCourts, plural, one {{0}} other {{1}}}"
+#: src/components/molecules/CourtOpeningCard.re.mjs:43
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:282
+msgid "{ms}m"
+msgstr "{ms}분"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-msgid "Choose a segment up to four hours to plan this time."
-msgstr "이 시간을 계획하려면 4시간 이내의 세그먼트를 선택하세요."
+#: src/components/molecules/CourtOpeningCard.re.mjs:37
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:206
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:52
+msgid "{n} indoor"
+msgstr "실내 {n}개"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
-msgid "Continuous court availability"
-msgstr "연속 코트 이용 가능"
+#: src/components/molecules/CourtOpeningCard.re.mjs:39
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:208
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:54
+msgid "{n} outdoor"
+msgstr "실외 {n}개"
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:24
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+msgid "Available"
+msgstr "가능"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:433
+msgid "Cancel editing availability"
+msgstr "가용성 편집 취소"
+
+#: src/components/organisms/PkEventsDayFeed.re.mjs:33
 msgid "Court"
 msgstr "코트"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-msgid "Match your availability to the selected segment, then invite players."
-msgstr "선택한 세그먼트에 맞게 가능 시간을 설정한 후 플레이어를 초대하세요."
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
+msgid "Courts available"
+msgstr "이용 가능한 코트"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
-msgid "Open span"
-msgstr "열린 구간"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:424
+msgid "Drag or resize within"
+msgstr "내에서 드래그하거나 크기 조정"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
-msgid "Plan this time"
-msgstr "이 시간 계획하기"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+msgid "Edit"
+msgstr "편집"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:264
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+msgid "Edit time"
+msgstr "시간 편집"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:469
+msgid "Full slot"
+msgstr "슬롯 마감"
+
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:132
+msgid "Hide slots"
+msgstr "슬롯 숨기기"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+msgid "Mark available"
+msgstr "가능 표시"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "플레이어 가용성 히트맵"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "제거"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:459
+msgid "Remove from slot"
+msgstr "슬롯에서 제거"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:109
 msgid "Reserve"
 msgstr "예약"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:488
+msgid "Save availability"
+msgstr "가용성 저장"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:454
+msgid "Tap to add time in this slot"
+msgstr "이 슬롯에 시간을 추가하려면 탭하세요"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "탭하여 시간 추가"
+
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:82
+msgid "to {0}"
+msgstr "{0}까지"
+
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:132
+msgid "View slots"
+msgstr "슬롯 보기"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:341
+msgid "You:"
+msgstr "나:"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:420
+msgid "Your availability in this slot"
+msgstr "이 슬롯에서 나의 가용성"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+#~ msgid "{0} segment"
+#~ msgstr "{0} 세그먼트"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
+#~ msgid "{0} segments"
+#~ msgstr "{0} 세그먼트"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
+#~ msgid "{0}–{1} courts"
+#~ msgstr "{0}–{1} 코트"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
+#~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{minCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid "Choose a segment up to four hours to plan this time."
+#~ msgstr "이 시간을 계획하려면 4시간 이내의 세그먼트를 선택하세요."
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
+#~ msgid "Continuous court availability"
+#~ msgstr "연속 코트 이용 가능"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid ""
+#~ "Match your availability to the selected segment, then invite players."
+#~ msgstr "선택한 세그먼트에 맞게 가능 시간을 설정한 후 플레이어를 초대하세요."
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
+#~ msgid "Open span"
+#~ msgstr "열린 구간"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
+#~ msgid "Plan this time"
+#~ msgstr "이 시간 계획하기"

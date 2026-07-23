@@ -73,7 +73,8 @@ function Events(props) {
               children: (function () {
                   return JsxRuntime.jsx(PkEventsList.make, {
                               events: fragmentRefs,
-                              shouldHideEvent: shouldHideEvent
+                              shouldHideEvent: shouldHideEvent,
+                              showInlineCourts: true
                             });
                 })
             });

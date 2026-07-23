@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:248
+#: src/components/pages/PickleballTokyoPage.re.mjs:259
 msgid ""
 "As mentioned above, public games are not really a thing in Japan. However, "
 "you can find some public games on the home page of this website. They will "
@@ -78,7 +78,7 @@ msgstr "东京希尔顿网球场（已绘制线条）"
 msgid "How to Find Players in Tokyo"
 msgstr "如何在东京找到球员"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:244
+#: src/components/pages/PickleballTokyoPage.re.mjs:255
 msgid "How to Find Public Games"
 msgstr "如何找到公开比赛"
 
@@ -130,7 +130,7 @@ msgstr "有明的太平洋匹克球俱乐部"
 msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "Pickleball One 银座新桥（室内硬地球场）"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:257
+#: src/components/pages/PickleballTokyoPage.re.mjs:268
 msgid ""
 "Please do not show up to any events without permission and only if you are "
 "in the confirmed going list. Indoor events always require a set of clean "
@@ -139,7 +139,13 @@ msgstr ""
 "请不要在未经允许的情况下出现在任何活动中，只有在您在确认参加名单中才可以。室"
 "内活动始终需要一双干净的室内专用球鞋。在日本，他们对这些事情非常认真。"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:231
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid ""
+"Post it to the Japan Pickleball group on Facebook (if you need help in "
+"places other than Tokyo):"
+msgstr "将其发布到Facebook上的日本匹克球群（如需东京以外地区的帮助）："
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:242
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
 msgstr "发布到 Facebook 上的 JPAA 群组（主要使用日语）"
 
@@ -147,7 +153,7 @@ msgstr "发布到 Facebook 上的 JPAA 群组（主要使用日语）"
 msgid "Post it to the Pickeball in Tokyo Facebook Group:"
 msgstr "发布到 Pickleball in Tokyo Facebook 群组："
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:220
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "发布到 Facebook 上的横须贺（美国海军基地）匹克球群组："
 
@@ -157,7 +163,7 @@ msgid ""
 "transplant, or a beginner?"
 msgstr "那么，作为游客、新搬来的人或初学者，在东京怎么打匹克球呢？"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:252
+#: src/components/pages/PickleballTokyoPage.re.mjs:263
 msgid ""
 "Some events are restricted by level. If you are restricted, just type in "
 "your DUPR rating as a comment with your RSVP."

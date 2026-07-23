@@ -3,6 +3,154 @@
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Js_math from "rescript/lib/es6/js_math.js";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+
+function mergeContiguousTimeWindows(windows) {
+  var sorted = windows.filter(function (w) {
+          return w.end > w.start;
+        }).toSorted(function (a, b) {
+        if (a.start !== b.start) {
+          return a.start - b.start;
+        } else {
+          return a.end - b.end;
+        }
+      });
+  var merged = [];
+  sorted.forEach(function ($$window) {
+        var lastIdx = merged.length - 1 | 0;
+        var previous = merged[lastIdx];
+        if (previous !== undefined && $$window.start <= previous.end) {
+          merged[lastIdx] = {
+            id: previous.id,
+            start: previous.start,
+            end: Math.max(previous.end, $$window.end)
+          };
+        } else {
+          merged.push($$window);
+        }
+      });
+  return merged;
+}
+
+function mergeCourtAvailabilityByCourt(courtAvailability) {
+  var byCourt = {};
+  var order = [];
+  courtAvailability.forEach(function (court) {
+        var existing = Js_dict.get(byCourt, court.id);
+        if (existing !== undefined) {
+          byCourt[court.id] = {
+            id: existing.id,
+            location: existing.location,
+            courtName: existing.courtName,
+            hourlyStats: existing.hourlyStats,
+            intents: Belt_Array.concat(existing.intents, court.intents)
+          };
+        } else {
+          order.push(court.id);
+          byCourt[court.id] = court;
+        }
+      });
+  return Core__Array.filterMap(order, (function (id) {
+                return Core__Option.map(Js_dict.get(byCourt, id), (function (court) {
+                              return {
+                                      id: court.id,
+                                      location: court.location,
+                                      courtName: court.courtName,
+                                      hourlyStats: court.hourlyStats,
+                                      intents: mergeContiguousTimeWindows(court.intents)
+                                    };
+                            }));
+              }));
+}
+
+function summarizeCourtAvailability(fromHourOpt, toHourOpt, availability) {
+  var fromHour = fromHourOpt !== undefined ? fromHourOpt : 0;
+  var toHour = toHourOpt !== undefined ? toHourOpt : 24;
+  var seen = {};
+  var unique = [];
+  availability.forEach(function (item) {
+        var match = Js_dict.get(seen, item.id);
+        if (match !== undefined) {
+          return ;
+        } else {
+          seen[item.id] = true;
+          unique.push(item);
+          return ;
+        }
+      });
+  var courtCount = 0;
+  var indoorCount = 0;
+  var outdoorCount = 0;
+  var priceLow = {
+    contents: undefined
+  };
+  var priceHigh = {
+    contents: undefined
+  };
+  var considerPrice = function (p) {
+    if (p === undefined) {
+      return ;
+    }
+    var cur = priceLow.contents;
+    priceLow.contents = cur !== undefined ? Math.min(cur, p) : p;
+    var cur$1 = priceHigh.contents;
+    priceHigh.contents = cur$1 !== undefined ? Math.max(cur$1, p) : p;
+  };
+  for(var hour = fromHour; hour < toHour; ++hour){
+    var hIndoor = {
+      contents: 0
+    };
+    var hOutdoor = {
+      contents: 0
+    };
+    var hUntyped = {
+      contents: 0
+    };
+    unique.forEach((function(hour,hIndoor,hOutdoor,hUntyped){
+        return function (item) {
+          if (item.hourlyStats.length === 0) {
+            if (item.intents.some(function (iv) {
+                    return iv.start <= hour ? hour < iv.end : false;
+                  })) {
+              hUntyped.contents = hUntyped.contents + 1 | 0;
+              return ;
+            } else {
+              return ;
+            }
+          }
+          var s = item.hourlyStats.find(function (s) {
+                return s.hour === hour;
+              });
+          if (s !== undefined) {
+            hIndoor.contents = hIndoor.contents + s.indoorCount | 0;
+            hOutdoor.contents = hOutdoor.contents + s.outdoorCount | 0;
+            considerPrice(s.priceMin);
+            return considerPrice(s.priceMax);
+          }
+          
+        }
+        }(hour,hIndoor,hOutdoor,hUntyped)));
+    var hTotal = (hIndoor.contents + hOutdoor.contents | 0) + hUntyped.contents | 0;
+    if (hTotal > courtCount) {
+      courtCount = hTotal;
+    }
+    if (hIndoor.contents > indoorCount) {
+      indoorCount = hIndoor.contents;
+    }
+    if (hOutdoor.contents > outdoorCount) {
+      outdoorCount = hOutdoor.contents;
+    }
+    
+  }
+  return {
+          courtCount: courtCount,
+          indoorCount: indoorCount,
+          outdoorCount: outdoorCount,
+          priceLow: priceLow.contents,
+          priceHigh: priceHigh.contents
+        };
+}
 
 function hourLabel(h) {
   var hh = Js_math.floor_int(h);
@@ -21,7 +169,7 @@ function hourLabelIntl(intl, h) {
 }
 
 function groupCourtAvailabilityByTime(courtAvailability) {
-  var slots = courtAvailability.flatMap(function (court) {
+  var slots = mergeCourtAvailabilityByCourt(courtAvailability).flatMap(function (court) {
           return court.intents.filter(function (intent) {
                         return intent.end > intent.start;
                       }).map(function (intent) {
@@ -159,19 +307,81 @@ function groupCourtAvailabilityIntoBands(courtAvailability) {
   return bands;
 }
 
-function filterCourtAvailabilityByOverlap(courtAvailability, userAvailability) {
-  if (userAvailability.length === 0) {
+function groupCourtAvailabilityIntoPseudoEventBands(courtAvailability) {
+  return mergeCourtAvailabilityByCourt(courtAvailability).flatMap(function (court) {
+                return court.intents.filter(function (intent) {
+                              return intent.end > intent.start;
+                            }).map(function (intent) {
+                            var key = court.id + ":" + intent.start.toString() + ":" + intent.end.toString();
+                            return {
+                                    key: key,
+                                    start: intent.start,
+                                    end: intent.end,
+                                    segments: [{
+                                        key: key,
+                                        start: intent.start,
+                                        end: intent.end,
+                                        slots: [{
+                                            court: court,
+                                            intent: intent
+                                          }]
+                                      }]
+                                  };
+                          });
+              }).toSorted(function (a, b) {
+              if (a.start !== b.start) {
+                return a.start - b.start;
+              } else {
+                return a.end - b.end;
+              }
+            });
+}
+
+function groupContiguousPseudoEventBands(bands) {
+  var sorted = bands.toSorted(function (a, b) {
+        return a.start - b.start;
+      });
+  var groups = [];
+  sorted.forEach(function (band) {
+        var lastIdx = groups.length - 1 | 0;
+        var previous = groups[lastIdx];
+        if (previous !== undefined && band.start <= previous.end) {
+          var end = Math.max(previous.end, band.end);
+          groups[lastIdx] = {
+            key: previous.start.toString() + ":" + end.toString(),
+            start: previous.start,
+            end: end,
+            bands: Belt_Array.concat(previous.bands, [band])
+          };
+          return ;
+        }
+        groups.push({
+              key: band.start.toString() + ":" + band.end.toString(),
+              start: band.start,
+              end: band.end,
+              bands: [band]
+            });
+      });
+  return groups;
+}
+
+function filterCourtAvailabilityByFullWindow(courtAvailability, userAvailability) {
+  var validUserWindows = userAvailability.filter(function (w) {
+        return w.end > w.start;
+      });
+  if (validUserWindows.length === 0) {
     return [];
   } else {
-    return courtAvailability.map(function (court) {
+    return mergeCourtAvailabilityByCourt(courtAvailability).map(function (court) {
                   return {
                           id: court.id,
                           location: court.location,
                           courtName: court.courtName,
+                          hourlyStats: court.hourlyStats,
                           intents: court.intents.filter(function (courtWindow) {
-                                return userAvailability.some(function (userWindow) {
-                                            if (courtWindow.start < userWindow.end) {
-                                              return courtWindow.end > userWindow.start;
+                                return validUserWindows.some(function (userWindow) {
+                                            if (courtWindow.start <= userWindow.start) {
+                                              return courtWindow.end >= userWindow.end;
                                             } else {
                                               return false;
                                             }
@@ -184,17 +394,19 @@ function filterCourtAvailabilityByOverlap(courtAvailability, userAvailability) {
   }
 }
 
-var maxMatchableCourtHours = 4.0;
-
 var defaultReservationUrl = "https://reserva.be/pboneginza";
 
 export {
-  maxMatchableCourtHours ,
   defaultReservationUrl ,
+  mergeContiguousTimeWindows ,
+  mergeCourtAvailabilityByCourt ,
+  summarizeCourtAvailability ,
   hourLabel ,
   hourLabelIntl ,
   groupCourtAvailabilityByTime ,
   groupCourtAvailabilityIntoBands ,
-  filterCourtAvailabilityByOverlap ,
+  groupCourtAvailabilityIntoPseudoEventBands ,
+  groupContiguousPseudoEventBands ,
+  filterCourtAvailabilityByFullWindow ,
 }
 /* No side effect */

@@ -29,15 +29,15 @@ msgstr "— 享受更快速的类应用体验"
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0} 场地"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} 场地"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -184,10 +184,6 @@ msgstr "地图视图"
 msgid "Mark available"
 msgstr "标记为空闲"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "匹配我的时间"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "上午"
@@ -241,14 +237,14 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已离开候补名单"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "开放"
-
 #: src/components/pages/PkuruLayout.re.mjs:161
 #: src/components/pages/PkuruLayout.re.mjs:189
 msgid "Pickleball"
 msgstr "匹克球"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "球员可用时间热力图"
 
 #: src/components/pages/PkuruLayout.re.mjs:144
 #: src/components/pages/PkuruLayout.re.mjs:485
@@ -258,6 +254,10 @@ msgstr "个人资料"
 #: src/components/pages/PkuruLayout.re.mjs:180
 msgid "Rankings"
 msgstr "排名"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "移除"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
@@ -283,13 +283,13 @@ msgstr "运动"
 msgid "Stay in the loop"
 msgstr "保持关注"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "点击任意位置添加时间段"
-
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "点击分享按钮"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "点击添加您的时间"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -334,6 +334,14 @@ msgstr "你想什么时候打球？"
 #~ msgid "Long opening"
 #~ msgstr "长时段空档"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "匹配我的时间"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "开放"
+
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."
 #~ msgstr "搜索活动、场馆、主持人..."
@@ -345,3 +353,7 @@ msgstr "你想什么时候打球？"
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"
 #~ msgstr "状态更新"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "点击任意位置添加时间段"

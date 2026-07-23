@@ -127,6 +127,16 @@ module UserPlus = {
     ~color: string=?,
   ) => React.element = "UserPlus"
 }
+module Clock3 = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Clock3"
+}
+module Banknote = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Banknote"
+}
 module Clock = {
   @module("lucide-react") @react.component
   external make: (

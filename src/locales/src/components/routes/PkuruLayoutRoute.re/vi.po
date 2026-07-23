@@ -29,15 +29,15 @@ msgstr "— trải nghiệm nhanh hơn, giống như ứng dụng thực thụ"
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} sân"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -186,10 +186,6 @@ msgstr "Xem bản đồ"
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "Khớp giờ của tôi"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "Buổi sáng"
@@ -243,14 +239,14 @@ msgstr "Thông báo"
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "mở"
-
 #: src/components/pages/PkuruLayout.re.mjs:161
 #: src/components/pages/PkuruLayout.re.mjs:189
 msgid "Pickleball"
 msgstr "Pickleball"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
 #: src/components/pages/PkuruLayout.re.mjs:144
 #: src/components/pages/PkuruLayout.re.mjs:485
@@ -260,6 +256,10 @@ msgstr "Hồ sơ"
 #: src/components/pages/PkuruLayout.re.mjs:180
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "Xóa"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
@@ -285,13 +285,13 @@ msgstr "Thể thao"
 msgid "Stay in the loop"
 msgstr "Luôn cập nhật tin tức"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
-
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "Nhấn để thêm thời gian của bạn"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -329,6 +329,18 @@ msgstr "Bạn muốn chơi lúc nào?"
 #~ msgid "Long opening"
 #~ msgstr "Khung giờ dài"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "Khớp giờ của tôi"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "mở"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"
 #~ msgstr "Cập nhật Trạng thái"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"

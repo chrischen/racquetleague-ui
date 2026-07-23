@@ -37,11 +37,11 @@ msgstr "{1}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
@@ -86,7 +86,7 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -242,10 +242,6 @@ msgstr "สถานที่:"
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "ตรงกับเวลาของฉัน"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "เช้า"
@@ -262,13 +258,13 @@ msgstr "ใหม่"
 msgid "New plan"
 msgstr "แผนใหม่"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "เปิด"
-
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr "รอการอนุมัติ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "แผนที่ความพร้อมของผู้เล่น"
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
@@ -277,6 +273,10 @@ msgstr "ผู้เล่น"
 #: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
 msgstr "กำลังประมวลผล..."
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "ลบ"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
@@ -306,9 +306,9 @@ msgstr "กิจกรรมที่แนะนำ"
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
@@ -382,6 +382,18 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "ช่วงเวลาว่างยาว"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"

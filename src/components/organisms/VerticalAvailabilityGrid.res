@@ -168,7 +168,7 @@ module VerticalWindowChip = {
     }
 
     <div
-      className={`absolute left-1 right-1 select-none touch-none group rounded border shadow-sm flex flex-col items-center justify-between ${drag->Option.isSome
+      className={`absolute left-2 right-2 select-none touch-none group rounded border shadow-sm flex flex-col items-center justify-between gap-1 ${drag->Option.isSome
           ? "bg-[#aee050] border-[#94c93a] z-30"
           : "bg-[#bdf25d] border-[#a3d949] z-20 hover:bg-[#aee050]"}`}
       style={ReactDOM.Style.make(
@@ -316,7 +316,10 @@ module VerticalDayColumn = {
         ref={ReactDOM.Ref.domRef(trackRef)}
         onClick=handleTrackClick>
         {densityMax > 0
-          ? <div className="absolute inset-0 flex flex-col pointer-events-none">
+          ? <div
+              className="absolute inset-0 z-0 flex flex-col pointer-events-none"
+              role="img"
+              ariaLabel={Lingui.UtilString.t`Player availability heatmap`}>
               {densityCounts
               ->Array.mapWithIndex((count, i) => {
                 let intensity = if densityMax > 0 {
@@ -327,11 +330,11 @@ module VerticalDayColumn = {
                 let opacity = if count === 0 {
                   "0"
                 } else {
-                  (0.08 +. intensity *. 0.22)->Float.toFixed(~digits=2)
+                  (0.08 +. intensity *. 0.2)->Float.toFixed(~digits=2)
                 }
                 <div
                   key={i->Int.toString}
-                  className="flex-1 w-full"
+                  className="flex-1 w-full border-x border-violet-200/40 dark:border-violet-800/25"
                   style={ReactDOM.Style.make(
                     ~backgroundColor=if count === 0 {
                       "transparent"
@@ -345,15 +348,15 @@ module VerticalDayColumn = {
               ->React.array}
             </div>
           : React.null}
-        <div className="absolute inset-0 pointer-events-none flex flex-col">
+        <div className="absolute inset-0 z-[1] pointer-events-none flex flex-col">
           {Belt.Array.makeBy(TimeWindowPicker.hourRange, i => {
             let hour = TimeWindowPicker.hourMin + i
             let isMajor = mod(hour, 3) === 0
             <div
               key={i->Int.toString}
               className={`flex-1 border-t ${isMajor
-                  ? "border-gray-200 dark:border-[#2a2b30]"
-                  : "border-gray-100/60 dark:border-[#262729]"}`}
+                  ? "border-gray-200 dark:border-[#34353a]"
+                  : "border-gray-100/70 dark:border-[#292a2e]"}`}
             />
           })->React.array}
         </div>
@@ -366,11 +369,10 @@ module VerticalDayColumn = {
           } else {
             <div
               key={ev.id}
-              className="absolute left-1 right-1 z-10 pointer-events-none rounded-sm border border-amber-300/70 dark:border-amber-500/40 flex flex-col items-center justify-center overflow-hidden"
+              className="user-event-block absolute inset-x-2 z-[15] pointer-events-none flex items-center justify-center overflow-hidden rounded border shadow-sm"
               style={ReactDOM.Style.make(
                 ~top=topPct->Float.toString ++ "%",
                 ~height=heightPct->Float.toString ++ "%",
-                ~backgroundImage="repeating-linear-gradient(45deg, rgba(255,176,66,0.18), rgba(255,176,66,0.18) 4px, rgba(255,176,66,0.05) 4px, rgba(255,176,66,0.05) 8px)",
                 (),
               )}
               title={ev.title ++
@@ -379,28 +381,30 @@ module VerticalDayColumn = {
               "\xe2\x80\x93" ++
               TimeWindow.hourLabelIntl(intl, ev.endHour)}>
               <span
-                className="text-[9px] font-mono font-medium text-amber-800 dark:text-amber-300/90 whitespace-nowrap leading-tight"
-                style={ReactDOM.Style.make(~transform="rotate(90deg)", ())}>
+                className="max-h-full overflow-hidden whitespace-nowrap font-mono text-[8px] font-semibold text-amber-950 dark:text-amber-200"
+                style={ReactDOM.Style.make(~writingMode="vertical-rl", ())}>
                 {React.string(ev.title)}
               </span>
             </div>
           }
         })
         ->React.array}
+        // Read-only court layer: one smooth cyan silhouette per contiguous band,
+        // anchored to the column's left edge (the horizontal logistic profile
+        // rotated 90°). Context only, never mutates the day's windows.
         <CourtAvailabilityBandOverlay
           bands=courtBands
           hourMin=TimeWindowPicker.hourMin
           hourMax=TimeWindowPicker.hourMax
-          orientation=Vertical
-          onUseSegment={segment =>
-            onUpdate([
-              {
-                TimeWindow.id: TimeWindowPicker.wid(),
-                start: segment.TimeWindow.start,
-                end: segment.TimeWindow.end,
-              },
-            ])}
+          orientation=CourtAvailabilityBandOverlay.Vertical
+          placement=CourtAvailabilityBandOverlay.Start
         />
+        {windows->Array.length === 0
+          ? <span
+              className="pointer-events-none absolute left-1/2 top-2 z-[15] -translate-x-1/2 text-sm text-gray-300 dark:text-gray-600">
+              {React.string("+")}
+            </span>
+          : React.null}
         {windows
         ->Array.map(w =>
           <VerticalWindowChip
@@ -583,23 +587,42 @@ let make = (
               {t`When can you play?`}
             </h1>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              {t`Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize.`}
+              {t`Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts.`}
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
             <div
-              className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
+              className="flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[9px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
               <span className="inline-flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-sm bg-[#bdf25d] border border-[#a3d949]" />
-                {t`Your time`}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-sm bg-violet-400/70" />
+                <span
+                  ariaHidden=true
+                  className="h-2.5 w-3.5 rounded-sm border border-violet-400 bg-violet-200/70 dark:bg-violet-900/60"
+                />
                 {t`Players`}
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Lucide.MapPin size=11 className="text-cyan-600 dark:text-cyan-400" />
-                {t`Courts`}
+                <span ariaHidden=true className="user-event-block h-2.5 w-3.5 rounded-sm border" />
+                {t`Events`}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                // Sample silhouette growing thin → thick, matching the overlay's
+                // softened fill.
+                <svg
+                  viewBox="0 0 36 16"
+                  className="h-4 w-9 text-cyan-500/45 dark:text-cyan-400/40"
+                  ariaHidden=true>
+                  <path
+                    fill="currentColor"
+                    d="M1 14c6 0 8.5-.2 11-1 3.4-1.1 4.2-8.6 9.5-10.2 2.7-.8 6.4-.8 13.5-.8v13H1z"
+                  />
+                </svg>
+                {t`Courts \xc2\xb7 thickness = count`}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <span
+                  ariaHidden=true className="h-2.5 w-3.5 rounded-sm border border-[#a3d949] bg-[#bdf25d]"
+                />
+                {t`Your time`}
               </span>
             </div>
             <div className="flex items-center gap-1.5 flex-wrap">
@@ -690,7 +713,7 @@ let make = (
             </div>
           </div>
           <p className="text-[11px] font-mono text-gray-400 dark:text-gray-500 mt-2 px-1">
-            {t`Tap an empty area to add time \xb7 select a cyan court opening up to 4h to match it \xb7 drag to move \xb7 grab the edges to resize`}
+            {t`Tap empty time to add \xb7 drag to move \xb7 grab edges to resize`}
           </p>
           <section
             className="mt-6 border border-gray-200 dark:border-[#2a2b30] rounded-lg p-4 bg-white dark:bg-[#1e1f23]">
@@ -701,7 +724,7 @@ let make = (
                   {t`Your availability`}
                 </h2>
                 <p className="mt-1 text-[11px] text-gray-500 dark:text-gray-400">
-                  {t`Court openings are shown only when they overlap your time.`}
+                  {t`Courts are listed individually with their largest continuous openings.`}
                 </p>
               </div>
               <span
@@ -727,7 +750,9 @@ let make = (
                     if ws->Array.length === 0 {
                       React.null
                     } else {
-                      let overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(
+                      // Only courts whose contiguous opening covers a complete
+                      // saved window for the day.
+                      let qualifyingCourts = TimeWindow.filterCourtAvailabilityByFullWindow(
                         courtAvailability
                         ->Option.flatMap(dict => dict->Js.Dict.get(d.isoDate))
                         ->Option.getOr([]),
@@ -758,19 +783,11 @@ let make = (
                             ->React.array}
                           </div>
                         </div>
-                        {overlappingCourts->Array.length > 0
+                        {qualifyingCourts->Array.length > 0
                           ? <div className="mt-2 sm:ml-24">
                               <CourtAvailabilityGroups
-                                title={ts`Courts available during your time`}
-                                courtAvailability=overlappingCourts
-                                onUseSlot={group => {
-                                  let ni: TimeWindow.playIntent = {
-                                    id: TimeWindowPicker.wid(),
-                                    start: group.start,
-                                    end: group.end,
-                                  }
-                                  updateDay(i, [ni])
-                                }}
+                                title={ts`Courts and openings covering your full window`}
+                                courtAvailability=qualifyingCourts
                               />
                             </div>
                           : React.null}

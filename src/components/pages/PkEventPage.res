@@ -44,6 +44,9 @@ module EventQuery = %relay(`
         id
         name
         slug
+        viewerMembership {
+          status
+        }
       }
       location {
         id
@@ -423,15 +426,23 @@ module Inner = {
     | Some({payment: Some({status: 0 | 1})}) => true
     | _ => false
     }
-    let isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment
+    let ownerHasConnectedAccount =
+      event.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)
+    let viewerIsClubMember = switch event.club->Option.flatMap(c => c.viewerMembership) {
+    | Some({status: Some(Active)}) => true
+    | _ => false
+    }
+    // Platform payments (owner has no connected account) skip the deposit
+    // authorization gate for members of the event's club
+    let requiresPaymentGate = ownerHasConnectedAccount || !viewerIsClubMember
+    let isUnpaid =
+      isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment && requiresPaymentGate
     let viewerJoinTime = viewerRsvpNode->Option.flatMap(n => n.joinTime)
     let isViewerPending = switch viewerRsvpNode {
     | Some({listType}) => listType != None && listType != Some(0)
     | None => false
     }
     let eventCurrency = allRsvpNodes->Array.findMap(n => n.payment->Option.map(p => p.currency))
-    let ownerHasConnectedAccount =
-      event.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)
     let isAuthorization = true
 
     if event.viewerIsBanned->Option.getOr(false) {

@@ -37,6 +37,10 @@ var Settings = {};
 
 var UserPlus = {};
 
+var Clock3 = {};
+
+var Banknote = {};
+
 var Clock = {};
 
 var User = {};
@@ -186,6 +190,8 @@ export {
   Building ,
   Settings ,
   UserPlus ,
+  Clock3 ,
+  Banknote ,
   Clock ,
   User ,
   List ,

@@ -37,11 +37,11 @@ msgstr "{0, plural, one {{1}} other {{2}}}"
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "{0} {hiddenCountDesc} ẩn"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} sân"
 
@@ -86,7 +86,7 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {người chơi} other {người chơi}}"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -244,10 +244,6 @@ msgstr "Địa điểm:"
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "Khớp giờ của tôi"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "Buổi sáng"
@@ -269,13 +265,13 @@ msgstr "Mới"
 msgid "New plan"
 msgstr "Kế hoạch mới"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "mở"
-
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr "đang chờ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
@@ -288,6 +284,10 @@ msgstr "Đang xử lý..."
 #: src/components/pages/ViewerEventsPage.re.mjs:65
 msgid "public events"
 msgstr "sự kiện công khai"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "Xóa"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:257
 msgid "Reply"
@@ -317,9 +317,9 @@ msgstr "Sự kiện được đề xuất"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "Nhấn để thêm thời gian của bạn"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
 msgid ""
@@ -364,3 +364,15 @@ msgstr "Bạn muốn chơi lúc nào?"
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "Khung giờ dài"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "Khớp giờ của tôi"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "mở"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"

@@ -20,6 +20,36 @@ module Types = {
     localDate: string,
     user: option<response_availabilityUsersForDateRange_user>,
   }
+  and response_locationAvailability_hourly = {
+    hour: int,
+    indoorCount: int,
+    outdoorCount: int,
+    priceMax: option<int>,
+    priceMin: option<int>,
+  }
+  and response_locationAvailability_intervals = {
+    endHour: int,
+    startHour: int,
+  }
+  and response_locationAvailability_location = {
+    @live id: string,
+    name: option<string>,
+  }
+  and response_locationAvailability = {
+    hourly: array<response_locationAvailability_hourly>,
+    @live id: string,
+    intervals: array<response_locationAvailability_intervals>,
+    link: option<string>,
+    localDate: string,
+    location: option<response_locationAvailability_location>,
+  }
+  and response_locationsAvailability_hourly = {
+    hour: int,
+    indoorCount: int,
+    outdoorCount: int,
+    priceMax: option<int>,
+    priceMin: option<int>,
+  }
   and response_locationsAvailability_intervals = {
     endHour: int,
     startHour: int,
@@ -29,27 +59,48 @@ module Types = {
     name: option<string>,
   }
   and response_locationsAvailability = {
+    hourly: array<response_locationsAvailability_hourly>,
     @live id: string,
     intervals: array<response_locationsAvailability_intervals>,
     link: option<string>,
     localDate: string,
     location: option<response_locationsAvailability_location>,
   }
+  and response_viewer_availability_intervals = {
+    endHour: int,
+    startHour: int,
+  }
   and response_viewer_availability = {
     @live id: string,
+    intervals: array<response_viewer_availability_intervals>,
     localDate: string,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PlayIntentRow_availabilityDay]>,
+  }
+  and response_viewer_events_edges_node = {
+    endDate: option<Util.Datetime.t>,
+    @live id: string,
+    startDate: option<Util.Datetime.t>,
+    timezone: option<string>,
+    title: option<string>,
+  }
+  and response_viewer_events_edges = {
+    node: option<response_viewer_events_edges_node>,
+  }
+  and response_viewer_events = {
+    edges: option<array<option<response_viewer_events_edges>>>,
   }
   and response_viewer_user = {
     @live id: string,
   }
   and response_viewer = {
     availability: array<response_viewer_availability>,
+    events: response_viewer_events,
     user: option<response_viewer_user>,
   }
   type response = {
     availabilityUsersForDateRange: array<response_availabilityUsersForDateRange>,
-    locationsAvailability: array<response_locationsAvailability>,
+    locationAvailability: option<array<response_locationAvailability>>,
+    locationsAvailability: option<array<response_locationsAvailability>>,
     viewer: option<response_viewer>,
   }
   @live
@@ -57,26 +108,34 @@ module Types = {
   @live
   type variables = {
     activityId: string,
+    byLocation: bool,
     fromDate: string,
     location: locationInput,
+    locationId: string,
     toDate: string,
   }
   @live
   type refetchVariables = {
     activityId: option<string>,
+    byLocation: option<bool>,
     fromDate: option<string>,
     location: option<locationInput>,
+    locationId: option<string>,
     toDate: option<string>,
   }
   @live let makeRefetchVariables = (
     ~activityId=?,
+    ~byLocation=?,
     ~fromDate=?,
     ~location=?,
+    ~locationId=?,
     ~toDate=?,
   ): refetchVariables => {
     activityId: activityId,
+    byLocation: byLocation,
     fromDate: fromDate,
     location: location,
+    locationId: locationId,
     toDate: toDate
   }
 
@@ -102,10 +161,12 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_availability":{"f":""}}}`
+    json`{"__root":{"viewer_events_edges_node_startDate":{"c":"Util.Datetime"},"viewer_events_edges_node_endDate":{"c":"Util.Datetime"},"viewer_availability":{"f":""}}}`
   )
   @live
-  let wrapResponseConverterMap = ()
+  let wrapResponseConverterMap = {
+    "Util.Datetime": Util.Datetime.serialize,
+  }
   @live
   let convertWrapResponse = v => v->RescriptRelay.convertObj(
     wrapResponseConverter,
@@ -116,10 +177,12 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_availability":{"f":""}}}`
+    json`{"__root":{"viewer_events_edges_node_startDate":{"c":"Util.Datetime"},"viewer_events_edges_node_endDate":{"c":"Util.Datetime"},"viewer_availability":{"f":""}}}`
   )
   @live
-  let responseConverterMap = ()
+  let responseConverterMap = {
+    "Util.Datetime": Util.Datetime.parse,
+  }
   @live
   let convertResponse = v => v->RescriptRelay.convertObj(
     responseConverter,
@@ -153,26 +216,36 @@ var v0 = {
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "fromDate"
+  "name": "byLocation"
 },
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "location"
+  "name": "fromDate"
 },
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "toDate"
+  "name": "location"
 },
 v4 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "locationId"
+},
+v5 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "toDate"
+},
+v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v5 = {
+v7 = {
   "alias": null,
   "args": null,
   "concreteType": "User",
@@ -180,43 +253,38 @@ v5 = {
   "name": "user",
   "plural": false,
   "selections": [
-    (v4/*: any*/)
+    (v6/*: any*/)
   ],
   "storageKey": null
 },
-v6 = {
+v8 = {
   "kind": "Variable",
   "name": "activityId",
   "variableName": "activityId"
 },
-v7 = {
+v9 = {
   "kind": "Variable",
   "name": "fromDate",
   "variableName": "fromDate"
 },
-v8 = {
+v10 = {
   "kind": "Variable",
   "name": "toDate",
   "variableName": "toDate"
 },
-v9 = [
-  (v6/*: any*/),
-  (v7/*: any*/),
-  (v8/*: any*/)
+v11 = [
+  (v8/*: any*/),
+  (v9/*: any*/),
+  (v10/*: any*/)
 ],
-v10 = {
+v12 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "localDate",
   "storageKey": null
 },
-v11 = {
-  "kind": "Variable",
-  "name": "location",
-  "variableName": "location"
-},
-v12 = {
+v13 = {
   "alias": null,
   "args": null,
   "concreteType": "AvailabilityInterval",
@@ -241,27 +309,107 @@ v12 = {
   ],
   "storageKey": null
 },
-v13 = {
+v14 = {
   "alias": null,
   "args": [
-    (v7/*: any*/),
-    (v11/*: any*/),
+    {
+      "kind": "Literal",
+      "name": "_filters",
+      "value": {
+        "viewer": true
+      }
+    },
+    {
+      "kind": "Literal",
+      "name": "first",
+      "value": 100
+    }
+  ],
+  "concreteType": "EventConnection",
+  "kind": "LinkedField",
+  "name": "events",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "EventEdge",
+      "kind": "LinkedField",
+      "name": "edges",
+      "plural": true,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "Event",
+          "kind": "LinkedField",
+          "name": "node",
+          "plural": false,
+          "selections": [
+            (v6/*: any*/),
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "title",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "startDate",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endDate",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "timezone",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "storageKey": "events(_filters:{\"viewer\":true},first:100)"
+},
+v15 = {
+  "kind": "Variable",
+  "name": "location",
+  "variableName": "location"
+},
+v16 = {
+  "alias": null,
+  "args": [
+    (v9/*: any*/),
+    (v15/*: any*/),
     {
       "fields": [
-        (v6/*: any*/)
+        (v8/*: any*/)
       ],
       "kind": "ObjectValue",
       "name": "scope"
     },
-    (v8/*: any*/)
+    (v10/*: any*/)
   ],
   "concreteType": "AvailabilityDay",
   "kind": "LinkedField",
   "name": "availabilityUsersForDateRange",
   "plural": true,
   "selections": [
-    (v4/*: any*/),
-    (v10/*: any*/),
+    (v6/*: any*/),
+    (v12/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -270,7 +418,7 @@ v13 = {
       "name": "user",
       "plural": false,
       "selections": [
-        (v4/*: any*/),
+        (v6/*: any*/),
         {
           "alias": null,
           "args": null,
@@ -288,54 +436,134 @@ v13 = {
       ],
       "storageKey": null
     },
-    (v12/*: any*/)
+    (v13/*: any*/)
   ],
   "storageKey": null
 },
-v14 = {
-  "alias": null,
-  "args": [
-    (v6/*: any*/),
-    (v7/*: any*/),
-    (v11/*: any*/),
-    (v8/*: any*/)
-  ],
-  "concreteType": "LocationAvailabilityDay",
-  "kind": "LinkedField",
-  "name": "locationsAvailability",
-  "plural": true,
+v17 = [
+  (v6/*: any*/),
+  (v12/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "link",
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "Location",
+    "kind": "LinkedField",
+    "name": "location",
+    "plural": false,
+    "selections": [
+      (v6/*: any*/),
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "name",
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
+  },
+  (v13/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "AvailabilityHourStat",
+    "kind": "LinkedField",
+    "name": "hourly",
+    "plural": true,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "hour",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "indoorCount",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "outdoorCount",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "priceMin",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "priceMax",
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
+  }
+],
+v18 = {
+  "condition": "byLocation",
+  "kind": "Condition",
+  "passingValue": false,
   "selections": [
-    (v4/*: any*/),
-    (v10/*: any*/),
     {
       "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "link",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "Location",
-      "kind": "LinkedField",
-      "name": "location",
-      "plural": false,
-      "selections": [
-        (v4/*: any*/),
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "name",
-          "storageKey": null
-        }
+      "args": [
+        (v8/*: any*/),
+        (v9/*: any*/),
+        (v15/*: any*/),
+        (v10/*: any*/)
       ],
+      "concreteType": "LocationAvailabilityDay",
+      "kind": "LinkedField",
+      "name": "locationsAvailability",
+      "plural": true,
+      "selections": (v17/*: any*/),
       "storageKey": null
-    },
-    (v12/*: any*/)
-  ],
-  "storageKey": null
+    }
+  ]
+},
+v19 = {
+  "condition": "byLocation",
+  "kind": "Condition",
+  "passingValue": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": [
+        (v8/*: any*/),
+        (v9/*: any*/),
+        {
+          "kind": "Variable",
+          "name": "locationId",
+          "variableName": "locationId"
+        },
+        (v10/*: any*/)
+      ],
+      "concreteType": "LocationAvailabilityDay",
+      "kind": "LinkedField",
+      "name": "locationAvailability",
+      "plural": true,
+      "selections": (v17/*: any*/),
+      "storageKey": null
+    }
+  ]
 };
 return {
   "fragment": {
@@ -343,7 +571,9 @@ return {
       (v0/*: any*/),
       (v1/*: any*/),
       (v2/*: any*/),
-      (v3/*: any*/)
+      (v3/*: any*/),
+      (v4/*: any*/),
+      (v5/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
@@ -357,17 +587,18 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          (v5/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
-            "args": (v9/*: any*/),
+            "args": (v11/*: any*/),
             "concreteType": "AvailabilityDay",
             "kind": "LinkedField",
             "name": "availability",
             "plural": true,
             "selections": [
-              (v4/*: any*/),
-              (v10/*: any*/),
+              (v6/*: any*/),
+              (v12/*: any*/),
+              (v13/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -375,12 +606,14 @@ return {
               }
             ],
             "storageKey": null
-          }
+          },
+          (v14/*: any*/)
         ],
         "storageKey": null
       },
-      (v13/*: any*/),
-      (v14/*: any*/)
+      (v16/*: any*/),
+      (v18/*: any*/),
+      (v19/*: any*/)
     ],
     "type": "Query",
     "abstractKey": null
@@ -389,9 +622,11 @@ return {
   "operation": {
     "argumentDefinitions": [
       (v0/*: any*/),
-      (v1/*: any*/),
+      (v2/*: any*/),
+      (v5/*: any*/),
       (v3/*: any*/),
-      (v2/*: any*/)
+      (v4/*: any*/),
+      (v1/*: any*/)
     ],
     "kind": "Operation",
     "name": "PkEventsAvailabilityDayQuery",
@@ -404,35 +639,37 @@ return {
         "name": "viewer",
         "plural": false,
         "selections": [
-          (v5/*: any*/),
+          (v7/*: any*/),
           {
             "alias": null,
-            "args": (v9/*: any*/),
+            "args": (v11/*: any*/),
             "concreteType": "AvailabilityDay",
             "kind": "LinkedField",
             "name": "availability",
             "plural": true,
             "selections": [
-              (v4/*: any*/),
-              (v10/*: any*/),
-              (v12/*: any*/)
+              (v6/*: any*/),
+              (v12/*: any*/),
+              (v13/*: any*/)
             ],
             "storageKey": null
-          }
+          },
+          (v14/*: any*/)
         ],
         "storageKey": null
       },
-      (v13/*: any*/),
-      (v14/*: any*/)
+      (v16/*: any*/),
+      (v18/*: any*/),
+      (v19/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "2b4139e289efaf985fcc81e04742c517",
+    "cacheID": "88c4628e7a2c8084a175be3b96bb8239",
     "id": null,
     "metadata": {},
     "name": "PkEventsAvailabilityDayQuery",
     "operationKind": "query",
-    "text": "query PkEventsAvailabilityDayQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $location: LocationInput!\n) {\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      ...PlayIntentRow_availabilityDay\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: $activityId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n"
+    "text": "query PkEventsAvailabilityDayQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $location: LocationInput!\n  $locationId: ID!\n  $byLocation: Boolean!\n) {\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n      ...PlayIntentRow_availabilityDay\n    }\n    events(first: 100, _filters: {viewer: true}) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: $activityId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) @skip(if: $byLocation) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  locationAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, locationId: $locationId) @include(if: $byLocation) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n"
   }
 };
 })() `)

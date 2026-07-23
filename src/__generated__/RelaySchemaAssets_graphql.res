@@ -2,6 +2,19 @@
 @@warning("-30")
 
 @live @unboxed
+type enum_CourtType = 
+  | @as("indoor") Indoor
+  | @as("outdoor") Outdoor
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_CourtType_input = 
+  | @as("indoor") Indoor
+  | @as("outdoor") Outdoor
+
+
+@live @unboxed
 type enum_Gender = 
   | @as("female") Female
   | @as("male") Male

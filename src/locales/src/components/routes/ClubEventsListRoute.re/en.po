@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:343
+#: src/components/pages/PkEventPage.re.mjs:349
 msgid "...more"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:538
+#: src/components/pages/PkEventPage.re.mjs:555
 msgid "cancel event"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:212
+#: src/components/pages/PkEventPage.re.mjs:218
 msgid "CANCELED"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:503
+#: src/components/pages/PkEventPage.re.mjs:520
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -182,11 +182,11 @@ msgstr ""
 msgid "Confirmed · {0}"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:247
+#: src/components/pages/PkEventPage.re.mjs:253
 msgid "Copied!"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:522
+#: src/components/pages/PkEventPage.re.mjs:539
 msgid "copy event"
 msgstr ""
 
@@ -228,7 +228,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:515
+#: src/components/pages/PkEventPage.re.mjs:532
 msgid "edit event"
 msgstr ""
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:825
+#: src/components/pages/PkEventPage.re.mjs:842
 msgid "Event not found"
 msgstr ""
 
@@ -294,7 +294,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:295
+#: src/components/pages/PkEventPage.re.mjs:301
 msgid "Free"
 msgstr ""
 
@@ -361,7 +361,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:343
+#: src/components/pages/PkEventPage.re.mjs:349
 msgid "less"
 msgstr ""
 
@@ -369,7 +369,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:325
+#: src/components/pages/PkEventPage.re.mjs:331
 msgid "Location"
 msgstr ""
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:669
+#: src/components/pages/PkEventPage.re.mjs:686
 msgid "Notes from the host"
 msgstr ""
 
@@ -531,12 +531,12 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:635
+#: src/components/pages/PkEventPage.re.mjs:652
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:635
+#: src/components/pages/PkEventPage.re.mjs:652
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr ""
@@ -610,7 +610,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:247
+#: src/components/pages/PkEventPage.re.mjs:253
 msgid "Share"
 msgstr ""
 
@@ -705,7 +705,7 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:527
+#: src/components/pages/PkEventPage.re.mjs:544
 msgid "uncancel event"
 msgstr ""
 

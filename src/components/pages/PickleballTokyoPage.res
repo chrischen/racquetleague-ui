@@ -144,6 +144,13 @@ let make = () => {
                 </Link>
               </li>
               <li>
+                {t`Post it to the Japan Pickleball group on Facebook (if you need help in places other than Tokyo):`}
+                {" "->React.string}
+                <Link to="https://www.facebook.com/groups/2450100778714147" target="_blank">
+                  {"https://www.facebook.com/groups/2450100778714147"->React.string}
+                </Link>
+              </li>
+              <li>
                 {t`Post it to the Yokosuka (US navy base) pickleball group on Facebook:`}
                 {" "->React.string}
                 <Link to="https://www.facebook.com/groups/2440866659386395" target="_blank">

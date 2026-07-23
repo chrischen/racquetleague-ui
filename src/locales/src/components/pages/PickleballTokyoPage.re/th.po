@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:248
+#: src/components/pages/PickleballTokyoPage.re.mjs:259
 msgid ""
 "As mentioned above, public games are not really a thing in Japan. However, "
 "you can find some public games on the home page of this website. They will "
@@ -79,7 +79,7 @@ msgstr "สนามเทนนิส Hilton Tokyo (เส้นที่ทา
 msgid "How to Find Players in Tokyo"
 msgstr "วิธีหาผู้เล่นในโตกยว"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:244
+#: src/components/pages/PickleballTokyoPage.re.mjs:255
 msgid "How to Find Public Games"
 msgstr "วิธีหาเกมสาธารณะ"
 
@@ -132,7 +132,7 @@ msgstr "Pacific Pickle Club ที่ Ariake"
 msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "Pickleball One Ginza Shimbashi (คอร์ตแข็งในร่ม)"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:257
+#: src/components/pages/PickleballTokyoPage.re.mjs:268
 msgid ""
 "Please do not show up to any events without permission and only if you are "
 "in the confirmed going list. Indoor events always require a set of clean "
@@ -141,7 +141,15 @@ msgstr ""
 "กรุณาอย่าไปกิจกรรมใดๆ โดยไม่ได้รับอนุญาต และเฉพาะเมื่อคุณ อยู่ในรายชื่อยืนยันที่จะเข้าร่วม "
 "กิจกรรมภายในอาคารต้องใช้ รองเท้าสะอาดเฉพาะสนามในอาคารเท่านั้น พวกเขาจริงจังเรื่องนี้ในญี่ปุ่น"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:231
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid ""
+"Post it to the Japan Pickleball group on Facebook (if you need help in "
+"places other than Tokyo):"
+msgstr ""
+"โพสต์ในกลุ่ม Japan Pickleball บน Facebook "
+"(หากต้องการความช่วยเหลือในพื้นที่นอกเหนือจากโตเกียว):"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:242
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
 msgstr "โพสต์ลงกลุ่ม JPAA ใน Facebook (ส่วนใหญ่เป็นภาษาญี่ปุ่น)"
 
@@ -149,7 +157,7 @@ msgstr "โพสต์ลงกลุ่ม JPAA ใน Facebook (ส่วน�
 msgid "Post it to the Pickeball in Tokyo Facebook Group:"
 msgstr "โพสต์ไปยังกลุ่ม Facebook Pickleball in Tokyo:"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:220
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "โพสต์ลงกลุ่มพิคเกิลบอล Yokosuka (ฐานทัพเรือสหรัฐฯ) ใน Facebook:"
 
@@ -160,7 +168,7 @@ msgid ""
 msgstr ""
 "แล้วคนจะเล่นพิคเกิลบอลในโตกยวได้อย่างไร ในฐานะนักท่องเที่ยว คนย้ายมาใหม่ หรือผู้เริ่มต้น?"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:252
+#: src/components/pages/PickleballTokyoPage.re.mjs:263
 msgid ""
 "Some events are restricted by level. If you are restricted, just type in "
 "your DUPR rating as a comment with your RSVP."

@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:248
+#: src/components/pages/PickleballTokyoPage.re.mjs:259
 msgid ""
 "As mentioned above, public games are not really a thing in Japan. However, "
 "you can find some public games on the home page of this website. They will "
@@ -80,7 +80,7 @@ msgstr "힐튼 도쿄 테니스 코트 (페인트 라인)"
 msgid "How to Find Players in Tokyo"
 msgstr "도쿄에서 플레이어 찾는 방법"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:244
+#: src/components/pages/PickleballTokyoPage.re.mjs:255
 msgid "How to Find Public Games"
 msgstr "공개 게임 찾는 방법"
 
@@ -135,7 +135,7 @@ msgstr "아리아케의 Pacific Pickle Club"
 msgid "Pickleball One Ginza Shimbashi (indoor hard court)"
 msgstr "Pickleball One 긴자 신바시 (실내 하드 코트)"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:257
+#: src/components/pages/PickleballTokyoPage.re.mjs:268
 msgid ""
 "Please do not show up to any events without permission and only if you are "
 "in the confirmed going list. Indoor events always require a set of clean "
@@ -145,7 +145,15 @@ msgstr ""
 "트에는 항상 깨끗한 실내 전용 코트 신발이 필요합니다. 일본에서는 이것에 대해 "
 "정말 엄격합니다."
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:231
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid ""
+"Post it to the Japan Pickleball group on Facebook (if you need help in "
+"places other than Tokyo):"
+msgstr ""
+"Japan Pickleball 페이스북 그룹에 게시하세요 (도쿄 외 지역에서 도움이 필요한 "
+"경우):"
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:242
 msgid "Post it to the JPAA group on Facebook (mostly Japanese)"
 msgstr "Facebook의 JPAA 그룹에 게시하세요 (주로 일본어)"
 
@@ -153,7 +161,7 @@ msgstr "Facebook의 JPAA 그룹에 게시하세요 (주로 일본어)"
 msgid "Post it to the Pickeball in Tokyo Facebook Group:"
 msgstr "Facebook의 Pickleball in Tokyo 그룹에 게시하세요:"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:220
+#: src/components/pages/PickleballTokyoPage.re.mjs:231
 msgid "Post it to the Yokosuka (US navy base) pickleball group on Facebook:"
 msgstr "Facebook의 요코스카(미 해군 기지) 피클볼 그룹에 게시하세요:"
 
@@ -165,7 +173,7 @@ msgstr ""
 "그렇다면 관광객, 이주민, 또는 초보자로서 도쿄에서 피클볼을 어떻게 할 수 있을"
 "까요?"
 
-#: src/components/pages/PickleballTokyoPage.re.mjs:252
+#: src/components/pages/PickleballTokyoPage.re.mjs:263
 msgid ""
 "Some events are restricted by level. If you are restricted, just type in "
 "your DUPR rating as a comment with your RSVP."

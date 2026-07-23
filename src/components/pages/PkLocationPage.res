@@ -10,6 +10,7 @@ module Query = %relay(`
     $afterDate: Datetime
   ) {
     location(id: $id) {
+      id
       name
       details
       address
@@ -76,7 +77,12 @@ let make = () => {
               selected=?selectedLocationId
             />
           </div>
-          <PkEventsList events=fragmentRefs onHoverLocation />
+          <PkEventsList
+            events=fragmentRefs
+            onHoverLocation
+            showInlineCourts=true
+            courtLocationId=loc.id
+          />
         </div>
       )
       ->Option.getOr(<div className="p-6 text-gray-500"> {t`Location not found`} </div>)}

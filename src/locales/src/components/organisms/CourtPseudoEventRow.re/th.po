@@ -13,69 +13,187 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:83
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:210
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:515
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:80
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
+#: src/components/molecules/CourtOpeningCard.re.mjs:51
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:81
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:67
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
 msgid "{0} location"
 msgstr "{0} สถานที่"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:68
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
 msgid "{0} locations"
 msgstr "{0} สถานที่"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
-msgid "{0} segment"
-msgstr "{0} ช่วง"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+msgid "{0} other player available in this slot"
+msgstr "มีผู้เล่นอื่น {0} คนว่างในช่วงเวลานี้"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
-msgid "{0} segments"
-msgstr "{0} ช่วง"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
+msgid "{0} other players available in this slot"
+msgstr "มีผู้เล่นอื่น {0} คนว่างในช่วงเวลานี้"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
-msgid "{0}–{1} courts"
-msgstr "{0}–{1} คอร์ต"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+msgid "{0} player"
+msgstr "{0} คน"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:66
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
+msgid "{0} players"
+msgstr "{0} คน"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:199
+msgid "{first} + {0} more"
+msgstr "{first} + อีก {0} คน"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:45
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:284
+msgid "{hs}h"
+msgstr "{hs}ช."
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:47
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+msgid "{hs}h {ms}m"
+msgstr "{hs}ช. {ms}น."
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:214
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
-msgid "{minCourts, plural, one {{0}} other {{1}}}"
-msgstr "{minCourts, plural, one {{0}} other {{1}}}"
+#: src/components/molecules/CourtOpeningCard.re.mjs:43
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:282
+msgid "{ms}m"
+msgstr "{ms}น."
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-msgid "Choose a segment up to four hours to plan this time."
-msgstr "เลือกช่วงเวลาไม่เกินสี่ชั่วโมงเพื่อวางแผนเวลานี้"
+#: src/components/molecules/CourtOpeningCard.re.mjs:37
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:206
+msgid "{n} indoor"
+msgstr "ในร่ม {n} แห่ง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
-msgid "Continuous court availability"
-msgstr "ความพร้อมของคอร์ตแบบต่อเนื่อง"
+#: src/components/molecules/CourtOpeningCard.re.mjs:39
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:208
+msgid "{n} outdoor"
+msgstr "กลางแจ้ง {n} แห่ง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-msgid "Match your availability to the selected segment, then invite players."
-msgstr "จับคู่ความพร้อมของคุณกับช่วงที่เลือก แล้วเชิญผู้เล่น"
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
+msgid "{slotCount, plural, one {{0}} other {{1}}}"
+msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
-msgid "Open span"
-msgstr "ช่วงเปิด"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+msgid "Available"
+msgstr "ว่าง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
-msgid "Plan this time"
-msgstr "วางแผนเวลานี้"
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:433
+msgid "Cancel editing availability"
+msgstr "ยกเลิกการแก้ไขความพร้อม"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:264
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
+msgid "Courts available"
+msgstr "คอร์ตที่ว่าง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:424
+msgid "Drag or resize within"
+msgstr "ลากหรือปรับขนาดภายใน"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+msgid "Edit time"
+msgstr "แก้ไขเวลา"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:469
+msgid "Full slot"
+msgstr "ช่วงเวลาเต็ม"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+msgid "Mark available"
+msgstr "ระบุว่าว่าง"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "แผนที่ความพร้อมของผู้เล่น"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "ลบ"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:459
+msgid "Remove from slot"
+msgstr "นำออกจากช่วงเวลา"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:109
 msgid "Reserve"
 msgstr "จอง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:488
+msgid "Save availability"
+msgstr "บันทึกความพร้อม"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:454
+msgid "Tap to add time in this slot"
+msgstr "แตะเพื่อเพิ่มเวลาในช่วงนี้"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:341
+msgid "You:"
+msgstr "คุณ:"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:420
+msgid "Your availability in this slot"
+msgstr "ความพร้อมของคุณในช่วงเวลานี้"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+#~ msgid "{0} segment"
+#~ msgstr "{0} ช่วง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
+#~ msgid "{0} segments"
+#~ msgstr "{0} ช่วง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
+#~ msgid "{0}–{1} courts"
+#~ msgstr "{0}–{1} คอร์ต"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
+#~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{minCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid "Choose a segment up to four hours to plan this time."
+#~ msgstr "เลือกช่วงเวลาไม่เกินสี่ชั่วโมงเพื่อวางแผนเวลานี้"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
+#~ msgid "Continuous court availability"
+#~ msgstr "ความพร้อมของคอร์ตแบบต่อเนื่อง"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid ""
+#~ "Match your availability to the selected segment, then invite players."
+#~ msgstr "จับคู่ความพร้อมของคุณกับช่วงที่เลือก แล้วเชิญผู้เล่น"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
+#~ msgid "Open span"
+#~ msgstr "ช่วงเปิด"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
+#~ msgid "Plan this time"
+#~ msgstr "วางแผนเวลานี้"

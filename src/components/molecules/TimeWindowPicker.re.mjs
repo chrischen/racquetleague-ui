@@ -25,9 +25,11 @@ function ts(prim0, prim1) {
 
 var hourRange = 18;
 
-function computeDensity(intents) {
-  var counts = Belt_Array.makeBy(hourRange, (function (i) {
-          var h = 6 + i | 0;
+function computeDensity(hMinOpt, hMaxOpt, intents) {
+  var hMin = hMinOpt !== undefined ? hMinOpt : 6;
+  var hMax = hMaxOpt !== undefined ? hMaxOpt : 24;
+  var counts = Belt_Array.makeBy(hMax - hMin | 0, (function (i) {
+          var h = hMin + i | 0;
           return Core__Array.reduce(intents, 0, (function (acc, w) {
                         if (h >= w.start && h < w.end) {
                           return acc + 1 | 0;
@@ -220,7 +222,7 @@ function TimeWindowPicker$WindowChip(props) {
                             className: "text-gray-600 dark:text-gray-300"
                           }),
                       className: "absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#1e1f23] border border-gray-300 dark:border-[#3a3b40] flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity shadow-sm",
-                      title: "Remove",
+                      title: t`Remove`,
                       onClick: (function (e) {
                           e.stopPropagation();
                           onDelete();
@@ -230,7 +232,7 @@ function TimeWindowPicker$WindowChip(props) {
                         })
                     })
               ],
-              className: "absolute top-1 bottom-1 select-none touch-none group rounded border shadow-sm flex items-center justify-between gap-1 " + (
+              className: "absolute top-2 bottom-2 select-none touch-none group rounded border shadow-sm flex items-center justify-between gap-1 " + (
                 Core__Option.isSome(drag) ? "bg-[#aee050] border-[#94c93a] z-30" : "bg-[#bdf25d] border-[#a3d949] z-20 hover:bg-[#aee050]"
               ),
               style: {
@@ -252,6 +254,7 @@ var WindowChip = {
 function TimeWindowPicker(props) {
   var __courtAvailability = props.courtAvailability;
   var __existingEvents = props.existingEvents;
+  var demandIntents = props.demandIntents;
   var __maxDemand = props.maxDemand;
   var demandCounts = props.demandCounts;
   var __showAxis = props.showAxis;
@@ -271,7 +274,7 @@ function TimeWindowPicker(props) {
               return c.hourMax;
             })), 24);
   var hourRangeVal = hourMaxVal - hourMinVal | 0;
-  Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
+  var snapStep = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
               return c.snap;
             })), 1.0);
   var minDur = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
@@ -280,6 +283,7 @@ function TimeWindowPicker(props) {
   var defaultDur = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
               return c.defaultDuration;
             })), 3.0);
+  var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability);
   var addAtClick = function (e) {
     var el = trackRef.current;
     if (el == null) {
@@ -291,7 +295,7 @@ function TimeWindowPicker(props) {
     }
     var x = e.clientX - rect.left;
     var rawHour = hourMinVal + x / rect.width * hourRangeVal;
-    var start = clamp(Math.floor(rawHour), hourMinVal, hourMaxVal - minDur);
+    var start = clamp(snapTo(rawHour, snapStep), hourMinVal, hourMaxVal - minDur);
     var inside = intents.some(function (w) {
           if (start >= w.start) {
             return start < w.end;
@@ -302,6 +306,26 @@ function TimeWindowPicker(props) {
     if (inside) {
       return ;
     }
+    var snapBand = courtBands.find(function (b) {
+          if (rawHour >= b.start && rawHour < b.end && b.end - b.start <= 4.0) {
+            return !intents.some(function (w) {
+                        if (b.start < w.end) {
+                          return b.end > w.start;
+                        } else {
+                          return false;
+                        }
+                      });
+          } else {
+            return false;
+          }
+        });
+    if (snapBand !== undefined) {
+      return onChange(Belt_Array.concat(intents, [{
+                        id: wid(),
+                        start: snapBand.start,
+                        end: snapBand.end
+                      }]));
+    }
     var nextStart = Core__Array.reduce(intents, hourMaxVal, (function (acc, w) {
             if (w.start >= start && w.start < acc) {
               return w.start;
@@ -309,7 +333,7 @@ function TimeWindowPicker(props) {
               return acc;
             }
           }));
-    var duration = Math.min(defaultDur, nextStart - start);
+    var duration = Math.min(Math.min(defaultDur, nextStart - start), hourMaxVal - start);
     if (duration >= minDur) {
       return onChange(Belt_Array.concat(intents, [{
                         id: wid(),
@@ -319,15 +343,61 @@ function TimeWindowPicker(props) {
     }
     
   };
-  var axisHours = Belt_Array.makeBy((hourRangeVal / 3 | 0) + 1 | 0, (function (i) {
-          return hourMinVal + Math.imul(i, 3) | 0;
-        }));
-  var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability);
+  var axisStep = hourRangeVal <= 4 ? Math.max(0.5, hourRangeVal / 2.0) : 3.0;
+  var arr = [];
+  var cursor = hourMinVal;
+  while(cursor < hourMaxVal) {
+    arr.push(cursor);
+    cursor = cursor + axisStep;
+  };
+  arr.push(hourMaxVal);
+  var heatmap;
+  var exit = 0;
+  if (demandIntents !== undefined && demandIntents.length > 0) {
+    heatmap = computeDensity(hourMinVal, hourMaxVal, demandIntents);
+  } else {
+    exit = 1;
+  }
+  if (exit === 1) {
+    heatmap = demandCounts !== undefined && maxDemand > 0 ? [
+        Belt_Array.makeBy(hourRangeVal, (function (i) {
+                var hour = hourMinVal + i | 0;
+                return Core__Option.getOr(Core__Option.map(demandCounts.find(function (hc) {
+                                    return hc.hour === hour;
+                                  }), (function (hc) {
+                                  return hc.count;
+                                })), 0);
+              })),
+        maxDemand
+      ] : undefined;
+  }
+  var tmp;
+  if (heatmap !== undefined) {
+    var maxD = heatmap[1];
+    tmp = JsxRuntime.jsx("div", {
+          children: heatmap[0].map(function (count, i) {
+                var intensity = maxD > 0 ? count / maxD : 0.0;
+                var opacity = count === 0 ? "0" : (0.08 + intensity * 0.2).toFixed(2);
+                return JsxRuntime.jsx("div", {
+                            className: "flex-1 h-full border-y border-violet-200/40 dark:border-violet-800/25",
+                            style: {
+                              backgroundColor: count === 0 ? "transparent" : "rgba(139, 92, 246, " + opacity + ")"
+                            }
+                          }, i.toString());
+              }),
+          "aria-label": t`Player availability heatmap`,
+          className: "absolute inset-0 z-0 flex pointer-events-none",
+          role: "img"
+        });
+  } else {
+    tmp = null;
+  }
+  var gridLineCount = Math.max(1, Math.round(hourRangeVal / snapStep) | 0);
   return JsxRuntime.jsxs("div", {
               children: [
                 showAxis ? JsxRuntime.jsx("div", {
-                        children: axisHours.map(function (h, i) {
-                              var lp = (h - hourMinVal | 0) / hourRangeVal * 100.0;
+                        children: arr.map(function (h, i) {
+                              var lp = (h - hourMinVal) / hourRangeVal * 100.0;
                               return JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx("span", {
                                                 children: TimeWindow.hourLabelIntl(intl, h),
@@ -337,7 +407,7 @@ function TimeWindowPicker(props) {
                                           style: {
                                             left: lp.toString() + "%",
                                             transform: i === 0 ? "translateX(0)" : (
-                                                i === (axisHours.length - 1 | 0) ? "translateX(-100%)" : "translateX(-50%)"
+                                                i === (arr.length - 1 | 0) ? "translateX(-100%)" : "translateX(-50%)"
                                               )
                                           }
                                         }, h.toString());
@@ -346,40 +416,22 @@ function TimeWindowPicker(props) {
                       }) : null,
                 JsxRuntime.jsxs("div", {
                       children: [
-                        Core__Option.isSome(demandCounts) && maxDemand > 0 ? JsxRuntime.jsx("div", {
-                                children: Belt_Array.makeBy(hourRangeVal, (function (i) {
-                                        var hour = hourMinVal + i | 0;
-                                        var count = Core__Option.getOr(Core__Option.map(Core__Option.getOr(demandCounts, []).find(function (hc) {
-                                                      return hc.hour === hour;
-                                                    }), (function (hc) {
-                                                    return hc.count;
-                                                  })), 0);
-                                        var intensity = count / maxDemand;
-                                        var opacity = count === 0 ? "0" : (0.08 + intensity * 0.22).toFixed(2);
-                                        return JsxRuntime.jsx("div", {
-                                                    className: "flex-1 h-full",
-                                                    style: {
-                                                      backgroundColor: count === 0 ? "transparent" : "rgba(139, 92, 246, " + opacity + ")"
-                                                    }
-                                                  }, i.toString());
-                                      })),
-                                className: "absolute inset-0 flex pointer-events-none"
-                              }) : null,
+                        tmp,
                         JsxRuntime.jsx("div", {
-                              children: Belt_Array.makeBy(hourRangeVal + 1 | 0, (function (i) {
-                                      var h = hourMinVal + i | 0;
-                                      var lp = i / hourRangeVal * 100.0;
-                                      var major = h % 3 === 0;
+                              children: Belt_Array.makeBy(gridLineCount + 1 | 0, (function (i) {
+                                      var hour = hourMinVal + i * snapStep;
+                                      var lp = i / gridLineCount * 100.0;
+                                      var major = Math.floor(hour) === hour;
                                       return JsxRuntime.jsx("div", {
                                                   className: "absolute top-0 bottom-0 border-l " + (
-                                                    major ? "border-gray-200 dark:border-[#2a2b30]" : "border-gray-100/70 dark:border-[#262729]"
+                                                    major ? "border-gray-200 dark:border-[#34353a]" : "border-gray-100/70 dark:border-[#292a2e]"
                                                   ),
                                                   style: {
                                                     left: lp.toString() + "%"
                                                   }
                                                 }, i.toString());
                                     })),
-                              className: "absolute inset-0 pointer-events-none"
+                              className: "absolute inset-0 z-[1] pointer-events-none"
                             }),
                         existingEvents.length > 0 ? JsxRuntime.jsx("div", {
                                 children: existingEvents.map(function (ev) {
@@ -388,14 +440,14 @@ function TimeWindowPicker(props) {
                                       return JsxRuntime.jsx("div", {
                                                   children: JsxRuntime.jsx("span", {
                                                         children: ev.title,
-                                                        className: "text-[9px] md:text-[10px] font-mono font-medium text-amber-800 dark:text-amber-300/90 truncate leading-tight"
+                                                        className: "min-w-0 truncate font-mono text-[9px] font-semibold text-amber-950 dark:text-amber-200"
                                                       }),
-                                                  className: "absolute top-1 bottom-1 rounded-sm border border-amber-300/70 dark:border-amber-500/40 flex items-center px-1.5 overflow-hidden",
+                                                  className: "user-event-block absolute inset-y-2 z-[15] flex items-center overflow-hidden rounded border px-1.5 shadow-sm",
                                                   style: {
-                                                    backgroundImage: "repeating-linear-gradient(45deg, rgba(255,176,66,0.18), rgba(255,176,66,0.18) 4px, rgba(255,176,66,0.05) 4px, rgba(255,176,66,0.05) 8px)",
                                                     left: leftPct.toString() + "%",
                                                     width: widthPct.toString() + "%"
-                                                  }
+                                                  },
+                                                  title: ev.title + " · " + TimeWindow.hourLabelIntl(intl, ev.startHour) + "–" + TimeWindow.hourLabelIntl(intl, ev.endHour)
                                                 }, ev.id);
                                     }),
                                 className: "absolute inset-0 pointer-events-none"
@@ -404,14 +456,14 @@ function TimeWindowPicker(props) {
                               bands: courtBands,
                               hourMin: hourMinVal,
                               hourMax: hourMaxVal,
-                              onUseSegment: props.onUseCourtSlot
+                              placement: "End"
                             }),
-                        intents.length === 0 && courtAvailability.length === 0 ? JsxRuntime.jsx("div", {
+                        intents.length === 0 ? JsxRuntime.jsx("div", {
                                 children: JsxRuntime.jsx("span", {
-                                      children: t`Tap anywhere to add a time window`,
-                                      className: "text-[11px] font-mono text-gray-400 dark:text-gray-500"
+                                      children: Core__Option.getOr(props.emptyLabel, t`Tap to add your time`),
+                                      className: "text-[10px] font-mono text-gray-400 dark:text-gray-500"
                                     }),
-                                className: "absolute inset-0 flex items-center justify-center pointer-events-none"
+                                className: "absolute inset-0 z-[15] flex items-center justify-center pointer-events-none"
                               }) : null,
                         intents.map(function (w) {
                               return JsxRuntime.jsx(TimeWindowPicker$WindowChip, {
@@ -438,37 +490,9 @@ function TimeWindowPicker(props) {
                             })
                       ],
                       ref: Caml_option.some(trackRef),
-                      className: Core__Option.getOr(props.trackClassName, "relative z-10 h-12 rounded-md border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden cursor-copy"),
+                      className: Core__Option.getOr(props.trackClassName, "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden cursor-copy"),
                       onClick: addAtClick
-                    }),
-                Core__Option.isSome(demandCounts) && maxDemand > 0 ? JsxRuntime.jsx("div", {
-                        children: Belt_Array.makeBy(hourRangeVal, (function (i) {
-                                var hour = hourMinVal + i | 0;
-                                var count = Core__Option.getOr(Core__Option.map(Core__Option.getOr(demandCounts, []).find(function (hc) {
-                                              return hc.hour === hour;
-                                            }), (function (hc) {
-                                            return hc.count;
-                                          })), 0);
-                                if (count === 0) {
-                                  return JsxRuntime.jsx("div", {
-                                              className: "flex-1 h-full"
-                                            }, i.toString());
-                                }
-                                var intensity = count / maxDemand;
-                                var opacity = (0.55 + intensity * 0.45).toFixed(2);
-                                return JsxRuntime.jsx("div", {
-                                            className: "flex-1 h-full",
-                                            style: {
-                                              backgroundColor: "rgba(139, 92, 246, " + opacity + ")"
-                                            }
-                                          }, i.toString());
-                              })),
-                        "aria-hidden": true,
-                        className: "relative z-0 h-3 -mt-1.5 flex pointer-events-none",
-                        style: {
-                          filter: "blur(5px)"
-                        }
-                      }) : null
+                    })
               ],
               className: Core__Option.getOr(props.className, "")
             });
@@ -520,6 +544,8 @@ var minDuration = 1.0;
 
 var defaultDuration = 3.0;
 
+var maxMatchableCourtHours = 4.0;
+
 var make = TimeWindowPicker;
 
 export {
@@ -529,6 +555,7 @@ export {
   hourRange ,
   minDuration ,
   defaultDuration ,
+  maxMatchableCourtHours ,
   computeDensity ,
   nextId ,
   wid ,

@@ -12,6 +12,8 @@ module Query = %relay(`
     $fromDate: String!
     $toDate: String!
     $location: LocationInput!
+    $locationId: ID!
+    $byLocation: Boolean!
   ) {
     viewer {
       user {
@@ -20,7 +22,22 @@ module Query = %relay(`
       availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {
         id
         localDate
+        intervals {
+          startHour
+          endHour
+        }
         ...PlayIntentRow_availabilityDay
+      }
+      events(first: 100, _filters: {viewer: true}) {
+        edges {
+          node {
+            id
+            title
+            startDate
+            endDate
+            timezone
+          }
+        }
       }
     }
     availabilityUsersForDateRange(
@@ -46,7 +63,7 @@ module Query = %relay(`
       fromDate: $fromDate
       toDate: $toDate
       location: $location
-    ) {
+    ) @skip(if: $byLocation) {
       id
       localDate
       link
@@ -58,37 +75,125 @@ module Query = %relay(`
         startHour
         endHour
       }
+      hourly {
+        hour
+        indoorCount
+        outdoorCount
+        priceMin
+        priceMax
+      }
+    }
+    locationAvailability(
+      activityId: $activityId
+      fromDate: $fromDate
+      toDate: $toDate
+      locationId: $locationId
+    ) @include(if: $byLocation) {
+      id
+      localDate
+      link
+      location {
+        id
+        name
+      }
+      intervals {
+        startHour
+        endHour
+      }
+      hourly {
+        hour
+        indoorCount
+        outdoorCount
+        priceMin
+        priceMax
+      }
     }
   }
 `)
 
-// Map the day's `locationsAvailability` rows to court entities. A row may not
-// have a resolved Location yet (the scraper keyed availability before the
-// venue was registered); fall back to the booking `link` as a stable
-// per-venue identity so those courts still render and reserve. Shared with
-// PkEventsDayFeed so the picker and the inline pseudo-event rows agree.
+// Uniform court-availability row, projected from whichever source the query
+// fetched: coordinate-scoped `locationsAvailability` (Discover) or single-
+// location `locationAvailability` (a location's events list). Both fields carry
+// identical selections but are nominally distinct generated types, so we
+// normalize them here.
+type courtRow = {
+  id: string,
+  localDate: string,
+  link: option<string>,
+  locationId: option<string>,
+  locationName: option<string>,
+  intervals: array<(int, int)>,
+  hourlyStats: array<TimeWindow.hourStat>,
+}
+
+let courtRowsFromData = (
+  data: PkEventsAvailabilityDayQuery_graphql.Types.response,
+): array<courtRow> =>
+  Belt.Array.concat(
+    data.locationsAvailability
+    ->Option.getOr([])
+    ->Array.map((r): courtRow => {
+      id: r.id,
+      localDate: r.localDate,
+      link: r.link,
+      locationId: r.location->Option.map(l => l.id),
+      locationName: r.location->Option.flatMap(l => l.name),
+      intervals: r.intervals->Array.map(iv => (iv.startHour, iv.endHour)),
+      hourlyStats: r.hourly->Array.map((h): TimeWindow.hourStat => {
+        hour: h.hour,
+        indoorCount: h.indoorCount,
+        outdoorCount: h.outdoorCount,
+        priceMin: h.priceMin,
+        priceMax: h.priceMax,
+      }),
+    }),
+    data.locationAvailability
+    ->Option.getOr([])
+    ->Array.map((r): courtRow => {
+      id: r.id,
+      localDate: r.localDate,
+      link: r.link,
+      locationId: r.location->Option.map(l => l.id),
+      locationName: r.location->Option.flatMap(l => l.name),
+      intervals: r.intervals->Array.map(iv => (iv.startHour, iv.endHour)),
+      hourlyStats: r.hourly->Array.map((h): TimeWindow.hourStat => {
+        hour: h.hour,
+        indoorCount: h.indoorCount,
+        outdoorCount: h.outdoorCount,
+        priceMin: h.priceMin,
+        priceMax: h.priceMax,
+      }),
+    }),
+  )
+
+// Map the day's court rows to court entities. A row may not have a resolved
+// Location yet (the scraper keyed availability before the venue was
+// registered); fall back to the booking `link` as a stable per-venue identity
+// so those courts still render and reserve. Shared with PkEventsDayFeed so the
+// picker and the inline pseudo-event rows agree.
 let courtAvailabilityForDate = (
-  rows: array<PkEventsAvailabilityDayQuery_graphql.Types.response_locationsAvailability>,
+  rows: array<courtRow>,
   ~localDate: string,
   ~genericCourtName: string,
 ): array<TimeWindow.courtAvailability> =>
   rows
   ->Array.filter(d => d.localDate == localDate)
   ->Array.map((d): TimeWindow.courtAvailability => {
-    let locId = d.location->Option.map(l => l.id)->Option.orElse(d.link)->Option.getOr(d.id)
+    let locId = d.locationId->Option.orElse(d.link)->Option.getOr(d.id)
     {
       id: d.id,
       location: {
         id: locId,
-        name: d.location->Option.flatMap(l => l.name)->Option.getOr(genericCourtName),
+        name: d.locationName->Option.getOr(genericCourtName),
         reservationUrl: d.link,
       },
       courtName: None,
+      hourlyStats: d.hourlyStats,
       intents: d.intervals->Array.mapWithIndex(
-        (iv, i): TimeWindow.playIntent => {
+        ((s, e), i): TimeWindow.playIntent => {
           id: i,
-          start: iv.startHour->Float.fromInt,
-          end: iv.endHour->Float.fromInt,
+          start: s->Float.fromInt,
+          end: e->Float.fromInt,
         },
       ),
     }
@@ -107,10 +212,20 @@ let make = (
   ~isLoggedIn: bool,
   ~onCreateEvent: unit => unit,
   ~renderHeader: React.element => React.element,
+  // When set, court availability is scoped to this single location (a location's
+  // events list) via `locationAvailability`; otherwise it's coordinate-scoped.
+  ~locationId: option<string>=?,
 ) => {
   let fetchPolicy = fetchKey > 0 ? RescriptRelay.StoreAndNetwork : RescriptRelay.StoreOrNetwork
   let data = Query.use(
-    ~variables={activityId, fromDate, toDate, location},
+    ~variables={
+      activityId,
+      fromDate,
+      toDate,
+      location,
+      locationId: locationId->Option.getOr(""),
+      byLocation: locationId->Option.isSome,
+    },
     ~fetchKey=Int.toString(fetchKey),
     ~fetchPolicy,
   )
@@ -149,10 +264,33 @@ let make = (
   // Court (venue) open hours near the caller for this day bucket.
   let genericCourtName = Lingui.UtilString.t`Court`
   let courtAvailability = courtAvailabilityForDate(
-    data.locationsAvailability,
+    courtRowsFromData(data),
     ~localDate,
     ~genericCourtName,
   )
+
+  // The viewer's own RSVP'd events for this day, rendered as the amber layer of
+  // the picker's russian-doll timeline. Hours are resolved per-event-timezone
+  // via the shared EventTimeline helper, then filtered to this day bucket.
+  let intl = ReactIntl.useIntl()
+  let events =
+    data.viewer
+    ->Option.map(v =>
+      v.events.edges
+      ->Option.getOr([])
+      ->Array.filterMap(edge => edge->Option.flatMap(e => e.node))
+      ->Array.map((node): EventTimeline.rawEvent => {
+        id: node.id,
+        title: node.title,
+        startDate: node.startDate,
+        endDate: node.endDate,
+        timezone: node.timezone,
+      })
+      ->(raw => EventTimeline.byDate(intl, raw))
+    )
+    ->Option.getOr(Js.Dict.empty())
+    ->Js.Dict.get(localDate)
+    ->Option.getOr([])
 
   let onAvailabilityCommitted = (updatedDay: option<PlayIntentRow.userDay>) => {
     let needsRefetch = switch updatedDay {
@@ -171,6 +309,7 @@ let make = (
     activityId
     userDays
     courtAvailability
+    events
     onAvailabilityCommitted
     onChange={_ => ()}
     isLoggedIn

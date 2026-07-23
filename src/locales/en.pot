@@ -5361,3 +5361,192 @@ msgstr ""
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:404
 msgid "open"
 msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:504
+msgid "{0} other player available in this slot"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:505
+msgid "{0} other players available in this slot"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:213
+msgid "{0} player"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:214
+msgid "{0} players"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:197
+msgid "{first} + {0} more"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:367
+msgid "Available"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:421
+msgid "Cancel editing availability"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:198
+msgid "Courts available"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:412
+msgid "Drag or resize within"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:367
+msgid "Edit"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:363
+msgid "Edit time"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:457
+msgid "Full slot"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:127
+msgid "Hide slots"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:447
+msgid "Remove from slot"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:476
+msgid "Save availability"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:442
+msgid "Tap to add time in this slot"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:77
+msgid "to {0}"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:127
+msgid "View slots"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:329
+msgid "You:"
+msgstr ""
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:408
+msgid "Your availability in this slot"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:71
+msgid "{0} continuous opening"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:72
+msgid "{0} continuous openings"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:316
+msgid "{0} event"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:317
+msgid "{0} events"
+msgstr ""
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:70
+msgid "{openingCount, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:466
+msgid "Courts covering your complete time"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:470
+msgid "No court is currently available for an entire selected window."
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:347
+msgid "Open the {dayWord} timeline to edit your availability"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:307
+msgid "Set your time"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:845
+msgid "Courts and openings covering your full window"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:787
+msgid "Courts are listed individually with their largest continuous openings."
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+msgid ""
+"Set your availability for the next 2 weeks. Your events and available "
+"windows share a footprint; cyan cell borders show courts."
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:773
+msgid "Tap empty time to add · drag to move · grab edges to resize"
+msgstr ""
+
+#: src/components/pages/PickleballTokyoPage.re.mjs:220
+msgid ""
+"Post it to the Japan Pickleball group on Facebook (if you need help in "
+"places other than Tokyo):"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:45
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:284
+msgid "{hs}h"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:47
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+msgid "{hs}h {ms}m"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:43
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:282
+msgid "{ms}m"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:37
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:206
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:52
+msgid "{n} indoor"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:39
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:208
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:54
+msgid "{n} outdoor"
+msgstr ""
+
+#: src/components/molecules/PlayIntentRow.re.mjs:639
+msgid "Change times"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+msgid "Courts Â· thickness = count"
+msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+msgid ""
+"Set your availability for the next 2 weeks. Your events and available "
+"windows share a footprint; thicker cyan lines mean more courts."
+msgstr ""

@@ -226,7 +226,7 @@ function VerticalAvailabilityGrid$VerticalWindowChip(props) {
                         })
                     })
               ],
-              className: "absolute left-1 right-1 select-none touch-none group rounded border shadow-sm flex flex-col items-center justify-between " + (
+              className: "absolute left-2 right-2 select-none touch-none group rounded border shadow-sm flex flex-col items-center justify-between gap-1 " + (
                 Core__Option.isSome(drag) ? "bg-[#aee050] border-[#94c93a] z-30" : "bg-[#bdf25d] border-[#a3d949] z-20 hover:bg-[#aee050]"
               ),
               style: {
@@ -299,7 +299,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
   var demandIntents = demand.flatMap(function (d) {
         return d.intents;
       });
-  var match = demand.length > 0 ? TimeWindowPicker.computeDensity(demandIntents) : [
+  var match = demand.length > 0 ? TimeWindowPicker.computeDensity(undefined, undefined, demandIntents) : [
       [],
       0
     ];
@@ -338,15 +338,17 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                         densityMax > 0 ? JsxRuntime.jsx("div", {
                                 children: match[0].map(function (count, i) {
                                       var intensity = densityMax > 0 ? count / densityMax : 0.0;
-                                      var opacity = count === 0 ? "0" : (0.08 + intensity * 0.22).toFixed(2);
+                                      var opacity = count === 0 ? "0" : (0.08 + intensity * 0.2).toFixed(2);
                                       return JsxRuntime.jsx("div", {
-                                                  className: "flex-1 w-full",
+                                                  className: "flex-1 w-full border-x border-violet-200/40 dark:border-violet-800/25",
                                                   style: {
                                                     backgroundColor: count === 0 ? "transparent" : "rgba(139, 92, 246, " + opacity + ")"
                                                   }
                                                 }, i.toString());
                                     }),
-                                className: "absolute inset-0 flex flex-col pointer-events-none"
+                                "aria-label": t`Player availability heatmap`,
+                                className: "absolute inset-0 z-0 flex flex-col pointer-events-none",
+                                role: "img"
                               }) : null,
                         JsxRuntime.jsx("div", {
                               children: Belt_Array.makeBy(TimeWindowPicker.hourRange, (function (i) {
@@ -354,11 +356,11 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                                       var isMajor = hour % 3 === 0;
                                       return JsxRuntime.jsx("div", {
                                                   className: "flex-1 border-t " + (
-                                                    isMajor ? "border-gray-200 dark:border-[#2a2b30]" : "border-gray-100/60 dark:border-[#262729]"
+                                                    isMajor ? "border-gray-200 dark:border-[#34353a]" : "border-gray-100/70 dark:border-[#292a2e]"
                                                   )
                                                 }, i.toString());
                                     })),
-                              className: "absolute inset-0 pointer-events-none flex flex-col"
+                              className: "absolute inset-0 z-[1] pointer-events-none flex flex-col"
                             }),
                         existingEvents.map(function (ev) {
                               var topPct = (ev.startHour - TimeWindowPicker.hourMin) / TimeWindowPicker.hourRange * 100.0;
@@ -369,14 +371,13 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                                 return JsxRuntime.jsx("div", {
                                             children: JsxRuntime.jsx("span", {
                                                   children: ev.title,
-                                                  className: "text-[9px] font-mono font-medium text-amber-800 dark:text-amber-300/90 whitespace-nowrap leading-tight",
+                                                  className: "max-h-full overflow-hidden whitespace-nowrap font-mono text-[8px] font-semibold text-amber-950 dark:text-amber-200",
                                                   style: {
-                                                    transform: "rotate(90deg)"
+                                                    writingMode: "vertical-rl"
                                                   }
                                                 }),
-                                            className: "absolute left-1 right-1 z-10 pointer-events-none rounded-sm border border-amber-300/70 dark:border-amber-500/40 flex flex-col items-center justify-center overflow-hidden",
+                                            className: "user-event-block absolute inset-x-2 z-[15] pointer-events-none flex items-center justify-center overflow-hidden rounded border shadow-sm",
                                             style: {
-                                              backgroundImage: "repeating-linear-gradient(45deg, rgba(255,176,66,0.18), rgba(255,176,66,0.18) 4px, rgba(255,176,66,0.05) 4px, rgba(255,176,66,0.05) 8px)",
                                               height: heightPct.toString() + "%",
                                               top: topPct.toString() + "%"
                                             },
@@ -389,14 +390,12 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                               hourMin: TimeWindowPicker.hourMin,
                               hourMax: TimeWindowPicker.hourMax,
                               orientation: "Vertical",
-                              onUseSegment: (function (segment) {
-                                  onUpdate([{
-                                          id: TimeWindowPicker.wid(),
-                                          start: segment.start,
-                                          end: segment.end
-                                        }]);
-                                })
+                              placement: "Start"
                             }),
+                        windows.length === 0 ? JsxRuntime.jsx("span", {
+                                children: "+",
+                                className: "pointer-events-none absolute left-1/2 top-2 z-[15] -translate-x-1/2 text-sm text-gray-300 dark:text-gray-600"
+                              }) : null,
                         windows.map(function (w) {
                               return JsxRuntime.jsx(VerticalAvailabilityGrid$VerticalWindowChip, {
                                           dayArrayIdx: dayArrayIdx,
@@ -471,17 +470,6 @@ function VerticalAvailabilityGrid(props) {
                         return React.createRef();
                       }));
         }), []);
-  var updateDay = function (idx, ws) {
-    setWindows(function (prev) {
-          return prev.map(function (w, i) {
-                      if (i === idx) {
-                        return ws;
-                      } else {
-                        return w;
-                      }
-                    });
-        });
-  };
   var getTargetDayArrayIdx = function (pointerX) {
     var best = {
       contents: 0
@@ -598,7 +586,7 @@ function VerticalAvailabilityGrid(props) {
                                                     className: "text-2xl font-semibold text-gray-900 dark:text-gray-100 leading-tight"
                                                   }),
                                               JsxRuntime.jsx("p", {
-                                                    children: t`Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize.`,
+                                                    children: t`Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts.`,
                                                     className: "text-sm text-gray-500 dark:text-gray-400 mt-1"
                                                   })
                                             ],
@@ -611,16 +599,8 @@ function VerticalAvailabilityGrid(props) {
                                                       JsxRuntime.jsxs("span", {
                                                             children: [
                                                               JsxRuntime.jsx("span", {
-                                                                    className: "h-2.5 w-2.5 rounded-sm bg-[#bdf25d] border border-[#a3d949]"
-                                                                  }),
-                                                              t`Your time`
-                                                            ],
-                                                            className: "inline-flex items-center gap-1.5"
-                                                          }),
-                                                      JsxRuntime.jsxs("span", {
-                                                            children: [
-                                                              JsxRuntime.jsx("span", {
-                                                                    className: "h-2.5 w-2.5 rounded-sm bg-violet-400/70"
+                                                                    "aria-hidden": true,
+                                                                    className: "h-2.5 w-3.5 rounded-sm border border-violet-400 bg-violet-200/70 dark:bg-violet-900/60"
                                                                   }),
                                                               t`Players`
                                                             ],
@@ -628,16 +608,41 @@ function VerticalAvailabilityGrid(props) {
                                                           }),
                                                       JsxRuntime.jsxs("span", {
                                                             children: [
-                                                              JsxRuntime.jsx(LucideReact.MapPin, {
-                                                                    size: 11,
-                                                                    className: "text-cyan-600 dark:text-cyan-400"
+                                                              JsxRuntime.jsx("span", {
+                                                                    "aria-hidden": true,
+                                                                    className: "user-event-block h-2.5 w-3.5 rounded-sm border"
                                                                   }),
-                                                              t`Courts`
+                                                              t`Events`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsxs("span", {
+                                                            children: [
+                                                              JsxRuntime.jsx("svg", {
+                                                                    children: JsxRuntime.jsx("path", {
+                                                                          d: "M1 14c6 0 8.5-.2 11-1 3.4-1.1 4.2-8.6 9.5-10.2 2.7-.8 6.4-.8 13.5-.8v13H1z",
+                                                                          fill: "currentColor"
+                                                                        }),
+                                                                    "aria-hidden": true,
+                                                                    className: "h-4 w-9 text-cyan-500/45 dark:text-cyan-400/40",
+                                                                    viewBox: "0 0 36 16"
+                                                                  }),
+                                                              t`Courts \xc2\xb7 thickness = count`
+                                                            ],
+                                                            className: "inline-flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsxs("span", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    "aria-hidden": true,
+                                                                    className: "h-2.5 w-3.5 rounded-sm border border-[#a3d949] bg-[#bdf25d]"
+                                                                  }),
+                                                              t`Your time`
                                                             ],
                                                             className: "inline-flex items-center gap-1.5"
                                                           })
                                                     ],
-                                                    className: "flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-gray-500 dark:text-gray-400"
+                                                    className: "flex flex-wrap items-center gap-x-3 gap-y-1.5 font-mono text-[9px] uppercase tracking-wider text-gray-500 dark:text-gray-400"
                                                   }),
                                               JsxRuntime.jsxs("div", {
                                                     children: [
@@ -732,7 +737,15 @@ function VerticalAvailabilityGrid(props) {
                                                                                         return Js_dict.get(dict, d.isoDate);
                                                                                       })), []),
                                                                             onUpdate: (function (ws) {
-                                                                                updateDay(i, ws);
+                                                                                setWindows(function (prev) {
+                                                                                      return prev.map(function (w, i$1) {
+                                                                                                  if (i$1 === i) {
+                                                                                                    return ws;
+                                                                                                  } else {
+                                                                                                    return w;
+                                                                                                  }
+                                                                                                });
+                                                                                    });
                                                                               }),
                                                                             onMoveDay: (function (windowId, targetDayArrayIdx, nw) {
                                                                                 setWindows(function (prev) {
@@ -762,7 +775,7 @@ function VerticalAvailabilityGrid(props) {
                                             className: "border border-gray-200 dark:border-[#2a2b30] rounded-lg bg-white dark:bg-[#1e1f23] overflow-x-auto overflow-y-hidden"
                                           }),
                                       JsxRuntime.jsx("p", {
-                                            children: t`Tap an empty area to add time \xb7 select a cyan court opening up to 4h to match it \xb7 drag to move \xb7 grab the edges to resize`,
+                                            children: t`Tap empty time to add \xb7 drag to move \xb7 grab edges to resize`,
                                             className: "text-[11px] font-mono text-gray-400 dark:text-gray-500 mt-2 px-1"
                                           }),
                                       JsxRuntime.jsxs("section", {
@@ -776,7 +789,7 @@ function VerticalAvailabilityGrid(props) {
                                                                     className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase"
                                                                   }),
                                                               JsxRuntime.jsx("p", {
-                                                                    children: t`Court openings are shown only when they overlap your time.`,
+                                                                    children: t`Courts are listed individually with their largest continuous openings.`,
                                                                     className: "mt-1 text-[11px] text-gray-500 dark:text-gray-400"
                                                                   })
                                                             ]
@@ -801,7 +814,7 @@ function VerticalAvailabilityGrid(props) {
                                                             if (ws.length === 0) {
                                                               return null;
                                                             }
-                                                            var overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
+                                                            var qualifyingCourts = TimeWindow.filterCourtAvailabilityByFullWindow(Core__Option.getOr(Core__Option.flatMap(courtAvailability, (function (dict) {
                                                                             return Js_dict.get(dict, d.isoDate);
                                                                           })), []), ws);
                                                             return JsxRuntime.jsxs("article", {
@@ -831,21 +844,10 @@ function VerticalAvailabilityGrid(props) {
                                                                                 ],
                                                                                 className: "flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4"
                                                                               }),
-                                                                          overlappingCourts.length > 0 ? JsxRuntime.jsx("div", {
+                                                                          qualifyingCourts.length > 0 ? JsxRuntime.jsx("div", {
                                                                                   children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
-                                                                                        courtAvailability: overlappingCourts,
-                                                                                        title: t`Courts available during your time`,
-                                                                                        onUseSlot: (function (group) {
-                                                                                            var ni_id = TimeWindowPicker.wid();
-                                                                                            var ni_start = group.start;
-                                                                                            var ni_end = group.end;
-                                                                                            var ni = {
-                                                                                              id: ni_id,
-                                                                                              start: ni_start,
-                                                                                              end: ni_end
-                                                                                            };
-                                                                                            updateDay(i, [ni]);
-                                                                                          })
+                                                                                        courtAvailability: qualifyingCourts,
+                                                                                        title: t`Courts and openings covering your full window`
                                                                                       }),
                                                                                   className: "mt-2 sm:ml-24"
                                                                                 }) : null

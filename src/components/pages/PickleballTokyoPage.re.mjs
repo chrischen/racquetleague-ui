@@ -217,6 +217,17 @@ function PickleballTokyoPage(props) {
                                                         }),
                                                     JsxRuntime.jsxs("li", {
                                                           children: [
+                                                            t`Post it to the Japan Pickleball group on Facebook (if you need help in places other than Tokyo):`,
+                                                            " ",
+                                                            JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                                                  to: "https://www.facebook.com/groups/2450100778714147",
+                                                                  children: "https://www.facebook.com/groups/2450100778714147",
+                                                                  target: "_blank"
+                                                                })
+                                                          ]
+                                                        }),
+                                                    JsxRuntime.jsxs("li", {
+                                                          children: [
                                                             t`Post it to the Yokosuka (US navy base) pickleball group on Facebook:`,
                                                             " ",
                                                             JsxRuntime.jsx(LangProvider.Router.Link.make, {

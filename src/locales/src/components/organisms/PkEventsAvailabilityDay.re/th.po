@@ -13,240 +13,255 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:557
-#: src/components/molecules/PlayIntentRow.re.mjs:685
+#: src/components/molecules/PlayIntentRow.re.mjs:487
+#: src/components/molecules/PlayIntentRow.re.mjs:615
 msgid "· peak {0}–{1}"
 msgstr "· ช่วงพีค {0}–{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:57
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:136
-#: src/components/molecules/PlayIntentRow.re.mjs:553
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
+#: src/components/molecules/PlayIntentRow.re.mjs:315
+#: src/components/molecules/PlayIntentRow.re.mjs:483
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-msgid "{0} continuous span"
-msgstr "{0} ช่วงต่อเนื่อง"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:78
+msgid "{0} continuous opening"
+msgstr "{0} ช่วงเวลาต่อเนื่อง"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
-msgid "{0} continuous spans"
-msgstr "{0} ช่วงต่อเนื่อง"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:79
+msgid "{0} continuous openings"
+msgstr "{0} ช่วงเวลาต่อเนื่อง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:172
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:206
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
+#: src/components/molecules/CourtOpeningCard.re.mjs:51
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:74
+#: src/components/molecules/PlayIntentRow.re.mjs:340
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:296
-msgid "{0} court available"
-msgstr "{0} คอร์ดว่าง"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:173
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:207
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:75
+#: src/components/molecules/PlayIntentRow.re.mjs:341
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:297
-msgid "{0} courts available"
-msgstr "{0} คอร์ดว่าง"
+#: src/components/molecules/PlayIntentRow.re.mjs:316
+msgid "{0} event"
+msgstr "{0} กิจกรรม"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
-msgid "{0} exact option"
-msgstr "{0} ตัวเลือกที่ตรงกัน"
+#: src/components/molecules/PlayIntentRow.re.mjs:317
+msgid "{0} events"
+msgstr "{0} กิจกรรม"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
-msgid "{0} exact options"
-msgstr "{0} ตัวเลือกที่ตรงกัน"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:66
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:175
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:82
 msgid "{0} location"
 msgstr "{0} สถานที่"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:67
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:176
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:83
 msgid "{0} locations"
 msgstr "{0} สถานที่"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:555
+#: src/components/molecules/PlayIntentRow.re.mjs:485
 msgid "{0} people"
 msgstr "{0} คน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:309
-msgid "{0} people looking to play"
-msgstr "{0} คนที่ต้องการเล่น"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:683
+#: src/components/molecules/PlayIntentRow.re.mjs:613
 msgid "{0} people want to play"
 msgstr "{0} คนอยากเล่น"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:554
+#: src/components/molecules/PlayIntentRow.re.mjs:484
 msgid "{0} person"
 msgstr "{0} คน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:308
-msgid "{0} person looking to play"
-msgstr "{0} คนที่ต้องการเล่น"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:682
+#: src/components/molecules/PlayIntentRow.re.mjs:612
 msgid "{0} person wants to play"
 msgstr "{0} คนอยากเล่น"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
-msgid "{0} segment"
-msgstr "{0} ช่วง"
+#: src/components/molecules/PlayIntentRow.re.mjs:328
+msgid "{0} player"
+msgstr "{0} คน"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
-msgid "{0} segments"
-msgstr "{0} ช่วง"
+#: src/components/molecules/PlayIntentRow.re.mjs:329
+msgid "{0} players"
+msgstr "{0} คน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:295
+#: src/components/molecules/PlayIntentRow.re.mjs:339
 msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:300
-#: src/components/molecules/PlayIntentRow.re.mjs:307
-#: src/components/molecules/PlayIntentRow.re.mjs:681
+#: src/components/molecules/PlayIntentRow.re.mjs:327
+#: src/components/molecules/PlayIntentRow.re.mjs:611
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:65
+#: src/components/molecules/CourtOpeningCard.re.mjs:45
+msgid "{hs}h"
+msgstr "{hs}ช."
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:47
+msgid "{hs}h {ms}m"
+msgstr "{hs}ช. {ms}น."
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:81
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
-msgid "{segLocations, plural, one {{0}} other {{1}}}"
-msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+#: src/components/molecules/CourtOpeningCard.re.mjs:43
+msgid "{ms}m"
+msgstr "{ms}น."
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
-msgid "{segmentCount, plural, one {{0}} other {{1}}}"
-msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+#: src/components/molecules/CourtOpeningCard.re.mjs:37
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:68
+msgid "{n} indoor"
+msgstr "ในร่ม {n} แห่ง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:171
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:205
+#: src/components/molecules/CourtOpeningCard.re.mjs:39
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:70
+msgid "{n} outdoor"
+msgstr "กลางแจ้ง {n} แห่ง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:77
+msgid "{openingCount, plural, one {{0}} other {{1}}}"
+msgstr "{openingCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-msgid "{totalCourts, plural, one {{0}} other {{1}}}"
-msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:263
+#: src/components/molecules/PlayIntentRow.re.mjs:256
 msgid "Afternoon"
 msgstr "บ่าย"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:251
+#: src/components/molecules/PlayIntentRow.re.mjs:244
 msgid "Anytime"
 msgstr "เวลาใดก็ได้"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
-msgid "Continuous availability"
-msgstr "ความพร้อมแบบต่อเนื่อง"
+#: src/components/molecules/PlayIntentRow.re.mjs:387
+msgid "Cancel"
+msgstr "ยกเลิก"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:130
+#: src/components/molecules/PlayIntentRow.re.mjs:639
+msgid "Change times"
+msgstr "เปลี่ยนเวลา"
+
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:519
-msgid "Courts"
-msgstr "สนาม"
+#: src/components/molecules/PlayIntentRow.re.mjs:466
+msgid "Courts covering your complete time"
+msgstr "คอร์ตที่ครอบคลุมเวลาทั้งหมดของคุณ"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:540
-msgid "Courts available during your time"
-msgstr "สนามที่ว่างในช่วงเวลาของคุณ"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:269
+#: src/components/molecules/PlayIntentRow.re.mjs:262
 msgid "Evening"
 msgstr "เย็น"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Host an event at this time"
 msgstr "จัดกิจกรรมในช่วงเวลานี้"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:609
+#: src/components/molecules/PlayIntentRow.re.mjs:539
 msgid "Host event"
 msgstr "จัดกิจกรรม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:628
+#: src/components/molecules/PlayIntentRow.re.mjs:558
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "ตรงกับเวลาของฉัน"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:257
+#: src/components/molecules/PlayIntentRow.re.mjs:250
 msgid "Morning"
 msgstr "เช้า"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "เปิด"
+#: src/components/molecules/PlayIntentRow.re.mjs:470
+msgid "No court is currently available for an entire selected window."
+msgstr "ขณะนี้ไม่มีคอร์ตว่างตลอดช่วงเวลาที่เลือก"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:301
-msgid "other"
-msgstr "คนอื่น"
+#: src/components/molecules/PlayIntentRow.re.mjs:347
+msgid "Open the {dayWord} timeline to edit your availability"
+msgstr "เปิดไทม์ไลน์ {dayWord} เพื่อแก้ไขความพร้อมของคุณ"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:302
-msgid "others"
-msgstr "คนอื่นๆ"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Pick one time window to host an event"
 msgstr "เลือกช่วงเวลาเพื่อจัดกิจกรรม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:280
+#: src/components/molecules/PlayIntentRow.re.mjs:273
 msgid "Play today"
 msgstr "เล่นวันนี้"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:510
-msgid "Players"
-msgstr "หาผู้เล่น"
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "แผนที่ความพร้อมของผู้เล่น"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:588
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "ลบ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:518
+#: src/components/molecules/PlayIntentRow.re.mjs:649
 msgid "Remove all"
 msgstr "ลบทั้งหมด"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:245
+#: src/components/molecules/CourtOpeningCard.re.mjs:109
 msgid "Reserve"
 msgstr "จอง"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+#: src/components/molecules/PlayIntentRow.re.mjs:307
+msgid "Set your time"
+msgstr "ตั้งเวลาของคุณ"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
-msgid "View {segCourtsPhrase} & reserve"
-msgstr "ดู {segCourtsPhrase} และจอง"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:422
+#: src/components/molecules/PlayIntentRow.re.mjs:379
 msgid "When can you play {dayWord}?"
 msgstr "คุณเล่นได้เมื่อไหร่{dayWord}?"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:501
-msgid "You"
-msgstr "คุณ"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:305
-msgid "You + {0} {othersWord} looking to play"
-msgstr "คุณ + {0} {othersWord} ที่ต้องการเล่น"
-
-#: src/components/molecules/PlayIntentRow.re.mjs:663
+#: src/components/molecules/PlayIntentRow.re.mjs:593
 msgid "You want to play {dayWord}"
 msgstr "คุณอยากเล่น{dayWord}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:322
-msgid "You're available"
-msgstr "คุณว่างอยู่"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#~ msgid "{0} continuous span"
+#~ msgstr "{0} ช่วงต่อเนื่อง"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:305
-msgid "You're available to play"
-msgstr "คุณว่างสำหรับการเล่น"
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+#~ msgid "{0} continuous spans"
+#~ msgstr "{0} ช่วงต่อเนื่อง"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:296
+#~ msgid "{0} court available"
+#~ msgstr "{0} คอร์ดว่าง"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:297
+#~ msgid "{0} courts available"
+#~ msgstr "{0} คอร์ดว่าง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+#~ msgid "{0} exact option"
+#~ msgstr "{0} ตัวเลือกที่ตรงกัน"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+#~ msgid "{0} exact options"
+#~ msgstr "{0} ตัวเลือกที่ตรงกัน"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:309
+#~ msgid "{0} people looking to play"
+#~ msgstr "{0} คนที่ต้องการเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:308
+#~ msgid "{0} person looking to play"
+#~ msgstr "{0} คนที่ต้องการเล่น"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#~ msgid "{0} segment"
+#~ msgstr "{0} ช่วง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+#~ msgid "{0} segments"
+#~ msgstr "{0} ช่วง"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
 #~ msgid "{0} time option"
@@ -264,10 +279,58 @@ msgstr "คุณว่างสำหรับการเล่น"
 #~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
 #~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+#~ msgid "Continuous availability"
+#~ msgstr "ความพร้อมแบบต่อเนื่อง"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:519
+#~ msgid "Courts"
+#~ msgstr "สนาม"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:540
+#~ msgid "Courts available during your time"
+#~ msgstr "สนามที่ว่างในช่วงเวลาของคุณ"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #~ msgid "Long opening"
 #~ msgstr "ช่วงเวลาว่างยาว"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:301
+#~ msgid "other"
+#~ msgstr "คนอื่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:302
+#~ msgid "others"
+#~ msgstr "คนอื่นๆ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:510
+#~ msgid "Players"
+#~ msgstr "หาผู้เล่น"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
 #~ msgid "Use this time"
@@ -276,3 +339,23 @@ msgstr "คุณว่างสำหรับการเล่น"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
 #~ msgid "View {groupCourtsPhrase} & reserve"
 #~ msgstr "ดู {groupCourtsPhrase} และจอง"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+#~ msgid "View {segCourtsPhrase} & reserve"
+#~ msgstr "ดู {segCourtsPhrase} และจอง"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:501
+#~ msgid "You"
+#~ msgstr "คุณ"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+#~ msgid "You + {0} {othersWord} looking to play"
+#~ msgstr "คุณ + {0} {othersWord} ที่ต้องการเล่น"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:322
+#~ msgid "You're available"
+#~ msgstr "คุณว่างอยู่"
+
+#: src/components/molecules/PlayIntentRow.re.mjs:305
+#~ msgid "You're available to play"
+#~ msgstr "คุณว่างสำหรับการเล่น"

@@ -3,26 +3,85 @@
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as TimeWindow from "../molecules/TimeWindow.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as CourtPseudoEventRow from "./CourtPseudoEventRow.re.mjs";
+import * as CourtPseudoEventGroup from "./CourtPseudoEventGroup.re.mjs";
+import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as PkEventsAvailabilityDay from "./PkEventsAvailabilityDay.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
 
 function PkEventsDayFeed(props) {
-  var onUseCourtTime = props.onUseCourtTime;
+  var locationId = props.locationId;
+  var onRefetchNeeded = props.onRefetchNeeded;
   var hasHiddenPreview = props.hasHiddenPreview;
   var fetchKey = props.fetchKey;
+  var activityId = props.activityId;
+  var localDate = props.localDate;
   var fetchPolicy = fetchKey > 0 ? "store-and-network" : "store-or-network";
   var data = PkEventsAvailabilityDay.Query.use({
-        activityId: props.activityId,
+        activityId: activityId,
+        byLocation: Core__Option.isSome(locationId),
         fromDate: props.fromDate,
         location: props.location,
+        locationId: Core__Option.getOr(locationId, ""),
         toDate: props.toDate
       }, fetchPolicy, fetchKey.toString(), undefined);
+  var match = UseSetAvailabilityDay.use();
+  var commitDay = match[0];
   var genericCourtName = t`Court`;
-  var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(PkEventsAvailabilityDay.courtAvailabilityForDate(data.locationsAvailability, props.localDate, genericCourtName));
+  var courtGroups = TimeWindow.groupContiguousPseudoEventBands(TimeWindow.groupCourtAvailabilityIntoPseudoEventBands(PkEventsAvailabilityDay.courtAvailabilityForDate(PkEventsAvailabilityDay.courtRowsFromData(data), localDate, genericCourtName)));
+  var viewerUserId = Core__Option.map(Core__Option.flatMap(data.viewer, (function (v) {
+              return v.user;
+            })), (function (u) {
+          return u.id;
+        }));
+  var availabilityIntents = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(data.viewer, (function (v) {
+                  return v.availability.find(function (d) {
+                              return d.localDate === localDate;
+                            });
+                })), (function (d) {
+              return d.intervals.map(function (iv, i) {
+                          return {
+                                  id: i,
+                                  start: iv.startHour,
+                                  end: iv.endHour
+                                };
+                        });
+            })), []);
+  var players = data.availabilityUsersForDateRange.filter(function (d) {
+            return d.localDate === localDate;
+          }).filter(function (d) {
+          if (viewerUserId !== undefined) {
+            return Core__Option.getOr(Core__Option.map(d.user, (function (u) {
+                              return u.id;
+                            })), "") !== viewerUserId;
+          } else {
+            return true;
+          }
+        }).map(function (d) {
+        var name = Core__Option.getOr(Core__Option.flatMap(d.user, (function (u) {
+                    return u.lineUsername;
+                  })), "?");
+        return {
+                id: d.id,
+                name: name,
+                initials: name.slice(0, 2).toUpperCase(),
+                intents: d.intervals.map(function (iv, i) {
+                      return {
+                              id: i,
+                              start: iv.startHour,
+                              end: iv.endHour
+                            };
+                    })
+              };
+      });
+  var onAvailabilityChange = function (newIntents) {
+    commitDay(localDate, activityId, UseSetAvailabilityDay.intervalsOfIntents(newIntents), (function (_res, _err) {
+            onRefetchNeeded();
+          }));
+  };
   var startOf = function (item) {
     if (item.TAG === "FeedEvent") {
       return item._0.startHour;
@@ -35,10 +94,10 @@ function PkEventsDayFeed(props) {
                       TAG: "FeedEvent",
                       _0: e
                     };
-            }), courtBands.map(function (b) {
+            }), courtGroups.map(function (g) {
               return {
-                      TAG: "FeedCourt",
-                      _0: b
+                      TAG: "FeedCourtGroup",
+                      _0: g
                     };
             })).toSorted(function (a, b) {
         if (startOf(a) !== startOf(b)) {
@@ -58,16 +117,19 @@ function PkEventsDayFeed(props) {
   var lastIdx = items.length - 1 | 0;
   return JsxRuntime.jsx(JsxRuntime.Fragment, {
               children: Caml_option.some(items.map(function (item, idx) {
-                        var isLast = idx === lastIdx && !hasHiddenPreview;
+                        var isLastFeedItem = idx === lastIdx && !hasHiddenPreview;
                         if (item.TAG === "FeedEvent") {
-                          return item._0.render(isLast);
+                          return item._0.render(isLastFeedItem);
                         }
-                        var b = item._0;
-                        return JsxRuntime.jsx(CourtPseudoEventRow.make, {
-                                    band: b,
-                                    isLastInGroup: isLast,
-                                    onUseTime: onUseCourtTime
-                                  }, "court-" + b.key);
+                        var g = item._0;
+                        return JsxRuntime.jsx(CourtPseudoEventGroup.make, {
+                                    group: g,
+                                    availability: availabilityIntents,
+                                    players: players,
+                                    isLastInGroup: isLastFeedItem,
+                                    hasBottomBorder: false,
+                                    onAvailabilityChange: onAvailabilityChange
+                                  }, "court-" + g.key);
                       }))
             });
 }

@@ -59,7 +59,13 @@ var fetchPromised = RescriptRelay_Query.fetchPromised(PkEventPageQuery_graphql.n
 
 var retain = RescriptRelay_Query.retain(PkEventPageQuery_graphql.node, convertVariables);
 
+var EventQuery_t_decode = PkEventPageQuery_graphql.Utils.t_decode;
+
+var EventQuery_t_fromString = PkEventPageQuery_graphql.Utils.t_fromString;
+
 var EventQuery = {
+  t_decode: EventQuery_t_decode,
+  t_fromString: EventQuery_t_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -479,7 +485,21 @@ function PkEventPage$Inner(props) {
   } else {
     viewerHasPayment = false;
   }
-  var isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment;
+  var ownerHasConnectedAccount = Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
+              return o.stripeChargesEnabled;
+            })), false);
+  var match$11 = Core__Option.flatMap($$event.club, (function (c) {
+          return c.viewerMembership;
+        }));
+  var viewerIsClubMember;
+  if (match$11 !== undefined) {
+    var match$12 = match$11.status;
+    viewerIsClubMember = match$12 !== undefined && (match$12 === "Pending" || match$12 === "Active" || match$12 === "Rejected") && match$12 === "Active" ? true : false;
+  } else {
+    viewerIsClubMember = false;
+  }
+  var requiresPaymentGate = ownerHasConnectedAccount || !viewerIsClubMember;
+  var isUnpaid = isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment && requiresPaymentGate;
   var viewerJoinTime = Core__Option.flatMap(viewerRsvpNode, (function (n) {
           return n.joinTime;
         }));
@@ -495,19 +515,16 @@ function PkEventPage$Inner(props) {
                         return p.currency;
                       }));
         }));
-  var ownerHasConnectedAccount = Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
-              return o.stripeChargesEnabled;
-            })), false);
   if (Core__Option.getOr($$event.viewerIsBanned, false)) {
     return JsxRuntime.jsx("div", {
                 children: t`Cannot access variable \"title\"`,
                 className: "p-6 text-center text-gray-500"
               });
   }
-  var match$11 = $$event.viewerIsAdmin;
+  var match$13 = $$event.viewerIsAdmin;
   var tmp;
-  if (match$11 && viewerUser !== undefined) {
-    var match$12 = $$event.deleted;
+  if (match$13 && viewerUser !== undefined) {
+    var match$14 = $$event.deleted;
     tmp = JsxRuntime.jsx("div", {
           children: JsxRuntime.jsxs("div", {
                 children: [
@@ -523,7 +540,7 @@ function PkEventPage$Inner(props) {
                                           href: "/events/copy/" + $$event.id + "/" + loc.id
                                         });
                             })), null),
-                  match$12 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                  match$14 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
                           children: t`uncancel event`,
                           onClick: (function (param) {
                               if (!uncanceling) {
@@ -554,7 +571,7 @@ function PkEventPage$Inner(props) {
   } else {
     tmp = null;
   }
-  var match$13 = $$event.location;
+  var match$15 = $$event.location;
   var activity = $$event.activity;
   var tmp$1;
   if (activity !== undefined) {
@@ -653,8 +670,8 @@ function PkEventPage$Inner(props) {
                               secret: secret
                             }),
                         tmp,
-                        match$13 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$13
+                        match$15 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: match$15
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {
                               event: $$event.fragmentRefs,

@@ -29,15 +29,15 @@ msgstr "— เพื่อประสบการณ์ที่รวดเ�
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -184,10 +184,6 @@ msgstr "มุมมองแผนที่"
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "ตรงกับเวลาของฉัน"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "เช้า"
@@ -241,14 +237,14 @@ msgstr "การแจ้งเตือน"
 msgid "Off Waitlist"
 msgstr "ออกจากรายการรอ"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "เปิด"
-
 #: src/components/pages/PkuruLayout.re.mjs:161
 #: src/components/pages/PkuruLayout.re.mjs:189
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "แผนที่ความพร้อมของผู้เล่น"
 
 #: src/components/pages/PkuruLayout.re.mjs:144
 #: src/components/pages/PkuruLayout.re.mjs:485
@@ -258,6 +254,10 @@ msgstr "โปรไฟล์"
 #: src/components/pages/PkuruLayout.re.mjs:180
 msgid "Rankings"
 msgstr "อันดับ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "ลบ"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Removed from Event"
@@ -283,13 +283,13 @@ msgstr "กีฬา"
 msgid "Stay in the loop"
 msgstr "ติดตามทุกความเคลื่อนไหว"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
-
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "แตะปุ่มแชร์"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -334,6 +334,14 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #~ msgid "Long opening"
 #~ msgstr "ช่วงเวลาว่างยาว"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
+
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."
 #~ msgstr "ค้นหากิจกรรม สถานที่ ผู้จัด..."
@@ -345,3 +353,7 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"
 #~ msgstr "อัปเดตสถานะ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"

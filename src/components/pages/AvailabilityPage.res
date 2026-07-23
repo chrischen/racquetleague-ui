@@ -37,6 +37,13 @@ module Query = %relay(`
         startHour
         endHour
       }
+      hourly {
+        hour
+        indoorCount
+        outdoorCount
+        priceMin
+        priceMax
+      }
     }
     viewer {
       availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {
@@ -129,61 +136,22 @@ module AvailabilityContent = {
         acc
       })
 
-    // Build per-ISO-date map of existing events (viewer's RSVPs)
+    // Build per-ISO-date map of existing events (viewer's RSVPs). Timezone-aware
+    // hour extraction is shared with the inline picker via EventTimeline.
     let existingEvents: Js.Dict.t<array<AvailabilityGrid.existingEvent>> =
       viewer
       ->Option.map(v =>
         v.events.edges
         ->Option.getOr([])
         ->Array.filterMap(edge => edge->Option.flatMap(e => e.node))
-        ->Array.reduce(Js.Dict.empty(), (acc, node) => {
-          switch (node.startDate, node.endDate) {
-          | (Some(startDt), Some(endDt)) =>
-            let tz = node.timezone->Option.getOr("Asia/Tokyo")
-            let startDate = startDt->Util.Datetime.toDate
-            let endDate = endDt->Util.Datetime.toDate
-            let opts = ReactIntl.dateTimeFormatOptions(
-              ~year=#numeric,
-              ~month=#"2-digit",
-              ~day=#"2-digit",
-              ~hour=#"2-digit",
-              ~hour12=false,
-              ~timeZone=tz,
-              (),
-            )
-            let parts = intl->ReactIntl.Intl.formatDateWithOptionsToParts(startDate, opts)
-            let getVal = t =>
-              parts
-              ->Array.find(p => p.ReactIntl.type_ === t)
-              ->Option.map(p => p.ReactIntl.value)
-              ->Option.getOr("0")
-            let year = getVal("year")
-            let month = getVal("month")
-            let day = getVal("day")
-            let isoDate = year ++ "-" ++ month ++ "-" ++ day
-            // startHour: get just the hour part
-            let hourStr = getVal("hour")
-            let startHour = hourStr->Int.fromString->Option.getOr(0)->Float.fromInt
-            // endHour: format endDate the same way
-            let endParts = intl->ReactIntl.Intl.formatDateWithOptionsToParts(endDate, opts)
-            let endHourStr =
-              endParts
-              ->Array.find(p => p.ReactIntl.type_ === "hour")
-              ->Option.map(p => p.ReactIntl.value)
-              ->Option.getOr("0")
-            let endHour = endHourStr->Int.fromString->Option.getOr(0)->Float.fromInt
-            let ev: AvailabilityGrid.existingEvent = {
-              id: node.id,
-              title: node.title->Option.getOr(""),
-              startHour,
-              endHour: endHour <= startHour ? endHour +. 24.0 : endHour,
-            }
-            let existing = acc->Js.Dict.get(isoDate)->Option.getOr([])
-            acc->Js.Dict.set(isoDate, Belt.Array.concat(existing, [ev]))
-            acc
-          | _ => acc
-          }
+        ->Array.map((node): EventTimeline.rawEvent => {
+          id: node.id,
+          title: node.title,
+          startDate: node.startDate,
+          endDate: node.endDate,
+          timezone: node.timezone,
         })
+        ->(raw => EventTimeline.byDate(intl, raw))
       )
       ->Option.getOr(Js.Dict.empty())
 
@@ -222,49 +190,55 @@ module AvailabilityContent = {
     // Each row carries its resolved Location and, when the scraper captured
     // one, a booking `link`; rows without a location are skipped.
     let genericCourtName = Lingui.UtilString.t`Court`
-    let courtAvailability: Js.Dict.t<array<VerticalAvailabilityGrid.courtAvailability>> =
-      locationsAvailability->Array.reduce(Js.Dict.empty(), (acc, day) => {
-        // A row may lack a resolved Location (scraped before the venue was
-        // registered); fall back to the booking `link` as a stable per-venue
-        // identity so the court still renders and reserves.
-        let locId =
-          day.location->Option.map(l => l.id)->Option.orElse(day.link)->Option.getOr(day.id)
-        let court: VerticalAvailabilityGrid.courtAvailability = {
-          id: day.id,
-          location: {
-            id: locId,
-            name: day.location->Option.flatMap(l => l.name)->Option.getOr(genericCourtName),
-            reservationUrl: day.link,
-          },
-          courtName: None,
-          intents: day.intervals->Array.mapWithIndex(
-            (iv, i): TimeWindow.playIntent => {
-              id: i,
-              start: iv.startHour->Float.fromInt,
-              end: iv.endHour->Float.fromInt,
-            },
-          ),
-        }
-        let existing = acc->Js.Dict.get(day.localDate)->Option.getOr([])
-        acc->Js.Dict.set(day.localDate, Belt.Array.concat(existing, [court]))
-        acc
-      })
+    let courtAvailability: Js.Dict.t<
+      array<VerticalAvailabilityGrid.courtAvailability>,
+    > = locationsAvailability->Array.reduce(Js.Dict.empty(), (acc, day) => {
+      // A row may lack a resolved Location (scraped before the venue was
+      // registered); fall back to the booking `link` as a stable per-venue
+      // identity so the court still renders and reserves.
+      let locId = day.location->Option.map(l => l.id)->Option.orElse(day.link)->Option.getOr(day.id)
+      let court: VerticalAvailabilityGrid.courtAvailability = {
+        id: day.id,
+        location: {
+          id: locId,
+          name: day.location->Option.flatMap(l => l.name)->Option.getOr(genericCourtName),
+          reservationUrl: day.link,
+        },
+        courtName: None,
+        hourlyStats: day.hourly->Array.map((h): TimeWindow.hourStat => {
+          hour: h.hour,
+          indoorCount: h.indoorCount,
+          outdoorCount: h.outdoorCount,
+          priceMin: h.priceMin,
+          priceMax: h.priceMax,
+        }),
+        intents: day.intervals->Array.mapWithIndex((iv, i): TimeWindow.playIntent => {
+          id: i,
+          start: iv.startHour->Float.fromInt,
+          end: iv.endHour->Float.fromInt,
+        }),
+      }
+      let existing = acc->Js.Dict.get(day.localDate)->Option.getOr([])
+      acc->Js.Dict.set(day.localDate, Belt.Array.concat(existing, [court]))
+      acc
+    })
 
     // Build per-ISO-date demand dict from other players' availability
-    let demand: Js.Dict.t<array<VerticalAvailabilityGrid.playerDemand>> =
-      availabilityUsersForDateRange->Array.reduce(Js.Dict.empty(), (acc, d) => {
-        let pd: VerticalAvailabilityGrid.playerDemand = {
-          id: d.id->String.length, // use string hash as int id
-          intents: d.intervals->Array.mapWithIndex((iv, i): TimeWindow.playIntent => {
-            id: i,
-            start: iv.startHour->Float.fromInt,
-            end: iv.endHour->Float.fromInt,
-          }),
-        }
-        let existing = acc->Js.Dict.get(d.localDate)->Option.getOr([])
-        acc->Js.Dict.set(d.localDate, Belt.Array.concat(existing, [pd]))
-        acc
-      })
+    let demand: Js.Dict.t<
+      array<VerticalAvailabilityGrid.playerDemand>,
+    > = availabilityUsersForDateRange->Array.reduce(Js.Dict.empty(), (acc, d) => {
+      let pd: VerticalAvailabilityGrid.playerDemand = {
+        id: d.id->String.length, // use string hash as int id
+        intents: d.intervals->Array.mapWithIndex((iv, i): TimeWindow.playIntent => {
+          id: i,
+          start: iv.startHour->Float.fromInt,
+          end: iv.endHour->Float.fromInt,
+        }),
+      }
+      let existing = acc->Js.Dict.get(d.localDate)->Option.getOr([])
+      acc->Js.Dict.set(d.localDate, Belt.Array.concat(existing, [pd]))
+      acc
+    })
 
     let handleSave = (changes: array<AvailabilityGrid.intervalUpdate>) => {
       setIsSaving(_ => true)

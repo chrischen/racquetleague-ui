@@ -30,6 +30,7 @@ let make = (
   ~clubId: option<string>=?,
   ~userDays: array<userDay>,
   ~courtAvailability: array<TimeWindow.courtAvailability>=[],
+  ~events: array<TimeWindowPicker.existingEvent>=[],
   ~onAvailabilityCommitted: option<userDay> => unit,
   ~onChange: array<TimeWindow.playIntent> => unit,
   ~onCreateEvent: option<unit => unit>=?,
@@ -167,10 +168,6 @@ let make = (
     setEditing(_ => true)
   }
 
-  // Replace the draft with a court opening's window (picker band or group list).
-  let useCourtSlot = (group: TimeWindow.courtSlotGroup) =>
-    setDraft(_ => [{id: TimeWindowPicker.wid(), start: group.start, end: group.end}])
-
   let openEditorRef = React.useRef(openEditor)
   openEditorRef.current = openEditor
 
@@ -243,122 +240,89 @@ let make = (
 
   // Keep players, the user's availability, and court inventory in one compact
   // discovery row so court-only days still surface useful planning context.
-  // Count distinct courts, not openings, so a court with several windows (or one
-  // that spans multiple split segments) isn't counted more than once.
-  let availableCourtCount =
-    courtAvailability->Array.map(c => c.id)->Belt.Set.String.fromArray->Belt.Set.String.size
-  let courtNoun = Lingui.UtilString.plural(
-    availableCourtCount,
-    {
-      one: ts`${availableCourtCount->Int.toString} court available`,
-      other: ts`${availableCourtCount->Int.toString} courts available`,
-    },
+  // Courts qualify only when a contiguous opening covers a full user window;
+  // count distinct courts, not openings.
+  let courtsForSavedWindows = TimeWindow.filterCourtAvailabilityByFullWindow(
+    courtAvailability,
+    intents,
   )
-  let showDemandRow = hasAnyDemand || isActive || availableCourtCount > 0
-  let othersWord = Lingui.UtilString.plural(demandCount, {one: ts`other`, other: ts`others`})
-  let headline =
-    if isActive {
-      if demandCount > 0 {
-        ts`You + ${demandCount->Int.toString} ${othersWord} looking to play`
-      } else {
-        ts`You're available to play`
-      }
-    } else if demandCount > 0 {
-      Lingui.UtilString.plural(
-        demandCount,
-        {
-          one: ts`${demandCount->Int.toString} person looking to play`,
-          other: ts`${demandCount->Int.toString} people looking to play`,
-        },
-      )
-    } else {
-      courtNoun
-    }
+  let courtsForDraftWindows = TimeWindow.filterCourtAvailabilityByFullWindow(
+    courtAvailability,
+    draft,
+  )
+  let availableCourtCount =
+    (isActive ? courtsForSavedWindows : courtAvailability)
+    ->Array.map(c => c.id)
+    ->Belt.Set.String.fromArray
+    ->Belt.Set.String.size
+  let showDemandRow =
+    hasAnyDemand || events->Array.length > 0 || isActive || availableCourtCount > 0
 
+  // Compact one-line summary of what's on this day's timeline: the user's saved
+  // windows (or a prompt), then color-keyed dot counts for events (amber),
+  // players (violet) and courts (cyan) — the same palette as the picker's
+  // russian-doll layers. The whole row opens the editor (gated on login).
   let demandRow =
     if showDemandRow {
       <button
+        type_="button"
         onClick={_ =>
           if isLoggedIn {
             openEditor()
           } else {
             navigate("/oauth-login?return=" ++ pathname, None)
           }}
-        className="w-full px-4 md:px-6 pb-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-left group/demand">
-        <div className="flex items-center -space-x-1.5 flex-shrink-0">
-          {isActive
-            ? <span
-                title={ts`You're available`}
-                className="relative z-10 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#bdf25d] text-black ring-2 ring-white dark:ring-[#222326]">
-                <Lucide.Check size=11 strokeWidth=2.5 />
-              </span>
-            : React.null}
-          {Belt.Array.slice(userDays, ~offset=0, ~len=4)
-          ->Array.map(ud => {
-            let name = ud.user->Option.flatMap(u => u.lineUsername)->Option.getOr("?")
-            let initials = name->String.slice(~start=0, ~end=2)->String.toUpperCase
-            let pictureUrl = ud.user->Option.flatMap(u => u.picture)
-            let key = ud.user->Option.map(u => u.id)->Option.getOr(ud.id)
-            switch pictureUrl {
-            | Some(src) =>
-              <img
-                key
-                src
-                alt=name
-                title=name
-                className="w-6 h-6 rounded-full object-cover ring-2 ring-white dark:ring-[#222326]"
-              />
-            | None =>
-              <span
-                key
-                title=name
-                className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-200 text-[9px] font-semibold ring-2 ring-white dark:ring-[#222326]">
-                {initials->React.string}
-              </span>
-            }
-          })
-          ->React.array}
-          {demandCount > 4
-            ? <span
-                className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-300 text-[9px] font-semibold ring-2 ring-white dark:ring-[#222326]">
-                {("+" ++ (demandCount - 4)->Int.toString)->React.string}
-              </span>
-            : React.null}
-          {availableCourtCount > 0
-            ? <span
-                title=courtNoun
-                className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-200 ring-2 ring-white dark:ring-[#222326]">
-                <Lucide.MapPin size=11 strokeWidth=2.5 />
-              </span>
-            : React.null}
-        </div>
-        <span
-          className={`min-w-0 text-xs transition-colors ${isActive
-              ? "text-[#3f6212] dark:text-[#bdf25d] font-medium"
-              : demandCount > 0
-              ? "text-violet-700 dark:text-violet-300 group-hover/demand:text-violet-900 dark:group-hover/demand:text-violet-200"
-              : "text-cyan-700 dark:text-cyan-300 group-hover/demand:text-cyan-900 dark:group-hover/demand:text-cyan-200"}`}>
-          {headline->React.string}
-        </span>
-        {availableCourtCount > 0 && (demandCount > 0 || isActive)
+        ariaLabel={ts`Open the ${dayWord} timeline to edit your availability`}
+        className="group/timeline flex w-full flex-wrap items-center gap-x-2 gap-y-1 px-4 pb-3 text-left text-[10px] text-gray-500 md:px-6 dark:text-gray-400">
+        {isActive
           ? <span
-              className="inline-flex items-center gap-1 font-mono text-[10px] text-cyan-700 dark:text-cyan-300">
-              <Lucide.MapPin size=10 strokeWidth=2.5 />
-              {courtNoun->React.string}
-            </span>
-          : React.null}
-        {isActive && sortedIntents->Array.length > 0
-          ? <span className="flex items-center gap-1 flex-wrap">
+              className="inline-flex items-center gap-1 font-mono font-semibold text-[#4d6f12] dark:text-[#bdf25d]">
+              <Lucide.Check size=10 strokeWidth=2.5 />
               {sortedIntents
               ->Array.map(w =>
-                <span
-                  key={w.id->Int.toString}
-                  className="inline-flex items-center font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#bdf25d]/40 dark:bg-[#bdf25d]/25 text-[#3f6212] dark:text-[#bdf25d]">
-                  {(formatHour(w.start->Float.toInt) ++ "–" ++ formatHour(w.end->Float.toInt))
-                    ->React.string}
-                </span>
+                formatHour(w.start->Float.toInt) ++ "–" ++ formatHour(w.end->Float.toInt)
               )
-              ->React.array}
+              ->Array.join(", ")
+              ->React.string}
+            </span>
+          : <span
+              className="font-semibold text-gray-600 transition-colors group-hover/timeline:text-[#4d6f12] dark:text-gray-300 dark:group-hover/timeline:text-[#bdf25d]">
+              {(ts`Set your time`)->React.string}
+            </span>}
+        {events->Array.length > 0
+          ? <span className="inline-flex items-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+              {Lingui.UtilString.plural(
+                events->Array.length,
+                {
+                  one: ts`${events->Array.length->Int.toString} event`,
+                  other: ts`${events->Array.length->Int.toString} events`,
+                },
+              )->React.string}
+            </span>
+          : React.null}
+        {demandCount > 0
+          ? <span className="inline-flex items-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              {Lingui.UtilString.plural(
+                demandCount,
+                {
+                  one: ts`${demandCount->Int.toString} player`,
+                  other: ts`${demandCount->Int.toString} players`,
+                },
+              )->React.string}
+            </span>
+          : React.null}
+        {availableCourtCount > 0
+          ? <span className="inline-flex items-center gap-1">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+              {Lingui.UtilString.plural(
+                availableCourtCount,
+                {
+                  one: ts`${availableCourtCount->Int.toString} court`,
+                  other: ts`${availableCourtCount->Int.toString} courts`,
+                },
+              )->React.string}
             </span>
           : React.null}
       </button>
@@ -371,17 +335,19 @@ let make = (
       initial={{opacity: 0.0, height: "0"}}
       animate={{opacity: 1.0, height: "auto"}}
       exit={{opacity: 0.0, height: "0"}}
-      className="overflow-hidden mx-4 md:mx-6 my-2 rounded-lg border border-[#bdf25d]/60 dark:border-[#bdf25d]/30 bg-[#bdf25d]/10 dark:bg-[#bdf25d]/5">
+      className={`overflow-hidden mx-4 md:mx-6 ${renderHeader->Option.isSome
+          ? "mb-2"
+          : "my-2"} rounded-lg border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#1e1f23]`}>
       <div className="px-3 py-2.5">
         <div className="flex items-center justify-between mb-2">
           <span
-            className="text-[11px] font-mono tracking-wider uppercase text-[#3f6212] dark:text-[#bdf25d]">
+            className="text-[11px] font-mono tracking-wider uppercase text-gray-600 dark:text-gray-300">
             {(ts`When can you play ${dayWord}?`)->React.string}
           </span>
           <button
             onClick={_ => setEditing(_ => false)}
             className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
-            title="Cancel">
+            title={ts`Cancel`}>
             <Lucide.X size=14 />
           </button>
         </div>
@@ -410,7 +376,7 @@ let make = (
             intents=draft
             onChange={intents => setDraft(_ => intents)}
             courtAvailability
-            onUseCourtSlot=useCourtSlot
+            existingEvents=events
           />}>
           <TimePickerWithHeatmap
             localDate
@@ -419,34 +385,9 @@ let make = (
             activityId=?resolvedActivityId
             ?clubId
             courtAvailability
-            onUseCourtSlot=useCourtSlot
+            existingEvents=events
           />
         </React.Suspense>
-        // The picker always shows the day's full context; overlap filtering is
-        // summary-only.
-        {userDays->Array.length > 0 || courtAvailability->Array.length > 0
-          ? <div
-              className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[9px] uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              <span className="inline-flex items-center gap-1">
-                <span className="h-2 w-2 rounded-sm bg-[#bdf25d]" />
-                {(ts`You`)->React.string}
-              </span>
-              {userDays->Array.length > 0
-                ? <span className="inline-flex items-center gap-1">
-                    <span className="h-2 w-2 rounded-sm bg-violet-400" />
-                    {(ts`Players`)->React.string}
-                  </span>
-                : React.null}
-              {courtAvailability->Array.length > 0
-                ? <span className="inline-flex items-center gap-1">
-                    <span
-                      className="h-2 w-2 rounded-sm border border-cyan-600 dark:border-cyan-400 bg-transparent"
-                    />
-                    {(ts`Courts`)->React.string}
-                  </span>
-                : React.null}
-            </div>
-          : React.null}
         {draft->Array.length > 0
           ? <div className="mt-2 flex flex-wrap gap-1.5">
               {draft
@@ -459,22 +400,21 @@ let make = (
               ->React.array}
             </div>
           : React.null}
-        {
-          // Court openings that overlap the user's drafted time windows.
-          let overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(
-            courtAvailability,
-            draft,
-          )
-          overlappingCourts->Array.length > 0
-            ? <div className="mt-2">
-                // Display-only here: this panel already filters courts to the
-                // user's chosen time, so its segments shouldn't overwrite it.
-                <CourtAvailabilityGroups
-                  title={ts`Courts available during your time`} courtAvailability=overlappingCourts
-                />
-              </div>
-            : React.null
-        }
+        // Court-first summary: only courts whose contiguous opening covers a
+        // complete drafted window.
+        {draft->Array.length > 0
+          ? courtsForDraftWindows->Array.length > 0
+              ? <div className="mt-2">
+                  <CourtAvailabilityGroups
+                    title={ts`Courts covering your complete time`}
+                    courtAvailability=courtsForDraftWindows
+                  />
+                </div>
+              : <p className="mt-2 text-[10px] text-gray-500 dark:text-gray-400">
+                  {(ts`No court is currently available for an entire selected window.`)
+                    ->React.string}
+                </p>
+          : React.null}
         {userDays->Array.length > 0
           ? <div className="mt-2">
               <button
@@ -595,13 +535,13 @@ let make = (
         <button
           onClick={_ => openEditor()}
           className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-1 flex-shrink-0"
-          title="Change times">
+          title={ts`Change times`}>
           <Lucide.Pencil size=12 />
         </button>
         <button
           onClick={_ => commitAvailability([])}
           className="text-gray-400 hover:text-red-600 dark:text-gray-500 dark:hover:text-red-400 p-1 flex-shrink-0"
-          title="Remove all">
+          title={ts`Remove all`}>
           <Lucide.X size=14 />
         </button>
       </div>

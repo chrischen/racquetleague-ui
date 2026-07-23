@@ -59,12 +59,14 @@ function PlayIntentRow(props) {
   var onRegisterOpenEditor = props.onRegisterOpenEditor;
   var onChange = props.onChange;
   var onAvailabilityCommitted = props.onAvailabilityCommitted;
+  var __events = props.events;
   var __courtAvailability = props.courtAvailability;
   var userDays = props.userDays;
   var __interestedCount = props.interestedCount;
   var localDate = props.localDate;
   var interestedCount = __interestedCount !== undefined ? __interestedCount : 0;
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
+  var events = __events !== undefined ? __events : [];
   var isLoggedIn = __isLoggedIn !== undefined ? __isLoggedIn : false;
   var match = UseSetAvailabilityDay.use();
   var commitSetAvailability = match[0];
@@ -192,15 +194,6 @@ function PlayIntentRow(props) {
           return true;
         });
   };
-  var useCourtSlot = function (group) {
-    setDraft(function (param) {
-          return [{
-                    id: TimeWindowPicker.wid(),
-                    start: group.start,
-                    end: group.end
-                  }];
-        });
-  };
   var openEditorRef = React.useRef(openEditor);
   openEditorRef.current = openEditor;
   React.useEffect((function () {
@@ -289,108 +282,71 @@ function PlayIntentRow(props) {
             }
           })
       });
-  var availableCourtCount = Belt_SetString.size(Belt_SetString.fromArray(courtAvailability.map(function (c) {
+  var courtsForSavedWindows = TimeWindow.filterCourtAvailabilityByFullWindow(courtAvailability, intents);
+  var courtsForDraftWindows = TimeWindow.filterCourtAvailabilityByFullWindow(courtAvailability, draft);
+  var availableCourtCount = Belt_SetString.size(Belt_SetString.fromArray((
+              isActive ? courtsForSavedWindows : courtAvailability
+            ).map(function (c) {
                 return c.id;
               })));
-  var courtNoun = plural(availableCourtCount, {
-        one: t`${availableCourtCount.toString()} court available`,
-        other: t`${availableCourtCount.toString()} courts available`
-      });
-  var showDemandRow = hasAnyDemand || isActive || availableCourtCount > 0;
-  var othersWord = plural(demandCount, {
-        one: t`other`,
-        other: t`others`
-      });
-  var headline = isActive ? (
-      demandCount > 0 ? t`You + ${demandCount.toString()} ${othersWord} looking to play` : t`You're available to play`
-    ) : (
-      demandCount > 0 ? plural(demandCount, {
-              one: t`${demandCount.toString()} person looking to play`,
-              other: t`${demandCount.toString()} people looking to play`
-            }) : courtNoun
-    );
+  var showDemandRow = hasAnyDemand || events.length > 0 || isActive || availableCourtCount > 0;
   var demandRow = showDemandRow ? JsxRuntime.jsxs("button", {
           children: [
-            JsxRuntime.jsxs("div", {
-                  children: [
-                    isActive ? JsxRuntime.jsx("span", {
-                            children: JsxRuntime.jsx(LucideReact.Check, {
-                                  size: 11,
-                                  strokeWidth: 2.5
-                                }),
-                            className: "relative z-10 inline-flex items-center justify-center w-6 h-6 rounded-full bg-[#bdf25d] text-black ring-2 ring-white dark:ring-[#222326]",
-                            title: t`You're available`
-                          }) : null,
-                    Belt_Array.slice(userDays$1, 0, 4).map(function (ud) {
-                          var name = Core__Option.getOr(Core__Option.flatMap(ud.user, (function (u) {
-                                      return u.lineUsername;
-                                    })), "?");
-                          var initials = name.slice(0, 2).toUpperCase();
-                          var pictureUrl = Core__Option.flatMap(ud.user, (function (u) {
-                                  return u.picture;
-                                }));
-                          var key = Core__Option.getOr(Core__Option.map(ud.user, (function (u) {
-                                      return u.id;
-                                    })), ud.id);
-                          if (pictureUrl !== undefined) {
-                            return JsxRuntime.jsx("img", {
-                                        className: "w-6 h-6 rounded-full object-cover ring-2 ring-white dark:ring-[#222326]",
-                                        title: name,
-                                        alt: name,
-                                        src: pictureUrl
-                                      }, key);
-                          } else {
-                            return JsxRuntime.jsx("span", {
-                                        children: initials,
-                                        className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-violet-100 dark:bg-violet-900/50 text-violet-700 dark:text-violet-200 text-[9px] font-semibold ring-2 ring-white dark:ring-[#222326]",
-                                        title: name
-                                      }, key);
-                          }
-                        }),
-                    demandCount > 4 ? JsxRuntime.jsx("span", {
-                            children: "+" + (demandCount - 4 | 0).toString(),
-                            className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-300 text-[9px] font-semibold ring-2 ring-white dark:ring-[#222326]"
-                          }) : null,
-                    availableCourtCount > 0 ? JsxRuntime.jsx("span", {
-                            children: JsxRuntime.jsx(LucideReact.MapPin, {
-                                  size: 11,
-                                  strokeWidth: 2.5
-                                }),
-                            className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-cyan-100 dark:bg-cyan-900/50 text-cyan-700 dark:text-cyan-200 ring-2 ring-white dark:ring-[#222326]",
-                            title: courtNoun
-                          }) : null
-                  ],
-                  className: "flex items-center -space-x-1.5 flex-shrink-0"
-                }),
-            JsxRuntime.jsx("span", {
-                  children: headline,
-                  className: "min-w-0 text-xs transition-colors " + (
-                    isActive ? "text-[#3f6212] dark:text-[#bdf25d] font-medium" : (
-                        demandCount > 0 ? "text-violet-700 dark:text-violet-300 group-hover/demand:text-violet-900 dark:group-hover/demand:text-violet-200" : "text-cyan-700 dark:text-cyan-300 group-hover/demand:text-cyan-900 dark:group-hover/demand:text-cyan-200"
-                      )
-                  )
-                }),
-            availableCourtCount > 0 && (demandCount > 0 || isActive) ? JsxRuntime.jsxs("span", {
+            isActive ? JsxRuntime.jsxs("span", {
                     children: [
-                      JsxRuntime.jsx(LucideReact.MapPin, {
+                      JsxRuntime.jsx(LucideReact.Check, {
                             size: 10,
                             strokeWidth: 2.5
                           }),
-                      courtNoun
+                      sortedIntents.map(function (w) {
+                              return formatHour(w.start | 0) + "–" + formatHour(w.end | 0);
+                            }).join(", ")
                     ],
-                    className: "inline-flex items-center gap-1 font-mono text-[10px] text-cyan-700 dark:text-cyan-300"
+                    className: "inline-flex items-center gap-1 font-mono font-semibold text-[#4d6f12] dark:text-[#bdf25d]"
+                  }) : JsxRuntime.jsx("span", {
+                    children: t`Set your time`,
+                    className: "font-semibold text-gray-600 transition-colors group-hover/timeline:text-[#4d6f12] dark:text-gray-300 dark:group-hover/timeline:text-[#bdf25d]"
+                  }),
+            events.length > 0 ? JsxRuntime.jsxs("span", {
+                    children: [
+                      JsxRuntime.jsx("span", {
+                            className: "h-1.5 w-1.5 rounded-full bg-amber-400"
+                          }),
+                      plural(events.length, {
+                            one: t`${events.length.toString()} event`,
+                            other: t`${events.length.toString()} events`
+                          })
+                    ],
+                    className: "inline-flex items-center gap-1"
                   }) : null,
-            isActive && sortedIntents.length > 0 ? JsxRuntime.jsx("span", {
-                    children: sortedIntents.map(function (w) {
-                          return JsxRuntime.jsx("span", {
-                                      children: formatHour(w.start | 0) + "–" + formatHour(w.end | 0),
-                                      className: "inline-flex items-center font-mono text-[10px] px-1.5 py-0.5 rounded bg-[#bdf25d]/40 dark:bg-[#bdf25d]/25 text-[#3f6212] dark:text-[#bdf25d]"
-                                    }, w.id.toString());
-                        }),
-                    className: "flex items-center gap-1 flex-wrap"
+            demandCount > 0 ? JsxRuntime.jsxs("span", {
+                    children: [
+                      JsxRuntime.jsx("span", {
+                            className: "h-1.5 w-1.5 rounded-full bg-violet-500"
+                          }),
+                      plural(demandCount, {
+                            one: t`${demandCount.toString()} player`,
+                            other: t`${demandCount.toString()} players`
+                          })
+                    ],
+                    className: "inline-flex items-center gap-1"
+                  }) : null,
+            availableCourtCount > 0 ? JsxRuntime.jsxs("span", {
+                    children: [
+                      JsxRuntime.jsx("span", {
+                            className: "h-1.5 w-1.5 rounded-full bg-cyan-500"
+                          }),
+                      plural(availableCourtCount, {
+                            one: t`${availableCourtCount.toString()} court`,
+                            other: t`${availableCourtCount.toString()} courts`
+                          })
+                    ],
+                    className: "inline-flex items-center gap-1"
                   }) : null
           ],
-          className: "w-full px-4 md:px-6 pb-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-left group/demand",
+          "aria-label": t`Open the ${dayWord} timeline to edit your availability`,
+          className: "group/timeline flex w-full flex-wrap items-center gap-x-2 gap-y-1 px-4 pb-3 text-left text-[10px] text-gray-500 md:px-6 dark:text-gray-400",
+          type: "button",
           onClick: (function (param) {
               if (isLoggedIn) {
                 return openEditor();
@@ -399,9 +355,10 @@ function PlayIntentRow(props) {
               }
             })
         }) : null;
-  var overlappingCourts = TimeWindow.filterCourtAvailabilityByOverlap(courtAvailability, draft);
   var editorBlock = JsxRuntime.jsx(FramerMotion.motion.div, {
-        className: "overflow-hidden mx-4 md:mx-6 my-2 rounded-lg border border-[#bdf25d]/60 dark:border-[#bdf25d]/30 bg-[#bdf25d]/10 dark:bg-[#bdf25d]/5",
+        className: "overflow-hidden mx-4 md:mx-6 " + (
+          Core__Option.isSome(renderHeader) ? "mb-2" : "my-2"
+        ) + " rounded-lg border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#1e1f23]",
         animate: {
           height: "auto",
           opacity: 1.0
@@ -420,14 +377,14 @@ function PlayIntentRow(props) {
                           children: [
                             JsxRuntime.jsx("span", {
                                   children: t`When can you play ${dayWord}?`,
-                                  className: "text-[11px] font-mono tracking-wider uppercase text-[#3f6212] dark:text-[#bdf25d]"
+                                  className: "text-[11px] font-mono tracking-wider uppercase text-gray-600 dark:text-gray-300"
                                 }),
                             JsxRuntime.jsx("button", {
                                   children: JsxRuntime.jsx(LucideReact.X, {
                                         size: 14
                                       }),
                                   className: "text-gray-400 hover:text-gray-700 dark:hover:text-gray-200",
-                                  title: "Cancel",
+                                  title: t`Cancel`,
                                   onClick: (function (param) {
                                       setEditing(function (param) {
                                             return false;
@@ -478,7 +435,7 @@ function PlayIntentRow(props) {
                                     activityId: resolvedActivityId,
                                     clubId: props.clubId,
                                     courtAvailability: courtAvailability,
-                                    onUseCourtSlot: useCourtSlot
+                                    existingEvents: events
                                   })),
                           fallback: Caml_option.some(JsxRuntime.jsx(TimeWindowPicker.make, {
                                     intents: draft,
@@ -487,42 +444,10 @@ function PlayIntentRow(props) {
                                               return intents;
                                             });
                                       }),
-                                    courtAvailability: courtAvailability,
-                                    onUseCourtSlot: useCourtSlot
+                                    existingEvents: events,
+                                    courtAvailability: courtAvailability
                                   }))
                         }),
-                    userDays$1.length > 0 || courtAvailability.length > 0 ? JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsxs("span", {
-                                    children: [
-                                      JsxRuntime.jsx("span", {
-                                            className: "h-2 w-2 rounded-sm bg-[#bdf25d]"
-                                          }),
-                                      t`You`
-                                    ],
-                                    className: "inline-flex items-center gap-1"
-                                  }),
-                              userDays$1.length > 0 ? JsxRuntime.jsxs("span", {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              className: "h-2 w-2 rounded-sm bg-violet-400"
-                                            }),
-                                        t`Players`
-                                      ],
-                                      className: "inline-flex items-center gap-1"
-                                    }) : null,
-                              courtAvailability.length > 0 ? JsxRuntime.jsxs("span", {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              className: "h-2 w-2 rounded-sm border border-cyan-600 dark:border-cyan-400 bg-transparent"
-                                            }),
-                                        t`Courts`
-                                      ],
-                                      className: "inline-flex items-center gap-1"
-                                    }) : null
-                            ],
-                            className: "mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[9px] uppercase tracking-wider text-gray-500 dark:text-gray-400"
-                          }) : null,
                     draft.length > 0 ? JsxRuntime.jsx("div", {
                             children: draft.toSorted(function (a, b) {
                                     return a.start - b.start;
@@ -534,13 +459,18 @@ function PlayIntentRow(props) {
                                 }),
                             className: "mt-2 flex flex-wrap gap-1.5"
                           }) : null,
-                    overlappingCourts.length > 0 ? JsxRuntime.jsx("div", {
-                            children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
-                                  courtAvailability: overlappingCourts,
-                                  title: t`Courts available during your time`
-                                }),
-                            className: "mt-2"
-                          }) : null,
+                    draft.length > 0 ? (
+                        courtsForDraftWindows.length > 0 ? JsxRuntime.jsx("div", {
+                                children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
+                                      courtAvailability: courtsForDraftWindows,
+                                      title: t`Courts covering your complete time`
+                                    }),
+                                className: "mt-2"
+                              }) : JsxRuntime.jsx("p", {
+                                children: t`No court is currently available for an entire selected window.`,
+                                className: "mt-2 text-[10px] text-gray-500 dark:text-gray-400"
+                              })
+                      ) : null,
                     userDays$1.length > 0 ? JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsxs("button", {
@@ -706,7 +636,7 @@ function PlayIntentRow(props) {
                               size: 12
                             }),
                         className: "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-1 flex-shrink-0",
-                        title: "Change times",
+                        title: t`Change times`,
                         onClick: (function (param) {
                             openEditor();
                           })
@@ -716,7 +646,7 @@ function PlayIntentRow(props) {
                               size: 14
                             }),
                         className: "text-gray-400 hover:text-red-600 dark:text-gray-500 dark:hover:text-red-400 p-1 flex-shrink-0",
-                        title: "Remove all",
+                        title: t`Remove all`,
                         onClick: (function (param) {
                             commitAvailability([]);
                           })

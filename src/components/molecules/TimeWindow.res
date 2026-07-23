@@ -19,11 +19,35 @@ type courtLocation = {
   reservationUrl: option<string>,
 }
 
+// Per-open-hour rollup for a location's courts (from the backend `hourly`
+// field): how many indoor/outdoor courts are free that hour, and the
+// cheapest/dearest booking price (in yen) among them.
+type hourStat = {
+  hour: int,
+  indoorCount: int,
+  outdoorCount: int,
+  priceMin: option<int>,
+  priceMax: option<int>,
+}
+
 type courtAvailability = {
   id: string,
   location: courtLocation,
   courtName: option<string>,
+  // Per-hour indoor/outdoor + price rollup, only for hours with an open court.
+  hourlyStats: array<hourStat>,
   intents: array<playIntent>,
+}
+
+// Aggregated court metrics over a time range — used for pseudo-event summaries
+// and the overlay's intensity. Counts are the peak concurrent courts within the
+// range; the price span covers the whole range.
+type courtAvailabilitySummary = {
+  courtCount: int,
+  indoorCount: int,
+  outdoorCount: int,
+  priceLow: option<int>,
+  priceHigh: option<int>,
 }
 
 type courtSlot = {
@@ -48,13 +72,163 @@ type courtAvailabilityBand = {
   segments: array<courtSlotGroup>,
 }
 
-// Court openings longer than this are venue open-hours, not a bookable play
-// window, so they can't be matched to the user's availability in one tap.
-let maxMatchableCourtHours = 4.0
+// A contiguous run of pseudo-event bands, collapsed into one feed-sized group.
+// The original bands are kept so the group can expand back into interactive
+// slot rows.
+type courtPseudoEventGroup = {
+  key: string,
+  start: float,
+  end: float,
+  bands: array<courtAvailabilityBand>,
+}
 
 // Location doesn't expose a booking-page URL yet; fall back to the ONE Court
 // reservation page until it does.
 let defaultReservationUrl = "https://reserva.be/pboneginza"
+
+// Merge touching or overlapping windows into the largest contiguous spans.
+let mergeContiguousTimeWindows = (windows: array<playIntent>): array<playIntent> => {
+  let sorted =
+    windows
+    ->Array.filter(w => w.end > w.start)
+    ->Array.toSorted((a, b) =>
+      if a.start != b.start {
+        a.start -. b.start
+      } else {
+        a.end -. b.end
+      }
+    )
+  let merged: array<playIntent> = []
+  sorted->Array.forEach(window => {
+    let lastIdx = merged->Array.length - 1
+    switch merged->Array.get(lastIdx) {
+    | Some(previous) if window.start <= previous.end =>
+      merged->Array.set(lastIdx, {...previous, end: Js.Math.max_float(previous.end, window.end)})
+    | _ => merged->Array.push(window)
+    }
+  })
+  merged
+}
+
+// Consolidate duplicate court records (same court id) and merge each court's
+// adjacent openings so every court carries its largest continuous openings.
+let mergeCourtAvailabilityByCourt = (courtAvailability: array<courtAvailability>): array<
+  courtAvailability,
+> => {
+  let byCourt: Js.Dict.t<courtAvailability> = Js.Dict.empty()
+  let order: array<string> = []
+  courtAvailability->Array.forEach(court =>
+    switch byCourt->Js.Dict.get(court.id) {
+    | Some(existing) =>
+      byCourt->Js.Dict.set(
+        court.id,
+        {...existing, intents: Belt.Array.concat(existing.intents, court.intents)},
+      )
+    | None =>
+      order->Array.push(court.id)
+      byCourt->Js.Dict.set(court.id, court)
+    }
+  )
+  order->Array.filterMap(id =>
+    byCourt
+    ->Js.Dict.get(id)
+    ->Option.map(court => {...court, intents: mergeContiguousTimeWindows(court.intents)})
+  )
+}
+
+// Aggregate court metrics over the hour range [fromHour, toHour), reading each
+// location's per-hour rollup. Records are de-duplicated by id so a court
+// counted in multiple segments isn't double-counted. Counts are the PEAK
+// concurrent courts across the range (courts free at the busiest hour); the
+// price span covers every open hour in the range. Defaults to the whole day.
+let summarizeCourtAvailability = (
+  ~fromHour: int=0,
+  ~toHour: int=24,
+  availability: array<courtAvailability>,
+): courtAvailabilitySummary => {
+  let seen: Js.Dict.t<bool> = Js.Dict.empty()
+  let unique: array<courtAvailability> = []
+  availability->Array.forEach(item =>
+    switch seen->Js.Dict.get(item.id) {
+    | Some(_) => ()
+    | None =>
+      seen->Js.Dict.set(item.id, true)
+      unique->Array.push(item)
+    }
+  )
+
+  let courtCount = ref(0)
+  let indoorCount = ref(0)
+  let outdoorCount = ref(0)
+  let priceLow = ref(None)
+  let priceHigh = ref(None)
+  let considerPrice = p =>
+    switch p {
+    | None => ()
+    | Some(v) =>
+      priceLow :=
+        Some(
+          switch priceLow.contents {
+          | None => v
+          | Some(cur) => Js.Math.min_int(cur, v)
+          },
+        )
+      priceHigh :=
+        Some(
+          switch priceHigh.contents {
+          | None => v
+          | Some(cur) => Js.Math.max_int(cur, v)
+          },
+        )
+    }
+
+  for hour in fromHour to toHour - 1 {
+    let hourF = hour->Float.fromInt
+    let hIndoor = ref(0)
+    let hOutdoor = ref(0)
+    let hUntyped = ref(0)
+    unique->Array.forEach(item =>
+      if item.hourlyStats->Array.length == 0 {
+        // Un-enriched record (the scraper exposed no per-court breakdown):
+        // count it as one open court while an opening covers this hour, so it
+        // never reads as "0 courts". No surface/price contribution.
+        if item.intents->Array.some(iv => iv.start <= hourF && hourF < iv.end) {
+          hUntyped := hUntyped.contents + 1
+        }
+      } else {
+        switch item.hourlyStats->Array.find(s => s.hour == hour) {
+        | None => ()
+        | Some(s) =>
+          hIndoor := hIndoor.contents + s.indoorCount
+          hOutdoor := hOutdoor.contents + s.outdoorCount
+          considerPrice(s.priceMin)
+          considerPrice(s.priceMax)
+        }
+      }
+    )
+    let hTotal = hIndoor.contents + hOutdoor.contents + hUntyped.contents
+    if hTotal > courtCount.contents {
+      courtCount := hTotal
+    }
+    if hIndoor.contents > indoorCount.contents {
+      indoorCount := hIndoor.contents
+    }
+    if hOutdoor.contents > outdoorCount.contents {
+      outdoorCount := hOutdoor.contents
+    }
+  }
+  {
+    courtCount: courtCount.contents,
+    indoorCount: indoorCount.contents,
+    outdoorCount: outdoorCount.contents,
+    priceLow: priceLow.contents,
+    priceHigh: priceHigh.contents,
+  }
+}
+
+// Display strings for the summary (surface mix, price range, durations) are
+// assembled by CourtLabels from render-scoped lingui templates — this module
+// stays i18n-free.
 
 // ─── Time-of-day formatting ────────────────────────────────────────────────
 
@@ -87,7 +261,7 @@ let groupCourtAvailabilityByTime = (courtAvailability: array<courtAvailability>)
   courtSlotGroup,
 > => {
   let slots =
-    courtAvailability
+    mergeCourtAvailabilityByCourt(courtAvailability)
     ->Array.flatMap(court =>
       court.intents
       ->Array.filter(intent => intent.end > intent.start)
@@ -202,26 +376,95 @@ let groupCourtAvailabilityIntoBands = (courtAvailability: array<courtAvailabilit
   bands
 }
 
-// Keep only the individual court openings that overlap at least one of the
-// user's half-open availability windows. A court can carry multiple openings,
-// so filtering happens at the intent level while preserving the court entity.
-let filterCourtAvailabilityByOverlap = (
+// Booking-sized slot length (hours) for the discover-feed pseudo-events.
+// Discover-feed pseudo-events: one band per location per LARGEST contiguous
+// opening (adjacent openings merged first via mergeCourtAvailabilityByCourt).
+// A single location's contiguous opening is never split into smaller slots; a
+// court open 2–3 and another open 2–4 surface as two separate rows (2–3 and
+// 2–4), ordered by start and possibly overlapping in time.
+let groupCourtAvailabilityIntoPseudoEventBands = (courtAvailability: array<courtAvailability>): array<
+  courtAvailabilityBand,
+> =>
+  mergeCourtAvailabilityByCourt(courtAvailability)
+  ->Array.flatMap(court =>
+    court.intents
+    ->Array.filter(intent => intent.end > intent.start)
+    ->Array.map(intent => {
+      let key =
+        court.id ++ ":" ++ intent.start->Float.toString ++ ":" ++ intent.end->Float.toString
+      {
+        key,
+        start: intent.start,
+        end: intent.end,
+        segments: [{key, start: intent.start, end: intent.end, slots: [{court, intent}]}],
+      }
+    })
+  )
+  ->Array.toSorted((a, b) =>
+    if a.start != b.start {
+      a.start -. b.start
+    } else {
+      a.end -. b.end
+    }
+  )
+
+// Collapse time-adjacent pseudo-event slots into feed-sized groups. The
+// original bands stay nested so a group can expand back into interactive rows.
+let groupContiguousPseudoEventBands = (bands: array<courtAvailabilityBand>): array<
+  courtPseudoEventGroup,
+> => {
+  let sorted = bands->Array.toSorted((a, b) => a.start -. b.start)
+  let groups: array<courtPseudoEventGroup> = []
+  sorted->Array.forEach(band => {
+    let lastIdx = groups->Array.length - 1
+    switch groups->Array.get(lastIdx) {
+    // Touching OR overlapping extends the group (per-location bands can
+    // overlap in time), so a group spans a maximal continuous run.
+    | Some(previous) if band.start <= previous.end =>
+      let end = Js.Math.max_float(previous.end, band.end)
+      groups->Array.set(
+        lastIdx,
+        {
+          ...previous,
+          end,
+          key: previous.start->Float.toString ++ ":" ++ end->Float.toString,
+          bands: Belt.Array.concat(previous.bands, [band]),
+        },
+      )
+    | _ =>
+      groups->Array.push({
+        key: band.start->Float.toString ++ ":" ++ band.end->Float.toString,
+        start: band.start,
+        end: band.end,
+        bands: [band],
+      })
+    }
+  })
+  groups
+}
+
+// Keep a court only when one of its merged contiguous openings covers a user
+// window from start to end. The full qualifying opening is retained for
+// court-first display.
+let filterCourtAvailabilityByFullWindow = (
   courtAvailability: array<courtAvailability>,
   userAvailability: array<playIntent>,
-): array<courtAvailability> =>
-  if userAvailability->Array.length == 0 {
+): array<courtAvailability> => {
+  let validUserWindows = userAvailability->Array.filter(w => w.end > w.start)
+  if validUserWindows->Array.length == 0 {
     []
   } else {
-    courtAvailability
+    mergeCourtAvailabilityByCourt(courtAvailability)
     ->Array.map(court => {
       ...court,
       intents: court.intents->Array.filter(
         courtWindow =>
-          userAvailability->Array.some(
+          validUserWindows->Array.some(
             userWindow =>
-              courtWindow.start < userWindow.end && courtWindow.end > userWindow.start,
+              courtWindow.start <= userWindow.start && courtWindow.end >= userWindow.end,
           ),
       ),
     })
     ->Array.filter(court => court.intents->Array.length > 0)
   }
+}

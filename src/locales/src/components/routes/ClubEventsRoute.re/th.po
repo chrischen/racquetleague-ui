@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:46
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:47
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:45
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
@@ -87,10 +87,6 @@ msgstr "กำลังโหลดกิจกรรม..."
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-msgid "Match my time"
-msgstr "ตรงกับเวลาของฉัน"
-
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "เช้า"
@@ -99,9 +95,13 @@ msgstr "เช้า"
 msgid "New plan"
 msgstr "แผนใหม่"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-msgid "open"
-msgstr "เปิด"
+#: src/components/molecules/TimeWindowPicker.re.mjs:388
+msgid "Player availability heatmap"
+msgstr "แผนที่ความพร้อมของผู้เล่น"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:225
+msgid "Remove"
+msgstr "ลบ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:370
 msgid "Save"
@@ -115,9 +115,9 @@ msgstr "เลือกช่วงเวลาหนึ่งช่วงเพ
 msgid "Share link"
 msgstr "แชร์ลิงก์"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-msgid "Tap anywhere to add a time window"
-msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+#: src/components/molecules/TimeWindowPicker.re.mjs:463
+msgid "Tap to add your time"
+msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
 msgid ""
@@ -284,6 +284,10 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #~ msgid "Long opening"
 #~ msgstr "ช่วงเวลาว่างยาว"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
 #: src/components/organisms/AIAssistantModal.re.mjs:149
 #~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 #~ msgstr "ต้องการ 5 คน สำหรับ KPI Park พรุ่งนี้ 18:00-21:00 แชร์ค่าใช้จ่าย"
@@ -291,6 +295,10 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #: src/components/organisms/AIAssistantModal.re.mjs:279
 #~ msgid "New"
 #~ msgstr "ใหม่"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
 
 #: src/components/organisms/EventItem.re.mjs:272
 #~ msgid "pending"
@@ -323,6 +331,10 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #: src/components/molecules/AIResponseCard.re.mjs:138
 #~ msgid "Suggested Events"
 #~ msgstr "กิจกรรมที่แนะนำ"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
 #~ msgid ""
