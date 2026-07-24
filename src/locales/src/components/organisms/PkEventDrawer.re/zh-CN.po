@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "...more"
 msgstr "...更多"
 
@@ -66,7 +66,7 @@ msgstr "平衡"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/pages/PkEventPage.re.mjs:555
+#: src/components/pages/PkEventPage.re.mjs:606
 msgid "cancel event"
 msgstr "取消活动"
 
@@ -74,7 +74,7 @@ msgstr "取消活动"
 msgid "Cancel RSVP"
 msgstr "取消报名"
 
-#: src/components/pages/PkEventPage.re.mjs:218
+#: src/components/pages/PkEventPage.re.mjs:220
 msgid "CANCELED"
 msgstr "已取消"
 
@@ -96,7 +96,7 @@ msgstr "取消截止日期已过。请在此页面联系组织者取消。"
 msgid "Cancelling..."
 msgstr "取消中..."
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:571
 msgid "Cannot access variable \\\"title\\\""
 msgstr "无法访问变量 \\\"title\\\""
 
@@ -125,11 +125,11 @@ msgstr "完善个人资料"
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Copied!"
 msgstr "已复制！"
 
-#: src/components/pages/PkEventPage.re.mjs:539
+#: src/components/pages/PkEventPage.re.mjs:590
 msgid "copy event"
 msgstr "复制赛事"
 
@@ -144,6 +144,14 @@ msgstr "场地 {0} - 编辑中"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "场地数："
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "达拉斯闪电"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "达拉斯闪电周边"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
 #: src/components/organisms/MatchCard.re.mjs:428
@@ -171,7 +179,7 @@ msgstr "请输入显示名称"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:532
+#: src/components/pages/PkEventPage.re.mjs:583
 msgid "edit event"
 msgstr "编辑活动"
 
@@ -207,7 +215,7 @@ msgstr "输入比赛比分"
 msgid "even"
 msgstr "均衡"
 
-#: src/components/pages/PkEventPage.re.mjs:842
+#: src/components/pages/PkEventPage.re.mjs:898
 msgid "Event not found"
 msgstr "找不到活动"
 
@@ -227,7 +235,7 @@ msgstr "女性"
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
-#: src/components/pages/PkEventPage.re.mjs:301
+#: src/components/pages/PkEventPage.re.mjs:303
 msgid "Free"
 msgstr "免费"
 
@@ -264,7 +272,7 @@ msgstr "退出候补名单"
 msgid "Leaving..."
 msgstr "离开中..."
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "less"
 msgstr "收起"
 
@@ -272,7 +280,7 @@ msgstr "收起"
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/pages/PkEventPage.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:333
 msgid "Location"
 msgstr "地点"
 
@@ -313,7 +321,7 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/pages/PkEventPage.re.mjs:686
+#: src/components/pages/PkEventPage.re.mjs:742
 msgid "Notes from the host"
 msgstr "主持人的备注"
 
@@ -361,6 +369,10 @@ msgstr "待审批"
 msgid "Prefer not to say"
 msgstr "不愿透露"
 
+#: src/components/pages/PkEventPage.re.mjs:401
+msgid "Presented by"
+msgstr "由...呈现"
+
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
@@ -392,12 +404,12 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refresh event details"
 msgstr "刷新赛事详情"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refreshing…"
 msgstr "刷新中…"
 
@@ -458,7 +470,7 @@ msgstr "保存比分"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
 msgstr "分享"
 
@@ -535,7 +547,7 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/pages/PkEventPage.re.mjs:544
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "uncancel event"
 msgstr "取消取消活动"
 
@@ -592,3 +604,17 @@ msgstr ""
 #: src/components/organisms/EventStickyFooter.re.mjs:263
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的报名正在等待管理员审批"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid ""
+#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
+#~ "and top 4 women players"
+#~ msgstr "官方 Dallash Flash T恤和棒球帽 — 颁发给排名前4的男子和前4的女子球员"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "赞助商标志"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "最佳球员奖"

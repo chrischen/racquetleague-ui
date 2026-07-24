@@ -13,18 +13,67 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr "...โหลดผู้เล่นเรตติ้งสูงกว่า"
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
-msgstr "หญิง"
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "โหลดผู้เล่นทั้งหมดแล้ว"
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "ดราฟต์"
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "เส้นตัดดราฟต์ · 8 อันดับแรกผ่านเข้ารอบ"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "DUPR โดยประมาณ"
+
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr "โหลดผู้เล่นเพิ่มเติม..."
 
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "กำลังโหลดอันดับถัดไป"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "ไม่พบผู้เล่น"
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr "เรตติ้ง"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "ลองขยายการค้นหาหรือตัวกรองของคุณ"
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "ดูโปรไฟล์ของฉัน"
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr "คุณ"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "อันดับของคุณ"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "หญิง"
+
 #: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
-msgstr "ชาย"
+#~ msgid "Male"
+#~ msgstr "ชาย"

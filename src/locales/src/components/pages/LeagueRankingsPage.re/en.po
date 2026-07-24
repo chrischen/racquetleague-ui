@@ -13,51 +13,164 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
-#: src/components/pages/LeagueRankingsPage.re.mjs:59
+#: src/components/pages/LeagueRankingsPage.re.mjs:198
+msgid "All"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:237
+msgid "All Clubs"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:113
 msgid "Competitive Doubles"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid "Competitive Singles"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:251
+msgid "Filter by club"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:222
+msgid "Filter by gender"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:142
+msgid "Live Standings"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:143
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:306
 msgid "Loading rankings..."
 msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
+#~ msgid "Male"
+#~ msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Men"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
 msgstr ""
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
-msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+msgid "Presented by"
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+msgid "Prizes"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
 msgstr ""
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #~ msgid "Recreational Doubles"
 #~ msgstr ""
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:175
+msgid "Search players..."
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+msgid "Sponsor logo"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:158
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:162
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr ""
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:63
 #~ msgid "To participate, please join the badminton events here:"
 #~ msgstr ""
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:125
-msgid "To participate, please join the events here:"
+#~ msgid "To participate, please join the events here:"
+#~ msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+msgid "Top Player Awards"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
 msgstr ""
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:100
-msgid "View My Profile"
+#~ msgid "View My Profile"
+#~ msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:208
+msgid "Women"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
 msgstr ""

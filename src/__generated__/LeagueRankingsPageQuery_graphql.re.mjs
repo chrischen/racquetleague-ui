@@ -107,50 +107,104 @@ v8 = {
   "storageKey": null
 },
 v9 = {
+  "kind": "Variable",
+  "name": "activitySlug",
+  "variableName": "activitySlug"
+},
+v10 = {
+  "kind": "Variable",
+  "name": "clubSlug",
+  "variableName": "clubSlug"
+},
+v11 = {
+  "kind": "Variable",
+  "name": "namespace",
+  "variableName": "namespace"
+},
+v12 = [
+  (v9/*: any*/),
+  (v10/*: any*/),
+  (v11/*: any*/)
+],
+v13 = {
   "alias": null,
   "args": null,
-  "concreteType": "Viewer",
-  "kind": "LinkedField",
-  "name": "viewer",
-  "plural": false,
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "User",
-      "kind": "LinkedField",
-      "name": "user",
-      "plural": false,
-      "selections": [
-        (v6/*: any*/),
-        (v7/*: any*/),
-        (v8/*: any*/)
-      ],
-      "storageKey": null
-    }
-  ],
+  "kind": "ScalarField",
+  "name": "ordinal",
   "storageKey": null
 },
-v10 = [
-  {
-    "kind": "Variable",
-    "name": "slug",
-    "variableName": "clubSlug"
-  }
-],
-v11 = {
+v14 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "mu",
+  "storageKey": null
+},
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v12 = [
+v16 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+},
+v17 = {
+  "alias": null,
+  "args": [
+    {
+      "kind": "Literal",
+      "name": "first",
+      "value": 100
+    }
+  ],
+  "concreteType": "ClubConnection",
+  "kind": "LinkedField",
+  "name": "clubs",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "ClubEdge",
+      "kind": "LinkedField",
+      "name": "edges",
+      "plural": true,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "Club",
+          "kind": "LinkedField",
+          "name": "node",
+          "plural": false,
+          "selections": [
+            (v6/*: any*/),
+            (v15/*: any*/),
+            (v16/*: any*/)
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "storageKey": "clubs(first:100)"
+},
+v18 = [
   {
     "kind": "Variable",
-    "name": "activitySlug",
-    "variableName": "activitySlug"
-  },
+    "name": "slug",
+    "variableName": "clubSlug"
+  }
+],
+v19 = [
+  (v9/*: any*/),
   {
     "kind": "Variable",
     "name": "after",
@@ -161,21 +215,13 @@ v12 = [
     "name": "before",
     "variableName": "before"
   },
-  {
-    "kind": "Variable",
-    "name": "clubSlug",
-    "variableName": "clubSlug"
-  },
+  (v10/*: any*/),
   {
     "kind": "Variable",
     "name": "first",
     "variableName": "first"
   },
-  {
-    "kind": "Variable",
-    "name": "namespace",
-    "variableName": "namespace"
-  }
+  (v11/*: any*/)
 ];
 return {
   "fragment": {
@@ -191,21 +237,60 @@ return {
     "metadata": null,
     "name": "LeagueRankingsPageQuery",
     "selections": [
-      (v9/*: any*/),
       {
         "alias": null,
-        "args": (v10/*: any*/),
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v6/*: any*/),
+              (v7/*: any*/),
+              (v8/*: any*/),
+              {
+                "alias": null,
+                "args": (v12/*: any*/),
+                "concreteType": "Rating",
+                "kind": "LinkedField",
+                "name": "rating",
+                "plural": false,
+                "selections": [
+                  (v13/*: any*/),
+                  (v14/*: any*/)
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          (v17/*: any*/)
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": (v18/*: any*/),
         "concreteType": "Club",
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
         "selections": [
-          (v11/*: any*/)
+          (v15/*: any*/),
+          (v16/*: any*/)
         ],
         "storageKey": null
       },
       {
-        "args": (v12/*: any*/),
+        "args": (v19/*: any*/),
         "kind": "FragmentSpread",
         "name": "RatingListFragment"
       }
@@ -226,23 +311,63 @@ return {
     "kind": "Operation",
     "name": "LeagueRankingsPageQuery",
     "selections": [
-      (v9/*: any*/),
       {
         "alias": null,
-        "args": (v10/*: any*/),
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v6/*: any*/),
+              (v7/*: any*/),
+              (v8/*: any*/),
+              {
+                "alias": null,
+                "args": (v12/*: any*/),
+                "concreteType": "Rating",
+                "kind": "LinkedField",
+                "name": "rating",
+                "plural": false,
+                "selections": [
+                  (v13/*: any*/),
+                  (v14/*: any*/),
+                  (v6/*: any*/)
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          (v17/*: any*/)
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": (v18/*: any*/),
         "concreteType": "Club",
         "kind": "LinkedField",
         "name": "club",
         "plural": false,
         "selections": [
-          (v11/*: any*/),
+          (v15/*: any*/),
+          (v16/*: any*/),
           (v6/*: any*/)
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v12/*: any*/),
+        "args": (v19/*: any*/),
         "concreteType": "RatingConnection",
         "kind": "LinkedField",
         "name": "ratings",
@@ -265,13 +390,7 @@ return {
                 "plural": false,
                 "selections": [
                   (v6/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "ordinal",
-                    "storageKey": null
-                  },
+                  (v13/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -282,17 +401,18 @@ return {
                     "selections": [
                       (v6/*: any*/),
                       (v7/*: any*/),
-                      (v8/*: any*/),
                       {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
                         "name": "gender",
                         "storageKey": null
-                      }
+                      },
+                      (v8/*: any*/)
                     ],
                     "storageKey": null
                   },
+                  (v14/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -357,7 +477,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v12/*: any*/),
+        "args": (v19/*: any*/),
         "filters": [
           "activitySlug",
           "namespace",
@@ -371,12 +491,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2b92d50407d255ec29d015e7203543c5",
+    "cacheID": "69b508bde584edb259017d7872091b47",
     "id": null,
     "metadata": {},
     "name": "LeagueRankingsPageQuery",
     "operationKind": "query",
-    "text": "query LeagueRankingsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $clubSlug: String\n) {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n    }\n  }\n  club(slug: $clubSlug) {\n    name\n    id\n  }\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query LeagueRankingsPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n  $namespace: String!\n  $clubSlug: String\n) {\n  viewer {\n    user {\n      id\n      lineUsername\n      picture\n      rating(activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n        ordinal\n        mu\n        id\n      }\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          slug\n        }\n      }\n    }\n  }\n  club(slug: $clubSlug) {\n    name\n    slug\n    id\n  }\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        user {\n          id\n          lineUsername\n          gender\n        }\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  mu\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })());

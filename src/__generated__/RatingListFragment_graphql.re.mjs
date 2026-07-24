@@ -45,15 +45,35 @@ function getConnectionNodes(connection) {
   }
 }
 
+function gender_decode($$enum) {
+  if ($$enum === "female" || $$enum === "male") {
+    return $$enum;
+  }
+  
+}
+
+function gender_fromString(str) {
+  return gender_decode(str);
+}
+
 var Utils = {
-  getConnectionNodes: getConnectionNodes
+  getConnectionNodes: getConnectionNodes,
+  gender_decode: gender_decode,
+  gender_fromString: gender_fromString
 };
 
 function makeNode(rescript_graphql_node_RatingListRefetchQuery) {
   return ((function(){
 var v0 = [
   "ratings"
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+};
 return {
   "argumentDefinitions": [
     {
@@ -152,18 +172,38 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "id",
-                  "storageKey": null
-                },
+                (v1/*: any*/),
                 {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "ordinal",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "concreteType": "User",
+                  "kind": "LinkedField",
+                  "name": "user",
+                  "plural": false,
+                  "selections": [
+                    (v1/*: any*/),
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "lineUsername",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "gender",
+                      "storageKey": null
+                    }
+                  ],
                   "storageKey": null
                 },
                 {

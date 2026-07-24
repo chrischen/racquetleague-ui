@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "--"
 #~ msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr ""
 
@@ -25,18 +25,67 @@ msgstr ""
 #~ msgid "...load past ratings"
 #~ msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
 msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:242
 #~ msgid "load more"
 #~ msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr ""
 
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr ""
+
 #: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
+#~ msgid "Male"
+#~ msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
 msgstr ""

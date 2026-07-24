@@ -331,6 +331,38 @@ module EventLocationSection = {
   }
 }
 
+// Sponsor + prize strip for competitive pickleball events, linking to the
+// league rankings. Uses the shared Top Player awards sponsor logo.
+module SponsorBanner = {
+  let ts = Lingui.UtilString.t
+  @react.component
+  let make = () => {
+    <Router.Link
+      to="/league/pickleball"
+      className="px-5 py-3 border-b-2 border-violet-200 dark:border-violet-700/50 bg-violet-50 dark:bg-violet-900/30 hover:bg-violet-100 dark:hover:bg-violet-900/50 transition-colors flex items-center justify-between gap-3">
+      <div className="flex items-center gap-2 min-w-0">
+        <span
+          className="font-mono text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300 flex-shrink-0">
+          {t`Presented by`}
+        </span>
+        <img
+          src={TopPlayerAwardsBanner.sponsorLogo}
+          alt={ts`Dallas Flash`}
+          className="h-6 w-auto max-w-[140px] object-contain rounded bg-white px-1.5 py-0.5 shadow-sm flex-shrink-0"
+        />
+      </div>
+      <div
+        className="flex items-center gap-1.5 flex-shrink-0 px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700/60">
+        <Lucide.Gift size=12 strokeWidth={2.25} className="text-amber-700 dark:text-amber-400" />
+        <span
+          className="font-mono text-[11px] leading-tight font-bold text-amber-800 dark:text-amber-300">
+          {t`Dallas Flash Swag`}
+        </span>
+      </div>
+    </Router.Link>
+  }
+}
+
 module Inner = {
   @react.component
   let make = (
@@ -499,6 +531,11 @@ module Inner = {
         <div className="flex-1 overflow-y-auto pb-24">
           /* Title */
           <EventTitleSection event secret />
+          /* Sponsor + prize strip — competitive pickleball events feed the Top Player awards */
+          {event.activity->Option.flatMap(a => a.slug) == Some("pickleball") &&
+            event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
+            ? <SponsorBanner />
+            : React.null}
           /* Admin controls */
           {switch (event.viewerIsAdmin, viewerUser) {
           | (true, Some(_)) =>

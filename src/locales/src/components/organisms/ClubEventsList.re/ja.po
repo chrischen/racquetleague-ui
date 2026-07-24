@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "...more"
 msgstr "...もっと見る"
 
@@ -96,7 +96,7 @@ msgstr "バランス"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/pages/PkEventPage.re.mjs:555
+#: src/components/pages/PkEventPage.re.mjs:606
 msgid "cancel event"
 msgstr "イベントをキャンセル"
 
@@ -108,7 +108,7 @@ msgstr "参加をキャンセルする"
 msgid "Canceled"
 msgstr "キャンセル済み"
 
-#: src/components/pages/PkEventPage.re.mjs:218
+#: src/components/pages/PkEventPage.re.mjs:220
 msgid "CANCELED"
 msgstr "キャンセル"
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:571
 msgid "Cannot access variable \\\"title\\\""
 msgstr "変数 \\\"title\\\" にアクセスできません"
 
@@ -161,11 +161,11 @@ msgstr "プロフィールを完成させる"
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Copied!"
 msgstr "コピーしました！"
 
-#: src/components/pages/PkEventPage.re.mjs:539
+#: src/components/pages/PkEventPage.re.mjs:590
 msgid "copy event"
 msgstr "イベントをコピー"
 
@@ -180,6 +180,14 @@ msgstr "コート{0} - 編集中"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "コート数："
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "ダラス・フラッシュ"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "ダラス・フラッシュ グッズ"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
 #: src/components/organisms/MatchCard.re.mjs:428
@@ -207,7 +215,7 @@ msgstr "表示名は必須です"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:532
+#: src/components/pages/PkEventPage.re.mjs:583
 msgid "edit event"
 msgstr "イベントを編集"
 
@@ -248,7 +256,7 @@ msgstr "均等"
 msgid "event"
 msgstr "イベント"
 
-#: src/components/pages/PkEventPage.re.mjs:842
+#: src/components/pages/PkEventPage.re.mjs:898
 msgid "Event not found"
 msgstr "イベントが見つかりません"
 
@@ -277,7 +285,7 @@ msgstr "日付でフィルター中"
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/pages/PkEventPage.re.mjs:301
+#: src/components/pages/PkEventPage.re.mjs:303
 msgid "Free"
 msgstr "無料"
 
@@ -335,7 +343,7 @@ msgstr "キャンセル待ちを取り消す"
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "less"
 msgstr "閉じる"
 
@@ -343,7 +351,7 @@ msgstr "閉じる"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/pages/PkEventPage.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:333
 msgid "Location"
 msgstr "場所"
 
@@ -396,7 +404,7 @@ msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/pages/PkEventPage.re.mjs:686
+#: src/components/pages/PkEventPage.re.mjs:742
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
@@ -458,6 +466,10 @@ msgstr "プレイヤー"
 msgid "Prefer not to say"
 msgstr "回答しない"
 
+#: src/components/pages/PkEventPage.re.mjs:401
+msgid "Presented by"
+msgstr "提供："
+
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
@@ -493,12 +505,12 @@ msgstr "競技レーティングやDUPRに提出されないレクリエーシ�
 msgid "Refresh"
 msgstr "更新"
 
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refresh event details"
 msgstr "イベント詳細を更新"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "更新中…"
@@ -564,7 +576,7 @@ msgstr "スコアを保存"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
 msgstr "共有"
 
@@ -677,7 +689,7 @@ msgstr "上位6平均"
 msgid "Tuesday"
 msgstr "火曜日"
 
-#: src/components/pages/PkEventPage.re.mjs:544
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "uncancel event"
 msgstr "イベントをキャンセル解除"
 
@@ -974,6 +986,14 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "New"
 #~ msgstr "新規"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid ""
+#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
+#~ "and top 4 women players"
+#~ msgstr ""
+#~ "公式Dallash FlashのTシャツとボールキャップ — 男子トップ4・女子トップ4の選"
+#~ "手に授与"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:194
 #~ msgid "Pay {0}"
 #~ msgstr "{0}を支払う"
@@ -1010,6 +1030,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "show"
 #~ msgstr "表示"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "スポンサーロゴ"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 #~ msgid "Spot held — pay to confirm"
 #~ msgstr "スポット確保済み — 支払いで確定"
@@ -1034,6 +1058,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/molecules/AIResponseCard.re.mjs:45
 #~ msgid "Title:"
 #~ msgstr "タイトル:"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "トッププレイヤー賞"
 
 #: src/components/organisms/EventItem.re.mjs:266
 #~ msgid "waitlist"

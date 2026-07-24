@@ -53,7 +53,7 @@ msgstr ""
 #~ msgid "all level"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "...more"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:555
+#: src/components/pages/PkEventPage.re.mjs:606
 msgid "cancel event"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Cancel RSVP"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:218
+#: src/components/pages/PkEventPage.re.mjs:220
 msgid "CANCELED"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:571
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -180,11 +180,11 @@ msgstr ""
 msgid "Confirmed · {0}"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Copied!"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:539
+#: src/components/pages/PkEventPage.re.mjs:590
 msgid "copy event"
 msgstr ""
 
@@ -198,6 +198,14 @@ msgstr ""
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
@@ -226,7 +234,7 @@ msgstr ""
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:532
+#: src/components/pages/PkEventPage.re.mjs:583
 msgid "edit event"
 msgstr ""
 
@@ -258,8 +266,8 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:842
-#: src/components/pages/PkEventPage.re.mjs:880
+#: src/components/pages/PkEventPage.re.mjs:898
+#: src/components/pages/PkEventPage.re.mjs:936
 msgid "Event not found"
 msgstr ""
 
@@ -279,7 +287,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:301
+#: src/components/pages/PkEventPage.re.mjs:303
 msgid "Free"
 msgstr ""
 
@@ -329,7 +337,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "less"
 msgstr ""
 
@@ -337,7 +345,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:333
 msgid "Location"
 msgstr ""
 
@@ -383,9 +391,13 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:686
+#: src/components/pages/PkEventPage.re.mjs:742
 msgid "Notes from the host"
 msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+#~ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
@@ -439,6 +451,10 @@ msgstr ""
 msgid "Prefer not to say"
 msgstr ""
 
+#: src/components/pages/PkEventPage.re.mjs:401
+msgid "Presented by"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
@@ -469,12 +485,12 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refreshing…"
 msgstr ""
 
@@ -543,7 +559,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
 msgstr ""
 
@@ -558,6 +574,10 @@ msgstr ""
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 #~ msgid "Spot held — pay to confirm"
@@ -607,7 +627,11 @@ msgstr ""
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:544
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "uncancel event"
 msgstr ""
 

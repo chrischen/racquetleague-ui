@@ -66,6 +66,11 @@ const resolveAssets = (
   path: keyof typeof manifest
 ): AssetChunk => {
   const entry = manifest[path];
+  // Pass-through layout routes (no `lazy`/`handle`) have no manifest entry —
+  // they contribute no assets, so skip them instead of crashing on `.file`.
+  if (!entry) {
+    return { js: new Set(), css: new Set() };
+  }
   const current: AssetChunk = {
     js: entry.file ? new Set([entry.file]) : new Set(),
     css: entry.css ? new Set(entry.css) : new Set(),

@@ -1,0 +1,45 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-24 04:28+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "เสื้อยืดและหมวกแก๊ป Dallash Flash อย่างเป็นทางการ"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+msgid "Presented by"
+msgstr "นำเสนอโดย"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+msgid "Prizes"
+msgstr "รางวัล"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+msgid "Sponsor logo"
+msgstr "โลโก้สปอนเซอร์"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "ผู้เล่นชายอันดับต้น 4 คนและผู้เล่นหญิงอันดับต้น 4 คน จะได้รับรางวัล"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+msgid "Top Player Awards"
+msgstr "รางวัลผู้เล่นยอดเยี่ยม"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid ""
+#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
+#~ "and top 4 women players"
+#~ msgstr ""
+#~ "เสื้อยืดและหมวก Dallash Flash อย่างเป็นทางการ — มอบให้แก่นักกีฬาชายและหญิง 4 อันดับแรก"

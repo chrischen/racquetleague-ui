@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2t1CEW\":\"Dallash Flash 官方T恤与棒球帽\",\"jm2u2t\":\"由...呈现\",\"pnk/Or\":\"奖品\",\"4J37Jq\":\"赞助商标志\",\"H/Hmip\":\"前4名男子及前4名女子球员各获得一份奖品。\",\"KEcMej\":\"最佳球员奖\",\"XuapfX\":\"官方 Dallash Flash T恤和棒球帽 — 颁发给排名前4的男子和前4的女子球员\"}");

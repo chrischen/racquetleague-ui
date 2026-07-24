@@ -13,49 +13,165 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr "...加载更高评分的球员"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
-#: src/components/pages/LeagueRankingsPage.re.mjs:59
+#: src/components/pages/LeagueRankingsPage.re.mjs:198
+msgid "All"
+msgstr "全部"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:237
+msgid "All Clubs"
+msgstr "所有俱乐部"
+
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "所有球员已加载"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:113
 msgid "Competitive Doubles"
 msgstr "竞技双打"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid "Competitive Singles"
 msgstr "竞技单打"
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
-msgstr "女性"
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "草稿"
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "草稿截止 · 前8名晋级"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "预计 DUPR"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:251
+msgid "Filter by club"
+msgstr "按俱乐部筛选"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:222
+msgid "Filter by gender"
+msgstr "按性别筛选"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:142
+msgid "Live Standings"
+msgstr "实时排名"
+
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr "加载更多球员..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:143
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "加载下一排名"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:306
 msgid "Loading rankings..."
 msgstr "加载排名..."
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Men"
+msgstr "男子"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "未找到球员"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "Dallash Flash 官方T恤与棒球帽"
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr "球员"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+msgid "Presented by"
+msgstr "由...呈现"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+msgid "Prizes"
+msgstr "奖品"
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr "评分"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:175
+msgid "Search players..."
+msgstr "搜索球员..."
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+msgid "Sponsor logo"
+msgstr "赞助商标志"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:158
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "Pkuru.com 官方竞技双打排名。"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "前4名男子及前4名女子球员各获得一份奖品。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:162
+msgid ""
+"To participate, join any event with the trophy icon (competitive rated "
+"events) to receive a rating."
+msgstr "参与方式：报名任意带有奖杯图标的赛事（竞技评级赛事）即可获得评级。"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+msgid "Top Player Awards"
+msgstr "最佳球员奖"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "请尝试扩大搜索范围或调整筛选条件。"
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "查看我的主页"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:208
+msgid "Women"
+msgstr "女子"
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr "我"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "我的排名"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
-msgstr "男性"
+#~ msgid "Male"
+#~ msgstr "男性"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
-msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
-msgstr "与不同的搭档进行双打比赛，获得个人评分。每月向最优秀的球员颁发奖品。"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:125
-msgid "To participate, please join the events here:"
-msgstr "要参与，请在此加入活动："
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:100
-msgid "View My Profile"
-msgstr "查看我的资料"
+#~ msgid ""
+#~ "Play doubles games with different partners and receive an individual "
+#~ "rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
+#~ "与不同的搭档进行双打比赛，获得个人评分。每月向最优秀的球员颁发奖品。"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #~ msgid "Recreational Doubles"
 #~ msgstr "休闲双打"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
+#~ msgid "To participate, please join the events here:"
+#~ msgstr "要参与，请在此加入活动："
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
+#~ msgid "View My Profile"
+#~ msgstr "查看我的资料"

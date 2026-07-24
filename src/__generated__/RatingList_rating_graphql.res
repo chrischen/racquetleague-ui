@@ -12,6 +12,7 @@ module Types = {
   }
   type fragment = {
     @live id: string,
+    mu: option<float>,
     ordinal: option<float>,
     user: option<fragment_user>,
   }
@@ -83,6 +84,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "ordinal",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "mu",
       "storageKey": null
     },
     {

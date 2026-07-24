@@ -13,14 +13,6 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/LeaguePage.re.mjs:44
-msgid "japan pickle league"
-msgstr "日本ピックルリーグ"
-
-#: src/components/pages/LeaguePage.re.mjs:35
-msgid "Tokyo Badminton League"
-msgstr "東京バドミントンリーグ"
-
 #: src/components/organisms/RatingList.re.mjs:204
 #~ msgid "--"
 #~ msgstr "--"
@@ -44,6 +36,10 @@ msgstr "東京バドミントンリーグ"
 #: src/components/organisms/RatingList.re.mjs:204
 #~ msgid "Female"
 #~ msgstr "女性"
+
+#: src/components/pages/LeaguePage.re.mjs:44
+#~ msgid "japan pickle league"
+#~ msgstr "日本ピックルリーグ"
 
 #: src/components/organisms/RatingList.re.mjs:242
 #~ msgid "load more"
@@ -139,6 +135,10 @@ msgstr "東京バドミントンリーグ"
 #~ "This prize will be awarded to the top male and female players on this day."
 #~ msgstr ""
 #~ "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+
+#: src/components/pages/LeaguePage.re.mjs:35
+#~ msgid "Tokyo Badminton League"
+#~ msgstr "東京バドミントンリーグ"
 
 #: src/components/pages/LeaguePage.re.mjs:71
 #~ msgid "Top female and top male players will each receive the prize."

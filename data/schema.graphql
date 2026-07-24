@@ -466,6 +466,7 @@ input LeagueRatingInput {
 type LeagueUserStat {
   bestOpponents: [LeagueUserStatEntry!]!
   bestPartners: [LeagueUserStatEntry!]!
+  daysNumberOne: Float!
   hardcourtRating: DisciplineRating
   hardcourtZScore: Float
   indoorIndoorBallRating: DisciplineRating

@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2t1CEW\":\"ダラッシュフラッシュ公式Tシャツ＆ボールキャップ\",\"jm2u2t\":\"提供：\",\"pnk/Or\":\"賞品\",\"4J37Jq\":\"スポンサーロゴ\",\"H/Hmip\":\"男性上位4名・女性上位4名のプレイヤーがそれぞれ賞品を獲得します。\",\"KEcMej\":\"トッププレイヤー賞\",\"XuapfX\":\"公式Dallash FlashのTシャツとボールキャップ — 男子トップ4・女子トップ4の選手に授与\"}");

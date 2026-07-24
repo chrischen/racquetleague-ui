@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "...more"
 msgstr "...thêm"
 
@@ -264,7 +264,7 @@ msgstr "Hủy"
 msgid "Cancel editing availability"
 msgstr "Hủy chỉnh sửa lịch rảnh"
 
-#: src/components/pages/PkEventPage.re.mjs:555
+#: src/components/pages/PkEventPage.re.mjs:606
 msgid "cancel event"
 msgstr "hủy sự kiện"
 
@@ -276,7 +276,7 @@ msgstr "Hủy đăng ký"
 msgid "Canceled"
 msgstr "Đã hủy"
 
-#: src/components/pages/PkEventPage.re.mjs:218
+#: src/components/pages/PkEventPage.re.mjs:220
 msgid "CANCELED"
 msgstr "ĐÃ HỦY"
 
@@ -298,7 +298,7 @@ msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để
 msgid "Cancelling..."
 msgstr "Đang hủy..."
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:571
 msgid "Cannot access variable \\\"title\\\""
 msgstr "Không thể truy cập biến \\\"title\\\""
 
@@ -331,11 +331,11 @@ msgstr "Hoàn thiện hồ sơ của bạn"
 msgid "Confirmed · {0}"
 msgstr "Đã xác nhận · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Copied!"
 msgstr "Đã sao chép!"
 
-#: src/components/pages/PkEventPage.re.mjs:539
+#: src/components/pages/PkEventPage.re.mjs:590
 msgid "copy event"
 msgstr "sao chép sự kiện"
 
@@ -363,6 +363,14 @@ msgstr "Sân phù hợp toàn bộ thời gian của bạn"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "Các sân:"
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "Dallas Flash"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "Dallas Flash Swag"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
 #: src/components/organisms/MatchCard.re.mjs:428
@@ -398,7 +406,7 @@ msgstr "DUPR"
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
-#: src/components/pages/PkEventPage.re.mjs:532
+#: src/components/pages/PkEventPage.re.mjs:583
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
@@ -447,7 +455,7 @@ msgstr "Buổi tối"
 msgid "event"
 msgstr "sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:842
+#: src/components/pages/PkEventPage.re.mjs:898
 msgid "Event not found"
 msgstr "Không tìm thấy sự kiện"
 
@@ -476,7 +484,7 @@ msgstr "Lọc theo ngày"
 msgid "For event updates and notifications"
 msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
-#: src/components/pages/PkEventPage.re.mjs:301
+#: src/components/pages/PkEventPage.re.mjs:303
 msgid "Free"
 msgstr "Miễn phí"
 
@@ -550,7 +558,7 @@ msgstr "Rời danh sách chờ"
 msgid "Leaving..."
 msgstr "Đang rời..."
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "less"
 msgstr "thu gọn"
 
@@ -558,7 +566,7 @@ msgstr "thu gọn"
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: src/components/pages/PkEventPage.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:333
 msgid "Location"
 msgstr "Địa điểm"
 
@@ -624,7 +632,7 @@ msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi ngư�
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/pages/PkEventPage.re.mjs:686
+#: src/components/pages/PkEventPage.re.mjs:742
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
@@ -702,6 +710,10 @@ msgstr "người chơi"
 msgid "Prefer not to say"
 msgstr "Không muốn tiết lộ"
 
+#: src/components/pages/PkEventPage.re.mjs:401
+msgid "Presented by"
+msgstr "Được tài trợ bởi"
+
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
@@ -737,12 +749,12 @@ msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 msgid "Refresh"
 msgstr "Làm mới"
 
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refresh event details"
 msgstr "Làm mới chi tiết sự kiện"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "Đang làm mới…"
@@ -833,7 +845,7 @@ msgstr "Điểm số"
 msgid "Set your time"
 msgstr "Đặt thời gian của bạn"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
 msgstr "Chia sẻ"
 
@@ -964,7 +976,7 @@ msgstr "TB TOP 6"
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
-#: src/components/pages/PkEventPage.re.mjs:544
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "uncancel event"
 msgstr "khôi phục sự kiện"
 
@@ -1186,6 +1198,14 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #~ msgstr ""
 #~ "Khớp lịch rảnh của bạn với phân đoạn đã chọn, sau đó mời người chơi."
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid ""
+#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
+#~ "and top 4 women players"
+#~ msgstr ""
+#~ "Áo T-Shirt và Mũ lưỡi trai Dallash Flash chính thức — trao tặng cho 4 nam "
+#~ "và 4 nữ vận động viên xuất sắc nhất"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "mở"
@@ -1214,9 +1234,17 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #~ msgid "Players"
 #~ msgstr "Người chơi"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "Logo nhà tài trợ"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "Giải thưởng cầu thủ xuất sắc"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
 #~ msgid "Use this time"

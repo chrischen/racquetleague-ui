@@ -13,18 +13,67 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr "...상위 레이팅 플레이어 불러오기"
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
-msgstr "여성"
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "모든 플레이어 로드됨"
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "드래프트"
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "드래프트 마감 · 상위 8명 진출"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "예상 DUPR"
+
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr "플레이어 더 불러오기..."
 
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "다음 순위 로딩 중"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "플레이어를 찾을 수 없습니다"
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr "플레이어"
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr "레이팅"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "검색어 또는 필터를 넓혀보세요."
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "내 프로필 보기"
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr "나"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "내 순위"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "여성"
+
 #: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
-msgstr "남성"
+#~ msgid "Male"
+#~ msgstr "남성"

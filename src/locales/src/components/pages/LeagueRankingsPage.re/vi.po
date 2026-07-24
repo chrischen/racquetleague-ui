@@ -13,47 +13,164 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr "...tải người chơi xếp hạng cao hơn"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
-#: src/components/pages/LeagueRankingsPage.re.mjs:59
+#: src/components/pages/LeagueRankingsPage.re.mjs:198
+msgid "All"
+msgstr "Tất cả"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:237
+msgid "All Clubs"
+msgstr "Tất cả câu lạc bộ"
+
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "Đã tải tất cả người chơi"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:113
 msgid "Competitive Doubles"
 msgstr "Đôi thi đấu"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid "Competitive Singles"
 msgstr "Đơn thi đấu"
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
-msgstr "Nữ"
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "Nháp"
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "Hạn chót nháp · Top 8 vào vòng chính"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "DUPR ước tính"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:251
+msgid "Filter by club"
+msgstr "Lọc theo câu lạc bộ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:222
+msgid "Filter by gender"
+msgstr "Lọc theo giới tính"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:142
+msgid "Live Standings"
+msgstr "Bảng xếp hạng trực tiếp"
+
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr "Tải thêm người chơi..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:143
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "Đang tải bảng xếp hạng tiếp theo"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:306
 msgid "Loading rankings..."
 msgstr "Đang tải bảng xếp hạng..."
 
-#: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Men"
 msgstr "Nam"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "Không tìm thấy người chơi"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "Áo phông và mũ lưỡi trai chính thức của Dallash Flash"
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr "Người chơi"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+msgid "Presented by"
+msgstr "Được tài trợ bởi"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+msgid "Prizes"
+msgstr "Giải thưởng"
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr "Xếp hạng"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:175
+msgid "Search players..."
+msgstr "Tìm kiếm người chơi..."
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+msgid "Sponsor logo"
+msgstr "Logo nhà tài trợ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:158
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "Bảng xếp hạng đôi thi đấu chính thức của Pkuru.com."
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "Top 4 nam và top 4 nữ mỗi người sẽ nhận được một giải thưởng."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:162
 msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
+"To participate, join any event with the trophy icon (competitive rated "
+"events) to receive a rating."
 msgstr ""
-"Chơi các trận đôi với các đối tác khác nhau và nhận xếp hạng cá nhân. Giải "
-"thưởng được trao hàng tháng cho các người chơi hàng đầu."
+"Để tham gia, hãy đăng ký bất kỳ sự kiện nào có biểu tượng cúp (sự kiện thi "
+"đấu có xếp hạng) để nhận điểm xếp hạng."
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+msgid "Top Player Awards"
+msgstr "Giải thưởng cầu thủ xuất sắc"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "Hãy mở rộng tìm kiếm hoặc bộ lọc của bạn."
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "Xem hồ sơ của tôi"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:208
+msgid "Women"
+msgstr "Nữ"
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr "Bạn"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "Thứ hạng của bạn"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "Nữ"
+
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "Nam"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#~ msgid ""
+#~ "Play doubles games with different partners and receive an individual "
+#~ "rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
+#~ "Chơi các trận đôi với các đối tác khác nhau và nhận xếp hạng cá nhân. "
+#~ "Giải thưởng được trao hàng tháng cho các người chơi hàng đầu."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:125
-msgid "To participate, please join the events here:"
-msgstr "Để tham gia, vui lòng tham gia các sự kiện tại đây:"
+#~ msgid "To participate, please join the events here:"
+#~ msgstr "Để tham gia, vui lòng tham gia các sự kiện tại đây:"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:100
-msgid "View My Profile"
-msgstr "Xem hồ sơ của tôi"
+#~ msgid "View My Profile"
+#~ msgstr "Xem hồ sơ của tôi"

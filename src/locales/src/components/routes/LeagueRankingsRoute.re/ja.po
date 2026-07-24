@@ -13,51 +13,168 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:606
 msgid "...load higher rated players"
 msgstr "... より高い評価のプレイヤーを読み込む"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
-#: src/components/pages/LeagueRankingsPage.re.mjs:59
+#: src/components/pages/LeagueRankingsPage.re.mjs:198
+msgid "All"
+msgstr "すべて"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:237
+msgid "All Clubs"
+msgstr "すべてのクラブ"
+
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "全プレイヤーを読み込みました"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:113
 msgid "Competitive Doubles"
 msgstr "競技ダブルス"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:58
+#: src/components/pages/LeagueRankingsPage.re.mjs:112
 msgid "Competitive Singles"
 msgstr "競技シングルス"
 
-#: src/components/organisms/RatingList.re.mjs:202
-msgid "Female"
-msgstr "女性"
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "ドラフト"
 
-#: src/components/organisms/RatingList.re.mjs:295
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "ドラフト締切 · 上位8名が出場資格"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "推定DUPR"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:251
+msgid "Filter by club"
+msgstr "クラブで絞り込む"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:222
+msgid "Filter by gender"
+msgstr "性別で絞り込む"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:142
+msgid "Live Standings"
+msgstr "ライブ順位"
+
+#: src/components/organisms/RatingList.re.mjs:580
 msgid "Load more players..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:143
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "次の順位を読み込み中"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:306
 msgid "Loading rankings..."
 msgstr "ランキングを読み込んでいます..."
 
-#: src/components/organisms/RatingList.re.mjs:204
-msgid "Male"
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Men"
 msgstr "男性"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "プレイヤーが見つかりません"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "ダラッシュフラッシュ公式Tシャツ＆ボールキャップ"
+
+#: src/components/organisms/RatingList.re.mjs:628
+msgid "Player"
+msgstr "プレイヤー"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+msgid "Presented by"
+msgstr "提供："
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+msgid "Prizes"
+msgstr "賞品"
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr "評価"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:175
+msgid "Search players..."
+msgstr "プレイヤーを検索..."
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+msgid "Sponsor logo"
+msgstr "スポンサーロゴ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:158
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "Pkuru.com公式競技ダブルスランキング。"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "男性上位4名・女性上位4名のプレイヤーがそれぞれ賞品を獲得します。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:162
 msgid ""
-"Play doubles games with different partners and receive an individual rating. "
-"Prizes are awarded monthly to top players."
+"To participate, join any event with the trophy icon (competitive rated "
+"events) to receive a rating."
 msgstr ""
-"異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は"
-"毎月トッププレイヤーに授与されます。"
+"参加するには、トロフィーアイコン付きのイベント（競技レーティングイベント）に"
+"参加してレーティングを取得してください。"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:125
-msgid "To participate, please join the events here:"
-msgstr "参加するには、こちらのイベントに参加してください:"
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+msgid "Top Player Awards"
+msgstr "トッププレイヤー賞"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:100
-msgid "View My Profile"
-msgstr "私のプロフィールを見る"
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "検索条件やフィルターを広げてお試しください。"
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "マイプロフィールを見る"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:208
+msgid "Women"
+msgstr "女性"
+
+#: src/components/organisms/RatingList.re.mjs:330
+msgid "You"
+msgstr "あなた"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "あなたの順位"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "女性"
+
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#~ msgid ""
+#~ "Play doubles games with different partners and receive an individual "
+#~ "rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
+#~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
+#~ "は毎月トッププレイヤーに授与されます。"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #~ msgid "Recreational Doubles"
 #~ msgstr "レクリエーショナルダブルス"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
+#~ msgid "To participate, please join the events here:"
+#~ msgstr "参加するには、こちらのイベントに参加してください:"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
+#~ msgid "View My Profile"
+#~ msgstr "私のプロフィールを見る"

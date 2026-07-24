@@ -1,7 +1,11 @@
 module CalendarClock = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
-    "CalendarClock"
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "CalendarClock"
 }
 
 module CalendarPlus = {
@@ -263,9 +267,51 @@ module Sparkles = {
   external make: (
     ~size: int=?,
     ~strokeWidth: float=?,
+    ~fill: string=?,
     ~className: string=?,
     ~\"aria-hidden": string=?,
   ) => React.element = "Sparkles"
+}
+
+module Crown = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~fill: string=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Crown"
+}
+
+module Gift = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Gift"
+}
+
+module Award = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Award"
+}
+
+module ArrowDownRight = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "ArrowDownRight"
 }
 
 module GripVertical = {
@@ -405,7 +451,12 @@ module CircleHelp = {
 
 module Activity = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Activity"
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Activity"
 }
 
 module FileText = {

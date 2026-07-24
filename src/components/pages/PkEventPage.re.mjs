@@ -17,11 +17,13 @@ import * as PullToRefresh from "../shared/PullToRefresh.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as PkEventMessages from "../organisms/PkEventMessages.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
+import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as EventStickyFooter from "../organisms/EventStickyFooter.re.mjs";
 import * as ResponsiveTooltip from "../molecules/ResponsiveTooltip.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as TopPlayerAwardsBanner from "./TopPlayerAwardsBanner.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as RoundRobinDrawsPreview from "../organisms/RoundRobinDrawsPreview.re.mjs";
 import * as PkEventPageQuery_graphql from "../../__generated__/PkEventPageQuery_graphql.re.mjs";
@@ -382,6 +384,55 @@ var EventLocationSection = {
   make: PkEventPage$EventLocationSection
 };
 
+function ts(prim0, prim1) {
+  return Caml_splice_call.spliceApply(t, [
+              prim0,
+              prim1
+            ]);
+}
+
+function PkEventPage$SponsorBanner(props) {
+  return JsxRuntime.jsxs(ReactRouterDom.Link, {
+              to: "/league/pickleball",
+              children: [
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("span", {
+                              children: t`Presented by`,
+                              className: "font-mono text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300 flex-shrink-0"
+                            }),
+                        JsxRuntime.jsx("img", {
+                              className: "h-6 w-auto max-w-[140px] object-contain rounded bg-white px-1.5 py-0.5 shadow-sm flex-shrink-0",
+                              alt: t`Dallas Flash`,
+                              src: TopPlayerAwardsBanner.sponsorLogo
+                            })
+                      ],
+                      className: "flex items-center gap-2 min-w-0"
+                    }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx(LucideReact.Gift, {
+                              size: 12,
+                              strokeWidth: 2.25,
+                              className: "text-amber-700 dark:text-amber-400"
+                            }),
+                        JsxRuntime.jsx("span", {
+                              children: t`Dallas Flash Swag`,
+                              className: "font-mono text-[11px] leading-tight font-bold text-amber-800 dark:text-amber-300"
+                            })
+                      ],
+                      className: "flex items-center gap-1.5 flex-shrink-0 px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700/60"
+                    })
+              ],
+              className: "px-5 py-3 border-b-2 border-violet-200 dark:border-violet-700/50 bg-violet-50 dark:bg-violet-900/30 hover:bg-violet-100 dark:hover:bg-violet-900/50 transition-colors flex items-center justify-between gap-3"
+            });
+}
+
+var SponsorBanner = {
+  ts: ts,
+  make: PkEventPage$SponsorBanner
+};
+
 function PkEventPage$Inner(props) {
   var onRefresh = props.onRefresh;
   var queryFragmentRefs = props.queryFragmentRefs;
@@ -669,6 +720,11 @@ function PkEventPage$Inner(props) {
                               event: $$event,
                               secret: secret
                             }),
+                        Caml_obj.equal(Core__Option.flatMap($$event.activity, (function (a) {
+                                    return a.slug;
+                                  })), "pickleball") && Core__Option.getOr($$event.tags, []).some(function (t) {
+                              return t.toLowerCase() === "comp";
+                            }) ? JsxRuntime.jsx(PkEventPage$SponsorBanner, {}) : null,
                         tmp,
                         match$15 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
                                 loc: match$15
@@ -897,6 +953,7 @@ export {
   EventUncancelMutation ,
   EventTitleSection ,
   EventLocationSection ,
+  SponsorBanner ,
   Inner ,
   Lazy ,
   make$1 as make,

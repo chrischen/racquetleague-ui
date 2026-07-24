@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2t1CEW\":\"공식 Dallash Flash 티셔츠 및 볼캡\",\"jm2u2t\":\"제공\",\"pnk/Or\":\"상품\",\"4J37Jq\":\"스폰서 로고\",\"H/Hmip\":\"상위 4명의 남성 및 상위 4명의 여성 플레이어가 각각 상품을 받습니다.\",\"KEcMej\":\"최우수 선수 시상\",\"XuapfX\":\"공식 Dallash Flash 티셔츠 및 볼캡 — 남성 상위 4명 및 여성 상위 4명 선수에게 수여\"}");

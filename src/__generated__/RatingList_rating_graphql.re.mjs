@@ -58,6 +58,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "mu",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "User",
       "kind": "LinkedField",
       "name": "user",

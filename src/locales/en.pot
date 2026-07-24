@@ -5550,3 +5550,112 @@ msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
 msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:385
+msgid "Filter by club"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:356
+msgid "Filter by gender"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:276
+msgid "Live Standings"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+msgid "Men"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:161
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:133
+msgid "Presented by"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:157
+msgid "Prizes"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:309
+msgid "Search players..."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:138
+msgid "Sponsor logo"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:292
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:122
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:296
+msgid ""
+"To participate, join any event with the trophy icon (competitive rated "
+"events) to receive a rating."
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:99
+msgid "Top Player Awards"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:342
+msgid "Women"
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+msgid ""
+"Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and "
+"top 4 women players"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr ""

@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "...more"
 msgstr "...더 보기"
 
@@ -96,7 +96,7 @@ msgstr "균형"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/pages/PkEventPage.re.mjs:555
+#: src/components/pages/PkEventPage.re.mjs:606
 msgid "cancel event"
 msgstr "이벤트 취소"
 
@@ -108,7 +108,7 @@ msgstr "참가 취소"
 msgid "Canceled"
 msgstr "취소됨"
 
-#: src/components/pages/PkEventPage.re.mjs:218
+#: src/components/pages/PkEventPage.re.mjs:220
 msgid "CANCELED"
 msgstr "취소됨"
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:520
+#: src/components/pages/PkEventPage.re.mjs:571
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
@@ -160,11 +160,11 @@ msgstr "프로필 완성하기"
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Copied!"
 msgstr "복사됨!"
 
-#: src/components/pages/PkEventPage.re.mjs:539
+#: src/components/pages/PkEventPage.re.mjs:590
 msgid "copy event"
 msgstr "이벤트 복사"
 
@@ -179,6 +179,14 @@ msgstr "코트 {0} - 편집 중"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "코트:"
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "달라스 플래시"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "달라스 플래시 스웨그"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
 #: src/components/organisms/MatchCard.re.mjs:428
@@ -206,7 +214,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:532
+#: src/components/pages/PkEventPage.re.mjs:583
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -247,7 +255,7 @@ msgstr "균등"
 msgid "event"
 msgstr "이벤트"
 
-#: src/components/pages/PkEventPage.re.mjs:842
+#: src/components/pages/PkEventPage.re.mjs:898
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -276,7 +284,7 @@ msgstr "날짜별 필터"
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/pages/PkEventPage.re.mjs:301
+#: src/components/pages/PkEventPage.re.mjs:303
 msgid "Free"
 msgstr "무료"
 
@@ -334,7 +342,7 @@ msgstr "대기 명단에서 나가기"
 msgid "Leaving..."
 msgstr "나가는 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:349
+#: src/components/pages/PkEventPage.re.mjs:351
 msgid "less"
 msgstr "간략히"
 
@@ -342,7 +350,7 @@ msgstr "간략히"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:333
 msgid "Location"
 msgstr "장소"
 
@@ -395,7 +403,7 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:686
+#: src/components/pages/PkEventPage.re.mjs:742
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
@@ -457,6 +465,10 @@ msgstr "플레이어"
 msgid "Prefer not to say"
 msgstr "밝히지 않음"
 
+#: src/components/pages/PkEventPage.re.mjs:401
+msgid "Presented by"
+msgstr "제공"
+
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
@@ -492,12 +504,12 @@ msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 �
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 msgid "Refresh event details"
 msgstr "이벤트 세부 정보 새로 고침"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:652
+#: src/components/pages/PkEventPage.re.mjs:703
 #: src/components/shared/EventsListView.re.mjs:151
 msgid "Refreshing…"
 msgstr "새로 고침 중…"
@@ -563,7 +575,7 @@ msgstr "점수 저장"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/pages/PkEventPage.re.mjs:253
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
 msgstr "공유"
 
@@ -676,7 +688,7 @@ msgstr "상위6평균"
 msgid "Tuesday"
 msgstr "화요일"
 
-#: src/components/pages/PkEventPage.re.mjs:544
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 
@@ -779,6 +791,14 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgid "min"
 #~ msgstr "분"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid ""
+#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
+#~ "and top 4 women players"
+#~ msgstr ""
+#~ "공식 Dallash Flash 티셔츠 및 볼캡 — 남성 상위 4명 및 여성 상위 4명 선수에"
+#~ "게 수여"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:194
 #~ msgid "Pay {0}"
 #~ msgstr "{0} 결제"
@@ -791,9 +811,17 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgid "Releasing..."
 #~ msgstr "취소하는 중..."
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "스폰서 로고"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 #~ msgid "Spot held — pay to confirm"
 #~ msgstr "자리 확보됨 — 결제하여 확정하세요"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "최우수 선수 시상"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

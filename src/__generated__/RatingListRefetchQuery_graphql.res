@@ -254,17 +254,24 @@ return {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
-                        "name": "picture",
+                        "name": "gender",
                         "storageKey": null
                       },
                       {
                         "alias": null,
                         "args": null,
                         "kind": "ScalarField",
-                        "name": "gender",
+                        "name": "picture",
                         "storageKey": null
                       }
                     ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "mu",
                     "storageKey": null
                   },
                   {
@@ -345,12 +352,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "13e2576a4e14e5860b7a44465e5b8cb7",
+    "cacheID": "ca5f6b697f250cbc346310f5dfb6a5d9",
     "id": null,
     "metadata": {},
     "name": "RatingListRefetchQuery",
     "operationKind": "query",
-    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $clubSlug: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $clubSlug: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        user {\n          id\n          lineUsername\n          gender\n        }\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  mu\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
   }
 };
 })() `)

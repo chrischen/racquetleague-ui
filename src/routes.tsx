@@ -175,9 +175,9 @@ const mainRoutes: RouteObject[] =
       handle: "src/components/routes/UpdateEventRoute.gen.tsx",
     },
     {
+      // League rankings render full-bleed (no DefaultLayoutContent card) so
+      // the leaderboard design sits flush inside the app shell.
       path: "league",
-      lazy: () => import("./components/routes/DefaultLayoutContentRoute.gen"),
-      handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
       children: [
         {
           path: ":activitySlug",
@@ -222,9 +222,17 @@ const mainRoutes: RouteObject[] =
           ]
         },
         {
+          // The league event page keeps the padded content card.
           path: "events/:eventId/:activitySlug",
-          lazy: () => import("./components/routes/LeagueEventRoute.gen"),
-          handle: "src/components/routes/LeagueEventRoute.gen.tsx",
+          lazy: () => import("./components/routes/DefaultLayoutContentRoute.gen"),
+          handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
+          children: [
+            {
+              index: true,
+              lazy: () => import("./components/routes/LeagueEventRoute.gen"),
+              handle: "src/components/routes/LeagueEventRoute.gen.tsx",
+            },
+          ]
         },
       ]
     },

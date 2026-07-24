@@ -14,9 +14,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/pages/LeaguePage.re.mjs:44
-msgid "japan pickle league"
-msgstr "japan pickle league"
+#~ msgid "japan pickle league"
+#~ msgstr "japan pickle league"
 
 #: src/components/pages/LeaguePage.re.mjs:35
-msgid "Tokyo Badminton League"
-msgstr "Tokyo Badminton League"
+#~ msgid "Tokyo Badminton League"
+#~ msgstr "Tokyo Badminton League"

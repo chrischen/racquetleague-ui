@@ -4843,6 +4843,111 @@ msgstr "คอร์ท · ความหนา = จำนวน"
 msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
 msgstr "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน เส้นสีฟ้าที่หนากว่าหมายถึงจำนวนคอร์ทที่มากกว่า"
 
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "โหลดผู้เล่นทั้งหมดแล้ว"
+
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "ดราฟต์"
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "เส้นตัดดราฟต์ · 8 อันดับแรกผ่านเข้ารอบ"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "DUPR โดยประมาณ"
+
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "กำลังโหลดอันดับถัดไป"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "ไม่พบผู้เล่น"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "ลองขยายการค้นหาหรือตัวกรองของคุณ"
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "ดูโปรไฟล์ของฉัน"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "อันดับของคุณ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:385
+msgid "Filter by club"
+msgstr "กรองตามสโมสร"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:356
+msgid "Filter by gender"
+msgstr "กรองตามเพศ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:276
+msgid "Live Standings"
+msgstr "อันดับสด"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+msgid "Men"
+msgstr "ชาย"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:161
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "เสื้อยืดและหมวกแก๊ป Dallash Flash อย่างเป็นทางการ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:133
+msgid "Presented by"
+msgstr "นำเสนอโดย"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:157
+msgid "Prizes"
+msgstr "รางวัล"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:309
+msgid "Search players..."
+msgstr "ค้นหาผู้เล่น..."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:138
+msgid "Sponsor logo"
+msgstr "โลโก้สปอนเซอร์"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:292
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "อันดับดับเบิลส์แข่งขันอย่างเป็นทางการของ Pkuru.com"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:122
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "ผู้เล่นชายอันดับต้น 4 คนและผู้เล่นหญิงอันดับต้น 4 คน จะได้รับรางวัล"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:296
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr "เพื่อเข้าร่วม สมัครกิจกรรมที่มีไอคอนถ้วยรางวัล (กิจกรรมแข่งขันที่มีการจัดอันดับ) เพื่อรับคะแนนเรตติ้ง"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:99
+msgid "Top Player Awards"
+msgstr "รางวัลผู้เล่นยอดเยี่ยม"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:342
+msgid "Women"
+msgstr "หญิง"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+msgstr "เสื้อยืดและหมวก Dallash Flash อย่างเป็นทางการ — มอบให้แก่นักกีฬาชายและหญิง 4 อันดับแรก"
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "ดัลลาส แฟลช"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "สินค้าดัลลาส แฟลช"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

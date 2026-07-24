@@ -33,14 +33,15 @@ module Layout = {
     // <UserProvider query={fragmentRefs}>
     let viewer = viewer->Option.map(v => v.fragmentRefs)
     <GlobalQuery.Provider value={viewer}>
-      <Grid cols=1>
+      // No vertical gaps so page content sits flush under the nav
+      <div>
         <React.Suspense fallback={"..."->React.string}>
           <LeagueNav query={query} />
         </React.Suspense>
         <InstallPwa />
         {children}
         <Footer />
-      </Grid>
+      </div>
     </GlobalQuery.Provider>
     // </UserProvider>
   }

@@ -4843,6 +4843,111 @@ msgstr "場地 · 粗細 = 數量"
 msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
 msgstr "設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示可用場地越多。"
 
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "已載入所有球員"
+
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "積分榜"
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "積分截止 · 前8名晉級"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "預估 DUPR"
+
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "載入下一積分榜"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "找不到球員"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "請嘗試擴大搜尋範圍或調整篩選條件。"
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "查看我的個人資料"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "我的排名"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:385
+msgid "Filter by club"
+msgstr "按俱樂部篩選"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:356
+msgid "Filter by gender"
+msgstr "按性別篩選"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:276
+msgid "Live Standings"
+msgstr "即時積分榜"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+msgid "Men"
+msgstr "男子"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:161
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "Dallash Flash 官方T恤及棒球帽"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:133
+msgid "Presented by"
+msgstr "由...呈獻"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:157
+msgid "Prizes"
+msgstr "獎項"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:309
+msgid "Search players..."
+msgstr "搜尋球員..."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:138
+msgid "Sponsor logo"
+msgstr "贊助商標誌"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:292
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "Pkuru.com 官方競技雙打排名。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:122
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "男子前4名及女子前4名球員各可獲得獎項。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:296
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr "參與方式：報名任何帶有獎盃圖示的賽事（競技評分賽事）以獲得評分。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:99
+msgid "Top Player Awards"
+msgstr "頂尖球員獎"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:342
+msgid "Women"
+msgstr "女子"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+msgstr "官方 Dallash Flash T恤與棒球帽 — 頒發給男子前4名及女子前4名球員"
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "達拉斯閃電"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "達拉斯閃電周邊商品"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

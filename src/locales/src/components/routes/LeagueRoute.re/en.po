@@ -14,8 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/pages/LeaguePage.re.mjs:44
-msgid "japan pickle league"
-msgstr ""
+#~ msgid "japan pickle league"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:58
 #~ msgid "Mach 2 Forza Paddle"
@@ -62,8 +62,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:35
-msgid "Tokyo Badminton League"
-msgstr ""
+#~ msgid "Tokyo Badminton League"
+#~ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:71
 #~ msgid "Top female and top male players will each receive the prize."

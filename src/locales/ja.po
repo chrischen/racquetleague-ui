@@ -5093,6 +5093,111 @@ msgstr "コート・厚さ＝数"
 msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
 msgstr "今後2週間の空き状況を設定してください。イベントと空き時間帯は同じ枠を共有し、シアンの線が太いほど多くのコートが利用可能です。"
 
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "全プレイヤーを読み込みました"
+
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "ドラフト"
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "ドラフト締切 · 上位8名が出場資格"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "推定DUPR"
+
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "次の順位を読み込み中"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "プレイヤーが見つかりません"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "検索条件やフィルターを広げてお試しください。"
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "マイプロフィールを見る"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "あなたの順位"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:385
+msgid "Filter by club"
+msgstr "クラブで絞り込む"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:356
+msgid "Filter by gender"
+msgstr "性別で絞り込む"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:276
+msgid "Live Standings"
+msgstr "ライブ順位"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+msgid "Men"
+msgstr "男性"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:161
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "ダラッシュフラッシュ公式Tシャツ＆ボールキャップ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:133
+msgid "Presented by"
+msgstr "提供："
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:157
+msgid "Prizes"
+msgstr "賞品"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:309
+msgid "Search players..."
+msgstr "プレイヤーを検索..."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:138
+msgid "Sponsor logo"
+msgstr "スポンサーロゴ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:292
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "Pkuru.com公式競技ダブルスランキング。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:122
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "男性上位4名・女性上位4名のプレイヤーがそれぞれ賞品を獲得します。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:296
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr "参加するには、トロフィーアイコン付きのイベント（競技レーティングイベント）に参加してレーティングを取得してください。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:99
+msgid "Top Player Awards"
+msgstr "トッププレイヤー賞"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:342
+msgid "Women"
+msgstr "女性"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+msgstr "公式Dallash FlashのTシャツとボールキャップ — 男子トップ4・女子トップ4の選手に授与"
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "ダラス・フラッシュ"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "ダラス・フラッシュ グッズ"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

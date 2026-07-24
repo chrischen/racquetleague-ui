@@ -4381,6 +4381,115 @@ msgstr "코트 · 두께 = 수량"
 msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
 msgstr "향후 2주간 가능한 시간을 설정하세요. 일정과 가능한 시간대가 함께 표시되며, 굵은 청록색 선일수록 더 많은 코트를 의미합니다."
 
+#: src/components/organisms/RatingList.re.mjs:710
+msgid "All players loaded"
+msgstr "모든 플레이어 로드됨"
+
+#: src/components/organisms/RatingList.re.mjs:199
+#: src/components/organisms/RatingList.re.mjs:220
+msgid "Draft"
+msgstr "드래프트"
+
+#: src/components/organisms/RatingList.re.mjs:668
+msgid "Draft cutoff · Top 8 qualify"
+msgstr "드래프트 마감 · 상위 8명 진출"
+
+#: src/components/organisms/RatingList.re.mjs:636
+msgid "Est. DUPR"
+msgstr "예상 DUPR"
+
+#: src/components/organisms/RatingList.re.mjs:556
+msgid "Loading next standings"
+msgstr "다음 순위 로딩 중"
+
+#: src/components/organisms/RatingList.re.mjs:691
+msgid "No players found"
+msgstr "플레이어를 찾을 수 없습니다"
+
+#: src/components/organisms/RatingList.re.mjs:632
+msgid "Rating"
+msgstr "레이팅"
+
+#: src/components/organisms/RatingList.re.mjs:695
+msgid "Try broadening your search or filters."
+msgstr "검색어 또는 필터를 넓혀보세요."
+
+#: src/components/organisms/RatingList.re.mjs:367
+msgid "View my profile"
+msgstr "내 프로필 보기"
+
+#: src/components/organisms/RatingList.re.mjs:278
+msgid "Your standing"
+msgstr "내 순위"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:385
+msgid "Filter by club"
+msgstr "클럽으로 필터"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:356
+msgid "Filter by gender"
+msgstr "성별로 필터"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:276
+msgid "Live Standings"
+msgstr "실시간 순위"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+msgid "Men"
+msgstr "남성"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:161
+msgid "Official Dallash Flash T-Shirts and Ball Caps"
+msgstr "공식 Dallash Flash 티셔츠 및 볼캡"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:133
+msgid "Presented by"
+msgstr "제공"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:157
+msgid "Prizes"
+msgstr "상품"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:309
+msgid "Search players..."
+msgstr "플레이어 검색..."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:138
+msgid "Sponsor logo"
+msgstr "스폰서 로고"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:292
+msgid "The official Pkuru.com competitive doubles rankings."
+msgstr "Pkuru.com 공식 경쟁 복식 랭킹."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:122
+msgid "The top 4 men and top 4 women players each earn a prize."
+msgstr "상위 4명의 남성 및 상위 4명의 여성 플레이어가 각각 상품을 받습니다."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:296
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr "참가하려면 트로피 아이콘이 있는 이벤트(경쟁 레이팅 이벤트)에 참가하여 레이팅을 받으세요."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:99
+msgid "Top Player Awards"
+msgstr "최우수 선수 시상"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:342
+msgid "Women"
+msgstr "여성"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+msgstr "공식 Dallash Flash 티셔츠 및 볼캡 — 남성 상위 4명 및 여성 상위 4명 선수에게 수여"
+
+#: src/components/pages/PkEventPage.re.mjs:406
+msgid "Dallas Flash"
+msgstr "달라스 플래시"
+
+#: src/components/pages/PkEventPage.re.mjs:420
+msgid "Dallas Flash Swag"
+msgstr "달라스 플래시 스웨그"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

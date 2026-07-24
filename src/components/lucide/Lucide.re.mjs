@@ -79,6 +79,14 @@ var Search = {};
 
 var Sparkles = {};
 
+var Crown = {};
+
+var Gift = {};
+
+var Award = {};
+
+var ArrowDownRight = {};
+
 var GripVertical = {};
 
 var Edit2 = {};
@@ -211,6 +219,10 @@ export {
   ChevronDown ,
   Search ,
   Sparkles ,
+  Crown ,
+  Gift ,
+  Award ,
+  ArrowDownRight ,
   GripVertical ,
   Edit2 ,
   Play ,
