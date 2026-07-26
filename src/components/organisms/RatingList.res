@@ -25,7 +25,7 @@ module Fragment = %relay(`
             lineUsername
             gender
           }
-          ...RatingList_rating
+          ...RatingList_rating @arguments(activitySlug: $activitySlug)
         }
       }
       pageInfo {
@@ -39,7 +39,9 @@ module Fragment = %relay(`
 `)
 
 module ItemFragment = %relay(`
-  fragment RatingList_rating on Rating {
+  fragment RatingList_rating on Rating
+  @argumentDefinitions(activitySlug: { type: "String!" })
+  {
     id
     ordinal
     mu
@@ -48,6 +50,9 @@ module ItemFragment = %relay(`
       lineUsername
       picture
       gender
+      leagueUserStats(activity: $activitySlug, namespace: "doubles:comp") {
+        daysNumberOne
+      }
     }
   }
 `)
@@ -112,6 +117,7 @@ module RatingItem = {
     user
     ->Option.map(user => {
       let name = user.lineUsername->Option.getOr("?")
+      let daysAtOne = user.leagueUserStats->Option.map(s => s.daysNumberOne)
       <li
         className={Util.cx([
           "group relative flex items-center overflow-hidden shadow-sm hover:shadow-[0_0_15px_rgba(189,242,93,0.2)] transition-all py-3.5 md:py-5 px-3 md:px-4 border-b",
@@ -227,6 +233,20 @@ module RatingItem = {
             {dupr->Option.map(React.string)->Option.getOr("--"->React.string)}
           </div>
         </div>
+        // Days spent as #1 of their gender pool (replaces the design's trend column)
+        <div className="relative w-16 hidden md:flex justify-end items-center">
+          {daysAtOne
+          ->Option.flatMap(d => d > 0.0 ? Some(d) : None)
+          ->Option.map(d =>
+            <div className="flex items-center gap-1 text-amber-500 dark:text-amber-400">
+              <Lucide.Crown size={13} strokeWidth={2.5} fill="currentColor" />
+              <span className="font-mono text-xs font-bold"> {d->Float.toFixed(~digits=1)->React.string} </span>
+            </div>
+          )
+          ->Option.getOr(
+            <span className="font-mono text-xs text-gray-300 dark:text-gray-600"> {"—"->React.string} </span>,
+          )}
+        </div>
         // Full-row link to the player's profile
         <Link to={"./p/" ++ user.id} className="absolute inset-0 z-10">
           <span className="sr-only"> {name->React.string} </span>
@@ -242,7 +262,16 @@ module RatingItem = {
 module CurrentUserStanding = {
   open Lingui.Util
   @react.component
-  let make = (~rank, ~ordinal: float, ~dupr: option<string>, ~progress: float, ~name, ~picture, ~userId) => {
+  let make = (
+    ~rank,
+    ~ordinal: float,
+    ~dupr: option<string>,
+    ~days: option<float>,
+    ~progress: float,
+    ~name,
+    ~picture,
+    ~userId,
+  ) => {
     let progressPct = progress->Float.toFixed(~digits=2) ++ "%"
     <aside className="mb-4">
       <div className="mb-1.5 flex items-center gap-2 px-1">
@@ -306,6 +335,19 @@ module CurrentUserStanding = {
             {dupr->Option.map(React.string)->Option.getOr("--"->React.string)}
           </div>
         </div>
+        <div className="relative w-16 hidden md:flex justify-end items-center">
+          {days
+          ->Option.flatMap(d => d > 0.0 ? Some(d) : None)
+          ->Option.map(d =>
+            <div className="flex items-center gap-1 text-[#64851d] dark:text-[#bdf25d]">
+              <Lucide.Crown size={13} strokeWidth={2.5} fill="currentColor" />
+              <span className="font-mono text-xs font-bold"> {d->Float.toFixed(~digits=1)->React.string} </span>
+            </div>
+          )
+          ->Option.getOr(
+            <span className="font-mono text-xs text-gray-300 dark:text-gray-600"> {"—"->React.string} </span>,
+          )}
+        </div>
         // Full-row link to the viewer's own profile
         <Link to={"./p/" ++ userId} className="absolute inset-0 z-10">
           <span className="sr-only"> {t`View my profile`} </span>
@@ -326,6 +368,7 @@ let make = (
   ~viewerUserId: option<string>=?,
   ~viewerOrdinal: option<float>=?,
   ~viewerMu: option<float>=?,
+  ~viewerDays: option<float>=?,
   ~viewerName: option<string>=?,
   ~viewerPicture: option<string>=?,
 ) => {
@@ -491,6 +534,7 @@ let make = (
           rank
           ordinal
           dupr
+          days=viewerDays
           progress
           name={viewerName->Option.getOr("You")}
           picture=viewerPicture
@@ -506,6 +550,7 @@ let make = (
             <div className="flex-1 ml-2"> {t`Player`} </div>
             <div className="w-24 md:w-32 text-right"> {t`Rating`} </div>
             <div className="w-20 text-right hidden sm:block"> {t`Est. DUPR`} </div>
+            <div className="w-16 text-right hidden md:block"> {t`Days #1`} </div>
           </div>
         : React.null}
       <ul role="list" className="flex flex-col gap-0 pb-2">

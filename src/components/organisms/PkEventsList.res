@@ -76,9 +76,7 @@ module Day = {
     ~onEventClick: option<string => unit>=?,
     ~onHoverLocation: option<option<string> => unit>=?,
     ~activityId: option<string>=?,
-    ~fromDate: string,
-    ~toDate: string,
-    ~availabilityFetchKey: int,
+    ~availabilityData: PkEventsAvailabilityDay_query_graphql.Types.fragment,
     ~onAvailabilityRefetchNeeded: unit => unit,
     ~shouldHideEvent: option<
       (
@@ -86,11 +84,10 @@ module Day = {
         option<PkEventsListFragment_graphql.Types.fragment_viewer>,
       ) => bool,
     >=?,
-    // Court-availability pseudo-events: the Discover list opts in (coordinate-
-    // scoped courts); a location's events list opts in with `courtLocationId`
-    // set, scoping courts to that one location.
+    // Court-availability pseudo-events: the Discover and location lists opt in
+    // (scoping — coordinate vs single location — is fixed by the page query's
+    // PkEventsAvailabilityDay_query arguments).
     ~showInlineCourts: bool=false,
-    ~courtLocationId: option<string>=?,
   ) => {
     let isoDate = {
       let y = date->Js.Date.getFullYear->Float.toInt->Int.toString
@@ -104,7 +101,6 @@ module Day = {
     let intl = ReactIntl.useIntl()
 
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
-    let geoStatus = UseUserLocation.useStatus()
 
     let defaultHide = (
       edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node,
@@ -218,57 +214,31 @@ module Day = {
             {trigger}
           </div>
         <>
-          {switch geoStatus {
-          | Resolving =>
-            // Must match the SSR output and the Suspense fallback exactly:
-            // availability is client-only and appears once the location
-            // permission prompt resolves (granted or denied).
-            renderHeader(React.null)
-          | Resolved({location}) =>
-            <React.Suspense fallback={renderHeader(React.null)}>
-              <PkEventsAvailabilityDay
-                localDate=isoDate
-                dateGroup=label
-                fromDate
-                toDate
-                activityId={activityId->Option.getOr(defaultActivityId)}
-                location
-                fetchKey=availabilityFetchKey
-                onRefetchNeeded=onAvailabilityRefetchNeeded
-                isLoggedIn
-                onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
-                renderHeader
-                locationId=?courtLocationId
-              />
-            </React.Suspense>
-          }}
+          <PkEventsAvailabilityDay
+            data=availabilityData
+            localDate=isoDate
+            dateGroup=label
+            activityId={activityId->Option.getOr(defaultActivityId)}
+            onRefetchNeeded=onAvailabilityRefetchNeeded
+            isLoggedIn
+            onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
+            renderHeader
+          />
           {if !showInlineCourts {
             // Inline court availabilities are experimental (testing only) and
             // hidden for now — see `showInlineCourts`.
             renderEventsOnly()
           } else {
-            switch geoStatus {
-            // Pre-geo (incl. SSR): plain event rows, no client-only court data.
-            | Resolving => renderEventsOnly()
-            | Resolved({location}) =>
-              // Experimental: court openings interleaved among the event rows.
-              // Falls back to plain event rows while the court query resolves,
-              // so events stay visible throughout.
-              <React.Suspense fallback={renderEventsOnly()}>
-                <PkEventsDayFeed
-                  localDate=isoDate
-                  fromDate
-                  toDate
-                  activityId={activityId->Option.getOr(defaultActivityId)}
-                  location
-                  fetchKey=availabilityFetchKey
-                  events=eventItems
-                  hasHiddenPreview
-                  onRefetchNeeded=onAvailabilityRefetchNeeded
-                  locationId=?courtLocationId
-                />
-              </React.Suspense>
-            }
+            // Experimental: court openings interleaved among the event rows,
+            // from the same root-query fragment data as the availability row.
+            <PkEventsDayFeed
+              data=availabilityData
+              localDate=isoDate
+              activityId={activityId->Option.getOr(defaultActivityId)}
+              events=eventItems
+              hasHiddenPreview
+              onRefetchNeeded=onAvailabilityRefetchNeeded
+            />
           }}
           {hasHiddenPreview
             ? previewHiddenEvent
@@ -321,13 +291,18 @@ let make = (
       option<PkEventsListFragment_graphql.Types.fragment_viewer>,
     ) => bool,
   >=?,
-  // Discover list opts in to the court-availability pseudo-events (coordinate-
-  // scoped); a location's events list also sets `courtLocationId` to scope them
-  // to that one location. User/club lists leave both off.
+  // Discover and location lists opt in to the court-availability pseudo-events;
+  // their scoping (coordinate vs single location) is set by the page query's
+  // PkEventsAvailabilityDay_query arguments. User/club lists leave it off.
   ~showInlineCourts: bool=false,
-  ~courtLocationId: option<string>=?,
 ) => {
   let {data, hasNext, isLoadingNext: _, isLoadingPrevious, refetch} = Fragment.usePagination(events)
+  // Availability/court data rides in the same root page query (the server
+  // scopes it by the viewer's stored coords — no geolocation wait). The single
+  // fragment read is shared by every Day bucket below.
+  let (availabilityData, availabilityRefetch) = PkEventsAvailabilityDay.Fragment.useRefetchable(
+    events,
+  )
   let viewer = data.viewer
   let events = data.events->Fragment.getConnectionNodes
   let pageInfo = data.events.pageInfo
@@ -361,16 +336,14 @@ let make = (
   let bucketSetup = EventsListUtils.makeBucketSetup()
   let intl = ReactIntl.useIntl()
 
-  let (availabilityFetchKey, setAvailabilityFetchKey) = React.useState(() => 0)
-  let onAvailabilityRefetchNeeded = () => setAvailabilityFetchKey(k => k + 1)
-  // Computed in the browser (availability is client-only, never SSR-fetched);
-  // useState keeps the range stable for the mount so all Day queries dedupe.
-  let ((availabilityFromDate, availabilityToDate), _) = React.useState(() => {
-    let toIso = (d: Js.Date.t) => d->Js.Date.toISOString->String.slice(~start=0, ~end=10)
-    let now = Js.Date.make()
-    let to_ = Js.Date.fromFloat(now->Js.Date.getTime +. 28. *. 86400000.)
-    (toIso(now), toIso(to_))
-  })
+  // StoreAndNetwork: the refetch reuses the original variables, so the store
+  // already renders (stale) data while the network response brings in nodes
+  // Relay can't add to linked arrays itself (new/deleted availability days).
+  let onAvailabilityRefetchNeeded = () =>
+    availabilityRefetch(
+      ~variables=PkEventsAvailabilityDay.Fragment.makeRefetchVariables(),
+      ~fetchPolicy=RescriptRelay.StoreAndNetwork,
+    )->RescriptRelay.Disposable.ignore
 
   let formatDate = (date: Js.Date.t): string =>
     intl->ReactIntl.Intl.formatDateWithOptions(
@@ -458,13 +431,10 @@ let make = (
             onEventClick={id => ctx.openDrawer(<PkEventDrawer eventId=id />, "/events/" ++ id)}
             ?onHoverLocation
             ?activityId
-            fromDate=availabilityFromDate
-            toDate=availabilityToDate
-            availabilityFetchKey
+            availabilityData
             onAvailabilityRefetchNeeded
             ?shouldHideEvent
             showInlineCourts
-            ?courtLocationId
           />,
         ))
       }
@@ -500,19 +470,34 @@ let make = (
       ->Router.ImmSearchParams.toSearchParams
     }))
 
-  <EventsListView
-    totalEvents
-    buckets
-    weekendBucketKey=bucketSetup.weekendBucketKey
-    ?selectedDate
-    onSelectDate={onSelectDate}
-    onClearDate={onClearDate}
-    eventDates={eventDates}
-    hasPrevious
-    isLoadingPrevious
-    ?onPrevious
-    hasNext
-    ?onNext
-    onRefresh={onRefresh}
-  />
+  // Logged-in viewer with no stored home coords yet: capture them via the
+  // browser geolocation prompt (renders nothing). The mutation writes
+  // User.coords back into this fragment, unmounting the prompt, and the
+  // refetch re-scopes availability to the newly known location.
+  let needsLocationCapture =
+    availabilityData.viewer
+    ->Option.flatMap(v => v.user)
+    ->Option.map(u => u.coords->Option.isNone)
+    ->Option.getOr(false)
+
+  <>
+    {needsLocationCapture
+      ? <ViewerLocationPrompt onSaved=onAvailabilityRefetchNeeded />
+      : React.null}
+    <EventsListView
+      totalEvents
+      buckets
+      weekendBucketKey=bucketSetup.weekendBucketKey
+      ?selectedDate
+      onSelectDate={onSelectDate}
+      onClearDate={onClearDate}
+      eventDates={eventDates}
+      hasPrevious
+      isLoadingPrevious
+      ?onPrevious
+      hasNext
+      ?onNext
+      onRefresh={onRefresh}
+    />
+  </>
 }

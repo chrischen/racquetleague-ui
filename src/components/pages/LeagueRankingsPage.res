@@ -16,6 +16,9 @@ module Query = %relay(`
         id
         lineUsername
         picture
+        leagueUserStats(activity: $activitySlug, namespace: "doubles:comp") {
+          daysNumberOne
+        }
         rating(activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {
           ordinal
           mu
@@ -227,6 +230,7 @@ let make = () => {
   let viewerUserId = viewerUser->Option.map(u => u.id)
   let viewerOrdinal = viewerUser->Option.flatMap(u => u.rating)->Option.flatMap(r => r.ordinal)
   let viewerMu = viewerUser->Option.flatMap(u => u.rating)->Option.flatMap(r => r.mu)
+  let viewerDays = viewerUser->Option.flatMap(u => u.leagueUserStats)->Option.map(s => s.daysNumberOne)
   let viewerName = viewerUser->Option.flatMap(u => u.lineUsername)
   let viewerPicture = viewerUser->Option.flatMap(u => u.picture)
 
@@ -424,6 +428,7 @@ let make = () => {
               ?viewerUserId
               ?viewerOrdinal
               ?viewerMu
+              ?viewerDays
               ?viewerName
               ?viewerPicture
             />

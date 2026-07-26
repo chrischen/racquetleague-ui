@@ -136,6 +136,9 @@ function RatingList$RatingItem(props) {
         }));
   return Core__Option.getOr(Core__Option.map(match.user, (function (user) {
                     var name = Core__Option.getOr(user.lineUsername, "?");
+                    var daysAtOne = Core__Option.map(user.leagueUserStats, (function (s) {
+                            return s.daysNumberOne;
+                          }));
                     return JsxRuntime.jsxs("li", {
                                 children: [
                                   JsxRuntime.jsx("div", {
@@ -247,6 +250,33 @@ function RatingList$RatingItem(props) {
                                               className: "font-mono text-sm font-bold text-gray-500 dark:text-gray-400"
                                             }),
                                         className: "relative w-20 text-right hidden sm:block"
+                                      }),
+                                  JsxRuntime.jsx("div", {
+                                        children: Core__Option.getOr(Core__Option.map(Core__Option.flatMap(daysAtOne, (function (d) {
+                                                        if (d > 0.0) {
+                                                          return d;
+                                                        }
+                                                        
+                                                      })), (function (d) {
+                                                    return JsxRuntime.jsxs("div", {
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.Crown, {
+                                                                        size: 13,
+                                                                        strokeWidth: 2.5,
+                                                                        fill: "currentColor"
+                                                                      }),
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: d.toFixed(1),
+                                                                        className: "font-mono text-xs font-bold"
+                                                                      })
+                                                                ],
+                                                                className: "flex items-center gap-1 text-amber-500 dark:text-amber-400"
+                                                              });
+                                                  })), JsxRuntime.jsx("span", {
+                                                  children: "—",
+                                                  className: "font-mono text-xs text-gray-300 dark:text-gray-600"
+                                                })),
+                                        className: "relative w-16 hidden md:flex justify-end items-center"
                                       }),
                                   JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                         to: "./p/" + user.id,
@@ -361,6 +391,33 @@ function RatingList$CurrentUserStanding(props) {
                                   }),
                               className: "relative w-20 text-right hidden sm:block"
                             }),
+                        JsxRuntime.jsx("div", {
+                              children: Core__Option.getOr(Core__Option.map(Core__Option.flatMap(props.days, (function (d) {
+                                              if (d > 0.0) {
+                                                return d;
+                                              }
+                                              
+                                            })), (function (d) {
+                                          return JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx(LucideReact.Crown, {
+                                                              size: 13,
+                                                              strokeWidth: 2.5,
+                                                              fill: "currentColor"
+                                                            }),
+                                                        JsxRuntime.jsx("span", {
+                                                              children: d.toFixed(1),
+                                                              className: "font-mono text-xs font-bold"
+                                                            })
+                                                      ],
+                                                      className: "flex items-center gap-1 text-[#64851d] dark:text-[#bdf25d]"
+                                                    });
+                                        })), JsxRuntime.jsx("span", {
+                                        children: "—",
+                                        className: "font-mono text-xs text-gray-300 dark:text-gray-600"
+                                      })),
+                              className: "relative w-16 hidden md:flex justify-end items-center"
+                            }),
                         JsxRuntime.jsx(LangProvider.Router.Link.make, {
                               to: "./p/" + props.userId,
                               children: JsxRuntime.jsx("span", {
@@ -384,6 +441,7 @@ var CurrentUserStanding = {
 function RatingList(props) {
   var viewerPicture = props.viewerPicture;
   var viewerName = props.viewerName;
+  var viewerDays = props.viewerDays;
   var viewerOrdinal = props.viewerOrdinal;
   var viewerUserId = props.viewerUserId;
   var __showDraftUi = props.showDraftUi;
@@ -612,6 +670,7 @@ function RatingList(props) {
                                               rank: param[1],
                                               ordinal: param[2],
                                               dupr: param[3],
+                                              days: viewerDays,
                                               progress: param[4],
                                               name: Core__Option.getOr(viewerName, "You"),
                                               picture: viewerPicture,
@@ -635,6 +694,10 @@ function RatingList(props) {
                                 JsxRuntime.jsx("div", {
                                       children: t`Est. DUPR`,
                                       className: "w-20 text-right hidden sm:block"
+                                    }),
+                                JsxRuntime.jsx("div", {
+                                      children: t`Days #1`,
+                                      className: "w-16 text-right hidden md:block"
                                     })
                               ],
                               className: "flex items-center px-4 py-2 text-[10px] font-black font-mono text-gray-400 dark:text-gray-500 tracking-widest uppercase mb-2"

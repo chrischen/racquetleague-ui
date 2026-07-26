@@ -4948,6 +4948,10 @@ msgstr "ดัลลาส แฟลช"
 msgid "Dallas Flash Swag"
 msgstr "สินค้าดัลลาส แฟลช"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
+msgid "Days at #1"
+msgstr "วันที่อันดับ 1"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -15,6 +15,7 @@ module UserStatsFragment = %relay(`
       mu
     }
     leagueUserStats(activity: $activitySlug, namespace: "doubles:comp", clubSlug: $clubSlug) {
+      daysNumberOne
       mdRating {
         mu
         sigma
@@ -619,6 +620,20 @@ module PlayerContent = {
                   ->Option.getOr(React.null)
                 | _ => React.null
                 }}
+                // Days spent as the #1 rated player of their gender pool
+                {statsData.leagueUserStats
+                ->Option.flatMap(stats =>
+                  stats.daysNumberOne > 0.0 ? Some(stats.daysNumberOne) : None
+                )
+                ->Option.map(days =>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-1"> {t`Days at #1`} </div>
+                    <div className="text-2xl font-semibold text-gray-900">
+                      {days->Float.toFixed(~digits=1)->React.string}
+                    </div>
+                  </div>
+                )
+                ->Option.getOr(React.null)}
               </div>
             </div>
           </div>
@@ -1173,7 +1188,7 @@ let make = () => {
   user->Option.map(user => {
     let userRefs = user.fragmentRefs
     <WaitForMessages>
-      {() =>
+      {() => <>
         <PlayerContent
           userStats={user.fragmentRefs}
           userId={user.id}
@@ -1184,7 +1199,8 @@ let make = () => {
           clubSlug
           mainFragmentRefs=fragmentRefs
           userRefs
-        />}
+        />
+      </>}
     </WaitForMessages>
   })
 }

@@ -42,7 +42,13 @@ var v0 = {
   "storageKey": null
 };
 return {
-  "argumentDefinitions": [],
+  "argumentDefinitions": [
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "activitySlug"
+    }
+  ],
   "kind": "Fragment",
   "metadata": null,
   "name": "RatingList_rating",
@@ -90,6 +96,35 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "gender",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": [
+            {
+              "kind": "Variable",
+              "name": "activity",
+              "variableName": "activitySlug"
+            },
+            {
+              "kind": "Literal",
+              "name": "namespace",
+              "value": "doubles:comp"
+            }
+          ],
+          "concreteType": "LeagueUserStat",
+          "kind": "LinkedField",
+          "name": "leagueUserStats",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "daysNumberOne",
+              "storageKey": null
+            }
+          ],
           "storageKey": null
         }
       ],

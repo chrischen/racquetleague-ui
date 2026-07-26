@@ -5,9 +5,8 @@
 // completion behavior stays caller-owned via ~onCompleted since each surface
 // reacts differently (refetch, store invalidation, result mapping).
 //
-// `location` is sourced from UseUserLocation internally: availability writes
-// are always keyed by the viewer's resolved coords (or the fallback), same as
-// every previous call site.
+// No location input: the server keys availability off the viewer's stored
+// coords (User.coords), so callers only supply the day, activity, and intervals.
 
 module Mutation = %relay(`
   mutation UseSetAvailabilityDayMutation($input: SetAvailabilityDayInput!) {
@@ -44,7 +43,6 @@ let intervalsOfIntents = (
 
 let use = () => {
   let (commit, isMutating) = Mutation.use()
-  let location = UseUserLocation.use()
   let commitDay = (
     ~localDate: string,
     ~activityId: string,
@@ -57,7 +55,7 @@ let use = () => {
     >=?,
   ) =>
     commit(
-      ~variables={input: {localDate, activityId, location, intervals}},
+      ~variables={input: {localDate, activityId, intervals}},
       ~onCompleted=?onCompleted,
     )
   (commitDay, isMutating)

@@ -1,17 +1,17 @@
 %%raw("import { t } from '@lingui/macro'")
 
 // Experimental: interleaves the day's court openings (as CourtPseudoEventRow)
-// with its event rows, ordered by start time. Court data is client-only, so
-// this renders only after geolocation resolves; the caller shows plain event
-// rows as the Suspense fallback, which keeps events SSR-visible.
+// with its event rows, ordered by start time. Court data arrives with the host
+// page's root query (PkEventsAvailabilityDay_query — the server scopes it by
+// the viewer's stored coords), so this renders immediately, SSR included.
 //
 // Court openings are bucketed into per-segment pseudo-events (each distinct
 // active-court span surfaces separately), and each row can set the viewer's
 // availability scoped to just that slot — committed via UseSetAvailabilityDay,
 // then a refetch keeps the availability display in sync.
 //
-// Reuses PkEventsAvailabilityDay.Query (identical variables) so the court
-// fetch is deduped with the availability row's — no extra network request.
+// Reads the same fragment data as the sibling PkEventsAvailabilityDay row —
+// one fetch feeds both.
 
 // One event row, pre-built by the caller (which owns event fragments + intl):
 // `render` takes whether the row is last in the merged feed.
@@ -27,33 +27,16 @@ type feedItem =
 
 @react.component
 let make = (
+  // The host page's fragment data, shared with the sibling
+  // PkEventsAvailabilityDay row (court scoping lives in the page query's
+  // fragment arguments).
+  ~data: PkEventsAvailabilityDay_query_graphql.Types.fragment,
   ~localDate: string,
-  ~fromDate: string,
-  ~toDate: string,
   ~activityId: string,
-  ~location: UseUserLocation.location,
-  ~fetchKey: int,
   ~events: array<feedEvent>,
   ~hasHiddenPreview: bool,
   ~onRefetchNeeded: unit => unit,
-  // When set, courts are scoped to this single location (must match the sibling
-  // PkEventsAvailabilityDay so the deduped query fetches the right source).
-  ~locationId: option<string>=?,
 ) => {
-  let fetchPolicy = fetchKey > 0 ? RescriptRelay.StoreAndNetwork : RescriptRelay.StoreOrNetwork
-  let data = PkEventsAvailabilityDay.Query.use(
-    ~variables={
-      activityId,
-      fromDate,
-      toDate,
-      location,
-      locationId: locationId->Option.getOr(""),
-      byLocation: locationId->Option.isSome,
-    },
-    ~fetchKey=Int.toString(fetchKey),
-    ~fetchPolicy,
-  )
-
   let (commitDay, _isMutating) = UseSetAvailabilityDay.use()
 
   let genericCourtName = Lingui.UtilString.t`Court`

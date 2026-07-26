@@ -4,9 +4,13 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_user = {
+  type rec fragment_user_leagueUserStats = {
+    daysNumberOne: float,
+  }
+  and fragment_user = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
+    leagueUserStats: option<fragment_user_leagueUserStats>,
     lineUsername: option<string>,
     picture: option<string>,
   }
@@ -73,7 +77,13 @@ var v0 = {
   "storageKey": null
 };
 return {
-  "argumentDefinitions": [],
+  "argumentDefinitions": [
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "activitySlug"
+    }
+  ],
   "kind": "Fragment",
   "metadata": null,
   "name": "RatingList_rating",
@@ -121,6 +131,35 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "gender",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": [
+            {
+              "kind": "Variable",
+              "name": "activity",
+              "variableName": "activitySlug"
+            },
+            {
+              "kind": "Literal",
+              "name": "namespace",
+              "value": "doubles:comp"
+            }
+          ],
+          "concreteType": "LeagueUserStat",
+          "kind": "LinkedField",
+          "name": "leagueUserStats",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "daysNumberOne",
+              "storageKey": null
+            }
+          ],
           "storageKey": null
         }
       ],

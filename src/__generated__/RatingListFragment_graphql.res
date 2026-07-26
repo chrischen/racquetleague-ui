@@ -115,6 +115,11 @@ var v0 = [
   "ratings"
 ],
 v1 = {
+  "kind": "Variable",
+  "name": "activitySlug",
+  "variableName": "activitySlug"
+},
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -182,11 +187,7 @@ return {
     {
       "alias": "ratings",
       "args": [
-        {
-          "kind": "Variable",
-          "name": "activitySlug",
-          "variableName": "activitySlug"
-        },
+        (v1/*: any*/),
         {
           "kind": "Variable",
           "name": "clubSlug",
@@ -219,7 +220,7 @@ return {
               "name": "node",
               "plural": false,
               "selections": [
-                (v1/*: any*/),
+                (v2/*: any*/),
                 {
                   "alias": null,
                   "args": null,
@@ -235,7 +236,7 @@ return {
                   "name": "user",
                   "plural": false,
                   "selections": [
-                    (v1/*: any*/),
+                    (v2/*: any*/),
                     {
                       "alias": null,
                       "args": null,
@@ -254,7 +255,9 @@ return {
                   "storageKey": null
                 },
                 {
-                  "args": null,
+                  "args": [
+                    (v1/*: any*/)
+                  ],
                   "kind": "FragmentSpread",
                   "name": "RatingList_rating"
                 },

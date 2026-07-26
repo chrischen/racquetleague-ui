@@ -46,6 +46,13 @@ module Query = %relay(`
       }
     }
     viewer {
+      user {
+        id
+        coords {
+          lat
+          lng
+        }
+      }
       availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {
         id
         localDate
@@ -84,20 +91,15 @@ let getDateRange = () => {
   (fromDate, toDate)
 }
 
+type loaderData = AvailabilityPageQuery_graphql.queryRef
+@module("react-router-dom")
+external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
+
 module AvailabilityContent = {
   @react.component
-  let make = () => {
-    let (fromDate, toDate) = React.useMemo0(getDateRange)
-    let location = UseUserLocation.use()
-    let {viewer, availabilityUsersForDateRange, locationsAvailability} = Query.use(
-      ~variables={
-        activityId: defaultActivityId,
-        fromDate,
-        toDate,
-        afterDate: Util.Datetime.fromDate(Js.Date.make()),
-        location,
-      },
-      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+  let make = (~queryRef: AvailabilityPageQuery_graphql.queryRef) => {
+    let {viewer, availabilityUsersForDateRange, locationsAvailability} = Query.usePreloaded(
+      ~queryRef,
     )
     let intl = ReactIntl.useIntl()
     let (isSaving, setIsSaving) = React.useState(() => false)
@@ -273,25 +275,48 @@ module AvailabilityContent = {
       })
     }
 
-    <VerticalAvailabilityGrid.make
-      days onSave=handleSave isSaving existingEvents demand courtAvailability
-    />
+    // Logged-in viewer with no stored home coords: capture them via the browser
+    // geolocation prompt (renders nothing). The SSR'd query was scoped by the
+    // default location; saving updates User.coords in the store (unmounting
+    // this) and invalidates the root so the next load re-scopes to the real
+    // location.
+    let needsLocationCapture =
+      viewer
+      ->Option.flatMap(v => v.user)
+      ->Option.map(u => u.coords->Option.isNone)
+      ->Option.getOr(false)
+
+    <>
+      {needsLocationCapture
+        ? <ViewerLocationPrompt
+            onSaved={() =>
+              RescriptRelay.commitLocalUpdate(
+                ~environment=env,
+                ~updater=store =>
+                  store
+                  ->RescriptRelay.RecordSourceSelectorProxy.getRoot
+                  ->RescriptRelay.RecordProxy.invalidateRecord,
+              )}
+          />
+        : React.null}
+      <VerticalAvailabilityGrid.make
+        days onSave=handleSave isSaving existingEvents demand courtAvailability
+      />
+    </>
   }
 }
 
 @react.component
 let make = () => {
-  // Availability is client-only: nothing renders during SSR/hydration, then
-  // the page loads once the location permission prompt resolves either way.
-  let geoStatus = UseUserLocation.useStatus()
+  // Standard SSR page: the route loader preloads the query scoped by the
+  // default location — the server substitutes the viewer's stored coords
+  // (User.coords) when it knows them; ViewerLocationPrompt captures them
+  // (inside AvailabilityContent) when it doesn't.
+  let query = useLoaderData()
   <WaitForMessages>
     {() =>
-      switch geoStatus {
-      | Resolving => React.null
-      | Resolved(_) =>
-        <React.Suspense fallback={React.null}>
-          <AvailabilityContent />
-        </React.Suspense>
-      }}
+      <React.Suspense fallback={React.null}>
+        <AvailabilityContent queryRef=query.data />
+      </React.Suspense>}
   </WaitForMessages>
 }

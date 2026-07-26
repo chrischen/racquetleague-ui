@@ -4948,6 +4948,10 @@ msgstr "達拉斯閃電"
 msgid "Dallas Flash Swag"
 msgstr "達拉斯閃電周邊商品"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
+msgid "Days at #1"
+msgstr "排名第一的天數"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

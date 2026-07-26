@@ -77,6 +77,11 @@ function LeagueRankingsPage(props) {
             })), (function (r) {
           return r.mu;
         }));
+  var viewerDays = Core__Option.map(Core__Option.flatMap(viewerUser, (function (u) {
+              return u.leagueUserStats;
+            })), (function (s) {
+          return s.daysNumberOne;
+        }));
   var viewerName = Core__Option.flatMap(viewerUser, (function (u) {
           return u.lineUsername;
         }));
@@ -299,6 +304,7 @@ function LeagueRankingsPage(props) {
                                                         viewerUserId: viewerUserId,
                                                         viewerOrdinal: viewerOrdinal,
                                                         viewerMu: viewerMu,
+                                                        viewerDays: viewerDays,
                                                         viewerName: viewerName,
                                                         viewerPicture: viewerPicture
                                                       })),

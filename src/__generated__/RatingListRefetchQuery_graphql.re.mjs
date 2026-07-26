@@ -209,6 +209,35 @@ return {
                         "kind": "ScalarField",
                         "name": "picture",
                         "storageKey": null
+                      },
+                      {
+                        "alias": null,
+                        "args": [
+                          {
+                            "kind": "Variable",
+                            "name": "activity",
+                            "variableName": "activitySlug"
+                          },
+                          {
+                            "kind": "Literal",
+                            "name": "namespace",
+                            "value": "doubles:comp"
+                          }
+                        ],
+                        "concreteType": "LeagueUserStat",
+                        "kind": "LinkedField",
+                        "name": "leagueUserStats",
+                        "plural": false,
+                        "selections": [
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "daysNumberOne",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
                       }
                     ],
                     "storageKey": null
@@ -298,12 +327,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ca5f6b697f250cbc346310f5dfb6a5d9",
+    "cacheID": "c96d7436878a086746d0c8bf0ee0c024",
     "id": null,
     "metadata": {},
     "name": "RatingListRefetchQuery",
     "operationKind": "query",
-    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $clubSlug: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        user {\n          id\n          lineUsername\n          gender\n        }\n        ...RatingList_rating\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating on Rating {\n  id\n  ordinal\n  mu\n  user {\n    id\n    lineUsername\n    picture\n    gender\n  }\n}\n"
+    "text": "query RatingListRefetchQuery(\n  $activitySlug: String!\n  $after: String\n  $before: String\n  $clubSlug: String\n  $first: Int = 20\n  $namespace: String!\n) {\n  ...RatingListFragment_3A4j3C\n}\n\nfragment RatingListFragment_3A4j3C on Query {\n  ratings(after: $after, first: $first, before: $before, activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    edges {\n      node {\n        id\n        ordinal\n        user {\n          id\n          lineUsername\n          gender\n        }\n        ...RatingList_rating_36AXNO\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment RatingList_rating_36AXNO on Rating {\n  id\n  ordinal\n  mu\n  user {\n    id\n    lineUsername\n    picture\n    gender\n    leagueUserStats(activity: $activitySlug, namespace: \"doubles:comp\") {\n      daysNumberOne\n    }\n  }\n}\n"
   }
 };
 })());

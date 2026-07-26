@@ -22,6 +22,8 @@ import type {queryRef as PkViewerEventsPageQuery_graphql_queryRef} from '../../.
 export type params = {
   readonly after?: string; 
   readonly afterDate?: Util_Datetime_t; 
+  readonly availabilityFromDate: string; 
+  readonly availabilityToDate: string; 
   readonly before?: string; 
   readonly filters?: PkViewerEventsPageQuery_graphql_Types_eventFilters; 
   readonly first?: number; 

@@ -8,6 +8,8 @@ module Query = %relay(`
     $first: Int
     $before: String
     $afterDate: Datetime
+    $availabilityFromDate: String!
+    $availabilityToDate: String!
   ) {
     location(id: $id) {
       id
@@ -22,6 +24,12 @@ module Query = %relay(`
       before: $before
       afterDate: $afterDate
       filters: { locationId: $id }
+    )
+    ...PkEventsAvailabilityDay_query @arguments(
+      fromDate: $availabilityFromDate
+      toDate: $availabilityToDate
+      locationId: $id
+      byLocation: true
     )
     events(after: $after, first: $first, before: $before, filters: { locationId: $id }, afterDate: $afterDate) {
       ...PinsMap_eventConnection
@@ -77,12 +85,7 @@ let make = () => {
               selected=?selectedLocationId
             />
           </div>
-          <PkEventsList
-            events=fragmentRefs
-            onHoverLocation
-            showInlineCourts=true
-            courtLocationId=loc.id
-          />
+          <PkEventsList events=fragmentRefs onHoverLocation showInlineCourts=true />
         </div>
       )
       ->Option.getOr(<div className="p-6 text-gray-500"> {t`Location not found`} </div>)}

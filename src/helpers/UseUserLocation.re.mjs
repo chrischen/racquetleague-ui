@@ -40,7 +40,8 @@ function start() {
       granted: false
     };
     return emit();
-  } else {
+  }
+  var attempt = function (retriesLeft) {
     navigator.geolocation.getCurrentPosition((function (pos) {
             current.contents = {
               TAG: "Resolved",
@@ -51,26 +52,40 @@ function start() {
               granted: true
             };
             emit();
-          }), (function (_err) {
-            current.contents = {
-              TAG: "Resolved",
-              location: tokyoDefault,
-              granted: false
-            };
-            emit();
-          }));
-    return ;
-  }
+          }), (function (err) {
+            if (err.code === 3 && retriesLeft > 0) {
+              return attempt(retriesLeft - 1 | 0);
+            } else {
+              console.warn("Geolocation unavailable:", err);
+              current.contents = {
+                TAG: "Resolved",
+                location: tokyoDefault,
+                granted: false
+              };
+              return emit();
+            }
+          }), {
+          enableHighAccuracy: false,
+          timeout: 15000,
+          maximumAge: 600000
+        });
+  };
+  attempt(3);
 }
 
-function subscribe(cb) {
+function subscribePassive(cb) {
   listeners.contents = listeners.contents.concat([cb]);
-  start();
   return function () {
     listeners.contents = listeners.contents.filter(function (l) {
           return l !== cb;
         });
   };
+}
+
+function subscribe(cb) {
+  var unsubscribe = subscribePassive(cb);
+  start();
+  return unsubscribe;
 }
 
 function useStatus() {
@@ -81,8 +96,16 @@ function useStatus() {
               }));
 }
 
+function usePassiveStatus() {
+  return React.useSyncExternalStore(subscribePassive, (function () {
+                return current.contents;
+              }), (function () {
+                return "Resolving";
+              }));
+}
+
 function use() {
-  var match = useStatus();
+  var match = usePassiveStatus();
   if (typeof match !== "object") {
     return tokyoDefault;
   } else {
@@ -97,8 +120,10 @@ export {
   emit ,
   started ,
   start ,
+  subscribePassive ,
   subscribe ,
   useStatus ,
+  usePassiveStatus ,
   use ,
 }
 /* react Not a pure module */

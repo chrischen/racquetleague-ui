@@ -3,51 +3,46 @@
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as ReactIntl from "react-intl";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventTimeline from "../../helpers/EventTimeline.re.mjs";
 import * as PlayIntentRow from "../molecules/PlayIntentRow.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
-import * as PkEventsAvailabilityDayQuery_graphql from "../../__generated__/PkEventsAvailabilityDayQuery_graphql.re.mjs";
+import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
+import * as PkEventsAvailabilityDay_query_graphql from "../../__generated__/PkEventsAvailabilityDay_query_graphql.re.mjs";
+import * as PkEventsAvailabilityDayRefetchQuery_graphql from "../../__generated__/PkEventsAvailabilityDayRefetchQuery_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
 
-var convertVariables = PkEventsAvailabilityDayQuery_graphql.Internal.convertVariables;
+var convertFragment = PkEventsAvailabilityDay_query_graphql.Internal.convertFragment;
 
-var convertResponse = PkEventsAvailabilityDayQuery_graphql.Internal.convertResponse;
+function use(fRef) {
+  return RescriptRelay_Fragment.useFragment(PkEventsAvailabilityDay_query_graphql.node, convertFragment, fRef);
+}
 
-var convertWrapRawResponse = PkEventsAvailabilityDayQuery_graphql.Internal.convertWrapRawResponse;
+function useOpt(fRef) {
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, PkEventsAvailabilityDay_query_graphql.node, convertFragment);
+}
 
-var use = RescriptRelay_Query.useQuery(convertVariables, PkEventsAvailabilityDayQuery_graphql.node, convertResponse);
+var makeRefetchVariables = PkEventsAvailabilityDayRefetchQuery_graphql.Types.makeRefetchVariables;
 
-var useLoader = RescriptRelay_Query.useLoader(convertVariables, PkEventsAvailabilityDayQuery_graphql.node, (function (prim) {
-        return prim;
-      }));
+var convertRefetchVariables = PkEventsAvailabilityDayRefetchQuery_graphql.Internal.convertVariables;
 
-var usePreloaded = RescriptRelay_Query.usePreloaded(PkEventsAvailabilityDayQuery_graphql.node, convertResponse, (function (prim) {
-        return prim;
-      }));
+function useRefetchable(fRef) {
+  return RescriptRelay_Fragment.useRefetchableFragment(PkEventsAvailabilityDay_query_graphql.node, convertFragment, convertRefetchVariables, fRef);
+}
 
-var $$fetch = RescriptRelay_Query.$$fetch(PkEventsAvailabilityDayQuery_graphql.node, convertResponse, convertVariables);
-
-var fetchPromised = RescriptRelay_Query.fetchPromised(PkEventsAvailabilityDayQuery_graphql.node, convertResponse, convertVariables);
-
-var retain = RescriptRelay_Query.retain(PkEventsAvailabilityDayQuery_graphql.node, convertVariables);
-
-var Query = {
-  Operation: undefined,
+var Fragment = {
   Types: undefined,
-  convertVariables: convertVariables,
-  convertResponse: convertResponse,
-  convertWrapRawResponse: convertWrapRawResponse,
+  Operation: undefined,
+  convertFragment: convertFragment,
   use: use,
-  useLoader: useLoader,
-  usePreloaded: usePreloaded,
-  $$fetch: $$fetch,
-  fetchPromised: fetchPromised,
-  retain: retain
+  useOpt: useOpt,
+  makeRefetchVariables: makeRefetchVariables,
+  convertRefetchVariables: convertRefetchVariables,
+  useRefetchable: useRefetchable
 };
 
 function courtRowsFromData(data) {
@@ -134,20 +129,9 @@ function courtAvailabilityForDate(rows, localDate, genericCourtName) {
 }
 
 function PkEventsAvailabilityDay(props) {
-  var locationId = props.locationId;
   var onRefetchNeeded = props.onRefetchNeeded;
-  var fetchKey = props.fetchKey;
-  var activityId = props.activityId;
   var localDate = props.localDate;
-  var fetchPolicy = fetchKey > 0 ? "store-and-network" : "store-or-network";
-  var data = use({
-        activityId: activityId,
-        byLocation: Core__Option.isSome(locationId),
-        fromDate: props.fromDate,
-        location: props.location,
-        locationId: Core__Option.getOr(locationId, ""),
-        toDate: props.toDate
-      }, fetchPolicy, fetchKey.toString(), undefined);
+  var data = props.data;
   var viewerUserId = Core__Option.map(Core__Option.flatMap(data.viewer, (function (v) {
               return v.user;
             })), (function (u) {
@@ -222,7 +206,7 @@ function PkEventsAvailabilityDay(props) {
               localDate: localDate,
               dateGroup: props.dateGroup,
               availabilityDay: availabilityDay,
-              activityId: activityId,
+              activityId: props.activityId,
               userDays: userDays,
               courtAvailability: courtAvailability,
               events: events,
@@ -239,7 +223,7 @@ function PkEventsAvailabilityDay(props) {
 var make = PkEventsAvailabilityDay;
 
 export {
-  Query ,
+  Fragment ,
   courtRowsFromData ,
   courtAvailabilityForDate ,
   make ,

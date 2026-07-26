@@ -770,6 +770,9 @@ type Mutation {
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
   updateRsvpListType(input: UpdateRsvpListTypeInput!): UpdateRsvpListTypeResult!
   updateViewerContact(input: UpdateViewerContactInput!): UpdateViewerContactResult!
+
+  """Set the current user's home coordinates."""
+  updateViewerLocation(input: UpdateViewerLocationInput!): UpdateViewerLocationResult!
   updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): UpdateViewerRsvpMessageResult
 }
 
@@ -950,7 +953,6 @@ input SetAvailabilityDayInput {
   activityId: ID!
   intervals: [IntervalInput!]!
   localDate: String!
-  location: LocationInput!
 }
 
 type SetAvailabilityDayResult implements HasErrors {
@@ -1041,6 +1043,16 @@ type UpdateViewerContactResult implements HasErrors {
   viewer: User
 }
 
+input UpdateViewerLocationInput {
+  lat: Float!
+  lng: Float!
+}
+
+type UpdateViewerLocationResult implements HasErrors {
+  errors: [Error!]
+  viewer: User
+}
+
 input UpdateViewerRsvpMessageInput {
   eventId: ID!
   message: String!
@@ -1054,6 +1066,9 @@ type UpdateViewerRsvpMessageResult implements HasErrors {
 
 type User implements Node {
   biography: String
+
+  """The user's home coordinates (lng/lat)."""
+  coords: Coords
   email: String
   eventRating(eventId: ID!): Rating
   fullName: String

@@ -195,6 +195,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "daysNumberOne",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "mdRating",

@@ -5,7 +5,7 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var variablesConverter = {"intervalInput":{},"setAvailabilityDayInput":{"intervals":{"r":"intervalInput"}},"__root":{"input":{"r":"setAvailabilityDayInput"}}};
+var variablesConverter = {"updateViewerLocationInput":{},"__root":{"input":{"r":"updateViewerLocationInput"}}};
 
 function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
@@ -47,14 +47,7 @@ var v0 = [
     "name": "input"
   }
 ],
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "id",
-  "storageKey": null
-},
-v2 = [
+v1 = [
   {
     "alias": null,
     "args": [
@@ -64,73 +57,46 @@ v2 = [
         "variableName": "input"
       }
     ],
-    "concreteType": "SetAvailabilityDayResult",
+    "concreteType": "UpdateViewerLocationResult",
     "kind": "LinkedField",
-    "name": "setAvailabilityDay",
+    "name": "updateViewerLocation",
     "plural": false,
     "selections": [
       {
         "alias": null,
         "args": null,
-        "concreteType": "AvailabilityDay",
+        "concreteType": "User",
         "kind": "LinkedField",
-        "name": "day",
+        "name": "viewer",
         "plural": false,
         "selections": [
-          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "localDate",
+            "name": "id",
             "storageKey": null
           },
           {
             "alias": null,
             "args": null,
-            "concreteType": "User",
+            "concreteType": "Coords",
             "kind": "LinkedField",
-            "name": "user",
+            "name": "coords",
             "plural": false,
             "selections": [
-              (v1/*: any*/),
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "picture",
+                "name": "lat",
                 "storageKey": null
               },
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "lineUsername",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "AvailabilityInterval",
-            "kind": "LinkedField",
-            "name": "intervals",
-            "plural": true,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "startHour",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "endHour",
+                "name": "lng",
                 "storageKey": null
               }
             ],
@@ -166,8 +132,8 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "UseSetAvailabilityDayMutation",
-    "selections": (v2/*: any*/),
+    "name": "ViewerLocationPromptMutation",
+    "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
@@ -175,16 +141,16 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "UseSetAvailabilityDayMutation",
-    "selections": (v2/*: any*/)
+    "name": "ViewerLocationPromptMutation",
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "a747d72b4fce6fde757f668e395aa719",
+    "cacheID": "7e0ce2e7409405020c40042fc4bec363",
     "id": null,
     "metadata": {},
-    "name": "UseSetAvailabilityDayMutation",
+    "name": "ViewerLocationPromptMutation",
     "operationKind": "mutation",
-    "text": "mutation UseSetAvailabilityDayMutation(\n  $input: SetAvailabilityDayInput!\n) {\n  setAvailabilityDay(input: $input) {\n    day {\n      id\n      localDate\n      user {\n        id\n        picture\n        lineUsername\n      }\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation ViewerLocationPromptMutation(\n  $input: UpdateViewerLocationInput!\n) {\n  updateViewerLocation(input: $input) {\n    viewer {\n      id\n      coords {\n        lat\n        lng\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());

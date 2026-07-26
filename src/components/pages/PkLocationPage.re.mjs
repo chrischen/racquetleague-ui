@@ -97,8 +97,7 @@ function PkLocationPage(props) {
                                                   JsxRuntime.jsx(PkEventsList.make, {
                                                         events: fragmentRefs,
                                                         onHoverLocation: onHoverLocation,
-                                                        showInlineCourts: true,
-                                                        courtLocationId: loc.id
+                                                        showInlineCourts: true
                                                       })
                                                 ],
                                                 className: "flex flex-col h-full overflow-y-auto"

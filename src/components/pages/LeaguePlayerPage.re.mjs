@@ -883,7 +883,26 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                   })
                                                             ]
                                                           }),
-                                                      tmp
+                                                      tmp,
+                                                      Core__Option.getOr(Core__Option.map(Core__Option.flatMap(statsData.leagueUserStats, (function (stats) {
+                                                                      if (stats.daysNumberOne > 0.0) {
+                                                                        return stats.daysNumberOne;
+                                                                      }
+                                                                      
+                                                                    })), (function (days) {
+                                                                  return JsxRuntime.jsxs("div", {
+                                                                              children: [
+                                                                                JsxRuntime.jsx("div", {
+                                                                                      children: t`Days at #1`,
+                                                                                      className: "text-sm text-gray-500 mb-1"
+                                                                                    }),
+                                                                                JsxRuntime.jsx("div", {
+                                                                                      children: days.toFixed(1),
+                                                                                      className: "text-2xl font-semibold text-gray-900"
+                                                                                    })
+                                                                              ]
+                                                                            });
+                                                                })), null)
                                                     ],
                                                     className: "flex flex-wrap gap-6 mt-4"
                                                   })
@@ -1224,16 +1243,18 @@ function LeaguePlayerPage(props) {
                 var userRefs = user.fragmentRefs;
                 return JsxRuntime.jsx(WaitForMessages.make, {
                             children: (function () {
-                                return JsxRuntime.jsx(LeaguePlayerPage$PlayerContent, {
-                                            userStats: user.fragmentRefs,
-                                            userId: user.id,
-                                            picture: user.picture,
-                                            lineUsername: user.lineUsername,
-                                            clubs: clubs,
-                                            activitySlug: activitySlug,
-                                            clubSlug: clubSlug,
-                                            mainFragmentRefs: fragmentRefs,
-                                            userRefs: Caml_option.some(userRefs)
+                                return JsxRuntime.jsx(JsxRuntime.Fragment, {
+                                            children: Caml_option.some(JsxRuntime.jsx(LeaguePlayerPage$PlayerContent, {
+                                                      userStats: user.fragmentRefs,
+                                                      userId: user.id,
+                                                      picture: user.picture,
+                                                      lineUsername: user.lineUsername,
+                                                      clubs: clubs,
+                                                      activitySlug: activitySlug,
+                                                      clubSlug: clubSlug,
+                                                      mainFragmentRefs: fragmentRefs,
+                                                      userRefs: Caml_option.some(userRefs)
+                                                    }))
                                           });
                               })
                           });

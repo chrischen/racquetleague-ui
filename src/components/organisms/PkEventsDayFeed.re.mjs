@@ -13,21 +13,11 @@ import { t } from '@lingui/macro'
 ;
 
 function PkEventsDayFeed(props) {
-  var locationId = props.locationId;
   var onRefetchNeeded = props.onRefetchNeeded;
   var hasHiddenPreview = props.hasHiddenPreview;
-  var fetchKey = props.fetchKey;
   var activityId = props.activityId;
   var localDate = props.localDate;
-  var fetchPolicy = fetchKey > 0 ? "store-and-network" : "store-or-network";
-  var data = PkEventsAvailabilityDay.Query.use({
-        activityId: activityId,
-        byLocation: Core__Option.isSome(locationId),
-        fromDate: props.fromDate,
-        location: props.location,
-        locationId: Core__Option.getOr(locationId, ""),
-        toDate: props.toDate
-      }, fetchPolicy, fetchKey.toString(), undefined);
+  var data = props.data;
   var match = UseSetAvailabilityDay.use();
   var commitDay = match[0];
   var genericCourtName = t`Court`;

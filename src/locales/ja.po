@@ -5198,6 +5198,10 @@ msgstr "ダラス・フラッシュ"
 msgid "Dallas Flash Swag"
 msgstr "ダラス・フラッシュ グッズ"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
+msgid "Days at #1"
+msgstr "#1在位日数"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

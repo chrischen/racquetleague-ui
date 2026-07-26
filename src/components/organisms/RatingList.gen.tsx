@@ -9,7 +9,7 @@ import type {fragmentRefs as RescriptRelay_fragmentRefs} from 'rescript-relay/sr
 
 export type genderFilter = "all" | "male" | "female";
 
-export type props<ratings,genderFilter,search,showDraftUi,viewerUserId,viewerOrdinal,viewerMu,viewerName,viewerPicture> = {
+export type props<ratings,genderFilter,search,showDraftUi,viewerUserId,viewerOrdinal,viewerMu,viewerDays,viewerName,viewerPicture> = {
   readonly ratings: ratings; 
   readonly genderFilter?: genderFilter; 
   readonly search?: search; 
@@ -17,6 +17,7 @@ export type props<ratings,genderFilter,search,showDraftUi,viewerUserId,viewerOrd
   readonly viewerUserId?: viewerUserId; 
   readonly viewerOrdinal?: viewerOrdinal; 
   readonly viewerMu?: viewerMu; 
+  readonly viewerDays?: viewerDays; 
   readonly viewerName?: viewerName; 
   readonly viewerPicture?: viewerPicture
 };
@@ -30,6 +31,7 @@ export const make: React.ComponentType<{
   readonly viewerUserId?: string; 
   readonly viewerOrdinal?: number; 
   readonly viewerMu?: number; 
+  readonly viewerDays?: number; 
   readonly viewerName?: string; 
   readonly viewerPicture?: string
 }> = RatingListJS.make as any;
@@ -43,6 +45,7 @@ export const $$default: React.ComponentType<{
   readonly viewerUserId?: string; 
   readonly viewerOrdinal?: number; 
   readonly viewerMu?: number; 
+  readonly viewerDays?: number; 
   readonly viewerName?: string; 
   readonly viewerPicture?: string
 }> = RatingListJS.default as any;

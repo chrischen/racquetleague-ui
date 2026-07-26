@@ -4490,6 +4490,10 @@ msgstr "달라스 플래시"
 msgid "Dallas Flash Swag"
 msgstr "달라스 플래시 스웨그"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
+msgid "Days at #1"
+msgstr "#1 유지 일수"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

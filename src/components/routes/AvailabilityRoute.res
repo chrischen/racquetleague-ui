@@ -20,13 +20,26 @@ let loadMessages = Lingui.loadMessages({
   vi: Lingui.import("../../locales/src/components/pages/AvailabilityPage.re/vi"),
 })
 
-// Availability data is client-only (fetched after the geolocation permission
-// prompt resolves) — the loader only handles i18n; see AvailabilityPage.res.
+// Standard SSR preload: the query is scoped by the default location — the
+// server substitutes the viewer's stored coords (User.coords) when it knows
+// them, and AvailabilityPage captures them via ViewerLocationPrompt when it
+// doesn't.
 @genType
-let loader = async ({params}: LoaderArgs.t) => {
+let loader = async ({context, params}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
+  let (fromDate, toDate) = AvailabilityPage.getDateRange()
   Router.defer({
-    WaitForMessages.data: (),
+    WaitForMessages.data: AvailabilityPageQuery_graphql.load(
+      ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
+      ~variables={
+        activityId: AvailabilityPage.defaultActivityId,
+        fromDate,
+        toDate,
+        afterDate: Util.Datetime.fromDate(Js.Date.make()),
+        location: UseUserLocation.tokyoDefault,
+      },
+      ~fetchPolicy=RescriptRelay.StoreOrNetwork,
+    ),
     i18nLoaders: ?(
       RelaySSRUtils.ssr ? None : Some(Localized.loadMessages(params.lang, loadMessages))
     ),

@@ -1,23 +1,31 @@
 %%raw("import { t } from '@lingui/macro'")
 
-// Client-only availability row for one events-list day bucket.
-// Mounted only after the geolocation permission prompt resolves (granted or
-// denied) — see UseUserLocation.useStatus — so `location` is the resolved
-// coords (or the fallback). Every Day mounts this with identical variables,
-// so Relay dedupes the concurrent requests into one and all instances read
-// the same root store fields.
-module Query = %relay(`
-  query PkEventsAvailabilityDayQuery(
-    $activityId: ID!
-    $fromDate: String!
-    $toDate: String!
-    $location: LocationInput!
-    $locationId: ID!
-    $byLocation: Boolean!
-  ) {
+// Availability row for one events-list day bucket, fed from the host page's
+// root query (spread this fragment there) — no geolocation gate: the server
+// scopes availability by the viewer's stored coords (User.coords), so the
+// `location` argument is only the fallback for anonymous viewers. We select
+// `user.coords` so the updateViewerLocation mutation payload updates this
+// fragment in the store (see ViewerLocationPrompt); PkEventsList refetches on
+// save so the lists re-scope to the newly known location.
+module Fragment = %relay(`
+  fragment PkEventsAvailabilityDay_query on Query
+  @refetchable(queryName: "PkEventsAvailabilityDayRefetchQuery")
+  @argumentDefinitions(
+    activityId: { type: "ID", defaultValue: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61" }
+    fromDate: { type: "String!" }
+    toDate: { type: "String!" }
+    location: { type: "LocationInput", defaultValue: { lat: 35.658581, lng: 139.745438 } }
+    locationId: { type: "ID", defaultValue: "" }
+    byLocation: { type: "Boolean", defaultValue: false }
+  )
+  {
     viewer {
       user {
         id
+        coords {
+          lat
+          lng
+        }
       }
       availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {
         id
@@ -127,7 +135,7 @@ type courtRow = {
 }
 
 let courtRowsFromData = (
-  data: PkEventsAvailabilityDayQuery_graphql.Types.response,
+  data: PkEventsAvailabilityDay_query_graphql.Types.fragment,
 ): array<courtRow> =>
   Belt.Array.concat(
     data.locationsAvailability
@@ -201,35 +209,18 @@ let courtAvailabilityForDate = (
 
 @react.component
 let make = (
+  // The host page's fragment data, read once by PkEventsList and shared by
+  // every Day bucket. Court scoping (coordinate- vs single-location) is fixed
+  // by the page query's fragment arguments (`byLocation` / `locationId`).
+  ~data: PkEventsAvailabilityDay_query_graphql.Types.fragment,
   ~localDate: string,
   ~dateGroup: string,
-  ~fromDate: string,
-  ~toDate: string,
   ~activityId: string,
-  ~location: UseUserLocation.location,
-  ~fetchKey: int,
   ~onRefetchNeeded: unit => unit,
   ~isLoggedIn: bool,
   ~onCreateEvent: unit => unit,
   ~renderHeader: React.element => React.element,
-  // When set, court availability is scoped to this single location (a location's
-  // events list) via `locationAvailability`; otherwise it's coordinate-scoped.
-  ~locationId: option<string>=?,
 ) => {
-  let fetchPolicy = fetchKey > 0 ? RescriptRelay.StoreAndNetwork : RescriptRelay.StoreOrNetwork
-  let data = Query.use(
-    ~variables={
-      activityId,
-      fromDate,
-      toDate,
-      location,
-      locationId: locationId->Option.getOr(""),
-      byLocation: locationId->Option.isSome,
-    },
-    ~fetchKey=Int.toString(fetchKey),
-    ~fetchPolicy,
-  )
-
   let viewerUserId = data.viewer->Option.flatMap(v => v.user)->Option.map(u => u.id)
 
   let allUserDays = data.availabilityUsersForDateRange->Array.map((d): PlayIntentRow.userDay => {

@@ -5659,3 +5659,7 @@ msgstr ""
 #: src/components/pages/PkEventPage.re.mjs:420
 msgid "Dallas Flash Swag"
 msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
+msgid "Days at #1"
+msgstr ""

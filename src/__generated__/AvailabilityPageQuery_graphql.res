@@ -65,9 +65,18 @@ module Types = {
   and response_viewer_events = {
     edges: option<array<option<response_viewer_events_edges>>>,
   }
+  and response_viewer_user_coords = {
+    lat: float,
+    lng: float,
+  }
+  and response_viewer_user = {
+    coords: option<response_viewer_user_coords>,
+    @live id: string,
+  }
   and response_viewer = {
     availability: array<response_viewer_availability>,
     events: response_viewer_events,
+    user: option<response_viewer_user>,
   }
   type response = {
     availabilityUsersForDateRange: array<response_availabilityUsersForDateRange>,
@@ -414,6 +423,43 @@ v12 = [
     "selections": [
       {
         "alias": null,
+        "args": null,
+        "concreteType": "User",
+        "kind": "LinkedField",
+        "name": "user",
+        "plural": false,
+        "selections": [
+          (v8/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Coords",
+            "kind": "LinkedField",
+            "name": "coords",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lat",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "lng",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
         "args": [
           (v11/*: any*/),
           (v5/*: any*/),
@@ -544,12 +590,12 @@ return {
     "selections": (v12/*: any*/)
   },
   "params": {
-    "cacheID": "f2bafe26470329ad9dea0f4690707b8e",
+    "cacheID": "1cf8da89aa1ddae82e707620d0a3393d",
     "id": null,
     "metadata": {},
     "name": "AvailabilityPageQuery",
     "operationKind": "query",
-    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput!\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  viewer {\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput!\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  viewer {\n    user {\n      id\n      coords {\n        lat\n        lng\n      }\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -4944,6 +4944,10 @@ msgstr "达拉斯闪电"
 msgid "Dallas Flash Swag"
 msgstr "达拉斯闪电周边"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
+msgid "Days at #1"
+msgstr "位居第一的天数"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -231,6 +231,7 @@ module Types = {
   and fragment_leagueUserStats = {
     bestOpponents: array<fragment_leagueUserStats_bestOpponents>,
     bestPartners: array<fragment_leagueUserStats_bestPartners>,
+    daysNumberOne: float,
     hardcourtRating: option<fragment_leagueUserStats_hardcourtRating>,
     hardcourtZScore: option<float>,
     indoorIndoorBallRating: option<fragment_leagueUserStats_indoorIndoorBallRating>,
@@ -479,6 +480,13 @@ return {
       "name": "leagueUserStats",
       "plural": false,
       "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "daysNumberOne",
+          "storageKey": null
+        },
         {
           "alias": null,
           "args": null,

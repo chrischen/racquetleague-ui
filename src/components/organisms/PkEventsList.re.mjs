@@ -18,11 +18,11 @@ import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as PkEventsDayFeed from "./PkEventsDayFeed.re.mjs";
-import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as ViewerLocationPrompt from "../molecules/ViewerLocationPrompt.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PkEventsAvailabilityDay from "./PkEventsAvailabilityDay.re.mjs";
 import * as PkEventsListFragment_graphql from "../../__generated__/PkEventsListFragment_graphql.re.mjs";
@@ -83,12 +83,9 @@ function ts(prim0, prim1) {
 }
 
 function PkEventsList$Day(props) {
-  var courtLocationId = props.courtLocationId;
   var __showInlineCourts = props.showInlineCourts;
   var onAvailabilityRefetchNeeded = props.onAvailabilityRefetchNeeded;
-  var availabilityFetchKey = props.availabilityFetchKey;
-  var toDate = props.toDate;
-  var fromDate = props.fromDate;
+  var availabilityData = props.availabilityData;
   var activityId = props.activityId;
   var onHoverLocation = props.onHoverLocation;
   var onEventClick = props.onEventClick;
@@ -114,7 +111,6 @@ function PkEventsList$Day(props) {
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
             })));
-  var geoStatus = UseUserLocation.useStatus();
   var defaultHide = function (edge, _viewer) {
     return Core__Option.getOr(edge.shadow, false);
   };
@@ -230,46 +226,28 @@ function PkEventsList$Day(props) {
                                 className: "px-4 md:px-6 py-3 flex items-center justify-between"
                               });
                   };
-                  var tmp;
-                  tmp = typeof geoStatus !== "object" ? renderHeader(null) : JsxRuntime.jsx(React.Suspense, {
-                          children: Caml_option.some(JsxRuntime.jsx(PkEventsAvailabilityDay.make, {
-                                    localDate: isoDate,
-                                    dateGroup: label,
-                                    fromDate: fromDate,
-                                    toDate: toDate,
-                                    activityId: Core__Option.getOr(activityId, defaultActivityId),
-                                    location: geoStatus.location,
-                                    fetchKey: availabilityFetchKey,
-                                    onRefetchNeeded: onAvailabilityRefetchNeeded,
-                                    isLoggedIn: isLoggedIn,
-                                    onCreateEvent: (function () {
-                                        navigate("/events/create?date=" + isoDate, undefined);
-                                      }),
-                                    renderHeader: renderHeader,
-                                    locationId: courtLocationId
-                                  })),
-                          fallback: Caml_option.some(renderHeader(null))
-                        });
-                  var tmp$1;
-                  tmp$1 = showInlineCourts && typeof geoStatus === "object" ? JsxRuntime.jsx(React.Suspense, {
-                          children: Caml_option.some(JsxRuntime.jsx(PkEventsDayFeed.make, {
-                                    localDate: isoDate,
-                                    fromDate: fromDate,
-                                    toDate: toDate,
-                                    activityId: Core__Option.getOr(activityId, defaultActivityId),
-                                    location: geoStatus.location,
-                                    fetchKey: availabilityFetchKey,
-                                    events: eventItems,
-                                    hasHiddenPreview: hasHiddenPreview,
-                                    onRefetchNeeded: onAvailabilityRefetchNeeded,
-                                    locationId: courtLocationId
-                                  })),
-                          fallback: Caml_option.some(renderEventsOnly())
-                        }) : renderEventsOnly();
                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
-                                tmp,
-                                tmp$1,
+                                JsxRuntime.jsx(PkEventsAvailabilityDay.make, {
+                                      data: availabilityData,
+                                      localDate: isoDate,
+                                      dateGroup: label,
+                                      activityId: Core__Option.getOr(activityId, defaultActivityId),
+                                      onRefetchNeeded: onAvailabilityRefetchNeeded,
+                                      isLoggedIn: isLoggedIn,
+                                      onCreateEvent: (function () {
+                                          navigate("/events/create?date=" + isoDate, undefined);
+                                        }),
+                                      renderHeader: renderHeader
+                                    }),
+                                showInlineCourts ? JsxRuntime.jsx(PkEventsDayFeed.make, {
+                                        data: availabilityData,
+                                        localDate: isoDate,
+                                        activityId: Core__Option.getOr(activityId, defaultActivityId),
+                                        events: eventItems,
+                                        hasHiddenPreview: hasHiddenPreview,
+                                        onRefetchNeeded: onAvailabilityRefetchNeeded
+                                      }) : renderEventsOnly(),
                                 hasHiddenPreview ? Core__Option.getOr(Core__Option.map(previewHiddenEvent, (function (edge) {
                                               var waitlistCount = getWaitlistCount(edge);
                                               return JsxRuntime.jsxs("div", {
@@ -321,24 +299,27 @@ var Day = {
 };
 
 function PkEventsList(props) {
-  var courtLocationId = props.courtLocationId;
   var __showInlineCourts = props.showInlineCourts;
   var shouldHideEvent = props.shouldHideEvent;
   var activityId = props.activityId;
   var selectedLocationId = props.selectedLocationId;
   var onHoverLocation = props.onHoverLocation;
+  var events = props.events;
   var showInlineCourts = __showInlineCourts !== undefined ? __showInlineCourts : false;
-  var match = usePagination(props.events);
+  var match = usePagination(events);
   var refetch = match.refetch;
   var data = match.data;
+  var match$1 = PkEventsAvailabilityDay.Fragment.useRefetchable(events);
+  var availabilityRefetch = match$1[1];
+  var availabilityData = match$1[0];
   var viewer = data.viewer;
-  var events = getConnectionNodes(data.events);
+  var events$1 = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
   var ctx = DrawerContext.use();
-  var match$1 = ReactRouterDom.useSearchParams();
-  var setSearchParams = match$1[1];
-  var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(match$1[0]), "afterDate"), (function (d) {
+  var match$2 = ReactRouterDom.useSearchParams();
+  var setSearchParams = match$2[1];
+  var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(match$2[0]), "afterDate"), (function (d) {
           return new Date(d);
         }));
   var onSelectDate = function (date) {
@@ -357,30 +338,9 @@ function PkEventsList(props) {
   };
   var bucketSetup = EventsListUtils.makeBucketSetup();
   var intl = ReactIntl.useIntl();
-  var match$2 = React.useState(function () {
-        return 0;
-      });
-  var setAvailabilityFetchKey = match$2[1];
-  var availabilityFetchKey = match$2[0];
   var onAvailabilityRefetchNeeded = function () {
-    setAvailabilityFetchKey(function (k) {
-          return k + 1 | 0;
-        });
+    availabilityRefetch(PkEventsAvailabilityDay.Fragment.makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined), "store-and-network", undefined);
   };
-  var match$3 = React.useState(function () {
-        var toIso = function (d) {
-          return d.toISOString().slice(0, 10);
-        };
-        var now = new Date();
-        var to_ = new Date(now.getTime() + 28 * 86400000);
-        return [
-                toIso(now),
-                toIso(to_)
-              ];
-      });
-  var match$4 = match$3[0];
-  var availabilityToDate = match$4[1];
-  var availabilityFromDate = match$4[0];
   var formatDate = function (date) {
     return intl.formatDate(date, {
                 month: "short",
@@ -443,7 +403,7 @@ function PkEventsList(props) {
   };
   var bucketEventsDict = EventsListUtils.bucketEvents(bucketSetup, (function (e) {
           return e.startDate;
-        }), undefined, events);
+        }), undefined, events$1);
   var buckets = Core__Array.filterMap(EventsListUtils.sortBucketKeys(Object.keys(bucketEventsDict)), (function (key) {
           return Core__Option.flatMap(Js_dict.get(bucketEventsDict, key), (function (bucketEvents) {
                         var filteredEvents = selectedLocationId !== undefined ? bucketEvents.filter(function (e) {
@@ -473,19 +433,16 @@ function PkEventsList(props) {
                                         }),
                                       onHoverLocation: onHoverLocation,
                                       activityId: activityId,
-                                      fromDate: availabilityFromDate,
-                                      toDate: availabilityToDate,
-                                      availabilityFetchKey: availabilityFetchKey,
+                                      availabilityData: availabilityData,
                                       onAvailabilityRefetchNeeded: onAvailabilityRefetchNeeded,
                                       shouldHideEvent: shouldHideEvent,
-                                      showInlineCourts: showInlineCourts,
-                                      courtLocationId: courtLocationId
+                                      showInlineCourts: showInlineCourts
                                     })
                               ];
                       }));
         }));
-  var totalEvents = events.length;
-  var eventDates = Core__Array.filterMap(events, (function (e) {
+  var totalEvents = events$1.length;
+  var eventDates = Core__Array.filterMap(events$1, (function (e) {
           return Core__Option.map(e.startDate, (function (d) {
                         return Util.Datetime.toDate(d);
                       }));
@@ -517,20 +474,32 @@ function PkEventsList(props) {
                 });
           };
         }));
-  return JsxRuntime.jsx(EventsListView.make, {
-              totalEvents: totalEvents,
-              buckets: buckets,
-              weekendBucketKey: bucketSetup.weekendBucketKey,
-              selectedDate: selectedDate,
-              onSelectDate: onSelectDate,
-              onClearDate: onClearDate,
-              eventDates: eventDates,
-              hasPrevious: hasPrevious,
-              isLoadingPrevious: match.isLoadingPrevious,
-              onPrevious: onPrevious,
-              hasNext: match.hasNext,
-              onNext: onNext,
-              onRefresh: onRefresh
+  var needsLocationCapture = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(availabilityData.viewer, (function (v) {
+                  return v.user;
+                })), (function (u) {
+              return Core__Option.isNone(u.coords);
+            })), false);
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                needsLocationCapture ? JsxRuntime.jsx(ViewerLocationPrompt.make, {
+                        onSaved: onAvailabilityRefetchNeeded
+                      }) : null,
+                JsxRuntime.jsx(EventsListView.make, {
+                      totalEvents: totalEvents,
+                      buckets: buckets,
+                      weekendBucketKey: bucketSetup.weekendBucketKey,
+                      selectedDate: selectedDate,
+                      onSelectDate: onSelectDate,
+                      onClearDate: onClearDate,
+                      eventDates: eventDates,
+                      hasPrevious: hasPrevious,
+                      isLoadingPrevious: match.isLoadingPrevious,
+                      onPrevious: onPrevious,
+                      hasNext: match.hasNext,
+                      onNext: onNext,
+                      onRefresh: onRefresh
+                    })
+              ]
             });
 }
 

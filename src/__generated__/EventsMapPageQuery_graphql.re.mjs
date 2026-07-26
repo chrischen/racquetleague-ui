@@ -6,10 +6,12 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(after, afterDate, before, filters, first) {
+function makeRefetchVariables(after, afterDate, availabilityFromDate, availabilityToDate, before, filters, first) {
   return {
           after: after,
           afterDate: afterDate,
+          availabilityFromDate: availabilityFromDate,
+          availabilityToDate: availabilityToDate,
           before: before,
           filters: filters,
           first: first
@@ -72,19 +74,29 @@ v1 = {
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "before"
+  "name": "availabilityFromDate"
 },
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "filters"
+  "name": "availabilityToDate"
 },
 v4 = {
   "defaultValue": null,
   "kind": "LocalArgument",
+  "name": "before"
+},
+v5 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "filters"
+},
+v6 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
   "name": "first"
 },
-v5 = [
+v7 = [
   {
     "kind": "Variable",
     "name": "after",
@@ -111,71 +123,173 @@ v5 = [
     "variableName": "first"
   }
 ],
-v6 = {
+v8 = {
+  "kind": "Variable",
+  "name": "fromDate",
+  "variableName": "availabilityFromDate"
+},
+v9 = {
+  "kind": "Variable",
+  "name": "toDate",
+  "variableName": "availabilityToDate"
+},
+v10 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v7 = {
+v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "lineUsername",
   "storageKey": null
 },
-v8 = {
+v12 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "email",
   "storageKey": null
 },
-v9 = [
-  {
-    "kind": "Literal",
-    "name": "first",
-    "value": 100
-  }
-],
-v10 = [
-  (v6/*: any*/)
-],
-v11 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "name",
-  "storageKey": null
-},
-v12 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "__typename",
-  "storageKey": null
-},
 v13 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "cursor",
+  "name": "lat",
   "storageKey": null
 },
 v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "endCursor",
+  "name": "lng",
   "storageKey": null
 },
 v15 = {
+  "kind": "Literal",
+  "name": "first",
+  "value": 100
+},
+v16 = [
+  (v15/*: any*/)
+],
+v17 = [
+  (v10/*: any*/)
+],
+v18 = {
+  "kind": "Literal",
+  "name": "activityId",
+  "value": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
+},
+v19 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "localDate",
+  "storageKey": null
+},
+v20 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "AvailabilityInterval",
+  "kind": "LinkedField",
+  "name": "intervals",
+  "plural": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "startHour",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "endHour",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v21 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "title",
+  "storageKey": null
+},
+v22 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "startDate",
+  "storageKey": null
+},
+v23 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "endDate",
+  "storageKey": null
+},
+v24 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "timezone",
+  "storageKey": null
+},
+v25 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v26 = [
+  (v10/*: any*/),
+  (v25/*: any*/)
+],
+v27 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "__typename",
+  "storageKey": null
+},
+v28 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "cursor",
+  "storageKey": null
+},
+v29 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "endCursor",
+  "storageKey": null
+},
+v30 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "hasNextPage",
   "storageKey": null
+},
+v31 = {
+  "kind": "Literal",
+  "name": "location",
+  "value": {
+    "lat": 35.658581,
+    "lng": 139.745438
+  }
 };
 return {
   "fragment": {
@@ -184,20 +298,30 @@ return {
       (v1/*: any*/),
       (v2/*: any*/),
       (v3/*: any*/),
-      (v4/*: any*/)
+      (v4/*: any*/),
+      (v5/*: any*/),
+      (v6/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "EventsMapPageQuery",
     "selections": [
       {
-        "args": (v5/*: any*/),
+        "args": (v7/*: any*/),
         "kind": "FragmentSpread",
         "name": "PkEventsListFragment"
       },
       {
+        "args": [
+          (v8/*: any*/),
+          (v9/*: any*/)
+        ],
+        "kind": "FragmentSpread",
+        "name": "PkEventsAvailabilityDay_query"
+      },
+      {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v7/*: any*/),
         "concreteType": "EventConnection",
         "kind": "LinkedField",
         "name": "events",
@@ -219,9 +343,11 @@ return {
   "operation": {
     "argumentDefinitions": [
       (v0/*: any*/),
+      (v6/*: any*/),
       (v4/*: any*/),
-      (v2/*: any*/),
       (v1/*: any*/),
+      (v5/*: any*/),
+      (v2/*: any*/),
       (v3/*: any*/)
     ],
     "kind": "Operation",
@@ -243,9 +369,9 @@ return {
             "name": "profile",
             "plural": false,
             "selections": [
-              (v6/*: any*/),
-              (v7/*: any*/),
-              (v8/*: any*/),
+              (v10/*: any*/),
+              (v11/*: any*/),
+              (v12/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -278,15 +404,28 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v6/*: any*/),
-              (v7/*: any*/),
-              (v8/*: any*/)
+              (v10/*: any*/),
+              (v11/*: any*/),
+              (v12/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Coords",
+                "kind": "LinkedField",
+                "name": "coords",
+                "plural": false,
+                "selections": [
+                  (v13/*: any*/),
+                  (v14/*: any*/)
+                ],
+                "storageKey": null
+              }
             ],
             "storageKey": null
           },
           {
             "alias": null,
-            "args": (v9/*: any*/),
+            "args": (v16/*: any*/),
             "concreteType": "ClubConnection",
             "kind": "LinkedField",
             "name": "clubs",
@@ -307,7 +446,7 @@ return {
                     "kind": "LinkedField",
                     "name": "node",
                     "plural": false,
-                    "selections": (v10/*: any*/),
+                    "selections": (v17/*: any*/),
                     "storageKey": null
                   }
                 ],
@@ -315,13 +454,78 @@ return {
               }
             ],
             "storageKey": "clubs(first:100)"
+          },
+          {
+            "alias": null,
+            "args": [
+              (v18/*: any*/),
+              (v8/*: any*/),
+              (v9/*: any*/)
+            ],
+            "concreteType": "AvailabilityDay",
+            "kind": "LinkedField",
+            "name": "availability",
+            "plural": true,
+            "selections": [
+              (v10/*: any*/),
+              (v19/*: any*/),
+              (v20/*: any*/)
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "_filters",
+                "value": {
+                  "viewer": true
+                }
+              },
+              (v15/*: any*/)
+            ],
+            "concreteType": "EventConnection",
+            "kind": "LinkedField",
+            "name": "events",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "EventEdge",
+                "kind": "LinkedField",
+                "name": "edges",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Event",
+                    "kind": "LinkedField",
+                    "name": "node",
+                    "plural": false,
+                    "selections": [
+                      (v10/*: any*/),
+                      (v21/*: any*/),
+                      (v22/*: any*/),
+                      (v23/*: any*/),
+                      (v24/*: any*/)
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": "events(_filters:{\"viewer\":true},first:100)"
           }
         ],
         "storageKey": null
       },
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v7/*: any*/),
         "concreteType": "EventConnection",
         "kind": "LinkedField",
         "name": "events",
@@ -343,21 +547,9 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v6/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "startDate",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "timezone",
-                    "storageKey": null
-                  },
+                  (v10/*: any*/),
+                  (v22/*: any*/),
+                  (v24/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -366,8 +558,8 @@ return {
                     "name": "location",
                     "plural": false,
                     "selections": [
-                      (v6/*: any*/),
-                      (v11/*: any*/),
+                      (v10/*: any*/),
+                      (v25/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -376,20 +568,8 @@ return {
                         "name": "coords",
                         "plural": false,
                         "selections": [
-                          {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "lng",
-                            "storageKey": null
-                          },
-                          {
-                            "alias": null,
-                            "args": null,
-                            "kind": "ScalarField",
-                            "name": "lat",
-                            "storageKey": null
-                          }
+                          (v14/*: any*/),
+                          (v13/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -431,10 +611,7 @@ return {
                     "kind": "LinkedField",
                     "name": "club",
                     "plural": false,
-                    "selections": [
-                      (v6/*: any*/),
-                      (v11/*: any*/)
-                    ],
+                    "selections": (v26/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -446,7 +623,7 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v9/*: any*/),
+                    "args": (v16/*: any*/),
                     "concreteType": "EventRsvpConnection",
                     "kind": "LinkedField",
                     "name": "rsvps",
@@ -468,7 +645,7 @@ return {
                             "name": "node",
                             "plural": false,
                             "selections": [
-                              (v6/*: any*/),
+                              (v10/*: any*/),
                               {
                                 "alias": null,
                                 "args": null,
@@ -483,7 +660,7 @@ return {
                                 "kind": "LinkedField",
                                 "name": "user",
                                 "plural": false,
-                                "selections": (v10/*: any*/),
+                                "selections": (v17/*: any*/),
                                 "storageKey": null
                               },
                               {
@@ -501,15 +678,15 @@ return {
                                     "name": "mu",
                                     "storageKey": null
                                   },
-                                  (v6/*: any*/)
+                                  (v10/*: any*/)
                                 ],
                                 "storageKey": null
                               },
-                              (v12/*: any*/)
+                              (v27/*: any*/)
                             ],
                             "storageKey": null
                           },
-                          (v13/*: any*/)
+                          (v28/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -521,8 +698,8 @@ return {
                         "name": "pageInfo",
                         "plural": false,
                         "selections": [
-                          (v14/*: any*/),
-                          (v15/*: any*/)
+                          (v29/*: any*/),
+                          (v30/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -531,27 +708,15 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v9/*: any*/),
+                    "args": (v16/*: any*/),
                     "filters": null,
                     "handle": "connection",
                     "key": "PkEventRow_event_rsvps",
                     "kind": "LinkedHandle",
                     "name": "rsvps"
                   },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "title",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "endDate",
-                    "storageKey": null
-                  },
+                  (v21/*: any*/),
+                  (v23/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -578,11 +743,11 @@ return {
                       }
                     ]
                   },
-                  (v12/*: any*/)
+                  (v27/*: any*/)
                 ],
                 "storageKey": null
               },
-              (v13/*: any*/)
+              (v28/*: any*/)
             ],
             "storageKey": null
           },
@@ -594,7 +759,7 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              (v15/*: any*/),
+              (v30/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -602,7 +767,7 @@ return {
                 "name": "hasPreviousPage",
                 "storageKey": null
               },
-              (v14/*: any*/),
+              (v29/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -618,7 +783,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v5/*: any*/),
+        "args": (v7/*: any*/),
         "filters": [
           "filters",
           "afterDate"
@@ -627,16 +792,143 @@ return {
         "key": "PkEventsListFragment_events",
         "kind": "LinkedHandle",
         "name": "events"
+      },
+      {
+        "alias": null,
+        "args": [
+          (v8/*: any*/),
+          (v31/*: any*/),
+          {
+            "fields": [
+              (v18/*: any*/)
+            ],
+            "kind": "ObjectValue",
+            "name": "scope"
+          },
+          (v9/*: any*/)
+        ],
+        "concreteType": "AvailabilityDay",
+        "kind": "LinkedField",
+        "name": "availabilityUsersForDateRange",
+        "plural": true,
+        "selections": [
+          (v10/*: any*/),
+          (v19/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v10/*: any*/),
+              (v11/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "picture",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          (v20/*: any*/)
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": [
+          (v18/*: any*/),
+          (v8/*: any*/),
+          (v31/*: any*/),
+          (v9/*: any*/)
+        ],
+        "concreteType": "LocationAvailabilityDay",
+        "kind": "LinkedField",
+        "name": "locationsAvailability",
+        "plural": true,
+        "selections": [
+          (v10/*: any*/),
+          (v19/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "link",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Location",
+            "kind": "LinkedField",
+            "name": "location",
+            "plural": false,
+            "selections": (v26/*: any*/),
+            "storageKey": null
+          },
+          (v20/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "AvailabilityHourStat",
+            "kind": "LinkedField",
+            "name": "hourly",
+            "plural": true,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "hour",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "indoorCount",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "outdoorCount",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "priceMin",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "priceMax",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
       }
     ]
   },
   "params": {
-    "cacheID": "0d22d6a65fb84ffb47481b2f5b76207f",
+    "cacheID": "40bef3cdf671daef9fe4a555a7154c86",
     "id": null,
     "metadata": {},
     "name": "EventsMapPageQuery",
     "operationKind": "query",
-    "text": "query EventsMapPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n) {\n  ...PkEventsListFragment_N8DiW\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    ...PinsMap_eventConnection\n  }\n}\n\nfragment PinsMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n\nfragment PkEventRow_query on Query {\n  ...ProfileModal_viewer\n}\n\nfragment PkEventRow_user on User {\n  id\n  lineUsername\n  email\n}\n\nfragment PkEventsListFragment_N8DiW on Query {\n  ...PkEventRow_query\n  viewer {\n    user {\n      id\n      ...PkEventRow_user\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        listed\n        deleted\n        club {\n          id\n        }\n        maxRsvps\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n    }\n  }\n}\n"
+    "text": "query EventsMapPageQuery(\n  $after: String\n  $first: Int\n  $before: String\n  $afterDate: Datetime\n  $filters: EventFilters\n  $availabilityFromDate: String!\n  $availabilityToDate: String!\n) {\n  ...PkEventsListFragment_N8DiW\n  ...PkEventsAvailabilityDay_query_1Iq18Q\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    ...PinsMap_eventConnection\n  }\n}\n\nfragment PinsMap_eventConnection on EventConnection {\n  edges {\n    node {\n      id\n      startDate\n      location {\n        id\n        coords {\n          lng\n          lat\n        }\n        address\n      }\n    }\n  }\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n\nfragment PkEventRow_query on Query {\n  ...ProfileModal_viewer\n}\n\nfragment PkEventRow_user on User {\n  id\n  lineUsername\n  email\n}\n\nfragment PkEventsAvailabilityDay_query_1Iq18Q on Query {\n  viewer {\n    user {\n      id\n      coords {\n        lat\n        lng\n      }\n    }\n    availability(activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\", fromDate: $availabilityFromDate, toDate: $availabilityToDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n      ...PlayIntentRow_availabilityDay\n    }\n    events(first: 100, _filters: {viewer: true}) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $availabilityFromDate, toDate: $availabilityToDate, location: {lat: 35.658581, lng: 139.745438}, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\", fromDate: $availabilityFromDate, toDate: $availabilityToDate, location: {lat: 35.658581, lng: 139.745438}) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n}\n\nfragment PkEventsListFragment_N8DiW on Query {\n  ...PkEventRow_query\n  viewer {\n    user {\n      id\n      ...PkEventRow_user\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        listed\n        deleted\n        club {\n          id\n        }\n        maxRsvps\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n    }\n  }\n}\n"
   }
 };
 })());

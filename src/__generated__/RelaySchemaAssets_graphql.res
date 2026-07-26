@@ -440,7 +440,6 @@ and input_SetAvailabilityDayInput = {
   activityId: string,
   intervals: array<input_IntervalInput>,
   localDate: string,
-  location: input_LocationInput,
 }
 
 @live
@@ -448,7 +447,6 @@ and input_SetAvailabilityDayInput_nullable = {
   activityId: string,
   intervals: array<input_IntervalInput_nullable>,
   localDate: string,
-  location: input_LocationInput_nullable,
 }
 
 @live
@@ -521,6 +519,18 @@ and input_UpdateViewerContactInput = {
 and input_UpdateViewerContactInput_nullable = {
   email?: Js.Null.t<string>,
   lineUsername?: Js.Null.t<string>,
+}
+
+@live
+and input_UpdateViewerLocationInput = {
+  lat: float,
+  lng: float,
+}
+
+@live
+and input_UpdateViewerLocationInput_nullable = {
+  lat: float,
+  lng: float,
 }
 
 @live
