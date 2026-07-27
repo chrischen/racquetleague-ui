@@ -13,60 +13,64 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:606
+#: src/components/organisms/RatingList.re.mjs:664
 msgid "...load higher rated players"
 msgstr "...โหลดผู้เล่นเรตติ้งสูงกว่า"
 
-#: src/components/organisms/RatingList.re.mjs:710
+#: src/components/organisms/RatingList.re.mjs:773
 msgid "All players loaded"
 msgstr "โหลดผู้เล่นทั้งหมดแล้ว"
 
-#: src/components/organisms/RatingList.re.mjs:199
-#: src/components/organisms/RatingList.re.mjs:220
+#: src/components/organisms/RatingList.re.mjs:699
+msgid "Days #1"
+msgstr "วันที่ #1"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#: src/components/organisms/RatingList.re.mjs:223
 msgid "Draft"
 msgstr "ดราฟต์"
 
-#: src/components/organisms/RatingList.re.mjs:668
+#: src/components/organisms/RatingList.re.mjs:731
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "เส้นตัดดราฟต์ · 8 อันดับแรกผ่านเข้ารอบ"
 
-#: src/components/organisms/RatingList.re.mjs:636
+#: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "DUPR โดยประมาณ"
 
-#: src/components/organisms/RatingList.re.mjs:580
+#: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "โหลดผู้เล่นเพิ่มเติม..."
 
-#: src/components/organisms/RatingList.re.mjs:556
+#: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "กำลังโหลดอันดับถัดไป"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
 msgstr "ไม่พบผู้เล่น"
 
-#: src/components/organisms/RatingList.re.mjs:628
+#: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/RatingList.re.mjs:632
+#: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "เรตติ้ง"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
 msgstr "ลองขยายการค้นหาหรือตัวกรองของคุณ"
 
-#: src/components/organisms/RatingList.re.mjs:367
+#: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "ดูโปรไฟล์ของฉัน"
 
-#: src/components/organisms/RatingList.re.mjs:330
+#: src/components/organisms/RatingList.re.mjs:360
 msgid "You"
 msgstr "คุณ"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "อันดับของคุณ"
 

@@ -146,7 +146,7 @@ msgstr "取消"
 msgid "Change times"
 msgstr "更改时间"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
 msgid "Court"
 msgstr "场地"
 

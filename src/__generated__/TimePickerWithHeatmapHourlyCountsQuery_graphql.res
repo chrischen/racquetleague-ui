@@ -5,6 +5,7 @@ module Types = {
   @@warning("-30")
 
   @live type locationInput = RelaySchemaAssets_graphql.input_LocationInput
+  @live type coordsInput = RelaySchemaAssets_graphql.input_CoordsInput
   type rec response_availabilityHourlyCounts = {
     count: int,
     hour: int,
@@ -19,14 +20,14 @@ module Types = {
     activityId: string,
     clubId?: string,
     localDate: string,
-    location: locationInput,
+    location?: locationInput,
   }
   @live
   type refetchVariables = {
     activityId: option<string>,
     clubId: option<option<string>>,
     localDate: option<string>,
-    location: option<locationInput>,
+    location: option<option<locationInput>>,
   }
   @live let makeRefetchVariables = (
     ~activityId=?,
@@ -48,7 +49,7 @@ type queryRef
 module Internal = {
   @live
   let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"locationInput":{},"__root":{"location":{"r":"locationInput"}}}`
+    json`{"coordsInput":{},"locationInput":{"coords":{"r":"coordsInput"}},"__root":{"location":{"r":"locationInput"}}}`
   )
   @live
   let variablesConverterMap = ()
@@ -98,6 +99,21 @@ module Internal = {
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external region_toString: RelaySchemaAssets_graphql.enum_Region => string = "%identity"
+  @live
+  external region_input_toString: RelaySchemaAssets_graphql.enum_Region_input => string = "%identity"
+  @live
+  let region_decode = (enum: RelaySchemaAssets_graphql.enum_Region): option<RelaySchemaAssets_graphql.enum_Region_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let region_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Region_input> => {
+    region_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -201,12 +217,12 @@ return {
     "selections": (v4/*: any*/)
   },
   "params": {
-    "cacheID": "6cf411165139a9e403d3a273c7fda26b",
+    "cacheID": "9a3d0df7d219eaedc55fe1b9330eac5b",
     "id": null,
     "metadata": {},
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
     "operationKind": "query",
-    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $location: LocationInput!\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, location: $location) {\n    hour\n    count\n  }\n}\n"
+    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $location: LocationInput\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, location: $location) {\n    hour\n    count\n  }\n}\n"
   }
 };
 })() `)

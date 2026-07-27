@@ -13,60 +13,64 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:606
+#: src/components/organisms/RatingList.re.mjs:664
 msgid "...load higher rated players"
 msgstr "...tải người chơi xếp hạng cao hơn"
 
-#: src/components/organisms/RatingList.re.mjs:710
+#: src/components/organisms/RatingList.re.mjs:773
 msgid "All players loaded"
 msgstr "Đã tải tất cả người chơi"
 
-#: src/components/organisms/RatingList.re.mjs:199
-#: src/components/organisms/RatingList.re.mjs:220
+#: src/components/organisms/RatingList.re.mjs:699
+msgid "Days #1"
+msgstr "Ngày #1"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#: src/components/organisms/RatingList.re.mjs:223
 msgid "Draft"
 msgstr "Nháp"
 
-#: src/components/organisms/RatingList.re.mjs:668
+#: src/components/organisms/RatingList.re.mjs:731
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "Hạn chót nháp · Top 8 vào vòng chính"
 
-#: src/components/organisms/RatingList.re.mjs:636
+#: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "DUPR ước tính"
 
-#: src/components/organisms/RatingList.re.mjs:580
+#: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "Tải thêm người chơi..."
 
-#: src/components/organisms/RatingList.re.mjs:556
+#: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "Đang tải bảng xếp hạng tiếp theo"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
 msgstr "Không tìm thấy người chơi"
 
-#: src/components/organisms/RatingList.re.mjs:628
+#: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "Người chơi"
 
-#: src/components/organisms/RatingList.re.mjs:632
+#: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "Xếp hạng"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
 msgstr "Hãy mở rộng tìm kiếm hoặc bộ lọc của bạn."
 
-#: src/components/organisms/RatingList.re.mjs:367
+#: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "Xem hồ sơ của tôi"
 
-#: src/components/organisms/RatingList.re.mjs:330
+#: src/components/organisms/RatingList.re.mjs:360
 msgid "You"
 msgstr "Bạn"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "Thứ hạng của bạn"
 

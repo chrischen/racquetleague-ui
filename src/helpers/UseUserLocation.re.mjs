@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 
 var tokyoDefault = {
@@ -36,7 +37,7 @@ function start() {
   if (match == null) {
     current.contents = {
       TAG: "Resolved",
-      location: tokyoDefault,
+      coords: tokyoDefault,
       granted: false
     };
     return emit();
@@ -45,7 +46,7 @@ function start() {
     navigator.geolocation.getCurrentPosition((function (pos) {
             current.contents = {
               TAG: "Resolved",
-              location: {
+              coords: {
                 lat: pos.coords.latitude,
                 lng: pos.coords.longitude
               },
@@ -59,7 +60,7 @@ function start() {
               console.warn("Geolocation unavailable:", err);
               current.contents = {
                 TAG: "Resolved",
-                location: tokyoDefault,
+                coords: tokyoDefault,
                 granted: false
               };
               return emit();
@@ -109,9 +110,100 @@ function use() {
   if (typeof match !== "object") {
     return tokyoDefault;
   } else {
-    return match.location;
+    return match.coords;
   }
 }
+
+function useOption() {
+  var match = usePassiveStatus();
+  if (typeof match !== "object" || !match.granted) {
+    return ;
+  } else {
+    return match.coords;
+  }
+}
+
+function request(cb) {
+  var match = window;
+  var match$1 = navigator.geolocation;
+  if (match == null) {
+    return cb("Unsupported");
+  }
+  if (match$1 == null) {
+    return cb("Unsupported");
+  }
+  var attempt = function (retriesLeft) {
+    navigator.geolocation.getCurrentPosition((function (pos) {
+            var c_lat = pos.coords.latitude;
+            var c_lng = pos.coords.longitude;
+            var c = {
+              lat: c_lat,
+              lng: c_lng
+            };
+            current.contents = {
+              TAG: "Resolved",
+              coords: c,
+              granted: true
+            };
+            emit();
+            cb({
+                  TAG: "Located",
+                  _0: c
+                });
+          }), (function (err) {
+            if (err.code === 3 && retriesLeft > 0) {
+              return attempt(retriesLeft - 1 | 0);
+            } else {
+              return cb("Denied");
+            }
+          }), {
+          enableHighAccuracy: false,
+          timeout: 15000,
+          maximumAge: 600000
+        });
+  };
+  attempt(2);
+}
+
+var tokyoRegionParam = "tokyo";
+
+function coordsToParam(c) {
+  return c.lat.toString() + "," + c.lng.toString();
+}
+
+function locationInputOfCoords(c) {
+  return {
+          coords: {
+            lat: c.lat,
+            lng: c.lng
+          }
+        };
+}
+
+function locationInputFromParam(s) {
+  if (s === tokyoRegionParam) {
+    return {
+            region: "tokyo"
+          };
+  }
+  var match = s.split(",");
+  if (match.length !== 2) {
+    return ;
+  }
+  var lat = match[0];
+  var lng = match[1];
+  var match$1 = Core__Float.fromString(lat);
+  var match$2 = Core__Float.fromString(lng);
+  if (match$1 !== undefined && match$2 !== undefined) {
+    return locationInputOfCoords({
+                lat: match$1,
+                lng: match$2
+              });
+  }
+  
+}
+
+var locationParamKey = "location";
 
 export {
   tokyoDefault ,
@@ -125,5 +217,12 @@ export {
   useStatus ,
   usePassiveStatus ,
   use ,
+  useOption ,
+  request ,
+  locationParamKey ,
+  tokyoRegionParam ,
+  coordsToParam ,
+  locationInputOfCoords ,
+  locationInputFromParam ,
 }
 /* react Not a pure module */

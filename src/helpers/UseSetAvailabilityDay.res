@@ -60,3 +60,49 @@ let use = () => {
     )
   (commitDay, isMutating)
 }
+
+// Batch variant — one activity, many days, one round-trip (see the events
+// availability grid, which saves every edited day at once). `location` is
+// omitted for the same reason as the singular: the server keys off the viewer's
+// stored coords.
+module DaysMutation = %relay(`
+  mutation UseSetAvailabilityDaysMutation($input: SetAvailabilityDaysInput!) {
+    setAvailabilityDays(input: $input) {
+      days {
+        id
+        localDate
+        user {
+          id
+          picture
+          lineUsername
+        }
+        intervals {
+          startHour
+          endHour
+        }
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+let useSetDays = () => {
+  let (commit, isMutating) = DaysMutation.use()
+  let commitDays = (
+    ~activityId: string,
+    ~days: array<RelaySchemaAssets_graphql.input_AvailabilityDayInput>,
+    ~onCompleted: option<
+      (
+        UseSetAvailabilityDaysMutation_graphql.Types.response,
+        option<array<RescriptRelay.mutationError>>,
+      ) => unit,
+    >=?,
+  ) =>
+    commit(
+      ~variables={input: {activityId, days}},
+      ~onCompleted=?onCompleted,
+    )
+  (commitDays, isMutating)
+}

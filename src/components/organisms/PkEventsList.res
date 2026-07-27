@@ -8,9 +8,21 @@ module Fragment = %relay(`
     first: { type: "Int", defaultValue: 20 }
     afterDate: { type: "Datetime" }
     filters: { type: "EventFilters" }
+    location: { type: "LocationInput" }
   )
   @refetchable(queryName: "PkEventsListRefetchQuery")
   {
+    # The location the server scoped this list to (location arg → user.coords →
+    # named default). The page-level location scope: it drives the location
+    # filter's selection now and will scope the events connection later. region is
+    # a symbolic named default (e.g. tokyo); coords is always present for display.
+    resolvedLocation(location: $location) {
+      coords {
+        lat
+        lng
+      }
+      region
+    }
     ...PkEventRow_query
     viewer {
       user {
@@ -295,6 +307,10 @@ let make = (
   // their scoping (coordinate vs single location) is set by the page query's
   // PkEventsAvailabilityDay_query arguments. User/club lists leave it off.
   ~showInlineCourts: bool=false,
+  // The coordinate-scoped Discover lists opt in to the location filter bar (pick
+  // Tokyo / near-me → scopes availability via the `coords` URL param). Single-
+  // location and user/club lists leave it off.
+  ~showLocationFilter: bool=false,
 ) => {
   let {data, hasNext, isLoadingNext: _, isLoadingPrevious, refetch} = Fragment.usePagination(events)
   // Availability/court data rides in the same root page query (the server
@@ -470,34 +486,34 @@ let make = (
       ->Router.ImmSearchParams.toSearchParams
     }))
 
-  // Logged-in viewer with no stored home coords yet: capture them via the
-  // browser geolocation prompt (renders nothing). The mutation writes
-  // User.coords back into this fragment, unmounting the prompt, and the
-  // refetch re-scopes availability to the newly known location.
-  let needsLocationCapture =
-    availabilityData.viewer
-    ->Option.flatMap(v => v.user)
-    ->Option.map(u => u.coords->Option.isNone)
-    ->Option.getOr(false)
+  // Coordinate-scoped Discover lists show the location filter bar. Picking a
+  // location writes the `coords` URL param (re-runs the loader → re-scopes
+  // availability) and, for logged-in viewers, persists it as their home coords.
+  let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
+  let resolved = data.resolvedLocation
+  let resolvedCoords: UseUserLocation.coords = {
+    lat: resolved.coords.lat,
+    lng: resolved.coords.lng,
+  }
+  let locationFilter =
+    showLocationFilter
+      ? Some(<LocationFilterControl isLoggedIn resolvedCoords resolvedRegion=resolved.region />)
+      : None
 
-  <>
-    {needsLocationCapture
-      ? <ViewerLocationPrompt onSaved=onAvailabilityRefetchNeeded />
-      : React.null}
-    <EventsListView
-      totalEvents
-      buckets
-      weekendBucketKey=bucketSetup.weekendBucketKey
-      ?selectedDate
-      onSelectDate={onSelectDate}
-      onClearDate={onClearDate}
-      eventDates={eventDates}
-      hasPrevious
-      isLoadingPrevious
-      ?onPrevious
-      hasNext
-      ?onNext
-      onRefresh={onRefresh}
-    />
-  </>
+  <EventsListView
+    totalEvents
+    buckets
+    weekendBucketKey=bucketSetup.weekendBucketKey
+    ?selectedDate
+    onSelectDate={onSelectDate}
+    onClearDate={onClearDate}
+    eventDates={eventDates}
+    ?locationFilter
+    hasPrevious
+    isLoadingPrevious
+    ?onPrevious
+    hasNext
+    ?onNext
+    onRefresh={onRefresh}
+  />
 }

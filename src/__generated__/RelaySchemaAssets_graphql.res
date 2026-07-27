@@ -28,6 +28,17 @@ type enum_Gender_input =
 
 
 @live @unboxed
+type enum_Region = 
+  | @as("tokyo") Tokyo
+  | FutureAddedValue(string)
+
+
+@live
+type enum_Region_input = 
+  | @as("tokyo") Tokyo
+
+
+@live @unboxed
 type enum_T = 
   | Active
   | Pending
@@ -106,6 +117,18 @@ and input_AutocompleteLocationInput_nullable = {
 }
 
 @live
+and input_AvailabilityDayInput = {
+  intervals: array<input_IntervalInput>,
+  localDate: string,
+}
+
+@live
+and input_AvailabilityDayInput_nullable = {
+  intervals: array<input_IntervalInput_nullable>,
+  localDate: string,
+}
+
+@live
 and input_ChatInput = {
   actionResult?: input_ActionResultInput,
   message?: string,
@@ -125,6 +148,18 @@ and input_ClubMembersInput = {
 @live
 and input_ClubMembersInput_nullable = {
   clubId: string,
+}
+
+@live
+and input_CoordsInput = {
+  lat: float,
+  lng: float,
+}
+
+@live
+and input_CoordsInput_nullable = {
+  lat: float,
+  lng: float,
 }
 
 @live
@@ -371,14 +406,14 @@ and input_LeagueRatingInput_nullable = {
 
 @live
 and input_LocationInput = {
-  lat: float,
-  lng: float,
+  coords?: input_CoordsInput,
+  region?: enum_Region_input,
 }
 
 @live
 and input_LocationInput_nullable = {
-  lat: float,
-  lng: float,
+  coords?: Js.Null.t<input_CoordsInput_nullable>,
+  region?: Js.Null.t<enum_Region_input>,
 }
 
 @live
@@ -440,6 +475,7 @@ and input_SetAvailabilityDayInput = {
   activityId: string,
   intervals: array<input_IntervalInput>,
   localDate: string,
+  location?: input_LocationInput,
 }
 
 @live
@@ -447,16 +483,21 @@ and input_SetAvailabilityDayInput_nullable = {
   activityId: string,
   intervals: array<input_IntervalInput_nullable>,
   localDate: string,
+  location?: Js.Null.t<input_LocationInput_nullable>,
 }
 
 @live
 and input_SetAvailabilityDaysInput = {
-  days: array<input_SetAvailabilityDayInput>,
+  activityId: string,
+  days: array<input_AvailabilityDayInput>,
+  location?: input_LocationInput,
 }
 
 @live
 and input_SetAvailabilityDaysInput_nullable = {
-  days: array<input_SetAvailabilityDayInput_nullable>,
+  activityId: string,
+  days: array<input_AvailabilityDayInput_nullable>,
+  location?: Js.Null.t<input_LocationInput_nullable>,
 }
 
 @live

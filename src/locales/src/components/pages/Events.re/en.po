@@ -74,7 +74,7 @@ msgstr ""
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
-#: src/components/organisms/PkEventsList.re.mjs:217
+#: src/components/organisms/PkEventsList.re.mjs:219
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
@@ -368,7 +368,7 @@ msgstr ""
 #~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
 #~ msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -380,7 +380,7 @@ msgstr ""
 #~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
 #~ msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr ""
 
@@ -601,8 +601,8 @@ msgstr ""
 msgid "copy event"
 msgstr ""
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr ""
 
@@ -641,6 +641,10 @@ msgstr ""
 #: src/components/organisms/CreateEventsButton.re.mjs:42
 #~ msgid "Create This Event"
 #~ msgstr ""
+
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:406
 msgid "Dallas Flash"
@@ -745,8 +749,8 @@ msgstr ""
 msgid "Evening"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:220
+#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/organisms/PkEventsList.re.mjs:222
 msgid "event"
 msgstr ""
 
@@ -766,8 +770,8 @@ msgstr ""
 msgid "Event updated"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:221
+#: src/components/shared/EventsListView.re.mjs:140
+#: src/components/organisms/PkEventsList.re.mjs:223
 msgid "events"
 msgstr ""
 
@@ -775,7 +779,11 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr ""
+
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr ""
 
@@ -791,7 +799,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:426
+#: src/components/organisms/PkEventsList.re.mjs:394
 msgid "Friday"
 msgstr ""
 
@@ -918,8 +926,17 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr ""
+
 #: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/molecules/LocationFilter.re.mjs:49
 msgid "Location"
+msgstr ""
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
 msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
@@ -974,11 +991,11 @@ msgstr ""
 msgid "mixed"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:414
+#: src/components/organisms/PkEventsList.re.mjs:382
 msgid "Monday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr ""
 
@@ -999,6 +1016,11 @@ msgstr ""
 #~ msgid "my events"
 #~ msgstr ""
 
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:149
 #~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
 #~ msgstr ""
@@ -1007,7 +1029,7 @@ msgstr ""
 #~ msgid "New"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:435
+#: src/components/organisms/PkEventsList.re.mjs:403
 msgid "Next {dayName}"
 msgstr ""
 
@@ -1101,6 +1123,10 @@ msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:259
 msgid "Pending approval"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
 msgstr ""
 
 #: src/components/molecules/PlayIntentRow.re.mjs:542
@@ -1199,7 +1225,7 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr ""
 
@@ -1209,7 +1235,7 @@ msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr ""
 
@@ -1282,7 +1308,7 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:429
+#: src/components/organisms/PkEventsList.re.mjs:397
 msgid "Saturday"
 msgstr ""
 
@@ -1323,7 +1349,7 @@ msgstr ""
 #~ msgid "show"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:283
 msgid "Show {0} more"
 msgstr ""
 
@@ -1339,7 +1365,7 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr ""
 
@@ -1359,7 +1385,7 @@ msgstr ""
 #~ msgid "Suggested Events"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/organisms/PkEventsList.re.mjs:379
 msgid "Sunday"
 msgstr ""
 
@@ -1420,7 +1446,7 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:423
+#: src/components/organisms/PkEventsList.re.mjs:391
 msgid "Thursday"
 msgstr ""
 
@@ -1436,13 +1462,17 @@ msgstr ""
 msgid "to {0}"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:394
+#: src/components/shared/EventsListView.re.mjs:84
+#: src/components/organisms/PkEventsList.re.mjs:362
 msgid "Today"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:400
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr ""
+
+#: src/components/shared/EventsListView.re.mjs:88
+#: src/components/organisms/PkEventsList.re.mjs:368
 msgid "Tomorrow"
 msgstr ""
 
@@ -1454,7 +1484,7 @@ msgstr ""
 #~ msgid "Top Player Awards"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:417
+#: src/components/organisms/PkEventsList.re.mjs:385
 msgid "Tuesday"
 msgstr ""
 
@@ -1520,11 +1550,11 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:420
+#: src/components/organisms/PkEventsList.re.mjs:388
 msgid "Wednesday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr ""
 
@@ -1548,7 +1578,11 @@ msgstr ""
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr ""
+
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Yesterday"
 msgstr ""
 

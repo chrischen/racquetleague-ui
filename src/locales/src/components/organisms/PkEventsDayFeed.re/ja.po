@@ -115,7 +115,7 @@ msgstr "参加可能"
 msgid "Cancel editing availability"
 msgstr "空き時間の編集をキャンセル"
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr "コート"
 

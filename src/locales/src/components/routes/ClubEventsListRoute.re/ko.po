@@ -43,11 +43,11 @@ msgstr "{0} 참가함"
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← 이전"
 
@@ -250,7 +250,7 @@ msgstr "경기 점수 입력"
 msgid "even"
 msgstr "균등"
 
-#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/shared/EventsListView.re.mjs:139
 #: src/components/organisms/ClubEventsList.re.mjs:108
 msgid "event"
 msgstr "이벤트"
@@ -267,7 +267,7 @@ msgstr "이벤트 태그: {tag}"
 msgid "Event updated"
 msgstr "이벤트가 업데이트되었습니다"
 
-#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/shared/EventsListView.re.mjs:140
 #: src/components/organisms/ClubEventsList.re.mjs:109
 msgid "events"
 msgstr "이벤트"
@@ -276,7 +276,7 @@ msgstr "이벤트"
 msgid "Female"
 msgstr "여성"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "날짜별 필터"
 
@@ -382,7 +382,7 @@ msgstr "혼합"
 msgid "Monday"
 msgstr "월요일"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "더 보기 →"
 
@@ -500,7 +500,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "새로 고침"
 
@@ -510,7 +510,7 @@ msgstr "이벤트 세부 정보 새로 고침"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "새로 고침 중…"
 
@@ -591,7 +591,7 @@ msgstr "간략히 보기"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "기술 향상을 위한 스킬 연습 및 드릴"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "시작 시간 순 정렬"
 
@@ -670,12 +670,12 @@ msgstr ""
 msgid "Thursday"
 msgstr "목요일"
 
-#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/shared/EventsListView.re.mjs:84
 #: src/components/organisms/ClubEventsList.re.mjs:229
 msgid "Today"
 msgstr "오늘"
 
-#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/shared/EventsListView.re.mjs:88
 #: src/components/organisms/ClubEventsList.re.mjs:235
 msgid "Tomorrow"
 msgstr "내일"
@@ -730,7 +730,7 @@ msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니�
 msgid "Wednesday"
 msgstr "수요일"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "주말"
 

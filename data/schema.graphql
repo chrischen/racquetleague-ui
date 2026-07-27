@@ -105,6 +105,15 @@ type AvailabilityDayCount {
   localDate: String!
 }
 
+"""
+One day in a batch. The batch's activity and location scope every entry
+   in it, so an entry is just a day and its hours.
+"""
+input AvailabilityDayInput {
+  intervals: [IntervalInput!]!
+  localDate: String!
+}
+
 """Available-user count for a specific hour slot (0–23)."""
 type AvailabilityHourCount {
   count: Int!
@@ -190,6 +199,11 @@ input ClubMembersInput {
 }
 
 type Coords {
+  lat: Float!
+  lng: Float!
+}
+
+input CoordsInput {
   lat: Float!
   lng: Float!
 }
@@ -572,9 +586,15 @@ type LocationEdge {
   node: Location
 }
 
+"""
+A location argument: exactly one of `coords` or `region`. Omit the
+   argument entirely to let the server choose (the viewer's stored home
+   coords, else the default region). Setting both or neither is a client
+   error, not a silent fallback.
+"""
 input LocationInput {
-  lat: Float!
-  lng: Float!
+  coords: CoordsInput
+  region: Region
 }
 
 type MarkInboxReadResult implements HasErrors {
@@ -843,12 +863,12 @@ type PushSubscriptionResult implements HasErrors {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
-  availabilityCountForDay(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput!): Int!
-  availabilityDailyCounts(activityId: ID!, fromDate: String!, location: LocationInput!, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
-  availabilityHourlyCounts(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput!): [AvailabilityHourCount!]!
-  availabilityOverlap(fromDate: String!, location: LocationInput!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
-  availabilityUsersForDateRange(fromDate: String!, location: LocationInput!, scope: OverlapScopeInput!, toDate: String!): [AvailabilityDay!]!
-  availabilityUsersForDay(localDate: String!, location: LocationInput!, scope: OverlapScopeInput!): [AvailabilityDay!]!
+  availabilityCountForDay(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput): Int!
+  availabilityDailyCounts(activityId: ID!, fromDate: String!, location: LocationInput, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
+  availabilityHourlyCounts(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput): [AvailabilityHourCount!]!
+  availabilityOverlap(fromDate: String!, location: LocationInput, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
+  availabilityUsersForDateRange(fromDate: String!, location: LocationInput, scope: OverlapScopeInput!, toDate: String!): [AvailabilityDay!]!
+  availabilityUsersForDay(localDate: String!, location: LocationInput, scope: OverlapScopeInput!): [AvailabilityDay!]!
   chatMessages(limit: Int): [ChatEntry!]!
   club(id: ID, slug: String): Club
   clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!
@@ -877,13 +897,21 @@ type Query {
      Geo filtering is not implemented yet, so `location` is accepted but
      ignored and every court's availability for the activity is returned.
   """
-  locationsAvailability(activityId: ID!, fromDate: String!, location: LocationInput!, toDate: String!): [LocationAvailabilityDay!]!
+  locationsAvailability(activityId: ID!, fromDate: String!, location: LocationInput, toDate: String!): [LocationAvailabilityDay!]!
   matches(activitySlug: String!, after: String, before: String, first: Int, namespace: String, userId: ID): MatchConnection!
   messagesByTopic(after: String, before: String, first: Int, topic: String!): EventMessageConnection
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
   ratings(activitySlug: String!, after: String, before: String, clubId: ID, clubSlug: String, first: Int, namespace: String!): RatingConnection!
+
+  """
+  The effective location for this request, echoing the availability
+     precedence: the explicit location argument (coords or a hard-coded
+     name), else the viewer's stored home coords (User.coords), else the
+     named default.
+  """
+  resolvedLocation(location: LocationInput): ResolvedLocation!
   user(id: ID!): User
 
   """Return the server's VAPID public key so the browser can subscribe."""
@@ -924,6 +952,15 @@ type RefundPaymentResult implements HasErrors {
   payment: Payment
 }
 
+"""
+A named region clients can select. What a region actually covers is a
+   server decision — a representative point today, potentially a bounding
+   box once geo filtering lands.
+"""
+enum Region {
+  tokyo
+}
+
 input RegisterPushSubscriptionInput {
   auth: String!
   endpoint: String!
@@ -934,6 +971,17 @@ input RegisterPushSubscriptionInput {
 input RemoveUserFromClubInput {
   clubId: ID!
   userId: ID!
+}
+
+"""
+The location scoping a request's availability data. `coords` is always
+   usable (e.g. map rendering). `region` is set only when the location came
+   from a named region, so clients branch on it symbolically instead of
+   comparing coordinates.
+"""
+type ResolvedLocation {
+  coords: Coords!
+  region: Region
 }
 
 type Rsvp implements Node {
@@ -953,6 +1001,7 @@ input SetAvailabilityDayInput {
   activityId: ID!
   intervals: [IntervalInput!]!
   localDate: String!
+  location: LocationInput
 }
 
 type SetAvailabilityDayResult implements HasErrors {
@@ -961,7 +1010,9 @@ type SetAvailabilityDayResult implements HasErrors {
 }
 
 input SetAvailabilityDaysInput {
-  days: [SetAvailabilityDayInput!]!
+  activityId: ID!
+  days: [AvailabilityDayInput!]!
+  location: LocationInput
 }
 
 type SetAvailabilityDaysResult implements HasErrors {

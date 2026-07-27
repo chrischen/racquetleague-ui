@@ -49,8 +49,21 @@ function getConnectionNodes(connection) {
   }
 }
 
+function region_decode($$enum) {
+  if ($$enum === "tokyo") {
+    return $$enum;
+  }
+  
+}
+
+function region_fromString(str) {
+  return region_decode(str);
+}
+
 var Utils = {
-  getConnectionNodes: getConnectionNodes
+  getConnectionNodes: getConnectionNodes,
+  region_decode: region_decode,
+  region_fromString: region_fromString
 };
 
 function makeNode(rescript_graphql_node_PkEventsListRefetchQuery) {
@@ -101,6 +114,11 @@ return {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "location"
     }
   ],
   "kind": "Fragment",
@@ -128,6 +146,55 @@ return {
   },
   "name": "PkEventsListFragment",
   "selections": [
+    {
+      "alias": null,
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "location",
+          "variableName": "location"
+        }
+      ],
+      "concreteType": "ResolvedLocation",
+      "kind": "LinkedField",
+      "name": "resolvedLocation",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "Coords",
+          "kind": "LinkedField",
+          "name": "coords",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lat",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lng",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "region",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
     {
       "args": null,
       "kind": "FragmentSpread",

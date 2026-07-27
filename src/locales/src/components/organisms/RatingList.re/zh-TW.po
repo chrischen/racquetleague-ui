@@ -13,60 +13,64 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:606
+#: src/components/organisms/RatingList.re.mjs:664
 msgid "...load higher rated players"
 msgstr "...載入更高評分的球員"
 
-#: src/components/organisms/RatingList.re.mjs:710
+#: src/components/organisms/RatingList.re.mjs:773
 msgid "All players loaded"
 msgstr "已載入所有球員"
 
-#: src/components/organisms/RatingList.re.mjs:199
-#: src/components/organisms/RatingList.re.mjs:220
+#: src/components/organisms/RatingList.re.mjs:699
+msgid "Days #1"
+msgstr "第 1 天"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#: src/components/organisms/RatingList.re.mjs:223
 msgid "Draft"
 msgstr "積分榜"
 
-#: src/components/organisms/RatingList.re.mjs:668
+#: src/components/organisms/RatingList.re.mjs:731
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "積分截止 · 前8名晉級"
 
-#: src/components/organisms/RatingList.re.mjs:636
+#: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "預估 DUPR"
 
-#: src/components/organisms/RatingList.re.mjs:580
+#: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "載入更多球員..."
 
-#: src/components/organisms/RatingList.re.mjs:556
+#: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "載入下一積分榜"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
 msgstr "找不到球員"
 
-#: src/components/organisms/RatingList.re.mjs:628
+#: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "球員"
 
-#: src/components/organisms/RatingList.re.mjs:632
+#: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "評分"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
 msgstr "請嘗試擴大搜尋範圍或調整篩選條件。"
 
-#: src/components/organisms/RatingList.re.mjs:367
+#: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "查看我的個人資料"
 
-#: src/components/organisms/RatingList.re.mjs:330
+#: src/components/organisms/RatingList.re.mjs:360
 msgid "You"
 msgstr "您"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "我的排名"
 

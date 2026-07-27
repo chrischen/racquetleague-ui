@@ -22,7 +22,7 @@ import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as ViewerLocationPrompt from "../molecules/ViewerLocationPrompt.re.mjs";
+import * as LocationFilterControl from "../molecules/LocationFilterControl.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PkEventsAvailabilityDay from "./PkEventsAvailabilityDay.re.mjs";
 import * as PkEventsListFragment_graphql from "../../__generated__/PkEventsListFragment_graphql.re.mjs";
@@ -59,8 +59,14 @@ function useBlockingPagination(fRef) {
   return RescriptRelay_Fragment.useBlockingPaginationFragment(PkEventsListFragment_graphql.node, fRef, convertFragment, convertRefetchVariables);
 }
 
+var Fragment_region_decode = PkEventsListFragment_graphql.Utils.region_decode;
+
+var Fragment_region_fromString = PkEventsListFragment_graphql.Utils.region_fromString;
+
 var Fragment = {
   getConnectionNodes: getConnectionNodes,
+  region_decode: Fragment_region_decode,
+  region_fromString: Fragment_region_fromString,
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment,
@@ -299,6 +305,7 @@ var Day = {
 };
 
 function PkEventsList(props) {
+  var __showLocationFilter = props.showLocationFilter;
   var __showInlineCourts = props.showInlineCourts;
   var shouldHideEvent = props.shouldHideEvent;
   var activityId = props.activityId;
@@ -306,6 +313,7 @@ function PkEventsList(props) {
   var onHoverLocation = props.onHoverLocation;
   var events = props.events;
   var showInlineCourts = __showInlineCourts !== undefined ? __showInlineCourts : false;
+  var showLocationFilter = __showLocationFilter !== undefined ? __showLocationFilter : false;
   var match = usePagination(events);
   var refetch = match.refetch;
   var data = match.data;
@@ -459,7 +467,7 @@ function PkEventsList(props) {
         }));
   var onRefresh = function () {
     return new Promise((function (resolve, param) {
-                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
+                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
                           resolve();
                         }));
                 }));
@@ -474,32 +482,36 @@ function PkEventsList(props) {
                 });
           };
         }));
-  var needsLocationCapture = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(availabilityData.viewer, (function (v) {
-                  return v.user;
-                })), (function (u) {
-              return Core__Option.isNone(u.coords);
-            })), false);
-  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-              children: [
-                needsLocationCapture ? JsxRuntime.jsx(ViewerLocationPrompt.make, {
-                        onSaved: onAvailabilityRefetchNeeded
-                      }) : null,
-                JsxRuntime.jsx(EventsListView.make, {
-                      totalEvents: totalEvents,
-                      buckets: buckets,
-                      weekendBucketKey: bucketSetup.weekendBucketKey,
-                      selectedDate: selectedDate,
-                      onSelectDate: onSelectDate,
-                      onClearDate: onClearDate,
-                      eventDates: eventDates,
-                      hasPrevious: hasPrevious,
-                      isLoadingPrevious: match.isLoadingPrevious,
-                      onPrevious: onPrevious,
-                      hasNext: match.hasNext,
-                      onNext: onNext,
-                      onRefresh: onRefresh
-                    })
-              ]
+  var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
+              return v.user;
+            })));
+  var resolved = data.resolvedLocation;
+  var resolvedCoords_lat = resolved.coords.lat;
+  var resolvedCoords_lng = resolved.coords.lng;
+  var resolvedCoords = {
+    lat: resolvedCoords_lat,
+    lng: resolvedCoords_lng
+  };
+  var locationFilter = showLocationFilter ? Caml_option.some(JsxRuntime.jsx(LocationFilterControl.make, {
+              isLoggedIn: isLoggedIn,
+              resolvedCoords: resolvedCoords,
+              resolvedRegion: resolved.region
+            })) : undefined;
+  return JsxRuntime.jsx(EventsListView.make, {
+              totalEvents: totalEvents,
+              buckets: buckets,
+              weekendBucketKey: bucketSetup.weekendBucketKey,
+              selectedDate: selectedDate,
+              onSelectDate: onSelectDate,
+              onClearDate: onClearDate,
+              eventDates: eventDates,
+              hasPrevious: hasPrevious,
+              isLoadingPrevious: match.isLoadingPrevious,
+              onPrevious: onPrevious,
+              hasNext: match.hasNext,
+              onNext: onNext,
+              onRefresh: onRefresh,
+              locationFilter: locationFilter
             });
 }
 

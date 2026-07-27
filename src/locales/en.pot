@@ -5663,3 +5663,40 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:897
 msgid "Days at #1"
 msgstr ""
+
+#: src/components/molecules/ViewerLocationPrompt.re.mjs:119
+msgid "Current location is not supported by this browser."
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:105
+msgid "Filter by location"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:86
+msgid "Locating…"
+msgstr ""
+
+#: src/components/molecules/ViewerLocationPrompt.re.mjs:112
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:54
+#: src/components/molecules/LocationFilter.re.mjs:86
+msgid "Near me"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:33
+msgid "Pick a location or use your current location."
+msgstr ""
+
+#: src/components/molecules/ViewerLocationPrompt.re.mjs:134
+msgid "Tokyo"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:22
+msgid "Within {0} km · {1}, {2}"
+msgstr ""
+
+#: src/components/organisms/RatingList.re.mjs:699
+msgid "Days #1"
+msgstr ""

@@ -88,12 +88,7 @@ module Types = {
   and fragment_viewer_events = {
     edges: option<array<option<fragment_viewer_events_edges>>>,
   }
-  and fragment_viewer_user_coords = {
-    lat: float,
-    lng: float,
-  }
   and fragment_viewer_user = {
-    coords: option<fragment_viewer_user_coords>,
     @live id: string,
   }
   and fragment_viewer = {
@@ -299,10 +294,7 @@ return {
       "name": "fromDate"
     },
     {
-      "defaultValue": {
-        "lat": 35.658581,
-        "lng": 139.745438
-      },
+      "defaultValue": null,
       "kind": "LocalArgument",
       "name": "location"
     },
@@ -343,32 +335,7 @@ return {
           "name": "user",
           "plural": false,
           "selections": [
-            (v0/*: any*/),
-            {
-              "alias": null,
-              "args": null,
-              "concreteType": "Coords",
-              "kind": "LinkedField",
-              "name": "coords",
-              "plural": false,
-              "selections": [
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "lat",
-                  "storageKey": null
-                },
-                {
-                  "alias": null,
-                  "args": null,
-                  "kind": "ScalarField",
-                  "name": "lng",
-                  "storageKey": null
-                }
-              ],
-              "storageKey": null
-            }
+            (v0/*: any*/)
           ],
           "storageKey": null
         },

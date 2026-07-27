@@ -43,11 +43,11 @@ msgstr "{0} เข้าร่วมแล้ว"
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← ก่อนหน้า"
 
@@ -247,7 +247,7 @@ msgstr "ป้อนคะแนนแมตช์"
 msgid "even"
 msgstr "เท่าเทียม"
 
-#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/shared/EventsListView.re.mjs:139
 #: src/components/organisms/ClubEventsList.re.mjs:108
 msgid "event"
 msgstr "กิจกรรม"
@@ -264,7 +264,7 @@ msgstr "แท็กกิจกรรม: {tag}"
 msgid "Event updated"
 msgstr "อัปเดตกิจกรรมแล้ว"
 
-#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/shared/EventsListView.re.mjs:140
 #: src/components/organisms/ClubEventsList.re.mjs:109
 msgid "events"
 msgstr "กิจกรรม"
@@ -273,7 +273,7 @@ msgstr "กิจกรรม"
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "กรองตามวันที่"
 
@@ -379,7 +379,7 @@ msgstr "หลากหลาย"
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "เพิ่มเติม →"
 
@@ -497,7 +497,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "รีเฟรช"
 
@@ -507,7 +507,7 @@ msgstr "รีเฟรชรายละเอียดกิจกรรม"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "กำลังรีเฟรช…"
 
@@ -588,7 +588,7 @@ msgstr "แสดงน้อยลง"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "เรียงตามเวลาเริ่มต้น"
 
@@ -663,12 +663,12 @@ msgstr ""
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
-#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/shared/EventsListView.re.mjs:84
 #: src/components/organisms/ClubEventsList.re.mjs:229
 msgid "Today"
 msgstr "วันนี้"
 
-#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/shared/EventsListView.re.mjs:88
 #: src/components/organisms/ClubEventsList.re.mjs:235
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
@@ -723,7 +723,7 @@ msgstr "เราต้องการข้อมูลบางอย่าง
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "สุดสัปดาห์"
 

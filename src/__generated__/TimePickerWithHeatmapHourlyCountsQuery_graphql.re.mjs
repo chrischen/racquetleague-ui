@@ -18,7 +18,7 @@ var Types = {
   makeRefetchVariables: makeRefetchVariables
 };
 
-var variablesConverter = {"locationInput":{},"__root":{"location":{"r":"locationInput"}}};
+var variablesConverter = {"coordsInput":{},"locationInput":{"coords":{"r":"coordsInput"}},"__root":{"location":{"r":"locationInput"}}};
 
 function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
@@ -50,7 +50,21 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-var Utils = {};
+function region_decode($$enum) {
+  if ($$enum === "tokyo") {
+    return $$enum;
+  }
+  
+}
+
+function region_fromString(str) {
+  return region_decode(str);
+}
+
+var Utils = {
+  region_decode: region_decode,
+  region_fromString: region_fromString
+};
 
 var node = ((function(){
 var v0 = {
@@ -149,12 +163,12 @@ return {
     "selections": (v4/*: any*/)
   },
   "params": {
-    "cacheID": "6cf411165139a9e403d3a273c7fda26b",
+    "cacheID": "9a3d0df7d219eaedc55fe1b9330eac5b",
     "id": null,
     "metadata": {},
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
     "operationKind": "query",
-    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $location: LocationInput!\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, location: $location) {\n    hour\n    count\n  }\n}\n"
+    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $location: LocationInput\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, location: $location) {\n    hour\n    count\n  }\n}\n"
   }
 };
 })());

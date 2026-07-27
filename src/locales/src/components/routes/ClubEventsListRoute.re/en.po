@@ -51,7 +51,7 @@ msgstr ""
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgstr ""
 #~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
 #~ msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/shared/EventsListView.re.mjs:139
 #: src/components/organisms/ClubEventsList.re.mjs:108
 msgid "event"
 msgstr ""
@@ -285,7 +285,7 @@ msgstr ""
 msgid "Event updated"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/shared/EventsListView.re.mjs:140
 #: src/components/organisms/ClubEventsList.re.mjs:109
 msgid "events"
 msgstr ""
@@ -294,7 +294,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr ""
 
@@ -414,7 +414,7 @@ msgstr ""
 msgid "Monday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr ""
 
@@ -543,7 +543,7 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr ""
 
@@ -553,7 +553,7 @@ msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr ""
 
@@ -642,7 +642,7 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr ""
 
@@ -707,12 +707,12 @@ msgstr ""
 msgid "Thursday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/shared/EventsListView.re.mjs:84
 #: src/components/organisms/ClubEventsList.re.mjs:229
 msgid "Today"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/shared/EventsListView.re.mjs:88
 #: src/components/organisms/ClubEventsList.re.mjs:235
 msgid "Tomorrow"
 msgstr ""
@@ -771,7 +771,7 @@ msgstr ""
 msgid "Wednesday"
 msgstr ""
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr ""
 

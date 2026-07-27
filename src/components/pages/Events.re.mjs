@@ -10,6 +10,7 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as PkEventsList from "../organisms/PkEventsList.re.mjs";
+import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -74,7 +75,8 @@ function Events(props) {
                   return JsxRuntime.jsx(PkEventsList.make, {
                               events: fragmentRefs,
                               shouldHideEvent: shouldHideEvent,
-                              showInlineCourts: true
+                              showInlineCourts: true,
+                              showLocationFilter: true
                             });
                 })
             });
@@ -120,6 +122,7 @@ async function loader(param) {
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
+  var $$location = Core__Option.flatMap(Router.SearchParams.get(url.searchParams, UseUserLocation.locationParamKey), UseUserLocation.locationInputFromParam);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -133,7 +136,8 @@ async function loader(param) {
                 filters: {
                   activitySlug: params.activitySlug,
                   shadow: shadow
-                }
+                },
+                location: $$location
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
         };

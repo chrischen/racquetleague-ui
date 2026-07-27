@@ -9,6 +9,7 @@ import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventsMapPage from "../pages/EventsMapPage.re.mjs";
+import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as EventsMapPageQuery_graphql from "../../__generated__/EventsMapPageQuery_graphql.re.mjs";
 
 var LoaderArgs = {};
@@ -52,6 +53,7 @@ async function loader(param) {
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
+  var $$location = Core__Option.flatMap(Router.SearchParams.get(url.searchParams, UseUserLocation.locationParamKey), UseUserLocation.locationInputFromParam);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -65,7 +67,8 @@ async function loader(param) {
                 filters: {
                   activitySlug: activity,
                   shadow: shadow
-                }
+                },
+                location: $$location
               }, "store-or-network", undefined, undefined),
           i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))
         };

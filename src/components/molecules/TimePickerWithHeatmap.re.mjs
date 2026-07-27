@@ -30,7 +30,13 @@ var fetchPromised = RescriptRelay_Query.fetchPromised(TimePickerWithHeatmapHourl
 
 var retain = RescriptRelay_Query.retain(TimePickerWithHeatmapHourlyCountsQuery_graphql.node, convertVariables);
 
+var HourlyCountsQuery_region_decode = TimePickerWithHeatmapHourlyCountsQuery_graphql.Utils.region_decode;
+
+var HourlyCountsQuery_region_fromString = TimePickerWithHeatmapHourlyCountsQuery_graphql.Utils.region_fromString;
+
 var HourlyCountsQuery = {
+  region_decode: HourlyCountsQuery_region_decode,
+  region_fromString: HourlyCountsQuery_region_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -52,7 +58,7 @@ function TimePickerWithHeatmap(props) {
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var resolvedActivityId = Core__Option.getOr(props.activityId, defaultActivityId);
-  var $$location = UseUserLocation.use();
+  var $$location = Core__Option.map(UseUserLocation.useOption(), UseUserLocation.locationInputOfCoords);
   var queryData = use({
         activityId: resolvedActivityId,
         clubId: props.clubId,

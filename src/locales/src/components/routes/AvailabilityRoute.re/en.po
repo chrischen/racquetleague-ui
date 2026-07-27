@@ -144,7 +144,7 @@ msgstr ""
 #~ msgid "Continuous availability"
 #~ msgstr ""
 
-#: src/components/pages/AvailabilityPage.re.mjs:167
+#: src/components/pages/AvailabilityPage.re.mjs:166
 msgid "Court"
 msgstr ""
 
@@ -172,12 +172,32 @@ msgstr ""
 #~ msgid "Courts available during your time"
 #~ msgstr ""
 
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr ""
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr ""
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr ""
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
 msgid "Let hosts schedule events when most of you are free"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:49
+msgid "Location"
+msgstr ""
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
@@ -189,9 +209,18 @@ msgstr ""
 #~ msgid "Match my time"
 #~ msgstr ""
 
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr ""
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -245,6 +274,10 @@ msgstr ""
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr ""
 
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr ""
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
 #~ msgid "Use this time"
 #~ msgstr ""
@@ -267,6 +300,10 @@ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
+msgstr ""
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
 msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788

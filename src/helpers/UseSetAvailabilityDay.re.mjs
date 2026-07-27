@@ -2,6 +2,7 @@
 
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as UseSetAvailabilityDayMutation_graphql from "../__generated__/UseSetAvailabilityDayMutation_graphql.re.mjs";
+import * as UseSetAvailabilityDaysMutation_graphql from "../__generated__/UseSetAvailabilityDaysMutation_graphql.re.mjs";
 
 var convertVariables = UseSetAvailabilityDayMutation_graphql.Internal.convertVariables;
 
@@ -13,7 +14,13 @@ var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, Use
 
 var use = RescriptRelay_Mutation.useMutation(convertVariables, UseSetAvailabilityDayMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
+var Mutation_region_decode = UseSetAvailabilityDayMutation_graphql.Utils.region_decode;
+
+var Mutation_region_fromString = UseSetAvailabilityDayMutation_graphql.Utils.region_fromString;
+
 var Mutation = {
+  region_decode: Mutation_region_decode,
+  region_fromString: Mutation_region_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -50,9 +57,54 @@ function use$1() {
         ];
 }
 
+var convertVariables$1 = UseSetAvailabilityDaysMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = UseSetAvailabilityDaysMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = UseSetAvailabilityDaysMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, UseSetAvailabilityDaysMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, UseSetAvailabilityDaysMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var DaysMutation_region_decode = UseSetAvailabilityDaysMutation_graphql.Utils.region_decode;
+
+var DaysMutation_region_fromString = UseSetAvailabilityDaysMutation_graphql.Utils.region_fromString;
+
+var DaysMutation = {
+  region_decode: DaysMutation_region_decode,
+  region_fromString: DaysMutation_region_fromString,
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation$1,
+  use: use$2
+};
+
+function useSetDays() {
+  var match = use$2();
+  var commit = match[0];
+  var commitDays = function (activityId, days, onCompleted) {
+    return commit({
+                input: {
+                  activityId: activityId,
+                  days: days
+                }
+              }, undefined, undefined, undefined, onCompleted, undefined, undefined);
+  };
+  return [
+          commitDays,
+          match[1]
+        ];
+}
+
 export {
   Mutation ,
   intervalsOfIntents ,
   use$1 as use,
+  DaysMutation ,
+  useSetDays ,
 }
 /* commitMutation Not a pure module */

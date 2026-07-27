@@ -88,7 +88,7 @@ msgstr "Thêm khung giờ ở trên"
 msgid "Clear"
 msgstr "Xóa"
 
-#: src/components/pages/AvailabilityPage.re.mjs:167
+#: src/components/pages/AvailabilityPage.re.mjs:166
 msgid "Court"
 msgstr "Sân"
 
@@ -105,13 +105,44 @@ msgid "Courts are listed individually with their largest continuous openings."
 msgstr ""
 "Các sân được liệt kê riêng lẻ cùng với khung giờ trống liên tục dài nhất."
 
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "Trình duyệt này không hỗ trợ vị trí hiện tại."
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "Các sự kiện"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "Lọc theo địa điểm"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
 msgid "Let hosts schedule events when most of you are free"
 msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
+
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "Đang định vị…"
+
+#: src/components/molecules/LocationFilter.re.mjs:49
+msgid "Location"
+msgstr "Địa điểm"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr ""
+"Quyền truy cập vị trí bị từ chối. Hãy cho phép truy cập hoặc chọn một địa "
+"điểm."
+
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "Gần tôi"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "Chọn một địa điểm hoặc sử dụng vị trí hiện tại của bạn."
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -154,6 +185,10 @@ msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr ""
 "Nhấn vào ô trống để thêm · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "Tokyo"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"
 msgstr "Tối các ngày trong tuần"
@@ -165,6 +200,10 @@ msgstr "Sáng cuối tuần"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
 msgstr "Bạn có thể chơi lúc nào?"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "Trong vòng {0} km · {1}, {2}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"

@@ -115,7 +115,7 @@ msgstr "可參加"
 msgid "Cancel editing availability"
 msgstr "取消編輯可用時間"
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr "場地"
 

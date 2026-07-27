@@ -43,11 +43,11 @@ msgstr "{0} đã tham gia"
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← trước"
 
@@ -249,7 +249,7 @@ msgstr "Nhập điểm số trận đấu"
 msgid "even"
 msgstr "đồng đều"
 
-#: src/components/shared/EventsListView.re.mjs:137
+#: src/components/shared/EventsListView.re.mjs:139
 #: src/components/organisms/ClubEventsList.re.mjs:108
 msgid "event"
 msgstr "sự kiện"
@@ -266,7 +266,7 @@ msgstr "Thẻ sự kiện: {tag}"
 msgid "Event updated"
 msgstr "Sự kiện đã được cập nhật"
 
-#: src/components/shared/EventsListView.re.mjs:138
+#: src/components/shared/EventsListView.re.mjs:140
 #: src/components/organisms/ClubEventsList.re.mjs:109
 msgid "events"
 msgstr "sự kiện"
@@ -275,7 +275,7 @@ msgstr "sự kiện"
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "Lọc theo ngày"
 
@@ -381,7 +381,7 @@ msgstr "đa dạng"
 msgid "Monday"
 msgstr "Thứ Hai"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "thêm →"
 
@@ -499,7 +499,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "Làm mới"
 
@@ -509,7 +509,7 @@ msgstr "Làm mới chi tiết sự kiện"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "Đang làm mới…"
 
@@ -590,7 +590,7 @@ msgstr "Thu gọn"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "Luyện tập kỹ năng và bài tập kỹ thuật để cải thiện trình độ"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "SẮP XẾP THEO GIỜ BẮT ĐẦU"
 
@@ -671,12 +671,12 @@ msgstr ""
 msgid "Thursday"
 msgstr "Thứ Năm"
 
-#: src/components/shared/EventsListView.re.mjs:83
+#: src/components/shared/EventsListView.re.mjs:84
 #: src/components/organisms/ClubEventsList.re.mjs:229
 msgid "Today"
 msgstr "Hôm nay"
 
-#: src/components/shared/EventsListView.re.mjs:87
+#: src/components/shared/EventsListView.re.mjs:88
 #: src/components/organisms/ClubEventsList.re.mjs:235
 msgid "Tomorrow"
 msgstr "Ngày mai"
@@ -732,7 +732,7 @@ msgstr ""
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "Cuối tuần"
 

@@ -1,12 +1,12 @@
 %%raw("import { t } from '@lingui/macro'")
 
 // Availability row for one events-list day bucket, fed from the host page's
-// root query (spread this fragment there) — no geolocation gate: the server
-// scopes availability by the viewer's stored coords (User.coords), so the
-// `location` argument is only the fallback for anonymous viewers. We select
-// `user.coords` so the updateViewerLocation mutation payload updates this
-// fragment in the store (see ViewerLocationPrompt); PkEventsList refetches on
-// save so the lists re-scope to the newly known location.
+// root query (spread this fragment there) — no geolocation gate. Scope follows
+// the server's location-input → user.coords → Tokyo precedence: the page loader
+// fills the `location` argument from the `coords` URL param (the location
+// filter — see LocationFilterControl) when present, and leaves it null otherwise
+// so the server falls back to the viewer's stored coords, then Tokyo. Changing
+// the filter rewrites that param and re-runs the loader, which re-scopes.
 module Fragment = %relay(`
   fragment PkEventsAvailabilityDay_query on Query
   @refetchable(queryName: "PkEventsAvailabilityDayRefetchQuery")
@@ -14,7 +14,10 @@ module Fragment = %relay(`
     activityId: { type: "ID", defaultValue: "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61" }
     fromDate: { type: "String!" }
     toDate: { type: "String!" }
-    location: { type: "LocationInput", defaultValue: { lat: 35.658581, lng: 139.745438 } }
+    # No default: an absent/null location tells the server to resolve scope from
+    # the viewer's stored coords (user.coords), then Tokyo — matching its
+    # location-input → user.coords → Tokyo precedence.
+    location: { type: "LocationInput" }
     locationId: { type: "ID", defaultValue: "" }
     byLocation: { type: "Boolean", defaultValue: false }
   )
@@ -22,10 +25,6 @@ module Fragment = %relay(`
     viewer {
       user {
         id
-        coords {
-          lat
-          lng
-        }
       }
       availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {
         id

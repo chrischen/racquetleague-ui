@@ -43,7 +43,7 @@ msgstr "[제목 없음]"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
-#: src/components/organisms/PkEventsList.re.mjs:217
+#: src/components/organisms/PkEventsList.re.mjs:219
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -198,11 +198,11 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← 이전"
 
@@ -340,8 +340,8 @@ msgstr "복사됨!"
 msgid "copy event"
 msgstr "이벤트 복사"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr "코트"
 
@@ -364,6 +364,10 @@ msgstr "전체 시간을 커버하는 코트"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "코트:"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "현재 위치는 이 브라우저에서 지원되지 않습니다."
 
 #: src/components/pages/PkEventPage.re.mjs:406
 msgid "Dallas Flash"
@@ -451,8 +455,8 @@ msgstr "균등"
 msgid "Evening"
 msgstr "저녁"
 
-#: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:220
+#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/organisms/PkEventsList.re.mjs:222
 msgid "event"
 msgstr "이벤트"
 
@@ -468,8 +472,8 @@ msgstr "이벤트 태그: {tag}"
 msgid "Event updated"
 msgstr "이벤트가 업데이트되었습니다"
 
-#: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:221
+#: src/components/shared/EventsListView.re.mjs:140
+#: src/components/organisms/PkEventsList.re.mjs:223
 msgid "events"
 msgstr "이벤트"
 
@@ -477,7 +481,11 @@ msgstr "이벤트"
 msgid "Female"
 msgstr "여성"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "위치로 필터링"
+
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "날짜별 필터"
 
@@ -489,7 +497,7 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Free"
 msgstr "무료"
 
-#: src/components/organisms/PkEventsList.re.mjs:426
+#: src/components/organisms/PkEventsList.re.mjs:394
 msgid "Friday"
 msgstr "금요일"
 
@@ -567,11 +575,20 @@ msgstr "간략히"
 msgid "Loading..."
 msgstr "로딩 중..."
 
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "위치 확인 중…"
+
 #: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/molecules/LocationFilter.re.mjs:49
 msgid "Location"
 msgstr "장소"
 
-#: src/components/pages/PkLocationPage.re.mjs:107
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr "위치 접근이 거부되었습니다. 접근을 허용하거나 장소를 선택하세요."
+
+#: src/components/pages/PkLocationPage.re.mjs:106
 msgid "Location not found"
 msgstr "장소를 찾을 수 없습니다"
 
@@ -604,11 +621,11 @@ msgstr "중간값"
 msgid "mixed"
 msgstr "혼합"
 
-#: src/components/organisms/PkEventsList.re.mjs:414
+#: src/components/organisms/PkEventsList.re.mjs:382
 msgid "Monday"
 msgstr "월요일"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "더 보기 →"
 
@@ -621,7 +638,12 @@ msgstr "오전"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/organisms/PkEventsList.re.mjs:435
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "내 근처"
+
+#: src/components/organisms/PkEventsList.re.mjs:403
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
@@ -689,6 +711,10 @@ msgstr "대기 중 · {0}"
 msgid "Pending approval"
 msgstr "승인 대기 중"
 
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "위치를 선택하거나 현재 위치를 사용하세요."
+
 #: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Pick one time window to host an event"
 msgstr "이벤트를 주최할 시간대를 선택하세요"
@@ -750,7 +776,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "새로 고침"
 
@@ -760,7 +786,7 @@ msgstr "이벤트 세부 정보 새로 고침"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "새로 고침 중…"
 
@@ -821,7 +847,7 @@ msgstr "라운드 {0}"
 msgid "Round Robin Draws"
 msgstr "라운드 로빈 대진"
 
-#: src/components/organisms/PkEventsList.re.mjs:429
+#: src/components/organisms/PkEventsList.re.mjs:397
 msgid "Saturday"
 msgstr "토요일"
 
@@ -854,7 +880,7 @@ msgstr "시간을 설정하세요"
 msgid "Share"
 msgstr "공유"
 
-#: src/components/organisms/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:283
 msgid "Show {0} more"
 msgstr "{0}개 더 보기"
 
@@ -870,7 +896,7 @@ msgstr "간략히 보기"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "기술 향상을 위한 스킬 연습 및 드릴"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "시작 시간 순 정렬"
 
@@ -878,7 +904,7 @@ msgstr "시작 시간 순 정렬"
 msgid "SPREAD"
 msgstr "분산"
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/organisms/PkEventsList.re.mjs:379
 msgid "Sunday"
 msgstr "일요일"
 
@@ -953,7 +979,7 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/PkEventsList.re.mjs:423
+#: src/components/organisms/PkEventsList.re.mjs:391
 msgid "Thursday"
 msgstr "목요일"
 
@@ -961,13 +987,17 @@ msgstr "목요일"
 msgid "to {0}"
 msgstr "{0}까지"
 
-#: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:394
+#: src/components/shared/EventsListView.re.mjs:84
+#: src/components/organisms/PkEventsList.re.mjs:362
 msgid "Today"
 msgstr "오늘"
 
-#: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:400
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "도쿄"
+
+#: src/components/shared/EventsListView.re.mjs:88
+#: src/components/organisms/PkEventsList.re.mjs:368
 msgid "Tomorrow"
 msgstr "내일"
 
@@ -975,7 +1005,7 @@ msgstr "내일"
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/organisms/PkEventsList.re.mjs:417
+#: src/components/organisms/PkEventsList.re.mjs:385
 msgid "Tuesday"
 msgstr "화요일"
 
@@ -1021,11 +1051,11 @@ msgstr "대기자 명단 등록됨"
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
-#: src/components/organisms/PkEventsList.re.mjs:420
+#: src/components/organisms/PkEventsList.re.mjs:388
 msgid "Wednesday"
 msgstr "수요일"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "주말"
 
@@ -1045,7 +1075,11 @@ msgstr "참가 취소"
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "{0}km 이내 · {1}, {2}"
+
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Yesterday"
 msgstr "어제"
 

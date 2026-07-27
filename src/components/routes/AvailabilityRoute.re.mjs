@@ -2,9 +2,11 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
+import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as AvailabilityPage from "../pages/AvailabilityPage.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -28,12 +30,14 @@ async function loader(param) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
   var match = AvailabilityPage.getDateRange();
+  var url = new URL(param.request.url);
+  var $$location = Core__Option.flatMap(Router.SearchParams.get(url.searchParams, UseUserLocation.locationParamKey), UseUserLocation.locationInputFromParam);
   return ReactRouterDom.defer({
               data: AvailabilityPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                     activityId: AvailabilityPage.defaultActivityId,
                     afterDate: Caml_option.some(Util.Datetime.fromDate(new Date())),
                     fromDate: match[0],
-                    location: UseUserLocation.tokyoDefault,
+                    location: $$location,
                     toDate: match[1]
                   }, "store-or-network", undefined, undefined),
               i18nLoaders: import.meta.env.SSR ? undefined : Caml_option.some(Localized.loadMessages(params.lang, loadMessages))

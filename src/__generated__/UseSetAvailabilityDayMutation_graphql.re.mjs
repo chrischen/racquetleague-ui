@@ -5,7 +5,7 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
 var Types = {};
 
-var variablesConverter = {"intervalInput":{},"setAvailabilityDayInput":{"intervals":{"r":"intervalInput"}},"__root":{"input":{"r":"setAvailabilityDayInput"}}};
+var variablesConverter = {"setAvailabilityDayInput":{"location":{"r":"locationInput"},"intervals":{"r":"intervalInput"}},"intervalInput":{},"coordsInput":{},"locationInput":{"coords":{"r":"coordsInput"}},"__root":{"input":{"r":"setAvailabilityDayInput"}}};
 
 function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
@@ -37,7 +37,21 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-var Utils = {};
+function region_decode($$enum) {
+  if ($$enum === "tokyo") {
+    return $$enum;
+  }
+  
+}
+
+function region_fromString(str) {
+  return region_decode(str);
+}
+
+var Utils = {
+  region_decode: region_decode,
+  region_fromString: region_fromString
+};
 
 var node = ((function(){
 var v0 = [

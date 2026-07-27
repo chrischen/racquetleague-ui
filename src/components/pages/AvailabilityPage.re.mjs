@@ -14,7 +14,7 @@ import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
-import * as ViewerLocationPrompt from "../molecules/ViewerLocationPrompt.re.mjs";
+import * as LocationFilterControl from "../molecules/LocationFilterControl.re.mjs";
 import * as UseSetAvailabilityDay from "../../helpers/UseSetAvailabilityDay.re.mjs";
 import * as VerticalAvailabilityGrid from "../organisms/VerticalAvailabilityGrid.re.mjs";
 import * as AvailabilityPageQuery_graphql from "../../__generated__/AvailabilityPageQuery_graphql.re.mjs";
@@ -44,7 +44,13 @@ var fetchPromised = RescriptRelay_Query.fetchPromised(AvailabilityPageQuery_grap
 
 var retain = RescriptRelay_Query.retain(AvailabilityPageQuery_graphql.node, convertVariables);
 
+var Query_region_decode = AvailabilityPageQuery_graphql.Utils.region_decode;
+
+var Query_region_fromString = AvailabilityPageQuery_graphql.Utils.region_fromString;
+
 var Query = {
+  region_decode: Query_region_decode,
+  region_fromString: Query_region_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables,
@@ -79,13 +85,14 @@ function getDateRange() {
 function AvailabilityPage$AvailabilityContent(props) {
   var match = usePreloaded(props.queryRef);
   var viewer = match.viewer;
+  var resolvedLocation = match.resolvedLocation;
   var intl = ReactIntl.useIntl();
   var match$1 = React.useState(function () {
         return false;
       });
   var setIsSaving = match$1[1];
-  var match$2 = UseSetAvailabilityDay.use();
-  var commitSetAvailability = match$2[0];
+  var match$2 = UseSetAvailabilityDay.useSetDays();
+  var commitDays = match$2[0];
   var env = RescriptRelay.useEnvironmentFromContext();
   var getWeekDays = function () {
     var now = new Date();
@@ -217,44 +224,42 @@ function AvailabilityPage$AvailabilityContent(props) {
     setIsSaving(function (param) {
           return true;
         });
-    var pending = {
-      contents: changes.length
-    };
-    changes.forEach(function (change) {
-          commitSetAvailability(change.isoDate, defaultActivityId, change.intervals.map(function (iv) {
-                    return {
-                            endHour: iv.endHour,
-                            startHour: iv.startHour
-                          };
-                  }), (function (_res, _err) {
-                  pending.contents = pending.contents - 1 | 0;
-                  if (pending.contents <= 0) {
-                    setIsSaving(function (param) {
-                          return false;
-                        });
-                    RelayRuntime.commitLocalUpdate(env, (function (store) {
-                            store.getRoot().invalidateRecord();
-                          }));
-                    return ;
-                  }
-                  
-                }));
+    var days = changes.map(function (change) {
+          return {
+                  intervals: change.intervals.map(function (iv) {
+                        return {
+                                endHour: iv.endHour,
+                                startHour: iv.startHour
+                              };
+                      }),
+                  localDate: change.isoDate
+                };
         });
+    commitDays(defaultActivityId, days, (function (_res, _err) {
+            setIsSaving(function (param) {
+                  return false;
+                });
+            RelayRuntime.commitLocalUpdate(env, (function (store) {
+                    store.getRoot().invalidateRecord();
+                  }));
+          }));
   };
-  var needsLocationCapture = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(viewer, (function (v) {
-                  return v.user;
-                })), (function (u) {
-              return Core__Option.isNone(u.coords);
-            })), false);
+  var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
+              return v.user;
+            })));
+  var resolvedCoords_lat = resolvedLocation.coords.lat;
+  var resolvedCoords_lng = resolvedLocation.coords.lng;
+  var resolvedCoords = {
+    lat: resolvedCoords_lat,
+    lng: resolvedCoords_lng
+  };
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                needsLocationCapture ? JsxRuntime.jsx(ViewerLocationPrompt.make, {
-                        onSaved: (function () {
-                            RelayRuntime.commitLocalUpdate(env, (function (store) {
-                                    store.getRoot().invalidateRecord();
-                                  }));
-                          })
-                      }) : null,
+                JsxRuntime.jsx(LocationFilterControl.make, {
+                      isLoggedIn: isLoggedIn,
+                      resolvedCoords: resolvedCoords,
+                      resolvedRegion: resolvedLocation.region
+                    }),
                 JsxRuntime.jsx(VerticalAvailabilityGrid.make, {
                       days: days,
                       onSave: handleSave,

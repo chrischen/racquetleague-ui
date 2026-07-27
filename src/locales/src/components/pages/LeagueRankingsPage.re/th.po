@@ -13,73 +13,77 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:606
+#: src/components/organisms/RatingList.re.mjs:664
 msgid "...load higher rated players"
 msgstr "...โหลดผู้เล่นเรตติ้งสูงกว่า"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:198
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:237
+#: src/components/pages/LeagueRankingsPage.re.mjs:242
 msgid "All Clubs"
 msgstr "ทุกสโมสร"
 
-#: src/components/organisms/RatingList.re.mjs:710
+#: src/components/organisms/RatingList.re.mjs:773
 msgid "All players loaded"
 msgstr "โหลดผู้เล่นทั้งหมดแล้ว"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:112
-#: src/components/pages/LeagueRankingsPage.re.mjs:113
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
+#: src/components/pages/LeagueRankingsPage.re.mjs:118
 msgid "Competitive Doubles"
 msgstr "คู่แข่งขัน"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
 msgid "Competitive Singles"
 msgstr "ซิงเกิลแข่งขัน"
 
-#: src/components/organisms/RatingList.re.mjs:199
-#: src/components/organisms/RatingList.re.mjs:220
+#: src/components/organisms/RatingList.re.mjs:699
+msgid "Days #1"
+msgstr "วันที่ #1"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#: src/components/organisms/RatingList.re.mjs:223
 msgid "Draft"
 msgstr "ดราฟต์"
 
-#: src/components/organisms/RatingList.re.mjs:668
+#: src/components/organisms/RatingList.re.mjs:731
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "เส้นตัดดราฟต์ · 8 อันดับแรกผ่านเข้ารอบ"
 
-#: src/components/organisms/RatingList.re.mjs:636
+#: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "DUPR โดยประมาณ"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:251
+#: src/components/pages/LeagueRankingsPage.re.mjs:256
 msgid "Filter by club"
 msgstr "กรองตามสโมสร"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:222
+#: src/components/pages/LeagueRankingsPage.re.mjs:227
 msgid "Filter by gender"
 msgstr "กรองตามเพศ"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:142
+#: src/components/pages/LeagueRankingsPage.re.mjs:147
 msgid "Live Standings"
 msgstr "อันดับสด"
 
-#: src/components/organisms/RatingList.re.mjs:580
+#: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "โหลดผู้เล่นเพิ่มเติม..."
 
-#: src/components/organisms/RatingList.re.mjs:556
+#: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "กำลังโหลดอันดับถัดไป"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:306
+#: src/components/pages/LeagueRankingsPage.re.mjs:312
 msgid "Loading rankings..."
 msgstr "กำลังโหลดการจัดอันดับ..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:203
+#: src/components/pages/LeagueRankingsPage.re.mjs:208
 msgid "Men"
 msgstr "ชาย"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
 msgstr "ไม่พบผู้เล่น"
 
@@ -87,7 +91,7 @@ msgstr "ไม่พบผู้เล่น"
 msgid "Official Dallash Flash T-Shirts and Ball Caps"
 msgstr "เสื้อยืดและหมวกแก๊ป Dallash Flash อย่างเป็นทางการ"
 
-#: src/components/organisms/RatingList.re.mjs:628
+#: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "ผู้เล่น"
 
@@ -99,11 +103,11 @@ msgstr "นำเสนอโดย"
 msgid "Prizes"
 msgstr "รางวัล"
 
-#: src/components/organisms/RatingList.re.mjs:632
+#: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "เรตติ้ง"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:175
+#: src/components/pages/LeagueRankingsPage.re.mjs:180
 msgid "Search players..."
 msgstr "ค้นหาผู้เล่น..."
 
@@ -111,7 +115,7 @@ msgstr "ค้นหาผู้เล่น..."
 msgid "Sponsor logo"
 msgstr "โลโก้สปอนเซอร์"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:158
+#: src/components/pages/LeagueRankingsPage.re.mjs:163
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "อันดับดับเบิลส์แข่งขันอย่างเป็นทางการของ Pkuru.com"
 
@@ -119,7 +123,7 @@ msgstr "อันดับดับเบิลส์แข่งขันอย
 msgid "The top 4 men and top 4 women players each earn a prize."
 msgstr "ผู้เล่นชายอันดับต้น 4 คนและผู้เล่นหญิงอันดับต้น 4 คน จะได้รับรางวัล"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:162
+#: src/components/pages/LeagueRankingsPage.re.mjs:167
 msgid ""
 "To participate, join any event with the trophy icon (competitive rated "
 "events) to receive a rating."
@@ -130,23 +134,23 @@ msgstr ""
 msgid "Top Player Awards"
 msgstr "รางวัลผู้เล่นยอดเยี่ยม"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
 msgstr "ลองขยายการค้นหาหรือตัวกรองของคุณ"
 
-#: src/components/organisms/RatingList.re.mjs:367
+#: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "ดูโปรไฟล์ของฉัน"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:208
+#: src/components/pages/LeagueRankingsPage.re.mjs:213
 msgid "Women"
 msgstr "หญิง"
 
-#: src/components/organisms/RatingList.re.mjs:330
+#: src/components/organisms/RatingList.re.mjs:360
 msgid "You"
 msgstr "คุณ"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "อันดับของคุณ"
 

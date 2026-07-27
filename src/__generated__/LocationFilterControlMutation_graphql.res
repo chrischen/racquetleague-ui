@@ -1,4 +1,4 @@
-/* @sourceLoc ViewerLocationPrompt.res */
+/* @sourceLoc LocationFilterControl.res */
 /* @generated */
 %%raw("/* @generated */")
 module Types = {
@@ -186,7 +186,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ViewerLocationPromptMutation",
+    "name": "LocationFilterControlMutation",
     "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
@@ -195,16 +195,16 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ViewerLocationPromptMutation",
+    "name": "LocationFilterControlMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "7e0ce2e7409405020c40042fc4bec363",
+    "cacheID": "94381994496ed83e69d4b4fdb371210a",
     "id": null,
     "metadata": {},
-    "name": "ViewerLocationPromptMutation",
+    "name": "LocationFilterControlMutation",
     "operationKind": "mutation",
-    "text": "mutation ViewerLocationPromptMutation(\n  $input: UpdateViewerLocationInput!\n) {\n  updateViewerLocation(input: $input) {\n    viewer {\n      id\n      coords {\n        lat\n        lng\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation LocationFilterControlMutation(\n  $input: UpdateViewerLocationInput!\n) {\n  updateViewerLocation(input: $input) {\n    viewer {\n      id\n      coords {\n        lat\n        lng\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

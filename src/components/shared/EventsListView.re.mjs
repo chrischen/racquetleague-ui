@@ -25,6 +25,7 @@ function ts(prim0, prim1) {
 }
 
 function EventsListView(props) {
+  var locationFilter = props.locationFilter;
   var onRefresh = props.onRefresh;
   var onNext = props.onNext;
   var __hasNext = props.hasNext;
@@ -130,6 +131,7 @@ function EventsListView(props) {
                                         ],
                                         className: "px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] flex items-center gap-3 overflow-x-auto"
                                       }),
+                                Core__Option.getOr(locationFilter, null),
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("h2", {

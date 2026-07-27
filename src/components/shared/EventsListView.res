@@ -21,6 +21,9 @@ let make = (
   ~hasNext: bool=false,
   ~onNext: option<unit => unit>=?,
   ~onRefresh: option<unit => Promise.t<unit>>=?,
+  // Optional location filter bar, rendered just above the list header (the
+  // Discover list opts in; see PkEventsList's showLocationFilter).
+  ~locationFilter: option<React.element>=?,
 ) => {
   open Lingui.Util
   let (activePill, setActivePill) = React.useState((): option<string> => None)
@@ -84,6 +87,7 @@ let make = (
             ->Option.getOr(React.null)}
           </div>
         }}
+        {locationFilter->Option.getOr(React.null)}
         // List header
         <div
           className="px-4 md:px-6 py-4 border-b border-gray-100 dark:border-[#2a2b30] flex items-center justify-between">

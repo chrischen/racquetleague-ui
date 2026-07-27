@@ -46,6 +46,14 @@ module Types = {
     edges: option<array<option<fragment_events_edges>>>,
     pageInfo: fragment_events_pageInfo,
   }
+  and fragment_resolvedLocation_coords = {
+    lat: float,
+    lng: float,
+  }
+  and fragment_resolvedLocation = {
+    coords: fragment_resolvedLocation_coords,
+    region: option<RelaySchemaAssets_graphql.enum_Region>,
+  }
   and fragment_viewer_clubs_edges_node = {
     @live id: string,
   }
@@ -65,6 +73,7 @@ module Types = {
   }
   type fragment = {
     events: fragment_events,
+    resolvedLocation: fragment_resolvedLocation,
     viewer: option<fragment_viewer>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #PkEventRow_query]>,
   }
@@ -125,6 +134,21 @@ module Utils = {
     }
 
 
+  @live
+  external region_toString: RelaySchemaAssets_graphql.enum_Region => string = "%identity"
+  @live
+  external region_input_toString: RelaySchemaAssets_graphql.enum_Region_input => string = "%identity"
+  @live
+  let region_decode = (enum: RelaySchemaAssets_graphql.enum_Region): option<RelaySchemaAssets_graphql.enum_Region_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let region_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Region_input> => {
+    region_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode
@@ -180,6 +204,11 @@ return {
       "defaultValue": 20,
       "kind": "LocalArgument",
       "name": "first"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
+      "name": "location"
     }
   ],
   "kind": "Fragment",
@@ -207,6 +236,55 @@ return {
   },
   "name": "PkEventsListFragment",
   "selections": [
+    {
+      "alias": null,
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "location",
+          "variableName": "location"
+        }
+      ],
+      "concreteType": "ResolvedLocation",
+      "kind": "LinkedField",
+      "name": "resolvedLocation",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "Coords",
+          "kind": "LinkedField",
+          "name": "coords",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lat",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "lng",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "region",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
     {
       "args": null,
       "kind": "FragmentSpread",

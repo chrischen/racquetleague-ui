@@ -2,17 +2,19 @@
 open Lingui.Util
 
 module EventsMapPageQuery = %relay(`
-  query EventsMapPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!) {
+  query EventsMapPageQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!, $location: LocationInput) {
     ...PkEventsListFragment @arguments(
       after: $after,
       first: $first,
       before: $before,
       afterDate: $afterDate,
-      filters: $filters
+      filters: $filters,
+      location: $location
     )
     ...PkEventsAvailabilityDay_query @arguments(
       fromDate: $availabilityFromDate,
-      toDate: $availabilityToDate
+      toDate: $availabilityToDate,
+      location: $location
     )
     events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {
       ...PinsMap_eventConnection
@@ -37,7 +39,9 @@ let make = () => {
       <div className="flex flex-col lg:flex-row lg:items-start">
         <div
           className="w-full pb-[calc(50vh+57px)] lg:pb-0 lg:flex-1 min-w-0 lg:border-r lg:border-gray-200 lg:dark:border-[#2a2b30]">
-          <PkEventsList events=fragmentRefs onHoverLocation ?selectedLocationId />
+          <PkEventsList
+            events=fragmentRefs onHoverLocation ?selectedLocationId showLocationFilter=true
+          />
         </div>
         <div
           className="fixed bottom-[57px] left-0 right-0 h-[calc(50vh-57px)] z-30 lg:z-auto lg:bottom-auto lg:left-auto lg:right-auto lg:flex-1 lg:sticky lg:top-0 lg:h-[calc(100vh-56px)]">

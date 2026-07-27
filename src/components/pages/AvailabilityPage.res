@@ -1,7 +1,17 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module Query = %relay(`
-  query AvailabilityPageQuery($activityId: ID!, $fromDate: String!, $toDate: String!, $afterDate: Datetime, $location: LocationInput!) {
+  query AvailabilityPageQuery($activityId: ID!, $fromDate: String!, $toDate: String!, $afterDate: Datetime, $location: LocationInput) {
+    # The location the server scoped this data to (location arg → user.coords →
+    # named default). region (symbolic named default) drives the selected option
+    # when set; coords is always present for display.
+    resolvedLocation(location: $location) {
+      coords {
+        lat
+        lng
+      }
+      region
+    }
     availabilityUsersForDateRange(
       fromDate: $fromDate
       toDate: $toDate
@@ -48,10 +58,6 @@ module Query = %relay(`
     viewer {
       user {
         id
-        coords {
-          lat
-          lng
-        }
       }
       availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {
         id
@@ -98,12 +104,12 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 module AvailabilityContent = {
   @react.component
   let make = (~queryRef: AvailabilityPageQuery_graphql.queryRef) => {
-    let {viewer, availabilityUsersForDateRange, locationsAvailability} = Query.usePreloaded(
+    let {viewer, availabilityUsersForDateRange, locationsAvailability, resolvedLocation} = Query.usePreloaded(
       ~queryRef,
     )
     let intl = ReactIntl.useIntl()
     let (isSaving, setIsSaving) = React.useState(() => false)
-    let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
+    let (commitDays, _) = UseSetAvailabilityDay.useSetDays()
     let env = RescriptRelay.useEnvironmentFromContext()
 
     let getWeekDays = () => {
@@ -244,61 +250,45 @@ module AvailabilityContent = {
 
     let handleSave = (changes: array<AvailabilityGrid.intervalUpdate>) => {
       setIsSaving(_ => true)
-      let pending = ref(changes->Array.length)
-      changes->Array.forEach(change => {
-        let _ = commitSetAvailability(
-          ~localDate=change.isoDate,
-          ~activityId=defaultActivityId,
-          ~intervals=change.intervals->Array.map(
-            iv => {
-              let r: RelaySchemaAssets_graphql.input_IntervalInput = {
-                startHour: iv.startHour,
-                endHour: iv.endHour,
-              }
-              r
-            },
-          ),
-          ~onCompleted=(_res, _err) => {
-            pending := pending.contents - 1
-            if pending.contents <= 0 {
-              setIsSaving(_ => false)
-              RescriptRelay.commitLocalUpdate(
-                ~environment=env,
-                ~updater=store =>
-                  store
-                  ->RescriptRelay.RecordSourceSelectorProxy.getRoot
-                  ->RescriptRelay.RecordProxy.invalidateRecord,
-              )
-            }
+      // One activity, all edited days, one round-trip.
+      let days = changes->Array.map((change): RelaySchemaAssets_graphql.input_AvailabilityDayInput => {
+        localDate: change.isoDate,
+        intervals: change.intervals->Array.map(
+          (iv): RelaySchemaAssets_graphql.input_IntervalInput => {
+            startHour: iv.startHour,
+            endHour: iv.endHour,
           },
-        )
+        ),
       })
+      let _ = commitDays(
+        ~activityId=defaultActivityId,
+        ~days,
+        ~onCompleted=(_res, _err) => {
+          setIsSaving(_ => false)
+          // New/deleted day nodes can't be linked into the fetched arrays by
+          // Relay, so invalidate the root to force a refetch.
+          RescriptRelay.commitLocalUpdate(
+            ~environment=env,
+            ~updater=store =>
+              store
+              ->RescriptRelay.RecordSourceSelectorProxy.getRoot
+              ->RescriptRelay.RecordProxy.invalidateRecord,
+          )
+        },
+      )
     }
 
-    // Logged-in viewer with no stored home coords: capture them via the browser
-    // geolocation prompt (renders nothing). The SSR'd query was scoped by the
-    // default location; saving updates User.coords in the store (unmounting
-    // this) and invalidates the root so the next load re-scopes to the real
-    // location.
-    let needsLocationCapture =
-      viewer
-      ->Option.flatMap(v => v.user)
-      ->Option.map(u => u.coords->Option.isNone)
-      ->Option.getOr(false)
+    // Location filter bar: picking Tokyo / near-me writes the `coords` URL param
+    // (re-runs the loader → re-scopes this page's availability) and, for logged-
+    // in viewers, persists the coords as their home location for future loads.
+    let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
+    let resolvedCoords: UseUserLocation.coords = {
+      lat: resolvedLocation.coords.lat,
+      lng: resolvedLocation.coords.lng,
+    }
 
     <>
-      {needsLocationCapture
-        ? <ViewerLocationPrompt
-            onSaved={() =>
-              RescriptRelay.commitLocalUpdate(
-                ~environment=env,
-                ~updater=store =>
-                  store
-                  ->RescriptRelay.RecordSourceSelectorProxy.getRoot
-                  ->RescriptRelay.RecordProxy.invalidateRecord,
-              )}
-          />
-        : React.null}
+      <LocationFilterControl isLoggedIn resolvedCoords resolvedRegion=resolvedLocation.region />
       <VerticalAvailabilityGrid.make
         days onSave=handleSave isSaving existingEvents demand courtAvailability
       />
@@ -310,7 +300,7 @@ module AvailabilityContent = {
 let make = () => {
   // Standard SSR page: the route loader preloads the query scoped by the
   // default location — the server substitutes the viewer's stored coords
-  // (User.coords) when it knows them; ViewerLocationPrompt captures them
+  // (User.coords) when it knows them; LocationFilterControl captures them
   // (inside AvailabilityContent) when it doesn't.
   let query = useLoaderData()
   <WaitForMessages>

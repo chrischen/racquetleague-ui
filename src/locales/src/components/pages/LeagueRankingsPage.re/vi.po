@@ -13,73 +13,77 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:606
+#: src/components/organisms/RatingList.re.mjs:664
 msgid "...load higher rated players"
 msgstr "...tải người chơi xếp hạng cao hơn"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:198
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
 msgid "All"
 msgstr "Tất cả"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:237
+#: src/components/pages/LeagueRankingsPage.re.mjs:242
 msgid "All Clubs"
 msgstr "Tất cả câu lạc bộ"
 
-#: src/components/organisms/RatingList.re.mjs:710
+#: src/components/organisms/RatingList.re.mjs:773
 msgid "All players loaded"
 msgstr "Đã tải tất cả người chơi"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:112
-#: src/components/pages/LeagueRankingsPage.re.mjs:113
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
+#: src/components/pages/LeagueRankingsPage.re.mjs:118
 msgid "Competitive Doubles"
 msgstr "Đôi thi đấu"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:112
+#: src/components/pages/LeagueRankingsPage.re.mjs:117
 msgid "Competitive Singles"
 msgstr "Đơn thi đấu"
 
-#: src/components/organisms/RatingList.re.mjs:199
-#: src/components/organisms/RatingList.re.mjs:220
+#: src/components/organisms/RatingList.re.mjs:699
+msgid "Days #1"
+msgstr "Ngày #1"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#: src/components/organisms/RatingList.re.mjs:223
 msgid "Draft"
 msgstr "Nháp"
 
-#: src/components/organisms/RatingList.re.mjs:668
+#: src/components/organisms/RatingList.re.mjs:731
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "Hạn chót nháp · Top 8 vào vòng chính"
 
-#: src/components/organisms/RatingList.re.mjs:636
+#: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "DUPR ước tính"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:251
+#: src/components/pages/LeagueRankingsPage.re.mjs:256
 msgid "Filter by club"
 msgstr "Lọc theo câu lạc bộ"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:222
+#: src/components/pages/LeagueRankingsPage.re.mjs:227
 msgid "Filter by gender"
 msgstr "Lọc theo giới tính"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:142
+#: src/components/pages/LeagueRankingsPage.re.mjs:147
 msgid "Live Standings"
 msgstr "Bảng xếp hạng trực tiếp"
 
-#: src/components/organisms/RatingList.re.mjs:580
+#: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "Tải thêm người chơi..."
 
-#: src/components/organisms/RatingList.re.mjs:556
+#: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "Đang tải bảng xếp hạng tiếp theo"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:306
+#: src/components/pages/LeagueRankingsPage.re.mjs:312
 msgid "Loading rankings..."
 msgstr "Đang tải bảng xếp hạng..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:203
+#: src/components/pages/LeagueRankingsPage.re.mjs:208
 msgid "Men"
 msgstr "Nam"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
 msgstr "Không tìm thấy người chơi"
 
@@ -87,7 +91,7 @@ msgstr "Không tìm thấy người chơi"
 msgid "Official Dallash Flash T-Shirts and Ball Caps"
 msgstr "Áo phông và mũ lưỡi trai chính thức của Dallash Flash"
 
-#: src/components/organisms/RatingList.re.mjs:628
+#: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "Người chơi"
 
@@ -99,11 +103,11 @@ msgstr "Được tài trợ bởi"
 msgid "Prizes"
 msgstr "Giải thưởng"
 
-#: src/components/organisms/RatingList.re.mjs:632
+#: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "Xếp hạng"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:175
+#: src/components/pages/LeagueRankingsPage.re.mjs:180
 msgid "Search players..."
 msgstr "Tìm kiếm người chơi..."
 
@@ -111,7 +115,7 @@ msgstr "Tìm kiếm người chơi..."
 msgid "Sponsor logo"
 msgstr "Logo nhà tài trợ"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:158
+#: src/components/pages/LeagueRankingsPage.re.mjs:163
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Bảng xếp hạng đôi thi đấu chính thức của Pkuru.com."
 
@@ -119,7 +123,7 @@ msgstr "Bảng xếp hạng đôi thi đấu chính thức của Pkuru.com."
 msgid "The top 4 men and top 4 women players each earn a prize."
 msgstr "Top 4 nam và top 4 nữ mỗi người sẽ nhận được một giải thưởng."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:162
+#: src/components/pages/LeagueRankingsPage.re.mjs:167
 msgid ""
 "To participate, join any event with the trophy icon (competitive rated "
 "events) to receive a rating."
@@ -131,23 +135,23 @@ msgstr ""
 msgid "Top Player Awards"
 msgstr "Giải thưởng cầu thủ xuất sắc"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
 msgstr "Hãy mở rộng tìm kiếm hoặc bộ lọc của bạn."
 
-#: src/components/organisms/RatingList.re.mjs:367
+#: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "Xem hồ sơ của tôi"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:208
+#: src/components/pages/LeagueRankingsPage.re.mjs:213
 msgid "Women"
 msgstr "Nữ"
 
-#: src/components/organisms/RatingList.re.mjs:330
+#: src/components/organisms/RatingList.re.mjs:360
 msgid "You"
 msgstr "Bạn"
 
-#: src/components/organisms/RatingList.re.mjs:278
+#: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "Thứ hạng của bạn"
 

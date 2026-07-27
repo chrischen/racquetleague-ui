@@ -43,7 +43,7 @@ msgstr "[ไม่มีหัวข้อ]"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
-#: src/components/organisms/PkEventsList.re.mjs:217
+#: src/components/organisms/PkEventsList.re.mjs:219
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
@@ -198,11 +198,11 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← ก่อนหน้า"
 
@@ -339,8 +339,8 @@ msgstr "คัดลอกแล้ว!"
 msgid "copy event"
 msgstr "คัดลอกกิจกรรม"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr "คอร์ท"
 
@@ -363,6 +363,10 @@ msgstr "คอร์ตที่ครอบคลุมเวลาทั้ง
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "คอร์ท:"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "เบราว์เซอร์นี้ไม่รองรับตำแหน่งที่ตั้งปัจจุบัน"
 
 #: src/components/pages/PkEventPage.re.mjs:406
 msgid "Dallas Flash"
@@ -448,8 +452,8 @@ msgstr "เท่าเทียม"
 msgid "Evening"
 msgstr "เย็น"
 
-#: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:220
+#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/organisms/PkEventsList.re.mjs:222
 msgid "event"
 msgstr "กิจกรรม"
 
@@ -465,8 +469,8 @@ msgstr "แท็กกิจกรรม: {tag}"
 msgid "Event updated"
 msgstr "อัปเดตกิจกรรมแล้ว"
 
-#: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:221
+#: src/components/shared/EventsListView.re.mjs:140
+#: src/components/organisms/PkEventsList.re.mjs:223
 msgid "events"
 msgstr "กิจกรรม"
 
@@ -474,7 +478,11 @@ msgstr "กิจกรรม"
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "กรองตามสถานที่"
+
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "กรองตามวันที่"
 
@@ -486,7 +494,7 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/organisms/PkEventsList.re.mjs:426
+#: src/components/organisms/PkEventsList.re.mjs:394
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -564,9 +572,18 @@ msgstr "ย่อ"
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "กำลังระบุตำแหน่ง…"
+
 #: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/molecules/LocationFilter.re.mjs:49
 msgid "Location"
 msgstr "สถานที่"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr "การเข้าถึงตำแหน่งที่ตั้งถูกปฏิเสธ กรุณาอนุญาตการเข้าถึงหรือเลือกสถานที่"
 
 #: src/components/organisms/ScoreModal.re.mjs:165
 msgid "Losing Team (Team {0})"
@@ -597,11 +614,11 @@ msgstr "มัธยฐาน"
 msgid "mixed"
 msgstr "หลากหลาย"
 
-#: src/components/organisms/PkEventsList.re.mjs:414
+#: src/components/organisms/PkEventsList.re.mjs:382
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "เพิ่มเติม →"
 
@@ -614,7 +631,12 @@ msgstr "เช้า"
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
-#: src/components/organisms/PkEventsList.re.mjs:435
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "ใกล้ฉัน"
+
+#: src/components/organisms/PkEventsList.re.mjs:403
 msgid "Next {dayName}"
 msgstr "สัปดาห์หน้า{dayName}"
 
@@ -682,6 +704,10 @@ msgstr "รอดำเนินการ · {0}"
 msgid "Pending approval"
 msgstr "รอการอนุมัติ"
 
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "เลือกสถานที่หรือใช้ตำแหน่งที่ตั้งปัจจุบันของคุณ"
+
 #: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Pick one time window to host an event"
 msgstr "เลือกช่วงเวลาเพื่อจัดกิจกรรม"
@@ -743,7 +769,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "รีเฟรช"
 
@@ -753,7 +779,7 @@ msgstr "รีเฟรชรายละเอียดกิจกรรม"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "กำลังรีเฟรช…"
 
@@ -814,7 +840,7 @@ msgstr "รอบ {0}"
 msgid "Round Robin Draws"
 msgstr "จับคู่แบบพบกันหมด"
 
-#: src/components/organisms/PkEventsList.re.mjs:429
+#: src/components/organisms/PkEventsList.re.mjs:397
 msgid "Saturday"
 msgstr "วันเสาร์"
 
@@ -847,7 +873,7 @@ msgstr "ตั้งเวลาของคุณ"
 msgid "Share"
 msgstr "แชร์"
 
-#: src/components/organisms/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:283
 msgid "Show {0} more"
 msgstr "แสดงเพิ่มอีก {0} รายการ"
 
@@ -863,7 +889,7 @@ msgstr "แสดงน้อยลง"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "เรียงตามเวลาเริ่มต้น"
 
@@ -871,7 +897,7 @@ msgstr "เรียงตามเวลาเริ่มต้น"
 msgid "SPREAD"
 msgstr "การกระจาย"
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/organisms/PkEventsList.re.mjs:379
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
@@ -942,7 +968,7 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/PkEventsList.re.mjs:423
+#: src/components/organisms/PkEventsList.re.mjs:391
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
@@ -950,13 +976,17 @@ msgstr "วันพฤหัสบดี"
 msgid "to {0}"
 msgstr "ถึง {0}"
 
-#: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:394
+#: src/components/shared/EventsListView.re.mjs:84
+#: src/components/organisms/PkEventsList.re.mjs:362
 msgid "Today"
 msgstr "วันนี้"
 
-#: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:400
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "โตเกียว"
+
+#: src/components/shared/EventsListView.re.mjs:88
+#: src/components/organisms/PkEventsList.re.mjs:368
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
@@ -964,7 +994,7 @@ msgstr "พรุ่งนี้"
 msgid "TOP 6 AVG"
 msgstr "ค่าเฉลี่ย 6 อันดับ"
 
-#: src/components/organisms/PkEventsList.re.mjs:417
+#: src/components/organisms/PkEventsList.re.mjs:385
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -1010,11 +1040,11 @@ msgstr "อยู่ในรายชื่อคอย"
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/PkEventsList.re.mjs:420
+#: src/components/organisms/PkEventsList.re.mjs:388
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "สุดสัปดาห์"
 
@@ -1034,7 +1064,11 @@ msgstr "ยกเลิก RSVP"
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "ภายใน {0} กม. · {1}, {2}"
+
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 

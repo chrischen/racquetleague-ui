@@ -146,7 +146,7 @@ msgstr "Hủy"
 msgid "Change times"
 msgstr "Thay đổi thời gian"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
 msgid "Court"
 msgstr "Sân"
 

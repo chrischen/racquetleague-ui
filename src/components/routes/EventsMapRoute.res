@@ -46,6 +46,14 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       d->Js.Date.fromString->Util.Datetime.fromDate
     })
 
+  // Location scope from the `location` URL param (region name or coords) when
+  // present; left out otherwise so the server resolves the viewer's stored
+  // coords, then the default.
+  let location =
+    url.searchParams
+    ->Router.SearchParams.get(UseUserLocation.locationParamKey)
+    ->Option.flatMap(UseUserLocation.locationInputFromParam)
+
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: EventsMapPageQuery_graphql.load(
@@ -58,6 +66,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         availabilityToDate: Js.Date.fromFloat(Js.Date.now() +. 28. *. 86400000.)
           ->Js.Date.toISOString
           ->String.slice(~start=0, ~end=10),
+        ?location,
         filters: {
           activitySlug: activity,
           shadow,

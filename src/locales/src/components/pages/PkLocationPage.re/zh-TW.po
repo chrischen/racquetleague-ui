@@ -43,7 +43,7 @@ msgstr "[標題缺失]"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
-#: src/components/organisms/PkEventsList.re.mjs:217
+#: src/components/organisms/PkEventsList.re.mjs:219
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
@@ -198,11 +198,11 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← 上一頁"
 
@@ -339,8 +339,8 @@ msgstr "已複製！"
 msgid "copy event"
 msgstr "複製賽事"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr "場地"
 
@@ -363,6 +363,10 @@ msgstr "涵蓋您完整時間的場地"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "場地數："
+
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "目前的瀏覽器不支援定位功能。"
 
 #: src/components/pages/PkEventPage.re.mjs:406
 msgid "Dallas Flash"
@@ -450,8 +454,8 @@ msgstr "均衡"
 msgid "Evening"
 msgstr "傍晚"
 
-#: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:220
+#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/organisms/PkEventsList.re.mjs:222
 msgid "event"
 msgstr "活動"
 
@@ -467,8 +471,8 @@ msgstr "活動標籤：{tag}"
 msgid "Event updated"
 msgstr "活動已更新"
 
-#: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:221
+#: src/components/shared/EventsListView.re.mjs:140
+#: src/components/organisms/PkEventsList.re.mjs:223
 msgid "events"
 msgstr "活動"
 
@@ -476,7 +480,11 @@ msgstr "活動"
 msgid "Female"
 msgstr "女性"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "依地點篩選"
+
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "按日期篩選"
 
@@ -488,7 +496,7 @@ msgstr "用於活動更新和通知"
 msgid "Free"
 msgstr "免費"
 
-#: src/components/organisms/PkEventsList.re.mjs:426
+#: src/components/organisms/PkEventsList.re.mjs:394
 msgid "Friday"
 msgstr "星期五"
 
@@ -566,11 +574,20 @@ msgstr "收起"
 msgid "Loading..."
 msgstr "載入中..."
 
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "定位中…"
+
 #: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/molecules/LocationFilter.re.mjs:49
 msgid "Location"
 msgstr "地點"
 
-#: src/components/pages/PkLocationPage.re.mjs:107
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr "位置存取遭拒。請允許存取或選擇場地。"
+
+#: src/components/pages/PkLocationPage.re.mjs:106
 msgid "Location not found"
 msgstr "找不到地點"
 
@@ -603,11 +620,11 @@ msgstr "中位數"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:414
+#: src/components/organisms/PkEventsList.re.mjs:382
 msgid "Monday"
 msgstr "星期一"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "更多 →"
 
@@ -620,7 +637,12 @@ msgstr "上午"
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
-#: src/components/organisms/PkEventsList.re.mjs:435
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "附近"
+
+#: src/components/organisms/PkEventsList.re.mjs:403
 msgid "Next {dayName}"
 msgstr "下週{dayName}"
 
@@ -688,6 +710,10 @@ msgstr "待處理 · {0}"
 msgid "Pending approval"
 msgstr "待審核"
 
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "選擇地點或使用目前位置。"
+
 #: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Pick one time window to host an event"
 msgstr "選擇一個時間段來舉辦活動"
@@ -749,7 +775,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "重新整理"
 
@@ -759,7 +785,7 @@ msgstr "重新整理活動詳情"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "重新整理中…"
 
@@ -820,7 +846,7 @@ msgstr "第 {0} 回合"
 msgid "Round Robin Draws"
 msgstr "循環賽抽籤"
 
-#: src/components/organisms/PkEventsList.re.mjs:429
+#: src/components/organisms/PkEventsList.re.mjs:397
 msgid "Saturday"
 msgstr "星期六"
 
@@ -853,7 +879,7 @@ msgstr "設定您的時間"
 msgid "Share"
 msgstr "分享"
 
-#: src/components/organisms/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:283
 msgid "Show {0} more"
 msgstr "顯示更多 {0} 筆"
 
@@ -869,7 +895,7 @@ msgstr "顯示更少"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能練習和訓練，專注於技術改進"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "按開始時間排序"
 
@@ -877,7 +903,7 @@ msgstr "按開始時間排序"
 msgid "SPREAD"
 msgstr "分布"
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/organisms/PkEventsList.re.mjs:379
 msgid "Sunday"
 msgstr "星期日"
 
@@ -947,7 +973,7 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/organisms/PkEventsList.re.mjs:423
+#: src/components/organisms/PkEventsList.re.mjs:391
 msgid "Thursday"
 msgstr "星期四"
 
@@ -955,13 +981,17 @@ msgstr "星期四"
 msgid "to {0}"
 msgstr "至 {0}"
 
-#: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:394
+#: src/components/shared/EventsListView.re.mjs:84
+#: src/components/organisms/PkEventsList.re.mjs:362
 msgid "Today"
 msgstr "今天"
 
-#: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:400
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "東京"
+
+#: src/components/shared/EventsListView.re.mjs:88
+#: src/components/organisms/PkEventsList.re.mjs:368
 msgid "Tomorrow"
 msgstr "明天"
 
@@ -969,7 +999,7 @@ msgstr "明天"
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/organisms/PkEventsList.re.mjs:417
+#: src/components/organisms/PkEventsList.re.mjs:385
 msgid "Tuesday"
 msgstr "星期二"
 
@@ -1015,11 +1045,11 @@ msgstr "已在候補名單"
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
-#: src/components/organisms/PkEventsList.re.mjs:420
+#: src/components/organisms/PkEventsList.re.mjs:388
 msgid "Wednesday"
 msgstr "星期三"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "週末"
 
@@ -1039,7 +1069,11 @@ msgstr "取消報名"
 msgid "Withdrawing..."
 msgstr "取消中..."
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "{0} 公里以內 · {1}，{2}"
+
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Yesterday"
 msgstr "昨天"
 

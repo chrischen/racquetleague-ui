@@ -2,17 +2,19 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module EventsQuery = %relay(`
-  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!) {
+  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!, $location: LocationInput) {
     ...PkEventsListFragment @arguments(
       after: $after,
       first: $first,
       before: $before,
       afterDate: $afterDate,
-      filters: $filters
+      filters: $filters,
+      location: $location
     )
     ...PkEventsAvailabilityDay_query @arguments(
       fromDate: $availabilityFromDate,
-      toDate: $availabilityToDate
+      toDate: $availabilityToDate,
+      location: $location
     )
   }
 `)
@@ -101,7 +103,7 @@ let make = () => {
   }
 
   <WaitForMessages>
-    {() => <PkEventsList events=fragmentRefs shouldHideEvent showInlineCourts=true />}
+    {() => <PkEventsList events=fragmentRefs shouldHideEvent showInlineCourts=true showLocationFilter=true />}
   </WaitForMessages>
 }
 let \"Component" = make
@@ -150,6 +152,14 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
   // @TODO: Server Date will mismatch with client date potentially
   // ->Option.getOr(Js.Date.make()->Util.Datetime.fromDate)
 
+  // Location scope: build the LocationInput from the `location` URL param (set by
+  // the location filter — a region name or coords) when present; leave it out
+  // otherwise so the server resolves the viewer's stored coords, then the default.
+  let location =
+    url.searchParams
+    ->Router.SearchParams.get(UseUserLocation.locationParamKey)
+    ->Option.flatMap(UseUserLocation.locationInputFromParam)
+
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: EventsQuery_graphql.load(
@@ -162,6 +172,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         availabilityToDate: Js.Date.fromFloat(Js.Date.now() +. 28. *. 86400000.)
           ->Js.Date.toISOString
           ->String.slice(~start=0, ~end=10),
+        ?location,
         filters: {
           activitySlug: ?params.activitySlug,
           shadow,

@@ -88,7 +88,7 @@ msgstr "上に時間枠を追加してください"
 msgid "Clear"
 msgstr "クリア"
 
-#: src/components/pages/AvailabilityPage.re.mjs:167
+#: src/components/pages/AvailabilityPage.re.mjs:166
 msgid "Court"
 msgstr "コート"
 
@@ -104,13 +104,44 @@ msgstr "全時間帯をカバーするコートと空き状況"
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "コートごとに、最大連続空き時間とともに表示されます。"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "現在地はこのブラウザでサポートされていません。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "イベント"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "場所で絞り込む"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
 msgid "Let hosts schedule events when most of you are free"
 msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
+
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "位置情報を取得中…"
+
+#: src/components/molecules/LocationFilter.re.mjs:49
+msgid "Location"
+msgstr "場所"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr ""
+"位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
+"ださい。"
+
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "現在地付近"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "場所を選択するか、現在地を使用してください。"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -152,6 +183,10 @@ msgstr "クラブと共有"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "空きコマをタップして追加・ドラッグで移動・端をつかんでリサイズ"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "東京"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"
 msgstr "平日の夜"
@@ -163,6 +198,10 @@ msgstr "週末の朝"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
 msgstr "いつプレーできますか？"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "{0} km以内・{1}、{2}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"

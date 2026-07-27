@@ -20,7 +20,7 @@ var Types = {
   makeRefetchVariables: makeRefetchVariables
 };
 
-var variablesConverter = {"locationInput":{},"__root":{"location":{"r":"locationInput"},"afterDate":{"c":"Util.Datetime"}}};
+var variablesConverter = {"coordsInput":{},"locationInput":{"coords":{"r":"coordsInput"}},"__root":{"location":{"r":"locationInput"},"afterDate":{"c":"Util.Datetime"}}};
 
 var variablesConverterMap = {
   "Util.Datetime": Util.Datetime.serialize
@@ -64,7 +64,21 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-var Utils = {};
+function region_decode($$enum) {
+  if ($$enum === "tokyo") {
+    return $$enum;
+  }
+  
+}
+
+function region_fromString(str) {
+  return region_decode(str);
+}
+
+var Utils = {
+  region_decode: region_decode,
+  region_fromString: region_fromString
+};
 
 var node = ((function(){
 var v0 = {
@@ -94,13 +108,13 @@ v4 = {
 },
 v5 = {
   "kind": "Variable",
-  "name": "fromDate",
-  "variableName": "fromDate"
+  "name": "location",
+  "variableName": "location"
 },
 v6 = {
   "kind": "Variable",
-  "name": "location",
-  "variableName": "location"
+  "name": "fromDate",
+  "variableName": "fromDate"
 },
 v7 = {
   "kind": "Variable",
@@ -155,8 +169,53 @@ v12 = [
   {
     "alias": null,
     "args": [
-      (v5/*: any*/),
+      (v5/*: any*/)
+    ],
+    "concreteType": "ResolvedLocation",
+    "kind": "LinkedField",
+    "name": "resolvedLocation",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Coords",
+        "kind": "LinkedField",
+        "name": "coords",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "lat",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "lng",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "region",
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": [
       (v6/*: any*/),
+      (v5/*: any*/),
       {
         "kind": "Literal",
         "name": "scope",
@@ -207,8 +266,8 @@ v12 = [
     "alias": null,
     "args": [
       (v11/*: any*/),
-      (v5/*: any*/),
       (v6/*: any*/),
+      (v5/*: any*/),
       (v7/*: any*/)
     ],
     "concreteType": "LocationAvailabilityDay",
@@ -310,32 +369,7 @@ v12 = [
         "name": "user",
         "plural": false,
         "selections": [
-          (v8/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "Coords",
-            "kind": "LinkedField",
-            "name": "coords",
-            "plural": false,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "lat",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "lng",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
+          (v8/*: any*/)
         ],
         "storageKey": null
       },
@@ -343,7 +377,7 @@ v12 = [
         "alias": null,
         "args": [
           (v11/*: any*/),
-          (v5/*: any*/),
+          (v6/*: any*/),
           (v7/*: any*/)
         ],
         "concreteType": "AvailabilityDay",
@@ -471,12 +505,12 @@ return {
     "selections": (v12/*: any*/)
   },
   "params": {
-    "cacheID": "1cf8da89aa1ddae82e707620d0a3393d",
+    "cacheID": "af8531536462643fbdeaf5bfa8020425",
     "id": null,
     "metadata": {},
     "name": "AvailabilityPageQuery",
     "operationKind": "query",
-    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput!\n) {\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  viewer {\n    user {\n      id\n      coords {\n        lat\n        lng\n      }\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput\n) {\n  resolvedLocation(location: $location) {\n    coords {\n      lat\n      lng\n    }\n    region\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })());

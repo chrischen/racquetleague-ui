@@ -88,7 +88,7 @@ msgstr "เพิ่มช่วงเวลาด้านบน"
 msgid "Clear"
 msgstr "ล้าง"
 
-#: src/components/pages/AvailabilityPage.re.mjs:167
+#: src/components/pages/AvailabilityPage.re.mjs:166
 msgid "Court"
 msgstr "คอร์ท"
 
@@ -104,13 +104,42 @@ msgstr "คอร์ตและช่วงเวลาว่างที่ค
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "คอร์ตแต่ละแห่งแสดงพร้อมช่วงเวลาว่างต่อเนื่องที่ยาวที่สุด"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "เบราว์เซอร์นี้ไม่รองรับตำแหน่งที่ตั้งปัจจุบัน"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "กิจกรรม"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "กรองตามสถานที่"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
+
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "กำลังระบุตำแหน่ง…"
+
+#: src/components/molecules/LocationFilter.re.mjs:49
+msgid "Location"
+msgstr "สถานที่"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr "การเข้าถึงตำแหน่งที่ตั้งถูกปฏิเสธ กรุณาอนุญาตการเข้าถึงหรือเลือกสถานที่"
+
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "ใกล้ฉัน"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "เลือกสถานที่หรือใช้ตำแหน่งที่ตั้งปัจจุบันของคุณ"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -152,6 +181,10 @@ msgstr "แชร์กับชมรมของคุณ"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "แตะช่องว่างเพื่อเพิ่ม · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "โตเกียว"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"
 msgstr "เย็นวันธรรมดา"
@@ -163,6 +196,10 @@ msgstr "เช้าวันหยุด"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
 msgstr "คุณเล่นได้เมื่อไหร่?"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "ภายใน {0} กม. · {1}, {2}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"

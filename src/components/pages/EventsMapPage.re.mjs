@@ -62,7 +62,8 @@ function EventsMapPage(props) {
                                       children: JsxRuntime.jsx(PkEventsList.make, {
                                             events: fragmentRefs,
                                             onHoverLocation: onHoverLocation,
-                                            selectedLocationId: selectedLocationId
+                                            selectedLocationId: selectedLocationId,
+                                            showLocationFilter: true
                                           }),
                                       className: "w-full pb-[calc(50vh+57px)] lg:pb-0 lg:flex-1 min-w-0 lg:border-r lg:border-gray-200 lg:dark:border-[#2a2b30]"
                                     }),

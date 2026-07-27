@@ -6,6 +6,8 @@ module Types = {
 
   @live type setAvailabilityDayInput = RelaySchemaAssets_graphql.input_SetAvailabilityDayInput
   @live type intervalInput = RelaySchemaAssets_graphql.input_IntervalInput
+  @live type locationInput = RelaySchemaAssets_graphql.input_LocationInput
+  @live type coordsInput = RelaySchemaAssets_graphql.input_CoordsInput
   @live
   type rec response_setAvailabilityDay_day_intervals = {
     endHour: int,
@@ -48,7 +50,7 @@ module Types = {
 module Internal = {
   @live
   let variablesConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"intervalInput":{},"setAvailabilityDayInput":{"intervals":{"r":"intervalInput"}},"__root":{"input":{"r":"setAvailabilityDayInput"}}}`
+    json`{"setAvailabilityDayInput":{"location":{"r":"locationInput"},"intervals":{"r":"intervalInput"}},"intervalInput":{},"coordsInput":{},"locationInput":{"coords":{"r":"coordsInput"}},"__root":{"input":{"r":"setAvailabilityDayInput"}}}`
   )
   @live
   let variablesConverterMap = ()
@@ -96,6 +98,21 @@ module Internal = {
 module Utils = {
   @@warning("-33")
   open Types
+  @live
+  external region_toString: RelaySchemaAssets_graphql.enum_Region => string = "%identity"
+  @live
+  external region_input_toString: RelaySchemaAssets_graphql.enum_Region_input => string = "%identity"
+  @live
+  let region_decode = (enum: RelaySchemaAssets_graphql.enum_Region): option<RelaySchemaAssets_graphql.enum_Region_input> => {
+    switch enum {
+      | FutureAddedValue(_) => None
+      | valid => Some(Obj.magic(valid))
+    }
+  }
+  @live
+  let region_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_Region_input> => {
+    region_decode(Obj.magic(str))
+  }
 }
 
 type relayOperationNode

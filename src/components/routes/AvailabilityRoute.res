@@ -20,14 +20,21 @@ let loadMessages = Lingui.loadMessages({
   vi: Lingui.import("../../locales/src/components/pages/AvailabilityPage.re/vi"),
 })
 
-// Standard SSR preload: the query is scoped by the default location — the
-// server substitutes the viewer's stored coords (User.coords) when it knows
-// them, and AvailabilityPage captures them via ViewerLocationPrompt when it
-// doesn't.
+// Standard SSR preload: scoped by the `coords` URL param (the location filter)
+// when present; absent, the Tokyo default lets the server fall back to the
+// viewer's stored coords (User.coords), and the filter captures them.
 @genType
-let loader = async ({context, params}: LoaderArgs.t) => {
+let loader = async ({context, params, request}: LoaderArgs.t) => {
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   let (fromDate, toDate) = AvailabilityPage.getDateRange()
+  let url = request.url->Router.URL.make
+  // Build the LocationInput from the `location` URL param (region name or coords)
+  // when present; leave it out otherwise so the server resolves the viewer's
+  // stored coords, then the default.
+  let location =
+    url.searchParams
+    ->Router.SearchParams.get(UseUserLocation.locationParamKey)
+    ->Option.flatMap(UseUserLocation.locationInputFromParam)
   Router.defer({
     WaitForMessages.data: AvailabilityPageQuery_graphql.load(
       ~environment=RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr),
@@ -36,7 +43,7 @@ let loader = async ({context, params}: LoaderArgs.t) => {
         fromDate,
         toDate,
         afterDate: Util.Datetime.fromDate(Js.Date.make()),
-        location: UseUserLocation.tokyoDefault,
+        ?location,
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),

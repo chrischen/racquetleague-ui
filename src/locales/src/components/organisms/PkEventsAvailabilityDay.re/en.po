@@ -218,7 +218,7 @@ msgstr ""
 #~ msgid "Continuous availability"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
 msgid "Court"
 msgstr ""
 

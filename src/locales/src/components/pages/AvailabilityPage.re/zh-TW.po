@@ -88,7 +88,7 @@ msgstr "在上方新增時間段"
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/pages/AvailabilityPage.re.mjs:167
+#: src/components/pages/AvailabilityPage.re.mjs:166
 msgid "Court"
 msgstr "場地"
 
@@ -104,13 +104,42 @@ msgstr "涵蓋您完整時段的場地與空檔"
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "各場地分別列出，並顯示其最大連續空檔。"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "目前的瀏覽器不支援定位功能。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "活動"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "依地點篩選"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
+
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "定位中…"
+
+#: src/components/molecules/LocationFilter.re.mjs:49
+msgid "Location"
+msgstr "地點"
+
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr "位置存取遭拒。請允許存取或選擇場地。"
+
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "附近"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "選擇地點或使用目前位置。"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -152,6 +181,10 @@ msgstr "與你的俱樂部分享"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大小"
 
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "東京"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"
 msgstr "平日傍晚"
@@ -163,6 +196,10 @@ msgstr "週末上午"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
 msgstr "你什麼時候可以打球？"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "{0} 公里以內 · {1}，{2}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"

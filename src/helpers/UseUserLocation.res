@@ -1,12 +1,16 @@
-type location = RelaySchemaAssets_graphql.input_LocationInput
+// Plain coordinates — what browser geolocation yields, what the coords-only
+// updateViewerLocation mutation stores, and the payload of the resolved-location
+// readout. The query scope input (LocationInput) is a separate {coords | region}
+// shape, built via the helpers at the bottom of this module.
+type coords = {lat: float, lng: float}
 
-let tokyoDefault: location = {lat: 35.658581, lng: 139.745438}
+let tokyoDefault: coords = {lat: 35.658581, lng: 139.745438}
 
 // Resolved means the permission prompt has been answered (or geolocation is
 // unsupported) — the availability feature gates on resolution, not on grant.
 type status =
   | Resolving
-  | Resolved({location: location, granted: bool})
+  | Resolved({coords: coords, granted: bool})
 
 type geolocationCoords = {latitude: float, longitude: float}
 type geolocationPosition = {coords: geolocationCoords}
@@ -43,7 +47,7 @@ let start = () => {
     started := true
     switch geolocationSupport {
     | None =>
-      current := Resolved({location: tokyoDefault, granted: false})
+      current := Resolved({coords: tokyoDefault, granted: false})
       emit()
     | Some(_) =>
       // A bounded `timeout` is required: with the spec default (infinite), a
@@ -58,7 +62,7 @@ let start = () => {
           pos => {
             current :=
               Resolved({
-                location: {lat: pos.coords.latitude, lng: pos.coords.longitude},
+                coords: {lat: pos.coords.latitude, lng: pos.coords.longitude},
                 granted: true,
               })
             emit()
@@ -68,7 +72,7 @@ let start = () => {
               attempt(retriesLeft - 1)
             } else {
               Js.Console.warn2("Geolocation unavailable:", err)
-              current := Resolved({location: tokyoDefault, granted: false})
+              current := Resolved({coords: tokyoDefault, granted: false})
               emit()
             },
           {enableHighAccuracy: false, timeout: 15000, maximumAge: 600000},
@@ -91,9 +95,10 @@ let subscribe = (cb: unit => unit) => {
   unsubscribe
 }
 
-// Prompting: mounting this hook starts acquisition, which shows the browser
-// permission prompt. Reserve it for surfaces whose job is capturing the
-// viewer's location (ViewerLocationPrompt, AvailabilityPage's gate).
+// Prompting: subscribing starts acquisition, which shows the browser permission
+// prompt on mount. Prefer the on-demand `request` (below) for an explicit user
+// gesture like the events "Near me" button; this ambient variant is for surfaces
+// that gate on resolution rather than a click.
 let useStatus = (): status =>
   React.useSyncExternalStoreWithServerSnapshot(
     ~subscribe,
@@ -108,13 +113,82 @@ let usePassiveStatus = (): status =>
     ~getServerSnapshot=() => Resolving,
   )
 
-// Always yields a usable location (SetAvailabilityDayInput.location is
-// required). Passive — never triggers the permission prompt: yields the
-// fallback until a prompting surface resolves real coords. The server treats
-// the viewer's stored coords as canonical, so the fallback is only ever a
-// placeholder for anonymous viewers.
-let use = (): location =>
+// Always yields usable coords. Passive — never triggers the permission prompt:
+// yields the fallback until a prompting surface resolves real coords.
+let use = (): coords =>
   switch usePassiveStatus() {
   | Resolving => tokyoDefault
-  | Resolved({location}) => location
+  | Resolved({coords}) => coords
+  }
+
+// Passive, precedence-friendly variant: Some only when geolocation actually
+// resolved with a grant, None otherwise (unresolved or denied). Pass this as a
+// query's optional `location` so an absent value lets the server resolve the
+// viewer's stored coords, then the default — instead of forcing the fallback.
+let useOption = (): option<coords> =>
+  switch usePassiveStatus() {
+  | Resolved({coords, granted: true}) => Some(coords)
+  | _ => None
+  }
+
+type requestOutcome =
+  | Located(coords)
+  | Denied
+  | Unsupported
+
+// On-demand geolocation for an explicit user gesture (the events "Near me"
+// button) — as opposed to the ambient start/useStatus flow. Always issues a
+// fresh getCurrentPosition (no one-shot guard) and reports the outcome; on
+// success it also updates the shared store so passive consumers pick up the
+// coords. Retries on a Safari prompt-timeout, same as `start`.
+let request = (cb: requestOutcome => unit): unit =>
+  switch (window_->Js.Nullable.toOption, geolocationSupport) {
+  | (Some(_), Some(_)) =>
+    let rec attempt = retriesLeft =>
+      getCurrentPosition(
+        pos => {
+          let c: coords = {lat: pos.coords.latitude, lng: pos.coords.longitude}
+          current := Resolved({coords: c, granted: true})
+          emit()
+          cb(Located(c))
+        },
+        err =>
+          if err.code == 3 && retriesLeft > 0 {
+            attempt(retriesLeft - 1)
+          } else {
+            cb(Denied)
+          },
+        {enableHighAccuracy: false, timeout: 15000, maximumAge: 600000},
+      )
+    attempt(2)
+  | _ => cb(Unsupported)
+  }
+
+// --- Query scope: URL param ⇄ LocationInput ------------------------------
+// The `location` URL param holds either a Region name ("tokyo") or "lat,lng"
+// coords. The events filter writes it; the SSR loaders read it to build the
+// query's LocationInput scope ({coords} for near-me, {region} for a named
+// default). Absent, loaders pass nothing and the server resolves the viewer's
+// stored coords, then the default.
+let locationParamKey = "location"
+let tokyoRegionParam = "tokyo"
+
+let coordsToParam = (c: coords): string => Float.toString(c.lat) ++ "," ++ Float.toString(c.lng)
+
+let locationInputOfCoords = (c: coords): RelaySchemaAssets_graphql.input_LocationInput => {
+  coords: {lat: c.lat, lng: c.lng},
+}
+
+let locationInputFromParam = (s: string): option<RelaySchemaAssets_graphql.input_LocationInput> =>
+  if s == tokyoRegionParam {
+    Some({region: Tokyo})
+  } else {
+    switch s->String.split(",") {
+    | [lat, lng] =>
+      switch (lat->Float.fromString, lng->Float.fromString) {
+      | (Some(lat), Some(lng)) => Some(locationInputOfCoords({lat, lng}))
+      | _ => None
+      }
+    | _ => None
+    }
   }

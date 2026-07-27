@@ -43,7 +43,7 @@ msgstr "[タイトルがありません]"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
-#: src/components/organisms/PkEventsList.re.mjs:217
+#: src/components/organisms/PkEventsList.re.mjs:219
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -198,11 +198,11 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:136
+#: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
-#: src/components/shared/EventsListView.re.mjs:171
+#: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← 前へ"
 
@@ -341,8 +341,8 @@ msgstr "コピーしました！"
 msgid "copy event"
 msgstr "イベントをコピー"
 
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:193
-#: src/components/organisms/PkEventsDayFeed.re.mjs:33
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
+#: src/components/organisms/PkEventsDayFeed.re.mjs:23
 msgid "Court"
 msgstr "コート"
 
@@ -365,6 +365,10 @@ msgstr "選択した時間全体をカバーするコート"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "コート数："
+
+#: src/components/molecules/LocationFilterControl.re.mjs:108
+msgid "Current location is not supported by this browser."
+msgstr "現在地はこのブラウザでサポートされていません。"
 
 #: src/components/pages/PkEventPage.re.mjs:406
 msgid "Dallas Flash"
@@ -452,8 +456,8 @@ msgstr "均等"
 msgid "Evening"
 msgstr "夜"
 
-#: src/components/shared/EventsListView.re.mjs:137
-#: src/components/organisms/PkEventsList.re.mjs:220
+#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/organisms/PkEventsList.re.mjs:222
 msgid "event"
 msgstr "イベント"
 
@@ -469,8 +473,8 @@ msgstr "イベントタグ: {tag}"
 msgid "Event updated"
 msgstr "イベントを更新しました"
 
-#: src/components/shared/EventsListView.re.mjs:138
-#: src/components/organisms/PkEventsList.re.mjs:221
+#: src/components/shared/EventsListView.re.mjs:140
+#: src/components/organisms/PkEventsList.re.mjs:223
 msgid "events"
 msgstr "イベント"
 
@@ -478,7 +482,11 @@ msgstr "イベント"
 msgid "Female"
 msgstr "女性"
 
-#: src/components/shared/EventsListView.re.mjs:113
+#: src/components/molecules/LocationFilter.re.mjs:110
+msgid "Filter by location"
+msgstr "場所で絞り込む"
+
+#: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
 msgstr "日付でフィルター中"
 
@@ -490,7 +498,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/organisms/PkEventsList.re.mjs:426
+#: src/components/organisms/PkEventsList.re.mjs:394
 msgid "Friday"
 msgstr "金曜日"
 
@@ -568,11 +576,22 @@ msgstr "閉じる"
 msgid "Loading..."
 msgstr "読み込み中..."
 
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Locating…"
+msgstr "位置情報を取得中…"
+
 #: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/molecules/LocationFilter.re.mjs:49
 msgid "Location"
 msgstr "場所"
 
-#: src/components/pages/PkLocationPage.re.mjs:107
+#: src/components/molecules/LocationFilterControl.re.mjs:104
+msgid "Location access was denied. Allow access or choose a venue."
+msgstr ""
+"位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
+"ださい。"
+
+#: src/components/pages/PkLocationPage.re.mjs:106
 msgid "Location not found"
 msgstr "場所が見つかりません"
 
@@ -605,11 +624,11 @@ msgstr "中央値"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:414
+#: src/components/organisms/PkEventsList.re.mjs:382
 msgid "Monday"
 msgstr "月曜日"
 
-#: src/components/shared/EventsListView.re.mjs:194
+#: src/components/shared/EventsListView.re.mjs:196
 msgid "more →"
 msgstr "もっと見る →"
 
@@ -622,7 +641,12 @@ msgstr "午前"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/organisms/PkEventsList.re.mjs:435
+#: src/components/molecules/LocationFilter.re.mjs:59
+#: src/components/molecules/LocationFilter.re.mjs:91
+msgid "Near me"
+msgstr "現在地付近"
+
+#: src/components/organisms/PkEventsList.re.mjs:403
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -690,6 +714,10 @@ msgstr "保留中 · {0}"
 msgid "Pending approval"
 msgstr "承認待ち"
 
+#: src/components/molecules/LocationFilter.re.mjs:36
+msgid "Pick a location or use your current location."
+msgstr "場所を選択するか、現在地を使用してください。"
+
 #: src/components/molecules/PlayIntentRow.re.mjs:542
 msgid "Pick one time window to host an event"
 msgstr "イベントを主催する時間帯を選択"
@@ -751,7 +779,7 @@ msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refresh"
 msgstr "更新"
 
@@ -761,7 +789,7 @@ msgstr "イベント詳細を更新"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
 #: src/components/pages/PkEventPage.re.mjs:703
-#: src/components/shared/EventsListView.re.mjs:151
+#: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "更新中…"
 
@@ -822,7 +850,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/organisms/PkEventsList.re.mjs:429
+#: src/components/organisms/PkEventsList.re.mjs:397
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -855,7 +883,7 @@ msgstr "時間を設定"
 msgid "Share"
 msgstr "共有"
 
-#: src/components/organisms/PkEventsList.re.mjs:299
+#: src/components/organisms/PkEventsList.re.mjs:283
 msgid "Show {0} more"
 msgstr "{0}件をさらに表示"
 
@@ -871,7 +899,7 @@ msgstr "折りたたむ"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/shared/EventsListView.re.mjs:139
+#: src/components/shared/EventsListView.re.mjs:141
 msgid "SORTED BY START TIME"
 msgstr "開始時間順"
 
@@ -879,7 +907,7 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/organisms/PkEventsList.re.mjs:379
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -954,7 +982,7 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkEventsList.re.mjs:423
+#: src/components/organisms/PkEventsList.re.mjs:391
 msgid "Thursday"
 msgstr "木曜日"
 
@@ -962,13 +990,17 @@ msgstr "木曜日"
 msgid "to {0}"
 msgstr "{0}まで"
 
-#: src/components/shared/EventsListView.re.mjs:83
-#: src/components/organisms/PkEventsList.re.mjs:394
+#: src/components/shared/EventsListView.re.mjs:84
+#: src/components/organisms/PkEventsList.re.mjs:362
 msgid "Today"
 msgstr "今日"
 
-#: src/components/shared/EventsListView.re.mjs:87
-#: src/components/organisms/PkEventsList.re.mjs:400
+#: src/components/molecules/LocationFilterControl.re.mjs:120
+msgid "Tokyo"
+msgstr "東京"
+
+#: src/components/shared/EventsListView.re.mjs:88
+#: src/components/organisms/PkEventsList.re.mjs:368
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -976,7 +1008,7 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/organisms/PkEventsList.re.mjs:417
+#: src/components/organisms/PkEventsList.re.mjs:385
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -1022,11 +1054,11 @@ msgstr "キャンセル待ち中"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/PkEventsList.re.mjs:420
+#: src/components/organisms/PkEventsList.re.mjs:388
 msgid "Wednesday"
 msgstr "水曜日"
 
-#: src/components/shared/EventsListView.re.mjs:91
+#: src/components/shared/EventsListView.re.mjs:92
 msgid "Weekend"
 msgstr "週末"
 
@@ -1046,7 +1078,11 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/molecules/LocationFilter.re.mjs:28
+msgid "Within {0} km · {1}, {2}"
+msgstr "{0} km以内・{1}、{2}"
+
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Yesterday"
 msgstr "昨日"
 
