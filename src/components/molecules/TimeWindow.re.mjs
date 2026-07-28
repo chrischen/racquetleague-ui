@@ -64,9 +64,10 @@ function mergeCourtAvailabilityByCourt(courtAvailability) {
               }));
 }
 
-function summarizeCourtAvailability(fromHourOpt, toHourOpt, availability) {
+function summarizeCourtAvailability(fromHourOpt, toHourOpt, basisOpt, availability) {
   var fromHour = fromHourOpt !== undefined ? fromHourOpt : 0;
   var toHour = toHourOpt !== undefined ? toHourOpt : 24;
+  var basis = basisOpt !== undefined ? basisOpt : "peak";
   var seen = {};
   var unique = [];
   availability.forEach(function (item) {
@@ -79,9 +80,7 @@ function summarizeCourtAvailability(fromHourOpt, toHourOpt, availability) {
           return ;
         }
       });
-  var courtCount = 0;
-  var indoorCount = 0;
-  var outdoorCount = 0;
+  var hourlyTotals = [];
   var priceLow = {
     contents: undefined
   };
@@ -131,26 +130,55 @@ function summarizeCourtAvailability(fromHourOpt, toHourOpt, availability) {
           
         }
         }(hour,hIndoor,hOutdoor,hUntyped)));
-    var hTotal = (hIndoor.contents + hOutdoor.contents | 0) + hUntyped.contents | 0;
-    if (hTotal > courtCount) {
-      courtCount = hTotal;
-    }
-    if (hIndoor.contents > indoorCount) {
-      indoorCount = hIndoor.contents;
-    }
-    if (hOutdoor.contents > outdoorCount) {
-      outdoorCount = hOutdoor.contents;
-    }
-    
+    hourlyTotals.push([
+          (hIndoor.contents + hOutdoor.contents | 0) + hUntyped.contents | 0,
+          hIndoor.contents,
+          hOutdoor.contents
+        ]);
   }
+  var collapse = function (get) {
+    if (basis === "sustained") {
+      return Core__Option.getOr(Core__Array.reduce(hourlyTotals, undefined, (function (acc, h) {
+                        if (acc !== undefined) {
+                          return Math.min(acc, get(h));
+                        } else {
+                          return get(h);
+                        }
+                      })), 0);
+    } else {
+      return Core__Array.reduce(hourlyTotals, 0, (function (acc, h) {
+                    return Math.max(acc, get(h));
+                  }));
+    }
+  };
   return {
-          courtCount: courtCount,
-          indoorCount: indoorCount,
-          outdoorCount: outdoorCount,
+          courtCount: collapse(function (param) {
+                return param[0];
+              }),
+          indoorCount: collapse(function (param) {
+                return param[1];
+              }),
+          outdoorCount: collapse(function (param) {
+                return param[2];
+              }),
           priceLow: priceLow.contents,
           priceHigh: priceHigh.contents
         };
 }
+
+var hourInTimeZone = (function (date, timeZone) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      hourCycle: "h23",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).formatToParts(date);
+    const at = (type) => {
+      const part = parts.find((p) => p.type === type);
+      return part ? Number(part.value) : 0;
+    };
+    return at("hour") + at("minute") / 60;
+  });
 
 function hourLabel(h) {
   var hh = Js_math.floor_int(h);
@@ -394,6 +422,86 @@ function filterCourtAvailabilityByFullWindow(courtAvailability, userAvailability
   }
 }
 
+function clipCourtAvailabilityTo(courts, $$window) {
+  return courts.map(function (court) {
+              return {
+                      id: court.id,
+                      location: court.location,
+                      courtName: court.courtName,
+                      hourlyStats: court.hourlyStats,
+                      intents: [$$window]
+                    };
+            });
+}
+
+function findAlternateCourtTimeSlots(courtAvailability, eventWindow, limitOpt) {
+  var limit = limitOpt !== undefined ? limitOpt : 3;
+  var duration = eventWindow.end - eventWindow.start;
+  if (duration <= 0.0 || limit <= 0) {
+    return [];
+  }
+  var round4 = function (v) {
+    return Math.round(v * 10000.0) / 10000.0;
+  };
+  var courts = mergeCourtAvailabilityByCourt(courtAvailability);
+  var candidates = {};
+  var order = [];
+  var addCandidate = function (rawStart) {
+    var start = round4(rawStart);
+    var end = round4(start + duration);
+    if (start === eventWindow.start && end === eventWindow.end) {
+      return ;
+    }
+    var key = start.toString() + ":" + end.toString();
+    var match = Js_dict.get(candidates, key);
+    if (match !== undefined) {
+      return ;
+    } else {
+      order.push(key);
+      candidates[key] = {
+        id: 0,
+        start: start,
+        end: end
+      };
+      return ;
+    }
+  };
+  courts.forEach(function (court) {
+        court.intents.forEach(function (opening) {
+              var maxStart = opening.end - duration;
+              if (maxStart < opening.start) {
+                return ;
+              }
+              var firstStart = Math.ceil(opening.start - 0.0001);
+              var lastStart = Math.floor(maxStart + 0.0001);
+              var cursor = firstStart;
+              while(cursor <= lastStart + 0.0001) {
+                addCandidate(cursor);
+                cursor = cursor + 1.0;
+              };
+            });
+      });
+  return Core__Array.filterMap(order, (function (key) {
+                        return Js_dict.get(candidates, key);
+                      })).map(function (candidate) {
+                    return {
+                            start: candidate.start,
+                            end: candidate.end,
+                            courtAvailability: clipCourtAvailabilityTo(filterCourtAvailabilityByFullWindow(courts, [candidate]), candidate)
+                          };
+                  }).filter(function (slot) {
+                  return slot.courtAvailability.length > 0;
+                }).toSorted(function (a, b) {
+                var aDist = Math.abs(a.start - eventWindow.start);
+                var bDist = Math.abs(b.start - eventWindow.start);
+                if (aDist !== bDist) {
+                  return aDist - bDist;
+                } else {
+                  return a.start - b.start;
+                }
+              }).slice(0, limit);
+}
+
 var defaultReservationUrl = "https://reserva.be/pboneginza";
 
 export {
@@ -401,6 +509,7 @@ export {
   mergeContiguousTimeWindows ,
   mergeCourtAvailabilityByCourt ,
   summarizeCourtAvailability ,
+  hourInTimeZone ,
   hourLabel ,
   hourLabelIntl ,
   groupCourtAvailabilityByTime ,
@@ -408,5 +517,7 @@ export {
   groupCourtAvailabilityIntoPseudoEventBands ,
   groupContiguousPseudoEventBands ,
   filterCourtAvailabilityByFullWindow ,
+  clipCourtAvailabilityTo ,
+  findAlternateCourtTimeSlots ,
 }
 /* No side effect */

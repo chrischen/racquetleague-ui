@@ -1,0 +1,153 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-28 02:24+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:53
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+msgid "{0} continuous opening"
+msgstr "{0} 个连续空档"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+msgid "{0} continuous openings"
+msgstr "{0} 个连续空档"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+msgid "{0} court"
+msgstr "{0} 场地"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+msgid "{0} courts"
+msgstr "{0} 场地"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+msgid "{0} location"
+msgstr "{0} 场馆"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+msgid "{0} locations"
+msgstr "{0} 场馆"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
+msgid "{hs}h"
+msgstr "{hs}小时"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+msgid "{hs}h {ms}m"
+msgstr "{hs}小时 {ms}分钟"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
+msgid "{ms}m"
+msgstr "{ms}分钟"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:40
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+msgid "{n} indoor"
+msgstr "{n}个室内场地"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+msgid "{n} outdoor"
+msgstr "{n}个室外场地"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+msgid "{openingCount, plural, one {{0}} other {{1}}}"
+msgstr "{openingCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:402
+msgid "At {venue} now"
+msgstr "现在在 {venue}"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:260
+msgid "Available"
+msgstr "可用"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:454
+#: src/components/organisms/EventLocationAvailability.re.mjs:496
+msgid "Confirm move"
+msgstr "确认移动"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:331
+msgid "Courts"
+msgstr "场地"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+msgid "No court at {venue} covers the full event window."
+msgstr "{venue} 没有场地能覆盖完整的活动时间段。"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:512
+msgid "No other nearby venue has a court free for the event's hours."
+msgstr "附近没有其他场地在活动时间段内有空闲场地。"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:469
+msgid "No other same-day time at {venue} supports the full event duration."
+msgstr "{venue} 当天没有其他时间段支持完整的活动时长。"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:260
+msgid "Not available"
+msgstr "不可用"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:475
+msgid "Other locations at this time"
+msgstr "同时段的其他地点"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:426
+msgid "Other times at {venue}"
+msgstr "{venue} 的其他时间"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:122
+msgid "Reserve"
+msgstr "预订"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:479
+msgid ""
+"This moves the event to another venue and reschedules everyone who already "
+"RSVP'd. Tap again to confirm."
+msgstr ""
+"此操作将把活动移至其他场馆，并为所有已报名的人重新安排时间。再次点击以确认。"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:437
+msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "此操作将为所有已报名的人重新安排时间。再次点击以确认。"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:498
+msgid "Use location"
+msgstr "使用该地点"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:113
+msgid "Use option"
+msgstr "使用该选项"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:456
+msgid "Use time"
+msgstr "使用该时间"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#, fuzzy
+#~ msgid "Alternate location"
+#~ msgstr "活动地点"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:409
+#, fuzzy
+#~ msgid "Other locations and times"
+#~ msgstr "同时段的其他地点"

@@ -198,7 +198,7 @@ function CourtPseudoEventRow(props) {
   var locationTitle = first !== undefined ? (
       locationCount <= 1 ? first : t`${first} + ${(locationCount - 1 | 0).toString()} more`
     ) : t`Courts available`;
-  var courtSummary = TimeWindow.summarizeCourtAvailability(band.start | 0, band.end | 0, courts.map(function (c) {
+  var courtSummary = TimeWindow.summarizeCourtAvailability(band.start | 0, band.end | 0, undefined, courts.map(function (c) {
             return c.court;
           }));
   CourtLabels.priceRange(courtSummary);

@@ -20,18 +20,21 @@ function ts(prim0, prim1) {
 }
 
 function CourtOpeningCard(props) {
+  var __countBasis = props.countBasis;
+  var onSelect = props.onSelect;
   var __className = props.className;
   var spans = props.spans;
   var court = props.court;
   var className = __className !== undefined ? __className : "rounded-md border border-cyan-100 bg-cyan-50/30 px-3 py-2.5 dark:border-cyan-900/50 dark:bg-cyan-950/10";
+  var countBasis = __countBasis !== undefined ? __countBasis : "peak";
   var intl = ReactIntl.useIntl();
   var summaryFrom = Core__Option.getOr(props.fromHour, Core__Array.reduce(spans, 24.0, (function (m, s) {
               return Math.min(m, s.start);
             })) | 0);
-  var summaryTo = Core__Option.getOr(props.toHour, Core__Array.reduce(spans, 0.0, (function (m, s) {
-              return Math.max(m, s.end);
-            })) | 0);
-  var summary = TimeWindow.summarizeCourtAvailability(summaryFrom, summaryTo, [court]);
+  var summaryTo = Core__Option.getOr(props.toHour, Math.ceil(Core__Array.reduce(spans, 0.0, (function (m, s) {
+                  return Math.max(m, s.end);
+                }))) | 0);
+  var summary = TimeWindow.summarizeCourtAvailability(summaryFrom, summaryTo, countBasis, [court]);
   var price = CourtLabels.priceRange(summary);
   var surface = CourtLabels.surfaceMix(summary, (function (n) {
           return t`${n} indoor`;
@@ -104,21 +107,34 @@ function CourtOpeningCard(props) {
                               ],
                               className: "min-w-0"
                             }),
-                        JsxRuntime.jsxs("a", {
+                        JsxRuntime.jsxs("span", {
                               children: [
-                                t`Reserve`,
-                                JsxRuntime.jsx(LucideReact.ExternalLink, {
-                                      size: 10,
-                                      "aria-hidden": "true"
+                                onSelect !== undefined ? JsxRuntime.jsx("button", {
+                                        children: Core__Option.getOr(props.selectLabel, t`Use option`),
+                                        className: "rounded-md border border-[#a3d949] bg-[#bdf25d] px-2.5 py-1.5 text-[10px] font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",
+                                        type: "button",
+                                        onClick: (function (param) {
+                                            onSelect(court);
+                                          })
+                                      }) : null,
+                                JsxRuntime.jsxs("a", {
+                                      children: [
+                                        t`Reserve`,
+                                        JsxRuntime.jsx(LucideReact.ExternalLink, {
+                                              size: 10,
+                                              "aria-hidden": "true"
+                                            })
+                                      ],
+                                      className: "inline-flex items-center gap-1 rounded-md border border-cyan-300 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-cyan-800 transition-colors hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 dark:border-cyan-700 dark:bg-cyan-950/30 dark:text-cyan-300 dark:hover:bg-cyan-900/40",
+                                      href: Core__Option.getOr(court.location.reservationUrl, TimeWindow.defaultReservationUrl),
+                                      rel: "noopener noreferrer",
+                                      target: "_blank",
+                                      onClick: (function (e) {
+                                          e.stopPropagation();
+                                        })
                                     })
                               ],
-                              className: "inline-flex flex-shrink-0 items-center gap-1 rounded-md border border-cyan-300 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-cyan-800 transition-colors hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 dark:border-cyan-700 dark:bg-cyan-950/30 dark:text-cyan-300 dark:hover:bg-cyan-900/40",
-                              href: Core__Option.getOr(court.location.reservationUrl, TimeWindow.defaultReservationUrl),
-                              rel: "noopener noreferrer",
-                              target: "_blank",
-                              onClick: (function (e) {
-                                  e.stopPropagation();
-                                })
+                              className: "flex flex-shrink-0 items-center gap-1.5"
                             })
                       ],
                       className: "flex items-start justify-between gap-3"

@@ -46,7 +46,7 @@ function CourtPseudoEventGroup(props) {
         }).map(function (s) {
         return s.court;
       });
-  var summary = TimeWindow.summarizeCourtAvailability(group.start | 0, group.end | 0, courts);
+  var summary = TimeWindow.summarizeCourtAvailability(group.start | 0, group.end | 0, undefined, courts);
   var priceLabel = CourtLabels.priceRange(summary);
   var surfaceLabel = CourtLabels.surfaceMix(summary, (function (n) {
           return t`${n} indoor`;

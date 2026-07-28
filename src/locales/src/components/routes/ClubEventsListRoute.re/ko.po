@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:351
+#: src/components/pages/PkEventPage.re.mjs:354
 msgid "...more"
 msgstr "...더 보기"
 
@@ -30,18 +30,76 @@ msgstr "· +{0} 대기자"
 msgid "[missing title]"
 msgstr "[제목 없음]"
 
+#: src/components/molecules/CourtOpeningCard.re.mjs:53
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
 #: src/components/organisms/ClubEventsList.re.mjs:105
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+msgid "{0} continuous opening"
+msgstr "연속 {0}개 공석"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+msgid "{0} continuous openings"
+msgstr "연속 {0}개 공석"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+msgid "{0} court"
+msgstr "{0}코트"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+msgid "{0} courts"
+msgstr "{0}코트"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:439
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+msgid "{0} location"
+msgstr "{0}장소"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+msgid "{0} locations"
+msgstr "{0}장소"
+
 #: src/components/organisms/PkEventRow.re.mjs:149
 #: src/components/organisms/PkEventRow.re.mjs:206
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
+msgid "{hs}h"
+msgstr "{hs}시간"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+msgid "{hs}h {ms}m"
+msgstr "{hs}시간 {ms}분"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+msgid "{locationCount, plural, one {{0}} other {{1}}}"
+msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
+msgid "{ms}m"
+msgstr "{ms}분"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:40
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+msgid "{n} indoor"
+msgstr "실내 {n}개"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+msgid "{n} outdoor"
+msgstr "실외 {n}개"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+msgid "{openingCount, plural, one {{0}} other {{1}}}"
+msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
 #: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
@@ -83,10 +141,18 @@ msgstr "참가 승인"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:402
+msgid "At {venue} now"
+msgstr "{venue}에서 진행 중"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "보증금 승인"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:260
+msgid "Available"
+msgstr "가능"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:214
 msgid "balanced"
@@ -96,7 +162,7 @@ msgstr "균형"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/pages/PkEventPage.re.mjs:606
+#: src/components/pages/PkEventPage.re.mjs:610
 msgid "cancel event"
 msgstr "이벤트 취소"
 
@@ -108,7 +174,7 @@ msgstr "참가 취소"
 msgid "Canceled"
 msgstr "취소됨"
 
-#: src/components/pages/PkEventPage.re.mjs:220
+#: src/components/pages/PkEventPage.re.mjs:221
 msgid "CANCELED"
 msgstr "취소됨"
 
@@ -131,7 +197,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:571
+#: src/components/pages/PkEventPage.re.mjs:575
 msgid "Cannot access variable \\\"title\\\""
 msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 
@@ -156,15 +222,20 @@ msgstr "결제 완료"
 msgid "Complete your profile"
 msgstr "프로필 완성하기"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:454
+#: src/components/organisms/EventLocationAvailability.re.mjs:496
+msgid "Confirm move"
+msgstr "이동 확인"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
-#: src/components/pages/PkEventPage.re.mjs:255
+#: src/components/pages/PkEventPage.re.mjs:256
 msgid "Copied!"
 msgstr "복사됨!"
 
-#: src/components/pages/PkEventPage.re.mjs:590
+#: src/components/pages/PkEventPage.re.mjs:594
 msgid "copy event"
 msgstr "이벤트 복사"
 
@@ -176,15 +247,20 @@ msgstr "코트 {0}"
 msgid "Court {0} - Editing"
 msgstr "코트 {0} - 편집 중"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:737
+msgid "Courts"
+msgstr "코트"
+
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "코트:"
 
-#: src/components/pages/PkEventPage.re.mjs:406
+#: src/components/pages/PkEventPage.re.mjs:410
 msgid "Dallas Flash"
 msgstr "달라스 플래시"
 
-#: src/components/pages/PkEventPage.re.mjs:420
+#: src/components/pages/PkEventPage.re.mjs:424
 msgid "Dallas Flash Swag"
 msgstr "달라스 플래시 스웨그"
 
@@ -214,7 +290,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/pages/PkEventPage.re.mjs:583
+#: src/components/pages/PkEventPage.re.mjs:587
 msgid "edit event"
 msgstr "이벤트 편집"
 
@@ -255,7 +331,7 @@ msgstr "균등"
 msgid "event"
 msgstr "이벤트"
 
-#: src/components/pages/PkEventPage.re.mjs:898
+#: src/components/pages/PkEventPage.re.mjs:906
 msgid "Event not found"
 msgstr "이벤트를 찾을 수 없습니다"
 
@@ -284,7 +360,7 @@ msgstr "날짜별 필터"
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/pages/PkEventPage.re.mjs:303
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Free"
 msgstr "무료"
 
@@ -342,7 +418,7 @@ msgstr "대기 명단에서 나가기"
 msgid "Leaving..."
 msgstr "나가는 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:351
+#: src/components/pages/PkEventPage.re.mjs:354
 msgid "less"
 msgstr "간략히"
 
@@ -350,7 +426,7 @@ msgstr "간략히"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/pages/PkEventPage.re.mjs:336
 msgid "Location"
 msgstr "장소"
 
@@ -395,6 +471,18 @@ msgstr "대기 목록으로 이동"
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+msgid "No court at {venue} covers the full event window."
+msgstr "{venue}에는 전체 이벤트 시간을 커버하는 코트가 없습니다."
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:512
+msgid "No other nearby venue has a court free for the event's hours."
+msgstr "근처 다른 장소에는 이벤트 시간 동안 사용 가능한 코트가 없습니다."
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:469
+msgid "No other same-day time at {venue} supports the full event duration."
+msgstr "{venue}에는 이벤트 전체 시간을 지원하는 다른 당일 시간대가 없습니다."
+
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "실력 제한 없음. 모든 플레이어 환영."
@@ -403,13 +491,25 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/pages/PkEventPage.re.mjs:742
+#: src/components/organisms/EventLocationAvailability.re.mjs:260
+msgid "Not available"
+msgstr "사용 불가"
+
+#: src/components/pages/PkEventPage.re.mjs:750
 msgid "Notes from the host"
 msgstr "주최자 메모"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:361
 msgid "On waitlist"
 msgstr "대기 중"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:475
+msgid "Other locations at this time"
+msgstr "이 시간대의 다른 장소"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:426
+msgid "Other times at {venue}"
+msgstr "{venue}의 다른 시간대"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:409
 msgid "Participants"
@@ -465,7 +565,7 @@ msgstr "플레이어"
 msgid "Prefer not to say"
 msgstr "밝히지 않음"
 
-#: src/components/pages/PkEventPage.re.mjs:401
+#: src/components/pages/PkEventPage.re.mjs:405
 msgid "Presented by"
 msgstr "제공"
 
@@ -504,12 +604,12 @@ msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 �
 msgid "Refresh"
 msgstr "새로 고침"
 
-#: src/components/pages/PkEventPage.re.mjs:703
+#: src/components/pages/PkEventPage.re.mjs:707
 msgid "Refresh event details"
 msgstr "이벤트 세부 정보 새로 고침"
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:703
+#: src/components/pages/PkEventPage.re.mjs:707
 #: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr "새로 고침 중…"
@@ -541,6 +641,10 @@ msgstr "필수: DUPR {minDuprStr}+"
 #: src/components/organisms/PkRSVPSection.re.mjs:356
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:122
+msgid "Reserve"
+msgstr "예약"
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
@@ -575,7 +679,7 @@ msgstr "점수 저장"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/pages/PkEventPage.re.mjs:255
+#: src/components/pages/PkEventPage.re.mjs:256
 msgid "Share"
 msgstr "공유"
 
@@ -658,6 +762,20 @@ msgstr ""
 msgid "This is how others will see you"
 msgstr "다른 사람들에게 이렇게 보입니다"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:479
+msgid ""
+"This moves the event to another venue and reschedules everyone who already "
+"RSVP'd. Tap again to confirm."
+msgstr ""
+"이 작업은 이벤트를 다른 장소로 이동하고 이미 참석 확인한 모든 참가자의 일정"
+"을 변경합니다. 다시 탭하여 확인하세요."
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:437
+msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr ""
+"이 작업은 이미 참석 확인한 모든 참가자의 일정을 변경합니다. 다시 탭하여 확인"
+"하세요."
+
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
@@ -688,13 +806,25 @@ msgstr "상위6평균"
 msgid "Tuesday"
 msgstr "화요일"
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:599
 msgid "uncancel event"
 msgstr "이벤트 취소 해제"
 
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "중상급 이상"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:498
+msgid "Use location"
+msgstr "장소 사용"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:113
+msgid "Use option"
+msgstr "옵션 사용"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:456
+msgid "Use time"
+msgstr "시간 사용"
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
 msgid "View Full Draws"

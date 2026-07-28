@@ -20,6 +20,18 @@ let make = (
   ~courtAvailability: array<courtAvailability>,
   ~title: option<string>=?,
   ~defaultExpanded: bool=false,
+  // Drop the collapsible shell and render just the court cards, for callers
+  // that already provide their own heading and disclosure (e.g. the event
+  // page's location section).
+  ~contentOnly: bool=false,
+  // Forwarded to each card; see CourtOpeningCard. `selectLabel` is per-court so
+  // callers can reflect per-card state (e.g. a pending confirmation) on just
+  // the card that's in it.
+  ~onSelectCourt: option<TimeWindow.courtAvailability => unit>=?,
+  ~selectLabel: option<TimeWindow.courtAvailability => string>=?,
+  // Forwarded to each card. The collapsed header below always stays #peak — it
+  // describes the venue, not one bookable window.
+  ~countBasis: TimeWindow.courtCountBasis=#peak,
 ) => {
   let (expanded, setExpanded) = React.useState(() => defaultExpanded)
   let courts =
@@ -47,6 +59,21 @@ let make = (
 
   if courts->Array.length === 0 {
     React.null
+  } else if contentOnly {
+    <div className="space-y-2">
+      {courts
+      ->Array.map(court =>
+        <CourtOpeningCard
+          key={court.id}
+          court
+          spans={court.intents}
+          onSelect=?onSelectCourt
+          selectLabel=?{selectLabel->Option.map(f => f(court))}
+          countBasis
+        />
+      )
+      ->React.array}
+    </div>
   } else {
     // Actual court totals + surface/price aggregates from the per-hour rollup,
     // matching the pseudo-event summaries.
@@ -132,6 +159,7 @@ let make = (
                   court
                   spans={court.intents}
                   className="bg-white/80 px-2.5 py-2.5 dark:bg-[#1e1f23]/80"
+                  countBasis
                 />
               )
               ->React.array}

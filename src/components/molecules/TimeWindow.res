@@ -39,6 +39,14 @@ type courtAvailability = {
   intents: array<playIntent>,
 }
 
+// A same-day fallback window, with only the courts that cover it end to end.
+// Used when the courts at a venue can't cover an event's own time window.
+type alternateCourtTimeSlot = {
+  start: float,
+  end: float,
+  courtAvailability: array<courtAvailability>,
+}
+
 // Aggregated court metrics over a time range — used for pseudo-event summaries
 // and the overlay's intensity. Counts are the peak concurrent courts within the
 // range; the price span covers the whole range.
@@ -136,14 +144,28 @@ let mergeCourtAvailabilityByCourt = (courtAvailability: array<courtAvailability>
   )
 }
 
+// How to collapse the per-hour court counts across a range.
+//
+//   #peak      — most courts free at any single hour. Right for browsing, where
+//                the question is "how big is this venue".
+//   #sustained — fewest free at any hour in the range, i.e. how many courts are
+//                free for the WHOLE range. Right for booking, where a court
+//                that frees up halfway through can't take your session.
+//
+// They differ whenever a range spans a partially-booked hour: a venue with four
+// courts free all afternoon except one hour with three reads as "4 courts" at
+// #peak and "3 courts" at #sustained.
+type courtCountBasis = [#peak | #sustained]
+
 // Aggregate court metrics over the hour range [fromHour, toHour), reading each
 // location's per-hour rollup. Records are de-duplicated by id so a court
-// counted in multiple segments isn't double-counted. Counts are the PEAK
-// concurrent courts across the range (courts free at the busiest hour); the
-// price span covers every open hour in the range. Defaults to the whole day.
+// counted in multiple segments isn't double-counted. `basis` picks how the
+// per-hour counts collapse (see above); the price span always covers every open
+// hour in the range. Defaults to the whole day, counted at peak.
 let summarizeCourtAvailability = (
   ~fromHour: int=0,
   ~toHour: int=24,
+  ~basis: courtCountBasis=#peak,
   availability: array<courtAvailability>,
 ): courtAvailabilitySummary => {
   let seen: Js.Dict.t<bool> = Js.Dict.empty()
@@ -157,9 +179,9 @@ let summarizeCourtAvailability = (
     }
   )
 
-  let courtCount = ref(0)
-  let indoorCount = ref(0)
-  let outdoorCount = ref(0)
+  // Per-hour totals, collapsed once the whole range is walked. Kept as a list
+  // rather than folded inline so #peak and #sustained share one traversal.
+  let hourlyTotals: array<(int, int, int)> = []
   let priceLow = ref(None)
   let priceHigh = ref(None)
   let considerPrice = p =>
@@ -206,21 +228,34 @@ let summarizeCourtAvailability = (
         }
       }
     )
-    let hTotal = hIndoor.contents + hOutdoor.contents + hUntyped.contents
-    if hTotal > courtCount.contents {
-      courtCount := hTotal
-    }
-    if hIndoor.contents > indoorCount.contents {
-      indoorCount := hIndoor.contents
-    }
-    if hOutdoor.contents > outdoorCount.contents {
-      outdoorCount := hOutdoor.contents
-    }
+    hourlyTotals->Array.push((
+      hIndoor.contents + hOutdoor.contents + hUntyped.contents,
+      hIndoor.contents,
+      hOutdoor.contents,
+    ))
   }
+
+  // #peak keeps the previous behaviour exactly: max over hours, floored at 0 so
+  // an empty range reads as no courts. #sustained takes the min over hours, so
+  // an hour with nothing open correctly drags the whole range to zero — you
+  // cannot book across a gap.
+  let collapse = (get: ((int, int, int)) => int) =>
+    switch basis {
+    | #peak => hourlyTotals->Array.reduce(0, (acc, h) => Js.Math.max_int(acc, get(h)))
+    | #sustained =>
+      hourlyTotals
+      ->Array.reduce(None, (acc, h) =>
+        switch acc {
+        | None => Some(get(h))
+        | Some(cur) => Some(Js.Math.min_int(cur, get(h)))
+        }
+      )
+      ->Option.getOr(0)
+    }
   {
-    courtCount: courtCount.contents,
-    indoorCount: indoorCount.contents,
-    outdoorCount: outdoorCount.contents,
+    courtCount: collapse(((total, _, _)) => total),
+    indoorCount: collapse(((_, indoor, _)) => indoor),
+    outdoorCount: collapse(((_, _, outdoor)) => outdoor),
     priceLow: priceLow.contents,
     priceHigh: priceHigh.contents,
   }
@@ -231,6 +266,25 @@ let summarizeCourtAvailability = (
 // stays i18n-free.
 
 // ─── Time-of-day formatting ────────────────────────────────────────────────
+
+// Hour-of-day as a float (19.5 = 19:30) for an instant in a given IANA zone.
+// Court openings arrive as venue-local hours, so an event's instants have to be
+// projected into the venue's zone before the two can be compared.
+let hourInTimeZone: (Date.t, string) => float = %raw(`
+  function (date, timeZone) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone,
+      hourCycle: "h23",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).formatToParts(date);
+    const at = (type) => {
+      const part = parts.find((p) => p.type === type);
+      return part ? Number(part.value) : 0;
+    };
+    return at("hour") + at("minute") / 60;
+  }
+`)
 
 let hourLabel = (h: float): string => {
   let hh = Js.Math.floor_int(h)
@@ -466,5 +520,100 @@ let filterCourtAvailabilityByFullWindow = (
       ),
     })
     ->Array.filter(court => court.intents->Array.length > 0)
+  }
+}
+
+// Narrow each court's openings to exactly `window`. Surfaces that render cards
+// under a heading naming one specific window want the card to describe that
+// window — both the hours it prints and the range its court/price summary is
+// computed over. Court-first browsing, which shows a court's whole opening,
+// should keep using the unclipped result.
+let clipCourtAvailabilityTo = (
+  courts: array<courtAvailability>,
+  window: playIntent,
+): array<courtAvailability> => courts->Array.map(court => {...court, intents: [window]})
+
+// Same-day fallback start times for a fixed duration, over the courts supplied
+// (callers scope these to one venue). Slides the duration across every court
+// opening one whole hour at a time, keeps the starts where at least one court
+// covers the window end to end, and orders them by proximity to the reference
+// window so the nearest alternatives come first.
+//
+// Starts are whole hours because that's the only thing the data can express:
+// `AvailabilityInterval.startHour`/`endHour` are integers, so a court can never
+// open at half past. Sliding on a 30-minute grid would invent unbookable slots
+// (a 14:30 event yielding a "13:30" alternative at a venue that only sells
+// hours). The duration is preserved as-is, so a fractional-length event keeps
+// its fractional end.
+let findAlternateCourtTimeSlots = (
+  courtAvailability: array<courtAvailability>,
+  ~eventWindow: playIntent,
+  ~limit: int=3,
+): array<alternateCourtTimeSlot> => {
+  let duration = eventWindow.end -. eventWindow.start
+  if duration <= 0.0 || limit <= 0 {
+    []
+  } else {
+    // Guard the candidate edges against binary drift so dictionary keys stay
+    // stable across the accumulating slide.
+    let round4 = v => Js.Math.round(v *. 10000.0) /. 10000.0
+    let courts = mergeCourtAvailabilityByCourt(courtAvailability)
+    let candidates: Js.Dict.t<playIntent> = Js.Dict.empty()
+    let order: array<string> = []
+    let addCandidate = rawStart => {
+      let start = round4(rawStart)
+      let end = round4(start +. duration)
+      // The event's own window is the baseline, not an alternative to it.
+      if !(start == eventWindow.start && end == eventWindow.end) {
+        let key = Float.toString(start) ++ ":" ++ Float.toString(end)
+        switch candidates->Js.Dict.get(key) {
+        | Some(_) => ()
+        | None =>
+          order->Array.push(key)
+          candidates->Js.Dict.set(key, {id: 0, start, end})
+        }
+      }
+    }
+    courts->Array.forEach(court =>
+      court.intents->Array.forEach(opening => {
+        let maxStart = opening.end -. duration
+        if maxStart >= opening.start {
+          let firstStart = Js.Math.ceil_float(opening.start -. 0.0001)
+          let lastStart = Js.Math.floor_float(maxStart +. 0.0001)
+          let cursor = ref(firstStart)
+          while cursor.contents <= lastStart +. 0.0001 {
+            addCandidate(cursor.contents)
+            cursor := cursor.contents +. 1.0
+          }
+        }
+      })
+    )
+    order
+    ->Array.filterMap(key => candidates->Js.Dict.get(key))
+    ->Array.map((candidate): alternateCourtTimeSlot => {
+      start: candidate.start,
+      end: candidate.end,
+      // `filterCourtAvailabilityByFullWindow` deliberately keeps the court's
+      // whole qualifying opening, which is right for court-first browsing but
+      // wrong here: these cards sit under a heading that names one candidate
+      // window, so showing "09:00–19:00" under a "14:00–17:00" heading reads as
+      // a contradiction, and the card's own summary would then count courts
+      // across the whole opening instead of the slot. Narrow to the candidate.
+      courtAvailability: filterCourtAvailabilityByFullWindow(
+        courts,
+        [candidate],
+      )->clipCourtAvailabilityTo(candidate),
+    })
+    ->Array.filter(slot => slot.courtAvailability->Array.length > 0)
+    ->Array.toSorted((a, b) => {
+      let aDist = Js.Math.abs_float(a.start -. eventWindow.start)
+      let bDist = Js.Math.abs_float(b.start -. eventWindow.start)
+      if aDist != bDist {
+        aDist -. bDist
+      } else {
+        a.start -. b.start
+      }
+    })
+    ->Array.slice(~start=0, ~end=limit)
   }
 }

@@ -17,6 +17,14 @@ let make = (
   ~fromHour: option<int>=?,
   ~toHour: option<int>=?,
   ~className: string="rounded-md border border-cyan-100 bg-cyan-50/30 px-3 py-2.5 dark:border-cyan-900/50 dark:bg-cyan-950/10",
+  // Optional primary action alongside the reserve link — used where a court
+  // opening can be applied to something (e.g. moving an event onto this time).
+  // Omitted, the card stays read-only.
+  ~onSelect: option<TimeWindow.courtAvailability => unit>=?,
+  ~selectLabel: option<string>=?,
+  // #peak for browsing ("how big is this venue"), #sustained where the card
+  // stands for a bookable window ("how many courts can take the whole slot").
+  ~countBasis: TimeWindow.courtCountBasis=#peak,
 ) => {
   let intl = ReactIntl.useIntl()
   let fmt = h => TimeWindow.hourLabelIntl(intl, h)
@@ -25,13 +33,20 @@ let make = (
     fromHour->Option.getOr(
       spans->Array.reduce(24.0, (m, s) => Js.Math.min_float(m, s.start))->Float.toInt,
     )
+  // Round the end UP: a span ending at 17:30 still occupies hour 17, and
+  // truncating would drop it from the summary. No-op for the whole-hour spans
+  // every other caller passes.
   let summaryTo =
     toHour->Option.getOr(
-      spans->Array.reduce(0.0, (m, s) => Js.Math.max_float(m, s.end))->Float.toInt,
+      spans
+      ->Array.reduce(0.0, (m, s) => Js.Math.max_float(m, s.end))
+      ->Js.Math.ceil_float
+      ->Float.toInt,
     )
   let summary = TimeWindow.summarizeCourtAvailability(
     ~fromHour=summaryFrom,
     ~toHour=summaryTo,
+    ~basis=countBasis,
     [court],
   )
   // Lingui macro calls must stay inside the render function (catalogs load
@@ -95,15 +110,27 @@ let make = (
           }}
         </span>
       </span>
-      <a
-        href={court.location.reservationUrl->Option.getOr(TimeWindow.defaultReservationUrl)}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={e => e->ReactEvent.Mouse.stopPropagation}
-        className="inline-flex flex-shrink-0 items-center gap-1 rounded-md border border-cyan-300 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-cyan-800 transition-colors hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 dark:border-cyan-700 dark:bg-cyan-950/30 dark:text-cyan-300 dark:hover:bg-cyan-900/40">
-        {(ts`Reserve`)->React.string}
-        <Lucide.ExternalLink size=10 \"aria-hidden"="true" />
-      </a>
+      <span className="flex flex-shrink-0 items-center gap-1.5">
+        {switch onSelect {
+        | Some(onSelect) =>
+          <button
+            type_="button"
+            onClick={_ => onSelect(court)}
+            className="rounded-md border border-[#a3d949] bg-[#bdf25d] px-2.5 py-1.5 text-[10px] font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]">
+            {selectLabel->Option.getOr(ts`Use option`)->React.string}
+          </button>
+        | None => React.null
+        }}
+        <a
+          href={court.location.reservationUrl->Option.getOr(TimeWindow.defaultReservationUrl)}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={e => e->ReactEvent.Mouse.stopPropagation}
+          className="inline-flex items-center gap-1 rounded-md border border-cyan-300 bg-white px-2.5 py-1.5 text-[10px] font-semibold text-cyan-800 transition-colors hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 dark:border-cyan-700 dark:bg-cyan-950/30 dark:text-cyan-300 dark:hover:bg-cyan-900/40">
+          {(ts`Reserve`)->React.string}
+          <Lucide.ExternalLink size=10 \"aria-hidden"="true" />
+        </a>
+      </span>
     </div>
     <ul className="mt-2 space-y-1">
       {spans

@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/PkEventPage.re.mjs:351
+#: src/components/pages/PkEventPage.re.mjs:354
 msgid "...more"
 msgstr ""
 
@@ -39,12 +39,12 @@ msgstr ""
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:53
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:210
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:218
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:515
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:60
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
 #: src/components/organisms/PkEventsList.re.mjs:219
@@ -55,11 +55,11 @@ msgstr ""
 #~ msgid "{0} {hiddenDesc} hidden — show"
 #~ msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:78
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
 msgid "{0} continuous opening"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:79
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{0} continuous openings"
 msgstr ""
 
@@ -71,10 +71,10 @@ msgstr ""
 #~ msgid "{0} continuous spans"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:51
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:211
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:74
 #: src/components/molecules/PlayIntentRow.re.mjs:340
 msgid "{0} court"
 msgstr ""
@@ -83,10 +83,10 @@ msgstr ""
 msgid "{0} court available"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:212
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:75
 #: src/components/molecules/PlayIntentRow.re.mjs:341
 msgid "{0} courts"
 msgstr ""
@@ -115,15 +115,15 @@ msgstr ""
 msgid "{0} joined"
 msgstr ""
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:215
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:82
 msgid "{0} location"
 msgstr ""
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:216
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:66
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:83
 msgid "{0} locations"
 msgstr ""
 
@@ -229,19 +229,19 @@ msgstr ""
 #~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:45
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:284
 msgid "{hs}h"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:47
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:286
 msgid "{hs}h {ms}m"
 msgstr ""
 
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:214
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:64
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:81
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -249,26 +249,26 @@ msgstr ""
 #~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:43
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:282
 msgid "{ms}m"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:37
+#: src/components/molecules/CourtOpeningCard.re.mjs:40
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:206
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:52
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:68
 msgid "{n} indoor"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:39
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:208
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:70
 msgid "{n} outdoor"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:77
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -344,11 +344,16 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:402
+msgid "At {venue} now"
+msgstr ""
+
 #: src/components/organisms/EventStickyFooter.re.mjs:171
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr ""
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:260
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:379
 msgid "Available"
 msgstr ""
@@ -366,7 +371,7 @@ msgstr ""
 msgid "Cancel editing availability"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:606
+#: src/components/pages/PkEventPage.re.mjs:610
 msgid "cancel event"
 msgstr ""
 
@@ -378,7 +383,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:220
+#: src/components/pages/PkEventPage.re.mjs:221
 msgid "CANCELED"
 msgstr ""
 
@@ -403,7 +408,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:571
+#: src/components/pages/PkEventPage.re.mjs:575
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -440,6 +445,11 @@ msgstr ""
 msgid "Complete your profile"
 msgstr ""
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:454
+#: src/components/organisms/EventLocationAvailability.re.mjs:496
+msgid "Confirm move"
+msgstr ""
+
 #: src/components/organisms/PkRSVPSection.re.mjs:589
 msgid "Confirmed · {0}"
 msgstr ""
@@ -452,11 +462,11 @@ msgstr ""
 #~ msgid "Continuous court availability"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:255
+#: src/components/pages/PkEventPage.re.mjs:256
 msgid "Copied!"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:590
+#: src/components/pages/PkEventPage.re.mjs:594
 msgid "copy event"
 msgstr ""
 
@@ -473,9 +483,10 @@ msgstr ""
 msgid "Court {0} - Editing"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:519
-#~ msgid "Courts"
-#~ msgstr ""
+#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/pages/PkEventPage.re.mjs:737
+msgid "Courts"
+msgstr ""
 
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:200
 msgid "Courts available"
@@ -497,11 +508,11 @@ msgstr ""
 msgid "Current location is not supported by this browser."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:406
+#: src/components/pages/PkEventPage.re.mjs:410
 msgid "Dallas Flash"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:420
+#: src/components/pages/PkEventPage.re.mjs:424
 msgid "Dallas Flash Swag"
 msgstr ""
 
@@ -539,7 +550,7 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:583
+#: src/components/pages/PkEventPage.re.mjs:587
 msgid "edit event"
 msgstr ""
 
@@ -584,7 +595,7 @@ msgstr ""
 msgid "event"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:898
+#: src/components/pages/PkEventPage.re.mjs:906
 msgid "Event not found"
 msgstr ""
 
@@ -617,7 +628,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:303
+#: src/components/pages/PkEventPage.re.mjs:304
 msgid "Free"
 msgstr ""
 
@@ -700,7 +711,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:351
+#: src/components/pages/PkEventPage.re.mjs:354
 msgid "less"
 msgstr ""
 
@@ -712,7 +723,7 @@ msgstr ""
 msgid "Locating…"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:333
+#: src/components/pages/PkEventPage.re.mjs:336
 #: src/components/molecules/LocationFilter.re.mjs:49
 msgid "Location"
 msgstr ""
@@ -794,8 +805,20 @@ msgstr ""
 msgid "Next {dayName}"
 msgstr ""
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+msgid "No court at {venue} covers the full event window."
+msgstr ""
+
 #: src/components/molecules/PlayIntentRow.re.mjs:470
 msgid "No court is currently available for an entire selected window."
+msgstr ""
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:512
+msgid "No other nearby venue has a court free for the event's hours."
+msgstr ""
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:469
+msgid "No other same-day time at {venue} supports the full event duration."
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:44
@@ -806,7 +829,11 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:742
+#: src/components/organisms/EventLocationAvailability.re.mjs:260
+msgid "Not available"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:750
 msgid "Notes from the host"
 msgstr ""
 
@@ -833,6 +860,14 @@ msgstr ""
 #: src/components/molecules/PlayIntentRow.re.mjs:301
 #~ msgid "other"
 #~ msgstr ""
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:475
+msgid "Other locations at this time"
+msgstr ""
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:426
+msgid "Other times at {venue}"
+msgstr ""
 
 #: src/components/molecules/PlayIntentRow.re.mjs:302
 #~ msgid "others"
@@ -928,7 +963,7 @@ msgstr ""
 msgid "Prefer not to say"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:401
+#: src/components/pages/PkEventPage.re.mjs:405
 msgid "Presented by"
 msgstr ""
 
@@ -966,12 +1001,12 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:703
+#: src/components/pages/PkEventPage.re.mjs:707
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:703
+#: src/components/pages/PkEventPage.re.mjs:707
 #: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr ""
@@ -1025,7 +1060,7 @@ msgstr ""
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:109
+#: src/components/molecules/CourtOpeningCard.re.mjs:122
 msgid "Reserve"
 msgstr ""
 
@@ -1070,7 +1105,7 @@ msgstr ""
 msgid "Set your time"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:255
+#: src/components/pages/PkEventPage.re.mjs:256
 msgid "Share"
 msgstr ""
 
@@ -1159,6 +1194,14 @@ msgstr ""
 msgid "This is how others will see you"
 msgstr ""
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:479
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr ""
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:437
+msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
@@ -1197,7 +1240,7 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:595
+#: src/components/pages/PkEventPage.re.mjs:599
 msgid "uncancel event"
 msgstr ""
 
@@ -1205,9 +1248,21 @@ msgstr ""
 msgid "Upper intermediate and above"
 msgstr ""
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:498
+msgid "Use location"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:113
+msgid "Use option"
+msgstr ""
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
 #~ msgid "Use this time"
 #~ msgstr ""
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:456
+msgid "Use time"
+msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
 #~ msgid "View {groupCourtsPhrase} & reserve"

@@ -340,6 +340,18 @@ type Event implements Node {
   activity: Activity
   cancelDeadline: Int
   club: Club
+
+  """
+  Scraped court availability around this event: the event's own venue for
+     the event's local date (its whole day), followed by other scraped courts
+     within `radiusKm` that have a court free for exactly the event's hours,
+     nearest first. Empty when the event has no venue, activity or dates.
+  
+     Most venues aren't scraped, so the event's own venue is often absent while
+     nearby alternatives are not — hence a list rather than a single day. Use
+     `location { id }` to tell the event's venue from the alternatives.
+  """
+  courtAvailability(radiusKm: Float): [LocationAvailabilityDay!]!
   deleted: Datetime
   details: String
   endDate: Datetime
@@ -906,10 +918,10 @@ type Query {
   ratings(activitySlug: String!, after: String, before: String, clubId: ID, clubSlug: String, first: Int, namespace: String!): RatingConnection!
 
   """
-  The effective location for this request, echoing the availability
-     precedence: the explicit location argument (coords or a hard-coded
-     name), else the viewer's stored home coords (User.coords), else the
-     named default.
+  The effective location for this request: the explicit location argument
+     (coords or a region), else the viewer's stored home coords (User.coords),
+     else the default region. Lets clients render the location scoping their
+     availability data without reimplementing the precedence.
   """
   resolvedLocation(location: LocationInput): ResolvedLocation!
   user(id: ID!): User

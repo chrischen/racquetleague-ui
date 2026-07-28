@@ -84,6 +84,12 @@ module EventQuery = %relay(`
         }
       }
       ...PkRSVPSection_event
+      # Scraped court availability for the venue, rendered only for owners and
+      # club admins. Deliberately NOT @defer'd: the deferred payload leaves a
+      # window where the fragment reads back partially populated (schema-non-null
+      # fields arriving as undefined), and this resolves to a cheap keyed lookup
+      # anyway. Gate the cost in the resolver, not with @defer.
+      ...EventLocationAvailability_event
     }
     ...PkEventMessages_query @arguments(topic: $topic, after: $after, first: $first, before: $before)
   }
@@ -272,7 +278,11 @@ module EventTitleSection = {
 
 module EventLocationSection = {
   @react.component
-  let make = (~loc: PkEventPageQuery_graphql.Types.response_event_location) => {
+  let make = (
+    ~loc: PkEventPageQuery_graphql.Types.response_event_location,
+    // Court availability for this venue, already gated by the caller.
+    ~availability: React.element=React.null,
+  ) => {
     let ts = Lingui.UtilString.t
     let (showFullDetails, setShowFullDetails) = React.useState(() => false)
     <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
@@ -327,6 +337,7 @@ module EventLocationSection = {
         </a>
       })
       ->Option.getOr(React.null)}
+      availability
     </div>
   }
 }
@@ -575,7 +586,16 @@ module Inner = {
           }}
           /* Location */
           {switch (event.location, secret) {
-          | (Some(loc), false) => <EventLocationSection loc />
+          | (Some(loc), false) =>
+            <EventLocationSection
+              loc
+              availability={event.viewerIsAdmin
+                ? <EventLocationAvailability
+                    event={event.fragmentRefs}
+                    genericCourtName={loc.name->Option.getOr(ts`Courts`)}
+                  />
+                : React.null}
+            />
           | _ => React.null
           }}
           /* Participants */

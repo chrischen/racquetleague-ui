@@ -48,7 +48,7 @@ function getSmoothBandClipPath(band, orientation, placement) {
         return {
                 pStart: segment.start,
                 pEnd: segment.end,
-                px: getCourtLineThickness(TimeWindow.summarizeCourtAvailability(segment.start | 0, segment.end | 0, segment.slots.map(function (s) {
+                px: getCourtLineThickness(TimeWindow.summarizeCourtAvailability(segment.start | 0, segment.end | 0, undefined, segment.slots.map(function (s) {
                               return s.court;
                             })).courtCount)
               };
@@ -157,7 +157,7 @@ function CourtAvailabilityBandOverlay(props) {
                     }) : band.segments.map(function (segment, index) {
                       var segmentOffset = (segment.start - band.start) / (band.end - band.start) * 100.0;
                       var segmentShare = (segment.end - segment.start) / (band.end - band.start) * 100.0;
-                      var slotCount = TimeWindow.summarizeCourtAvailability(segment.start | 0, segment.end | 0, segment.slots.map(function (s) {
+                      var slotCount = TimeWindow.summarizeCourtAvailability(segment.start | 0, segment.end | 0, undefined, segment.slots.map(function (s) {
                                 return s.court;
                               })).courtCount;
                       var courtsPhrase = plural(slotCount, {

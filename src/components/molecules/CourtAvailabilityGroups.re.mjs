@@ -30,8 +30,14 @@ function countLocations(courts) {
 }
 
 function CourtAvailabilityGroups(props) {
+  var __countBasis = props.countBasis;
+  var selectLabel = props.selectLabel;
+  var onSelectCourt = props.onSelectCourt;
+  var __contentOnly = props.contentOnly;
   var __defaultExpanded = props.defaultExpanded;
   var defaultExpanded = __defaultExpanded !== undefined ? __defaultExpanded : false;
+  var contentOnly = __contentOnly !== undefined ? __contentOnly : false;
+  var countBasis = __countBasis !== undefined ? __countBasis : "peak";
   var match = React.useState(function () {
         return defaultExpanded;
       });
@@ -63,7 +69,23 @@ function CourtAvailabilityGroups(props) {
   if (courts.length === 0) {
     return null;
   }
-  var summary = TimeWindow.summarizeCourtAvailability(undefined, undefined, courts);
+  if (contentOnly) {
+    return JsxRuntime.jsx("div", {
+                children: courts.map(function (court) {
+                      return JsxRuntime.jsx(CourtOpeningCard.make, {
+                                  court: court,
+                                  spans: court.intents,
+                                  onSelect: onSelectCourt,
+                                  selectLabel: Core__Option.map(selectLabel, (function (f) {
+                                          return f(court);
+                                        })),
+                                  countBasis: countBasis
+                                }, court.id);
+                    }),
+                className: "space-y-2"
+              });
+  }
+  var summary = TimeWindow.summarizeCourtAvailability(undefined, undefined, undefined, courts);
   var surfaceLabel = CourtLabels.surfaceMix(summary, (function (n) {
           return t`${n} indoor`;
         }), (function (n) {
@@ -155,7 +177,8 @@ function CourtAvailabilityGroups(props) {
                                         return JsxRuntime.jsx(CourtOpeningCard.make, {
                                                     court: court,
                                                     spans: court.intents,
-                                                    className: "bg-white/80 px-2.5 py-2.5 dark:bg-[#1e1f23]/80"
+                                                    className: "bg-white/80 px-2.5 py-2.5 dark:bg-[#1e1f23]/80",
+                                                    countBasis: countBasis
                                                   }, court.id);
                                       }),
                                   className: "divide-y divide-cyan-100 border-t border-cyan-200/70 dark:divide-cyan-900/40 dark:border-cyan-800/40"

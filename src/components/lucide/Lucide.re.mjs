@@ -167,6 +167,8 @@ var ArrowUpRight = {};
 
 var CheckCircle2 = {};
 
+var XCircle = {};
+
 var CreditCard = {};
 
 var Printer = {};
@@ -263,6 +265,7 @@ export {
   ArrowRight ,
   ArrowUpRight ,
   CheckCircle2 ,
+  XCircle ,
   CreditCard ,
   Printer ,
   CalendarRange ,

@@ -352,7 +352,8 @@ module Shuffle = {
 
 module AlertCircle = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "AlertCircle"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "AlertCircle"
 }
 
 module UserCheck = {
@@ -538,8 +539,22 @@ module ArrowUpRight = {
 
 module CheckCircle2 = {
   @module("lucide-react") @react.component
-  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
-    "CheckCircle2"
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "CheckCircle2"
+}
+
+module XCircle = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "XCircle"
 }
 
 module CreditCard = {

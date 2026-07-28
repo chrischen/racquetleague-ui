@@ -27,6 +27,7 @@ import * as TopPlayerAwardsBanner from "./TopPlayerAwardsBanner.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as RoundRobinDrawsPreview from "../organisms/RoundRobinDrawsPreview.re.mjs";
 import * as PkEventPageQuery_graphql from "../../__generated__/PkEventPageQuery_graphql.re.mjs";
+import * as EventLocationAvailability from "../organisms/EventLocationAvailability.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as StripePaymentEmbed from "../organisms/StripePaymentEmbed";
 import * as PkEventPageCancelMutation_graphql from "../../__generated__/PkEventPageCancelMutation_graphql.re.mjs";
@@ -321,7 +322,9 @@ var EventTitleSection = {
 };
 
 function PkEventPage$EventLocationSection(props) {
+  var __availability = props.availability;
   var loc = props.loc;
+  var availability = __availability !== undefined ? Caml_option.valFromOption(__availability) : null;
   var match = React.useState(function () {
         return false;
       });
@@ -374,7 +377,8 @@ function PkEventPage$EventLocationSection(props) {
                                         rel: "noopener noreferrer",
                                         target: "_blank"
                                       });
-                          })), null)
+                          })), null),
+                availability
               ],
               className: "px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]"
             });
@@ -727,7 +731,11 @@ function PkEventPage$Inner(props) {
                             }) ? JsxRuntime.jsx(PkEventPage$SponsorBanner, {}) : null,
                         tmp,
                         match$15 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$15
+                                loc: match$15,
+                                availability: Caml_option.some($$event.viewerIsAdmin ? JsxRuntime.jsx(EventLocationAvailability.make, {
+                                            event: $$event.fragmentRefs,
+                                            genericCourtName: Core__Option.getOr(match$15.name, t`Courts`)
+                                          }) : null)
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {
                               event: $$event.fragmentRefs,

@@ -18,18 +18,18 @@ msgstr ""
 msgid "· peak {0}–{1}"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:73
+#: src/components/molecules/CourtOpeningCard.re.mjs:53
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
 #: src/components/molecules/PlayIntentRow.re.mjs:315
 #: src/components/molecules/PlayIntentRow.re.mjs:483
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:78
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
 msgid "{0} continuous opening"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:79
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{0} continuous openings"
 msgstr ""
 
@@ -42,8 +42,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:51
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:74
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
 #: src/components/molecules/PlayIntentRow.re.mjs:340
 msgid "{0} court"
 msgstr ""
@@ -53,8 +53,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:75
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 #: src/components/molecules/PlayIntentRow.re.mjs:341
 msgid "{0} courts"
 msgstr ""
@@ -79,11 +79,11 @@ msgstr ""
 #~ msgid "{0} exact options"
 #~ msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:82
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
 msgid "{0} location"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:83
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{0} locations"
 msgstr ""
 
@@ -152,33 +152,33 @@ msgstr ""
 #~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:45
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{hs}h"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:47
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h {ms}m"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:81
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:43
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 msgid "{ms}m"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:37
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:68
+#: src/components/molecules/CourtOpeningCard.re.mjs:40
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
 msgid "{n} indoor"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:39
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:70
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} outdoor"
 msgstr ""
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:77
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 msgid "Remove all"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:109
+#: src/components/molecules/CourtOpeningCard.re.mjs:122
 msgid "Reserve"
 msgstr ""
 
@@ -322,6 +322,10 @@ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
+msgstr ""
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:113
+msgid "Use option"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
