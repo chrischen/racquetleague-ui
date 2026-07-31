@@ -13,66 +13,66 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0} khoảng trống liên tiếp"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{0} continuous openings"
 msgstr "{0} khoảng trống liên tiếp"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0} sân"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} sân"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} địa điểm"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} địa điểm"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
 msgstr "{hs}g"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h {ms}m"
 msgstr "{hs}g {ms}p"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{ms}m"
 msgstr "{ms}p"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "{n} trong nhà"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "{n} ngoài trời"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
@@ -105,6 +105,10 @@ msgid "Courts are listed individually with their largest continuous openings."
 msgstr ""
 "Các sân được liệt kê riêng lẻ cùng với khung giờ trống liên tục dài nhất."
 
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "Tạo sự kiện"
+
 #: src/components/molecules/LocationFilterControl.re.mjs:108
 msgid "Current location is not supported by this browser."
 msgstr "Trình duyệt này không hỗ trợ vị trí hiện tại."
@@ -117,7 +121,7 @@ msgstr "Các sự kiện"
 msgid "Filter by location"
 msgstr "Lọc theo địa điểm"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
 msgid "Let hosts schedule events when most of you are free"
 msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
 
@@ -152,15 +156,15 @@ msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 msgid "Players"
 msgstr "Người chơi"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "Đặt sân"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:895
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:895
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Savingâ¦"
 msgstr "Đang lưu…"
 
@@ -176,7 +180,7 @@ msgstr ""
 "Đặt lịch rảnh của bạn cho 2 tuần tới. Sự kiện và khung giờ rảnh được hiển "
 "thị chung; đường cyan càng dày nghĩa là càng nhiều sân."
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:876
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "Chia sẻ với câu lạc bộ của bạn"
 
@@ -189,7 +193,7 @@ msgstr ""
 msgid "Tokyo"
 msgstr "Tokyo"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 

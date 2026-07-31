@@ -13,36 +13,36 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:487
-#: src/components/molecules/PlayIntentRow.re.mjs:615
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/molecules/PlayIntentRow.re.mjs:619
 msgid "· peak {0}–{1}"
 msgstr "· ピーク {0}–{1}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 #: src/components/molecules/PlayIntentRow.re.mjs:315
-#: src/components/molecules/PlayIntentRow.re.mjs:483
+#: src/components/molecules/PlayIntentRow.re.mjs:487
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0}件の連続空き枠"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{0} continuous openings"
 msgstr "{0}件の連続空き枠"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 #: src/components/molecules/PlayIntentRow.re.mjs:340
 msgid "{0} court"
 msgstr "{0}コート"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 #: src/components/molecules/PlayIntentRow.re.mjs:341
 msgid "{0} courts"
 msgstr "{0}コート"
@@ -55,27 +55,27 @@ msgstr "{0}件のイベント"
 msgid "{0} events"
 msgstr "{0}件のイベント"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0}施設"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0}施設"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:485
+#: src/components/molecules/PlayIntentRow.re.mjs:489
 msgid "{0} people"
 msgstr "{0}人"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:613
+#: src/components/molecules/PlayIntentRow.re.mjs:617
 msgid "{0} people want to play"
 msgstr "{0}人がプレーしたがっています"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:484
+#: src/components/molecules/PlayIntentRow.re.mjs:488
 msgid "{0} person"
 msgstr "{0}人"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:616
 msgid "{0} person wants to play"
 msgstr "{0}人がプレーしたがっています"
 
@@ -92,37 +92,37 @@ msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:327
-#: src/components/molecules/PlayIntentRow.re.mjs:611
+#: src/components/molecules/PlayIntentRow.re.mjs:615
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
 msgstr "{hs}時間"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h {ms}m"
 msgstr "{hs}時間{ms}分"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{ms}m"
 msgstr "{ms}分"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "インドア{n}面"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "アウトドア{n}面"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
@@ -142,7 +142,7 @@ msgstr "いつでも"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:639
+#: src/components/molecules/PlayIntentRow.re.mjs:643
 msgid "Change times"
 msgstr "時間を変更"
 
@@ -154,19 +154,23 @@ msgstr "コート"
 msgid "Courts covering your complete time"
 msgstr "選択した時間全体をカバーするコート"
 
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "イベントを作成"
+
 #: src/components/molecules/PlayIntentRow.re.mjs:262
 msgid "Evening"
 msgstr "夜"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:542
+#: src/components/molecules/PlayIntentRow.re.mjs:546
 msgid "Host an event at this time"
 msgstr "この時間帯にイベントを主催する"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:539
+#: src/components/molecules/PlayIntentRow.re.mjs:543
 msgid "Host event"
 msgstr "イベントを主催"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:558
+#: src/components/molecules/PlayIntentRow.re.mjs:562
 msgid "Mark available"
 msgstr "参加可能にする"
 
@@ -174,7 +178,7 @@ msgstr "参加可能にする"
 msgid "Morning"
 msgstr "午前"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:470
+#: src/components/molecules/PlayIntentRow.re.mjs:474
 msgid "No court is currently available for an entire selected window."
 msgstr "現在、選択した時間帯全体で利用可能なコートはありません。"
 
@@ -182,7 +186,7 @@ msgstr "現在、選択した時間帯全体で利用可能なコートはあり
 msgid "Open the {dayWord} timeline to edit your availability"
 msgstr "{dayWord}のタイムラインを開いて空き時間を編集"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:542
+#: src/components/molecules/PlayIntentRow.re.mjs:546
 msgid "Pick one time window to host an event"
 msgstr "イベントを主催する時間帯を選択"
 
@@ -198,12 +202,12 @@ msgstr "プレイヤーの空き時間ヒートマップ"
 msgid "Remove"
 msgstr "削除"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:518
-#: src/components/molecules/PlayIntentRow.re.mjs:649
+#: src/components/molecules/PlayIntentRow.re.mjs:522
+#: src/components/molecules/PlayIntentRow.re.mjs:653
 msgid "Remove all"
 msgstr "すべて削除"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "予約する"
 
@@ -215,7 +219,7 @@ msgstr "時間を設定"
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "オプションを使用"
 
@@ -223,7 +227,7 @@ msgstr "オプションを使用"
 msgid "When can you play {dayWord}?"
 msgstr "{dayWord}はいつプレーできますか？"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:593
+#: src/components/molecules/PlayIntentRow.re.mjs:597
 msgid "You want to play {dayWord}"
 msgstr "{dayWord}にプレーしたい"
 

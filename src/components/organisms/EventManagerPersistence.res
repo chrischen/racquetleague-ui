@@ -77,6 +77,27 @@ let saveCourtCount = (eventId: string, courtCount: int) => {
   eventStore->TinyBase.setRow("eventState", eventId, existingRow)
 }
 
+// The draw seed: every solver generation for this event derives its PRNG from
+// this value plus the absolute round index, which is what makes "reset"
+// canonical — the same seed, strategy and state reproduce the same round. The
+// dice button in the generation controls mints a new one.
+let loadDrawSeed = (eventId: string): int => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  eventsTable
+  ->Js.Dict.get(eventId)
+  ->Option.flatMap(row => row->Js.Dict.get("drawSeed"))
+  ->Option.flatMap(v => v->Js.Json.decodeNumber)
+  ->Option.map(Float.toInt)
+  ->Option.getOr(1)
+}
+
+let saveDrawSeed = (eventId: string, seed: int) => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  let existingRow = eventsTable->Js.Dict.get(eventId)->Option.getOr(Js.Dict.empty())
+  existingRow->Js.Dict.set("drawSeed", seed->Int.toFloat->Js.Json.number)
+  eventStore->TinyBase.setRow("eventState", eventId, existingRow)
+}
+
 // Helper to serialize strategy to string
 let strategyToString = (strategy: strategy): string => {
   switch strategy {
@@ -87,6 +108,9 @@ let strategyToString = (strategy: strategy): string => {
   | Random => "random"
   | DUPR => "dupr"
   | NoveltyRoundRobin => "novelty-round-robin"
+  | SolverRoundRobin => "solver-round-robin"
+  | SolverRandomBalanced => "solver-random-balanced"
+  | SolverCompetitivePlus => "solver-competitive-plus"
   }
 }
 
@@ -100,6 +124,15 @@ let stringToStrategy = (str: string): strategy => {
   | "random" => Random
   | "dupr" => DUPR
   | "novelty-round-robin" => NoveltyRoundRobin
+  | "solver-round-robin" => SolverRoundRobin
+  | "solver-random-balanced" => SolverRandomBalanced
+  | "solver-competitive-plus" => SolverCompetitivePlus
+  // Pre-rename aliases: events stored while the presets were still named after
+  // the qualityVsVariety axis. Read forever; written never — the next
+  // `saveStrategy` rewrites the row with the current string.
+  | "solver-variety" => SolverRoundRobin
+  | "solver-balanced" => SolverRandomBalanced
+  | "solver-competitive" => SolverCompetitivePlus
   | _ => CompetitivePlus // Default fallback
   }
 }
@@ -122,6 +155,103 @@ let saveStrategy = (eventId: string, strategy: strategy) => {
   existingRow->Js.Dict.set("strategy", strategy->strategyToString->Js.Json.string)
   eventStore->TinyBase.setRow("eventState", eventId, existingRow)
 }
+
+// Solver weight configuration. Only the user's `uiWeightConfig` is stored —
+// presets live in code, so retuning them later applies retroactively to anyone
+// who has not customised.
+let loadWeightConfig = (eventId: string): option<CostModel.uiWeightConfig> => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  eventsTable
+  ->Js.Dict.get(eventId)
+  ->Option.flatMap(row => row->Js.Dict.get("solverWeights"))
+  ->Option.flatMap(v => v->Js.Json.decodeString)
+  ->Option.flatMap(CostModel.configFromJsonString)
+}
+
+let saveWeightConfig = (eventId: string, config: CostModel.uiWeightConfig) => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  let existingRow = eventsTable->Js.Dict.get(eventId)->Option.getOr(Js.Dict.empty())
+  existingRow->Js.Dict.set("solverWeights", config->CostModel.configToJsonString->Js.Json.string)
+  eventStore->TinyBase.setRow("eventState", eventId, existingRow)
+}
+
+// Absence of a stored config means "use the strategy's tuned preset profile",
+// so deselecting a customisation is a delete, not a write.
+let clearWeightConfig = (eventId: string) => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  switch eventsTable->Js.Dict.get(eventId) {
+  | None => ()
+  | Some(row) =>
+    let filtered =
+      row->Js.Dict.entries->Array.filter(((key, _)) => key != "solverWeights")->Js.Dict.fromArray
+    eventStore->TinyBase.setRow("eventState", eventId, filtered)
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Solver violation reporting
+// ---------------------------------------------------------------------------
+// Fallback warnings describe the *stored* rounds, so they must survive a
+// reload with them — a warning that vanishes on refresh is a silent violation.
+// Match-level warnings are keyed by match entity id and round-level ones by
+// round index, both of which are persisted alongside the rounds themselves.
+
+let violationsDictToJsonString = (dict: Js.Dict.t<array<SolverTypes.violation>>): string =>
+  dict
+  ->Js.Dict.entries
+  ->Array.map(((key, violations)) => (
+    key,
+    violations->Array.map(v => v->SolverTypes.toJson)->Js.Json.array,
+  ))
+  ->Js.Dict.fromArray
+  ->Js.Json.object_
+  ->Js.Json.stringify
+
+let violationsDictFromJsonString = (str: string): Js.Dict.t<array<SolverTypes.violation>> =>
+  try {
+    str
+    ->Js.Json.parseExn
+    ->Js.Json.decodeObject
+    ->Option.mapOr(Js.Dict.empty(), obj =>
+      obj
+      ->Js.Dict.entries
+      ->Array.map(((key, json)) => (
+        key,
+        json
+        ->Js.Json.decodeArray
+        ->Option.mapOr([], arr => arr->Array.filterMap(v => v->SolverTypes.fromJson)),
+      ))
+      ->Array.filter(((_, violations)) => violations->Array.length > 0)
+      ->Js.Dict.fromArray
+    )
+  } catch {
+  | _ => Js.Dict.empty()
+  }
+
+let saveViolationsCell = (eventId: string, cell: string, dict) => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  let existingRow = eventsTable->Js.Dict.get(eventId)->Option.getOr(Js.Dict.empty())
+  existingRow->Js.Dict.set(cell, dict->violationsDictToJsonString->Js.Json.string)
+  eventStore->TinyBase.setRow("eventState", eventId, existingRow)
+}
+
+let loadViolationsCell = (eventId: string, cell: string): Js.Dict.t<
+  array<SolverTypes.violation>,
+> => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  eventsTable
+  ->Js.Dict.get(eventId)
+  ->Option.flatMap(row => row->Js.Dict.get(cell))
+  ->Option.flatMap(v => v->Js.Json.decodeString)
+  ->Option.mapOr(Js.Dict.empty(), violationsDictFromJsonString)
+}
+
+let saveSolverMatchViolations = (eventId, dict) =>
+  saveViolationsCell(eventId, "solverMatchViolations", dict)
+let loadSolverMatchViolations = eventId => loadViolationsCell(eventId, "solverMatchViolations")
+let saveSolverRoundViolations = (eventId, dict) =>
+  saveViolationsCell(eventId, "solverRoundViolations", dict)
+let loadSolverRoundViolations = eventId => loadViolationsCell(eventId, "solverRoundViolations")
 
 // Load checked-in player IDs for an event from TinyBase
 let loadCheckedInPlayerIds = (eventId: string): array<string> => {

@@ -52,6 +52,7 @@ function CreateEventPage(props) {
   var locationParam = Router.SearchParams.get(params, "locationId");
   var clubIdParam = Router.SearchParams.get(params, "clubId");
   var activitySlugParam = Router.SearchParams.get(params, "activitySlug");
+  var activityIdParam = Router.SearchParams.get(params, "activityId");
   var dateParam = Router.SearchParams.get(params, "date");
   var startHourParam = Router.SearchParams.get(params, "startHour");
   var endHourParam = Router.SearchParams.get(params, "endHour");
@@ -292,6 +293,7 @@ function CreateEventPage(props) {
                                                                                     query: queryData.fragmentRefs,
                                                                                     initialClubId: clubIdParam,
                                                                                     initialActivitySlug: activitySlugParam,
+                                                                                    initialActivityId: activityIdParam,
                                                                                     onChange: (function (sel) {
                                                                                         setClubSelection(function (param) {
                                                                                               return sel;

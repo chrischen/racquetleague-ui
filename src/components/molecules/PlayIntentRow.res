@@ -408,6 +408,7 @@ let make = (
                   <CourtAvailabilityGroups
                     title={ts`Courts covering your complete time`}
                     courtAvailability=courtsForDraftWindows
+                    createEvent={CourtOpeningCard.localDate: localDate, activityId: ?resolvedActivityId}
                   />
                 </div>
               : <p className="mt-2 text-[10px] text-gray-500 dark:text-gray-400">

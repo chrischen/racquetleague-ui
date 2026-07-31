@@ -185,6 +185,14 @@ module MatchQualityDebug = {
   }
 }
 
+// Which team serves first, derived by hashing the match entity's UUID — the
+// one genuinely random value per generated match, so the seeded (deterministic)
+// draw cannot predetermine it, yet stable across re-renders and reloads with no
+// stored field. Shared with `FullScreenRoundView`, which *reorders* teams by
+// it: the card view's dot and the full screen's top team must always agree.
+let team1ServesFor = (serviceKey: string): bool =>
+  land(SolverPrng.hashString(serviceKey), 1) == 0
+
 @react.component
 let make = (
   ~defaultView: view=Default,
@@ -202,8 +210,20 @@ let make = (
   ~team1History: history=NoHistory,
   ~team2History: history=NoHistory,
   ~matchHistory: history=NoHistory,
+  // Stable key for deriving the service indicator — the match entity's UUID.
+  ~serviceKey: option<string>=?,
 ) => {
   let ts = Lingui.UtilString.t
+
+  // Legacy draws randomised team order with Math.random, which made the
+  // hardwired left-side dot random for free; the solver's draws (and side
+  // swaps) are seeded and deterministic, so the dot needs its own randomness —
+  // see `team1ServesFor`. A reset deals new entity ids, so it also re-deals
+  // the service.
+  let team1Serves = switch serviceKey {
+  | Some(key) => team1ServesFor(key)
+  | None => true // callers without an entity id keep the legacy left-side dot
+  }
   let (view, setView) = React.useState(() => defaultView)
   let (selectedWinner, setSelectedWinner) = React.useState(() => None)
 
@@ -458,7 +478,7 @@ let make = (
                 <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
                   {currentWinner == Some(Left)
                     ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                    : currentWinner == None
+                    : currentWinner == None && team1Serves
                     ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
                     : currentWinner == None && team1History == LastRound
                     ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600" />
@@ -533,6 +553,8 @@ let make = (
                 <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 lg:order-3">
                   {currentWinner == Some(Right)
                     ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                    : currentWinner == None && !team1Serves
+                    ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
                     : currentWinner == None && team2History == LastRound
                     ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600" />
                     : currentWinner == None && team2History == PreviousRound

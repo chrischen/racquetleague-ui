@@ -198,12 +198,12 @@ msgstr "等待批准"
 msgid "Brief description of the club..."
 msgstr "俱樂部的簡要描述..."
 
-#: src/components/pages/CreateEventPage.re.mjs:246
+#: src/components/pages/CreateEventPage.re.mjs:247
 msgid "Bulk create"
 msgstr "批量建立"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:235
+#: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Cancel"
 msgstr "取消"
 
@@ -275,7 +275,7 @@ msgid "Create Club"
 msgstr "建立俱樂部"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1409
-#: src/components/pages/CreateEventPage.re.mjs:241
+#: src/components/pages/CreateEventPage.re.mjs:242
 msgid "Create Event"
 msgstr "建立活動"
 
@@ -432,7 +432,7 @@ msgstr "公開列出您的活動以填補空位"
 msgid "Loading conversation history..."
 msgstr "正在載入對話記錄..."
 
-#: src/components/pages/CreateEventPage.re.mjs:269
+#: src/components/pages/CreateEventPage.re.mjs:270
 msgid "Location"
 msgstr "地點"
 

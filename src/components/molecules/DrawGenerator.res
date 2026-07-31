@@ -4,6 +4,9 @@ type strategyOption = {
   value: Rating.strategy,
   label: string,
   description: string,
+  // Solver-backed presets are still in beta: badged, and hidden entirely on
+  // runtimes without WebAssembly rather than shown disabled.
+  beta: bool,
 }
 
 @react.component
@@ -18,6 +21,18 @@ let make = (
   ~isInitiallyExpanded: bool=true,
   ~highlight: bool=false,
   ~futureRoundsHaveScores: bool=false,
+  ~weightConfig: option<CostModel.uiWeightConfig>=?,
+  ~onWeightConfigChange: option<CostModel.uiWeightConfig => unit>=?,
+  ~isGenerating: bool=false,
+  ~generatingLabel: string="",
+  // Set false by callers that still drive generation through the synchronous
+  // greedy engine: offering a solver preset there would silently fall back.
+  ~allowSolverStrategies: bool=true,
+  // The event's draw seed and the control to mint a new one. Solver draws are
+  // deterministic per seed — reset restores, the dice re-deals — so the value
+  // is shown rather than hidden state. Absent for greedy-only callers.
+  ~drawSeed: int=1,
+  ~onNewSeed: option<unit => unit>=?,
 ) => {
   let ts = Lingui.UtilString.t
   let (isExpanded, setIsExpanded) = React.useState(() => isInitiallyExpanded)
@@ -40,25 +55,62 @@ let make = (
     }
   }, (highlight, isExpanded))
 
+  // Checked once: the gate is WebAssembly support, not whether the solver has
+  // been loaded (which only happens on first use).
+  let solverAvailable =
+    allowSolverStrategies && React.useMemo0(() => HighsBindings.isAvailable())
+
   let strategyOptions = [
     {
       value: Rating.CompetitivePlus,
       label: ts`Competitive`,
       description: ts`Players will be divided into similar skill level groups that round-robin with teams balanced by skill.`,
+      beta: false,
     },
     {
       value: Rating.Mixed,
       label: ts`Mixed`,
       description: ts`Round-Robin with teams balanced by skill.`,
+      beta: false,
     },
     {
       value: Rating.NoveltyRoundRobin,
       label: ts`Round-Robin`,
       description: ts`Classic round-robin draws`,
+      beta: false,
     },
-  ]
+  ]->Array.concat(
+    solverAvailable
+      ? [
+          {
+            value: Rating.SolverRoundRobin,
+            label: ts`Round Robin`,
+            description: ts`Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing.`,
+            beta: true,
+          },
+          {
+            value: Rating.SolverRandomBalanced,
+            label: ts`Random Balanced`,
+            description: ts`Fresh, varied matchups every round, with each match's teams balanced by skill.`,
+            beta: true,
+          },
+          {
+            value: Rating.SolverCompetitivePlus,
+            label: ts`Competitive+`,
+            description: ts`Optimised draws that prioritise evenly matched games within a skill band.`,
+            beta: true,
+          },
+        ]
+      : [],
+  )
   let minPlayersRequired = courtCount * 4
-  let canGenerate = checkedInPlayerCount >= minPlayersRequired
+  let canGenerate = checkedInPlayerCount >= minPlayersRequired && !isGenerating
+
+  // Pulse both for the transient attention flash after a settings change and
+  // for the whole time a generation is running. Only when collapsed: expanded,
+  // the Generate button already carries the spinner, so the box pulsing too
+  // would just be noise.
+  let isPulsing = (isHighlighting || isGenerating) && !isExpanded
 
   let courtText = courtCount == 1 ? "court" : "courts"
 
@@ -85,7 +137,7 @@ let make = (
       <div className="bg-slate-50 px-4">
         <div
           className={"bg-white rounded-lg border shadow-sm max-w-3xl transition-all duration-300 " ++ (
-            isHighlighting && !isExpanded
+            isPulsing
               ? hasExistingDraws
                   ? "border-orange-400 shadow-orange-200 shadow-lg animate-pulse"
                   : "border-blue-400 shadow-blue-200 shadow-lg animate-pulse"
@@ -95,7 +147,7 @@ let make = (
           <button
             onClick={_ => setIsExpanded(prev => !prev)}
             className={"w-full p-4 flex items-center justify-between transition-colors rounded-lg " ++ (
-              isHighlighting && !isExpanded
+              isPulsing
                 ? hasExistingDraws
                     ? "bg-orange-50 hover:bg-orange-100"
                     : "bg-blue-50 hover:bg-blue-100"
@@ -103,10 +155,16 @@ let make = (
             )}>
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
-                {hasExistingDraws
+                {isGenerating
+                  ? <Lucide.Loader2
+                      className={"w-5 h-5 animate-spin " ++ (
+                        hasExistingDraws ? "text-orange-600" : "text-blue-600"
+                      )}
+                    />
+                  : hasExistingDraws
                   ? <Lucide.RotateCcw className="w-5 h-5 text-orange-600" />
                   : <Lucide.Shuffle className="w-5 h-5 text-blue-600" />}
-                {hasExistingDraws
+                {hasExistingDraws && !isGenerating
                   ? <Lucide.ArrowDown className="w-5 h-5 text-orange-600" />
                   : React.null}
               </div>
@@ -115,13 +173,17 @@ let make = (
                   {(hasExistingDraws ? ts`Update Future Rounds` : ts`Generate Draws`)->React.string}
                 </h3>
                 <p className="text-xs text-slate-600">
-                  {(courtCount->Int.toString ++
-                  " " ++
-                  courtText ++
-                  " • " ++
-                  selectedStrategy->Option.map(s => s.label)->Option.getOr("") ++
-                  " " ++
-                  (ts`strategy`))->React.string}
+                  {(
+                    isGenerating
+                      ? generatingLabel == "" ? ts`Generating…` : generatingLabel
+                      : courtCount->Int.toString ++
+                        " " ++
+                        courtText ++
+                        " • " ++
+                        selectedStrategy->Option.map(s => s.label)->Option.getOr("") ++
+                        " " ++
+                        (ts`strategy`)
+                  )->React.string}
                 </p>
               </div>
             </div>
@@ -172,14 +234,52 @@ let make = (
                         <button
                           key={option.label}
                           onClick={_ => onStrategyChange(option.value)}
-                          className={strategy == option.value
-                            ? "px-3 py-1.5 text-sm font-medium rounded transition-colors bg-blue-600 text-white"
-                            : "px-3 py-1.5 text-sm font-medium rounded transition-colors bg-slate-100 text-slate-700 hover:bg-slate-200"}>
+                          className={"flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded transition-colors " ++ (
+                            strategy == option.value
+                              ? "bg-blue-600 text-white"
+                              : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                          )}>
                           {option.label->React.string}
+                          {option.beta
+                            ? <span
+                                className={"px-1 py-0.5 rounded text-[9px] font-bold uppercase tracking-wide " ++ (
+                                  strategy == option.value
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-slate-300 text-slate-700"
+                                )}>
+                                {(ts`Beta`)->React.string}
+                              </span>
+                            : React.null}
                         </button>
                       })
                       ->React.array}
                     </div>
+                    // Draw seed - solver strategies only (the greedy engine
+                    // does not consume it)
+                    {switch (strategy->Rating.isSolverStrategy, onNewSeed) {
+                    | (true, Some(onNewSeed)) =>
+                      <>
+                        <div className="hidden md:block w-px h-8 bg-slate-200" />
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm text-slate-600 font-medium">
+                            {(ts`Seed:`)->React.string}
+                          </span>
+                          <span className="font-mono text-sm text-slate-900">
+                            {("#" ++ drawSeed->Int.toString)->React.string}
+                          </span>
+                          <button
+                            onClick={_ => onNewSeed()}
+                            disabled={isGenerating}
+                            title={ts`New seed — deals different matches`}
+                            className={isGenerating
+                              ? "p-1.5 rounded text-slate-300 cursor-not-allowed"
+                              : "p-1.5 rounded text-slate-600 hover:bg-slate-100"}>
+                            <Lucide.Dices className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </>
+                    | _ => React.null
+                    }}
                     // Generate Button - only show if no existing draws
                     {!hasExistingDraws
                       ? <>
@@ -190,8 +290,10 @@ let make = (
                             className={canGenerate
                               ? "px-4 py-1.5 rounded font-medium text-sm transition-colors flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700"
                               : "px-4 py-1.5 rounded font-medium text-sm transition-colors flex items-center gap-2 bg-slate-200 text-slate-400 cursor-not-allowed"}>
-                            <Lucide.Shuffle className="w-4 h-4" />
-                            {(ts`Generate`)->React.string}
+                            {isGenerating
+                              ? <Lucide.Loader2 className="w-4 h-4 animate-spin" />
+                              : <Lucide.Shuffle className="w-4 h-4" />}
+                            {(isGenerating ? generatingLabel : ts`Generate`)->React.string}
                           </button>
                         </>
                       : React.null}
@@ -204,6 +306,12 @@ let make = (
                     </div>
                   })
                   ->Option.getOr(React.null)}
+                  // Weight configuration, only for the solver-backed presets
+                  {switch (strategy->Rating.isSolverStrategy, weightConfig, onWeightConfigChange) {
+                  | (true, Some(config), Some(onChange)) =>
+                    <SolverWeightsPanel config onChange />
+                  | _ => React.null
+                  }}
                   // Not enough players warning
                   {!canGenerate
                     ? <div
@@ -239,9 +347,11 @@ let make = (
                               className={canGenerate
                                 ? "w-full px-4 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-2 bg-orange-600 text-white hover:bg-orange-700"
                                 : "w-full px-4 py-2.5 rounded-lg font-semibold text-sm transition-colors flex items-center justify-center gap-2 bg-slate-200 text-slate-400 cursor-not-allowed"}>
-                              <Lucide.RotateCcw className="w-4 h-4" />
-                              {(ts`Update Rounds Below`)->React.string}
-                              <Lucide.ArrowDown className="w-4 h-4" />
+                              {isGenerating
+                                ? <Lucide.Loader2 className="w-4 h-4 animate-spin" />
+                                : <Lucide.RotateCcw className="w-4 h-4" />}
+                              {(isGenerating ? generatingLabel : ts`Update Rounds Below`)->React.string}
+                              {isGenerating ? React.null : <Lucide.ArrowDown className="w-4 h-4" />}
                             </button>}
                         <p className="text-xs text-orange-700 text-center mt-2">
                           {(

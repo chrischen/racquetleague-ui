@@ -118,6 +118,10 @@ function PkEventsDayFeed(props) {
                                     players: players,
                                     isLastInGroup: isLastFeedItem,
                                     hasBottomBorder: false,
+                                    createEvent: {
+                                      localDate: localDate,
+                                      activityId: activityId
+                                    },
                                     onAvailabilityChange: onAvailabilityChange
                                   }, "court-" + g.key);
                       }))

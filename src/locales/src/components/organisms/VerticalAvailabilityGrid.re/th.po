@@ -13,66 +13,66 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0} ช่วงเวลาต่อเนื่อง"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{0} continuous openings"
 msgstr "{0} ช่วงเวลาต่อเนื่อง"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "สนาม {0}"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} สถานที่"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} สถานที่"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
 msgstr "{hs}ช."
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h {ms}m"
 msgstr "{hs}ช. {ms}น."
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{ms}m"
 msgstr "{ms}น."
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "ในร่ม {n} แห่ง"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "กลางแจ้ง {n} แห่ง"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
@@ -100,11 +100,15 @@ msgstr "คอร์ตและช่วงเวลาว่างที่ค
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "คอร์ตแต่ละแห่งแสดงพร้อมช่วงเวลาว่างต่อเนื่องที่ยาวที่สุด"
 
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "สร้างอีเวนต์"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "กิจกรรม"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
 
@@ -116,15 +120,15 @@ msgstr "แผนที่ความพร้อมของผู้เล่
 msgid "Players"
 msgstr "หาผู้เล่น"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "จอง"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:895
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:895
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Savingâ¦"
 msgstr "กำลังบันทึก…"
 
@@ -140,7 +144,7 @@ msgstr ""
 "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน "
 "เส้นสีฟ้าที่หนากว่าหมายถึงจำนวนคอร์ทที่มากกว่า"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:876
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
 
@@ -148,7 +152,7 @@ msgstr "แชร์กับชมรมของคุณ"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "แตะช่องว่างเพื่อเพิ่ม · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "ใช้ตัวเลือกนี้"
 

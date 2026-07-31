@@ -5,8 +5,10 @@ import * as ReactIntl from "react-intl";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as CourtLabels from "./CourtLabels.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t, plural } from '@lingui/macro'
@@ -54,6 +56,24 @@ function CourtOpeningCard(props) {
         one: t`${summary.courtCount.toString()} court`,
         other: t`${summary.courtCount.toString()} courts`
       });
+  var createEventUrl = Core__Option.flatMap(props.createEvent, (function (ctx) {
+          return Core__Option.map(Core__Array.reduce(spans, undefined, (function (acc, s) {
+                            if (acc !== undefined && acc.end - acc.start >= s.end - s.start) {
+                              return acc;
+                            } else {
+                              return s;
+                            }
+                          })), (function (span) {
+                        var params = {};
+                        params["locationId"] = court.location.id;
+                        Core__Option.forEach(ctx.activityId, (function (id) {
+                                params["activityId"] = id;
+                              }));
+                        params["startDateTime"] = ctx.localDate + "T" + TimeWindow.hourLabel(span.start);
+                        params["endTime"] = TimeWindow.hourLabel(span.end);
+                        return "/events/create?" + ReactRouterDom.createSearchParams(params).toString();
+                      }));
+        }));
   var cn = court.courtName;
   return JsxRuntime.jsxs("article", {
               children: [
@@ -109,6 +129,17 @@ function CourtOpeningCard(props) {
                             }),
                         JsxRuntime.jsxs("span", {
                               children: [
+                                createEventUrl !== undefined ? JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                        to: createEventUrl,
+                                        children: [
+                                          JsxRuntime.jsx(LucideReact.CalendarPlus, {
+                                                size: 10,
+                                                "aria-hidden": "true"
+                                              }),
+                                          t`Create event`
+                                        ],
+                                        className: "inline-flex items-center gap-1 rounded-md border border-[#a3d949] bg-[#bdf25d] px-2.5 py-1.5 text-[10px] font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]"
+                                      }) : null,
                                 onSelect !== undefined ? JsxRuntime.jsx("button", {
                                         children: Core__Option.getOr(props.selectLabel, t`Use option`),
                                         className: "rounded-md border border-[#a3d949] bg-[#bdf25d] px-2.5 py-1.5 text-[10px] font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",

@@ -199,12 +199,12 @@ msgstr "รอการอนุมัติ"
 msgid "Brief description of the club..."
 msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
 
-#: src/components/pages/CreateEventPage.re.mjs:246
+#: src/components/pages/CreateEventPage.re.mjs:247
 msgid "Bulk create"
 msgstr "สร้างแบบกลุ่ม"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:235
+#: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -276,7 +276,7 @@ msgid "Create Club"
 msgstr "สร้างคลับ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1409
-#: src/components/pages/CreateEventPage.re.mjs:241
+#: src/components/pages/CreateEventPage.re.mjs:242
 msgid "Create Event"
 msgstr "สร้างกิจกรรม"
 
@@ -434,7 +434,7 @@ msgstr "แสดงกิจกรรมของคุณแบบสาธา
 msgid "Loading conversation history..."
 msgstr "กำลังโหลดประวัติการสนทนา..."
 
-#: src/components/pages/CreateEventPage.re.mjs:269
+#: src/components/pages/CreateEventPage.re.mjs:270
 msgid "Location"
 msgstr "สถานที่"
 

@@ -5,6 +5,7 @@ import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as PlayerRow from "../molecules/PlayerRow.re.mjs";
 import * as ScoreModal from "./ScoreModal.re.mjs";
+import * as SolverPrng from "../../lib/rating/solver/SolverPrng.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -191,7 +192,12 @@ var MatchQualityDebug = {
   make: MatchCard$MatchQualityDebug
 };
 
+function team1ServesFor(serviceKey) {
+  return (SolverPrng.hashString(serviceKey) & 1) === 0;
+}
+
 function MatchCard(props) {
+  var serviceKey = props.serviceKey;
   var __matchHistory = props.matchHistory;
   var __team2History = props.team2History;
   var __team1History = props.team1History;
@@ -211,6 +217,7 @@ function MatchCard(props) {
   var team1History = __team1History !== undefined ? __team1History : "NoHistory";
   var team2History = __team2History !== undefined ? __team2History : "NoHistory";
   var matchHistory = __matchHistory !== undefined ? __matchHistory : "NoHistory";
+  var team1Serves = serviceKey !== undefined ? team1ServesFor(serviceKey) : true;
   var match$1 = React.useState(function () {
         return defaultView;
       });
@@ -493,7 +500,7 @@ function MatchCard(props) {
                                                     children: Caml_obj.equal(currentWinner, "Left") ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                             className: "w-5 h-5 text-yellow-500 fill-yellow-500"
                                                           }) : (
-                                                        currentWinner === undefined ? JsxRuntime.jsx(LucideReact.Circle, {
+                                                        currentWinner === undefined && team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
                                                                 className: "w-4 h-4 text-blue-500 fill-blue-500"
                                                               }) : (
                                                             currentWinner === undefined && team1History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
@@ -581,12 +588,16 @@ function MatchCard(props) {
                                                     children: Caml_obj.equal(currentWinner, "Right") ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                             className: "w-5 h-5 text-yellow-500 fill-yellow-500"
                                                           }) : (
-                                                        currentWinner === undefined && team2History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                className: "w-4 h-4 text-red-600"
+                                                        currentWinner === undefined && !team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
+                                                                className: "w-4 h-4 text-blue-500 fill-blue-500"
                                                               }) : (
-                                                            currentWinner === undefined && team2History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                    className: "w-4 h-4 text-amber-600"
-                                                                  }) : null
+                                                            currentWinner === undefined && team2History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                    className: "w-4 h-4 text-red-600"
+                                                                  }) : (
+                                                                currentWinner === undefined && team2History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                        className: "w-4 h-4 text-amber-600"
+                                                                      }) : null
+                                                              )
                                                           )
                                                       ),
                                                     className: "w-5 h-5 flex items-center justify-center flex-shrink-0 lg:order-3"
@@ -684,6 +695,7 @@ export {
   PredictionBar ,
   Team ,
   MatchQualityDebug ,
+  team1ServesFor ,
   make$1 as make,
 }
 /*  Not a pure module */

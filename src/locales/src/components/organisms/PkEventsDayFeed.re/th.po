@@ -13,93 +13,93 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:210
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:515
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:60
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} court"
 msgstr "สนาม {0}"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:62
 msgid "{0} court available"
 msgstr "{0} คอร์ดว่าง"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:213
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:62
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:63
 msgid "{0} courts available"
 msgstr "{0} คอร์ดว่าง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:66
 msgid "{0} location"
 msgstr "{0} สถานที่"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:66
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:67
 msgid "{0} locations"
 msgstr "{0} สถานที่"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
 msgid "{0} other player available in this slot"
 msgstr "มีผู้เล่นอื่น {0} คนว่างในช่วงเวลานี้"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:518
 msgid "{0} other players available in this slot"
 msgstr "มีผู้เล่นอื่น {0} คนว่างในช่วงเวลานี้"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
 msgid "{0} player"
 msgstr "{0} คน"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:221
 msgid "{0} players"
 msgstr "{0} คน"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:199
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
 msgid "{first} + {0} more"
 msgstr "{first} + อีก {0} คน"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:284
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:285
 msgid "{hs}h"
 msgstr "{hs}ช."
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
 msgid "{hs}h {ms}m"
 msgstr "{hs}ช. {ms}น."
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:214
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:64
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:282
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:283
 msgid "{ms}m"
 msgstr "{ms}น."
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:206
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:207
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:53
 msgid "{n} indoor"
 msgstr "ในร่ม {n} แห่ง"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:208
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:54
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:209
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:55
 msgid "{n} outdoor"
 msgstr "กลางแจ้ง {n} แห่ง"
 
@@ -107,11 +107,11 @@ msgstr "กลางแจ้ง {n} แห่ง"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:380
 msgid "Available"
 msgstr "ว่าง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:433
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:434
 msgid "Cancel editing availability"
 msgstr "ยกเลิกการแก้ไขความพร้อม"
 
@@ -119,31 +119,35 @@ msgstr "ยกเลิกการแก้ไขความพร้อม"
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:201
 msgid "Courts available"
 msgstr "คอร์ตที่ว่าง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:424
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "สร้างอีเวนต์"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:425
 msgid "Drag or resize within"
 msgstr "ลากหรือปรับขนาดภายใน"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:380
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Edit time"
 msgstr "แก้ไขเวลา"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:469
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:470
 msgid "Full slot"
 msgstr "ช่วงเวลาเต็ม"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:132
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:133
 msgid "Hide slots"
 msgstr "ซ่อนช่วงเวลา"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
@@ -155,19 +159,19 @@ msgstr "แผนที่ความพร้อมของผู้เล่
 msgid "Remove"
 msgstr "ลบ"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:459
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:460
 msgid "Remove from slot"
 msgstr "นำออกจากช่วงเวลา"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "จอง"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:488
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:489
 msgid "Save availability"
 msgstr "บันทึกความพร้อม"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:454
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:455
 msgid "Tap to add time in this slot"
 msgstr "แตะเพื่อเพิ่มเวลาในช่วงนี้"
 
@@ -175,23 +179,23 @@ msgstr "แตะเพื่อเพิ่มเวลาในช่วงน
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:82
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:83
 msgid "to {0}"
 msgstr "ถึง {0}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "ใช้ตัวเลือกนี้"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:132
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:133
 msgid "View slots"
 msgstr "ดูช่วงเวลา"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:341
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:342
 msgid "You:"
 msgstr "คุณ:"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:420
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:421
 msgid "Your availability in this slot"
 msgstr "ความพร้อมของคุณในช่วงเวลานี้"
 

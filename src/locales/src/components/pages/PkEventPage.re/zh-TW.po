@@ -25,26 +25,26 @@ msgstr "· {0} 待處理"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候補"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0} 個連續空檔"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{0} continuous openings"
 msgstr "{0} 個連續空檔"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0} 場"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} 場"
 
@@ -52,41 +52,41 @@ msgstr "{0} 場"
 msgid "{0} joined"
 msgstr "{0} 已參加"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} 個地點"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} 個地點"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
 msgstr "{hs}小時"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h {ms}m"
 msgstr "{hs}小時 {ms}分"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{ms}m"
 msgstr "{ms}分"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "{n} 室內"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "{n} 室外"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
@@ -223,6 +223,10 @@ msgstr "場地"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "場地數："
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "建立賽事"
 
 #: src/components/pages/PkEventPage.re.mjs:410
 msgid "Dallas Flash"
@@ -545,7 +549,7 @@ msgstr "需要: DUPR {minDuprStr}以上"
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "參加需要 DUPR {minDuprStr}以上"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "預訂"
 
@@ -679,7 +683,7 @@ msgstr "中上等級及以上"
 msgid "Use location"
 msgstr "使用此地點"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "使用此選項"
 

@@ -788,6 +788,7 @@ let make = (
                               <CourtAvailabilityGroups
                                 title={ts`Courts and openings covering your full window`}
                                 courtAvailability=qualifyingCourts
+                                createEvent={CourtOpeningCard.localDate: d.isoDate}
                               />
                             </div>
                           : React.null}

@@ -5292,6 +5292,163 @@ msgstr "オプションを使用"
 msgid "Use time"
 msgstr "時間を使用"
 
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "イベントを作成"
+
+#: src/components/molecules/SolverWarnings.re.mjs:46
+msgid "{0} could not be given a court"
+msgstr "{0}にコートを割り当てられませんでした"
+
+#: src/components/molecules/SolverWarnings.re.mjs:48
+msgid "{0} sits out again"
+msgstr "{0}が再び休みます"
+
+#: src/components/molecules/SolverWarnings.re.mjs:59
+msgid "{0} sits out two rounds running — there are more players than seats"
+msgstr "{0}が2ラウンド連続で休みます — 席よりプレイヤーが多いです"
+
+#: src/components/molecules/SolverWarnings.re.mjs:57
+msgid "{0} was marked as required but there was no seat"
+msgstr "{0}は必須としてマークされましたが、席がありませんでした"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:152
+msgid "Advanced"
+msgstr "詳細設定"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:241
+msgid "Alternate favourite/underdog roles"
+msgstr "お気に入り／アンダードッグの役割を交互に"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:208
+msgid "Any mix"
+msgstr "混合なんでも"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:227
+msgid "Avoid recent repeats"
+msgstr "最近の対戦を避ける"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:212
+msgid "Balance teams"
+msgstr "チームのバランスを取る"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+msgid "Balances fresh partners against evenly matched games."
+msgstr "新鮮なパートナーと均衡のとれた試合のバランスを調整します。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+msgid "Beta"
+msgstr "ベータ"
+
+#: src/components/molecules/DrawGenerator.re.mjs:112
+msgid "Competitive+"
+msgstr "競技+"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:154
+msgid "Custom"
+msgstr "カスタム"
+
+#: src/components/organisms/EventManager.re.mjs:1840
+msgid "Dismiss"
+msgstr "閉じる"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "各戦略は調整済みのプロファイルを使用します。スライダーを調整するとイベントがカスタムミックスに切り替わります。公平なプレイ時間とローテーションは常に適用され、下げることはできません。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:101
+msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
+msgstr "全員がローテーション：毎ラウンド新鮮なパートナーと対戦相手、多様性のためのミックスが必要になるまで最も競争力のある対戦を優先します。"
+
+#: src/components/molecules/SolverWarnings.re.mjs:44
+msgid "Fallback: {0} are paired outside their group"
+msgstr "フォールバック：{0}がグループ外でペアになっています"
+
+#: src/components/molecules/SolverWarnings.re.mjs:42
+msgid "Fallback: {0} share a court despite an avoid rule"
+msgstr "フォールバック：{0}が回避ルールにもかかわらず同じコートになっています"
+
+#: src/components/molecules/SolverWarnings.re.mjs:50
+msgid "Fallback: {0} team up without a woman in a mixed round"
+msgstr "フォールバック：{0}が混合ラウンドで女性なしでチームを組んでいます"
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgstr "毎ラウンド新鮮で多彩な対戦、各試合のチームはスキルでバランスが取れています。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:377
+#: src/components/organisms/EventManager.re.mjs:1343
+msgid "Generating…"
+msgstr "生成中…"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:131
+msgid "Match style"
+msgstr "試合スタイル"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:134
+msgid "Mix players"
+msgstr "プレイヤーをミックス"
+
+#: src/components/molecules/DrawGenerator.re.mjs:229
+msgid "New seed — deals different matches"
+msgstr "新しいシード — 異なる試合を生成"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:182
+msgid "Opponent variety"
+msgstr "対戦相手の多様性"
+
+#: src/components/molecules/DrawGenerator.re.mjs:113
+msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgstr "スキル帯内で均衡のとれた試合を優先する最適化されたドロー。"
+
+#: src/components/organisms/EventManager.re.mjs:1836
+msgid "Optimizer unavailable — used standard matchmaking for this draw."
+msgstr "オプティマイザー利用不可 — このドローには標準マッチメイキングを使用しました。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:168
+msgid "Partner variety"
+msgstr "パートナーの多様性"
+
+#: src/components/organisms/EventManager.re.mjs:1343
+msgid "Preparing optimizer…"
+msgstr "オプティマイザーを準備中…"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+msgid "Prioritises evenly matched games over fresh partners."
+msgstr "均衡したゲームを新しい対戦相手より優先します。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:138
+msgid "Prioritises fresh partners and opponents over evenly matched games."
+msgstr "新しいパートナーや対戦相手を均衡したゲームより優先します。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:106
+msgid "Random Balanced"
+msgstr "ランダムバランス"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:255
+msgid "Reset to slider"
+msgstr "スライダーにリセット"
+
+#: src/components/molecules/DrawGenerator.re.mjs:217
+msgid "Seed:"
+msgstr "シード："
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:196
+msgid "Similar-skill matches"
+msgstr "同レベルの対戦"
+
+#: src/components/molecules/SolverWarnings.re.mjs:71
+msgid "Some rules had to be bent to fill the courts"
+msgstr "コートを埋めるためにルールを一部調整しました"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:224
+msgid "Split each match into its most even teams"
+msgstr "各マッチを最も均等なチームに分割"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:209
+msgid "Tight bands"
+msgstr "狭いバンド"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -5401,3 +5558,13 @@ msgstr "時間を使用"
 #, fuzzy
 #~ msgid "Your availability for {0}"
 #~ msgstr "あなたの空き時間"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#, fuzzy
+#~ msgid "Alternate location"
+#~ msgstr "イベント場所"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:409
+#, fuzzy
+#~ msgid "Other locations and times"
+#~ msgstr "この時間の他の会場"

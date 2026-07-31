@@ -12127,6 +12127,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"highs@npm:^1.15.2":
+  version: 1.15.2
+  resolution: "highs@npm:1.15.2"
+  checksum: 63852f09bd489d920c42d39e8497f67a3156bf6b819e82bb97b42f52ae902aad34f3598951770938a662252e15527a5ee412372fde64e46b9a42cfc7465c580d
+  languageName: node
+  linkType: hard
+
 "hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
@@ -15767,6 +15774,7 @@ __metadata:
     glob: "npm:^10.3.10"
     graphql: "npm:alpha"
     graphql-tag: "npm:^2.12.6"
+    highs: "npm:^1.15.2"
     html-react-parser: "npm:^3.0.16"
     immurl: "npm:^1.2.0"
     isbot: "npm:^3.6.10"

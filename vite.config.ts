@@ -36,6 +36,13 @@ export default defineConfig({
       },
     },
   },
+  worker: {
+    // The HiGHS solver worker (src/lib/rating/solver/highsWorker.ts) imports
+    // the wasm module dynamically so it stays out of the main bundle, and
+    // Vite's default "iife" worker format cannot code-split. The worker is
+    // constructed with { type: "module" } to match.
+    format: "es",
+  },
   ssr: {
     target: "node",
     noExternal: process.env.NODE_ENV === "production" ? ["react-relay", "react-imgix", "react-google-autocomplete", "k-means-clustering-js"] : ["k-means-clustering-js"], // @NOTE: This option breaks SSR dev server

@@ -4,8 +4,10 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
+import * as Js_math from "rescript/lib/es6/js_math.js";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
+import * as CostModel from "../../lib/rating/solver/CostModel.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as RoundHeader from "../molecules/RoundHeader.re.mjs";
@@ -13,12 +15,15 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core__String from "@rescript/core/src/Core__String.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as RoundSection from "./RoundSection.re.mjs";
+import * as SolverRounds from "../../lib/rating/solver/SolverRounds.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
 import * as DrawGenerator from "../molecules/DrawGenerator.re.mjs";
+import * as HighsBindings from "../../lib/rating/solver/HighsBindings.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as PrintableDraws from "./PrintableDraws.re.mjs";
+import * as SolverWarnings from "../molecules/SolverWarnings.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as FullScreenRoundView from "./FullScreenRoundView.re.mjs";
@@ -569,36 +574,105 @@ function EventManager(props) {
   var setStrategy = match$13[1];
   var strategy = match$13[0];
   var match$14 = React.useState(function () {
-        return [];
+        return 1;
       });
-  var setRatingAdjustmentHistory = match$14[1];
-  var ratingAdjustmentHistory = match$14[0];
+  var setDrawSeed = match$14[1];
+  var drawSeed = match$14[0];
+  var generationSeed = data.id + ":" + drawSeed.toString();
+  var handleNewSeed = function () {
+    var next = Js_math.random_int(1, 100000);
+    setDrawSeed(function (param) {
+          return next;
+        });
+    EventManagerPersistence.saveDrawSeed(data.id, next);
+    setIsDirty(function (param) {
+          return true;
+        });
+  };
   var match$15 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setTeams = match$15[1];
-  var teams = match$15[0];
-  var match$16 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setAntiTeams = match$16[1];
-  var antiTeams = match$16[0];
-  var match$17 = React.useState(function () {
-        return false;
-      });
-  var setTeamManagementOpen = match$17[1];
-  var match$18 = React.useState(function () {
         
       });
-  var setPlayerSettingsOpen = match$18[1];
+  var setWeightConfig = match$15[1];
+  var weightConfig = match$15[0];
+  var match$16 = React.useState(function () {
+        return false;
+      });
+  var setIsGenerating = match$16[1];
+  var isGenerating = match$16[0];
+  var match$17 = React.useState(function () {
+        return 0;
+      });
+  var setHistoryRevision = match$17[1];
+  var historyRevision = match$17[0];
+  var bumpHistoryRevision = function () {
+    setHistoryRevision(function (prev) {
+          return prev + 1 | 0;
+        });
+  };
+  var generationRequestRef = React.useRef(0);
+  var beginGeneration = function () {
+    generationRequestRef.current = generationRequestRef.current + 1 | 0;
+    return generationRequestRef.current;
+  };
+  var match$18 = React.useState(function () {
+        return {};
+      });
+  var setSolverMatchViolations = match$18[1];
+  var solverMatchViolations = match$18[0];
   var match$19 = React.useState(function () {
-        return false;
+        return {};
       });
-  var setShowFullScreenRound = match$19[1];
+  var setSolverRoundViolations = match$19[1];
+  var solverRoundViolations = match$19[0];
+  var setAndSaveSolverMatchViolations = function (updater) {
+    setSolverMatchViolations(function (prev) {
+          var next = updater(prev);
+          EventManagerPersistence.saveSolverMatchViolations(data.id, next);
+          return next;
+        });
+  };
+  var setAndSaveSolverRoundViolations = function (updater) {
+    setSolverRoundViolations(function (prev) {
+          var next = updater(prev);
+          EventManagerPersistence.saveSolverRoundViolations(data.id, next);
+          return next;
+        });
+  };
   var match$20 = React.useState(function () {
+        return true;
+      });
+  var setSolverNoticeDismissed = match$20[1];
+  var match$21 = React.useState(function () {
+        return [];
+      });
+  var setRatingAdjustmentHistory = match$21[1];
+  var ratingAdjustmentHistory = match$21[0];
+  var match$22 = React.useState(function () {
+        return Util.NonEmptyArray.empty;
+      });
+  var setTeams = match$22[1];
+  var teams = match$22[0];
+  var match$23 = React.useState(function () {
+        return Util.NonEmptyArray.empty;
+      });
+  var setAntiTeams = match$23[1];
+  var antiTeams = match$23[0];
+  var match$24 = React.useState(function () {
         return false;
       });
-  var setShowPrintableDraws = match$20[1];
+  var setTeamManagementOpen = match$24[1];
+  var match$25 = React.useState(function () {
+        
+      });
+  var setPlayerSettingsOpen = match$25[1];
+  var match$26 = React.useState(function () {
+        return false;
+      });
+  var setShowFullScreenRound = match$26[1];
+  var match$27 = React.useState(function () {
+        return false;
+      });
+  var setShowPrintableDraws = match$27[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -633,6 +707,26 @@ function EventManager(props) {
           var storedStrategy = EventManagerPersistence.loadStrategy(data.id);
           setStrategy(function (param) {
                 return storedStrategy;
+              });
+          setDrawSeed(function (param) {
+                return EventManagerPersistence.loadDrawSeed(data.id);
+              });
+          setSolverMatchViolations(function (param) {
+                return EventManagerPersistence.loadSolverMatchViolations(data.id);
+              });
+          setSolverRoundViolations(function (param) {
+                return EventManagerPersistence.loadSolverRoundViolations(data.id);
+              });
+          setWeightConfig(function (param) {
+                return Core__Option.flatMap(EventManagerPersistence.loadWeightConfig(data.id), (function (config) {
+                              var nominal = config.qualityVsVariety;
+                              var isNominal = nominal === CostModel.presetConfig(storedStrategy).qualityVsVariety || nominal === 0.15 || nominal === 0.5 || nominal === 0.85;
+                              if (Core__Option.isNone(config.advanced) && isNominal) {
+                                return ;
+                              } else {
+                                return config;
+                              }
+                            }));
               });
           var storedCheckedInIds = EventManagerPersistence.loadCheckedInPlayerIds(data.id);
           if (storedCheckedInIds.length > 0) {
@@ -786,36 +880,6 @@ function EventManager(props) {
                                 ];
                         }));
         }), [playersWithCounts]);
-  React.useEffect((function () {
-          if (!(isDirty && currentRoundInt > -1)) {
-            return ;
-          }
-          var shouldAutoRegenerate;
-          switch (strategy) {
-            case "CompetitivePlus" :
-            case "Competitive" :
-            case "Mixed" :
-                shouldAutoRegenerate = true;
-                break;
-            default:
-              shouldAutoRegenerate = false;
-          }
-          if (shouldAutoRegenerate && !futureRoundsHaveScores) {
-            console.log("Auto-regenerating future rounds after current round changes");
-            updateRounds(function (currentRounds) {
-                  var pastAndCurrentRounds = currentRounds.filter(function (param, i) {
-                        return (i + 1 | 0) <= currentRoundInt;
-                      });
-                  var newRounds = Rating.generateRounds(currentRoundInt + 1 | 0, 10, checkedInPlayers, pastAndCurrentRounds, strategy, courtCount, teamConstraints, undefined, undefined, eventStartTime, undefined);
-                  return pastAndCurrentRounds.concat(newRounds);
-                });
-            setIsDirty(function (param) {
-                  return false;
-                });
-            return ;
-          }
-          
-        }), [isDirty]);
   var handleResetRound = function (roundIndex, genderMixedOpt) {
     var genderMixed = genderMixedOpt !== undefined ? genderMixedOpt : false;
     var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
@@ -824,17 +888,48 @@ function EventManager(props) {
     var playersForReset = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound).filter(function (p) {
           return checkedInPlayerIds.has(p.id);
         });
-    Core__Option.forEach(Rating.generateSingleRound(roundIndex, rounds, playersForReset, strategy, courtCount, teamConstraints, avoidAllPlayers, genderMixed, eventStartTime), (function (newRound) {
-            updateRounds(function (rounds) {
-                  return rounds.map(function (round, idx) {
-                              if (idx === roundIndex) {
-                                return newRound;
-                              } else {
-                                return round;
-                              }
-                            });
-                });
-          }));
+    var token = beginGeneration();
+    setIsGenerating(function (param) {
+          return true;
+        });
+    Core__Promise.$$catch(SolverRounds.generateSingleRound(roundIndex, rounds, playersForReset, strategy, courtCount, eventStartTime, weightConfig, teamConstraints, avoidAllPlayers, undefined, genderMixed, generationSeed, undefined, undefined).then(function (outcome) {
+                if (generationRequestRef.current === token) {
+                  return Core__Option.forEach(outcome, (function (outcome) {
+                                setAndSaveSolverMatchViolations(function (prev) {
+                                      var merged = Js_dict.fromArray(Js_dict.entries(prev));
+                                      Js_dict.entries(outcome.matchViolations).forEach(function (param) {
+                                            merged[param[0]] = param[1];
+                                          });
+                                      return merged;
+                                    });
+                                setAndSaveSolverRoundViolations(function (prev) {
+                                      var merged = Js_dict.fromArray(Js_dict.entries(prev));
+                                      merged[roundIndex.toString()] = outcome.roundViolations;
+                                      return merged;
+                                    });
+                                updateRounds(function (rounds) {
+                                      return rounds.map(function (round, idx) {
+                                                  if (idx === roundIndex) {
+                                                    return outcome.matches;
+                                                  } else {
+                                                    return round;
+                                                  }
+                                                });
+                                    });
+                              }));
+                }
+                
+              }), (function (err) {
+              console.error("[EventManager] round reset failed:", err);
+              return Promise.resolve();
+            })).finally(function () {
+          if (generationRequestRef.current === token) {
+            return setIsGenerating(function (param) {
+                        return false;
+                      });
+          }
+          
+        });
   };
   var adjustPlayerSeeds = function (sortedPlayers) {
     setRatingAdjustmentHistory(function (prevHistory) {
@@ -874,6 +969,7 @@ function EventManager(props) {
           setIsDirty(function (param) {
                 return true;
               });
+          bumpHistoryRevision();
           return updatedHistory;
         });
   };
@@ -881,6 +977,7 @@ function EventManager(props) {
     var score = completedMatch[1];
     var match = completedMatch[0];
     if (Core__Option.isSome(score)) {
+      bumpHistoryRevision();
       var exit = 0;
       switch (strategy) {
         case "CompetitivePlus" :
@@ -936,6 +1033,7 @@ function EventManager(props) {
                         setIsDirty(function (param) {
                               return true;
                             });
+                        bumpHistoryRevision();
                         return round.filter(function (m) {
                                     return m.id !== matchId;
                                   });
@@ -976,16 +1074,33 @@ function EventManager(props) {
     var currentRoundPlayers = playersBeforeRound.filter(function (p) {
           return currentRoundPlayerIds.has(p.id);
         });
-    Core__Option.forEach(Rating.generateSingleRound(roundIndex, rounds, currentRoundPlayers, "CompetitivePlus", courtCount, teamConstraints, avoidAllPlayers, undefined, eventStartTime), (function (newRound) {
-            updateRounds(function (rounds) {
-                  return rounds.map(function (round, idx) {
-                              if (idx === roundIndex) {
-                                return newRound;
-                              } else {
-                                return round;
-                              }
-                            });
-                });
+    Core__Promise.$$catch(SolverRounds.generateSingleRound(roundIndex, rounds, currentRoundPlayers, strategy, courtCount, eventStartTime, weightConfig, teamConstraints, avoidAllPlayers, undefined, undefined, data.id + ":rebalance:" + roundIndex.toString() + ":" + Date.now().toString(), undefined, undefined).then(function (outcome) {
+              Core__Option.forEach(outcome, (function (outcome) {
+                      setAndSaveSolverMatchViolations(function (prev) {
+                            var merged = Js_dict.fromArray(Js_dict.entries(prev));
+                            Js_dict.entries(outcome.matchViolations).forEach(function (param) {
+                                  merged[param[0]] = param[1];
+                                });
+                            return merged;
+                          });
+                      setAndSaveSolverRoundViolations(function (prev) {
+                            var merged = Js_dict.fromArray(Js_dict.entries(prev));
+                            merged[roundIndex.toString()] = outcome.roundViolations;
+                            return merged;
+                          });
+                      updateRounds(function (rounds) {
+                            return rounds.map(function (round, idx) {
+                                        if (idx === roundIndex) {
+                                          return outcome.matches;
+                                        } else {
+                                          return round;
+                                        }
+                                      });
+                          });
+                    }));
+            }), (function (err) {
+            console.error("[EventManager] round rebalance failed:", err);
+            return Promise.resolve();
           }));
   };
   var handleRebalanceMatch = function (roundIndex, matchId) {
@@ -1005,75 +1120,193 @@ function EventManager(props) {
             var matchPlayersWithState = playersBeforeRound.filter(function (p) {
                   return matchPlayerIds.has(p.id);
                 });
-            Core__Option.forEach(Rating.generateSingleRound(roundIndex, rounds, matchPlayersWithState, strategy, 1, teamConstraints, [], undefined, eventStartTime), (function (newRound) {
-                    Core__Option.forEach(newRound[0], (function (newMatchEntity) {
-                            updateRounds(function (rounds) {
-                                  return rounds.map(function (round, idx) {
-                                              if (idx === roundIndex) {
-                                                return round.map(function (matchEntity) {
-                                                            if (matchEntity.id === matchId) {
-                                                              return {
-                                                                      id: matchEntity.id,
-                                                                      match: newMatchEntity.match,
-                                                                      score: matchEntity.score,
-                                                                      createdAt: matchEntity.createdAt,
-                                                                      synced: false
-                                                                    };
-                                                            } else {
-                                                              return matchEntity;
-                                                            }
-                                                          });
-                                              } else {
-                                                return round;
-                                              }
-                                            });
-                                });
-                          }));
+            Core__Promise.$$catch(SolverRounds.generateSingleRound(roundIndex, rounds, matchPlayersWithState, strategy, 1, eventStartTime, weightConfig, teamConstraints, [], undefined, undefined, data.id + ":rebalance:" + matchId + ":" + Date.now().toString(), undefined, undefined).then(function (outcome) {
+                      Core__Option.forEach(Core__Option.flatMap(outcome, (function (outcome) {
+                                  return Core__Option.map(outcome.matches[0], (function (m) {
+                                                return [
+                                                        outcome,
+                                                        m
+                                                      ];
+                                              }));
+                                })), (function (param) {
+                              var newMatchEntity = param[1];
+                              var outcome = param[0];
+                              setAndSaveSolverMatchViolations(function (prev) {
+                                    var merged = Js_dict.fromArray(Js_dict.entries(prev).filter(function (param) {
+                                              return param[0] !== matchId;
+                                            }));
+                                    var reasons = Js_dict.get(outcome.matchViolations, newMatchEntity.id);
+                                    if (reasons !== undefined) {
+                                      merged[matchId] = reasons;
+                                    }
+                                    return merged;
+                                  });
+                              updateRounds(function (rounds) {
+                                    return rounds.map(function (round, idx) {
+                                                if (idx === roundIndex) {
+                                                  return round.map(function (matchEntity) {
+                                                              if (matchEntity.id === matchId) {
+                                                                return {
+                                                                        id: matchEntity.id,
+                                                                        match: newMatchEntity.match,
+                                                                        score: matchEntity.score,
+                                                                        createdAt: matchEntity.createdAt,
+                                                                        synced: false
+                                                                      };
+                                                              } else {
+                                                                return matchEntity;
+                                                              }
+                                                            });
+                                                } else {
+                                                  return round;
+                                                }
+                                              });
+                                  });
+                            }));
+                    }), (function (err) {
+                    console.error("[EventManager] match rebalance failed:", err);
+                    return Promise.resolve();
                   }));
           }));
   };
+  var generateRoundBlock = async function (startRoundIndex, completedRounds, numberOfRounds) {
+    var result = await SolverRounds.generateRounds(numberOfRounds, checkedInPlayers, completedRounds, strategy, courtCount, eventStartTime, weightConfig, teamConstraints, avoidAllPlayers, undefined, undefined, undefined, startRoundIndex, generationSeed, undefined, undefined);
+    setAndSaveSolverMatchViolations(function (param) {
+          return SolverRounds.mergeViolations(result);
+        });
+    setAndSaveSolverRoundViolations(function (param) {
+          var byRound = {};
+          result.rounds.forEach(function (round, index) {
+                if (round.roundViolations.length > 0) {
+                  byRound[(startRoundIndex + index | 0).toString()] = round.roundViolations;
+                  return ;
+                }
+                
+              });
+          return byRound;
+        });
+    setSolverNoticeDismissed(function (param) {
+          return !result.fellBackToGreedy;
+        });
+    return SolverRounds.toRounds(result);
+  };
   var handleGenerateDraws = function () {
-    if (rounds.length === 0 || currentRoundInt === 0) {
-      var pastAndCurrentRounds = rounds.filter(function (param, i) {
+    var token = beginGeneration();
+    setIsGenerating(function (param) {
+          return true;
+        });
+    var run = async function () {
+      await SolverRounds.afterPaint();
+      if (rounds.length === 0 || currentRoundInt === 0) {
+        var pastAndCurrentRounds = rounds.filter(function (param, i) {
+              return (i + 1 | 0) <= currentRoundInt;
+            });
+        var newRounds = await generateRoundBlock(0, pastAndCurrentRounds, 10);
+        if (generationRequestRef.current === token) {
+          updateRounds(function (param) {
+                return newRounds;
+              });
+          setCurrentRoundInt(function (param) {
+                return 1;
+              });
+          EventManagerPersistence.saveCurrentRound(data.id, 1);
+          setRatingAdjustmentHistory(function (prevHistory) {
+                var filteredHistory = prevHistory.filter(function (adj) {
+                      return adj.appliedAtRound < 0;
+                    });
+                EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory);
+                return filteredHistory;
+              });
+          return setIsDirty(function (param) {
+                      return false;
+                    });
+        } else {
+          return ;
+        }
+      }
+      var pastAndCurrentRounds$1 = rounds.filter(function (param, i) {
             return (i + 1 | 0) <= currentRoundInt;
           });
-      var newRounds = Rating.generateRounds(1, 10, checkedInPlayers, pastAndCurrentRounds, strategy, courtCount, teamConstraints, avoidAllPlayers, undefined, eventStartTime, undefined);
-      updateRounds(function (param) {
-            return newRounds;
-          });
-      setCurrentRoundInt(function (param) {
-            return 1;
-          });
-      EventManagerPersistence.saveCurrentRound(data.id, 1);
-      setRatingAdjustmentHistory(function (prevHistory) {
-            var filteredHistory = prevHistory.filter(function (adj) {
-                  return adj.appliedAtRound < 0;
-                });
-            EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory);
-            return filteredHistory;
-          });
-      return setIsDirty(function (param) {
-                  return false;
-                });
-    }
-    var pastAndCurrentRounds$1 = rounds.filter(function (param, i) {
-          return (i + 1 | 0) <= currentRoundInt;
-        });
-    var newRounds$1 = Rating.generateRounds(currentRoundInt + 1 | 0, 10, checkedInPlayers, pastAndCurrentRounds$1, strategy, courtCount, teamConstraints, avoidAllPlayers, undefined, eventStartTime, undefined);
-    updateRounds(function (param) {
-          return pastAndCurrentRounds$1.concat(newRounds$1);
-        });
-    setRatingAdjustmentHistory(function (prevHistory) {
-          var filteredHistory = prevHistory.filter(function (adj) {
-                return adj.appliedAtRound < currentRoundInt;
-              });
-          EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory);
-          return filteredHistory;
-        });
-    setIsDirty(function (param) {
-          return false;
+      var newRounds$1 = await generateRoundBlock(currentRoundInt, pastAndCurrentRounds$1, 10);
+      if (generationRequestRef.current === token) {
+        updateRounds(function (param) {
+              return pastAndCurrentRounds$1.concat(newRounds$1);
+            });
+        setRatingAdjustmentHistory(function (prevHistory) {
+              var filteredHistory = prevHistory.filter(function (adj) {
+                    return adj.appliedAtRound < currentRoundInt;
+                  });
+              EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory);
+              return filteredHistory;
+            });
+        return setIsDirty(function (param) {
+                    return false;
+                  });
+      }
+      
+    };
+    Core__Promise.$$catch(run(), (function (err) {
+              console.error("[EventManager] draw generation failed:", err);
+              return Promise.resolve();
+            })).finally(function () {
+          if (generationRequestRef.current === token) {
+            return setIsGenerating(function (param) {
+                        return false;
+                      });
+          }
+          
         });
   };
+  React.useEffect((function () {
+          if (historyRevision > 0 && currentRoundInt > -1) {
+            var shouldAutoRegenerate;
+            switch (strategy) {
+              case "RoundRobin" :
+              case "Random" :
+              case "DUPR" :
+              case "NoveltyRoundRobin" :
+                  shouldAutoRegenerate = false;
+                  break;
+              default:
+                shouldAutoRegenerate = true;
+            }
+            if (shouldAutoRegenerate && !futureRoundsHaveScores) {
+              console.log("Auto-regenerating future rounds after current round changes");
+              var token = beginGeneration();
+              var pastAndCurrentRounds = rounds.filter(function (param, i) {
+                    return (i + 1 | 0) <= currentRoundInt;
+                  });
+              setIsGenerating(function (param) {
+                    return true;
+                  });
+              Core__Promise.$$catch(SolverRounds.afterPaint().then(function () {
+                            return generateRoundBlock(currentRoundInt, pastAndCurrentRounds, 10);
+                          }).then(function (newRounds) {
+                          if (generationRequestRef.current === token) {
+                            return updateRounds(function (param) {
+                                        return pastAndCurrentRounds.concat(newRounds);
+                                      });
+                          }
+                          
+                        }), (function (err) {
+                        console.error("[EventManager] auto-regeneration failed:", err);
+                        return Promise.resolve();
+                      })).finally(function () {
+                    if (generationRequestRef.current === token) {
+                      return setIsGenerating(function (param) {
+                                  return false;
+                                });
+                    }
+                    
+                  });
+              setIsDirty(function (param) {
+                    return false;
+                  });
+            }
+            
+          }
+          
+        }), [historyRevision]);
   var handleCourtCountChange = function (count) {
     setCourtCount(function (param) {
           return count;
@@ -1091,7 +1324,25 @@ function EventManager(props) {
           return true;
         });
     EventManagerPersistence.saveStrategy(data.id, s);
+    if (Rating.isSolverStrategy(s)) {
+      setWeightConfig(function (param) {
+            
+          });
+      return EventManagerPersistence.clearWeightConfig(data.id);
+    }
+    
   };
+  var handleWeightConfigChange = function (config) {
+    setWeightConfig(function (param) {
+          return config;
+        });
+    setIsDirty(function (param) {
+          return true;
+        });
+    EventManagerPersistence.saveWeightConfig(data.id, config);
+  };
+  var effectiveWeightConfig = weightConfig !== undefined ? weightConfig : CostModel.presetConfig(strategy);
+  var generatingLabel = HighsBindings.isLoaded() ? t`Generating…` : t`Preparing optimizer…`;
   var handleAdvanceRound = function () {
     if (currentRoundInt >= rounds.length) {
       return ;
@@ -1264,6 +1515,7 @@ function EventManager(props) {
           setIsDirty(function (param) {
                 return true;
               });
+          bumpHistoryRevision();
           return updatedHistory;
         });
   };
@@ -1368,7 +1620,7 @@ function EventManager(props) {
               };
       });
   var tmp;
-  if (match$19[0]) {
+  if (match$26[0]) {
     var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
     tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
           matches: currentRoundMatches,
@@ -1555,7 +1807,13 @@ function EventManager(props) {
                             onCourtCountChange: handleCourtCountChange,
                             isInitiallyExpanded: true,
                             highlight: isDirty,
-                            futureRoundsHaveScores: futureRoundsHaveScores
+                            futureRoundsHaveScores: futureRoundsHaveScores,
+                            weightConfig: effectiveWeightConfig,
+                            onWeightConfigChange: handleWeightConfigChange,
+                            isGenerating: isGenerating,
+                            generatingLabel: generatingLabel,
+                            drawSeed: drawSeed,
+                            onNewSeed: handleNewSeed
                           }) : null,
                     adjustmentsForRound0.length > 0 ? JsxRuntime.jsx(SeedAdjustmentTimeline.make, {
                             adjustments: adjustmentsForRound0,
@@ -1571,6 +1829,27 @@ function EventManager(props) {
                                       }));
                               })
                           }) : null,
+                    match$20[0] ? null : JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                    className: "w-4 h-4 mt-0.5 shrink-0"
+                                  }),
+                              JsxRuntime.jsx("span", {
+                                    children: t`Optimizer unavailable — used standard matchmaking for this draw.`,
+                                    className: "flex-1"
+                                  }),
+                              JsxRuntime.jsx("button", {
+                                    children: t`Dismiss`,
+                                    className: "text-xs font-medium text-slate-500 hover:text-slate-900",
+                                    onClick: (function (param) {
+                                        setSolverNoticeDismissed(function (param) {
+                                              return true;
+                                            });
+                                      })
+                                  })
+                            ],
+                            className: "mb-4 flex items-start gap-3 rounded-lg border border-slate-300 bg-slate-100 px-4 py-3 text-sm text-slate-700"
+                          }),
                     rounds.map(function (roundMatches, roundIndex) {
                           var roundNum = roundIndex + 1 | 0;
                           var isCurrentRound = roundNum === currentRoundInt;
@@ -1594,6 +1873,12 @@ function EventManager(props) {
                                                           }));
                                                   })
                                               }) : null,
+                                        JsxRuntime.jsx(SolverWarnings.make, {
+                                              matches: roundMatches,
+                                              matchViolations: solverMatchViolations,
+                                              roundViolations: Core__Option.getOr(Js_dict.get(solverRoundViolations, roundIndex.toString()), []),
+                                              playersCache: playersCache
+                                            }),
                                         isCurrentRound ? JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx(RoundSection.make, {
@@ -1730,7 +2015,13 @@ function EventManager(props) {
                                                 onCourtCountChange: handleCourtCountChange,
                                                 isInitiallyExpanded: currentRoundInt === 0,
                                                 highlight: isDirty,
-                                                futureRoundsHaveScores: futureRoundsHaveScores
+                                                futureRoundsHaveScores: futureRoundsHaveScores,
+                                                weightConfig: effectiveWeightConfig,
+                                                onWeightConfigChange: handleWeightConfigChange,
+                                                isGenerating: isGenerating,
+                                                generatingLabel: generatingLabel,
+                                                drawSeed: drawSeed,
+                                                onNewSeed: handleNewSeed
                                               }) : null
                                       ]
                                     }, roundNum.toString());
@@ -1746,7 +2037,7 @@ function EventManager(props) {
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$17[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
+                match$24[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
                         teams: teamsAsData,
                         antiTeams: Util.NonEmptyArray.toArray(antiTeams).map(function (team, index) {
                               return {
@@ -1802,7 +2093,7 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
-                Core__Option.getOr(Core__Option.map(match$18[0], (function (player) {
+                Core__Option.getOr(Core__Option.map(match$25[0], (function (player) {
                             var isGuest = Core__Option.isNone(player.data);
                             if (isGuest) {
                               return JsxRuntime.jsx(PlayerSettingsModal.make, {
@@ -1994,14 +2285,20 @@ function EventManager(props) {
                                           onCourtCountChange: handleCourtCountChange,
                                           isInitiallyExpanded: true,
                                           highlight: isDirty,
-                                          futureRoundsHaveScores: futureRoundsHaveScores
+                                          futureRoundsHaveScores: futureRoundsHaveScores,
+                                          weightConfig: effectiveWeightConfig,
+                                          onWeightConfigChange: handleWeightConfigChange,
+                                          isGenerating: isGenerating,
+                                          generatingLabel: generatingLabel,
+                                          drawSeed: drawSeed,
+                                          onNewSeed: handleNewSeed
                                         }))
                               }),
                         tmp$1
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     }),
-                match$20[0] ? JsxRuntime.jsx(PrintableDraws.make, {
+                match$27[0] ? JsxRuntime.jsx(PrintableDraws.make, {
                         rounds: rounds.map(function (roundMatches, roundIdx) {
                               return {
                                       roundNumber: roundIdx + 1 | 0,

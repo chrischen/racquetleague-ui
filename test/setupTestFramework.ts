@@ -14,6 +14,28 @@ global.ResizeObserver = vi.fn().mockImplementation(() => ({
   unobserve: vi.fn(),
   disconnect: vi.fn(),
 }));
+
+// Set methods the app relies on (and gates browsers on via `Rating.isSupported`)
+// landed in Node 22; polyfill them so tests can run on Node 20.
+type SetLike<T> = { has(value: T): boolean };
+if (typeof (Set.prototype as any).intersection !== "function") {
+  (Set.prototype as any).intersection = function <T>(this: Set<T>, other: SetLike<T>) {
+    const out = new Set<T>();
+    this.forEach((v) => {
+      if (other.has(v)) out.add(v);
+    });
+    return out;
+  };
+}
+if (typeof (Set.prototype as any).difference !== "function") {
+  (Set.prototype as any).difference = function <T>(this: Set<T>, other: SetLike<T>) {
+    const out = new Set<T>();
+    this.forEach((v) => {
+      if (!other.has(v)) out.add(v);
+    });
+    return out;
+  };
+}
 // import "raf/polyfill";
 // import { configure } from 'enzyme';
 // import Adapter from 'enzyme-adapter-react-16';

@@ -199,12 +199,12 @@ msgstr "승인 대기 중"
 msgid "Brief description of the club..."
 msgstr "클럽에 대한 간단한 설명..."
 
-#: src/components/pages/CreateEventPage.re.mjs:246
+#: src/components/pages/CreateEventPage.re.mjs:247
 msgid "Bulk create"
 msgstr "일괄 생성"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:235
+#: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Cancel"
 msgstr "취소"
 
@@ -276,7 +276,7 @@ msgid "Create Club"
 msgstr "클럽 만들기"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1409
-#: src/components/pages/CreateEventPage.re.mjs:241
+#: src/components/pages/CreateEventPage.re.mjs:242
 msgid "Create Event"
 msgstr "이벤트 만들기"
 
@@ -433,7 +433,7 @@ msgstr "빈 자리를 채우기 위해 이벤트를 공개로 나열하세요"
 msgid "Loading conversation history..."
 msgstr "대화 기록 불러오는 중..."
 
-#: src/components/pages/CreateEventPage.re.mjs:269
+#: src/components/pages/CreateEventPage.re.mjs:270
 msgid "Location"
 msgstr "장소"
 

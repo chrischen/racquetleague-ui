@@ -24,6 +24,7 @@ function ts(prim0, prim1) {
 
 function CourtPseudoEventGroup(props) {
   var onAvailabilityChange = props.onAvailabilityChange;
+  var createEvent = props.createEvent;
   var __hasBottomBorder = props.hasBottomBorder;
   var __isLastInGroup = props.isLastInGroup;
   var __players = props.players;
@@ -178,6 +179,7 @@ function CourtPseudoEventGroup(props) {
                                               players: players,
                                               isLastInGroup: isLastBand ? isLastInGroup : false,
                                               hasBottomBorder: isLastBand ? hasBottomBorder : false,
+                                              createEvent: createEvent,
                                               onAvailabilityChange: onAvailabilityChange
                                             }, band.key);
                                 }))

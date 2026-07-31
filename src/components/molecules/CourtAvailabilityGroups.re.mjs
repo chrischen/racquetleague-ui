@@ -33,6 +33,7 @@ function CourtAvailabilityGroups(props) {
   var __countBasis = props.countBasis;
   var selectLabel = props.selectLabel;
   var onSelectCourt = props.onSelectCourt;
+  var createEvent = props.createEvent;
   var __contentOnly = props.contentOnly;
   var __defaultExpanded = props.defaultExpanded;
   var defaultExpanded = __defaultExpanded !== undefined ? __defaultExpanded : false;
@@ -75,6 +76,7 @@ function CourtAvailabilityGroups(props) {
                       return JsxRuntime.jsx(CourtOpeningCard.make, {
                                   court: court,
                                   spans: court.intents,
+                                  createEvent: createEvent,
                                   onSelect: onSelectCourt,
                                   selectLabel: Core__Option.map(selectLabel, (function (f) {
                                           return f(court);
@@ -178,6 +180,7 @@ function CourtAvailabilityGroups(props) {
                                                     court: court,
                                                     spans: court.intents,
                                                     className: "bg-white/80 px-2.5 py-2.5 dark:bg-[#1e1f23]/80",
+                                                    createEvent: createEvent,
                                                     countBasis: countBasis
                                                   }, court.id);
                                       }),

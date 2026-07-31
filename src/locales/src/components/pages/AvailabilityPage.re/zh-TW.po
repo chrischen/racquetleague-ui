@@ -13,66 +13,66 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0} 個連續空檔"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{0} continuous openings"
 msgstr "{0} 個連續空檔"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0} 場"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} 場"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} 個地點"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} 個地點"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
 msgstr "{hs}小時"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h {ms}m"
 msgstr "{hs}小時 {ms}分"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{ms}m"
 msgstr "{ms}分"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "{n} 室內"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "{n} 室外"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
@@ -104,6 +104,10 @@ msgstr "涵蓋您完整時段的場地與空檔"
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "各場地分別列出，並顯示其最大連續空檔。"
 
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "建立賽事"
+
 #: src/components/molecules/LocationFilterControl.re.mjs:108
 msgid "Current location is not supported by this browser."
 msgstr "目前的瀏覽器不支援定位功能。"
@@ -116,7 +120,7 @@ msgstr "活動"
 msgid "Filter by location"
 msgstr "依地點篩選"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:880
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
 
@@ -149,15 +153,15 @@ msgstr "球員可用性熱力圖"
 msgid "Players"
 msgstr "尋找球員"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "預訂"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:895
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:895
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Savingâ¦"
 msgstr "儲存中…"
 
@@ -173,7 +177,7 @@ msgstr ""
 "設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示"
 "可用場地越多。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:876
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
 
@@ -185,7 +189,7 @@ msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大
 msgid "Tokyo"
 msgstr "東京"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "使用此選項"
 

@@ -491,6 +491,13 @@ function toStableId$1(param) {
                 }).toSorted(Core__String.compare).join("-");
 }
 
+function toPairingId(param) {
+  return [
+              toStableId(param[0]),
+              toStableId(param[1])
+            ].toSorted(Core__String.compare).join("|");
+}
+
 function players(param) {
   return [
             param[0],
@@ -615,6 +622,7 @@ var Match = {
   contains_more_than_1_players: contains_more_than_1_players,
   rate: rate,
   toStableId: toStableId$1,
+  toPairingId: toPairingId,
   players: players,
   mapPlayers: mapPlayers,
   incrementPlayCounts: incrementPlayCounts,
@@ -1542,6 +1550,118 @@ function team_to_players_set(team) {
                 }));
 }
 
+function enumerate_match_candidates(availablePlayers) {
+  return array_combinations_n(availablePlayers, 4).flatMap(function (quad) {
+              var p1 = quad[0];
+              var p2 = quad[1];
+              var p3 = quad[2];
+              var p4 = quad[3];
+              return [
+                      [
+                        [
+                          p1,
+                          p2
+                        ],
+                        [
+                          p3,
+                          p4
+                        ]
+                      ],
+                      [
+                        [
+                          p1,
+                          p3
+                        ],
+                        [
+                          p2,
+                          p4
+                        ]
+                      ],
+                      [
+                        [
+                          p1,
+                          p4
+                        ],
+                        [
+                          p2,
+                          p3
+                        ]
+                      ]
+                    ];
+            });
+}
+
+function pool_constraint_sets(availablePlayers, teamConstraints) {
+  var constrained = new Set(teamConstraints.flatMap(function (s) {
+            return Array.from(s.values());
+          }));
+  var implicitPool = new Set(availablePlayers.filter(function (p) {
+              return !constrained.has(p.id);
+            }).map(function (p) {
+            return p.id;
+          }));
+  return teamConstraints.concat([implicitPool]);
+}
+
+function match_pool_violations(match, pools) {
+  return Core__Array.reduce([
+              match[0],
+              match[1]
+            ], 0, (function (acc, team) {
+                var teamSet = toSet(team);
+                if (pools.some(function (pool) {
+                        return containsAllOf(pool, teamSet);
+                      })) {
+                  return acc;
+                } else {
+                  return acc + 1 | 0;
+                }
+              }));
+}
+
+function match_antiteam_violations(match, avoidAllPlayers) {
+  return Core__Array.reduce(avoidAllPlayers, 0, (function (acc, group) {
+                if (group.length < 2 || !contains_more_than_1_players(match, group)) {
+                  return acc;
+                } else {
+                  return acc + 1 | 0;
+                }
+              }));
+}
+
+function match_antiteam_violated_groups(match, avoidAllPlayers) {
+  return Core__Array.reduceWithIndex(avoidAllPlayers, [], (function (acc, group, index) {
+                if (group.length >= 2 && contains_more_than_1_players(match, group)) {
+                  return acc.concat([index]);
+                } else {
+                  return acc;
+                }
+              }));
+}
+
+function match_is_gender_mixed(param) {
+  if (param[0].some(function (p) {
+          return p.gender === "Female";
+        })) {
+    return param[1].some(function (p) {
+                return p.gender === "Female";
+              });
+  } else {
+    return false;
+  }
+}
+
+function match_unmixed_teams(param) {
+  return [
+            param[0],
+            param[1]
+          ].filter(function (team) {
+              return !team.some(function (p) {
+                          return p.gender === "Female";
+                        });
+            });
+}
+
 function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers) {
   var teams = array_combos(availablePlayers).map(tuple2array);
   var teamConstraintsSet = new Set(Util.NonEmptyArray.toArray(teamConstraints).map(function (a) {
@@ -1554,45 +1674,7 @@ function find_all_match_combos(availablePlayers, priorityPlayers, avoidAllPlayer
             }).map(function (p) {
             return p.id;
           }));
-  var quads = array_combinations_n(availablePlayers, 4);
-  var new_matches = quads.flatMap(function (quad) {
-        var p1 = quad[0];
-        var p2 = quad[1];
-        var p3 = quad[2];
-        var p4 = quad[3];
-        return [
-                [
-                  [
-                    p1,
-                    p2
-                  ],
-                  [
-                    p3,
-                    p4
-                  ]
-                ],
-                [
-                  [
-                    p1,
-                    p3
-                  ],
-                  [
-                    p2,
-                    p4
-                  ]
-                ],
-                [
-                  [
-                    p1,
-                    p4
-                  ],
-                  [
-                    p2,
-                    p3
-                  ]
-                ]
-              ];
-      });
+  var new_matches = enumerate_match_candidates(availablePlayers);
   teams.map(function (team_players_array) {
         return toSet(team_players_array);
       });
@@ -1671,6 +1753,17 @@ function uniform_shuffle_array(arr, n, offset) {
   }
   var picks = pick_every_n_from_array(arr, n, offset);
   return picks.concat(uniform_shuffle_array(arr, n, offset + 1 | 0));
+}
+
+function isSolverStrategy(strategy) {
+  switch (strategy) {
+    case "SolverRoundRobin" :
+    case "SolverRandomBalanced" :
+    case "SolverCompetitivePlus" :
+        return true;
+    default:
+      return false;
+  }
 }
 
 function strategy_by_competitive(players, _consumedPlayers, priorityPlayers, avoidAllPlayers, teams, requiredPlayers) {
@@ -1906,11 +1999,10 @@ var RankedMatches = {
 };
 
 function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts, genderMixed) {
+  var exit = 0;
   switch (strategy) {
     case "CompetitivePlus" :
         return strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts, genderMixed);
-    case "Competitive" :
-        return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "Mixed" :
         return strategy_by_mixed(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, genderMixed);
     case "RoundRobin" :
@@ -1921,6 +2013,21 @@ function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAl
         return strategy_by_dupr(players, priorityPlayers, avoidAllPlayers, requiredPlayers);
     case "NoveltyRoundRobin" :
         return strategy_by_novelty(players, avoidAllPlayers, teamConstraints, requiredPlayers);
+    case "SolverRoundRobin" :
+    case "SolverRandomBalanced" :
+        exit = 1;
+        break;
+    case "Competitive" :
+    case "SolverCompetitivePlus" :
+        exit = 2;
+        break;
+    
+  }
+  switch (exit) {
+    case 1 :
+        return strategy_by_round_robin(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
+    case 2 :
+        return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
     
   }
 }
@@ -2456,6 +2563,7 @@ function getDeprioritizedPlayers(rounds, players, $$break, strategy) {
   switch (strategy) {
     case "CompetitivePlus" :
     case "Competitive" :
+    case "SolverCompetitivePlus" :
         break;
     default:
       var playersWithRoundsSinceBreak = players.map(function (player) {
@@ -2747,10 +2855,18 @@ export {
   shuffle ,
   tuple2array ,
   team_to_players_set ,
+  enumerate_match_candidates ,
+  pool_constraint_sets ,
+  match_pool_violations ,
+  match_antiteam_violations ,
+  match_antiteam_violated_groups ,
+  match_is_gender_mixed ,
+  match_unmixed_teams ,
   find_all_match_combos ,
   find_skip ,
   pick_every_n_from_array ,
   uniform_shuffle_array ,
+  isSolverStrategy ,
   RankedMatches ,
   getMatches ,
   noveltyOpponentPairIds ,

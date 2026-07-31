@@ -25,8 +25,8 @@ msgstr "· {0} đang chờ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:487
-#: src/components/molecules/PlayIntentRow.re.mjs:615
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/molecules/PlayIntentRow.re.mjs:619
 msgid "· peak {0}–{1}"
 msgstr "· cao điểm {0}–{1}"
 
@@ -35,47 +35,47 @@ msgstr "· cao điểm {0}–{1}"
 msgid "[missing title]"
 msgstr "[tiêu đề bị thiếu]"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:95
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:210
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:515
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:60
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
 #: src/components/molecules/PlayIntentRow.re.mjs:315
-#: src/components/molecules/PlayIntentRow.re.mjs:483
+#: src/components/molecules/PlayIntentRow.re.mjs:487
 #: src/components/organisms/PkEventsList.re.mjs:219
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:100
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0} khoảng trống liên tiếp"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
 msgid "{0} continuous openings"
 msgstr "{0} khoảng trống liên tiếp"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:96
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 #: src/components/molecules/PlayIntentRow.re.mjs:340
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:62
 msgid "{0} court available"
 msgstr "{0} sân trống"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:213
 #: src/components/molecules/PlayIntentRow.re.mjs:341
 msgid "{0} courts"
 msgstr "{0} sân"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:62
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:63
 msgid "{0} courts available"
 msgstr "{0} sân trống"
 
@@ -91,48 +91,48 @@ msgstr "{0} sự kiện"
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:104
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:66
 msgid "{0} location"
 msgstr "{0} địa điểm"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:66
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:67
 msgid "{0} locations"
 msgstr "{0} địa điểm"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
 msgid "{0} other player available in this slot"
 msgstr "{0} người chơi khác rảnh trong khung giờ này"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:518
 msgid "{0} other players available in this slot"
 msgstr "{0} người chơi khác rảnh trong khung giờ này"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:485
+#: src/components/molecules/PlayIntentRow.re.mjs:489
 msgid "{0} people"
 msgstr "{0} người"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:613
+#: src/components/molecules/PlayIntentRow.re.mjs:617
 msgid "{0} people want to play"
 msgstr "{0} người muốn chơi"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:484
+#: src/components/molecules/PlayIntentRow.re.mjs:488
 msgid "{0} person"
 msgstr "{0} người"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:612
+#: src/components/molecules/PlayIntentRow.re.mjs:616
 msgid "{0} person wants to play"
 msgstr "{0} người muốn chơi"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
 #: src/components/molecules/PlayIntentRow.re.mjs:328
 msgid "{0} player"
 msgstr "{0} người chơi"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:221
 #: src/components/molecules/PlayIntentRow.re.mjs:329
 msgid "{0} players"
 msgstr "{0} người chơi"
@@ -142,7 +142,7 @@ msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:327
-#: src/components/molecules/PlayIntentRow.re.mjs:611
+#: src/components/molecules/PlayIntentRow.re.mjs:615
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
@@ -151,46 +151,46 @@ msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:199
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
 msgid "{first} + {0} more"
 msgstr "{first} + {0} người khác"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:284
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:285
 msgid "{hs}h"
 msgstr "{hs}g"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
 msgid "{hs}h {ms}m"
 msgstr "{hs}g {ms}p"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:103
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:214
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:64
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:282
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:283
 msgid "{ms}m"
 msgstr "{ms}p"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:90
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:206
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:207
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:53
 msgid "{n} indoor"
 msgstr "{n} trong nhà"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:208
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:54
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:209
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:55
 msgid "{n} outdoor"
 msgstr "{n} ngoài trời"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:101
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
@@ -252,7 +252,7 @@ msgid "Authorize deposit"
 msgstr "Ủy quyền đặt cọc"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:260
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:380
 msgid "Available"
 msgstr "Rảnh"
 
@@ -265,7 +265,7 @@ msgstr "cân bằng"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:433
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:434
 msgid "Cancel editing availability"
 msgstr "Hủy chỉnh sửa lịch rảnh"
 
@@ -311,7 +311,7 @@ msgstr "Không thể truy cập biến \\\"title\\\""
 msgid "Capture payment"
 msgstr "Thu tiền thanh toán"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:639
+#: src/components/molecules/PlayIntentRow.re.mjs:643
 msgid "Change times"
 msgstr "Thay đổi thời gian"
 
@@ -367,7 +367,7 @@ msgstr "Sân {0} - Đang chỉnh sửa"
 msgid "Courts"
 msgstr "Sân"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:201
 msgid "Courts available"
 msgstr "Sân còn trống"
 
@@ -378,6 +378,10 @@ msgstr "Sân phù hợp toàn bộ thời gian của bạn"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "Các sân:"
+
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "Tạo sự kiện"
 
 #: src/components/molecules/LocationFilterControl.re.mjs:108
 msgid "Current location is not supported by this browser."
@@ -412,7 +416,7 @@ msgstr "Tên hiển thị"
 msgid "Display name is required"
 msgstr "Cần có tên hiển thị"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:424
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:425
 msgid "Drag or resize within"
 msgstr "Kéo hoặc thay đổi kích thước trong"
 
@@ -421,7 +425,7 @@ msgstr "Kéo hoặc thay đổi kích thước trong"
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:380
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
@@ -433,7 +437,7 @@ msgstr "chỉnh sửa sự kiện"
 msgid "Edit match"
 msgstr "Chỉnh sửa trận đấu"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Edit time"
 msgstr "Chỉnh sửa thời gian"
 
@@ -515,7 +519,7 @@ msgstr "Miễn phí"
 msgid "Friday"
 msgstr "Thứ Sáu"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:469
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:470
 msgid "Full slot"
 msgstr "Khung giờ đầy"
 
@@ -527,7 +531,7 @@ msgstr "Giới tính"
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:132
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:133
 msgid "Hide slots"
 msgstr "Ẩn khung giờ"
 
@@ -535,11 +539,11 @@ msgstr "Ẩn khung giờ"
 msgid "Highly skilled players"
 msgstr "Người chơi trình độ cao"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:542
+#: src/components/molecules/PlayIntentRow.re.mjs:546
 msgid "Host an event at this time"
 msgstr "Tổ chức sự kiện vào thời điểm này"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:539
+#: src/components/molecules/PlayIntentRow.re.mjs:543
 msgid "Host event"
 msgstr "Tổ chức sự kiện"
 
@@ -620,8 +624,8 @@ msgstr "Trung cấp thấp trở lên"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
-#: src/components/molecules/PlayIntentRow.re.mjs:558
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:376
+#: src/components/molecules/PlayIntentRow.re.mjs:562
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
@@ -667,7 +671,7 @@ msgstr "{dayName} tới"
 msgid "No court at {venue} covers the full event window."
 msgstr "Không có sân nào tại {venue} đáp ứng toàn bộ khung thời gian sự kiện."
 
-#: src/components/molecules/PlayIntentRow.re.mjs:470
+#: src/components/molecules/PlayIntentRow.re.mjs:474
 msgid "No court is currently available for an entire selected window."
 msgstr "Hiện không có sân nào trống cho toàn bộ khoảng thời gian đã chọn."
 
@@ -758,7 +762,7 @@ msgstr "Chờ phê duyệt"
 msgid "Pick a location or use your current location."
 msgstr "Chọn một địa điểm hoặc sử dụng vị trí hiện tại của bạn."
 
-#: src/components/molecules/PlayIntentRow.re.mjs:542
+#: src/components/molecules/PlayIntentRow.re.mjs:546
 msgid "Pick one time window to host an event"
 msgstr "Chọn một khung giờ để tổ chức sự kiện"
 
@@ -845,8 +849,8 @@ msgstr "Thả để làm mới"
 msgid "Remove"
 msgstr "Xóa"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:518
-#: src/components/molecules/PlayIntentRow.re.mjs:649
+#: src/components/molecules/PlayIntentRow.re.mjs:522
+#: src/components/molecules/PlayIntentRow.re.mjs:653
 msgid "Remove all"
 msgstr "Xóa tất cả"
 
@@ -854,7 +858,7 @@ msgstr "Xóa tất cả"
 msgid "Remove from event"
 msgstr "Xóa khỏi sự kiện"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:459
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:460
 msgid "Remove from slot"
 msgstr "Xóa khỏi khung giờ"
 
@@ -874,7 +878,7 @@ msgstr "Yêu cầu: DUPR {minDuprStr}+"
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "Cần DUPR {minDuprStr}+ để tham gia"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "Đặt sân"
 
@@ -902,7 +906,7 @@ msgstr "Lưu"
 msgid "Save & Join Event"
 msgstr "Lưu & Tham gia sự kiện"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:488
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:489
 msgid "Save availability"
 msgstr "Lưu lịch rảnh"
 
@@ -955,7 +959,7 @@ msgstr "Chủ Nhật"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:454
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:455
 msgid "Tap to add time in this slot"
 msgstr "Nhấn để thêm thời gian trong khung giờ này"
 
@@ -1041,7 +1045,7 @@ msgstr ""
 msgid "Thursday"
 msgstr "Thứ Năm"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:82
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:83
 msgid "to {0}"
 msgstr "đến {0}"
 
@@ -1079,7 +1083,7 @@ msgstr "Trung cấp cao trở lên"
 msgid "Use location"
 msgstr "Dùng địa điểm này"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 
@@ -1095,7 +1099,7 @@ msgstr "Xem bốc thăm đầy đủ"
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
-#: src/components/organisms/CourtPseudoEventGroup.re.mjs:132
+#: src/components/organisms/CourtPseudoEventGroup.re.mjs:133
 msgid "View slots"
 msgstr "Xem khung giờ"
 
@@ -1154,11 +1158,11 @@ msgstr "Trong vòng {0} km · {1}, {2}"
 msgid "Yesterday"
 msgstr "Hôm qua"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:593
+#: src/components/molecules/PlayIntentRow.re.mjs:597
 msgid "You want to play {dayWord}"
 msgstr "Bạn muốn chơi {dayWord}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:341
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:342
 msgid "You:"
 msgstr "Bạn:"
 
@@ -1166,7 +1170,7 @@ msgstr "Bạn:"
 msgid "You're in"
 msgstr "Bạn đã tham gia"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:420
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:421
 msgid "Your availability in this slot"
 msgstr "Lịch rảnh của bạn trong khung giờ này"
 

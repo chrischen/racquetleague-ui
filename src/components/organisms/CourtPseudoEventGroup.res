@@ -15,6 +15,8 @@ let make = (
   ~players: array<CourtPseudoEventRow.slotPlayer>=[],
   ~isLastInGroup: bool=false,
   ~hasBottomBorder: bool=false,
+  // Forwarded to each slot row's court cards; see CourtOpeningCard.
+  ~createEvent: option<CourtOpeningCard.createEventContext>=?,
   ~onAvailabilityChange: array<TimeWindow.playIntent> => unit,
 ) => {
   let intl = ReactIntl.useIntl()
@@ -136,6 +138,7 @@ let make = (
               players
               isLastInGroup={isLastBand ? isLastInGroup : false}
               hasBottomBorder={isLastBand ? hasBottomBorder : false}
+              createEvent=?createEvent
               onAvailabilityChange
             />
           })

@@ -110,6 +110,8 @@ let make = (
   ~players: array<slotPlayer>=[],
   ~isLastInGroup: bool=false,
   ~hasBottomBorder: bool=false,
+  // Forwarded to each court card; see CourtOpeningCard.
+  ~createEvent: option<CourtOpeningCard.createEventContext>=?,
   ~onAvailabilityChange: array<TimeWindow.playIntent> => unit,
 ) => {
   let intl = ReactIntl.useIntl()
@@ -485,6 +487,7 @@ let make = (
                 spans
                 fromHour={band.start->Float.toInt}
                 toHour={band.end->Float.toInt}
+                createEvent=?createEvent
               />
             )
             ->React.array}

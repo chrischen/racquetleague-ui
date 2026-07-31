@@ -210,14 +210,18 @@ input CoordsInput {
 
 """
 One physical court's open hours for a day, with scraped enrichment. Every
-   field beyond `intervals` is optional (absent = the site didn't expose it).
+   field beyond `intervals` is optional (absent = we couldn't determine it).
 """
 type CourtAvailability {
   courtType: CourtType
   intervals: [AvailabilityInterval!]!
   name: String
 
-  """Booking price for this court, in yen, when the site exposed it."""
+  """
+  Price to book this court for an hour, in yen. Not scraped per slot: it's
+       stamped from the venue's stored rate schedule (see PriceAgent), so it's
+       absent when no schedule covers this court at these hours.
+  """
   price: Int
 }
 
@@ -767,6 +771,7 @@ type Mutation {
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   deleteAvailabilityForTimeWindow(input: DeleteAvailabilityForTimeWindowInput!): DeleteAvailabilityForTimeWindowResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
+  inviteToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!

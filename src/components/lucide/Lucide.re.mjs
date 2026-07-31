@@ -113,6 +113,8 @@ var Trash2 = {};
 
 var RotateCcw = {};
 
+var Dices = {};
+
 var RefreshCw = {};
 
 var Loader2 = {};
@@ -238,6 +240,7 @@ export {
   ArrowDown ,
   Trash2 ,
   RotateCcw ,
+  Dices ,
   RefreshCw ,
   Loader2 ,
   MinusCircle ,

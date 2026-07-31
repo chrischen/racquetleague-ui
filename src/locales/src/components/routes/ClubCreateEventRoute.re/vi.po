@@ -200,12 +200,12 @@ msgstr "Đang chờ phê duyệt"
 msgid "Brief description of the club..."
 msgstr "Mô tả ngắn về câu lạc bộ..."
 
-#: src/components/pages/CreateEventPage.re.mjs:246
+#: src/components/pages/CreateEventPage.re.mjs:247
 msgid "Bulk create"
 msgstr "Tạo hàng loạt"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:235
+#: src/components/pages/CreateEventPage.re.mjs:236
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -279,7 +279,7 @@ msgid "Create Club"
 msgstr "Tạo câu lạc bộ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1409
-#: src/components/pages/CreateEventPage.re.mjs:241
+#: src/components/pages/CreateEventPage.re.mjs:242
 msgid "Create Event"
 msgstr "Tạo sự kiện"
 
@@ -437,7 +437,7 @@ msgstr "Liệt kê sự kiện của bạn công khai để giúp lấp đầy c
 msgid "Loading conversation history..."
 msgstr "Đang tải lịch sử hội thoại..."
 
-#: src/components/pages/CreateEventPage.re.mjs:269
+#: src/components/pages/CreateEventPage.re.mjs:270
 msgid "Location"
 msgstr "Địa điểm"
 

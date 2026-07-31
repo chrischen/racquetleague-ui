@@ -253,8 +253,19 @@ let make = (~debug: bool=false) => {
     if isDirty && currentRoundInt > -1 {
       // Only auto-regenerate for competitive and mixed strategies
       let shouldAutoRegenerate = switch strategy {
+      // Skill-sensitive strategies: new scores move ratings, so future rounds
+      // are stale and worth rebuilding.
       | CompetitivePlus | Competitive | Mixed => true
-      | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
+      // This screen generates through the synchronous greedy engine, so a
+      // solver preset (which can only get here from an event configured in
+      // EventManager) would silently fall back. Leave those rounds alone.
+      | RoundRobin
+      | Random
+      | DUPR
+      | NoveltyRoundRobin
+      | SolverRoundRobin
+      | SolverRandomBalanced
+      | SolverCompetitivePlus => false
       }
 
       // Check if any future rounds have scores recorded
@@ -968,6 +979,7 @@ let make = (~debug: bool=false) => {
               strategy
               onStrategyChange={handleStrategyChange}
               onGenerateDraws={handleGenerateDraws}
+              allowSolverStrategies={false}
               isInitiallyExpanded={true}
               highlight={isDirty}
               futureRoundsHaveScores
@@ -995,6 +1007,7 @@ let make = (~debug: bool=false) => {
                       strategy
                       onStrategyChange={handleStrategyChange}
                       onGenerateDraws={handleGenerateDraws}
+                      allowSolverStrategies={false}
                       isInitiallyExpanded={true}
                       highlight={isDirty}
                       futureRoundsHaveScores
@@ -1157,6 +1170,7 @@ let make = (~debug: bool=false) => {
                           strategy
                           onStrategyChange={handleStrategyChange}
                           onGenerateDraws={handleGenerateDraws}
+                          allowSolverStrategies={false}
                           isInitiallyExpanded={currentRoundInt == 0}
                           highlight={isDirty}
                           futureRoundsHaveScores

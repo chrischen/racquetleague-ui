@@ -9,6 +9,14 @@
 
 let ts = Lingui.UtilString.t
 
+// Day/activity context for the card's primary action — creating an event in
+// one of the card's openings. The card itself only knows the venue and hours,
+// so surfaces that stand for a concrete day opt in by passing this.
+type createEventContext = {
+  localDate: string, // "YYYY-MM-DD"
+  activityId?: string,
+}
+
 @react.component
 let make = (
   ~court: TimeWindow.courtAvailability,
@@ -17,7 +25,10 @@ let make = (
   ~fromHour: option<int>=?,
   ~toHour: option<int>=?,
   ~className: string="rounded-md border border-cyan-100 bg-cyan-50/30 px-3 py-2.5 dark:border-cyan-900/50 dark:bg-cyan-950/10",
-  // Optional primary action alongside the reserve link — used where a court
+  // Primary action: link to the create-event page prefilled with this venue,
+  // the day, the activity, and the card's longest continuous opening.
+  ~createEvent: option<createEventContext>=?,
+  // Optional contextual action alongside the reserve link — used where a court
   // opening can be applied to something (e.g. moving an event onto this time).
   // Omitted, the card stays read-only.
   ~onSelect: option<TimeWindow.courtAvailability => unit>=?,
@@ -73,6 +84,26 @@ let make = (
     },
   )
 
+  // Create-event link prefilled with this venue and the longest continuous
+  // opening (earliest wins a tie).
+  let createEventUrl = createEvent->Option.flatMap(ctx =>
+    spans
+    ->Array.reduce(None, (acc: option<TimeWindow.playIntent>, s) =>
+      switch acc {
+      | Some(best) if best.end -. best.start >= s.end -. s.start => acc
+      | _ => Some(s)
+      }
+    )
+    ->Option.map(span => {
+      let params = Js.Dict.empty()
+      params->Js.Dict.set("locationId", court.location.id)
+      ctx.activityId->Option.forEach(id => params->Js.Dict.set("activityId", id))
+      params->Js.Dict.set("startDateTime", ctx.localDate ++ "T" ++ TimeWindow.hourLabel(span.start))
+      params->Js.Dict.set("endTime", TimeWindow.hourLabel(span.end))
+      "/events/create?" ++ Router.createSearchParams(params)->Router.SearchParams.toString
+    })
+  )
+
   <article className>
     <div className="flex items-start justify-between gap-3">
       <span className="min-w-0">
@@ -111,6 +142,16 @@ let make = (
         </span>
       </span>
       <span className="flex flex-shrink-0 items-center gap-1.5">
+        {switch createEventUrl {
+        | Some(url) =>
+          <LangProvider.Router.Link
+            to=url
+            className="inline-flex items-center gap-1 rounded-md border border-[#a3d949] bg-[#bdf25d] px-2.5 py-1.5 text-[10px] font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]">
+            <Lucide.CalendarPlus size=10 \"aria-hidden"="true" />
+            {(ts`Create event`)->React.string}
+          </LangProvider.Router.Link>
+        | None => React.null
+        }}
         {switch onSelect {
         | Some(onSelect) =>
           <button

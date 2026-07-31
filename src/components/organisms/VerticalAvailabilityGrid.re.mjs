@@ -847,7 +847,10 @@ function VerticalAvailabilityGrid(props) {
                                                                           qualifyingCourts.length > 0 ? JsxRuntime.jsx("div", {
                                                                                   children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
                                                                                         courtAvailability: qualifyingCourts,
-                                                                                        title: t`Courts and openings covering your full window`
+                                                                                        title: t`Courts and openings covering your full window`,
+                                                                                        createEvent: {
+                                                                                          localDate: d.isoDate
+                                                                                        }
                                                                                       }),
                                                                                   className: "mt-2 sm:ml-24"
                                                                                 }) : null

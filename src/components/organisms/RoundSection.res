@@ -336,7 +336,8 @@ let make = (
           debug
           team1History
           team2History
-          matchHistory>
+          matchHistory
+          serviceKey={matchId}>
           {[]}
         </MatchCard>
       })
@@ -389,7 +390,8 @@ let make = (
                 debug
                 team1History
                 team2History
-                matchHistory>
+                matchHistory
+                serviceKey={matchId}>
                 {children}
               </MatchCard>
             })

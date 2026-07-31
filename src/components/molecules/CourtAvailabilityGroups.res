@@ -27,6 +27,7 @@ let make = (
   // Forwarded to each card; see CourtOpeningCard. `selectLabel` is per-court so
   // callers can reflect per-card state (e.g. a pending confirmation) on just
   // the card that's in it.
+  ~createEvent: option<CourtOpeningCard.createEventContext>=?,
   ~onSelectCourt: option<TimeWindow.courtAvailability => unit>=?,
   ~selectLabel: option<TimeWindow.courtAvailability => string>=?,
   // Forwarded to each card. The collapsed header below always stays #peak — it
@@ -67,6 +68,7 @@ let make = (
           key={court.id}
           court
           spans={court.intents}
+          createEvent=?createEvent
           onSelect=?onSelectCourt
           selectLabel=?{selectLabel->Option.map(f => f(court))}
           countBasis
@@ -158,6 +160,7 @@ let make = (
                   key={court.id}
                   court
                   spans={court.intents}
+                  createEvent=?createEvent
                   className="bg-white/80 px-2.5 py-2.5 dark:bg-[#1e1f23]/80"
                   countBasis
                 />

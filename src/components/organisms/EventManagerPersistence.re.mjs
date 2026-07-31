@@ -5,8 +5,10 @@ import * as Rating from "../../lib/Rating.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Js_json from "rescript/lib/es6/js_json.js";
 import * as Tinybase from "tinybase";
+import * as CostModel from "../../lib/rating/solver/CostModel.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as SolverTypes from "../../lib/rating/solver/SolverTypes.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators/src/Json_Decode.re.mjs";
@@ -69,6 +71,22 @@ function saveCourtCount(eventId, courtCount) {
   eventStore.setRow("eventState", eventId, existingRow);
 }
 
+function loadDrawSeed(eventId) {
+  var eventsTable = eventStore.getTable("eventState");
+  return Core__Option.getOr(Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
+                            return Js_dict.get(row, "drawSeed");
+                          })), Js_json.decodeNumber), (function (prim) {
+                    return prim | 0;
+                  })), 1);
+}
+
+function saveDrawSeed(eventId, seed) {
+  var eventsTable = eventStore.getTable("eventState");
+  var existingRow = Core__Option.getOr(Js_dict.get(eventsTable, eventId), {});
+  existingRow["drawSeed"] = seed;
+  eventStore.setRow("eventState", eventId, existingRow);
+}
+
 function strategyToString(strategy) {
   switch (strategy) {
     case "CompetitivePlus" :
@@ -85,6 +103,12 @@ function strategyToString(strategy) {
         return "dupr";
     case "NoveltyRoundRobin" :
         return "novelty-round-robin";
+    case "SolverRoundRobin" :
+        return "solver-round-robin";
+    case "SolverRandomBalanced" :
+        return "solver-random-balanced";
+    case "SolverCompetitivePlus" :
+        return "solver-competitive-plus";
     
   }
 }
@@ -103,6 +127,15 @@ function stringToStrategy(str) {
         return "Random";
     case "round-robin" :
         return "RoundRobin";
+    case "solver-competitive" :
+    case "solver-competitive-plus" :
+        return "SolverCompetitivePlus";
+    case "solver-balanced" :
+    case "solver-random-balanced" :
+        return "SolverRandomBalanced";
+    case "solver-round-robin" :
+    case "solver-variety" :
+        return "SolverRoundRobin";
     default:
       return "CompetitivePlus";
   }
@@ -120,6 +153,95 @@ function saveStrategy(eventId, strategy) {
   var existingRow = Core__Option.getOr(Js_dict.get(eventsTable, eventId), {});
   existingRow["strategy"] = strategyToString(strategy);
   eventStore.setRow("eventState", eventId, existingRow);
+}
+
+function loadWeightConfig(eventId) {
+  var eventsTable = eventStore.getTable("eventState");
+  return Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
+                        return Js_dict.get(row, "solverWeights");
+                      })), Js_json.decodeString), CostModel.configFromJsonString);
+}
+
+function saveWeightConfig(eventId, config) {
+  var eventsTable = eventStore.getTable("eventState");
+  var existingRow = Core__Option.getOr(Js_dict.get(eventsTable, eventId), {});
+  existingRow["solverWeights"] = CostModel.configToJsonString(config);
+  eventStore.setRow("eventState", eventId, existingRow);
+}
+
+function clearWeightConfig(eventId) {
+  var eventsTable = eventStore.getTable("eventState");
+  var row = Js_dict.get(eventsTable, eventId);
+  if (row === undefined) {
+    return ;
+  }
+  var filtered = Js_dict.fromArray(Js_dict.entries(row).filter(function (param) {
+            return param[0] !== "solverWeights";
+          }));
+  eventStore.setRow("eventState", eventId, filtered);
+}
+
+function violationsDictToJsonString(dict) {
+  return JSON.stringify(Js_dict.fromArray(Js_dict.entries(dict).map(function (param) {
+                      return [
+                              param[0],
+                              param[1].map(function (v) {
+                                    return SolverTypes.toJson(v);
+                                  })
+                            ];
+                    })));
+}
+
+function violationsDictFromJsonString(str) {
+  try {
+    return Core__Option.mapOr(Js_json.decodeObject(JSON.parse(str)), {}, (function (obj) {
+                  return Js_dict.fromArray(Js_dict.entries(obj).map(function (param) {
+                                    return [
+                                            param[0],
+                                            Core__Option.mapOr(Js_json.decodeArray(param[1]), [], (function (arr) {
+                                                    return Core__Array.filterMap(arr, (function (v) {
+                                                                  return SolverTypes.fromJson(v);
+                                                                }));
+                                                  }))
+                                          ];
+                                  }).filter(function (param) {
+                                  return param[1].length > 0;
+                                }));
+                }));
+  }
+  catch (exn){
+    return {};
+  }
+}
+
+function saveViolationsCell(eventId, cell, dict) {
+  var eventsTable = eventStore.getTable("eventState");
+  var existingRow = Core__Option.getOr(Js_dict.get(eventsTable, eventId), {});
+  existingRow[cell] = violationsDictToJsonString(dict);
+  eventStore.setRow("eventState", eventId, existingRow);
+}
+
+function loadViolationsCell(eventId, cell) {
+  var eventsTable = eventStore.getTable("eventState");
+  return Core__Option.mapOr(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
+                        return Js_dict.get(row, cell);
+                      })), Js_json.decodeString), {}, violationsDictFromJsonString);
+}
+
+function saveSolverMatchViolations(eventId, dict) {
+  saveViolationsCell(eventId, "solverMatchViolations", dict);
+}
+
+function loadSolverMatchViolations(eventId) {
+  return loadViolationsCell(eventId, "solverMatchViolations");
+}
+
+function saveSolverRoundViolations(eventId, dict) {
+  saveViolationsCell(eventId, "solverRoundViolations", dict);
+}
+
+function loadSolverRoundViolations(eventId) {
+  return loadViolationsCell(eventId, "solverRoundViolations");
 }
 
 function loadCheckedInPlayerIds(eventId) {
@@ -578,10 +700,23 @@ export {
   clearEventData ,
   loadCourtCount ,
   saveCourtCount ,
+  loadDrawSeed ,
+  saveDrawSeed ,
   strategyToString ,
   stringToStrategy ,
   loadStrategy ,
   saveStrategy ,
+  loadWeightConfig ,
+  saveWeightConfig ,
+  clearWeightConfig ,
+  violationsDictToJsonString ,
+  violationsDictFromJsonString ,
+  saveViolationsCell ,
+  loadViolationsCell ,
+  saveSolverMatchViolations ,
+  loadSolverMatchViolations ,
+  saveSolverRoundViolations ,
+  loadSolverRoundViolations ,
   loadCheckedInPlayerIds ,
   saveCheckedInPlayerIds ,
   hydratePlayerWithRsvpData ,

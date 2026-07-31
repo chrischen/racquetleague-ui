@@ -109,6 +109,7 @@ function replaceAvailabilityInSlot(availability, slotDraft, slotStart, slotEnd) 
 
 function CourtPseudoEventRow(props) {
   var onAvailabilityChange = props.onAvailabilityChange;
+  var createEvent = props.createEvent;
   var __hasBottomBorder = props.hasBottomBorder;
   var __isLastInGroup = props.isLastInGroup;
   var __players = props.players;
@@ -571,7 +572,8 @@ function CourtPseudoEventRow(props) {
                                                       court: court,
                                                       spans: param.spans,
                                                       fromHour: band.start | 0,
-                                                      toHour: band.end | 0
+                                                      toHour: band.end | 0,
+                                                      createEvent: createEvent
                                                     }, court.id);
                                         })
                                   ],

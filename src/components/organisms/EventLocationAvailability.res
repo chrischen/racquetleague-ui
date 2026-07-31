@@ -69,6 +69,10 @@ module Fragment = %relay(`
   }
 `)
 
+// The response must select everything a move invalidates, or Relay keeps
+// rendering the stale store: the event page's location card (its `location`
+// fields + LocationMap_location), and this component's own fragment, whose
+// `courtAvailability` is scoped to the (possibly re-homed) venue-day.
 module UpdateMutation = %relay(`
   mutation EventLocationAvailabilityUpdateMutation(
     $eventId: ID!
@@ -79,6 +83,19 @@ module UpdateMutation = %relay(`
         id
         startDate
         endDate
+        location {
+          id
+          name
+          details
+          address
+          links
+          coords {
+            lat
+            lng
+          }
+          ...LocationMap_location
+        }
+        ...EventLocationAvailability_event
       }
     }
   }

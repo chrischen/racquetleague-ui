@@ -141,6 +141,7 @@ let make = (
           players
           isLastInGroup=isLastFeedItem
           hasBottomBorder=false
+          createEvent={CourtOpeningCard.localDate: localDate, activityId: activityId}
           onAvailabilityChange
         />
       }

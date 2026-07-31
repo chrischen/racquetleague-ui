@@ -13,79 +13,79 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:53
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:210
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:218
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:515
+#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:54
+#: src/components/molecules/CourtOpeningCard.re.mjs:56
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:211
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} court"
 msgstr "{0} 场地"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:212
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:213
 msgid "{0} courts"
 msgstr "{0} 场地"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
 msgid "{0} location"
 msgstr "{0} 场馆"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:216
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:217
 msgid "{0} locations"
 msgstr "{0} 场馆"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:516
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
 msgid "{0} other player available in this slot"
 msgstr "此时段还有 {0} 位球员可用"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:517
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:518
 msgid "{0} other players available in this slot"
 msgstr "此时段还有 {0} 位球员可用"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:219
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
 msgid "{0} player"
 msgstr "{0} 位球员"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:220
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:221
 msgid "{0} players"
 msgstr "{0} 位球员"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:199
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
 msgid "{first} + {0} more"
 msgstr "{first} + 另 {0} 位"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:284
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:285
 msgid "{hs}h"
 msgstr "{hs}小时"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:286
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
 msgid "{hs}h {ms}m"
 msgstr "{hs}小时 {ms}分钟"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:214
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:215
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:46
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:282
+#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:283
 msgid "{ms}m"
 msgstr "{ms}分钟"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:40
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:206
+#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:207
 msgid "{n} indoor"
 msgstr "{n}个室内场地"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:208
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:209
 msgid "{n} outdoor"
 msgstr "{n}个室外场地"
 
@@ -93,35 +93,39 @@ msgstr "{n}个室外场地"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:380
 msgid "Available"
 msgstr "可用"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:433
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:434
 msgid "Cancel editing availability"
 msgstr "取消编辑可用时间"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:200
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:201
 msgid "Courts available"
 msgstr "可用场地"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:424
+#: src/components/molecules/CourtOpeningCard.re.mjs:139
+msgid "Create event"
+msgstr "创建赛事"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:425
 msgid "Drag or resize within"
 msgstr "在范围内拖动或调整大小"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:379
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:380
 msgid "Edit"
 msgstr "编辑"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Edit time"
 msgstr "编辑时间"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:469
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:470
 msgid "Full slot"
 msgstr "时段已满"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:375
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Mark available"
 msgstr "标记为空闲"
 
@@ -133,19 +137,19 @@ msgstr "球员可用时间热力图"
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:459
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:460
 msgid "Remove from slot"
 msgstr "从时段中移除"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:122
+#: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "预订"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:488
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:489
 msgid "Save availability"
 msgstr "保存可用时间"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:454
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:455
 msgid "Tap to add time in this slot"
 msgstr "点击在此时段添加时间"
 
@@ -153,15 +157,15 @@ msgstr "点击在此时段添加时间"
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:113
+#: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "使用该选项"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:341
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:342
 msgid "You:"
 msgstr "您："
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:420
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:421
 msgid "Your availability in this slot"
 msgstr "您在此时段的可用时间"
 

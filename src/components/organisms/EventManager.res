@@ -552,6 +552,85 @@ let make = (
   // Match generation strategy
   let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
 
+  // The event's draw seed. Solver generation is a pure function of (players,
+  // history, strategy, weights, courts, seed), so with a fixed seed "reset"
+  // restores the canonical round for the current state — idempotent until
+  // something real changes. The dice button mints a new seed for a fresh deal.
+  let (drawSeed, setDrawSeed) = React.useState(() => 1)
+
+  // Every solver path derives from this one string (plus the absolute round
+  // index, added per round inside SolverRounds). Deliberately free of
+  // startRoundIndex: a block generating rounds 0-9 and a later reset of round
+  // 3 must feed the identical PRNG stream for round 3, or reset could never
+  // reproduce what generation produced.
+  let generationSeed = data.id ++ ":" ++ drawSeed->Int.toString
+
+  // Mint a new seed. Applying it goes through the usual settings flow: the
+  // "Update Rounds Below" button highlights and rebuilds the future rounds.
+  let handleNewSeed = () => {
+    let next = Js.Math.random_int(1, 100000)
+    setDrawSeed(_ => next)
+    EventManagerPersistence.saveDrawSeed(data.id, next)
+    setIsDirty(_ => true)
+  }
+
+  // Solver weight configuration for the beta strategies. `None` = use the
+  // strategy's preset; `Some` = the user has adjusted it for this event.
+  let (weightConfig: option<CostModel.uiWeightConfig>, setWeightConfig) = React.useState(() => None)
+
+  // Draw generation is asynchronous on the solver path (the wasm loads lazily
+  // on first use), so the generate controls need a pending state.
+  let (isGenerating, setIsGenerating) = React.useState(() => false)
+
+  // Bumped whenever *recorded history* changes — a score entered, a match
+  // deleted, a seed adjusted — i.e. anything that moves player ratings and so
+  // makes the future rounds stale.
+  //
+  // Deliberately separate from `isDirty`, which also fires on settings changes
+  // (strategy, court count, weights). Auto-regenerating on those made a newly
+  // picked preset apply itself before the user pressed "Update Rounds Below",
+  // leaving the button with nothing to do. A counter rather than a flag, so two
+  // scores in a row both trigger.
+  let (historyRevision, setHistoryRevision) = React.useState(() => 0)
+  let bumpHistoryRevision = () => setHistoryRevision(prev => prev + 1)
+
+  // Only the newest generation request may write to `rounds`. Without this a
+  // slow first solve — the one that also waits on the ~3 MB wasm download — can
+  // land after a later request and overwrite it with a stale draw.
+  let generationRequestRef = React.useRef(0)
+  let beginGeneration = () => {
+    generationRequestRef.current = generationRequestRef.current + 1
+    generationRequestRef.current
+  }
+  let isLatestGeneration = (token: int) => generationRequestRef.current == token
+
+  // Structured warnings from the last solver run: match id -> reasons the match
+  // had to break a rule, plus per-round violations and a one-off notice when
+  // the optimizer was unavailable.
+  let (
+    solverMatchViolations: Js.Dict.t<array<SolverTypes.violation>>,
+    setSolverMatchViolations,
+  ) = React.useState(() => Js.Dict.empty())
+  let (solverRoundViolations: Js.Dict.t<array<SolverTypes.violation>>, setSolverRoundViolations) =
+    React.useState(() => Js.Dict.empty())
+
+  // Write-through setters: fallback warnings describe the stored rounds, so
+  // every update also lands in TinyBase and survives a reload. (The plain
+  // setters are reserved for restoring loaded state on mount.)
+  let setAndSaveSolverMatchViolations = updater =>
+    setSolverMatchViolations(prev => {
+      let next = updater(prev)
+      EventManagerPersistence.saveSolverMatchViolations(data.id, next)
+      next
+    })
+  let setAndSaveSolverRoundViolations = updater =>
+    setSolverRoundViolations(prev => {
+      let next = updater(prev)
+      EventManagerPersistence.saveSolverRoundViolations(data.id, next)
+      next
+    })
+  let (solverNoticeDismissed, setSolverNoticeDismissed) = React.useState(() => true)
+
   // Rating adjustment history (chronological list of adjustments with round metadata)
   let (ratingAdjustmentHistory, setRatingAdjustmentHistory) = React.useState(() => [])
 
@@ -611,6 +690,36 @@ let make = (
     // Load match generation strategy from TinyBase
     let storedStrategy = EventManagerPersistence.loadStrategy(data.id)
     setStrategy(_ => storedStrategy)
+
+    // Draw seed (see the dice button in the generation controls)
+    setDrawSeed(_ => EventManagerPersistence.loadDrawSeed(data.id))
+
+    // Restore fallback warnings for the rounds already on disk; they are keyed
+    // by persisted match ids / round indices, so they reattach cleanly.
+    setSolverMatchViolations(_ => EventManagerPersistence.loadSolverMatchViolations(data.id))
+    setSolverRoundViolations(_ => EventManagerPersistence.loadSolverRoundViolations(data.id))
+
+    // Solver weight overrides, if the user has adjusted them for this event.
+    // An earlier flow wrote the strategy's nominal slider position on every
+    // selection; a stored config that merely equals that nominal is not a
+    // customisation, and treating it as one would pin the event to the slider
+    // mapping instead of the strategy's tuned profile.
+    setWeightConfig(_ =>
+      EventManagerPersistence.loadWeightConfig(data.id)->Option.flatMap(config => {
+        // Nominal-only configs are not customisations. Accept the current
+        // nominal and every value the old auto-store flow ever wrote (0.15 /
+        // 0.5 / 0.85): an event that stored the then-nominal 0.5 for Random
+        // Balanced must not stay pinned to mid-axis slider semantics after
+        // the preset moved.
+        let nominal = config.qualityVsVariety
+        let isNominal =
+          nominal == CostModel.presetConfig(storedStrategy).qualityVsVariety ||
+          nominal == 0.15 ||
+          nominal == 0.5 ||
+          nominal == 0.85
+        config.advanced->Option.isNone && isNominal ? None : Some(config)
+      })
+    )
 
     // Load checked-in player IDs from TinyBase
     let storedCheckedInIds = EventManagerPersistence.loadCheckedInPlayerIds(data.id)
@@ -779,59 +888,6 @@ let make = (
     playersWithCounts->Array.map(p => (p.id, p))->Js.Dict.fromArray
   }, [playersWithCounts])
 
-  // Auto-regenerate future rounds when dirty for Competitive/Mixed strategies
-  // Only triggers when isDirty changes (not when rounds change)
-  React.useEffect1(() => {
-    if isDirty && currentRoundInt > -1 {
-      // Only auto-regenerate for competitive and mixed strategies
-      let shouldAutoRegenerate = switch strategy {
-      | CompetitivePlus | Competitive | Mixed => true
-      | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
-      }
-
-      // Check if any future rounds have scores recorded
-      // If so, we should NOT auto-regenerate to avoid overwriting entered scores
-      if shouldAutoRegenerate && !futureRoundsHaveScores {
-        Js.log("Auto-regenerating future rounds after current round changes")
-
-        // Use updater function to access current rounds without depending on them
-        updateRounds(currentRounds => {
-          // Regenerate only future rounds (after current round)
-          let pastAndCurrentRounds =
-            currentRounds->Array.filterWithIndex((_, i) => i + 1 <= currentRoundInt)
-          let numberOfRoundsToGenerate = 10
-
-          let newRounds = generateRounds(
-            ~startRoundNumber=currentRoundInt + 1,
-            ~numberOfRounds=numberOfRoundsToGenerate,
-            ~availablePlayers=checkedInPlayers,
-            ~completedRounds=pastAndCurrentRounds,
-            ~strategy,
-            ~courtCount,
-            ~teamConstraints?,
-            ~startTime=eventStartTime,
-            (),
-          )
-
-          Array.concat(pastAndCurrentRounds, newRounds)
-        })
-
-        setIsDirty(_ => false)
-
-        // Reset dirty state after 2 seconds
-        // let timeoutId = setTimeout(() => {
-        //   setIsDirty(_ => false)
-        // }, 2000)
-
-        None
-      } else {
-        None
-      }
-    } else {
-      None
-    }
-  }, [isDirty])
-
   // === EVENT HANDLERS ===
 
   // Handle resetting a round - regenerates matches for specified round
@@ -849,30 +905,60 @@ let make = (
       ->toPlayerStateWithAdjustments(~players, ~adjustments=adjustmentsUpToCurrentRound)
       ->Array.filter(p => checkedInPlayerIds->Set.has(p.id))
 
-    generateSingleRound(
+    // Solver-aware: dispatches to the ILP for the beta presets and to the
+    // greedy engine for everything else (and as a fallback). Async, so show
+    // the same pending state as generation; the token keeps a stale full
+    // generation from clobbering the reset (and vice versa).
+    let token = beginGeneration()
+    setIsGenerating(_ => true)
+    SolverRounds.generateSingleRound(
       ~roundIndex,
       ~rounds,
       ~availablePlayers=playersForReset,
       ~strategy,
       ~courtCount,
+      ~startTime=eventStartTime,
+      ~weightConfig?,
       ~teamConstraints?,
       ~avoidAllPlayers,
       ~genderMixed,
-      ~startTime=eventStartTime,
-    )->Option.forEach(newRound => {
-      // Replace just this round
-      updateRounds(rounds => {
-        rounds->Array.mapWithIndex(
-          (round, idx) => {
-            if idx == roundIndex {
-              newRound
-            } else {
-              round
-            }
-          },
-        )
-      })
+      // Reset restores the canonical round for the current seed, strategy and
+      // state: idempotent until a score, roster change or edit moves the
+      // inputs. A different deal is the dice button's job.
+      ~seed=generationSeed,
+      (),
+    )
+    ->Promise.thenResolve(outcome =>
+      if isLatestGeneration(token) {
+        outcome->Option.forEach(outcome => {
+          setAndSaveSolverMatchViolations(prev => {
+            let merged = Js.Dict.fromArray(prev->Js.Dict.entries)
+            outcome.matchViolations
+            ->Js.Dict.entries
+            ->Array.forEach(((id, reasons)) => merged->Js.Dict.set(id, reasons))
+            merged
+          })
+          setAndSaveSolverRoundViolations(prev => {
+            let merged = Js.Dict.fromArray(prev->Js.Dict.entries)
+            merged->Js.Dict.set(roundIndex->Int.toString, outcome.roundViolations)
+            merged
+          })
+          updateRounds(rounds =>
+            rounds->Array.mapWithIndex((round, idx) => idx == roundIndex ? outcome.matches : round)
+          )
+        })
+      }
+    )
+    ->Promise.catch(err => {
+      Js.Console.error2("[EventManager] round reset failed:", err)
+      Promise.resolve()
     })
+    ->Promise.finally(() =>
+      if isLatestGeneration(token) {
+        setIsGenerating(_ => false)
+      }
+    )
+    ->ignore
   }
 
   // Function to save adjusted player seeds
@@ -929,6 +1015,7 @@ let make = (
 
       // Mark as dirty to trigger regeneration prompt
       setIsDirty(_ => true)
+      bumpHistoryRevision()
 
       updatedHistory
     })
@@ -938,8 +1025,10 @@ let make = (
   let handleMatchCompleted = (matchId: string, completedMatch: CompletedMatch.t<'a>) => {
     let (match, score) = completedMatch
 
-    // Mark as dirty only if scores were actually provided and strategy requires auto-regeneration
+    // A recorded score moves ratings, so the future rounds are now stale.
+    // Whether that triggers a rebuild is the effect's call, not ours.
     if score->Option.isSome {
+      bumpHistoryRevision()
       switch strategy {
       | CompetitivePlus | Competitive | Mixed => setIsDirty(_ => true)
       | _ => ()
@@ -984,6 +1073,7 @@ let make = (
           // Only mark as dirty if deleting from current or previous rounds
           // (not future rounds, as those don't affect player states yet)
           setIsDirty(_ => true)
+          bumpHistoryRevision()
           round->Array.filter(m => m.id != matchId)
         } else {
           round
@@ -1036,31 +1126,51 @@ let make = (
     let currentRoundPlayers =
       playersBeforeRound->Array.filter(p => currentRoundPlayerIds->Set.has(p.id))
 
-    // Generate a single new round with the correctly calculated player state
-    // Use only the players from the current round and the selected strategy
-    generateSingleRound(
+    // Re-draw the same participants with the *selected* strategy (this used to
+    // hardcode CompetitivePlus). A rebalance is a deliberate "deal me a
+    // different arrangement", so the seed varies per press rather than
+    // reproducing the round that was just rejected.
+    SolverRounds.generateSingleRound(
       ~roundIndex,
       ~rounds,
       ~availablePlayers=currentRoundPlayers,
-      ~strategy=CompetitivePlus,
+      ~strategy,
       ~courtCount,
+      ~startTime=eventStartTime,
+      ~weightConfig?,
       ~teamConstraints?,
       ~avoidAllPlayers,
-      ~startTime=eventStartTime,
-    )->Option.forEach(newRound => {
-      // Replace just this round
-      updateRounds(rounds => {
-        rounds->Array.mapWithIndex(
-          (round, idx) => {
-            if idx == roundIndex {
-              newRound
-            } else {
-              round
-            }
-          },
+      ~seed=data.id ++
+      ":rebalance:" ++
+      roundIndex->Int.toString ++
+      ":" ++
+      Js.Date.now()->Float.toString,
+      (),
+    )
+    ->Promise.thenResolve(outcome =>
+      outcome->Option.forEach(outcome => {
+        setAndSaveSolverMatchViolations(prev => {
+          let merged = Js.Dict.fromArray(prev->Js.Dict.entries)
+          outcome.matchViolations
+          ->Js.Dict.entries
+          ->Array.forEach(((id, reasons)) => merged->Js.Dict.set(id, reasons))
+          merged
+        })
+        setAndSaveSolverRoundViolations(prev => {
+          let merged = Js.Dict.fromArray(prev->Js.Dict.entries)
+          merged->Js.Dict.set(roundIndex->Int.toString, outcome.roundViolations)
+          merged
+        })
+        updateRounds(rounds =>
+          rounds->Array.mapWithIndex((round, idx) => idx == roundIndex ? outcome.matches : round)
         )
       })
+    )
+    ->Promise.catch(err => {
+      Js.Console.error2("[EventManager] round rebalance failed:", err)
+      Promise.resolve()
     })
+    ->ignore
   }
 
   let handleRebalanceMatch = (roundIndex: int, matchId: string) => {
@@ -1085,123 +1195,259 @@ let make = (
       let matchPlayersWithState =
         playersBeforeRound->Array.filter(p => matchPlayerIds->Set.has(p.id))
 
-      // Generate a new match with only these players
-      // Since we're generating a "round" with just these players, it will create one match
-      generateSingleRound(
+      // Re-pair just these four players with the selected strategy. A 4-player
+      // "round" on one court has exactly three pairings; the solver picks the
+      // best under the current weights, with a fresh seed per press.
+      SolverRounds.generateSingleRound(
         ~roundIndex,
         ~rounds,
         ~availablePlayers=matchPlayersWithState,
         ~strategy,
         ~courtCount=1, // Only one match
+        ~startTime=eventStartTime,
+        ~weightConfig?,
         ~teamConstraints?,
         ~avoidAllPlayers=[],
-        ~startTime=eventStartTime,
-      )->Option.forEach(newRound => {
-        // Get the new match from the generated round
-        newRound
-        ->Array.get(0)
-        ->Option.forEach(
-          newMatchEntity => {
-            // Replace just this match in the round
-            updateRounds(
-              rounds => {
-                rounds->Array.mapWithIndex(
-                  (round, idx) => {
-                    if idx == roundIndex {
-                      round->Array.map(
-                        matchEntity => {
-                          if matchEntity.id == matchId {
-                            // Keep the same ID and score, just update the match
-                            {...matchEntity, match: newMatchEntity.match, synced: false}
-                          } else {
-                            matchEntity
-                          }
-                        },
-                      )
-                    } else {
-                      round
-                    }
-                  },
-                )
-              },
-            )
-          },
-        )
+        ~seed=data.id ++ ":rebalance:" ++ matchId ++ ":" ++ Js.Date.now()->Float.toString,
+        (),
+      )
+      ->Promise.thenResolve(outcome =>
+        outcome
+        ->Option.flatMap(outcome => outcome.matches->Array.get(0)->Option.map(m => (outcome, m)))
+        ->Option.forEach(((outcome, newMatchEntity)) => {
+          // The entity id is retained (scores and UI state hang off it), so any
+          // violation reported under the freshly generated id is re-keyed.
+          setAndSaveSolverMatchViolations(prev => {
+            let merged =
+              prev
+              ->Js.Dict.entries
+              ->Array.filter(((id, _)) => id != matchId)
+              ->Js.Dict.fromArray
+            switch outcome.matchViolations->Js.Dict.get(newMatchEntity.id) {
+            | Some(reasons) => merged->Js.Dict.set(matchId, reasons)
+            | None => ()
+            }
+            merged
+          })
+          updateRounds(
+            rounds => {
+              rounds->Array.mapWithIndex(
+                (round, idx) => {
+                  if idx == roundIndex {
+                    round->Array.map(
+                      matchEntity => {
+                        if matchEntity.id == matchId {
+                          // Keep the same ID and score, just update the match
+                          {...matchEntity, match: newMatchEntity.match, synced: false}
+                        } else {
+                          matchEntity
+                        }
+                      },
+                    )
+                  } else {
+                    round
+                  }
+                },
+              )
+            },
+          )
+        })
+      )
+      ->Promise.catch(err => {
+        Js.Console.error2("[EventManager] match rebalance failed:", err)
+        Promise.resolve()
       })
+      ->ignore
     })
   }
 
-  // Handle draw generation using Rating.generateRounds (tail-call recursive)
+  // Generate a block of rounds. Async because the solver strategies lazy-load
+  // their wasm; the legacy strategies resolve immediately inside
+  // `SolverRounds.generateRounds`, which delegates straight to the greedy
+  // engine for them.
+  let generateRoundBlock = async (
+    ~startRoundIndex: int,
+    ~completedRounds: array<array<completedMatchEntity<'a>>>,
+    ~numberOfRounds: int,
+  ) => {
+    let result = await SolverRounds.generateRounds(
+      ~numberOfRounds,
+      ~availablePlayers=checkedInPlayers,
+      ~completedRounds,
+      ~strategy,
+      ~courtCount,
+      ~startTime=eventStartTime,
+      ~weightConfig?,
+      ~teamConstraints?,
+      ~avoidAllPlayers,
+      ~startRoundIndex,
+      ~seed=generationSeed,
+      (),
+    )
+
+    // Replace, rather than merge: violations describe the rounds that exist now.
+    setAndSaveSolverMatchViolations(_ => SolverRounds.mergeViolations(result))
+    setAndSaveSolverRoundViolations(_ => {
+      let byRound = Js.Dict.empty()
+      result.rounds->Array.forEachWithIndex((round, index) =>
+        if round.roundViolations->Array.length > 0 {
+          byRound->Js.Dict.set((startRoundIndex + index)->Int.toString, round.roundViolations)
+        }
+      )
+      byRound
+    })
+    setSolverNoticeDismissed(_ => !result.fellBackToGreedy)
+
+    result->SolverRounds.toRounds
+  }
+
+  // Handle draw generation
   let handleGenerateDraws = () => {
     let numberOfRoundsToGenerate = 10
+    let token = beginGeneration()
+    setIsGenerating(_ => true)
 
-    if rounds->Array.length == 0 || currentRoundInt == 0 {
-      // Initial generation or regeneration from round 0: start from round 1
-      // When on round 0, playersWithCounts already includes round 0 adjustments applied by toPlayerStateWithAdjustments
-      // Filter to checked-in players only
-      let playersForGeneration = checkedInPlayers
+    let run = async () => {
+      // Let the spinner reach the screen before the first (synchronous) solve.
+      await SolverRounds.afterPaint()
 
-      // When on round 0, no rounds are completed yet, so pass empty array
-      let pastAndCurrentRounds = rounds->Array.filterWithIndex((_, i) => i + 1 <= currentRoundInt)
+      if rounds->Array.length == 0 || currentRoundInt == 0 {
+        // Initial generation or regeneration from round 0: start from round 1.
+        // When on round 0, playersWithCounts already includes round 0 adjustments
+        // applied by toPlayerStateWithAdjustments.
+        let pastAndCurrentRounds = rounds->Array.filterWithIndex((_, i) => i + 1 <= currentRoundInt)
 
-      let newRounds = generateRounds(
-        ~startRoundNumber=1,
-        ~numberOfRounds=numberOfRoundsToGenerate,
-        ~availablePlayers=playersForGeneration,
-        ~completedRounds=pastAndCurrentRounds,
-        ~strategy,
-        ~courtCount,
-        ~teamConstraints?,
-        ~avoidAllPlayers,
-        ~startTime=eventStartTime,
-        (),
-      )
-      updateRounds(_ => newRounds)
-      setCurrentRoundInt(_ => 1)
-      EventManagerPersistence.saveCurrentRound(data.id, 1)
+        let newRounds = await generateRoundBlock(
+          ~startRoundIndex=0,
+          ~completedRounds=pastAndCurrentRounds,
+          ~numberOfRounds=numberOfRoundsToGenerate,
+        )
+        if isLatestGeneration(token) {
+          updateRounds(_ => newRounds)
+          setCurrentRoundInt(_ => 1)
+          EventManagerPersistence.saveCurrentRound(data.id, 1)
 
-      // Clear rating adjustments for future rounds (round 1 and beyond)
-      setRatingAdjustmentHistory(prevHistory => {
-        let filteredHistory = prevHistory->Array.filter(adj => adj.appliedAtRound < 0)
-        EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory)
-        filteredHistory
-      })
+          // Clear rating adjustments for future rounds (round 1 and beyond)
+          setRatingAdjustmentHistory(prevHistory => {
+            let filteredHistory = prevHistory->Array.filter(adj => adj.appliedAtRound < 0)
+            EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory)
+            filteredHistory
+          })
 
-      // Reset dirty flag after regeneration
-      setIsDirty(_ => false)
-    } else {
-      // Regeneration: keep past/current rounds, replace future rounds
-      let pastAndCurrentRounds = rounds->Array.filterWithIndex((_, i) => i + 1 <= currentRoundInt)
+          setIsDirty(_ => false)
+        }
+      } else {
+        // Regeneration: keep past/current rounds, replace future rounds.
+        // checkedInPlayers already reflects state through the current round.
+        let pastAndCurrentRounds = rounds->Array.filterWithIndex((_, i) => i + 1 <= currentRoundInt)
 
-      // Use players with state updated through current round (includes play counts and rating adjustments)
-      // This ensures future rounds are generated based on the actual state at end of current round
-      let newRounds = generateRounds(
-        ~startRoundNumber=currentRoundInt + 1,
-        ~numberOfRounds=numberOfRoundsToGenerate,
-        ~availablePlayers=checkedInPlayers,
-        ~completedRounds=pastAndCurrentRounds,
-        ~strategy,
-        ~courtCount,
-        ~teamConstraints?,
-        ~avoidAllPlayers,
-        ~startTime=eventStartTime,
-        (),
-      )
+        let newRounds = await generateRoundBlock(
+          ~startRoundIndex=currentRoundInt,
+          ~completedRounds=pastAndCurrentRounds,
+          ~numberOfRounds=numberOfRoundsToGenerate,
+        )
 
-      updateRounds(_ => Array.concat(pastAndCurrentRounds, newRounds))
+        if isLatestGeneration(token) {
+          updateRounds(_ => Array.concat(pastAndCurrentRounds, newRounds))
 
-      // Clear rating adjustments for future rounds (currentRoundInt and beyond)
-      // Keep adjustments for past rounds and current round
-      setRatingAdjustmentHistory(prevHistory => {
-        let filteredHistory = prevHistory->Array.filter(adj => adj.appliedAtRound < currentRoundInt)
-        EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory)
-        filteredHistory
-      })
+          // Clear rating adjustments for future rounds (currentRoundInt and beyond)
+          setRatingAdjustmentHistory(prevHistory => {
+            let filteredHistory = prevHistory->Array.filter(adj =>
+              adj.appliedAtRound < currentRoundInt
+            )
+            EventManagerPersistence.saveRatingAdjustmentHistory(data.id, filteredHistory)
+            filteredHistory
+          })
 
-      // Reset dirty flag after regeneration
-      setIsDirty(_ => false)
+          setIsDirty(_ => false)
+        }
+      }
     }
+
+    run()
+    ->Promise.catch(err => {
+      Js.Console.error2("[EventManager] draw generation failed:", err)
+      Promise.resolve()
+    })
+    ->Promise.finally(() =>
+      if isLatestGeneration(token) {
+        setIsGenerating(_ => false)
+      }
+    )
+    ->ignore
   }
+
+  // Auto-regenerate future rounds when recorded history changes — a score
+  // entered, a match deleted, a seed adjusted.
+  //
+  // Keyed on `historyRevision` rather than `isDirty` on purpose: `isDirty` also
+  // fires on settings changes, and regenerating there applied a newly picked
+  // strategy before the user pressed "Update Rounds Below", leaving that button
+  // with nothing left to do.
+  //
+  // Declared here rather than with the other effects because it needs the async
+  // generator above.
+  React.useEffect1(() => {
+    if historyRevision > 0 && currentRoundInt > -1 {
+      let shouldAutoRegenerate = switch strategy {
+      // Skill-sensitive strategies: new scores move ratings, so the rounds
+      // ahead are stale and worth rebuilding without being asked. All three
+      // solver presets qualify — even Round Robin (SolverRoundRobin) breaks its
+      // novelty ties competitively, and Random Balanced splits teams by
+      // rating, so both read the ratings a score just moved.
+      | CompetitivePlus
+      | Competitive
+      | Mixed
+      | SolverRoundRobin
+      | SolverRandomBalanced
+      | SolverCompetitivePlus => true
+      // Pure-novelty strategies read partner and bye history, which a score
+      // does not change.
+      | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
+      }
+
+      // Never clobber scores someone has already entered for a future round.
+      if shouldAutoRegenerate && !futureRoundsHaveScores {
+        Js.log("Auto-regenerating future rounds after current round changes")
+        let token = beginGeneration()
+        let pastAndCurrentRounds = rounds->Array.filterWithIndex((_, i) => i + 1 <= currentRoundInt)
+
+        // On the solver path this is seconds of real work, so show the same
+        // pending state a manual generation does rather than doing it silently.
+        setIsGenerating(_ => true)
+
+        // Wait for the frame carrying the score the user just picked to be
+        // drawn. Otherwise their click appears to do nothing until the whole
+        // regeneration finishes.
+        SolverRounds.afterPaint()
+        ->Promise.then(() =>
+          generateRoundBlock(
+            ~startRoundIndex=currentRoundInt,
+            ~completedRounds=pastAndCurrentRounds,
+            ~numberOfRounds=10,
+          )
+        )
+        ->Promise.thenResolve(newRounds =>
+          if isLatestGeneration(token) {
+            updateRounds(_ => Array.concat(pastAndCurrentRounds, newRounds))
+          }
+        )
+        ->Promise.catch(err => {
+          Js.Console.error2("[EventManager] auto-regeneration failed:", err)
+          Promise.resolve()
+        })
+        ->Promise.finally(() =>
+          if isLatestGeneration(token) {
+            setIsGenerating(_ => false)
+          }
+        )
+        ->ignore
+
+        setIsDirty(_ => false)
+      }
+    }
+    None
+  }, [historyRevision])
 
   // Handle court count change
   let handleCourtCountChange = (count: int) => {
@@ -1215,7 +1461,33 @@ let make = (
     setStrategy(_ => s)
     setIsDirty(_ => true)
     EventManagerPersistence.saveStrategy(data.id, s)
+    // Selecting a strategy means "use that strategy's tuned profile". A stored
+    // config would override the profile with the slider mapping, so switching
+    // clears any customisation rather than writing the nominal position.
+    if s->isSolverStrategy {
+      setWeightConfig(_ => None)
+      EventManagerPersistence.clearWeightConfig(data.id)
+    }
   }
+
+  let handleWeightConfigChange = (config: CostModel.uiWeightConfig) => {
+    setWeightConfig(_ => Some(config))
+    setIsDirty(_ => true)
+    EventManagerPersistence.saveWeightConfig(data.id, config)
+  }
+
+  // Effective config shown by the weight panel: the stored override, or the
+  // current strategy's preset.
+  let effectiveWeightConfig = switch weightConfig {
+  | Some(config) => config
+  | None => CostModel.presetConfig(strategy)
+  }
+
+  // First solve of a session waits on the wasm download, which is worth calling
+  // out; later ones are fast enough that a plain spinner reads better.
+  let generatingLabel = HighsBindings.isLoaded()
+    ? ts`Generating…`
+    : ts`Preparing optimizer…`
 
   // Handle advance to next round
   let handleAdvanceRound = () => {
@@ -1357,6 +1629,7 @@ let make = (
 
       // Mark as dirty to trigger regeneration prompt
       setIsDirty(_ => true)
+      bumpHistoryRevision()
 
       updatedHistory
     })
@@ -1671,6 +1944,12 @@ let make = (
               strategy
               onStrategyChange={handleStrategyChange}
               onGenerateDraws={handleGenerateDraws}
+              weightConfig={effectiveWeightConfig}
+              onWeightConfigChange={handleWeightConfigChange}
+              drawSeed
+              onNewSeed={handleNewSeed}
+              isGenerating
+              generatingLabel={generatingLabel}
               isInitiallyExpanded={true}
               highlight={isDirty}
               futureRoundsHaveScores
@@ -1699,6 +1978,12 @@ let make = (
                     strategy
                     onStrategyChange={handleStrategyChange}
                     onGenerateDraws={handleGenerateDraws}
+                    weightConfig={effectiveWeightConfig}
+                    onWeightConfigChange={handleWeightConfigChange}
+                    drawSeed
+                    onNewSeed={handleNewSeed}
+                    isGenerating
+                    generatingLabel={generatingLabel}
                     isInitiallyExpanded={true}
                     highlight={isDirty}
                     futureRoundsHaveScores
@@ -1726,6 +2011,21 @@ let make = (
                   React.null
                 }
               }
+              {solverNoticeDismissed
+                ? React.null
+                : <div
+                    className="mb-4 flex items-start gap-3 rounded-lg border border-slate-300 bg-slate-100 px-4 py-3 text-sm text-slate-700">
+                    <Lucide.AlertTriangle className="w-4 h-4 mt-0.5 shrink-0" />
+                    <span className="flex-1">
+                      {(ts`Optimizer unavailable — used standard matchmaking for this draw.`)
+                        ->React.string}
+                    </span>
+                    <button
+                      onClick={_ => setSolverNoticeDismissed(_ => true)}
+                      className="text-xs font-medium text-slate-500 hover:text-slate-900">
+                      {(ts`Dismiss`)->React.string}
+                    </button>
+                  </div>}
               {rounds
               ->Array.mapWithIndex((roundMatches, roundIndex) => {
                 let roundNum = roundIndex + 1
@@ -1754,6 +2054,14 @@ let make = (
                   } else {
                     React.null
                   }}
+                  <SolverWarnings
+                    matches={roundMatches}
+                    matchViolations={solverMatchViolations}
+                    roundViolations={solverRoundViolations
+                    ->Js.Dict.get(roundIndex->Int.toString)
+                    ->Option.getOr([])}
+                    playersCache
+                  />
                   {isCurrentRound
                     ? <div ref={currentRoundRef->ReactDOM.Ref.domRef}>
                         <RoundSection
@@ -1861,6 +2169,12 @@ let make = (
                         strategy
                         onStrategyChange={handleStrategyChange}
                         onGenerateDraws={handleGenerateDraws}
+                        weightConfig={effectiveWeightConfig}
+                        onWeightConfigChange={handleWeightConfigChange}
+                        drawSeed
+                        onNewSeed={handleNewSeed}
+                        isGenerating
+                        generatingLabel={generatingLabel}
                         isInitiallyExpanded={currentRoundInt == 0}
                         highlight={isDirty}
                         futureRoundsHaveScores

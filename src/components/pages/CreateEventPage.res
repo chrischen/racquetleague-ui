@@ -20,6 +20,9 @@ let make = () => {
   let locationParam = params->Router.SearchParams.get("locationId")
   let clubIdParam = params->Router.SearchParams.get("clubId")
   let activitySlugParam = params->Router.SearchParams.get("activitySlug")
+  // Direct Activity id prefill — used by court-opening "Create event" links,
+  // whose surfaces know the activity by id rather than slug.
+  let activityIdParam = params->Router.SearchParams.get("activityId")
   let dateParam = params->Router.SearchParams.get("date")
   let startHourParam = params->Router.SearchParams.get("startHour")
   let endHourParam = params->Router.SearchParams.get("endHour")
@@ -236,6 +239,7 @@ let make = () => {
                 query=queryData.fragmentRefs
                 initialClubId=?clubIdParam
                 initialActivitySlug=?activitySlugParam
+                initialActivityId=?activityIdParam
                 onChange={sel => setClubSelection(_ => sel)}
                 triggerShake=shakeCounter
               />

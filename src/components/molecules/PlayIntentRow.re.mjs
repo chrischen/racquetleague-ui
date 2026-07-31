@@ -463,7 +463,11 @@ function PlayIntentRow(props) {
                         courtsForDraftWindows.length > 0 ? JsxRuntime.jsx("div", {
                                 children: JsxRuntime.jsx(CourtAvailabilityGroups.make, {
                                       courtAvailability: courtsForDraftWindows,
-                                      title: t`Courts covering your complete time`
+                                      title: t`Courts covering your complete time`,
+                                      createEvent: {
+                                        localDate: localDate,
+                                        activityId: resolvedActivityId
+                                      }
                                     }),
                                 className: "mt-2"
                               }) : JsxRuntime.jsx("p", {

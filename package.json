@@ -81,6 +81,7 @@
     "extensionless": "^1.9.6",
     "framer-motion": "^12.12.1",
     "glob": "^10.3.10",
+    "highs": "^1.15.2",
     "html-react-parser": "^3.0.16",
     "immurl": "^1.2.0",
     "isbot": "^3.6.10",

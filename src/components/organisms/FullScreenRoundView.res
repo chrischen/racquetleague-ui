@@ -50,6 +50,33 @@ let make = (
         let (team1, team2) = match
         let courtNumber = matchIndex + 1
 
+        // Serving team on top. Same hash rule as the card view's blue dot
+        // (`MatchCard.team1ServesFor`), so the two views always name the same
+        // server. The order is stable — it derives from the persisted entity
+        // id — so teams never swap places mid-match.
+        let (servingTeam, receivingTeam) = MatchCard.team1ServesFor(matchId)
+          ? (team1, team2)
+          : (team2, team1)
+
+        let renderPlayers = (team: array<Player.t<'a>>) =>
+          team
+          ->Array.map(player => {
+            <div key={player.id} className="flex items-center gap-2 md:gap-3 min-w-0">
+              <PlayerAvatar
+                userFragmentRefs={player.data->Option.flatMap(getUserFragmentRefs)}
+                name={player.name}
+                skillLevel={player.ratingOrdinal}
+                size=#large
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-16 lg:h-16 flex-shrink-0"
+              />
+              <span
+                className="text-sm md:text-2xl lg:text-3xl font-bold text-white truncate min-w-0">
+                {player.name->React.string}
+              </span>
+            </div>
+          })
+          ->React.array
+
         <div
           key={matchId}
           className="md:flex-1 min-w-0 w-full md:w-auto bg-slate-800 rounded-xl md:rounded-2xl border border-slate-700 overflow-hidden shadow-2xl flex flex-col">
@@ -60,28 +87,22 @@ let make = (
               {(t`COURT ${courtNumber->Int.toString}`)->React.string}
             </h2>
           </div>
-          // Teams
+          // Teams — serving team first
           <div
             className="flex-1 min-h-0 px-3 md:px-4 py-2 md:py-3 flex flex-col justify-center gap-1 md:gap-3">
-            // Team 1
             <div className="flex flex-col gap-1 md:gap-2">
-              {team1
-              ->Array.map(player => {
-                <div key={player.id} className="flex items-center gap-2 md:gap-3 min-w-0">
-                  <PlayerAvatar
-                    userFragmentRefs={player.data->Option.flatMap(getUserFragmentRefs)}
-                    name={player.name}
-                    skillLevel={player.ratingOrdinal}
-                    size=#large
-                    className="w-8 h-8 md:w-14 md:h-14 lg:w-16 lg:h-16 flex-shrink-0"
-                  />
-                  <span
-                    className="text-sm md:text-2xl lg:text-3xl font-bold text-white truncate min-w-0">
-                    {player.name->React.string}
-                  </span>
-                </div>
-              })
-              ->React.array}
+              {matchEntity.score->Option.isNone
+                ? <div className="flex items-center gap-1.5 md:gap-2">
+                    <Lucide.Circle
+                      className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-blue-400 fill-blue-400"
+                    />
+                    <span
+                      className="text-[10px] md:text-sm font-bold tracking-widest text-blue-400">
+                      {(t`SERVING`)->React.string}
+                    </span>
+                  </div>
+                : React.null}
+              {renderPlayers(servingTeam)}
             </div>
             // VS Divider
             <div className="flex items-center justify-center relative py-0.5 md:py-1">
@@ -94,26 +115,7 @@ let make = (
                 </span>
               </div>
             </div>
-            // Team 2
-            <div className="flex flex-col gap-1 md:gap-2">
-              {team2
-              ->Array.map(player => {
-                <div key={player.id} className="flex items-center gap-2 md:gap-3 min-w-0">
-                  <PlayerAvatar
-                    userFragmentRefs={player.data->Option.flatMap(getUserFragmentRefs)}
-                    name={player.name}
-                    skillLevel={player.ratingOrdinal}
-                    size=#large
-                    className="w-8 h-8 md:w-14 md:h-14 lg:w-16 lg:h-16 flex-shrink-0"
-                  />
-                  <span
-                    className="text-sm md:text-2xl lg:text-3xl font-bold text-white truncate min-w-0">
-                    {player.name->React.string}
-                  </span>
-                </div>
-              })
-              ->React.array}
-            </div>
+            <div className="flex flex-col gap-1 md:gap-2"> {renderPlayers(receivingTeam)} </div>
           </div>
         </div>
       })

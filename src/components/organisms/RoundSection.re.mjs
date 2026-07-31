@@ -376,7 +376,8 @@ function RoundSection(props) {
                                                         getUserFragmentRefs: getUserFragmentRefs,
                                                         team1History: team1History,
                                                         team2History: team2History,
-                                                        matchHistory: matchHistory
+                                                        matchHistory: matchHistory,
+                                                        serviceKey: matchId
                                                       }, matchId);
                                           })), null);
                         }),
@@ -499,7 +500,8 @@ function RoundSection(props) {
                             getUserFragmentRefs: getUserFragmentRefs,
                             team1History: team1History,
                             team2History: team2History,
-                            matchHistory: matchHistory
+                            matchHistory: matchHistory,
+                            serviceKey: matchId
                           }, matchId);
               }),
           className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"

@@ -449,6 +449,11 @@ module Match = {
     ->Array.toSorted(String.compare)
     ->Array.join("-")
 
+  // Unlike `toStableId`, this distinguishes the three ways the same foursome can
+  // be split into teams — needed wherever candidate matches are deduplicated.
+  let toPairingId = ((t1, t2): t<'a>): string =>
+    [t1->Team.toStableId, t2->Team.toStableId]->Array.toSorted(String.compare)->Array.join("|")
+
   let players = ((t1, t2)) => [t1, t2]->Array.flatMap(x => x)
 
   // Map a function over all players in both teams
@@ -1413,6 +1418,80 @@ let tuple2array = ((a, b)) => [a, b]
 let team_to_players_set = (team: array<Player.t<'a>>): Set.t<string> =>
   team->Array.map(p => p.id)->Set.fromArray
 
+// All C(n,4) x 3 candidate 2v2 matches from a pool, with no scoring and no
+// constraint filtering. The greedy path scores every candidate with
+// `predictDraw` (see `find_all_match_combos`); the solver path uses the much
+// cheaper mu-sum proxy in `CostModel`, so it needs the raw enumeration.
+let enumerate_match_candidates = (availablePlayers: array<Player.t<'a>>): array<Match.t<'a>> => {
+  array_combinations_n(availablePlayers, 4)->Array.flatMap(quad => {
+    let p1 = quad->Array.getUnsafe(0)
+    let p2 = quad->Array.getUnsafe(1)
+    let p3 = quad->Array.getUnsafe(2)
+    let p4 = quad->Array.getUnsafe(3)
+    [([p1, p2], [p3, p4]), ([p1, p3], [p2, p4]), ([p1, p4], [p2, p3])]
+  })
+}
+
+// The partner pools a team may be drawn from: the explicit constraint sets plus
+// the implicit pool formed by every otherwise-unconstrained player. Shared by
+// the greedy filter below and the solver's pool-violation surcharge, so both
+// paths agree on what "covered by a pool" means.
+let pool_constraint_sets = (
+  availablePlayers: array<Player.t<'a>>,
+  teamConstraints: array<Set.t<string>>,
+): array<Set.t<string>> => {
+  let constrained =
+    teamConstraints->Array.flatMap(s => s->Set.values->Array.fromIterator)->Set.fromArray
+  let implicitPool =
+    availablePlayers
+    ->Array.filter(p => !(constrained->Set.has(p.id)))
+    ->Array.map(p => p.id)
+    ->Set.fromArray
+  teamConstraints->Array.concat([implicitPool])
+}
+
+// Teams in the match not covered by any partner pool (0, 1 or 2).
+let match_pool_violations = (match: Match.t<'a>, pools: array<Set.t<string>>): int => {
+  let (team1, team2) = match
+  [team1, team2]->Array.reduce(0, (acc, team) => {
+    let teamSet = team->Team.toSet
+    pools->Array.some(pool => pool->TeamSet.containsAllOf(teamSet)) ? acc : acc + 1
+  })
+}
+
+// Avoid-groups this match puts more than one member of on the same court.
+let match_antiteam_violations = (
+  match: Match.t<'a>,
+  avoidAllPlayers: array<array<Player.t<'a>>>,
+): int =>
+  avoidAllPlayers->Array.reduce(0, (acc, group) =>
+    group->Array.length < 2
+      ? acc
+      : match->Match.contains_more_than_1_players(group)
+      ? acc + 1
+      : acc
+  )
+
+// Indices of the avoid-groups this match violates, for violation reporting.
+let match_antiteam_violated_groups = (
+  match: Match.t<'a>,
+  avoidAllPlayers: array<array<Player.t<'a>>>,
+): array<int> =>
+  avoidAllPlayers->Array.reduceWithIndex([], (acc, group, index) =>
+    group->Array.length >= 2 && match->Match.contains_more_than_1_players(group)
+      ? acc->Array.concat([index])
+      : acc
+  )
+
+// Both teams must field at least one Female player.
+let match_is_gender_mixed = ((team1, team2): Match.t<'a>): bool =>
+  team1->Array.some(p => p.gender == Female) && team2->Array.some(p => p.gender == Female)
+
+// The offenders when a mixed round is requested: teams without a single Female
+// player (0, 1 or 2 per match).
+let match_unmixed_teams = ((team1, team2): Match.t<'a>): array<Team.t<'a>> =>
+  [team1, team2]->Array.filter(team => !(team->Array.some(p => p.gender == Female)))
+
 let find_all_match_combos = (
   availablePlayers: array<Player.t<'a>>,
   priorityPlayers,
@@ -1441,20 +1520,8 @@ let find_all_match_combos = (
   // immediately before this block, as in the original code.
 
   let result = {
-    // Generate all unique 4-player groups from availablePlayers.
-    // `combinations` should return an array of arrays, e.g., array<array<Player.t<'a>>>.
-    let quads = array_combinations_n(availablePlayers, 4)
-
     // For each 4-player group, form the 3 distinct 2v2 matches.
-    let new_matches = quads->Array.flatMap(quad => {
-      // `combinations(..., 4)` should guarantee `quad` has 4 players.
-      // If `availablePlayers.length < 4`, `quads` will be empty.
-      let p1 = quad->Array.getUnsafe(0)
-      let p2 = quad->Array.getUnsafe(1)
-      let p3 = quad->Array.getUnsafe(2)
-      let p4 = quad->Array.getUnsafe(3)
-      [([p1, p2], [p3, p4]), ([p1, p3], [p2, p4]), ([p1, p4], [p2, p3])] // Match: (Team [p1,p2]) vs (Team [p3,p4]) // Match: (Team [p1,p3]) vs (Team [p2,p4]) // Match: (Team [p1,p4]) vs (Team [p2,p3])
-    })
+    let new_matches = enumerate_match_candidates(availablePlayers)
 
     // Replicate the original `result.seenTeams` content.
     // `teams` is `availablePlayers->array_combos->Array.map(tuple2array)`,
@@ -1561,7 +1628,26 @@ let rec uniform_shuffle_array = (arr: array<'a>, n: int, offset: int) => {
 }
 
 type strategy =
-  CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin
+  | CompetitivePlus
+  | Competitive
+  | Mixed
+  | RoundRobin
+  | Random
+  | DUPR
+  | NoveltyRoundRobin
+  // Solver-backed presets (beta). Each seeds a `CostModel.uiWeightConfig` that
+  // the ILP round builder minimises; see `SolverRound`. When the solver is
+  // unavailable these fall back to the greedy branch noted on each case.
+  | SolverRoundRobin // novelty-first  -> greedy RoundRobin
+  | SolverRandomBalanced // middle         -> greedy RoundRobin
+  | SolverCompetitivePlus // quality-first  -> greedy Competitive
+
+// True for the three solver-backed presets.
+let isSolverStrategy = (strategy: strategy): bool =>
+  switch strategy {
+  | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus => true
+  | CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
+  }
 
 module RankedMatches = {
   type t<'a> = array<(Match.t<'a>, float)>
@@ -1973,6 +2059,18 @@ let getMatches = (
     RankedMatches.strategy_by_dupr(players, priorityPlayers, avoidAllPlayers, requiredPlayers)
   | NoveltyRoundRobin =>
     RankedMatches.strategy_by_novelty(players, avoidAllPlayers, teamConstraints, requiredPlayers)
+  // Greedy fallback for the solver presets: reached only when the solver was
+  // unavailable or failed, so mirror the closest legacy behaviour.
+  | SolverRoundRobin
+  | SolverRandomBalanced =>
+    RankedMatches.strategy_by_round_robin(
+      players,
+      priorityPlayers,
+      avoidAllPlayers,
+      teamConstraints,
+      requiredPlayers,
+    )
+  | SolverCompetitivePlus
   | Competitive =>
     RankedMatches.strategy_by_competitive(
       players,
@@ -2593,7 +2691,7 @@ let getDeprioritizedPlayers = (
     Set.make()
   } else {
     switch strategy {
-    | Competitive | CompetitivePlus =>
+    | Competitive | CompetitivePlus | SolverCompetitivePlus =>
       // Competitive strategy: prioritize players with highest play count
       let lastRounds =
         rounds->Array.slice(
@@ -2642,7 +2740,7 @@ let getDeprioritizedPlayers = (
       | false => breakPlayers->Array.map(p => p.id)->Set.fromArray
       }
 
-    | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin =>
+    | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin | SolverRoundRobin | SolverRandomBalanced =>
       // Non-competitive strategy: prioritize players with most rounds since last break
       // Calculate rounds since last break for each player
       let playersWithRoundsSinceBreak = players->Array.map(player => {

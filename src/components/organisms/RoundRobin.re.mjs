@@ -744,7 +744,8 @@ function RoundRobin(props) {
                             onCourtCountChange: handleCourtCountChange,
                             isInitiallyExpanded: true,
                             highlight: isDirty,
-                            futureRoundsHaveScores: futureRoundsHaveScores
+                            futureRoundsHaveScores: futureRoundsHaveScores,
+                            allowSolverStrategies: false
                           }) : null,
                     adjustmentsForRound0.length > 0 ? JsxRuntime.jsx(SeedAdjustmentTimeline.make, {
                             adjustments: adjustmentsForRound0,
@@ -915,7 +916,8 @@ function RoundRobin(props) {
                                                 onCourtCountChange: handleCourtCountChange,
                                                 isInitiallyExpanded: currentRoundInt === 0,
                                                 highlight: isDirty,
-                                                futureRoundsHaveScores: futureRoundsHaveScores
+                                                futureRoundsHaveScores: futureRoundsHaveScores,
+                                                allowSolverStrategies: false
                                               }) : null
                                       ]
                                     }, roundNum.toString());
@@ -1139,7 +1141,8 @@ function RoundRobin(props) {
                                 onCourtCountChange: handleCourtCountChange,
                                 isInitiallyExpanded: true,
                                 highlight: isDirty,
-                                futureRoundsHaveScores: futureRoundsHaveScores
+                                futureRoundsHaveScores: futureRoundsHaveScores,
+                                allowSolverStrategies: false
                               }),
                         tmp$1
                       ],
