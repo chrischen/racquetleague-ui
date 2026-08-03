@@ -14,29 +14,38 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-msgid "Official Dallash Flash T-Shirts and Ball Caps"
-msgstr ""
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr ""
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
 #~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
 #~ msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
+msgid "Official RPM T-Shirts and Ball Caps"
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:131
 msgid "Presented by"
 msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:153
 msgid "Prizes"
 msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
-msgid "Sponsor logo"
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
 msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#~ msgid "Sponsor logo"
+#~ msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:120
 msgid "The top 4 men and top 4 women players each earn a prize."
 msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:97
 msgid "Top Player Awards"
 msgstr ""

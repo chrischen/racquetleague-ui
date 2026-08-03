@@ -13,21 +13,25 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "진행 중 라운드"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "전체 화면 닫기"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "코트 {0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "라운드 {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "서브 중"
 
 #: src/components/organisms/FullScreenRoundView.re.mjs:151
 #~ msgid "Not Playing This Round"

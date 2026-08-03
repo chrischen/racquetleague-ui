@@ -110,7 +110,7 @@ msgstr "접기"
 msgid "Complete your profile"
 msgstr "프로필 완성하기"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "코트 {0}"
 
@@ -123,11 +123,11 @@ msgid "Courts:"
 msgstr "코트:"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "경기 삭제"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
 
@@ -143,7 +143,7 @@ msgstr "표시 이름이 필요합니다"
 msgid "edit event"
 msgstr "이벤트 편집"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "경기 편집"
 
@@ -211,19 +211,19 @@ msgstr "이벤트 참가"
 msgid "Join Waitlist"
 msgstr "대기자 명단 등록"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "대기자 명단에서 참가"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "이벤트에 참가했습니다"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "지난 라운드"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "이벤트에서 나갔습니다"
 
@@ -312,7 +312,7 @@ msgstr "프로 플레이어"
 msgid "Rated"
 msgstr "레이팅"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "경기 재조정"
 
@@ -333,7 +333,7 @@ msgstr "이벤트에서 제거"
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "반복"
 
@@ -413,7 +413,7 @@ msgstr "팀 1"
 msgid "TEAM 2"
 msgstr "팀 2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -489,8 +489,8 @@ msgid "View Profile"
 msgstr "프로필 보기"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 
@@ -498,11 +498,15 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "대기자 명단"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "관리자에 의해 이벤트에 추가되었습니다"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "이벤트에 초대되었습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "관리자에 의해 이벤트에서 제거되었습니다"
 

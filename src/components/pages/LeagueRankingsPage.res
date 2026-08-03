@@ -116,8 +116,8 @@ module BracketIllustration = {
 @module("./rpm-light.svg") external rpmLightLogo: string = "default"
 @module("./rpm-dark.svg") external rpmDarkLogo: string = "default"
 
-// Playoff draft + prize banner. Shelved for later (see `usePlayoffDraft`) — all
-// copy below is placeholder until the draft and prize data are wired up.
+// Playoff draft + prize banner — the active RPM campaign (see `usePlayoffDraft`).
+// Prize details are still a placeholder until the draft prize data is wired up.
 module DraftPrizeBanner = {
   open Lingui.Util
   let ts = Lingui.UtilString.t
@@ -164,7 +164,7 @@ module DraftPrizeBanner = {
             </span>
           </div>
           <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-2 leading-snug">
-            {t`The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals.`}
+            {t`The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft.`}
           </p>
         </div>
         // Prize + sponsor card
@@ -196,12 +196,8 @@ module DraftPrizeBanner = {
             </div>
             <div className="min-w-0">
               <div
-                className="font-black font-mono text-lg md:text-xl leading-none text-amber-700 dark:text-amber-300">
-                {t`Prizes`}
-              </div>
-              <div
-                className="text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-1 leading-tight">
-                {t`Details coming soon`}
+                className="font-black text-sm md:text-base leading-snug text-amber-700 dark:text-amber-300">
+                {t`Over ￥200,000 in prizes`}
               </div>
             </div>
           </div>
@@ -211,9 +207,9 @@ module DraftPrizeBanner = {
   }
 }
 
-// Which prize-distribution banner to show. The Playoff Draft is shelved for
-// now; flip this to true to bring it back in place of the Top Player awards.
-let usePlayoffDraft = false
+// Which prize-distribution banner to show. The RPM Playoff Draft is the active
+// campaign; set to false to show the Top Player awards banner instead.
+let usePlayoffDraft = true
 
 @genType @react.component
 let make = () => {
@@ -230,7 +226,8 @@ let make = () => {
   let viewerUserId = viewerUser->Option.map(u => u.id)
   let viewerOrdinal = viewerUser->Option.flatMap(u => u.rating)->Option.flatMap(r => r.ordinal)
   let viewerMu = viewerUser->Option.flatMap(u => u.rating)->Option.flatMap(r => r.mu)
-  let viewerDays = viewerUser->Option.flatMap(u => u.leagueUserStats)->Option.map(s => s.daysNumberOne)
+  let viewerDays =
+    viewerUser->Option.flatMap(u => u.leagueUserStats)->Option.map(s => s.daysNumberOne)
   let viewerName = viewerUser->Option.flatMap(u => u.lineUsername)
   let viewerPicture = viewerUser->Option.flatMap(u => u.picture)
 

@@ -149,11 +149,15 @@ msgstr "설치"
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.com 앱 설치"
 
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "이벤트 초대"
+
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "참가함"
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Joined Club"
 msgstr "클럽 가입됨"
 
@@ -226,7 +230,7 @@ msgstr "새 계획"
 msgid "No notifications"
 msgstr "알림 없음"
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "알림"
 
@@ -235,7 +239,7 @@ msgstr "알림"
 msgid "Notifications"
 msgstr "알림"
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "대기열 해제"
 
@@ -261,7 +265,7 @@ msgstr "순위"
 msgid "Remove"
 msgstr "제거"
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:150
 msgid "Removed from Event"
 msgstr "이벤트에서 제거됨"
 

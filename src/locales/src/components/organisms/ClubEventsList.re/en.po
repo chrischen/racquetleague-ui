@@ -37,15 +37,15 @@ msgstr ""
 #~ msgid "...load past events"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:354
+#: src/components/pages/PkEventPage.re.mjs:353
 msgid "...more"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:444
+#: src/components/organisms/PkRSVPSection.re.mjs:449
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:447
 msgid "· +{0} waitlist"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr ""
 #~ msgid "{0} hours"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:444
 msgid "{0} joined"
 msgstr ""
 
@@ -195,13 +195,17 @@ msgstr ""
 msgid "← previous"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:505
+#: src/components/organisms/PkRSVPSection.re.mjs:510
 msgid "♂/♀ SKILL"
 msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:186
 #~ msgid "🚫 CANCELED"
 #~ msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+msgstr ""
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
 #~ msgid "A small hold will be placed on your card and fully refunded after the event."
@@ -211,7 +215,7 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:433
+#: src/components/organisms/PkEventMessages.re.mjs:467
 msgid "Add a message..."
 msgstr ""
 
@@ -264,11 +268,19 @@ msgstr ""
 msgid "Available"
 msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:150
 #~ msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:214
+#: src/components/organisms/PkRSVPSection.re.mjs:219
 msgid "balanced"
 msgstr ""
 
@@ -276,7 +288,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:610
+#: src/components/pages/PkEventPage.re.mjs:618
 msgid "cancel event"
 msgstr ""
 
@@ -288,7 +300,7 @@ msgstr ""
 msgid "Canceled"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:221
+#: src/components/pages/PkEventPage.re.mjs:220
 msgid "CANCELED"
 msgstr ""
 
@@ -313,7 +325,7 @@ msgstr ""
 msgid "Cancelling..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:575
+#: src/components/pages/PkEventPage.re.mjs:583
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
@@ -343,6 +355,10 @@ msgstr ""
 #~ msgid "close"
 #~ msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr ""
+
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr ""
@@ -356,19 +372,23 @@ msgstr ""
 msgid "Confirm move"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:589
+#: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Confirmed · {0}"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:256
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Copied!"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:594
+#: src/components/pages/PkEventPage.re.mjs:602
 msgid "copy event"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/PkRSVPSection.re.mjs:766
+msgid "Court"
+msgstr ""
+
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr ""
 
@@ -377,7 +397,7 @@ msgid "Court {0} - Editing"
 msgstr ""
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:331
-#: src/components/pages/PkEventPage.re.mjs:737
+#: src/components/pages/PkEventPage.re.mjs:745
 msgid "Courts"
 msgstr ""
 
@@ -398,12 +418,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:410
-msgid "Dallas Flash"
-msgstr ""
+#~ msgid "Dallas Flash"
+#~ msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:424
-msgid "Dallas Flash Swag"
-msgstr ""
+#~ msgid "Dallas Flash Swag"
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:58
 #: src/components/molecules/AIResponseCard.re.mjs:162
@@ -411,11 +431,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr ""
 
@@ -443,16 +463,16 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:479
-#: src/components/organisms/PkRSVPSection.re.mjs:496
+#: src/components/organisms/PkRSVPSection.re.mjs:484
+#: src/components/organisms/PkRSVPSection.re.mjs:501
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:587
+#: src/components/pages/PkEventPage.re.mjs:595
 msgid "edit event"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr ""
 
@@ -480,7 +500,7 @@ msgstr ""
 #~ msgid "Error creating events. Please try again."
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:210
+#: src/components/organisms/PkRSVPSection.re.mjs:215
 msgid "even"
 msgstr ""
 
@@ -493,7 +513,7 @@ msgstr ""
 #~ msgid "Event Details"
 #~ msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:906
+#: src/components/pages/PkEventPage.re.mjs:914
 msgid "Event not found"
 msgstr ""
 
@@ -501,13 +521,17 @@ msgstr ""
 msgid "Event tag: {tag}"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:294
+#: src/components/organisms/PkEventMessages.re.mjs:328
 msgid "Event updated"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:140
 #: src/components/organisms/ClubEventsList.re.mjs:109
 msgid "events"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:405
@@ -526,7 +550,7 @@ msgstr ""
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:304
+#: src/components/pages/PkEventPage.re.mjs:303
 msgid "Free"
 msgstr ""
 
@@ -563,6 +587,38 @@ msgstr ""
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr ""
 
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr ""
+
 #: src/components/organisms/PkEventRow.re.mjs:609
 msgid "Join"
 msgstr ""
@@ -587,7 +643,7 @@ msgstr ""
 msgid "Joined"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr ""
 
@@ -613,7 +669,7 @@ msgstr ""
 msgid "Leaving..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:354
+#: src/components/pages/PkEventPage.re.mjs:353
 msgid "less"
 msgstr ""
 
@@ -625,7 +681,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:336
+#: src/components/pages/PkEventPage.re.mjs:335
 msgid "Location"
 msgstr ""
 
@@ -650,7 +706,7 @@ msgstr ""
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:488
+#: src/components/organisms/PkRSVPSection.re.mjs:493
 msgid "MEDIAN"
 msgstr ""
 
@@ -659,7 +715,7 @@ msgstr ""
 #~ msgid "min"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:217
+#: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
 msgstr ""
 
@@ -712,7 +768,7 @@ msgstr ""
 msgid "Not available"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:750
+#: src/components/pages/PkEventPage.re.mjs:758
 msgid "Notes from the host"
 msgstr ""
 
@@ -724,6 +780,10 @@ msgstr ""
 msgid "On waitlist"
 msgstr ""
 
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr ""
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:475
 msgid "Other locations at this time"
 msgstr ""
@@ -732,7 +792,7 @@ msgstr ""
 msgid "Other times at {venue}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:409
+#: src/components/organisms/PkRSVPSection.re.mjs:414
 msgid "Participants"
 msgstr ""
 
@@ -772,7 +832,7 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:720
+#: src/components/organisms/PkRSVPSection.re.mjs:725
 msgid "Pending · {0}"
 msgstr ""
 
@@ -794,11 +854,15 @@ msgstr ""
 msgid "players"
 msgstr ""
 
+#: src/components/pages/PkEventPage.re.mjs:422
+msgid "Playoff Draft"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:397
 msgid "Prefer not to say"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:405
+#: src/components/pages/PkEventPage.re.mjs:397
 msgid "Presented by"
 msgstr ""
 
@@ -828,7 +892,7 @@ msgstr ""
 msgid "Rated"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr ""
 
@@ -840,12 +904,12 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pages/PkEventPage.re.mjs:715
 msgid "Refresh event details"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:243
-#: src/components/pages/PkEventPage.re.mjs:707
+#: src/components/pages/PkEventPage.re.mjs:715
 #: src/components/shared/EventsListView.re.mjs:153
 msgid "Refreshing…"
 msgstr ""
@@ -874,7 +938,7 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr ""
 
@@ -882,11 +946,11 @@ msgstr ""
 #~ msgid "Reply"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:335
+#: src/components/organisms/PkRSVPSection.re.mjs:340
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:356
+#: src/components/organisms/PkRSVPSection.re.mjs:361
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
@@ -898,12 +962,21 @@ msgstr ""
 msgid "Results will be submitted to competitive ratings."
 msgstr ""
 
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr ""
+
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
 msgid "Round {0}"
 msgstr ""
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
 msgid "Round Robin Draws"
+msgstr ""
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
 msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:264
@@ -927,7 +1000,15 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:256
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr ""
+
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr ""
+
+#: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
 msgstr ""
 
@@ -939,16 +1020,24 @@ msgstr ""
 #~ msgid "show"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:421
+#: src/components/organisms/PkEventMessages.re.mjs:455
 msgid "Show all {0} items"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:421
+#: src/components/organisms/PkEventMessages.re.mjs:455
 msgid "Show less"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:141
@@ -963,7 +1052,7 @@ msgstr ""
 #~ msgid "Spot held — pay to confirm"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:549
+#: src/components/organisms/PkRSVPSection.re.mjs:554
 msgid "SPREAD"
 msgstr ""
 
@@ -973,6 +1062,14 @@ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:246
 msgid "Sunday"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
@@ -991,7 +1088,7 @@ msgstr ""
 #~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 #~ msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
@@ -1050,7 +1147,7 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:471
+#: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
 msgstr ""
 
@@ -1062,7 +1159,7 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:599
+#: src/components/pages/PkEventPage.re.mjs:607
 msgid "uncancel event"
 msgstr ""
 
@@ -1087,12 +1184,13 @@ msgid "View Full Draws"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:239
+#: src/components/organisms/EventInvites.re.mjs:357
 msgid "View Profile"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr ""
 
@@ -1104,12 +1202,16 @@ msgstr ""
 msgid "Waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:655
+#: src/components/organisms/PkRSVPSection.re.mjs:660
 msgid "Waitlist · {0}"
 msgstr ""
 
 #: src/components/organisms/PkEventRow.re.mjs:272
 msgid "Waitlisted"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:261
+msgid "was invited to the event"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:339
@@ -1144,7 +1246,7 @@ msgstr ""
 msgid "You're in"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:339
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
 

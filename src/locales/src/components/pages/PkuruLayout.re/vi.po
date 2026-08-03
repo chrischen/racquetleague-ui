@@ -149,11 +149,15 @@ msgstr "Cài đặt"
 msgid "Install Pkuru.com App"
 msgstr "Cài đặt ứng dụng Pkuru.com"
 
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "Được mời tham gia sự kiện"
+
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "Đã tham gia"
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Joined Club"
 msgstr "Đã Tham Gia Câu Lạc Bộ"
 
@@ -226,7 +230,7 @@ msgstr "Kế hoạch mới"
 msgid "No notifications"
 msgstr "Không có thông báo"
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "Thông báo"
 
@@ -235,7 +239,7 @@ msgstr "Thông báo"
 msgid "Notifications"
 msgstr "Thông báo"
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
@@ -261,7 +265,7 @@ msgstr "Bảng xếp hạng"
 msgid "Remove"
 msgstr "Xóa"
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:150
 msgid "Removed from Event"
 msgstr "Đã xóa khỏi Sự kiện"
 

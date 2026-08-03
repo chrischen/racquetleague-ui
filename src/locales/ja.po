@@ -5449,6 +5449,133 @@ msgstr "各マッチを最も均等なチームに分割"
 msgid "Tight bands"
 msgstr "狭いバンド"
 
+#: src/components/pages/PkEventPage.re.mjs:422
+msgid "Playoff Draft"
+msgstr "プレーオフドラフト"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
+msgstr "RPM"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "サーブ権"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr "ドラフト開始：2026年9月15日（火）"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
+msgstr "賞金総額￥200,000以上"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr "2026年9月15日"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "男女各上位8名が出場資格を獲得し、各ブロックはダブルス4チームに分かれてドラフトが行われます。賞品はElla Oh Pink V2ワイドボディパドル×2本、RPM Friction Pro V2 14mmパドル×2本、RPM Friction Pro V2 16mmパドル×1本です。男女ダブルスの優勝ペアが賞品を受け取り、5人目の優勝者にはボーナスカテゴリー×1が別途決定されます。賞品を受け取るには日本国内にいる必要があります。Pkuru.comの*認定*イベントで行われた認定試合は上位8名のドラフト資格として申請できます。不正が疑われるプレーヤー、試合、またはクラブを独自の判断・予告なしに失格とする権利を留保します。参加費は無料であり、Pkuru.comはプレーオフドラフトに参加する主催者から一切の手数料を徴収しません。"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
+msgid "Official RPM T-Shirts and Ball Caps"
+msgstr "RPM公式Tシャツ＆キャップ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+msgstr "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会話に参加させましょう。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr "イベント全体に参加可能"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr "イベントに戻る"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr "スワイプ招待を閉じる"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr "全員確認済み"
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr "招待する"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr "招待する"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr "{0}を招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr "プレイヤーを招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr "{eventTitle}に招待"
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr "招待済みおよび候補プレイヤー"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr "招待 · {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr "{0}の招待アクションを開く"
+
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr "スワイプカードで{0}人の候補プレイヤーを確認"
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr "招待を送る"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "送信済み"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr "スキップ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr "{0}をスキップ"
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr "スワイプ招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
+msgstr "左にスワイプでスキップ・右にスワイプで招待"
+
+#: src/components/organisms/PkEventMessages.re.mjs:261
+msgid "was invited to the event"
+msgstr "イベントに招待されました"
+
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "イベントへの招待"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

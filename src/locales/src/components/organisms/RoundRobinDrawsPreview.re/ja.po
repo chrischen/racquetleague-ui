@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "コート{0}"
 
@@ -26,15 +26,15 @@ msgid "Courts:"
 msgstr "コート数："
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "試合を削除"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "試合を編集"
 
@@ -42,7 +42,7 @@ msgstr "試合を編集"
 msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "前回のラウンド"
 
@@ -54,11 +54,11 @@ msgstr "敗北チーム（チーム{0}）"
 msgid "No Score"
 msgstr "スコアなし"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "繰り返し"
 
@@ -91,7 +91,7 @@ msgstr "チーム1"
 msgid "TEAM 2"
 msgstr "チーム2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -104,8 +104,8 @@ msgid "View Full Draws"
 msgstr "組み合わせを見る"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

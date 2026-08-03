@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -46,8 +46,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:525
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/RoundSection.re.mjs:527
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "進行中的回合"
 
@@ -75,7 +75,7 @@ msgstr "調整球員種子"
 msgid "Advance to Next Round"
 msgstr "前進至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:1937
+#: src/components/organisms/EventManager.re.mjs:1939
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 輪"
 
@@ -91,7 +91,7 @@ msgstr "亞歷克斯·約翰遜"
 msgid "All checked-in players are already in this round"
 msgstr "所有已報到的球員都已在這個回合中"
 
-#: src/components/organisms/EventManager.re.mjs:1771
+#: src/components/organisms/EventManager.re.mjs:1773
 msgid "all up to date"
 msgstr "全部已更新"
 
@@ -99,7 +99,7 @@ msgstr "全部已更新"
 msgid "Alternate favourite/underdog roles"
 msgstr "交替強弱隊角色"
 
-#: src/components/organisms/EventManager.re.mjs:2043
+#: src/components/organisms/EventManager.re.mjs:2045
 msgid "Anti-Team {0}"
 msgstr "反對隊 {0}"
 
@@ -142,7 +142,7 @@ msgstr "經典循環賽抽籤"
 msgid "Close"
 msgstr "關閉"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "關閉全螢幕"
 
@@ -159,12 +159,12 @@ msgstr "競技模式"
 msgid "Competitive+"
 msgstr "競技+"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 #: src/components/molecules/SolverWarnings.re.mjs:86
 msgid "Court {0}"
 msgstr "場地 {0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "球場 {0}"
 
@@ -204,11 +204,11 @@ msgstr "當前回合："
 msgid "Custom"
 msgstr "自訂"
 
-#: src/components/organisms/EventManager.re.mjs:2232
+#: src/components/organisms/EventManager.re.mjs:2234
 msgid "Debug: OFF"
 msgstr "調試：關閉"
 
-#: src/components/organisms/EventManager.re.mjs:2232
+#: src/components/organisms/EventManager.re.mjs:2234
 msgid "Debug: ON"
 msgstr "調試：開啟"
 
@@ -217,7 +217,7 @@ msgid "Delete Guest"
 msgstr "刪除訪客"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "刪除比賽"
 
@@ -225,11 +225,11 @@ msgstr "刪除比賽"
 msgid "Delete team"
 msgstr "刪除隊伍"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
-#: src/components/organisms/EventManager.re.mjs:1840
+#: src/components/organisms/EventManager.re.mjs:1842
 msgid "Dismiss"
 msgstr "關閉"
 
@@ -246,7 +246,7 @@ msgstr ""
 "每種策略使用調校好的配置；調整任何滑桿將使此賽事切換為自訂混合模式。公平上場"
 "時間與輪換機制始終強制執行，無法調低。"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "編輯比賽"
 
@@ -304,7 +304,7 @@ msgid ""
 "skill."
 msgstr "每輪全新多樣化對陣，每場比賽均依技術水準平衡分隊。"
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "全螢幕檢視"
 
@@ -327,7 +327,7 @@ msgid "Generate Draws"
 msgstr "生成對戰表"
 
 #: src/components/molecules/DrawGenerator.re.mjs:377
-#: src/components/organisms/EventManager.re.mjs:1343
+#: src/components/organisms/EventManager.re.mjs:1345
 msgid "Generating…"
 msgstr "生成中…"
 
@@ -339,7 +339,7 @@ msgstr "訪客姓名（每行一個）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "掃描有問題嗎？請嘗試從俱樂部頁面尋找活動。"
 
-#: src/components/organisms/EventManager.re.mjs:2220
+#: src/components/organisms/EventManager.re.mjs:2222
 msgid "Help"
 msgstr "說明"
 
@@ -359,7 +359,7 @@ msgstr "簡·多伊"
 msgid "John Smith"
 msgstr "約翰·史密斯"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "上一輪"
 
@@ -454,7 +454,7 @@ msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "在技術區間內優先安排均衡對戰的最佳化籤表。"
 
-#: src/components/organisms/EventManager.re.mjs:1836
+#: src/components/organisms/EventManager.re.mjs:1838
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "最佳化工具無法使用——此籤表改用標準配對機制。"
 
@@ -484,7 +484,7 @@ msgid ""
 "with teams balanced by skill."
 msgstr "球員將被分為技能水平相似的組別，以技能平衡的隊伍進行循環賽。"
 
-#: src/components/organisms/EventManager.re.mjs:1343
+#: src/components/organisms/EventManager.re.mjs:1345
 msgid "Preparing optimizer…"
 msgstr "正在準備最佳化工具…"
 
@@ -500,7 +500,7 @@ msgstr "上一回合"
 msgid "Print"
 msgstr "列印"
 
-#: src/components/organisms/EventManager.re.mjs:1738
+#: src/components/organisms/EventManager.re.mjs:1740
 msgid "Print Draws"
 msgstr "列印賽程"
 
@@ -520,11 +520,11 @@ msgstr "優先考慮新夥伴與對手組合，而非實力均衡的對局。"
 msgid "Random Balanced"
 msgstr "隨機均衡"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr "用當前球員重新平衡這個回合"
 
@@ -532,7 +532,7 @@ msgstr "用當前球員重新平衡這個回合"
 msgid "Regenerate Rounds?"
 msgstr "重新生成輪次？"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "重複"
 
@@ -544,15 +544,15 @@ msgstr "替換球員"
 msgid "Replacing:"
 msgstr "替換："
 
-#: src/components/organisms/EventManager.re.mjs:2205
+#: src/components/organisms/EventManager.re.mjs:2207
 msgid "Reset Storage"
 msgstr "重置儲存空間"
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr "用所有已報到的球員重置這個回合"
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr "使用混合性別配對重置此輪"
 
@@ -560,10 +560,10 @@ msgstr "使用混合性別配對重置此輪"
 msgid "Reset to slider"
 msgstr "重設為滑桿"
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
 #: src/components/organisms/PrintableDraws.re.mjs:84
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "第 {0} 回合"
 
@@ -612,7 +612,7 @@ msgstr "掃描以報到"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/organisms/EventManager.re.mjs:1693
+#: src/components/organisms/EventManager.re.mjs:1695
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -623,6 +623,10 @@ msgstr "種子："
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
 msgstr "種子已調整"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "發球中"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:196
 msgid "Similar-skill matches"
@@ -648,23 +652,23 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:1705
+#: src/components/organisms/EventManager.re.mjs:1707
 msgid "Sync Failed"
 msgstr "同步失敗"
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1671
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:1765
+#: src/components/organisms/EventManager.re.mjs:1767
 msgid "synced"
 msgstr "已同步"
 
-#: src/components/organisms/EventManager.re.mjs:1681
+#: src/components/organisms/EventManager.re.mjs:1683
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1614
+#: src/components/organisms/EventManager.re.mjs:1616
 msgid "Team {0}"
 msgstr "第 {0} 隊"
 
@@ -692,7 +696,7 @@ msgstr "隊伍名稱"
 msgid "Teams"
 msgstr "隊伍"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -706,7 +710,7 @@ msgstr "這將刪除所有未來回合並生成新比賽"
 msgid "Tight bands"
 msgstr "緊密分組"
 
-#: src/components/organisms/EventManager.re.mjs:1767
+#: src/components/organisms/EventManager.re.mjs:1769
 msgid "to sync"
 msgstr "待同步"
 
@@ -724,8 +728,8 @@ msgid "Update Rounds Below"
 msgstr "更新以下回合"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

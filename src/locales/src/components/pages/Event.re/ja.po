@@ -162,11 +162,11 @@ msgstr "イベントに参加"
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "ウェイトリストから参加"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "参加しました"
 
@@ -174,7 +174,7 @@ msgstr "参加しました"
 msgid "league"
 msgstr "ラケットリーグ"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "離れました"
 
@@ -405,11 +405,15 @@ msgstr "プロフィールを表示"
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "管理者によってイベントに追加されました"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "イベントに招待されました"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "管理者によってイベントから削除されました"
 

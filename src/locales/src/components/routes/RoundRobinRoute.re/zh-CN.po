@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -30,8 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:525
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/RoundSection.re.mjs:527
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "进行中的回合"
 
@@ -122,7 +122,7 @@ msgstr "经典循环赛抽签"
 msgid "Close"
 msgstr "关闭"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "退出全屏"
 
@@ -139,11 +139,11 @@ msgstr "竞技模式"
 msgid "Competitive+"
 msgstr "竞技+"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "场地 {0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "球场 {0}"
 
@@ -196,7 +196,7 @@ msgid "Delete Guest"
 msgstr "删除访客"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "删除比赛"
 
@@ -204,7 +204,7 @@ msgstr "删除比赛"
 msgid "Delete team"
 msgstr "删除队伍"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
@@ -221,7 +221,7 @@ msgstr ""
 "每种策略使用预设配置；调整任意滑块将切换为自定义混合模式。上场时间公平性与轮"
 "换规则始终强制执行，不可降低。"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "编辑比赛"
 
@@ -267,7 +267,7 @@ msgid ""
 "skill."
 msgstr "每轮对阵新鲜多样，每场比赛按技术水平均衡分队。"
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "全屏查看"
 
@@ -321,7 +321,7 @@ msgstr "简·多伊"
 msgid "John Smith"
 msgstr "约翰·史密斯"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "上一轮"
 
@@ -460,11 +460,11 @@ msgstr "优先安排新搭档与新对手，而非实力均衡的比赛。"
 msgid "Random Balanced"
 msgstr "随机均衡"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr "用当前球员重新平衡这个回合"
 
@@ -472,7 +472,7 @@ msgstr "用当前球员重新平衡这个回合"
 msgid "Regenerate Rounds?"
 msgstr "重新生成轮次？"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "重复"
 
@@ -484,11 +484,11 @@ msgstr "替换球员"
 msgid "Replacing:"
 msgstr "替换："
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr "用所有已报到的球员重置这个回合"
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr "使用混合性别配对重置此轮"
 
@@ -496,9 +496,9 @@ msgstr "使用混合性别配对重置此轮"
 msgid "Reset to slider"
 msgstr "重置为滑块"
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "第 {0} 回合"
 
@@ -555,6 +555,10 @@ msgstr "种子："
 msgid "Seeds Adjusted"
 msgstr "种子已调整"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "发球中"
+
 #: src/components/molecules/SolverWeightsPanel.re.mjs:196
 msgid "Similar-skill matches"
 msgstr "相近水平匹配"
@@ -603,7 +607,7 @@ msgstr "队伍名称"
 msgid "Teams"
 msgstr "队伍"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -627,8 +631,8 @@ msgid "Update Rounds Below"
 msgstr "更新以下回合"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

@@ -50,6 +50,10 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "ส่งแล้ว"
+
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "

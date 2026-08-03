@@ -17,18 +17,22 @@ msgstr ""
 msgid "Activity"
 msgstr "Môn thể thao"
 
-#: src/components/organisms/PkEventMessages.re.mjs:433
+#: src/components/organisms/PkEventMessages.re.mjs:467
 msgid "Add a message..."
 msgstr "Thêm tin nhắn..."
 
-#: src/components/organisms/PkEventMessages.re.mjs:294
+#: src/components/organisms/PkEventMessages.re.mjs:328
 msgid "Event updated"
 msgstr "Sự kiện đã được cập nhật"
 
-#: src/components/organisms/PkEventMessages.re.mjs:421
+#: src/components/organisms/PkEventMessages.re.mjs:455
 msgid "Show all {0} items"
 msgstr "Hiển thị tất cả {0} mục"
 
-#: src/components/organisms/PkEventMessages.re.mjs:421
+#: src/components/organisms/PkEventMessages.re.mjs:455
 msgid "Show less"
 msgstr "Thu gọn"
+
+#: src/components/organisms/PkEventMessages.re.mjs:261
+msgid "was invited to the event"
+msgstr "đã được mời tham gia sự kiện"

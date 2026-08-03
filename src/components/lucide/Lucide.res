@@ -214,6 +214,26 @@ module Send = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Send"
 }
 
+module Mail = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Mail"
+}
+
+module Layers = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Layers"
+}
+
 module Pencil = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element = "Pencil"

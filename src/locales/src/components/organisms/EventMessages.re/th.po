@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "เข้าร่วมจากรายชื่อคอย"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "ออกจากกิจกรรม"
 
@@ -42,11 +42,15 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "ถูกเพิ่มเข้ากิจกรรมโดยผู้ดูแลระบบ"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "ถูกลบออกจากกิจกรรมโดยผู้ดูแลระบบ"
 

@@ -50,6 +50,10 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "đã gửi"
+
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "

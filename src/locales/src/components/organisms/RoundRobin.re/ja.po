@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -30,8 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "¥"
 
-#: src/components/organisms/RoundSection.re.mjs:525
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/RoundSection.re.mjs:527
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "進行中のラウンド"
 
@@ -122,7 +122,7 @@ msgstr "クラシック総当たり抽選"
 msgid "Close"
 msgstr "閉じる"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "全画面表示を閉じる"
 
@@ -139,11 +139,11 @@ msgstr "競争力"
 msgid "Competitive+"
 msgstr "競技+"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "コート{0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "コート{0}"
 
@@ -196,7 +196,7 @@ msgid "Delete Guest"
 msgstr "ゲストを削除"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "試合を削除"
 
@@ -204,7 +204,7 @@ msgstr "試合を削除"
 msgid "Delete team"
 msgstr "チームを削除"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
@@ -222,7 +222,7 @@ msgstr ""
 "カスタムミックスに切り替わります。公平なプレイ時間とローテーションは常に適用"
 "され、下げることはできません。"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "試合を編集"
 
@@ -269,7 +269,7 @@ msgid ""
 msgstr ""
 "毎ラウンド新鮮で多彩な対戦、各試合のチームはスキルでバランスが取れています。"
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "全画面表示"
 
@@ -325,7 +325,7 @@ msgstr "ジェーン・ドゥ"
 msgid "John Smith"
 msgstr "ジョン・スミス"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "前回のラウンド"
 
@@ -470,11 +470,11 @@ msgstr "新しいパートナーや対戦相手を均衡したゲームより優
 msgid "Random Balanced"
 msgstr "ランダムバランス"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr "現在のプレイヤーでこのラウンドを再調整"
 
@@ -482,7 +482,7 @@ msgstr "現在のプレイヤーでこのラウンドを再調整"
 msgid "Regenerate Rounds?"
 msgstr "ラウンドを再生成しますか？"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "繰り返し"
 
@@ -494,11 +494,11 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr "チェックイン済みの全プレイヤーでこのラウンドをリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr "混合ペアでこのラウンドをリセット"
 
@@ -506,9 +506,9 @@ msgstr "混合ペアでこのラウンドをリセット"
 msgid "Reset to slider"
 msgstr "スライダーにリセット"
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "ラウンド{0}"
 
@@ -565,6 +565,10 @@ msgstr "シード："
 msgid "Seeds Adjusted"
 msgstr "シード調整済み"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "サーブ権"
+
 #: src/components/molecules/SolverWeightsPanel.re.mjs:196
 msgid "Similar-skill matches"
 msgstr "同レベルの対戦"
@@ -613,7 +617,7 @@ msgstr "チーム名"
 msgid "Teams"
 msgstr "チーム"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -639,8 +643,8 @@ msgid "Update Rounds Below"
 msgstr "以降のラウンドを更新"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

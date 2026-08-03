@@ -17,11 +17,11 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:203
+#: src/components/pages/LeagueRankingsPage.re.mjs:423
 msgid "All"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:242
+#: src/components/pages/LeagueRankingsPage.re.mjs:462
 msgid "All Clubs"
 msgstr ""
 
@@ -29,12 +29,12 @@ msgstr ""
 msgid "All players loaded"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
-#: src/components/pages/LeagueRankingsPage.re.mjs:118
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+#: src/components/pages/LeagueRankingsPage.re.mjs:338
 msgid "Competitive Doubles"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
 msgid "Competitive Singles"
 msgstr ""
 
@@ -51,6 +51,11 @@ msgstr ""
 msgid "Draft cutoff · Top 8 qualify"
 msgstr ""
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr ""
+
 #: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr ""
@@ -59,15 +64,15 @@ msgstr ""
 #~ msgid "Female"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:256
+#: src/components/pages/LeagueRankingsPage.re.mjs:476
 msgid "Filter by club"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:227
+#: src/components/pages/LeagueRankingsPage.re.mjs:447
 msgid "Filter by gender"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:147
+#: src/components/pages/LeagueRankingsPage.re.mjs:367
 msgid "Live Standings"
 msgstr ""
 
@@ -79,7 +84,7 @@ msgstr ""
 msgid "Loading next standings"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:312
+#: src/components/pages/LeagueRankingsPage.re.mjs:532
 msgid "Loading rankings..."
 msgstr ""
 
@@ -87,7 +92,7 @@ msgstr ""
 #~ msgid "Male"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:208
+#: src/components/pages/LeagueRankingsPage.re.mjs:428
 msgid "Men"
 msgstr ""
 
@@ -96,7 +101,11 @@ msgid "No players found"
 msgstr ""
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
 msgstr ""
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
@@ -107,13 +116,17 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+#: src/components/pages/LeagueRankingsPage.re.mjs:185
+msgid "Playoff Draft"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:220
 msgid "Presented by"
 msgstr ""
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
-msgid "Prizes"
-msgstr ""
+#~ msgid "Prizes"
+#~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
@@ -123,23 +136,33 @@ msgstr ""
 #~ msgid "Recreational Doubles"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:180
+#: src/components/pages/LeagueRankingsPage.re.mjs:400
 msgid "Search players..."
 msgstr ""
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:225
+#: src/components/pages/LeagueRankingsPage.re.mjs:230
 msgid "Sponsor logo"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:163
+#: src/components/pages/LeagueRankingsPage.re.mjs:383
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr ""
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
-msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:167
+#: src/components/pages/LeagueRankingsPage.re.mjs:387
 msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
 msgstr ""
 
@@ -148,8 +171,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
-msgid "Top Player Awards"
-msgstr ""
+#~ msgid "Top Player Awards"
+#~ msgstr ""
 
 #: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
@@ -163,7 +186,7 @@ msgstr ""
 #~ msgid "View My Profile"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:213
+#: src/components/pages/LeagueRankingsPage.re.mjs:433
 msgid "Women"
 msgstr ""
 

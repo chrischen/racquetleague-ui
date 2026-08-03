@@ -13,20 +13,24 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:444
+#: src/components/organisms/PkRSVPSection.re.mjs:449
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:442
+#: src/components/organisms/PkRSVPSection.re.mjs:447
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:439
+#: src/components/organisms/PkRSVPSection.re.mjs:444
 msgid "{0} joined"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:505
+#: src/components/organisms/PkRSVPSection.re.mjs:510
 msgid "♂/♀ SKILL"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:164
@@ -37,7 +41,15 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:214
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:219
 msgid "balanced"
 msgstr ""
 
@@ -45,24 +57,68 @@ msgstr ""
 msgid "Capture payment"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:589
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Confirmed · {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:479
-#: src/components/organisms/PkRSVPSection.re.mjs:496
+#: src/components/organisms/PkRSVPSection.re.mjs:766
+msgid "Court"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:484
+#: src/components/organisms/PkRSVPSection.re.mjs:501
 msgid "DUPR"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:210
+#: src/components/organisms/PkRSVPSection.re.mjs:215
 msgid "even"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:488
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:493
 msgid "MEDIAN"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:217
+#: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
 msgstr ""
 
@@ -71,7 +127,11 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:409
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:414
 msgid "Participants"
 msgstr ""
 
@@ -83,7 +143,7 @@ msgstr ""
 msgid "Payment captured"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:720
+#: src/components/organisms/PkRSVPSection.re.mjs:725
 msgid "Pending · {0}"
 msgstr ""
 
@@ -103,35 +163,64 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:335
+#: src/components/organisms/PkRSVPSection.re.mjs:340
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:356
+#: src/components/organisms/PkRSVPSection.re.mjs:361
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:549
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr ""
+
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:554
 msgid "SPREAD"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:471
+#: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:239
+#: src/components/organisms/EventInvites.re.mjs:357
 msgid "View Profile"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:655
+#: src/components/organisms/PkRSVPSection.re.mjs:660
 msgid "Waitlist · {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:339
+#: src/components/organisms/PkRSVPSection.re.mjs:344
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
 

@@ -110,7 +110,7 @@ msgstr "ย่อ"
 msgid "Complete your profile"
 msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "สนาม {0}"
 
@@ -123,11 +123,11 @@ msgid "Courts:"
 msgstr "คอร์ท:"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "ลบการแข่งขัน"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
 
@@ -143,7 +143,7 @@ msgstr "ต้องกรอกชื่อที่แสดง"
 msgid "edit event"
 msgstr "แก้ไขกิจกรรม"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "แก้ไขการแข่งขัน"
 
@@ -209,19 +209,19 @@ msgstr "เข้าร่วมกิจกรรม"
 msgid "Join Waitlist"
 msgstr "เข้าร่วมรายชื่อคอย"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "เข้าร่วมจากรายชื่อคอย"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "ออกจากกิจกรรม"
 
@@ -310,7 +310,7 @@ msgstr "ผู้เล่นมืออาชีพ"
 msgid "Rated"
 msgstr "มีการจัดอันดับ"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
 
@@ -331,7 +331,7 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "ซ้ำ"
 
@@ -411,7 +411,7 @@ msgstr "ทีม 1"
 msgid "TEAM 2"
 msgstr "ทีม 2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -486,8 +486,8 @@ msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 
@@ -495,11 +495,15 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "ถูกเพิ่มเข้ากิจกรรมโดยผู้ดูแลระบบ"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "ถูกลบออกจากกิจกรรมโดยผู้ดูแลระบบ"
 

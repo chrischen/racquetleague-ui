@@ -4,10 +4,12 @@ import * as Caml from "rescript/lib/es6/caml.js";
 import * as React from "react";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as PkEventRsvp from "./PkEventRsvp.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as EventInvites from "./EventInvites.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
@@ -159,9 +161,12 @@ function PkRSVPSection(props) {
           return Caml_obj.equal(n.listType, 0);
         }
       });
+  var invitedRsvps = rsvps.filter(function (n) {
+        return Caml_obj.equal(n.listType, 2);
+      });
   var pendingRsvps = rsvps.filter(function (n) {
-        if (n.listType !== undefined) {
-          return Caml_obj.notequal(n.listType, 0);
+        if (n.listType !== undefined && Caml_obj.notequal(n.listType, 0)) {
+          return Caml_obj.notequal(n.listType, 2);
         } else {
           return false;
         }
@@ -744,7 +749,48 @@ function PkRSVPSection(props) {
                               })
                         ],
                         className: "mt-2.5"
-                      }) : null
+                      }) : null,
+                JsxRuntime.jsx(EventInvites.make, {
+                      eventId: eventData.id,
+                      canInvite: eventData.viewerIsAdmin,
+                      activityId: Core__Option.map(eventData.activity, (function (a) {
+                              return a.id;
+                            })),
+                      activitySlug: activitySlug,
+                      clubId: Core__Option.map(eventData.club, (function (c) {
+                              return c.id;
+                            })),
+                      eventTitle: Core__Option.getOr(eventData.title, ""),
+                      venueName: Core__Option.getOr(Core__Option.flatMap(eventData.location, (function (l) {
+                                  return l.name;
+                                })), t`Court`),
+                      startDate: eventData.startDate,
+                      endDate: eventData.endDate,
+                      timezone: Core__Option.getOr(eventData.timezone, "Asia/Tokyo"),
+                      participantUserIds: Belt_Array.concat(Core__Array.filterMap(rsvps, (function (n) {
+                                  return Core__Option.map(n.user, (function (u) {
+                                                return u.id;
+                                              }));
+                                })), Core__Option.getOr(Core__Option.map(viewerUser, (function (v) {
+                                      return [v.id];
+                                    })), [])),
+                      invitedCount: invitedRsvps.length,
+                      invitedChips: invitedRsvps.map(function (edge) {
+                            return JsxRuntime.jsx("li", {
+                                        children: JsxRuntime.jsx(PkEventRsvp.make, {
+                                              rsvp: edge.fragmentRefs,
+                                              activitySlug: activitySlug,
+                                              maxRating: maxRating$1,
+                                              eventId: eventData.id,
+                                              isAdmin: eventData.viewerIsAdmin,
+                                              isInvited: true,
+                                              showRating: isCompetitive,
+                                              connectionKey: "PkRSVPSection_event_rsvps"
+                                            }),
+                                        className: "relative"
+                                      }, edge.id);
+                          })
+                    })
               ],
               className: "px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]"
             });

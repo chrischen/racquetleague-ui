@@ -110,7 +110,7 @@ msgstr "折りたたむ"
 msgid "Complete your profile"
 msgstr "プロフィールを完成させる"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "コート{0}"
 
@@ -123,11 +123,11 @@ msgid "Courts:"
 msgstr "コート数："
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "試合を削除"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
@@ -143,7 +143,7 @@ msgstr "表示名は必須です"
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "試合を編集"
 
@@ -211,19 +211,19 @@ msgstr "イベントに参加"
 msgid "Join Waitlist"
 msgstr "ウェイトリストに参加"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "ウェイトリストから参加"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "参加しました"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "離れました"
 
@@ -312,7 +312,7 @@ msgstr "プロプレイヤー"
 msgid "Rated"
 msgstr "レーティング戦"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
@@ -333,7 +333,7 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "繰り返し"
 
@@ -413,7 +413,7 @@ msgstr "チーム1"
 msgid "TEAM 2"
 msgstr "チーム2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -492,8 +492,8 @@ msgid "View Profile"
 msgstr "プロフィールを表示"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 
@@ -501,11 +501,15 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "管理者によってイベントに追加されました"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "イベントに招待されました"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "管理者によってイベントから削除されました"
 

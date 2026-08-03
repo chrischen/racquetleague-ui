@@ -17,11 +17,11 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr "...加载更高评分的球员"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:203
+#: src/components/pages/LeagueRankingsPage.re.mjs:423
 msgid "All"
 msgstr "全部"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:242
+#: src/components/pages/LeagueRankingsPage.re.mjs:462
 msgid "All Clubs"
 msgstr "所有俱乐部"
 
@@ -29,12 +29,12 @@ msgstr "所有俱乐部"
 msgid "All players loaded"
 msgstr "所有球员已加载"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
-#: src/components/pages/LeagueRankingsPage.re.mjs:118
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+#: src/components/pages/LeagueRankingsPage.re.mjs:338
 msgid "Competitive Doubles"
 msgstr "竞技双打"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
 msgid "Competitive Singles"
 msgstr "竞技单打"
 
@@ -51,19 +51,24 @@ msgstr "草稿"
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "草稿截止 · 前8名晋级"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr "选秀于2026年9月15日（周二）开始"
+
 #: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "预计 DUPR"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:256
+#: src/components/pages/LeagueRankingsPage.re.mjs:476
 msgid "Filter by club"
 msgstr "按俱乐部筛选"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:227
+#: src/components/pages/LeagueRankingsPage.re.mjs:447
 msgid "Filter by gender"
 msgstr "按性别筛选"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:147
+#: src/components/pages/LeagueRankingsPage.re.mjs:367
 msgid "Live Standings"
 msgstr "实时排名"
 
@@ -75,11 +80,11 @@ msgstr "加载更多球员..."
 msgid "Loading next standings"
 msgstr "加载下一排名"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:312
+#: src/components/pages/LeagueRankingsPage.re.mjs:532
 msgid "Loading rankings..."
 msgstr "加载排名..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:208
+#: src/components/pages/LeagueRankingsPage.re.mjs:428
 msgid "Men"
 msgstr "男子"
 
@@ -87,51 +92,72 @@ msgstr "男子"
 msgid "No players found"
 msgstr "未找到球员"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-msgid "Official Dallash Flash T-Shirts and Ball Caps"
-msgstr "Dallash Flash 官方T恤与棒球帽"
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
+msgstr "奖品总价值超过￥200,000"
 
 #: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "球员"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+#: src/components/pages/LeagueRankingsPage.re.mjs:185
+msgid "Playoff Draft"
+msgstr "季后赛选秀"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:220
 msgid "Presented by"
 msgstr "由...呈现"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
-msgid "Prizes"
-msgstr "奖品"
 
 #: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "评分"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:180
+#: src/components/pages/LeagueRankingsPage.re.mjs:400
 msgid "Search players..."
 msgstr "搜索球员..."
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr "2026年9月15日"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:225
+#: src/components/pages/LeagueRankingsPage.re.mjs:230
 msgid "Sponsor logo"
 msgstr "赞助商标志"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:163
+#: src/components/pages/LeagueRankingsPage.re.mjs:383
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Pkuru.com 官方竞技双打排名。"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
-msgid "The top 4 men and top 4 women players each earn a prize."
-msgstr "前4名男子及前4名女子球员各获得一份奖品。"
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid ""
+"The top 8 men and top 8 women qualify — each bracket is drafted into 4 "
+"doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 "
+"widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction "
+"Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the "
+"prize, along with 1 bonus category to be decided for the 5th winner. Only "
+"players who are physically in Japan to receive the prizes are eligible to "
+"win. Any *Rated* event on Pkuru.com can submit rated matches that can "
+"qualify you for the top 8 draft. We reserve the right to disqualify players, "
+"matches, or clubs that are suspected of cheating at our own independent "
+"discretion and without notice. There is no cost to participation and "
+"Pkuru.com does not collect any fee from organizers participating in the "
+"Playoff Draft."
+msgstr ""
+"男子前8名和女子前8名晋级——每个组别通过选秀分成4支双打队伍参加决赛。奖品池包"
+"括：2块Ella Oh Pink V2宽体球拍、2块RPM Friction Pro V2 14mm球拍及1块RPM "
+"Friction Pro V2 16mm球拍。男子和女子双打的获胜组合将获得奖品，另设1个待定的额"
+"外奖项颁给第5位获奖者。仅限实际在日本境内的选手方可领取奖品。在Pkuru.com上任"
+"何标注为*评级*的赛事均可提交评级比赛记录，助您晋级前8名选秀资格。我们保留自行"
+"独立判断、无需提前通知即取消涉嫌作弊的选手、比赛或俱乐部资格的权利。参与本次"
+"季后赛选秀无需任何费用，Pkuru.com不向参与的赛事组织者收取任何费用。"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:167
+#: src/components/pages/LeagueRankingsPage.re.mjs:387
 msgid ""
 "To participate, join any event with the trophy icon (competitive rated "
 "events) to receive a rating."
 msgstr "参与方式：报名任意带有奖杯图标的赛事（竞技评级赛事）即可获得评级。"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
-msgid "Top Player Awards"
-msgstr "最佳球员奖"
 
 #: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
@@ -141,7 +167,7 @@ msgstr "请尝试扩大搜索范围或调整筛选条件。"
 msgid "View my profile"
 msgstr "查看我的主页"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:213
+#: src/components/pages/LeagueRankingsPage.re.mjs:433
 msgid "Women"
 msgstr "女子"
 
@@ -161,6 +187,10 @@ msgstr "我的排名"
 #~ msgid "Male"
 #~ msgstr "男性"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "Dallash Flash 官方T恤与棒球帽"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
 #~ msgid ""
 #~ "Play doubles games with different partners and receive an individual "
@@ -168,13 +198,25 @@ msgstr "我的排名"
 #~ msgstr ""
 #~ "与不同的搭档进行双打比赛，获得个人评分。每月向最优秀的球员颁发奖品。"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#~ msgid "Prizes"
+#~ msgstr "奖品"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #~ msgid "Recreational Doubles"
 #~ msgstr "休闲双打"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#~ msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgstr "前4名男子及前4名女子球员各获得一份奖品。"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:125
 #~ msgid "To participate, please join the events here:"
 #~ msgstr "要参与，请在此加入活动："
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#~ msgid "Top Player Awards"
+#~ msgstr "最佳球员奖"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:100
 #~ msgid "View My Profile"

@@ -13,21 +13,25 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "VÒNG ĐANG DIỄN RA"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "Đóng Toàn Màn Hình"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "SÂN {0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "Vòng {0}"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "ĐANG GIAO BÓNG"
 
 #: src/components/organisms/FullScreenRoundView.re.mjs:151
 #~ msgid "Not Playing This Round"

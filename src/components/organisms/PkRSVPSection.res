@@ -4,6 +4,10 @@ open Lingui.Util
 module Fragment = %relay(`
   fragment PkRSVPSection_event on Event {
     id
+    title
+    startDate
+    endDate
+    timezone
     maxRsvps
     price
     minRating
@@ -13,7 +17,12 @@ module Fragment = %relay(`
       id
     }
     activity {
+      id
       slug
+    }
+    location {
+      id
+      name
     }
     owner {
       lineUsername
@@ -136,7 +145,10 @@ let make = (
   let isWaitlist = count => maxRsvps > 0 && count >= maxRsvps
 
   let mainList = rsvps->Array.filter(n => n.listType == None || n.listType == Some(0))
-  let pendingRsvps = rsvps->Array.filter(n => n.listType != None && n.listType != Some(0))
+  // listType 2 = invited by the host; not a join request, so kept out of Pending
+  let invitedRsvps = rsvps->Array.filter(n => n.listType == Some(2))
+  let pendingRsvps =
+    rsvps->Array.filter(n => n.listType != None && n.listType != Some(0) && n.listType != Some(2))
   let confirmedRsvps =
     mainList
     ->Array.filterWithIndex((_, i) => !isWaitlist(i))
@@ -562,5 +574,41 @@ let make = (
           </div>
         </div>
       : React.null}
+    /* Sent and potential invites */
+    <EventInvites
+      eventId=eventData.id
+      canInvite=eventData.viewerIsAdmin
+      activityId={eventData.activity->Option.map(a => a.id)}
+      activitySlug
+      clubId={eventData.club->Option.map(c => c.id)}
+      eventTitle={eventData.title->Option.getOr("")}
+      venueName={eventData.location
+      ->Option.flatMap(l => l.name)
+      ->Option.getOr(Lingui.UtilString.t`Court`)}
+      startDate=eventData.startDate
+      endDate=eventData.endDate
+      timezone={eventData.timezone->Option.getOr("Asia/Tokyo")}
+      participantUserIds={Belt.Array.concat(
+        rsvps->Array.filterMap(n => n.user->Option.map(u => u.id)),
+        viewerUser->Option.map(v => [v.id])->Option.getOr([]),
+      )}
+      invitedCount={invitedRsvps->Array.length}
+      invitedChips={invitedRsvps
+      ->Array.map(edge =>
+        <li key=edge.id className="relative">
+          <PkEventRsvp
+            eventId=eventData.id
+            rsvp={edge.fragmentRefs}
+            ?activitySlug
+            maxRating
+            isAdmin=eventData.viewerIsAdmin
+            isInvited=true
+            showRating=isCompetitive
+            connectionKey="PkRSVPSection_event_rsvps"
+          />
+        </li>
+      )
+      ->React.array}
+    />
   </div>
 }

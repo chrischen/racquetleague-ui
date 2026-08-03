@@ -44,6 +44,226 @@ RescriptRelay_Query.fetchPromised(LeagueRankingsPageQuery_graphql.node, convertR
 
 RescriptRelay_Query.retain(LeagueRankingsPageQuery_graphql.node, convertVariables);
 
+function LeagueRankingsPage$BracketIllustration(props) {
+  return JsxRuntime.jsxs("svg", {
+              children: [
+                JsxRuntime.jsxs("g", {
+                      children: [
+                        JsxRuntime.jsx("path", {
+                              d: "M4 12 H24"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M4 32 H24"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M4 68 H24"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M4 88 H24"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M24 12 V32"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M24 68 V88"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M24 22 H46"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M24 78 H46"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M46 22 V78"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M46 50 H70"
+                            }),
+                        JsxRuntime.jsx("path", {
+                              d: "M70 50 H82"
+                            })
+                      ],
+                      opacity: "0.85",
+                      stroke: "currentColor",
+                      strokeLinecap: "round",
+                      strokeLinejoin: "round",
+                      strokeWidth: "2"
+                    }),
+                JsxRuntime.jsxs("g", {
+                      children: [
+                        JsxRuntime.jsx("circle", {
+                              cx: "4",
+                              cy: "12",
+                              r: "2.5"
+                            }),
+                        JsxRuntime.jsx("circle", {
+                              cx: "4",
+                              cy: "32",
+                              r: "2.5"
+                            }),
+                        JsxRuntime.jsx("circle", {
+                              cx: "4",
+                              cy: "68",
+                              r: "2.5"
+                            }),
+                        JsxRuntime.jsx("circle", {
+                              cx: "4",
+                              cy: "88",
+                              r: "2.5"
+                            })
+                      ],
+                      fill: "currentColor",
+                      opacity: "0.5"
+                    }),
+                JsxRuntime.jsx("circle", {
+                      cx: "86",
+                      cy: "50",
+                      fill: "currentColor",
+                      fillOpacity: "0.18",
+                      r: "8",
+                      stroke: "currentColor",
+                      strokeWidth: "2"
+                    }),
+                JsxRuntime.jsx("path", {
+                      d: "M83 50 l2 2 l4 -4.5",
+                      fill: "none",
+                      stroke: "currentColor",
+                      strokeLinecap: "round",
+                      strokeLinejoin: "round",
+                      strokeWidth: "2"
+                    })
+              ],
+              className: "w-full h-auto",
+              fill: "none",
+              viewBox: "0 0 96 100"
+            });
+}
+
+var rpmLightLogo = RpmLightSvg;
+
+var rpmDarkLogo = RpmDarkSvg;
+
+function LeagueRankingsPage$DraftPrizeBanner(props) {
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      className: "absolute -top-16 -right-10 w-56 h-56 bg-amber-400/10 blur-3xl rounded-full pointer-events-none"
+                    }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("div", {
+                                      children: JsxRuntime.jsx(LeagueRankingsPage$BracketIllustration, {}),
+                                      className: "w-full text-amber-500 dark:text-amber-400"
+                                    }),
+                                JsxRuntime.jsxs("span", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.CalendarClock, {
+                                              size: 12,
+                                              strokeWidth: 2.5
+                                            }),
+                                        t`Sep 15, 2026`
+                                      ],
+                                      className: "inline-flex items-center gap-1 rounded-md bg-amber-400/15 border border-amber-400/40 px-2 py-1 text-[11px] font-bold text-amber-700 dark:text-amber-300 whitespace-nowrap",
+                                      title: t`Draft starts Tuesday, September 15, 2026`
+                                    })
+                              ],
+                              className: "flex-shrink-0 hidden sm:flex flex-col items-center justify-center gap-2 w-24 md:w-28 self-stretch"
+                            }),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsxs("h2", {
+                                              children: [
+                                                JsxRuntime.jsx(LucideReact.Trophy, {
+                                                      size: 18,
+                                                      className: "text-amber-600 dark:text-amber-400",
+                                                      strokeWidth: 2.5
+                                                    }),
+                                                t`Playoff Draft`,
+                                                JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                      size: 14,
+                                                      fill: "currentColor",
+                                                      className: "text-amber-500 dark:text-amber-400"
+                                                    })
+                                              ],
+                                              className: "font-black uppercase italic tracking-tight text-base md:text-lg text-gray-900 dark:text-white leading-none flex items-center gap-1.5"
+                                            }),
+                                        JsxRuntime.jsxs("span", {
+                                              children: [
+                                                JsxRuntime.jsx(LucideReact.CalendarClock, {
+                                                      size: 12,
+                                                      strokeWidth: 2.5
+                                                    }),
+                                                t`Sep 15, 2026`
+                                              ],
+                                              className: "sm:hidden inline-flex items-center gap-1 rounded-md bg-amber-400/15 border border-amber-400/40 px-2 py-0.5 text-[11px] font-bold text-amber-700 dark:text-amber-300 whitespace-nowrap",
+                                              title: t`Draft starts Tuesday, September 15, 2026`
+                                            })
+                                      ],
+                                      className: "flex items-center flex-wrap gap-x-2 gap-y-1.5"
+                                    }),
+                                JsxRuntime.jsx("p", {
+                                      children: t`The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft.`,
+                                      className: "text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-2 leading-snug"
+                                    })
+                              ],
+                              className: "min-w-0 flex-1"
+                            }),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsx("span", {
+                                              children: t`Presented by`,
+                                              className: "font-mono text-[9px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500"
+                                            }),
+                                        JsxRuntime.jsx("img", {
+                                              className: "h-5 w-auto max-w-[110px] object-contain flex-shrink-0 block dark:hidden",
+                                              alt: t`Sponsor logo`,
+                                              src: rpmLightLogo
+                                            }),
+                                        JsxRuntime.jsx("img", {
+                                              className: "h-5 w-auto max-w-[110px] object-contain flex-shrink-0 hidden dark:block",
+                                              alt: t`Sponsor logo`,
+                                              src: rpmDarkLogo
+                                            })
+                                      ],
+                                      className: "flex items-center justify-between gap-2 px-3 py-2 border-b border-gray-100 dark:border-[#2a2b30] bg-gray-50 dark:bg-[#17181c]"
+                                    }),
+                                JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsx("div", {
+                                              children: JsxRuntime.jsx(LucideReact.Gift, {
+                                                    size: 16,
+                                                    strokeWidth: 2.25,
+                                                    className: "text-amber-600 dark:text-amber-400"
+                                                  }),
+                                              className: "flex-shrink-0 w-8 h-8 rounded-lg bg-amber-400/20 border border-amber-400/50 flex items-center justify-center"
+                                            }),
+                                        JsxRuntime.jsx("div", {
+                                              children: JsxRuntime.jsx("div", {
+                                                    children: t`Over ￥200,000 in prizes`,
+                                                    className: "font-black text-sm md:text-base leading-snug text-amber-700 dark:text-amber-300"
+                                                  }),
+                                              className: "min-w-0"
+                                            })
+                                      ],
+                                      className: "flex items-center gap-2.5 px-3 py-2.5"
+                                    })
+                              ],
+                              className: "flex-shrink-0 w-full md:w-52 rounded-lg border border-amber-400/50 bg-white dark:bg-[#1e1f23] overflow-hidden"
+                            })
+                      ],
+                      className: "relative p-4 md:p-5 flex flex-col md:flex-row md:items-center gap-4 md:gap-5"
+                    })
+              ],
+              className: "relative overflow-hidden rounded-xl border border-amber-300/70 dark:border-amber-500/30 bg-amber-50 dark:bg-amber-950/30 shadow-sm mb-5"
+            });
+}
+
 function LeagueRankingsPage(props) {
   var query = ReactRouterDom.useLoaderData();
   var params = ReactRouterDom.useParams();
@@ -293,14 +513,14 @@ function LeagueRankingsPage(props) {
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx(Layout.Container.make, {
-                                              children: JsxRuntime.jsx(TopPlayerAwardsBanner.Banner.make, {})
+                                              children: JsxRuntime.jsx(LeagueRankingsPage$DraftPrizeBanner, {})
                                             }),
                                         JsxRuntime.jsx(React.Suspense, {
                                               children: Caml_option.some(JsxRuntime.jsx(RatingList.make, {
                                                         ratings: fragmentRefs,
                                                         genderFilter: genderFilter,
                                                         search: search,
-                                                        showDraftUi: false,
+                                                        showDraftUi: true,
                                                         viewerUserId: viewerUserId,
                                                         viewerOrdinal: viewerOrdinal,
                                                         viewerMu: viewerMu,

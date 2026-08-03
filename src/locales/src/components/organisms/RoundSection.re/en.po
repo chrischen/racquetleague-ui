@@ -13,8 +13,8 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr ""
 
@@ -22,7 +22,7 @@ msgstr ""
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/RoundSection.re.mjs:527
 msgid "ACTIVE ROUND"
 msgstr ""
 
@@ -30,7 +30,7 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr ""
 
@@ -39,15 +39,15 @@ msgid "Court {0} - Editing"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr ""
 
@@ -55,11 +55,11 @@ msgstr ""
 msgid "Enter Match Score"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr ""
 
@@ -83,15 +83,15 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr ""
 
@@ -103,16 +103,16 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr ""
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
 msgid "Round {0}"
 msgstr ""
 
@@ -141,13 +141,13 @@ msgstr ""
 msgid "TEAM 2"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr ""
 

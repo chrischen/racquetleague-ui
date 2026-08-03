@@ -110,7 +110,7 @@ msgstr "收起"
 msgid "Complete your profile"
 msgstr "完善個人資料"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "場地 {0}"
 
@@ -123,11 +123,11 @@ msgid "Courts:"
 msgstr "場地數："
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "刪除比賽"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
@@ -143,7 +143,7 @@ msgstr "請輸入顯示名稱"
 msgid "edit event"
 msgstr "編輯活動"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "編輯比賽"
 
@@ -211,19 +211,19 @@ msgstr "加入活動"
 msgid "Join Waitlist"
 msgstr "加入等待列表"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "從等待列表中加入"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "加入了活動"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "上一輪"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "退出了活動"
 
@@ -312,7 +312,7 @@ msgstr "職業球員"
 msgid "Rated"
 msgstr "計分賽"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
 
@@ -333,7 +333,7 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "重複"
 
@@ -413,7 +413,7 @@ msgstr "隊伍 1"
 msgid "TEAM 2"
 msgstr "隊伍 2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -485,8 +485,8 @@ msgid "View Profile"
 msgstr "查看個人資料"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 
@@ -494,11 +494,15 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "已被管理員新增至活動"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "已受邀參加活動"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "已被管理員從活動中移除"
 

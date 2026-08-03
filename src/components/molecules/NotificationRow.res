@@ -113,6 +113,8 @@ let synthesizeTitle = (activityType: string, ~details: option<string>): string =
   | "comment_added" => ts`New Comment`
   | "rsvp_created" => ts`Joined`
   | "rsvp_added" => ts`Added to Event`
+  // Delivered only to the invitee, who still has to join to confirm the spot.
+  | "rsvp_invited" => ts`Invited to Event`
   | "rsvp_promoted" => ts`Off Waitlist`
   | "rsvp_deleted" => ts`Left Event`
   | "rsvp_removed" => ts`Removed from Event`
@@ -141,6 +143,12 @@ module Icon = {
         "bg-emerald-100 dark:bg-emerald-900/30",
         "text-emerald-600 dark:text-emerald-400",
         <Lucide.UserPlus className=iconSize />,
+      )
+    // Violet matches the Invites section on the event page.
+    | "rsvp_invited" => (
+        "bg-violet-100 dark:bg-violet-900/30",
+        "text-violet-600 dark:text-violet-400",
+        <Lucide.Mail className=iconSize />,
       )
     | "rsvp_promoted" => (
         "bg-blue-100 dark:bg-blue-900/30",

@@ -10,6 +10,9 @@ import * as AvatarWithProgress from "../molecules/AvatarWithProgress.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PkEventRsvp_rsvp_graphql from "../../__generated__/PkEventRsvp_rsvp_graphql.re.mjs";
 
+import { t } from '@lingui/macro'
+;
+
 var convertFragment = PkEventRsvp_rsvp_graphql.Internal.convertFragment;
 
 function use(fRef) {
@@ -37,6 +40,7 @@ var Fragment = {
 function PkEventRsvp(props) {
   var __connectionKey = props.connectionKey;
   var __showRating = props.showRating;
+  var __isInvited = props.isInvited;
   var __isPending = props.isPending;
   var waitlistPosition = props.waitlistPosition;
   var __isHost = props.isHost;
@@ -47,6 +51,7 @@ function PkEventRsvp(props) {
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
   var isHost = __isHost !== undefined ? __isHost : false;
   var isPending = __isPending !== undefined ? __isPending : false;
+  var isInvited = __isInvited !== undefined ? __isInvited : false;
   var showRating = __showRating !== undefined ? __showRating : true;
   var connectionKey = __connectionKey !== undefined ? __connectionKey : "RSVPSection_event_rsvps";
   var rsvp = use(props.rsvp);
@@ -133,8 +138,10 @@ function PkEventRsvp(props) {
                                 eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
                                 isAdmin: isAdmin,
                                 connectionKey: connectionKey,
-                                triggerClassName: "relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-colors " + (
-                                  isPending ? "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70" : "border border-gray-200 dark:border-[#3a3b40]"
+                                triggerClassName: "relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer transition-colors " + (
+                                  isInvited ? "border border-violet-200 dark:border-violet-800/60 bg-violet-50 dark:bg-violet-950/20 hover:bg-violet-100 dark:hover:bg-violet-900/30" : (
+                                      isPending ? "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70 hover:bg-gray-50 dark:hover:bg-[#26272b]" : "border border-gray-200 dark:border-[#3a3b40] hover:bg-gray-50 dark:hover:bg-[#26272b]"
+                                    )
                                 ),
                                 children: [
                                   JsxRuntime.jsx(AvatarWithProgress.make, {
@@ -146,8 +153,14 @@ function PkEventRsvp(props) {
                                       }),
                                   JsxRuntime.jsx("span", {
                                         children: Core__Option.getOr(user.lineUsername, "?"),
-                                        className: "text-[11px] text-gray-900 dark:text-gray-100 leading-none"
+                                        className: "text-[11px] leading-none " + (
+                                          isInvited ? "text-violet-900 dark:text-violet-200" : "text-gray-900 dark:text-gray-100"
+                                        )
                                       }),
+                                  isInvited ? JsxRuntime.jsx("span", {
+                                          children: t`sent`,
+                                          className: "font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400"
+                                        }) : null,
                                   tmp$1,
                                   showRating ? JsxRuntime.jsx("span", {
                                           children: skillStr,
@@ -169,4 +182,4 @@ export {
   Fragment ,
   make ,
 }
-/* Rating Not a pure module */
+/*  Not a pure module */

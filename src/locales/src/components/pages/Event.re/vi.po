@@ -162,11 +162,11 @@ msgstr "Tham gia sự kiện"
 msgid "Join Waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "tham gia từ danh sách chờ"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "đã tham gia sự kiện"
 
@@ -174,7 +174,7 @@ msgstr "đã tham gia sự kiện"
 msgid "league"
 msgstr "giải đấu"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "đã rời sự kiện"
 
@@ -403,11 +403,15 @@ msgstr "Xem hồ sơ"
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "đã được admin thêm vào sự kiện"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "đã được mời tham gia sự kiện"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "đã bị admin xóa khỏi sự kiện"
 

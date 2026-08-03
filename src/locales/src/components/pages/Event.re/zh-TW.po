@@ -162,11 +162,11 @@ msgstr "加入活動"
 msgid "Join Waitlist"
 msgstr "加入等待列表"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "從等待列表中加入"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "加入了活動"
 
@@ -174,7 +174,7 @@ msgstr "加入了活動"
 msgid "league"
 msgstr "聯盟"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "退出了活動"
 
@@ -400,11 +400,15 @@ msgstr "查看個人資料"
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "已被管理員新增至活動"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "已受邀參加活動"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "已被管理員從活動中移除"
 

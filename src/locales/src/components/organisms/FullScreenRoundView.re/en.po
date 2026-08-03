@@ -13,15 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr ""
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr ""
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr ""
 
@@ -29,6 +29,10 @@ msgstr ""
 #~ msgid "Not Playing This Round"
 #~ msgstr ""
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
+msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
 msgstr ""

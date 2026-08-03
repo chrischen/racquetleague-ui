@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-02 23:06+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid ""
+"A good availability match for {eventTitle}. Invite them now to reserve a "
+"place in the event conversation."
+msgstr ""
+"{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会話"
+"に参加させましょう。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr "イベント全体に参加可能"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr "イベントに戻る"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr "スワイプ招待を閉じる"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr "全員確認済み"
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr "招待する"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr "招待する"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr "{0}を招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr "プレイヤーを招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr "{eventTitle}に招待"
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr "招待済みおよび候補プレイヤー"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr "招待 · {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr "{0}の招待アクションを開く"
+
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr "スワイプカードで{0}人の候補プレイヤーを確認"
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr "招待を送る"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr "スキップ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr "{0}をスキップ"
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr "スワイプ招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
+msgstr "左にスワイプでスキップ・右にスワイプで招待"
+
+#: src/components/organisms/EventInvites.re.mjs:357
+msgid "View Profile"
+msgstr "プロフィールを表示"

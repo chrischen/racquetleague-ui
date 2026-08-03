@@ -13,29 +13,34 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-msgid "Official Dallash Flash T-Shirts and Ball Caps"
-msgstr "공식 Dallash Flash 티셔츠 및 볼캡"
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
+msgid "Official RPM T-Shirts and Ball Caps"
+msgstr "RPM 공식 티셔츠 및 볼캡"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:131
 msgid "Presented by"
 msgstr "제공"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:153
 msgid "Prizes"
 msgstr "상품"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
-msgid "Sponsor logo"
-msgstr "스폰서 로고"
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
+msgstr "RPM"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:120
 msgid "The top 4 men and top 4 women players each earn a prize."
 msgstr "상위 4명의 남성 및 상위 4명의 여성 플레이어가 각각 상품을 받습니다."
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:97
 msgid "Top Player Awards"
 msgstr "최우수 선수 시상"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "공식 Dallash Flash 티셔츠 및 볼캡"
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
 #~ msgid ""
@@ -44,3 +49,7 @@ msgstr "최우수 선수 시상"
 #~ msgstr ""
 #~ "공식 Dallash Flash 티셔츠 및 볼캡 — 남성 상위 4명 및 여성 상위 4명 선수에"
 #~ "게 수여"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#~ msgid "Sponsor logo"
+#~ msgstr "스폰서 로고"

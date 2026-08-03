@@ -34,11 +34,15 @@ msgstr "호스트 메시지"
 msgid "Inbox"
 msgstr "받은 편지함"
 
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "이벤트 초대"
+
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "참가함"
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Joined Club"
 msgstr "클럽 가입됨"
 
@@ -54,7 +58,7 @@ msgstr "새 댓글"
 msgid "Nothing here yet"
 msgstr "아직 아무것도 없습니다"
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "알림"
 
@@ -62,11 +66,11 @@ msgstr "알림"
 msgid "Notifications"
 msgstr "알림"
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "대기열 해제"
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:150
 msgid "Removed from Event"
 msgstr "이벤트에서 제거됨"
 

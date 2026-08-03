@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"XJOV1Y\":\"Activity\",\"sgRF0k\":\"Add a message...\",\"yF/hSW\":\"Event updated\",\"0hnuz0\":[\"Show all \",[\"0\"],\" items\"],\"6lGV3K\":\"Show less\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"XJOV1Y\":\"Activity\",\"sgRF0k\":\"Add a message...\",\"yF/hSW\":\"Event updated\",\"0hnuz0\":[\"Show all \",[\"0\"],\" items\"],\"6lGV3K\":\"Show less\",\"T42Pd7\":\"was invited to the event\"}");

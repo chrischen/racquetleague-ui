@@ -5199,6 +5199,133 @@ msgstr "将每场比赛分为最均衡的两队"
 msgid "Tight bands"
 msgstr "紧密分组"
 
+#: src/components/pages/PkEventPage.re.mjs:422
+msgid "Playoff Draft"
+msgstr "季后赛选秀"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
+msgstr "RPM"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "发球中"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr "选秀于2026年9月15日（周二）开始"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
+msgstr "奖品总价值超过￥200,000"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr "2026年9月15日"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "男子前8名和女子前8名晋级——每个组别通过选秀分成4支双打队伍参加决赛。奖品池包括：2块Ella Oh Pink V2宽体球拍、2块RPM Friction Pro V2 14mm球拍及1块RPM Friction Pro V2 16mm球拍。男子和女子双打的获胜组合将获得奖品，另设1个待定的额外奖项颁给第5位获奖者。仅限实际在日本境内的选手方可领取奖品。在Pkuru.com上任何标注为*评级*的赛事均可提交评级比赛记录，助您晋级前8名选秀资格。我们保留自行独立判断、无需提前通知即取消涉嫌作弊的选手、比赛或俱乐部资格的权利。参与本次季后赛选秀无需任何费用，Pkuru.com不向参与的赛事组织者收取任何费用。"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
+msgid "Official RPM T-Shirts and Ball Caps"
+msgstr "RPM官方T恤及棒球帽"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+msgstr "{eventTitle} 的可用时间非常匹配。立即邀请他们以预留活动对话中的位置。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr "全程可参加"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr "返回活动"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr "关闭滑动邀请"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr "已全部查看"
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr "邀请"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr "邀请"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr "邀请 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr "邀请球员"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr "邀请至 {eventTitle}"
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr "已邀请及潜在球员"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr "受邀球员已移至活动的邀请列表。"
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr "邀请 · {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr "打开 {0} 的邀请操作"
+
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr "通过滑动卡片查看 {0} 位潜在球员"
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr "发送邀请"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "已发送"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr "跳过"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr "跳过 {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr "滑动邀请"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
+msgstr "左滑跳过 · 右滑邀请"
+
+#: src/components/organisms/PkEventMessages.re.mjs:261
+msgid "was invited to the event"
+msgstr "已被邀请参加活动"
+
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "已邀请至活动"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -1,8 +1,34 @@
 %%raw("import { t } from '@lingui/macro'")
 
-// Top Player awards sponsor logo. Single source for the sponsor/prize info
-// shared by the rankings banner and the event-page strip.
-@module("./dallasflash.png") external sponsorLogo: string = "default"
+// Top Player awards sponsor logo (RPM), with light/dark variants swapped via
+// the `.dark` class. Single source shared by the rankings banner and the
+// event-page strip.
+@module("./rpm-light.svg") external sponsorLogoLight: string = "default"
+@module("./rpm-dark.svg") external sponsorLogoDark: string = "default"
+
+module SponsorLogo = {
+  let ts = Lingui.UtilString.t
+  @react.component
+  let make = (~className: string="") => {
+    <>
+      <img
+        className={"object-contain flex-shrink-0 block dark:hidden " ++ className}
+        src={sponsorLogoLight}
+        alt={ts`RPM`}
+      />
+      <img
+        className={"object-contain flex-shrink-0 hidden dark:block " ++ className}
+        src={sponsorLogoDark}
+        alt={ts`RPM`}
+      />
+    </>
+  }
+}
+
+// Total prize pool — single source shared by the rankings prize card and the
+// event-page strip. `prizePool` is the compact figure for tight spots (chips);
+// the rankings card shows the fuller summary phrase.
+let prizePool = "¥200,000+"
 
 // Next Top Player awards date. Rendered in UTC so this calendar date never
 // shifts across time zones.
@@ -14,7 +40,6 @@ let awardDateChip =
 // presented by the current sponsor. Used on the rankings page.
 module Banner = {
   open Lingui.Util
-  let ts = Lingui.UtilString.t
   @react.component
   let make = () => {
     <div
@@ -68,11 +93,7 @@ module Banner = {
               className="font-mono text-[9px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
               {t`Presented by`}
             </span>
-            <img
-              className="h-6 w-auto max-w-[110px] object-contain flex-shrink-0 rounded bg-white px-1 shadow-sm"
-              src={sponsorLogo}
-              alt={ts`Sponsor logo`}
-            />
+            <SponsorLogo className="h-6 w-auto max-w-[110px]" />
           </div>
           <div className="flex items-center gap-2.5 px-3 py-2.5">
             <div
@@ -88,7 +109,7 @@ module Banner = {
               </div>
               <div
                 className="text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-1 leading-tight">
-                {t`Official Dallash Flash T-Shirts and Ball Caps`}
+                {t`Official RPM T-Shirts and Ball Caps`}
               </div>
             </div>
           </div>

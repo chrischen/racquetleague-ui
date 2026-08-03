@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-02 23:06+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid ""
+"A good availability match for {eventTitle}. Invite them now to reserve a "
+"place in the event conversation."
+msgstr ""
+"{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대화"
+"에 자리를 확보하세요."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr "전체 이벤트 참가 가능"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr "이벤트로 돌아가기"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr "스와이프 초대 닫기"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr "모두 검토 완료"
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr "초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr "초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr "{0} 초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr "플레이어 초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr "{eventTitle}에 초대"
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr "초대된 플레이어 및 잠재적 플레이어"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr "초대 · {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr "{0}의 초대 작업 열기"
+
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr "스와이프 카드로 잠재적 플레이어 {0}명 검토"
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr "초대 보내기"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr "건너뛰기"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr "{0} 건너뛰기"
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr "스와이프 초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
+msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
+
+#: src/components/organisms/EventInvites.re.mjs:357
+msgid "View Profile"
+msgstr "프로필 보기"

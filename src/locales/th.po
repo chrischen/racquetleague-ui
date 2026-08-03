@@ -5203,6 +5203,133 @@ msgstr "แบ่งแต่ละแมตช์เป็นทีมที่
 msgid "Tight bands"
 msgstr "กลุ่มระดับทักษะแคบ"
 
+#: src/components/pages/PkEventPage.re.mjs:422
+msgid "Playoff Draft"
+msgstr "Playoff Draft"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
+msgstr "RPM"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "กำลังเสิร์ฟ"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr "Draft เริ่มวันอังคารที่ 15 กันยายน 2026"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
+msgstr "รางวัลรวมกว่า ¥200,000"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr "15 ก.ย. 2026"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "ผู้เล่นชายและหญิงอันดับต้น 8 คนจะได้รับสิทธิ์เข้าร่วม — แต่ละสายจะถูกจับสลากเป็น 4 ทีมดับเบิลส์เพื่อชิงชนะเลิศ รางวัลรวมประกอบด้วย ไม้ปิงปอง Ella Oh Pink V2 widebody 2 อัน, ไม้ RPM Friction Pro V2 14mm 2 อัน และไม้ RPM Friction Pro V2 16mm 1 อัน คู่ที่ชนะในประเภทชายและหญิงดับเบิลส์จะได้รับรางวัล พร้อมกับอีก 1 ประเภทโบนัสที่จะประกาศสำหรับผู้ชนะคนที่ 5 ผู้เล่นต้องอยู่ในญี่ปุ่นจึงจะมีสิทธิ์รับรางวัล อีเวนต์ที่มีสถานะ *Rated* บน Pkuru.com สามารถส่งผลการแข่งขัน Rated เพื่อลุ้นเข้าสู่ Top 8 Draft ได้ เราขอสงวนสิทธิ์ในการตัดสิทธิ์ผู้เล่น แมตช์ หรือสโมสรที่ต้องสงสัยว่าทุจริต โดยอยู่ในดุลยพินิจของเราแต่เพียงผู้เดียวและไม่จำเป็นต้องแจ้งล่วงหน้า การเข้าร่วมไม่มีค่าใช้จ่าย และ Pkuru.com ไม่เก็บค่าธรรมเนียมใดๆ จากผู้จัดงานที่เข้าร่วม Playoff Draft"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
+msgid "Official RPM T-Shirts and Ball Caps"
+msgstr "เสื้อยืดและหมวกแก๊ป RPM อย่างเป็นทางการ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+msgstr "ความพร้อมตรงกับ {eventTitle} เชิญพวกเขาเลยเพื่อจองที่ในการสนทนากิจกรรม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr "ว่างตลอดกิจกรรม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr "กลับสู่กิจกรรม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr "ปิดการเชิญแบบสไลด์"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr "ตรวจสอบครบทุกคนแล้ว"
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr "เชิญ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr "เชิญ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr "เชิญ {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr "เชิญผู้เล่น"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr "เชิญเข้า {eventTitle}"
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr "ผู้เล่นที่ได้รับเชิญและผู้เล่นที่อาจเข้าร่วม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายการผู้รับเชิญของกิจกรรมแล้ว"
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr "คำเชิญ · {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr "เปิดการดำเนินการเชิญสำหรับ {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr "ตรวจสอบผู้เล่นที่อาจเข้าร่วม {0} คนด้วยการ์ดสไลด์"
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr "ส่งคำเชิญ"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "ส่งแล้ว"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr "ข้าม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr "ข้าม {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr "เชิญแบบสไลด์"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
+msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเพื่อเชิญ"
+
+#: src/components/organisms/PkEventMessages.re.mjs:261
+msgid "was invited to the event"
+msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
+
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

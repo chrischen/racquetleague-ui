@@ -63,6 +63,10 @@ var Share = {};
 
 var Send = {};
 
+var Mail = {};
+
+var Layers = {};
+
 var Pencil = {};
 
 var MessageCircle = {};
@@ -215,6 +219,8 @@ export {
   ArrowUpCircle ,
   Share ,
   Send ,
+  Mail ,
+  Layers ,
   Pencil ,
   MessageCircle ,
   Bell ,

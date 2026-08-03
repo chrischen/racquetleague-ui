@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "场地 {0}"
 
@@ -22,15 +22,15 @@ msgid "Court {0} - Editing"
 msgstr "场地 {0} - 编辑中"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "删除比赛"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "编辑比赛"
 
@@ -38,7 +38,7 @@ msgstr "编辑比赛"
 msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "上一轮"
 
@@ -50,11 +50,11 @@ msgstr "输球队（队伍 {0}）"
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "重复"
 
@@ -68,11 +68,11 @@ msgstr "保存比分"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:180
 #: src/components/organisms/MatchCardEdit.re.mjs:217
-#: src/components/organisms/MatchCard.re.mjs:98
+#: src/components/organisms/MatchCard.re.mjs:99
 msgid "Score"
 msgstr "比分"
 
-#: src/components/organisms/MatchCard.re.mjs:91
+#: src/components/organisms/MatchCard.re.mjs:92
 msgid "TEAM {0}"
 msgstr "队伍 {0}"
 
@@ -84,15 +84,15 @@ msgstr "队伍 1"
 msgid "TEAM 2"
 msgstr "队伍 2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

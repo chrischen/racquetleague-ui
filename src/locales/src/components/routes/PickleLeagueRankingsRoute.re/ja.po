@@ -17,11 +17,11 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr "... より高い評価のプレイヤーを読み込む"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:203
+#: src/components/pages/LeagueRankingsPage.re.mjs:423
 msgid "All"
 msgstr "すべて"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:242
+#: src/components/pages/LeagueRankingsPage.re.mjs:462
 msgid "All Clubs"
 msgstr "すべてのクラブ"
 
@@ -29,12 +29,12 @@ msgstr "すべてのクラブ"
 msgid "All players loaded"
 msgstr "全プレイヤーを読み込みました"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
-#: src/components/pages/LeagueRankingsPage.re.mjs:118
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
+#: src/components/pages/LeagueRankingsPage.re.mjs:338
 msgid "Competitive Doubles"
 msgstr "競技ダブルス"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:117
+#: src/components/pages/LeagueRankingsPage.re.mjs:337
 msgid "Competitive Singles"
 msgstr "競技シングルス"
 
@@ -51,19 +51,24 @@ msgstr "ドラフト"
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "ドラフト締切 · 上位8名が出場資格"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr "ドラフト開始：2026年9月15日（火）"
+
 #: src/components/organisms/RatingList.re.mjs:695
 msgid "Est. DUPR"
 msgstr "推定DUPR"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:256
+#: src/components/pages/LeagueRankingsPage.re.mjs:476
 msgid "Filter by club"
 msgstr "クラブで絞り込む"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:227
+#: src/components/pages/LeagueRankingsPage.re.mjs:447
 msgid "Filter by gender"
 msgstr "性別で絞り込む"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:147
+#: src/components/pages/LeagueRankingsPage.re.mjs:367
 msgid "Live Standings"
 msgstr "ライブ順位"
 
@@ -75,11 +80,11 @@ msgstr "もっとプレイヤーを読み込む..."
 msgid "Loading next standings"
 msgstr "次の順位を読み込み中"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:312
+#: src/components/pages/LeagueRankingsPage.re.mjs:532
 msgid "Loading rankings..."
 msgstr "ランキングを読み込んでいます..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:208
+#: src/components/pages/LeagueRankingsPage.re.mjs:428
 msgid "Men"
 msgstr "男性"
 
@@ -87,53 +92,76 @@ msgstr "男性"
 msgid "No players found"
 msgstr "プレイヤーが見つかりません"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-msgid "Official Dallash Flash T-Shirts and Ball Caps"
-msgstr "ダラッシュフラッシュ公式Tシャツ＆ボールキャップ"
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
+msgstr "賞金総額￥200,000以上"
 
 #: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:104
+#: src/components/pages/LeagueRankingsPage.re.mjs:185
+msgid "Playoff Draft"
+msgstr "プレーオフドラフト"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:220
 msgid "Presented by"
 msgstr "提供："
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
-msgid "Prizes"
-msgstr "賞品"
 
 #: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "評価"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:180
+#: src/components/pages/LeagueRankingsPage.re.mjs:400
 msgid "Search players..."
 msgstr "プレイヤーを検索..."
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr "2026年9月15日"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:225
+#: src/components/pages/LeagueRankingsPage.re.mjs:230
 msgid "Sponsor logo"
 msgstr "スポンサーロゴ"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:163
+#: src/components/pages/LeagueRankingsPage.re.mjs:383
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Pkuru.com公式競技ダブルスランキング。"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
-msgid "The top 4 men and top 4 women players each earn a prize."
-msgstr "男性上位4名・女性上位4名のプレイヤーがそれぞれ賞品を獲得します。"
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid ""
+"The top 8 men and top 8 women qualify — each bracket is drafted into 4 "
+"doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 "
+"widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction "
+"Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the "
+"prize, along with 1 bonus category to be decided for the 5th winner. Only "
+"players who are physically in Japan to receive the prizes are eligible to "
+"win. Any *Rated* event on Pkuru.com can submit rated matches that can "
+"qualify you for the top 8 draft. We reserve the right to disqualify players, "
+"matches, or clubs that are suspected of cheating at our own independent "
+"discretion and without notice. There is no cost to participation and "
+"Pkuru.com does not collect any fee from organizers participating in the "
+"Playoff Draft."
+msgstr ""
+"男女各上位8名が出場資格を獲得し、各ブロックはダブルス4チームに分かれてドラフ"
+"トが行われます。賞品はElla Oh Pink V2ワイドボディパドル×2本、RPM Friction "
+"Pro V2 14mmパドル×2本、RPM Friction Pro V2 16mmパドル×1本です。男女ダブルスの"
+"優勝ペアが賞品を受け取り、5人目の優勝者にはボーナスカテゴリー×1が別途決定され"
+"ます。賞品を受け取るには日本国内にいる必要があります。Pkuru.comの*認定*イベン"
+"トで行われた認定試合は上位8名のドラフト資格として申請できます。不正が疑われる"
+"プレーヤー、試合、またはクラブを独自の判断・予告なしに失格とする権利を留保し"
+"ます。参加費は無料であり、Pkuru.comはプレーオフドラフトに参加する主催者から一"
+"切の手数料を徴収しません。"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:167
+#: src/components/pages/LeagueRankingsPage.re.mjs:387
 msgid ""
 "To participate, join any event with the trophy icon (competitive rated "
 "events) to receive a rating."
 msgstr ""
 "参加するには、トロフィーアイコン付きのイベント（競技レーティングイベント）に"
 "参加してレーティングを取得してください。"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
-msgid "Top Player Awards"
-msgstr "トッププレイヤー賞"
 
 #: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
@@ -143,7 +171,7 @@ msgstr "検索条件やフィルターを広げてお試しください。"
 msgid "View my profile"
 msgstr "マイプロフィールを見る"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:213
+#: src/components/pages/LeagueRankingsPage.re.mjs:433
 msgid "Women"
 msgstr "女性"
 
@@ -163,6 +191,10 @@ msgstr "あなたの順位"
 #~ msgid "Male"
 #~ msgstr "男性"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "ダラッシュフラッシュ公式Tシャツ＆ボールキャップ"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:120
 #~ msgid ""
 #~ "Play doubles games with different partners and receive an individual "
@@ -171,13 +203,25 @@ msgstr "あなたの順位"
 #~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
 #~ "は毎月トッププレイヤーに授与されます。"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#~ msgid "Prizes"
+#~ msgstr "賞品"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:51
 #~ msgid "Recreational Doubles"
 #~ msgstr "レクリエーショナルダブルス"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#~ msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgstr "男性上位4名・女性上位4名のプレイヤーがそれぞれ賞品を獲得します。"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:125
 #~ msgid "To participate, please join the events here:"
 #~ msgstr "参加するには、こちらのイベントに参加してください:"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#~ msgid "Top Player Awards"
+#~ msgstr "トッププレイヤー賞"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:100
 #~ msgid "View My Profile"

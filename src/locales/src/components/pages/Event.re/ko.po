@@ -162,11 +162,11 @@ msgstr "이벤트 참가"
 msgid "Join Waitlist"
 msgstr "대기자 명단 등록"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "대기자 명단에서 참가"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "이벤트에 참가했습니다"
 
@@ -174,7 +174,7 @@ msgstr "이벤트에 참가했습니다"
 msgid "league"
 msgstr "리그"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "이벤트에서 나갔습니다"
 
@@ -400,11 +400,15 @@ msgstr "프로필 보기"
 msgid "Waitlist"
 msgstr "대기자 명단"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "관리자에 의해 이벤트에 추가되었습니다"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "이벤트에 초대되었습니다"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "관리자에 의해 이벤트에서 제거되었습니다"
 

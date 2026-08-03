@@ -13,8 +13,8 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -22,7 +22,7 @@ msgstr "{0} {matchText}"
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/RoundSection.re.mjs:525
+#: src/components/organisms/RoundSection.re.mjs:527
 msgid "ACTIVE ROUND"
 msgstr "진행 중 라운드"
 
@@ -30,7 +30,7 @@ msgstr "진행 중 라운드"
 msgid "All checked-in players are already in this round"
 msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "코트 {0}"
 
@@ -39,15 +39,15 @@ msgid "Court {0} - Editing"
 msgstr "코트 {0} - 편집 중"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "경기 삭제"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "경기 편집"
 
@@ -55,11 +55,11 @@ msgstr "경기 편집"
 msgid "Enter Match Score"
 msgstr "경기 점수 입력"
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "전체 화면 보기"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "지난 라운드"
 
@@ -83,15 +83,15 @@ msgstr "가능한 플레이어 없음"
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "경기 재조정"
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr "현재 플레이어로 이 라운드 재조정"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "반복"
 
@@ -103,16 +103,16 @@ msgstr "플레이어 교체"
 msgid "Replacing:"
 msgstr "교체 중:"
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr "체크인한 모든 플레이어로 이 라운드 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr "혼합 성별 페어로 이 라운드 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
 msgid "Round {0}"
 msgstr "라운드 {0}"
 
@@ -141,7 +141,7 @@ msgstr "팀 1"
 msgid "TEAM 2"
 msgstr "팀 2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -150,8 +150,8 @@ msgstr ""
 "복원할 수 있습니다."
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

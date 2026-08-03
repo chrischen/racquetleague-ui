@@ -5,10 +5,15 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_activity = {
+    @live id: string,
     slug: option<string>,
   }
   and fragment_club = {
     @live id: string,
+  }
+  and fragment_location = {
+    @live id: string,
+    name: option<string>,
   }
   and fragment_owner = {
     lineUsername: option<string>,
@@ -39,13 +44,18 @@ module Types = {
   type fragment = {
     activity: option<fragment_activity>,
     club: option<fragment_club>,
+    endDate: option<Util.Datetime.t>,
     @live id: string,
+    location: option<fragment_location>,
     maxRsvps: option<int>,
     minRating: option<float>,
     owner: option<fragment_owner>,
     price: option<int>,
     rsvps: option<fragment_rsvps>,
+    startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
+    timezone: option<string>,
+    title: option<string>,
     viewerIsAdmin: bool,
   }
 }
@@ -55,10 +65,12 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"rsvps_edges_node":{"f":""}}}`
+    json`{"__root":{"startDate":{"c":"Util.Datetime"},"rsvps_edges_node":{"f":""},"endDate":{"c":"Util.Datetime"}}}`
   )
   @live
-  let fragmentConverterMap = ()
+  let fragmentConverterMap = {
+    "Util.Datetime": Util.Datetime.parse,
+  }
   @live
   let convertFragment = v => v->RescriptRelay.convertObj(
     fragmentConverter,
@@ -164,6 +176,34 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "title",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "startDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "endDate",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "timezone",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "maxRsvps",
       "storageKey": null
     },
@@ -215,11 +255,31 @@ return {
       "name": "activity",
       "plural": false,
       "selections": [
+        (v0/*: any*/),
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
           "name": "slug",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Location",
+      "kind": "LinkedField",
+      "name": "location",
+      "plural": false,
+      "selections": [
+        (v0/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "name",
           "storageKey": null
         }
       ],

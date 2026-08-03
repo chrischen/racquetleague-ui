@@ -17,7 +17,6 @@ import * as PullToRefresh from "../shared/PullToRefresh.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as PkEventMessages from "../organisms/PkEventMessages.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
-import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as ReactRouterDom from "react-router-dom";
 import * as EventStickyFooter from "../organisms/EventStickyFooter.re.mjs";
 import * as ResponsiveTooltip from "../molecules/ResponsiveTooltip.re.mjs";
@@ -388,13 +387,6 @@ var EventLocationSection = {
   make: PkEventPage$EventLocationSection
 };
 
-function ts(prim0, prim1) {
-  return Caml_splice_call.spliceApply(t, [
-              prim0,
-              prim1
-            ]);
-}
-
 function PkEventPage$SponsorBanner(props) {
   return JsxRuntime.jsxs(ReactRouterDom.Link, {
               to: "/league/pickleball",
@@ -405,10 +397,8 @@ function PkEventPage$SponsorBanner(props) {
                               children: t`Presented by`,
                               className: "font-mono text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300 flex-shrink-0"
                             }),
-                        JsxRuntime.jsx("img", {
-                              className: "h-6 w-auto max-w-[140px] object-contain rounded bg-white px-1.5 py-0.5 shadow-sm flex-shrink-0",
-                              alt: t`Dallas Flash`,
-                              src: TopPlayerAwardsBanner.sponsorLogo
+                        JsxRuntime.jsx(TopPlayerAwardsBanner.SponsorLogo.make, {
+                              className: "h-6 w-auto max-w-[140px]"
                             })
                       ],
                       className: "flex items-center gap-2 min-w-0"
@@ -420,9 +410,21 @@ function PkEventPage$SponsorBanner(props) {
                               strokeWidth: 2.25,
                               className: "text-amber-700 dark:text-amber-400"
                             }),
-                        JsxRuntime.jsx("span", {
-                              children: t`Dallas Flash Swag`,
-                              className: "font-mono text-[11px] leading-tight font-bold text-amber-800 dark:text-amber-300"
+                        JsxRuntime.jsxs("span", {
+                              children: [
+                                JsxRuntime.jsx("span", {
+                                      children: TopPlayerAwardsBanner.prizePool,
+                                      className: "font-bold text-amber-800 dark:text-amber-300"
+                                    }),
+                                JsxRuntime.jsxs("span", {
+                                      children: [
+                                        " · ",
+                                        t`Playoff Draft`
+                                      ],
+                                      className: "text-amber-700/80 dark:text-amber-400/80"
+                                    })
+                              ],
+                              className: "font-mono text-[11px] leading-tight"
                             })
                       ],
                       className: "flex items-center gap-1.5 flex-shrink-0 px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700/60"
@@ -433,7 +435,6 @@ function PkEventPage$SponsorBanner(props) {
 }
 
 var SponsorBanner = {
-  ts: ts,
   make: PkEventPage$SponsorBanner
 };
 
@@ -520,7 +521,14 @@ function PkEventPage$Inner(props) {
   var isPaidEvent = Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
               return p > 0;
             })), false);
-  var isJoined = Core__Option.isSome(viewerRsvpNode);
+  var isViewerInvited;
+  if (viewerRsvpNode !== undefined) {
+    var match$9 = viewerRsvpNode.listType;
+    isViewerInvited = match$9 !== undefined ? match$9 === 2 : false;
+  } else {
+    isViewerInvited = false;
+  }
+  var isJoined = Core__Option.isSome(viewerRsvpNode) && !isViewerInvited;
   var isViewerWaitlisted = Core__Option.getOr(Core__Option.map(viewerRsvpNode, (function (node) {
               return waitlistPlayers.some(function (wp) {
                           return wp.id === node.id;
@@ -528,28 +536,28 @@ function PkEventPage$Inner(props) {
             })), false);
   var viewerIsInGoingList;
   if (viewerRsvpNode !== undefined) {
-    var match$9 = viewerRsvpNode.listType;
-    viewerIsInGoingList = match$9 !== undefined ? match$9 === 0 : true;
+    var match$10 = viewerRsvpNode.listType;
+    viewerIsInGoingList = match$10 !== undefined ? match$10 === 0 : true;
   } else {
     viewerIsInGoingList = false;
   }
   var viewerHasPayment;
   if (viewerRsvpNode !== undefined) {
-    var match$10 = viewerRsvpNode.payment;
-    viewerHasPayment = match$10 !== undefined ? (match$10.status >>> 0) <= 1 : false;
+    var match$11 = viewerRsvpNode.payment;
+    viewerHasPayment = match$11 !== undefined ? (match$11.status >>> 0) <= 1 : false;
   } else {
     viewerHasPayment = false;
   }
   var ownerHasConnectedAccount = Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
               return o.stripeChargesEnabled;
             })), false);
-  var match$11 = Core__Option.flatMap($$event.club, (function (c) {
+  var match$12 = Core__Option.flatMap($$event.club, (function (c) {
           return c.viewerMembership;
         }));
   var viewerIsClubMember;
-  if (match$11 !== undefined) {
-    var match$12 = match$11.status;
-    viewerIsClubMember = match$12 !== undefined && (match$12 === "Pending" || match$12 === "Active" || match$12 === "Rejected") && match$12 === "Active" ? true : false;
+  if (match$12 !== undefined) {
+    var match$13 = match$12.status;
+    viewerIsClubMember = match$13 !== undefined && (match$13 === "Pending" || match$13 === "Active" || match$13 === "Rejected") && match$13 === "Active" ? true : false;
   } else {
     viewerIsClubMember = false;
   }
@@ -561,7 +569,7 @@ function PkEventPage$Inner(props) {
   var isViewerPending;
   if (viewerRsvpNode !== undefined) {
     var listType = viewerRsvpNode.listType;
-    isViewerPending = listType !== undefined && Caml_obj.notequal(listType, 0);
+    isViewerPending = listType !== undefined && Caml_obj.notequal(listType, 0) && Caml_obj.notequal(listType, 2);
   } else {
     isViewerPending = false;
   }
@@ -576,10 +584,10 @@ function PkEventPage$Inner(props) {
                 className: "p-6 text-center text-gray-500"
               });
   }
-  var match$13 = $$event.viewerIsAdmin;
+  var match$14 = $$event.viewerIsAdmin;
   var tmp;
-  if (match$13 && viewerUser !== undefined) {
-    var match$14 = $$event.deleted;
+  if (match$14 && viewerUser !== undefined) {
+    var match$15 = $$event.deleted;
     tmp = JsxRuntime.jsx("div", {
           children: JsxRuntime.jsxs("div", {
                 children: [
@@ -595,7 +603,7 @@ function PkEventPage$Inner(props) {
                                           href: "/events/copy/" + $$event.id + "/" + loc.id
                                         });
                             })), null),
-                  match$14 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                  match$15 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
                           children: t`uncancel event`,
                           onClick: (function (param) {
                               if (!uncanceling) {
@@ -626,7 +634,7 @@ function PkEventPage$Inner(props) {
   } else {
     tmp = null;
   }
-  var match$15 = $$event.location;
+  var match$16 = $$event.location;
   var activity = $$event.activity;
   var tmp$1;
   if (activity !== undefined) {
@@ -730,11 +738,11 @@ function PkEventPage$Inner(props) {
                               return t.toLowerCase() === "comp";
                             }) ? JsxRuntime.jsx(PkEventPage$SponsorBanner, {}) : null,
                         tmp,
-                        match$15 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$15,
+                        match$16 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: match$16,
                                 availability: Caml_option.some($$event.viewerIsAdmin ? JsxRuntime.jsx(EventLocationAvailability.make, {
                                             event: $$event.fragmentRefs,
-                                            genericCourtName: Core__Option.getOr(match$15.name, t`Courts`)
+                                            genericCourtName: Core__Option.getOr(match$16.name, t`Courts`)
                                           }) : null)
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {

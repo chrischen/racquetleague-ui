@@ -2,14 +2,48 @@
 
 import * as ReactIntl from "react-intl";
 import * as LucideReact from "lucide-react";
+import RpmDarkSvg from "./rpm-dark.svg";
+import RpmLightSvg from "./rpm-light.svg";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
-import DallasflashPng from "./dallasflash.png";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
 ;
 
-var sponsorLogo = DallasflashPng;
+var sponsorLogoLight = RpmLightSvg;
+
+var sponsorLogoDark = RpmDarkSvg;
+
+function ts(prim0, prim1) {
+  return Caml_splice_call.spliceApply(t, [
+              prim0,
+              prim1
+            ]);
+}
+
+function TopPlayerAwardsBanner$SponsorLogo(props) {
+  var __className = props.className;
+  var className = __className !== undefined ? __className : "";
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                JsxRuntime.jsx("img", {
+                      className: "object-contain flex-shrink-0 block dark:hidden " + className,
+                      alt: t`RPM`,
+                      src: sponsorLogoLight
+                    }),
+                JsxRuntime.jsx("img", {
+                      className: "object-contain flex-shrink-0 hidden dark:block " + className,
+                      alt: t`RPM`,
+                      src: sponsorLogoDark
+                    })
+              ]
+            });
+}
+
+var SponsorLogo = {
+  ts: ts,
+  make: TopPlayerAwardsBanner$SponsorLogo
+};
 
 var awardDate = new Date("2026-07-31T00:00:00Z");
 
@@ -20,13 +54,6 @@ var awardDateChip = JsxRuntime.jsx(ReactIntl.FormattedDate, {
       month: "long",
       day: "numeric"
     });
-
-function ts(prim0, prim1) {
-  return Caml_splice_call.spliceApply(t, [
-              prim0,
-              prim1
-            ]);
-}
 
 function TopPlayerAwardsBanner$Banner(props) {
   return JsxRuntime.jsxs("div", {
@@ -104,10 +131,8 @@ function TopPlayerAwardsBanner$Banner(props) {
                                               children: t`Presented by`,
                                               className: "font-mono text-[9px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500"
                                             }),
-                                        JsxRuntime.jsx("img", {
-                                              className: "h-6 w-auto max-w-[110px] object-contain flex-shrink-0 rounded bg-white px-1 shadow-sm",
-                                              alt: t`Sponsor logo`,
-                                              src: sponsorLogo
+                                        JsxRuntime.jsx(TopPlayerAwardsBanner$SponsorLogo, {
+                                              className: "h-6 w-auto max-w-[110px]"
                                             })
                                       ],
                                       className: "flex items-center justify-between gap-2 px-3 py-2 border-b border-gray-100 dark:border-[#2a2b30] bg-gray-50 dark:bg-[#17181c]"
@@ -129,7 +154,7 @@ function TopPlayerAwardsBanner$Banner(props) {
                                                       className: "font-black font-mono text-lg md:text-xl leading-none text-amber-700 dark:text-amber-300"
                                                     }),
                                                 JsxRuntime.jsx("div", {
-                                                      children: t`Official Dallash Flash T-Shirts and Ball Caps`,
+                                                      children: t`Official RPM T-Shirts and Ball Caps`,
                                                       className: "text-[11px] font-medium text-gray-500 dark:text-gray-400 mt-1 leading-tight"
                                                     })
                                               ],
@@ -150,12 +175,16 @@ function TopPlayerAwardsBanner$Banner(props) {
 }
 
 var Banner = {
-  ts: ts,
   make: TopPlayerAwardsBanner$Banner
 };
 
+var prizePool = "¥200,000+";
+
 export {
-  sponsorLogo ,
+  sponsorLogoLight ,
+  sponsorLogoDark ,
+  SponsorLogo ,
+  prizePool ,
   awardDate ,
   awardDateChip ,
   Banner ,

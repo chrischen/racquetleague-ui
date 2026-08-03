@@ -216,6 +216,26 @@ let make = (
               </div>
             </div>
           </div>
+        // The actor is the invitee, not the inviter — the invite still needs
+        // them to join before it counts toward the event.
+        | "rsvp_invited" =>
+          <div key=msg.id className="flex gap-2.5">
+            <div
+              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400">
+              <Lucide.Mail className="w-3 h-3" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-baseline gap-1.5">
+                <span className="text-xs text-gray-700 dark:text-gray-300">
+                  <span className="font-medium"> {actor->React.string} </span>
+                  {(" " ++ ts`was invited to the event`)->React.string}
+                </span>
+                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
+                  {timeStr->React.string}
+                </span>
+              </div>
+            </div>
+          </div>
         | "rsvp_promoted" =>
           <div key=msg.id className="flex gap-2.5">
             <div

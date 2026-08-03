@@ -147,11 +147,15 @@ msgstr "ติดตั้ง"
 msgid "Install Pkuru.com App"
 msgstr "ติดตั้งแอป Pkuru.com"
 
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
+
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "เข้าร่วมแล้ว"
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Joined Club"
 msgstr "เข้าร่วมสโมสรแล้ว"
 
@@ -224,7 +228,7 @@ msgstr "แผนใหม่"
 msgid "No notifications"
 msgstr "ไม่มีการแจ้งเตือน"
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "การแจ้งเตือน"
 
@@ -233,7 +237,7 @@ msgstr "การแจ้งเตือน"
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "ออกจากรายการรอ"
 
@@ -259,7 +263,7 @@ msgstr "อันดับ"
 msgid "Remove"
 msgstr "ลบ"
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:150
 msgid "Removed from Event"
 msgstr "ถูกนำออกจากอีเวนต์"
 

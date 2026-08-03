@@ -50,6 +50,10 @@ msgstr "从活动中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "已发送"
+
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "

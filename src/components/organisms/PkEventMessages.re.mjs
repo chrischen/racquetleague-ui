@@ -240,6 +240,40 @@ function PkEventMessages(props) {
                                               ],
                                               className: "flex gap-2.5"
                                             }, msg.id);
+                              case "rsvp_invited" :
+                                  return JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsx(LucideReact.Mail, {
+                                                            className: "w-3 h-3"
+                                                          }),
+                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400"
+                                                    }),
+                                                JsxRuntime.jsx("div", {
+                                                      children: JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsxs("span", {
+                                                                    children: [
+                                                                      JsxRuntime.jsx("span", {
+                                                                            children: actor,
+                                                                            className: "font-medium"
+                                                                          }),
+                                                                      " " + t`was invited to the event`
+                                                                    ],
+                                                                    className: "text-xs text-gray-700 dark:text-gray-300"
+                                                                  }),
+                                                              JsxRuntime.jsx("span", {
+                                                                    children: timeStr,
+                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
+                                                                  })
+                                                            ],
+                                                            className: "flex items-baseline gap-1.5"
+                                                          }),
+                                                      className: "flex-1 min-w-0"
+                                                    })
+                                              ],
+                                              className: "flex gap-2.5"
+                                            }, msg.id);
                               case "rsvp_promoted" :
                                   return JsxRuntime.jsxs("div", {
                                               children: [

@@ -13,8 +13,8 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -30,8 +30,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:525
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/RoundSection.re.mjs:527
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "VÒNG ĐANG DIỄN RA"
 
@@ -122,7 +122,7 @@ msgstr "Bốc thăm round-robin cổ điển"
 msgid "Close"
 msgstr "Đóng"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "Đóng Toàn Màn Hình"
 
@@ -139,11 +139,11 @@ msgstr "Thi đấu"
 msgid "Competitive+"
 msgstr "Cạnh tranh+"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "Sân {0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "SÂN {0}"
 
@@ -196,7 +196,7 @@ msgid "Delete Guest"
 msgstr "Xóa khách"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "Xóa trận đấu"
 
@@ -204,7 +204,7 @@ msgstr "Xóa trận đấu"
 msgid "Delete team"
 msgstr "Xóa đội"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
 
@@ -222,7 +222,7 @@ msgstr ""
 "trượt nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian thi đấu "
 "công bằng và luân phiên luôn được áp dụng và không thể giảm xuống."
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "Chỉnh sửa trận đấu"
 
@@ -270,7 +270,7 @@ msgstr ""
 "Các trận đấu mới mẻ, đa dạng mỗi vòng, với đội mỗi trận được cân bằng theo "
 "kỹ năng."
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "Xem Toàn Màn Hình"
 
@@ -326,7 +326,7 @@ msgstr "Jane Doe"
 msgid "John Smith"
 msgstr "John Smith"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "Vòng cuối"
 
@@ -469,11 +469,11 @@ msgstr "Ưu tiên đối tác và đối thủ mới hơn là các trận đấu
 msgid "Random Balanced"
 msgstr "Ngẫu nhiên cân bằng"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 
@@ -481,7 +481,7 @@ msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 msgid "Regenerate Rounds?"
 msgstr "Tái tạo vòng?"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "Lặp lại"
 
@@ -493,11 +493,11 @@ msgstr "Thay thế người chơi"
 msgid "Replacing:"
 msgstr "Đang thay thế:"
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr "Đặt lại vòng này với tất cả người chơi đã check-in"
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr "Đặt lại vòng này với các cặp nam nữ hỗn hợp"
 
@@ -505,9 +505,9 @@ msgstr "Đặt lại vòng này với các cặp nam nữ hỗn hợp"
 msgid "Reset to slider"
 msgstr "Đặt lại về thanh trượt"
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "Vòng {0}"
 
@@ -564,6 +564,10 @@ msgstr "Hạt giống:"
 msgid "Seeds Adjusted"
 msgstr "Đã điều chỉnh hạt giống"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "ĐANG GIAO BÓNG"
+
 #: src/components/molecules/SolverWeightsPanel.re.mjs:196
 msgid "Similar-skill matches"
 msgstr "Trận đấu trình độ tương đương"
@@ -612,7 +616,7 @@ msgstr "Tên đội"
 msgid "Teams"
 msgstr "Các đội"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -638,8 +642,8 @@ msgid "Update Rounds Below"
 msgstr "Cập nhật các vòng bên dưới"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 

@@ -34,11 +34,15 @@ msgstr "ข้อความจากเจ้าภาพ"
 msgid "Inbox"
 msgstr "กล่องข้อความ"
 
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
+
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr "เข้าร่วมแล้ว"
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Joined Club"
 msgstr "เข้าร่วมสโมสรแล้ว"
 
@@ -54,7 +58,7 @@ msgstr "ความคิดเห็นใหม่"
 msgid "Nothing here yet"
 msgstr "ยังไม่มีอะไรที่นี่"
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "การแจ้งเตือน"
 
@@ -62,11 +66,11 @@ msgstr "การแจ้งเตือน"
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "ออกจากรายการรอ"
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:150
 msgid "Removed from Event"
 msgstr "ถูกนำออกจากอีเวนต์"
 

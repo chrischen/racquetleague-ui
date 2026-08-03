@@ -38,11 +38,15 @@ msgstr ""
 msgid "Inbox"
 msgstr ""
 
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr ""
+
 #: src/components/molecules/NotificationRow.re.mjs:142
 msgid "Joined"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:150
+#: src/components/molecules/NotificationRow.re.mjs:152
 msgid "Joined Club"
 msgstr ""
 
@@ -58,7 +62,7 @@ msgstr ""
 msgid "Nothing here yet"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:152
+#: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr ""
 
@@ -66,11 +70,11 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:146
+#: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr ""
 
-#: src/components/molecules/NotificationRow.re.mjs:148
+#: src/components/molecules/NotificationRow.re.mjs:150
 msgid "Removed from Event"
 msgstr ""
 

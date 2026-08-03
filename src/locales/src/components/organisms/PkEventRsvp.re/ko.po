@@ -50,6 +50,10 @@ msgstr "이벤트에서 제거"
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "전송됨"
+
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "

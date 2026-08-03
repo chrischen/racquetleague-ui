@@ -142,6 +142,8 @@ function synthesizeTitle(activityType, details) {
         return t`Joined`;
     case "rsvp_deleted" :
         return t`Left Event`;
+    case "rsvp_invited" :
+        return t`Invited to Event`;
     case "rsvp_promoted" :
         return t`Off Waitlist`;
     case "rsvp_removed" :
@@ -225,6 +227,15 @@ function NotificationRow$Icon(props) {
           "bg-red-100 dark:bg-red-900/30",
           "text-red-600 dark:text-red-400",
           JsxRuntime.jsx(LucideReact.X, {
+                className: iconSize
+              })
+        ];
+        break;
+    case "rsvp_invited" :
+        match = [
+          "bg-violet-100 dark:bg-violet-900/30",
+          "text-violet-600 dark:text-violet-400",
+          JsxRuntime.jsx(LucideReact.Mail, {
                 className: iconSize
               })
         ];

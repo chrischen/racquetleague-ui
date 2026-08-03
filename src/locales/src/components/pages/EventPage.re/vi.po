@@ -110,7 +110,7 @@ msgstr "Thu gọn"
 msgid "Complete your profile"
 msgstr "Hoàn thiện hồ sơ của bạn"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
 msgstr "Sân {0}"
 
@@ -123,11 +123,11 @@ msgid "Courts:"
 msgstr "Các sân:"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "Xóa trận đấu"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
 
@@ -143,7 +143,7 @@ msgstr "Cần có tên hiển thị"
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "Chỉnh sửa trận đấu"
 
@@ -211,19 +211,19 @@ msgstr "Tham gia sự kiện"
 msgid "Join Waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/organisms/EventMessages.re.mjs:283
+#: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "tham gia từ danh sách chờ"
 
-#: src/components/organisms/EventMessages.re.mjs:277
+#: src/components/organisms/EventMessages.re.mjs:285
 msgid "joined the event"
 msgstr "đã tham gia sự kiện"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/organisms/EventMessages.re.mjs:280
+#: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "đã rời sự kiện"
 
@@ -312,7 +312,7 @@ msgstr "Người chơi chuyên nghiệp"
 msgid "Rated"
 msgstr "Có xếp hạng"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
@@ -333,7 +333,7 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "Lặp lại"
 
@@ -413,7 +413,7 @@ msgstr "ĐỘI 1"
 msgid "TEAM 2"
 msgstr "ĐỘI 2"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -492,8 +492,8 @@ msgid "View Profile"
 msgstr "Xem hồ sơ"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 
@@ -501,11 +501,15 @@ msgstr "VS"
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
-#: src/components/organisms/EventMessages.re.mjs:274
+#: src/components/organisms/EventMessages.re.mjs:282
 msgid "was added to the event by admin"
 msgstr "đã được admin thêm vào sự kiện"
 
-#: src/components/organisms/EventMessages.re.mjs:286
+#: src/components/organisms/EventMessages.re.mjs:291
+msgid "was invited to the event"
+msgstr "đã được mời tham gia sự kiện"
+
+#: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "đã bị admin xóa khỏi sự kiện"
 

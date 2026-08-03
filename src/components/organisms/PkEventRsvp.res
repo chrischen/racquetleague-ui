@@ -1,3 +1,5 @@
+%%raw("import { t } from '@lingui/macro'")
+
 module Fragment = %relay(`
   fragment PkEventRsvp_rsvp on Rsvp {
     id
@@ -32,6 +34,7 @@ let make = (
   ~isHost: bool=false,
   ~waitlistPosition: option<int>=?,
   ~isPending: bool=false,
+  ~isInvited: bool=false,
   ~showRating: bool=true,
   ~connectionKey: string="RSVPSection_event_rsvps",
 ) => {
@@ -110,11 +113,15 @@ let make = (
         eventActivitySlug={activitySlug->Option.getOr("badminton")}
         isAdmin
         connectionKey
-        triggerClassName={"relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-colors " ++ (
-          isPending
-            ? "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70"
-            : "border border-gray-200 dark:border-[#3a3b40]"
-        )}>
+        triggerClassName={"relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer transition-colors " ++ if (
+          isInvited
+        ) {
+          "border border-violet-200 dark:border-violet-800/60 bg-violet-50 dark:bg-violet-950/20 hover:bg-violet-100 dark:hover:bg-violet-900/30"
+        } else if isPending {
+          "border border-dashed border-gray-300 dark:border-[#3a3b40] opacity-50 hover:opacity-70 hover:bg-gray-50 dark:hover:bg-[#26272b]"
+        } else {
+          "border border-gray-200 dark:border-[#3a3b40] hover:bg-gray-50 dark:hover:bg-[#26272b]"
+        }}>
         <AvatarWithProgress
           src={user.picture->Option.getOr("")}
           alt={user.lineUsername->Option.getOr("")}
@@ -122,9 +129,18 @@ let make = (
           size=22
           strokeWidth=1.5
         />
-        <span className="text-[11px] text-gray-900 dark:text-gray-100 leading-none">
+        <span
+          className={"text-[11px] leading-none " ++ (
+            isInvited ? "text-violet-900 dark:text-violet-200" : "text-gray-900 dark:text-gray-100"
+          )}>
           {user.lineUsername->Option.getOr("?")->React.string}
         </span>
+        {isInvited
+          ? <span
+              className="font-mono text-[9px] leading-none text-violet-500 dark:text-violet-400">
+              {(Lingui.UtilString.t`sent`)->React.string}
+            </span>
+          : React.null}
         {switch user.gender {
         | Some(Male) =>
           <span className="text-[9px] font-bold leading-none text-blue-400">

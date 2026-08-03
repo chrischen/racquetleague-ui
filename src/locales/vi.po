@@ -4745,6 +4745,133 @@ msgstr "Chia mỗi trận thành các đội cân bằng nhất"
 msgid "Tight bands"
 msgstr "Dải trình độ hẹp"
 
+#: src/components/pages/PkEventPage.re.mjs:422
+msgid "Playoff Draft"
+msgstr "Vòng Chung Kết Draft"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:31
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
+msgid "RPM"
+msgstr "RPM"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "ĐANG GIAO BÓNG"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:169
+#: src/components/pages/LeagueRankingsPage.re.mjs:203
+msgid "Draft starts Tuesday, September 15, 2026"
+msgstr "Draft bắt đầu vào Thứ Ba, ngày 15 tháng 9 năm 2026"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:248
+msgid "Over ￥200,000 in prizes"
+msgstr "Giải thưởng trị giá hơn ¥200,000"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:166
+#: src/components/pages/LeagueRankingsPage.re.mjs:200
+msgid "Sep 15, 2026"
+msgstr "15/09/2026"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:209
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "Top 8 nam và top 8 nữ sẽ vượt qua vòng loại — mỗi bảng sẽ được draft thành 4 đội đôi cho vòng chung kết. Giải thưởng bao gồm 2 vợt mặt rộng Ella Oh Pink V2, 2 vợt RPM Friction Pro V2 14mm và 1 vợt RPM Friction Pro V2 16mm. Cặp đôi giành chiến thắng ở nội dung đôi nam và đôi nữ sẽ nhận giải thưởng, cùng với 1 hạng mục thưởng bổ sung dành cho người chiến thắng thứ 5. Chỉ những người chơi có mặt trực tiếp tại Nhật Bản mới đủ điều kiện nhận giải. Bất kỳ sự kiện *Được Xếp Hạng* nào trên Pkuru.com đều có thể nộp các trận đấu được xếp hạng để có cơ hội lọt vào top 8 draft. Chúng tôi có quyền loại bỏ người chơi, trận đấu hoặc câu lạc bộ bị nghi ngờ gian lận theo quyết định độc lập của chúng tôi và không cần thông báo trước. Không mất chi phí tham gia và Pkuru.com không thu bất kỳ khoản phí nào từ các ban tổ chức tham gia Vòng Chung Kết Draft."
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
+msgid "Official RPM T-Shirts and Ball Caps"
+msgstr "Áo Thun và Mũ Lưỡi Trai Chính Hãng RPM"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+msgstr "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc trò chuyện sự kiện."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+msgid "Available for the full event"
+msgstr "Rảnh suốt sự kiện"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+msgid "Back to event"
+msgstr "Quay lại sự kiện"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+msgid "Close swipe invitations"
+msgstr "Đóng lời mời vuốt"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+msgid "Everyone reviewed"
+msgstr "Đã xem tất cả"
+
+#: src/components/organisms/EventInvites.re.mjs:321
+msgid "invite"
+msgstr "mời"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+msgid "INVITE"
+msgstr "MỜI"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+msgid "Invite {0}"
+msgstr "Mời {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+msgid "Invite players"
+msgstr "Mời người chơi"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+msgid "Invite to {eventTitle}"
+msgstr "Mời vào {eventTitle}"
+
+#: src/components/organisms/EventInvites.re.mjs:405
+msgid "Invited and potential players"
+msgstr "Người chơi đã mời và tiềm năng"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+msgid "Invited players have moved into the event’s invited list."
+msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
+
+#: src/components/organisms/EventInvites.re.mjs:271
+msgid "Invites · {0}"
+msgstr "Lời mời · {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:325
+msgid "Open invite actions for {0}"
+msgstr "Mở tùy chọn mời cho {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:288
+msgid "Review {0} potential players with swipe cards"
+msgstr "Xem {0} người chơi tiềm năng bằng thẻ vuốt"
+
+#: src/components/organisms/EventInvites.re.mjs:374
+msgid "Send invite"
+msgstr "Gửi lời mời"
+
+#: src/components/organisms/PkEventRsvp.re.mjs:161
+msgid "sent"
+msgstr "đã gửi"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+msgid "SKIP"
+msgstr "BỎ QUA"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+msgid "Skip {0}"
+msgstr "Bỏ qua {0}"
+
+#: src/components/organisms/EventInvites.re.mjs:286
+msgid "Swipe invites"
+msgstr "Vuốt để mời"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+msgid "Swipe left to skip · right to invite"
+msgstr "Vuốt trái để bỏ qua · phải để mời"
+
+#: src/components/organisms/PkEventMessages.re.mjs:261
+msgid "was invited to the event"
+msgstr "đã được mời tham gia sự kiện"
+
+#: src/components/molecules/NotificationRow.re.mjs:146
+msgid "Invited to Event"
+msgstr "Được mời tham gia sự kiện"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

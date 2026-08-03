@@ -227,6 +227,14 @@ function EventMessages(props) {
                                       "bg-red-100"
                                     ];
                                     break;
+                                case "rsvp_invited" :
+                                    match$1 = [
+                                      JsxRuntime.jsx(LucideReact.Mail, {
+                                            className: "size-4 text-violet-600"
+                                          }),
+                                      "bg-violet-100"
+                                    ];
+                                    break;
                                 case "rsvp_promoted" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.ArrowUpCircle, {
@@ -278,6 +286,9 @@ function EventMessages(props) {
                                       break;
                                   case "rsvp_deleted" :
                                       mainMessageText = Core__Option.getOr(detailsOpt, t`left the event`);
+                                      break;
+                                  case "rsvp_invited" :
+                                      mainMessageText = Core__Option.getOr(detailsOpt, t`was invited to the event`);
                                       break;
                                   case "rsvp_promoted" :
                                       mainMessageText = Core__Option.getOr(detailsOpt, t`joined from waitlist`);

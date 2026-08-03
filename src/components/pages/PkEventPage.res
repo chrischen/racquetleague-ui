@@ -343,9 +343,8 @@ module EventLocationSection = {
 }
 
 // Sponsor + prize strip for competitive pickleball events, linking to the
-// league rankings. Uses the shared Top Player awards sponsor logo.
+// league rankings (RPM Playoff Draft campaign). Uses the shared sponsor logo.
 module SponsorBanner = {
-  let ts = Lingui.UtilString.t
   @react.component
   let make = () => {
     <Router.Link
@@ -356,18 +355,19 @@ module SponsorBanner = {
           className="font-mono text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300 flex-shrink-0">
           {t`Presented by`}
         </span>
-        <img
-          src={TopPlayerAwardsBanner.sponsorLogo}
-          alt={ts`Dallas Flash`}
-          className="h-6 w-auto max-w-[140px] object-contain rounded bg-white px-1.5 py-0.5 shadow-sm flex-shrink-0"
-        />
+        <TopPlayerAwardsBanner.SponsorLogo className="h-6 w-auto max-w-[140px]" />
       </div>
       <div
         className="flex items-center gap-1.5 flex-shrink-0 px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700/60">
         <Lucide.Gift size=12 strokeWidth={2.25} className="text-amber-700 dark:text-amber-400" />
-        <span
-          className="font-mono text-[11px] leading-tight font-bold text-amber-800 dark:text-amber-300">
-          {t`Dallas Flash Swag`}
+        <span className="font-mono text-[11px] leading-tight">
+          <span className="font-bold text-amber-800 dark:text-amber-300">
+            {TopPlayerAwardsBanner.prizePool->React.string}
+          </span>
+          <span className="text-amber-700/80 dark:text-amber-400/80">
+            {" · "->React.string}
+            {t`Playoff Draft`}
+          </span>
         </span>
       </div>
     </Router.Link>
@@ -456,7 +456,13 @@ module Inner = {
 
     // Unpaid: viewer is joined, event has a price, viewer is not in Going list, and has no payment
     let isPaidEvent = event.price->Option.map(p => p > 0)->Option.getOr(false)
-    let isJoined = viewerRsvpNode->Option.isSome
+    // listType 2 = invited by the host. The viewer hasn't accepted, so the
+    // footer keeps the Join call-to-action (joining converts the invite).
+    let isViewerInvited = switch viewerRsvpNode {
+    | Some({listType: Some(2)}) => true
+    | _ => false
+    }
+    let isJoined = viewerRsvpNode->Option.isSome && !isViewerInvited
     let isViewerWaitlisted =
       viewerRsvpNode
       ->Option.map(node => waitlistPlayers->Array.some(wp => wp.id == node.id))
@@ -482,7 +488,7 @@ module Inner = {
       isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment && requiresPaymentGate
     let viewerJoinTime = viewerRsvpNode->Option.flatMap(n => n.joinTime)
     let isViewerPending = switch viewerRsvpNode {
-    | Some({listType}) => listType != None && listType != Some(0)
+    | Some({listType}) => listType != None && listType != Some(0) && listType != Some(2)
     | None => false
     }
     let eventCurrency = allRsvpNodes->Array.findMap(n => n.payment->Option.map(p => p.currency))

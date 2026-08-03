@@ -13,8 +13,8 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RoundSection.re.mjs:542
-#: src/components/organisms/RoundSection.re.mjs:652
+#: src/components/organisms/RoundSection.re.mjs:544
+#: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
 msgstr "{0} {matchText}"
 
@@ -46,8 +46,8 @@ msgstr "{matchCount, plural, one {{0}} other {{1}}}"
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/RoundSection.re.mjs:525
-#: src/components/organisms/FullScreenRoundView.re.mjs:36
+#: src/components/organisms/RoundSection.re.mjs:527
+#: src/components/organisms/FullScreenRoundView.re.mjs:37
 msgid "ACTIVE ROUND"
 msgstr "진행 중 라운드"
 
@@ -75,7 +75,7 @@ msgstr "플레이어 시드 조정"
 msgid "Advance to Next Round"
 msgstr "다음 라운드로 진행"
 
-#: src/components/organisms/EventManager.re.mjs:1937
+#: src/components/organisms/EventManager.re.mjs:1939
 msgid "Advance to Round {0}"
 msgstr "라운드 {0}으로 진행"
 
@@ -91,7 +91,7 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
 
-#: src/components/organisms/EventManager.re.mjs:1771
+#: src/components/organisms/EventManager.re.mjs:1773
 msgid "all up to date"
 msgstr "모두 최신 상태"
 
@@ -99,7 +99,7 @@ msgstr "모두 최신 상태"
 msgid "Alternate favourite/underdog roles"
 msgstr "강자/약자 역할 교대"
 
-#: src/components/organisms/EventManager.re.mjs:2043
+#: src/components/organisms/EventManager.re.mjs:2045
 msgid "Anti-Team {0}"
 msgstr "안티팀 {0}"
 
@@ -142,7 +142,7 @@ msgstr "클래식 라운드 로빈 대진"
 msgid "Close"
 msgstr "닫기"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:47
+#: src/components/organisms/FullScreenRoundView.re.mjs:48
 msgid "Close Full Screen"
 msgstr "전체 화면 닫기"
 
@@ -159,12 +159,12 @@ msgstr "경쟁"
 msgid "Competitive+"
 msgstr "경쟁+"
 
-#: src/components/organisms/MatchCard.re.mjs:387
+#: src/components/organisms/MatchCard.re.mjs:394
 #: src/components/molecules/SolverWarnings.re.mjs:86
 msgid "Court {0}"
 msgstr "코트 {0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:63
+#: src/components/organisms/FullScreenRoundView.re.mjs:94
 msgid "COURT {0}"
 msgstr "코트 {0}"
 
@@ -204,11 +204,11 @@ msgstr "현재 라운드:"
 msgid "Custom"
 msgstr "사용자 지정"
 
-#: src/components/organisms/EventManager.re.mjs:2232
+#: src/components/organisms/EventManager.re.mjs:2234
 msgid "Debug: OFF"
 msgstr "디버그: 끄기"
 
-#: src/components/organisms/EventManager.re.mjs:2232
+#: src/components/organisms/EventManager.re.mjs:2234
 msgid "Debug: ON"
 msgstr "디버그: 켜기"
 
@@ -217,7 +217,7 @@ msgid "Delete Guest"
 msgstr "게스트 삭제"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:428
+#: src/components/organisms/MatchCard.re.mjs:435
 msgid "Delete match"
 msgstr "경기 삭제"
 
@@ -225,11 +225,11 @@ msgstr "경기 삭제"
 msgid "Delete team"
 msgstr "팀 삭제"
 
-#: src/components/organisms/MatchCard.re.mjs:432
+#: src/components/organisms/MatchCard.re.mjs:439
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
 
-#: src/components/organisms/EventManager.re.mjs:1840
+#: src/components/organisms/EventManager.re.mjs:1842
 msgid "Dismiss"
 msgstr "닫기"
 
@@ -247,7 +247,7 @@ msgstr ""
 "지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 "
 "수 없습니다."
 
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:448
 msgid "Edit match"
 msgstr "경기 편집"
 
@@ -305,7 +305,7 @@ msgid ""
 "skill."
 msgstr "매 라운드 새롭고 다양한 매치업, 각 경기 팀은 실력별로 균형을 맞춥니다."
 
-#: src/components/organisms/RoundSection.re.mjs:533
+#: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "전체 화면 보기"
 
@@ -330,7 +330,7 @@ msgid "Generate Draws"
 msgstr "대진 생성"
 
 #: src/components/molecules/DrawGenerator.re.mjs:377
-#: src/components/organisms/EventManager.re.mjs:1343
+#: src/components/organisms/EventManager.re.mjs:1345
 msgid "Generating…"
 msgstr "생성 중…"
 
@@ -342,7 +342,7 @@ msgstr "게스트 이름 (줄당 하나)"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "스캔에 문제가 있으신가요? 클럽 페이지에서 이벤트를 찾아보세요."
 
-#: src/components/organisms/EventManager.re.mjs:2220
+#: src/components/organisms/EventManager.re.mjs:2222
 msgid "Help"
 msgstr "도움말"
 
@@ -362,7 +362,7 @@ msgstr "Jane Doe"
 msgid "John Smith"
 msgstr "John Smith"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "지난 라운드"
 
@@ -457,7 +457,7 @@ msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "실력 범위 내에서 균등한 경기를 우선하는 최적화된 대진표."
 
-#: src/components/organisms/EventManager.re.mjs:1836
+#: src/components/organisms/EventManager.re.mjs:1838
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "최적화 도구를 사용할 수 없어 이 대진에 표준 매치메이킹을 사용했습니다."
 
@@ -493,7 +493,7 @@ msgstr ""
 msgid "please login before managing the session"
 msgstr "세션을 관리하기 전에 로그인하세요"
 
-#: src/components/organisms/EventManager.re.mjs:1343
+#: src/components/organisms/EventManager.re.mjs:1345
 msgid "Preparing optimizer…"
 msgstr "최적화 도구 준비 중…"
 
@@ -509,7 +509,7 @@ msgstr "이전 라운드"
 msgid "Print"
 msgstr "인쇄"
 
-#: src/components/organisms/EventManager.re.mjs:1738
+#: src/components/organisms/EventManager.re.mjs:1740
 msgid "Print Draws"
 msgstr "대진표 인쇄"
 
@@ -529,11 +529,11 @@ msgstr "균등한 경기보다 새로운 파트너 및 상대를 우선시합니
 msgid "Random Balanced"
 msgstr "랜덤 균형"
 
-#: src/components/organisms/MatchCard.re.mjs:395
+#: src/components/organisms/MatchCard.re.mjs:402
 msgid "Rebalance match"
 msgstr "경기 재조정"
 
-#: src/components/organisms/RoundSection.re.mjs:561
+#: src/components/organisms/RoundSection.re.mjs:563
 msgid "Rebalance this round with current players"
 msgstr "현재 플레이어로 이 라운드 재조정"
 
@@ -541,7 +541,7 @@ msgstr "현재 플레이어로 이 라운드 재조정"
 msgid "Regenerate Rounds?"
 msgstr "라운드를 재생성하시겠습니까?"
 
-#: src/components/organisms/MatchCard.re.mjs:408
+#: src/components/organisms/MatchCard.re.mjs:415
 msgid "Repeat"
 msgstr "반복"
 
@@ -553,15 +553,15 @@ msgstr "플레이어 교체"
 msgid "Replacing:"
 msgstr "교체 중:"
 
-#: src/components/organisms/EventManager.re.mjs:2205
+#: src/components/organisms/EventManager.re.mjs:2207
 msgid "Reset Storage"
 msgstr "저장소 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:618
+#: src/components/organisms/RoundSection.re.mjs:620
 msgid "Reset this round with all checked-in players"
 msgstr "체크인한 모든 플레이어로 이 라운드 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:593
+#: src/components/organisms/RoundSection.re.mjs:595
 msgid "Reset this round with mixed gender pairs"
 msgstr "혼합 성별 페어로 이 라운드 초기화"
 
@@ -569,10 +569,10 @@ msgstr "혼합 성별 페어로 이 라운드 초기화"
 msgid "Reset to slider"
 msgstr "슬라이더로 초기화"
 
-#: src/components/organisms/RoundSection.re.mjs:521
-#: src/components/organisms/RoundSection.re.mjs:648
+#: src/components/organisms/RoundSection.re.mjs:523
+#: src/components/organisms/RoundSection.re.mjs:650
 #: src/components/organisms/PrintableDraws.re.mjs:84
-#: src/components/organisms/FullScreenRoundView.re.mjs:32
+#: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "라운드 {0}"
 
@@ -621,7 +621,7 @@ msgstr "스캔하여 체크인"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/organisms/EventManager.re.mjs:1693
+#: src/components/organisms/EventManager.re.mjs:1695
 msgid "Scores Synced!"
 msgstr "점수 동기화됨!"
 
@@ -632,6 +632,10 @@ msgstr "시드:"
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
 msgstr "시드 조정됨"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:109
+msgid "SERVING"
+msgstr "서브 중"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:196
 msgid "Similar-skill matches"
@@ -657,23 +661,23 @@ msgstr "전략"
 msgid "Strategy:"
 msgstr "전략:"
 
-#: src/components/organisms/EventManager.re.mjs:1705
+#: src/components/organisms/EventManager.re.mjs:1707
 msgid "Sync Failed"
 msgstr "동기화 실패"
 
-#: src/components/organisms/EventManager.re.mjs:1669
+#: src/components/organisms/EventManager.re.mjs:1671
 msgid "Sync Scores"
 msgstr "점수 동기화"
 
-#: src/components/organisms/EventManager.re.mjs:1765
+#: src/components/organisms/EventManager.re.mjs:1767
 msgid "synced"
 msgstr "동기화됨"
 
-#: src/components/organisms/EventManager.re.mjs:1681
+#: src/components/organisms/EventManager.re.mjs:1683
 msgid "Syncing... {0}%"
 msgstr "동기화 중... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1614
+#: src/components/organisms/EventManager.re.mjs:1616
 msgid "Team {0}"
 msgstr "팀 {0}"
 
@@ -701,7 +705,7 @@ msgstr "팀 이름"
 msgid "Teams"
 msgstr "팀"
 
-#: src/components/organisms/MatchCard.re.mjs:433
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -717,7 +721,7 @@ msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 msgid "Tight bands"
 msgstr "촘촘한 밴드"
 
-#: src/components/organisms/EventManager.re.mjs:1767
+#: src/components/organisms/EventManager.re.mjs:1769
 msgid "to sync"
 msgstr "동기화 필요"
 
@@ -735,8 +739,8 @@ msgid "Update Rounds Below"
 msgstr "아래 라운드 업데이트"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:562
 #: src/components/organisms/MatchCard.re.mjs:569
+#: src/components/organisms/MatchCard.re.mjs:576
 msgid "VS"
 msgstr "VS"
 
