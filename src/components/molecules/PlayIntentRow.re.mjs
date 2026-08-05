@@ -54,6 +54,7 @@ var Fragment = {
 var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function PlayIntentRow(props) {
+  var __requireProfile = props.requireProfile;
   var __isLoggedIn = props.isLoggedIn;
   var renderHeader = props.renderHeader;
   var onRegisterOpenEditor = props.onRegisterOpenEditor;
@@ -68,6 +69,9 @@ function PlayIntentRow(props) {
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var events = __events !== undefined ? __events : [];
   var isLoggedIn = __isLoggedIn !== undefined ? __isLoggedIn : false;
+  var requireProfile = __requireProfile !== undefined ? __requireProfile : (function (action) {
+        action();
+      });
   var match = UseSetAvailabilityDay.use();
   var commitSetAvailability = match[0];
   var resolvedActivityId = Core__Option.orElse(props.activityId, defaultActivityId);
@@ -276,7 +280,7 @@ function PlayIntentRow(props) {
         className: "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
         onClick: (function (param) {
             if (isLoggedIn) {
-              return openEditor();
+              return requireProfile(openEditor);
             } else {
               return navigate("/oauth-login?return=" + pathname, undefined);
             }
@@ -349,7 +353,7 @@ function PlayIntentRow(props) {
           type: "button",
           onClick: (function (param) {
               if (isLoggedIn) {
-                return openEditor();
+                return requireProfile(openEditor);
               } else {
                 return navigate("/oauth-login?return=" + pathname, undefined);
               }
@@ -642,7 +646,7 @@ function PlayIntentRow(props) {
                         className: "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-1 flex-shrink-0",
                         title: t`Change times`,
                         onClick: (function (param) {
-                            openEditor();
+                            requireProfile(openEditor);
                           })
                       }),
                   JsxRuntime.jsx("button", {

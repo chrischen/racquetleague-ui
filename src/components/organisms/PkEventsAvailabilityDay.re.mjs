@@ -129,9 +129,13 @@ function courtAvailabilityForDate(rows, localDate, genericCourtName) {
 }
 
 function PkEventsAvailabilityDay(props) {
+  var __requireProfile = props.requireProfile;
   var onRefetchNeeded = props.onRefetchNeeded;
   var localDate = props.localDate;
   var data = props.data;
+  var requireProfile = __requireProfile !== undefined ? __requireProfile : (function (action) {
+        action();
+      });
   var viewerUserId = Core__Option.map(Core__Option.flatMap(data.viewer, (function (v) {
               return v.user;
             })), (function (u) {
@@ -216,7 +220,8 @@ function PkEventsAvailabilityDay(props) {
                 }),
               onCreateEvent: props.onCreateEvent,
               renderHeader: props.renderHeader,
-              isLoggedIn: props.isLoggedIn
+              isLoggedIn: props.isLoggedIn,
+              requireProfile: requireProfile
             });
 }
 

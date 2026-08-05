@@ -96,6 +96,13 @@ var node = {
               "kind": "ScalarField",
               "name": "gender",
               "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "selfRating",
+              "storageKey": null
             }
           ],
           "storageKey": null

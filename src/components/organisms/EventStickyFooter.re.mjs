@@ -5,11 +5,11 @@ import * as React from "react";
 import * as DateFns from "date-fns";
 import * as ReactIntl from "react-intl";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
-import * as ProfileModal from "./ProfileModal.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
 import * as PaymentIndicator from "../atoms/PaymentIndicator.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -71,7 +71,6 @@ function EventStickyFooter(props) {
   var isFull = props.isFull;
   var isAuthorization = props.isAuthorization;
   var isWaitlisted = props.isWaitlisted;
-  var viewerUser = props.viewerUser;
   var $$event = props.event;
   var match = ReactRouterDom.useLocation();
   var match$1 = use();
@@ -79,31 +78,11 @@ function EventStickyFooter(props) {
   var match$2 = use$1();
   var leaving = match$2[1];
   var leaveEvent = match$2[0];
+  var profileGate = UseProfileGate.use(props.queryFragmentRefs, "Join", props.hasComputedRating);
   var match$3 = React.useState(function () {
         return false;
       });
-  var setIsProfileModalOpen = match$3[1];
-  var match$4 = React.useState(function () {
-        
-      });
-  var setPendingJoinAction = match$4[1];
-  var pendingJoinAction = match$4[0];
-  var match$5 = React.useState(function () {
-        return false;
-      });
-  var setShowLeaveConfirm = match$5[1];
-  var hasCompleteProfile = function () {
-    if (viewerUser === undefined) {
-      return false;
-    }
-    var match = viewerUser.lineUsername;
-    var match$1 = viewerUser.email;
-    if (match !== undefined && match$1 !== undefined && match !== "") {
-      return match$1 !== "";
-    } else {
-      return false;
-    }
-  };
+  var setShowLeaveConfirm = match$3[1];
   var performLeave = function () {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID($$event.__id, "PkRSVPSection_event_rsvps", undefined);
     leaveEvent({
@@ -128,24 +107,15 @@ function EventStickyFooter(props) {
             eventId: $$event.id
           }, undefined, undefined, undefined, undefined, undefined, undefined);
     };
-    if (hasCompleteProfile()) {
-      return proceed();
-    } else {
-      setPendingJoinAction(function (param) {
-            return proceed;
-          });
-      return setIsProfileModalOpen(function (param) {
-                  return true;
-                });
-    }
+    profileGate.require(proceed);
   };
-  var match$6 = $$event.deleted;
-  if (match$6 !== undefined) {
+  var match$4 = $$event.deleted;
+  if (match$4 !== undefined) {
     return null;
   }
-  if (viewerUser !== undefined) {
-    var match$7 = $$event.shadow;
-    if (match$7 !== undefined && match$7) {
+  if (props.viewerUser !== undefined) {
+    var match$5 = $$event.shadow;
+    if (match$5 !== undefined && match$5) {
       return null;
     }
     var cancelDeadlineDate = Core__Option.flatMap($$event.startDate, (function (sd) {
@@ -484,26 +454,7 @@ function EventStickyFooter(props) {
                         children: tmp,
                         className: "sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0"
                       }),
-                  JsxRuntime.jsx(ProfileModal.make, {
-                        isOpen: match$3[0],
-                        onClose: (function () {
-                            setIsProfileModalOpen(function (param) {
-                                  return false;
-                                });
-                            setPendingJoinAction(function (param) {
-                                  
-                                });
-                          }),
-                        onProfileComplete: (function () {
-                            Core__Option.forEach(pendingJoinAction, (function (action) {
-                                    action();
-                                  }));
-                            setPendingJoinAction(function (param) {
-                                  
-                                });
-                          }),
-                        query: props.queryFragmentRefs
-                      }),
+                  profileGate.modal,
                   JsxRuntime.jsx(ConfirmDialog.make, {
                         title: t`Leave event`,
                         description: t`There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?`,
@@ -511,13 +462,13 @@ function EventStickyFooter(props) {
                             performLeave();
                           }),
                         setIsOpen: setShowLeaveConfirm,
-                        isOpen: match$5[0]
+                        isOpen: match$3[0]
                       })
                 ]
               });
   }
-  var match$8 = $$event.shadow;
-  if (match$8 !== undefined && match$8) {
+  var match$6 = $$event.shadow;
+  if (match$6 !== undefined && match$6) {
     return null;
   }
   return JsxRuntime.jsxs("div", {

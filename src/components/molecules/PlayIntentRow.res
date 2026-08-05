@@ -37,6 +37,10 @@ let make = (
   ~onRegisterOpenEditor: option<(unit => unit) => unit>=?,
   ~renderHeader: option<React.element => React.element>=?,
   ~isLoggedIn: bool=false,
+  // Runs the editor-opening action once the viewer's profile is complete
+  // enough to share availability. Defaults to pass-through for hosts that
+  // don't gate.
+  ~requireProfile: (unit => unit) => unit=action => action(),
 ) => {
   let (commitSetAvailability, _isMutating) = UseSetAvailabilityDay.use()
   let resolvedActivityId = activityId->Option.orElse(Some(defaultActivityId))
@@ -229,7 +233,7 @@ let make = (
     <button
       onClick={_ =>
         if isLoggedIn {
-          openEditor()
+          requireProfile(openEditor)
         } else {
           navigate("/oauth-login?return=" ++ pathname, None)
         }}
@@ -268,7 +272,7 @@ let make = (
         type_="button"
         onClick={_ =>
           if isLoggedIn {
-            openEditor()
+            requireProfile(openEditor)
           } else {
             navigate("/oauth-login?return=" ++ pathname, None)
           }}
@@ -534,7 +538,7 @@ let make = (
             : React.null}
         </div>
         <button
-          onClick={_ => openEditor()}
+          onClick={_ => requireProfile(openEditor)}
           className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-1 flex-shrink-0"
           title={ts`Change times`}>
           <Lucide.Pencil size=12 />

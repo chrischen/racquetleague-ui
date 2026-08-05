@@ -411,7 +411,8 @@ function EventsList(props) {
                                                   children: Core__Option.getOr(Core__Option.map(viewer, (function (v) {
                                                               return JsxRuntime.jsx(AddEventButton.make, {
                                                                           context: context,
-                                                                          viewer: v.fragmentRefs
+                                                                          viewer: v.fragmentRefs,
+                                                                          gateQuery: data.fragmentRefs
                                                                         });
                                                             })), null),
                                                   className: "mx-4 mb-4 mt-4"

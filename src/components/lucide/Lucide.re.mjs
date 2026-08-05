@@ -45,6 +45,8 @@ var Clock = {};
 
 var User = {};
 
+var UserRound = {};
+
 var List = {};
 
 var Maximize2 = {};
@@ -210,6 +212,7 @@ export {
   Banknote ,
   Clock ,
   User ,
+  UserRound ,
   List ,
   Maximize2 ,
   Smartphone ,

@@ -13,41 +13,77 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventRow.re.mjs:738
-#: src/components/organisms/PkEventRow.re.mjs:826
+#: src/components/organisms/PkEventRow.re.mjs:686
+#: src/components/organisms/PkEventRow.re.mjs:774
 msgid "[missing title]"
 msgstr "[标题缺失]"
 
-#: src/components/organisms/PkEventRow.re.mjs:149
-#: src/components/organisms/PkEventRow.re.mjs:206
+#: src/components/organisms/PkEventRow.re.mjs:130
+#: src/components/organisms/PkEventRow.re.mjs:187
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "高级"
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "高级球员"
 
-#: src/components/organisms/PkEventRow.re.mjs:742
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初级"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "个人简介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "简介为必填项"
+
+#: src/components/organisms/PkEventRow.re.mjs:690
 msgid "Canceled"
 msgstr "已取消"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
-msgstr "完善个人资料"
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "关闭个人资料表单"
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初学者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "完善您的球员档案"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "无法保存您的个人资料，请重试。"
+
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr "显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -55,11 +91,7 @@ msgstr ""
 "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
 "件地址登录。"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr "电子邮件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "请输入电子邮件"
 
@@ -67,15 +99,15 @@ msgstr "请输入电子邮件"
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "性别"
 
@@ -83,27 +115,47 @@ msgstr "性别"
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
-#: src/components/organisms/PkEventRow.re.mjs:609
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "其他球员看到您的方式"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中级"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中级+"
+
+#: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Join"
 msgstr "加入"
 
-#: src/components/organisms/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:221
 msgid "Joined"
 msgstr "已加入"
 
-#: src/components/organisms/PkEventRow.re.mjs:608
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "保持您的球员档案准确，为社区提供有用信息。"
+
+#: src/components/organisms/PkEventRow.re.mjs:556
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/organisms/PkEventRow.re.mjs:1009
+#: src/components/organisms/PkEventRow.re.mjs:957
 msgid "Leave event"
 msgstr "退出活动"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "级别"
 
 #: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
 
@@ -115,28 +167,32 @@ msgstr "比赛结果将提交至 DUPR。"
 msgid "No restriction on skill level. Open to all players."
 msgstr "没有技能等级限制。对所有球员开放。"
 
-#: src/components/organisms/PkEventRow.re.mjs:279
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "暂不"
+
+#: src/components/organisms/PkEventRow.re.mjs:260
 msgid "Pending"
 msgstr "待审核"
 
-#: src/components/organisms/PkEventRow.re.mjs:150
-#: src/components/organisms/PkEventRow.re.mjs:207
+#: src/components/organisms/PkEventRow.re.mjs:131
+#: src/components/organisms/PkEventRow.re.mjs:188
 msgid "player"
 msgstr "玩家"
 
-#: src/components/organisms/PkEventRow.re.mjs:151
-#: src/components/organisms/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:132
+#: src/components/organisms/PkEventRow.re.mjs:189
 msgid "players"
 msgstr "球员"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr "不愿透露"
 
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "非公开"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "专业"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -156,15 +212,21 @@ msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
-msgstr "保存并参加活动"
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "保存个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
 
-#: src/components/organisms/PkEventRow.re.mjs:1010
+#: src/components/organisms/PkEventRow.re.mjs:958
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -176,22 +238,38 @@ msgid ""
 "from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
 
-#: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr "这是其他人会看到的名字"
-
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中高级及以上"
 
-#: src/components/organisms/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:253
 msgid "Waitlisted"
 msgstr "已在候补名单"
 
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存并参加活动"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "这是其他人会看到的名字"

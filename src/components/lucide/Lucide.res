@@ -154,6 +154,11 @@ module User = {
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "User"
 }
+module UserRound = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "UserRound"
+}
 module List = {
   // Add binding for List icon
   @module("lucide-react") @react.component

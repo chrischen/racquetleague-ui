@@ -87,6 +87,7 @@ module Types = {
     locationsAvailability: array<response_locationsAvailability>,
     resolvedLocation: response_resolvedLocation,
     viewer: option<response_viewer>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #UseProfileGate_query]>,
   }
   @live
   type rawResponse = response
@@ -144,7 +145,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_events_edges_node_startDate":{"c":"Util.Datetime"},"viewer_events_edges_node_endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"viewer_events_edges_node_startDate":{"c":"Util.Datetime"},"viewer_events_edges_node_endDate":{"c":"Util.Datetime"},"":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = {
@@ -160,7 +161,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"viewer_events_edges_node_startDate":{"c":"Util.Datetime"},"viewer_events_edges_node_endDate":{"c":"Util.Datetime"}}}`
+    json`{"__root":{"viewer_events_edges_node_startDate":{"c":"Util.Datetime"},"viewer_events_edges_node_endDate":{"c":"Util.Datetime"},"":{"f":""}}}`
   )
   @live
   let responseConverterMap = {
@@ -237,30 +238,82 @@ v5 = {
   "variableName": "location"
 },
 v6 = {
+  "alias": null,
+  "args": [
+    (v5/*: any*/)
+  ],
+  "concreteType": "ResolvedLocation",
+  "kind": "LinkedField",
+  "name": "resolvedLocation",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Coords",
+      "kind": "LinkedField",
+      "name": "coords",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "lat",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "lng",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "region",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v7 = {
   "kind": "Variable",
   "name": "fromDate",
   "variableName": "fromDate"
 },
-v7 = {
+v8 = {
   "kind": "Variable",
   "name": "toDate",
   "variableName": "toDate"
 },
-v8 = {
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v9 = {
+v10 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "localDate",
   "storageKey": null
 },
-v10 = {
+v11 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "lineUsername",
+  "storageKey": null
+},
+v12 = {
   "alias": null,
   "args": null,
   "concreteType": "AvailabilityInterval",
@@ -285,321 +338,258 @@ v10 = {
   ],
   "storageKey": null
 },
-v11 = {
+v13 = {
+  "alias": null,
+  "args": [
+    (v7/*: any*/),
+    (v5/*: any*/),
+    {
+      "kind": "Literal",
+      "name": "scope",
+      "value": {
+        "activityId": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
+      }
+    },
+    (v8/*: any*/)
+  ],
+  "concreteType": "AvailabilityDay",
+  "kind": "LinkedField",
+  "name": "availabilityUsersForDateRange",
+  "plural": true,
+  "selections": [
+    (v9/*: any*/),
+    (v10/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "User",
+      "kind": "LinkedField",
+      "name": "user",
+      "plural": false,
+      "selections": [
+        (v9/*: any*/),
+        (v11/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "picture",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    (v12/*: any*/)
+  ],
+  "storageKey": null
+},
+v14 = {
   "kind": "Variable",
   "name": "activityId",
   "variableName": "activityId"
 },
-v12 = [
-  {
-    "alias": null,
-    "args": [
-      (v5/*: any*/)
-    ],
-    "concreteType": "ResolvedLocation",
-    "kind": "LinkedField",
-    "name": "resolvedLocation",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Coords",
-        "kind": "LinkedField",
-        "name": "coords",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "lat",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "lng",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "region",
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
-  },
-  {
-    "alias": null,
-    "args": [
-      (v6/*: any*/),
-      (v5/*: any*/),
-      {
-        "kind": "Literal",
-        "name": "scope",
-        "value": {
-          "activityId": "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
+v15 = {
+  "alias": null,
+  "args": [
+    (v14/*: any*/),
+    (v7/*: any*/),
+    (v5/*: any*/),
+    (v8/*: any*/)
+  ],
+  "concreteType": "LocationAvailabilityDay",
+  "kind": "LinkedField",
+  "name": "locationsAvailability",
+  "plural": true,
+  "selections": [
+    (v9/*: any*/),
+    (v10/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "link",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Location",
+      "kind": "LinkedField",
+      "name": "location",
+      "plural": false,
+      "selections": [
+        (v9/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "name",
+          "storageKey": null
         }
-      },
-      (v7/*: any*/)
-    ],
-    "concreteType": "AvailabilityDay",
-    "kind": "LinkedField",
-    "name": "availabilityUsersForDateRange",
-    "plural": true,
-    "selections": [
-      (v8/*: any*/),
-      (v9/*: any*/),
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "User",
-        "kind": "LinkedField",
-        "name": "user",
-        "plural": false,
-        "selections": [
-          (v8/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "lineUsername",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "picture",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      (v10/*: any*/)
-    ],
-    "storageKey": null
-  },
-  {
-    "alias": null,
-    "args": [
-      (v11/*: any*/),
-      (v6/*: any*/),
-      (v5/*: any*/),
-      (v7/*: any*/)
-    ],
-    "concreteType": "LocationAvailabilityDay",
-    "kind": "LinkedField",
-    "name": "locationsAvailability",
-    "plural": true,
-    "selections": [
-      (v8/*: any*/),
-      (v9/*: any*/),
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "link",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "Location",
-        "kind": "LinkedField",
-        "name": "location",
-        "plural": false,
-        "selections": [
-          (v8/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "name",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      (v10/*: any*/),
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "AvailabilityHourStat",
-        "kind": "LinkedField",
-        "name": "hourly",
-        "plural": true,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "hour",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "indoorCount",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "outdoorCount",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "priceMin",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "priceMax",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
+      ],
+      "storageKey": null
+    },
+    (v12/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "AvailabilityHourStat",
+      "kind": "LinkedField",
+      "name": "hourly",
+      "plural": true,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "hour",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "indoorCount",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "outdoorCount",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "priceMin",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "priceMax",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
+v16 = [
+  (v9/*: any*/)
+],
+v17 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "User",
+  "kind": "LinkedField",
+  "name": "user",
+  "plural": false,
+  "selections": (v16/*: any*/),
+  "storageKey": null
+},
+v18 = {
+  "alias": null,
+  "args": [
+    (v14/*: any*/),
+    (v7/*: any*/),
+    (v8/*: any*/)
+  ],
+  "concreteType": "AvailabilityDay",
+  "kind": "LinkedField",
+  "name": "availability",
+  "plural": true,
+  "selections": [
+    (v9/*: any*/),
+    (v10/*: any*/),
+    (v12/*: any*/)
+  ],
+  "storageKey": null
+},
+v19 = {
+  "alias": null,
+  "args": [
+    {
+      "kind": "Literal",
+      "name": "_filters",
+      "value": {
+        "viewer": true
       }
-    ],
-    "storageKey": null
-  },
-  {
-    "alias": null,
-    "args": null,
-    "concreteType": "Viewer",
-    "kind": "LinkedField",
-    "name": "viewer",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "User",
-        "kind": "LinkedField",
-        "name": "user",
-        "plural": false,
-        "selections": [
-          (v8/*: any*/)
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": [
-          (v11/*: any*/),
-          (v6/*: any*/),
-          (v7/*: any*/)
-        ],
-        "concreteType": "AvailabilityDay",
-        "kind": "LinkedField",
-        "name": "availability",
-        "plural": true,
-        "selections": [
-          (v8/*: any*/),
-          (v9/*: any*/),
-          (v10/*: any*/)
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": [
-          {
-            "kind": "Literal",
-            "name": "_filters",
-            "value": {
-              "viewer": true
+    },
+    {
+      "kind": "Variable",
+      "name": "afterDate",
+      "variableName": "afterDate"
+    },
+    {
+      "kind": "Literal",
+      "name": "first",
+      "value": 100
+    }
+  ],
+  "concreteType": "EventConnection",
+  "kind": "LinkedField",
+  "name": "events",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "EventEdge",
+      "kind": "LinkedField",
+      "name": "edges",
+      "plural": true,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "Event",
+          "kind": "LinkedField",
+          "name": "node",
+          "plural": false,
+          "selections": [
+            (v9/*: any*/),
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "title",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "startDate",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "endDate",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "timezone",
+              "storageKey": null
             }
-          },
-          {
-            "kind": "Variable",
-            "name": "afterDate",
-            "variableName": "afterDate"
-          },
-          {
-            "kind": "Literal",
-            "name": "first",
-            "value": 100
-          }
-        ],
-        "concreteType": "EventConnection",
-        "kind": "LinkedField",
-        "name": "events",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "EventEdge",
-            "kind": "LinkedField",
-            "name": "edges",
-            "plural": true,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Event",
-                "kind": "LinkedField",
-                "name": "node",
-                "plural": false,
-                "selections": [
-                  (v8/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "title",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "startDate",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "endDate",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "timezone",
-                    "storageKey": null
-                  }
-                ],
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
-  }
-];
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": [
@@ -612,7 +602,30 @@ return {
     "kind": "Fragment",
     "metadata": null,
     "name": "AvailabilityPageQuery",
-    "selections": (v12/*: any*/),
+    "selections": [
+      {
+        "args": null,
+        "kind": "FragmentSpread",
+        "name": "UseProfileGate_query"
+      },
+      (v6/*: any*/),
+      (v13/*: any*/),
+      (v15/*: any*/),
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          (v17/*: any*/),
+          (v18/*: any*/),
+          (v19/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ],
     "type": "Query",
     "abstractKey": null
   },
@@ -627,15 +640,97 @@ return {
     ],
     "kind": "Operation",
     "name": "AvailabilityPageQuery",
-    "selections": (v12/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "Viewer",
+        "kind": "LinkedField",
+        "name": "viewer",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "profile",
+            "plural": false,
+            "selections": [
+              (v9/*: any*/),
+              (v11/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "email",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "fullName",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "biography",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "gender",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "selfRating",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "activitySlug",
+                    "value": "pickleball"
+                  }
+                ],
+                "concreteType": "Rating",
+                "kind": "LinkedField",
+                "name": "rating",
+                "plural": false,
+                "selections": (v16/*: any*/),
+                "storageKey": "rating(activitySlug:\"pickleball\")"
+              }
+            ],
+            "storageKey": null
+          },
+          (v17/*: any*/),
+          (v18/*: any*/),
+          (v19/*: any*/)
+        ],
+        "storageKey": null
+      },
+      (v6/*: any*/),
+      (v13/*: any*/),
+      (v15/*: any*/)
+    ]
   },
   "params": {
-    "cacheID": "af8531536462643fbdeaf5bfa8020425",
+    "cacheID": "70713619e3f654936c294bdda5f97054",
     "id": null,
     "metadata": {},
     "name": "AvailabilityPageQuery",
     "operationKind": "query",
-    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput\n) {\n  resolvedLocation(location: $location) {\n    coords {\n      lat\n      lng\n    }\n    region\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query AvailabilityPageQuery(\n  $activityId: ID!\n  $fromDate: String!\n  $toDate: String!\n  $afterDate: Datetime\n  $location: LocationInput\n) {\n  ...UseProfileGate_query\n  resolvedLocation(location: $location) {\n    coords {\n      lat\n      lng\n    }\n    region\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n    }\n    events(first: 100, _filters: {viewer: true}, afterDate: $afterDate) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n      selfRating\n    }\n  }\n}\n\nfragment UseProfileGate_query on Query {\n  ...ProfileModal_viewer\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      biography\n      selfRating\n      rating(activitySlug: \"pickleball\") {\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -13,62 +13,98 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "高级"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:141
 msgid "Authorize deposit"
 msgstr "授权押金"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:203
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初级"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "个人简介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "简介为必填项"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancel RSVP"
 msgstr "取消报名"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
-#: src/components/organisms/EventStickyFooter.re.mjs:407
+#: src/components/organisms/EventStickyFooter.re.mjs:267
+#: src/components/organisms/EventStickyFooter.re.mjs:377
 msgid "Cancellation deadline"
 msgstr "取消截止时间"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:415
+#: src/components/organisms/EventStickyFooter.re.mjs:385
 msgid "Cancellation deadline passed."
 msgstr "取消截止日期已过。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:305
+#: src/components/organisms/EventStickyFooter.re.mjs:275
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "取消截止日期已过。请在此页面联系组织者取消。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:203
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancelling..."
 msgstr "取消中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:433
-#: src/components/organisms/EventStickyFooter.re.mjs:555
+#: src/components/organisms/EventStickyFooter.re.mjs:403
+#: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Claim spot"
 msgstr "报名参加"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:429
+#: src/components/organisms/EventStickyFooter.re.mjs:399
 msgid "Claim spot · {0}"
 msgstr "占位 · {0}"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
-msgstr "完善个人资料"
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "关闭个人资料表单"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:187
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初学者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "完善您的球员档案"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "无法保存您的个人资料，请重试。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Deposit required to confirm your spot"
 msgstr "需支付定金以确认您的名额"
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr "显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -76,113 +112,135 @@ msgstr ""
 "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
 "件地址登录。"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr "电子邮件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "请输入电子邮件"
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "性别"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:555
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "其他球员看到您的方式"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中级"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中级+"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Join waitlist"
 msgstr "加入候补名单"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:426
+#: src/components/organisms/EventStickyFooter.re.mjs:396
 msgid "Join waitlist (#{0})"
 msgstr "加入候补名单 (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:380
-#: src/components/organisms/EventStickyFooter.re.mjs:508
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "保持您的球员档案准确，为社区提供有用信息。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:350
+#: src/components/organisms/EventStickyFooter.re.mjs:459
 msgid "Leave event"
 msgstr "退出活动"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:350
 msgid "Leave waitlist"
 msgstr "退出候补名单"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:379
+#: src/components/organisms/EventStickyFooter.re.mjs:349
 msgid "Leaving..."
 msgstr "离开中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "级别"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:139
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "暂不"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "On waitlist"
 msgstr "候补中"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:177
+#: src/components/organisms/EventStickyFooter.re.mjs:147
 msgid "Pay {priceStr}"
 msgstr "支付 {priceStr}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:187
+#: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Payment required to confirm your spot"
 msgstr "需完成付款以确认您的名额"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:259
+#: src/components/organisms/EventStickyFooter.re.mjs:229
 msgid "Pending approval"
 msgstr "待审批"
 
-#: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr "不愿透露"
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "专业"
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
-msgstr "保存并参加活动"
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "保存个人资料"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:509
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:460
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
 msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
+#: src/components/organisms/EventStickyFooter.re.mjs:165
 msgid ""
 "This is a deposit hold only — payment is due to the organizer at the event. "
 "The hold will be released after the event."
 msgstr ""
 "此为仅限定金预授权——款项须在活动现场支付给组织者。预授权将在活动结束后解除。"
 
-#: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr "这是其他人会看到的名字"
-
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:273
+#: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdraw RSVP"
 msgstr "撤回报名"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:273
+#: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdrawing..."
 msgstr "撤回中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "You're in"
 msgstr "已报名"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:263
+#: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的报名正在等待管理员审批"
 
@@ -192,10 +250,22 @@ msgstr "您的报名正在等待管理员审批"
 #~ "event."
 #~ msgstr "您的银行卡将被临时预授权扣款，活动结束后全额退还。"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "电子邮件不能更改"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/organisms/EventStickyFooter.re.mjs:194
 #~ msgid "Pay {0}"
 #~ msgstr "支付 {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:182
 #~ msgid "Release spot"
@@ -205,6 +275,14 @@ msgstr "您的报名正在等待管理员审批"
 #~ msgid "Releasing..."
 #~ msgstr "释放中..."
 
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存并参加活动"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 #~ msgid "Spot held — pay to confirm"
 #~ msgstr "位置已保留 — 付款确认"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "这是其他人会看到的名字"

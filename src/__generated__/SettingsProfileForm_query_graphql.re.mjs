@@ -129,6 +129,13 @@ function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
               "kind": "ScalarField",
               "name": "email",
               "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "selfRating",
+              "storageKey": null
             }
           ],
           "storageKey": null

@@ -9,6 +9,7 @@ module Fragment = %relay(`
     afterDate: { type: "Datetime" }
     filters: { type: "EventFilters" }
     location: { type: "LocationInput" }
+    activitySlug: { type: "String", defaultValue: "pickleball" }
   )
   @refetchable(queryName: "PkEventsListRefetchQuery")
   {
@@ -23,7 +24,7 @@ module Fragment = %relay(`
       }
       region
     }
-    ...PkEventRow_query
+    ...UseProfileGate_query @arguments(activitySlug: $activitySlug)
     viewer {
       user {
         id
@@ -84,7 +85,7 @@ module Day = {
     ~date: Js.Date.t,
     ~events: array<PkEventsListFragment_graphql.Types.fragment_events_edges_node>,
     ~viewer: option<PkEventsListFragment_graphql.Types.fragment_viewer>,
-    ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
+    ~query: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
     ~onEventClick: option<string => unit>=?,
     ~onHoverLocation: option<option<string> => unit>=?,
     ~activityId: option<string>=?,
@@ -100,6 +101,7 @@ module Day = {
     // (scoping — coordinate vs single location — is fixed by the page query's
     // PkEventsAvailabilityDay_query arguments).
     ~showInlineCourts: bool=false,
+    ~requireProfile: (unit => unit) => unit=action => action(),
   ) => {
     let isoDate = {
       let y = date->Js.Date.getFullYear->Float.toInt->Int.toString
@@ -235,6 +237,7 @@ module Day = {
             isLoggedIn
             onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
             renderHeader
+            requireProfile
           />
           {if !showInlineCourts {
             // Inline court availabilities are experimental (testing only) and
@@ -250,6 +253,7 @@ module Day = {
               events=eventItems
               hasHiddenPreview
               onRefetchNeeded=onAvailabilityRefetchNeeded
+              requireProfile
             />
           }}
           {hasHiddenPreview
@@ -318,6 +322,12 @@ let make = (
   // fragment read is shared by every Day bucket below.
   let (availabilityData, availabilityRefetch) = PkEventsAvailabilityDay.Fragment.useRefetchable(
     events,
+  )
+  // Sharing availability asks for more of a profile than joining does, so this
+  // gate is separate from the per-row join gates.
+  let availabilityGate = UseProfileGate.use(
+    ~query=data.fragmentRefs,
+    ~context=ProfileModal.Availability,
   )
   let viewer = data.viewer
   let events = data.events->Fragment.getConnectionNodes
@@ -451,6 +461,7 @@ let make = (
             onAvailabilityRefetchNeeded
             ?shouldHideEvent
             showInlineCourts
+            requireProfile={availabilityGate.require}
           />,
         ))
       }
@@ -500,20 +511,23 @@ let make = (
       ? Some(<LocationFilterControl isLoggedIn resolvedCoords resolvedRegion=resolved.region />)
       : None
 
-  <EventsListView
-    totalEvents
-    buckets
-    weekendBucketKey=bucketSetup.weekendBucketKey
-    ?selectedDate
-    onSelectDate={onSelectDate}
-    onClearDate={onClearDate}
-    eventDates={eventDates}
-    ?locationFilter
-    hasPrevious
-    isLoadingPrevious
-    ?onPrevious
-    hasNext
-    ?onNext
-    onRefresh={onRefresh}
-  />
+  <>
+    <EventsListView
+      totalEvents
+      buckets
+      weekendBucketKey=bucketSetup.weekendBucketKey
+      ?selectedDate
+      onSelectDate={onSelectDate}
+      onClearDate={onClearDate}
+      eventDates={eventDates}
+      ?locationFilter
+      hasPrevious
+      isLoadingPrevious
+      ?onPrevious
+      hasNext
+      ?onNext
+      onRefresh={onRefresh}
+    />
+    {availabilityGate.modal}
+  </>
 }

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventsList.re.mjs:452
+#: src/components/organisms/EventsList.re.mjs:453
 msgid "...load past events"
 msgstr "...โหลดกิจกรรมที่ผ่านมา"
 
@@ -110,9 +110,13 @@ msgstr "2 · เวลา"
 msgid "3 · What kind?"
 msgstr "3 · ประเภทไหน?"
 
-#: src/components/organisms/AddEventButton.re.mjs:124
+#: src/components/organisms/AddEventButton.re.mjs:115
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "ขั้นสูง"
 
 #: src/components/organisms/NewPlanModal.re.mjs:92
 msgid "Afternoon"
@@ -142,13 +146,49 @@ msgstr "ถาม"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
-#: src/components/organisms/EventsList.re.mjs:424
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "ผู้เริ่มต้น"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "ประวัติส่วนตัว"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "กรุณากรอกประวัติย่อ"
+
+#: src/components/organisms/EventsList.re.mjs:425
 msgid "clear filter"
 msgstr "ล้างตัวกรอง"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "ปิดฟอร์มโปรไฟล์"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "ผู้เริ่มต้นสมบูรณ์"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
 msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:440
 msgid "Couldn't create that event. Please try again."
@@ -189,6 +229,28 @@ msgstr "วันที่:"
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
 msgstr "เย็น"
@@ -197,9 +259,21 @@ msgstr "เย็น"
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/EventsList.re.mjs:422
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "หญิง"
+
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
 msgstr "กรองตามวันที่"
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "เพศ"
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
@@ -213,6 +287,10 @@ msgstr "จัดอีเวนต์"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
 
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
+
 #: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr "ฉันสามารถสร้างกิจกรรมให้คุณได้ เพียงแค่บอกตารางของคุณ"
@@ -220,6 +298,14 @@ msgstr "ฉันสามารถสร้างกิจกรรมให้
 #: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "ระดับกลาง"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "ระดับกลาง+"
 
 #: src/components/organisms/EventItem.re.mjs:313
 msgid "join event"
@@ -229,14 +315,26 @@ msgstr "เข้าร่วมกิจกรรม"
 msgid "joined"
 msgstr "เข้าร่วมแล้ว"
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
+
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr "ออกจากกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "ระดับ"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
 msgid "Location:"
 msgstr "สถานที่:"
+
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "ชาย"
 
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
@@ -263,6 +361,10 @@ msgstr "ใหม่"
 msgid "New plan"
 msgstr "แผนใหม่"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "ไม่ใช่ตอนนี้"
+
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr "รอการอนุมัติ"
@@ -274,6 +376,10 @@ msgstr "แผนที่ความพร้อมของผู้เล่
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
 msgstr "ผู้เล่น"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "โปร"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:253
 msgid "Processing..."
@@ -295,9 +401,19 @@ msgstr "ตอบกลับ"
 msgid "Save"
 msgstr "บันทึก"
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "บันทึกโปรไฟล์"
+
 #: src/components/organisms/NewPlanModal.re.mjs:414
 msgid "Select exactly one time window to host an event"
 msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
 #: src/components/organisms/EventsList.re.mjs:381
 msgid "share as text"
@@ -348,6 +464,10 @@ msgstr "พรุ่งนี้"
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "รายชื่อคอย"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"

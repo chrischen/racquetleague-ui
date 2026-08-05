@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"ホーム画面に追加\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:319
+#: src/components/organisms/SettingsProfileForm.re.mjs:327
 msgid "Active"
 msgstr "有効"
 
@@ -25,32 +25,44 @@ msgstr "有効"
 msgid "Add to Home Screen to enable notifications"
 msgstr "通知を有効にするにはホーム画面に追加してください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "詳細設定"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:407
 msgid "Australia"
 msgstr "オーストラリア"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:544
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初心者"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "自己紹介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Canada"
 msgstr "カナダ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:339
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全な初心者"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr ""
 "主催するイベントの支払いを受け取るには、Stripeアカウントを接続してください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:368
+#: src/components/organisms/SettingsProfileForm.re.mjs:376
 msgid "Connect Stripe account"
 msgstr "Stripeアカウントを接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:364
+#: src/components/organisms/SettingsProfileForm.re.mjs:372
 msgid "Connecting..."
 msgstr "接続中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:384
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "国"
 
@@ -58,11 +70,11 @@ msgstr "国"
 msgid "Disable notifications"
 msgstr "通知を無効にする"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:472
+#: src/components/organisms/SettingsProfileForm.re.mjs:480
 msgid "Display Name"
 msgstr "表示名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:489
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "Doe John"
 msgstr "ジョン・ドウ"
 
@@ -70,23 +82,27 @@ msgstr "ジョン・ドウ"
 msgid "Enable notifications"
 msgstr "通知を有効にする"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
+msgid "Estimated DUPR"
+msgstr "推定DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:519
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:485
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "フルネーム"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:423
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:476
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "How you appear to other players"
 msgstr "他のプレイヤーへの表示方法"
 
@@ -94,23 +110,35 @@ msgstr "他のプレイヤーへの表示方法"
 msgid "in Safari's toolbar"
 msgstr "Safariのツールバー内"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:391
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級者"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級者+"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Japan"
 msgstr "日本"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:560
+msgid "Level"
+msgstr "レベル"
 
 #: src/components/shared/PushNotifications.re.mjs:395
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:511
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:313
+#: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "未接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/SettingsProfileForm.re.mjs:606
 msgid "Notifications"
 msgstr "通知"
 
@@ -126,13 +154,13 @@ msgstr ""
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "ホーム画面からアプリを開き、通知を有効にしてください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:316
+#: src/components/organisms/SettingsProfileForm.re.mjs:324
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-msgid "Prefer not to say"
-msgstr "回答しない"
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "プロ"
 
 #: src/components/shared/PushNotifications.re.mjs:302
 msgid ""
@@ -142,15 +170,15 @@ msgstr ""
 "プッシュ通知がブロックされています。このサイトのブラウザまたはデバイスの通知"
 "設定を確認して、もう一度お試しください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:593
+#: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
 msgstr "イベントのリマインダーや更新情報をプッシュ通知で受け取る。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:371
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "登録を再開"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:571
+#: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
@@ -170,23 +198,23 @@ msgstr ""
 "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
 "す。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Singapore"
 msgstr "シンガポール"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:492
+#: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
 msgstr "韓国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:607
+#: src/components/organisms/SettingsProfileForm.re.mjs:628
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:427
 msgid "Taiwan"
 msgstr "台湾"
 
@@ -194,27 +222,31 @@ msgstr "台湾"
 msgid "Tap the Share button"
 msgstr "共有ボタンをタップ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:550
+#: src/components/organisms/SettingsProfileForm.re.mjs:551
 msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:548
+#: src/components/organisms/SettingsProfileForm.re.mjs:549
 msgid "Tell us a little about yourself..."
 msgstr "自己紹介を入力してください..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "United Kingdom"
 msgstr "イギリス"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:395
+#: src/components/organisms/SettingsProfileForm.re.mjs:403
 msgid "United States"
 msgstr "アメリカ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:345
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
+msgid "Your self-reported skill level"
+msgstr "自己申告のスキルレベル"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "Stripeアカウントが接続され、支払いを受け取る準備が整いました。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:342
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Stripeアカウントは接続されていますが、登録がまだ完了していません。"
 
@@ -245,6 +277,10 @@ msgstr "Stripeアカウントは接続されていますが、登録がまだ完
 #: src/components/organisms/SettingsProfileForm.re.mjs:56
 #~ msgid "input is required"
 #~ msgstr "タイトルが必要です"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "回答しない"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:213
 #~ msgid "profile"

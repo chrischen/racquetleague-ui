@@ -115,7 +115,7 @@ msgstr "가능"
 msgid "Cancel editing availability"
 msgstr "가용성 편집 취소"
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:23
+#: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
 msgstr "코트"
 

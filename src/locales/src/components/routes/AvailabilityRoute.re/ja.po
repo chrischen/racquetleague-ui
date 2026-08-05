@@ -84,11 +84,53 @@ msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 msgid "Add time windows above"
 msgstr "上に時間枠を追加してください"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "詳細設定"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初心者"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "自己紹介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "自己紹介は必須です"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
 msgid "Clear"
 msgstr "クリア"
 
-#: src/components/pages/AvailabilityPage.re.mjs:166
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "プロフィールフォームを閉じる"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全な初心者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "プレイヤープロフィールを完成させる"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
+"い。"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
+
+#: src/components/pages/AvailabilityPage.re.mjs:168
 msgid "Court"
 msgstr "コート"
 
@@ -112,17 +154,73 @@ msgstr "イベントを作成"
 msgid "Current location is not supported by this browser."
 msgstr "現在地はこのブラウザでサポートされていません。"
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "表示名"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "表示名は必須です"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "メールアドレスは必須です"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "イベント"
+
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "女性"
 
 #: src/components/molecules/LocationFilter.re.mjs:110
 msgid "Filter by location"
 msgstr "場所で絞り込む"
 
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "イベントの更新と通知用"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "性別"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "他のプレイヤーへの表示"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級者"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級者+"
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
 msgid "Let hosts schedule events when most of you are free"
 msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "レベル"
 
 #: src/components/molecules/LocationFilter.re.mjs:91
 msgid "Locating…"
@@ -138,10 +236,18 @@ msgstr ""
 "位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
 "ださい。"
 
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "男性"
+
 #: src/components/molecules/LocationFilter.re.mjs:59
 #: src/components/molecules/LocationFilter.re.mjs:91
 msgid "Near me"
 msgstr "現在地付近"
+
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "後で"
 
 #: src/components/molecules/LocationFilter.re.mjs:36
 msgid "Pick a location or use your current location."
@@ -155,6 +261,10 @@ msgstr "プレイヤーの空き時間ヒートマップ"
 msgid "Players"
 msgstr " プレイヤー"
 
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "プロ"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "予約する"
@@ -162,6 +272,10 @@ msgstr "予約する"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Save"
 msgstr "保存"
+
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "プロフィールを保存"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Savingâ¦"
@@ -179,6 +293,14 @@ msgstr ""
 "今後2週間の空き状況を設定してください。イベントと空き時間帯は同じ枠を共有し、"
 "シアンの線が太いほど多くのコートが利用可能です。"
 
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
+"ください。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "クラブと共有"
@@ -194,6 +316,10 @@ msgstr "東京"
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "オプションを使用"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "イベント参加に必要な情報を入力してください"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"

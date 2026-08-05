@@ -186,6 +186,13 @@ return {
                 "kind": "ScalarField",
                 "name": "email",
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "selfRating",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -196,12 +203,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c54edfc2c90b2c81599f017acb1b691c",
+    "cacheID": "702321a0fce7eb32cd06207113341e61",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormRefetchQuery",
     "operationKind": "query",
-    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n  }\n}\n"
+    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -71,6 +71,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
           activitySlug: activity,
           shadow,
         },
+        activitySlug: activity,
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),

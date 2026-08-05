@@ -128,6 +128,7 @@ async function loader(param) {
   }
   return {
           data: EventsQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+                activitySlug: Core__Option.getOr(params.activitySlug, "pickleball"),
                 after: after,
                 afterDate: afterDate,
                 availabilityFromDate: new Date().toISOString().slice(0, 10),

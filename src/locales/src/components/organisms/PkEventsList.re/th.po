@@ -25,13 +25,13 @@ msgstr "· {0} รอดำเนินการ"
 msgid "· +{0} waitlist"
 msgstr "· +{0} รายชื่อคอย"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:491
-#: src/components/molecules/PlayIntentRow.re.mjs:619
+#: src/components/molecules/PlayIntentRow.re.mjs:495
+#: src/components/molecules/PlayIntentRow.re.mjs:623
 msgid "· peak {0}–{1}"
 msgstr "· ช่วงพีค {0}–{1}"
 
-#: src/components/organisms/PkEventRow.re.mjs:738
-#: src/components/organisms/PkEventRow.re.mjs:826
+#: src/components/organisms/PkEventRow.re.mjs:686
+#: src/components/organisms/PkEventRow.re.mjs:774
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
@@ -41,9 +41,9 @@ msgstr "[ไม่มีหัวข้อ]"
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:219
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
-#: src/components/molecules/PlayIntentRow.re.mjs:315
-#: src/components/molecules/PlayIntentRow.re.mjs:487
-#: src/components/organisms/PkEventsList.re.mjs:219
+#: src/components/molecules/PlayIntentRow.re.mjs:319
+#: src/components/molecules/PlayIntentRow.re.mjs:491
+#: src/components/organisms/PkEventsList.re.mjs:224
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
@@ -59,7 +59,7 @@ msgstr "{0} ช่วงเวลาต่อเนื่อง"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:212
-#: src/components/molecules/PlayIntentRow.re.mjs:340
+#: src/components/molecules/PlayIntentRow.re.mjs:344
 msgid "{0} court"
 msgstr "สนาม {0}"
 
@@ -71,7 +71,7 @@ msgstr "{0} คอร์ดว่าง"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:213
-#: src/components/molecules/PlayIntentRow.re.mjs:341
+#: src/components/molecules/PlayIntentRow.re.mjs:345
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
@@ -79,11 +79,11 @@ msgstr "{0} สนาม"
 msgid "{0} courts available"
 msgstr "{0} คอร์ดว่าง"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:316
+#: src/components/molecules/PlayIntentRow.re.mjs:320
 msgid "{0} event"
 msgstr "{0} กิจกรรม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:317
+#: src/components/molecules/PlayIntentRow.re.mjs:321
 msgid "{0} events"
 msgstr "{0} กิจกรรม"
 
@@ -111,43 +111,43 @@ msgstr "มีผู้เล่นอื่น {0} คนว่างในช�
 msgid "{0} other players available in this slot"
 msgstr "มีผู้เล่นอื่น {0} คนว่างในช่วงเวลานี้"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:489
+#: src/components/molecules/PlayIntentRow.re.mjs:493
 msgid "{0} people"
 msgstr "{0} คน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:617
+#: src/components/molecules/PlayIntentRow.re.mjs:621
 msgid "{0} people want to play"
 msgstr "{0} คนอยากเล่น"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:488
+#: src/components/molecules/PlayIntentRow.re.mjs:492
 msgid "{0} person"
 msgstr "{0} คน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:616
+#: src/components/molecules/PlayIntentRow.re.mjs:620
 msgid "{0} person wants to play"
 msgstr "{0} คนอยากเล่น"
 
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:220
-#: src/components/molecules/PlayIntentRow.re.mjs:328
+#: src/components/molecules/PlayIntentRow.re.mjs:332
 msgid "{0} player"
 msgstr "{0} คน"
 
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:221
-#: src/components/molecules/PlayIntentRow.re.mjs:329
+#: src/components/molecules/PlayIntentRow.re.mjs:333
 msgid "{0} players"
 msgstr "{0} คน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:339
+#: src/components/molecules/PlayIntentRow.re.mjs:343
 msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:327
-#: src/components/molecules/PlayIntentRow.re.mjs:615
+#: src/components/molecules/PlayIntentRow.re.mjs:331
+#: src/components/molecules/PlayIntentRow.re.mjs:619
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PkEventRow.re.mjs:149
-#: src/components/organisms/PkEventRow.re.mjs:206
+#: src/components/organisms/PkEventRow.re.mjs:130
+#: src/components/organisms/PkEventRow.re.mjs:187
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -224,15 +224,19 @@ msgstr "กิจกรรม"
 msgid "Add a message..."
 msgstr "เพิ่มข้อความ..."
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "ขั้นสูง"
+
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "ผู้เล่นระดับสูง"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:256
+#: src/components/molecules/PlayIntentRow.re.mjs:260
 msgid "Afternoon"
 msgstr "บ่าย"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:244
+#: src/components/molecules/PlayIntentRow.re.mjs:248
 msgid "Anytime"
 msgstr "เวลาใดก็ได้"
 
@@ -252,7 +256,7 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "At {venue} now"
 msgstr "ตอนนี้อยู่ที่ {venue}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/EventStickyFooter.re.mjs:141
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr "อนุมัติเงินมัดจำ"
@@ -274,8 +278,20 @@ msgstr "กลับสู่กิจกรรม"
 msgid "balanced"
 msgstr "สมดุล"
 
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "ผู้เริ่มต้น"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "ประวัติส่วนตัว"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "กรุณากรอกประวัติย่อ"
+
 #: src/components/organisms/StripePaymentEmbed.tsx:55
-#: src/components/molecules/PlayIntentRow.re.mjs:387
+#: src/components/molecules/PlayIntentRow.re.mjs:391
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -287,11 +303,11 @@ msgstr "ยกเลิกการแก้ไขความพร้อม"
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:203
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancel RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/organisms/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:690
 msgid "Canceled"
 msgstr "ยกเลิกแล้ว"
 
@@ -299,21 +315,21 @@ msgstr "ยกเลิกแล้ว"
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
-#: src/components/organisms/EventStickyFooter.re.mjs:407
+#: src/components/organisms/EventStickyFooter.re.mjs:267
+#: src/components/organisms/EventStickyFooter.re.mjs:377
 msgid "Cancellation deadline"
 msgstr "กำหนดเวลายกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:415
+#: src/components/organisms/EventStickyFooter.re.mjs:385
 msgid "Cancellation deadline passed."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:305
+#: src/components/organisms/EventStickyFooter.re.mjs:275
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:203
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancelling..."
 msgstr "กำลังยกเลิก..."
 
@@ -325,30 +341,43 @@ msgstr "ไม่สามารถเข้าถึงตัวแปร \\\"t
 msgid "Capture payment"
 msgstr "รับชำระเงิน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:643
+#: src/components/molecules/PlayIntentRow.re.mjs:647
 msgid "Change times"
 msgstr "เปลี่ยนเวลา"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:433
-#: src/components/organisms/EventStickyFooter.re.mjs:555
+#: src/components/organisms/EventStickyFooter.re.mjs:403
+#: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Claim spot"
 msgstr "จองที่"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:429
+#: src/components/organisms/EventStickyFooter.re.mjs:399
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "ปิดฟอร์มโปรไฟล์"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
 msgid "Close swipe invitations"
 msgstr "ปิดการเชิญแบบสไลด์"
 
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "ผู้เริ่มต้นสมบูรณ์"
+
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr "ชำระเงินให้เสร็จสิ้น"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
-msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:454
 #: src/components/organisms/EventLocationAvailability.re.mjs:496
@@ -367,9 +396,16 @@ msgstr "คัดลอกแล้ว!"
 msgid "copy event"
 msgstr "คัดลอกกิจกรรม"
 
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:766
-#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:177
-#: src/components/organisms/PkEventsDayFeed.re.mjs:23
+#: src/components/organisms/PkEventsAvailabilityDay.re.mjs:181
+#: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
 msgstr "คอร์ท"
 
@@ -390,7 +426,7 @@ msgstr "สนาม"
 msgid "Courts available"
 msgstr "คอร์ตที่ว่าง"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:466
+#: src/components/molecules/PlayIntentRow.re.mjs:470
 msgid "Courts covering your complete time"
 msgstr "คอร์ตที่ครอบคลุมเวลาทั้งหมดของคุณ"
 
@@ -415,15 +451,15 @@ msgstr "ลบการแข่งขัน"
 msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:187
+#: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Deposit required to confirm your spot"
 msgstr "ต้องวางเงินมัดจำเพื่อยืนยันที่นั่งของคุณ"
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr "ชื่อที่แสดง"
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr "ต้องกรอกชื่อที่แสดง"
 
@@ -452,21 +488,17 @@ msgstr "แก้ไขการแข่งขัน"
 msgid "Edit time"
 msgstr "แก้ไขเวลา"
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
-
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
 
@@ -478,16 +510,16 @@ msgstr "ป้อนคะแนนแมตช์"
 msgid "even"
 msgstr "เท่าเทียม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:262
+#: src/components/molecules/PlayIntentRow.re.mjs:266
 msgid "Evening"
 msgstr "เย็น"
 
 #: src/components/shared/EventsListView.re.mjs:139
-#: src/components/organisms/PkEventsList.re.mjs:222
+#: src/components/organisms/PkEventsList.re.mjs:227
 msgid "event"
 msgstr "กิจกรรม"
 
-#: src/components/pages/PkEventPage.re.mjs:914
+#: src/components/pages/PkEventPage.re.mjs:917
 msgid "Event not found"
 msgstr "ไม่พบกิจกรรม"
 
@@ -500,7 +532,7 @@ msgid "Event updated"
 msgstr "อัปเดตกิจกรรมแล้ว"
 
 #: src/components/shared/EventsListView.re.mjs:140
-#: src/components/organisms/PkEventsList.re.mjs:223
+#: src/components/organisms/PkEventsList.re.mjs:228
 msgid "events"
 msgstr "กิจกรรม"
 
@@ -508,7 +540,7 @@ msgstr "กิจกรรม"
 msgid "Everyone reviewed"
 msgstr "ตรวจสอบครบทุกคนแล้ว"
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "หญิง"
 
@@ -520,7 +552,7 @@ msgstr "กรองตามสถานที่"
 msgid "Filtered by date"
 msgstr "กรองตามวันที่"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
@@ -528,7 +560,7 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/organisms/PkEventsList.re.mjs:394
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -536,7 +568,7 @@ msgstr "วันศุกร์"
 msgid "Full slot"
 msgstr "ช่วงเวลาเต็ม"
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "เพศ"
 
@@ -552,13 +584,25 @@ msgstr "ซ่อนช่วงเวลา"
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:546
+#: src/components/molecules/PlayIntentRow.re.mjs:550
 msgid "Host an event at this time"
 msgstr "จัดกิจกรรมในช่วงเวลานี้"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:543
+#: src/components/molecules/PlayIntentRow.re.mjs:547
 msgid "Host event"
 msgstr "จัดกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "ระดับกลาง"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "ระดับกลาง+"
 
 #: src/components/organisms/EventInvites.re.mjs:321
 msgid "invite"
@@ -592,41 +636,45 @@ msgstr "ผู้เล่นที่ได้รับเชิญถูกย
 msgid "Invites · {0}"
 msgstr "คำเชิญ · {0}"
 
-#: src/components/organisms/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Join"
 msgstr "เข้าร่วม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:555
+#: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Join waitlist"
 msgstr "เข้าร่วมรายการรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:426
+#: src/components/organisms/EventStickyFooter.re.mjs:396
 msgid "Join waitlist (#{0})"
 msgstr "เข้าร่วมรายชื่อคอย (#{0})"
 
-#: src/components/organisms/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:221
 msgid "Joined"
 msgstr "เข้าร่วมแล้ว"
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
 #: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
-#: src/components/organisms/PkEventRow.re.mjs:608
+#: src/components/organisms/PkEventRow.re.mjs:556
 msgid "Leave"
 msgstr "ออก"
 
-#: src/components/organisms/PkEventRow.re.mjs:1009
-#: src/components/organisms/EventStickyFooter.re.mjs:380
-#: src/components/organisms/EventStickyFooter.re.mjs:508
+#: src/components/organisms/PkEventRow.re.mjs:957
+#: src/components/organisms/EventStickyFooter.re.mjs:350
+#: src/components/organisms/EventStickyFooter.re.mjs:459
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:350
 msgid "Leave waitlist"
 msgstr "ออกจากรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:379
+#: src/components/organisms/EventStickyFooter.re.mjs:349
 msgid "Leaving..."
 msgstr "กำลังออก..."
 
@@ -634,7 +682,11 @@ msgstr "กำลังออก..."
 msgid "less"
 msgstr "ย่อ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "ระดับ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:139
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -659,12 +711,12 @@ msgstr "ทีมแพ้ (ทีม {0})"
 msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "ชาย"
 
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:376
-#: src/components/molecules/PlayIntentRow.re.mjs:562
+#: src/components/molecules/PlayIntentRow.re.mjs:566
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
@@ -680,7 +732,7 @@ msgstr "มัธยฐาน"
 msgid "mixed"
 msgstr "หลากหลาย"
 
-#: src/components/organisms/PkEventsList.re.mjs:382
+#: src/components/organisms/PkEventsList.re.mjs:390
 msgid "Monday"
 msgstr "วันจันทร์"
 
@@ -688,7 +740,7 @@ msgstr "วันจันทร์"
 msgid "more →"
 msgstr "เพิ่มเติม →"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:250
+#: src/components/molecules/PlayIntentRow.re.mjs:254
 msgid "Morning"
 msgstr "เช้า"
 
@@ -702,7 +754,7 @@ msgstr "ย้ายไปรายชื่อรอ"
 msgid "Near me"
 msgstr "ใกล้ฉัน"
 
-#: src/components/organisms/PkEventsList.re.mjs:403
+#: src/components/organisms/PkEventsList.re.mjs:411
 msgid "Next {dayName}"
 msgstr "สัปดาห์หน้า{dayName}"
 
@@ -710,7 +762,7 @@ msgstr "สัปดาห์หน้า{dayName}"
 msgid "No court at {venue} covers the full event window."
 msgstr "ไม่มีคอร์ทที่ {venue} ที่ครอบคลุมช่วงเวลาทั้งหมดของกิจกรรม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:474
+#: src/components/molecules/PlayIntentRow.re.mjs:478
 msgid "No court is currently available for an entire selected window."
 msgstr "ขณะนี้ไม่มีคอร์ตว่างตลอดช่วงเวลาที่เลือก"
 
@@ -734,11 +786,15 @@ msgstr "ไม่มีคะแนน"
 msgid "Not available"
 msgstr "ไม่ว่าง"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "ไม่ใช่ตอนนี้"
+
 #: src/components/pages/PkEventPage.re.mjs:758
 msgid "Notes from the host"
 msgstr "หมายเหตุจากผู้จัด"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "On waitlist"
 msgstr "อยู่ในรายชื่อรอ"
 
@@ -746,7 +802,7 @@ msgstr "อยู่ในรายชื่อรอ"
 msgid "Open invite actions for {0}"
 msgstr "เปิดการดำเนินการเชิญสำหรับ {0}"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:347
+#: src/components/molecules/PlayIntentRow.re.mjs:351
 msgid "Open the {dayWord} timeline to edit your availability"
 msgstr "เปิดไทม์ไลน์ {dayWord} เพื่อแก้ไขความพร้อมของคุณ"
 
@@ -762,7 +818,7 @@ msgstr "เวลาอื่นที่ {venue}"
 msgid "Participants"
 msgstr "ผู้เข้าร่วม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:177
+#: src/components/organisms/EventStickyFooter.re.mjs:147
 msgid "Pay {priceStr}"
 msgstr "ชำระเงิน {priceStr}"
 
@@ -782,11 +838,11 @@ msgstr "ชำระเงินสำเร็จแล้ว"
 msgid "Payment failed"
 msgstr "การชำระเงินล้มเหลว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:187
+#: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Payment required to confirm your spot"
 msgstr "ต้องชำระเงินเพื่อยืนยันที่นั่งของคุณ"
 
-#: src/components/organisms/PkEventRow.re.mjs:279
+#: src/components/organisms/PkEventRow.re.mjs:260
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
@@ -794,7 +850,7 @@ msgstr "รอการอนุมัติ"
 msgid "Pending · {0}"
 msgstr "รอดำเนินการ · {0}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:259
+#: src/components/organisms/EventStickyFooter.re.mjs:229
 msgid "Pending approval"
 msgstr "รอการอนุมัติ"
 
@@ -802,16 +858,16 @@ msgstr "รอการอนุมัติ"
 msgid "Pick a location or use your current location."
 msgstr "เลือกสถานที่หรือใช้ตำแหน่งที่ตั้งปัจจุบันของคุณ"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:546
+#: src/components/molecules/PlayIntentRow.re.mjs:550
 msgid "Pick one time window to host an event"
 msgstr "เลือกช่วงเวลาเพื่อจัดกิจกรรม"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:273
+#: src/components/molecules/PlayIntentRow.re.mjs:277
 msgid "Play today"
 msgstr "เล่นวันนี้"
 
-#: src/components/organisms/PkEventRow.re.mjs:150
-#: src/components/organisms/PkEventRow.re.mjs:207
+#: src/components/organisms/PkEventRow.re.mjs:131
+#: src/components/organisms/PkEventRow.re.mjs:188
 msgid "player"
 msgstr "ผู้เล่น"
 
@@ -819,18 +875,14 @@ msgstr "ผู้เล่น"
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
-#: src/components/organisms/PkEventRow.re.mjs:151
-#: src/components/organisms/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:132
+#: src/components/organisms/PkEventRow.re.mjs:189
 msgid "players"
 msgstr "ผู้เล่น"
 
 #: src/components/pages/PkEventPage.re.mjs:422
 msgid "Playoff Draft"
 msgstr "Playoff Draft"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr "ไม่ต้องการระบุ"
 
 #: src/components/pages/PkEventPage.re.mjs:397
 msgid "Presented by"
@@ -840,6 +892,10 @@ msgstr "นำเสนอโดย"
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "ไม่เปิดเผย"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "โปร"
 
 #: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
@@ -893,8 +949,8 @@ msgstr "ปล่อยเพื่อรีเฟรช"
 msgid "Remove"
 msgstr "ลบ"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:522
-#: src/components/molecules/PlayIntentRow.re.mjs:653
+#: src/components/molecules/PlayIntentRow.re.mjs:526
+#: src/components/molecules/PlayIntentRow.re.mjs:657
 msgid "Remove all"
 msgstr "ลบทั้งหมด"
 
@@ -947,7 +1003,7 @@ msgstr "จับคู่แบบพบกันหมด"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:397
+#: src/components/organisms/PkEventsList.re.mjs:405
 msgid "Saturday"
 msgstr "วันเสาร์"
 
@@ -955,13 +1011,13 @@ msgstr "วันเสาร์"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
-msgstr "บันทึกและเข้าร่วมกิจกรรม"
-
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:489
 msgid "Save availability"
 msgstr "บันทึกความพร้อม"
+
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "บันทึกโปรไฟล์"
 
 #: src/components/organisms/ScoreModal.re.mjs:244
 msgid "Save Score"
@@ -980,7 +1036,7 @@ msgstr "ส่งคำเชิญ"
 msgid "sent"
 msgstr "ส่งแล้ว"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:307
+#: src/components/molecules/PlayIntentRow.re.mjs:311
 msgid "Set your time"
 msgstr "ตั้งเวลาของคุณ"
 
@@ -988,7 +1044,13 @@ msgstr "ตั้งเวลาของคุณ"
 msgid "Share"
 msgstr "แชร์"
 
-#: src/components/organisms/PkEventsList.re.mjs:283
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
+
+#: src/components/organisms/PkEventsList.re.mjs:290
 msgid "Show {0} more"
 msgstr "แสดงเพิ่มอีก {0} รายการ"
 
@@ -1020,7 +1082,7 @@ msgstr "เรียงตามเวลาเริ่มต้น"
 msgid "SPREAD"
 msgstr "การกระจาย"
 
-#: src/components/organisms/PkEventsList.re.mjs:379
+#: src/components/organisms/PkEventsList.re.mjs:387
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
@@ -1059,8 +1121,8 @@ msgid ""
 msgstr ""
 "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
-#: src/components/organisms/PkEventRow.re.mjs:1010
-#: src/components/organisms/EventStickyFooter.re.mjs:509
+#: src/components/organisms/PkEventRow.re.mjs:958
+#: src/components/organisms/EventStickyFooter.re.mjs:460
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -1072,7 +1134,7 @@ msgid ""
 "from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
+#: src/components/organisms/EventStickyFooter.re.mjs:165
 msgid ""
 "This is a deposit hold only — payment is due to the organizer at the event. "
 "The hold will be released after the event."
@@ -1086,10 +1148,6 @@ msgid ""
 msgstr ""
 "นี่คือการระงับเงินมัดจำเท่านั้น คุณยังต้องชำระเงินเต็มจำนวนให้กับผู้จัดในวันงาน "
 "การระงับจะถูกปล่อยหลังจากงานสิ้นสุด"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
 msgid ""
@@ -1111,7 +1169,7 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/PkEventsList.re.mjs:391
+#: src/components/organisms/PkEventsList.re.mjs:399
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
@@ -1120,7 +1178,7 @@ msgid "to {0}"
 msgstr "ถึง {0}"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:362
+#: src/components/organisms/PkEventsList.re.mjs:370
 msgid "Today"
 msgstr "วันนี้"
 
@@ -1129,7 +1187,7 @@ msgid "Tokyo"
 msgstr "โตเกียว"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:368
+#: src/components/organisms/PkEventsList.re.mjs:376
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
@@ -1137,7 +1195,7 @@ msgstr "พรุ่งนี้"
 msgid "TOP 6 AVG"
 msgstr "ค่าเฉลี่ย 6 อันดับ"
 
-#: src/components/organisms/PkEventsList.re.mjs:385
+#: src/components/organisms/PkEventsList.re.mjs:393
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -1180,7 +1238,7 @@ msgstr "ดูช่วงเวลา"
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
@@ -1188,7 +1246,7 @@ msgstr "รายชื่อคอย"
 msgid "Waitlist · {0}"
 msgstr "รายชื่อคอย · {0}"
 
-#: src/components/organisms/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:253
 msgid "Waitlisted"
 msgstr "อยู่ในรายชื่อคอย"
 
@@ -1196,11 +1254,11 @@ msgstr "อยู่ในรายชื่อคอย"
 msgid "was invited to the event"
 msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/PkEventsList.re.mjs:388
+#: src/components/organisms/PkEventsList.re.mjs:396
 msgid "Wednesday"
 msgstr "วันพุธ"
 
@@ -1208,7 +1266,7 @@ msgstr "วันพุธ"
 msgid "Weekend"
 msgstr "สุดสัปดาห์"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:379
+#: src/components/molecules/PlayIntentRow.re.mjs:383
 msgid "When can you play {dayWord}?"
 msgstr "คุณเล่นได้เมื่อไหร่{dayWord}?"
 
@@ -1216,11 +1274,11 @@ msgstr "คุณเล่นได้เมื่อไหร่{dayWord}?"
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:273
+#: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdraw RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:273
+#: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
@@ -1228,11 +1286,11 @@ msgstr "กำลังยกเลิก..."
 msgid "Within {0} km · {1}, {2}"
 msgstr "ภายใน {0} กม. · {1}, {2}"
 
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:597
+#: src/components/molecules/PlayIntentRow.re.mjs:601
 msgid "You want to play {dayWord}"
 msgstr "คุณอยากเล่น{dayWord}"
 
@@ -1240,7 +1298,7 @@ msgstr "คุณอยากเล่น{dayWord}"
 msgid "You:"
 msgstr "คุณ:"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "You're in"
 msgstr "คุณเข้าร่วมแล้ว"
 
@@ -1256,7 +1314,7 @@ msgstr ""
 "เรตติ้งของคุณ {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) ต่ำกว่าขั้นต่ำ คุณจะถูกใส่ในรายชื่อรอดำเนินการ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:263
+#: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
 
@@ -1350,6 +1408,10 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #~ msgid "Choose a segment up to four hours to plan this time."
 #~ msgstr "เลือกช่วงเวลาไม่เกินสี่ชั่วโมงเพื่อวางแผนเวลานี้"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
 #~ msgid "Continuous availability"
 #~ msgstr "ความพร้อมแบบต่อเนื่อง"
@@ -1369,6 +1431,10 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "สินค้าดัลลาส แฟลช"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
@@ -1419,6 +1485,14 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #~ msgid "Players"
 #~ msgstr "หาผู้เล่น"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "ไม่ต้องการระบุ"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
 #~ msgid "Sponsor logo"
 #~ msgstr "โลโก้สปอนเซอร์"
@@ -1426,6 +1500,10 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
 #~ msgid "Top Player Awards"

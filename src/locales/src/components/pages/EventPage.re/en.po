@@ -70,6 +70,10 @@ msgstr ""
 msgid "Add Member"
 msgstr ""
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr ""
@@ -84,6 +88,18 @@ msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
 msgstr ""
 
 #: src/components/pages/EventPage.re.mjs:191
@@ -102,12 +118,35 @@ msgstr ""
 msgid "Capture payment"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr ""
+
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
 msgstr ""
 
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
+#~ msgid "Complete your profile"
+#~ msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:394
@@ -131,11 +170,11 @@ msgstr ""
 msgid "Delete this match?"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr ""
 
@@ -147,19 +186,19 @@ msgstr ""
 msgid "Edit match"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr ""
+#~ msgid "Email cannot be changed"
+#~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr ""
 
@@ -175,15 +214,15 @@ msgstr ""
 msgid "Event tag: {tag}"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr ""
 
@@ -197,6 +236,18 @@ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
 msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:424
@@ -219,12 +270,20 @@ msgstr ""
 msgid "joined the event"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr ""
+
 #: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr ""
 
 #: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
 msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:781
@@ -247,7 +306,7 @@ msgstr ""
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr ""
 
@@ -296,6 +355,10 @@ msgstr ""
 msgid "No Score"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr ""
+
 #: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Not paid"
 msgstr ""
@@ -314,8 +377,8 @@ msgid "Player"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr ""
+#~ msgid "Prefer not to say"
+#~ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:141
 #: src/components/atoms/EventTag.re.mjs:143
@@ -325,6 +388,10 @@ msgstr ""
 #: src/components/pages/EventPage.re.mjs:262
 #: src/components/pages/EventPage.re.mjs:291
 msgid "Private Event"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:42
@@ -392,7 +459,11 @@ msgid "Save"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
+#~ msgid "Save & Join Event"
+#~ msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:244
@@ -410,6 +481,10 @@ msgstr ""
 
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:516
@@ -462,8 +537,8 @@ msgid "This event is private. Please do not share this event without permission 
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr ""
+#~ msgid "This is how others will see you"
+#~ msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -529,7 +604,7 @@ msgstr ""
 msgid "was removed from the event by admin"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr ""
 

@@ -115,7 +115,7 @@ msgstr "Rảnh"
 msgid "Cancel editing availability"
 msgstr "Hủy chỉnh sửa lịch rảnh"
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:23
+#: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
 msgstr "Sân"
 

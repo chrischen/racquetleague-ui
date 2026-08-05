@@ -16,6 +16,7 @@ import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
+import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as PkEventsDayFeed from "./PkEventsDayFeed.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -89,6 +90,7 @@ function ts(prim0, prim1) {
 }
 
 function PkEventsList$Day(props) {
+  var __requireProfile = props.requireProfile;
   var __showInlineCourts = props.showInlineCourts;
   var onAvailabilityRefetchNeeded = props.onAvailabilityRefetchNeeded;
   var availabilityData = props.availabilityData;
@@ -102,6 +104,9 @@ function PkEventsList$Day(props) {
   var dateDetails = props.dateDetails;
   var label = props.label;
   var showInlineCourts = __showInlineCourts !== undefined ? __showInlineCourts : false;
+  var requireProfile = __requireProfile !== undefined ? __requireProfile : (function (action) {
+        action();
+      });
   var y = (date.getFullYear() | 0).toString();
   var m = ((date.getMonth() | 0) + 1 | 0).toString().padStart(2, "0");
   var d = (date.getDate() | 0).toString().padStart(2, "0");
@@ -244,7 +249,8 @@ function PkEventsList$Day(props) {
                                       onCreateEvent: (function () {
                                           navigate("/events/create?date=" + isoDate, undefined);
                                         }),
-                                      renderHeader: renderHeader
+                                      renderHeader: renderHeader,
+                                      requireProfile: requireProfile
                                     }),
                                 showInlineCourts ? JsxRuntime.jsx(PkEventsDayFeed.make, {
                                         data: availabilityData,
@@ -252,7 +258,8 @@ function PkEventsList$Day(props) {
                                         activityId: Core__Option.getOr(activityId, defaultActivityId),
                                         events: eventItems,
                                         hasHiddenPreview: hasHiddenPreview,
-                                        onRefetchNeeded: onAvailabilityRefetchNeeded
+                                        onRefetchNeeded: onAvailabilityRefetchNeeded,
+                                        requireProfile: requireProfile
                                       }) : renderEventsOnly(),
                                 hasHiddenPreview ? Core__Option.getOr(Core__Option.map(previewHiddenEvent, (function (edge) {
                                               var waitlistCount = getWaitlistCount(edge);
@@ -320,6 +327,7 @@ function PkEventsList(props) {
   var match$1 = PkEventsAvailabilityDay.Fragment.useRefetchable(events);
   var availabilityRefetch = match$1[1];
   var availabilityData = match$1[0];
+  var availabilityGate = UseProfileGate.use(data.fragmentRefs, "Availability", undefined);
   var viewer = data.viewer;
   var events$1 = getConnectionNodes(data.events);
   var pageInfo = data.events.pageInfo;
@@ -444,7 +452,8 @@ function PkEventsList(props) {
                                       availabilityData: availabilityData,
                                       onAvailabilityRefetchNeeded: onAvailabilityRefetchNeeded,
                                       shouldHideEvent: shouldHideEvent,
-                                      showInlineCourts: showInlineCourts
+                                      showInlineCourts: showInlineCourts,
+                                      requireProfile: availabilityGate.require
                                     })
                               ];
                       }));
@@ -467,7 +476,7 @@ function PkEventsList(props) {
         }));
   var onRefresh = function () {
     return new Promise((function (resolve, param) {
-                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
+                  refetch(makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined, undefined), "network-only", (function (_err) {
                           resolve();
                         }));
                 }));
@@ -497,21 +506,26 @@ function PkEventsList(props) {
               resolvedCoords: resolvedCoords,
               resolvedRegion: resolved.region
             })) : undefined;
-  return JsxRuntime.jsx(EventsListView.make, {
-              totalEvents: totalEvents,
-              buckets: buckets,
-              weekendBucketKey: bucketSetup.weekendBucketKey,
-              selectedDate: selectedDate,
-              onSelectDate: onSelectDate,
-              onClearDate: onClearDate,
-              eventDates: eventDates,
-              hasPrevious: hasPrevious,
-              isLoadingPrevious: match.isLoadingPrevious,
-              onPrevious: onPrevious,
-              hasNext: match.hasNext,
-              onNext: onNext,
-              onRefresh: onRefresh,
-              locationFilter: locationFilter
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                JsxRuntime.jsx(EventsListView.make, {
+                      totalEvents: totalEvents,
+                      buckets: buckets,
+                      weekendBucketKey: bucketSetup.weekendBucketKey,
+                      selectedDate: selectedDate,
+                      onSelectDate: onSelectDate,
+                      onClearDate: onClearDate,
+                      eventDates: eventDates,
+                      hasPrevious: hasPrevious,
+                      isLoadingPrevious: match.isLoadingPrevious,
+                      onPrevious: onPrevious,
+                      hasNext: match.hasNext,
+                      onNext: onNext,
+                      onRefresh: onRefresh,
+                      locationFilter: locationFilter
+                    }),
+                availabilityGate.modal
+              ]
             });
 }
 

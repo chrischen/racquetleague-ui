@@ -17,6 +17,7 @@ import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
+import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as PkuruSidebarClubs from "./PkuruSidebarClubs.re.mjs";
@@ -506,6 +507,7 @@ function PkuruLayout$Layout(props) {
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
             })));
+  var profileGate = UseProfileGate.use(props.queryRefs, "Availability", undefined);
   var match = React.useState(function () {
         return false;
       });
@@ -546,17 +548,6 @@ function PkuruLayout$Layout(props) {
   var darkMode = match$7[0];
   var navigate = ReactRouterDom.useNavigate();
   var $$location = ReactRouterDom.useLocation();
-  var handleMarkAvailable = function (localDate, intents) {
-    commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
-            if (Core__Option.isSome(res.setAvailabilityDay.day)) {
-              RelayRuntime.commitLocalUpdate(env, (function (store) {
-                      store.getRoot().invalidateRecord();
-                    }));
-              return ;
-            }
-            
-          }));
-  };
   var handleCreateEvent = function (localDate, intent) {
     var startHour = intent.start | 0;
     var endHour = intent.end | 0;
@@ -808,9 +799,22 @@ function PkuruLayout$Layout(props) {
                                                                                 return false;
                                                                               });
                                                                         }),
-                                                                      onMarkAvailable: handleMarkAvailable,
+                                                                      onMarkAvailable: (function (localDate, intents) {
+                                                                          profileGate.require(function () {
+                                                                                commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
+                                                                                        if (Core__Option.isSome(res.setAvailabilityDay.day)) {
+                                                                                          RelayRuntime.commitLocalUpdate(env, (function (store) {
+                                                                                                  store.getRoot().invalidateRecord();
+                                                                                                }));
+                                                                                          return ;
+                                                                                        }
+                                                                                        
+                                                                                      }));
+                                                                              });
+                                                                        }),
                                                                       onCreateEvent: handleCreateEvent
-                                                                    })
+                                                                    }),
+                                                                profileGate.modal
                                                               ],
                                                               className: darkMode ? "dark" : ""
                                                             }), window.document.body) : null
@@ -866,6 +870,7 @@ function PkuruLayout(props) {
                     }),
                 JsxRuntime.jsxs(PkuruLayout$Layout, {
                       viewer: match.viewer,
+                      queryRefs: match.fragmentRefs,
                       children: [
                         JsxRuntime.jsx(GlobalQuery.DetectedLang.make, {}),
                         JsxRuntime.jsx(ReactRouterDom.Outlet, {})

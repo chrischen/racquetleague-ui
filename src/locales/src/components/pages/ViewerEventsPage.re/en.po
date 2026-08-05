@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventsList.re.mjs:452
+#: src/components/organisms/EventsList.re.mjs:453
 msgid "...load past events"
 msgstr ""
 
@@ -126,8 +126,12 @@ msgstr ""
 msgid "3 · What kind?"
 msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:124
+#: src/components/organisms/AddEventButton.re.mjs:115
 msgid "Add an Event"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:92
@@ -162,7 +166,19 @@ msgstr ""
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:424
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:425
 msgid "clear filter"
 msgstr ""
 
@@ -170,8 +186,31 @@ msgstr ""
 #~ msgid "close"
 #~ msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:440
@@ -219,6 +258,26 @@ msgstr ""
 #~ msgid "details"
 #~ msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr ""
+
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr ""
@@ -231,8 +290,20 @@ msgstr ""
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/EventsList.re.mjs:422
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr ""
+
+#: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
 msgstr ""
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
@@ -247,12 +318,24 @@ msgstr ""
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr ""
+
 #: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:313
@@ -267,6 +350,10 @@ msgstr ""
 #~ msgid "Joined"
 #~ msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr ""
+
 #: src/components/organisms/EventItem.re.mjs:307
 msgid "leave event"
 msgstr ""
@@ -274,6 +361,10 @@ msgstr ""
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
 #~ msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:598
 #~ msgid "load more"
@@ -287,6 +378,10 @@ msgstr ""
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
@@ -317,6 +412,10 @@ msgstr ""
 msgid "New plan"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr ""
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr ""
@@ -331,6 +430,10 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:292
 msgid "players"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:253
@@ -353,8 +456,16 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:414
 msgid "Select exactly one time window to host an event"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:381
@@ -407,6 +518,10 @@ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:207

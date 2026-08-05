@@ -84,11 +84,51 @@ msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 msgid "Add time windows above"
 msgstr "เพิ่มช่วงเวลาด้านบน"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "ขั้นสูง"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "ผู้เริ่มต้น"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "ประวัติส่วนตัว"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "กรุณากรอกประวัติย่อ"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
 msgid "Clear"
 msgstr "ล้าง"
 
-#: src/components/pages/AvailabilityPage.re.mjs:166
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "ปิดฟอร์มโปรไฟล์"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "ผู้เริ่มต้นสมบูรณ์"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
+
+#: src/components/pages/AvailabilityPage.re.mjs:168
 msgid "Court"
 msgstr "คอร์ท"
 
@@ -112,17 +152,71 @@ msgstr "สร้างอีเวนต์"
 msgid "Current location is not supported by this browser."
 msgstr "เบราว์เซอร์นี้ไม่รองรับตำแหน่งที่ตั้งปัจจุบัน"
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "ต้องกรอกอีเมล"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "กิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "หญิง"
 
 #: src/components/molecules/LocationFilter.re.mjs:110
 msgid "Filter by location"
 msgstr "กรองตามสถานที่"
 
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "เพศ"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "ระดับกลาง"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "ระดับกลาง+"
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "ระดับ"
 
 #: src/components/molecules/LocationFilter.re.mjs:91
 msgid "Locating…"
@@ -136,10 +230,18 @@ msgstr "สถานที่"
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "การเข้าถึงตำแหน่งที่ตั้งถูกปฏิเสธ กรุณาอนุญาตการเข้าถึงหรือเลือกสถานที่"
 
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "ชาย"
+
 #: src/components/molecules/LocationFilter.re.mjs:59
 #: src/components/molecules/LocationFilter.re.mjs:91
 msgid "Near me"
 msgstr "ใกล้ฉัน"
+
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "ไม่ใช่ตอนนี้"
 
 #: src/components/molecules/LocationFilter.re.mjs:36
 msgid "Pick a location or use your current location."
@@ -153,6 +255,10 @@ msgstr "แผนที่ความพร้อมของผู้เล่
 msgid "Players"
 msgstr "หาผู้เล่น"
 
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "โปร"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "จอง"
@@ -160,6 +266,10 @@ msgstr "จอง"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Save"
 msgstr "บันทึก"
+
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "บันทึกโปรไฟล์"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Savingâ¦"
@@ -177,6 +287,12 @@ msgstr ""
 "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน "
 "เส้นสีฟ้าที่หนากว่าหมายถึงจำนวนคอร์ทที่มากกว่า"
 
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
@@ -192,6 +308,10 @@ msgstr "โตเกียว"
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "ใช้ตัวเลือกนี้"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"

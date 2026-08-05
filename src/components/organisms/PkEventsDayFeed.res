@@ -36,6 +36,7 @@ let make = (
   ~events: array<feedEvent>,
   ~hasHiddenPreview: bool,
   ~onRefetchNeeded: unit => unit,
+  ~requireProfile: (unit => unit) => unit=action => action(),
 ) => {
   let (commitDay, _isMutating) = UseSetAvailabilityDay.use()
 
@@ -95,12 +96,16 @@ let make = (
     })
 
   let onAvailabilityChange = (newIntents: array<TimeWindow.playIntent>) => {
-    let _ = commitDay(
-      ~localDate,
-      ~activityId,
-      ~intervals=UseSetAvailabilityDay.intervalsOfIntents(newIntents),
-      ~onCompleted=(_res, _err) => onRefetchNeeded(),
-    )
+    let commit = () => {
+      let _ = commitDay(
+        ~localDate,
+        ~activityId,
+        ~intervals=UseSetAvailabilityDay.intervalsOfIntents(newIntents),
+        ~onCompleted=(_res, _err) => onRefetchNeeded(),
+      )
+    }
+    // Clearing availability isn't sharing anything, so it stays ungated.
+    newIntents->Array.length == 0 ? commit() : requireProfile(commit)
   }
 
   // Merge events + court slots, ordered by start time. On a tie, the event

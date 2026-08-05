@@ -9,12 +9,15 @@ module EventQuery = %relay(`
     $first: Int
     $before: String
   ) {
-    ...ProfileModal_viewer
+    ...UseProfileGate_query
     viewer {
       user {
         id
         lineUsername
         email
+        eventRating(eventId: $eventId) {
+          id
+        }
         ...PkRSVPSection_user @arguments(eventId: $eventId)
       }
     }
@@ -380,7 +383,7 @@ module Inner = {
     ~event: PkEventPageQuery_graphql.Types.response_event,
     ~viewer: option<PkEventPageQuery_graphql.Types.response_viewer>,
     ~queryFragmentRefs: RescriptRelay.fragmentRefs<
-      [> #ProfileModal_viewer | #PkEventMessages_query],
+      [> #UseProfileGate_query | #PkEventMessages_query],
     >,
     ~onRefresh: option<unit => Js.Promise.t<unit>>=?,
   ) => {
@@ -695,6 +698,7 @@ module Inner = {
             lineUsername: u.lineUsername,
             email: u.email,
           })}
+          hasComputedRating={viewerUser->Option.flatMap(u => u.eventRating)->Option.isSome}
           isJoined
           isWaitlisted={isViewerWaitlisted}
           isPending={isViewerPending}

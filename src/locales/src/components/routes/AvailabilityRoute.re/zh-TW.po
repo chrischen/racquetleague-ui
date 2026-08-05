@@ -84,11 +84,51 @@ msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 msgid "Add time windows above"
 msgstr "在上方新增時間段"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "進階"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初學者"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "個人簡介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "簡介為必填項目"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/pages/AvailabilityPage.re.mjs:166
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "關閉個人資料表單"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初學者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "完善您的球員個人資料"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "無法儲存您的個人資料，請再試一次。"
+
+#: src/components/pages/AvailabilityPage.re.mjs:168
 msgid "Court"
 msgstr "場地"
 
@@ -112,17 +152,73 @@ msgstr "建立賽事"
 msgid "Current location is not supported by this browser."
 msgstr "目前的瀏覽器不支援定位功能。"
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "請輸入顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "電子郵件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
+"件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "請輸入電子郵件"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "活動"
+
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "女性"
 
 #: src/components/molecules/LocationFilter.re.mjs:110
 msgid "Filter by location"
 msgstr "依地點篩選"
 
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "用於活動更新和通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "性別"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "其他球員看到您的方式"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級+"
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "保持您的球員個人資料準確且對社群有用。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "等級"
 
 #: src/components/molecules/LocationFilter.re.mjs:91
 msgid "Locating…"
@@ -136,10 +232,18 @@ msgstr "地點"
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "位置存取遭拒。請允許存取或選擇場地。"
 
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "男性"
+
 #: src/components/molecules/LocationFilter.re.mjs:59
 #: src/components/molecules/LocationFilter.re.mjs:91
 msgid "Near me"
 msgstr "附近"
+
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "暫不設定"
 
 #: src/components/molecules/LocationFilter.re.mjs:36
 msgid "Pick a location or use your current location."
@@ -153,6 +257,10 @@ msgstr "球員可用性熱力圖"
 msgid "Players"
 msgstr "尋找球員"
 
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "專業"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:153
 msgid "Reserve"
 msgstr "預訂"
@@ -160,6 +268,10 @@ msgstr "預訂"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Save"
 msgstr "儲存"
+
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "儲存個人資料"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
 msgid "Savingâ¦"
@@ -177,6 +289,12 @@ msgstr ""
 "設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示"
 "可用場地越多。"
 
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
@@ -192,6 +310,10 @@ msgstr "東京"
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "使用此選項"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "在您參加此活動之前，我們需要一些資訊"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
 msgid "Weekday eves"

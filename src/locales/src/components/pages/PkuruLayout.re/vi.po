@@ -61,6 +61,10 @@ msgstr "3 · Loại gì?"
 msgid "Added to Event"
 msgstr "Đã thêm vào Sự kiện"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "Nâng cao"
+
 #: src/components/organisms/NewPlanModal.re.mjs:92
 msgid "Afternoon"
 msgstr "Buổi chiều"
@@ -69,22 +73,60 @@ msgstr "Buổi chiều"
 msgid "Anytime"
 msgstr "Bất kỳ lúc nào"
 
-#: src/components/pages/PkuruLayout.re.mjs:135
+#: src/components/pages/PkuruLayout.re.mjs:136
 msgid "Availability"
 msgstr "Lịch rảnh"
 
-#: src/components/pages/PkuruLayout.re.mjs:167
-#: src/components/pages/PkuruLayout.re.mjs:197
+#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:198
 msgid "Badminton"
 msgstr "Cầu lông"
 
-#: src/components/pages/PkuruLayout.re.mjs:102
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "Người mới bắt đầu"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "Tiểu sử"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "Tiểu sử là bắt buộc"
+
+#: src/components/pages/PkuruLayout.re.mjs:103
 msgid "Browse"
 msgstr "Duyệt"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "Đóng biểu mẫu hồ sơ"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "Hoàn toàn mới bắt đầu"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
+"tổ chức."
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
 msgstr "Tiếp tục"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
@@ -94,10 +136,34 @@ msgstr ""
 "Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
 "bạn chọn địa điểm và luật chơi."
 
-#: src/components/pages/PkuruLayout.re.mjs:112
-#: src/components/pages/PkuruLayout.re.mjs:436
+#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:437
 msgid "Discover"
 msgstr "Khám phá"
+
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "Tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "Cần có tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "Địa chỉ email"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "Cần có email"
 
 #: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
@@ -116,6 +182,18 @@ msgstr "Sự Kiện Đã Bị Hủy"
 msgid "Event Uncanceled"
 msgstr "Sự Kiện Đã Được Khôi Phục"
 
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "Nữ"
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "Để nhận cập nhật và thông báo về sự kiện"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "Giới tính"
+
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "Ẩn"
@@ -131,6 +209,10 @@ msgstr "Tin nhắn từ Chủ nhà"
 #: src/components/organisms/NewPlanModal.re.mjs:422
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "Cách người chơi khác nhìn thấy bạn"
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
@@ -149,6 +231,14 @@ msgstr "Cài đặt"
 msgid "Install Pkuru.com App"
 msgstr "Cài đặt ứng dụng Pkuru.com"
 
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "Trung cấp"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "Trung cấp+"
+
 #: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Invited to Event"
 msgstr "Được mời tham gia sự kiện"
@@ -161,9 +251,17 @@ msgstr "Đã tham gia"
 msgid "Joined Club"
 msgstr "Đã Tham Gia Câu Lạc Bộ"
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "Đã rời Sự kiện"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "Trình độ"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
@@ -178,11 +276,15 @@ msgstr "Đang tải..."
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
-#: src/components/pages/PkuruLayout.re.mjs:446
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "Nam"
+
+#: src/components/pages/PkuruLayout.re.mjs:447
 msgid "Map"
 msgstr "Bản đồ"
 
-#: src/components/pages/PkuruLayout.re.mjs:120
+#: src/components/pages/PkuruLayout.re.mjs:121
 msgid "Map view"
 msgstr "Xem bản đồ"
 
@@ -202,15 +304,15 @@ msgstr "Câu lạc bộ của tôi"
 msgid "My Clubs"
 msgstr "Câu lạc bộ của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:128
+#: src/components/pages/PkuruLayout.re.mjs:129
 msgid "My events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:475
+#: src/components/pages/PkuruLayout.re.mjs:476
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:460
+#: src/components/pages/PkuruLayout.re.mjs:461
 msgid "New"
 msgstr "Mới"
 
@@ -218,7 +320,7 @@ msgstr "Mới"
 msgid "New Comment"
 msgstr "Bình luận mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:276
+#: src/components/pages/PkuruLayout.re.mjs:277
 msgid "New event"
 msgstr "Sự kiện mới"
 
@@ -230,12 +332,16 @@ msgstr "Kế hoạch mới"
 msgid "No notifications"
 msgstr "Không có thông báo"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "Không phải bây giờ"
+
 #: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "Thông báo"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:310
+#: src/components/pages/PkuruLayout.re.mjs:311
 msgid "Notifications"
 msgstr "Thông báo"
 
@@ -243,8 +349,8 @@ msgstr "Thông báo"
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
-#: src/components/pages/PkuruLayout.re.mjs:161
-#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:162
+#: src/components/pages/PkuruLayout.re.mjs:190
 msgid "Pickleball"
 msgstr "Pickleball"
 
@@ -252,12 +358,16 @@ msgstr "Pickleball"
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
-#: src/components/pages/PkuruLayout.re.mjs:144
-#: src/components/pages/PkuruLayout.re.mjs:485
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "Chuyên nghiệp"
+
+#: src/components/pages/PkuruLayout.re.mjs:145
+#: src/components/pages/PkuruLayout.re.mjs:486
 msgid "Profile"
 msgstr "Hồ sơ"
 
-#: src/components/pages/PkuruLayout.re.mjs:180
+#: src/components/pages/PkuruLayout.re.mjs:181
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
 
@@ -273,6 +383,10 @@ msgstr "Đã xóa khỏi Sự kiện"
 msgid "Save"
 msgstr "Lưu"
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "Lưu hồ sơ"
+
 #: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "Cuộn xuống và nhấn"
@@ -281,7 +395,15 @@ msgstr "Cuộn xuống và nhấn"
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
 
-#: src/components/pages/PkuruLayout.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
+"họ nên mời bạn."
+
+#: src/components/pages/PkuruLayout.re.mjs:156
 msgid "Sports"
 msgstr "Thể thao"
 
@@ -315,6 +437,11 @@ msgstr "Ngày mai"
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "Xem tất cả thông báo"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"

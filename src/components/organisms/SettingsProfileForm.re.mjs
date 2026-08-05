@@ -2,8 +2,10 @@
 
 import * as Zod from "zod";
 import * as React from "react";
+import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as FramerMotion from "framer-motion";
@@ -154,24 +156,31 @@ function SettingsProfileForm(props) {
   var setStripeCountry = match$4[1];
   var stripeCountry = match$4[0];
   var match$5 = React.useState(function () {
-        return Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (viewer) {
-                              return viewer.profile;
-                            })), (function (profile) {
-                          return profile.gender;
-                        })), (function (g) {
-                      if (g === "female" || g === "male") {
-                        if (g === "female") {
-                          return "female";
-                        } else {
-                          return "male";
-                        }
-                      }
-                      
-                    }));
+        var match = Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (viewer) {
+                    return viewer.profile;
+                  })), (function (profile) {
+                return profile.gender;
+              }));
+        if (match !== undefined && (match === "female" || match === "male") && match === "female") {
+          return "female";
+        } else {
+          return "male";
+        }
       });
   var setGender = match$5[1];
   var gender = match$5[0];
-  var match$6 = ReactHookForm.useForm({
+  var match$6 = React.useState(function () {
+        return Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (viewer) {
+                              return viewer.profile;
+                            })), (function (profile) {
+                          return profile.selfRating;
+                        })), (function (mu) {
+                      return LevelPicker.nearest(Rating.guessDupr(mu));
+                    }));
+      });
+  var setLevel = match$6[1];
+  var level = match$6[0];
+  var match$7 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: {
           biography: Core__Option.getOr(Core__Option.flatMap(query.viewer, (function (viewer) {
@@ -191,10 +200,10 @@ function SettingsProfileForm(props) {
                     })), "")
         }
       });
-  var setValue = match$6.setValue;
-  var formState = match$6.formState;
-  var handleSubmit = match$6.handleSubmit;
-  var register = match$6.register;
+  var setValue = match$7.setValue;
+  var formState = match$7.formState;
+  var handleSubmit = match$7.handleSubmit;
+  var register = match$7.register;
   React.useEffect((function () {
           Core__Option.forEach(query.viewer, (function (viewer) {
                   Core__Option.forEach(viewer.profile, (function (profile) {
@@ -207,26 +216,27 @@ function SettingsProfileForm(props) {
                           Core__Option.forEach(profile.lineUsername, (function (v) {
                                   setValue("username", v, undefined);
                                 }));
+                          Core__Option.forEach(profile.selfRating, (function (mu) {
+                                  setLevel(function (param) {
+                                        return LevelPicker.nearest(Rating.guessDupr(mu));
+                                      });
+                                }));
                         }));
                 }));
         }), [query.viewer]);
   var onSubmit = function (data) {
-    var baseInput_biography = data.biography;
-    var baseInput_fullName = data.fullName;
-    var baseInput_username = data.username;
-    var baseInput = {
-      biography: baseInput_biography,
-      fullName: baseInput_fullName,
-      username: baseInput_username
+    var input_biography = data.biography;
+    var input_fullName = data.fullName;
+    var input_gender = gender;
+    var input_selfRating = Core__Option.map(level, Rating.duprToMu);
+    var input_username = data.username;
+    var input = {
+      biography: input_biography,
+      fullName: input_fullName,
+      gender: input_gender,
+      selfRating: input_selfRating,
+      username: input_username
     };
-    var input;
-    if (gender !== undefined) {
-      var newrecord = Caml_obj.obj_dup(baseInput);
-      newrecord.gender = gender;
-      input = newrecord;
-    } else {
-      input = baseInput;
-    }
     commitMutation({
           input: input
         }, undefined, undefined, undefined, undefined, undefined, undefined);
@@ -279,9 +289,7 @@ function SettingsProfileForm(props) {
                               tmp$1 = null;
                             }
                             var tmp$2;
-                            tmp$2 = gender !== undefined ? (
-                                gender === "female" ? "female" : "male"
-                              ) : "";
+                            tmp$2 = gender === "female" ? "female" : "male";
                             var newrecord$2 = Caml_obj.obj_dup(register("biography", undefined));
                             var match$2 = formState.errors.biography;
                             var tmp$3;
@@ -504,10 +512,6 @@ function SettingsProfileForm(props) {
                                                                                 JsxRuntime.jsxs("select", {
                                                                                       children: [
                                                                                         JsxRuntime.jsx("option", {
-                                                                                              children: t`Prefer not to say`,
-                                                                                              value: ""
-                                                                                            }),
-                                                                                        JsxRuntime.jsx("option", {
                                                                                               children: t`Male`,
                                                                                               value: "male"
                                                                                             }),
@@ -522,13 +526,10 @@ function SettingsProfileForm(props) {
                                                                                       onChange: (function (e) {
                                                                                           var value = e.target.value;
                                                                                           setGender(function (param) {
-                                                                                                switch (value) {
-                                                                                                  case "female" :
-                                                                                                      return "female";
-                                                                                                  case "male" :
-                                                                                                      return "male";
-                                                                                                  default:
-                                                                                                    return ;
+                                                                                                if (value === "female") {
+                                                                                                  return "female";
+                                                                                                } else {
+                                                                                                  return "male";
                                                                                                 }
                                                                                               });
                                                                                         })
@@ -551,6 +552,26 @@ function SettingsProfileForm(props) {
                                                                               className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
                                                                             }),
                                                                         tmp$3
+                                                                      ]
+                                                                    }),
+                                                                JsxRuntime.jsxs("div", {
+                                                                      children: [
+                                                                        JsxRuntime.jsx("label", {
+                                                                              children: t`Level`,
+                                                                              className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2"
+                                                                            }),
+                                                                        JsxRuntime.jsx(LevelPicker.make, {
+                                                                              value: level,
+                                                                              onChange: (function (v) {
+                                                                                  setLevel(function (param) {
+                                                                                        return v;
+                                                                                      });
+                                                                                })
+                                                                            }),
+                                                                        JsxRuntime.jsx("p", {
+                                                                              children: level !== undefined ? t`Estimated DUPR` + ": " + level.toFixed(2) : t`Your self-reported skill level`,
+                                                                              className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
+                                                                            })
                                                                       ]
                                                                     }),
                                                                 JsxRuntime.jsx("div", {

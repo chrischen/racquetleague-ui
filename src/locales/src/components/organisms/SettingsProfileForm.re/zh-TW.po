@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"加入主畫面\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:319
+#: src/components/organisms/SettingsProfileForm.re.mjs:327
 msgid "Active"
 msgstr "進行中"
 
@@ -25,31 +25,43 @@ msgstr "進行中"
 msgid "Add to Home Screen to enable notifications"
 msgstr "加入主畫面以啟用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "進階"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:407
 msgid "Australia"
 msgstr "澳洲"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:544
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初學者"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "個人簡介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Canada"
 msgstr "加拿大"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:339
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初學者"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr "連接 Stripe 帳戶以接收您舉辦活動的款項。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:368
+#: src/components/organisms/SettingsProfileForm.re.mjs:376
 msgid "Connect Stripe account"
 msgstr "連接 Stripe 帳戶"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:364
+#: src/components/organisms/SettingsProfileForm.re.mjs:372
 msgid "Connecting..."
 msgstr "連接中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:384
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "國家"
 
@@ -57,11 +69,11 @@ msgstr "國家"
 msgid "Disable notifications"
 msgstr "停用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:472
+#: src/components/organisms/SettingsProfileForm.re.mjs:480
 msgid "Display Name"
 msgstr "顯示名稱"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:489
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "Doe John"
 msgstr "李大明"
 
@@ -69,23 +81,27 @@ msgstr "李大明"
 msgid "Enable notifications"
 msgstr "啟用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
+msgid "Estimated DUPR"
+msgstr "預估 DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:519
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:485
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "全名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:423
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:476
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "How you appear to other players"
 msgstr "您在其他球員面前的顯示名稱"
 
@@ -93,23 +109,35 @@ msgstr "您在其他球員面前的顯示名稱"
 msgid "in Safari's toolbar"
 msgstr "在 Safari 的工具列中"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:391
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級+"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Japan"
 msgstr "日本"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:560
+msgid "Level"
+msgstr "等級"
 
 #: src/components/shared/PushNotifications.re.mjs:395
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:511
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:313
+#: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "未連接"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/SettingsProfileForm.re.mjs:606
 msgid "Notifications"
 msgstr "通知"
 
@@ -123,13 +151,13 @@ msgstr "通知已被封鎖。如需啟用，請前往裝置或瀏覽器設定，
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "從主畫面開啟應用程式並啟用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:316
+#: src/components/organisms/SettingsProfileForm.re.mjs:324
 msgid "Pending"
 msgstr "待審核"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-msgid "Prefer not to say"
-msgstr "不願透露"
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "專業"
 
 #: src/components/shared/PushNotifications.re.mjs:302
 msgid ""
@@ -137,15 +165,15 @@ msgid ""
 "settings for this site, then try again."
 msgstr "推播通知已被封鎖。請檢查此網站的瀏覽器或裝置通知設定，然後再試一次。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:593
+#: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
 msgstr "接收賽事提醒與更新的推播通知。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:371
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "繼續設定"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:571
+#: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
 msgstr "儲存個人資料"
 
@@ -163,23 +191,23 @@ msgid ""
 "for a partner"
 msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Singapore"
 msgstr "新加坡"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:492
+#: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活動需要您在證件上顯示的法定姓名。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
 msgstr "南韓"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:607
+#: src/components/organisms/SettingsProfileForm.re.mjs:628
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:427
 msgid "Taiwan"
 msgstr "台灣"
 
@@ -187,27 +215,31 @@ msgstr "台灣"
 msgid "Tap the Share button"
 msgstr "點按分享按鈕"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:550
+#: src/components/organisms/SettingsProfileForm.re.mjs:551
 msgid "tell us a little about yourself"
 msgstr "告訴我們一些關於您自己的事"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:548
+#: src/components/organisms/SettingsProfileForm.re.mjs:549
 msgid "Tell us a little about yourself..."
 msgstr "請告訴我們一些關於您自己的事..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "United Kingdom"
 msgstr "英國"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:395
+#: src/components/organisms/SettingsProfileForm.re.mjs:403
 msgid "United States"
 msgstr "美國"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:345
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
+msgid "Your self-reported skill level"
+msgstr "您自行申報的技術等級"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "您的 Stripe 帳戶已連接，可以接收付款。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:342
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "您的 Stripe 帳戶已連接，但尚未完成設定。"
 
@@ -230,6 +262,10 @@ msgstr "您的 Stripe 帳戶已連接，但尚未完成設定。"
 #: src/components/organisms/SettingsProfileForm.re.mjs:246
 #~ msgid "gender"
 #~ msgstr "性別"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "不願透露"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:213
 #~ msgid "profile"

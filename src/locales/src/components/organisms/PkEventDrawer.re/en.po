@@ -106,6 +106,10 @@ msgstr ""
 msgid "Add a message..."
 msgstr ""
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr ""
@@ -122,7 +126,7 @@ msgstr ""
 msgid "At {venue} now"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/EventStickyFooter.re.mjs:141
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Authorize deposit"
 msgstr ""
@@ -143,6 +147,18 @@ msgstr ""
 msgid "balanced"
 msgstr ""
 
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr ""
+
 #: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr ""
@@ -151,7 +167,7 @@ msgstr ""
 msgid "cancel event"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:203
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancel RSVP"
 msgstr ""
 
@@ -159,20 +175,20 @@ msgstr ""
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
-#: src/components/organisms/EventStickyFooter.re.mjs:407
+#: src/components/organisms/EventStickyFooter.re.mjs:267
+#: src/components/organisms/EventStickyFooter.re.mjs:377
 msgid "Cancellation deadline"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:415
+#: src/components/organisms/EventStickyFooter.re.mjs:385
 msgid "Cancellation deadline passed."
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:305
+#: src/components/organisms/EventStickyFooter.re.mjs:275
 msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:203
+#: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancelling..."
 msgstr ""
 
@@ -184,25 +200,41 @@ msgstr ""
 msgid "Capture payment"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:433
-#: src/components/organisms/EventStickyFooter.re.mjs:555
+#: src/components/organisms/EventStickyFooter.re.mjs:403
+#: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Claim spot"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:429
+#: src/components/organisms/EventStickyFooter.re.mjs:399
 msgid "Claim spot · {0}"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
 msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
 msgid "Close swipe invitations"
 msgstr ""
 
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr ""
+
 #: src/components/organisms/StripePaymentEmbed.tsx:92
 msgid "Complete payment"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
+#~ msgid "Complete your profile"
+#~ msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:454
@@ -220,6 +252,13 @@ msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:602
 msgid "copy event"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:766
@@ -264,15 +303,15 @@ msgstr ""
 msgid "Delete this match?"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:187
+#: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Deposit required to confirm your spot"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr ""
 
@@ -289,19 +328,19 @@ msgstr ""
 msgid "Edit match"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr ""
+#~ msgid "Email cannot be changed"
+#~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr ""
 
@@ -313,7 +352,7 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/pages/PkEventPage.re.mjs:914
+#: src/components/pages/PkEventPage.re.mjs:917
 msgid "Event not found"
 msgstr ""
 
@@ -329,11 +368,11 @@ msgstr ""
 msgid "Everyone reviewed"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr ""
 
@@ -341,12 +380,24 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
 msgstr ""
 
 #: src/components/organisms/EventInvites.re.mjs:321
@@ -381,28 +432,32 @@ msgstr ""
 msgid "Invites · {0}"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:555
+#: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Join waitlist"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:426
+#: src/components/organisms/EventStickyFooter.re.mjs:396
 msgid "Join waitlist (#{0})"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:380
-#: src/components/organisms/EventStickyFooter.re.mjs:508
+#: src/components/organisms/EventStickyFooter.re.mjs:350
+#: src/components/organisms/EventStickyFooter.re.mjs:459
 msgid "Leave event"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:380
+#: src/components/organisms/EventStickyFooter.re.mjs:350
 msgid "Leave waitlist"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:379
+#: src/components/organisms/EventStickyFooter.re.mjs:349
 msgid "Leaving..."
 msgstr ""
 
@@ -410,7 +465,11 @@ msgstr ""
 msgid "less"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:169
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:139
 msgid "Loading..."
 msgstr ""
 
@@ -426,7 +485,7 @@ msgstr ""
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr ""
 
@@ -471,6 +530,10 @@ msgstr ""
 msgid "Not available"
 msgstr ""
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr ""
+
 #: src/components/pages/PkEventPage.re.mjs:758
 msgid "Notes from the host"
 msgstr ""
@@ -479,7 +542,7 @@ msgstr ""
 #~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
 #~ msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "On waitlist"
 msgstr ""
 
@@ -499,7 +562,7 @@ msgstr ""
 msgid "Participants"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:177
+#: src/components/organisms/EventStickyFooter.re.mjs:147
 msgid "Pay {priceStr}"
 msgstr ""
 
@@ -519,7 +582,7 @@ msgstr ""
 msgid "Payment failed"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:187
+#: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Payment required to confirm your spot"
 msgstr ""
 
@@ -527,7 +590,7 @@ msgstr ""
 msgid "Pending · {0}"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:259
+#: src/components/organisms/EventStickyFooter.re.mjs:229
 msgid "Pending approval"
 msgstr ""
 
@@ -536,8 +599,8 @@ msgid "Playoff Draft"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr ""
+#~ msgid "Prefer not to say"
+#~ msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:397
 msgid "Presented by"
@@ -546,6 +609,10 @@ msgstr ""
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
 msgstr ""
 
 #: src/components/organisms/StripePaymentEmbed.tsx:62
@@ -640,7 +707,11 @@ msgid "Save"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
+#~ msgid "Save & Join Event"
+#~ msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:244
@@ -662,6 +733,10 @@ msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:255
 msgid "Share"
+msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:455
@@ -712,7 +787,7 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:509
+#: src/components/organisms/EventStickyFooter.re.mjs:460
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
 
@@ -720,7 +795,7 @@ msgstr ""
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
+#: src/components/organisms/EventStickyFooter.re.mjs:165
 msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
 msgstr ""
 
@@ -729,8 +804,8 @@ msgid "This is a deposit hold only. You still need to pay the organizer in full 
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr ""
+#~ msgid "This is how others will see you"
+#~ msgstr ""
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
 msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
@@ -795,7 +870,7 @@ msgstr ""
 msgid "was invited to the event"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr ""
 
@@ -803,15 +878,15 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:273
+#: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdraw RSVP"
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:273
+#: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:361
+#: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "You're in"
 msgstr ""
 
@@ -819,6 +894,6 @@ msgstr ""
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
 
-#: src/components/organisms/EventStickyFooter.re.mjs:263
+#: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr ""

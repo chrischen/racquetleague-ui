@@ -7,6 +7,7 @@ import * as NewPlanModal from "./NewPlanModal.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -44,6 +45,7 @@ function AddEventButton(props) {
   var viewerData = use(props.viewer);
   var isLoggedIn = Core__Option.isSome(viewerData.user);
   var navigate = ReactRouterDom.useNavigate();
+  var profileGate = UseProfileGate.use(props.gateQuery, "Availability", undefined);
   var match = React.useState(function () {
         return false;
       });
@@ -82,17 +84,6 @@ function AddEventButton(props) {
     var loginSearchParamsObj = {};
     loginSearchParamsObj["return"] = targetUrl;
     navigate("/oauth-login?" + ReactRouterDom.createSearchParams(loginSearchParamsObj).toString(), undefined);
-  };
-  var handleMarkAvailable = function (localDate, intents) {
-    commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
-            if (Core__Option.isSome(res.setAvailabilityDay.day)) {
-              RelayRuntime.commitLocalUpdate(env, (function (store) {
-                      store.getRoot().invalidateRecord();
-                    }));
-              return ;
-            }
-            
-          }));
   };
   var handleCreateEvent = function (localDate, intent) {
     var searchParamsObj = {};
@@ -133,9 +124,22 @@ function AddEventButton(props) {
                                                 return false;
                                               });
                                         }),
-                                      onMarkAvailable: handleMarkAvailable,
+                                      onMarkAvailable: (function (localDate, intents) {
+                                          profileGate.require(function () {
+                                                commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
+                                                        if (Core__Option.isSome(res.setAvailabilityDay.day)) {
+                                                          RelayRuntime.commitLocalUpdate(env, (function (store) {
+                                                                  store.getRoot().invalidateRecord();
+                                                                }));
+                                                          return ;
+                                                        }
+                                                        
+                                                      }));
+                                              });
+                                        }),
                                       onCreateEvent: handleCreateEvent
-                                    })
+                                    }),
+                                profileGate.modal
                               ]
                             });
                 })

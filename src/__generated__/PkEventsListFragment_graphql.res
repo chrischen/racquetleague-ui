@@ -75,7 +75,7 @@ module Types = {
     events: fragment_events,
     resolvedLocation: fragment_resolvedLocation,
     viewer: option<fragment_viewer>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #PkEventRow_query]>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #UseProfileGate_query]>,
   }
 }
 
@@ -180,6 +180,11 @@ v3 = [
 ];
 return {
   "argumentDefinitions": [
+    {
+      "defaultValue": "pickleball",
+      "kind": "LocalArgument",
+      "name": "activitySlug"
+    },
     {
       "defaultValue": null,
       "kind": "LocalArgument",
@@ -286,9 +291,15 @@ return {
       "storageKey": null
     },
     {
-      "args": null,
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "activitySlug",
+          "variableName": "activitySlug"
+        }
+      ],
       "kind": "FragmentSpread",
-      "name": "PkEventRow_query"
+      "name": "UseProfileGate_query"
     },
     {
       "alias": null,

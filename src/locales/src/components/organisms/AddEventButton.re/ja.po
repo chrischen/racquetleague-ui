@@ -37,9 +37,13 @@ msgstr "2 · 時間"
 msgid "3 · What kind?"
 msgstr "3 · 種類は？"
 
-#: src/components/organisms/AddEventButton.re.mjs:124
+#: src/components/organisms/AddEventButton.re.mjs:115
 msgid "Add an Event"
 msgstr "イベントを追加"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "詳細設定"
 
 #: src/components/organisms/NewPlanModal.re.mjs:92
 msgid "Afternoon"
@@ -49,9 +53,47 @@ msgstr "午後"
 msgid "Anytime"
 msgstr "いつでも"
 
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初心者"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "自己紹介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "自己紹介は必須です"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "プロフィールフォームを閉じる"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全な初心者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "プレイヤープロフィールを完成させる"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
+"い。"
+
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
 msgstr "続ける"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
@@ -61,9 +103,45 @@ msgstr ""
 "この時間にホストイベントを作成します。他の人が参加でき、会場とルールはあなた"
 "が決めます。"
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "表示名"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "表示名は必須です"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "メールアドレスは必須です"
+
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
 msgstr "夜"
+
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "イベントの更新と通知用"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "性別"
 
 #: src/components/organisms/NewPlanModal.re.mjs:392
 msgid "Host an event"
@@ -72,6 +150,30 @@ msgstr "イベントをホストする"
 #: src/components/organisms/NewPlanModal.re.mjs:422
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "イベントのホストには時間枠をひとつだけ選択してください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "他のプレイヤーへの表示"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級者"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級者+"
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "レベル"
+
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "男性"
 
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
@@ -85,9 +187,17 @@ msgstr "午前"
 msgid "New plan"
 msgstr "新しいプラン"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "後で"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "プロ"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -97,9 +207,21 @@ msgstr "削除"
 msgid "Save"
 msgstr "保存"
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "プロフィールを保存"
+
 #: src/components/organisms/NewPlanModal.re.mjs:414
 msgid "Select exactly one time window to host an event"
 msgstr "イベントをホストするには時間枠をひとつ選択してください"
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
+"ください。"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
@@ -118,6 +240,10 @@ msgstr "今日"
 #: src/components/organisms/NewPlanModal.re.mjs:51
 msgid "Tomorrow"
 msgstr "明日"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "イベント参加に必要な情報を入力してください"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"

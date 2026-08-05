@@ -3,6 +3,7 @@
 
 module Query = %relay(`
   query PkuruLayoutQuery {
+    ...UseProfileGate_query
     viewer {
       user {
         id
@@ -358,9 +359,11 @@ module Layout = {
   @react.component
   let make = (
     ~viewer: option<PkuruLayoutQuery_graphql.Types.response_viewer>,
+    ~queryRefs: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
     ~children: React.element,
   ) => {
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
+    let profileGate = UseProfileGate.use(~query=queryRefs, ~context=ProfileModal.Availability)
     let (showModal, setShowModal) = React.useState(() => false)
     let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
     let env = RescriptRelay.useEnvironmentFromContext()
@@ -573,9 +576,11 @@ module Layout = {
                         <NewPlanModal.make
                           isOpen=showModal
                           onClose={() => setShowModal(_ => false)}
-                          onMarkAvailable=handleMarkAvailable
+                          onMarkAvailable={(localDate, intents) =>
+                            profileGate.require(() => handleMarkAvailable(localDate, intents))}
                           onCreateEvent=handleCreateEvent
                         />
+                        {profileGate.modal}
                       </div>,
                       documentBody,
                     )
@@ -591,7 +596,7 @@ module Layout = {
 @genType @react.component
 let make = () => {
   let query = useLoaderData()
-  let {viewer} = Query.usePreloaded(~queryRef=query.data)
+  let {viewer, fragmentRefs} = Query.usePreloaded(~queryRef=query.data)
 
   <>
     <Util.Helmet>
@@ -608,7 +613,7 @@ let make = () => {
       <link rel="icon" type_="image/x-icon" href="/src/assets/favicon.ico" />
       <link rel="apple-touch-icon" href="/src/assets/apple-touch-icon.png" />
     </Util.Helmet>
-    <Layout viewer>
+    <Layout viewer queryRefs=fragmentRefs>
       <GlobalQuery.DetectedLang />
       <Router.Outlet />
     </Layout>

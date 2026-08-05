@@ -91,6 +91,11 @@ v3 = [
 return {
   "argumentDefinitions": [
     {
+      "defaultValue": "pickleball",
+      "kind": "LocalArgument",
+      "name": "activitySlug"
+    },
+    {
       "defaultValue": null,
       "kind": "LocalArgument",
       "name": "after"
@@ -196,9 +201,15 @@ return {
       "storageKey": null
     },
     {
-      "args": null,
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "activitySlug",
+          "variableName": "activitySlug"
+        }
+      ],
       "kind": "FragmentSpread",
-      "name": "PkEventRow_query"
+      "name": "UseProfileGate_query"
     },
     {
       "alias": null,

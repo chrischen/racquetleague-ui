@@ -49,7 +49,7 @@ module Day = {
     ~date: Js.Date.t,
     ~events: array<ClubEventsListFragment_graphql.Types.fragment_events_edges_node>,
     ~viewerUser: option<RescriptRelay.fragmentRefs<[> #PkEventRow_user]>>,
-    ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
+    ~query: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
     ~onEventClick: option<string => unit>=?,
     ~onHoverLocation: option<option<string> => unit>=?,
     ~selectedLocationId: option<string>=?,
@@ -125,7 +125,7 @@ module Day = {
 @react.component
 let make = (
   ~events: RescriptRelay.fragmentRefs<[> #ClubEventsListFragment]>,
-  ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
+  ~query: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
   ~viewerUser: option<RescriptRelay.fragmentRefs<[> #PkEventRow_user]>>=?,
   ~onHoverLocation: option<option<string> => unit>=?,
   ~selectedLocationId: option<string>=?,

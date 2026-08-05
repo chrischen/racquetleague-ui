@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"홈 화면에 추가\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:319
+#: src/components/organisms/SettingsProfileForm.re.mjs:327
 msgid "Active"
 msgstr "활성"
 
@@ -25,31 +25,43 @@ msgstr "활성"
 msgid "Add to Home Screen to enable notifications"
 msgstr "알림을 받으려면 홈 화면에 추가하세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "고급"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:407
 msgid "Australia"
 msgstr "호주"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:544
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "초급"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "자기소개"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Canada"
 msgstr "캐나다"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:339
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "완전 초급"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
 msgid "Connect a Stripe account to receive payments from events you organize."
 msgstr "주최하는 이벤트의 결제를 받으려면 Stripe 계정을 연결하세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:368
+#: src/components/organisms/SettingsProfileForm.re.mjs:376
 msgid "Connect Stripe account"
 msgstr "Stripe 계정 연결"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:364
+#: src/components/organisms/SettingsProfileForm.re.mjs:372
 msgid "Connecting..."
 msgstr "연결 중..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:384
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "국가"
 
@@ -57,11 +69,11 @@ msgstr "국가"
 msgid "Disable notifications"
 msgstr "알림 비활성화"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:472
+#: src/components/organisms/SettingsProfileForm.re.mjs:480
 msgid "Display Name"
 msgstr "표시 이름"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:489
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "Doe John"
 msgstr "Doe John"
 
@@ -69,23 +81,27 @@ msgstr "Doe John"
 msgid "Enable notifications"
 msgstr "알림 활성화"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
+msgid "Estimated DUPR"
+msgstr "예상 DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:519
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:485
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "본명"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:423
 msgid "Hong Kong"
 msgstr "홍콩"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:476
+#: src/components/organisms/SettingsProfileForm.re.mjs:484
 msgid "How you appear to other players"
 msgstr "다른 플레이어에게 보이는 이름"
 
@@ -93,23 +109,35 @@ msgstr "다른 플레이어에게 보이는 이름"
 msgid "in Safari's toolbar"
 msgstr "Safari 툴바에서"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:391
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "중급"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "중급+"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Japan"
 msgstr "일본"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:560
+msgid "Level"
+msgstr "레벨"
 
 #: src/components/shared/PushNotifications.re.mjs:395
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:511
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Male"
 msgstr "남성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:313
+#: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "연결 안 됨"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/SettingsProfileForm.re.mjs:606
 msgid "Notifications"
 msgstr "알림"
 
@@ -125,13 +153,13 @@ msgstr ""
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "홈 화면에서 앱을 열고 알림을 활성화하세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:316
+#: src/components/organisms/SettingsProfileForm.re.mjs:324
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-msgid "Prefer not to say"
-msgstr "밝히지 않음"
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "프로"
 
 #: src/components/shared/PushNotifications.re.mjs:302
 msgid ""
@@ -141,15 +169,15 @@ msgstr ""
 "푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확"
 "인한 후 다시 시도해 주세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:593
+#: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
 msgstr "이벤트 알림 및 업데이트를 푸시 알림으로 받아보세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:371
+#: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "등록 재개"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:571
+#: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
 msgstr "프로필 저장"
 
@@ -167,23 +195,23 @@ msgid ""
 "for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Singapore"
 msgstr "싱가포르"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:492
+#: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
 msgstr "한국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:607
+#: src/components/organisms/SettingsProfileForm.re.mjs:628
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:427
 msgid "Taiwan"
 msgstr "대만"
 
@@ -191,27 +219,31 @@ msgstr "대만"
 msgid "Tap the Share button"
 msgstr "공유 버튼을 탭하세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:550
+#: src/components/organisms/SettingsProfileForm.re.mjs:551
 msgid "tell us a little about yourself"
 msgstr "자신에 대해 간단히 알려주세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:548
+#: src/components/organisms/SettingsProfileForm.re.mjs:549
 msgid "Tell us a little about yourself..."
 msgstr "자신을 간략히 소개해 주세요..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "United Kingdom"
 msgstr "영국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:395
+#: src/components/organisms/SettingsProfileForm.re.mjs:403
 msgid "United States"
 msgstr "미국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:345
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
+msgid "Your self-reported skill level"
+msgstr "자가 신고 실력 수준"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
 msgid "Your Stripe account is connected and ready to accept payments."
 msgstr "Stripe 계정이 연결되어 결제를 받을 준비가 완료되었습니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:342
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았습니다."
 
@@ -234,6 +266,10 @@ msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았
 #: src/components/organisms/SettingsProfileForm.re.mjs:246
 #~ msgid "gender"
 #~ msgstr "성별"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "밝히지 않음"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:213
 #~ msgid "profile"

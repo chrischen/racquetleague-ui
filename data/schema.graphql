@@ -1083,6 +1083,13 @@ input UpdateProfileInput {
   biography: String!
   fullName: String!
   gender: Gender
+
+  """
+  Self-reported skill rating, denominated on the platform's internal
+   rating scale (the same scale as event min/max ratings). Clients convert
+   from external scales such as DUPR.
+  """
+  selfRating: Float
   username: String!
 }
 
@@ -1147,6 +1154,13 @@ type User implements Node {
   locale: String
   picture: String
   rating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): Rating
+
+  """
+  The user's self-reported skill rating, denominated on the platform's
+   internal rating scale (the same scale as event min/max ratings). Clients
+   convert from external scales such as DUPR.
+  """
+  selfRating: Float
   stripeAccountId: String
   stripeChargesEnabled: Boolean
 }

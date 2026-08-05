@@ -61,6 +61,10 @@ msgstr "3 · 種類は？"
 msgid "Added to Event"
 msgstr "イベントに追加されました"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "詳細設定"
+
 #: src/components/organisms/NewPlanModal.re.mjs:92
 msgid "Afternoon"
 msgstr "午後"
@@ -69,22 +73,60 @@ msgstr "午後"
 msgid "Anytime"
 msgstr "いつでも"
 
-#: src/components/pages/PkuruLayout.re.mjs:135
+#: src/components/pages/PkuruLayout.re.mjs:136
 msgid "Availability"
 msgstr "空き時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:167
-#: src/components/pages/PkuruLayout.re.mjs:197
+#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:198
 msgid "Badminton"
 msgstr "バドミントン"
 
-#: src/components/pages/PkuruLayout.re.mjs:102
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初心者"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "自己紹介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "自己紹介は必須です"
+
+#: src/components/pages/PkuruLayout.re.mjs:103
 msgid "Browse"
 msgstr "ブラウズ"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "プロフィールフォームを閉じる"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全な初心者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "プレイヤープロフィールを完成させる"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
+"い。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
 msgstr "続ける"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
@@ -94,10 +136,34 @@ msgstr ""
 "この時間にホストイベントを作成します。他の人が参加でき、会場とルールはあなた"
 "が決めます。"
 
-#: src/components/pages/PkuruLayout.re.mjs:112
-#: src/components/pages/PkuruLayout.re.mjs:436
+#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:437
 msgid "Discover"
 msgstr "探す"
+
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "表示名"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "表示名は必須です"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "メールアドレス"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "メールアドレスは必須です"
 
 #: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
@@ -116,6 +182,18 @@ msgstr "イベントキャンセル済み"
 msgid "Event Uncanceled"
 msgstr "イベントキャンセル解除済み"
 
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "イベントの更新と通知用"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "性別"
+
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "非表示"
@@ -131,6 +209,10 @@ msgstr "ホストメッセージ"
 #: src/components/organisms/NewPlanModal.re.mjs:422
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "イベントのホストには時間枠をひとつだけ選択してください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "他のプレイヤーへの表示"
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
@@ -149,6 +231,14 @@ msgstr "インストール"
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.comアプリをインストール"
 
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級者"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級者+"
+
 #: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Invited to Event"
 msgstr "イベントへの招待"
@@ -161,9 +251,17 @@ msgstr "参加"
 msgid "Joined Club"
 msgstr "クラブに参加しました"
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "イベントを退出しました"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "レベル"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
@@ -178,11 +276,15 @@ msgstr "読み込み中..."
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/pages/PkuruLayout.re.mjs:446
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "男性"
+
+#: src/components/pages/PkuruLayout.re.mjs:447
 msgid "Map"
 msgstr "マップ"
 
-#: src/components/pages/PkuruLayout.re.mjs:120
+#: src/components/pages/PkuruLayout.re.mjs:121
 msgid "Map view"
 msgstr "マップ表示"
 
@@ -202,15 +304,15 @@ msgstr "マイクラブ"
 msgid "My Clubs"
 msgstr "私のサークル"
 
-#: src/components/pages/PkuruLayout.re.mjs:128
+#: src/components/pages/PkuruLayout.re.mjs:129
 msgid "My events"
 msgstr "マイイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:475
+#: src/components/pages/PkuruLayout.re.mjs:476
 msgid "My Events"
 msgstr "私のイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:460
+#: src/components/pages/PkuruLayout.re.mjs:461
 msgid "New"
 msgstr "新規"
 
@@ -218,7 +320,7 @@ msgstr "新規"
 msgid "New Comment"
 msgstr "新しいコメント"
 
-#: src/components/pages/PkuruLayout.re.mjs:276
+#: src/components/pages/PkuruLayout.re.mjs:277
 msgid "New event"
 msgstr "新しいイベント"
 
@@ -230,12 +332,16 @@ msgstr "新しいプラン"
 msgid "No notifications"
 msgstr "通知はありません"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "後で"
+
 #: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:310
+#: src/components/pages/PkuruLayout.re.mjs:311
 msgid "Notifications"
 msgstr "通知"
 
@@ -243,8 +349,8 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "キャンセル待ち解除"
 
-#: src/components/pages/PkuruLayout.re.mjs:161
-#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:162
+#: src/components/pages/PkuruLayout.re.mjs:190
 msgid "Pickleball"
 msgstr "ピックルボール"
 
@@ -252,12 +358,16 @@ msgstr "ピックルボール"
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
-#: src/components/pages/PkuruLayout.re.mjs:144
-#: src/components/pages/PkuruLayout.re.mjs:485
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "プロ"
+
+#: src/components/pages/PkuruLayout.re.mjs:145
+#: src/components/pages/PkuruLayout.re.mjs:486
 msgid "Profile"
 msgstr "プロフィール"
 
-#: src/components/pages/PkuruLayout.re.mjs:180
+#: src/components/pages/PkuruLayout.re.mjs:181
 msgid "Rankings"
 msgstr "ランキング"
 
@@ -273,6 +383,10 @@ msgstr "イベントから削除されました"
 msgid "Save"
 msgstr "保存"
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "プロフィールを保存"
+
 #: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "下にスクロールしてタップ"
@@ -281,7 +395,15 @@ msgstr "下にスクロールしてタップ"
 msgid "Select exactly one time window to host an event"
 msgstr "イベントをホストするには時間枠をひとつ選択してください"
 
-#: src/components/pages/PkuruLayout.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
+"ください。"
+
+#: src/components/pages/PkuruLayout.re.mjs:156
 msgid "Sports"
 msgstr "スポーツ"
 
@@ -314,6 +436,10 @@ msgstr "明日"
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "すべての通知を見る"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "イベント参加に必要な情報を入力してください"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"

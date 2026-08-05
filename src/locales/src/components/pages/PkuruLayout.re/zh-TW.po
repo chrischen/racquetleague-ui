@@ -61,6 +61,10 @@ msgstr "3 · 類型？"
 msgid "Added to Event"
 msgstr "已加入活動"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "進階"
+
 #: src/components/organisms/NewPlanModal.re.mjs:92
 msgid "Afternoon"
 msgstr "下午"
@@ -69,22 +73,58 @@ msgstr "下午"
 msgid "Anytime"
 msgstr "任何時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:135
+#: src/components/pages/PkuruLayout.re.mjs:136
 msgid "Availability"
 msgstr "空閒時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:167
-#: src/components/pages/PkuruLayout.re.mjs:197
+#: src/components/pages/PkuruLayout.re.mjs:168
+#: src/components/pages/PkuruLayout.re.mjs:198
 msgid "Badminton"
 msgstr "羽毛球"
 
-#: src/components/pages/PkuruLayout.re.mjs:102
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初學者"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "個人簡介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "簡介為必填項目"
+
+#: src/components/pages/PkuruLayout.re.mjs:103
 msgid "Browse"
 msgstr "瀏覽"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "關閉個人資料表單"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初學者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "完善您的球員個人資料"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
 msgstr "繼續"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "無法儲存您的個人資料，請再試一次。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
@@ -92,10 +132,34 @@ msgid ""
 "rules."
 msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
 
-#: src/components/pages/PkuruLayout.re.mjs:112
-#: src/components/pages/PkuruLayout.re.mjs:436
+#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:437
 msgid "Discover"
 msgstr "探索"
+
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "請輸入顯示名稱"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "電子郵件地址"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
+"件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "請輸入電子郵件"
 
 #: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
@@ -114,6 +178,18 @@ msgstr "活動已取消"
 msgid "Event Uncanceled"
 msgstr "活動已恢復"
 
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "用於活動更新和通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "性別"
+
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "隱藏"
@@ -129,6 +205,10 @@ msgstr "主辦人訊息"
 #: src/components/organisms/NewPlanModal.re.mjs:422
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "主辦活動需要恰好一個時間段——請選擇一個。"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "其他球員看到您的方式"
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
@@ -147,6 +227,14 @@ msgstr "安裝"
 msgid "Install Pkuru.com App"
 msgstr "安裝 Pkuru.com 應用程式"
 
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中級"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中級+"
+
 #: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Invited to Event"
 msgstr "受邀參加活動"
@@ -159,9 +247,17 @@ msgstr "已加入"
 msgid "Joined Club"
 msgstr "已加入俱樂部"
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "保持您的球員個人資料準確且對社群有用。"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "已離開活動"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "等級"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:188
 msgid "Load more"
@@ -176,11 +272,15 @@ msgstr "載入中..."
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/pages/PkuruLayout.re.mjs:446
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "男性"
+
+#: src/components/pages/PkuruLayout.re.mjs:447
 msgid "Map"
 msgstr "地圖"
 
-#: src/components/pages/PkuruLayout.re.mjs:120
+#: src/components/pages/PkuruLayout.re.mjs:121
 msgid "Map view"
 msgstr "地圖檢視"
 
@@ -200,15 +300,15 @@ msgstr "我的俱樂部"
 msgid "My Clubs"
 msgstr "我的俱樂部"
 
-#: src/components/pages/PkuruLayout.re.mjs:128
+#: src/components/pages/PkuruLayout.re.mjs:129
 msgid "My events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:475
+#: src/components/pages/PkuruLayout.re.mjs:476
 msgid "My Events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:460
+#: src/components/pages/PkuruLayout.re.mjs:461
 msgid "New"
 msgstr "新建"
 
@@ -216,7 +316,7 @@ msgstr "新建"
 msgid "New Comment"
 msgstr "新留言"
 
-#: src/components/pages/PkuruLayout.re.mjs:276
+#: src/components/pages/PkuruLayout.re.mjs:277
 msgid "New event"
 msgstr "新增活動"
 
@@ -228,12 +328,16 @@ msgstr "新計劃"
 msgid "No notifications"
 msgstr "沒有通知"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "暫不設定"
+
 #: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:310
+#: src/components/pages/PkuruLayout.re.mjs:311
 msgid "Notifications"
 msgstr "通知"
 
@@ -241,8 +345,8 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已離開候補"
 
-#: src/components/pages/PkuruLayout.re.mjs:161
-#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:162
+#: src/components/pages/PkuruLayout.re.mjs:190
 msgid "Pickleball"
 msgstr "匹克球"
 
@@ -250,12 +354,16 @@ msgstr "匹克球"
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
-#: src/components/pages/PkuruLayout.re.mjs:144
-#: src/components/pages/PkuruLayout.re.mjs:485
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "專業"
+
+#: src/components/pages/PkuruLayout.re.mjs:145
+#: src/components/pages/PkuruLayout.re.mjs:486
 msgid "Profile"
 msgstr "個人資料"
 
-#: src/components/pages/PkuruLayout.re.mjs:180
+#: src/components/pages/PkuruLayout.re.mjs:181
 msgid "Rankings"
 msgstr "排名"
 
@@ -271,6 +379,10 @@ msgstr "已從活動中移除"
 msgid "Save"
 msgstr "儲存"
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "儲存個人資料"
+
 #: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "向下捲動並點按"
@@ -279,7 +391,13 @@ msgstr "向下捲動並點按"
 msgid "Select exactly one time window to host an event"
 msgstr "請選擇恰好一個時間段來主辦活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:155
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
+
+#: src/components/pages/PkuruLayout.re.mjs:156
 msgid "Sports"
 msgstr "遐動"
 
@@ -312,6 +430,10 @@ msgstr "明天"
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr "查看所有通知"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "在您參加此活動之前，我們需要一些資訊"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"

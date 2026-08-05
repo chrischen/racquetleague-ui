@@ -10,7 +10,7 @@ import * as EventsListRefetchQuery_graphql from "./EventsListRefetchQuery_graphq
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"viewer_user":{"f":""},"viewer":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""}}};
+var fragmentConverter = {"__root":{"viewer_user":{"f":""},"viewer":{"f":""},"events_edges_node_startDate":{"c":"Util.Datetime"},"events_edges_node":{"f":""},"events":{"f":""},"":{"f":""}}};
 
 var fragmentConverterMap = {
   "Util.Datetime": Util.Datetime.parse
@@ -128,6 +128,11 @@ return {
   },
   "name": "EventsListFragment",
   "selections": [
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "UseProfileGate_query"
+    },
     {
       "alias": null,
       "args": null,

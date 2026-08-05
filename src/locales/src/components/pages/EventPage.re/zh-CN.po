@@ -70,6 +70,10 @@ msgstr "+{0} 人"
 msgid "Add Member"
 msgstr "添加成员"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "高级"
+
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "高级球员"
@@ -85,6 +89,18 @@ msgstr "批准报名"
 #: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初级"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "个人简介"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "简介为必填项"
 
 #: src/components/pages/EventPage.re.mjs:191
 msgid "cancel event"
@@ -102,13 +118,33 @@ msgstr "无法访问变量 \\\"title\\\""
 msgid "Capture payment"
 msgstr "收取付款"
 
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "关闭个人资料表单"
+
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
 msgstr "折叠"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
-msgstr "完善个人资料"
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初学者"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "完善您的球员档案"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "无法保存您的个人资料，请重试。"
 
 #: src/components/organisms/MatchCard.re.mjs:394
 msgid "Court {0}"
@@ -131,11 +167,11 @@ msgstr "删除比赛"
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr "显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
@@ -147,11 +183,11 @@ msgstr "编辑活动"
 msgid "Edit match"
 msgstr "编辑比赛"
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -159,11 +195,7 @@ msgstr ""
 "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
 "件地址登录。"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr "电子邮件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "请输入电子邮件"
 
@@ -179,15 +211,15 @@ msgstr "找不到活动"
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "性别"
 
@@ -202,6 +234,18 @@ msgstr "谷歌日历"
 #: src/components/atoms/EventTag.re.mjs:40
 msgid "Highly skilled players"
 msgstr "高技能球员"
+
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "其他球员看到您的方式"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中级"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中级+"
 
 #: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
@@ -219,6 +263,10 @@ msgstr "从等待列表加入"
 msgid "joined the event"
 msgstr "加入了活动"
 
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "保持您的球员档案准确，为社区提供有用信息。"
+
 #: src/components/organisms/MatchCard.re.mjs:415
 msgid "Last Round"
 msgstr "上一轮"
@@ -226,6 +274,10 @@ msgstr "上一轮"
 #: src/components/organisms/EventMessages.re.mjs:288
 msgid "left the event"
 msgstr "退出了活动"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "级别"
 
 #: src/components/organisms/RSVPSection.re.mjs:781
 msgid "Load more"
@@ -247,7 +299,7 @@ msgstr "输球队（队伍 {0}）"
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
 
@@ -272,6 +324,10 @@ msgstr "没有技能等级限制。对所有球员开放。"
 msgid "No Score"
 msgstr "无比分"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "暂不"
+
 #: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Not paid"
 msgstr "未支付"
@@ -289,10 +345,6 @@ msgstr "待审核"
 msgid "Player"
 msgstr "球员"
 
-#: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr "不愿透露"
-
 #: src/components/atoms/EventTag.re.mjs:141
 #: src/components/atoms/EventTag.re.mjs:143
 msgid "Private"
@@ -302,6 +354,10 @@ msgstr "非公开"
 #: src/components/pages/EventPage.re.mjs:291
 msgid "Private Event"
 msgstr "私人活动"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "专业"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -368,9 +424,9 @@ msgstr "报名待审..."
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
-msgstr "保存并参加活动"
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "保存个人资料"
 
 #: src/components/organisms/ScoreModal.re.mjs:244
 msgid "Save Score"
@@ -388,6 +444,12 @@ msgstr "查看全部"
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "发送"
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
 #: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
@@ -440,10 +502,6 @@ msgid ""
 "This event is private. Please do not share this event without permission "
 "from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr "这是其他人会看到的名字"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
@@ -506,7 +564,7 @@ msgstr "已被邀请参加活动"
 msgid "was removed from the event by admin"
 msgstr "已被管理员从活动中移除"
 
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
@@ -535,6 +593,14 @@ msgstr ""
 "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
 "制降低。请参加其他 JPL 评级活动来提高您的评分。"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善个人资料"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "电子邮件不能更改"
+
 #: src/components/organisms/RSVPSection.re.mjs:424
 #~ msgid "Join"
 #~ msgstr "加入"
@@ -555,6 +621,14 @@ msgstr ""
 #~ msgid "No location details provided."
 #~ msgstr "未提供地点详情。"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存并参加活动"
+
 #: src/components/organisms/RSVPSection.re.mjs:516
 #~ msgid "Show all"
 #~ msgstr "查看全部"
@@ -562,3 +636,7 @@ msgstr ""
 #: src/components/pages/EventPage.re.mjs:168
 #~ msgid "submit matches"
 #~ msgstr "提交比赛结果"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "这是其他人会看到的名字"

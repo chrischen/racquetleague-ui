@@ -10,6 +10,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventTimeline from "../../helpers/EventTimeline.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -86,6 +87,7 @@ function AvailabilityPage$AvailabilityContent(props) {
   var match = usePreloaded(props.queryRef);
   var viewer = match.viewer;
   var resolvedLocation = match.resolvedLocation;
+  var profileGate = UseProfileGate.use(match.fragmentRefs, "Availability", undefined);
   var intl = ReactIntl.useIntl();
   var match$1 = React.useState(function () {
         return false;
@@ -220,7 +222,7 @@ function AvailabilityPage$AvailabilityContent(props) {
           acc[d.localDate] = Belt_Array.concat(existing, [pd]);
           return acc;
         }));
-  var handleSave = function (changes) {
+  var performSave = function (changes) {
     setIsSaving(function (param) {
           return true;
         });
@@ -243,6 +245,17 @@ function AvailabilityPage$AvailabilityContent(props) {
                     store.getRoot().invalidateRecord();
                   }));
           }));
+  };
+  var handleSave = function (changes) {
+    if (changes.every(function (c) {
+            return c.intervals.length === 0;
+          })) {
+      return performSave(changes);
+    } else {
+      return profileGate.require(function () {
+                  performSave(changes);
+                });
+    }
   };
   var isLoggedIn = Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
               return v.user;
@@ -267,7 +280,8 @@ function AvailabilityPage$AvailabilityContent(props) {
                       existingEvents: existingEvents,
                       demand: demand,
                       courtAvailability: courtAvailability
-                    })
+                    }),
+                profileGate.modal
               ]
             });
 }

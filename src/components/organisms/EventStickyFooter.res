@@ -66,7 +66,8 @@ let make = (
   ~waitlistCount: int,
   ~maxRsvps: int,
   ~tz: string,
-  ~queryFragmentRefs: RescriptRelay.fragmentRefs<[> #ProfileModal_viewer]>,
+  ~queryFragmentRefs: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
+  ~hasComputedRating: bool,
   ~charging: bool,
   ~onPayClick: unit => unit,
 ) => {
@@ -76,19 +77,12 @@ let make = (
   let (joinEvent, joining) = JoinEventMutation.use()
   let (leaveEvent, leaving) = LeaveEventMutation.use()
 
-  let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
-  let (pendingJoinAction, setPendingJoinAction) = React.useState(() => None)
+  let profileGate = UseProfileGate.use(
+    ~query=queryFragmentRefs,
+    ~context=ProfileModal.Join,
+    ~hasComputedRating,
+  )
   let (showLeaveConfirm, setShowLeaveConfirm) = React.useState(() => false)
-
-  let hasCompleteProfile = () =>
-    switch viewerUser {
-    | Some(user) =>
-      switch (user.lineUsername, user.email) {
-      | (Some(u), Some(e)) => u != "" && e != ""
-      | _ => false
-      }
-    | None => false
-    }
 
   let performLeave = () => {
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -116,12 +110,7 @@ let make = (
       )
       joinEvent(~variables={eventId: event.id, connections: [connectionId]})->ignore
     }
-    if hasCompleteProfile() {
-      proceed()
-    } else {
-      setPendingJoinAction(_ => Some(proceed))
-      setIsProfileModalOpen(_ => true)
-    }
+    profileGate.require(proceed)
   }
 
   switch (event.deleted, viewerUser) {
@@ -410,18 +399,7 @@ let make = (
               </>
             }}
           </div>
-          <ProfileModal
-            isOpen=isProfileModalOpen
-            onClose={_ => {
-              setIsProfileModalOpen(_ => false)
-              setPendingJoinAction(_ => None)
-            }}
-            onProfileComplete={() => {
-              pendingJoinAction->Option.forEach(action => action())
-              setPendingJoinAction(_ => None)
-            }}
-            query=queryFragmentRefs
-          />
+          {profileGate.modal}
           <ConfirmDialog
             title={t`Leave event`}
             description={t`There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?`}

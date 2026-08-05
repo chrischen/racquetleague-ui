@@ -11,8 +11,13 @@ module Types = {
   }
   @live
   and response_updateProfile_viewer = {
+    biography: option<string>,
+    email: option<string>,
+    fullName: option<string>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
+    lineUsername: option<string>,
+    selfRating: option<float>,
   }
   @live
   and response_updateProfile = {
@@ -145,7 +150,42 @@ v1 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
+            "name": "lineUsername",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "email",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "fullName",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "biography",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
             "name": "gender",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "selfRating",
             "storageKey": null
           }
         ],
@@ -191,12 +231,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "7aac7af8a11407177822d3ad40543ac8",
+    "cacheID": "a514364f4cb4affa07df595926cdb48b",
     "id": null,
     "metadata": {},
     "name": "ProfileModalUpdateProfileMutation",
     "operationKind": "mutation",
-    "text": "mutation ProfileModalUpdateProfileMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      gender\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation ProfileModalUpdateProfileMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n      selfRating\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

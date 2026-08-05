@@ -13,6 +13,7 @@ module Mutation = %relay(`
        lineUsername
        gender
        email
+       selfRating
      }
      errors {
        message
@@ -48,6 +49,7 @@ module QueryFragment = %relay(`
         lineUsername
         gender
         email
+        selfRating
       }
     }
   }
@@ -99,18 +101,24 @@ let make = (~query) => {
   let (stripeClientSecret, setStripeClientSecret) = React.useState(() => None)
   let (stripeCountry, setStripeCountry) = React.useState(() => "JP")
 
+  // The backend treats an unset gender as male, so there's no "prefer not to
+  // say" to offer — an unset profile just starts on male.
   let (gender, setGender) = React.useState(() =>
+    switch query.viewer
+    ->Option.flatMap(viewer => viewer.profile)
+    ->Option.flatMap(profile => profile.gender) {
+    | Some(RelaySchemaAssets_graphql.Female) =>
+      (Female: RelaySchemaAssets_graphql.enum_Gender_input)
+    | _ => Male
+    }
+  )
+
+  // selfRating is stored on the internal scale; the picker speaks DUPR.
+  let (level, setLevel) = React.useState(() =>
     query.viewer
     ->Option.flatMap(viewer => viewer.profile)
-    ->Option.flatMap(profile => profile.gender)
-    ->Option.flatMap(g =>
-      switch g {
-      | RelaySchemaAssets_graphql.Female =>
-        Some((RelaySchemaAssets_graphql.Female: RelaySchemaAssets_graphql.enum_Gender_input))
-      | Male => Some(Male)
-      | FutureAddedValue(_) => None
-      }
-    )
+    ->Option.flatMap(profile => profile.selfRating)
+    ->Option.map(mu => mu->Rating.guessDupr->LevelPicker.nearest)
   )
 
   let {register, handleSubmit, formState, setValue} = useFormOfInputs(
@@ -137,6 +145,9 @@ let make = (~query) => {
           profile.fullName->Option.forEach(v => setValue(FullName, Value(v)))
           profile.biography->Option.forEach(v => setValue(Biography, Value(v)))
           profile.lineUsername->Option.forEach(v => setValue(Username, Value(v)))
+          profile.selfRating->Option.forEach(
+            mu => setLevel(_ => Some(mu->Rating.guessDupr->LevelPicker.nearest)),
+          )
         },
       )
     })
@@ -144,14 +155,12 @@ let make = (~query) => {
   }, [query.viewer])
 
   let onSubmit = (data: inputs) => {
-    let baseInput: RelaySchemaAssets_graphql.input_UpdateProfileInput = {
+    let input: RelaySchemaAssets_graphql.input_UpdateProfileInput = {
       fullName: data.fullName,
       biography: data.biography,
       username: data.username,
-    }
-    let input = switch gender {
-    | Some(g) => {...baseInput, gender: g}
-    | None => baseInput
+      gender,
+      selfRating: ?level->Option.map(Rating.duprToMu),
     }
     commitMutation(
       ~variables={
@@ -237,21 +246,18 @@ let make = (~query) => {
                     id="gender"
                     className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100"
                     value={switch gender {
-                    | Some(RelaySchemaAssets_graphql.Female) => "female"
-                    | Some(Male) => "male"
-                    | None => ""
+                    | RelaySchemaAssets_graphql.Female => "female"
+                    | Male => "male"
                     }}
                     onChange={e => {
                       let value = (e->ReactEvent.Form.target)["value"]
                       setGender(_ =>
                         switch value {
-                        | "female" => Some(RelaySchemaAssets_graphql.Female)
-                        | "male" => Some(Male)
-                        | _ => None
+                        | "female" => RelaySchemaAssets_graphql.Female
+                        | _ => Male
                         }
                       )
                     }}>
-                    <option value=""> {(ts`Prefer not to say`)->React.string} </option>
                     <option value="male"> {(ts`Male`)->React.string} </option>
                     <option value="female"> {(ts`Female`)->React.string} </option>
                   </select>
@@ -280,6 +286,20 @@ let make = (~query) => {
                   </p>
                 | _ => React.null
                 }}
+              </div>
+              <div>
+                <label
+                  className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+                  {t`Level`}
+                </label>
+                <LevelPicker value=level onChange={v => setLevel(_ => Some(v))} />
+                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                  {switch level {
+                  | Some(v) =>
+                    (ts`Estimated DUPR` ++ ": " ++ v->Float.toFixed(~digits=2))->React.string
+                  | None => (ts`Your self-reported skill level`)->React.string
+                  }}
+                </p>
               </div>
               <div>
                 <SeekingPartnerInput seekingPartner={None} onChange={_ => ()} />

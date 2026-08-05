@@ -7,7 +7,7 @@ module Query = %relay(`
     $afterDate: Datetime
     $token: String
   ) {
-    ...PkEventRow_query
+    ...UseProfileGate_query
     club(slug: $slug) {
       ...ClubEventsListFragment @arguments(
         after: $after

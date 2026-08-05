@@ -16,6 +16,7 @@ module Query = %relay(`
       ...ClubDetails_club
       ...ClubEventsListFragment @arguments(afterDate: $afterDate)
     }
+    ...UseProfileGate_query
     viewer {
       ...AddEventButton_viewer
     }
@@ -76,6 +77,7 @@ let make = () => {
                   context={clubId: ?Some(c.id)}
                   createBasePath={"/clubs/" ++ urlParams.slug ++ "/events/create"}
                   viewer={v.fragmentRefs}
+                  gateQuery={query.fragmentRefs}
                 />
               )
               ->Option.getOr(React.null)}

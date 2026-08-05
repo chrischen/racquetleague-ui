@@ -2,14 +2,15 @@
 %%raw("import { t } from '@lingui/macro'")
 
 module EventsQuery = %relay(`
-  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!, $location: LocationInput) {
+  query EventsQuery($after: String, $first: Int, $before: String, $afterDate: Datetime, $filters: EventFilters, $availabilityFromDate: String!, $availabilityToDate: String!, $location: LocationInput, $activitySlug: String!) {
     ...PkEventsListFragment @arguments(
       after: $after,
       first: $first,
       before: $before,
       afterDate: $afterDate,
       filters: $filters,
-      location: $location
+      location: $location,
+      activitySlug: $activitySlug
     )
     ...PkEventsAvailabilityDay_query @arguments(
       fromDate: $availabilityFromDate,
@@ -177,6 +178,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
           activitySlug: ?params.activitySlug,
           shadow,
         },
+        activitySlug: params.activitySlug->Option.getOr("pickleball"),
       },
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     ),

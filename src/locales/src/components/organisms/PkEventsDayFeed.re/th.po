@@ -115,7 +115,7 @@ msgstr "ว่าง"
 msgid "Cancel editing availability"
 msgstr "ยกเลิกการแก้ไขความพร้อม"
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:23
+#: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
 msgstr "คอร์ท"
 

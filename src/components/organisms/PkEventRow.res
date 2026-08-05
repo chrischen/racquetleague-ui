@@ -63,12 +63,6 @@ module LeaveEventMutation = %relay(`
   }
 `)
 
-module QueryFragment = %relay(`
-  fragment PkEventRow_query on Query {
-    ...ProfileModal_viewer
-  }
-`)
-
 let ts = Lingui.UtilString.t
 
 type viewerRsvpStatus = Confirmed | Waitlist | Pending
@@ -224,9 +218,8 @@ let make = (
   ~onHoverLocation: option<option<string> => unit>=?,
   ~dimmed: bool=false,
   ~waitlistCount: int=0,
-  ~query: RescriptRelay.fragmentRefs<[> #PkEventRow_query]>,
+  ~query: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
 ) => {
-  let queryData = QueryFragment.use(query)
   let {
     __id,
     id,
@@ -361,8 +354,7 @@ let make = (
   let (commitJoin, _) = JoinEventMutation.use()
   let (commitLeave, _) = LeaveEventMutation.use()
   let (showLeaveConfirm, setShowLeaveConfirm) = React.useState(() => false)
-  let (isProfileModalOpen, setIsProfileModalOpen) = React.useState(() => false)
-  let (pendingJoinAction, setPendingJoinAction) = React.useState((): option<unit => unit> => None)
+  let profileGate = UseProfileGate.use(~query, ~context=ProfileModal.Join)
   let (showCanceledDetails, setShowCanceledDetails) = React.useState(() => false)
 
   let getConnectionId = () =>
@@ -388,24 +380,7 @@ let make = (
     )->RescriptRelay.Disposable.ignore
   }
 
-  let hasCompleteProfile = () =>
-    switch viewer {
-    | Some(v) =>
-      switch (v.lineUsername, v.email) {
-      | (Some(u), Some(e)) => u != "" && e != ""
-      | _ => false
-      }
-    | None => false
-    }
-
-  let doJoinWithProfileCheck = () => {
-    if hasCompleteProfile() {
-      proceed()
-    } else {
-      setPendingJoinAction(_ => Some(proceed))
-      setIsProfileModalOpen(_ => true)
-    }
-  }
+  let doJoinWithProfileCheck = () => profileGate.require(proceed)
 
   let confirmedRsvpNodes =
     rsvps
@@ -805,17 +780,6 @@ let make = (
       isOpen={showLeaveConfirm}
       onConfirmed={_ => onLeave()}
     />
-    <ProfileModal
-      isOpen=isProfileModalOpen
-      onClose={() => {
-        setIsProfileModalOpen(_ => false)
-        setPendingJoinAction(_ => None)
-      }}
-      onProfileComplete={() => {
-        pendingJoinAction->Option.forEach(action => action())
-        setPendingJoinAction(_ => None)
-      }}
-      query=queryData.fragmentRefs
-    />
+    {profileGate.modal}
   </div>
 }

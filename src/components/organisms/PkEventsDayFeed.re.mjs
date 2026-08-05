@@ -13,11 +13,15 @@ import { t } from '@lingui/macro'
 ;
 
 function PkEventsDayFeed(props) {
+  var __requireProfile = props.requireProfile;
   var onRefetchNeeded = props.onRefetchNeeded;
   var hasHiddenPreview = props.hasHiddenPreview;
   var activityId = props.activityId;
   var localDate = props.localDate;
   var data = props.data;
+  var requireProfile = __requireProfile !== undefined ? __requireProfile : (function (action) {
+        action();
+      });
   var match = UseSetAvailabilityDay.use();
   var commitDay = match[0];
   var genericCourtName = t`Court`;
@@ -68,9 +72,16 @@ function PkEventsDayFeed(props) {
               };
       });
   var onAvailabilityChange = function (newIntents) {
-    commitDay(localDate, activityId, UseSetAvailabilityDay.intervalsOfIntents(newIntents), (function (_res, _err) {
-            onRefetchNeeded();
-          }));
+    var commit = function () {
+      commitDay(localDate, activityId, UseSetAvailabilityDay.intervalsOfIntents(newIntents), (function (_res, _err) {
+              onRefetchNeeded();
+            }));
+    };
+    if (newIntents.length === 0) {
+      return commit();
+    } else {
+      return requireProfile(commit);
+    }
   };
   var startOf = function (item) {
     if (item.TAG === "FeedEvent") {

@@ -15,11 +15,13 @@ let make = (
   ~context: AIAssistantModal.context={},
   ~createBasePath: option<string>=?,
   ~viewer: RescriptRelay.fragmentRefs<[> #AddEventButton_viewer]>,
+  ~gateQuery: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
 ) => {
   open Lingui.Util
   let viewerData = ViewerFragment.use(viewer)
   let isLoggedIn = viewerData.user->Option.isSome
   let navigate = Router.useNavigate()
+  let profileGate = UseProfileGate.use(~query=gateQuery, ~context=ProfileModal.Availability)
 
   let (showModal, setShowModal) = React.useState(() => false)
   let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
@@ -115,9 +117,11 @@ let make = (
       <NewPlanModal.make
         isOpen=showModal
         onClose={_ => setShowModal(_ => false)}
-        onMarkAvailable=handleMarkAvailable
+        onMarkAvailable={(localDate, intents) =>
+          profileGate.require(() => handleMarkAvailable(localDate, intents))}
         onCreateEvent=handleCreateEvent
       />
+      {profileGate.modal}
     </>}
   </WaitForMessages>
 }

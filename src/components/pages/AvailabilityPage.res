@@ -2,6 +2,7 @@
 
 module Query = %relay(`
   query AvailabilityPageQuery($activityId: ID!, $fromDate: String!, $toDate: String!, $afterDate: Datetime, $location: LocationInput) {
+    ...UseProfileGate_query
     # The location the server scoped this data to (location arg → user.coords →
     # named default). region (symbolic named default) drives the selected option
     # when set; coords is always present for display.
@@ -104,9 +105,14 @@ external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderDat
 module AvailabilityContent = {
   @react.component
   let make = (~queryRef: AvailabilityPageQuery_graphql.queryRef) => {
-    let {viewer, availabilityUsersForDateRange, locationsAvailability, resolvedLocation} = Query.usePreloaded(
-      ~queryRef,
-    )
+    let {
+      viewer,
+      availabilityUsersForDateRange,
+      locationsAvailability,
+      resolvedLocation,
+      fragmentRefs,
+    } = Query.usePreloaded(~queryRef)
+    let profileGate = UseProfileGate.use(~query=fragmentRefs, ~context=ProfileModal.Availability)
     let intl = ReactIntl.useIntl()
     let (isSaving, setIsSaving) = React.useState(() => false)
     let (commitDays, _) = UseSetAvailabilityDay.useSetDays()
@@ -248,7 +254,7 @@ module AvailabilityContent = {
       acc
     })
 
-    let handleSave = (changes: array<AvailabilityGrid.intervalUpdate>) => {
+    let performSave = (changes: array<AvailabilityGrid.intervalUpdate>) => {
       setIsSaving(_ => true)
       // One activity, all edited days, one round-trip.
       let days = changes->Array.map((change): RelaySchemaAssets_graphql.input_AvailabilityDayInput => {
@@ -278,6 +284,14 @@ module AvailabilityContent = {
       )
     }
 
+    // Clearing every edited day isn't sharing anything, so it stays ungated.
+    let handleSave = (changes: array<AvailabilityGrid.intervalUpdate>) =>
+      if changes->Array.every(c => c.intervals->Array.length == 0) {
+        performSave(changes)
+      } else {
+        profileGate.require(() => performSave(changes))
+      }
+
     // Location filter bar: picking Tokyo / near-me writes the `coords` URL param
     // (re-runs the loader → re-scopes this page's availability) and, for logged-
     // in viewers, persists the coords as their home location for future loads.
@@ -292,6 +306,7 @@ module AvailabilityContent = {
       <VerticalAvailabilityGrid.make
         days onSave=handleSave isSaving existingEvents demand courtAvailability
       />
+      {profileGate.modal}
     </>
   }
 }

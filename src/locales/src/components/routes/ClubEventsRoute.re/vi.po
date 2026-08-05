@@ -37,9 +37,13 @@ msgstr "2 · Giờ"
 msgid "3 · What kind?"
 msgstr "3 · Loại gì?"
 
-#: src/components/organisms/AddEventButton.re.mjs:124
+#: src/components/organisms/AddEventButton.re.mjs:115
 msgid "Add an Event"
 msgstr "Thêm sự kiện"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "Nâng cao"
 
 #: src/components/organisms/NewPlanModal.re.mjs:92
 msgid "Afternoon"
@@ -49,9 +53,40 @@ msgstr "Buổi chiều"
 msgid "Anytime"
 msgstr "Bất kỳ lúc nào"
 
-#: src/components/pages/ClubEventsPage.re.mjs:128
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "Người mới bắt đầu"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "Tiểu sử"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "Tiểu sử là bắt buộc"
+
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "Đóng biểu mẫu hồ sơ"
+
+#: src/components/pages/ClubEventsPage.re.mjs:129
 msgid "Club not found"
 msgstr "Không tìm thấy câu lạc bộ"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "Hoàn toàn mới bắt đầu"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
+"tổ chức."
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
@@ -61,6 +96,13 @@ msgstr "Tiếp tục"
 msgid "Copied!"
 msgstr "Đã sao chép!"
 
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
+
 #: src/components/organisms/NewPlanModal.re.mjs:399
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
@@ -69,9 +111,45 @@ msgstr ""
 "Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
 "bạn chọn địa điểm và luật chơi."
 
+#: src/components/organisms/ProfileModal.re.mjs:477
+msgid "Display name"
+msgstr "Tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:109
+msgid "Display name is required"
+msgstr "Cần có tên hiển thị"
+
+#: src/components/organisms/ProfileModal.re.mjs:364
+msgid "Email address"
+msgstr "Địa chỉ email"
+
+#: src/components/organisms/ProfileModal.re.mjs:281
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
+
+#: src/components/organisms/ProfileModal.re.mjs:112
+msgid "Email is required"
+msgstr "Cần có email"
+
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
 msgstr "Buổi tối"
+
+#: src/components/organisms/ProfileModal.re.mjs:501
+msgid "Female"
+msgstr "Nữ"
+
+#: src/components/organisms/ProfileModal.re.mjs:357
+msgid "For event updates and notifications"
+msgstr "Để nhận cập nhật và thông báo về sự kiện"
+
+#: src/components/organisms/ProfileModal.re.mjs:491
+msgid "Gender"
+msgstr "Giới tính"
 
 #: src/components/organisms/NewPlanModal.re.mjs:392
 msgid "Host an event"
@@ -81,9 +159,33 @@ msgstr "Tổ chức sự kiện"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
-#: src/components/pages/ClubEventsPage.re.mjs:121
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "Cách người chơi khác nhìn thấy bạn"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "Trung cấp"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "Trung cấp+"
+
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "Trình độ"
+
+#: src/components/pages/ClubEventsPage.re.mjs:122
 msgid "Loading events..."
 msgstr "Đang tải sự kiện..."
+
+#: src/components/organisms/ProfileModal.re.mjs:497
+msgid "Male"
+msgstr "Nam"
 
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
@@ -97,9 +199,17 @@ msgstr "Buổi sáng"
 msgid "New plan"
 msgstr "Kế hoạch mới"
 
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "Không phải bây giờ"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "Chuyên nghiệp"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -109,9 +219,21 @@ msgstr "Xóa"
 msgid "Save"
 msgstr "Lưu"
 
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "Lưu hồ sơ"
+
 #: src/components/organisms/NewPlanModal.re.mjs:414
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
+"họ nên mời bạn."
 
 #: src/components/pages/ClubEventsPage.re.mjs:88
 msgid "Share link"
@@ -135,6 +257,11 @@ msgstr "Hôm nay"
 #: src/components/organisms/NewPlanModal.re.mjs:51
 msgid "Tomorrow"
 msgstr "Ngày mai"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"

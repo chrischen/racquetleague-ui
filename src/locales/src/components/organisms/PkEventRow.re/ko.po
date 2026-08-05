@@ -13,41 +13,77 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkEventRow.re.mjs:738
-#: src/components/organisms/PkEventRow.re.mjs:826
+#: src/components/organisms/PkEventRow.re.mjs:686
+#: src/components/organisms/PkEventRow.re.mjs:774
 msgid "[missing title]"
 msgstr "[제목 없음]"
 
-#: src/components/organisms/PkEventRow.re.mjs:149
-#: src/components/organisms/PkEventRow.re.mjs:206
+#: src/components/organisms/PkEventRow.re.mjs:130
+#: src/components/organisms/PkEventRow.re.mjs:187
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "고급"
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
 msgstr "상급자"
 
-#: src/components/organisms/PkEventRow.re.mjs:742
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "초급"
+
+#: src/components/organisms/ProfileModal.re.mjs:527
+msgid "Biography"
+msgstr "자기소개"
+
+#: src/components/organisms/ProfileModal.re.mjs:117
+msgid "Biography is required"
+msgstr "자기소개를 입력해주세요"
+
+#: src/components/organisms/PkEventRow.re.mjs:690
 msgid "Canceled"
 msgstr "취소됨"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-msgid "Complete your profile"
-msgstr "프로필 완성하기"
+#: src/components/organisms/ProfileModal.re.mjs:460
+msgid "Close profile form"
+msgstr "프로필 양식 닫기"
 
-#: src/components/organisms/ProfileModal.re.mjs:358
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "완전 초급"
+
+#: src/components/organisms/ProfileModal.re.mjs:444
+msgid "Complete your player profile"
+msgstr "플레이어 프로필을 완성하세요"
+
+#: src/components/organisms/ProfileModal.re.mjs:306
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:257
+#: src/components/organisms/ProfileModal.re.mjs:266
+#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:296
+msgid "Could not save your profile. Please try again."
+msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
 msgstr "표시 이름"
 
-#: src/components/organisms/ProfileModal.re.mjs:106
+#: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr "표시 이름이 필요합니다"
 
-#: src/components/organisms/ProfileModal.re.mjs:375
+#: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "이메일 주소"
 
-#: src/components/organisms/ProfileModal.re.mjs:226
+#: src/components/organisms/ProfileModal.re.mjs:281
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -55,11 +91,7 @@ msgstr ""
 "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
 "인하세요."
 
-#: src/components/organisms/ProfileModal.re.mjs:303
-msgid "Email cannot be changed"
-msgstr "이메일은 변경할 수 없습니다"
-
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "이메일이 필요합니다"
 
@@ -67,15 +99,15 @@ msgstr "이메일이 필요합니다"
 msgid "Event tag: {tag}"
 msgstr "이벤트 태그: {tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:405
+#: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/organisms/ProfileModal.re.mjs:391
+#: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "성별"
 
@@ -83,27 +115,47 @@ msgstr "성별"
 msgid "Highly skilled players"
 msgstr "고급 플레이어"
 
-#: src/components/organisms/PkEventRow.re.mjs:609
+#: src/components/organisms/ProfileModal.re.mjs:480
+msgid "How other players will see you"
+msgstr "다른 플레이어에게 보여지는 모습"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "중급"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "중급+"
+
+#: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Join"
 msgstr "참가"
 
-#: src/components/organisms/PkEventRow.re.mjs:240
+#: src/components/organisms/PkEventRow.re.mjs:221
 msgid "Joined"
 msgstr "참가함"
 
-#: src/components/organisms/PkEventRow.re.mjs:608
+#: src/components/organisms/ProfileModal.re.mjs:309
+msgid "Keep your player profile accurate and useful to the community."
+msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
+
+#: src/components/organisms/PkEventRow.re.mjs:556
 msgid "Leave"
 msgstr "나가기"
 
-#: src/components/organisms/PkEventRow.re.mjs:1009
+#: src/components/organisms/PkEventRow.re.mjs:957
 msgid "Leave event"
 msgstr "이벤트 나가기"
+
+#: src/components/organisms/ProfileModal.re.mjs:542
+msgid "Level"
+msgstr "레벨"
 
 #: src/components/atoms/EventTag.re.mjs:34
 msgid "Lower intermediate and above"
 msgstr "중하급 이상"
 
-#: src/components/organisms/ProfileModal.re.mjs:401
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "남성"
 
@@ -115,28 +167,32 @@ msgstr "경기 결과가 DUPR에 제출됩니다."
 msgid "No restriction on skill level. Open to all players."
 msgstr "실력 제한 없음. 모든 플레이어 환영."
 
-#: src/components/organisms/PkEventRow.re.mjs:279
+#: src/components/organisms/ProfileModal.re.mjs:565
+msgid "Not now"
+msgstr "나중에"
+
+#: src/components/organisms/PkEventRow.re.mjs:260
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/components/organisms/PkEventRow.re.mjs:150
-#: src/components/organisms/PkEventRow.re.mjs:207
+#: src/components/organisms/PkEventRow.re.mjs:131
+#: src/components/organisms/PkEventRow.re.mjs:188
 msgid "player"
 msgstr "플레이어"
 
-#: src/components/organisms/PkEventRow.re.mjs:151
-#: src/components/organisms/PkEventRow.re.mjs:208
+#: src/components/organisms/PkEventRow.re.mjs:132
+#: src/components/organisms/PkEventRow.re.mjs:189
 msgid "players"
 msgstr "플레이어"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-msgid "Prefer not to say"
-msgstr "밝히지 않음"
 
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
 msgstr "비공개"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "프로"
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
@@ -156,15 +212,23 @@ msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 �
 msgid "Results will be submitted to competitive ratings."
 msgstr "결과가 경쟁 레이팅에 제출됩니다."
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-msgid "Save & Join Event"
-msgstr "저장 & 이벤트 참가"
+#: src/components/organisms/ProfileModal.re.mjs:579
+msgid "Save profile"
+msgstr "프로필 저장"
+
+#: src/components/organisms/ProfileModal.re.mjs:530
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
+"주세요."
 
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "기술 향상을 위한 스킬 연습 및 드릴"
 
-#: src/components/organisms/PkEventRow.re.mjs:1010
+#: src/components/organisms/PkEventRow.re.mjs:958
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -178,22 +242,38 @@ msgid ""
 "from the organizer."
 msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
 
-#: src/components/organisms/ProfileModal.re.mjs:278
-msgid "This is how others will see you"
-msgstr "다른 사람들에게 이렇게 보입니다"
-
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "중상급 이상"
 
-#: src/components/organisms/PkEventRow.re.mjs:609
+#: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Waitlist"
 msgstr "대기자 명단"
 
-#: src/components/organisms/PkEventRow.re.mjs:272
+#: src/components/organisms/PkEventRow.re.mjs:253
 msgid "Waitlisted"
 msgstr "대기자 명단 등록됨"
 
-#: src/components/organisms/ProfileModal.re.mjs:339
+#: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "프로필 완성하기"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "이메일은 변경할 수 없습니다"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "밝히지 않음"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "저장 & 이벤트 참가"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "다른 사람들에게 이렇게 보입니다"

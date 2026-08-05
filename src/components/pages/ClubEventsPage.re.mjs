@@ -106,7 +106,8 @@ function ClubEventsPage(props) {
                                                                                             clubId: c.id
                                                                                           },
                                                                                           createBasePath: "/clubs/" + urlParams.slug + "/events/create",
-                                                                                          viewer: v.fragmentRefs
+                                                                                          viewer: v.fragmentRefs,
+                                                                                          gateQuery: query.fragmentRefs
                                                                                         });
                                                                             })), null)
                                                                 ],

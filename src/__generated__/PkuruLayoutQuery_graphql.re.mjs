@@ -19,13 +19,13 @@ function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {"__root":{"viewer":{"f":""}}};
+var wrapResponseConverter = {"__root":{"viewer":{"f":""},"":{"f":""}}};
 
 function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, undefined, null);
 }
 
-var responseConverter = {"__root":{"viewer":{"f":""}}};
+var responseConverter = {"__root":{"viewer":{"f":""},"":{"f":""}}};
 
 function convertResponse(v) {
   return RescriptRelay.convertObj(v, responseConverter, undefined, undefined);
@@ -55,7 +55,10 @@ var v0 = {
   "name": "id",
   "storageKey": null
 },
-v1 = {
+v1 = [
+  (v0/*: any*/)
+],
+v2 = {
   "alias": null,
   "args": null,
   "concreteType": "ViewerMetadata",
@@ -73,6 +76,13 @@ v1 = {
     }
   ],
   "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "lineUsername",
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -81,6 +91,11 @@ return {
     "metadata": null,
     "name": "PkuruLayoutQuery",
     "selections": [
+      {
+        "args": null,
+        "kind": "FragmentSpread",
+        "name": "UseProfileGate_query"
+      },
       {
         "alias": null,
         "args": null,
@@ -96,12 +111,10 @@ return {
             "kind": "LinkedField",
             "name": "user",
             "plural": false,
-            "selections": [
-              (v0/*: any*/)
-            ],
+            "selections": (v1/*: any*/),
             "storageKey": null
           },
-          (v1/*: any*/),
+          (v2/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -143,17 +156,75 @@ return {
             "args": null,
             "concreteType": "User",
             "kind": "LinkedField",
-            "name": "user",
+            "name": "profile",
             "plural": false,
             "selections": [
               (v0/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "lineUsername",
+                "name": "email",
                 "storageKey": null
               },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "fullName",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "biography",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "gender",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "selfRating",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "activitySlug",
+                    "value": "pickleball"
+                  }
+                ],
+                "concreteType": "Rating",
+                "kind": "LinkedField",
+                "name": "rating",
+                "plural": false,
+                "selections": (v1/*: any*/),
+                "storageKey": "rating(activitySlug:\"pickleball\")"
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v0/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -171,7 +242,7 @@ return {
             ],
             "storageKey": null
           },
-          (v1/*: any*/),
+          (v2/*: any*/),
           {
             "alias": null,
             "args": [
@@ -246,12 +317,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "434ec98527a3df2e351d57332d79c200",
+    "cacheID": "e138abe0128a2eecea24bee9b8c42cc0",
     "id": null,
     "metadata": {},
     "name": "PkuruLayoutQuery",
     "operationKind": "query",
-    "text": "query PkuruLayoutQuery {\n  viewer {\n    user {\n      id\n    }\n    viewerMetadata {\n      id\n      unreadInboxCount\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n"
+    "text": "query PkuruLayoutQuery {\n  ...UseProfileGate_query\n  viewer {\n    user {\n      id\n    }\n    viewerMetadata {\n      id\n      unreadInboxCount\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n      selfRating\n    }\n  }\n}\n\nfragment UseProfileGate_query on Query {\n  ...ProfileModal_viewer\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      biography\n      selfRating\n      rating(activitySlug: \"pickleball\") {\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })());

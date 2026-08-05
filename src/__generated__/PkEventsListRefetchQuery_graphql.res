@@ -15,6 +15,7 @@ module Types = {
   type rawResponse = response
   @live
   type variables = {
+    activitySlug?: string,
     after?: string,
     afterDate?: Util.Datetime.t,
     before?: string,
@@ -24,6 +25,7 @@ module Types = {
   }
   @live
   type refetchVariables = {
+    activitySlug: option<option<string>>,
     after: option<option<string>>,
     afterDate: option<option<Util.Datetime.t>>,
     before: option<option<string>>,
@@ -32,6 +34,7 @@ module Types = {
     location: option<option<locationInput>>,
   }
   @live let makeRefetchVariables = (
+    ~activitySlug=?,
     ~after=?,
     ~afterDate=?,
     ~before=?,
@@ -39,6 +42,7 @@ module Types = {
     ~first=?,
     ~location=?,
   ): refetchVariables => {
+    activitySlug: activitySlug,
     after: after,
     afterDate: afterDate,
     before: before,
@@ -131,6 +135,11 @@ type operationType = RescriptRelay.queryNode<relayOperationNode>
 let node: operationType = %raw(json` (function(){
 var v0 = [
   {
+    "defaultValue": "pickleball",
+    "kind": "LocalArgument",
+    "name": "activitySlug"
+  },
+  {
     "defaultValue": null,
     "kind": "LocalArgument",
     "name": "after"
@@ -163,74 +172,79 @@ var v0 = [
 ],
 v1 = {
   "kind": "Variable",
+  "name": "activitySlug",
+  "variableName": "activitySlug"
+},
+v2 = {
+  "kind": "Variable",
   "name": "after",
   "variableName": "after"
 },
-v2 = {
+v3 = {
   "kind": "Variable",
   "name": "afterDate",
   "variableName": "afterDate"
 },
-v3 = {
+v4 = {
   "kind": "Variable",
   "name": "before",
   "variableName": "before"
 },
-v4 = {
+v5 = {
   "kind": "Variable",
   "name": "filters",
   "variableName": "filters"
 },
-v5 = {
+v6 = {
   "kind": "Variable",
   "name": "first",
   "variableName": "first"
 },
-v6 = {
+v7 = {
   "kind": "Variable",
   "name": "location",
   "variableName": "location"
 },
-v7 = {
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v8 = {
+v9 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "lineUsername",
   "storageKey": null
 },
-v9 = {
+v10 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "email",
   "storageKey": null
 },
-v10 = [
+v11 = [
+  (v8/*: any*/)
+],
+v12 = [
   {
     "kind": "Literal",
     "name": "first",
     "value": 100
   }
 ],
-v11 = [
-  (v7/*: any*/)
-],
-v12 = [
-  (v1/*: any*/),
+v13 = [
   (v2/*: any*/),
   (v3/*: any*/),
   (v4/*: any*/),
-  (v5/*: any*/)
+  (v5/*: any*/),
+  (v6/*: any*/)
 ],
-v13 = [
-  (v7/*: any*/),
+v14 = [
+  (v8/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -239,28 +253,28 @@ v13 = [
     "storageKey": null
   }
 ],
-v14 = {
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v15 = {
+v16 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "cursor",
   "storageKey": null
 },
-v16 = {
+v17 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "endCursor",
   "storageKey": null
 },
-v17 = {
+v18 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -281,7 +295,8 @@ return {
           (v3/*: any*/),
           (v4/*: any*/),
           (v5/*: any*/),
-          (v6/*: any*/)
+          (v6/*: any*/),
+          (v7/*: any*/)
         ],
         "kind": "FragmentSpread",
         "name": "PkEventsListFragment"
@@ -299,7 +314,7 @@ return {
       {
         "alias": null,
         "args": [
-          (v6/*: any*/)
+          (v7/*: any*/)
         ],
         "concreteType": "ResolvedLocation",
         "kind": "LinkedField",
@@ -357,9 +372,9 @@ return {
             "name": "profile",
             "plural": false,
             "selections": [
-              (v7/*: any*/),
               (v8/*: any*/),
               (v9/*: any*/),
+              (v10/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -380,6 +395,25 @@ return {
                 "kind": "ScalarField",
                 "name": "gender",
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "selfRating",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": [
+                  (v1/*: any*/)
+                ],
+                "concreteType": "Rating",
+                "kind": "LinkedField",
+                "name": "rating",
+                "plural": false,
+                "selections": (v11/*: any*/),
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -392,15 +426,15 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v7/*: any*/),
               (v8/*: any*/),
-              (v9/*: any*/)
+              (v9/*: any*/),
+              (v10/*: any*/)
             ],
             "storageKey": null
           },
           {
             "alias": null,
-            "args": (v10/*: any*/),
+            "args": (v12/*: any*/),
             "concreteType": "ClubConnection",
             "kind": "LinkedField",
             "name": "clubs",
@@ -435,7 +469,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v12/*: any*/),
+        "args": (v13/*: any*/),
         "concreteType": "EventConnection",
         "kind": "LinkedField",
         "name": "events",
@@ -457,7 +491,7 @@ return {
                 "name": "node",
                 "plural": false,
                 "selections": [
-                  (v7/*: any*/),
+                  (v8/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -479,7 +513,7 @@ return {
                     "kind": "LinkedField",
                     "name": "location",
                     "plural": false,
-                    "selections": (v13/*: any*/),
+                    "selections": (v14/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -510,7 +544,7 @@ return {
                     "kind": "LinkedField",
                     "name": "club",
                     "plural": false,
-                    "selections": (v13/*: any*/),
+                    "selections": (v14/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -522,7 +556,7 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v10/*: any*/),
+                    "args": (v12/*: any*/),
                     "concreteType": "EventRsvpConnection",
                     "kind": "LinkedField",
                     "name": "rsvps",
@@ -544,7 +578,7 @@ return {
                             "name": "node",
                             "plural": false,
                             "selections": [
-                              (v7/*: any*/),
+                              (v8/*: any*/),
                               {
                                 "alias": null,
                                 "args": null,
@@ -577,15 +611,15 @@ return {
                                     "name": "mu",
                                     "storageKey": null
                                   },
-                                  (v7/*: any*/)
+                                  (v8/*: any*/)
                                 ],
                                 "storageKey": null
                               },
-                              (v14/*: any*/)
+                              (v15/*: any*/)
                             ],
                             "storageKey": null
                           },
-                          (v15/*: any*/)
+                          (v16/*: any*/)
                         ],
                         "storageKey": null
                       },
@@ -597,8 +631,8 @@ return {
                         "name": "pageInfo",
                         "plural": false,
                         "selections": [
-                          (v16/*: any*/),
-                          (v17/*: any*/)
+                          (v17/*: any*/),
+                          (v18/*: any*/)
                         ],
                         "storageKey": null
                       }
@@ -607,7 +641,7 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v10/*: any*/),
+                    "args": (v12/*: any*/),
                     "filters": null,
                     "handle": "connection",
                     "key": "PkEventRow_event_rsvps",
@@ -654,11 +688,11 @@ return {
                       }
                     ]
                   },
-                  (v14/*: any*/)
+                  (v15/*: any*/)
                 ],
                 "storageKey": null
               },
-              (v15/*: any*/)
+              (v16/*: any*/)
             ],
             "storageKey": null
           },
@@ -670,7 +704,7 @@ return {
             "name": "pageInfo",
             "plural": false,
             "selections": [
-              (v17/*: any*/),
+              (v18/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -678,7 +712,7 @@ return {
                 "name": "hasPreviousPage",
                 "storageKey": null
               },
-              (v16/*: any*/),
+              (v17/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -694,7 +728,7 @@ return {
       },
       {
         "alias": null,
-        "args": (v12/*: any*/),
+        "args": (v13/*: any*/),
         "filters": [
           "filters",
           "afterDate"
@@ -707,12 +741,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "572daf28d0fea9155199573874dc9f45",
+    "cacheID": "2caa19f8387348f1b11b9e16d50fd62b",
     "id": null,
     "metadata": {},
     "name": "PkEventsListRefetchQuery",
     "operationKind": "query",
-    "text": "query PkEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $filters: EventFilters\n  $first: Int = 20\n  $location: LocationInput\n) {\n  ...PkEventsListFragment_22UyTt\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n\nfragment PkEventRow_query on Query {\n  ...ProfileModal_viewer\n}\n\nfragment PkEventRow_user on User {\n  id\n  lineUsername\n  email\n}\n\nfragment PkEventsListFragment_22UyTt on Query {\n  resolvedLocation(location: $location) {\n    coords {\n      lat\n      lng\n    }\n    region\n  }\n  ...PkEventRow_query\n  viewer {\n    user {\n      id\n      ...PkEventRow_user\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        listed\n        deleted\n        club {\n          id\n        }\n        maxRsvps\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n    }\n  }\n}\n"
+    "text": "query PkEventsListRefetchQuery(\n  $activitySlug: String = \"pickleball\"\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $filters: EventFilters\n  $first: Int = 20\n  $location: LocationInput\n) {\n  ...PkEventsListFragment_3RKaCC\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n\nfragment PkEventRow_user on User {\n  id\n  lineUsername\n  email\n}\n\nfragment PkEventsListFragment_3RKaCC on Query {\n  resolvedLocation(location: $location) {\n    coords {\n      lat\n      lng\n    }\n    region\n  }\n  ...UseProfileGate_query_36AXNO\n  viewer {\n    user {\n      id\n      ...PkEventRow_user\n    }\n    clubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n  events(after: $after, first: $first, before: $before, filters: $filters, afterDate: $afterDate) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        location {\n          id\n        }\n        shadow\n        listed\n        deleted\n        club {\n          id\n        }\n        maxRsvps\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n      selfRating\n    }\n  }\n}\n\nfragment UseProfileGate_query_36AXNO on Query {\n  ...ProfileModal_viewer\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      biography\n      selfRating\n      rating(activitySlug: $activitySlug) {\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

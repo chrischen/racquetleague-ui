@@ -527,6 +527,7 @@ and input_UpdateProfileInput = {
   biography: string,
   fullName: string,
   gender?: enum_Gender_input,
+  selfRating?: float,
   username: string,
 }
 
@@ -535,6 +536,7 @@ and input_UpdateProfileInput_nullable = {
   biography: string,
   fullName: string,
   gender?: Js.Null.t<enum_Gender_input>,
+  selfRating?: Js.Null.t<float>,
   username: string,
 }
 

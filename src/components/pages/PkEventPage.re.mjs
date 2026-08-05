@@ -811,6 +811,9 @@ function PkEventPage$Inner(props) {
                       maxRsvps: maxRsvps,
                       tz: tz,
                       queryFragmentRefs: queryFragmentRefs,
+                      hasComputedRating: Core__Option.isSome(Core__Option.flatMap(viewerUser, (function (u) {
+                                  return u.eventRating;
+                                }))),
                       charging: match$4[1] || match$5[1] || match$6[1],
                       onPayClick: (function () {
                           Core__Option.forEach(viewerRsvpNode, (function (rsvp) {

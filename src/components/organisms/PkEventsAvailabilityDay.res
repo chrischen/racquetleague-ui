@@ -219,6 +219,7 @@ let make = (
   ~isLoggedIn: bool,
   ~onCreateEvent: unit => unit,
   ~renderHeader: React.element => React.element,
+  ~requireProfile: (unit => unit) => unit=action => action(),
 ) => {
   let viewerUserId = data.viewer->Option.flatMap(v => v.user)->Option.map(u => u.id)
 
@@ -305,5 +306,6 @@ let make = (
     isLoggedIn
     onCreateEvent
     renderHeader
+    requireProfile
   />
 }

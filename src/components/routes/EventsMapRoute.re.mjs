@@ -59,6 +59,7 @@ async function loader(param) {
   }
   return {
           data: EventsMapPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
+                activitySlug: activity,
                 after: after,
                 afterDate: afterDate,
                 availabilityFromDate: new Date().toISOString().slice(0, 10),

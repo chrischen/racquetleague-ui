@@ -11,6 +11,7 @@ module Types = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
+    selfRating: option<float>,
   }
   and fragment_viewer = {
     profile: option<fragment_viewer_profile>,
@@ -128,6 +129,13 @@ let node: operationType = %raw(json` {
               "args": null,
               "kind": "ScalarField",
               "name": "gender",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "selfRating",
               "storageKey": null
             }
           ],

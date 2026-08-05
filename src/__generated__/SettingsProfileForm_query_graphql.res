@@ -11,6 +11,7 @@ module Types = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
+    selfRating: option<float>,
   }
   and fragment_viewer_user = {
     stripeAccountId: option<string>,
@@ -166,6 +167,13 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
               "args": null,
               "kind": "ScalarField",
               "name": "email",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "selfRating",
               "storageKey": null
             }
           ],

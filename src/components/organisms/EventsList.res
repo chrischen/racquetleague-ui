@@ -14,6 +14,7 @@ module Fragment = %relay(`
   )
   @refetchable(queryName: "EventsListRefetchQuery")
   {
+    ...UseProfileGate_query
     viewer {
       user {
         ...EventItem_user
@@ -508,7 +509,9 @@ let make = (~events, ~header: React.element, ~context: AIAssistantModal.context=
             </div>
             <div className="mx-4 mb-4 mt-4">
               {viewer
-              ->Option.map(v => <AddEventButton context viewer={v.fragmentRefs} />)
+              ->Option.map(v =>
+                <AddEventButton context viewer={v.fragmentRefs} gateQuery={data.fragmentRefs} />
+              )
               ->Option.getOr(React.null)}
             </div>
             {filterByDate

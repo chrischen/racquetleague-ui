@@ -139,7 +139,7 @@ msgstr ""
 #~ msgid "Continuous court availability"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsDayFeed.re.mjs:23
+#: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
 msgstr ""
 

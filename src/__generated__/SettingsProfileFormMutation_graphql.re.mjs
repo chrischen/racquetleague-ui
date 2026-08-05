@@ -125,6 +125,13 @@ v1 = [
             "kind": "ScalarField",
             "name": "email",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "selfRating",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -169,12 +176,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "705cf6d4673c48a4c045b3a6c24a1654",
+    "cacheID": "8d08ee85276e1b1074449e9f6b94fc91",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormMutation",
     "operationKind": "mutation",
-    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation SettingsProfileFormMutation(\n  $input: UpdateProfileInput!\n) {\n  updateProfile(input: $input) {\n    viewer {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());
