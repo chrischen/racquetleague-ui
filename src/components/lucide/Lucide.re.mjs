@@ -83,6 +83,8 @@ var ChevronDown = {};
 
 var Search = {};
 
+var SlidersHorizontal = {};
+
 var Sparkles = {};
 
 var Crown = {};
@@ -231,6 +233,7 @@ export {
   ChevronsUp ,
   ChevronDown ,
   Search ,
+  SlidersHorizontal ,
   Sparkles ,
   Crown ,
   Gift ,

@@ -43,7 +43,7 @@ msgstr "[タイトルがありません]"
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
 #: src/components/molecules/PlayIntentRow.re.mjs:319
 #: src/components/molecules/PlayIntentRow.re.mjs:491
-#: src/components/organisms/PkEventsList.re.mjs:224
+#: src/components/organisms/PkEventsList.re.mjs:238
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -210,13 +210,9 @@ msgstr "← 前へ"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-msgid ""
-"A good availability match for {eventTitle}. Invite them now to reserve a "
-"place in the event conversation."
-msgstr ""
-"{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会話"
-"に参加させましょう。"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+msgid "About"
+msgstr "について"
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -237,6 +233,10 @@ msgstr "上級プレイヤー"
 #: src/components/molecules/PlayIntentRow.re.mjs:260
 msgid "Afternoon"
 msgstr "午後"
+
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "全レベル"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:248
 msgid "Anytime"
@@ -268,17 +268,21 @@ msgstr "デポジットを承認する"
 msgid "Available"
 msgstr "参加可能"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
 msgid "Available for the full event"
 msgstr "イベント全体に参加可能"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
 msgid "Back to event"
 msgstr "イベントに戻る"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:219
 msgid "balanced"
 msgstr "バランス"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "記録されたプレイに基づく"
 
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
@@ -345,6 +349,10 @@ msgstr "変数 \\\"title\\\" にアクセスできません"
 msgid "Capture payment"
 msgstr "支払いを確定"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "変更"
+
 #: src/components/molecules/PlayIntentRow.re.mjs:647
 msgid "Change times"
 msgstr "時間を変更"
@@ -358,11 +366,15 @@ msgstr "参加する"
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
+#: src/components/molecules/LocationFilter.re.mjs:102
+msgid "Clear"
+msgstr "クリア"
+
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
 msgid "Close swipe invitations"
 msgstr "スワイプ招待を閉じる"
 
@@ -384,6 +396,10 @@ msgid ""
 msgstr ""
 "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
 "い。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "算出されたレーティング"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:454
 #: src/components/organisms/EventLocationAvailability.re.mjs:496
@@ -469,6 +485,10 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Done"
+msgstr "完了"
+
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:425
 msgid "Drag or resize within"
 msgstr "範囲内でドラッグまたはリサイズ"
@@ -523,9 +543,13 @@ msgid "Evening"
 msgstr "夜"
 
 #: src/components/shared/EventsListView.re.mjs:139
-#: src/components/organisms/PkEventsList.re.mjs:227
+#: src/components/organisms/PkEventsList.re.mjs:241
 msgid "event"
 msgstr "イベント"
+
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "イベントフィルター"
 
 #: src/components/pages/PkEventPage.re.mjs:917
 msgid "Event not found"
@@ -540,21 +564,18 @@ msgid "Event updated"
 msgstr "イベントを更新しました"
 
 #: src/components/shared/EventsListView.re.mjs:140
-#: src/components/organisms/PkEventsList.re.mjs:228
+#: src/components/organisms/PkEventsList.re.mjs:242
 msgid "events"
 msgstr "イベント"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
 msgid "Everyone reviewed"
 msgstr "全員確認済み"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
 msgid "Female"
 msgstr "女性"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-msgid "Filter by location"
-msgstr "場所で絞り込む"
 
 #: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
@@ -568,7 +589,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:434
 msgid "Friday"
 msgstr "金曜日"
 
@@ -579,6 +600,11 @@ msgstr "満員"
 #: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "性別"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "性別未提供"
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
@@ -612,35 +638,35 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/EventInvites.re.mjs:321
+#: src/components/organisms/EventInvites.re.mjs:318
 msgid "invite"
 msgstr "招待する"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
 msgid "INVITE"
 msgstr "招待する"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
 msgid "Invite {0}"
 msgstr "{0}を招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
 msgid "Invite players"
 msgstr "プレイヤーを招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-msgid "Invite to {eventTitle}"
-msgstr "{eventTitle}に招待"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "{0}に招待"
 
-#: src/components/organisms/EventInvites.re.mjs:405
+#: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "招待済みおよび候補プレイヤー"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-msgid "Invited players have moved into the event’s invited list."
-msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "招待されたプレイヤーがイベントの招待リストに移動しました。"
 
-#: src/components/organisms/EventInvites.re.mjs:271
+#: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
 msgstr "招待 · {0}"
 
@@ -698,12 +724,12 @@ msgstr "レベル"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:208
 msgid "Locating…"
 msgstr "位置情報を取得中…"
 
 #: src/components/pages/PkEventPage.re.mjs:335
-#: src/components/molecules/LocationFilter.re.mjs:49
+#: src/components/molecules/LocationFilter.re.mjs:161
 msgid "Location"
 msgstr "場所"
 
@@ -712,6 +738,10 @@ msgid "Location access was denied. Allow access or choose a venue."
 msgstr ""
 "位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
 "ださい。"
+
+#: src/components/molecules/LocationFilter.re.mjs:127
+msgid "Location:"
+msgstr "場所:"
 
 #: src/components/organisms/ScoreModal.re.mjs:165
 msgid "Losing Team (Team {0})"
@@ -722,6 +752,7 @@ msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
 #: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
 msgid "Male"
 msgstr "男性"
 
@@ -738,11 +769,15 @@ msgstr "試合結果はDUPRに提出されます。"
 msgid "MEDIAN"
 msgstr "中央値"
 
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "最低イベントレベル"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:390
+#: src/components/organisms/PkEventsList.re.mjs:422
 msgid "Monday"
 msgstr "月曜日"
 
@@ -759,12 +794,15 @@ msgstr "午前"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/molecules/LocationFilter.re.mjs:59
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:171
 msgid "Near me"
 msgstr "現在地付近"
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "現在地付近 · {radius} km"
+
+#: src/components/organisms/PkEventsList.re.mjs:443
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -801,6 +839,14 @@ msgstr "利用不可"
 msgid "Not now"
 msgstr "後で"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "未提供"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "未評価"
+
 #: src/components/pages/PkEventPage.re.mjs:758
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
@@ -809,9 +855,13 @@ msgstr "ホストからのメモ"
 msgid "On waitlist"
 msgstr "キャンセル待ち中"
 
-#: src/components/organisms/EventInvites.re.mjs:325
+#: src/components/organisms/EventInvites.re.mjs:322
 msgid "Open invite actions for {0}"
 msgstr "{0}の招待アクションを開く"
+
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "空きスポット"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:351
 msgid "Open the {dayWord} timeline to edit your availability"
@@ -864,10 +914,6 @@ msgstr "保留中 · {0}"
 #: src/components/organisms/EventStickyFooter.re.mjs:229
 msgid "Pending approval"
 msgstr "承認待ち"
-
-#: src/components/molecules/LocationFilter.re.mjs:36
-msgid "Pick a location or use your current location."
-msgstr "場所を選択するか、現在地を使用してください。"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:550
 msgid "Pick one time window to host an event"
@@ -997,7 +1043,7 @@ msgstr "予約する"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/EventInvites.re.mjs:288
+#: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "スワイプカードで{0}人の候補プレイヤーを確認"
 
@@ -1014,7 +1060,7 @@ msgstr "ラウンドロビン組み合わせ"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:405
+#: src/components/organisms/PkEventsList.re.mjs:437
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -1039,7 +1085,11 @@ msgstr "スコアを保存"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/organisms/EventInvites.re.mjs:374
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "自己評価"
+
+#: src/components/organisms/EventInvites.re.mjs:371
 msgid "Send invite"
 msgstr "招待を送る"
 
@@ -1063,7 +1113,7 @@ msgstr ""
 "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
 "ください。"
 
-#: src/components/organisms/PkEventsList.re.mjs:290
+#: src/components/organisms/PkEventsList.re.mjs:304
 msgid "Show {0} more"
 msgstr "{0}件をさらに表示"
 
@@ -1079,11 +1129,11 @@ msgstr "折りたたむ"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
 msgid "SKIP"
 msgstr "スキップ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
 msgid "Skip {0}"
 msgstr "{0}をスキップ"
 
@@ -1095,15 +1145,15 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/organisms/PkEventsList.re.mjs:387
+#: src/components/organisms/PkEventsList.re.mjs:419
 msgid "Sunday"
 msgstr "日曜日"
 
-#: src/components/organisms/EventInvites.re.mjs:286
+#: src/components/organisms/EventInvites.re.mjs:283
 msgid "Swipe invites"
 msgstr "スワイプ招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
 msgid "Swipe left to skip · right to invite"
 msgstr "左にスワイプでスキップ・右にスワイプで招待"
 
@@ -1188,7 +1238,7 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkEventsList.re.mjs:399
+#: src/components/organisms/PkEventsList.re.mjs:431
 msgid "Thursday"
 msgstr "木曜日"
 
@@ -1197,7 +1247,7 @@ msgid "to {0}"
 msgstr "{0}まで"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:370
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Today"
 msgstr "今日"
 
@@ -1206,7 +1256,7 @@ msgid "Tokyo"
 msgstr "東京"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:376
+#: src/components/organisms/PkEventsList.re.mjs:408
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -1214,7 +1264,7 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/organisms/PkEventsList.re.mjs:393
+#: src/components/organisms/PkEventsList.re.mjs:425
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -1230,6 +1280,10 @@ msgstr "中上級以上"
 msgid "Use location"
 msgstr "場所を使用"
 
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "現在地付近を使用"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "オプションを使用"
@@ -1243,7 +1297,7 @@ msgid "View Full Draws"
 msgstr "組み合わせを見る"
 
 #: src/components/organisms/RsvpOptions.re.mjs:239
-#: src/components/organisms/EventInvites.re.mjs:357
+#: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
@@ -1277,7 +1331,7 @@ msgstr "イベントに招待されました"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/PkEventsList.re.mjs:396
+#: src/components/organisms/PkEventsList.re.mjs:428
 msgid "Wednesday"
 msgstr "水曜日"
 
@@ -1301,11 +1355,7 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/molecules/LocationFilter.re.mjs:28
-msgid "Within {0} km · {1}, {2}"
-msgstr "{0} km以内・{1}、{2}"
-
-#: src/components/organisms/PkEventsList.re.mjs:410
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Yesterday"
 msgstr "昨日"
 
@@ -1504,6 +1554,14 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "🚫 CANCELED"
 #~ msgstr "🚫 キャンセル"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid ""
+#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
+#~ "place in the event conversation."
+#~ msgstr ""
+#~ "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会"
+#~ "話に参加させましょう。"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:195
 #~ msgid ""
 #~ "A small hold will be placed on your card and fully refunded after the "
@@ -1632,6 +1690,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgid "Event Details"
 #~ msgstr "イベント詳細"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "場所で絞り込む"
+
 #: src/components/organisms/EventsList.re.mjs:424
 #~ msgid "filtering by date"
 #~ msgstr "日付でフィルタリング"
@@ -1656,6 +1718,14 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/pages/Events.re.mjs:177
 #~ msgid "include private"
 #~ msgstr "プライベートを含める"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "{eventTitle}に招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
 
 #: src/components/organisms/EventItem.re.mjs:313
 #~ msgid "join event"
@@ -1685,11 +1755,6 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/pages/Events.re.mjs:212
 #~ msgid "loading events..."
 #~ msgstr "イベントを読み込んでいます..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
-#~ msgid "Location:"
-#~ msgstr "場所:"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
@@ -1759,6 +1824,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/EventItem.re.mjs:272
 #~ msgid "pending"
 #~ msgstr "保留中"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "場所を選択するか、現在地を使用してください。"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:626
 #~ msgid "Pick time →"
@@ -1886,6 +1955,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/PkEventsList.re.mjs:224
 #~ msgid "When can you play?"
 #~ msgstr "いつプレーできますか？"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "{0} km以内・{1}、{2}"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:501
 #~ msgid "You"

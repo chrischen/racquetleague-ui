@@ -5397,6 +5397,67 @@ msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解
 msgid "Your self-reported skill level"
 msgstr "您自行申報的技術等級"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "根據已記錄的比賽"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "計算評級"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "未提供性別"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "邀請至 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "受邀玩家已移至活動的受邀名單。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "未提供"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "尚未評級"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "自我評級"
+
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "所有級別"
+
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "變更"
+
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "活動篩選"
+
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "最低活動級別"
+
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "附近 · {radius} 公里"
+
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "開放名額"
+
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "使用附近位置"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -125,7 +125,8 @@ function LocationFilterControl(props) {
               nearbyRadiusKm: 10,
               errorMessage: match$3[0],
               onSelectLocation: onSelectLocation,
-              onNearMe: onNearMe
+              onNearMe: onNearMe,
+              eventFilters: props.eventFilters
             });
 }
 

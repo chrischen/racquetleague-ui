@@ -239,6 +239,65 @@ describe("CostModel preset profiles", () => {
   });
 });
 
+describe("CostModel foursome-repeat tier", () => {
+  // Legacy's `repeatedGroup` tier, restored. Without it, an exact rerun and a
+  // never-played matchup built from equally worn pairs tie exactly, and the
+  // solver would sometimes re-deal yesterday's match while fresh matchups
+  // existed.
+  const rr = CostModel.weightsForStrategy("SolverRoundRobin");
+  const players = makePool(8); // flat pool: quality terms inert
+
+  const played: Match = [
+    [players[0], players[1]],
+    [players[2], players[3]],
+  ];
+  const history = CostModel.buildHistory([toRound([played])], players);
+
+  it("charges any rerun of the foursome, regardless of split", () => {
+    expect(CostModel.costParts(rr, history, played).repeatGroup).toBeCloseTo(0.4, 6);
+    const differentSplit: Match = [
+      [players[0], players[2]],
+      [players[1], players[3]],
+    ];
+    expect(
+      CostModel.costParts(rr, history, differentSplit).repeatGroup,
+    ).toBeCloseTo(0.4, 6);
+    const freshFoursome: Match = [
+      [players[4], players[5]],
+      [players[6], players[7]],
+    ];
+    expect(CostModel.costParts(rr, history, freshFoursome).repeatGroup).toBe(0);
+  });
+
+  it("sits between partners and opponents, like the legacy tier order", () => {
+    // teams (1e6) > group (1e5) > opponents (1e2), in our scale: one partner
+    // repeat (0.4 * 1000) > one foursome rerun (0.4 * 600) > the entire
+    // opponent range (500 * 0.4 with the /4 normalization = 200).
+    expect(0.4 * rr.wPartner).toBeGreaterThan(0.4 * rr.wRepeatGroup);
+    expect(0.4 * rr.wRepeatGroup).toBeGreaterThan(200);
+  });
+
+  it("breaks the rerun tie the pair counts cannot see", () => {
+    // Both candidates use only pairs worn exactly once; only the group term
+    // tells them apart.
+    const rerunCost = CostModel.candidateCost(rr, history, played, 0);
+    const wornButNovel: Match = [
+      [players[0], players[2]],
+      [players[1], players[3]],
+    ];
+    // Same foursome, different split: pairs fresh, group worn — still dearer
+    // than a genuinely fresh foursome.
+    const differentSplitCost = CostModel.candidateCost(rr, history, wornButNovel, 0);
+    const fresh: Match = [
+      [players[4], players[5]],
+      [players[6], players[7]],
+    ];
+    const freshCost = CostModel.candidateCost(rr, history, fresh, 0);
+    expect(rerunCost).toBeGreaterThan(differentSplitCost);
+    expect(differentSplitCost).toBeGreaterThan(freshCost);
+  });
+});
+
 describe("CostModel side derivation", () => {
   // Ratings at the time of the match, not current ratings.
   const strongThen = (id: string) =>

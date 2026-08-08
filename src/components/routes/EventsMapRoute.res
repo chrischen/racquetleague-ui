@@ -54,6 +54,14 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
     ->Router.SearchParams.get(UseUserLocation.locationParamKey)
     ->Option.flatMap(UseUserLocation.locationInputFromParam)
 
+  // Level filter: the `level` URL param (set by the filter toolbar) is a
+  // DUPR-scale value; EventFilters.rating is denominated on the internal scale.
+  let rating =
+    url.searchParams
+    ->Router.SearchParams.get("level")
+    ->Option.flatMap(Float.fromString)
+    ->Option.map(Rating.duprToMu)
+
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
     WaitForMessages.data: EventsMapPageQuery_graphql.load(
@@ -70,6 +78,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         filters: {
           activitySlug: activity,
           shadow,
+          ?rating,
         },
         activitySlug: activity,
       },

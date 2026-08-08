@@ -399,6 +399,15 @@ input EventFilters {
   activitySlug: String
   clubSlug: String
   locationId: ID
+
+  """
+  Only include events advertised at this skill level or above, i.e. events
+   whose minRating is at or above this value. Events with no minRating are
+   "all level" and declare no specific level, so they do NOT match a level
+   request; omit this field to include them. Denominated on the internal
+   rating scale; clients convert from external scales such as DUPR.
+  """
+  rating: Float
   shadow: Boolean
   userId: ID
   viewer: Boolean

@@ -75,45 +75,39 @@ function DrawGenerator(props) {
   var solverAvailable = allowSolverStrategies && React.useMemo((function () {
           return HighsBindings.isAvailable();
         }), []);
-  var strategyOptions = [
+  var strategyOptions = solverAvailable ? [
+      {
+        value: "SolverRoundRobin",
+        label: t`Round Robin`,
+        description: t`Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing.`
+      },
+      {
+        value: "SolverRandomBalanced",
+        label: t`Random Balanced`,
+        description: t`Fresh, varied matchups every round, with each match's teams balanced by skill.`
+      },
+      {
+        value: "SolverCompetitivePlus",
+        label: t`Competitive+`,
+        description: t`Optimised draws that prioritise evenly matched games within a skill band.`
+      }
+    ] : [
       {
         value: "CompetitivePlus",
         label: t`Competitive`,
-        description: t`Players will be divided into similar skill level groups that round-robin with teams balanced by skill.`,
-        beta: false
+        description: t`Players will be divided into similar skill level groups that round-robin with teams balanced by skill.`
       },
       {
         value: "Mixed",
         label: t`Mixed`,
-        description: t`Round-Robin with teams balanced by skill.`,
-        beta: false
+        description: t`Round-Robin with teams balanced by skill.`
       },
       {
         value: "NoveltyRoundRobin",
         label: t`Round-Robin`,
-        description: t`Classic round-robin draws`,
-        beta: false
+        description: t`Classic round-robin draws`
       }
-    ].concat(solverAvailable ? [
-          {
-            value: "SolverRoundRobin",
-            label: t`Round Robin`,
-            description: t`Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing.`,
-            beta: true
-          },
-          {
-            value: "SolverRandomBalanced",
-            label: t`Random Balanced`,
-            description: t`Fresh, varied matchups every round, with each match's teams balanced by skill.`,
-            beta: true
-          },
-          {
-            value: "SolverCompetitivePlus",
-            label: t`Competitive+`,
-            description: t`Optimised draws that prioritise evenly matched games within a skill band.`,
-            beta: true
-          }
-        ] : []);
+    ];
   var minPlayersRequired = (courtCount << 2);
   var canGenerate = checkedInPlayerCount >= minPlayersRequired && !isGenerating;
   var isPulsing = (match$1[0] || isGenerating) && !isExpanded;
@@ -185,16 +179,8 @@ function DrawGenerator(props) {
                                         className: "text-sm text-slate-600 font-medium"
                                       }),
                                   strategyOptions.map(function (option) {
-                                        return JsxRuntime.jsxs("button", {
-                                                    children: [
-                                                      option.label,
-                                                      option.beta ? JsxRuntime.jsx("span", {
-                                                              children: t`Beta`,
-                                                              className: "px-1 py-0.5 rounded text-[9px] font-bold uppercase tracking-wide " + (
-                                                                strategy === option.value ? "bg-blue-500 text-white" : "bg-slate-300 text-slate-700"
-                                                              )
-                                                            }) : null
-                                                    ],
+                                        return JsxRuntime.jsx("button", {
+                                                    children: option.label,
                                                     className: "flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded transition-colors " + (
                                                       strategy === option.value ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                                                     ),

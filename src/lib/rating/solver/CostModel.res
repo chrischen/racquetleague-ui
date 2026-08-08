@@ -31,6 +31,13 @@ type costWeights = {
   wPartner: float, // repeat partnerships
   wOpponent: float, // repeat opponents
   wRepeatLast: float, // same team / same foursome as the previous round
+  // Same foursome as *any* previous round — legacy's `repeatedGroup` tier.
+  // Load-bearing, not redundant with the pair counts: once every pair in a
+  // neighbourhood has been worn once, an exact rerun and a never-played
+  // matchup built from equally worn pairs cost identically at pair level (an
+  // exact 600-600 tie at the novelty presets), and the solver would re-deal
+  // yesterday's match while fresh matchups existed. This term breaks that tie.
+  wRepeatGroup: float,
   // Whether each foursome must use its most balanced team split. A boolean on
   // purpose: within a single match, balanced vs unbalanced is a yes/no
   // property — a foursome has three splits and "balanced" means taking the
@@ -86,7 +93,7 @@ let maxPlayerBenefit = wByeDeficit +. wByeStreak +. wPriority +. maxCohortWeight
 // Exact upper bound on `candidateCost` for a given weight set. Balance is
 // absent: it is a filter, not a cost term.
 let maxMatchCost = (w: costWeights): float =>
-  w.wPartner +. w.wOpponent +. w.wRepeatLast +. w.wSpread +. w.wAlternate +. w.wNoise
+  w.wPartner +. w.wOpponent +. w.wRepeatLast +. w.wRepeatGroup +. w.wSpread +. w.wAlternate +. w.wNoise
 
 // ---------------------------------------------------------------------------
 // UI configuration -> weights
@@ -150,6 +157,7 @@ let weightsFromConfig = (config: uiWeightConfig): costWeights => {
     wPartner,
     wOpponent: Js.Math.round(wPartner /. 5.),
     wRepeatLast: Js.Math.round(wPartner /. 2.),
+    wRepeatGroup: Js.Math.round(wPartner *. 0.6),
     // The variety end of the primary slider is quality-blind; everywhere else
     // balanced splits are simply on.
     balanceTeams: t >= 0.2,
@@ -167,6 +175,7 @@ let weightsFromConfig = (config: uiWeightConfig): costWeights => {
       wPartner: logScale(a.partnerVariety),
       wOpponent: logScale(a.opponentVariety),
       wRepeatLast: logScale(a.avoidRecentRepeats),
+      wRepeatGroup: Js.Math.round(logScale(a.partnerVariety) *. 0.6),
       balanceTeams: a.balanceTeams,
       wSpread: spreadWeightFor(a.similarSkill),
       wAlternate: Js.Math.round(maxWeight *. clamp01(a.alternateFavored)),
@@ -219,6 +228,7 @@ let randomWeights: costWeights = {
   wPartner: 0.,
   wOpponent: 0.,
   wRepeatLast: 0.,
+  wRepeatGroup: 0.,
   balanceTeams: false,
   wSpread: minSpreadWeight,
   wAlternate: 0.,
@@ -261,6 +271,10 @@ let noveltyFirstBase: costWeights = {
   // too, not just partners.
   wOpponent: 500.,
   wRepeatLast: 500.,
+  // One foursome rerun (0.4 * 600 = 240) outweighs the whole opponent range
+  // (200) but stays under one partner repeat (400): teams > group > opponents,
+  // the legacy tier order.
+  wRepeatGroup: 600.,
   // Splits are balanced by construction (the toggle is a hard filter), so no
   // weight arithmetic is involved and novelty dominance is untouched.
   balanceTeams: true,
@@ -440,6 +454,8 @@ let pairId = (p1: Player.t<'a>, p2: Player.t<'a>): string => [p1, p2]->Team.toSt
 type history = {
   partnerCount: Map.t<string, int>, // pairId -> times on the same team
   opponentCount: Map.t<string, int>, // pairId -> times on opposite teams
+  // foursome (Match.toStableId) -> times those four shared a court
+  matchGroupCount: Map.t<string, int>,
   lastRoundTeams: Set.t<string>,
   lastRoundMatches: Set.t<string>,
   satOutLastRound: Set.t<string>, // players who took a bye in the previous round
@@ -465,6 +481,7 @@ type history = {
 let emptyHistory: history = {
   partnerCount: Map.make(),
   opponentCount: Map.make(),
+  matchGroupCount: Map.make(),
   lastRoundTeams: Set.make(),
   lastRoundMatches: Set.make(),
   satOutLastRound: Set.make(),
@@ -489,6 +506,7 @@ let buildHistory = (
 ): history => {
   let partnerCount = Map.make()
   let opponentCount = Map.make()
+  let matchGroupCount = Map.make()
   let lastSide = Map.make()
   let lastByeRound = Map.make()
   let lastRoundTeams = Set.make()
@@ -514,6 +532,7 @@ let buildHistory = (
       })
 
       noveltyOpponentPairIds(match)->Array.forEach(id => bump(opponentCount, id))
+      bump(matchGroupCount, match->Match.toStableId)
 
       if isLastRound {
         lastRoundMatches->Set.add(match->Match.toStableId)
@@ -573,6 +592,7 @@ let buildHistory = (
   {
     partnerCount,
     opponentCount,
+    matchGroupCount,
     lastRoundTeams,
     lastRoundMatches,
     satOutLastRound,
@@ -660,6 +680,7 @@ type costParts = {
   partner: float,
   opponent: float,
   repeatLast: float,
+  repeatGroup: float,
   balance: float,
   spread: float,
   alternate: float,
@@ -690,6 +711,10 @@ let costParts = (~weights: costWeights, ~history: history, ~match: Match.t<'a>):
 
   // Repeating a *team* from the previous round is the thing players notice;
   // repeating the whole foursome with different partners is milder.
+  let repeatGroup = normalizedRepeat(
+    history.matchGroupCount->Map.get(match->Match.toStableId)->Option.getOr(0),
+  )
+
   let repeatLast = if teams->Array.some(t => history.lastRoundTeams->Set.has(t->Team.toStableId)) {
     1.
   } else if history.lastRoundMatches->Set.has(match->Match.toStableId) {
@@ -729,7 +754,7 @@ let costParts = (~weights: costWeights, ~history: history, ~match: Match.t<'a>):
     mismatchCount /. Js.Math.max_float(1., players->Array.length->Int.toFloat),
   )
 
-  {partner, opponent, repeatLast, balance, spread, alternate}
+  {partner, opponent, repeatLast, repeatGroup, balance, spread, alternate}
 }
 
 // Weighted cost of one candidate. Always in [0, maxMatchCost(weights)].
@@ -743,6 +768,7 @@ let candidateCost = (
   weights.wPartner *. p.partner +.
   weights.wOpponent *. p.opponent +.
   weights.wRepeatLast *. p.repeatLast +.
+  weights.wRepeatGroup *. p.repeatGroup +.
   weights.wSpread *. p.spread +.
   weights.wAlternate *. p.alternate +.
   weights.wNoise *. clamp01(noise)

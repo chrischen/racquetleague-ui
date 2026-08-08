@@ -5643,6 +5643,67 @@ msgstr "主催者や他のプレイヤーがあなたを招待すべき理由が
 msgid "Your self-reported skill level"
 msgstr "自己申告のスキルレベル"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "記録されたプレイに基づく"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "算出されたレーティング"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "性別未提供"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "{0}に招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "招待されたプレイヤーがイベントの招待リストに移動しました。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "未提供"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "未評価"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "自己評価"
+
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "全レベル"
+
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "変更"
+
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "イベントフィルター"
+
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "最低イベントレベル"
+
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "現在地付近 · {radius} km"
+
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "空きスポット"
+
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "現在地付近を使用"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

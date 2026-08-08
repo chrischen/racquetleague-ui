@@ -4939,6 +4939,67 @@ msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc ngư
 msgid "Your self-reported skill level"
 msgstr "Trình độ kỹ năng tự đánh giá của bạn"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "Dựa trên lượt chơi đã ghi nhận"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "Xếp hạng được tính toán"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "Chưa cung cấp giới tính"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "Mời vào {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "Người chơi được mời đã được chuyển vào danh sách mời của sự kiện."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "Chưa cung cấp"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "Chưa được xếp hạng"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "Tự xếp hạng"
+
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "Tất cả cấp độ"
+
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "Thay đổi"
+
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "Bộ lọc sự kiện"
+
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "Cấp độ sự kiện tối thiểu"
+
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "Gần tôi · {radius} km"
+
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "Còn chỗ trống"
+
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "Dùng vị trí gần tôi"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

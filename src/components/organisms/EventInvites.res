@@ -40,9 +40,10 @@ module InviteMutation = %relay(`
 
 // clubId is passed through when the event belongs to a club so candidates are
 // scoped to people the host can actually invite; null lets the server search
-// the activity at large.
+// the activity at large. activitySlug scopes the swipe deck's computed-rating
+// lookup to the event's sport.
 module CandidatesQuery = %relay(`
-  query EventInvitesCandidatesQuery($localDate: String!, $activityId: ID!, $clubId: ID) {
+  query EventInvitesCandidatesQuery($localDate: String!, $activityId: ID!, $clubId: ID, $activitySlug: String!) {
     availabilityUsersForDay(
       localDate: $localDate
       scope: { activityId: $activityId, clubId: $clubId }
@@ -53,6 +54,7 @@ module CandidatesQuery = %relay(`
         id
         lineUsername
         picture
+        ...PlayerInviteSwipeDeck_user @arguments(activitySlug: $activitySlug)
       }
       intervals {
         startHour
@@ -66,18 +68,7 @@ type candidate = {
   id: string,
   name: string,
   picture: option<string>,
-}
-
-module SwipeDeck = {
-  @module("./PlayerInviteSwipeDeck") @react.component
-  external make: (
-    ~players: array<candidate>,
-    ~eventTitle: string,
-    ~eventVenue: string,
-    ~eventTimeLabel: string,
-    ~onInvite: string => unit,
-    ~onClose: unit => unit,
-  ) => React.element = "PlayerInviteSwipeDeck"
+  user: RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>,
 }
 
 // Data-only child: the lazy availability query has to live in a component that
@@ -89,12 +80,13 @@ module CandidatesLoader = {
     ~localDate: string,
     ~activityId: string,
     ~clubId: option<string>,
+    ~activitySlug: string,
     ~evStart: float,
     ~evEnd: float,
     ~onLoaded: array<candidate> => unit,
   ) => {
     let data = CandidatesQuery.use(
-      ~variables={localDate, activityId, ?clubId},
+      ~variables={localDate, activityId, ?clubId, activitySlug},
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     )
     React.useEffect1(() => {
@@ -110,6 +102,7 @@ module CandidatesLoader = {
             id: u.id,
             name: u.lineUsername->Option.getOr("?"),
             picture: u.picture,
+            user: u.fragmentRefs,
           })
         )
       onLoaded(candidates)
@@ -225,7 +218,13 @@ let make = (
         | (Some((localDate, evStart, evEnd, _)), Some(activityId)) =>
           <React.Suspense fallback=React.null>
             <CandidatesLoader
-              localDate activityId clubId evStart evEnd onLoaded={c => setCandidates(_ => c)}
+              localDate
+              activityId
+              clubId
+              activitySlug={activitySlug->Option.getOr("pickleball")}
+              evStart
+              evEnd
+              onLoaded={c => setCandidates(_ => c)}
             />
           </React.Suspense>
         | _ => React.null
@@ -330,8 +329,12 @@ let make = (
           </ul>
           {switch (swipeOpen, window) {
           | (true, Some((_, _, _, timeLabel))) =>
-            <SwipeDeck
-              players=visibleCandidates
+            <PlayerInviteSwipeDeck
+              players={visibleCandidates->Array.map(c => {
+                PlayerInviteSwipeDeck.id: c.id,
+                name: c.name,
+                user: c.user,
+              })}
               eventTitle
               eventVenue=venueName
               eventTimeLabel=timeLabel

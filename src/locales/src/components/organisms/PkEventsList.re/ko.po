@@ -43,7 +43,7 @@ msgstr "[제목 없음]"
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
 #: src/components/molecules/PlayIntentRow.re.mjs:319
 #: src/components/molecules/PlayIntentRow.re.mjs:491
-#: src/components/organisms/PkEventsList.re.mjs:224
+#: src/components/organisms/PkEventsList.re.mjs:238
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
@@ -210,13 +210,9 @@ msgstr "← 이전"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-msgid ""
-"A good availability match for {eventTitle}. Invite them now to reserve a "
-"place in the event conversation."
-msgstr ""
-"{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대화"
-"에 자리를 확보하세요."
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+msgid "About"
+msgstr "소개"
 
 #: src/components/organisms/PkEventMessages.re.mjs:146
 msgid "Activity"
@@ -237,6 +233,10 @@ msgstr "상급자"
 #: src/components/molecules/PlayIntentRow.re.mjs:260
 msgid "Afternoon"
 msgstr "오후"
+
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "모든 레벨"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:248
 msgid "Anytime"
@@ -268,17 +268,21 @@ msgstr "보증금 승인"
 msgid "Available"
 msgstr "가능"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
 msgid "Available for the full event"
 msgstr "전체 이벤트 참가 가능"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
 msgid "Back to event"
 msgstr "이벤트로 돌아가기"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:219
 msgid "balanced"
 msgstr "균형"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "기록된 경기 기반"
 
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
@@ -344,6 +348,10 @@ msgstr "변수 \\\"title\\\"에 접근할 수 없습니다"
 msgid "Capture payment"
 msgstr "결제 승인"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "변경"
+
 #: src/components/molecules/PlayIntentRow.re.mjs:647
 msgid "Change times"
 msgstr "시간 변경"
@@ -357,11 +365,15 @@ msgstr "자리 확보"
 msgid "Claim spot · {0}"
 msgstr "참가 신청 · {0}"
 
+#: src/components/molecules/LocationFilter.re.mjs:102
+msgid "Clear"
+msgstr "지우기"
+
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "프로필 양식 닫기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
 msgid "Close swipe invitations"
 msgstr "스와이프 초대 닫기"
 
@@ -381,6 +393,10 @@ msgstr "플레이어 프로필을 완성하세요"
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "산출된 레이팅"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:454
 #: src/components/organisms/EventLocationAvailability.re.mjs:496
@@ -466,6 +482,10 @@ msgstr "표시 이름"
 msgid "Display name is required"
 msgstr "표시 이름이 필요합니다"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Done"
+msgstr "완료"
+
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:425
 msgid "Drag or resize within"
 msgstr "내에서 드래그하거나 크기 조정"
@@ -520,9 +540,13 @@ msgid "Evening"
 msgstr "저녁"
 
 #: src/components/shared/EventsListView.re.mjs:139
-#: src/components/organisms/PkEventsList.re.mjs:227
+#: src/components/organisms/PkEventsList.re.mjs:241
 msgid "event"
 msgstr "이벤트"
+
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "이벤트 필터"
 
 #: src/components/pages/PkEventPage.re.mjs:917
 msgid "Event not found"
@@ -537,21 +561,18 @@ msgid "Event updated"
 msgstr "이벤트가 업데이트되었습니다"
 
 #: src/components/shared/EventsListView.re.mjs:140
-#: src/components/organisms/PkEventsList.re.mjs:228
+#: src/components/organisms/PkEventsList.re.mjs:242
 msgid "events"
 msgstr "이벤트"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
 msgid "Everyone reviewed"
 msgstr "모두 검토 완료"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
 msgid "Female"
 msgstr "여성"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-msgid "Filter by location"
-msgstr "위치로 필터링"
 
 #: src/components/shared/EventsListView.re.mjs:114
 msgid "Filtered by date"
@@ -565,7 +586,7 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Free"
 msgstr "무료"
 
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:434
 msgid "Friday"
 msgstr "금요일"
 
@@ -576,6 +597,11 @@ msgstr "슬롯 마감"
 #: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "성별"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "성별 미제공"
 
 #: src/components/molecules/AddToCalendar.re.mjs:35
 msgid "Google Calendar"
@@ -609,35 +635,35 @@ msgstr "중급"
 msgid "Intermediate+"
 msgstr "중급+"
 
-#: src/components/organisms/EventInvites.re.mjs:321
+#: src/components/organisms/EventInvites.re.mjs:318
 msgid "invite"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
 msgid "INVITE"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
 msgid "Invite {0}"
 msgstr "{0} 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
 msgid "Invite players"
 msgstr "플레이어 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-msgid "Invite to {eventTitle}"
-msgstr "{eventTitle}에 초대"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "{0}에 초대"
 
-#: src/components/organisms/EventInvites.re.mjs:405
+#: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "초대된 플레이어 및 잠재적 플레이어"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-msgid "Invited players have moved into the event’s invited list."
-msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "초대된 플레이어가 이벤트의 초대 목록으로 이동되었습니다."
 
-#: src/components/organisms/EventInvites.re.mjs:271
+#: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
 msgstr "초대 · {0}"
 
@@ -695,18 +721,22 @@ msgstr "레벨"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:208
 msgid "Locating…"
 msgstr "위치 확인 중…"
 
 #: src/components/pages/PkEventPage.re.mjs:335
-#: src/components/molecules/LocationFilter.re.mjs:49
+#: src/components/molecules/LocationFilter.re.mjs:161
 msgid "Location"
 msgstr "장소"
 
 #: src/components/molecules/LocationFilterControl.re.mjs:104
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "위치 접근이 거부되었습니다. 접근을 허용하거나 장소를 선택하세요."
+
+#: src/components/molecules/LocationFilter.re.mjs:127
+msgid "Location:"
+msgstr "장소:"
 
 #: src/components/organisms/ScoreModal.re.mjs:165
 msgid "Losing Team (Team {0})"
@@ -717,6 +747,7 @@ msgid "Lower intermediate and above"
 msgstr "중하급 이상"
 
 #: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
 msgid "Male"
 msgstr "남성"
 
@@ -733,11 +764,15 @@ msgstr "경기 결과가 DUPR에 제출됩니다."
 msgid "MEDIAN"
 msgstr "중간값"
 
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "최소 이벤트 레벨"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
 msgstr "혼합"
 
-#: src/components/organisms/PkEventsList.re.mjs:390
+#: src/components/organisms/PkEventsList.re.mjs:422
 msgid "Monday"
 msgstr "월요일"
 
@@ -754,12 +789,15 @@ msgstr "오전"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/molecules/LocationFilter.re.mjs:59
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:171
 msgid "Near me"
 msgstr "내 근처"
 
-#: src/components/organisms/PkEventsList.re.mjs:411
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "내 근처 · {radius}km"
+
+#: src/components/organisms/PkEventsList.re.mjs:443
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
@@ -795,6 +833,14 @@ msgstr "사용 불가"
 msgid "Not now"
 msgstr "나중에"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "미제공"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "아직 평가되지 않음"
+
 #: src/components/pages/PkEventPage.re.mjs:758
 msgid "Notes from the host"
 msgstr "주최자 메모"
@@ -803,9 +849,13 @@ msgstr "주최자 메모"
 msgid "On waitlist"
 msgstr "대기 중"
 
-#: src/components/organisms/EventInvites.re.mjs:325
+#: src/components/organisms/EventInvites.re.mjs:322
 msgid "Open invite actions for {0}"
 msgstr "{0}의 초대 작업 열기"
+
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "빈 자리"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:351
 msgid "Open the {dayWord} timeline to edit your availability"
@@ -858,10 +908,6 @@ msgstr "대기 중 · {0}"
 #: src/components/organisms/EventStickyFooter.re.mjs:229
 msgid "Pending approval"
 msgstr "승인 대기 중"
-
-#: src/components/molecules/LocationFilter.re.mjs:36
-msgid "Pick a location or use your current location."
-msgstr "위치를 선택하거나 현재 위치를 사용하세요."
 
 #: src/components/molecules/PlayIntentRow.re.mjs:550
 msgid "Pick one time window to host an event"
@@ -991,7 +1037,7 @@ msgstr "예약"
 msgid "Results will be submitted to competitive ratings."
 msgstr "결과가 경쟁 레이팅에 제출됩니다."
 
-#: src/components/organisms/EventInvites.re.mjs:288
+#: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "스와이프 카드로 잠재적 플레이어 {0}명 검토"
 
@@ -1008,7 +1054,7 @@ msgstr "라운드 로빈 대진"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:405
+#: src/components/organisms/PkEventsList.re.mjs:437
 msgid "Saturday"
 msgstr "토요일"
 
@@ -1033,7 +1079,11 @@ msgstr "점수 저장"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/organisms/EventInvites.re.mjs:374
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "자가 평가"
+
+#: src/components/organisms/EventInvites.re.mjs:371
 msgid "Send invite"
 msgstr "초대 보내기"
 
@@ -1057,7 +1107,7 @@ msgstr ""
 "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
 "주세요."
 
-#: src/components/organisms/PkEventsList.re.mjs:290
+#: src/components/organisms/PkEventsList.re.mjs:304
 msgid "Show {0} more"
 msgstr "{0}개 더 보기"
 
@@ -1073,11 +1123,11 @@ msgstr "간략히 보기"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "기술 향상을 위한 스킬 연습 및 드릴"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
 msgid "SKIP"
 msgstr "건너뛰기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
 msgid "Skip {0}"
 msgstr "{0} 건너뛰기"
 
@@ -1089,15 +1139,15 @@ msgstr "시작 시간 순 정렬"
 msgid "SPREAD"
 msgstr "분산"
 
-#: src/components/organisms/PkEventsList.re.mjs:387
+#: src/components/organisms/PkEventsList.re.mjs:419
 msgid "Sunday"
 msgstr "일요일"
 
-#: src/components/organisms/EventInvites.re.mjs:286
+#: src/components/organisms/EventInvites.re.mjs:283
 msgid "Swipe invites"
 msgstr "스와이프 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
 msgid "Swipe left to skip · right to invite"
 msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 
@@ -1182,7 +1232,7 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/PkEventsList.re.mjs:399
+#: src/components/organisms/PkEventsList.re.mjs:431
 msgid "Thursday"
 msgstr "목요일"
 
@@ -1191,7 +1241,7 @@ msgid "to {0}"
 msgstr "{0}까지"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:370
+#: src/components/organisms/PkEventsList.re.mjs:402
 msgid "Today"
 msgstr "오늘"
 
@@ -1200,7 +1250,7 @@ msgid "Tokyo"
 msgstr "도쿄"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:376
+#: src/components/organisms/PkEventsList.re.mjs:408
 msgid "Tomorrow"
 msgstr "내일"
 
@@ -1208,7 +1258,7 @@ msgstr "내일"
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/organisms/PkEventsList.re.mjs:393
+#: src/components/organisms/PkEventsList.re.mjs:425
 msgid "Tuesday"
 msgstr "화요일"
 
@@ -1224,6 +1274,10 @@ msgstr "중상급 이상"
 msgid "Use location"
 msgstr "장소 사용"
 
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "내 근처 사용"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "옵션 사용"
@@ -1237,7 +1291,7 @@ msgid "View Full Draws"
 msgstr "전체 대진 보기"
 
 #: src/components/organisms/RsvpOptions.re.mjs:239
-#: src/components/organisms/EventInvites.re.mjs:357
+#: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr "프로필 보기"
 
@@ -1271,7 +1325,7 @@ msgstr "이벤트에 초대되었습니다"
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
-#: src/components/organisms/PkEventsList.re.mjs:396
+#: src/components/organisms/PkEventsList.re.mjs:428
 msgid "Wednesday"
 msgstr "수요일"
 
@@ -1295,11 +1349,7 @@ msgstr "참가 취소"
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/molecules/LocationFilter.re.mjs:28
-msgid "Within {0} km · {1}, {2}"
-msgstr "{0}km 이내 · {1}, {2}"
-
-#: src/components/organisms/PkEventsList.re.mjs:410
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Yesterday"
 msgstr "어제"
 
@@ -1413,6 +1463,14 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
 #~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid ""
+#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
+#~ "place in the event conversation."
+#~ msgstr ""
+#~ "{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대"
+#~ "화에 자리를 확보하세요."
+
 #: src/components/organisms/PkEventsList.re.mjs:243
 #~ msgid "Add to {0}"
 #~ msgstr "{0}에 추가"
@@ -1448,6 +1506,18 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "이메일은 변경할 수 없습니다"
+
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "위치로 필터링"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "{eventTitle}에 초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
@@ -1486,6 +1556,10 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #: src/components/molecules/PlayIntentRow.re.mjs:302
 #~ msgid "others"
 #~ msgstr "명"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "위치를 선택하거나 현재 위치를 사용하세요."
 
 #: src/components/molecules/PlayIntentRow.re.mjs:626
 #~ msgid "Pick time →"
@@ -1544,6 +1618,10 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #: src/components/organisms/PkEventsList.re.mjs:224
 #~ msgid "When can you play?"
 #~ msgstr "언제 플레이할 수 있나요?"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "{0}km 이내 · {1}, {2}"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:501
 #~ msgid "You"

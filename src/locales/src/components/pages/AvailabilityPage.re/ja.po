@@ -88,6 +88,10 @@ msgstr "上に時間枠を追加してください"
 msgid "Advanced"
 msgstr "詳細設定"
 
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "全レベル"
+
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
 msgstr "初心者"
@@ -100,6 +104,11 @@ msgstr "自己紹介"
 msgid "Biography is required"
 msgstr "自己紹介は必須です"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "変更"
+
+#: src/components/molecules/LocationFilter.re.mjs:102
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
 msgid "Clear"
 msgstr "クリア"
@@ -162,6 +171,10 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Done"
+msgstr "完了"
+
 #: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "メールアドレス"
@@ -178,6 +191,10 @@ msgstr ""
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "イベントフィルター"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "イベント"
@@ -185,10 +202,6 @@ msgstr "イベント"
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-msgid "Filter by location"
-msgstr "場所で絞り込む"
 
 #: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
@@ -222,11 +235,11 @@ msgstr "みんなの空き時間にホストがイベントをスケジュール
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:208
 msgid "Locating…"
 msgstr "位置情報を取得中…"
 
-#: src/components/molecules/LocationFilter.re.mjs:49
+#: src/components/molecules/LocationFilter.re.mjs:161
 msgid "Location"
 msgstr "場所"
 
@@ -236,22 +249,33 @@ msgstr ""
 "位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
 "ださい。"
 
+#: src/components/molecules/LocationFilter.re.mjs:127
+msgid "Location:"
+msgstr "場所:"
+
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
 
-#: src/components/molecules/LocationFilter.re.mjs:59
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "最低イベントレベル"
+
+#: src/components/molecules/LocationFilter.re.mjs:171
 msgid "Near me"
 msgstr "現在地付近"
+
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "現在地付近 · {radius} km"
 
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "後で"
 
-#: src/components/molecules/LocationFilter.re.mjs:36
-msgid "Pick a location or use your current location."
-msgstr "場所を選択するか、現在地を使用してください。"
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "空きスポット"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -313,6 +337,10 @@ msgstr "空きコマをタップして追加・ドラッグで移動・端をつ
 msgid "Tokyo"
 msgstr "東京"
 
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "現在地付近を使用"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "オプションを使用"
@@ -332,10 +360,6 @@ msgstr "週末の朝"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
 msgstr "いつプレーできますか？"
-
-#: src/components/molecules/LocationFilter.re.mjs:28
-msgid "Within {0} km · {1}, {2}"
-msgstr "{0} km以内・{1}、{2}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"
@@ -413,6 +437,10 @@ msgstr "あなたの時間"
 #~ msgid "Courts available during your time"
 #~ msgstr "あなたの時間帯で利用可能なコート"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "場所で絞り込む"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
 #~ msgid "Long opening"
@@ -425,6 +453,10 @@ msgstr "あなたの時間"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "空き"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "場所を選択するか、現在地を使用してください。"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""
@@ -469,3 +501,7 @@ msgstr "あなたの時間"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
 #~ msgid "View {segCourtsPhrase} & reserve"
 #~ msgstr "{segCourtsPhrase} を表示して予約する"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "{0} km以内・{1}、{2}"

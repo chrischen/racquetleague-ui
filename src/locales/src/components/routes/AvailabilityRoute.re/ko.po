@@ -88,6 +88,10 @@ msgstr "위에서 시간 창 추가"
 msgid "Advanced"
 msgstr "고급"
 
+#: src/components/molecules/LocationFilter.re.mjs:68
+msgid "All levels"
+msgstr "모든 레벨"
+
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
 msgstr "초급"
@@ -100,6 +104,11 @@ msgstr "자기소개"
 msgid "Biography is required"
 msgstr "자기소개를 입력해주세요"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Change"
+msgstr "변경"
+
+#: src/components/molecules/LocationFilter.re.mjs:102
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
 msgid "Clear"
 msgstr "지우기"
@@ -160,6 +169,10 @@ msgstr "표시 이름"
 msgid "Display name is required"
 msgstr "표시 이름이 필요합니다"
 
+#: src/components/molecules/LocationFilter.re.mjs:137
+msgid "Done"
+msgstr "완료"
+
 #: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
 msgstr "이메일 주소"
@@ -176,6 +189,10 @@ msgstr ""
 msgid "Email is required"
 msgstr "이메일이 필요합니다"
 
+#: src/components/molecules/LocationFilter.re.mjs:245
+msgid "Event filters"
+msgstr "이벤트 필터"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
 msgid "Events"
 msgstr "이벤트"
@@ -183,10 +200,6 @@ msgstr "이벤트"
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "여성"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-msgid "Filter by location"
-msgstr "위치로 필터링"
 
 #: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
@@ -220,11 +233,11 @@ msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:208
 msgid "Locating…"
 msgstr "위치 확인 중…"
 
-#: src/components/molecules/LocationFilter.re.mjs:49
+#: src/components/molecules/LocationFilter.re.mjs:161
 msgid "Location"
 msgstr "장소"
 
@@ -232,22 +245,33 @@ msgstr "장소"
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "위치 접근이 거부되었습니다. 접근을 허용하거나 장소를 선택하세요."
 
+#: src/components/molecules/LocationFilter.re.mjs:127
+msgid "Location:"
+msgstr "장소:"
+
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "남성"
 
-#: src/components/molecules/LocationFilter.re.mjs:59
-#: src/components/molecules/LocationFilter.re.mjs:91
+#: src/components/molecules/LocationFilter.re.mjs:62
+msgid "Minimum event level"
+msgstr "최소 이벤트 레벨"
+
+#: src/components/molecules/LocationFilter.re.mjs:171
 msgid "Near me"
 msgstr "내 근처"
+
+#: src/components/molecules/LocationFilter.re.mjs:31
+msgid "Near me · {radius} km"
+msgstr "내 근처 · {radius}km"
 
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "나중에"
 
-#: src/components/molecules/LocationFilter.re.mjs:36
-msgid "Pick a location or use your current location."
-msgstr "위치를 선택하거나 현재 위치를 사용하세요."
+#: src/components/molecules/LocationFilter.re.mjs:50
+msgid "Open spots"
+msgstr "빈 자리"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -309,6 +333,10 @@ msgstr "빈 시간 탭하여 추가 · 드래그하여 이동 · 가장자리를
 msgid "Tokyo"
 msgstr "도쿄"
 
+#: src/components/molecules/LocationFilter.re.mjs:208
+msgid "Use near me"
+msgstr "내 근처 사용"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:144
 msgid "Use option"
 msgstr "옵션 사용"
@@ -328,10 +356,6 @@ msgstr "주말 오전"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
 msgid "When can you play?"
 msgstr "언제 플레이할 수 있나요?"
-
-#: src/components/molecules/LocationFilter.re.mjs:28
-msgid "Within {0} km · {1}, {2}"
-msgstr "{0}km 이내 · {1}, {2}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"
@@ -409,6 +433,10 @@ msgstr "내 시간"
 #~ msgid "Courts available during your time"
 #~ msgstr "내 시간에 이용 가능한 코트"
 
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "위치로 필터링"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
 #~ msgid "Long opening"
@@ -421,6 +449,10 @@ msgstr "내 시간"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "열림"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "위치를 선택하거나 현재 위치를 사용하세요."
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""
@@ -465,3 +497,7 @@ msgstr "내 시간"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
 #~ msgid "View {segCourtsPhrase} & reserve"
 #~ msgstr "{segCourtsPhrase} 보기 및 예약"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "{0}km 이내 · {1}, {2}"

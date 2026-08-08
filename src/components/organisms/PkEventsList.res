@@ -76,6 +76,23 @@ let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 
 let ts = Lingui.UtilString.t
 
+// Count of main-list (non-waitlist) RSVPs — the number competing for spots.
+let mainRsvpCount = (edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node) =>
+  edge.rsvps
+  ->Option.flatMap(r => r.edges)
+  ->Option.getOr([])
+  ->Array.filterMap(e => e)
+  ->Array.filterMap(e => e.node)
+  ->Array.filter(n => n.listType == None || n.listType == Some(0))
+  ->Array.length
+
+// Uncapped events always have open spots.
+let hasOpenSpots = (edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node) =>
+  switch edge.maxRsvps {
+  | None => true
+  | Some(max) => mainRsvpCount(edge) < max
+  }
+
 module Day = {
   open Lingui.Util
   @react.component
@@ -135,15 +152,7 @@ module Day = {
     let getWaitlistCount = (edge: PkEventsListFragment_graphql.Types.fragment_events_edges_node) =>
       switch edge.maxRsvps {
       | None => 0
-      | Some(max) =>
-        let mainList =
-          edge.rsvps
-          ->Option.flatMap(r => r.edges)
-          ->Option.getOr([])
-          ->Array.filterMap(e => e)
-          ->Array.filterMap(e => e.node)
-          ->Array.filter(n => n.listType == None || n.listType == Some(0))
-        Js.Math.max_int(0, mainList->Array.length - max)
+      | Some(max) => Js.Math.max_int(0, mainRsvpCount(edge) - max)
       }
 
     let hasHiddenPreview = totalHiddenCount > 0 && !showShadow
@@ -330,19 +339,63 @@ let make = (
     ~context=ProfileModal.Availability,
   )
   let viewer = data.viewer
-  let events = data.events->Fragment.getConnectionNodes
+
+  let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
+
+  // Event-filter toolbar state (Discover only — rides with showLocationFilter).
+  // Both filters live in URL params, like the location scope. `openSpots` is a
+  // pure client-side filter over the loaded page of events (toggling it
+  // re-runs the loader, but the variables don't change, so Relay serves the
+  // store); `level` is applied server-side (see below).
+  let showOpenOnly =
+    searchParams
+    ->Router.ImmSearchParams.fromSearchParams
+    ->Router.ImmSearchParams.get("openSpots")
+    ->Option.map(v => v == "true")
+    ->Option.getOr(false)
+  let allEvents = data.events->Fragment.getConnectionNodes
+  let events = showOpenOnly ? allEvents->Array.filter(hasOpenSpots) : allEvents
   let pageInfo = data.events.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
 
   let ctx = DrawerContext.use()
-
-  let (searchParams, setSearchParams) = Router.useSearchParamsFunc()
 
   let selectedDate =
     searchParams
     ->Router.ImmSearchParams.fromSearchParams
     ->Router.ImmSearchParams.get("afterDate")
     ->Option.map(d => Js.Date.fromString(d))
+
+  // Server-side level filter. The toolbar select reads/writes the `level` URL
+  // param (a DUPR-scale value); the route loaders convert it to the internal
+  // scale and pass it as EventFilters.rating, so changing it re-runs the
+  // loader — same flow as the location param.
+  let minimumLevel =
+    searchParams
+    ->Router.ImmSearchParams.fromSearchParams
+    ->Router.ImmSearchParams.get("level")
+    ->Option.flatMap(Float.fromString)
+
+  let onMinimumLevelChange = (value: option<float>) =>
+    setSearchParams(prevParams => {
+      switch value {
+      | Some(v) => prevParams->Router.SearchParams.set("level", v->Js.Float.toString)
+      | None => prevParams->Router.SearchParams.delete("level")
+      }
+      prevParams
+    })
+
+  // The param is only ever present as "true" — toggling off removes it so the
+  // default URL stays clean.
+  let onShowOpenOnlyChange = (value: bool) =>
+    setSearchParams(prevParams => {
+      if value {
+        prevParams->Router.SearchParams.set("openSpots", "true")
+      } else {
+        prevParams->Router.SearchParams.delete("openSpots")
+      }
+      prevParams
+    })
 
   let onSelectDate = (date: Js.Date.t) => {
     setSearchParams(prevParams => {
@@ -508,7 +561,19 @@ let make = (
   }
   let locationFilter =
     showLocationFilter
-      ? Some(<LocationFilterControl isLoggedIn resolvedCoords resolvedRegion=resolved.region />)
+      ? Some(
+          <LocationFilterControl
+            isLoggedIn
+            resolvedCoords
+            resolvedRegion=resolved.region
+            eventFilters={
+              LocationFilter.showOpenOnly,
+              onShowOpenOnlyChange,
+              minimumLevel,
+              onMinimumLevelChange,
+            }
+          />,
+        )
       : None
 
   <>

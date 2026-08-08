@@ -13,90 +13,159 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-msgid ""
-"A good availability match for {eventTitle}. Invite them now to reserve a "
-"place in the event conversation."
-msgstr ""
-"{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대화"
-"에 자리를 확보하세요."
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+msgid "About"
+msgstr "소개"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "고급"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
 msgid "Available for the full event"
 msgstr "전체 이벤트 참가 가능"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
 msgid "Back to event"
 msgstr "이벤트로 돌아가기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "기록된 경기 기반"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "초급"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
 msgid "Close swipe invitations"
 msgstr "스와이프 초대 닫기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "완전 초급"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "산출된 레이팅"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
 msgid "Everyone reviewed"
 msgstr "모두 검토 완료"
 
-#: src/components/organisms/EventInvites.re.mjs:321
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Female"
+msgstr "여성"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "성별 미제공"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "중급"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "중급+"
+
+#: src/components/organisms/EventInvites.re.mjs:318
 msgid "invite"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
 msgid "INVITE"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
 msgid "Invite {0}"
 msgstr "{0} 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
 msgid "Invite players"
 msgstr "플레이어 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-msgid "Invite to {eventTitle}"
-msgstr "{eventTitle}에 초대"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "{0}에 초대"
 
-#: src/components/organisms/EventInvites.re.mjs:405
+#: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "초대된 플레이어 및 잠재적 플레이어"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-msgid "Invited players have moved into the event’s invited list."
-msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "초대된 플레이어가 이벤트의 초대 목록으로 이동되었습니다."
 
-#: src/components/organisms/EventInvites.re.mjs:271
+#: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
 msgstr "초대 · {0}"
 
-#: src/components/organisms/EventInvites.re.mjs:325
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Male"
+msgstr "남성"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "미제공"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "아직 평가되지 않음"
+
+#: src/components/organisms/EventInvites.re.mjs:322
 msgid "Open invite actions for {0}"
 msgstr "{0}의 초대 작업 열기"
 
-#: src/components/organisms/EventInvites.re.mjs:288
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "프로"
+
+#: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "스와이프 카드로 잠재적 플레이어 {0}명 검토"
 
-#: src/components/organisms/EventInvites.re.mjs:374
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "자가 평가"
+
+#: src/components/organisms/EventInvites.re.mjs:371
 msgid "Send invite"
 msgstr "초대 보내기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
 msgid "SKIP"
 msgstr "건너뛰기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
 msgid "Skip {0}"
 msgstr "{0} 건너뛰기"
 
-#: src/components/organisms/EventInvites.re.mjs:286
+#: src/components/organisms/EventInvites.re.mjs:283
 msgid "Swipe invites"
 msgstr "스와이프 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
 msgid "Swipe left to skip · right to invite"
 msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 
-#: src/components/organisms/EventInvites.re.mjs:357
+#: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr "프로필 보기"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid ""
+#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
+#~ "place in the event conversation."
+#~ msgstr ""
+#~ "{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대"
+#~ "화에 자리를 확보하세요."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "{eventTitle}에 초대"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."

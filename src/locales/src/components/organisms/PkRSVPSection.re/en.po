@@ -30,7 +30,15 @@ msgid "♂/♀ SKILL"
 msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+msgid "About"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:164
@@ -41,11 +49,11 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:316
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
 msgid "Available for the full event"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:190
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
 msgid "Back to event"
 msgstr ""
 
@@ -53,12 +61,28 @@ msgstr ""
 msgid "balanced"
 msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:198
 msgid "Capture payment"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:128
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
 msgid "Close swipe invitations"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:594
@@ -78,40 +102,69 @@ msgstr ""
 msgid "even"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:178
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
 msgid "Everyone reviewed"
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:321
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Female"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr ""
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:318
 msgid "invite"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:285
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
 msgid "INVITE"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:215
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
 msgid "Invite {0}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:137
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
 msgid "Invite players"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-msgid "Invite to {eventTitle}"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:405
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-msgid "Invited players have moved into the event’s invited list."
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:271
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Male"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:493
@@ -127,7 +180,15 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:325
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:322
 msgid "Open invite actions for {0}"
 msgstr ""
 
@@ -151,6 +212,10 @@ msgstr ""
 #~ msgid "Player"
 #~ msgstr ""
 
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
 msgstr ""
@@ -171,11 +236,15 @@ msgstr ""
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:288
+#: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:374
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr ""
+
+#: src/components/organisms/EventInvites.re.mjs:371
 msgid "Send invite"
 msgstr ""
 
@@ -183,11 +252,11 @@ msgstr ""
 msgid "sent"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:294
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
 msgid "SKIP"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:207
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
 msgid "Skip {0}"
 msgstr ""
 
@@ -195,11 +264,11 @@ msgstr ""
 msgid "SPREAD"
 msgstr ""
 
-#: src/components/organisms/EventInvites.re.mjs:286
+#: src/components/organisms/EventInvites.re.mjs:283
 msgid "Swipe invites"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:223
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
 msgid "Swipe left to skip · right to invite"
 msgstr ""
 
@@ -212,7 +281,7 @@ msgid "TOP 6 AVG"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:239
-#: src/components/organisms/EventInvites.re.mjs:357
+#: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr ""
 

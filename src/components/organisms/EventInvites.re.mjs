@@ -15,8 +15,8 @@ import * as Belt_SetString from "rescript/lib/es6/belt_SetString.js";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AvatarWithProgress from "../molecules/AvatarWithProgress.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as PlayerInviteSwipeDeck from "./PlayerInviteSwipeDeck.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
-import * as PlayerInviteSwipeDeck from "./PlayerInviteSwipeDeck";
 import * as EventInvitesMutation_graphql from "../../__generated__/EventInvitesMutation_graphql.re.mjs";
 import * as EventInvitesCandidatesQuery_graphql from "../../__generated__/EventInvitesCandidatesQuery_graphql.re.mjs";
 
@@ -85,18 +85,13 @@ var CandidatesQuery = {
   retain: retain
 };
 
-var make = PlayerInviteSwipeDeck.PlayerInviteSwipeDeck;
-
-var SwipeDeck = {
-  make: make
-};
-
 function EventInvites$CandidatesLoader(props) {
   var onLoaded = props.onLoaded;
   var evEnd = props.evEnd;
   var evStart = props.evStart;
   var data = use$1({
         activityId: props.activityId,
+        activitySlug: props.activitySlug,
         clubId: props.clubId,
         localDate: props.localDate
       }, "store-or-network", undefined, undefined);
@@ -114,7 +109,8 @@ function EventInvites$CandidatesLoader(props) {
                                 return {
                                         id: u.id,
                                         name: Core__Option.getOr(u.lineUsername, "?"),
-                                        picture: u.picture
+                                        picture: u.picture,
+                                        user: u.fragmentRefs
                                       };
                               }));
                 }));
@@ -245,6 +241,7 @@ function EventInvites(props) {
                                   localDate: $$window[0],
                                   activityId: activityId,
                                   clubId: props.clubId,
+                                  activitySlug: Core__Option.getOr(activitySlug, "pickleball"),
                                   evStart: $$window[1],
                                   evEnd: $$window[2],
                                   onLoaded: (function (c) {
@@ -405,8 +402,14 @@ function EventInvites(props) {
                                 "aria-label": t`Invited and potential players`,
                                 className: "flex flex-wrap gap-1.5 list-none p-0 m-0"
                               }),
-                          match$4[0] && $$window !== undefined ? JsxRuntime.jsx(make, {
-                                  players: visibleCandidates,
+                          match$4[0] && $$window !== undefined ? JsxRuntime.jsx(PlayerInviteSwipeDeck.make, {
+                                  players: visibleCandidates.map(function (c) {
+                                        return {
+                                                id: c.id,
+                                                name: c.name,
+                                                user: c.user
+                                              };
+                                      }),
                                   eventTitle: props.eventTitle,
                                   eventVenue: props.venueName,
                                   eventTimeLabel: $$window[3],
@@ -425,13 +428,12 @@ function EventInvites(props) {
             });
 }
 
-var make$1 = EventInvites;
+var make = EventInvites;
 
 export {
   InviteMutation ,
   CandidatesQuery ,
-  SwipeDeck ,
   CandidatesLoader ,
-  make$1 as make,
+  make ,
 }
 /*  Not a pure module */

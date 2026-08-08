@@ -39,6 +39,9 @@ let make = (
   ~isLoggedIn: bool,
   ~resolvedCoords: UseUserLocation.coords,
   ~resolvedRegion: option<RelaySchemaAssets_graphql.enum_Region>,
+  // Optional event-list filter controls appended after the location cluster
+  // (see LocationFilter.eventFilters). The availability page leaves this off.
+  ~eventFilters: option<LocationFilter.eventFilters>=?,
 ) => {
   let (commit, _isMutating) = Mutation.use()
   let (_searchParams, setSearchParams) = Router.useSearchParamsFunc()
@@ -121,5 +124,6 @@ let make = (
     errorMessage
     onSelectLocation
     onNearMe
+    ?eventFilters
   />
 }

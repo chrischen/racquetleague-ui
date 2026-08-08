@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-06 02:28+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+msgid "About"
+msgstr "Giới thiệu"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "Nâng cao"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
+msgid "Available for the full event"
+msgstr "Rảnh suốt sự kiện"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
+msgid "Back to event"
+msgstr "Quay lại sự kiện"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "Dựa trên lượt chơi đã ghi nhận"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "Người mới bắt đầu"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
+msgid "Close swipe invitations"
+msgstr "Đóng lời mời vuốt"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "Hoàn toàn mới bắt đầu"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "Xếp hạng được tính toán"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
+msgid "Everyone reviewed"
+msgstr "Đã xem tất cả"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Female"
+msgstr "Nữ"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "Chưa cung cấp giới tính"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "Trung cấp"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "Trung cấp+"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+msgid "INVITE"
+msgstr "MỜI"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+msgid "Invite {0}"
+msgstr "Mời {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
+msgid "Invite players"
+msgstr "Mời người chơi"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "Mời vào {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "Người chơi được mời đã được chuyển vào danh sách mời của sự kiện."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Male"
+msgstr "Nam"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "Chưa cung cấp"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "Chưa được xếp hạng"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "Chuyên nghiệp"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "Tự xếp hạng"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
+msgid "SKIP"
+msgstr "BỎ QUA"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+msgid "Skip {0}"
+msgstr "Bỏ qua {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
+msgid "Swipe left to skip · right to invite"
+msgstr "Vuốt trái để bỏ qua · phải để mời"

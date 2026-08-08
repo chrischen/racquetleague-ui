@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-06 02:28+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+msgid "About"
+msgstr "关于"
+
+#: src/components/molecules/LevelPicker.re.mjs:42
+msgid "Advanced"
+msgstr "高级"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
+msgid "Available for the full event"
+msgstr "全程可参加"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
+msgid "Back to event"
+msgstr "返回活动"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+msgid "Based on recorded play"
+msgstr "基于记录的比赛"
+
+#: src/components/molecules/LevelPicker.re.mjs:27
+msgid "Beginner"
+msgstr "初级"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
+msgid "Close swipe invitations"
+msgstr "关闭滑动邀请"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+msgid "Complete Beginner"
+msgstr "完全初学者"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+msgid "Computed rating"
+msgstr "计算评级"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
+msgid "Everyone reviewed"
+msgstr "已全部查看"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Female"
+msgstr "女性"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+msgid "Gender not provided"
+msgstr "未提供性别"
+
+#: src/components/molecules/LevelPicker.re.mjs:32
+msgid "Intermediate"
+msgstr "中级"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+msgid "Intermediate+"
+msgstr "中级+"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+msgid "INVITE"
+msgstr "邀请"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+msgid "Invite {0}"
+msgstr "邀请 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
+msgid "Invite players"
+msgstr "邀请球员"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+msgid "Invite to {0}"
+msgstr "邀请至 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+msgid "Invited players have moved into the event's invited list."
+msgstr "受邀玩家已移至活动的邀请列表。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+msgid "Male"
+msgstr "男性"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+msgid "Not provided"
+msgstr "未提供"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+msgid "Not yet rated"
+msgstr "尚未评级"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+msgid "Pro"
+msgstr "专业"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+msgid "Self-rating"
+msgstr "自我评级"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
+msgid "SKIP"
+msgstr "跳过"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+msgid "Skip {0}"
+msgstr "跳过 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
+msgid "Swipe left to skip · right to invite"
+msgstr "左滑跳过 · 右滑邀请"

@@ -11,6 +11,7 @@ import * as PkEventRow from "./PkEventRow.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as DrawerContext from "../shared/DrawerContext.re.mjs";
@@ -89,6 +90,31 @@ function ts(prim0, prim1) {
             ]);
 }
 
+function mainRsvpCount(edge) {
+  return Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(edge.rsvps, (function (r) {
+                              return r.edges;
+                            })), []), (function (e) {
+                      return e;
+                    })), (function (e) {
+                  return e.node;
+                })).filter(function (n) {
+              if (n.listType === undefined) {
+                return true;
+              } else {
+                return Caml_obj.equal(n.listType, 0);
+              }
+            }).length;
+}
+
+function hasOpenSpots(edge) {
+  var max = edge.maxRsvps;
+  if (max !== undefined) {
+    return mainRsvpCount(edge) < max;
+  } else {
+    return true;
+  }
+}
+
 function PkEventsList$Day(props) {
   var __requireProfile = props.requireProfile;
   var __showInlineCourts = props.showInlineCourts;
@@ -135,23 +161,11 @@ function PkEventsList$Day(props) {
         });
   var getWaitlistCount = function (edge) {
     var max = edge.maxRsvps;
-    if (max === undefined) {
+    if (max !== undefined) {
+      return Math.max(0, mainRsvpCount(edge) - max | 0);
+    } else {
       return 0;
     }
-    var mainList = Core__Array.filterMap(Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(edge.rsvps, (function (r) {
-                          return r.edges;
-                        })), []), (function (e) {
-                  return e;
-                })), (function (e) {
-              return e.node;
-            })).filter(function (n) {
-          if (n.listType === undefined) {
-            return true;
-          } else {
-            return Caml_obj.equal(n.listType, 0);
-          }
-        });
-    return Math.max(0, mainList.length - max | 0);
   };
   var hasHiddenPreview = totalHiddenCount > 0 && !showShadow;
   var previewHiddenEvent = Belt_Array.get(hiddenEvents, 0);
@@ -329,15 +343,41 @@ function PkEventsList(props) {
   var availabilityData = match$1[0];
   var availabilityGate = UseProfileGate.use(data.fragmentRefs, "Availability", undefined);
   var viewer = data.viewer;
-  var events$1 = getConnectionNodes(data.events);
+  var match$2 = ReactRouterDom.useSearchParams();
+  var setSearchParams = match$2[1];
+  var searchParams = match$2[0];
+  var showOpenOnly = Core__Option.getOr(Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(searchParams), "openSpots"), (function (v) {
+              return v === "true";
+            })), false);
+  var allEvents = getConnectionNodes(data.events);
+  var events$1 = showOpenOnly ? allEvents.filter(hasOpenSpots) : allEvents;
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
   var ctx = DrawerContext.use();
-  var match$2 = ReactRouterDom.useSearchParams();
-  var setSearchParams = match$2[1];
-  var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(match$2[0]), "afterDate"), (function (d) {
+  var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(searchParams), "afterDate"), (function (d) {
           return new Date(d);
         }));
+  var minimumLevel = Core__Option.flatMap(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(searchParams), "level"), Core__Float.fromString);
+  var onMinimumLevelChange = function (value) {
+    setSearchParams(function (prevParams) {
+          if (value !== undefined) {
+            prevParams.set("level", value.toString());
+          } else {
+            prevParams.delete("level");
+          }
+          return prevParams;
+        });
+  };
+  var onShowOpenOnlyChange = function (value) {
+    setSearchParams(function (prevParams) {
+          if (value) {
+            prevParams.set("openSpots", "true");
+          } else {
+            prevParams.delete("openSpots");
+          }
+          return prevParams;
+        });
+  };
   var onSelectDate = function (date) {
     setSearchParams(function (prevParams) {
           return Router.ImmSearchParams.toSearchParams(EventsListUtils.Filter.updateParams({
@@ -504,7 +544,13 @@ function PkEventsList(props) {
   var locationFilter = showLocationFilter ? Caml_option.some(JsxRuntime.jsx(LocationFilterControl.make, {
               isLoggedIn: isLoggedIn,
               resolvedCoords: resolvedCoords,
-              resolvedRegion: resolved.region
+              resolvedRegion: resolved.region,
+              eventFilters: {
+                showOpenOnly: showOpenOnly,
+                onShowOpenOnlyChange: onShowOpenOnlyChange,
+                minimumLevel: minimumLevel,
+                onMinimumLevelChange: onMinimumLevelChange
+              }
             })) : undefined;
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
@@ -535,6 +581,8 @@ export {
   Fragment ,
   defaultActivityId ,
   ts ,
+  mainRsvpCount ,
+  hasOpenSpots ,
   Day ,
   make ,
 }

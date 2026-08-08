@@ -568,8 +568,37 @@ function EventManager(props) {
       });
   var setCourtCount = match$12[1];
   var courtCount = match$12[0];
+  var modernizeStrategy = function (s) {
+    if (HighsBindings.isAvailable()) {
+      switch (s) {
+        case "Mixed" :
+        case "Random" :
+            return "SolverRandomBalanced";
+        case "RoundRobin" :
+        case "NoveltyRoundRobin" :
+            return "SolverRoundRobin";
+        case "SolverRoundRobin" :
+        case "SolverRandomBalanced" :
+        case "SolverCompetitivePlus" :
+            return s;
+        default:
+          return "SolverCompetitivePlus";
+      }
+    } else {
+      switch (s) {
+        case "SolverRoundRobin" :
+            return "NoveltyRoundRobin";
+        case "SolverRandomBalanced" :
+            return "Mixed";
+        case "SolverCompetitivePlus" :
+            return "CompetitivePlus";
+        default:
+          return s;
+      }
+    }
+  };
   var match$13 = React.useState(function () {
-        return "CompetitivePlus";
+        return modernizeStrategy("CompetitivePlus");
       });
   var setStrategy = match$13[1];
   var strategy = match$13[0];
@@ -704,10 +733,14 @@ function EventManager(props) {
                   return stored;
                 });
           }
-          var storedStrategy = EventManagerPersistence.loadStrategy(data.id);
+          var rawStoredStrategy = EventManagerPersistence.loadStrategy(data.id);
+          var storedStrategy = modernizeStrategy(rawStoredStrategy);
           setStrategy(function (param) {
                 return storedStrategy;
               });
+          if (storedStrategy !== rawStoredStrategy) {
+            EventManagerPersistence.saveStrategy(data.id, storedStrategy);
+          }
           setDrawSeed(function (param) {
                 return EventManagerPersistence.loadDrawSeed(data.id);
               });

@@ -4,9 +4,6 @@ type strategyOption = {
   value: Rating.strategy,
   label: string,
   description: string,
-  // Solver-backed presets are still in beta: badged, and hidden entirely on
-  // runtimes without WebAssembly rather than shown disabled.
-  beta: bool,
 }
 
 @react.component
@@ -60,49 +57,46 @@ let make = (
   let solverAvailable =
     allowSolverStrategies && React.useMemo0(() => HighsBindings.isAvailable())
 
-  let strategyOptions = [
-    {
-      value: Rating.CompetitivePlus,
-      label: ts`Competitive`,
-      description: ts`Players will be divided into similar skill level groups that round-robin with teams balanced by skill.`,
-      beta: false,
-    },
-    {
-      value: Rating.Mixed,
-      label: ts`Mixed`,
-      description: ts`Round-Robin with teams balanced by skill.`,
-      beta: false,
-    },
-    {
-      value: Rating.NoveltyRoundRobin,
-      label: ts`Round-Robin`,
-      description: ts`Classic round-robin draws`,
-      beta: false,
-    },
-  ]->Array.concat(
-    solverAvailable
-      ? [
-          {
-            value: Rating.SolverRoundRobin,
-            label: ts`Round Robin`,
-            description: ts`Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing.`,
-            beta: true,
-          },
-          {
-            value: Rating.SolverRandomBalanced,
-            label: ts`Random Balanced`,
-            description: ts`Fresh, varied matchups every round, with each match's teams balanced by skill.`,
-            beta: true,
-          },
-          {
-            value: Rating.SolverCompetitivePlus,
-            label: ts`Competitive+`,
-            description: ts`Optimised draws that prioritise evenly matched games within a skill band.`,
-            beta: true,
-          },
-        ]
-      : [],
-  )
+  // The solver strategies are the picker. The legacy greedy set survives only
+  // as a fallback UI for contexts that cannot run the solver: the standalone
+  // RoundRobin screen (which generates through the synchronous greedy engine)
+  // and runtimes without WebAssembly.
+  let strategyOptions = solverAvailable
+    ? [
+        {
+          value: Rating.SolverRoundRobin,
+          label: ts`Round Robin`,
+          description: ts`Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing.`,
+        },
+        {
+          value: Rating.SolverRandomBalanced,
+          label: ts`Random Balanced`,
+          description: ts`Fresh, varied matchups every round, with each match's teams balanced by skill.`,
+        },
+        {
+          value: Rating.SolverCompetitivePlus,
+          label: ts`Competitive+`,
+          description: ts`Optimised draws that prioritise evenly matched games within a skill band.`,
+        },
+      ]
+    : [
+        {
+          value: Rating.CompetitivePlus,
+          label: ts`Competitive`,
+          description: ts`Players will be divided into similar skill level groups that round-robin with teams balanced by skill.`,
+        },
+        {
+          value: Rating.Mixed,
+          label: ts`Mixed`,
+          description: ts`Round-Robin with teams balanced by skill.`,
+        },
+        {
+          value: Rating.NoveltyRoundRobin,
+          label: ts`Round-Robin`,
+          description: ts`Classic round-robin draws`,
+        },
+      ]
+
   let minPlayersRequired = courtCount * 4
   let canGenerate = checkedInPlayerCount >= minPlayersRequired && !isGenerating
 
@@ -240,16 +234,6 @@ let make = (
                               : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                           )}>
                           {option.label->React.string}
-                          {option.beta
-                            ? <span
-                                className={"px-1 py-0.5 rounded text-[9px] font-bold uppercase tracking-wide " ++ (
-                                  strategy == option.value
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-slate-300 text-slate-700"
-                                )}>
-                                {(ts`Beta`)->React.string}
-                              </span>
-                            : React.null}
                         </button>
                       })
                       ->React.array}

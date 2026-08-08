@@ -5,9 +5,10 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activityId, clubId, localDate) {
+function makeRefetchVariables(activityId, activitySlug, clubId, localDate) {
   return {
           activityId: activityId,
+          activitySlug: activitySlug,
           clubId: clubId,
           localDate: localDate
         };
@@ -23,13 +24,13 @@ function convertVariables(v) {
   return RescriptRelay.convertObj(v, variablesConverter, undefined, undefined);
 }
 
-var wrapResponseConverter = {};
+var wrapResponseConverter = {"__root":{"availabilityUsersForDay_user":{"f":""}}};
 
 function convertWrapResponse(v) {
   return RescriptRelay.convertObj(v, wrapResponseConverter, undefined, null);
 }
 
-var responseConverter = {};
+var responseConverter = {"__root":{"availabilityUsersForDay_user":{"f":""}}};
 
 function convertResponse(v) {
   return RescriptRelay.convertObj(v, responseConverter, undefined, undefined);
@@ -60,146 +61,238 @@ var v0 = {
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "clubId"
+  "name": "activitySlug"
 },
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "localDate"
+  "name": "clubId"
 },
 v3 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "localDate"
+},
+v4 = [
+  {
+    "kind": "Variable",
+    "name": "localDate",
+    "variableName": "localDate"
+  },
+  {
+    "fields": [
+      {
+        "kind": "Variable",
+        "name": "activityId",
+        "variableName": "activityId"
+      },
+      {
+        "kind": "Variable",
+        "name": "clubId",
+        "variableName": "clubId"
+      }
+    ],
+    "kind": "ObjectValue",
+    "name": "scope"
+  }
+],
+v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v4 = [
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "localDate",
+  "storageKey": null
+},
+v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "lineUsername",
+  "storageKey": null
+},
+v8 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "picture",
+  "storageKey": null
+},
+v9 = [
   {
-    "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "localDate",
-        "variableName": "localDate"
-      },
-      {
-        "fields": [
-          {
-            "kind": "Variable",
-            "name": "activityId",
-            "variableName": "activityId"
-          },
-          {
-            "kind": "Variable",
-            "name": "clubId",
-            "variableName": "clubId"
-          }
-        ],
-        "kind": "ObjectValue",
-        "name": "scope"
-      }
-    ],
-    "concreteType": "AvailabilityDay",
-    "kind": "LinkedField",
-    "name": "availabilityUsersForDay",
-    "plural": true,
-    "selections": [
-      (v3/*: any*/),
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "localDate",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "User",
-        "kind": "LinkedField",
-        "name": "user",
-        "plural": false,
-        "selections": [
-          (v3/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "lineUsername",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "picture",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "AvailabilityInterval",
-        "kind": "LinkedField",
-        "name": "intervals",
-        "plural": true,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "startHour",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "endHour",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
+    "kind": "Variable",
+    "name": "activitySlug",
+    "variableName": "activitySlug"
   }
-];
+],
+v10 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "AvailabilityInterval",
+  "kind": "LinkedField",
+  "name": "intervals",
+  "plural": true,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "startHour",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "endHour",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": [
       (v0/*: any*/),
       (v1/*: any*/),
-      (v2/*: any*/)
+      (v2/*: any*/),
+      (v3/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "EventInvitesCandidatesQuery",
-    "selections": (v4/*: any*/),
+    "selections": [
+      {
+        "alias": null,
+        "args": (v4/*: any*/),
+        "concreteType": "AvailabilityDay",
+        "kind": "LinkedField",
+        "name": "availabilityUsersForDay",
+        "plural": true,
+        "selections": [
+          (v5/*: any*/),
+          (v6/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v5/*: any*/),
+              (v7/*: any*/),
+              (v8/*: any*/),
+              {
+                "args": (v9/*: any*/),
+                "kind": "FragmentSpread",
+                "name": "PlayerInviteSwipeDeck_user"
+              }
+            ],
+            "storageKey": null
+          },
+          (v10/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ],
     "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
     "argumentDefinitions": [
-      (v2/*: any*/),
+      (v3/*: any*/),
       (v0/*: any*/),
+      (v2/*: any*/),
       (v1/*: any*/)
     ],
     "kind": "Operation",
     "name": "EventInvitesCandidatesQuery",
-    "selections": (v4/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": (v4/*: any*/),
+        "concreteType": "AvailabilityDay",
+        "kind": "LinkedField",
+        "name": "availabilityUsersForDay",
+        "plural": true,
+        "selections": [
+          (v5/*: any*/),
+          (v6/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              (v5/*: any*/),
+              (v7/*: any*/),
+              (v8/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "gender",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "biography",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "selfRating",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": (v9/*: any*/),
+                "concreteType": "Rating",
+                "kind": "LinkedField",
+                "name": "rating",
+                "plural": false,
+                "selections": [
+                  (v5/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "mu",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          (v10/*: any*/)
+        ],
+        "storageKey": null
+      }
+    ]
   },
   "params": {
-    "cacheID": "7f5565b2b7f43676340488bbe2581ca9",
+    "cacheID": "1f04d1ba409c2afdea92ed98154f6a88",
     "id": null,
     "metadata": {},
     "name": "EventInvitesCandidatesQuery",
     "operationKind": "query",
-    "text": "query EventInvitesCandidatesQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n) {\n  availabilityUsersForDay(localDate: $localDate, scope: {activityId: $activityId, clubId: $clubId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n"
+    "text": "query EventInvitesCandidatesQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $activitySlug: String!\n) {\n  availabilityUsersForDay(localDate: $localDate, scope: {activityId: $activityId, clubId: $clubId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n      ...PlayerInviteSwipeDeck_user_36AXNO\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayerInviteSwipeDeck_user_36AXNO on User {\n  id\n  lineUsername\n  picture\n  gender\n  biography\n  selfRating\n  rating(activitySlug: $activitySlug) {\n    id\n    mu\n  }\n}\n"
   }
 };
 })());

@@ -80,8 +80,12 @@ module MoveRight = {
 
 module X = {
   @module("lucide-react") @react.component
-  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
-    "X"
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "X"
 }
 
 module QrCode = {
@@ -126,6 +130,8 @@ module Settings = {
 module UserPlus = {
   @module("lucide-react") @react.component
   external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
     ~className: string=?,
     ~\"aria-hidden": string=?,
     ~color: string=?,
@@ -285,6 +291,12 @@ module Search = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "Search"
+}
+
+module SlidersHorizontal = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "SlidersHorizontal"
 }
 
 module Sparkles = {

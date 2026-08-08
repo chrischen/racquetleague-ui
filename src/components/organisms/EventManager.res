@@ -549,8 +549,31 @@ let make = (
   }
   let (courtCount, setCourtCount) = React.useState(() => suggestedCourtCount(goingPlayerCount))
 
+  // With the legacy options gone from the picker, a stored or default legacy
+  // strategy would leave nothing selected. Upgrade legacy choices to their
+  // solver successors (the mapping mirrors each mode's own description);
+  // downgrade the other way on runtimes without WebAssembly, where the picker
+  // falls back to the legacy set. Generation itself accepts either — the
+  // greedy engine remains the solver's fallback path.
+  let modernizeStrategy = (s: strategy): strategy =>
+    if HighsBindings.isAvailable() {
+      switch s {
+      | CompetitivePlus | Competitive | DUPR => SolverCompetitivePlus
+      | Mixed | Random => SolverRandomBalanced
+      | RoundRobin | NoveltyRoundRobin => SolverRoundRobin
+      | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus => s
+      }
+    } else {
+      switch s {
+      | SolverCompetitivePlus => CompetitivePlus
+      | SolverRandomBalanced => Mixed
+      | SolverRoundRobin => NoveltyRoundRobin
+      | _ => s
+      }
+    }
+
   // Match generation strategy
-  let (strategy, setStrategy) = React.useState(() => CompetitivePlus)
+  let (strategy, setStrategy) = React.useState(() => modernizeStrategy(CompetitivePlus))
 
   // The event's draw seed. Solver generation is a pure function of (players,
   // history, strategy, weights, courts, seed), so with a fixed seed "reset"
@@ -688,8 +711,14 @@ let make = (
     }
 
     // Load match generation strategy from TinyBase
-    let storedStrategy = EventManagerPersistence.loadStrategy(data.id)
+    let rawStoredStrategy = EventManagerPersistence.loadStrategy(data.id)
+    let storedStrategy = modernizeStrategy(rawStoredStrategy)
     setStrategy(_ => storedStrategy)
+    // Persist the upgrade so the stored value matches what the picker shows
+    // (same pattern as the strategy-string alias migration).
+    if storedStrategy != rawStoredStrategy {
+      EventManagerPersistence.saveStrategy(data.id, storedStrategy)
+    }
 
     // Draw seed (see the dice button in the generation controls)
     setDrawSeed(_ => EventManagerPersistence.loadDrawSeed(data.id))

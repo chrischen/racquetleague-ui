@@ -24,7 +24,7 @@ function clamp01(v) {
 var maxPlayerBenefit = 4000 + 1000 + 1500 + 600;
 
 function maxMatchCost(w) {
-  return w.wPartner + w.wOpponent + w.wRepeatLast + w.wSpread + w.wAlternate + w.wNoise;
+  return w.wPartner + w.wOpponent + w.wRepeatLast + w.wRepeatGroup + w.wSpread + w.wAlternate + w.wNoise;
 }
 
 function logScale(a) {
@@ -48,6 +48,7 @@ function weightsFromConfig(config) {
   var wPartner = Math.round(10 * Math.pow(100, 1 - t));
   var derived_wOpponent = Math.round(wPartner / 5);
   var derived_wRepeatLast = Math.round(wPartner / 2);
+  var derived_wRepeatGroup = Math.round(wPartner * 0.6);
   var derived_balanceTeams = t >= 0.2;
   var derived_wSpread = spreadWeightFor(t);
   var derived_spreadTolerance = spreadToleranceFor(t);
@@ -55,6 +56,7 @@ function weightsFromConfig(config) {
     wPartner: wPartner,
     wOpponent: derived_wOpponent,
     wRepeatLast: derived_wRepeatLast,
+    wRepeatGroup: derived_wRepeatGroup,
     balanceTeams: derived_balanceTeams,
     wSpread: derived_wSpread,
     wAlternate: 100,
@@ -69,6 +71,7 @@ function weightsFromConfig(config) {
             wPartner: logScale(a.partnerVariety),
             wOpponent: logScale(a.opponentVariety),
             wRepeatLast: logScale(a.avoidRecentRepeats),
+            wRepeatGroup: Math.round(logScale(a.partnerVariety) * 0.6),
             balanceTeams: a.balanceTeams,
             wSpread: spreadWeightFor(a.similarSkill),
             wAlternate: Math.round(1000 * clamp01(a.alternateFavored)),
@@ -131,6 +134,7 @@ var randomWeights = {
   wPartner: 0,
   wOpponent: 0,
   wRepeatLast: 0,
+  wRepeatGroup: 0,
   balanceTeams: false,
   wSpread: 50,
   wAlternate: 0,
@@ -144,6 +148,7 @@ var noveltyFirstBase = {
   wPartner: 1000,
   wOpponent: 500,
   wRepeatLast: 500,
+  wRepeatGroup: 600,
   balanceTeams: true,
   wSpread: 50,
   wAlternate: 100,
@@ -157,6 +162,7 @@ var roundRobinWeights = {
   wPartner: 1000,
   wOpponent: 500,
   wRepeatLast: 500,
+  wRepeatGroup: 600,
   balanceTeams: true,
   wSpread: 140,
   wAlternate: 100,
@@ -170,6 +176,7 @@ var randomBalancedWeights = {
   wPartner: 1000,
   wOpponent: 500,
   wRepeatLast: 500,
+  wRepeatGroup: 600,
   balanceTeams: true,
   wSpread: 50,
   wAlternate: 0,
@@ -190,6 +197,8 @@ var competitivePlusWeights_wOpponent = init.wOpponent;
 
 var competitivePlusWeights_wRepeatLast = init.wRepeatLast;
 
+var competitivePlusWeights_wRepeatGroup = init.wRepeatGroup;
+
 var competitivePlusWeights_balanceTeams = init.balanceTeams;
 
 var competitivePlusWeights_wSpread = init.wSpread;
@@ -206,6 +215,7 @@ var competitivePlusWeights = {
   wPartner: competitivePlusWeights_wPartner,
   wOpponent: competitivePlusWeights_wOpponent,
   wRepeatLast: competitivePlusWeights_wRepeatLast,
+  wRepeatGroup: competitivePlusWeights_wRepeatGroup,
   balanceTeams: competitivePlusWeights_balanceTeams,
   wSpread: competitivePlusWeights_wSpread,
   wAlternate: competitivePlusWeights_wAlternate,
@@ -339,6 +349,8 @@ var emptyHistory_partnerCount = new Map();
 
 var emptyHistory_opponentCount = new Map();
 
+var emptyHistory_matchGroupCount = new Map();
+
 var emptyHistory_lastRoundTeams = new Set();
 
 var emptyHistory_lastRoundMatches = new Set();
@@ -354,6 +366,7 @@ var emptyHistory_ratingPercentile = new Map();
 var emptyHistory = {
   partnerCount: emptyHistory_partnerCount,
   opponentCount: emptyHistory_opponentCount,
+  matchGroupCount: emptyHistory_matchGroupCount,
   lastRoundTeams: emptyHistory_lastRoundTeams,
   lastRoundMatches: emptyHistory_lastRoundMatches,
   satOutLastRound: emptyHistory_satOutLastRound,
@@ -369,6 +382,7 @@ var emptyHistory = {
 function buildHistory(rounds, players) {
   var partnerCount = new Map();
   var opponentCount = new Map();
+  var matchGroupCount = new Map();
   var lastSide = new Map();
   var lastByeRound = new Map();
   var lastRoundTeams = new Set();
@@ -401,6 +415,7 @@ function buildHistory(rounds, players) {
               Rating.noveltyOpponentPairIds(match).forEach(function (id) {
                     bump(opponentCount, id);
                   });
+              bump(matchGroupCount, Rating.Match.toStableId(match));
               if (isLastRound) {
                 lastRoundMatches.add(Rating.Match.toStableId(match));
               }
@@ -475,6 +490,7 @@ function buildHistory(rounds, players) {
   return {
           partnerCount: partnerCount,
           opponentCount: opponentCount,
+          matchGroupCount: matchGroupCount,
           lastRoundTeams: lastRoundTeams,
           lastRoundMatches: lastRoundMatches,
           satOutLastRound: satOutLastRound,
@@ -528,6 +544,7 @@ function costParts(weights, history, match) {
         }));
   var opponentDivisor = Math.max(1, opponentPairs.length);
   var opponent = clamp01(opponentRaw / opponentDivisor);
+  var repeatGroup = normalizedRepeat(Core__Option.getOr(history.matchGroupCount.get(Rating.Match.toStableId(match)), 0));
   var repeatLast = teams.some(function (t) {
         return history.lastRoundTeams.has(Rating.Team.toStableId(t));
       }) ? 1 : (
@@ -583,6 +600,7 @@ function costParts(weights, history, match) {
           partner: partner,
           opponent: opponent,
           repeatLast: repeatLast,
+          repeatGroup: repeatGroup,
           balance: balance,
           spread: spread,
           alternate: alternate
@@ -592,7 +610,7 @@ function costParts(weights, history, match) {
 function candidateCost(weights, history, match, noiseOpt) {
   var noise = noiseOpt !== undefined ? noiseOpt : 0;
   var p = costParts(weights, history, match);
-  return weights.wPartner * p.partner + weights.wOpponent * p.opponent + weights.wRepeatLast * p.repeatLast + weights.wSpread * p.spread + weights.wAlternate * p.alternate + weights.wNoise * clamp01(noise);
+  return weights.wPartner * p.partner + weights.wOpponent * p.opponent + weights.wRepeatLast * p.repeatLast + weights.wRepeatGroup * p.repeatGroup + weights.wSpread * p.spread + weights.wAlternate * p.alternate + weights.wNoise * clamp01(noise);
 }
 
 function playerBenefit(weights, history, player, isPriority) {
