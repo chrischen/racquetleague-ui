@@ -1962,6 +1962,7 @@ let make = (
         onOpenAddGuests={() => setShowAddGuestsModal(_ => true)}
         getUserFragmentRefs
         initialPlayers={players}
+        eventUrl={"https://www.pkuru.com/events/" ++ eventId}
       />
       {!hasExistingDraws
         ? <>

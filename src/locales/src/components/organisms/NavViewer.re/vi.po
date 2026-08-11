@@ -17,11 +17,15 @@ msgstr ""
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "Câu lạc bộ"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "Câu lạc bộ của tôi"
+#~ msgid "My Clubs"
+#~ msgstr "Câu lạc bộ của tôi"

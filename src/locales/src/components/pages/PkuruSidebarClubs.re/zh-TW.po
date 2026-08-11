@@ -13,14 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "我的俱樂部"

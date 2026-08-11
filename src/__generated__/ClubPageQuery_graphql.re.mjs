@@ -159,9 +159,45 @@ v10 = {
   "name": "isAdmin",
   "storageKey": null
 },
-v11 = [
-  (v4/*: any*/)
-],
+v11 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "LeagueClubStat",
+  "kind": "LinkedField",
+  "name": "stats",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "totalMembers",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "activeParticipants",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "topPlayersMedianSkill",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "retentionRate",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+},
 v12 = {
   "alias": null,
   "args": [
@@ -227,6 +263,20 @@ v12 = {
             {
               "alias": null,
               "args": null,
+              "kind": "ScalarField",
+              "name": "price",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "minRating",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
               "concreteType": "Location",
               "kind": "LinkedField",
               "name": "location",
@@ -273,7 +323,16 @@ v12 = {
                       "kind": "LinkedField",
                       "name": "node",
                       "plural": false,
-                      "selections": (v11/*: any*/),
+                      "selections": [
+                        (v4/*: any*/),
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "listType",
+                          "storageKey": null
+                        }
+                      ],
                       "storageKey": null
                     }
                   ],
@@ -306,7 +365,9 @@ v13 = {
       "kind": "LinkedField",
       "name": "user",
       "plural": false,
-      "selections": (v11/*: any*/),
+      "selections": [
+        (v4/*: any*/)
+      ],
       "storageKey": null
     }
   ],
@@ -350,6 +411,7 @@ return {
             ],
             "storageKey": null
           },
+          (v11/*: any*/),
           (v12/*: any*/)
         ],
         "storageKey": null
@@ -473,6 +535,7 @@ return {
             ],
             "storageKey": null
           },
+          (v11/*: any*/),
           (v12/*: any*/)
         ],
         "storageKey": null
@@ -481,12 +544,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "774b8a735a5ff8677d158076b4994dd2",
+    "cacheID": "024c207839fe5a635026dfd41bcbd7c5",
     "id": null,
     "metadata": {},
     "name": "ClubPageQuery",
     "operationKind": "query",
-    "text": "query ClubPageQuery(\n  $slug: String!\n) {\n  ...ClubPage_leaderboard_1i3p82\n  club(slug: $slug) {\n    id\n    slug\n    name\n    description\n    shareLink\n    viewerMembership {\n      status\n      isAdmin\n      id\n    }\n    events(first: 5) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n          deleted\n          location {\n            id\n            name\n          }\n          maxRsvps\n          rsvps(first: 100) {\n            edges {\n              node {\n                id\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n\nfragment ClubPage_leaderboard_1i3p82 on Query {\n  ratings(activitySlug: \"pickleball\", namespace: \"doubles:comp\", clubSlug: $slug, first: 5) {\n    edges {\n      node {\n        id\n        ordinal\n        mu\n        user {\n          id\n          fullName\n          lineUsername\n          picture\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query ClubPageQuery(\n  $slug: String!\n) {\n  ...ClubPage_leaderboard_1i3p82\n  club(slug: $slug) {\n    id\n    slug\n    name\n    description\n    shareLink\n    viewerMembership {\n      status\n      isAdmin\n      id\n    }\n    stats {\n      totalMembers\n      activeParticipants\n      topPlayersMedianSkill\n      retentionRate\n    }\n    events(first: 5) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n          deleted\n          price\n          minRating\n          location {\n            id\n            name\n          }\n          maxRsvps\n          rsvps(first: 100) {\n            edges {\n              node {\n                id\n                listType\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n\nfragment ClubPage_leaderboard_1i3p82 on Query {\n  ratings(activitySlug: \"pickleball\", namespace: \"doubles:comp\", clubSlug: $slug, first: 5) {\n    edges {\n      node {\n        id\n        ordinal\n        mu\n        user {\n          id\n          fullName\n          lineUsername\n          picture\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })());

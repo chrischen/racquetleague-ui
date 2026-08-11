@@ -54,7 +54,21 @@ var v0 = [
     "name": "first",
     "value": 20
   }
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": [],
@@ -120,13 +134,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "id",
-                        "storageKey": null
-                      },
+                      (v1/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -134,11 +142,18 @@ return {
                         "name": "name",
                         "storageKey": null
                       },
+                      (v2/*: any*/),
                       {
                         "alias": null,
                         "args": null,
-                        "kind": "ScalarField",
-                        "name": "slug",
+                        "concreteType": "Activity",
+                        "kind": "LinkedField",
+                        "name": "defaultActivity",
+                        "plural": false,
+                        "selections": [
+                          (v2/*: any*/),
+                          (v1/*: any*/)
+                        ],
                         "storageKey": null
                       },
                       {
@@ -204,12 +219,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "169cfd6d9aa41ee210c2ab0d39079bcc",
+    "cacheID": "b467ad6b40178c0ae4fca48e1d1a6ecc",
     "id": null,
     "metadata": {},
     "name": "PkuruSidebarClubsQuery",
     "operationKind": "query",
-    "text": "query PkuruSidebarClubsQuery {\n  viewer {\n    ...PkuruSidebarClubs_viewer\n  }\n}\n\nfragment PkuruSidebarClubs_viewer on Viewer {\n  clubs(first: 20) {\n    edges {\n      node {\n        id\n        name\n        slug\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
+    "text": "query PkuruSidebarClubsQuery {\n  viewer {\n    ...PkuruSidebarClubs_viewer\n  }\n}\n\nfragment PkuruSidebarClubs_viewer on Viewer {\n  clubs(first: 20) {\n    edges {\n      node {\n        id\n        name\n        slug\n        defaultActivity {\n          slug\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
   }
 };
 })());

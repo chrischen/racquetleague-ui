@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(ออกจากระบบ)\",\"GCkpYm\":\"เข้าสู่ระบบด้วย Line\",\"QejCSM\":\"คลับของฉัน\",\"dNSt+v\":\"กิจกรรมของฉัน\",\"Tz0i8g\":\"การตั้งค่า\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(ออกจากระบบ)\",\"j7xUUn\":\"สโมสร\",\"GCkpYm\":\"เข้าสู่ระบบด้วย Line\",\"QejCSM\":\"คลับของฉัน\",\"dNSt+v\":\"กิจกรรมของฉัน\",\"Tz0i8g\":\"การตั้งค่า\"}");

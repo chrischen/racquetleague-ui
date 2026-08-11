@@ -17,14 +17,18 @@ msgstr ""
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "สโมสร"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "เข้าสู่ระบบด้วย Line"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "คลับของฉัน"
+#~ msgid "My Clubs"
+#~ msgstr "คลับของฉัน"
 
 #: src/components/organisms/NavViewer.re.mjs:65
 #~ msgid "My Events"

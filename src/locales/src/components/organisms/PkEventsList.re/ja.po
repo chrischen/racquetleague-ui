@@ -589,7 +589,7 @@ msgstr "イベントの更新と通知用"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Friday"
 msgstr "金曜日"
 
@@ -777,7 +777,7 @@ msgstr "最低イベントレベル"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:422
+#: src/components/organisms/PkEventsList.re.mjs:430
 msgid "Monday"
 msgstr "月曜日"
 
@@ -802,7 +802,7 @@ msgstr "現在地付近"
 msgid "Near me · {radius} km"
 msgstr "現在地付近 · {radius} km"
 
-#: src/components/organisms/PkEventsList.re.mjs:443
+#: src/components/organisms/PkEventsList.re.mjs:451
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
 
@@ -1060,7 +1060,7 @@ msgstr "ラウンドロビン組み合わせ"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:437
+#: src/components/organisms/PkEventsList.re.mjs:445
 msgid "Saturday"
 msgstr "土曜日"
 
@@ -1145,7 +1145,7 @@ msgstr "開始時間順"
 msgid "SPREAD"
 msgstr "ばらつき"
 
-#: src/components/organisms/PkEventsList.re.mjs:419
+#: src/components/organisms/PkEventsList.re.mjs:427
 msgid "Sunday"
 msgstr "日曜日"
 
@@ -1238,7 +1238,7 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkEventsList.re.mjs:431
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Thursday"
 msgstr "木曜日"
 
@@ -1247,7 +1247,7 @@ msgid "to {0}"
 msgstr "{0}まで"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Today"
 msgstr "今日"
 
@@ -1256,7 +1256,7 @@ msgid "Tokyo"
 msgstr "東京"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:408
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Tomorrow"
 msgstr "明日"
 
@@ -1264,7 +1264,7 @@ msgstr "明日"
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/organisms/PkEventsList.re.mjs:425
+#: src/components/organisms/PkEventsList.re.mjs:433
 msgid "Tuesday"
 msgstr "火曜日"
 
@@ -1331,7 +1331,7 @@ msgstr "イベントに招待されました"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/PkEventsList.re.mjs:428
+#: src/components/organisms/PkEventsList.re.mjs:436
 msgid "Wednesday"
 msgstr "水曜日"
 
@@ -1355,7 +1355,7 @@ msgstr "参加登録を取り消す"
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/organisms/PkEventsList.re.mjs:442
+#: src/components/organisms/PkEventsList.re.mjs:450
 msgid "Yesterday"
 msgstr "昨日"
 

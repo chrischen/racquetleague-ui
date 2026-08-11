@@ -5458,6 +5458,136 @@ msgstr "ที่นั่งว่าง"
 msgid "Use near me"
 msgstr "ใช้ตำแหน่งใกล้ฉัน"
 
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} เปิด"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active members"
+msgstr "สมาชิกที่ใช้งานอยู่"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "สโมสรทั้งหมด"
+
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "กลับมาตรวจสอบเมื่อสโมสรเผยแพร่ตารางเวลาถัดไป"
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "ระดับสโมสร"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "เต็ม"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "ตารางสโมสรทั้งหมด"
+
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "สมาชิก"
+
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "คำขอรอดำเนินการ"
+
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "การรักษาสมาชิก"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "สมาชิกทั้งหมด"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "สโมสร"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "ผู้เล่นที่ใช้งานอยู่"
+
+#: src/components/pages/ClubsListPage.re.mjs:535
+msgid "{0} club"
+msgstr "สโมสร {0} แห่ง"
+
+#: src/components/pages/ClubsListPage.re.mjs:536
+msgid "{0} clubs"
+msgstr "สโมสร {0} แห่ง"
+
+#: src/components/pages/ClubsListPage.re.mjs:564
+msgid "Clear filters"
+msgstr "ล้างตัวกรอง"
+
+#: src/components/pages/ClubsListPage.re.mjs:542
+msgid "Club filters"
+msgstr "ตัวกรองสโมสร"
+
+#: src/components/pages/ClubsListPage.re.mjs:299
+#: src/components/pages/ClubsListPage.re.mjs:586
+msgid "Club score"
+msgstr "คะแนนสโมสร"
+
+#: src/components/pages/ClubsListPage.re.mjs:416
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr "ค้นหาและเข้าร่วมสโมสร จัดอันดับตามกิจกรรม ระดับการเล่น และจำนวนผู้เล่นที่กลับมา"
+
+#: src/components/pages/ClubsListPage.re.mjs:600
+msgid "Load more clubs"
+msgstr "โหลดสโมสรเพิ่มเติม"
+
+#: src/components/pages/ClubsListPage.re.mjs:316
+msgid "Median level"
+msgstr "ระดับมัธยฐาน"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+msgid "Minimum club level"
+msgstr "ระดับสโมสรขั้นต่ำ"
+
+#: src/components/pages/ClubsListPage.re.mjs:209
+msgid "Next"
+msgstr "ถัดไป"
+
+#: src/components/pages/ClubsListPage.re.mjs:556
+msgid "No clubs match your filters"
+msgstr "ไม่มีสโมสรที่ตรงกับตัวกรองของคุณ"
+
+#: src/components/pages/ClubsListPage.re.mjs:228
+msgid "No upcoming event"
+msgstr "ไม่มีกิจกรรมที่กำลังจะมาถึง"
+
+#: src/components/pages/ClubsListPage.re.mjs:578
+msgid "Rank"
+msgstr "อันดับ"
+
+#: src/components/pages/ClubsListPage.re.mjs:427
+#: src/components/pages/ClubsListPage.re.mjs:437
+msgid "Search clubs"
+msgstr "ค้นหาสโมสร"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+msgid "Sport"
+msgstr "กีฬา"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+msgid "Try a different sport or a lower level, or clear your filters."
+msgstr "ลองเลือกกีฬาอื่นหรือระดับที่ต่ำกว่า หรือล้างตัวกรองของคุณ"
+
+#: src/components/pages/ClubsListPage.re.mjs:335
+msgid "View club"
+msgstr "ดูสโมสร"
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr "ลองค้นหาด้วยคำอื่น หรือเลือกกีฬาอื่นในแถบด้านข้าง"
+
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "ส่วนตัว"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

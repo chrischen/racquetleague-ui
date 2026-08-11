@@ -120,7 +120,21 @@ v1 = [
     "name": "first",
     "variableName": "first"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -186,13 +200,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "id",
-                        "storageKey": null
-                      },
+                      (v2/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -200,11 +208,18 @@ return {
                         "name": "name",
                         "storageKey": null
                       },
+                      (v3/*: any*/),
                       {
                         "alias": null,
                         "args": null,
-                        "kind": "ScalarField",
-                        "name": "slug",
+                        "concreteType": "Activity",
+                        "kind": "LinkedField",
+                        "name": "defaultActivity",
+                        "plural": false,
+                        "selections": [
+                          (v3/*: any*/),
+                          (v2/*: any*/)
+                        ],
                         "storageKey": null
                       },
                       {
@@ -270,12 +285,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "6b1cf7855549bba1e372c6057c5bcf29",
+    "cacheID": "68a3208dc73271bde3ec3e7ad26b2a31",
     "id": null,
     "metadata": {},
     "name": "PkuruSidebarClubsPaginationQuery",
     "operationKind": "query",
-    "text": "query PkuruSidebarClubsPaginationQuery(\n  $after: String\n  $first: Int = 20\n) {\n  viewer {\n    ...PkuruSidebarClubs_viewer_2HEEH6\n  }\n}\n\nfragment PkuruSidebarClubs_viewer_2HEEH6 on Viewer {\n  clubs(first: $first, after: $after) {\n    edges {\n      node {\n        id\n        name\n        slug\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
+    "text": "query PkuruSidebarClubsPaginationQuery(\n  $after: String\n  $first: Int = 20\n) {\n  viewer {\n    ...PkuruSidebarClubs_viewer_2HEEH6\n  }\n}\n\nfragment PkuruSidebarClubs_viewer_2HEEH6 on Viewer {\n  clubs(first: $first, after: $after) {\n    edges {\n      node {\n        id\n        name\n        slug\n        defaultActivity {\n          slug\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n  }\n}\n"
   }
 };
 })() `)

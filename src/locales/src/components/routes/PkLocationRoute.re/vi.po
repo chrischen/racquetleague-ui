@@ -587,7 +587,7 @@ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 msgid "Free"
 msgstr "Miễn phí"
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Friday"
 msgstr "Thứ Sáu"
 
@@ -779,7 +779,7 @@ msgstr "Cấp độ sự kiện tối thiểu"
 msgid "mixed"
 msgstr "đa dạng"
 
-#: src/components/organisms/PkEventsList.re.mjs:422
+#: src/components/organisms/PkEventsList.re.mjs:430
 msgid "Monday"
 msgstr "Thứ Hai"
 
@@ -804,7 +804,7 @@ msgstr "Gần tôi"
 msgid "Near me · {radius} km"
 msgstr "Gần tôi · {radius} km"
 
-#: src/components/organisms/PkEventsList.re.mjs:443
+#: src/components/organisms/PkEventsList.re.mjs:451
 msgid "Next {dayName}"
 msgstr "{dayName} tới"
 
@@ -1064,7 +1064,7 @@ msgstr "Bốc thăm Round Robin"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:437
+#: src/components/organisms/PkEventsList.re.mjs:445
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
@@ -1149,7 +1149,7 @@ msgstr "SẮP XẾP THEO GIỜ BẮT ĐẦU"
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
-#: src/components/organisms/PkEventsList.re.mjs:419
+#: src/components/organisms/PkEventsList.re.mjs:427
 msgid "Sunday"
 msgstr "Chủ Nhật"
 
@@ -1243,7 +1243,7 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/PkEventsList.re.mjs:431
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Thursday"
 msgstr "Thứ Năm"
 
@@ -1252,7 +1252,7 @@ msgid "to {0}"
 msgstr "đến {0}"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Today"
 msgstr "Hôm nay"
 
@@ -1261,7 +1261,7 @@ msgid "Tokyo"
 msgstr "Tokyo"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:408
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
@@ -1269,7 +1269,7 @@ msgstr "Ngày mai"
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
-#: src/components/organisms/PkEventsList.re.mjs:425
+#: src/components/organisms/PkEventsList.re.mjs:433
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
@@ -1337,7 +1337,7 @@ msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
-#: src/components/organisms/PkEventsList.re.mjs:428
+#: src/components/organisms/PkEventsList.re.mjs:436
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
@@ -1361,7 +1361,7 @@ msgstr "Hủy RSVP"
 msgid "Withdrawing..."
 msgstr "Đang hủy..."
 
-#: src/components/organisms/PkEventsList.re.mjs:442
+#: src/components/organisms/PkEventsList.re.mjs:450
 msgid "Yesterday"
 msgstr "Hôm qua"
 

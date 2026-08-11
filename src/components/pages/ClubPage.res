@@ -50,6 +50,12 @@ module Query = %relay(`
       description
       shareLink
       viewerMembership { status isAdmin }
+      stats {
+        totalMembers
+        activeParticipants
+        topPlayersMedianSkill
+        retentionRate
+      }
       events(first: 5) {
         edges {
           node {
@@ -59,10 +65,12 @@ module Query = %relay(`
             endDate
             timezone
             deleted
+            price
+            minRating
             location { id name }
             maxRsvps
             rsvps(first: 100) {
-              edges { node { id } }
+              edges { node { id listType } }
             }
           }
         }
@@ -110,47 +118,389 @@ type loaderData = ClubPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
 
-// type clubStat = {
-//   label: string,
-//   value: string,
-//   color: string,
-//   bg: string,
-// }
+// Shared chrome from the club home design, so the header actions, cards and
+// section links read as one set instead of drifting per call site.
+let primaryAction = "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-4 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:bg-gray-200 disabled:text-gray-500 dark:disabled:bg-[#2a2b30] dark:disabled:text-gray-500"
 
-let getRankColor = (rank: int) => {
-  switch rank {
-  | 1 => "text-yellow-500 bg-yellow-50 border-yellow-200"
-  | 2 => "text-gray-500 bg-gray-50 border-gray-200"
-  | 3 => "text-amber-700 bg-amber-50 border-amber-200"
-  | _ => "text-gray-500 bg-white border-transparent"
+let secondaryAction = "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-60 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30]"
+
+let dangerAction = "inline-flex items-center gap-1.5 rounded-lg border border-red-200 bg-white px-3 py-2 text-xs font-semibold text-red-600 transition-colors hover:bg-red-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-300 disabled:opacity-60 dark:border-red-900/50 dark:bg-[#1e1f23] dark:text-red-400 dark:hover:bg-red-950/30"
+
+let statusChip = "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-semibold text-gray-600 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-300"
+
+let cardClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#1e1f23]"
+
+let sectionLink = "text-xs font-semibold text-[#4d6f12] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d]"
+
+let emptyState = "rounded-xl border border-dashed border-gray-300 bg-gray-50 px-5 py-10 text-center dark:border-[#3a3b40] dark:bg-[#1e1f23]"
+
+// Community stats, refreshed by the league stats job. `topPlayersMedianSkill`
+// is an openskill ordinal, so it goes through ordinalToDupr to land on the
+// scale players actually recognise.
+module StatsGrid = {
+  @react.component
+  let make = (~stats: ClubPageQuery_graphql.Types.response_club_stats) => {
+    let ts = Lingui.UtilString.t
+
+    let tiles = [
+      (ts`Total members`, stats.totalMembers->Int.toString),
+      // Counts everyone who rsvp'd in the last 30 days, members or not, so it
+      // can run ahead of the member count.
+      (ts`Active players`, stats.activeParticipants->Int.toString),
+      (
+        ts`Club level`,
+        stats.topPlayersMedianSkill
+        ->Option.map(ordinal => ordinal->Rating.ordinalToDupr->Float.toFixed(~digits=1))
+        ->Option.getOr("—"),
+      ),
+      (
+        ts`Retention`,
+        stats.retentionRate
+        ->Option.map(rate => (rate *. 100.)->Float.toFixed(~digits=0) ++ "%")
+        ->Option.getOr("—"),
+      ),
+    ]
+
+    <dl
+      className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-gray-200 bg-gray-200 dark:border-[#3a3b40] dark:bg-[#3a3b40] sm:grid-cols-4">
+      {tiles
+      ->Array.map(((label, value)) =>
+        <div key=label className="bg-white px-4 py-3 dark:bg-[#222326]">
+          <dt
+            className="font-mono text-[8px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+            {label->React.string}
+          </dt>
+          <dd className="mt-1 text-xl font-semibold text-gray-900 dark:text-gray-100">
+            {value->React.string}
+          </dd>
+        </div>
+      )
+      ->React.array}
+    </dl>
   }
 }
 
-// let getStatIcon = (index: int) => {
-//   switch index {
-//   | 0 => <Lucide.Trophy className="w-6 h-6" />
-//   | 1 => <Lucide.Users className="w-6 h-6" />
-//   | 2 => <Lucide.Activity className="w-6 h-6" />
-//   | _ => <Lucide.UserCheck className="w-6 h-6" />
-//   }
-// }
+module EventRow = {
+  @react.component
+  let make = (~event: ClubPageQuery_graphql.Types.response_club_events_edges_node) => {
+    let ts = Lingui.UtilString.t
+    let canceled = event.deleted->Option.isSome
+
+    // Waitlisted rsvps (listType 1) don't take a seat, so only the main list
+    // counts against maxRsvps.
+    let confirmed =
+      event.rsvps
+      ->Option.flatMap(rsvps => rsvps.edges)
+      ->Option.getOr([])
+      ->Array.filterMap(edge => edge)
+      ->Array.filterMap(edge => edge.node)
+      ->Array.filter(rsvp => rsvp.listType == None || rsvp.listType == Some(0))
+      ->Array.length
+
+    let openSpots = event.maxRsvps->Option.map(max => Js.Math.max_int(0, max - confirmed))
+
+    let spotsClass = switch openSpots {
+    | Some(0) => "text-red-500"
+    | Some(n) if n <= 2 => "text-amber-600 dark:text-amber-400"
+    | _ => "text-emerald-600 dark:text-emerald-400"
+    }
+
+    let level =
+      event.minRating
+      ->Option.map(mu => mu->Rating.guessDupr->Float.toFixed(~digits=1) ++ "+")
+      ->Option.getOr(ts`All levels`)
+
+    let price = switch event.price {
+    | Some(price) if price > 0 => "¥" ++ price->Int.toString
+    | _ => ts`Free`
+    }
+
+    let duration =
+      event.startDate
+      ->Option.flatMap(startDate =>
+        event.endDate->Option.map(endDate => {
+          let minutes =
+            endDate
+            ->Util.Datetime.toDate
+            ->DateFns.differenceInMinutes(startDate->Util.Datetime.toDate)
+            ->Float.toInt
+          let hours = minutes / 60
+          let remainder = mod(minutes, 60)
+          if hours > 0 && remainder > 0 {
+            `${hours->Int.toString}h ${remainder->Int.toString}m`
+          } else if hours > 0 {
+            `${hours->Int.toString}h`
+          } else {
+            `${remainder->Int.toString}m`
+          }
+        })
+      )
+      ->Option.getOr("")
+
+    <Link
+      to={"/events/" ++ event.id}
+      className={"grid gap-3 px-4 py-3 transition-colors hover:bg-gray-50 dark:hover:bg-[#222326] sm:grid-cols-[72px_1fr_auto] sm:items-center" ++ (
+        canceled ? " opacity-60" : ""
+      )}>
+      <div>
+        <p className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100">
+          {event.startDate
+          ->Option.map(startDate =>
+            switch event.timezone {
+            | Some(tz) =>
+              <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} timeZone={tz} />
+            | None => <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />
+            }
+          )
+          ->Option.getOr(React.null)}
+        </p>
+        <p className="mt-0.5 font-mono text-[9px] text-gray-400"> {duration->React.string} </p>
+      </div>
+      <div className="min-w-0">
+        <h4
+          className={"truncate text-sm font-semibold " ++ (
+            canceled ? "text-gray-400 line-through dark:text-gray-500" : "text-gray-900 dark:text-gray-100"
+          )}>
+          {event.title->Option.getOr("")->React.string}
+        </h4>
+        <div
+          className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[9px] text-gray-500 dark:text-gray-400">
+          {event.location
+          ->Option.map(location =>
+            <span className="inline-flex items-center gap-1">
+              <Lucide.MapPin size=10 \"aria-hidden"="true" />
+              {location.name->Option.getOr("")->React.string}
+            </span>
+          )
+          ->Option.getOr(React.null)}
+          <span> {level->React.string} </span>
+        </div>
+      </div>
+      <div className="flex items-center justify-between gap-3 sm:justify-end">
+        <div className="text-right">
+          {switch openSpots {
+          | Some(n) =>
+            <p className={"text-xs font-semibold " ++ spotsClass}>
+              {(n == 0 ? ts`Full` : ts`${n->Int.toString} open`)->React.string}
+            </p>
+          | None => React.null
+          }}
+          <p
+            className="mt-0.5 inline-flex items-center gap-1 font-mono text-[9px] text-gray-400">
+            <Lucide.Users size=10 \"aria-hidden"="true" />
+            {(confirmed->Int.toString ++
+            event.maxRsvps
+            ->Option.map(max => "/" ++ max->Int.toString)
+            ->Option.getOr(""))->React.string}
+          </p>
+        </div>
+        <span
+          className="min-w-[42px] text-right font-mono text-[10px] font-semibold text-gray-600 dark:text-gray-300">
+          {price->React.string}
+        </span>
+      </div>
+    </Link>
+  }
+}
+
+// Events grouped by day, using the same buckets as the full club schedule so
+// "Today"/"Tomorrow" mean the same thing on both screens.
+module EventList = {
+  @react.component
+  let make = (~events: array<ClubPageQuery_graphql.Types.response_club_events_edges_node>) => {
+    open Lingui.Util
+    let ts = Lingui.UtilString.t
+    let intl = ReactIntl.useIntl()
+    let setup = EventsListUtils.makeBucketSetup()
+
+    let formatDate = (date: Js.Date.t): string =>
+      intl->ReactIntl.Intl.formatDateWithOptions(
+        date,
+        ReactIntl.dateTimeFormatOptions(~month=#short, ~day=#numeric, ()),
+      )
+
+    let bucketMeta = (key: string): (string, string) =>
+      switch key {
+      | "today" => (ts`Today`, formatDate(setup.dateFromOffset(0.)))
+      | "tomorrow" => (ts`Tomorrow`, formatDate(setup.dateFromOffset(1.)))
+      | _ =>
+        let (isNextWeek, dayIndex, date) = EventsListUtils.getBucketDateDetails(~setup, key)
+        let dayName = switch dayIndex {
+        | 0 => ts`Sunday`
+        | 1 => ts`Monday`
+        | 2 => ts`Tuesday`
+        | 3 => ts`Wednesday`
+        | 4 => ts`Thursday`
+        | 5 => ts`Friday`
+        | 6 => ts`Saturday`
+        | _ => ""
+        }
+        let offset = key->Int.fromString->Option.getOr(0)
+        let label = if offset == -1 {
+          ts`Yesterday`
+        } else if isNextWeek {
+          ts`Next ${dayName}`
+        } else {
+          dayName
+        }
+        (label, formatDate(date))
+      }
+
+    let bucketed = EventsListUtils.bucketEvents(
+      ~setup,
+      ~getStartDate={
+        (event: ClubPageQuery_graphql.Types.response_club_events_edges_node) => event.startDate
+      },
+      ~filterByDate=None,
+      events,
+    )
+
+    let groups =
+      EventsListUtils.sortBucketKeys(bucketed->Js.Dict.keys)->Array.filterMap(key =>
+        bucketed
+        ->Js.Dict.get(key)
+        ->Option.map(bucketEvents => (
+          key,
+          bucketEvents->Array.toSorted((a, b) =>
+            switch (a.startDate, b.startDate) {
+            | (Some(a), Some(b)) =>
+              a->Util.Datetime.toDate->Js.Date.getTime -. b->Util.Datetime.toDate->Js.Date.getTime
+            | _ => 0.
+            }
+          ),
+        ))
+      )
+
+    if groups->Array.length == 0 {
+      <div className=emptyState>
+        <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+          {t`No upcoming events`}
+        </p>
+        <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+          {t`Check back when the club publishes its next schedule.`}
+        </p>
+      </div>
+    } else {
+      <div className=cardClass>
+        {groups
+        ->Array.mapWithIndex(((key, bucketEvents), index) => {
+          let (label, dateDetails) = bucketMeta(key)
+          <section
+            key
+            className={index > 0 ? "border-t border-gray-200 dark:border-[#3a3b40]" : ""}>
+            <header
+              className="flex items-baseline justify-between bg-gray-50 px-4 py-2 dark:bg-[#222326]">
+              <h3 className="text-xs font-semibold text-gray-900 dark:text-gray-100">
+                {label->React.string}
+              </h3>
+              <span className="font-mono text-[9px] text-gray-400">
+                {dateDetails->React.string}
+              </span>
+            </header>
+            <div className="divide-y divide-gray-100 dark:divide-[#2a2b30]">
+              {bucketEvents
+              ->Array.map(event => <EventRow key={event.id} event />)
+              ->React.array}
+            </div>
+          </section>
+        })
+        ->React.array}
+      </div>
+    }
+  }
+}
+
+module TopPlayers = {
+  @react.component
+  let make = (
+    ~players: array<ClubPage_leaderboard_graphql.Types.fragment_ratings_edges_node>,
+    ~leaguePath: string,
+  ) => {
+    open Lingui.Util
+
+    <div className=cardClass>
+      <header
+        className="flex items-center justify-between border-b border-gray-200 px-4 py-3 dark:border-[#3a3b40]">
+        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+          {t`Leaderboard`}
+        </h3>
+        <Link to=leaguePath className={"inline-flex items-center gap-1 " ++ sectionLink}>
+          <Lucide.Trophy size=12 \"aria-hidden"="true" />
+          {t`View All`}
+        </Link>
+      </header>
+      {players->Array.length == 0
+        ? <p className="px-4 py-8 text-center text-xs text-gray-500 dark:text-gray-400">
+            {t`No ratings yet`}
+          </p>
+        : <ol className="divide-y divide-gray-100 dark:divide-[#2a2b30]">
+            {players
+            ->Array.mapWithIndex((player, index) => {
+              let user = player.user
+              let displayName =
+                user
+                ->Option.flatMap(user => user.lineUsername)
+                ->Option.orElse(user->Option.flatMap(user => user.fullName))
+                ->Option.getOr("Unknown")
+              let initials =
+                displayName->String.slice(~start=0, ~end=2)->String.toUpperCase
+              let dupr =
+                player.mu
+                ->Option.map(mu => mu->Rating.guessDupr->Float.toFixed(~digits=2))
+                ->Option.getOr("—")
+              let ordinal =
+                player.ordinal->Option.map(v => v->Float.toFixed(~digits=1))->Option.getOr("—")
+              let userId = user->Option.map(user => user.id)->Option.getOr("")
+
+              <li key={player.id}>
+                <Link
+                  to={leaguePath ++ "/p/" ++ userId}
+                  className="flex items-center gap-3 px-4 py-2.5 transition-colors hover:bg-gray-50 dark:hover:bg-[#222326]">
+                  <span
+                    className="w-5 flex-shrink-0 font-mono text-sm font-bold italic text-gray-400 dark:text-gray-500">
+                    {(index + 1)->Int.toString->React.string}
+                  </span>
+                  {switch user->Option.flatMap(user => user.picture) {
+                  | Some(picture) =>
+                    <img
+                      className="h-8 w-8 flex-shrink-0 rounded-full object-cover"
+                      src=picture
+                      alt=displayName
+                    />
+                  | None =>
+                    <span
+                      className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-100 text-[10px] font-semibold text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300">
+                      {initials->React.string}
+                    </span>
+                  }}
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium text-gray-900 dark:text-gray-100">
+                      {displayName->React.string}
+                    </p>
+                    <p className="font-mono text-[9px] text-gray-400">
+                      {("DUPR " ++ dupr)->React.string}
+                    </p>
+                  </div>
+                  <span className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100">
+                    {ordinal->React.string}
+                  </span>
+                </Link>
+              </li>
+            })
+            ->React.array}
+          </ol>}
+    </div>
+  }
+}
 
 @react.component
 let make = () => {
   open Lingui.Util
-  let ts = Lingui.UtilString.t
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
   let leaderboardData = ClubLeaderboardFragment.use(query.fragmentRefs)
   let (commitJoinClub, isJoinInFlight) = JoinClubMutation.use()
   let (commitRemoveUser, isRemoveInFlight) = RemoveUserFromClubMutation.use()
-
-  // let clubStats: array<clubStat> = [
-  //   {label: ts`Average Rating`, value: "1,642", color: "text-amber-600", bg: "bg-amber-50"},
-  //   {label: ts`Total Members`, value: "47", color: "text-blue-600", bg: "bg-blue-50"},
-  //   {label: ts`Games This Month`, value: "156", color: "text-emerald-600", bg: "bg-emerald-50"},
-  //   {label: ts`Active Players`, value: "32", color: "text-purple-600", bg: "bg-purple-50"},
-  // ]
 
   let handleJoinClub = () => {
     query.club
@@ -203,6 +553,7 @@ let make = () => {
       query.club
       ->Option.map(club => {
         let clubName = club.name->Option.getOr("?")
+        let slug = club.slug->Option.getOr("")
         let initials =
           clubName
           ->String.split(" ")
@@ -211,288 +562,128 @@ let make = () => {
           ->Array.join("")
           ->String.slice(~start=0, ~end=2)
           ->String.toUpperCase
+        let leaguePath = "/league/pickleball/" ++ slug
+        let viewerIsAdmin =
+          club.viewerMembership->Option.flatMap(m => m.isAdmin)->Option.getOr(false)
+        let events =
+          club.events.edges
+          ->Option.getOr([])
+          ->Array.filterMap(edge => edge->Option.flatMap(edge => edge.node))
+        let players =
+          leaderboardData.ratings.edges
+          ->Option.getOr([])
+          ->Array.filterMap(edge => edge->Option.flatMap(edge => edge.node))
 
-        <div className="min-h-screen bg-gray-50 w-full pb-12">
-          // Club Header
-          <div className="bg-white shadow-sm border-b">
-            <div className="h-32 bg-gradient-to-r from-blue-600 to-indigo-700 w-full" />
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-              <div className="relative flex justify-between items-end -mt-12 sm:-mt-16 mb-4">
-                <div className="flex items-end gap-5">
-                  <div
-                    className="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-xl shadow-md border-4 border-white flex items-center justify-center overflow-hidden">
-                    <div
-                      className="w-full h-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-3xl sm:text-4xl">
+        <div className="min-h-full bg-gray-50 dark:bg-[#18191c]">
+          <header
+            className="border-b border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#222326]">
+            <div className="mx-auto max-w-6xl px-4 py-5 md:px-6">
+              <Link
+                to="/clubs"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-500 transition-colors hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-gray-400 dark:hover:text-gray-100">
+                <Lucide.ArrowLeft size=14 \"aria-hidden"="true" />
+                {t`All clubs`}
+              </Link>
+              <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2.5">
+                    <span
+                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#bdf25d] text-xs font-bold text-black">
                       {initials->React.string}
-                    </div>
-                  </div>
-                  <div className="pb-2">
-                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                    </span>
+                    <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
                       {clubName->React.string}
                     </h1>
-                    <div className="flex items-center gap-4 mt-1 text-sm text-gray-600">
-                      <div className="flex items-center gap-1">
-                        <Lucide.Users className="w-4 h-4" />
-                        // <span> {t`47 Members`} </span>
-                      </div>
-                    </div>
                   </div>
+                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    {club.description->Option.getOr("")->React.string}
+                  </p>
+                  <p className="mt-2 font-mono text-[10px] text-gray-400">
+                    {("@" ++ slug)->React.string}
+                  </p>
                 </div>
-              </div>
-              <p className="text-gray-600 max-w-3xl">
-                {club.description->Option.getOr("")->React.string}
-              </p>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {switch query.viewer->Option.flatMap(v => v.user) {
-                | Some(_) => {
-                    let status = club.viewerMembership->Option.flatMap(m => m.status)
-                    let viewerIsAdmin =
-                      club.viewerMembership
-                      ->Option.flatMap(m => m.isAdmin)
-                      ->Option.getOr(false)
-                    switch status {
+                <div className="flex flex-wrap gap-2">
+                  {switch query.viewer->Option.flatMap(v => v.user) {
+                  | Some(_) =>
+                    switch club.viewerMembership->Option.flatMap(m => m.status) {
                     | Some(Active) =>
-                      if viewerIsAdmin {
-                        React.null
-                      } else {
-                        <Button.Button
-                          color=#red
+                      viewerIsAdmin
+                        ? React.null
+                        : <>
+                            <span className=statusChip>
+                              <Lucide.Check size=13 \"aria-hidden"="true" />
+                              {t`Member`}
+                            </span>
+                            <button
+                              type_="button"
+                              className=dangerAction
+                              disabled={isRemoveInFlight}
+                              onClick={_ => handleCancelRequest()}>
+                              {t`Leave club`}
+                            </button>
+                          </>
+                    | Some(Pending) =>
+                      <>
+                        <span className=statusChip>
+                          <Lucide.Check size=13 \"aria-hidden"="true" />
+                          {t`Request pending`}
+                        </span>
+                        <button
+                          type_="button"
+                          className=secondaryAction
                           disabled={isRemoveInFlight}
                           onClick={_ => handleCancelRequest()}>
-                          {t`Leave club`}
-                        </Button.Button>
-                      }
-                    | Some(Pending) =>
-                      <Button.Button
-                        color=#red disabled={isRemoveInFlight} onClick={_ => handleCancelRequest()}>
-                        {t`Cancel Request`}
-                      </Button.Button>
+                          {t`Cancel Request`}
+                        </button>
+                      </>
                     | _ =>
-                      <Button.Button
-                        color=#indigo disabled={isJoinInFlight} onClick={_ => handleJoinClub()}>
+                      <button
+                        type_="button"
+                        className=primaryAction
+                        disabled={isJoinInFlight}
+                        onClick={_ => handleJoinClub()}>
+                        <Lucide.Users size=13 \"aria-hidden"="true" />
                         {t`Request to join`}
-                      </Button.Button>
+                      </button>
                     }
-                  }
-                | None =>
-                  <Button.Button
-                    href={"/oauth-login?return=" ++
-                    club.slug->Option.map(slug => "/clubs/" ++ slug)->Option.getOr("/clubs")}
-                    color=#indigo>
-                    {t`Join Club`}
-                  </Button.Button>
-                }}
-                {club.viewerMembership
-                ->Option.flatMap(m => m.isAdmin)
-                ->Option.getOr(false)
-                  ? <Button.Button href={"./members"} color=#indigo>
-                      {t`Manage Members`}
-                    </Button.Button>
-                  : React.null}
-              </div>
-            </div>
-          </div>
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            // Club Stats Row (commented out - hardcoded sample data)
-            // <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            //   {clubStats
-            //   ->Array.mapWithIndex((stat, idx) => {
-            //     <div
-            //       key={idx->Int.toString}
-            //       className="bg-white rounded-xl shadow-sm border border-gray-200 p-5 flex items-center gap-4">
-            //       <div className={"p-3 rounded-lg " ++ stat.bg ++ " " ++ stat.color}>
-            //         {getStatIcon(idx)}
-            //       </div>
-            //       <div>
-            //         <div className="text-sm font-medium text-gray-500 mb-0.5">
-            //           {stat.label->React.string}
-            //         </div>
-            //         <div className="text-2xl font-bold text-gray-900">
-            //           {stat.value->React.string}
-            //         </div>
-            //       </div>
-            //     </div>
-            //   })
-            //   ->React.array}
-            // </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              // Upcoming Club Events
-              <div className="lg:col-span-2">
-                <div
-                  className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                  <div className="p-5 border-b border-gray-200 flex justify-between items-center">
-                    <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <Lucide.Calendar className="w-5 h-5 text-blue-500" />
-                      {t`Upcoming Events`}
-                    </h2>
+                  | None =>
                     <Link
-                      to="./events"
-                      className="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center">
-                      {t`View All`}
-                      <Lucide.ChevronRight className="w-4 h-4" />
+                      to={"/oauth-login?return=" ++ (slug == "" ? "/clubs" : "/clubs/" ++ slug)}
+                      className=primaryAction>
+                      <Lucide.Users size=13 \"aria-hidden"="true" />
+                      {t`Join Club`}
                     </Link>
-                  </div>
-                  <div className="divide-y divide-gray-100">
-                    {club.events.edges
-                    ->Option.getOr([])
-                    ->Array.filterMap(edge => edge->Option.flatMap(e => e.node))
-                    ->Array.map(event => {
-                      let rsvpCount =
-                        event.rsvps
-                        ->Option.map(r => r.edges->Option.getOr([])->Array.length)
-                        ->Option.getOr(0)
-
-                      <Link
-                        key={event.id}
-                        to={"/events/" ++ event.id}
-                        className={"flex items-center justify-between px-5 py-4 hover:bg-gray-50 transition-colors" ++
-                        (event.deleted->Option.isSome ? " opacity-60" : "")}>
-                        <div className="flex-1 min-w-0">
-                          <div
-                            className={"font-semibold truncate " ++
-                            (event.deleted->Option.isSome
-                              ? "line-through text-gray-400"
-                              : "text-gray-900")}>
-                            {event.title->Option.getOr("")->React.string}
-                          </div>
-                          <div className="flex items-center gap-3 mt-1 text-sm text-gray-500">
-                            {event.startDate
-                            ->Option.map(
-                              startDate => {
-                                <div className="flex items-center gap-1">
-                                  <Lucide.Calendar className="w-3.5 h-3.5" />
-                                  <ReactIntl.FormattedDate
-                                    value={startDate->Util.Datetime.toDate}
-                                    month=#short
-                                    day=#numeric
-                                  />
-                                </div>
-                              },
-                            )
-                            ->Option.getOr(React.null)}
-                            {event.location
-                            ->Option.map(
-                              loc => {
-                                <div className="flex items-center gap-1">
-                                  <Lucide.MapPin className="w-3.5 h-3.5" />
-                                  <span className="truncate">
-                                    {loc.name->Option.getOr("")->React.string}
-                                  </span>
-                                </div>
-                              },
-                            )
-                            ->Option.getOr(React.null)}
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-1 text-sm text-gray-500 ml-4">
-                          <Lucide.Users className="w-4 h-4" />
-                          <span>
-                            {(rsvpCount->Int.toString ++
-                              event.maxRsvps
-                              ->Option.map(max => "/" ++ max->Int.toString)
-                              ->Option.getOr(""))->React.string}
-                          </span>
-                        </div>
+                  }}
+                  {viewerIsAdmin
+                    ? <Link to="./members" className=primaryAction>
+                        <Lucide.Settings size=13 \"aria-hidden"="true" />
+                        {t`Manage Members`}
                       </Link>
-                    })
-                    ->React.array}
-                    {club.events.edges
-                    ->Option.getOr([])
-                    ->Array.length == 0
-                      ? <div className="px-5 py-8 text-center text-gray-500">
-                          {t`No upcoming events`}
-                        </div>
-                      : React.null}
-                  </div>
-                </div>
-              </div>
-              // Player Rankings Leaderboard
-              <div className="lg:col-span-1">
-                <div
-                  className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden sticky top-6">
-                  <div className="p-5 border-b border-gray-200 flex justify-between items-center">
-                    <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
-                      <Lucide.Trophy className="w-5 h-5 text-amber-500" />
-                      {t`Leaderboard`}
-                    </h2>
-                    <Link
-                      to={"/league/pickleball/" ++ club.slug->Option.getOr("")}
-                      className="text-sm font-medium text-blue-600 hover:text-blue-800 flex items-center">
-                      {t`View All`}
-                      <Lucide.ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </div>
-                  <div className="divide-y divide-gray-100">
-                    {leaderboardData.ratings.edges
-                    ->Option.getOr([])
-                    ->Array.filterMap(edge => edge->Option.flatMap(e => e.node))
-                    ->Array.mapWithIndex((player, idx) => {
-                      let rank = idx + 1
-                      let displayName =
-                        player.user
-                        ->Option.flatMap(u => u.lineUsername)
-                        ->Option.getOr("Unknown")
-                      let ordinalDisplay =
-                        player.ordinal
-                        ->Option.map(v => v->Float.toFixed(~digits=1))
-                        ->Option.getOr("-")
-                      let dupr =
-                        player.mu
-                        ->Option.map(Rating.guessDupr)
-                        ->Option.map(v => v->Float.toFixed(~digits=2))
-                        ->Option.getOr("-")
-
-                      let userId =
-                        player.user
-                        ->Option.map(u => u.id)
-                        ->Option.getOr("")
-
-                      let profilePath =
-                        "/league/pickleball/" ++ club.slug->Option.getOr("") ++ "/p/" ++ userId
-
-                      <Link
-                        key={player.id}
-                        to={profilePath}
-                        className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={"w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs border " ++
-                            getRankColor(rank)}>
-                            {rank->Int.toString->React.string}
-                          </div>
-                          <div>
-                            <div className="font-semibold text-gray-900 text-sm">
-                              {displayName->React.string}
-                            </div>
-                            <div className="flex items-center gap-1 mt-0.5">
-                              <span
-                                className="text-[10px] font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">
-                                {"DUPR"->React.string}
-                              </span>
-                              <span className="text-xs text-gray-500"> {dupr->React.string} </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-base font-bold text-blue-600">
-                            {ordinalDisplay->React.string}
-                          </div>
-                        </div>
-                      </Link>
-                    })
-                    ->React.array}
-                    {leaderboardData.ratings.edges
-                    ->Option.getOr([])
-                    ->Array.length == 0
-                      ? <div className="px-5 py-8 text-center text-gray-500">
-                          {t`No ratings yet`}
-                        </div>
-                      : React.null}
-                  </div>
+                    : React.null}
                 </div>
               </div>
             </div>
-          </div>
+          </header>
+          <main className="mx-auto max-w-6xl space-y-6 px-4 py-5 pb-24 md:px-6 md:pb-10">
+            {switch club.stats {
+            | Some(stats) => <StatsGrid stats />
+            | None => React.null
+            }}
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(280px,0.8fr)]">
+              <section>
+                <div className="mb-3 flex items-center justify-between">
+                  <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                    {t`Upcoming Events`}
+                  </h2>
+                  <Link to="./events" className=sectionLink> {t`Full club schedule`} </Link>
+                </div>
+                <EventList events />
+              </section>
+              <section>
+                <TopPlayers players leaguePath />
+              </section>
+            </div>
+          </main>
         </div>
       })
       ->Option.getOr(<Layout.Container> {t`club not found`} </Layout.Container>)

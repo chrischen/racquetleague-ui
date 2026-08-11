@@ -392,7 +392,8 @@ function PlayerCheckin(props) {
                             setShowSelfCheckin(function (param) {
                                   return false;
                                 });
-                          })
+                          }),
+                        url: props.eventUrl
                       }) : null
               ],
               className: "bg-white border-b border-slate-200"

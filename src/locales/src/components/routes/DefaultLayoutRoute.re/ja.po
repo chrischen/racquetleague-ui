@@ -22,6 +22,10 @@ msgstr "(サインアウト)"
 msgid "Badminton"
 msgstr "バドミントン"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "クラブ"
+
 #: src/components/pages/DefaultLayoutMap.re.mjs:223
 #: src/components/pages/DefaultLayoutMap.re.mjs:293
 msgid "Events"
@@ -36,10 +40,6 @@ msgstr "ゲームを見つける"
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "Lineでログイン"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "私のサークル"
 
 #: src/components/pages/DefaultLayoutMap.re.mjs:94
 #: src/components/pages/DefaultLayoutMap.re.mjs:147
@@ -59,6 +59,10 @@ msgstr "ランキング"
 #: src/components/pages/DefaultLayoutMap.re.mjs:97
 #~ msgid "All"
 #~ msgstr "すべて"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "私のサークル"
 
 #: src/components/organisms/NavViewer.re.mjs:65
 #~ msgid "My Events"

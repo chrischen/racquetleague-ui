@@ -5000,6 +5000,136 @@ msgstr "Còn chỗ trống"
 msgid "Use near me"
 msgstr "Dùng vị trí gần tôi"
 
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} mở"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active members"
+msgstr "Thành viên đang hoạt động"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "Tất cả câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "Hãy quay lại khi câu lạc bộ công bố lịch tiếp theo."
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "Cấp độ câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "Đầy"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "Lịch đầy đủ của câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "Thành viên"
+
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "Yêu cầu đang chờ xử lý"
+
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "Tỷ lệ giữ chân"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "Tổng số thành viên"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "Câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "Người chơi tích cực"
+
+#: src/components/pages/ClubsListPage.re.mjs:535
+msgid "{0} club"
+msgstr "{0} câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:536
+msgid "{0} clubs"
+msgstr "{0} câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:564
+msgid "Clear filters"
+msgstr "Xóa bộ lọc"
+
+#: src/components/pages/ClubsListPage.re.mjs:542
+msgid "Club filters"
+msgstr "Bộ lọc câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:299
+#: src/components/pages/ClubsListPage.re.mjs:586
+msgid "Club score"
+msgstr "Điểm câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:416
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr "Tìm và tham gia câu lạc bộ, được xếp hạng theo mức độ hoạt động, trình độ chơi và số lượng người chơi quay lại."
+
+#: src/components/pages/ClubsListPage.re.mjs:600
+msgid "Load more clubs"
+msgstr "Tải thêm câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:316
+msgid "Median level"
+msgstr "Trình độ trung bình"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+msgid "Minimum club level"
+msgstr "Trình độ câu lạc bộ tối thiểu"
+
+#: src/components/pages/ClubsListPage.re.mjs:209
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: src/components/pages/ClubsListPage.re.mjs:556
+msgid "No clubs match your filters"
+msgstr "Không có câu lạc bộ nào phù hợp với bộ lọc của bạn"
+
+#: src/components/pages/ClubsListPage.re.mjs:228
+msgid "No upcoming event"
+msgstr "Không có sự kiện sắp tới"
+
+#: src/components/pages/ClubsListPage.re.mjs:578
+msgid "Rank"
+msgstr "Xếp hạng"
+
+#: src/components/pages/ClubsListPage.re.mjs:427
+#: src/components/pages/ClubsListPage.re.mjs:437
+msgid "Search clubs"
+msgstr "Tìm kiếm câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+msgid "Sport"
+msgstr "Môn thể thao"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+msgid "Try a different sport or a lower level, or clear your filters."
+msgstr "Thử môn thể thao khác hoặc trình độ thấp hơn, hoặc xóa bộ lọc của bạn."
+
+#: src/components/pages/ClubsListPage.re.mjs:335
+msgid "View club"
+msgstr "Xem câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr "Thử tìm kiếm khác, hoặc chọn môn thể thao khác trong thanh bên."
+
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "Cá nhân"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

@@ -35,6 +35,19 @@ const mainRoutes: RouteObject[] =
       handle: "src/components/routes/EventsMapRoute.gen.tsx",
     },
     {
+      // The sidebar renders every browse surface inside a sport, so the clubs
+      // listing and availability read their activity from the URL. The
+      // unscoped /clubs and /availability paths above stay for old links.
+      path: "e/:activitySlug/clubs",
+      lazy: () => import("./components/routes/ClubsListRoute.gen"),
+      handle: "src/components/routes/ClubsListRoute.gen.tsx",
+    },
+    {
+      path: "e/:activitySlug/availability",
+      lazy: () => import("./components/routes/AvailabilityRoute.gen"),
+      handle: "src/components/routes/AvailabilityRoute.gen.tsx",
+    },
+    {
       path: "e/:activitySlug",
       lazy: () => import("./components/pages/Events.gen"),
       handle: "src/components/pages/Events.gen.tsx",
@@ -60,8 +73,8 @@ const mainRoutes: RouteObject[] =
       children: [
         {
           index: true,
-          lazy: () => import("./components/routes/ViewerClubsRoute.gen"),
-          handle: "src/components/routes/ViewerClubsRoute.gen.tsx",
+          lazy: () => import("./components/routes/ClubsListRoute.gen"),
+          handle: "src/components/routes/ClubsListRoute.gen.tsx",
         },
         {
           path: ":slug",

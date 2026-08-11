@@ -115,7 +115,8 @@ module Main = {
 
 module AnimatePresence = {
   @module("framer-motion") @react.component
-  external make: (~mode: string=?, ~children: React.element) => React.element = "AnimatePresence"
+  external make: (~mode: string=?, ~initial: bool=?, ~children: React.element) => React.element =
+    "AnimatePresence"
 }
 
 type animationControls

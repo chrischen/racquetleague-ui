@@ -13,50 +13,146 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubPage.re.mjs:178
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} 开放"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "活跃球员"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "所有俱乐部"
+
+#: src/components/pages/ClubPage.re.mjs:157
+msgid "All levels"
+msgstr "所有级别"
+
+#: src/components/pages/ClubPage.re.mjs:628
 msgid "Cancel Request"
 msgstr "取消申请"
 
-#: src/components/pages/ClubPage.re.mjs:510
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "待俱乐部发布下一期日程后再查看。"
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "俱乐部级别"
+
+#: src/components/pages/ClubPage.re.mjs:794
 msgid "club not found"
 msgstr "俱乐部未找到"
 
-#: src/components/pages/ClubPage.re.mjs:207
+#: src/components/pages/ClubPage.re.mjs:160
+#: src/components/pages/ClubPage.re.mjs:161
+msgid "Free"
+msgstr "免费"
+
+#: src/components/pages/ClubPage.re.mjs:312
+msgid "Friday"
+msgstr "星期五"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "已满"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "俱乐部完整日程"
+
+#: src/components/pages/ClubPage.re.mjs:675
 msgid "Join Club"
 msgstr "加入俱乐部"
 
-#: src/components/pages/ClubPage.re.mjs:407
+#: src/components/pages/ClubPage.re.mjs:412
 msgid "Leaderboard"
 msgstr "排行榜"
 
-#: src/components/pages/ClubPage.re.mjs:168
+#: src/components/pages/ClubPage.re.mjs:603
 msgid "Leave club"
 msgstr "退出俱乐部"
 
-#: src/components/pages/ClubPage.re.mjs:266
+#: src/components/pages/ClubPage.re.mjs:735
 msgid "Manage Members"
 msgstr "管理成员"
 
-#: src/components/pages/ClubPage.re.mjs:490
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "会员"
+
+#: src/components/pages/ClubPage.re.mjs:300
+msgid "Monday"
+msgstr "星期一"
+
+#: src/components/pages/ClubPage.re.mjs:322
+msgid "Next {dayName}"
+msgstr "下周{dayName}"
+
+#: src/components/pages/ClubPage.re.mjs:430
 msgid "No ratings yet"
 msgstr "暂无评分"
 
-#: src/components/pages/ClubPage.re.mjs:386
+#: src/components/pages/ClubPage.re.mjs:357
 msgid "No upcoming events"
 msgstr "没有即将举行的活动"
 
-#: src/components/pages/ClubPage.re.mjs:196
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "申请待审核"
+
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Request to join"
 msgstr "申请加入"
 
-#: src/components/pages/ClubPage.re.mjs:291
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "留存率"
+
+#: src/components/pages/ClubPage.re.mjs:315
+msgid "Saturday"
+msgstr "星期六"
+
+#: src/components/pages/ClubPage.re.mjs:297
+msgid "Sunday"
+msgstr "星期日"
+
+#: src/components/pages/ClubPage.re.mjs:309
+msgid "Thursday"
+msgstr "星期四"
+
+#: src/components/pages/ClubPage.re.mjs:284
+msgid "Today"
+msgstr "今天"
+
+#: src/components/pages/ClubPage.re.mjs:289
+msgid "Tomorrow"
+msgstr "明天"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "会员总数"
+
+#: src/components/pages/ClubPage.re.mjs:303
+msgid "Tuesday"
+msgstr "星期二"
+
+#: src/components/pages/ClubPage.re.mjs:762
 msgid "Upcoming Events"
 msgstr "即将举行的活动"
 
-#: src/components/pages/ClubPage.re.mjs:298
-#: src/components/pages/ClubPage.re.mjs:414
+#: src/components/pages/ClubPage.re.mjs:422
 msgid "View All"
 msgstr "查看全部"
+
+#: src/components/pages/ClubPage.re.mjs:306
+msgid "Wednesday"
+msgstr "星期三"
+
+#: src/components/pages/ClubPage.re.mjs:321
+msgid "Yesterday"
+msgstr "昨天"
 
 #: src/components/organisms/EventItem.re.mjs:423
 #: src/components/organisms/ClubEventsList.re.mjs:209
@@ -118,6 +214,10 @@ msgstr "查看全部"
 #: src/components/pages/ClubPage.re.mjs:246
 #~ msgid "47 Members"
 #~ msgstr "47位成员"
+
+#: src/components/pages/ClubPage.re.mjs:94
+#~ msgid "Active members"
+#~ msgstr "活跃会员"
 
 #: src/components/organisms/AddEventButton.re.mjs:79
 #~ msgid "Add an Event"

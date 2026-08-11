@@ -39,113 +39,253 @@ module MediaQueryList = {
   @send external removeEventListener: (t, string, event => unit) => unit = "removeEventListener"
 }
 
+type sport = {
+  slug: string,
+  label: string,
+  dotColor: string,
+  // Availability is scoped to a single Activity id and only pickleball's is
+  // wired up (the API takes an activityId, not a slug), so the item stays
+  // hidden for the other sports until a slug can be resolved.
+  hasAvailability: bool,
+}
+
+// Everything the sidebar links to is activity-scoped, so the locale prefix has
+// to come off before a path can be compared against "/e/<sport>/...".
+let useAppPath = () => {
+  let locale = React.useContext(LangProvider.LocaleContext.context)
+  let location = Router.useLocation()
+  let prefix = "/" ++ locale.lang
+  if location.pathname == prefix {
+    "/"
+  } else if location.pathname->String.startsWith(prefix ++ "/") {
+    location.pathname->String.sliceToEnd(~start=prefix->String.length)
+  } else {
+    location.pathname
+  }
+}
+
+let iconClass = active => active ? "text-black" : "text-gray-500 dark:text-gray-400"
+
+module SidebarItem = PkuruSidebarClubs.SidebarItem
+
+let sportsList = () => {
+  let ts = Lingui.UtilString.t
+  [
+    {slug: "pickleball", label: ts`Pickleball`, dotColor: "bg-green-600", hasAvailability: true},
+    {slug: "badminton", label: ts`Badminton`, dotColor: "bg-blue-400", hasAvailability: false},
+  ]
+}
+
+// "/" is the pickleball discover feed; the legacy unscoped /clubs and
+// /availability paths resolve to pickleball too.
+let activeSportSlug = (path: string) =>
+  switch path {
+  | "/" | "/clubs" | "/availability" => Some("pickleball")
+  | _ =>
+    sportsList()
+    ->Array.find(s =>
+      path->String.startsWith("/e/" ++ s.slug) || path->String.startsWith("/league/" ++ s.slug)
+    )
+    ->Option.map(s => s.slug)
+  }
+
 module SidebarContent = {
   @react.component
-  let make = (~isLoggedIn: bool) => {
+  let make = (
+    ~isLoggedIn: bool,
+    ~unreadCount: int=0,
+    // The sidebar renders twice (mobile drawer + desktop rail); the surface
+    // keeps the aria ids unique across the two copies.
+    ~surfaceId: string,
+    ~onNavigate: unit => unit=() => (),
+  ) => {
     let ts = Lingui.UtilString.t
-    let location = Router.useLocation()
-    let pathname = location.pathname
-    let params: {"activitySlug": option<string>} = Router.useParams()
-    let activeSlug = switch params["activitySlug"] {
-    | Some("badminton") => "badminton"
-    | Some("pickleball") => "pickleball"
-    | Some(_) | None => ""
-    }
-    let mapSlug = if activeSlug == "" {
-      "pickleball"
-    } else {
-      activeSlug
-    }
+    let path = useAppPath()
+    let navigate = LangProvider.Router.useNavigate()
 
-    open PkuruSidebarClubs
-    <div className="flex-1 overflow-y-auto py-4 px-2 space-y-6">
-      <div>
+    let sports = sportsList()
+    let activeSport = activeSportSlug(path)
+
+    let (expanded, setExpanded) = React.useState(() =>
+      Some(activeSport->Option.getOr("pickleball"))
+    )
+
+    // Follow the URL when the sport changes under us (a link, the back button),
+    // but leave a sport the user collapsed by hand alone.
+    React.useEffect1(() => {
+      activeSport->Option.forEach(slug => setExpanded(_ => Some(slug)))
+      None
+    }, [activeSport->Option.getOr("")])
+
+    <div className="flex-1 overflow-y-auto px-2 py-4 space-y-6">
+      <section ariaLabelledby={"sport-heading-" ++ surfaceId}>
         <div
-          className="px-3 mb-2 text-[10px] font-mono text-gray-400 dark:text-gray-500 uppercase tracking-wider">
-          {(ts`Browse`)->React.string}
-        </div>
-        <div className="space-y-0.5">
-          <SidebarItem
-            icon={<Lucide.Home
-              size=16
-              className={pathname == "/" ? "text-black" : "text-gray-500 dark:text-gray-400"}
-            />}
-            label={ts`Discover`}
-            href="/"
-          />
-          <SidebarItem
-            icon={<Lucide.Map size=16 className="text-gray-500 dark:text-gray-400" />}
-            label={ts`Map view`}
-            href={"/e/" ++ mapSlug ++ "/map"}
-          />
-          {isLoggedIn
-            ? <SidebarItem
-                icon={<Lucide.CalendarDays size=16 className="text-gray-500 dark:text-gray-400" />}
-                label={ts`My events`}
-                href="/events"
-              />
-            : React.null}
-          {isLoggedIn
-            ? <SidebarItem
-                icon={<Lucide.Clock className="w-4 h-4 text-gray-500 dark:text-gray-400" />}
-                label={ts`Availability`}
-                active={pathname == "/availability"}
-                href="/availability"
-              />
-            : React.null}
-          {isLoggedIn
-            ? <SidebarItem
-                icon={<Lucide.User size=16 className="text-gray-500 dark:text-gray-400" />}
-                label={ts`Profile`}
-                href="/settings/profile"
-              />
-            : React.null}
-        </div>
-      </div>
-      <div>
-        <div
-          className="px-3 mb-2 text-[10px] font-mono text-gray-400 dark:text-gray-500 uppercase tracking-wider">
+          id={"sport-heading-" ++ surfaceId}
+          className="mb-2 px-3 font-mono text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
           {(ts`Sports`)->React.string}
         </div>
-        <div className="space-y-0.5">
-          <SidebarItem
-            label={ts`Pickleball`}
-            active={activeSlug == "pickleball"}
-            dotColor="bg-green-600"
-            href="/e/pickleball"
-          />
-          <SidebarItem
-            label={ts`Badminton`}
-            active={activeSlug == "badminton"}
-            dotColor="bg-blue-400"
-            href="/e/badminton"
-          />
-          // <SidebarItem label={ts`Crossminton`} count=13 dotColor="bg-red-400" />
+        <div className="space-y-1">
+          {sports
+          ->Array.map(sport => {
+            let isExpanded = expanded == Some(sport.slug)
+            let isActive = activeSport == Some(sport.slug)
+            let panelId = surfaceId ++ "-" ++ sport.slug ++ "-menu"
+            let base = "/e/" ++ sport.slug
+            let isDefault = sport.slug == "pickleball"
+            let leaf = (scoped, legacy) => path == scoped || (isDefault && path == legacy)
+
+            <div key={sport.slug}>
+              <button
+                type_="button"
+                onClick={_ =>
+                  if isExpanded {
+                    setExpanded(_ => None)
+                  } else {
+                    setExpanded(_ => Some(sport.slug))
+                    if !isActive {
+                      navigate(base, None)
+                    }
+                  }}
+                ariaExpanded={isExpanded}
+                ariaControls={panelId}
+                className={Util.cx([
+                  "flex w-full items-center justify-between rounded-md px-3 py-2 text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",
+                  isActive
+                    ? "bg-gray-100 font-semibold text-gray-900 dark:bg-[#2a2b30] dark:text-gray-100"
+                    : "text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-[#2a2b30]",
+                ])}>
+                <span className="flex min-w-0 items-center gap-3">
+                  <span
+                    className={"h-2.5 w-2.5 flex-shrink-0 rounded-full " ++ sport.dotColor}
+                    ariaHidden=true
+                  />
+                  <span className="truncate"> {sport.label->React.string} </span>
+                </span>
+                <Lucide.ChevronDown
+                  size=15
+                  className={Util.cx([
+                    "flex-shrink-0 text-gray-400 transition-transform duration-200",
+                    isExpanded ? "rotate-180" : "",
+                  ])}
+                  \"aria-hidden"="true"
+                />
+              </button>
+              <FramerMotion.AnimatePresence initial=false>
+                {isExpanded
+                  ? <FramerMotion.DivCss
+                      key={panelId}
+                      initial={{height: "0px", opacity: 0.}}
+                      animate={{height: "auto", opacity: 1.}}
+                      exit={{height: "0px", opacity: 0.}}
+                      transition={{duration: 0.18}}
+                      className="overflow-hidden">
+                      <div
+                        id={panelId}
+                        className="ml-4 border-l border-gray-200 pb-2 pl-2 pt-1 dark:border-[#34353a]">
+                        <div className="space-y-0.5">
+                          <SidebarItem
+                            icon={<Lucide.Home size=16 className={iconClass(leaf(base, "/"))} />}
+                            label={ts`Discover`}
+                            active={leaf(base, "/")}
+                            href=base
+                            onClick=onNavigate
+                          />
+                          <SidebarItem
+                            icon={<Lucide.Users
+                              size=16 className={iconClass(leaf(base ++ "/clubs", "/clubs"))}
+                            />}
+                            label={ts`Clubs`}
+                            active={leaf(base ++ "/clubs", "/clubs")}
+                            href={base ++ "/clubs"}
+                            onClick=onNavigate
+                          />
+                          {isLoggedIn && sport.hasAvailability
+                            ? <SidebarItem
+                                icon={<Lucide.CalendarRange
+                                  size=16
+                                  className={iconClass(
+                                    leaf(base ++ "/availability", "/availability"),
+                                  )}
+                                />}
+                                label={ts`Availability`}
+                                active={leaf(base ++ "/availability", "/availability")}
+                                href={base ++ "/availability"}
+                                onClick=onNavigate
+                              />
+                            : React.null}
+                          <SidebarItem
+                            icon={<Lucide.Trophy
+                              size=16
+                              className={iconClass(
+                                path->String.startsWith("/league/" ++ sport.slug),
+                              )}
+                            />}
+                            label={ts`Leaderboard`}
+                            active={path->String.startsWith("/league/" ++ sport.slug)}
+                            href={"/league/" ++ sport.slug}
+                            onClick=onNavigate
+                          />
+                          <SidebarItem
+                            icon={<Lucide.Map
+                              size=16 className={iconClass(path == base ++ "/map")}
+                            />}
+                            label={ts`Map view`}
+                            active={path == base ++ "/map"}
+                            href={base ++ "/map"}
+                            onClick=onNavigate
+                          />
+                        </div>
+                        {isLoggedIn
+                          ? <React.Suspense fallback={React.null}>
+                              <PkuruSidebarClubs
+                                activitySlug={sport.slug} onNavigate={() => onNavigate()}
+                              />
+                            </React.Suspense>
+                          : React.null}
+                      </div>
+                    </FramerMotion.DivCss>
+                  : React.null}
+              </FramerMotion.AnimatePresence>
+            </div>
+          })
+          ->React.array}
         </div>
-      </div>
-      <div>
-        <div
-          className="px-3 mb-2 text-[10px] font-mono text-gray-400 dark:text-gray-500 uppercase tracking-wider">
-          {(ts`Rankings`)->React.string}
-        </div>
-        <div className="space-y-0.5">
-          <SidebarItem
-            icon={<Lucide.Trophy className="w-4 h-4 text-gray-500 dark:text-gray-400" />}
-            label={ts`Pickleball`}
-            active={pathname->String.includes("/league/pickleball")}
-            href="/league/pickleball"
-          />
-          <SidebarItem
-            icon={<Lucide.Trophy className="w-4 h-4 text-gray-500 dark:text-gray-400" />}
-            label={ts`Badminton`}
-            active={pathname->String.includes("/league/badminton")}
-            href="/league/badminton"
-          />
-        </div>
-      </div>
-      <React.Suspense fallback={React.null}>
-        <PkuruSidebarClubs />
-      </React.Suspense>
+      </section>
+      {isLoggedIn
+        ? <section ariaLabelledby={"personal-heading-" ++ surfaceId}>
+            <div
+              id={"personal-heading-" ++ surfaceId}
+              className="mb-2 px-3 font-mono text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+              {(ts`Personal`)->React.string}
+            </div>
+            <div className="space-y-0.5">
+              <SidebarItem
+                icon={<Lucide.CalendarDays size=16 className={iconClass(path == "/events")} />}
+                label={ts`My events`}
+                active={path == "/events"}
+                href="/events"
+                onClick=onNavigate
+              />
+              <SidebarItem
+                icon={<Lucide.Bell
+                  className={"w-4 h-4 " ++ iconClass(path == "/notifications")}
+                />}
+                label={ts`Notifications`}
+                count=?{unreadCount > 0 ? Some(unreadCount) : None}
+                active={path == "/notifications"}
+                href="/notifications"
+                onClick=onNavigate
+              />
+              <SidebarItem
+                icon={<Lucide.User size=16 className={iconClass(path == "/settings/profile")} />}
+                label={ts`Profile`}
+                active={path == "/settings/profile"}
+                href="/settings/profile"
+                onClick=onNavigate
+              />
+            </div>
+          </section>
+        : React.null}
       <div className="px-3 py-1.5">
         <LangSwitch />
       </div>
@@ -161,6 +301,30 @@ module BrandLogo = {
     <LangProvider.Router.Link to="/">
       <img src=pkuruLogo alt="Pkuru" className="h-6 w-auto dark:invert" />
     </LangProvider.Router.Link>
+  }
+}
+
+// The sidebar header carries the activity context the menu below it is scoped to.
+module SidebarHeader = {
+  @react.component
+  let make = () => {
+    let path = useAppPath()
+    let label =
+      activeSportSlug(path)
+      ->Option.flatMap(slug => sportsList()->Array.find(s => s.slug == slug))
+      ->Option.map(s => s.label->String.toLowerCase)
+
+    <div
+      className="h-14 flex items-center gap-2 px-4 border-b border-gray-200 dark:border-[#2a2b30]">
+      <BrandLogo />
+      {switch label {
+      | Some(label) =>
+        <span className="truncate text-sm font-normal text-gray-400 dark:text-gray-500">
+          {("/ " ++ label)->React.string}
+        </span>
+      | None => React.null
+      }}
+    </div>
   }
 }
 
@@ -267,7 +431,7 @@ module Topbar = {
 
 module MobileSidebar = {
   @react.component
-  let make = (~isOpen: bool, ~onClose: unit => unit, ~isLoggedIn: bool) => {
+  let make = (~isOpen: bool, ~onClose: unit => unit, ~isLoggedIn: bool, ~unreadCount: int) => {
     <FramerMotion.AnimatePresence>
       {isOpen
         ? <>
@@ -283,11 +447,8 @@ module MobileSidebar = {
               initial={{x: -280.}}
               animate={{x: 0.}}
               exit={{x: -280.}}>
-              <div
-                className="h-14 flex items-center px-4 border-b border-gray-200 dark:border-[#2a2b30]">
-                <BrandLogo />
-              </div>
-              <SidebarContent isLoggedIn />
+              <SidebarHeader />
+              <SidebarContent isLoggedIn unreadCount surfaceId="mobile" onNavigate=onClose />
             </FramerMotion.DivCss>
           </>
         : React.null}
@@ -308,11 +469,7 @@ module MobileTabs = {
         active ? "text-black dark:text-white" : "text-gray-400 dark:text-gray-500",
       ])
 
-    let activeSlug = if pathname->String.includes("/e/badminton") {
-      "badminton"
-    } else {
-      "pickleball"
-    }
+    let activeSlug = activeSportSlug(useAppPath())->Option.getOr("pickleball")
 
     <nav
       className="md:hidden border-t border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex items-center justify-around px-2 touch-none relative z-30"
@@ -363,6 +520,11 @@ module Layout = {
     ~children: React.element,
   ) => {
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
+    let unreadCount =
+      viewer
+      ->Option.flatMap(v => v.viewerMetadata)
+      ->Option.map(m => m.unreadInboxCount)
+      ->Option.getOr(0)
     let profileGate = UseProfileGate.use(~query=queryRefs, ~context=ProfileModal.Availability)
     let (showModal, setShowModal) = React.useState(() => false)
     let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
@@ -484,16 +646,14 @@ module Layout = {
                 <MobileSidebar
                   isOpen=sidebarOpen
                   onClose={() => setSidebarOpen(_ => false)}
-                  isLoggedIn={viewer->Option.flatMap(v => v.user)->Option.isSome}
+                  isLoggedIn
+                  unreadCount
                 />
                 // Desktop sidebar
                 <div
                   className="hidden md:flex w-[200px] flex-shrink-0 border-r border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex-col">
-                  <div
-                    className="h-14 flex items-center px-4 border-b border-gray-200 dark:border-[#2a2b30]">
-                    <BrandLogo />
-                  </div>
-                  <SidebarContent isLoggedIn={viewer->Option.flatMap(v => v.user)->Option.isSome} />
+                  <SidebarHeader />
+                  <SidebarContent isLoggedIn unreadCount surfaceId="desktop" />
                 </div>
                 // Main content + top bar wrapper
                 <div

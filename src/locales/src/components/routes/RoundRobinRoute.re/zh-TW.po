@@ -103,10 +103,6 @@ msgstr "平衡隊伍"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "在全新搭檔與均衡對戰之間取得平衡。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-msgid "Beta"
-msgstr "測試版"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:244
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -114,7 +110,7 @@ msgstr "測試版"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/molecules/DrawGenerator.re.mjs:94
+#: src/components/molecules/DrawGenerator.re.mjs:108
 msgid "Classic round-robin draws"
 msgstr "經典循環賽抽籤"
 
@@ -131,11 +127,11 @@ msgid "Close self check-in display"
 msgstr "關閉自助報到顯示"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:97
 msgid "Competitive"
 msgstr "競技模式"
 
-#: src/components/molecules/DrawGenerator.re.mjs:112
+#: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "競技+"
 
@@ -151,7 +147,7 @@ msgstr "球場 {0}"
 msgid "Court {0} - Editing"
 msgstr "場地 {0} - 編輯中"
 
-#: src/components/molecules/DrawGenerator.re.mjs:148
+#: src/components/molecules/DrawGenerator.re.mjs:142
 msgid "Courts:"
 msgstr "場地數："
 
@@ -249,7 +245,7 @@ msgstr "輸入隊伍名稱"
 msgid "Event check-in"
 msgstr "活動報到"
 
-#: src/components/molecules/DrawGenerator.re.mjs:101
+#: src/components/molecules/DrawGenerator.re.mjs:82
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -261,7 +257,7 @@ msgstr ""
 msgid "Female"
 msgstr "女性"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:87
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -271,7 +267,7 @@ msgstr "每輪全新多樣化對陣，每場比賽均依技術水準平衡分隊
 msgid "Full Screen View"
 msgstr "全螢幕檢視"
 
-#: src/components/molecules/DrawGenerator.re.mjs:296
+#: src/components/molecules/DrawGenerator.re.mjs:282
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -281,15 +277,15 @@ msgstr "未來輪次已輸入分數。重新生成將會刪除這些分數。您
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/molecules/DrawGenerator.re.mjs:252
+#: src/components/molecules/DrawGenerator.re.mjs:238
 msgid "Generate"
 msgstr "生成"
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Generate Draws"
 msgstr "生成對戰表"
 
-#: src/components/molecules/DrawGenerator.re.mjs:377
+#: src/components/molecules/DrawGenerator.re.mjs:363
 msgid "Generating…"
 msgstr "生成中…"
 
@@ -349,7 +345,7 @@ msgstr "場比賽"
 msgid "Mix players"
 msgstr "混合球員"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/DrawGenerator.re.mjs:102
 msgid "Mixed"
 msgstr "混合"
 
@@ -361,7 +357,7 @@ msgstr "μ"
 msgid "Name"
 msgstr "名稱"
 
-#: src/components/molecules/DrawGenerator.re.mjs:276
+#: src/components/molecules/DrawGenerator.re.mjs:262
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr "{1} 個{courtText}需要 {0} 名球員。目前已報到 {2} 人。"
 
@@ -369,7 +365,7 @@ msgstr "{1} 個{courtText}需要 {0} 名球員。目前已報到 {2} 人。"
 msgid "New Anti-Team"
 msgstr "新反對隊"
 
-#: src/components/molecules/DrawGenerator.re.mjs:229
+#: src/components/molecules/DrawGenerator.re.mjs:215
 msgid "New seed — deals different matches"
 msgstr "新種子——產生不同對陣組合"
 
@@ -405,7 +401,7 @@ msgstr "開啟手機相機，掃描此碼並加入活動。"
 msgid "Opponent variety"
 msgstr "對手多樣性"
 
-#: src/components/molecules/DrawGenerator.re.mjs:113
+#: src/components/molecules/DrawGenerator.re.mjs:92
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "在技術區間內優先安排均衡對戰的最佳化籤表。"
@@ -430,7 +426,7 @@ msgstr "球員ID"
 msgid "Player Settings"
 msgstr "球員設定"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:98
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
@@ -456,7 +452,7 @@ msgstr "優先考慮實力均衡的對局，而非新對手組合。"
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "優先考慮新夥伴與對手組合，而非實力均衡的對局。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:106
+#: src/components/molecules/DrawGenerator.re.mjs:86
 msgid "Random Balanced"
 msgstr "隨機均衡"
 
@@ -468,7 +464,7 @@ msgstr "重新平衡比賽"
 msgid "Rebalance this round with current players"
 msgstr "用當前球員重新平衡這個回合"
 
-#: src/components/molecules/DrawGenerator.re.mjs:295
+#: src/components/molecules/DrawGenerator.re.mjs:281
 msgid "Regenerate Rounds?"
 msgstr "重新生成輪次？"
 
@@ -502,15 +498,15 @@ msgstr "重設為滑桿"
 msgid "Round {0}"
 msgstr "第 {0} 回合"
 
-#: src/components/molecules/DrawGenerator.re.mjs:100
+#: src/components/molecules/DrawGenerator.re.mjs:81
 msgid "Round Robin"
 msgstr "循環賽"
 
-#: src/components/molecules/DrawGenerator.re.mjs:93
+#: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
 msgstr "循環賽"
 
-#: src/components/molecules/DrawGenerator.re.mjs:88
+#: src/components/molecules/DrawGenerator.re.mjs:103
 msgid "Round-Robin with teams balanced by skill."
 msgstr "技能平衡隊伍的循環賽。"
 
@@ -547,7 +543,7 @@ msgstr "掃描以報到"
 msgid "Score"
 msgstr "比分"
 
-#: src/components/molecules/DrawGenerator.re.mjs:217
+#: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "種子："
 
@@ -571,11 +567,11 @@ msgstr "技能：{0}"
 msgid "Split each match into its most even teams"
 msgstr "將每場對局分為最均衡的隊伍"
 
-#: src/components/molecules/DrawGenerator.re.mjs:380
+#: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
 msgstr "策略"
 
-#: src/components/molecules/DrawGenerator.re.mjs:184
+#: src/components/molecules/DrawGenerator.re.mjs:178
 msgid "Strategy:"
 msgstr "策略："
 
@@ -613,7 +609,7 @@ msgid ""
 "scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:319
+#: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr "這將刪除所有未來回合並生成新比賽"
 
@@ -621,12 +617,12 @@ msgstr "這將刪除所有未來回合並生成新比賽"
 msgid "Tight bands"
 msgstr "緊密分組"
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Update Future Rounds"
 msgstr "更新未來回合"
 
-#: src/components/molecules/DrawGenerator.re.mjs:287
-#: src/components/molecules/DrawGenerator.re.mjs:307
+#: src/components/molecules/DrawGenerator.re.mjs:273
+#: src/components/molecules/DrawGenerator.re.mjs:293
 msgid "Update Rounds Below"
 msgstr "更新以下回合"
 
@@ -652,6 +648,10 @@ msgstr "您的瀏覽器版本過舊，無法使用此功能。"
 #, fuzzy
 #~ msgid "Add Players"
 #~ msgstr "新增球員"
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "測試版"
 
 #: src/components/organisms/RoundRobin.re.mjs:346
 #, fuzzy

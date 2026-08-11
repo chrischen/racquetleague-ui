@@ -103,10 +103,6 @@ msgstr "팀 균형"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "새로운 파트너와 균등한 경기 수준을 균형 있게 조정합니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-msgid "Beta"
-msgstr "베타"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:244
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -114,7 +110,7 @@ msgstr "베타"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/molecules/DrawGenerator.re.mjs:94
+#: src/components/molecules/DrawGenerator.re.mjs:108
 msgid "Classic round-robin draws"
 msgstr "클래식 라운드 로빈 대진"
 
@@ -131,11 +127,11 @@ msgid "Close self check-in display"
 msgstr "셀프 체크인 화면 닫기"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:97
 msgid "Competitive"
 msgstr "경쟁"
 
-#: src/components/molecules/DrawGenerator.re.mjs:112
+#: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "경쟁+"
 
@@ -151,7 +147,7 @@ msgstr "코트 {0}"
 msgid "Court {0} - Editing"
 msgstr "코트 {0} - 편집 중"
 
-#: src/components/molecules/DrawGenerator.re.mjs:148
+#: src/components/molecules/DrawGenerator.re.mjs:142
 msgid "Courts:"
 msgstr "코트:"
 
@@ -250,7 +246,7 @@ msgstr "팀 이름 입력"
 msgid "Event check-in"
 msgstr "이벤트 체크인"
 
-#: src/components/molecules/DrawGenerator.re.mjs:101
+#: src/components/molecules/DrawGenerator.re.mjs:82
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -262,7 +258,7 @@ msgstr ""
 msgid "Female"
 msgstr "여성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:87
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -272,7 +268,7 @@ msgstr "매 라운드 새롭고 다양한 매치업, 각 경기 팀은 실력별
 msgid "Full Screen View"
 msgstr "전체 화면 보기"
 
-#: src/components/molecules/DrawGenerator.re.mjs:296
+#: src/components/molecules/DrawGenerator.re.mjs:282
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -284,15 +280,15 @@ msgstr ""
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/molecules/DrawGenerator.re.mjs:252
+#: src/components/molecules/DrawGenerator.re.mjs:238
 msgid "Generate"
 msgstr "생성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Generate Draws"
 msgstr "대진 생성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:377
+#: src/components/molecules/DrawGenerator.re.mjs:363
 msgid "Generating…"
 msgstr "생성 중…"
 
@@ -352,7 +348,7 @@ msgstr "경기"
 msgid "Mix players"
 msgstr "선수 혼합"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/DrawGenerator.re.mjs:102
 msgid "Mixed"
 msgstr "혼합"
 
@@ -364,7 +360,7 @@ msgstr "뮤"
 msgid "Name"
 msgstr "이름"
 
-#: src/components/molecules/DrawGenerator.re.mjs:276
+#: src/components/molecules/DrawGenerator.re.mjs:262
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr "{1} {courtText}에 {0}명의 플레이어가 필요합니다. 현재 {2}명 체크인."
 
@@ -372,7 +368,7 @@ msgstr "{1} {courtText}에 {0}명의 플레이어가 필요합니다. 현재 {2}
 msgid "New Anti-Team"
 msgstr "새 안티팀"
 
-#: src/components/molecules/DrawGenerator.re.mjs:229
+#: src/components/molecules/DrawGenerator.re.mjs:215
 msgid "New seed — deals different matches"
 msgstr "새 시드 — 다른 경기를 배정합니다"
 
@@ -408,7 +404,7 @@ msgstr "휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 �
 msgid "Opponent variety"
 msgstr "상대 다양성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:113
+#: src/components/molecules/DrawGenerator.re.mjs:92
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "실력 범위 내에서 균등한 경기를 우선하는 최적화된 대진표."
@@ -433,7 +429,7 @@ msgstr "플레이어 ID"
 msgid "Player Settings"
 msgstr "플레이어 설정"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:98
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
@@ -461,7 +457,7 @@ msgstr "균등한 경기를 새로운 파트너보다 우선시합니다."
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "균등한 경기보다 새로운 파트너 및 상대를 우선시합니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:106
+#: src/components/molecules/DrawGenerator.re.mjs:86
 msgid "Random Balanced"
 msgstr "랜덤 균형"
 
@@ -473,7 +469,7 @@ msgstr "경기 재조정"
 msgid "Rebalance this round with current players"
 msgstr "현재 플레이어로 이 라운드 재조정"
 
-#: src/components/molecules/DrawGenerator.re.mjs:295
+#: src/components/molecules/DrawGenerator.re.mjs:281
 msgid "Regenerate Rounds?"
 msgstr "라운드를 재생성하시겠습니까?"
 
@@ -507,15 +503,15 @@ msgstr "슬라이더로 초기화"
 msgid "Round {0}"
 msgstr "라운드 {0}"
 
-#: src/components/molecules/DrawGenerator.re.mjs:100
+#: src/components/molecules/DrawGenerator.re.mjs:81
 msgid "Round Robin"
 msgstr "라운드 로빈"
 
-#: src/components/molecules/DrawGenerator.re.mjs:93
+#: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
 msgstr "라운드 로빈"
 
-#: src/components/molecules/DrawGenerator.re.mjs:88
+#: src/components/molecules/DrawGenerator.re.mjs:103
 msgid "Round-Robin with teams balanced by skill."
 msgstr "실력이 균형잡힌 팀으로 라운드 로빈."
 
@@ -552,7 +548,7 @@ msgstr "스캔하여 체크인"
 msgid "Score"
 msgstr "점수"
 
-#: src/components/molecules/DrawGenerator.re.mjs:217
+#: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "시드:"
 
@@ -576,11 +572,11 @@ msgstr "실력: {0}"
 msgid "Split each match into its most even teams"
 msgstr "각 경기를 가장 균등한 팀으로 나누기"
 
-#: src/components/molecules/DrawGenerator.re.mjs:380
+#: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
 msgstr "전략"
 
-#: src/components/molecules/DrawGenerator.re.mjs:184
+#: src/components/molecules/DrawGenerator.re.mjs:178
 msgid "Strategy:"
 msgstr "전략:"
 
@@ -620,7 +616,7 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:319
+#: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 
@@ -628,12 +624,12 @@ msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 msgid "Tight bands"
 msgstr "촘촘한 밴드"
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Update Future Rounds"
 msgstr "향후 라운드 업데이트"
 
-#: src/components/molecules/DrawGenerator.re.mjs:287
-#: src/components/molecules/DrawGenerator.re.mjs:307
+#: src/components/molecules/DrawGenerator.re.mjs:273
+#: src/components/molecules/DrawGenerator.re.mjs:293
 msgid "Update Rounds Below"
 msgstr "아래 라운드 업데이트"
 
@@ -650,6 +646,10 @@ msgstr "승리 팀 (팀 {0})"
 #: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습니다."
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "베타"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
 #~ msgid "Drag players to reorder their initial seeding"

@@ -73,12 +73,11 @@ msgstr "下午"
 msgid "Anytime"
 msgstr "任何時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:136
+#: src/components/pages/PkuruLayout.re.mjs:251
 msgid "Availability"
 msgstr "空閒時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:168
-#: src/components/pages/PkuruLayout.re.mjs:198
+#: src/components/pages/PkuruLayout.re.mjs:108
 msgid "Badminton"
 msgstr "羽毛球"
 
@@ -94,13 +93,14 @@ msgstr "個人簡介"
 msgid "Biography is required"
 msgstr "簡介為必填項目"
 
-#: src/components/pages/PkuruLayout.re.mjs:103
-msgid "Browse"
-msgstr "瀏覽"
-
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "關閉個人資料表單"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#: src/components/pages/PkuruLayout.re.mjs:297
+msgid "Clubs"
+msgstr "俱樂部"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -132,8 +132,8 @@ msgid ""
 "rules."
 msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
 
-#: src/components/pages/PkuruLayout.re.mjs:113
-#: src/components/pages/PkuruLayout.re.mjs:437
+#: src/components/pages/PkuruLayout.re.mjs:287
+#: src/components/pages/PkuruLayout.re.mjs:651
 msgid "Discover"
 msgstr "探索"
 
@@ -251,6 +251,10 @@ msgstr "已加入俱樂部"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球員個人資料準確且對社群有用。"
 
+#: src/components/pages/PkuruLayout.re.mjs:308
+msgid "Leaderboard"
+msgstr "排行榜"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "已離開活動"
@@ -259,11 +263,11 @@ msgstr "已離開活動"
 msgid "Level"
 msgstr "等級"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -276,11 +280,11 @@ msgstr "使用 Line 登入"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/pages/PkuruLayout.re.mjs:447
+#: src/components/pages/PkuruLayout.re.mjs:661
 msgid "Map"
 msgstr "地圖"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:318
 msgid "Map view"
 msgstr "地圖檢視"
 
@@ -292,23 +296,19 @@ msgstr "標記為有空"
 msgid "Morning"
 msgstr "上午"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "我的俱樂部"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "我的俱樂部"
-
-#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:476
+#: src/components/pages/PkuruLayout.re.mjs:690
 msgid "My Events"
 msgstr "我的活動"
 
-#: src/components/pages/PkuruLayout.re.mjs:461
+#: src/components/pages/PkuruLayout.re.mjs:675
 msgid "New"
 msgstr "新建"
 
@@ -316,7 +316,7 @@ msgstr "新建"
 msgid "New Comment"
 msgstr "新留言"
 
-#: src/components/pages/PkuruLayout.re.mjs:277
+#: src/components/pages/PkuruLayout.re.mjs:491
 msgid "New event"
 msgstr "新增活動"
 
@@ -337,7 +337,8 @@ msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:311
+#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:525
 msgid "Notifications"
 msgstr "通知"
 
@@ -345,8 +346,11 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已離開候補"
 
-#: src/components/pages/PkuruLayout.re.mjs:162
-#: src/components/pages/PkuruLayout.re.mjs:190
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "個人"
+
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Pickleball"
 msgstr "匹克球"
 
@@ -358,14 +362,10 @@ msgstr "球員可用性熱力圖"
 msgid "Pro"
 msgstr "專業"
 
-#: src/components/pages/PkuruLayout.re.mjs:145
-#: src/components/pages/PkuruLayout.re.mjs:486
+#: src/components/pages/PkuruLayout.re.mjs:200
+#: src/components/pages/PkuruLayout.re.mjs:700
 msgid "Profile"
 msgstr "個人資料"
-
-#: src/components/pages/PkuruLayout.re.mjs:181
-msgid "Rankings"
-msgstr "排名"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -397,7 +397,7 @@ msgid ""
 "they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
-#: src/components/pages/PkuruLayout.re.mjs:156
+#: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr "遐動"
 
@@ -439,6 +439,10 @@ msgstr "在您參加此活動之前，我們需要一些資訊"
 msgid "When do you want to play?"
 msgstr "你想什麼時候打球？"
 
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "瀏覽"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
 #~ msgstr "活動更新"
@@ -464,9 +468,17 @@ msgstr "你想什麼時候打球？"
 #~ msgid "Match my time"
 #~ msgstr "配合我的時間"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "我的俱樂部"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "開放"
+
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "排名"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

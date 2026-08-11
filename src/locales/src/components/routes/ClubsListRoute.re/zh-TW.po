@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-11 13:08+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/ClubsListPage.re.mjs:424
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr "{1}"
+
+#: src/components/pages/ClubsListPage.re.mjs:425
+msgid "{0} club"
+msgstr "{0} 個俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:426
+msgid "{0} clubs"
+msgstr "{0} 個俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:287
+msgid "Active players"
+msgstr "活躍球員"
+
+#: src/components/pages/ClubsListPage.re.mjs:333
+msgid "Badminton"
+msgstr "羽毛球"
+
+#: src/components/pages/ClubsListPage.re.mjs:414
+msgid "Clear"
+msgstr "清除"
+
+#: src/components/pages/ClubsListPage.re.mjs:454
+msgid "Clear filters"
+msgstr "清除篩選條件"
+
+#: src/components/pages/ClubsListPage.re.mjs:474
+msgid "Club"
+msgstr "俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:432
+msgid "Club filters"
+msgstr "俱樂部篩選條件"
+
+#: src/components/pages/ClubsListPage.re.mjs:273
+#: src/components/pages/ClubsListPage.re.mjs:478
+msgid "Club score"
+msgstr "俱樂部評分"
+
+#: src/components/pages/ClubsListPage.re.mjs:370
+msgid "Clubs"
+msgstr "俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:379
+msgid ""
+"Find and join clubs, ranked by activity, level of play and how many players "
+"come back."
+msgstr "尋找並加入俱樂部，依活躍度、競技水準及回訪球員數量排名。"
+
+#: src/components/pages/ClubsListPage.re.mjs:492
+msgid "Load more clubs"
+msgstr "載入更多俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:492
+msgid "Loading..."
+msgstr "載入中..."
+
+#: src/components/pages/ClubsListPage.re.mjs:290
+msgid "Median level"
+msgstr "中位水準"
+
+#: src/components/pages/ClubsListPage.re.mjs:152
+msgid "Member"
+msgstr "會員"
+
+#: src/components/pages/ClubsListPage.re.mjs:183
+msgid "Next"
+msgstr "下一步"
+
+#: src/components/pages/ClubsListPage.re.mjs:446
+msgid "No clubs match your filters"
+msgstr "沒有符合篩選條件的俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:202
+msgid "No upcoming event"
+msgstr "近期無活動"
+
+#: src/components/pages/ClubsListPage.re.mjs:158
+msgid "Pending"
+msgstr "待審核"
+
+#: src/components/pages/ClubsListPage.re.mjs:333
+msgid "Pickleball"
+msgstr "匹克球"
+
+#: src/components/pages/ClubsListPage.re.mjs:470
+msgid "Rank"
+msgstr "排名"
+
+#: src/components/pages/ClubsListPage.re.mjs:293
+msgid "Retention"
+msgstr "留存率"
+
+#: src/components/pages/ClubsListPage.re.mjs:390
+#: src/components/pages/ClubsListPage.re.mjs:400
+msgid "Search clubs"
+msgstr "搜尋俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:284
+msgid "Total members"
+msgstr "會員總數"
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr "請嘗試不同的搜尋，或在側邊欄選擇其他運動。"
+
+#: src/components/pages/ClubsListPage.re.mjs:309
+msgid "View club"
+msgstr "查看俱樂部"
+
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr "所有級別"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr "最低俱樂部等級"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr "運動項目"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+#~ msgid "Try a different sport or a lower level, or clear your filters."
+#~ msgstr "請嘗試其他運動項目或較低等級，或清除篩選條件。"

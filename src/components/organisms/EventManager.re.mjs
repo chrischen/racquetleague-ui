@@ -2305,7 +2305,8 @@ function EventManager(props) {
                                       });
                                 }),
                               getUserFragmentRefs: getUserFragmentRefs,
-                              initialPlayers: players
+                              initialPlayers: players,
+                              eventUrl: "https://www.pkuru.com/events/" + eventId
                             }),
                         hasExistingDraws ? null : JsxRuntime.jsx(JsxRuntime.Fragment, {
                                 children: Caml_option.some(JsxRuntime.jsx(DrawGenerator.make, {

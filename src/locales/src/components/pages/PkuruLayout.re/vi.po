@@ -73,12 +73,11 @@ msgstr "Buổi chiều"
 msgid "Anytime"
 msgstr "Bất kỳ lúc nào"
 
-#: src/components/pages/PkuruLayout.re.mjs:136
+#: src/components/pages/PkuruLayout.re.mjs:251
 msgid "Availability"
 msgstr "Lịch rảnh"
 
-#: src/components/pages/PkuruLayout.re.mjs:168
-#: src/components/pages/PkuruLayout.re.mjs:198
+#: src/components/pages/PkuruLayout.re.mjs:108
 msgid "Badminton"
 msgstr "Cầu lông"
 
@@ -94,13 +93,14 @@ msgstr "Tiểu sử"
 msgid "Biography is required"
 msgstr "Tiểu sử là bắt buộc"
 
-#: src/components/pages/PkuruLayout.re.mjs:103
-msgid "Browse"
-msgstr "Duyệt"
-
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "Đóng biểu mẫu hồ sơ"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#: src/components/pages/PkuruLayout.re.mjs:297
+msgid "Clubs"
+msgstr "Câu lạc bộ"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -136,8 +136,8 @@ msgstr ""
 "Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
 "bạn chọn địa điểm và luật chơi."
 
-#: src/components/pages/PkuruLayout.re.mjs:113
-#: src/components/pages/PkuruLayout.re.mjs:437
+#: src/components/pages/PkuruLayout.re.mjs:287
+#: src/components/pages/PkuruLayout.re.mjs:651
 msgid "Discover"
 msgstr "Khám phá"
 
@@ -255,6 +255,10 @@ msgstr "Đã Tham Gia Câu Lạc Bộ"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
 
+#: src/components/pages/PkuruLayout.re.mjs:308
+msgid "Leaderboard"
+msgstr "Bảng xếp hạng"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "Đã rời Sự kiện"
@@ -263,11 +267,11 @@ msgstr "Đã rời Sự kiện"
 msgid "Level"
 msgstr "Trình độ"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "Tải thêm"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -280,11 +284,11 @@ msgstr "đăng nhập bằng Line"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/pages/PkuruLayout.re.mjs:447
+#: src/components/pages/PkuruLayout.re.mjs:661
 msgid "Map"
 msgstr "Bản đồ"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:318
 msgid "Map view"
 msgstr "Xem bản đồ"
 
@@ -296,23 +300,19 @@ msgstr "Đánh dấu rảnh"
 msgid "Morning"
 msgstr "Buổi sáng"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "Câu lạc bộ của tôi"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "Câu lạc bộ của tôi"
-
-#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:476
+#: src/components/pages/PkuruLayout.re.mjs:690
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:461
+#: src/components/pages/PkuruLayout.re.mjs:675
 msgid "New"
 msgstr "Mới"
 
@@ -320,7 +320,7 @@ msgstr "Mới"
 msgid "New Comment"
 msgstr "Bình luận mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:277
+#: src/components/pages/PkuruLayout.re.mjs:491
 msgid "New event"
 msgstr "Sự kiện mới"
 
@@ -341,7 +341,8 @@ msgid "Notification"
 msgstr "Thông báo"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:311
+#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:525
 msgid "Notifications"
 msgstr "Thông báo"
 
@@ -349,8 +350,11 @@ msgstr "Thông báo"
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
-#: src/components/pages/PkuruLayout.re.mjs:162
-#: src/components/pages/PkuruLayout.re.mjs:190
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "Cá nhân"
+
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Pickleball"
 msgstr "Pickleball"
 
@@ -362,14 +366,10 @@ msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 msgid "Pro"
 msgstr "Chuyên nghiệp"
 
-#: src/components/pages/PkuruLayout.re.mjs:145
-#: src/components/pages/PkuruLayout.re.mjs:486
+#: src/components/pages/PkuruLayout.re.mjs:200
+#: src/components/pages/PkuruLayout.re.mjs:700
 msgid "Profile"
 msgstr "Hồ sơ"
-
-#: src/components/pages/PkuruLayout.re.mjs:181
-msgid "Rankings"
-msgstr "Bảng xếp hạng"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -403,7 +403,7 @@ msgstr ""
 "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
 "họ nên mời bạn."
 
-#: src/components/pages/PkuruLayout.re.mjs:156
+#: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr "Thể thao"
 
@@ -447,6 +447,10 @@ msgstr ""
 msgid "When do you want to play?"
 msgstr "Bạn muốn chơi lúc nào?"
 
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "Duyệt"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
 #~ msgstr "Cập nhật Sự kiện"
@@ -464,9 +468,17 @@ msgstr "Bạn muốn chơi lúc nào?"
 #~ msgid "Match my time"
 #~ msgstr "Khớp giờ của tôi"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "Câu lạc bộ của tôi"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "mở"
+
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "Bảng xếp hạng"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"

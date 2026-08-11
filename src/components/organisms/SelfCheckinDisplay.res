@@ -2,13 +2,14 @@
 
 // SelfCheckinDisplay - Fullscreen QR code display for inviting players
 //
-// Shows a large QR code pointing at the current page URL so players can
-// scan it with their phone camera to open the tool and join the event.
+// Shows a large QR code pointing at the event page (when a url is provided)
+// so players can scan it with their phone camera and join the event. Falls
+// back to the current page URL for the standalone tool with no event.
 
 @val @scope(("window", "location")) external locationHref: string = "href"
 
 @react.component
-let make = (~onClose: unit => unit) => {
+let make = (~onClose: unit => unit, ~url: option<string>=?) => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
 
@@ -35,7 +36,7 @@ let make = (~onClose: unit => unit) => {
         {t`Open your phone camera, scan this code, and join the event.`}
       </p>
       <div className="mt-8 rounded-3xl bg-white p-4 shadow-2xl sm:p-5">
-        <QRCode value={locationHref} />
+        <QRCode value={url->Option.getOr(locationHref)} />
       </div>
       <p className="mt-6 text-sm text-slate-400">
         {t`Having trouble scanning? Try to find the event from the club page.`}

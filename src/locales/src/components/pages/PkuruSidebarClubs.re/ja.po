@@ -13,14 +13,14 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "マイクラブ"

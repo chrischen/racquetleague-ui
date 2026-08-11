@@ -6192,3 +6192,135 @@ msgstr ""
 #: src/components/molecules/LocationFilter.re.mjs:208
 msgid "Use near me"
 msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active members"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr ""
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:535
+msgid "{0} club"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:536
+msgid "{0} clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:564
+msgid "Clear filters"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:542
+msgid "Club filters"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:299
+#: src/components/pages/ClubsListPage.re.mjs:586
+msgid "Club score"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:416
+msgid ""
+"Find and join clubs, ranked by activity, level of play and how many players "
+"come back."
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:600
+msgid "Load more clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:316
+msgid "Median level"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+msgid "Minimum club level"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:209
+msgid "Next"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:556
+msgid "No clubs match your filters"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:228
+msgid "No upcoming event"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:578
+msgid "Rank"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:427
+#: src/components/pages/ClubsListPage.re.mjs:437
+msgid "Search clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+msgid "Sport"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+msgid "Try a different sport or a lower level, or clear your filters."
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:335
+msgid "View club"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr ""

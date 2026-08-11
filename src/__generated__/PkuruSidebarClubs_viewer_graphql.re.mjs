@@ -46,7 +46,14 @@ function makeNode(rescript_graphql_node_PkuruSidebarClubsPaginationQuery) {
   return ((function(){
 var v0 = [
   "clubs"
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+};
 return {
   "argumentDefinitions": [
     {
@@ -125,11 +132,17 @@ return {
                   "name": "name",
                   "storageKey": null
                 },
+                (v1/*: any*/),
                 {
                   "alias": null,
                   "args": null,
-                  "kind": "ScalarField",
-                  "name": "slug",
+                  "concreteType": "Activity",
+                  "kind": "LinkedField",
+                  "name": "defaultActivity",
+                  "plural": false,
+                  "selections": [
+                    (v1/*: any*/)
+                  ],
                   "storageKey": null
                 },
                 {

@@ -73,12 +73,11 @@ msgstr ""
 msgid "Anytime"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:136
+#: src/components/pages/PkuruLayout.re.mjs:251
 msgid "Availability"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:168
-#: src/components/pages/PkuruLayout.re.mjs:198
+#: src/components/pages/PkuruLayout.re.mjs:108
 msgid "Badminton"
 msgstr ""
 
@@ -95,11 +94,16 @@ msgid "Biography is required"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:103
-msgid "Browse"
-msgstr ""
+#~ msgid "Browse"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
+msgstr ""
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#: src/components/pages/PkuruLayout.re.mjs:297
+msgid "Clubs"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:22
@@ -129,8 +133,8 @@ msgstr ""
 msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:113
-#: src/components/pages/PkuruLayout.re.mjs:437
+#: src/components/pages/PkuruLayout.re.mjs:287
+#: src/components/pages/PkuruLayout.re.mjs:651
 msgid "Discover"
 msgstr ""
 
@@ -261,6 +265,10 @@ msgstr ""
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
+#: src/components/pages/PkuruLayout.re.mjs:308
+msgid "Leaderboard"
+msgstr ""
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr ""
@@ -269,11 +277,11 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr ""
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr ""
 
@@ -290,11 +298,11 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:447
+#: src/components/pages/PkuruLayout.re.mjs:661
 msgid "Map"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:318
 msgid "Map view"
 msgstr ""
 
@@ -310,23 +318,23 @@ msgstr ""
 msgid "Morning"
 msgstr ""
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr ""
+#~ msgid "My Clubs"
+#~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:476
+#: src/components/pages/PkuruLayout.re.mjs:690
 msgid "My Events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:461
+#: src/components/pages/PkuruLayout.re.mjs:675
 msgid "New"
 msgstr ""
 
@@ -334,7 +342,7 @@ msgstr ""
 msgid "New Comment"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:277
+#: src/components/pages/PkuruLayout.re.mjs:491
 msgid "New event"
 msgstr ""
 
@@ -355,7 +363,8 @@ msgid "Notification"
 msgstr ""
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:311
+#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:525
 msgid "Notifications"
 msgstr ""
 
@@ -367,8 +376,11 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:162
-#: src/components/pages/PkuruLayout.re.mjs:190
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Pickleball"
 msgstr ""
 
@@ -380,14 +392,14 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:145
-#: src/components/pages/PkuruLayout.re.mjs:486
+#: src/components/pages/PkuruLayout.re.mjs:200
+#: src/components/pages/PkuruLayout.re.mjs:700
 msgid "Profile"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:181
-msgid "Rankings"
-msgstr ""
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -425,7 +437,7 @@ msgstr ""
 msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:156
+#: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr ""
 

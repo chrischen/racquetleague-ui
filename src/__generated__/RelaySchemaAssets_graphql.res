@@ -129,6 +129,20 @@ and input_AvailabilityDayInput_nullable = {
 }
 
 @live
+and input_BanUserFromClubInput = {
+  clubId: string,
+  reason?: string,
+  userId: string,
+}
+
+@live
+and input_BanUserFromClubInput_nullable = {
+  clubId: string,
+  reason?: Js.Null.t<string>,
+  userId: string,
+}
+
+@live
 and input_ChatInput = {
   actionResult?: input_ActionResultInput,
   message?: string,
@@ -286,6 +300,16 @@ and input_DeleteAvailabilityForTimeWindowInput_nullable = {
   endHour: int,
   localDate: string,
   startHour: int,
+}
+
+@live
+and input_DeleteClubInput = {
+  clubId: string,
+}
+
+@live
+and input_DeleteClubInput_nullable = {
+  clubId: string,
 }
 
 @live
@@ -500,6 +524,50 @@ and input_SetAvailabilityDaysInput_nullable = {
   activityId: string,
   days: array<input_AvailabilityDayInput_nullable>,
   location?: Js.Null.t<input_LocationInput_nullable>,
+}
+
+@live
+and input_SetMembershipAdminInput = {
+  isAdmin: bool,
+  membershipId: string,
+}
+
+@live
+and input_SetMembershipAdminInput_nullable = {
+  isAdmin: bool,
+  membershipId: string,
+}
+
+@live
+and input_UnbanUserFromClubInput = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_UnbanUserFromClubInput_nullable = {
+  clubId: string,
+  userId: string,
+}
+
+@live
+and input_UpdateClubInput = {
+  activity?: string,
+  clubId: string,
+  description?: string,
+  listed?: bool,
+  name?: string,
+  slug?: string,
+}
+
+@live
+and input_UpdateClubInput_nullable = {
+  activity?: Js.Null.t<string>,
+  clubId: string,
+  description?: Js.Null.t<string>,
+  listed?: Js.Null.t<bool>,
+  name?: Js.Null.t<string>,
+  slug?: Js.Null.t<string>,
 }
 
 @live

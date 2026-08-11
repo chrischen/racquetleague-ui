@@ -73,12 +73,11 @@ msgstr "บ่าย"
 msgid "Anytime"
 msgstr "เวลาใดก็ได้"
 
-#: src/components/pages/PkuruLayout.re.mjs:136
+#: src/components/pages/PkuruLayout.re.mjs:251
 msgid "Availability"
 msgstr "ตารางเวลาว่าง"
 
-#: src/components/pages/PkuruLayout.re.mjs:168
-#: src/components/pages/PkuruLayout.re.mjs:198
+#: src/components/pages/PkuruLayout.re.mjs:108
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
@@ -94,13 +93,14 @@ msgstr "ประวัติส่วนตัว"
 msgid "Biography is required"
 msgstr "กรุณากรอกประวัติย่อ"
 
-#: src/components/pages/PkuruLayout.re.mjs:103
-msgid "Browse"
-msgstr "เรียกดู"
-
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "ปิดฟอร์มโปรไฟล์"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#: src/components/pages/PkuruLayout.re.mjs:297
+msgid "Clubs"
+msgstr "สโมสร"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -132,8 +132,8 @@ msgid ""
 "rules."
 msgstr "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
 
-#: src/components/pages/PkuruLayout.re.mjs:113
-#: src/components/pages/PkuruLayout.re.mjs:437
+#: src/components/pages/PkuruLayout.re.mjs:287
+#: src/components/pages/PkuruLayout.re.mjs:651
 msgid "Discover"
 msgstr "ค้นพบ"
 
@@ -249,6 +249,10 @@ msgstr "เข้าร่วมสโมสรแล้ว"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
+#: src/components/pages/PkuruLayout.re.mjs:308
+msgid "Leaderboard"
+msgstr "กระดานผู้นำ"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "ออกจากอีเวนต์"
@@ -257,11 +261,11 @@ msgstr "ออกจากอีเวนต์"
 msgid "Level"
 msgstr "ระดับ"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -274,11 +278,11 @@ msgstr "เข้าสู่ระบบด้วย Line"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/pages/PkuruLayout.re.mjs:447
+#: src/components/pages/PkuruLayout.re.mjs:661
 msgid "Map"
 msgstr "แผนที่"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:318
 msgid "Map view"
 msgstr "มุมมองแผนที่"
 
@@ -290,23 +294,19 @@ msgstr "ระบุว่าว่าง"
 msgid "Morning"
 msgstr "เช้า"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "คลับของฉัน"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "คลับของฉัน"
-
-#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:476
+#: src/components/pages/PkuruLayout.re.mjs:690
 msgid "My Events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:461
+#: src/components/pages/PkuruLayout.re.mjs:675
 msgid "New"
 msgstr "ใหม่"
 
@@ -314,7 +314,7 @@ msgstr "ใหม่"
 msgid "New Comment"
 msgstr "ความคิดเห็นใหม่"
 
-#: src/components/pages/PkuruLayout.re.mjs:277
+#: src/components/pages/PkuruLayout.re.mjs:491
 msgid "New event"
 msgstr "กิจกรรมใหม่"
 
@@ -335,7 +335,8 @@ msgid "Notification"
 msgstr "การแจ้งเตือน"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:311
+#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:525
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
 
@@ -343,8 +344,11 @@ msgstr "การแจ้งเตือน"
 msgid "Off Waitlist"
 msgstr "ออกจากรายการรอ"
 
-#: src/components/pages/PkuruLayout.re.mjs:162
-#: src/components/pages/PkuruLayout.re.mjs:190
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "ส่วนตัว"
+
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
@@ -356,14 +360,10 @@ msgstr "แผนที่ความพร้อมของผู้เล่
 msgid "Pro"
 msgstr "โปร"
 
-#: src/components/pages/PkuruLayout.re.mjs:145
-#: src/components/pages/PkuruLayout.re.mjs:486
+#: src/components/pages/PkuruLayout.re.mjs:200
+#: src/components/pages/PkuruLayout.re.mjs:700
 msgid "Profile"
 msgstr "โปรไฟล์"
-
-#: src/components/pages/PkuruLayout.re.mjs:181
-msgid "Rankings"
-msgstr "อันดับ"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -395,7 +395,7 @@ msgid ""
 "they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
-#: src/components/pages/PkuruLayout.re.mjs:156
+#: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr "กีฬา"
 
@@ -437,6 +437,10 @@ msgstr "เราต้องการข้อมูลบางอย่าง
 msgid "When do you want to play?"
 msgstr "คุณอยากเล่นเมื่อไหร่?"
 
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "เรียกดู"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
 #~ msgstr "อัปเดตอีเวนต์"
@@ -462,9 +466,17 @@ msgstr "คุณอยากเล่นเมื่อไหร่?"
 #~ msgid "Match my time"
 #~ msgstr "ตรงกับเวลาของฉัน"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "คลับของฉัน"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "เปิด"
+
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "อันดับ"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

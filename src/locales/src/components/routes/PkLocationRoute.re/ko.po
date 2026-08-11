@@ -586,7 +586,7 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Free"
 msgstr "무료"
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Friday"
 msgstr "금요일"
 
@@ -776,7 +776,7 @@ msgstr "최소 이벤트 레벨"
 msgid "mixed"
 msgstr "혼합"
 
-#: src/components/organisms/PkEventsList.re.mjs:422
+#: src/components/organisms/PkEventsList.re.mjs:430
 msgid "Monday"
 msgstr "월요일"
 
@@ -801,7 +801,7 @@ msgstr "내 근처"
 msgid "Near me · {radius} km"
 msgstr "내 근처 · {radius}km"
 
-#: src/components/organisms/PkEventsList.re.mjs:443
+#: src/components/organisms/PkEventsList.re.mjs:451
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
@@ -1058,7 +1058,7 @@ msgstr "라운드 로빈 대진"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:437
+#: src/components/organisms/PkEventsList.re.mjs:445
 msgid "Saturday"
 msgstr "토요일"
 
@@ -1143,7 +1143,7 @@ msgstr "시작 시간 순 정렬"
 msgid "SPREAD"
 msgstr "분산"
 
-#: src/components/organisms/PkEventsList.re.mjs:419
+#: src/components/organisms/PkEventsList.re.mjs:427
 msgid "Sunday"
 msgstr "일요일"
 
@@ -1236,7 +1236,7 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/PkEventsList.re.mjs:431
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Thursday"
 msgstr "목요일"
 
@@ -1245,7 +1245,7 @@ msgid "to {0}"
 msgstr "{0}까지"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Today"
 msgstr "오늘"
 
@@ -1254,7 +1254,7 @@ msgid "Tokyo"
 msgstr "도쿄"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:408
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Tomorrow"
 msgstr "내일"
 
@@ -1262,7 +1262,7 @@ msgstr "내일"
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/organisms/PkEventsList.re.mjs:425
+#: src/components/organisms/PkEventsList.re.mjs:433
 msgid "Tuesday"
 msgstr "화요일"
 
@@ -1329,7 +1329,7 @@ msgstr "이벤트에 초대되었습니다"
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
-#: src/components/organisms/PkEventsList.re.mjs:428
+#: src/components/organisms/PkEventsList.re.mjs:436
 msgid "Wednesday"
 msgstr "수요일"
 
@@ -1353,7 +1353,7 @@ msgstr "참가 취소"
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/organisms/PkEventsList.re.mjs:442
+#: src/components/organisms/PkEventsList.re.mjs:450
 msgid "Yesterday"
 msgstr "어제"
 

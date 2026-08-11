@@ -725,7 +725,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Friday"
 msgstr ""
 
@@ -942,7 +942,7 @@ msgstr ""
 msgid "mixed"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:422
+#: src/components/organisms/PkEventsList.re.mjs:430
 msgid "Monday"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgstr ""
 msgid "Near me · {radius} km"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:443
+#: src/components/organisms/PkEventsList.re.mjs:451
 msgid "Next {dayName}"
 msgstr ""
 
@@ -1275,7 +1275,7 @@ msgstr ""
 msgid "RPM"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:437
+#: src/components/organisms/PkEventsList.re.mjs:445
 msgid "Saturday"
 msgstr ""
 
@@ -1368,7 +1368,7 @@ msgstr ""
 msgid "SPREAD"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:419
+#: src/components/organisms/PkEventsList.re.mjs:427
 msgid "Sunday"
 msgstr ""
 
@@ -1441,7 +1441,7 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:431
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Thursday"
 msgstr ""
 
@@ -1450,7 +1450,7 @@ msgid "to {0}"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Today"
 msgstr ""
 
@@ -1459,7 +1459,7 @@ msgid "Tokyo"
 msgstr ""
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:408
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Tomorrow"
 msgstr ""
 
@@ -1471,7 +1471,7 @@ msgstr ""
 #~ msgid "Top Player Awards"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:425
+#: src/components/organisms/PkEventsList.re.mjs:433
 msgid "Tuesday"
 msgstr ""
 
@@ -1554,7 +1554,7 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:428
+#: src/components/organisms/PkEventsList.re.mjs:436
 msgid "Wednesday"
 msgstr ""
 
@@ -1586,7 +1586,7 @@ msgstr ""
 #~ msgid "Within {0} km · {1}, {2}"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventsList.re.mjs:442
+#: src/components/organisms/PkEventsList.re.mjs:450
 msgid "Yesterday"
 msgstr ""
 

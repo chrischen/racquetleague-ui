@@ -73,12 +73,11 @@ msgstr "午後"
 msgid "Anytime"
 msgstr "いつでも"
 
-#: src/components/pages/PkuruLayout.re.mjs:136
+#: src/components/pages/PkuruLayout.re.mjs:251
 msgid "Availability"
 msgstr "空き時間"
 
-#: src/components/pages/PkuruLayout.re.mjs:168
-#: src/components/pages/PkuruLayout.re.mjs:198
+#: src/components/pages/PkuruLayout.re.mjs:108
 msgid "Badminton"
 msgstr "バドミントン"
 
@@ -94,13 +93,14 @@ msgstr "自己紹介"
 msgid "Biography is required"
 msgstr "自己紹介は必須です"
 
-#: src/components/pages/PkuruLayout.re.mjs:103
-msgid "Browse"
-msgstr "ブラウズ"
-
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#: src/components/pages/PkuruLayout.re.mjs:297
+msgid "Clubs"
+msgstr "クラブ"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -136,8 +136,8 @@ msgstr ""
 "この時間にホストイベントを作成します。他の人が参加でき、会場とルールはあなた"
 "が決めます。"
 
-#: src/components/pages/PkuruLayout.re.mjs:113
-#: src/components/pages/PkuruLayout.re.mjs:437
+#: src/components/pages/PkuruLayout.re.mjs:287
+#: src/components/pages/PkuruLayout.re.mjs:651
 msgid "Discover"
 msgstr "探す"
 
@@ -255,6 +255,10 @@ msgstr "クラブに参加しました"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
+#: src/components/pages/PkuruLayout.re.mjs:308
+msgid "Leaderboard"
+msgstr "リーダーボード"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "イベントを退出しました"
@@ -263,11 +267,11 @@ msgstr "イベントを退出しました"
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -280,11 +284,11 @@ msgstr "Lineでログイン"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/pages/PkuruLayout.re.mjs:447
+#: src/components/pages/PkuruLayout.re.mjs:661
 msgid "Map"
 msgstr "マップ"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:318
 msgid "Map view"
 msgstr "マップ表示"
 
@@ -296,23 +300,19 @@ msgstr "参加可能にする"
 msgid "Morning"
 msgstr "午前"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "マイクラブ"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "私のサークル"
-
-#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
 msgstr "マイイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:476
+#: src/components/pages/PkuruLayout.re.mjs:690
 msgid "My Events"
 msgstr "私のイベント"
 
-#: src/components/pages/PkuruLayout.re.mjs:461
+#: src/components/pages/PkuruLayout.re.mjs:675
 msgid "New"
 msgstr "新規"
 
@@ -320,7 +320,7 @@ msgstr "新規"
 msgid "New Comment"
 msgstr "新しいコメント"
 
-#: src/components/pages/PkuruLayout.re.mjs:277
+#: src/components/pages/PkuruLayout.re.mjs:491
 msgid "New event"
 msgstr "新しいイベント"
 
@@ -341,7 +341,8 @@ msgid "Notification"
 msgstr "通知"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:311
+#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:525
 msgid "Notifications"
 msgstr "通知"
 
@@ -349,8 +350,11 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "キャンセル待ち解除"
 
-#: src/components/pages/PkuruLayout.re.mjs:162
-#: src/components/pages/PkuruLayout.re.mjs:190
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "個人"
+
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Pickleball"
 msgstr "ピックルボール"
 
@@ -362,14 +366,10 @@ msgstr "プレイヤーの空き時間ヒートマップ"
 msgid "Pro"
 msgstr "プロ"
 
-#: src/components/pages/PkuruLayout.re.mjs:145
-#: src/components/pages/PkuruLayout.re.mjs:486
+#: src/components/pages/PkuruLayout.re.mjs:200
+#: src/components/pages/PkuruLayout.re.mjs:700
 msgid "Profile"
 msgstr "プロフィール"
-
-#: src/components/pages/PkuruLayout.re.mjs:181
-msgid "Rankings"
-msgstr "ランキング"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -403,7 +403,7 @@ msgstr ""
 "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
 "ください。"
 
-#: src/components/pages/PkuruLayout.re.mjs:156
+#: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr "スポーツ"
 
@@ -445,6 +445,10 @@ msgstr "イベント参加に必要な情報を入力してください"
 msgid "When do you want to play?"
 msgstr "いつプレーしたいですか？"
 
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "ブラウズ"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
 #~ msgstr "イベント更新"
@@ -470,9 +474,17 @@ msgstr "いつプレーしたいですか？"
 #~ msgid "Match my time"
 #~ msgstr "自分の時間に合わせる"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "私のサークル"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "空き"
+
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "ランキング"
 
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."

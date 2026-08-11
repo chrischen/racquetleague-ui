@@ -38,7 +38,7 @@ let make = (~viewer) => {
           <DropdownMenu className="min-w-64" anchor="bottom end">
             <DropdownItem href="/clubs">
               // <HeroIcons.UserIcon />
-              <DropdownLabel> {t`My Clubs`} </DropdownLabel>
+              <DropdownLabel> {t`Clubs`} </DropdownLabel>
             </DropdownItem>
             <DropdownDivider />
             // <DropdownItem href="/privacy-policy">

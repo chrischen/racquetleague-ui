@@ -17,14 +17,18 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr ""
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr ""
+#~ msgid "My Clubs"
+#~ msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:65
 #~ msgid "My Events"

@@ -5454,6 +5454,136 @@ msgstr "空余名额"
 msgid "Use near me"
 msgstr "使用附近位置"
 
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} 开放"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active members"
+msgstr "活跃会员"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "所有俱乐部"
+
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "待俱乐部发布下一期日程后再查看。"
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "俱乐部级别"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "已满"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "俱乐部完整日程"
+
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "会员"
+
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "申请待审核"
+
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "留存率"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "会员总数"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "俱乐部"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "活跃球员"
+
+#: src/components/pages/ClubsListPage.re.mjs:535
+msgid "{0} club"
+msgstr "{0} 个俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:536
+msgid "{0} clubs"
+msgstr "{0} 个俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:564
+msgid "Clear filters"
+msgstr "清除筛选"
+
+#: src/components/pages/ClubsListPage.re.mjs:542
+msgid "Club filters"
+msgstr "俱乐部筛选"
+
+#: src/components/pages/ClubsListPage.re.mjs:299
+#: src/components/pages/ClubsListPage.re.mjs:586
+msgid "Club score"
+msgstr "俱乐部评分"
+
+#: src/components/pages/ClubsListPage.re.mjs:416
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr "查找并加入俱乐部，按活跃度、竞技水平及回访球员数量排名。"
+
+#: src/components/pages/ClubsListPage.re.mjs:600
+msgid "Load more clubs"
+msgstr "加载更多俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:316
+msgid "Median level"
+msgstr "中位水平"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+msgid "Minimum club level"
+msgstr "最低俱乐部级别"
+
+#: src/components/pages/ClubsListPage.re.mjs:209
+msgid "Next"
+msgstr "下一步"
+
+#: src/components/pages/ClubsListPage.re.mjs:556
+msgid "No clubs match your filters"
+msgstr "没有符合筛选条件的俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:228
+msgid "No upcoming event"
+msgstr "暂无即将举行的赛事"
+
+#: src/components/pages/ClubsListPage.re.mjs:578
+msgid "Rank"
+msgstr "排名"
+
+#: src/components/pages/ClubsListPage.re.mjs:427
+#: src/components/pages/ClubsListPage.re.mjs:437
+msgid "Search clubs"
+msgstr "搜索俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+msgid "Sport"
+msgstr "运动项目"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+msgid "Try a different sport or a lower level, or clear your filters."
+msgstr "请尝试其他运动项目或降低级别要求，或清除筛选条件。"
+
+#: src/components/pages/ClubsListPage.re.mjs:335
+msgid "View club"
+msgstr "查看俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr "请尝试其他搜索词，或在侧边栏选择其他运动。"
+
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "个人"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

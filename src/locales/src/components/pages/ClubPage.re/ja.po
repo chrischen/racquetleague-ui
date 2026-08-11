@@ -13,50 +13,146 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubPage.re.mjs:178
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} オープン"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "アクティブプレイヤー"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "すべてのクラブ"
+
+#: src/components/pages/ClubPage.re.mjs:157
+msgid "All levels"
+msgstr "全レベル"
+
+#: src/components/pages/ClubPage.re.mjs:628
 msgid "Cancel Request"
 msgstr "リクエストをキャンセル"
 
-#: src/components/pages/ClubPage.re.mjs:510
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "クラブが次のスケジュールを公開したら確認してください。"
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "クラブレベル"
+
+#: src/components/pages/ClubPage.re.mjs:794
 msgid "club not found"
 msgstr "サークルが見つかりません"
 
-#: src/components/pages/ClubPage.re.mjs:207
+#: src/components/pages/ClubPage.re.mjs:160
+#: src/components/pages/ClubPage.re.mjs:161
+msgid "Free"
+msgstr "無料"
+
+#: src/components/pages/ClubPage.re.mjs:312
+msgid "Friday"
+msgstr "金曜日"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "満員"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "クラブの全スケジュール"
+
+#: src/components/pages/ClubPage.re.mjs:675
 msgid "Join Club"
 msgstr "サークルに参加"
 
-#: src/components/pages/ClubPage.re.mjs:407
+#: src/components/pages/ClubPage.re.mjs:412
 msgid "Leaderboard"
 msgstr "リーダーボード"
 
-#: src/components/pages/ClubPage.re.mjs:168
+#: src/components/pages/ClubPage.re.mjs:603
 msgid "Leave club"
 msgstr "サークルを退会"
 
-#: src/components/pages/ClubPage.re.mjs:266
+#: src/components/pages/ClubPage.re.mjs:735
 msgid "Manage Members"
 msgstr "メンバー管理"
 
-#: src/components/pages/ClubPage.re.mjs:490
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "メンバー"
+
+#: src/components/pages/ClubPage.re.mjs:300
+msgid "Monday"
+msgstr "月曜日"
+
+#: src/components/pages/ClubPage.re.mjs:322
+msgid "Next {dayName}"
+msgstr "来週{dayName}"
+
+#: src/components/pages/ClubPage.re.mjs:430
 msgid "No ratings yet"
 msgstr "まだレーティングがありません"
 
-#: src/components/pages/ClubPage.re.mjs:386
+#: src/components/pages/ClubPage.re.mjs:357
 msgid "No upcoming events"
 msgstr "今後のイベントはありません"
 
-#: src/components/pages/ClubPage.re.mjs:196
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "リクエスト保留中"
+
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Request to join"
 msgstr "参加をリクエスト"
 
-#: src/components/pages/ClubPage.re.mjs:291
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "継続率"
+
+#: src/components/pages/ClubPage.re.mjs:315
+msgid "Saturday"
+msgstr "土曜日"
+
+#: src/components/pages/ClubPage.re.mjs:297
+msgid "Sunday"
+msgstr "日曜日"
+
+#: src/components/pages/ClubPage.re.mjs:309
+msgid "Thursday"
+msgstr "木曜日"
+
+#: src/components/pages/ClubPage.re.mjs:284
+msgid "Today"
+msgstr "今日"
+
+#: src/components/pages/ClubPage.re.mjs:289
+msgid "Tomorrow"
+msgstr "明日"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "総メンバー数"
+
+#: src/components/pages/ClubPage.re.mjs:303
+msgid "Tuesday"
+msgstr "火曜日"
+
+#: src/components/pages/ClubPage.re.mjs:762
 msgid "Upcoming Events"
 msgstr "今後のイベント"
 
-#: src/components/pages/ClubPage.re.mjs:298
-#: src/components/pages/ClubPage.re.mjs:414
+#: src/components/pages/ClubPage.re.mjs:422
 msgid "View All"
 msgstr "すべて表示"
+
+#: src/components/pages/ClubPage.re.mjs:306
+msgid "Wednesday"
+msgstr "水曜日"
+
+#: src/components/pages/ClubPage.re.mjs:321
+msgid "Yesterday"
+msgstr "昨日"
 
 #: src/components/organisms/ClubEventsList.re.mjs:691
 #~ msgid "...load past events"
@@ -130,6 +226,10 @@ msgstr "すべて表示"
 #: src/components/pages/ClubPage.re.mjs:246
 #~ msgid "47 Members"
 #~ msgstr "47人のメンバー"
+
+#: src/components/pages/ClubPage.re.mjs:94
+#~ msgid "Active members"
+#~ msgstr "アクティブメンバー"
 
 #: src/components/organisms/AddEventButton.re.mjs:79
 #~ msgid "Add an Event"

@@ -17,11 +17,15 @@ msgstr ""
 msgid "(logout)"
 msgstr "(로그아웃)"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "클럽"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "내 클럽"
+#~ msgid "My Clubs"
+#~ msgstr "내 클럽"

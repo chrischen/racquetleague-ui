@@ -112,8 +112,8 @@ msgid "Balances fresh partners against evenly matched games."
 msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:192
-msgid "Beta"
-msgstr ""
+#~ msgid "Beta"
+#~ msgstr ""
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:244
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
@@ -126,7 +126,7 @@ msgstr ""
 #~ msgid "Check in at least 4 players to start generating matches"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:94
+#: src/components/molecules/DrawGenerator.re.mjs:108
 msgid "Classic round-robin draws"
 msgstr ""
 
@@ -143,11 +143,11 @@ msgid "Close self check-in display"
 msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:97
 msgid "Competitive"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:112
+#: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 msgid "Court {0} - Editing"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:148
+#: src/components/molecules/DrawGenerator.re.mjs:142
 msgid "Courts:"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Event check-in"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:101
+#: src/components/molecules/DrawGenerator.re.mjs:82
 msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:87
 msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
 msgstr ""
 
@@ -280,7 +280,7 @@ msgstr ""
 msgid "Full Screen View"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:296
+#: src/components/molecules/DrawGenerator.re.mjs:282
 msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr ""
 
@@ -288,15 +288,15 @@ msgstr ""
 msgid "Gender"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:252
+#: src/components/molecules/DrawGenerator.re.mjs:238
 msgid "Generate"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Generate Draws"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:377
+#: src/components/molecules/DrawGenerator.re.mjs:363
 msgid "Generating…"
 msgstr ""
 
@@ -364,7 +364,7 @@ msgstr ""
 msgid "Mix players"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/DrawGenerator.re.mjs:102
 msgid "Mixed"
 msgstr ""
 
@@ -376,7 +376,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:276
+#: src/components/molecules/DrawGenerator.re.mjs:262
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr ""
 
@@ -384,7 +384,7 @@ msgstr ""
 msgid "New Anti-Team"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:229
+#: src/components/molecules/DrawGenerator.re.mjs:215
 msgid "New seed — deals different matches"
 msgstr ""
 
@@ -428,7 +428,7 @@ msgstr ""
 msgid "Opponent variety"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:113
+#: src/components/molecules/DrawGenerator.re.mjs:92
 msgid "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr ""
 
@@ -456,7 +456,7 @@ msgstr ""
 #~ msgid "Players"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:98
 msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr ""
 
@@ -480,7 +480,7 @@ msgstr ""
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:106
+#: src/components/molecules/DrawGenerator.re.mjs:86
 msgid "Random Balanced"
 msgstr ""
 
@@ -492,7 +492,7 @@ msgstr ""
 msgid "Rebalance this round with current players"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:295
+#: src/components/molecules/DrawGenerator.re.mjs:281
 msgid "Regenerate Rounds?"
 msgstr ""
 
@@ -526,7 +526,7 @@ msgstr ""
 msgid "Round {0}"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:100
+#: src/components/molecules/DrawGenerator.re.mjs:81
 msgid "Round Robin"
 msgstr ""
 
@@ -534,11 +534,11 @@ msgstr ""
 #~ msgid "Round Robin Tournament"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:93
+#: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:88
+#: src/components/molecules/DrawGenerator.re.mjs:103
 msgid "Round-Robin with teams balanced by skill."
 msgstr ""
 
@@ -575,7 +575,7 @@ msgstr ""
 msgid "Score"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:217
+#: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr ""
 
@@ -599,11 +599,11 @@ msgstr ""
 msgid "Split each match into its most even teams"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:380
+#: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:184
+#: src/components/molecules/DrawGenerator.re.mjs:178
 msgid "Strategy:"
 msgstr ""
 
@@ -639,7 +639,7 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:319
+#: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr ""
 
@@ -647,12 +647,12 @@ msgstr ""
 msgid "Tight bands"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Update Future Rounds"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:287
-#: src/components/molecules/DrawGenerator.re.mjs:307
+#: src/components/molecules/DrawGenerator.re.mjs:273
+#: src/components/molecules/DrawGenerator.re.mjs:293
 msgid "Update Rounds Below"
 msgstr ""
 

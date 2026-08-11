@@ -142,6 +142,20 @@ type AvailabilityOverlapDay {
   userCount: Int!
 }
 
+input BanUserFromClubInput {
+  clubId: ID!
+  reason: String
+  userId: ID!
+}
+
+type BanUserFromClubResult implements HasErrors {
+  ban: ClubBan
+  errors: [Error!]
+
+  """Memberships revoked by the ban; empty when the user was not a member."""
+  removedMembershipIds: [ID!]
+}
+
 type CaptureEventPaymentsResult implements HasErrors {
   errors: [Error!]
   payments: [Payment!]
@@ -171,9 +185,23 @@ type Club implements Node {
   events(after: String, afterDate: Datetime, before: String, first: Int, token: String): EventConnection!
   id: ID!
   name: String
+
+  """
+  The value this club was ranked by, set only on clubs returned from the public `clubs` listing. Elsewhere it is null — use `stats.topPlayersMedianSkill` for a club fetched on its own.
+  """
+  score: Float
   shareLink: String
   slug: String
+
+  """Community stats for this club, for its default activity."""
+  stats: LeagueClubStat
   viewerMembership: Membership
+}
+
+type ClubBan {
+  createdAt: Datetime
+  id: ID!
+  reason: String
 }
 
 """A connection to clubs."""
@@ -321,6 +349,18 @@ input DeleteAvailabilityForTimeWindowInput {
 
 type DeleteAvailabilityForTimeWindowResult implements HasErrors {
   day: AvailabilityDay
+  errors: [Error!]
+}
+
+input DeleteClubInput {
+  clubId: ID!
+}
+
+type DeleteClubResult implements HasErrors {
+  """
+  The id of the club that was deleted, so clients can evict it from their cache.
+  """
+  clubId: ID
   errors: [Error!]
 }
 
@@ -485,6 +525,39 @@ type JoinEventResult implements HasErrors {
   availability: [AvailabilityDay!]
   edge: EventRsvpEdge
   errors: [Error!]
+}
+
+"""Community stats for a club, refreshed by the league stats job."""
+type LeagueClubStat {
+  """
+  Distinct people who rsvp'd to a club event in the last 30 days, members or not.
+  """
+  activeParticipants: Int!
+
+  """How many completed events fed retentionRate."""
+  retentionEventCount: Int!
+
+  """
+  Share (0..1) of attendees across the club's last 10 completed events who came to at least 2. Null below 2 events.
+  """
+  retentionRate: Float
+
+  """
+  The club's rank in the public listing: a weighted blend of activity, level and retention, with the ratios shrunk toward the population average by how much evidence backs them.
+  """
+  score: Float!
+
+  """How many events contributed a per-event median."""
+  skillEventCount: Int!
+
+  """
+  Median across the last 8 events of each event's median rating among its top 6 rated attendees.
+  """
+  topPlayersMedianSkill: Float
+
+  """Active memberships."""
+  totalMembers: Int!
+  updatedAt: Datetime!
 }
 
 input LeagueMatchInput {
@@ -727,6 +800,7 @@ type Mutation {
   """
   authorizeRsvpPayment(rsvpId: ID!): AuthorizePaymentResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
+  banUserFromClub(input: BanUserFromClubInput!): BanUserFromClubResult!
   cancelEvent(eventId: ID!): MutationResult2!
 
   """
@@ -779,6 +853,7 @@ type Mutation {
   createStripeOnboardingLink(country: String!, refreshUrl: String!, returnUrl: String!): StripeOnboardingLinkResult!
   deleteActivitySubscription(input: DeleteActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   deleteAvailabilityForTimeWindow(input: DeleteAvailabilityForTimeWindowInput!): DeleteAvailabilityForTimeWindowResult!
+  deleteClub(input: DeleteClubInput!): DeleteClubResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
   inviteToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
@@ -804,12 +879,15 @@ type Mutation {
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
   setAvailabilityDay(input: SetAvailabilityDayInput!): SetAvailabilityDayResult!
   setAvailabilityDays(input: SetAvailabilityDaysInput!): SetAvailabilityDaysResult!
+  setMembershipAdmin(input: SetMembershipAdminInput!): SetMembershipAdminResult!
+  unbanUserFromClub(input: UnbanUserFromClubInput!): UnbanUserFromClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
 
   """
   Remove a Web Push subscription (e.g. on logout or explicit unsubscribe).
   """
   unregisterPushSubscription(endpoint: String!): PushSubscriptionResult!
+  updateClub(input: UpdateClubInput!): UpdateClubResult!
   updateEvent(eventId: ID!, input: CreateEventInput!): MutationResult2!
   updateLocale(input: UpdateLocaleInput!): UpdateLocaleResult!
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
@@ -898,7 +976,9 @@ type Query {
   chatMessages(limit: Int): [ChatEntry!]!
   club(id: ID, slug: String): Club
   clubMembers(after: String, first: Int, input: ClubMembersInput!): MembershipConnection!
-  clubs(after: String, before: String, first: Int): ClubConnection!
+
+  """Public clubs for an activity, ranked by score (highest first)."""
+  clubs(activitySlug: String!, after: String, first: Int): ClubConnection!
 
   """The current time on the server, as a timestamp."""
   currentTime: Float
@@ -1046,6 +1126,19 @@ type SetAvailabilityDaysResult implements HasErrors {
   errors: [Error!]
 }
 
+"""
+`isAdmin` grants full-member rights: creating and editing the club's events.
+"""
+input SetMembershipAdminInput {
+  isAdmin: Boolean!
+  membershipId: ID!
+}
+
+type SetMembershipAdminResult implements HasErrors {
+  errors: [Error!]
+  membership: Membership
+}
+
 type StripeAccountSessionResult implements HasErrors {
   accountId: String
   clientSecret: String
@@ -1067,6 +1160,33 @@ enum T {
   Active
   Pending
   Rejected
+}
+
+input UnbanUserFromClubInput {
+  clubId: ID!
+  userId: ID!
+}
+
+type UnbanUserFromClubResult implements HasErrors {
+  errors: [Error!]
+  success: Boolean
+}
+
+"""Omitted fields are left unchanged."""
+input UpdateClubInput {
+  activity: ID
+  clubId: ID!
+  description: String
+
+  """Whether the club appears in the public club listing."""
+  listed: Boolean
+  name: String
+  slug: String
+}
+
+type UpdateClubResult implements HasErrors {
+  club: Club
+  errors: [Error!]
 }
 
 input UpdateLocaleInput {

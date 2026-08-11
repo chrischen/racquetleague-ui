@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(đăng xuất)\",\"GCkpYm\":\"đăng nhập bằng Line\",\"QejCSM\":\"Câu lạc bộ của tôi\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(đăng xuất)\",\"j7xUUn\":\"Câu lạc bộ\",\"GCkpYm\":\"đăng nhập bằng Line\",\"QejCSM\":\"Câu lạc bộ của tôi\"}");

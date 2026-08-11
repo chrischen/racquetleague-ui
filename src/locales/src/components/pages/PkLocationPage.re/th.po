@@ -583,7 +583,7 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -773,7 +773,7 @@ msgstr "ระดับกิจกรรมขั้นต่ำ"
 msgid "mixed"
 msgstr "หลากหลาย"
 
-#: src/components/organisms/PkEventsList.re.mjs:422
+#: src/components/organisms/PkEventsList.re.mjs:430
 msgid "Monday"
 msgstr "วันจันทร์"
 
@@ -798,7 +798,7 @@ msgstr "ใกล้ฉัน"
 msgid "Near me · {radius} km"
 msgstr "ใกล้ฉัน · {radius} กม."
 
-#: src/components/organisms/PkEventsList.re.mjs:443
+#: src/components/organisms/PkEventsList.re.mjs:451
 msgid "Next {dayName}"
 msgstr "สัปดาห์หน้า{dayName}"
 
@@ -1055,7 +1055,7 @@ msgstr "จับคู่แบบพบกันหมด"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:437
+#: src/components/organisms/PkEventsList.re.mjs:445
 msgid "Saturday"
 msgstr "วันเสาร์"
 
@@ -1138,7 +1138,7 @@ msgstr "เรียงตามเวลาเริ่มต้น"
 msgid "SPREAD"
 msgstr "การกระจาย"
 
-#: src/components/organisms/PkEventsList.re.mjs:419
+#: src/components/organisms/PkEventsList.re.mjs:427
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
@@ -1225,7 +1225,7 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/PkEventsList.re.mjs:431
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
@@ -1234,7 +1234,7 @@ msgid "to {0}"
 msgstr "ถึง {0}"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Today"
 msgstr "วันนี้"
 
@@ -1243,7 +1243,7 @@ msgid "Tokyo"
 msgstr "โตเกียว"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:408
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
@@ -1251,7 +1251,7 @@ msgstr "พรุ่งนี้"
 msgid "TOP 6 AVG"
 msgstr "ค่าเฉลี่ย 6 อันดับ"
 
-#: src/components/organisms/PkEventsList.re.mjs:425
+#: src/components/organisms/PkEventsList.re.mjs:433
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
@@ -1318,7 +1318,7 @@ msgstr "ได้รับเชิญเข้าร่วมกิจกรร
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/PkEventsList.re.mjs:428
+#: src/components/organisms/PkEventsList.re.mjs:436
 msgid "Wednesday"
 msgstr "วันพุธ"
 
@@ -1342,7 +1342,7 @@ msgstr "ยกเลิก RSVP"
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/organisms/PkEventsList.re.mjs:442
+#: src/components/organisms/PkEventsList.re.mjs:450
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 

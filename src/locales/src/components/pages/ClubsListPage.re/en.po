@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-08-11 13:08+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/pages/ClubsListPage.re.mjs:424
+msgid "{0, plural, one {{1}} other {{2}}}"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:425
+msgid "{0} club"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:426
+msgid "{0} clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:287
+msgid "Active players"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:333
+msgid "Badminton"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:414
+msgid "Clear"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:454
+msgid "Clear filters"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:474
+msgid "Club"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:432
+msgid "Club filters"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:273
+#: src/components/pages/ClubsListPage.re.mjs:478
+msgid "Club score"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:370
+msgid "Clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:379
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:492
+msgid "Load more clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:492
+msgid "Loading..."
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:290
+msgid "Median level"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:152
+msgid "Member"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:183
+msgid "Next"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:446
+msgid "No clubs match your filters"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:202
+msgid "No upcoming event"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:158
+msgid "Pending"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:333
+msgid "Pickleball"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:470
+msgid "Rank"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:293
+msgid "Retention"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:390
+#: src/components/pages/ClubsListPage.re.mjs:400
+msgid "Search clubs"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:284
+msgid "Total members"
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+#~ msgid "Try a different sport or a lower level, or clear your filters."
+#~ msgstr ""
+
+#: src/components/pages/ClubsListPage.re.mjs:309
+msgid "View club"
+msgstr ""

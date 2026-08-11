@@ -75,7 +75,7 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
-#: src/components/organisms/EventManager.re.mjs:1939
+#: src/components/organisms/EventManager.re.mjs:1972
 msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
@@ -91,7 +91,7 @@ msgstr "アレックス・ジョンソン"
 msgid "All checked-in players are already in this round"
 msgstr "チェックイン済みのプレイヤーは全員このラウンドに参加しています"
 
-#: src/components/organisms/EventManager.re.mjs:1773
+#: src/components/organisms/EventManager.re.mjs:1806
 msgid "all up to date"
 msgstr "すべて最新"
 
@@ -99,7 +99,7 @@ msgstr "すべて最新"
 msgid "Alternate favourite/underdog roles"
 msgstr "お気に入り／アンダードッグの役割を交互に"
 
-#: src/components/organisms/EventManager.re.mjs:2045
+#: src/components/organisms/EventManager.re.mjs:2078
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -123,10 +123,6 @@ msgstr "チームのバランスを取る"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "新鮮なパートナーと均衡のとれた試合のバランスを調整します。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-msgid "Beta"
-msgstr "ベータ"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:244
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -134,7 +130,7 @@ msgstr "ベータ"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/molecules/DrawGenerator.re.mjs:94
+#: src/components/molecules/DrawGenerator.re.mjs:108
 msgid "Classic round-robin draws"
 msgstr "クラシック総当たり抽選"
 
@@ -151,11 +147,11 @@ msgid "Close self check-in display"
 msgstr "セルフチェックイン画面を閉じる"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:97
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/molecules/DrawGenerator.re.mjs:112
+#: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "競技+"
 
@@ -172,7 +168,7 @@ msgstr "コート{0}"
 msgid "Court {0} - Editing"
 msgstr "コート{0} - 編集中"
 
-#: src/components/molecules/DrawGenerator.re.mjs:148
+#: src/components/molecules/DrawGenerator.re.mjs:142
 msgid "Courts:"
 msgstr "コート数："
 
@@ -204,11 +200,11 @@ msgstr "現在のラウンド："
 msgid "Custom"
 msgstr "カスタム"
 
-#: src/components/organisms/EventManager.re.mjs:2234
+#: src/components/organisms/EventManager.re.mjs:2267
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/EventManager.re.mjs:2234
+#: src/components/organisms/EventManager.re.mjs:2267
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
@@ -229,7 +225,7 @@ msgstr "チームを削除"
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
-#: src/components/organisms/EventManager.re.mjs:1842
+#: src/components/organisms/EventManager.re.mjs:1875
 msgid "Dismiss"
 msgstr "閉じる"
 
@@ -275,7 +271,7 @@ msgstr "チーム名を入力"
 msgid "Event check-in"
 msgstr "イベントチェックイン"
 
-#: src/components/molecules/DrawGenerator.re.mjs:101
+#: src/components/molecules/DrawGenerator.re.mjs:82
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -299,7 +295,7 @@ msgstr "フォールバック：{0}が混合ラウンドで女性なしでチー
 msgid "Female"
 msgstr "女性"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:87
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -310,7 +306,7 @@ msgstr ""
 msgid "Full Screen View"
 msgstr "全画面表示"
 
-#: src/components/molecules/DrawGenerator.re.mjs:296
+#: src/components/molecules/DrawGenerator.re.mjs:282
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -322,16 +318,16 @@ msgstr ""
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/molecules/DrawGenerator.re.mjs:252
+#: src/components/molecules/DrawGenerator.re.mjs:238
 msgid "Generate"
 msgstr "生成"
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Generate Draws"
 msgstr "組み合わせを生成"
 
-#: src/components/molecules/DrawGenerator.re.mjs:377
-#: src/components/organisms/EventManager.re.mjs:1345
+#: src/components/molecules/DrawGenerator.re.mjs:363
+#: src/components/organisms/EventManager.re.mjs:1378
 msgid "Generating…"
 msgstr "生成中…"
 
@@ -343,7 +339,7 @@ msgstr "ゲスト名（1行に1名）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
 
-#: src/components/organisms/EventManager.re.mjs:2222
+#: src/components/organisms/EventManager.re.mjs:2255
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -393,7 +389,7 @@ msgstr "試合"
 msgid "Mix players"
 msgstr "プレイヤーをミックス"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/DrawGenerator.re.mjs:102
 msgid "Mixed"
 msgstr "混合"
 
@@ -405,7 +401,7 @@ msgstr "μ"
 msgid "Name"
 msgstr "名前"
 
-#: src/components/molecules/DrawGenerator.re.mjs:276
+#: src/components/molecules/DrawGenerator.re.mjs:262
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr ""
 "{1}{courtText}には{0}人のプレイヤーが必要です。現在{2}人がチェックイン済みで"
@@ -415,7 +411,7 @@ msgstr ""
 msgid "New Anti-Team"
 msgstr "新しいアンチチーム"
 
-#: src/components/molecules/DrawGenerator.re.mjs:229
+#: src/components/molecules/DrawGenerator.re.mjs:215
 msgid "New seed — deals different matches"
 msgstr "新しいシード — 異なる試合を生成"
 
@@ -457,12 +453,12 @@ msgstr ""
 msgid "Opponent variety"
 msgstr "対戦相手の多様性"
 
-#: src/components/molecules/DrawGenerator.re.mjs:113
+#: src/components/molecules/DrawGenerator.re.mjs:92
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "スキル帯内で均衡のとれた試合を優先する最適化されたドロー。"
 
-#: src/components/organisms/EventManager.re.mjs:1838
+#: src/components/organisms/EventManager.re.mjs:1871
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 "オプティマイザー利用不可 — このドローには標準マッチメイキングを使用しました。"
@@ -487,7 +483,7 @@ msgstr "プレイヤーID"
 msgid "Player Settings"
 msgstr "プレイヤー設定"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:98
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
@@ -495,7 +491,7 @@ msgstr ""
 "プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチー"
 "ムで総当たり戦を行います。"
 
-#: src/components/organisms/EventManager.re.mjs:1345
+#: src/components/organisms/EventManager.re.mjs:1378
 msgid "Preparing optimizer…"
 msgstr "オプティマイザーを準備中…"
 
@@ -511,7 +507,7 @@ msgstr "前のラウンド"
 msgid "Print"
 msgstr "印刷"
 
-#: src/components/organisms/EventManager.re.mjs:1740
+#: src/components/organisms/EventManager.re.mjs:1773
 msgid "Print Draws"
 msgstr "トーナメント表を印刷"
 
@@ -527,7 +523,7 @@ msgstr "均衡したゲームを新しい対戦相手より優先します。"
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "新しいパートナーや対戦相手を均衡したゲームより優先します。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:106
+#: src/components/molecules/DrawGenerator.re.mjs:86
 msgid "Random Balanced"
 msgstr "ランダムバランス"
 
@@ -539,7 +535,7 @@ msgstr "試合を再調整"
 msgid "Rebalance this round with current players"
 msgstr "現在のプレイヤーでこのラウンドを再調整"
 
-#: src/components/molecules/DrawGenerator.re.mjs:295
+#: src/components/molecules/DrawGenerator.re.mjs:281
 msgid "Regenerate Rounds?"
 msgstr "ラウンドを再生成しますか？"
 
@@ -555,7 +551,7 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/EventManager.re.mjs:2207
+#: src/components/organisms/EventManager.re.mjs:2240
 msgid "Reset Storage"
 msgstr "ストレージをリセット"
 
@@ -578,15 +574,15 @@ msgstr "スライダーにリセット"
 msgid "Round {0}"
 msgstr "ラウンド{0}"
 
-#: src/components/molecules/DrawGenerator.re.mjs:100
+#: src/components/molecules/DrawGenerator.re.mjs:81
 msgid "Round Robin"
 msgstr "総当たり戦"
 
-#: src/components/molecules/DrawGenerator.re.mjs:93
+#: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
 msgstr "総当たり戦"
 
-#: src/components/molecules/DrawGenerator.re.mjs:88
+#: src/components/molecules/DrawGenerator.re.mjs:103
 msgid "Round-Robin with teams balanced by skill."
 msgstr "スキルでバランスされたチームによる総当たり戦。"
 
@@ -623,11 +619,11 @@ msgstr "スキャンしてチェックイン"
 msgid "Score"
 msgstr "スコア"
 
-#: src/components/organisms/EventManager.re.mjs:1695
+#: src/components/organisms/EventManager.re.mjs:1728
 msgid "Scores Synced!"
 msgstr "スコアを同期しました！"
 
-#: src/components/molecules/DrawGenerator.re.mjs:217
+#: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "シード："
 
@@ -655,31 +651,31 @@ msgstr "コートを埋めるためにルールを一部調整しました"
 msgid "Split each match into its most even teams"
 msgstr "各マッチを最も均等なチームに分割"
 
-#: src/components/molecules/DrawGenerator.re.mjs:380
+#: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
 msgstr "戦略"
 
-#: src/components/molecules/DrawGenerator.re.mjs:184
+#: src/components/molecules/DrawGenerator.re.mjs:178
 msgid "Strategy:"
 msgstr "戦略："
 
-#: src/components/organisms/EventManager.re.mjs:1707
+#: src/components/organisms/EventManager.re.mjs:1740
 msgid "Sync Failed"
 msgstr "同期に失敗しました"
 
-#: src/components/organisms/EventManager.re.mjs:1671
+#: src/components/organisms/EventManager.re.mjs:1704
 msgid "Sync Scores"
 msgstr "スコアを同期"
 
-#: src/components/organisms/EventManager.re.mjs:1767
+#: src/components/organisms/EventManager.re.mjs:1800
 msgid "synced"
 msgstr "同期済み"
 
-#: src/components/organisms/EventManager.re.mjs:1683
+#: src/components/organisms/EventManager.re.mjs:1716
 msgid "Syncing... {0}%"
 msgstr "同期中... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1616
+#: src/components/organisms/EventManager.re.mjs:1649
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -715,7 +711,7 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:319
+#: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr "すべての今後のラウンドを削除して新しい試合を生成します"
 
@@ -723,7 +719,7 @@ msgstr "すべての今後のラウンドを削除して新しい試合を生成
 msgid "Tight bands"
 msgstr "狭いバンド"
 
-#: src/components/organisms/EventManager.re.mjs:1769
+#: src/components/organisms/EventManager.re.mjs:1802
 msgid "to sync"
 msgstr "同期する"
 
@@ -731,12 +727,12 @@ msgstr "同期する"
 msgid "Tournament Draws"
 msgstr "トーナメント表"
 
-#: src/components/molecules/DrawGenerator.re.mjs:372
+#: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Update Future Rounds"
 msgstr "今後のラウンドを更新"
 
-#: src/components/molecules/DrawGenerator.re.mjs:287
-#: src/components/molecules/DrawGenerator.re.mjs:307
+#: src/components/molecules/DrawGenerator.re.mjs:273
+#: src/components/molecules/DrawGenerator.re.mjs:293
 msgid "Update Rounds Below"
 msgstr "以降のラウンドを更新"
 
@@ -761,6 +757,10 @@ msgstr "勝利チーム（チーム{0}）"
 #: src/components/organisms/EventManager.re.mjs:824
 #~ msgid "Available Courts:"
 #~ msgstr "利用可能なコート数："
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "ベータ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:68
 #~ msgid "Classic random round-robin draws"

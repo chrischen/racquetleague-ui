@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"GCkpYm\":\"使用 Line 登入\",\"QejCSM\":\"我的俱樂部\",\"dNSt+v\":\"我的活動\",\"Tz0i8g\":\"設定\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"j7xUUn\":\"俱樂部\",\"GCkpYm\":\"使用 Line 登入\",\"QejCSM\":\"我的俱樂部\",\"dNSt+v\":\"我的活動\",\"Tz0i8g\":\"設定\"}");

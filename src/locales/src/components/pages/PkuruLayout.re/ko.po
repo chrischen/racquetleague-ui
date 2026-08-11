@@ -73,12 +73,11 @@ msgstr "오후"
 msgid "Anytime"
 msgstr "언제든지"
 
-#: src/components/pages/PkuruLayout.re.mjs:136
+#: src/components/pages/PkuruLayout.re.mjs:251
 msgid "Availability"
 msgstr "가능 시간"
 
-#: src/components/pages/PkuruLayout.re.mjs:168
-#: src/components/pages/PkuruLayout.re.mjs:198
+#: src/components/pages/PkuruLayout.re.mjs:108
 msgid "Badminton"
 msgstr "배드민턴"
 
@@ -94,13 +93,14 @@ msgstr "자기소개"
 msgid "Biography is required"
 msgstr "자기소개를 입력해주세요"
 
-#: src/components/pages/PkuruLayout.re.mjs:103
-msgid "Browse"
-msgstr "둘러보기"
-
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "프로필 양식 닫기"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#: src/components/pages/PkuruLayout.re.mjs:297
+msgid "Clubs"
+msgstr "클럽"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -134,8 +134,8 @@ msgstr ""
 "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙"
 "은 직접 정합니다."
 
-#: src/components/pages/PkuruLayout.re.mjs:113
-#: src/components/pages/PkuruLayout.re.mjs:437
+#: src/components/pages/PkuruLayout.re.mjs:287
+#: src/components/pages/PkuruLayout.re.mjs:651
 msgid "Discover"
 msgstr "탐색"
 
@@ -253,6 +253,10 @@ msgstr "클럽 가입됨"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
 
+#: src/components/pages/PkuruLayout.re.mjs:308
+msgid "Leaderboard"
+msgstr "리더보드"
+
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "이벤트 나감"
@@ -261,11 +265,11 @@ msgstr "이벤트 나감"
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "더 불러오기"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:188
+#: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -278,11 +282,11 @@ msgstr "Line으로 로그인"
 msgid "Male"
 msgstr "남성"
 
-#: src/components/pages/PkuruLayout.re.mjs:447
+#: src/components/pages/PkuruLayout.re.mjs:661
 msgid "Map"
 msgstr "지도"
 
-#: src/components/pages/PkuruLayout.re.mjs:121
+#: src/components/pages/PkuruLayout.re.mjs:318
 msgid "Map view"
 msgstr "지도 보기"
 
@@ -294,23 +298,19 @@ msgstr "가능 표시"
 msgid "Morning"
 msgstr "오전"
 
-#: src/components/pages/PkuruSidebarClubs.re.mjs:173
+#: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "내 클럽"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "내 클럽"
-
-#: src/components/pages/PkuruLayout.re.mjs:129
+#: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:476
+#: src/components/pages/PkuruLayout.re.mjs:690
 msgid "My Events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:461
+#: src/components/pages/PkuruLayout.re.mjs:675
 msgid "New"
 msgstr "새로 만들기"
 
@@ -318,7 +318,7 @@ msgstr "새로 만들기"
 msgid "New Comment"
 msgstr "새 댓글"
 
-#: src/components/pages/PkuruLayout.re.mjs:277
+#: src/components/pages/PkuruLayout.re.mjs:491
 msgid "New event"
 msgstr "새 이벤트"
 
@@ -339,7 +339,8 @@ msgid "Notification"
 msgstr "알림"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:311
+#: src/components/pages/PkuruLayout.re.mjs:189
+#: src/components/pages/PkuruLayout.re.mjs:525
 msgid "Notifications"
 msgstr "알림"
 
@@ -347,8 +348,11 @@ msgstr "알림"
 msgid "Off Waitlist"
 msgstr "대기열 해제"
 
-#: src/components/pages/PkuruLayout.re.mjs:162
-#: src/components/pages/PkuruLayout.re.mjs:190
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "개인"
+
+#: src/components/pages/PkuruLayout.re.mjs:102
 msgid "Pickleball"
 msgstr "피클볼"
 
@@ -360,14 +364,10 @@ msgstr "플레이어 가용성 히트맵"
 msgid "Pro"
 msgstr "프로"
 
-#: src/components/pages/PkuruLayout.re.mjs:145
-#: src/components/pages/PkuruLayout.re.mjs:486
+#: src/components/pages/PkuruLayout.re.mjs:200
+#: src/components/pages/PkuruLayout.re.mjs:700
 msgid "Profile"
 msgstr "프로필"
-
-#: src/components/pages/PkuruLayout.re.mjs:181
-msgid "Rankings"
-msgstr "순위"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
@@ -401,7 +401,7 @@ msgstr ""
 "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
 "주세요."
 
-#: src/components/pages/PkuruLayout.re.mjs:156
+#: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr "스포츠"
 
@@ -443,6 +443,10 @@ msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니�
 msgid "When do you want to play?"
 msgstr "언제 플레이하고 싶으신가요?"
 
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "둘러보기"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
 #~ msgstr "이벤트 업데이트"
@@ -460,9 +464,17 @@ msgstr "언제 플레이하고 싶으신가요?"
 #~ msgid "Match my time"
 #~ msgstr "내 시간에 맞추기"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "내 클럽"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "열림"
+
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "순위"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"

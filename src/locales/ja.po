@@ -5704,6 +5704,136 @@ msgstr "空きスポット"
 msgid "Use near me"
 msgstr "現在地付近を使用"
 
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} オープン"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active members"
+msgstr "アクティブメンバー"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "すべてのクラブ"
+
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "クラブが次のスケジュールを公開したら確認してください。"
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "クラブレベル"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "満員"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "クラブの全スケジュール"
+
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "メンバー"
+
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "リクエスト保留中"
+
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "継続率"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "総メンバー数"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "クラブ"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "アクティブプレイヤー"
+
+#: src/components/pages/ClubsListPage.re.mjs:535
+msgid "{0} club"
+msgstr "{0} クラブ"
+
+#: src/components/pages/ClubsListPage.re.mjs:536
+msgid "{0} clubs"
+msgstr "{0} クラブ"
+
+#: src/components/pages/ClubsListPage.re.mjs:564
+msgid "Clear filters"
+msgstr "フィルターをクリア"
+
+#: src/components/pages/ClubsListPage.re.mjs:542
+msgid "Club filters"
+msgstr "クラブフィルター"
+
+#: src/components/pages/ClubsListPage.re.mjs:299
+#: src/components/pages/ClubsListPage.re.mjs:586
+msgid "Club score"
+msgstr "クラブスコア"
+
+#: src/components/pages/ClubsListPage.re.mjs:416
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr "アクティビティ、プレイレベル、リピート率でランク付けされたクラブを検索して参加しましょう。"
+
+#: src/components/pages/ClubsListPage.re.mjs:600
+msgid "Load more clubs"
+msgstr "クラブをもっと読み込む"
+
+#: src/components/pages/ClubsListPage.re.mjs:316
+msgid "Median level"
+msgstr "中央値レベル"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+msgid "Minimum club level"
+msgstr "最低クラブレベル"
+
+#: src/components/pages/ClubsListPage.re.mjs:209
+msgid "Next"
+msgstr "次へ"
+
+#: src/components/pages/ClubsListPage.re.mjs:556
+msgid "No clubs match your filters"
+msgstr "条件に一致するクラブがありません"
+
+#: src/components/pages/ClubsListPage.re.mjs:228
+msgid "No upcoming event"
+msgstr "予定されているイベントはありません"
+
+#: src/components/pages/ClubsListPage.re.mjs:578
+msgid "Rank"
+msgstr "ランク"
+
+#: src/components/pages/ClubsListPage.re.mjs:427
+#: src/components/pages/ClubsListPage.re.mjs:437
+msgid "Search clubs"
+msgstr "クラブを検索"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+msgid "Sport"
+msgstr "スポーツ"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+msgid "Try a different sport or a lower level, or clear your filters."
+msgstr "別のスポーツや低いレベルを試すか、フィルターをクリアしてください。"
+
+#: src/components/pages/ClubsListPage.re.mjs:335
+msgid "View club"
+msgstr "クラブを見る"
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr "別の検索をお試しいただくか、サイドバーで別のスポーツを選択してください。"
+
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "個人"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

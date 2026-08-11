@@ -108,6 +108,29 @@ module JsSet = {
   external difference: (t<'a>, t<'a>) => t<'a> = "difference"
 }
 
+// Stand-in for the design's per-club brand color: stable per club id, so a club
+// keeps the same dot in the sidebar and in the clubs listing.
+module ClubDot = {
+  let palette = [
+    "bg-emerald-500",
+    "bg-blue-500",
+    "bg-violet-500",
+    "bg-amber-500",
+    "bg-rose-500",
+    "bg-cyan-500",
+    "bg-lime-500",
+    "bg-fuchsia-500",
+  ]
+
+  let color = (id: string) => {
+    let sum =
+      id
+      ->String.split("")
+      ->Array.reduce(0, (acc, char) => acc + char->String.charCodeAt(0)->Float.toInt)
+    palette->Array.get(mod(sum, palette->Array.length))->Option.getOr("bg-gray-400")
+  }
+}
+
 module NonZeroInt: {
   type t = private option<int>;
   let make: int => t;

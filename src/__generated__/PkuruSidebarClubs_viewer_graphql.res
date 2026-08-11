@@ -4,7 +4,11 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_clubs_edges_node = {
+  type rec fragment_clubs_edges_node_defaultActivity = {
+    slug: option<string>,
+  }
+  and fragment_clubs_edges_node = {
+    defaultActivity: option<fragment_clubs_edges_node_defaultActivity>,
     @live id: string,
     name: option<string>,
     slug: option<string>,
@@ -88,7 +92,14 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
   %raw(json`(function(){
 var v0 = [
   "clubs"
-];
+],
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+};
 return {
   "argumentDefinitions": [
     {
@@ -167,11 +178,17 @@ return {
                   "name": "name",
                   "storageKey": null
                 },
+                (v1/*: any*/),
                 {
                   "alias": null,
                   "args": null,
-                  "kind": "ScalarField",
-                  "name": "slug",
+                  "concreteType": "Activity",
+                  "kind": "LinkedField",
+                  "name": "defaultActivity",
+                  "plural": false,
+                  "selections": [
+                    (v1/*: any*/)
+                  ],
                   "storageKey": null
                 },
                 {

@@ -585,7 +585,7 @@ msgstr "用於活動更新和通知"
 msgid "Free"
 msgstr "免費"
 
-#: src/components/organisms/PkEventsList.re.mjs:434
+#: src/components/organisms/PkEventsList.re.mjs:442
 msgid "Friday"
 msgstr "星期五"
 
@@ -775,7 +775,7 @@ msgstr "最低活動級別"
 msgid "mixed"
 msgstr "混合"
 
-#: src/components/organisms/PkEventsList.re.mjs:422
+#: src/components/organisms/PkEventsList.re.mjs:430
 msgid "Monday"
 msgstr "星期一"
 
@@ -800,7 +800,7 @@ msgstr "附近"
 msgid "Near me · {radius} km"
 msgstr "附近 · {radius} 公里"
 
-#: src/components/organisms/PkEventsList.re.mjs:443
+#: src/components/organisms/PkEventsList.re.mjs:451
 msgid "Next {dayName}"
 msgstr "下週{dayName}"
 
@@ -1057,7 +1057,7 @@ msgstr "循環賽抽籤"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkEventsList.re.mjs:437
+#: src/components/organisms/PkEventsList.re.mjs:445
 msgid "Saturday"
 msgstr "星期六"
 
@@ -1140,7 +1140,7 @@ msgstr "按開始時間排序"
 msgid "SPREAD"
 msgstr "分布"
 
-#: src/components/organisms/PkEventsList.re.mjs:419
+#: src/components/organisms/PkEventsList.re.mjs:427
 msgid "Sunday"
 msgstr "星期日"
 
@@ -1226,7 +1226,7 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/organisms/PkEventsList.re.mjs:431
+#: src/components/organisms/PkEventsList.re.mjs:439
 msgid "Thursday"
 msgstr "星期四"
 
@@ -1235,7 +1235,7 @@ msgid "to {0}"
 msgstr "至 {0}"
 
 #: src/components/shared/EventsListView.re.mjs:84
-#: src/components/organisms/PkEventsList.re.mjs:402
+#: src/components/organisms/PkEventsList.re.mjs:410
 msgid "Today"
 msgstr "今天"
 
@@ -1244,7 +1244,7 @@ msgid "Tokyo"
 msgstr "東京"
 
 #: src/components/shared/EventsListView.re.mjs:88
-#: src/components/organisms/PkEventsList.re.mjs:408
+#: src/components/organisms/PkEventsList.re.mjs:416
 msgid "Tomorrow"
 msgstr "明天"
 
@@ -1252,7 +1252,7 @@ msgstr "明天"
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/organisms/PkEventsList.re.mjs:425
+#: src/components/organisms/PkEventsList.re.mjs:433
 msgid "Tuesday"
 msgstr "星期二"
 
@@ -1319,7 +1319,7 @@ msgstr "已受邀參加活動"
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
-#: src/components/organisms/PkEventsList.re.mjs:428
+#: src/components/organisms/PkEventsList.re.mjs:436
 msgid "Wednesday"
 msgstr "星期三"
 
@@ -1343,7 +1343,7 @@ msgstr "取消報名"
 msgid "Withdrawing..."
 msgstr "取消中..."
 
-#: src/components/organisms/PkEventsList.re.mjs:442
+#: src/components/organisms/PkEventsList.re.mjs:450
 msgid "Yesterday"
 msgstr "昨天"
 

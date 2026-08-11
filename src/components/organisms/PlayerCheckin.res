@@ -21,6 +21,7 @@ let make = (
   ~onOpenAddGuests: unit => unit,
   ~getUserFragmentRefs: 'a => option<RescriptRelay.fragmentRefs<[> #PlayerCheckin_user]>>,
   ~initialPlayers: array<Rating.Player.t<'a>>,
+  ~eventUrl: option<string>=?,
 ) => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
@@ -258,7 +259,7 @@ let make = (
         />
       : React.null}
     {showSelfCheckin
-      ? <SelfCheckinDisplay onClose={() => setShowSelfCheckin(_ => false)} />
+      ? <SelfCheckinDisplay onClose={() => setShowSelfCheckin(_ => false)} url=?eventUrl />
       : React.null}
   </div>
 }

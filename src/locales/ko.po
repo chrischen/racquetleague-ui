@@ -5000,6 +5000,136 @@ msgstr "빈 자리"
 msgid "Use near me"
 msgstr "내 근처 사용"
 
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "{0} open"
+msgstr "{0} 열림"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active members"
+msgstr "활성 회원"
+
+#: src/components/pages/ClubPage.re.mjs:693
+msgid "All clubs"
+msgstr "모든 클럽"
+
+#: src/components/pages/ClubPage.re.mjs:361
+msgid "Check back when the club publishes its next schedule."
+msgstr "클럽이 다음 일정을 게시하면 다시 확인하세요."
+
+#: src/components/pages/ClubPage.re.mjs:98
+msgid "Club level"
+msgstr "클럽 레벨"
+
+#: src/components/pages/ClubPage.re.mjs:239
+msgid "Full"
+msgstr "마감"
+
+#: src/components/pages/ClubPage.re.mjs:767
+msgid "Full club schedule"
+msgstr "전체 클럽 일정"
+
+#: src/components/pages/ClubPage.re.mjs:598
+msgid "Member"
+msgstr "회원"
+
+#: src/components/pages/ClubPage.re.mjs:623
+msgid "Request pending"
+msgstr "요청 대기 중"
+
+#: src/components/pages/ClubPage.re.mjs:104
+msgid "Retention"
+msgstr "유지율"
+
+#: src/components/pages/ClubPage.re.mjs:90
+msgid "Total members"
+msgstr "총 회원 수"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "클럽"
+
+#: src/components/pages/ClubPage.re.mjs:94
+msgid "Active players"
+msgstr "활동 중인 플레이어"
+
+#: src/components/pages/ClubsListPage.re.mjs:535
+msgid "{0} club"
+msgstr "{0}개 클럽"
+
+#: src/components/pages/ClubsListPage.re.mjs:536
+msgid "{0} clubs"
+msgstr "{0}개 클럽"
+
+#: src/components/pages/ClubsListPage.re.mjs:564
+msgid "Clear filters"
+msgstr "필터 초기화"
+
+#: src/components/pages/ClubsListPage.re.mjs:542
+msgid "Club filters"
+msgstr "클럽 필터"
+
+#: src/components/pages/ClubsListPage.re.mjs:299
+#: src/components/pages/ClubsListPage.re.mjs:586
+msgid "Club score"
+msgstr "클럽 점수"
+
+#: src/components/pages/ClubsListPage.re.mjs:416
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgstr "활동성, 실력 수준, 재방문 플레이어 수를 기준으로 순위가 매겨진 클럽을 찾아 가입하세요."
+
+#: src/components/pages/ClubsListPage.re.mjs:600
+msgid "Load more clubs"
+msgstr "클럽 더 보기"
+
+#: src/components/pages/ClubsListPage.re.mjs:316
+msgid "Median level"
+msgstr "중간 레벨"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+msgid "Minimum club level"
+msgstr "최소 클럽 레벨"
+
+#: src/components/pages/ClubsListPage.re.mjs:209
+msgid "Next"
+msgstr "다음"
+
+#: src/components/pages/ClubsListPage.re.mjs:556
+msgid "No clubs match your filters"
+msgstr "필터에 맞는 클럽이 없습니다"
+
+#: src/components/pages/ClubsListPage.re.mjs:228
+msgid "No upcoming event"
+msgstr "예정된 이벤트 없음"
+
+#: src/components/pages/ClubsListPage.re.mjs:578
+msgid "Rank"
+msgstr "순위"
+
+#: src/components/pages/ClubsListPage.re.mjs:427
+#: src/components/pages/ClubsListPage.re.mjs:437
+msgid "Search clubs"
+msgstr "클럽 검색"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+msgid "Sport"
+msgstr "종목"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+msgid "Try a different sport or a lower level, or clear your filters."
+msgstr "다른 종목이나 낮은 레벨로 시도해보거나 필터를 초기화하세요."
+
+#: src/components/pages/ClubsListPage.re.mjs:335
+msgid "View club"
+msgstr "클럽 보기"
+
+#: src/components/pages/ClubsListPage.re.mjs:450
+msgid "Try a different search, or pick another sport in the sidebar."
+msgstr "다른 검색어를 시도하거나 사이드바에서 다른 스포츠를 선택하세요."
+
+#: src/components/pages/PkuruLayout.re.mjs:167
+msgid "Personal"
+msgstr "개인"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

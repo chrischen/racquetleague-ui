@@ -17,14 +17,18 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
+#: src/components/organisms/NavViewer.re.mjs:65
+msgid "Clubs"
+msgstr "俱乐部"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-msgid "My Clubs"
-msgstr "我的俱乐部"
+#~ msgid "My Clubs"
+#~ msgstr "我的俱乐部"
 
 #: src/components/organisms/NavViewer.re.mjs:65
 #~ msgid "My Events"
