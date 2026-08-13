@@ -37,7 +37,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr "ปิดจอแสดงผลการเช็คอินด้วยตนเอง"
 
@@ -45,11 +45,11 @@ msgstr "ปิดจอแสดงผลการเช็คอินด้ว
 msgid "Drag players in order of strongest to weakest."
 msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "เช็คอินกิจกรรม"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
 
@@ -69,7 +69,7 @@ msgstr "μ"
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "เปิดกล้องโทรศัพท์ สแกนโค้ดนี้ และเข้าร่วมกิจกรรม"
 
@@ -85,7 +85,7 @@ msgstr "เช็คอินผู้เล่น"
 msgid "Save Seed Adjustments"
 msgstr "บันทึกการปรับซีด"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "สแกนเพื่อเช็คอิน"
 

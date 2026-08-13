@@ -333,7 +333,7 @@ function PkuruLayout$SidebarContent(props) {
                                                                 fallback: Caml_option.some(null)
                                                               }) : null
                                                       ],
-                                                      className: "ml-4 border-l border-gray-200 pb-2 pl-2 pt-1 dark:border-[#34353a]",
+                                                      className: "mt-1 rounded-md bg-gray-50/70 pb-2 pt-1 dark:bg-[#24252a]",
                                                       id: panelId
                                                     }))
                                           }, panelId);

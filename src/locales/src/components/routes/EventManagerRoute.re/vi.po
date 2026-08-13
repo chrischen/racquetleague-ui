@@ -142,7 +142,7 @@ msgstr "Đóng"
 msgid "Close Full Screen"
 msgstr "Đóng Toàn Màn Hình"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr "Đóng màn hình tự check-in"
 
@@ -267,7 +267,7 @@ msgstr "Nhập điểm số trận đấu"
 msgid "Enter team name"
 msgstr "Nhập tên đội"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "Check-in sự kiện"
 
@@ -336,7 +336,7 @@ msgstr "Đang tạo…"
 msgid "Guest Names (one per line)"
 msgstr "Tên khách (mỗi tên một dòng)"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
 
@@ -442,7 +442,7 @@ msgstr "Chưa có đội"
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
 
@@ -613,7 +613,7 @@ msgstr "Lưu điều chỉnh hạt giống"
 msgid "Save Team"
 msgstr "Lưu đội"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "Quét để check-in"
 

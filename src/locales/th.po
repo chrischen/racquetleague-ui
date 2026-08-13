@@ -5588,6 +5588,10 @@ msgstr "ลองค้นหาด้วยคำอื่น หรือเ�
 msgid "Personal"
 msgstr "ส่วนตัว"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:214
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr "ผู้เล่นที่มีอันดับสูงกว่า James Ignatowich สามารถรับส่วนลดสูงสุด 28% สำหรับไม้ปิงปอง RPM จากเว็บไซต์ทางการของ RPM สำหรับผู้หญิง ผู้เล่นหญิง 20 อันดับแรกจะได้รับส่วนลดเดียวกันนี้ โดย 15% จากโค้ด PKURU15 และอีก 13% ผ่านการคืนเงิน ติดต่อ Chris Chen เพื่อขอรับสิทธิ์หลังจากที่คุณสั่งซื้อแล้ว ผู้เล่นทั่วไปสามารถรับส่วนลด 15% สำหรับไม้ปิงปอง RPM ได้ทุกเมื่อ: ลด 15% ที่ rpmpb.com ด้วยโค้ด:"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

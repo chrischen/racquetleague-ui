@@ -122,7 +122,7 @@ msgstr "閉じる"
 msgid "Close Full Screen"
 msgstr "全画面表示を閉じる"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr "セルフチェックイン画面を閉じる"
 
@@ -242,7 +242,7 @@ msgstr "試合のスコアを入力"
 msgid "Enter team name"
 msgstr "チーム名を入力"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "イベントチェックイン"
 
@@ -297,7 +297,7 @@ msgstr "生成中…"
 msgid "Guest Names (one per line)"
 msgstr "ゲスト名（1行に1名）"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
 
@@ -399,7 +399,7 @@ msgstr "チームがまだありません"
 msgid "Not paid"
 msgstr "未払い"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr ""
 "スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
@@ -544,7 +544,7 @@ msgstr "シード調整を保存"
 msgid "Save Team"
 msgstr "チームを保存"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "スキャンしてチェックイン"
 

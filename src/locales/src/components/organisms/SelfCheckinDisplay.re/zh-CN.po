@@ -13,22 +13,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr "关闭自助签到显示"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "活动签到"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "扫描遇到问题？请尝试从俱乐部页面查找活动。"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "打开手机摄像头，扫描此二维码，加入活动。"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "扫码签到"

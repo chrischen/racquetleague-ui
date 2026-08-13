@@ -208,6 +208,15 @@ function LeagueRankingsPage$DraftPrizeBanner(props) {
                                 JsxRuntime.jsx("p", {
                                       children: t`The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft.`,
                                       className: "text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-2 leading-snug"
+                                    }),
+                                JsxRuntime.jsxs("p", {
+                                      children: [
+                                        t`Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:`,
+                                        JsxRuntime.jsx("a", {
+                                              children: " PKURU15",
+                                              href: "https://rpmpb.com/PKURU15"
+                                            })
+                                      ]
                                     })
                               ],
                               className: "min-w-0 flex-1"

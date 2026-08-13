@@ -6324,3 +6324,13 @@ msgstr ""
 #: src/components/pages/PkuruLayout.re.mjs:167
 msgid "Personal"
 msgstr ""
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:214
+msgid ""
+"Players ranked higher than James Ignatowich can receive up to 28% off RPM "
+"paddles from the RPM official website. For women, top 20 women players can "
+"receive this same discount. 15% will be from the PKURU15 code and the "
+"remaining 13% via cash back. Contact Chris Chen for redemption after you "
+"place an order. All other players can receive 15% off RPM paddles at any "
+"time: 15% off at rpmpb.com with code:"
+msgstr ""

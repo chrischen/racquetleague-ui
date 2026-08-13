@@ -5834,6 +5834,10 @@ msgstr "別の検索をお試しいただくか、サイドバーで別のスポ
 msgid "Personal"
 msgstr "個人"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:214
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr "James Ignatowich より上位のプレーヤーは、RPM公式ウェブサイトでRPMパドルを最大28%割引で購入できます。女性の場合、上位20名の女性プレーヤーが同じ割引を受けられます。15%はPKURU15コードによる割引、残りの13%はキャッシュバックによるものです。注文後、Chris Chenに連絡して特典を受け取ってください。その他のプレーヤーは、いつでもRPMパドルを15%割引で購入できます：rpmpb.com にてコードを使用して15%オフ："
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

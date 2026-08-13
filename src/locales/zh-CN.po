@@ -5584,6 +5584,10 @@ msgstr "请尝试其他搜索词，或在侧边栏选择其他运动。"
 msgid "Personal"
 msgstr "个人"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:214
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr "排名高于James Ignatowich的球员可在RPM官方网站享受最高28%的RPM球拍折扣。女子球员方面，排名前20的女子球员同样可享受此折扣。其中15%可通过优惠码PKURU15获得，剩余13%以现金返还形式发放。下单后请联系Chris Chen进行兑换。其他所有球员均可随时享受RPM球拍15%折扣：在rpmpb.com使用优惠码可享85折优惠："
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

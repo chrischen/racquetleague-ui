@@ -17,11 +17,11 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr "...載入更高評分的球員"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:423
+#: src/components/pages/LeagueRankingsPage.re.mjs:432
 msgid "All"
 msgstr "全部"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:462
+#: src/components/pages/LeagueRankingsPage.re.mjs:471
 msgid "All Clubs"
 msgstr "所有俱樂部"
 
@@ -29,12 +29,12 @@ msgstr "所有俱樂部"
 msgid "All players loaded"
 msgstr "已載入所有球員"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:337
-#: src/components/pages/LeagueRankingsPage.re.mjs:338
+#: src/components/pages/LeagueRankingsPage.re.mjs:346
+#: src/components/pages/LeagueRankingsPage.re.mjs:347
 msgid "Competitive Doubles"
 msgstr "競技雙打"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:337
+#: src/components/pages/LeagueRankingsPage.re.mjs:346
 msgid "Competitive Singles"
 msgstr "競技單打"
 
@@ -60,15 +60,15 @@ msgstr "選秀於2026年9月15日（星期二）開始"
 msgid "Est. DUPR"
 msgstr "預估 DUPR"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:476
+#: src/components/pages/LeagueRankingsPage.re.mjs:485
 msgid "Filter by club"
 msgstr "按俱樂部篩選"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:447
+#: src/components/pages/LeagueRankingsPage.re.mjs:456
 msgid "Filter by gender"
 msgstr "按性別篩選"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:367
+#: src/components/pages/LeagueRankingsPage.re.mjs:376
 msgid "Live Standings"
 msgstr "即時積分榜"
 
@@ -80,11 +80,11 @@ msgstr "載入更多球員..."
 msgid "Loading next standings"
 msgstr "載入下一積分榜"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:532
+#: src/components/pages/LeagueRankingsPage.re.mjs:541
 msgid "Loading rankings..."
 msgstr "載入排名中..."
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:428
+#: src/components/pages/LeagueRankingsPage.re.mjs:437
 msgid "Men"
 msgstr "男子"
 
@@ -92,7 +92,7 @@ msgstr "男子"
 msgid "No players found"
 msgstr "找不到球員"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:248
+#: src/components/pages/LeagueRankingsPage.re.mjs:257
 msgid "Over ￥200,000 in prizes"
 msgstr "獎品總值逾￥200,000"
 
@@ -100,11 +100,25 @@ msgstr "獎品總值逾￥200,000"
 msgid "Player"
 msgstr "球員"
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:214
+msgid ""
+"Players ranked higher than James Ignatowich can receive up to 28% off RPM "
+"paddles from the RPM official website. For women, top 20 women players can "
+"receive this same discount. 15% will be from the PKURU15 code and the "
+"remaining 13% via cash back. Contact Chris Chen for redemption after you "
+"place an order. All other players can receive 15% off RPM paddles at any "
+"time: 15% off at rpmpb.com with code:"
+msgstr ""
+"排名高於 James Ignatowich 的球員可在 RPM 官方網站享有最高 28% 的 RPM 球拍折"
+"扣。女子方面，排名前 20 的女子球員可享有相同折扣。其中 15% 可透過優惠碼 "
+"PKURU15 獲得，剩餘 13% 則以現金回饋方式提供。下單後請聯繫 Chris Chen 進行兌"
+"換。其他所有球員均可隨時享有 RPM 球拍 85 折優惠：在 rpmpb.com 使用優惠碼："
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:185
 msgid "Playoff Draft"
 msgstr "季後賽選秀"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:220
+#: src/components/pages/LeagueRankingsPage.re.mjs:229
 msgid "Presented by"
 msgstr "由...呈獻"
 
@@ -112,7 +126,7 @@ msgstr "由...呈獻"
 msgid "Rating"
 msgstr "評分"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:400
+#: src/components/pages/LeagueRankingsPage.re.mjs:409
 msgid "Search players..."
 msgstr "搜尋球員..."
 
@@ -121,12 +135,12 @@ msgstr "搜尋球員..."
 msgid "Sep 15, 2026"
 msgstr "2026年9月15日"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:225
-#: src/components/pages/LeagueRankingsPage.re.mjs:230
+#: src/components/pages/LeagueRankingsPage.re.mjs:234
+#: src/components/pages/LeagueRankingsPage.re.mjs:239
 msgid "Sponsor logo"
 msgstr "贊助商標誌"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:383
+#: src/components/pages/LeagueRankingsPage.re.mjs:392
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Pkuru.com 官方競技雙打排名。"
 
@@ -154,7 +168,7 @@ msgstr ""
 "部資格的權利。參賽無需費用，Pkuru.com亦不向參與季後賽選秀的主辦方收取任何費"
 "用。"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:387
+#: src/components/pages/LeagueRankingsPage.re.mjs:396
 msgid ""
 "To participate, join any event with the trophy icon (competitive rated "
 "events) to receive a rating."
@@ -168,7 +182,7 @@ msgstr "請嘗試擴大搜尋範圍或調整篩選條件。"
 msgid "View my profile"
 msgstr "查看我的個人資料"
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:433
+#: src/components/pages/LeagueRankingsPage.re.mjs:442
 msgid "Women"
 msgstr "女子"
 

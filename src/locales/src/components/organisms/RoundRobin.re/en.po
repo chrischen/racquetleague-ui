@@ -138,7 +138,7 @@ msgstr ""
 msgid "Close Full Screen"
 msgstr ""
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Enter team name"
 msgstr ""
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr ""
 
@@ -308,7 +308,7 @@ msgstr ""
 #~ msgid "Guest player addition UI to be implemented"
 #~ msgstr ""
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr ""
 
@@ -420,7 +420,7 @@ msgstr ""
 #~ msgid "Not Playing This Round"
 #~ msgstr ""
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr ""
 
@@ -566,7 +566,7 @@ msgstr ""
 msgid "Save Team"
 msgstr ""
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr ""
 

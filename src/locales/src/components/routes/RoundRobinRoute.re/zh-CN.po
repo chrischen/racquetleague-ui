@@ -122,7 +122,7 @@ msgstr "关闭"
 msgid "Close Full Screen"
 msgstr "退出全屏"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr "关闭自助签到显示"
 
@@ -241,7 +241,7 @@ msgstr "输入比赛比分"
 msgid "Enter team name"
 msgstr "输入队伍名称"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "活动签到"
 
@@ -293,7 +293,7 @@ msgstr "生成中……"
 msgid "Guest Names (one per line)"
 msgstr "访客姓名（每行一个）"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "扫描遇到问题？请尝试从俱乐部页面查找活动。"
 
@@ -393,7 +393,7 @@ msgstr "还没有队伍"
 msgid "Not paid"
 msgstr "未支付"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "打开手机摄像头，扫描此二维码，加入活动。"
 
@@ -534,7 +534,7 @@ msgstr "保存种子调整"
 msgid "Save Team"
 msgstr "保存队伍"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "扫码签到"
 

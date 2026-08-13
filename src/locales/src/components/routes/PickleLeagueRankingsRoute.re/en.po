@@ -17,11 +17,11 @@ msgstr ""
 msgid "...load higher rated players"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:423
+#: src/components/pages/LeagueRankingsPage.re.mjs:432
 msgid "All"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:462
+#: src/components/pages/LeagueRankingsPage.re.mjs:471
 msgid "All Clubs"
 msgstr ""
 
@@ -29,12 +29,12 @@ msgstr ""
 msgid "All players loaded"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:337
-#: src/components/pages/LeagueRankingsPage.re.mjs:338
+#: src/components/pages/LeagueRankingsPage.re.mjs:346
+#: src/components/pages/LeagueRankingsPage.re.mjs:347
 msgid "Competitive Doubles"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:337
+#: src/components/pages/LeagueRankingsPage.re.mjs:346
 msgid "Competitive Singles"
 msgstr ""
 
@@ -64,15 +64,15 @@ msgstr ""
 #~ msgid "Female"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:476
+#: src/components/pages/LeagueRankingsPage.re.mjs:485
 msgid "Filter by club"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:447
+#: src/components/pages/LeagueRankingsPage.re.mjs:456
 msgid "Filter by gender"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:367
+#: src/components/pages/LeagueRankingsPage.re.mjs:376
 msgid "Live Standings"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Loading next standings"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:532
+#: src/components/pages/LeagueRankingsPage.re.mjs:541
 msgid "Loading rankings..."
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 #~ msgid "Male"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:428
+#: src/components/pages/LeagueRankingsPage.re.mjs:437
 msgid "Men"
 msgstr ""
 
@@ -104,7 +104,7 @@ msgstr ""
 #~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:248
+#: src/components/pages/LeagueRankingsPage.re.mjs:257
 msgid "Over ￥200,000 in prizes"
 msgstr ""
 
@@ -116,11 +116,15 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
+#: src/components/pages/LeagueRankingsPage.re.mjs:214
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr ""
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:185
 msgid "Playoff Draft"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:220
+#: src/components/pages/LeagueRankingsPage.re.mjs:229
 msgid "Presented by"
 msgstr ""
 
@@ -136,7 +140,7 @@ msgstr ""
 #~ msgid "Recreational Doubles"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:400
+#: src/components/pages/LeagueRankingsPage.re.mjs:409
 msgid "Search players..."
 msgstr ""
 
@@ -145,12 +149,12 @@ msgstr ""
 msgid "Sep 15, 2026"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:225
-#: src/components/pages/LeagueRankingsPage.re.mjs:230
+#: src/components/pages/LeagueRankingsPage.re.mjs:234
+#: src/components/pages/LeagueRankingsPage.re.mjs:239
 msgid "Sponsor logo"
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:383
+#: src/components/pages/LeagueRankingsPage.re.mjs:392
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr ""
 
@@ -162,7 +166,7 @@ msgstr ""
 msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
 msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:387
+#: src/components/pages/LeagueRankingsPage.re.mjs:396
 msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
 msgstr ""
 
@@ -186,7 +190,7 @@ msgstr ""
 #~ msgid "View My Profile"
 #~ msgstr ""
 
-#: src/components/pages/LeagueRankingsPage.re.mjs:433
+#: src/components/pages/LeagueRankingsPage.re.mjs:442
 msgid "Women"
 msgstr ""
 

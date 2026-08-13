@@ -37,7 +37,7 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:19
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:20
 msgid "Close self check-in display"
 msgstr "Đóng màn hình tự check-in"
 
@@ -45,11 +45,11 @@ msgstr "Đóng màn hình tự check-in"
 msgid "Drag players in order of strongest to weakest."
 msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:33
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "Check-in sự kiện"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:51
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
 
@@ -69,7 +69,7 @@ msgstr "mu"
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:41
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
 
@@ -85,7 +85,7 @@ msgstr "Check-in người chơi"
 msgid "Save Seed Adjustments"
 msgstr "Lưu điều chỉnh hạt giống"
 
-#: src/components/organisms/SelfCheckinDisplay.re.mjs:37
+#: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "Quét để check-in"
 
