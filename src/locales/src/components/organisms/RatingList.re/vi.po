@@ -38,6 +38,10 @@ msgstr "Hạn chót nháp · Top 8 vào vòng chính"
 msgid "Est. DUPR"
 msgstr "DUPR ước tính"
 
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "Nữ"
+
 #: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "Tải thêm người chơi..."
@@ -45,6 +49,10 @@ msgstr "Tải thêm người chơi..."
 #: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "Đang tải bảng xếp hạng tiếp theo"
+
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "Nam"
 
 #: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
@@ -73,11 +81,3 @@ msgstr "Bạn"
 #: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "Thứ hạng của bạn"
-
-#: src/components/organisms/RatingList.re.mjs:202
-#~ msgid "Female"
-#~ msgstr "Nữ"
-
-#: src/components/organisms/RatingList.re.mjs:204
-#~ msgid "Male"
-#~ msgstr "Nam"

@@ -238,6 +238,12 @@ let make = (
 
   let (team1, team2) = match
 
+  // "Not started yet" for the icon slots. Distinct from `currentWinner == None`
+  // now that ties are valid results: a scored 11-11 has no winner but is
+  // finished, so it must not show the serving dot or the pre-match repeat
+  // warnings.
+  let unscored = score->Option.isNone
+
   // Score values for display mode
   let (scoreLeftValue, scoreRightValue) =
     score->Option.map(((left, right)) => (left, right))->Option.getOr((0., 0.))
@@ -248,6 +254,12 @@ let make = (
   | (left, right) if right > left => Some(Right)
   | _ => None
   }
+
+  // A finished match with no winner is a draw, and gets its own indicator in
+  // both teams' icon slots — otherwise a tie is indistinguishable from a match
+  // nobody has scored yet. Guarded on `unscored` because an unplayed match also
+  // has no winner.
+  let isDraw = !unscored && currentWinner == None
 
   let handleSave = ((updatedMatch, updatedScore)) => {
     onUpdated
@@ -478,11 +490,13 @@ let make = (
                 <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
                   {currentWinner == Some(Left)
                     ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                    : currentWinner == None && team1Serves
+                    : isDraw
+                    ? <Lucide.Equal className="w-5 h-5 text-amber-600" />
+                    : unscored && team1Serves
                     ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
-                    : currentWinner == None && team1History == LastRound
+                    : unscored && team1History == LastRound
                     ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600" />
-                    : currentWinner == None && team1History == PreviousRound
+                    : unscored && team1History == PreviousRound
                     ? <Lucide.AlertTriangle className="w-4 h-4 text-amber-600" />
                     : React.null}
                 </div>
@@ -553,11 +567,13 @@ let make = (
                 <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 lg:order-3">
                   {currentWinner == Some(Right)
                     ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                    : currentWinner == None && !team1Serves
+                    : isDraw
+                    ? <Lucide.Equal className="w-5 h-5 text-amber-600" />
+                    : unscored && !team1Serves
                     ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
-                    : currentWinner == None && team2History == LastRound
+                    : unscored && team2History == LastRound
                     ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600" />
-                    : currentWinner == None && team2History == PreviousRound
+                    : unscored && team2History == PreviousRound
                     ? <Lucide.AlertTriangle className="w-4 h-4 text-amber-600" />
                     : React.null}
                 </div>

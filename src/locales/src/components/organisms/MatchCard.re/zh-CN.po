@@ -13,89 +13,95 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr "场地 {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "场地 {0} - 编辑中"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "删除比赛"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "编辑比赛"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "比分相同 — 将记录为平局"
+
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "上一轮"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "输球队（队伍 {0}）"
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "重复"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "保存比分"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
 #: src/components/organisms/MatchCard.re.mjs:99
 msgid "Score"
 msgstr "比分"
+
+#: src/components/organisms/ScoreModal.re.mjs:78
+msgid "Team {0}"
+msgstr "第 {0} 队"
 
 #: src/components/organisms/MatchCard.re.mjs:92
 msgid "TEAM {0}"
 msgstr "队伍 {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "队伍 1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "队伍 2"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"

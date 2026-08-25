@@ -13,6 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "Dallash Flash 官方T恤与棒球帽"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+#~ msgstr "官方 Dallash Flash T恤和棒球帽 — 颁发给排名前4的男子和前4的女子球员"
+
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
 msgid "Official RPM T-Shirts and Ball Caps"
 msgstr "RPM官方T恤及棒球帽"
@@ -30,6 +38,10 @@ msgstr "奖品"
 msgid "RPM"
 msgstr "RPM"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#~ msgid "Sponsor logo"
+#~ msgstr "赞助商标志"
+
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:120
 msgid "The top 4 men and top 4 women players each earn a prize."
 msgstr "前4名男子及前4名女子球员各获得一份奖品。"
@@ -37,17 +49,3 @@ msgstr "前4名男子及前4名女子球员各获得一份奖品。"
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:97
 msgid "Top Player Awards"
 msgstr "最佳球员奖"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
-#~ msgstr "Dallash Flash 官方T恤与棒球帽"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
-#~ msgid ""
-#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
-#~ "and top 4 women players"
-#~ msgstr "官方 Dallash Flash T恤和棒球帽 — 颁发给排名前4的男子和前4的女子球员"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
-#~ msgid "Sponsor logo"
-#~ msgstr "赞助商标志"

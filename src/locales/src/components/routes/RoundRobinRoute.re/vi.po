@@ -22,6 +22,10 @@ msgstr "{0} {matchText}"
 msgid "{0} of {1} checked in"
 msgstr "{0} trong {1} đã check-in"
 
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} đánh giá"
+
 #: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
 msgstr "{matchCount, plural, one {{0}} other {{1}}}"
@@ -51,7 +55,7 @@ msgstr "Thêm người chơi khách"
 msgid "Add Guest Players"
 msgstr "Thêm người chơi khách"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:129
+#: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
 msgstr "Điều chỉnh hạt giống người chơi"
 
@@ -103,7 +107,11 @@ msgstr "Cân bằng đội"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "Cân bằng giữa đối tác mới và các trận đấu đều sức."
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:244
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "Beta"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
@@ -135,7 +143,7 @@ msgstr "Thi đấu"
 msgid "Competitive+"
 msgstr "Cạnh tranh+"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr "Sân {0}"
 
@@ -143,7 +151,7 @@ msgstr "Sân {0}"
 msgid "COURT {0}"
 msgstr "SÂN {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "Sân {0} - Đang chỉnh sửa"
 
@@ -191,8 +199,8 @@ msgstr "Gỡ lỗi: BẬT"
 msgid "Delete Guest"
 msgstr "Xóa khách"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "Xóa trận đấu"
 
@@ -200,25 +208,24 @@ msgstr "Xóa trận đấu"
 msgid "Delete team"
 msgstr "Xóa đội"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#: src/components/organisms/SeedAdjustModal.re.mjs:142
 msgid "Drag players in order of strongest to weakest."
 msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
-"to a custom mix. Fair play time and rotation are always enforced and can't "
-"be turned down."
-msgstr ""
-"Mỗi chiến lược dùng một cấu hình đã được tinh chỉnh; điều chỉnh bất kỳ thanh "
-"trượt nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian thi đấu "
-"công bằng và luân phiên luôn được áp dụng và không thể giảm xuống."
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "Mỗi chiến lược dùng một cấu hình đã được tinh chỉnh; điều chỉnh bất kỳ thanh trượt nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian thi đấu công bằng và luân phiên luôn được áp dụng và không thể giảm xuống."
+
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "Chỉnh sửa trận đấu"
 
@@ -234,7 +241,7 @@ msgstr "Chỉnh sửa đội"
 msgid "Enter each guest player's name on a new line"
 msgstr "Nhập tên từng người chơi khách trên một dòng mới"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "Nhập điểm số trận đấu"
 
@@ -242,41 +249,33 @@ msgstr "Nhập điểm số trận đấu"
 msgid "Enter team name"
 msgstr "Nhập tên đội"
 
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là hòa"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "Check-in sự kiện"
 
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid ""
-"Everyone rotates: fresh partners and opponents every round, taking the most "
-"competitive matchups first until variety forces mixing."
-msgstr ""
-"Mọi người luân phiên: đối tác và đối thủ mới mỗi vòng, ưu tiên các trận đấu "
-"cạnh tranh nhất trước cho đến khi sự đa dạng buộc phải pha trộn."
+msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
+msgstr "Mọi người luân phiên: đối tác và đối thủ mới mỗi vòng, ưu tiên các trận đấu cạnh tranh nhất trước cho đến khi sự đa dạng buộc phải pha trộn."
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "Nữ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid ""
-"Fresh, varied matchups every round, with each match's teams balanced by "
-"skill."
-msgstr ""
-"Các trận đấu mới mẻ, đa dạng mỗi vòng, với đội mỗi trận được cân bằng theo "
-"kỹ năng."
+msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgstr "Các trận đấu mới mẻ, đa dạng mỗi vòng, với đội mỗi trận được cân bằng theo kỹ năng."
 
 #: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "Xem Toàn Màn Hình"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
-msgstr ""
-"Các vòng tiếp theo đã có điểm số nhập vào. Tái tạo sẽ xóa những điểm số này. "
-"Bạn có chắc không?"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgstr "Các vòng tiếp theo đã có điểm số nhập vào. Tái tạo sẽ xóa những điểm số này. Bạn có chắc không?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
 msgid "Gender"
@@ -293,6 +292,10 @@ msgstr "Tạo bốc thăm"
 #: src/components/molecules/DrawGenerator.re.mjs:363
 msgid "Generating…"
 msgstr "Đang tạo…"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "Xếp hạng toàn cầu"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -322,11 +325,11 @@ msgstr "Jane Doe"
 msgid "John Smith"
 msgstr "John Smith"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "Đội thua (Đội {0})"
 
@@ -386,7 +389,7 @@ msgstr "Chưa có đội phản"
 msgid "No available players"
 msgstr "Không có người chơi khả dụng"
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "Không có điểm"
 
@@ -398,6 +401,10 @@ msgstr "Chưa có đội"
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "Không Chơi Vòng Này"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
@@ -407,11 +414,8 @@ msgid "Opponent variety"
 msgstr "Đa dạng đối thủ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid ""
-"Optimised draws that prioritise evenly matched games within a skill band."
-msgstr ""
-"Lịch thi đấu được tối ưu hóa, ưu tiên các trận đấu đều sức trong cùng nhóm "
-"kỹ năng."
+msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgstr "Lịch thi đấu được tối ưu hóa, ưu tiên các trận đấu đều sức trong cùng nhóm kỹ năng."
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
@@ -433,13 +437,17 @@ msgstr "ID người chơi"
 msgid "Player Settings"
 msgstr "Cài đặt người chơi"
 
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "Người chơi bắt đầu với xếp hạng họ đạt được trong câu lạc bộ này; những ai chưa có sẽ bắt đầu từ xếp hạng mặc định. Thay đổi trong sự kiện được tính từ đó."
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "Người chơi bắt đầu với xếp hạng toàn cầu của họ trên tất cả các câu lạc bộ."
+
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
-msgstr ""
-"Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức "
-"round-robin với các đội cân bằng theo kỹ năng."
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgstr "Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức round-robin với các đội cân bằng theo kỹ năng."
 
 #: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
@@ -465,7 +473,7 @@ msgstr "Ưu tiên đối tác và đối thủ mới hơn là các trận đấu
 msgid "Random Balanced"
 msgstr "Ngẫu nhiên cân bằng"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
@@ -477,7 +485,7 @@ msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 msgid "Regenerate Rounds?"
 msgstr "Tái tạo vòng?"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "Lặp lại"
 
@@ -519,7 +527,7 @@ msgstr "Round-Robin"
 msgid "Round-Robin with teams balanced by skill."
 msgstr "Round-Robin với các đội cân bằng theo kỹ năng."
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "Lưu"
 
@@ -531,11 +539,11 @@ msgstr "Lưu & Đóng"
 msgid "Save Changes"
 msgstr "Lưu thay đổi"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "Lưu điểm số"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:251
+#: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "Lưu điều chỉnh hạt giống"
 
@@ -547,14 +555,28 @@ msgstr "Lưu đội"
 msgid "Scan to check in"
 msgstr "Quét để check-in"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr "Điểm số"
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "Điểm số"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} đánh giá"
 
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "Hạt giống:"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} người chơi"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+#~ msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -584,15 +606,16 @@ msgstr "chiến lược"
 msgid "Strategy:"
 msgstr "Chiến lược:"
 
+#: src/components/organisms/ScoreModal.re.mjs:78
 #: src/components/organisms/RoundRobin.re.mjs:679
 msgid "Team {0}"
 msgstr "Đội {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "ĐỘI 1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "ĐỘI 2"
 
@@ -612,13 +635,10 @@ msgstr "Tên đội"
 msgid "Teams"
 msgstr "Các đội"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
-"lịch ban đầu bằng biểu tượng đặt lại vòng."
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên lịch ban đầu bằng biểu tượng đặt lại vòng."
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
@@ -637,28 +657,20 @@ msgstr "Cập nhật các vòng tiếp theo"
 msgid "Update Rounds Below"
 msgstr "Cập nhật các vòng bên dưới"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
+#~ msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
 
 #: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "Trình duyệt của bạn quá cũ để sử dụng tính năng này."
-
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "Beta"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
-
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "Không Chơi Vòng Này"

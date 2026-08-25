@@ -134,12 +134,8 @@ msgid "Strong Against"
 msgstr "Mạnh chống lại"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
-msgstr ""
-"Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy "
-"độ tin cậy cao hơn."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
+msgstr "Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy độ tin cậy cao hơn."
 
 #: src/components/organisms/MatchHistoryList.re.mjs:630
 msgid "Upset"

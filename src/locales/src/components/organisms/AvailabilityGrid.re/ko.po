@@ -30,28 +30,36 @@ msgid "Add time windows above"
 msgstr "위에서 시간 창 추가"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:229
-msgid ""
-"Add time windows to each day. Drag to move them, grab the edges to resize."
-msgstr ""
-"각 날에 시간 창을 추가하세요. 드래그하여 이동, 가장자리를 잡아 크기 조절."
+msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr "각 날에 시간 창을 추가하세요. 드래그하여 이동, 가장자리를 잡아 크기 조절."
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:305
 msgid "Clear"
 msgstr "지우기"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:380
-msgid ""
-"Drag a window to move it · drag the edges to resize · tap + to add another"
-msgstr ""
-"창을 드래그하여 이동 · 가장자리를 드래그하여 크기 조절 · +를 탭하여 추가"
+msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr "창을 드래그하여 이동 · 가장자리를 드래그하여 크기 조절 · +를 탭하여 추가"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:446
 msgid "Let hosts schedule events when most of you are free"
 msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 합니다"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "긴 공개 시간"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "내 시간에 맞추기"
+
 #: src/components/organisms/AvailabilityGrid.re.mjs:260
 msgid "One-off"
 msgstr "일회성"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "열림"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
@@ -77,6 +85,10 @@ msgstr "일정"
 msgid "Share with your club"
 msgstr "클럽과 공유"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "아무 곳이나 탭하여 시간 창 추가"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
@@ -100,19 +112,3 @@ msgstr "언제 플레이할 수 있나요?"
 #: src/components/organisms/AvailabilityGrid.re.mjs:388
 msgid "Your availability"
 msgstr "내 가능 시간"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "긴 공개 시간"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "내 시간에 맞추기"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "열림"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "아무 곳이나 탭하여 시간 창 추가"

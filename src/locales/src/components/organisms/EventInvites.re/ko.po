@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대화에 자리를 확보하세요."
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "소개"
@@ -90,6 +94,10 @@ msgstr "플레이어 초대"
 msgid "Invite to {0}"
 msgstr "{0}에 초대"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "{eventTitle}에 초대"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "초대된 플레이어 및 잠재적 플레이어"
@@ -97,6 +105,10 @@ msgstr "초대된 플레이어 및 잠재적 플레이어"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "초대된 플레이어가 이벤트의 초대 목록으로 이동되었습니다."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -153,19 +165,3 @@ msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 #: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr "프로필 보기"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr ""
-#~ "{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대"
-#~ "화에 자리를 확보하세요."
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "{eventTitle}에 초대"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "초대된 플레이어가 이벤트 초대 목록으로 이동되었습니다."

@@ -78,6 +78,7 @@ var SortableItemContent = {
 };
 
 function SeedAdjustModal(props) {
+  var seedSourceOption = props.seedSourceOption;
   var getUserFragmentRefs = props.getUserFragmentRefs;
   var onClose = props.onClose;
   var onSave = props.onSave;
@@ -89,6 +90,13 @@ function SeedAdjustModal(props) {
       });
   var setSortedPlayers = match[1];
   var sortedPlayers = match[0];
+  React.useEffect((function () {
+          setSortedPlayers(function (param) {
+                return players.toSorted(function (a, b) {
+                            return Core__Float.compare(b.rating.mu, a.rating.mu);
+                          });
+              });
+        }), [players]);
   var minRating = Core__Array.reduce(sortedPlayers.map(function (p) {
             return p.rating.mu;
           }), 100, (function (acc, next) {
@@ -120,33 +128,72 @@ function SeedAdjustModal(props) {
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsxs("div", {
                     children: [
-                      JsxRuntime.jsx("div", {
-                            children: JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsx("h2", {
-                                                  children: t`Adjust Player Seeds`,
-                                                  className: "text-2xl font-bold text-slate-800"
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("h2", {
+                                                    children: t`Adjust Player Seeds`,
+                                                    className: "text-2xl font-bold text-slate-800"
+                                                  }),
+                                              JsxRuntime.jsx("p", {
+                                                    children: t`Drag players in order of strongest to weakest.`,
+                                                    className: "text-sm text-slate-600 mt-1"
+                                                  })
+                                            ]
+                                          }),
+                                      JsxRuntime.jsx("button", {
+                                            children: JsxRuntime.jsx(LucideReact.X, {
+                                                  className: "w-6 h-6 text-slate-600"
                                                 }),
-                                            JsxRuntime.jsx("p", {
-                                                  children: t`Drag players in order of strongest to weakest.`,
-                                                  className: "text-sm text-slate-600 mt-1"
-                                                })
-                                          ]
-                                        }),
-                                    JsxRuntime.jsx("button", {
-                                          children: JsxRuntime.jsx(LucideReact.X, {
-                                                className: "w-6 h-6 text-slate-600"
-                                              }),
-                                          className: "p-2 hover:bg-slate-100 rounded-lg transition-colors",
-                                          onClick: (function (param) {
-                                              onClose();
+                                            className: "p-2 hover:bg-slate-100 rounded-lg transition-colors",
+                                            onClick: (function (param) {
+                                                onClose();
+                                              })
+                                          })
+                                    ],
+                                    className: "flex items-center justify-between"
+                                  }),
+                              seedSourceOption !== undefined ? JsxRuntime.jsxs("div", {
+                                      children: [
+                                        JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsx("button", {
+                                                      children: t`Global ratings`,
+                                                      className: seedSourceOption.usingClubRatings ? "px-3 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:text-slate-800" : "px-3 py-1.5 rounded-md text-sm font-medium bg-white text-slate-800 shadow-sm",
+                                                      disabled: seedSourceOption.isLoading,
+                                                      onClick: (function (param) {
+                                                          seedSourceOption.onUseClubRatings(false);
+                                                        })
+                                                    }),
+                                                JsxRuntime.jsxs("button", {
+                                                      children: [
+                                                        seedSourceOption.isLoading ? JsxRuntime.jsx(LucideReact.Loader2, {
+                                                                className: "w-3.5 h-3.5 animate-spin"
+                                                              }) : JsxRuntime.jsx(LucideReact.Users, {
+                                                                className: "w-3.5 h-3.5"
+                                                              }),
+                                                        t`${seedSourceOption.clubName} ratings`
+                                                      ],
+                                                      className: seedSourceOption.usingClubRatings ? "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium bg-white text-slate-800 shadow-sm" : "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:text-slate-800",
+                                                      disabled: seedSourceOption.isLoading,
+                                                      onClick: (function (param) {
+                                                          seedSourceOption.onUseClubRatings(true);
+                                                        })
+                                                    })
+                                              ],
+                                              className: "inline-flex rounded-lg border border-slate-200 p-1 bg-slate-50"
+                                            }),
+                                        JsxRuntime.jsx("p", {
+                                              children: seedSourceOption.usingClubRatings ? t`Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there.` : t`Players start on their global rating across all clubs.`,
+                                              className: "text-sm text-slate-500 mt-2"
                                             })
-                                        })
-                                  ],
-                                  className: "flex items-center justify-between"
-                                }),
+                                      ],
+                                      className: "mt-4"
+                                    }) : null
+                            ],
                             className: "p-6 border-b border-slate-200"
                           }),
                       JsxRuntime.jsx("div", {

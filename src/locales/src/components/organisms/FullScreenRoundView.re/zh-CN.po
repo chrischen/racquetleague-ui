@@ -25,6 +25,10 @@ msgstr "退出全屏"
 msgid "COURT {0}"
 msgstr "球场 {0}"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "本轮不参赛"
+
 #: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "第 {0} 回合"
@@ -32,7 +36,3 @@ msgstr "第 {0} 回合"
 #: src/components/organisms/FullScreenRoundView.re.mjs:109
 msgid "SERVING"
 msgstr "发球中"
-
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "本轮不参赛"

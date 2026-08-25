@@ -5592,6 +5592,102 @@ msgstr "ส่วนตัว"
 msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
 msgstr "ผู้เล่นที่มีอันดับสูงกว่า James Ignatowich สามารถรับส่วนลดสูงสุด 28% สำหรับไม้ปิงปอง RPM จากเว็บไซต์ทางการของ RPM สำหรับผู้หญิง ผู้เล่นหญิง 20 อันดับแรกจะได้รับส่วนลดเดียวกันนี้ โดย 15% จากโค้ด PKURU15 และอีก 13% ผ่านการคืนเงิน ติดต่อ Chris Chen เพื่อขอรับสิทธิ์หลังจากที่คุณสั่งซื้อแล้ว ผู้เล่นทั่วไปสามารถรับส่วนลด 15% สำหรับไม้ปิงปอง RPM ได้ทุกเมื่อ: ลด 15% ที่ rpmpb.com ด้วยโค้ด:"
 
+#: src/components/organisms/ScoreModal.re.mjs:237
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "คะแนนเท่ากัน — จะถูกบันทึกเป็นเสมอ"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} การให้คะแนน"
+
+#: src/components/organisms/EventManager.re.mjs:508
+msgid "Changes aren't being saved"
+msgstr "การเปลี่ยนแปลงไม่ได้ถูกบันทึก"
+
+#: src/components/organisms/EventManager.re.mjs:334
+msgid "Connecting…"
+msgstr "กำลังเชื่อมต่อ…"
+
+#: src/components/organisms/EventManager.re.mjs:461
+msgid "Delete all data"
+msgstr "ลบข้อมูลทั้งหมด"
+
+#: src/components/organisms/EventManager.re.mjs:390
+msgid "Delete all saved event data?"
+msgstr "ลบข้อมูลอีเวนต์ที่บันทึกทั้งหมด?"
+
+#: src/components/organisms/EventManager.re.mjs:448
+msgid "Everything stored on this device is already synced to the server."
+msgstr "ทุกอย่างที่จัดเก็บบนอุปกรณ์นี้ได้ซิงค์กับเซิร์ฟเวอร์แล้ว"
+
+#: src/components/organisms/EventManager.re.mjs:526
+msgid "Free up space"
+msgstr "เพิ่มพื้นที่ว่าง"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "การให้คะแนนระดับโลก"
+
+#: src/components/organisms/EventManager.re.mjs:313
+msgid "Not saved"
+msgstr "ไม่ได้บันทึก"
+
+#: src/components/organisms/EventManager.re.mjs:418
+msgid "Other events on this device"
+msgstr "อีเวนต์อื่นในอุปกรณ์นี้"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนระดับโลกของตนจากทุกสโมสร"
+
+#: src/components/organisms/EventManager.re.mjs:538
+msgid "Retry"
+msgstr "ลองอีกครั้ง"
+
+#: src/components/organisms/EventManager.re.mjs:327
+msgid "Saved"
+msgstr "บันทึกแล้ว"
+
+#: src/components/organisms/EventManager.re.mjs:744
+msgid "this club"
+msgstr "สโมสรนี้"
+
+#: src/components/organisms/EventManager.re.mjs:397
+msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+msgstr "การดำเนินการนี้จะลบข้อมูลที่บันทึกไว้ของทุกอีเวนต์บนอุปกรณ์นี้ รวมถึงอีเวนต์นี้ด้วย อีเวนต์ที่ซิงค์กับเซิร์ฟเวอร์แล้วสามารถเปิดใหม่ได้ แต่ข้อมูลที่ยังไม่ได้ซิงค์จะไม่สามารถกู้คืนได้"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
+msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
+msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ และเปิดแต่ละอีเวนต์อื่นแล้วซิงค์ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"
+
+#: src/components/organisms/EventManager.re.mjs:405
+msgid "Unsynced scores in this event"
+msgstr "คะแนนที่ยังไม่ได้ซิงค์ในอีเวนต์นี้"
+
+#: src/components/organisms/EventManager.re.mjs:431
+msgid "Unsynced scores in those events"
+msgstr "คะแนนที่ยังไม่ได้ซิงค์ในอีเวนต์เหล่านั้น"
+
+#: src/components/organisms/EventManager.re.mjs:490
+msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
+msgstr "เบราว์เซอร์ของคุณบล็อกการจัดเก็บข้อมูลสำหรับเว็บไซต์นี้ หากคุณอยู่ในหน้าต่างส่วนตัว ให้เปลี่ยนไปใช้หน้าต่างปกติ มิฉะนั้นให้อนุญาตข้อมูลเว็บไซต์แล้วโหลดใหม่"
+
+#: src/components/organisms/EventManager.re.mjs:493
+msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
+msgstr "เบราว์เซอร์ของคุณพื้นที่จัดเก็บเต็มแล้ว ล้างข้อมูลอีเวนต์เก่าเพื่อเพิ่มพื้นที่ว่าง แล้วลองอีกครั้ง"
+
+#: src/components/organisms/EventManager.re.mjs:496
+msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
+msgstr "เบราว์เซอร์ของคุณปฏิเสธการบันทึกอีเวนต์นี้ โหลดหน้าใหม่หรือลองอีกครั้ง หากยังล้มเหลวอยู่ ให้หลีกเลี่ยงการรีเฟรชจนกว่าคะแนนจะถูกซิงค์"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

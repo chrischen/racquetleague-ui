@@ -36,6 +36,10 @@ msgstr "[標題缺失]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
+#: src/components/organisms/ClubEventsList.re.mjs:178
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} 條已隱藏 — 顯示"
+
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
 msgstr "{0} 個連續空檔"
@@ -65,6 +69,10 @@ msgstr "{0} 個地點"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} 個地點"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "還剩 {cancelTimeLeft} 可取消"
 
 #: src/components/organisms/PkEventRow.re.mjs:130
 #: src/components/organisms/PkEventRow.re.mjs:187
@@ -105,6 +113,10 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/ClubEventsList.re.mjs:111
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
+
 #: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
 msgstr "← 上一頁"
@@ -112,6 +124,14 @@ msgstr "← 上一頁"
 #: src/components/organisms/PkRSVPSection.re.mjs:510
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技術"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid "A small hold will be placed on your card and fully refunded after the event."
+#~ msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
@@ -215,13 +235,16 @@ msgstr "已取消"
 msgid "Cancellation deadline"
 msgstr "取消截止日期"
 
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "取消期限已過"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:385
 msgid "Cancellation deadline passed."
 msgstr "已超過取消截止日期。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:275
-msgid ""
-"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "取消期限已過。請在此頁面聯絡主辦方以取消。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:173
@@ -265,9 +288,12 @@ msgstr "完成付款"
 msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善個人資料"
+
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
@@ -302,11 +328,11 @@ msgstr "無法儲存您的個人資料，請再試一次。"
 msgid "Court"
 msgstr "場地"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr "場地 {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "場地 {0} - 編輯中"
 
@@ -323,12 +349,21 @@ msgstr "場地數："
 msgid "Create event"
 msgstr "建立賽事"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/pages/PkEventPage.re.mjs:410
+#~ msgid "Dallas Flash"
+#~ msgstr "達拉斯閃電"
+
+#: src/components/pages/PkEventPage.re.mjs:424
+#~ msgid "Dallas Flash Swag"
+#~ msgstr "達拉斯閃電周邊商品"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "刪除比賽"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
@@ -353,7 +388,7 @@ msgstr "DUPR"
 msgid "edit event"
 msgstr "編輯活動"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "編輯比賽"
 
@@ -362,20 +397,24 @@ msgid "Email address"
 msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
-"件地址登入。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "電子郵件不能更改"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "請輸入電子郵件"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "輸入比賽比分"
+
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "分數相同 — 此場將記錄為平局"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:215
 msgid "even"
@@ -445,9 +484,19 @@ msgstr "Google 日曆"
 msgid "Highly skilled players"
 msgstr "高技能球員"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:432
+#: src/components/pages/PkEventPage.re.mjs:691
+#~ msgid "Host"
+#~ msgstr "主持人"
+
 #: src/components/organisms/ProfileModal.re.mjs:480
 msgid "How other players will see you"
 msgstr "其他球員看到您的方式"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "小時"
 
 #: src/components/molecules/LevelPicker.re.mjs:32
 msgid "Intermediate"
@@ -477,6 +526,10 @@ msgstr "邀請球員"
 msgid "Invite to {0}"
 msgstr "邀請至 {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "邀請至 {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "已邀請及潛在球員"
@@ -484,6 +537,10 @@ msgstr "已邀請及潛在球員"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "受邀玩家已移至活動的受邀名單。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "受邀球員已移至活動的邀請名單。"
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -509,7 +566,7 @@ msgstr "已加入"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球員個人資料準確且對社群有用。"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "上一輪"
 
@@ -547,7 +604,7 @@ msgstr "載入中..."
 msgid "Location"
 msgstr "地點"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "輸球隊（隊伍 {0}）"
 
@@ -567,6 +624,11 @@ msgstr "比賽將提交至 DUPR。"
 #: src/components/organisms/PkRSVPSection.re.mjs:493
 msgid "MEDIAN"
 msgstr "中位數"
+
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "分鐘"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
@@ -605,7 +667,7 @@ msgstr "{venue} 當天沒有其他時間可支援完整的活動時長。"
 msgid "No restriction on skill level. Open to all players."
 msgstr "技能等級無限制。對所有球員開放。"
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "無比分"
 
@@ -629,6 +691,10 @@ msgstr "尚未評級"
 msgid "Notes from the host"
 msgstr "主持人的備註"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+#~ msgstr "官方 Dallash Flash T恤與棒球帽 — 頒發給男子前4名及女子前4名球員"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "On waitlist"
 msgstr "候補中"
@@ -648,6 +714,10 @@ msgstr "{venue} 的其他時間"
 #: src/components/organisms/PkRSVPSection.re.mjs:414
 msgid "Participants"
 msgstr "參與者"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+#~ msgid "Pay {0}"
+#~ msgstr "支付 {0}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:147
 msgid "Pay {priceStr}"
@@ -690,6 +760,10 @@ msgstr "待審核"
 msgid "player"
 msgstr "玩家"
 
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "球員"
+
 #: src/components/organisms/PkEventRow.re.mjs:132
 #: src/components/organisms/PkEventRow.re.mjs:189
 msgid "players"
@@ -698,6 +772,10 @@ msgstr "球員"
 #: src/components/pages/PkEventPage.re.mjs:422
 msgid "Playoff Draft"
 msgstr "季後賽選秀"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不願透露"
 
 #: src/components/pages/PkEventPage.re.mjs:397
 msgid "Presented by"
@@ -729,13 +807,12 @@ msgstr "下拉以重新整理"
 msgid "Rated"
 msgstr "計分賽"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休閒比賽，不會提交至競技評分或 DUPR。"
 
 #: src/components/shared/EventsListView.re.mjs:153
@@ -756,9 +833,17 @@ msgstr "重新整理中…"
 msgid "Refund payment"
 msgstr "退款"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Release spot"
+#~ msgstr "釋放名額"
+
 #: src/components/shared/PullToRefresh.re.mjs:244
 msgid "Release to refresh"
 msgstr "放開以重新整理"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Releasing..."
+#~ msgstr "釋放中..."
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -768,7 +853,7 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "重複"
 
@@ -809,22 +894,26 @@ msgstr "RPM"
 msgid "Saturday"
 msgstr "星期六"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "儲存"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "儲存並參加活動"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "儲存個人資料"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "保存比分"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr "比分"
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "比分"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
 msgid "Self-rating"
@@ -843,9 +932,7 @@ msgid "Share"
 msgstr "分享"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/organisms/PkEventMessages.re.mjs:455
@@ -872,6 +959,14 @@ msgstr "跳過 {0}"
 msgid "SORTED BY START TIME"
 msgstr "按開始時間排序"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "贊助商標誌"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+#~ msgid "Spot held — pay to confirm"
+#~ msgstr "名額已保留 — 請付款確認"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:554
 msgid "SPREAD"
 msgstr "分布"
@@ -892,67 +987,55 @@ msgstr "左滑跳過 · 右滑邀請"
 msgid "sync calendar"
 msgstr "同步日曆"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/ScoreModal.re.mjs:78
+msgid "Team {0}"
+msgstr "第 {0} 隊"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "隊伍 1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "隊伍 2"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
 #: src/components/organisms/PkEventRow.re.mjs:958
 #: src/components/organisms/EventStickyFooter.re.mjs:460
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr "候補名單中有球員。如果您退出，您的位置將會給下一位。確定嗎？"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:165
-msgid ""
-"This is a deposit hold only — payment is due to the organizer at the event. "
-"The hold will be released after the event."
-msgstr ""
-"此為僅供保留的訂金——款項須於活動現場支付給主辦方。保留款將於活動結束後解除。"
+msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
+msgstr "此為僅供保留的訂金——款項須於活動現場支付給主辦方。保留款將於活動結束後解除。"
 
 #: src/components/organisms/StripePaymentEmbed.tsx:98
-msgid ""
-"This is a deposit hold only. You still need to pay the organizer in full at "
-"the event. The hold will be released after the event."
-msgstr ""
-"此為僅供保留的訂金。您仍需於活動現場向主辦方全額付款。保留款將於活動結束後解"
-"除。"
+msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
+msgstr "此為僅供保留的訂金。您仍需於活動現場向主辦方全額付款。保留款將於活動結束後解除。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "這是其他人會看到的名字"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
-msgid ""
-"This moves the event to another venue and reschedules everyone who already "
-"RSVP'd. Tap again to confirm."
-msgstr ""
-"此操作將把活動移至另一場地，並為所有已回覆出席的人重新安排時間。再次點擊以確"
-"認。"
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "此操作將把活動移至另一場地，並為所有已回覆出席的人重新安排時間。再次點擊以確認。"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:437
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr "此操作將為所有已回覆出席的人重新安排時間。再次點擊以確認。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
-"限制其報名嗎？"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"
 
 #: src/components/organisms/ClubEventsList.re.mjs:258
 msgid "Thursday"
@@ -971,6 +1054,10 @@ msgstr "明天"
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
 msgstr "前6均值"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "頂尖球員獎"
 
 #: src/components/organisms/ClubEventsList.re.mjs:252
 msgid "Tuesday"
@@ -1005,9 +1092,9 @@ msgstr "查看完整抽籤"
 msgid "View Profile"
 msgstr "查看個人資料"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
 
@@ -1039,7 +1126,7 @@ msgstr "星期三"
 msgid "Weekend"
 msgstr "週末"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "獲勝隊（隊伍 {0}）"
 
@@ -1060,135 +1147,13 @@ msgid "You're in"
 msgstr "已報名"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"您的評分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}）低於最低標準。您將被放入待定名單。"
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "您的評分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ {viewerDuprHi}）低於最低標準。您將被放入待定名單。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+#~ msgstr "您的評分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ {viewerDuprHi}）低於最低要求。您將被加入待處理列表。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr "您的報名正在等待管理員審核"
-
-#: src/components/organisms/ClubEventsList.re.mjs:178
-#~ msgid "{0} {hiddenDesc} hidden — show"
-#~ msgstr "{0} {hiddenDesc} 條已隱藏 — 顯示"
-
-#: src/components/pages/PkEventPage.re.mjs:380
-#~ msgid "{cancelTimeLeft} left to cancel"
-#~ msgstr "還剩 {cancelTimeLeft} 可取消"
-
-#: src/components/organisms/ClubEventsList.re.mjs:111
-#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
-#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-#~ msgid ""
-#~ "A small hold will be placed on your card and fully refunded after the "
-#~ "event."
-#~ msgstr "您的卡片將會有一筆小額暫扣款，活動結束後全額退還。"
-
-#: src/components/pages/PkEventPage.re.mjs:379
-#~ msgid "Cancellation deadline passed"
-#~ msgstr "取消期限已過"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "完善個人資料"
-
-#: src/components/pages/PkEventPage.re.mjs:410
-#~ msgid "Dallas Flash"
-#~ msgstr "達拉斯閃電"
-
-#: src/components/pages/PkEventPage.re.mjs:424
-#~ msgid "Dallas Flash Swag"
-#~ msgstr "達拉斯閃電周邊商品"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "電子郵件不能更改"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:432
-#: src/components/pages/PkEventPage.re.mjs:691
-#~ msgid "Host"
-#~ msgstr "主持人"
-
-#: src/components/pages/PkEventPage.re.mjs:366
-#: src/components/pages/PkEventPage.re.mjs:368
-#~ msgid "hr"
-#~ msgstr "小時"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "邀請至 {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "受邀球員已移至活動的邀請名單。"
-
-#: src/components/pages/PkEventPage.re.mjs:361
-#: src/components/pages/PkEventPage.re.mjs:366
-#~ msgid "min"
-#~ msgstr "分鐘"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
-#~ msgid ""
-#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
-#~ "and top 4 women players"
-#~ msgstr "官方 Dallash Flash T恤與棒球帽 — 頒發給男子前4名及女子前4名球員"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:194
-#~ msgid "Pay {0}"
-#~ msgstr "支付 {0}"
-
-#: src/components/organisms/MiniEventRsvp.re.mjs:57
-#~ msgid "Player"
-#~ msgstr "球員"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "不願透露"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Release spot"
-#~ msgstr "釋放名額"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Releasing..."
-#~ msgstr "釋放中..."
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "儲存並參加活動"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
-#~ msgid "Sponsor logo"
-#~ msgstr "贊助商標誌"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:173
-#~ msgid "Spot held — pay to confirm"
-#~ msgstr "名額已保留 — 請付款確認"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "這是其他人會看到的名字"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
-#~ msgid "Top Player Awards"
-#~ msgstr "頂尖球員獎"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid ""
-#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
-#~ "list."
-#~ msgstr ""
-#~ "您的評分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}）低於最低要求。您將被加入待處理列表。"

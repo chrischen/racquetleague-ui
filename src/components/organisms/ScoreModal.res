@@ -70,6 +70,14 @@ let make = (
 
   let canSubmit = team1Score->Option.isSome && team2Score->Option.isSome
 
+  // Equal scores are a valid result (rated as a draw). The modal is framed
+  // around the tapped team having won, so when the entry is actually a draw,
+  // say so rather than letting "Winning Team" mislead.
+  let isDraw = switch (winningScore, losingScore) {
+  | (Some(w), Some(l)) => w == l
+  | _ => false
+  }
+
   // Generate number buttons 0-30
   let numbers = Array.fromInitializer(~length=31, i => i)
 
@@ -83,6 +91,39 @@ let make = (
   | Team2 => 1
   }
 
+  // On a draw neither side won, so both headings drop the win/loss framing and
+  // render identically — the modal is only framed around a winner because of
+  // which team was tapped to open it, which the entered scores can contradict.
+  let teamHeading = (~teamNumber: int, ~isWinningSide: bool) =>
+    <div className="flex items-center gap-2">
+      {if isDraw {
+        <Lucide.Equal className="w-5 h-5 text-amber-600" />
+      } else if isWinningSide {
+        <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+      } else {
+        React.null
+      }}
+      <h3
+        className={isDraw
+          ? "text-lg font-bold text-slate-700"
+          : isWinningSide
+          ? "text-lg font-bold text-green-700"
+          : "text-lg font-bold text-slate-600"}>
+        {if isDraw {
+          t`Team ${teamNumber->Int.toString}`
+        } else if isWinningSide {
+          t`Winning Team (Team ${teamNumber->Int.toString})`
+        } else {
+          t`Losing Team (Team ${teamNumber->Int.toString})`
+        }}
+      </h3>
+    </div>
+
+  // Green reads as "this team won", so the tapped side loses its accent too.
+  let (accentBg, accentText, accentSelected) = isDraw
+    ? ("bg-slate-100", "text-slate-700", "bg-slate-600")
+    : ("bg-green-100", "text-green-700", "bg-green-600")
+
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
     <div
       className="select-none bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -90,7 +131,9 @@ let make = (
       <div
         className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Lucide.Trophy className="w-6 h-6 text-yellow-500" />
+          {isDraw
+            ? <Lucide.Equal className="w-6 h-6 text-amber-600" />
+            : <Lucide.Trophy className="w-6 h-6 text-yellow-500" />}
           <h2 className="text-xl font-bold text-slate-800"> {t`Enter Match Score`} </h2>
         </div>
         <button
@@ -101,14 +144,9 @@ let make = (
         </button>
       </div>
       <div className="p-6 space-y-6">
-        // Winning Team Score
+        // Score for the team the match card was tapped on
         <div className="space-y-3">
-          <div className="flex items-center gap-2">
-            <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-            <h3 className="text-lg font-bold text-green-700">
-              {t`Winning Team (Team ${winningTeamNumber->Int.toString})`}
-            </h3>
-          </div>
+          {teamHeading(~teamNumber=winningTeamNumber, ~isWinningSide=true)}
           <div className="flex items-center gap-2 mb-2">
             {winningTeamPlayers
             ->Array.map(player => {
@@ -125,8 +163,8 @@ let make = (
             ->React.array}
           </div>
           <div className="text-center mb-2">
-            <div className="inline-block px-4 py-2 bg-green-100 rounded-lg">
-              <span className="text-3xl font-bold text-green-700">
+            <div className={`inline-block px-4 py-2 ${accentBg} rounded-lg`}>
+              <span className={`text-3xl font-bold ${accentText}`}>
                 {winningScore
                 ->Option.map(s => s->Int.toString)
                 ->Option.getOr("—")
@@ -147,7 +185,7 @@ let make = (
                   | Team2 => setTeam2Score(_ => Some(num))
                   }}
                 className={isSelected
-                  ? "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-green-600 text-white"
+                  ? `h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 ${accentSelected} text-white`
                   : "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200"}>
                 {num->Int.toString->React.string}
               </button>
@@ -155,11 +193,9 @@ let make = (
             ->React.array}
           </div>
         </div>
-        // Losing Team Score
+        // Score for the other team
         <div className="space-y-3">
-          <h3 className="text-lg font-bold text-slate-600">
-            {t`Losing Team (Team ${losingTeamNumber->Int.toString})`}
-          </h3>
+          {teamHeading(~teamNumber=losingTeamNumber, ~isWinningSide=false)}
           <div className="flex items-center gap-2 mb-2">
             {losingTeamPlayers
             ->Array.map(player => {
@@ -189,7 +225,10 @@ let make = (
             className="grid grid-cols-8 gap-0 border border-slate-300 overflow-hidden rounded-lg">
             {numbers
             ->Array.map(num => {
-              let isDisabled = winningScore->Option.map(ws => num >= ws)->Option.getOr(false)
+              // Equal to the other side's score is allowed — that's a draw.
+              // Only a *higher* score is blocked, since this grid belongs to
+              // the team entered as the non-winner.
+              let isDisabled = winningScore->Option.map(ws => num > ws)->Option.getOr(false)
               let isSelected = losingScore->Option.map(s => s == num)->Option.getOr(false)
               <button
                 key={num->Int.toString}
@@ -219,6 +258,12 @@ let make = (
       // Footer
       <div
         className="sticky bottom-0 bg-slate-50 border-t border-slate-200 px-6 py-4 flex items-center justify-end gap-3">
+        {isDraw
+          ? <span className="mr-auto flex items-center gap-1.5 text-sm font-medium text-amber-700">
+              <Lucide.Equal className="w-4 h-4" />
+              {t`Equal scores — this will be recorded as a draw`}
+            </span>
+          : React.null}
         <button
           onClick={_ => handleNoScore()}
           className="px-4 py-2 rounded-lg font-medium bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors flex items-center gap-2">

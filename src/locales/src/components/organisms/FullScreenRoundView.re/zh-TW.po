@@ -25,6 +25,10 @@ msgstr "關閉全螢幕"
 msgid "COURT {0}"
 msgstr "球場 {0}"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "本輪不上場"
+
 #: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "第 {0} 回合"
@@ -32,7 +36,3 @@ msgstr "第 {0} 回合"
 #: src/components/organisms/FullScreenRoundView.re.mjs:109
 msgid "SERVING"
 msgstr "發球中"
-
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "本輪不上場"

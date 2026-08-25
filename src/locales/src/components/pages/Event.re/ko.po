@@ -259,8 +259,7 @@ msgid "Rated"
 msgstr "레이팅"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "경쟁 레이팅이나 DUPR에 제출되지 않는 레크리에이션 플레이입니다."
 
 #: src/components/organisms/RsvpOptions.re.mjs:190
@@ -311,9 +310,7 @@ msgid "Show less"
 msgstr "간략히 보기"
 
 #: src/components/pages/Event.re.mjs:312
-msgid ""
-"showing up without permission may result in a ban for failing to follow "
-"rules."
+msgid "showing up without permission may result in a ban for failing to follow rules."
 msgstr "허가 없이 나타나면 규칙 위반으로 참가 금지될 수 있습니다."
 
 #: src/components/atoms/EventTag.re.mjs:48
@@ -338,42 +335,26 @@ msgid "sync calendar"
 msgstr "캘린더 동기화"
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid ""
-"This event is full, so leaving the event will give your spot to someone on "
-"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
-"want to leave this event?"
-msgstr ""
-"이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기"
-"자 명단에 들어갑니다. 정말 나가시겠습니까?"
+msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
+msgstr "이벤트가 꽉 찼습니다. 나가면 대기자에게 자리가 넘어갑니다. 다시 참가하면 대기자 명단에 들어갑니다. 정말 나가시겠습니까?"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "이 이벤트는 비공개입니다. 주최자의 허가 없이 공유하지 마세요."
 
 #: src/components/pages/Event.re.mjs:309
-msgid ""
-"this is a private event that requires membership with the club. To join this "
-"club, please join a Japan Pickleball League event first to get a referral."
-msgstr ""
-"이 이벤트는 클럽 멤버십이 필요한 비공개 이벤트입니다. 클럽에 가입하려면 먼저 "
-"Japan Pickleball League 이벤트에 참가하여 추천을 받으세요."
+msgid "this is a private event that requires membership with the club. To join this club, please join a Japan Pickleball League event first to get a referral."
+msgstr "이 이벤트는 클럽 멤버십이 필요한 비공개 이벤트입니다. 클럽에 가입하려면 먼저 Japan Pickleball League 이벤트에 참가하여 추천을 받으세요."
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
-"다. RSVP를 제한하시겠습니까?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니다. RSVP를 제한하시겠습니까?"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
-msgid ""
-"Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
 
 #: src/components/pages/Event.re.mjs:272
@@ -429,11 +410,5 @@ msgid "You're Waitlisted"
 msgstr "대기 중"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid ""
-"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
-"pending list until the rating limit is lowered. Please join another JPL "
-"rated event to boost your rating."
-msgstr ""
-"레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 "
-"때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세"
-"요."
+msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
+msgstr "레이팅 {0} ~ {1} (DUPR {2} ~ {3})이(가) 너무 낮습니다. 레이팅 제한이 낮아질 때까지 대기 목록에 배치됩니다. JPL 레이팅 이벤트에 참가하여 레이팅을 높이세요."

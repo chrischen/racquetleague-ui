@@ -58,8 +58,7 @@ msgstr ""
 #~ msgstr "Selkirk SLK Era 球拍"
 
 #: src/components/pages/LeaguePage.re.mjs:48
-#~ msgid ""
-#~ "This prize will be awarded to the top male and female players on this day."
+#~ msgid "This prize will be awarded to the top male and female players on this day."
 #~ msgstr "這個獎品將在這一天頒發給最佳男女球員。"
 
 #: src/components/pages/LeaguePage.re.mjs:35

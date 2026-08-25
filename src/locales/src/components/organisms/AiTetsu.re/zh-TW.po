@@ -75,7 +75,7 @@ msgstr "和"
 msgid "cancel"
 msgstr "取消"
 
-#: src/components/organisms/SubmitMatch.re.mjs:253
+#: src/components/organisms/SubmitMatch.re.mjs:249
 #: src/components/organisms/SortableSubmitMatch.re.mjs:301
 msgid "Cancel"
 msgstr "取消"
@@ -133,7 +133,7 @@ msgstr "固定搭檔"
 msgid "Gender Mixed Doubles"
 msgstr "性別混合雙打"
 
-#: src/components/organisms/SubmitMatch.re.mjs:390
+#: src/components/organisms/SubmitMatch.re.mjs:386
 msgid "Go Back"
 msgstr "返回"
 
@@ -153,7 +153,7 @@ msgstr "排行榜"
 msgid "left team players"
 msgstr "左隊球員"
 
-#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SubmitMatch.re.mjs:405
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 #: src/components/organisms/AiTetsu.re.mjs:1748
 msgid "Loading"
@@ -192,9 +192,7 @@ msgid "no players yet"
 msgstr "還沒有球員"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr "隊列中球員不足。請從「隊列」選項卡中選擇想要參賽的球員。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1564
@@ -215,8 +213,7 @@ msgid "Player Name"
 msgstr "球員姓名"
 
 #: src/components/organisms/AiTetsu.re.mjs:1360
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
+msgid "Players in a team will always be placed in a match together on the same side."
 msgstr "隊伍中的球員將始終安排在同一方一起比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1381
@@ -224,12 +221,11 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "反對隊中的球員永遠不會被安排在一起比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1439
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr "隊伍中的球員將始終在同一方一起比賽。"
 
-#: src/components/organisms/SubmitMatch.re.mjs:311
-#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SubmitMatch.re.mjs:307
+#: src/components/organisms/SubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
@@ -296,13 +292,8 @@ msgid "Set as Male"
 msgstr "設為男性"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"設置為目前休息的球員數量，以啟用比賽場次的均衡分配。設置為0可以禁用此功能並優"
-"化比賽品質，但這可能導致某些球員比其他球員參加更多比賽。"
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "設置為目前休息的球員數量，以啟用比賽場次的均衡分配。設置為0可以禁用此功能並優化比賽品質，但這可能導致某些球員比其他球員參加更多比賽。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1555
 msgid "Start Session"
@@ -312,7 +303,7 @@ msgstr "開始會話"
 msgid "START SESSION"
 msgstr "開始會話"
 
-#: src/components/organisms/SubmitMatch.re.mjs:397
+#: src/components/organisms/SubmitMatch.re.mjs:393
 msgid "Submit Rated"
 msgstr "提交評級比賽"
 
@@ -341,8 +332,8 @@ msgstr "完全隨機的隊伍。"
 msgid "Unqueue All"
 msgstr "全部移出隊列"
 
-#: src/components/organisms/SubmitMatch.re.mjs:323
-#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"

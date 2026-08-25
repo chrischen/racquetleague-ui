@@ -18,20 +18,12 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr ": Định dạng round-robin cổ điển trong đó mọi người đều chơi với nhau."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ""
-": Players are divided into similar skill levels. Teams are balanced to "
-"create close matches."
-msgstr ""
-": Người chơi được chia theo trình độ tương tự. Các đội được cân bằng để tạo "
-"ra các trận đấu cân sức."
+msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
+msgstr ": Người chơi được chia theo trình độ tương tự. Các đội được cân bằng để tạo ra các trận đấu cân sức."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ""
-": Teams are balanced by skill, but players are not strictly separated by "
-"level."
-msgstr ""
-": Các đội được cân bằng theo kỹ năng, nhưng người chơi không được phân chia "
-"nghiêm ngặt theo trình độ."
+msgid ": Teams are balanced by skill, but players are not strictly separated by level."
+msgstr ": Các đội được cân bằng theo kỹ năng, nhưng người chơi không được phân chia nghiêm ngặt theo trình độ."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
 msgid "Adjust Seeds"
@@ -67,16 +59,11 @@ msgstr "Mỗi vòng có một số tùy chọn quản lý:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:125
 msgid "Edit player details like name, gender, or payment status."
-msgstr ""
-"Chỉnh sửa thông tin người chơi như tên, giới tính hoặc trạng thái thanh toán."
+msgstr "Chỉnh sửa thông tin người chơi như tên, giới tính hoặc trạng thái thanh toán."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid ""
-"Enter scores directly on the match cards. Tap to select a winner, or press "
-"and hold to input the score as well."
-msgstr ""
-"Nhập điểm số trực tiếp trên thẻ trận đấu. Nhấn để chọn người chiến thắng, "
-"hoặc nhấn và giữ để nhập điểm số."
+msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
+msgstr "Nhập điểm số trực tiếp trên thẻ trận đấu. Nhấn để chọn người chiến thắng, hoặc nhấn và giữ để nhập điểm số."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
 msgid "Entering Results & Syncing"
@@ -100,32 +87,19 @@ msgstr "Đang tạo bốc thăm"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:29
 msgid "Here is a guide to the icons used in the Event Manager:"
-msgstr ""
-"Đây là hướng dẫn về các biểu tượng được sử dụng trong Trình quản lý sự kiện:"
+msgstr "Đây là hướng dẫn về các biểu tượng được sử dụng trong Trình quản lý sự kiện:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:321
 msgid "icon to edit player details (Name, Gender, Paid status)."
-msgstr ""
-"biểu tượng để chỉnh sửa thông tin người chơi (Tên, Giới tính, Trạng thái "
-"thanh toán)."
+msgstr "biểu tượng để chỉnh sửa thông tin người chơi (Tên, Giới tính, Trạng thái thanh toán)."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:25
 msgid "Icons Guide"
 msgstr "Hướng dẫn biểu tượng"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid ""
-"In Competitive or Mixed mode, the system will regenerate future matches when "
-"you select the winner of the matches in the current or past rounds. This is "
-"recommended in order to optimize future rounds based on the new data. In "
-"Round-Robin mode, the future rounds will not change unless you manually "
-"change them."
-msgstr ""
-"Trong chế độ Thi đấu hoặc Hỗn hợp, hệ thống sẽ tái tạo các trận đấu tiếp "
-"theo khi bạn chọn người chiến thắng của các trận đấu trong vòng hiện tại "
-"hoặc trước đó. Điều này được khuyến nghị để tối ưu hóa các vòng tiếp theo "
-"dựa trên dữ liệu mới. Trong chế độ Round-Robin, các vòng tiếp theo sẽ không "
-"thay đổi trừ khi bạn thay đổi thủ công."
+msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
+msgstr "Trong chế độ Thi đấu hoặc Hỗn hợp, hệ thống sẽ tái tạo các trận đấu tiếp theo khi bạn chọn người chiến thắng của các trận đấu trong vòng hiện tại hoặc trước đó. Điều này được khuyến nghị để tối ưu hóa các vòng tiếp theo dựa trên dữ liệu mới. Trong chế độ Round-Robin, các vòng tiếp theo sẽ không thay đổi trừ khi bạn thay đổi thủ công."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -145,8 +119,7 @@ msgstr "Hỗn hợp"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:395
 msgid "Note: If you clear your browser data, local event data will be lost."
-msgstr ""
-"Lưu ý: Nếu bạn xóa dữ liệu trình duyệt, dữ liệu sự kiện cục bộ sẽ bị mất."
+msgstr "Lưu ý: Nếu bạn xóa dữ liệu trình duyệt, dữ liệu sự kiện cục bộ sẽ bị mất."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:385
 msgid "Offline Mode"
@@ -173,18 +146,8 @@ msgid "Rebalance"
 msgstr "Cân bằng lại"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid ""
-"Regenerates the current round with the same players but moves players around "
-"to balance the skill level of each court. This will aggressively optimize "
-"each court to have the highest chance of having a tie, but may not divide "
-"the court by level groups. Useful if you replace a player and need the "
-"matches to be balanced again."
-msgstr ""
-"Tái tạo vòng hiện tại với cùng người chơi nhưng di chuyển người chơi xung "
-"quanh để cân bằng trình độ kỹ năng của mỗi sân. Điều này sẽ tích cực tối ưu "
-"hóa mỗi sân để có cơ hội cao nhất có trận hòa, nhưng có thể không chia sân "
-"theo nhóm trình độ. Hữu ích nếu bạn thay thế một người chơi và cần các trận "
-"đấu được cân bằng lại."
+msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
+msgstr "Tái tạo vòng hiện tại với cùng người chơi nhưng di chuyển người chơi xung quanh để cân bằng trình độ kỹ năng của mỗi sân. Điều này sẽ tích cực tối ưu hóa mỗi sân để có cơ hội cao nhất có trận hòa, nhưng có thể không chia sân theo nhóm trình độ. Hữu ích nếu bạn thay thế một người chơi và cần các trận đấu được cân bằng lại."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:81
 msgid "Reset"
@@ -231,35 +194,20 @@ msgid "Sync Scores"
 msgstr "Đồng bộ điểm số"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid ""
-"The Draw Generator allows you to create matches based on different "
-"strategies:"
-msgstr ""
-"Bộ tạo bốc thăm cho phép bạn tạo các trận đấu dựa trên các chiến lược khác "
-"nhau:"
+msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgstr "Bộ tạo bốc thăm cho phép bạn tạo các trận đấu dựa trên các chiến lược khác nhau:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid ""
-"The Event Manager works offline! All data is saved locally to your device."
-msgstr ""
-"Trình quản lý sự kiện hoạt động ngoại tuyến! Tất cả dữ liệu được lưu cục bộ "
-"trên thiết bị của bạn."
+msgid "The Event Manager works offline! All data is saved locally to your device."
+msgstr "Trình quản lý sự kiện hoạt động ngoại tuyến! Tất cả dữ liệu được lưu cục bộ trên thiết bị của bạn."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid ""
-"to adjust player ratings (seeds) for the event. This affects matchmaking but "
-"not their permanent rating."
-msgstr ""
-"để điều chỉnh xếp hạng người chơi (hạt giống) cho sự kiện. Điều này ảnh "
-"hưởng đến ghép đôi nhưng không phải xếp hạng vĩnh viễn của họ."
+msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
+msgstr "để điều chỉnh xếp hạng người chơi (hạt giống) cho sự kiện. Điều này ảnh hưởng đến ghép đôi nhưng không phải xếp hạng vĩnh viễn của họ."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid ""
-"to create Teams (always play together) or Anti-Teams (never play together on "
-"the same court)."
-msgstr ""
-"để tạo Đội (luôn chơi cùng nhau) hoặc Đội phản (không bao giờ chơi cùng nhau "
-"trên cùng một sân)."
+msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
+msgstr "để tạo Đội (luôn chơi cùng nhau) hoặc Đội phản (không bao giờ chơi cùng nhau trên cùng một sân)."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
 msgid "Toggle player attendance. Green means checked in."
@@ -275,16 +223,9 @@ msgid "Use the"
 msgstr "Sử dụng"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid ""
-"You can also adjust the number of courts. The system requires 4 players per "
-"court."
-msgstr ""
-"Bạn cũng có thể điều chỉnh số sân. Hệ thống yêu cầu 4 người chơi mỗi sân."
+msgid "You can also adjust the number of courts. The system requires 4 players per court."
+msgstr "Bạn cũng có thể điều chỉnh số sân. Hệ thống yêu cầu 4 người chơi mỗi sân."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid ""
-"You can run an entire event without internet. Just make sure to Sync Scores "
-"when you have a connection again to save the results."
-msgstr ""
-"Bạn có thể tổ chức toàn bộ sự kiện mà không cần internet. Chỉ cần đảm bảo "
-"Đồng bộ điểm số khi bạn có kết nối lại để lưu kết quả."
+msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
+msgstr "Bạn có thể tổ chức toàn bộ sự kiện mà không cần internet. Chỉ cần đảm bảo Đồng bộ điểm số khi bạn có kết nối lại để lưu kết quả."

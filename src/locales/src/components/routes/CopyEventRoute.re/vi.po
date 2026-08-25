@@ -122,13 +122,8 @@ msgid "72 hours before"
 msgstr "72 giờ trước"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
-msgstr ""
-"Một khoản đặt cọc hoàn lại được thu khi có người tham gia. Bạn có thể chấp "
-"thuận người tham dự thủ công bằng cách nhấp vào tên của họ trong danh sách "
-"RSVP."
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "Một khoản đặt cọc hoàn lại được thu khi có người tham gia. Bạn có thể chấp thuận người tham dự thủ công bằng cách nhấp vào tên của họ trong danh sách RSVP."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:844
 #: src/components/organisms/CreateLocationEventForm.re.mjs:866
@@ -169,12 +164,8 @@ msgid "Cancel deadline (optional)"
 msgstr "Hạn hủy (tùy chọn)"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
-msgstr ""
-"Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả "
-"trình độ."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+msgstr "Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả trình độ."
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
@@ -376,11 +367,8 @@ msgid "Require payment from attendees"
 msgstr "Yêu cầu thanh toán từ người tham dự"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
-msgstr ""
-"Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng "
-"đến xếp hạng của bạn."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng đến xếp hạng của bạn."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
 msgid "Show less"
@@ -395,9 +383,7 @@ msgid "Start date and time"
 msgstr "Ngày và giờ bắt đầu"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid ""
-"The participation fee is charged automatically and transferred to your "
-"Stripe account."
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
 msgstr "Phí tham gia được tính tự động và chuyển vào tài khoản Stripe của bạn."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015

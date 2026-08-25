@@ -401,6 +401,25 @@ return {
           },
           {
             "alias": null,
+            "args": null,
+            "concreteType": "Club",
+            "kind": "LinkedField",
+            "name": "club",
+            "plural": false,
+            "selections": [
+              (v5/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "name",
+                "storageKey": null
+              }
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": null,
             "args": (v11/*: any*/),
             "concreteType": "EventRsvpConnection",
             "kind": "LinkedField",
@@ -640,12 +659,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2589b8ca86b74ededffd60a980ab41b6",
+    "cacheID": "34b61d93bd3786525ca8361d223df56c",
     "id": null,
     "metadata": {},
     "name": "EventManagerPageQuery",
     "operationKind": "query",
-    "text": "query EventManagerPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n) {\n  viewer {\n    user {\n      id\n    }\n  }\n  event(id: $eventId) {\n    id\n    title\n    ...EventManager_event_pL3ww\n  }\n  ...MatchListFragment_2vgUJh\n}\n\nfragment EventManager_event_pL3ww on Event {\n  id\n  tags\n  startDate\n  maxRsvps\n  activity {\n    id\n    slug\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        listType\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUserBar_user\n          ...EventMatchRsvpUser_user\n          ...PlayerCheckin_user\n          ...MatchCard_user\n          ...PlayerReplaceModal_user\n          ...PlayerRow_user\n          ...SeedAdjustmentTimeline_user\n          ...PlayerAvatar_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUserBar_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchCard_user on User {\n  ...PlayerRow_user\n  ...PlayerAvatar_user\n}\n\nfragment MatchListFragment_2vgUJh on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n  playerMetadata\n}\n\nfragment PlayerAvatar_user on User {\n  picture\n}\n\nfragment PlayerCheckin_user on User {\n  ...PlayerAvatar_user\n  lineUsername\n}\n\nfragment PlayerReplaceModal_user on User {\n  picture\n}\n\nfragment PlayerRow_user on User {\n  picture\n}\n\nfragment SeedAdjustmentTimeline_user on User {\n  picture\n}\n"
+    "text": "query EventManagerPageQuery(\n  $eventId: ID!\n  $after: String\n  $first: Int\n  $before: String\n  $activitySlug: String!\n) {\n  viewer {\n    user {\n      id\n    }\n  }\n  event(id: $eventId) {\n    id\n    title\n    ...EventManager_event_pL3ww\n  }\n  ...MatchListFragment_2vgUJh\n}\n\nfragment EventManager_event_pL3ww on Event {\n  id\n  tags\n  startDate\n  maxRsvps\n  activity {\n    id\n    slug\n  }\n  club {\n    id\n    name\n  }\n  rsvps(after: $after, first: 50, before: $before) {\n    edges {\n      node {\n        listType\n        user {\n          id\n          lineUsername\n          gender\n          ...EventRsvpUserBar_user\n          ...EventMatchRsvpUser_user\n          ...PlayerCheckin_user\n          ...MatchCard_user\n          ...PlayerReplaceModal_user\n          ...PlayerRow_user\n          ...SeedAdjustmentTimeline_user\n          ...PlayerAvatar_user\n        }\n        rating {\n          id\n          mu\n          sigma\n          ordinal\n        }\n        id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n    }\n  }\n}\n\nfragment EventMatchRsvpUser_user on User {\n  picture\n  lineUsername\n}\n\nfragment EventRsvpUserBar_user on User {\n  picture\n  lineUsername\n}\n\nfragment MatchCard_user on User {\n  ...PlayerRow_user\n  ...PlayerAvatar_user\n}\n\nfragment MatchListFragment_2vgUJh on Query {\n  matches(after: $after, first: $first, before: $before, activitySlug: $activitySlug) {\n    edges {\n      node {\n        id\n        ...MatchList_match\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment MatchListTeam_user on User {\n  id\n  lineUsername\n  picture\n  gender\n}\n\nfragment MatchList_match on Match {\n  id\n  winners {\n    id\n    ...MatchListTeam_user\n  }\n  losers {\n    ...MatchListTeam_user\n    id\n  }\n  namespace\n  score\n  createdAt\n  playerMetadata\n}\n\nfragment PlayerAvatar_user on User {\n  picture\n}\n\nfragment PlayerCheckin_user on User {\n  ...PlayerAvatar_user\n  lineUsername\n}\n\nfragment PlayerReplaceModal_user on User {\n  picture\n}\n\nfragment PlayerRow_user on User {\n  picture\n}\n\nfragment SeedAdjustmentTimeline_user on User {\n  picture\n}\n"
   }
 };
 })() `)

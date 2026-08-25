@@ -70,6 +70,10 @@ msgstr "Ngày:"
 msgid "Description:"
 msgstr "Mô tả:"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."
+
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
@@ -108,18 +112,9 @@ msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"Cho tôi biết thời gian và địa điểm sự kiện của bạn, hoặc bất kỳ thông tin "
-"nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm "
-"chí có thể thêm bản dịch."
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "Cho tôi biết thời gian và địa điểm sự kiện của bạn, hoặc bất kỳ thông tin nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm chí có thể thêm bản dịch."
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
 msgstr "Tiêu đề:"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "Lỗi khi tạo sự kiện. Vui lòng thử lại."

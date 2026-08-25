@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "ความพร้อมตรงกับ {eventTitle} เชิญพวกเขาเลยเพื่อจองที่ในการสนทนากิจกรรม"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "เกี่ยวกับ"
@@ -90,6 +94,10 @@ msgstr "เชิญผู้เล่น"
 msgid "Invite to {0}"
 msgstr "เชิญเข้าร่วม {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "เชิญเข้า {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "ผู้เล่นที่ได้รับเชิญและผู้เล่นที่อาจเข้าร่วม"
@@ -97,6 +105,10 @@ msgstr "ผู้เล่นที่ได้รับเชิญและผ
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายชื่อผู้รับเชิญของกิจกรรมแล้ว"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายการผู้รับเชิญของกิจกรรมแล้ว"
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -153,17 +165,3 @@ msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเ�
 #: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr "ความพร้อมตรงกับ {eventTitle} เชิญพวกเขาเลยเพื่อจองที่ในการสนทนากิจกรรม"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "เชิญเข้า {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายการผู้รับเชิญของกิจกรรมแล้ว"

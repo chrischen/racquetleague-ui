@@ -5838,6 +5838,102 @@ msgstr "個人"
 msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
 msgstr "James Ignatowich より上位のプレーヤーは、RPM公式ウェブサイトでRPMパドルを最大28%割引で購入できます。女性の場合、上位20名の女性プレーヤーが同じ割引を受けられます。15%はPKURU15コードによる割引、残りの13%はキャッシュバックによるものです。注文後、Chris Chenに連絡して特典を受け取ってください。その他のプレーヤーは、いつでもRPMパドルを15%割引で購入できます：rpmpb.com にてコードを使用して15%オフ："
 
+#: src/components/organisms/ScoreModal.re.mjs:237
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "同点 — 引き分けとして記録されます"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} 件の評価"
+
+#: src/components/organisms/EventManager.re.mjs:508
+msgid "Changes aren't being saved"
+msgstr "変更は保存されていません"
+
+#: src/components/organisms/EventManager.re.mjs:334
+msgid "Connecting…"
+msgstr "接続中…"
+
+#: src/components/organisms/EventManager.re.mjs:461
+msgid "Delete all data"
+msgstr "すべてのデータを削除"
+
+#: src/components/organisms/EventManager.re.mjs:390
+msgid "Delete all saved event data?"
+msgstr "保存済みのイベントデータをすべて削除しますか？"
+
+#: src/components/organisms/EventManager.re.mjs:448
+msgid "Everything stored on this device is already synced to the server."
+msgstr "このデバイスに保存されているすべてのデータは、すでにサーバーと同期されています。"
+
+#: src/components/organisms/EventManager.re.mjs:526
+msgid "Free up space"
+msgstr "空き容量を確保"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "グローバル評価"
+
+#: src/components/organisms/EventManager.re.mjs:313
+msgid "Not saved"
+msgstr "未保存"
+
+#: src/components/organisms/EventManager.re.mjs:418
+msgid "Other events on this device"
+msgstr "このデバイス上の他のイベント"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "選手はこのクラブ内で獲得した評価からスタートします。評価がない選手はデフォルト評価からスタートします。イベント中の変化はそこを基準に計測されます。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "選手はすべてのクラブを通じたグローバル評価からスタートします。"
+
+#: src/components/organisms/EventManager.re.mjs:538
+msgid "Retry"
+msgstr "再試行"
+
+#: src/components/organisms/EventManager.re.mjs:327
+msgid "Saved"
+msgstr "保存済み"
+
+#: src/components/organisms/EventManager.re.mjs:744
+msgid "this club"
+msgstr "このクラブ"
+
+#: src/components/organisms/EventManager.re.mjs:397
+msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+msgstr "このデバイス上のすべてのイベント（このイベントを含む）の保存データを削除します。サーバーに同期済みのイベントは再度開くことができますが、未同期のデータは復元できません。"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
+msgstr "これらのスコアはサーバーに届いていません。削除前にこのイベントを同期してください。同期しない場合、データは失われます。"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
+msgstr "これらのスコアはサーバーに届いていません。削除前にこのイベントを同期し、他の各イベントを開いて同期してください。同期しない場合、データは失われます。"
+
+#: src/components/organisms/EventManager.re.mjs:405
+msgid "Unsynced scores in this event"
+msgstr "このイベントの未同期スコア"
+
+#: src/components/organisms/EventManager.re.mjs:431
+msgid "Unsynced scores in those events"
+msgstr "これらのイベントの未同期スコア"
+
+#: src/components/organisms/EventManager.re.mjs:490
+msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
+msgstr "ブラウザがこのサイトのストレージをブロックしています。プライベートウィンドウをご利用の場合は通常のウィンドウに切り替えてください。そうでない場合はサイトデータを許可してページをリロードしてください。"
+
+#: src/components/organisms/EventManager.re.mjs:493
+msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
+msgstr "ブラウザのストレージ容量が不足しています。古いイベントデータを削除して空き容量を確保してから、再試行してください。"
+
+#: src/components/organisms/EventManager.re.mjs:496
+msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
+msgstr "ブラウザがこのイベントの保存を拒否しました。ページをリロードするか再試行してください。問題が続く場合は、スコアが同期されるまでページの更新を避けてください。"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

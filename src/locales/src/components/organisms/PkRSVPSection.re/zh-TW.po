@@ -29,6 +29,10 @@ msgstr "{0} 已參加"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技術"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "關於"
@@ -139,6 +143,10 @@ msgstr "邀請球員"
 msgid "Invite to {0}"
 msgstr "邀請至 {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "邀請至 {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "已邀請及潛在球員"
@@ -146,6 +154,10 @@ msgstr "已邀請及潛在球員"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "受邀玩家已移至活動的受邀名單。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "受邀球員已移至活動的邀請名單。"
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -195,6 +207,10 @@ msgstr "付款已完成"
 #: src/components/organisms/PkRSVPSection.re.mjs:725
 msgid "Pending · {0}"
 msgstr "待處理 · {0}"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "球員"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
@@ -257,12 +273,8 @@ msgid "Swipe left to skip · right to invite"
 msgstr "左滑跳過 · 右滑邀請"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
-"限制其報名嗎？"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要限制其報名嗎？"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
@@ -278,36 +290,9 @@ msgid "Waitlist · {0}"
 msgstr "候補名單 · {0}"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"您的評分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}）低於最低標準。您將被放入待定名單。"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "邀請至 {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "受邀球員已移至活動的邀請名單。"
-
-#: src/components/organisms/MiniEventRsvp.re.mjs:57
-#~ msgid "Player"
-#~ msgstr "球員"
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "您的評分 {viewerOrdinal2Str} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ {viewerDuprHi}）低於最低標準。您將被放入待定名單。"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid ""
-#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
-#~ "list."
-#~ msgstr ""
-#~ "您的評分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}）低於最低要求。您將被加入待處理列表。"
+#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+#~ msgstr "您的評分 {viewerOrdinalStr} ~ {viewerMuStr}（DUPR {viewerDuprLo} ~ {viewerDuprHi}）低於最低要求。您將被加入待處理列表。"

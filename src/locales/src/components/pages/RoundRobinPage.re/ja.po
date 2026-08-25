@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/RoundRobin.re.mjs:463
+#~ msgid "{0, plural, one {player} other {players}}"
+#~ msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
+
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -21,6 +25,10 @@ msgstr "{0} {matchText}"
 #: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} 件の評価"
 
 #: src/components/organisms/RoundSection.re.mjs:175
 msgid "{matchCount, plural, one {{0}} other {{1}}}"
@@ -51,7 +59,12 @@ msgstr "ゲストプレイヤーを追加"
 msgid "Add Guest Players"
 msgstr "ゲストプレイヤーを追加"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:129
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "プレイヤーを追加"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
 msgstr "プレイヤーシードを調整"
 
@@ -103,7 +116,11 @@ msgstr "チームのバランスを取る"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "新鮮なパートナーと均衡のとれた試合のバランスを調整します。"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:244
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "ベータ"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
@@ -135,7 +152,7 @@ msgstr "競争力"
 msgid "Competitive+"
 msgstr "競技+"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr "コート{0}"
 
@@ -143,7 +160,7 @@ msgstr "コート{0}"
 msgid "COURT {0}"
 msgstr "コート{0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "コート{0} - 編集中"
 
@@ -179,6 +196,11 @@ msgstr "現在のラウンド："
 msgid "Custom"
 msgstr "カスタム"
 
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "デバッグ：オン"
+
 #: src/components/organisms/RoundRobin.re.mjs:1091
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
@@ -191,8 +213,8 @@ msgstr "デバッグ：オン"
 msgid "Delete Guest"
 msgstr "ゲストを削除"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "試合を削除"
 
@@ -200,25 +222,24 @@ msgstr "試合を削除"
 msgid "Delete team"
 msgstr "チームを削除"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#: src/components/organisms/SeedAdjustModal.re.mjs:142
 msgid "Drag players in order of strongest to weakest."
 msgstr "強い順にプレイヤーをドラッグしてください。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
-"to a custom mix. Fair play time and rotation are always enforced and can't "
-"be turned down."
-msgstr ""
-"各戦略は調整済みのプロファイルを使用します。スライダーを調整するとイベントが"
-"カスタムミックスに切り替わります。公平なプレイ時間とローテーションは常に適用"
-"され、下げることはできません。"
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "プレイヤーをドラッグして初期シードを並び替え"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "各戦略は調整済みのプロファイルを使用します。スライダーを調整するとイベントがカスタムミックスに切り替わります。公平なプレイ時間とローテーションは常に適用され、下げることはできません。"
+
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "試合を編集"
 
@@ -234,7 +255,7 @@ msgstr "チームを編集"
 msgid "Enter each guest player's name on a new line"
 msgstr "各ゲストプレイヤーの名前を1行ずつ入力してください"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
 
@@ -242,40 +263,33 @@ msgstr "試合のスコアを入力"
 msgid "Enter team name"
 msgstr "チーム名を入力"
 
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "同点 — 引き分けとして記録されます"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "イベントチェックイン"
 
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid ""
-"Everyone rotates: fresh partners and opponents every round, taking the most "
-"competitive matchups first until variety forces mixing."
-msgstr ""
-"全員がローテーション：毎ラウンド新鮮なパートナーと対戦相手、多様性のための"
-"ミックスが必要になるまで最も競争力のある対戦を優先します。"
+msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
+msgstr "全員がローテーション：毎ラウンド新鮮なパートナーと対戦相手、多様性のためのミックスが必要になるまで最も競争力のある対戦を優先します。"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "女性"
 
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid ""
-"Fresh, varied matchups every round, with each match's teams balanced by "
-"skill."
-msgstr ""
-"毎ラウンド新鮮で多彩な対戦、各試合のチームはスキルでバランスが取れています。"
+msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgstr "毎ラウンド新鮮で多彩な対戦、各試合のチームはスキルでバランスが取れています。"
 
 #: src/components/organisms/RoundSection.re.mjs:535
 msgid "Full Screen View"
 msgstr "全画面表示"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
-msgstr ""
-"将来のラウンドにスコアが入力されています。再生成するとこれらのスコアは削除さ"
-"れます。よろしいですか？"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgstr "将来のラウンドにスコアが入力されています。再生成するとこれらのスコアは削除されます。よろしいですか？"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
 msgid "Gender"
@@ -292,6 +306,10 @@ msgstr "組み合わせを生成"
 #: src/components/molecules/DrawGenerator.re.mjs:363
 msgid "Generating…"
 msgstr "生成中…"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "グローバル評価"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -321,11 +339,11 @@ msgstr "ジェーン・ドゥ"
 msgid "John Smith"
 msgstr "ジョン・スミス"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "前回のラウンド"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "敗北チーム（チーム{0}）"
 
@@ -363,9 +381,7 @@ msgstr "名前"
 
 #: src/components/molecules/DrawGenerator.re.mjs:262
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
-msgstr ""
-"{1}{courtText}には{0}人のプレイヤーが必要です。現在{2}人がチェックイン済みで"
-"す。"
+msgstr "{1}{courtText}には{0}人のプレイヤーが必要です。現在{2}人がチェックイン済みです。"
 
 #: src/components/organisms/TeamManagementModal.re.mjs:212
 msgid "New Anti-Team"
@@ -387,7 +403,12 @@ msgstr "アンチチームはまだありません"
 msgid "No available players"
 msgstr "利用可能なプレイヤーがいません"
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "まだプレーヤーがいません"
+
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "スコアなし"
 
@@ -399,19 +420,20 @@ msgstr "チームがまだありません"
 msgid "Not paid"
 msgstr "未払い"
 
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "このラウンドは不参加"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
-msgstr ""
-"スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
-"さい。"
+msgstr "スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してください。"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:182
 msgid "Opponent variety"
 msgstr "対戦相手の多様性"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid ""
-"Optimised draws that prioritise evenly matched games within a skill band."
+msgid "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "スキル帯内で均衡のとれた試合を優先する最適化されたドロー。"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
@@ -434,13 +456,21 @@ msgstr "プレイヤーID"
 msgid "Player Settings"
 msgstr "プレイヤー設定"
 
+#: src/components/organisms/RoundRobin.re.mjs:359
+#~ msgid "Players"
+#~ msgstr " プレイヤー"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "選手はこのクラブ内で獲得した評価からスタートします。評価がない選手はデフォルト評価からスタートします。イベント中の変化はそこを基準に計測されます。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "選手はすべてのクラブを通じたグローバル評価からスタートします。"
+
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
-msgstr ""
-"プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチー"
-"ムで総当たり戦を行います。"
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgstr "プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチームで総当たり戦を行います。"
 
 #: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
@@ -466,7 +496,7 @@ msgstr "新しいパートナーや対戦相手を均衡したゲームより優
 msgid "Random Balanced"
 msgstr "ランダムバランス"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
@@ -478,7 +508,7 @@ msgstr "現在のプレイヤーでこのラウンドを再調整"
 msgid "Regenerate Rounds?"
 msgstr "ラウンドを再生成しますか？"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "繰り返し"
 
@@ -512,6 +542,11 @@ msgstr "ラウンド{0}"
 msgid "Round Robin"
 msgstr "総当たり戦"
 
+#: src/components/organisms/RoundRobin.re.mjs:323
+#, fuzzy
+#~ msgid "Round Robin Tournament"
+#~ msgstr "ラウンドロビン組み合わせ"
+
 #: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
 msgstr "総当たり戦"
@@ -520,7 +555,7 @@ msgstr "総当たり戦"
 msgid "Round-Robin with teams balanced by skill."
 msgstr "スキルでバランスされたチームによる総当たり戦。"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "保存"
 
@@ -532,11 +567,11 @@ msgstr "保存して閉じる"
 msgid "Save Changes"
 msgstr "変更を保存"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "スコアを保存"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:251
+#: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "シード調整を保存"
 
@@ -548,14 +583,28 @@ msgstr "チームを保存"
 msgid "Scan to check in"
 msgstr "スキャンしてチェックイン"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr "スコア"
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "スコア"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} 件の評価"
 
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "シード："
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0}人のプレイヤー"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+#~ msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -585,15 +634,16 @@ msgstr "戦略"
 msgid "Strategy:"
 msgstr "戦略："
 
+#: src/components/organisms/ScoreModal.re.mjs:78
 #: src/components/organisms/RoundRobin.re.mjs:679
 msgid "Team {0}"
 msgstr "チーム {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "チーム1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "チーム2"
 
@@ -613,13 +663,10 @@ msgstr "チーム名"
 msgid "Teams"
 msgstr "チーム"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
-"元々予定されていた試合を復元できます。"
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、元々予定されていた試合を復元できます。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
@@ -638,56 +685,20 @@ msgstr "今後のラウンドを更新"
 msgid "Update Rounds Below"
 msgstr "以降のラウンドを更新"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
+#~ msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
 #: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "この機能を使用するには、ブラウザが古すぎます。"
-
-#: src/components/organisms/RoundRobin.re.mjs:463
-#~ msgid "{0, plural, one {player} other {players}}"
-#~ msgstr "{0, plural, one {プレイヤー} other {プレイヤー}}"
-
-#: src/components/organisms/RoundRobin.re.mjs:363
-#, fuzzy
-#~ msgid "Add Players"
-#~ msgstr "プレイヤーを追加"
-
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "ベータ"
-
-#: src/components/organisms/RoundRobin.re.mjs:346
-#, fuzzy
-#~ msgid "Debug Mode"
-#~ msgstr "デバッグ：オン"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "プレイヤーをドラッグして初期シードを並び替え"
-
-#: src/components/organisms/RoundRobin.re.mjs:451
-#, fuzzy
-#~ msgid "No players added yet"
-#~ msgstr "まだプレーヤーがいません"
-
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "このラウンドは不参加"
-
-#: src/components/organisms/RoundRobin.re.mjs:359
-#~ msgid "Players"
-#~ msgstr " プレイヤー"
-
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "ラウンドロビン組み合わせ"

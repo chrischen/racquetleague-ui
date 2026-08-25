@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"試合のスコアを入力\",\"VIlNWA\":[\"敗北チーム（チーム\",[\"0\"],\"）\"],\"zCo4xa\":\"スコアなし\",\"27SfGh\":\"スコアを保存\",\"yxTTJj\":[\"勝利チーム（チーム\",[\"0\"],\"）\"]}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"試合のスコアを入力\",\"8bZ/y+\":\"同点 — 引き分けとして記録されます\",\"VIlNWA\":[\"敗北チーム（チーム\",[\"0\"],\"）\"],\"zCo4xa\":\"スコアなし\",\"27SfGh\":\"スコアを保存\",\"ckiEtO\":[\"チーム \",[\"0\"]],\"yxTTJj\":[\"勝利チーム（チーム\",[\"0\"],\"）\"]}");

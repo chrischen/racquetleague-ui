@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/EventManager.re.mjs:851
+#~ msgid "({0} players per round)"
+#~ msgstr "({0} คนต่อรอบ)"
+
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -25,6 +29,10 @@ msgstr "{0} ไม่สามารถจัดสนามได้"
 #: src/components/organisms/PlayerCheckin.re.mjs:149
 msgid "{0} of {1} checked in"
 msgstr "เช็คอินแล้ว {0} จาก {1} คน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} การให้คะแนน"
 
 #: src/components/molecules/SolverWarnings.re.mjs:48
 msgid "{0} sits out again"
@@ -67,7 +75,7 @@ msgstr "เพิ่มผู้เล่นแขก"
 msgid "Add Guest Players"
 msgstr "เพิ่มผู้เล่นแขก"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:129
+#: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
 msgstr "ปรับซีดผู้เล่น"
 
@@ -75,7 +83,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Advance to Next Round"
 msgstr "ไปยังรอบถัดไป"
 
-#: src/components/organisms/EventManager.re.mjs:1972
+#: src/components/organisms/EventManager.re.mjs:2433
 msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
@@ -91,7 +99,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:1806
+#: src/components/organisms/EventManager.re.mjs:2267
 msgid "all up to date"
 msgstr "ทุกอย่างเป็นปัจจุบัน"
 
@@ -99,7 +107,11 @@ msgstr "ทุกอย่างเป็นปัจจุบัน"
 msgid "Alternate favourite/underdog roles"
 msgstr "สลับบทบาทเต็งและรอง"
 
-#: src/components/organisms/EventManager.re.mjs:2078
+#: src/components/molecules/DrawGenerator.re.mjs:109
+#~ msgid "and generate new matches for {0} players"
+#~ msgstr "และสร้างคู่แข่งใหม่สำหรับผู้เล่น {0} คน"
+
+#: src/components/organisms/EventManager.re.mjs:2539
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -110,6 +122,10 @@ msgstr "แอนตี้ทีม"
 #: src/components/molecules/SolverWeightsPanel.re.mjs:208
 msgid "Any mix"
 msgstr "ผสมทุกรูปแบบ"
+
+#: src/components/organisms/EventManager.re.mjs:824
+#~ msgid "Available Courts:"
+#~ msgstr "สนามที่ใช้ได้:"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:227
 msgid "Avoid recent repeats"
@@ -123,12 +139,25 @@ msgstr "จัดทีมให้สมดุล"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "สมดุลระหว่างคู่ใหม่และการแข่งขันที่สูสี"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:244
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "เบต้า"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
+#: src/components/organisms/EventManager.re.mjs:454
 msgid "Cancel"
 msgstr "ยกเลิก"
+
+#: src/components/organisms/EventManager.re.mjs:508
+msgid "Changes aren't being saved"
+msgstr "การเปลี่ยนแปลงไม่ได้ถูกบันทึก"
+
+#: src/components/molecules/DrawGenerator.re.mjs:68
+#~ msgid "Classic random round-robin draws"
+#~ msgstr "จับคู่แบบสุ่มแบบราวน์โรบิน"
 
 #: src/components/molecules/DrawGenerator.re.mjs:108
 msgid "Classic round-robin draws"
@@ -155,7 +184,11 @@ msgstr "แข่งขัน"
 msgid "Competitive+"
 msgstr "แข่งขัน+"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/EventManager.re.mjs:334
+msgid "Connecting…"
+msgstr "กำลังเชื่อมต่อ…"
+
+#: src/components/organisms/MatchCard.re.mjs:396
 #: src/components/molecules/SolverWarnings.re.mjs:86
 msgid "Court {0}"
 msgstr "สนาม {0}"
@@ -164,7 +197,7 @@ msgstr "สนาม {0}"
 msgid "COURT {0}"
 msgstr "คอร์ต {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "สนาม {0} - กำลังแก้ไข"
 
@@ -196,24 +229,41 @@ msgstr "สร้างทีมแรกของคุณเพื่อเร
 msgid "Current Round:"
 msgstr "รอบปัจจุบัน:"
 
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "รอบปัจจุบัน:"
+
 #: src/components/molecules/SolverWeightsPanel.re.mjs:154
 msgid "Custom"
 msgstr "กำหนดเอง"
 
-#: src/components/organisms/EventManager.re.mjs:2267
+#: src/components/organisms/EventManager.re.mjs:2752
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/EventManager.re.mjs:2267
+#: src/components/organisms/EventManager.re.mjs:2752
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
+
+#: src/components/organisms/EventManager.re.mjs:461
+msgid "Delete all data"
+msgstr "ลบข้อมูลทั้งหมด"
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+#~ msgid "delete all rounds below"
+#~ msgstr "ลบรอบด้านล่างทั้งหมด"
+
+#: src/components/organisms/EventManager.re.mjs:390
+msgid "Delete all saved event data?"
+msgstr "ลบข้อมูลอีเวนต์ที่บันทึกทั้งหมด?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
 msgstr "ลบแขก"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "ลบการแข่งขัน"
 
@@ -221,28 +271,29 @@ msgstr "ลบการแข่งขัน"
 msgid "Delete team"
 msgstr "ลบทีม"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
 
-#: src/components/organisms/EventManager.re.mjs:1875
+#: src/components/organisms/EventManager.re.mjs:546
+#: src/components/organisms/EventManager.re.mjs:2336
 msgid "Dismiss"
 msgstr "ปิด"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#: src/components/organisms/SeedAdjustModal.re.mjs:142
 msgid "Drag players in order of strongest to weakest."
 msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
-"to a custom mix. Fair play time and rotation are always enforced and can't "
-"be turned down."
-msgstr ""
-"แต่ละกลยุทธ์ใช้โปรไฟล์ที่ปรับแต่งไว้ การปรับสไลด์ใดๆ จะเปลี่ยนอีเวนต์นี้เป็นรูปแบบกำหนดเอง "
-"เวลาเล่นที่เป็นธรรมและการหมุนเวียนจะถูกบังคับใช้เสมอและไม่สามารถลดได้"
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "แต่ละกลยุทธ์ใช้โปรไฟล์ที่ปรับแต่งไว้ การปรับสไลด์ใดๆ จะเปลี่ยนอีเวนต์นี้เป็นรูปแบบกำหนดเอง เวลาเล่นที่เป็นธรรมและการหมุนเวียนจะถูกบังคับใช้เสมอและไม่สามารถลดได้"
+
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "แก้ไขการแข่งขัน"
 
@@ -258,7 +309,7 @@ msgstr "แก้ไขทีม"
 msgid "Enter each guest player's name on a new line"
 msgstr "ใส่ชื่อผู้เล่นแขกแต่ละคนในแต่ละบรรทัด"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "ป้อนคะแนนแมตช์"
 
@@ -266,17 +317,31 @@ msgstr "ป้อนคะแนนแมตช์"
 msgid "Enter team name"
 msgstr "ป้อนชื่อทีม"
 
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "คะแนนเท่ากัน — จะถูกบันทึกเป็นเสมอ"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "เช็คอินกิจกรรม"
 
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "ไอคอนตัวจัดการกิจกรรม"
+
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid ""
-"Everyone rotates: fresh partners and opponents every round, taking the most "
-"competitive matchups first until variety forces mixing."
-msgstr ""
-"ทุกคนหมุนเวียน: คู่ใหม่และคู่แข่งใหม่ทุกรอบ โดยเลือกการแข่งขันที่ดุเดือดที่สุดก่อน "
-"จนกว่าความหลากหลายจะบังคับให้ผสม"
+msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
+msgstr "ทุกคนหมุนเวียน: คู่ใหม่และคู่แข่งใหม่ทุกรอบ โดยเลือกการแข่งขันที่ดุเดือดที่สุดก่อน จนกว่าความหลากหลายจะบังคับให้ผสม"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "ทุกอย่างที่จัดเก็บบนอุปกรณ์นี้ได้ซิงค์กับเซิร์ฟเวอร์แล้ว"
+
+#: src/components/organisms/EventManager.re.mjs:448
+msgid "Everything stored on this device is already synced to the server."
+msgstr "ทุกอย่างที่จัดเก็บบนอุปกรณ์นี้ได้ซิงค์กับเซิร์ฟเวอร์แล้ว"
 
 #: src/components/molecules/SolverWarnings.re.mjs:44
 msgid "Fallback: {0} are paired outside their group"
@@ -294,10 +359,12 @@ msgstr "สำรอง: {0} ร่วมทีมโดยไม่มีผู
 msgid "Female"
 msgstr "หญิง"
 
+#: src/components/organisms/EventManager.re.mjs:526
+msgid "Free up space"
+msgstr "เพิ่มพื้นที่ว่าง"
+
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid ""
-"Fresh, varied matchups every round, with each match's teams balanced by "
-"skill."
+msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
 msgstr "แมตช์หลากหลายและสดใหม่ทุกรอบ โดยจัดทีมให้สมดุลตามทักษะ"
 
 #: src/components/organisms/RoundSection.re.mjs:535
@@ -305,9 +372,7 @@ msgid "Full Screen View"
 msgstr "โหมดเต็มจอ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid ""
-"Future rounds have scores entered. Regenerating will delete these scores. "
-"Are you sure?"
+msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr "รอบในอนาคตมีคะแนนที่ป้อนแล้ว การสร้างใหม่จะลบคะแนนเหล่านี้ คุณแน่ใจหรือไม่?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
@@ -322,10 +387,22 @@ msgstr "สร้าง"
 msgid "Generate Draws"
 msgstr "สร้างคู่แข่ง"
 
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Generate Initial Draws"
+#~ msgstr "สร้างคู่แข่งเริ่มต้น"
+
+#: src/components/molecules/DrawGenerator.re.mjs:111
+#~ msgid "Generate matches for {0} players across {1} {courtText}"
+#~ msgstr "สร้างการแข่งขันสำหรับผู้เล่น {0} คนใน {1} {courtText}"
+
 #: src/components/molecules/DrawGenerator.re.mjs:363
-#: src/components/organisms/EventManager.re.mjs:1378
+#: src/components/organisms/EventManager.re.mjs:1822
 msgid "Generating…"
 msgstr "กำลังสร้าง…"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "การให้คะแนนระดับโลก"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -335,7 +412,7 @@ msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรท�
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
 
-#: src/components/organisms/EventManager.re.mjs:2255
+#: src/components/organisms/EventManager.re.mjs:2740
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
@@ -355,11 +432,11 @@ msgstr "เจน โด"
 msgid "John Smith"
 msgstr "จอห์น สมิธ"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "ทีมแพ้ (ทีม {0})"
 
@@ -384,6 +461,10 @@ msgstr "คู่แข่ง"
 #: src/components/molecules/SolverWeightsPanel.re.mjs:134
 msgid "Mix players"
 msgstr "ผสมผู้เล่น"
+
+#: src/components/molecules/DrawGenerator.re.mjs:63
+#~ msgid "Mix players of different levels in matches but still split stronger players to balance teams."
+#~ msgstr "ผสมผู้เล่นที่มีระดับต่างกัน แต่ยังแยกผู้เล่นที่แข็งกว่าเพื่อสมดุลทีม"
 
 #: src/components/molecules/DrawGenerator.re.mjs:102
 msgid "Mixed"
@@ -425,7 +506,7 @@ msgstr "ไม่มีผู้เล่นว่าง"
 msgid "No draws generated yet."
 msgstr "ยังไม่มีการสร้างตารางการแข่งขัน"
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "ไม่มีคะแนน"
 
@@ -437,6 +518,10 @@ msgstr "ยังไม่มีทีม"
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
+#: src/components/organisms/EventManager.re.mjs:313
+msgid "Not saved"
+msgstr "ไม่ได้บันทึก"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "เปิดกล้องโทรศัพท์ สแกนโค้ดนี้ และเข้าร่วมกิจกรรม"
@@ -446,13 +531,16 @@ msgid "Opponent variety"
 msgstr "ความหลากหลายของคู่แข่ง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid ""
-"Optimised draws that prioritise evenly matched games within a skill band."
+msgid "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "การจับสลากที่ปรับให้เหมาะสม เน้นเกมที่สูสีภายในกลุ่มทักษะเดียวกัน"
 
-#: src/components/organisms/EventManager.re.mjs:1871
+#: src/components/organisms/EventManager.re.mjs:2332
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "ไม่สามารถใช้ตัวเพิ่มประสิทธิภาพได้ — ใช้การจับคู่มาตรฐานแทน"
+
+#: src/components/organisms/EventManager.re.mjs:418
+msgid "Other events on this device"
+msgstr "อีเวนต์อื่นในอุปกรณ์นี้"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
@@ -474,17 +562,31 @@ msgstr "รหัสผู้เล่น"
 msgid "Player Settings"
 msgstr "การตั้งค่าผู้เล่น"
 
+#: src/components/organisms/EventManager.re.mjs:223
+#~ msgid "Players"
+#~ msgstr "หาผู้เล่น"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนระดับโลกของตนจากทุกสโมสร"
+
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid ""
-"Players will be divided into similar skill level groups that round-robin "
-"with teams balanced by skill."
+msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่มระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบรอบโรบินโดยทีมจะสมดุลตามทักษะ"
+
+#: src/components/molecules/DrawGenerator.re.mjs:58
+#~ msgid "Players will be divided into similar skill level groups that round-robin."
+#~ msgstr "แบ่งผู้เล่นตามระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบราวน์โรบิน"
 
 #: src/components/pages/EventManagerPage.re.mjs:88
 msgid "please login before managing the session"
 msgstr "กรุณาล็อคอินก่อนจัดการเซสชั่น"
 
-#: src/components/organisms/EventManager.re.mjs:1378
+#: src/components/organisms/EventManager.re.mjs:1822
 msgid "Preparing optimizer…"
 msgstr "กำลังเตรียมตัวเพิ่มประสิทธิภาพ…"
 
@@ -500,7 +602,7 @@ msgstr "รอบก่อนหน้า"
 msgid "Print"
 msgstr "พิมพ์"
 
-#: src/components/organisms/EventManager.re.mjs:1773
+#: src/components/organisms/EventManager.re.mjs:2234
 msgid "Print Draws"
 msgstr "พิมพ์ตารางการแข่งขัน"
 
@@ -516,11 +618,15 @@ msgstr "ให้ความสำคัญกับเกมที่สูส
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "ให้ความสำคัญกับการจับคู่ผู้เล่นใหม่มากกว่าเกมที่สูสี"
 
+#: src/components/molecules/DrawGenerator.re.mjs:67
+#~ msgid "Random"
+#~ msgstr "สุ่ม"
+
 #: src/components/molecules/DrawGenerator.re.mjs:86
 msgid "Random Balanced"
 msgstr "สุ่มแบบสมดุล"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
 
@@ -532,19 +638,27 @@ msgstr "ปรับสมดุลรอบนี้ด้วยผู้เล
 msgid "Regenerate Rounds?"
 msgstr "สร้างรอบใหม่?"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "ซ้ำ"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Replace Future Rounds"
+#~ msgstr "แทนที่รอบถัดไป"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:61
 msgid "Replace Player"
 msgstr "เปลี่ยนผู้เล่น"
 
+#: src/components/molecules/DrawGenerator.re.mjs:162
+#~ msgid "Replace Rounds Below"
+#~ msgstr "แทนที่รอบด้านล่าง"
+
 #: src/components/molecules/PlayerReplaceModal.re.mjs:66
 msgid "Replacing:"
 msgstr "กำลังเปลี่ยน:"
 
-#: src/components/organisms/EventManager.re.mjs:2240
+#: src/components/organisms/EventManager.re.mjs:2723
 msgid "Reset Storage"
 msgstr "รีเซ็ตที่เก็บข้อมูล"
 
@@ -559,6 +673,10 @@ msgstr "รีเซ็ตรอบนี้ด้วยคู่ผสมเพ
 #: src/components/molecules/SolverWeightsPanel.re.mjs:255
 msgid "Reset to slider"
 msgstr "รีเซ็ตเป็นแถบเลื่อน"
+
+#: src/components/organisms/EventManager.re.mjs:538
+msgid "Retry"
+msgstr "ลองอีกครั้ง"
 
 #: src/components/organisms/RoundSection.re.mjs:523
 #: src/components/organisms/RoundSection.re.mjs:650
@@ -579,7 +697,7 @@ msgstr "รอบโรบิน"
 msgid "Round-Robin with teams balanced by skill."
 msgstr "รอบโรบินกับทีมที่สมดุลตามทักษะ"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "บันทึก"
 
@@ -591,11 +709,11 @@ msgstr "บันทึกและปิด"
 msgid "Save Changes"
 msgstr "บันทึกการเปลี่ยนแปลง"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "บันทึกคะแนน"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:251
+#: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "บันทึกการปรับซีด"
 
@@ -603,22 +721,44 @@ msgstr "บันทึกการปรับซีด"
 msgid "Save Team"
 msgstr "บันทึกทีม"
 
+#: src/components/organisms/EventManager.re.mjs:327
+msgid "Saved"
+msgstr "บันทึกแล้ว"
+
+#: src/components/organisms/EventManager.re.mjs:321
+msgid "Saving…"
+msgstr "กำลังบันทึก…"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"
 msgstr "สแกนเพื่อเช็คอิน"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr "คะแนน"
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:1728
+#: src/components/organisms/EventManager.re.mjs:2189
 msgid "Scores Synced!"
 msgstr "ซิงค์คะแนนเรียบร้อยแล้ว!"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} การให้คะแนน"
 
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "ซีด:"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} คน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+#~ msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -644,6 +784,11 @@ msgstr "ต้องผ่อนปรนกฎบางข้อเพื่อ
 msgid "Split each match into its most even teams"
 msgstr "แบ่งแต่ละแมตช์เป็นทีมที่เท่าเทียมที่สุด"
 
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "ไปยังรอบถัดไป"
+
 #: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
 msgstr "กลยุทธ์"
@@ -652,31 +797,32 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/EventManager.re.mjs:1740
+#: src/components/organisms/EventManager.re.mjs:2201
 msgid "Sync Failed"
 msgstr "ซิงค์ล้มเหลว"
 
-#: src/components/organisms/EventManager.re.mjs:1704
+#: src/components/organisms/EventManager.re.mjs:2165
 msgid "Sync Scores"
 msgstr "ซิงค์คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:1800
+#: src/components/organisms/EventManager.re.mjs:2261
 msgid "synced"
 msgstr "ซิงค์แล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:1716
+#: src/components/organisms/EventManager.re.mjs:2177
 msgid "Syncing... {0}%"
 msgstr "กำลังซิงค์... {0}%"
 
-#: src/components/organisms/EventManager.re.mjs:1649
+#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/EventManager.re.mjs:2096
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "ทีม 1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "ทีม 2"
 
@@ -696,28 +842,64 @@ msgstr "ชื่อทีม"
 msgid "Teams"
 msgstr "ทีม"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+
+#: src/components/organisms/EventManager.re.mjs:744
+msgid "this club"
+msgstr "สโมสรนี้"
+
+#: src/components/organisms/EventManager.re.mjs:397
+msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+msgstr "การดำเนินการนี้จะลบข้อมูลที่บันทึกไว้ของทุกอีเวนต์บนอุปกรณ์นี้ รวมถึงอีเวนต์นี้ด้วย อีเวนต์ที่ซิงค์กับเซิร์ฟเวอร์แล้วสามารถเปิดใหม่ได้ แต่ข้อมูลที่ยังไม่ได้ซิงค์จะไม่สามารถกู้คืนได้"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+#~ msgstr "การดำเนินการนี้จะลบข้อมูลที่บันทึกไว้ของทุกอีเวนต์บนอุปกรณ์นี้ รวมถึงอีเวนต์นี้ด้วย อีเวนต์ที่ซิงค์กับเซิร์ฟเวอร์แล้วสามารถเปิดใหม่ได้ แต่ข้อมูลที่ยังไม่ได้ซิงค์จะไม่สามารถกู้คืนได้"
+
+#: src/components/molecules/DrawGenerator.re.mjs:105
+#~ msgid "This will"
+#~ msgstr "สิ่งนี้จะ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr "จะลบรอบถัดไปทั้งหมดและสร้างแมตช์ใหม่"
 
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
+#~ msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
+msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
+msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ และเปิดแต่ละอีเวนต์อื่นแล้วซิงค์ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"
+
 #: src/components/molecules/SolverWeightsPanel.re.mjs:209
 msgid "Tight bands"
 msgstr "กลุ่มระดับทักษะแคบ"
 
-#: src/components/organisms/EventManager.re.mjs:1802
+#: src/components/organisms/EventManager.re.mjs:2263
 msgid "to sync"
 msgstr "ที่จะซิงค์"
 
 #: src/components/organisms/PrintableDraws.re.mjs:66
 msgid "Tournament Draws"
 msgstr "ตารางการแข่งขัน"
+
+#: src/components/organisms/EventManager.re.mjs:405
+msgid "Unsynced scores in this event"
+msgstr "คะแนนที่ยังไม่ได้ซิงค์ในอีเวนต์นี้"
+
+#: src/components/organisms/EventManager.re.mjs:431
+msgid "Unsynced scores in those events"
+msgstr "คะแนนที่ยังไม่ได้ซิงค์ในอีเวนต์เหล่านั้น"
 
 #: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Update Future Rounds"
@@ -728,94 +910,28 @@ msgstr "อัปเดตรอบถัดไป"
 msgid "Update Rounds Below"
 msgstr "อัปเดตรอบด้านล่าง"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
+#~ msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
-#: src/components/organisms/EventManager.re.mjs:851
-#~ msgid "({0} players per round)"
-#~ msgstr "({0} คนต่อรอบ)"
+#: src/components/organisms/EventManager.re.mjs:490
+msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
+msgstr "เบราว์เซอร์ของคุณบล็อกการจัดเก็บข้อมูลสำหรับเว็บไซต์นี้ หากคุณอยู่ในหน้าต่างส่วนตัว ให้เปลี่ยนไปใช้หน้าต่างปกติ มิฉะนั้นให้อนุญาตข้อมูลเว็บไซต์แล้วโหลดใหม่"
 
-#: src/components/molecules/DrawGenerator.re.mjs:109
-#~ msgid "and generate new matches for {0} players"
-#~ msgstr "และสร้างคู่แข่งใหม่สำหรับผู้เล่น {0} คน"
+#: src/components/organisms/EventManager.re.mjs:493
+msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
+msgstr "เบราว์เซอร์ของคุณพื้นที่จัดเก็บเต็มแล้ว ล้างข้อมูลอีเวนต์เก่าเพื่อเพิ่มพื้นที่ว่าง แล้วลองอีกครั้ง"
 
-#: src/components/organisms/EventManager.re.mjs:824
-#~ msgid "Available Courts:"
-#~ msgstr "สนามที่ใช้ได้:"
-
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "เบต้า"
-
-#: src/components/molecules/DrawGenerator.re.mjs:68
-#~ msgid "Classic random round-robin draws"
-#~ msgstr "จับคู่แบบสุ่มแบบราวน์โรบิน"
-
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "รอบปัจจุบัน:"
-
-#: src/components/molecules/DrawGenerator.re.mjs:107
-#~ msgid "delete all rounds below"
-#~ msgstr "ลบรอบด้านล่างทั้งหมด"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
-
-#: src/components/organisms/EventManager.re.mjs:198
-#, fuzzy
-#~ msgid "Event Manager"
-#~ msgstr "ไอคอนตัวจัดการกิจกรรม"
-
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Generate Initial Draws"
-#~ msgstr "สร้างคู่แข่งเริ่มต้น"
-
-#: src/components/molecules/DrawGenerator.re.mjs:111
-#~ msgid "Generate matches for {0} players across {1} {courtText}"
-#~ msgstr "สร้างการแข่งขันสำหรับผู้เล่น {0} คนใน {1} {courtText}"
-
-#: src/components/molecules/DrawGenerator.re.mjs:63
-#~ msgid ""
-#~ "Mix players of different levels in matches but still split stronger "
-#~ "players to balance teams."
-#~ msgstr "ผสมผู้เล่นที่มีระดับต่างกัน แต่ยังแยกผู้เล่นที่แข็งกว่าเพื่อสมดุลทีม"
-
-#: src/components/organisms/EventManager.re.mjs:223
-#~ msgid "Players"
-#~ msgstr "หาผู้เล่น"
-
-#: src/components/molecules/DrawGenerator.re.mjs:58
-#~ msgid ""
-#~ "Players will be divided into similar skill level groups that round-robin."
-#~ msgstr "แบ่งผู้เล่นตามระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบราวน์โรบิน"
-
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr "สุ่ม"
-
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Replace Future Rounds"
-#~ msgstr "แทนที่รอบถัดไป"
-
-#: src/components/molecules/DrawGenerator.re.mjs:162
-#~ msgid "Replace Rounds Below"
-#~ msgstr "แทนที่รอบด้านล่าง"
-
-#: src/components/organisms/EventManager.re.mjs:208
-#, fuzzy
-#~ msgid "Start Next Round"
-#~ msgstr "ไปยังรอบถัดไป"
-
-#: src/components/molecules/DrawGenerator.re.mjs:105
-#~ msgid "This will"
-#~ msgstr "สิ่งนี้จะ"
+#: src/components/organisms/EventManager.re.mjs:496
+msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
+msgstr "เบราว์เซอร์ของคุณปฏิเสธการบันทึกอีเวนต์นี้ โหลดหน้าใหม่หรือลองอีกครั้ง หากยังล้มเหลวอยู่ ให้หลีกเลี่ยงการรีเฟรชจนกว่าคะแนนจะถูกซิงค์"

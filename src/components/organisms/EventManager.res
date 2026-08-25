@@ -76,6 +76,10 @@ module Fragment = %relay(`
       id
       slug
     }
+    club {
+      id
+      name
+    }
     rsvps(after: $after, first: $first, before: $before)
       @connection(key: "EventManager_event_rsvps") {
       edges {
@@ -121,60 +125,90 @@ type storageEstimate = {usage: float, quota: float}
 @scope("navigator.storage") @val
 external estimate: unit => promise<storageEstimate> = "estimate"
 
-// Component to display IndexedDB / local storage usage in debug mode
+// Component to display storage usage in debug mode.
+//
+// Leads with this tool's own footprint, because that is the only figure a reset
+// controls. navigator.storage.estimate() covers the entire origin — service
+// worker caches, localStorage, every other database — and Safari reports it as
+// one aggregate with no usageDetails breakdown, so on a real install it can read
+// hundreds of MB while our data is a few hundred KB. Judging a reset by that
+// number makes a working reset look broken.
 module StorageUsageDebug = {
   @react.component
   let make = () => {
     let (estimate_data, setEstimate) = React.useState(() => None)
+    let (ownBytes, setOwnBytes) = React.useState(() => EventManagerPersistence.storedBytes())
 
+    // Poll rather than read once: both figures move on their own — ours as the
+    // event is played, the origin's as IndexedDB compacts in the background — so
+    // a single reading at mount goes stale and reads as though a clear did
+    // nothing (or made things worse).
     React.useEffect0(() => {
-      let _ =
+      let refresh = () => {
+        setOwnBytes(_ => EventManagerPersistence.storedBytes())
         estimate()
         ->Promise.then(est => {
           setEstimate(_ => Some(est))
           Promise.resolve()
         })
         ->Promise.catch(_ => Promise.resolve())
-      None
+        ->ignore
+      }
+      refresh()
+      let intervalId = setInterval(refresh, 3000)
+      Some(() => clearInterval(intervalId))
     })
 
-    switch estimate_data {
-    | None => React.null
-    | Some({usage, quota}) => {
-        let usageMB = usage /. (1024.0 *. 1024.0)
-        let quotaMB = quota /. (1024.0 *. 1024.0)
-        let percentage = if quota > 0.0 {
-          usage /. quota *. 100.0
-        } else {
-          0.0
-        }
-
-        let barColor = if percentage > 90.0 {
-          "bg-red-500"
-        } else if percentage > 70.0 {
-          "bg-amber-500"
-        } else {
-          "bg-blue-500"
-        }
-
-        <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-700 min-w-[180px]">
-          <span className="text-xs text-slate-300 whitespace-nowrap">
-            {React.string(
-              `${usageMB->Float.toFixed(~digits=1)}/${quotaMB->Float.toFixed(~digits=0)} MB`,
-            )}
-          </span>
-          <div className="flex-1 bg-slate-600 rounded-full h-2 overflow-hidden">
-            <div
-              className={`${barColor} h-2 rounded-full transition-all duration-300`}
-              style={ReactDOM.Style.make(~width=`${percentage->Float.toFixed(~digits=1)}%`, ())}
-            />
-          </div>
-          <span className="text-xs text-slate-300 whitespace-nowrap">
-            {React.string(`${percentage->Float.toFixed(~digits=1)}%`)}
-          </span>
-        </div>
-      }
+    let ownLabel = {
+      let kb = ownBytes->Int.toFloat /. 1024.0
+      kb < 1024.0
+        ? `${kb->Float.toFixed(~digits=0)} KB`
+        : `${(kb /. 1024.0)->Float.toFixed(~digits=1)} MB`
     }
+
+    <div className="flex items-center gap-2 px-3 py-1 rounded bg-slate-700">
+      <span className="text-xs font-medium text-slate-200 whitespace-nowrap">
+        {React.string(`events ${ownLabel}`)}
+      </span>
+      {switch estimate_data {
+      | None => React.null
+      | Some({usage, quota}) => {
+          let usageMB = usage /. (1024.0 *. 1024.0)
+          let quotaMB = quota /. (1024.0 *. 1024.0)
+          let percentage = quota > 0.0 ? usage /. quota *. 100.0 : 0.0
+
+          let barColor = if percentage > 90.0 {
+            "bg-red-500"
+          } else if percentage > 70.0 {
+            "bg-amber-500"
+          } else {
+            "bg-blue-500"
+          }
+
+          <>
+            <span className="text-xs text-slate-500"> {React.string("|")} </span>
+            <span
+              className="text-xs text-slate-400 whitespace-nowrap"
+              title="Whole-origin usage reported by the browser. Includes caches and other storage this reset cannot clear.">
+              {React.string(
+                `site ${usageMB->Float.toFixed(~digits=1)}/${quotaMB->Float.toFixed(
+                    ~digits=0,
+                  )} MB`,
+              )}
+            </span>
+            <div className="w-16 bg-slate-600 rounded-full h-2 overflow-hidden">
+              <div
+                className={`${barColor} h-2 rounded-full transition-all duration-300`}
+                style={ReactDOM.Style.make(~width=`${percentage->Float.toFixed(~digits=1)}%`, ())}
+              />
+            </div>
+            <span className="text-xs text-slate-400 whitespace-nowrap">
+              {React.string(`${percentage->Float.toFixed(~digits=1)}%`)}
+            </span>
+          </>
+        }
+      }}
+    </div>
   }
 }
 
@@ -224,7 +258,7 @@ module StorageLowWarning = {
             {React.string(
               `Your browser storage is ${percentage->Float.toFixed(
                   ~digits=1,
-                )}% full. The app may lose data if storage runs out. Clear old event data to free up space.`,
+                )}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes.`,
             )}
           </p>
           <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden mb-5">
@@ -245,12 +279,193 @@ module StorageLowWarning = {
                 setDismissed(_ => true)
               }}
               className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors">
-              {React.string("Clear Event Data")}
+              {React.string("Free Up Space")}
             </button>
           </div>
         </div>
       </div>
     }
+  }
+}
+
+// Header chip reporting whether event data is actually reaching IndexedDB.
+// Always visible: a silent "saved" state is the whole point — organisers need to
+// be able to glance up mid-event and know their scores are safe.
+module PersistenceChip = {
+  @react.component
+  let make = (~health: EventManagerPersistence.health, ~onShowError: unit => unit) => {
+    open Lingui.Util
+
+    let (className, icon, label) = switch health {
+    | {failure: Some(_)} => (
+        "bg-red-600 hover:bg-red-700 text-white cursor-pointer",
+        <Lucide.AlertTriangle className="w-4 h-4" />,
+        t`Not saved`,
+      )
+    | {ready: false} => (
+        "bg-slate-700 text-slate-300",
+        <Lucide.Loader2 className="w-4 h-4 animate-spin" />,
+        t`Connecting…`,
+      )
+    // Only #saving is worth showing. autoLoad polls IndexedDB once a second, so
+    // surfacing #loading here would flicker the chip forever on a healthy page.
+    | {activity: #saving} => (
+        "bg-slate-700 text-slate-300",
+        <Lucide.Loader2 className="w-4 h-4 animate-spin" />,
+        t`Saving…`,
+      )
+    | _ => (
+        "bg-slate-700 text-emerald-400",
+        <Lucide.Check className="w-4 h-4" />,
+        t`Saved`,
+      )
+    }
+
+    let isFailed = switch health.failure {
+    | Some(_) => true
+    | None => false
+    }
+
+    <button
+      onClick={_ => if isFailed { onShowError() }}
+      disabled={!isFailed}
+      className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-colors ${className}`}>
+      icon <span className="text-sm font-medium"> label </span>
+    </button>
+  }
+}
+
+// The single confirmation in front of every clear this tool offers. Clearing is
+// always device-wide, so this has to name what is about to be lost: unsynced
+// scores in this event can still be pushed from the screen behind the modal,
+// but the other events have to be opened one by one to save theirs.
+module ClearAllStorageModal = {
+  @react.component
+  let make = (~currentEventId: string, ~onConfirm: unit => unit, ~onCancel: unit => unit) => {
+    open Lingui.Util
+
+    // Snapshot on open so the numbers can't shift while the organiser reads them.
+    let (summary, _) = React.useState(() =>
+      EventManagerPersistence.summarizeStoredData(currentEventId)
+    )
+
+    let atRisk = summary.currentUnsyncedMatchCount + summary.otherUnsyncedMatchCount
+    let countClass = count =>
+      count > 0 ? "font-semibold text-red-600" : "font-semibold text-slate-900"
+
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+      <div className="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6">
+        <div className="flex items-center gap-3 mb-4">
+          <div
+            className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+            <Lucide.AlertTriangle className="w-5 h-5 text-red-600" />
+          </div>
+          <h2 className="text-lg font-bold text-slate-900">
+            {t`Delete all saved event data?`}
+          </h2>
+        </div>
+        <p className="text-sm text-slate-600 mb-4">
+          {t`This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered.`}
+        </p>
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 mb-4 text-sm">
+          <div className="flex items-center justify-between">
+            <span className="text-slate-600"> {t`Unsynced scores in this event`} </span>
+            <span className={countClass(summary.currentUnsyncedMatchCount)}>
+              {React.string(summary.currentUnsyncedMatchCount->Int.toString)}
+            </span>
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <span className="text-slate-600"> {t`Other events on this device`} </span>
+            <span className="font-semibold text-slate-900">
+              {React.string(summary.otherEventCount->Int.toString)}
+            </span>
+          </div>
+          <div className="flex items-center justify-between mt-2">
+            <span className="text-slate-600"> {t`Unsynced scores in those events`} </span>
+            <span className={countClass(summary.otherUnsyncedMatchCount)}>
+              {React.string(summary.otherUnsyncedMatchCount->Int.toString)}
+            </span>
+          </div>
+        </div>
+        {atRisk > 0
+          ? <p className="text-sm font-medium text-red-700 mb-5">
+              {summary.otherUnsyncedMatchCount > 0
+                ? t`Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost.`
+                : t`Those scores have not reached the server. Sync this event before deleting, or they will be lost.`}
+            </p>
+          : <p className="text-sm text-slate-600 mb-5">
+              {t`Everything stored on this device is already synced to the server.`}
+            </p>}
+        <div className="flex justify-end gap-3">
+          <button
+            onClick={_ => onCancel()}
+            className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
+            {t`Cancel`}
+          </button>
+          <button
+            onClick={_ => onConfirm()}
+            className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors">
+            {t`Delete all data`}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+}
+
+// Banner spelling out what broke and what the organiser can do about it.
+module PersistenceErrorBanner = {
+  @react.component
+  let make = (
+    ~failure: (EventManagerPersistence.failureKind, string),
+    ~onRetry: unit => unit,
+    ~onFreeUpSpace: unit => unit,
+    ~onDismiss: unit => unit,
+  ) => {
+    open Lingui.Util
+    let (kind, detail) = failure
+
+    let explanation = switch kind {
+    | EventManagerPersistence.StorageUnavailable =>
+      t`Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload.`
+    | EventManagerPersistence.QuotaExceeded =>
+      t`Your browser is out of storage space. Clear old event data to free up space, then retry.`
+    | EventManagerPersistence.UnknownFailure =>
+      t`Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced.`
+    }
+
+    <div className="mx-6 mt-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+      <Lucide.AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-semibold text-red-900">
+          {t`Changes aren't being saved`}
+        </p>
+        <p className="mt-1 text-sm text-red-800"> explanation </p>
+        <p className="mt-1 text-xs text-red-600 break-words"> {React.string(detail)} </p>
+        <div className="mt-3 flex flex-wrap gap-3">
+          // Only the quota case has a fix the organiser can apply from here.
+          {kind == EventManagerPersistence.QuotaExceeded
+            ? <button
+                onClick={_ => onFreeUpSpace()}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors">
+                <Lucide.Trash2 className="w-4 h-4" /> {t`Free up space`}
+              </button>
+            : React.null}
+          <button
+            onClick={_ => onRetry()}
+            className={kind == EventManagerPersistence.QuotaExceeded
+              ? "flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-700 bg-red-100 hover:bg-red-200 rounded-lg transition-colors"
+              : "flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors"}>
+            <Lucide.RefreshCw className="w-4 h-4" /> {t`Retry`}
+          </button>
+          <button
+            onClick={_ => onDismiss()}
+            className="px-3 py-1.5 text-sm font-medium text-red-700 bg-red-100 hover:bg-red-200 rounded-lg transition-colors">
+            {t`Dismiss`}
+          </button>
+        </div>
+      </div>
+    </div>
   }
 }
 
@@ -333,6 +548,84 @@ module OverallAverageQualityDebug = {
   }
 }
 
+// Club-scoped ratings are only ever recorded in the competitive namespace, so
+// this is fixed rather than following the event's own namespace: a rec event
+// asking for its own namespace would find nothing and start everyone from the
+// default rating.
+let clubRatingNamespace = "doubles:comp"
+
+// Asks for each RSVP'd user's rating inside the club. Going through the event's
+// rsvps rather than the club-wide `ratings` list keeps this to exactly the
+// people in the room, however large the club is. It has to be a second query:
+// the club id only becomes known once the event itself has loaded, so it cannot
+// be a variable on the query that fetches it.
+module ClubRatingsQuery = %relay(`
+  query EventManagerClubRatingsQuery(
+    $eventId: ID!
+    $activitySlug: String!
+    $namespace: String!
+    $clubId: ID!
+  ) {
+    event(id: $eventId) {
+      id
+      rsvps(first: 100) {
+        edges {
+          node {
+            user {
+              id
+              rating(activitySlug: $activitySlug, clubId: $clubId, namespace: $namespace) {
+                id
+                mu
+                sigma
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`)
+
+// Renders nothing: it exists to suspend on the query and hand the ratings up so
+// they can become the base players are built from. Mounted only while the club
+// source is selected, so the default path costs nothing.
+module ClubRatingsLoader = {
+  @react.component
+  let make = (
+    ~eventId: string,
+    ~clubId: string,
+    ~activitySlug: string,
+    ~onLoaded: array<(string, (float, float))> => unit,
+  ) => {
+    let data = ClubRatingsQuery.use(
+      ~variables={eventId, activitySlug, namespace: clubRatingNamespace, clubId},
+    )
+
+    React.useEffect0(() => {
+      let ratings =
+        data.event
+        ->Option.flatMap(event => event.rsvps)
+        ->Option.flatMap(rsvps => rsvps.edges)
+        ->Option.getOr([])
+        ->Array.filterMap(edge =>
+          edge
+          ->Option.flatMap(edge => edge.node)
+          ->Option.flatMap(node => node.user)
+          ->Option.flatMap(user =>
+            user.rating->Option.flatMap(
+              rating =>
+                rating.mu->Option.map(mu => (user.id, (mu, rating.sigma->Option.getOr(8.333)))),
+            )
+          )
+        )
+      onLoaded(ratings)
+      None
+    })
+
+    React.null
+  }
+}
+
 type syncState = Idle | Syncing | Success | Error
 
 @react.component
@@ -351,6 +644,22 @@ let make = (
   // Determine namespace from event tags: if "comp" tag exists => doubles:comp, else doubles:rec
   let eventTags: array<string> = data.tags->Option.getOr([])
   let eventNamespace = eventTags->Array.includes("comp") ? "doubles:comp" : "doubles:rec"
+
+  // Players normally start on their global rating. A club event can instead
+  // start them on the rating they earned inside that club — which has to be
+  // their *base* rating, not an adjustment on top, or every change shown during
+  // the event would really be the gap between the two scales. Needs a club and
+  // an activity, so a clubless event gets None and the option stays hidden.
+  let clubRatingSource = switch (data.club, data.activity->Option.flatMap(a => a.slug)) {
+  | (Some(club), Some(activitySlug)) =>
+    Some((club.id, club.name->Option.getOr(ts`this club`), activitySlug))
+  | _ => None
+  }
+
+  let (seedSource, setSeedSource) = React.useState(() => EventManagerPersistence.GlobalRatings)
+  // None until the club query resolves; players fall back to global ratings in
+  // the meantime rather than blocking the whole manager on a secondary fetch.
+  let (clubRatings, setClubRatings) = React.useState(() => None)
 
   // Get event start time for staggering match creation timestamps
   let eventStartTime =
@@ -406,6 +715,21 @@ let make = (
   let (syncState, setSyncState) = React.useState(() => Idle)
   let (syncProgress, setSyncProgress) = React.useState(() => 0)
 
+  // Local persistence health, so a blocked or full IndexedDB is visible rather
+  // than silently discarding the event.
+  let persistenceHealth = EventManagerPersistence.Health.use()
+
+  // Dismissal is keyed on the failure detail, so a *new* failure re-arms the banner.
+  let (dismissedFailure, setDismissedFailure) = React.useState(() => None)
+
+  // Confirmation for the destructive "free up space" reset offered on quota errors.
+  let (showClearAllStorage, setShowClearAllStorage) = React.useState(() => false)
+
+  let visibleFailure = switch persistenceHealth.failure {
+  | Some((kind, detail)) if dismissedFailure != Some(detail) => Some((kind, detail))
+  | _ => None
+  }
+
   // Reset sync state after success/error
   React.useEffect1(() => {
     switch syncState {
@@ -437,8 +761,28 @@ let make = (
     setPlayerOverrides,
   ) = React.useState(() => Js.Dict.empty())
 
+  // Resolves a player's starting rating from whichever pool is selected. On the
+  // club source a player with no club rating starts from the default rather
+  // than their global one: leaving the global value would silently mix two
+  // scales in one list, ranking an outsider's form elsewhere against club form.
+  let baseRatingFor = (userId: string, rsvpRating: option<(float, float, float)>) => {
+    let defaultRating = Rating.makeDefault()
+    switch (seedSource, clubRatings) {
+    | (EventManagerPersistence.ClubRatings, Some(byUserId)) =>
+      switch byUserId->Js.Dict.get(userId) {
+      | Some((mu, sigma)) => (mu, sigma, 0.0)
+      | None => (defaultRating.mu, defaultRating.sigma, 0.0)
+      }
+    | _ =>
+      switch rsvpRating {
+      | Some(rating) => rating
+      | None => (defaultRating.mu, defaultRating.sigma, 0.0)
+      }
+    }
+  }
+
   // Extract players from RSVPs and merge with guest players - memoized to prevent unnecessary recalculations
-  let players: array<Player.t<rsvpNode>> = React.useMemo4(() => {
+  let players: array<Player.t<rsvpNode>> = React.useMemo(() => {
     (data.rsvps
     ->Option.flatMap(rsvps => rsvps.edges)
     ->Option.getOr([])
@@ -457,15 +801,17 @@ let make = (
               let overrideGender = override->Option.flatMap(o => o.gender)
               let overridePaid = override->Option.flatMap(o => o.paid)
 
-              // Get rating from RSVP data or use default
-              let (mu, sigma, ordinal) = switch rsvp.rating {
-              | Some(rating) => (
-                  rating.mu->Option.getOr(25.0),
-                  rating.sigma->Option.getOr(8.333),
-                  rating.ordinal->Option.getOr(0.0),
-                )
-              | None => (25.0, 8.333, 0.0) // Default rating for players without rating data
-              }
+              // Starting rating, from whichever pool the organiser selected
+              let (mu, sigma, ordinal) = baseRatingFor(
+                user.id,
+                rsvp.rating->Option.map(
+                  rating => (
+                    rating.mu->Option.getOr(25.0),
+                    rating.sigma->Option.getOr(8.333),
+                    rating.ordinal->Option.getOr(0.0),
+                  ),
+                ),
+              )
 
               Some({
                 Player.data: Some(rsvp),
@@ -504,7 +850,7 @@ let make = (
       }
     })
     ->Array.mapWithIndex((player, i) => {...player, intId: i + 1}) :> array<Player.t<rsvpNode>>)
-  }, (data.rsvps, guestPlayers, playerOverrides, nextGuestId))
+  }, (data.rsvps, guestPlayers, playerOverrides, nextGuestId, seedSource, clubRatings))
 
   // All matches organized by rounds: array<array<completedMatchEntity>>
   // Each element is a round containing matches (completed or not)
@@ -719,6 +1065,10 @@ let make = (
     if storedStrategy != rawStoredStrategy {
       EventManagerPersistence.saveStrategy(data.id, storedStrategy)
     }
+
+    // Which rating pool players start on. Mounting the loader below is what
+    // actually fetches the club ratings when this is ClubRatings.
+    setSeedSource(_ => EventManagerPersistence.loadSeedSource(data.id))
 
     // Draw seed (see the dice button in the generation controls)
     setDrawSeed(_ => EventManagerPersistence.loadDrawSeed(data.id))
@@ -1633,10 +1983,18 @@ let make = (
 
   let hasExistingDraws = rounds->Array.length > 0
 
-  // Handle reset storage - clears all TinyBase data for this event
-  let handleResetStorage = () => {
-    EventManagerPersistence.clearEventData(data.id)
-    // Reset all state to initial values
+  // The one clear in this component, reached from the quota banner, the
+  // storage-low warning and the debug Reset Storage button. It drops every event
+  // on the device, so it only ever runs after ClearAllStorageModal is confirmed.
+  // Afterwards it re-tests persistence, so a banner raised by a full disk clears
+  // itself once space is free.
+  let handleClearAllStorage = () => {
+    // Empties the store, drops the IndexedDB database and brings persistence
+    // back up against a fresh one — which also re-tests writability, so a quota
+    // failure clears itself once the space is free.
+    EventManagerPersistence.clearAllEventData()->ignore
+
+    // This event's rows are gone too, so return the screen to its initial state.
     setRounds(_ => [])
     setCurrentRoundInt(_ => 0)
     setCourtCount(_ => suggestedCourtCount(players->Array.length))
@@ -1646,6 +2004,8 @@ let make = (
     setTeams(_ => NonEmptyArray.empty)
     setAntiTeams(_ => NonEmptyArray.empty)
     setPlayerOverrides(_ => Js.Dict.empty())
+
+    setShowClearAllStorage(_ => false)
   }
 
   // Handle delete rating adjustment - removes adjustment from history and triggers recalculation
@@ -1918,17 +2278,39 @@ let make = (
           }
         : React.null}
     </FramerMotion.AnimatePresence>
-    <StorageLowWarning onClearData={handleResetStorage} />
+    {switch (seedSource, clubRatingSource) {
+    | (EventManagerPersistence.ClubRatings, Some((clubId, _, activitySlug))) =>
+      <React.Suspense fallback={React.null}>
+        <ClubRatingsLoader
+          eventId={data.id}
+          clubId
+          activitySlug
+          onLoaded={ratings => setClubRatings(_ => Some(ratings->Js.Dict.fromArray))}
+        />
+      </React.Suspense>
+    | _ => React.null
+    }}
+    <StorageLowWarning onClearData={() => setShowClearAllStorage(_ => true)} />
+    {showClearAllStorage
+      ? <ClearAllStorageModal
+          currentEventId={data.id}
+          onConfirm={handleClearAllStorage}
+          onCancel={() => setShowClearAllStorage(_ => false)}
+        />
+      : React.null}
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <div className="bg-slate-800 text-white px-6 py-4">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold"> {React.string("Sports Event Draws")} </h1>
           <div className="flex items-center gap-2">
+            <PersistenceChip
+              health={persistenceHealth} onShowError={() => setDismissedFailure(_ => None)}
+            />
             {debugMode
               ? <>
                   <StorageUsageDebug />
                   <button
-                    onClick={_ => handleResetStorage()}
+                    onClick={_ => setShowClearAllStorage(_ => true)}
                     className="px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors">
                     {t`Reset Storage`}
                   </button>
@@ -1951,6 +2333,16 @@ let make = (
           </div>
         </div>
       </div>
+      {switch visibleFailure {
+      | Some(failure) =>
+        <PersistenceErrorBanner
+          failure
+          onRetry={() => EventManagerPersistence.retry()->ignore}
+          onFreeUpSpace={() => setShowClearAllStorage(_ => true)}
+          onDismiss={() => setDismissedFailure(_ => Some(failure->snd))}
+        />
+      | None => React.null
+      }}
       <PlayerCheckin
         players={playersWithCounts}
         checkedInPlayerIds
@@ -1963,6 +2355,23 @@ let make = (
         getUserFragmentRefs
         initialPlayers={players}
         eventUrl={"https://www.pkuru.com/events/" ++ eventId}
+        seedSourceOption=?{clubRatingSource->Option.map(((_, clubName, _)) => {
+          SeedAdjustModal.clubName,
+          usingClubRatings: seedSource == EventManagerPersistence.ClubRatings,
+          isLoading: seedSource == EventManagerPersistence.ClubRatings &&
+            clubRatings->Option.isNone,
+          onUseClubRatings: useClub => {
+            let next =
+              useClub
+                ? EventManagerPersistence.ClubRatings
+                : EventManagerPersistence.GlobalRatings
+            setSeedSource(_ => next)
+            EventManagerPersistence.saveSeedSource(data.id, next)
+            // Ratings move, so any draws built on the old pool are stale.
+            setIsDirty(_ => true)
+            bumpHistoryRevision()
+          },
+        })}
       />
       {!hasExistingDraws
         ? <>

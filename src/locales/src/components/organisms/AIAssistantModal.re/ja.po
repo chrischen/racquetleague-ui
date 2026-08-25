@@ -15,8 +15,7 @@ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:390
 msgid "{0} event(s) couldn't be created (they may already exist)."
-msgstr ""
-"{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
+msgstr "{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
@@ -67,9 +66,17 @@ msgstr "作成中..."
 msgid "Date:"
 msgstr "日付:"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "作成したいイベントを説明してください..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "説明:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
@@ -82,6 +89,10 @@ msgstr "イベントを作成できます。スケジュールを教えてくだ
 #: src/components/organisms/AIAssistantModal.re.mjs:96
 msgid "I couldn't process that request. Please try again."
 msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
@@ -109,34 +120,13 @@ msgid "Suggested Events"
 msgstr "提案されたイベント"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
-"ていただければ、翻訳も追加できます。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:45
-msgid "Title:"
-msgstr "タイトル:"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "作成したいイベントを説明してください..."
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。"
-#~ "会話を続けて詳細を調整することもできます。"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教えていただければ、翻訳も追加できます。"
 
 #: src/components/molecules/AIResponseCard.re.mjs:68
 #~ msgid "Time:"
 #~ msgstr "時間:"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Title:"
+msgstr "タイトル:"

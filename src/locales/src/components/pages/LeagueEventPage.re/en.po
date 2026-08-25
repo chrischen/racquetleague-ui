@@ -91,7 +91,7 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:253
+#: src/components/organisms/SubmitMatch.re.mjs:249
 #: src/components/organisms/SortableSubmitMatch.re.mjs:301
 msgid "Cancel"
 msgstr ""
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Gender Mixed Doubles"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:390
+#: src/components/organisms/SubmitMatch.re.mjs:386
 msgid "Go Back"
 msgstr ""
 
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Load more matches..."
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SubmitMatch.re.mjs:405
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 #: src/components/organisms/AiTetsu.re.mjs:1748
 msgid "Loading"
@@ -380,8 +380,8 @@ msgstr ""
 #~ msgid "points"
 #~ msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:311
-#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SubmitMatch.re.mjs:307
+#: src/components/organisms/SubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
@@ -495,7 +495,7 @@ msgstr ""
 msgid "START SESSION"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:397
+#: src/components/organisms/SubmitMatch.re.mjs:393
 msgid "Submit Rated"
 msgstr ""
 
@@ -550,8 +550,8 @@ msgstr ""
 msgid "WIN"
 msgstr ""
 
-#: src/components/organisms/SubmitMatch.re.mjs:323
-#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"

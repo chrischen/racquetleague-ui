@@ -70,6 +70,10 @@ msgstr "날짜:"
 msgid "Description:"
 msgstr "설명:"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "이벤트 생성 오류. 다시 시도하세요."
+
 #: src/components/molecules/AIResponseCard.re.mjs:36
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
@@ -108,17 +112,9 @@ msgid "Suggested Events"
 msgstr "추천 이벤트"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알"
-"려주시면 번역도 추가할 수 있습니다."
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알려주시면 번역도 추가할 수 있습니다."
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
 msgstr "제목:"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "이벤트 생성 오류. 다시 시도하세요."

@@ -5592,6 +5592,102 @@ msgstr "個人"
 msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
 msgstr "排名高於 James Ignatowich 的球員可在 RPM 官方網站享有最高 28% 的 RPM 球拍折扣。女子方面，排名前 20 的女子球員可享有相同折扣。其中 15% 可透過優惠碼 PKURU15 獲得，剩餘 13% 則以現金回饋方式提供。下單後請聯繫 Chris Chen 進行兌換。其他所有球員均可隨時享有 RPM 球拍 85 折優惠：在 rpmpb.com 使用優惠碼："
 
+#: src/components/organisms/ScoreModal.re.mjs:237
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "分數相同 — 此場將記錄為平局"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} 個評分"
+
+#: src/components/organisms/EventManager.re.mjs:508
+msgid "Changes aren't being saved"
+msgstr "變更未儲存"
+
+#: src/components/organisms/EventManager.re.mjs:334
+msgid "Connecting…"
+msgstr "連線中…"
+
+#: src/components/organisms/EventManager.re.mjs:461
+msgid "Delete all data"
+msgstr "刪除所有資料"
+
+#: src/components/organisms/EventManager.re.mjs:390
+msgid "Delete all saved event data?"
+msgstr "刪除所有已儲存的賽事資料？"
+
+#: src/components/organisms/EventManager.re.mjs:448
+msgid "Everything stored on this device is already synced to the server."
+msgstr "此裝置上儲存的所有內容已同步至伺服器。"
+
+#: src/components/organisms/EventManager.re.mjs:526
+msgid "Free up space"
+msgstr "釋放空間"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "全域評分"
+
+#: src/components/organisms/EventManager.re.mjs:313
+msgid "Not saved"
+msgstr "未儲存"
+
+#: src/components/organisms/EventManager.re.mjs:418
+msgid "Other events on this device"
+msgstr "此裝置上的其他賽事"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "球員以其在本俱樂部獲得的評分作為起始分；若無評分則從預設評分開始。賽事期間的變動將以此為基準計算。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "球員以其跨所有俱樂部的全域評分作為起始分。"
+
+#: src/components/organisms/EventManager.re.mjs:538
+msgid "Retry"
+msgstr "重試"
+
+#: src/components/organisms/EventManager.re.mjs:327
+msgid "Saved"
+msgstr "已儲存"
+
+#: src/components/organisms/EventManager.re.mjs:744
+msgid "this club"
+msgstr "本俱樂部"
+
+#: src/components/organisms/EventManager.re.mjs:397
+msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+msgstr "此操作將刪除此裝置上所有賽事的已儲存資料，包含本賽事。已同步至伺服器的賽事可重新開啟；未同步的資料將無法復原。"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
+msgstr "這些比分尚未上傳至伺服器。請在刪除前先同步本賽事，否則資料將會遺失。"
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
+msgstr "這些比分尚未上傳至伺服器。請先同步本賽事，並開啟每個其他賽事逐一同步後，再執行刪除，否則資料將會遺失。"
+
+#: src/components/organisms/EventManager.re.mjs:405
+msgid "Unsynced scores in this event"
+msgstr "本賽事中未同步的比分"
+
+#: src/components/organisms/EventManager.re.mjs:431
+msgid "Unsynced scores in those events"
+msgstr "那些賽事中未同步的比分"
+
+#: src/components/organisms/EventManager.re.mjs:490
+msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
+msgstr "您的瀏覽器封鎖了此網站的儲存空間。若您使用的是無痕視窗，請切換至一般視窗；否則請允許網站資料存取並重新載入。"
+
+#: src/components/organisms/EventManager.re.mjs:493
+msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
+msgstr "您的瀏覽器儲存空間不足。請清除舊的賽事資料以釋放空間，然後重試。"
+
+#: src/components/organisms/EventManager.re.mjs:496
+msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
+msgstr "您的瀏覽器拒絕儲存本賽事。請重新載入頁面或重試——若持續失敗，請避免重新整理，直到比分同步完成。"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -18,6 +18,19 @@
 
 open Rating
 
+// Which rating pool the players in this modal were seeded from, and — when the
+// event belongs to a club — the option to switch. Choosing the club replaces
+// the rating players *start* the event on rather than layering an adjustment
+// over their global rating, so the changes shown during the event stay
+// measured against where those players actually began.
+type seedSourceOption = {
+  clubName: string,
+  usingClubRatings: bool,
+  onUseClubRatings: bool => unit,
+  // True while the club ratings for the new source are still in flight.
+  isLoading: bool,
+}
+
 // Separate component to receive dragHandleProps from SortableItem
 module SortableItemContent = {
   @react.component
@@ -82,6 +95,7 @@ let make = (
   ~onSave: array<(string, float)> => unit,
   ~onClose: unit => unit,
   ~getUserFragmentRefs: 'a => option<RescriptRelay.fragmentRefs<[> #PlayerRow_user]>>,
+  ~seedSourceOption: option<seedSourceOption>=?,
 ) => {
   let ts = Lingui.UtilString.t
 
@@ -89,6 +103,15 @@ let make = (
   let (sortedPlayers, setSortedPlayers) = React.useState(() => {
     players->Array.toSorted((a, b) => Float.compare(b.rating.mu, a.rating.mu))
   })
+
+  // Switching the source re-seeds every player from upstream, so adopt the new
+  // list rather than leaving the modal showing the pool the organiser just
+  // switched away from. Any in-modal dragging is deliberately discarded: those
+  // positions were relative to the old ratings.
+  React.useEffect1(() => {
+    setSortedPlayers(_ => players->Array.toSorted((a, b) => Float.compare(b.rating.mu, a.rating.mu)))
+    None
+  }, [players])
 
   // Calculate min/max ratings for normalization
   let minRating =
@@ -127,6 +150,38 @@ let make = (
             <Lucide.X className="w-6 h-6 text-slate-600" />
           </button>
         </div>
+        {switch seedSourceOption {
+        | None => React.null
+        | Some(option) =>
+          <div className="mt-4">
+            <div className="inline-flex rounded-lg border border-slate-200 p-1 bg-slate-50">
+              <button
+                onClick={_ => option.onUseClubRatings(false)}
+                disabled={option.isLoading}
+                className={!option.usingClubRatings
+                  ? "px-3 py-1.5 rounded-md text-sm font-medium bg-white text-slate-800 shadow-sm"
+                  : "px-3 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:text-slate-800"}>
+                {(ts`Global ratings`)->React.string}
+              </button>
+              <button
+                onClick={_ => option.onUseClubRatings(true)}
+                disabled={option.isLoading}
+                className={option.usingClubRatings
+                  ? "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium bg-white text-slate-800 shadow-sm"
+                  : "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-slate-600 hover:text-slate-800"}>
+                {option.isLoading
+                  ? <Lucide.Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  : <Lucide.Users className="w-3.5 h-3.5" />}
+                {(ts`${option.clubName} ratings`)->React.string}
+              </button>
+            </div>
+            <p className="text-sm text-slate-500 mt-2">
+              {(option.usingClubRatings
+                ? ts`Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there.`
+                : ts`Players start on their global rating across all clubs.`)->React.string}
+            </p>
+          </div>
+        }}
       </div>
       // Scrollable player list
       <div className="flex-1 overflow-y-auto p-6">

@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "關於"
@@ -90,6 +94,10 @@ msgstr "邀請球員"
 msgid "Invite to {0}"
 msgstr "邀請至 {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "邀請至 {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "已邀請及潛在球員"
@@ -97,6 +105,10 @@ msgstr "已邀請及潛在球員"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "受邀玩家已移至活動的受邀名單。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "受邀球員已移至活動的邀請名單。"
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -153,17 +165,3 @@ msgstr "左滑跳過 · 右滑邀請"
 #: src/components/organisms/EventInvites.re.mjs:354
 msgid "View Profile"
 msgstr "查看個人資料"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "邀請至 {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "受邀球員已移至活動的邀請名單。"

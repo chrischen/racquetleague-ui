@@ -17,6 +17,10 @@ msgstr ""
 msgid "{0} of {1} checked in"
 msgstr "เช็คอินแล้ว {0} จาก {1} คน"
 
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} การให้คะแนน"
+
 #: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "฿"
@@ -29,11 +33,11 @@ msgstr "เพิ่มผู้เล่นรับเชิญ"
 msgid "Add guest players"
 msgstr "เพิ่มผู้เล่นแขก"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:129
+#: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
 msgstr "ปรับซีดผู้เล่น"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:244
+#: src/components/organisms/SeedAdjustModal.re.mjs:291
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -41,13 +45,21 @@ msgstr "ยกเลิก"
 msgid "Close self check-in display"
 msgstr "ปิดจอแสดงผลการเช็คอินด้วยตนเอง"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#: src/components/organisms/SeedAdjustModal.re.mjs:142
 msgid "Drag players in order of strongest to weakest."
 msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "เช็คอินกิจกรรม"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "การให้คะแนนระดับโลก"
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
@@ -81,7 +93,15 @@ msgstr "ชำระแล้ว"
 msgid "Player Check-in"
 msgstr "เช็คอินผู้เล่น"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:251
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนระดับโลกของตนจากทุกสโมสร"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "บันทึกการปรับซีด"
 
@@ -89,6 +109,20 @@ msgstr "บันทึกการปรับซีด"
 msgid "Scan to check in"
 msgstr "สแกนเพื่อเช็คอิน"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} การให้คะแนน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} คน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+#~ msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
+#~ msgstr ""

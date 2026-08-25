@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"경기 점수 입력\",\"VIlNWA\":[\"패배 팀 (팀 \",[\"0\"],\")\"],\"zCo4xa\":\"점수 없음\",\"27SfGh\":\"점수 저장\",\"yxTTJj\":[\"승리 팀 (팀 \",[\"0\"],\")\"]}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YIAAQf\":\"경기 점수 입력\",\"8bZ/y+\":\"동점 — 무승부로 기록됩니다\",\"VIlNWA\":[\"패배 팀 (팀 \",[\"0\"],\")\"],\"zCo4xa\":\"점수 없음\",\"27SfGh\":\"점수 저장\",\"ckiEtO\":[\"팀 \",[\"0\"]],\"yxTTJj\":[\"승리 팀 (팀 \",[\"0\"],\")\"]}");

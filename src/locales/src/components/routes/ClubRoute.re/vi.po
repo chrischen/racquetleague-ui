@@ -18,6 +18,10 @@ msgid "{0} open"
 msgstr "{0} mở"
 
 #: src/components/pages/ClubPage.re.mjs:94
+#~ msgid "Active members"
+#~ msgstr "Thành viên đang hoạt động"
+
+#: src/components/pages/ClubPage.re.mjs:94
 msgid "Active players"
 msgstr "Người chơi tích cực"
 
@@ -153,7 +157,3 @@ msgstr "Thứ Tư"
 #: src/components/pages/ClubPage.re.mjs:321
 msgid "Yesterday"
 msgstr "Hôm qua"
-
-#: src/components/pages/ClubPage.re.mjs:94
-#~ msgid "Active members"
-#~ msgstr "Thành viên đang hoạt động"

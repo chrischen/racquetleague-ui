@@ -122,12 +122,8 @@ msgid "72 hours before"
 msgstr "72小时前"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
-msgstr ""
-"当有人加入时将收取可退还的押金。您可以通过点击RSVP列表中的姓名来手动批准参与"
-"者。"
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "当有人加入时将收取可退还的押金。您可以通过点击RSVP列表中的姓名来手动批准参与者。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:844
 #: src/components/organisms/CreateLocationEventForm.re.mjs:866
@@ -168,9 +164,7 @@ msgid "Cancel deadline (optional)"
 msgstr "取消截止时间（可选）"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr "以乐趣和社交为主的休闲游戏。适合所有技能水平。"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
@@ -373,8 +367,7 @@ msgid "Require payment from attendees"
 msgstr "要求参与者付款"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr "严肃的比赛，带有排名和评级。比赛可能影响您的球员评级。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
@@ -390,9 +383,7 @@ msgid "Start date and time"
 msgstr "开始日期和时间"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid ""
-"The participation fee is charged automatically and transferred to your "
-"Stripe account."
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
 msgstr "参与费将自动收取并转入您的Stripe账户。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015

@@ -66,6 +66,10 @@ msgstr "預估 DUPR"
 msgid "Even"
 msgstr "勢均力敵"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:131
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:1083
 msgid "Hard Court"
 msgstr "硬地球場"
@@ -82,6 +86,10 @@ msgstr "室內球場（室外球）"
 msgid "Load more matches..."
 msgstr "載入更多比賽..."
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:194
+#~ msgid "Loading rankings..."
+#~ msgstr "載入排名中..."
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:1203
 msgid "Loading..."
 msgstr "載入中..."
@@ -90,6 +98,15 @@ msgstr "載入中..."
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
 msgstr "負"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:133
+#~ msgid "Male"
+#~ msgstr "男性"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:177
+#: src/components/pages/LeaguePlayerPage.re.mjs:185
+#~ msgid "Match History"
+#~ msgstr "比賽歷史"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:940
 msgid "Men's Doubles"
@@ -110,12 +127,22 @@ msgstr "此分類沒有資料"
 msgid "Performs better with stronger partners"
 msgstr "與較強搭檔配合時表現更佳"
 
+#: src/components/pages/LeaguePlayerPage.re.mjs:103
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#~ msgid "Player Profile Page"
+#~ msgstr "球員個人資料頁面"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:491
 #: src/components/pages/LeaguePlayerPage.re.mjs:565
 #: src/components/pages/LeaguePlayerPage.re.mjs:639
 #: src/components/pages/LeaguePlayerPage.re.mjs:713
 msgid "Predicted"
 msgstr "預測"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:212
+#: src/components/pages/LeaguePlayerPage.re.mjs:220
+#~ msgid "Rating"
+#~ msgstr "評分"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:176
 msgid "Rating History"
@@ -124,6 +151,10 @@ msgstr "評分歷史"
 #: src/components/pages/LeaguePlayerPage.re.mjs:1194
 msgid "Recent Matches"
 msgstr "最近比賽"
+
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "分數："
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:825
 msgid "Showing stats from {selectedClubName} only"
@@ -134,9 +165,7 @@ msgid "Strong Against"
 msgstr "強勢對陣"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid ""
-"The shaded area represents rating uncertainty. Narrower bands indicate "
-"higher confidence."
+msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr "陰影區域表示評分的不確定性。較窄的帶表示更高的置信度。"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:630
@@ -159,34 +188,3 @@ msgstr "女子雙打"
 #: src/components/pages/LeaguePlayerPage.re.mjs:532
 msgid "Worst Doubles Partners"
 msgstr "最差雙打搭檔"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:131
-#~ msgid "Female"
-#~ msgstr "女性"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:194
-#~ msgid "Loading rankings..."
-#~ msgstr "載入排名中..."
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:133
-#~ msgid "Male"
-#~ msgstr "男性"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:177
-#: src/components/pages/LeaguePlayerPage.re.mjs:185
-#~ msgid "Match History"
-#~ msgstr "比賽歷史"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:103
-#: src/components/pages/LeaguePlayerPage.re.mjs:160
-#~ msgid "Player Profile Page"
-#~ msgstr "球員個人資料頁面"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:212
-#: src/components/pages/LeaguePlayerPage.re.mjs:220
-#~ msgid "Rating"
-#~ msgstr "評分"
-
-#: src/components/organisms/MatchList.re.mjs:292
-#~ msgid "Score:"
-#~ msgstr "分數："

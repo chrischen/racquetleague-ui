@@ -60,6 +60,10 @@ msgstr "選秀於2026年9月15日（星期二）開始"
 msgid "Est. DUPR"
 msgstr "預估 DUPR"
 
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "女性"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:485
 msgid "Filter by club"
 msgstr "按俱樂部篩選"
@@ -84,6 +88,10 @@ msgstr "載入下一積分榜"
 msgid "Loading rankings..."
 msgstr "載入排名中..."
 
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "男性"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:437
 msgid "Men"
 msgstr "男子"
@@ -92,27 +100,25 @@ msgstr "男子"
 msgid "No players found"
 msgstr "找不到球員"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "Dallash Flash 官方T恤及棒球帽"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:257
 msgid "Over ￥200,000 in prizes"
 msgstr "獎品總值逾￥200,000"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr "與不同的搭檔進行雙打比賽，獲得個人評分。每月向最優秀的球員頒發獎品。"
 
 #: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "球員"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:214
-msgid ""
-"Players ranked higher than James Ignatowich can receive up to 28% off RPM "
-"paddles from the RPM official website. For women, top 20 women players can "
-"receive this same discount. 15% will be from the PKURU15 code and the "
-"remaining 13% via cash back. Contact Chris Chen for redemption after you "
-"place an order. All other players can receive 15% off RPM paddles at any "
-"time: 15% off at rpmpb.com with code:"
-msgstr ""
-"排名高於 James Ignatowich 的球員可在 RPM 官方網站享有最高 28% 的 RPM 球拍折"
-"扣。女子方面，排名前 20 的女子球員可享有相同折扣。其中 15% 可透過優惠碼 "
-"PKURU15 獲得，剩餘 13% 則以現金回饋方式提供。下單後請聯繫 Chris Chen 進行兌"
-"換。其他所有球員均可隨時享有 RPM 球拍 85 折優惠：在 rpmpb.com 使用優惠碼："
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr "排名高於 James Ignatowich 的球員可在 RPM 官方網站享有最高 28% 的 RPM 球拍折扣。女子方面，排名前 20 的女子球員可享有相同折扣。其中 15% 可透過優惠碼 PKURU15 獲得，剩餘 13% 則以現金回饋方式提供。下單後請聯繫 Chris Chen 進行兌換。其他所有球員均可隨時享有 RPM 球拍 85 折優惠：在 rpmpb.com 使用優惠碼："
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:185
 msgid "Playoff Draft"
@@ -122,9 +128,17 @@ msgstr "季後賽選秀"
 msgid "Presented by"
 msgstr "由...呈獻"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#~ msgid "Prizes"
+#~ msgstr "獎項"
+
 #: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
 msgstr "評分"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:51
+#~ msgid "Recreational Doubles"
+#~ msgstr "休閒雙打"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:409
 msgid "Search players..."
@@ -144,35 +158,25 @@ msgstr "贊助商標誌"
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Pkuru.com 官方競技雙打排名。"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#~ msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgstr "男子前4名及女子前4名球員各可獲得獎項。"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:209
-msgid ""
-"The top 8 men and top 8 women qualify — each bracket is drafted into 4 "
-"doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 "
-"widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction "
-"Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the "
-"prize, along with 1 bonus category to be decided for the 5th winner. Only "
-"players who are physically in Japan to receive the prizes are eligible to "
-"win. Any *Rated* event on Pkuru.com can submit rated matches that can "
-"qualify you for the top 8 draft. We reserve the right to disqualify players, "
-"matches, or clubs that are suspected of cheating at our own independent "
-"discretion and without notice. There is no cost to participation and "
-"Pkuru.com does not collect any fee from organizers participating in the "
-"Playoff Draft."
-msgstr ""
-"男子前8名及女子前8名晉級決賽——每個組別透過選秀分成4支雙打隊伍角逐總決賽。獎品"
-"包括2支Ella Oh Pink V2寬體球拍、2支RPM Friction Pro V2 14mm球拍及1支RPM "
-"Friction Pro V2 16mm球拍。男子雙打及女子雙打的冠軍組合將各獲得獎品，另設1個額"
-"外獎項類別留待第5位得獎者決定。僅限實際身處日本的球員方可領取獎品。在"
-"Pkuru.com上任何標示為「已評級」的賽事均可提交評級賽果，以爭取晉身前8名選秀資"
-"格。我們保留根據自身獨立判斷、無需事先通知而取消任何涉嫌作弊球員、賽事或俱樂"
-"部資格的權利。參賽無需費用，Pkuru.com亦不向參與季後賽選秀的主辦方收取任何費"
-"用。"
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "男子前8名及女子前8名晉級決賽——每個組別透過選秀分成4支雙打隊伍角逐總決賽。獎品包括2支Ella Oh Pink V2寬體球拍、2支RPM Friction Pro V2 14mm球拍及1支RPM Friction Pro V2 16mm球拍。男子雙打及女子雙打的冠軍組合將各獲得獎品，另設1個額外獎項類別留待第5位得獎者決定。僅限實際身處日本的球員方可領取獎品。在Pkuru.com上任何標示為「已評級」的賽事均可提交評級賽果，以爭取晉身前8名選秀資格。我們保留根據自身獨立判斷、無需事先通知而取消任何涉嫌作弊球員、賽事或俱樂部資格的權利。參賽無需費用，Pkuru.com亦不向參與季後賽選秀的主辦方收取任何費用。"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:396
-msgid ""
-"To participate, join any event with the trophy icon (competitive rated "
-"events) to receive a rating."
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
 msgstr "參與方式：報名任何帶有獎盃圖示的賽事（競技評分賽事）以獲得評分。"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
+#~ msgid "To participate, please join the events here:"
+#~ msgstr "要參與，請在此加入活動："
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#~ msgid "Top Player Awards"
+#~ msgstr "頂尖球員獎"
 
 #: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
@@ -181,6 +185,10 @@ msgstr "請嘗試擴大搜尋範圍或調整篩選條件。"
 #: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "查看我的個人資料"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
+#~ msgid "View My Profile"
+#~ msgstr "查看我的個人資料"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:442
 msgid "Women"
@@ -193,46 +201,3 @@ msgstr "您"
 #: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "我的排名"
-
-#: src/components/organisms/RatingList.re.mjs:202
-#~ msgid "Female"
-#~ msgstr "女性"
-
-#: src/components/organisms/RatingList.re.mjs:204
-#~ msgid "Male"
-#~ msgstr "男性"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
-#~ msgstr "Dallash Flash 官方T恤及棒球帽"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:120
-#~ msgid ""
-#~ "Play doubles games with different partners and receive an individual "
-#~ "rating. Prizes are awarded monthly to top players."
-#~ msgstr ""
-#~ "與不同的搭檔進行雙打比賽，獲得個人評分。每月向最優秀的球員頒發獎品。"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
-#~ msgid "Prizes"
-#~ msgstr "獎項"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:51
-#~ msgid "Recreational Doubles"
-#~ msgstr "休閒雙打"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
-#~ msgid "The top 4 men and top 4 women players each earn a prize."
-#~ msgstr "男子前4名及女子前4名球員各可獲得獎項。"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:125
-#~ msgid "To participate, please join the events here:"
-#~ msgstr "要參與，請在此加入活動："
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
-#~ msgid "Top Player Awards"
-#~ msgstr "頂尖球員獎"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:100
-#~ msgid "View My Profile"
-#~ msgstr "查看我的個人資料"

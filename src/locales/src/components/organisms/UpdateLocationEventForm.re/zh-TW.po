@@ -121,12 +121,13 @@ msgstr "6 小時前"
 msgid "72 hours before"
 msgstr "72小時前"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+#~ msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
+#~ msgstr "當有人加入時，系統會收取訂金授權。實際上不會扣款，授權將在活動結束後自動解除。您應親自手動收取參加費用。您也可以在 RSVP 名單中點擊參加者姓名來手動審核。"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
-msgstr ""
-"當有人加入時將收取可退還的押金。您可以在報名名單中點擊參與者姓名來手動審核。"
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "當有人加入時將收取可退還的押金。您可以在報名名單中點擊參與者姓名來手動審核。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:844
 #: src/components/organisms/CreateLocationEventForm.re.mjs:866
@@ -166,9 +167,7 @@ msgid "Cancel deadline (optional)"
 msgstr "取消期限(選填)"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr "以樂趣和社交為主的休閒遊戲。適合所有技能水平。"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
@@ -363,8 +362,7 @@ msgid "Require payment from attendees"
 msgstr "要求參與者付款"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr "嚴肅的比賽，帶有排名和評級。比賽可能影響您的球員評級。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
@@ -380,10 +378,12 @@ msgid "Start date and time"
 msgstr "開始日期和時間"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid ""
-"The participation fee is charged automatically and transferred to your "
-"Stripe account."
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
 msgstr "參與費用將自動收取並轉入您的 Stripe 帳戶。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+#~ msgid "The participation fee is charged immediately and transferred to your Stripe account."
+#~ msgstr "參加費用將立即扣款並轉入您的 Stripe 帳戶。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015
 msgid "This event is private"
@@ -408,21 +408,3 @@ msgstr "使用 Stripe"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:840
 msgid "Without Stripe"
 msgstr "不使用 Stripe"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:827
-#~ msgid ""
-#~ "A deposit authorization is collected when someone joins. No money is "
-#~ "actually charged and the authorization is removed automatically after "
-#~ "your event. You should collect any participation fees manually in person. "
-#~ "You can also manually approve attendees by clicking their name in the "
-#~ "RSVP list."
-#~ msgstr ""
-#~ "當有人加入時，系統會收取訂金授權。實際上不會扣款，授權將在活動結束後自動解"
-#~ "除。您應親自手動收取參加費用。您也可以在 RSVP 名單中點擊參加者姓名來手動審"
-#~ "核。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:850
-#~ msgid ""
-#~ "The participation fee is charged immediately and transferred to your "
-#~ "Stripe account."
-#~ msgstr "參加費用將立即扣款並轉入您的 Stripe 帳戶。"

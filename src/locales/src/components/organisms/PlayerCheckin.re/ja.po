@@ -17,6 +17,10 @@ msgstr ""
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
 
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} 件の評価"
+
 #: src/components/organisms/PlayerCheckin.re.mjs:313
 msgid "$"
 msgstr "¥"
@@ -29,11 +33,11 @@ msgstr "ゲストを追加"
 msgid "Add guest players"
 msgstr "ゲストプレイヤーを追加"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:129
+#: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
 msgstr "プレイヤーシードを調整"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:244
+#: src/components/organisms/SeedAdjustModal.re.mjs:291
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -41,13 +45,21 @@ msgstr "キャンセル"
 msgid "Close self check-in display"
 msgstr "セルフチェックイン画面を閉じる"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#: src/components/organisms/SeedAdjustModal.re.mjs:142
 msgid "Drag players in order of strongest to weakest."
 msgstr "強い順にプレイヤーをドラッグしてください。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "プレイヤーをドラッグして初期シードを並び替え"
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "イベントチェックイン"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "グローバル評価"
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:52
 msgid "Having trouble scanning? Try to find the event from the club page."
@@ -71,9 +83,7 @@ msgstr "未払い"
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
-msgstr ""
-"スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
-"さい。"
+msgstr "スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してください。"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
 msgid "Paid"
@@ -83,7 +93,15 @@ msgstr "支払い済み"
 msgid "Player Check-in"
 msgstr "プレイヤーチェックイン"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:251
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "選手はこのクラブ内で獲得した評価からスタートします。評価がない選手はデフォルト評価からスタートします。イベント中の変化はそこを基準に計測されます。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "選手はすべてのクラブを通じたグローバル評価からスタートします。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "シード調整を保存"
 
@@ -91,6 +109,20 @@ msgstr "シード調整を保存"
 msgid "Scan to check in"
 msgstr "スキャンしてチェックイン"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "プレイヤーをドラッグして初期シードを並び替え"
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} 件の評価"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0}人のプレイヤー"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+#~ msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
+#~ msgstr ""

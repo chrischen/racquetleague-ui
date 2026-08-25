@@ -59,9 +59,12 @@ msgstr "完全初学者"
 msgid "Complete your player profile"
 msgstr "完善您的球员档案"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "完善个人资料"
+
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
@@ -84,12 +87,12 @@ msgid "Email address"
 msgstr "电子邮件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
-"件地址登录。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮件地址登录。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "电子邮件不能更改"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -185,6 +188,10 @@ msgstr "玩家"
 msgid "players"
 msgstr "球员"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
+
 #: src/components/atoms/EventTag.re.mjs:89
 #: src/components/atoms/EventTag.re.mjs:91
 msgid "Private"
@@ -204,22 +211,23 @@ msgid "Rated"
 msgstr "计分赛"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "休闲比赛，不会提交至竞技评分系统和 DUPR。"
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存并参加活动"
+
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "保存个人资料"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
 #: src/components/atoms/EventTag.re.mjs:48
@@ -227,16 +235,16 @@ msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
 
 #: src/components/organisms/PkEventRow.re.mjs:958
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "这个活动是私人活动。请勿在没有组织者许可的情况下分享这个活动。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "这是其他人会看到的名字"
 
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
@@ -253,23 +261,3 @@ msgstr "已在候补名单"
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "完善个人资料"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "电子邮件不能更改"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "不愿透露"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "保存并参加活动"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "这是其他人会看到的名字"

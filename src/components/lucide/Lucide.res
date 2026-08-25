@@ -418,6 +418,12 @@ module RotateCcw = {
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "RotateCcw"
 }
 
+module Equal = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Equal"
+}
+
 module Dices = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =

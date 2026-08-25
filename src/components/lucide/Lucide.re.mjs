@@ -121,6 +121,8 @@ var Trash2 = {};
 
 var RotateCcw = {};
 
+var Equal = {};
+
 var Dices = {};
 
 var RefreshCw = {};
@@ -252,6 +254,7 @@ export {
   ArrowDown ,
   Trash2 ,
   RotateCcw ,
+  Equal ,
   Dices ,
   RefreshCw ,
   Loader2 ,

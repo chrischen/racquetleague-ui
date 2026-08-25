@@ -24,11 +24,36 @@ type persister
 @module("tinybase/persisters/persister-indexed-db")
 external createIndexedDbPersister: (store, string) => persister = "createIndexedDbPersister"
 
+// Same runtime function as createIndexedDbPersister, bound with the two optional
+// trailing params the binding above omits: how often autoLoad polls, and a handler
+// for the save/load errors TinyBase otherwise swallows silently.
+@module("tinybase/persisters/persister-indexed-db")
+external createIndexedDbPersisterWithErrors: (
+  store,
+  string,
+  float,
+  'err => unit,
+) => persister = "createIndexedDbPersister"
+
 @send external startAutoSave: persister => Promise.t<persister> = "startAutoSave"
 @send external startAutoLoad: (persister, Js.Json.t) => Promise.t<persister> = "startAutoLoad"
 @send external save: persister => Promise.t<persister> = "save"
 @send external load: (persister, Js.Json.t) => Promise.t<persister> = "load"
-@send external destroy: persister => unit = "destroy"
+// Stops auto-save and auto-load and drops any queued writes, so nothing can
+// touch the database after this resolves. The persister stays usable — calling
+// startAutoLoad/startAutoSave again revives it.
+@send external destroy: persister => Promise.t<persister> = "destroy"
+
+// Persister lifecycle status: 0 = idle, 1 = loading, 2 = saving
+type status = int
+type listenerId = string
+
+@send external getStatus: persister => status = "getStatus"
+@send
+external addStatusListener: (persister, (persister, status) => unit) => listenerId =
+  "addStatusListener"
+@send external delListener: (persister, listenerId) => persister = "delListener"
+@send external isAutoSaving: persister => bool = "isAutoSaving"
 
 module React = {
   @module("tinybase/ui-react")

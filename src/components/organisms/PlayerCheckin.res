@@ -22,6 +22,9 @@ let make = (
   ~getUserFragmentRefs: 'a => option<RescriptRelay.fragmentRefs<[> #PlayerCheckin_user]>>,
   ~initialPlayers: array<Rating.Player.t<'a>>,
   ~eventUrl: option<string>=?,
+  // Absent for the standalone round-robin tool and clubless events, which is
+  // what hides the rating-source switch in the modal below.
+  ~seedSourceOption: option<SeedAdjustModal.seedSourceOption>=?,
 ) => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
@@ -256,6 +259,7 @@ let make = (
           onSave={onAdjustSeeds}
           onClose={() => setShowSeedModal(_ => false)}
           getUserFragmentRefs
+          ?seedSourceOption
         />
       : React.null}
     {showSelfCheckin

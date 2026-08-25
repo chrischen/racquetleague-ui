@@ -74,6 +74,11 @@ msgstr "กลางแจ้ง {n} แห่ง"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#, fuzzy
+#~ msgid "Alternate location"
+#~ msgstr "สถานที่จัดกิจกรรม"
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:402
 msgid "At {venue} now"
 msgstr "ตอนนี้อยู่ที่ {venue}"
@@ -111,6 +116,11 @@ msgstr "ไม่มีช่วงเวลาอื่นในวันเด
 msgid "Not available"
 msgstr "ไม่ว่าง"
 
+#: src/components/organisms/EventLocationAvailability.re.mjs:409
+#, fuzzy
+#~ msgid "Other locations and times"
+#~ msgstr "สถานที่อื่นในเวลานี้"
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:475
 msgid "Other locations at this time"
 msgstr "สถานที่อื่นในเวลานี้"
@@ -124,12 +134,8 @@ msgid "Reserve"
 msgstr "จอง"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
-msgid ""
-"This moves the event to another venue and reschedules everyone who already "
-"RSVP'd. Tap again to confirm."
-msgstr ""
-"การดำเนินการนี้จะย้ายกิจกรรมไปยังสถานที่อื่นและเปลี่ยนกำหนดการของทุกคนที่ตอบรับแล้ว "
-"แตะอีกครั้งเพื่อยืนยัน"
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "การดำเนินการนี้จะย้ายกิจกรรมไปยังสถานที่อื่นและเปลี่ยนกำหนดการของทุกคนที่ตอบรับแล้ว แตะอีกครั้งเพื่อยืนยัน"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:437
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
@@ -146,13 +152,3 @@ msgstr "ใช้ตัวเลือกนี้"
 #: src/components/organisms/EventLocationAvailability.re.mjs:456
 msgid "Use time"
 msgstr "ใช้เวลานี้"
-
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
-#, fuzzy
-#~ msgid "Alternate location"
-#~ msgstr "สถานที่จัดกิจกรรม"
-
-#: src/components/organisms/EventLocationAvailability.re.mjs:409
-#, fuzzy
-#~ msgid "Other locations and times"
-#~ msgstr "สถานที่อื่นในเวลานี้"

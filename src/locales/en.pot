@@ -6334,3 +6334,115 @@ msgid ""
 "place an order. All other players can receive 15% off RPM paddles at any "
 "time: 15% off at rpmpb.com with code:"
 msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:237
+msgid "Equal scores — this will be recorded as a draw"
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:508
+msgid "Changes aren't being saved"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:334
+msgid "Connecting…"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:461
+msgid "Delete all data"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:390
+msgid "Delete all saved event data?"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:448
+msgid "Everything stored on this device is already synced to the server."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:526
+msgid "Free up space"
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:313
+msgid "Not saved"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:418
+msgid "Other events on this device"
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:538
+msgid "Retry"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:327
+msgid "Saved"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:744
+msgid "this club"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:397
+msgid ""
+"This deletes the saved data for every event on this device, including this "
+"one. Events already synced to the server can be reopened; anything unsynced "
+"cannot be recovered."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid ""
+"Those scores have not reached the server. Sync this event before deleting, "
+"or they will be lost."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid ""
+"Those scores have not reached the server. Sync this event, and open each "
+"other event and sync it, before deleting — otherwise they are lost."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:405
+msgid "Unsynced scores in this event"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:431
+msgid "Unsynced scores in those events"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:490
+msgid ""
+"Your browser is blocking storage for this site. If you're in a private "
+"window, switch to a normal one; otherwise allow site data and reload."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:493
+msgid ""
+"Your browser is out of storage space. Clear old event data to free up space, "
+"then retry."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:496
+msgid ""
+"Your browser refused to save this event. Reload the page or retry — if it "
+"keeps failing, avoid refreshing until scores are synced."
+msgstr ""

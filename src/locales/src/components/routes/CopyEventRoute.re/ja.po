@@ -122,12 +122,8 @@ msgid "72 hours before"
 msgstr "72時間前"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
-msgstr ""
-"参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリッ"
-"クすることで、手動で承認できます。"
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリックすることで、手動で承認できます。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:844
 #: src/components/organisms/CreateLocationEventForm.re.mjs:866
@@ -168,11 +164,8 @@ msgid "Cancel deadline (optional)"
 msgstr "キャンセル期限（任意）"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
-msgstr ""
-"楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+msgstr "楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
@@ -374,11 +367,8 @@ msgid "Require payment from attendees"
 msgstr "参加者に支払いを求める"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
-msgstr ""
-"ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティン"
-"グに影響する場合があります。"
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティングに影響する場合があります。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
 msgid "Show less"
@@ -393,9 +383,7 @@ msgid "Start date and time"
 msgstr "開始日時"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid ""
-"The participation fee is charged automatically and transferred to your "
-"Stripe account."
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
 msgstr "参加費は自動的に請求され、あなたのStripeアカウントに振り込まれます。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015

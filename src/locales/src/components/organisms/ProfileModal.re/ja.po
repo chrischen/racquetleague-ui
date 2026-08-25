@@ -41,12 +41,13 @@ msgstr "完全な初心者"
 msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "プロフィールを完成させる"
+
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
-"い。"
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてください。"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -68,12 +69,12 @@ msgid "Email address"
 msgstr "メールアドレス"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
-"用しようとしているメールアドレスでログインしてください。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "メールアドレスは変更できません"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -119,42 +120,30 @@ msgstr "男性"
 msgid "Not now"
 msgstr "後で"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "回答しない"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "プロ"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存して参加する"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
-"ください。"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-msgid "We need a few details before you can join this event"
-msgstr "イベント参加に必要な情報を入力してください"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "プロフィールを完成させる"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "メールアドレスは変更できません"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "回答しない"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "保存して参加する"
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いてください。"
 
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "他の人に表示される名前です"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+msgid "We need a few details before you can join this event"
+msgstr "イベント参加に必要な情報を入力してください"

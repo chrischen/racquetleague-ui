@@ -60,6 +60,10 @@ msgstr "Draft bắt đầu vào Thứ Ba, ngày 15 tháng 9 năm 2026"
 msgid "Est. DUPR"
 msgstr "DUPR ước tính"
 
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "Nữ"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:485
 msgid "Filter by club"
 msgstr "Lọc theo câu lạc bộ"
@@ -84,6 +88,10 @@ msgstr "Đang tải bảng xếp hạng tiếp theo"
 msgid "Loading rankings..."
 msgstr "Đang tải bảng xếp hạng..."
 
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "Nam"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:437
 msgid "Men"
 msgstr "Nam"
@@ -92,30 +100,25 @@ msgstr "Nam"
 msgid "No players found"
 msgstr "Không tìm thấy người chơi"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "Áo phông và mũ lưỡi trai chính thức của Dallash Flash"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:257
 msgid "Over ￥200,000 in prizes"
 msgstr "Giải thưởng trị giá hơn ¥200,000"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr "Chơi các trận đôi với các đối tác khác nhau và nhận xếp hạng cá nhân. Giải thưởng được trao hàng tháng cho các người chơi hàng đầu."
 
 #: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "Người chơi"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:214
-msgid ""
-"Players ranked higher than James Ignatowich can receive up to 28% off RPM "
-"paddles from the RPM official website. For women, top 20 women players can "
-"receive this same discount. 15% will be from the PKURU15 code and the "
-"remaining 13% via cash back. Contact Chris Chen for redemption after you "
-"place an order. All other players can receive 15% off RPM paddles at any "
-"time: 15% off at rpmpb.com with code:"
-msgstr ""
-"Những người chơi được xếp hạng cao hơn James Ignatowich có thể nhận được "
-"giảm giá lên đến 28% cho vợt RPM từ trang web chính thức của RPM. Đối với "
-"nữ, 20 nữ vận động viên hàng đầu có thể nhận được mức giảm giá tương tự. 15% "
-"sẽ được áp dụng qua mã PKURU15 và 13% còn lại thông qua hoàn tiền. Vui lòng "
-"liên hệ Chris Chen để được hỗ trợ đổi thưởng sau khi đặt hàng. Tất cả các "
-"người chơi khác có thể nhận giảm giá 15% cho vợt RPM bất kỳ lúc nào: giảm "
-"15% tại rpmpb.com với mã:"
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr "Những người chơi được xếp hạng cao hơn James Ignatowich có thể nhận được giảm giá lên đến 28% cho vợt RPM từ trang web chính thức của RPM. Đối với nữ, 20 nữ vận động viên hàng đầu có thể nhận được mức giảm giá tương tự. 15% sẽ được áp dụng qua mã PKURU15 và 13% còn lại thông qua hoàn tiền. Vui lòng liên hệ Chris Chen để được hỗ trợ đổi thưởng sau khi đặt hàng. Tất cả các người chơi khác có thể nhận giảm giá 15% cho vợt RPM bất kỳ lúc nào: giảm 15% tại rpmpb.com với mã:"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:185
 msgid "Playoff Draft"
@@ -124,6 +127,10 @@ msgstr "Vòng Chung Kết Draft"
 #: src/components/pages/LeagueRankingsPage.re.mjs:229
 msgid "Presented by"
 msgstr "Được tài trợ bởi"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#~ msgid "Prizes"
+#~ msgstr "Giải thưởng"
 
 #: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
@@ -147,41 +154,25 @@ msgstr "Logo nhà tài trợ"
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Bảng xếp hạng đôi thi đấu chính thức của Pkuru.com."
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#~ msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgstr "Top 4 nam và top 4 nữ mỗi người sẽ nhận được một giải thưởng."
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:209
-msgid ""
-"The top 8 men and top 8 women qualify — each bracket is drafted into 4 "
-"doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 "
-"widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction "
-"Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the "
-"prize, along with 1 bonus category to be decided for the 5th winner. Only "
-"players who are physically in Japan to receive the prizes are eligible to "
-"win. Any *Rated* event on Pkuru.com can submit rated matches that can "
-"qualify you for the top 8 draft. We reserve the right to disqualify players, "
-"matches, or clubs that are suspected of cheating at our own independent "
-"discretion and without notice. There is no cost to participation and "
-"Pkuru.com does not collect any fee from organizers participating in the "
-"Playoff Draft."
-msgstr ""
-"Top 8 nam và top 8 nữ sẽ vượt qua vòng loại — mỗi bảng sẽ được draft thành 4 "
-"đội đôi cho vòng chung kết. Giải thưởng bao gồm 2 vợt mặt rộng Ella Oh Pink "
-"V2, 2 vợt RPM Friction Pro V2 14mm và 1 vợt RPM Friction Pro V2 16mm. Cặp "
-"đôi giành chiến thắng ở nội dung đôi nam và đôi nữ sẽ nhận giải thưởng, cùng "
-"với 1 hạng mục thưởng bổ sung dành cho người chiến thắng thứ 5. Chỉ những "
-"người chơi có mặt trực tiếp tại Nhật Bản mới đủ điều kiện nhận giải. Bất kỳ "
-"sự kiện *Được Xếp Hạng* nào trên Pkuru.com đều có thể nộp các trận đấu được "
-"xếp hạng để có cơ hội lọt vào top 8 draft. Chúng tôi có quyền loại bỏ người "
-"chơi, trận đấu hoặc câu lạc bộ bị nghi ngờ gian lận theo quyết định độc lập "
-"của chúng tôi và không cần thông báo trước. Không mất chi phí tham gia và "
-"Pkuru.com không thu bất kỳ khoản phí nào từ các ban tổ chức tham gia Vòng "
-"Chung Kết Draft."
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "Top 8 nam và top 8 nữ sẽ vượt qua vòng loại — mỗi bảng sẽ được draft thành 4 đội đôi cho vòng chung kết. Giải thưởng bao gồm 2 vợt mặt rộng Ella Oh Pink V2, 2 vợt RPM Friction Pro V2 14mm và 1 vợt RPM Friction Pro V2 16mm. Cặp đôi giành chiến thắng ở nội dung đôi nam và đôi nữ sẽ nhận giải thưởng, cùng với 1 hạng mục thưởng bổ sung dành cho người chiến thắng thứ 5. Chỉ những người chơi có mặt trực tiếp tại Nhật Bản mới đủ điều kiện nhận giải. Bất kỳ sự kiện *Được Xếp Hạng* nào trên Pkuru.com đều có thể nộp các trận đấu được xếp hạng để có cơ hội lọt vào top 8 draft. Chúng tôi có quyền loại bỏ người chơi, trận đấu hoặc câu lạc bộ bị nghi ngờ gian lận theo quyết định độc lập của chúng tôi và không cần thông báo trước. Không mất chi phí tham gia và Pkuru.com không thu bất kỳ khoản phí nào từ các ban tổ chức tham gia Vòng Chung Kết Draft."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:396
-msgid ""
-"To participate, join any event with the trophy icon (competitive rated "
-"events) to receive a rating."
-msgstr ""
-"Để tham gia, hãy đăng ký bất kỳ sự kiện nào có biểu tượng cúp (sự kiện thi "
-"đấu có xếp hạng) để nhận điểm xếp hạng."
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr "Để tham gia, hãy đăng ký bất kỳ sự kiện nào có biểu tượng cúp (sự kiện thi đấu có xếp hạng) để nhận điểm xếp hạng."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
+#~ msgid "To participate, please join the events here:"
+#~ msgstr "Để tham gia, vui lòng tham gia các sự kiện tại đây:"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#~ msgid "Top Player Awards"
+#~ msgstr "Giải thưởng cầu thủ xuất sắc"
 
 #: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
@@ -190,6 +181,10 @@ msgstr "Hãy mở rộng tìm kiếm hoặc bộ lọc của bạn."
 #: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "Xem hồ sơ của tôi"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
+#~ msgid "View My Profile"
+#~ msgstr "Xem hồ sơ của tôi"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:442
 msgid "Women"
@@ -202,43 +197,3 @@ msgstr "Bạn"
 #: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "Thứ hạng của bạn"
-
-#: src/components/organisms/RatingList.re.mjs:202
-#~ msgid "Female"
-#~ msgstr "Nữ"
-
-#: src/components/organisms/RatingList.re.mjs:204
-#~ msgid "Male"
-#~ msgstr "Nam"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
-#~ msgstr "Áo phông và mũ lưỡi trai chính thức của Dallash Flash"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:120
-#~ msgid ""
-#~ "Play doubles games with different partners and receive an individual "
-#~ "rating. Prizes are awarded monthly to top players."
-#~ msgstr ""
-#~ "Chơi các trận đôi với các đối tác khác nhau và nhận xếp hạng cá nhân. "
-#~ "Giải thưởng được trao hàng tháng cho các người chơi hàng đầu."
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
-#~ msgid "Prizes"
-#~ msgstr "Giải thưởng"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
-#~ msgid "The top 4 men and top 4 women players each earn a prize."
-#~ msgstr "Top 4 nam và top 4 nữ mỗi người sẽ nhận được một giải thưởng."
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:125
-#~ msgid "To participate, please join the events here:"
-#~ msgstr "Để tham gia, vui lòng tham gia các sự kiện tại đây:"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
-#~ msgid "Top Player Awards"
-#~ msgstr "Giải thưởng cầu thủ xuất sắc"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:100
-#~ msgid "View My Profile"
-#~ msgstr "Xem hồ sơ của tôi"

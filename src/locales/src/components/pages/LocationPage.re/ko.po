@@ -175,8 +175,7 @@ msgid "Complete your player profile"
 msgstr "플레이어 프로필을 완성하세요"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
@@ -203,12 +202,8 @@ msgid "Couldn't find this location — pick it:"
 msgstr "이 위치를 찾을 수 없습니다 — 직접 선택하세요:"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid ""
-"Create a hosted event at this time. Others can join, you pick venue and "
-"rules."
-msgstr ""
-"이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙"
-"은 직접 정합니다."
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+msgstr "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙은 직접 정합니다."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
@@ -244,16 +239,16 @@ msgid "Email address"
 msgstr "이메일 주소"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
-"인하세요."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그인하세요."
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "이메일이 필요합니다"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "이벤트 생성 오류. 다시 시도하세요."
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
@@ -340,6 +335,10 @@ msgstr "장소"
 msgid "Location:"
 msgstr "장소:"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "긴 공개 시간"
+
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "남성"
@@ -347,6 +346,10 @@ msgstr "남성"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "가능 표시"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "내 시간에 맞추기"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -367,6 +370,10 @@ msgstr "새 계획"
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "나중에"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "열림"
 
 #: src/components/pages/LocationPage.re.mjs:68
 msgid "page not found"
@@ -413,12 +420,8 @@ msgid "Select exactly one time window to host an event"
 msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
-"주세요."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해주세요."
 
 #: src/components/organisms/EventsList.re.mjs:381
 msgid "share as text"
@@ -436,22 +439,20 @@ msgstr "추천 이벤트"
 msgid "sync calendar"
 msgstr "캘린더 동기화"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "아무 곳이나 탭하여 시간 창 추가"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알"
-"려주시면 번역도 추가할 수 있습니다."
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알려주시면 번역도 추가할 수 있습니다."
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid ""
-"Tell others you're down to play. Players with overlapping times can invite "
-"you."
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
 msgstr "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
@@ -477,23 +478,3 @@ msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니�
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "언제 플레이하고 싶으신가요?"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "이벤트 생성 오류. 다시 시도하세요."
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "긴 공개 시간"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "내 시간에 맞추기"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "열림"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "아무 곳이나 탭하여 시간 창 추가"

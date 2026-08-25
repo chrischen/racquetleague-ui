@@ -33,6 +33,11 @@ msgstr "[標題缺失]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "隱藏 {0} {hiddenCountDesc}"
+
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "隱藏 {0} {hiddenCountDesc}"
@@ -77,6 +82,10 @@ msgstr "{0} 分鐘"
 msgid "{0} minutes"
 msgstr "{0} 分鐘"
 
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} 私人 {shadowCountDesc} 已隱藏"
+
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -86,9 +95,18 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "位球員"
 
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "個活動"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
 
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
@@ -175,8 +193,7 @@ msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
@@ -203,9 +220,7 @@ msgid "Couldn't find this location — pick it:"
 msgstr "找不到此地點，請選擇："
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid ""
-"Create a hosted event at this time. Others can join, you pick venue and "
-"rules."
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr "在此時間建立一個主辦活動，其他人可以加入，由你選擇場地和規則。"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
@@ -225,6 +240,10 @@ msgstr "建立中..."
 msgid "Date:"
 msgstr "日期："
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "描述您想要建立的活動..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "描述："
@@ -242,16 +261,16 @@ msgid "Email address"
 msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
-"件地址登入。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "請輸入電子郵件"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "建立活動時發生錯誤。請重試。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
@@ -325,6 +344,10 @@ msgstr "保持您的球員個人資料準確且對社群有用。"
 msgid "leave event"
 msgstr "退出活動"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細節。"
+
 #: src/components/organisms/ProfileModal.re.mjs:542
 msgid "Level"
 msgstr "等級"
@@ -334,6 +357,10 @@ msgstr "等級"
 msgid "Location:"
 msgstr "地點："
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間開放"
+
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
@@ -341,6 +368,10 @@ msgstr "男性"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "標記為有空"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "配合我的時間"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -361,6 +392,10 @@ msgstr "新計劃"
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "暫不設定"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "開放"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
@@ -403,9 +438,7 @@ msgid "Select exactly one time window to host an event"
 msgstr "請選擇恰好一個時間段來主辦活動"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/organisms/EventsList.re.mjs:381
@@ -424,23 +457,25 @@ msgstr "建議的活動"
 msgid "sync calendar"
 msgstr "同步日曆"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "點擊任意處以新增時間段"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "點擊新增您的時間"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資"
-"訊，我甚至可以新增翻譯。"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資訊，我甚至可以新增翻譯。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid ""
-"Tell others you're down to play. Players with overlapping times can invite "
-"you."
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
 msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "時間："
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -465,58 +500,3 @@ msgstr "在您參加此活動之前，我們需要一些資訊"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "你想什麼時候打球？"
-
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "隱藏 {0} {hiddenCountDesc}"
-
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0} 私人 {shadowCountDesc} 已隱藏"
-
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "個活動"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {個事件} other {個事件}}"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "描述您想要建立的活動..."
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "建立活動時發生錯誤。請重試。"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "告訴我您想在何時何地比賽，我將幫助您建立活動。您可以繼續與我對話來完善細"
-#~ "節。"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "長時間開放"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "配合我的時間"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "開放"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "點擊任意處以新增時間段"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "時間："

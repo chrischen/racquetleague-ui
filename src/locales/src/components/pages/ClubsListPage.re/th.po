@@ -29,6 +29,10 @@ msgstr "สโมสร {0} แห่ง"
 msgid "Active players"
 msgstr "ผู้เล่นที่ใช้งานอยู่"
 
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr "ทุกระดับ"
+
 #: src/components/pages/ClubsListPage.re.mjs:333
 msgid "Badminton"
 msgstr "แบดมินตัน"
@@ -59,9 +63,7 @@ msgid "Clubs"
 msgstr "สโมสร"
 
 #: src/components/pages/ClubsListPage.re.mjs:379
-msgid ""
-"Find and join clubs, ranked by activity, level of play and how many players "
-"come back."
+msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
 msgstr "ค้นหาและเข้าร่วมสโมสร จัดอันดับตามกิจกรรม ระดับการเล่น และจำนวนผู้เล่นที่กลับมา"
 
 #: src/components/pages/ClubsListPage.re.mjs:492
@@ -79,6 +81,10 @@ msgstr "ระดับมัธยฐาน"
 #: src/components/pages/ClubsListPage.re.mjs:152
 msgid "Member"
 msgstr "สมาชิก"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr "ระดับสโมสรขั้นต่ำ"
 
 #: src/components/pages/ClubsListPage.re.mjs:183
 msgid "Next"
@@ -113,6 +119,10 @@ msgstr "การรักษาสมาชิก"
 msgid "Search clubs"
 msgstr "ค้นหาสโมสร"
 
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr "กีฬา"
+
 #: src/components/pages/ClubsListPage.re.mjs:284
 msgid "Total members"
 msgstr "สมาชิกทั้งหมด"
@@ -121,22 +131,10 @@ msgstr "สมาชิกทั้งหมด"
 msgid "Try a different search, or pick another sport in the sidebar."
 msgstr "ลองค้นหาด้วยคำอื่น หรือเลือกกีฬาอื่นในแถบด้านข้าง"
 
-#: src/components/pages/ClubsListPage.re.mjs:309
-msgid "View club"
-msgstr "ดูสโมสร"
-
-#: src/components/pages/ClubsListPage.re.mjs:487
-#~ msgid "All levels"
-#~ msgstr "ทุกระดับ"
-
-#: src/components/pages/ClubsListPage.re.mjs:481
-#~ msgid "Minimum club level"
-#~ msgstr "ระดับสโมสรขั้นต่ำ"
-
-#: src/components/pages/ClubsListPage.re.mjs:453
-#~ msgid "Sport"
-#~ msgstr "กีฬา"
-
 #: src/components/pages/ClubsListPage.re.mjs:560
 #~ msgid "Try a different sport or a lower level, or clear your filters."
 #~ msgstr "ลองเลือกกีฬาอื่นหรือระดับที่ต่ำกว่า หรือล้างตัวกรองของคุณ"
+
+#: src/components/pages/ClubsListPage.re.mjs:309
+msgid "View club"
+msgstr "ดูสโมสร"

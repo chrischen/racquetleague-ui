@@ -93,6 +93,10 @@ msgstr "个人简介"
 msgid "Biography is required"
 msgstr "简介为必填项"
 
+#: src/components/pages/PkuruLayout.re.mjs:103
+#~ msgid "Browse"
+#~ msgstr "浏览"
+
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "关闭个人资料表单"
@@ -111,8 +115,7 @@ msgid "Complete your player profile"
 msgstr "完善您的球员档案"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
@@ -127,9 +130,7 @@ msgid "Could not save your profile. Please try again."
 msgstr "无法保存您的个人资料，请重试。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid ""
-"Create a hosted event at this time. Others can join, you pick venue and "
-"rules."
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr "在此时间创建一个托管活动，其他人可以加入，由你选择场地和规则。"
 
 #: src/components/pages/PkuruLayout.re.mjs:287
@@ -150,12 +151,8 @@ msgid "Email address"
 msgstr "电子邮件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
-"件地址登录。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮件地址登录。"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -178,6 +175,14 @@ msgstr "活动已取消"
 msgid "Event Uncanceled"
 msgstr "活动已恢复"
 
+#: src/components/molecules/NotificationsPreview.re.mjs:329
+#~ msgid "Event Update"
+#~ msgstr "活动更新"
+
+#: src/components/pages/PkuruLayout.re.mjs:353
+#~ msgid "Events"
+#~ msgstr "活动"
+
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
@@ -193,6 +198,10 @@ msgstr "性别"
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "隐藏"
+
+#: src/components/pages/PkuruLayout.re.mjs:265
+#~ msgid "Host"
+#~ msgstr "主持人"
 
 #: src/components/organisms/NewPlanModal.re.mjs:392
 msgid "Host an event"
@@ -226,6 +235,11 @@ msgstr "安装"
 #: src/components/shared/InstallPwa.re.mjs:481
 msgid "Install Pkuru.com App"
 msgstr "安装 Pkuru.com 应用"
+
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "安装 Racquet League"
 
 #: src/components/molecules/LevelPicker.re.mjs:32
 msgid "Intermediate"
@@ -276,6 +290,10 @@ msgstr "加载中..."
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "长时段空档"
+
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
@@ -292,6 +310,10 @@ msgstr "地图视图"
 msgid "Mark available"
 msgstr "标记为空闲"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "匹配我的时间"
+
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr "上午"
@@ -299,6 +321,10 @@ msgstr "上午"
 #: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
 msgstr "我的俧乐部"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "我的俱乐部"
 
 #: src/components/pages/PkuruLayout.re.mjs:178
 msgid "My events"
@@ -346,6 +372,10 @@ msgstr "通知"
 msgid "Off Waitlist"
 msgstr "已离开候补名单"
 
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "开放"
+
 #: src/components/pages/PkuruLayout.re.mjs:167
 msgid "Personal"
 msgstr "个人"
@@ -367,6 +397,10 @@ msgstr "专业"
 msgid "Profile"
 msgstr "个人资料"
 
+#: src/components/pages/PkuruLayout.re.mjs:190
+#~ msgid "Rankings"
+#~ msgstr "排名"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
 msgid "Remove"
 msgstr "移除"
@@ -387,23 +421,37 @@ msgstr "保存个人资料"
 msgid "Scroll down and tap"
 msgstr "向下滚动并点击"
 
+#: src/components/pages/PkuruLayout.re.mjs:250
+#~ msgid "Search events, venues, hosts..."
+#~ msgstr "搜索活动、场馆、主持人..."
+
 #: src/components/organisms/NewPlanModal.re.mjs:414
 msgid "Select exactly one time window to host an event"
 msgstr "请选择恰好一个时间段来发起活动"
 
+#: src/components/organisms/NavViewer.re.mjs:77
+#~ msgid "Settings"
+#~ msgstr "设置"
+
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
 #: src/components/pages/PkuruLayout.re.mjs:219
 msgid "Sports"
 msgstr "运动"
 
+#: src/components/molecules/NotificationsPreview.re.mjs:332
+#~ msgid "Status Update"
+#~ msgstr "状态更新"
+
 #: src/components/shared/InstallPwa.re.mjs:366
 msgid "Stay in the loop"
 msgstr "保持关注"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "点击任意位置添加时间段"
 
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
@@ -414,9 +462,7 @@ msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid ""
-"Tell others you're down to play. Players with overlapping times can invite "
-"you."
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
 msgstr "告诉其他人你有空打球，时间重叠的玩家可以邀请你。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
@@ -438,60 +484,3 @@ msgstr "在您参加此活动之前，我们需要一些信息"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "你想什么时候打球？"
-
-#: src/components/pages/PkuruLayout.re.mjs:103
-#~ msgid "Browse"
-#~ msgstr "浏览"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:329
-#~ msgid "Event Update"
-#~ msgstr "活动更新"
-
-#: src/components/pages/PkuruLayout.re.mjs:353
-#~ msgid "Events"
-#~ msgstr "活动"
-
-#: src/components/pages/PkuruLayout.re.mjs:265
-#~ msgid "Host"
-#~ msgstr "主持人"
-
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-#~ msgid "Install Racquet League"
-#~ msgstr "安装 Racquet League"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "长时段空档"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "匹配我的时间"
-
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Clubs"
-#~ msgstr "我的俱乐部"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "开放"
-
-#: src/components/pages/PkuruLayout.re.mjs:190
-#~ msgid "Rankings"
-#~ msgstr "排名"
-
-#: src/components/pages/PkuruLayout.re.mjs:250
-#~ msgid "Search events, venues, hosts..."
-#~ msgstr "搜索活动、场馆、主持人..."
-
-#: src/components/organisms/NavViewer.re.mjs:77
-#~ msgid "Settings"
-#~ msgstr "设置"
-
-#: src/components/molecules/NotificationsPreview.re.mjs:332
-#~ msgid "Status Update"
-#~ msgstr "状态更新"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "点击任意位置添加时间段"

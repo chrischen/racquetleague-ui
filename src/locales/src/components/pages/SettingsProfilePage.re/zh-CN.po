@@ -37,6 +37,10 @@ msgstr "澳大利亚"
 msgid "Beginner"
 msgstr "初级"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "个人简介"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "个人简介"
@@ -44,6 +48,10 @@ msgstr "个人简介"
 #: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Canada"
 msgstr "加拿大"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "取消"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -64,6 +72,10 @@ msgstr "连接中..."
 #: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "国家"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "关于您的详细信息"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -89,9 +101,17 @@ msgstr "预估 DUPR"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "全名"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "全名"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "性别"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
@@ -142,9 +162,7 @@ msgid "Notifications"
 msgstr "通知"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid ""
-"Notifications are blocked. To enable them, go to your device or browser "
-"settings and allow notifications for this site."
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
 msgstr "通知已被屏蔽。如需启用，请前往设备或浏览器设置，允许该网站发送通知。"
 
 #: src/components/shared/InstallPwa.re.mjs:289
@@ -155,14 +173,20 @@ msgstr "从主屏幕打开应用并启用通知"
 msgid "Pending"
 msgstr "待审核"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "不愿透露"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "专业"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "个人资料"
+
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid ""
-"Push notifications are blocked. Check your browser or device notification "
-"settings for this site, then try again."
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
 msgstr "推送通知已被屏蔽。请检查该网站的浏览器或设备通知设置，然后重试。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:614
@@ -172,6 +196,10 @@ msgstr "接收赛事提醒和更新的推送通知。"
 #: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "继续注册"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "保存"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
@@ -186,9 +214,7 @@ msgid "seeking a doubles partner"
 msgstr "寻找双打搭档"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "在 RSVP 列表中您的名字旁显示一个徽章，告诉别人您正在寻找搭档"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:419
@@ -198,6 +224,11 @@ msgstr "新加坡"
 #: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活动需要您的真实姓名，如身份证上所示。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "某些活动需要您的真实姓名，如身份证上所示。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
@@ -242,42 +273,3 @@ msgstr "您的 Stripe 账户已连接并可以接收付款。"
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "您的 Stripe 账户已连接但注册尚未完成。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "个人简介"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "取消"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "关于您的详细信息"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "全名"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "性别"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "不愿透露"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "个人资料"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "保存"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid ""
-#~ "Some events require your legal name as shown on an ID "
-#~ "card.omeventsequoegashownour passporta"
-#~ msgstr "某些活动需要您的真实姓名，如身份证上所示。"

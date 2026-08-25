@@ -122,12 +122,8 @@ msgid "72 hours before"
 msgstr "72시간 전"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
-msgstr ""
-"참가자가 등록할 때 환불 가능한 보증금이 청구됩니다. RSVP 목록에서 참가자 이름"
-"을 클릭하여 수동으로 승인할 수 있습니다."
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "참가자가 등록할 때 환불 가능한 보증금이 청구됩니다. RSVP 목록에서 참가자 이름을 클릭하여 수동으로 승인할 수 있습니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:844
 #: src/components/organisms/CreateLocationEventForm.re.mjs:866
@@ -168,9 +164,7 @@ msgid "Cancel deadline (optional)"
 msgstr "취소 마감 시간 (선택사항)"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr "즐거움과 사교에 집중한 캐주얼 플레이. 모든 실력 수준에 적합합니다."
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
@@ -373,11 +367,8 @@ msgid "Require payment from attendees"
 msgstr "참가자에게 결제 요구"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
-msgstr ""
-"순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습"
-"니다."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgstr "순위와 레이팅이 있는 진지한 경기. 게임이 플레이어 레이팅에 영향을 줄 수 있습니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
 msgid "Show less"
@@ -392,9 +383,7 @@ msgid "Start date and time"
 msgstr "시작 날짜 및 시간"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid ""
-"The participation fee is charged automatically and transferred to your "
-"Stripe account."
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
 msgstr "참가비는 자동으로 청구되어 회원님의 Stripe 계정으로 이체됩니다."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015

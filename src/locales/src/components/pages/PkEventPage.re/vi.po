@@ -13,6 +13,46 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:785
+#~ msgid "Badminton"
+#~ msgstr "Cầu lông"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:788
+#~ msgid "Table Tennis"
+#~ msgstr "Bóng bàn"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:791
+#~ msgid "Pickleball"
+#~ msgstr "Pickleball"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:794
+#~ msgid "Futsal"
+#~ msgstr "Futsal"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:797
+#~ msgid "drill"
+#~ msgstr "luyện tập"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:800
+#~ msgid "comp"
+#~ msgstr "thi đấu"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:803
+#~ msgid "rec"
+#~ msgstr "giải trí"
+
+#. js-lingui-explicit-id
+#: src/components/pages/PkEventPage.re.mjs:806
+#~ msgid "all level"
+#~ msgstr "mọi trình độ"
+
 #: src/components/pages/PkEventPage.re.mjs:353
 msgid "...more"
 msgstr "...thêm"
@@ -60,6 +100,10 @@ msgstr "{0} địa điểm"
 msgid "{0} locations"
 msgstr "{0} địa điểm"
 
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "Còn {cancelTimeLeft} để hủy"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
 msgstr "{hs}g"
@@ -93,6 +137,14 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 #: src/components/organisms/PkRSVPSection.re.mjs:510
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc trò chuyện sự kiện."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid "A small hold will be placed on your card and fully refunded after the event."
+#~ msgstr "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy đủ sau sự kiện."
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
@@ -184,13 +236,16 @@ msgstr "ĐÃ HỦY"
 msgid "Cancellation deadline"
 msgstr "Hạn hủy"
 
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "Đã hết hạn hủy"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:385
 msgid "Cancellation deadline passed."
 msgstr "Đã quá hạn hủy."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:275
-msgid ""
-"Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để hủy."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:173
@@ -234,12 +289,13 @@ msgstr "Hoàn tất thanh toán"
 msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "Hoàn thiện hồ sơ của bạn"
+
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
-"tổ chức."
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người tổ chức."
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
 msgid "Computed rating"
@@ -273,11 +329,11 @@ msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 msgid "Court"
 msgstr "Sân"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr "Sân {0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "Sân {0} - Đang chỉnh sửa"
 
@@ -294,12 +350,21 @@ msgstr "Các sân:"
 msgid "Create event"
 msgstr "Tạo sự kiện"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/pages/PkEventPage.re.mjs:410
+#~ msgid "Dallas Flash"
+#~ msgstr "Dallas Flash"
+
+#: src/components/pages/PkEventPage.re.mjs:424
+#~ msgid "Dallas Flash Swag"
+#~ msgstr "Dallas Flash Swag"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "Xóa trận đấu"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
 
@@ -324,7 +389,7 @@ msgstr "DUPR"
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "Chỉnh sửa trận đấu"
 
@@ -333,20 +398,24 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
-"bằng email bạn đang cố dùng ở đây."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "Không thể thay đổi email"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "Cần có email"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "Nhập điểm số trận đấu"
+
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là hòa"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:215
 msgid "even"
@@ -399,6 +468,12 @@ msgstr "Người chơi trình độ cao"
 msgid "How other players will see you"
 msgstr "Cách người chơi khác nhìn thấy bạn"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:432
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "giờ"
+
 #: src/components/molecules/LevelPicker.re.mjs:32
 msgid "Intermediate"
 msgstr "Trung cấp"
@@ -427,6 +502,10 @@ msgstr "Mời người chơi"
 msgid "Invite to {0}"
 msgstr "Mời vào {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "Mời vào {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "Người chơi đã mời và tiềm năng"
@@ -434,6 +513,10 @@ msgstr "Người chơi đã mời và tiềm năng"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "Người chơi được mời đã được chuyển vào danh sách mời của sự kiện."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -451,9 +534,13 @@ msgstr "Vào danh sách chờ (#{0})"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "Vòng cuối"
+
+#: src/components/pages/PkEventPage.re.mjs:423
+#~ msgid "Leave"
+#~ msgstr "Rời"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:350
 #: src/components/organisms/EventStickyFooter.re.mjs:459
@@ -484,7 +571,7 @@ msgstr "Đang tải..."
 msgid "Location"
 msgstr "Địa điểm"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "Đội thua (Đội {0})"
 
@@ -505,6 +592,11 @@ msgstr "Kết quả trận đấu sẽ được gửi lên DUPR."
 msgid "MEDIAN"
 msgstr "TRUNG VỊ"
 
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "phút"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
 msgstr "đa dạng"
@@ -520,20 +612,17 @@ msgstr "Không có sân nào tại {venue} đáp ứng toàn bộ khung thời g
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:512
 msgid "No other nearby venue has a court free for the event's hours."
-msgstr ""
-"Không có địa điểm lân cận nào khác có sân trống trong giờ diễn ra sự kiện."
+msgstr "Không có địa điểm lân cận nào khác có sân trống trong giờ diễn ra sự kiện."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:469
 msgid "No other same-day time at {venue} supports the full event duration."
-msgstr ""
-"Không có khung giờ nào khác trong ngày tại {venue} phù hợp với toàn bộ thời "
-"lượng sự kiện."
+msgstr "Không có khung giờ nào khác trong ngày tại {venue} phù hợp với toàn bộ thời lượng sự kiện."
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi người."
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "Không có điểm"
 
@@ -557,6 +646,10 @@ msgstr "Chưa được xếp hạng"
 msgid "Notes from the host"
 msgstr "Ghi chú từ người tổ chức"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+#~ msgstr "Áo T-Shirt và Mũ lưỡi trai Dallash Flash chính thức — trao tặng cho 4 nam và 4 nữ vận động viên xuất sắc nhất"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "On waitlist"
 msgstr "Đang trong danh sách chờ"
@@ -576,6 +669,10 @@ msgstr "Thời gian khác tại {venue}"
 #: src/components/organisms/PkRSVPSection.re.mjs:414
 msgid "Participants"
 msgstr "Người tham gia"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+#~ msgid "Pay {0}"
+#~ msgstr "Thanh toán {0}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:147
 msgid "Pay {priceStr}"
@@ -613,6 +710,10 @@ msgstr "Chờ phê duyệt"
 msgid "Playoff Draft"
 msgstr "Vòng Chung Kết Draft"
 
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "Không muốn tiết lộ"
+
 #: src/components/pages/PkEventPage.re.mjs:397
 msgid "Presented by"
 msgstr "Được tài trợ bởi"
@@ -643,13 +744,12 @@ msgstr "Kéo để làm mới"
 msgid "Rated"
 msgstr "Có xếp hạng"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
 #: src/components/pages/PkEventPage.re.mjs:715
@@ -665,9 +765,17 @@ msgstr "Đang làm mới…"
 msgid "Refund payment"
 msgstr "Hoàn tiền"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Release spot"
+#~ msgstr "Hủy chỗ"
+
 #: src/components/shared/PullToRefresh.re.mjs:244
 msgid "Release to refresh"
 msgstr "Thả để làm mới"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Releasing..."
+#~ msgstr "Đang hủy..."
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -677,7 +785,7 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "Lặp lại"
 
@@ -714,22 +822,26 @@ msgstr "Bốc thăm Round Robin"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "Lưu"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "Lưu & Tham gia sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "Lưu điểm số"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr "Điểm số"
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "Điểm số"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
 msgid "Self-rating"
@@ -748,12 +860,8 @@ msgid "Share"
 msgstr "Chia sẻ"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
-"họ nên mời bạn."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do họ nên mời bạn."
 
 #: src/components/organisms/PkEventMessages.re.mjs:455
 msgid "Show all {0} items"
@@ -775,6 +883,14 @@ msgstr "BỎ QUA"
 msgid "Skip {0}"
 msgstr "Bỏ qua {0}"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "Logo nhà tài trợ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+#~ msgid "Spot held — pay to confirm"
+#~ msgstr "Đã giữ chỗ — thanh toán để xác nhận"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:554
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
@@ -787,78 +903,62 @@ msgstr "Vuốt để mời"
 msgid "Swipe left to skip · right to invite"
 msgstr "Vuốt trái để bỏ qua · phải để mời"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/ScoreModal.re.mjs:78
+msgid "Team {0}"
+msgstr "Đội {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "ĐỘI 1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "ĐỘI 2"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
-"lịch ban đầu bằng biểu tượng đặt lại vòng."
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên lịch ban đầu bằng biểu tượng đặt lại vòng."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:460
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
-msgstr ""
-"Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
-"người tiếp theo. Bạn có chắc không?"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
+msgstr "Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người tiếp theo. Bạn có chắc không?"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
-msgstr ""
-"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
-"ban tổ chức."
+msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr "Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của ban tổ chức."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:165
-msgid ""
-"This is a deposit hold only — payment is due to the organizer at the event. "
-"The hold will be released after the event."
-msgstr ""
-"Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
-"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
+msgstr "Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
 
 #: src/components/organisms/StripePaymentEmbed.tsx:98
-msgid ""
-"This is a deposit hold only. You still need to pay the organizer in full at "
-"the event. The hold will be released after the event."
-msgstr ""
-"Đây chỉ là khoản giữ chỗ đặt cọc. Bạn vẫn cần thanh toán toàn bộ cho ban tổ "
-"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
+msgstr "Đây chỉ là khoản giữ chỗ đặt cọc. Bạn vẫn cần thanh toán toàn bộ cho ban tổ chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "Đây là cách người khác sẽ thấy bạn"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
-msgid ""
-"This moves the event to another venue and reschedules everyone who already "
-"RSVP'd. Tap again to confirm."
-msgstr ""
-"Thao tác này sẽ chuyển sự kiện sang địa điểm khác và đổi lịch cho tất cả "
-"người đã RSVP. Nhấn lại để xác nhận."
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "Thao tác này sẽ chuyển sự kiện sang địa điểm khác và đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:437
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
-msgstr ""
-"Thao tác này sẽ đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
+msgstr "Thao tác này sẽ đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
-"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "Giải thưởng cầu thủ xuất sắc"
 
 #: src/components/pages/PkEventPage.re.mjs:607
 msgid "uncancel event"
@@ -889,9 +989,9 @@ msgstr "Xem bốc thăm đầy đủ"
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
 
@@ -905,10 +1005,9 @@ msgstr "đã được mời tham gia sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
-msgstr ""
-"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
 
@@ -925,171 +1024,13 @@ msgid "You're in"
 msgstr "Bạn đã tham gia"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ "
-"duyệt."
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ duyệt."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+#~ msgstr "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:785
-#~ msgid "Badminton"
-#~ msgstr "Cầu lông"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:788
-#~ msgid "Table Tennis"
-#~ msgstr "Bóng bàn"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:791
-#~ msgid "Pickleball"
-#~ msgstr "Pickleball"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:794
-#~ msgid "Futsal"
-#~ msgstr "Futsal"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:797
-#~ msgid "drill"
-#~ msgstr "luyện tập"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:800
-#~ msgid "comp"
-#~ msgstr "thi đấu"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:803
-#~ msgid "rec"
-#~ msgstr "giải trí"
-
-#. js-lingui-explicit-id
-#: src/components/pages/PkEventPage.re.mjs:806
-#~ msgid "all level"
-#~ msgstr "mọi trình độ"
-
-#: src/components/pages/PkEventPage.re.mjs:380
-#~ msgid "{cancelTimeLeft} left to cancel"
-#~ msgstr "Còn {cancelTimeLeft} để hủy"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr ""
-#~ "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc "
-#~ "trò chuyện sự kiện."
-
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-#~ msgid ""
-#~ "A small hold will be placed on your card and fully refunded after the "
-#~ "event."
-#~ msgstr ""
-#~ "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy "
-#~ "đủ sau sự kiện."
-
-#: src/components/pages/PkEventPage.re.mjs:379
-#~ msgid "Cancellation deadline passed"
-#~ msgstr "Đã hết hạn hủy"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "Hoàn thiện hồ sơ của bạn"
-
-#: src/components/pages/PkEventPage.re.mjs:410
-#~ msgid "Dallas Flash"
-#~ msgstr "Dallas Flash"
-
-#: src/components/pages/PkEventPage.re.mjs:424
-#~ msgid "Dallas Flash Swag"
-#~ msgstr "Dallas Flash Swag"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "Không thể thay đổi email"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:432
-#: src/components/pages/PkEventPage.re.mjs:366
-#: src/components/pages/PkEventPage.re.mjs:368
-#~ msgid "hr"
-#~ msgstr "giờ"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "Mời vào {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
-
-#: src/components/pages/PkEventPage.re.mjs:423
-#~ msgid "Leave"
-#~ msgstr "Rời"
-
-#: src/components/pages/PkEventPage.re.mjs:361
-#: src/components/pages/PkEventPage.re.mjs:366
-#~ msgid "min"
-#~ msgstr "phút"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
-#~ msgid ""
-#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
-#~ "and top 4 women players"
-#~ msgstr ""
-#~ "Áo T-Shirt và Mũ lưỡi trai Dallash Flash chính thức — trao tặng cho 4 nam "
-#~ "và 4 nữ vận động viên xuất sắc nhất"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:194
-#~ msgid "Pay {0}"
-#~ msgstr "Thanh toán {0}"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "Không muốn tiết lộ"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Release spot"
-#~ msgstr "Hủy chỗ"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Releasing..."
-#~ msgstr "Đang hủy..."
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "Lưu & Tham gia sự kiện"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
-#~ msgid "Sponsor logo"
-#~ msgstr "Logo nhà tài trợ"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:173
-#~ msgid "Spot held — pay to confirm"
-#~ msgstr "Đã giữ chỗ — thanh toán để xác nhận"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "Đây là cách người khác sẽ thấy bạn"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
-#~ msgid "Top Player Awards"
-#~ msgstr "Giải thưởng cầu thủ xuất sắc"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid ""
-#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
-#~ "list."
-#~ msgstr ""
-#~ "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} "
-#~ "~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách "
-#~ "chờ."

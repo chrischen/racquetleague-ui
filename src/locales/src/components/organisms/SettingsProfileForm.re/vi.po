@@ -37,6 +37,10 @@ msgstr "Úc"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "tiểu sử"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "Tiểu sử"
@@ -45,14 +49,17 @@ msgstr "Tiểu sử"
 msgid "Canada"
 msgstr "Canada"
 
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "hủy"
+
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "Hoàn toàn mới bắt đầu"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:347
 msgid "Connect a Stripe account to receive payments from events you organize."
-msgstr ""
-"Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
+msgstr "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:376
 msgid "Connect Stripe account"
@@ -65,6 +72,10 @@ msgstr "Đang kết nối..."
 #: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "Quốc gia"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "thông tin về bản thân"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -90,9 +101,17 @@ msgstr "DUPR ước tính"
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "tên đầy đủ"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "Họ và tên"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "giới tính"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
@@ -143,12 +162,8 @@ msgid "Notifications"
 msgstr "Thông báo"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid ""
-"Notifications are blocked. To enable them, go to your device or browser "
-"settings and allow notifications for this site."
-msgstr ""
-"Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và "
-"cho phép thông báo cho trang này."
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và cho phép thông báo cho trang này."
 
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
@@ -158,17 +173,21 @@ msgstr "Mở ứng dụng từ Màn hình chính và bật thông báo"
 msgid "Pending"
 msgstr "Đang chờ"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "Không muốn tiết lộ"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "hồ sơ"
+
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid ""
-"Push notifications are blocked. Check your browser or device notification "
-"settings for this site, then try again."
-msgstr ""
-"Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc "
-"thiết bị cho trang này, rồi thử lại."
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc thiết bị cho trang này, rồi thử lại."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
@@ -177,6 +196,10 @@ msgstr "Nhận thông báo đẩy về nhắc nhở và cập nhật sự kiện
 #: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "Tiếp tục đăng ký"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "lưu"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
@@ -191,12 +214,8 @@ msgid "seeking a doubles partner"
 msgstr "đang tìm đối tác đánh đôi"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
-msgstr ""
-"hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
-"biết bạn đang tìm đối tác"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgstr "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người biết bạn đang tìm đối tác"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Singapore"
@@ -205,6 +224,11 @@ msgstr "Singapore"
 #: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
+#~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
@@ -249,42 +273,3 @@ msgstr "Tài khoản Stripe của bạn đã được kết nối và sẵn sàn
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "tiểu sử"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "hủy"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "thông tin về bản thân"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "tên đầy đủ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "giới tính"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "Không muốn tiết lộ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "hồ sơ"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "lưu"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid ""
-#~ "Some events require your legal name as shown on an ID "
-#~ "card.omeventsequoegashownour passporta"
-#~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."

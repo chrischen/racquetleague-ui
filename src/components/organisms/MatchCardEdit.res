@@ -1,32 +1,14 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 
 // MatchCardEdit Component - Edit mode for MatchCard
 //
-// This component manages the form state and score inputs for editing a match.
-// It handles score validation and submission of completed matches.
+// Edit mode is for the line-up. Scores are entered through the score modal
+// (tap or long-press a team on the card), so this view only ever displays the
+// recorded score and passes it back through untouched — there is deliberately
+// no second, divergent way to type one in here.
 
 open Rating
-
-@rhf
-type inputsMatch = {
-  scoreLeft: Zod.number,
-  scoreRight: Zod.number,
-}
-
-let schema = Zod.z->Zod.object(
-  (
-    {
-      scoreLeft: Zod.z->Zod.preprocess(
-        a => Float.fromString(a)->Option.getOr(0.),
-        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
-      ),
-      scoreRight: Zod.z->Zod.preprocess(
-        a => Float.fromString(a)->Option.getOr(0.),
-        Zod.z->Zod.number({invalid_type_error: "Enter a number"})->Zod.Number.gte(0.),
-      ),
-    }: inputsMatch
-  ),
-)
 
 @react.component
 let make = (
@@ -40,54 +22,30 @@ let make = (
   ~team2Element: React.element,
 ) => {
   let ts = Lingui.UtilString.t
-  open Form
 
   let (team1, team2) = match
-  let doublesMatch = match->DoublesMatch.fromMatch
-
-  let ratedMatch = doublesMatch->Result.flatMap((((p1, p2), (p3, p4))) =>
-    switch (p1.data, p2.data, p3.data, p4.data) {
-    | (Some(_), Some(_), Some(_), Some(_)) => Ok()
-    | _ => Error(TwoPlayersRequired)
-    }
-  )
-
   let (scoreLeft, scoreRight) = score->Option.getOr((0., 0.))
 
-  let {register, watch, _} = useFormOfInputsMatch(
-    ~options={
-      resolver: Resolver.zodResolver(schema),
-      defaultValues: {
-        scoreLeft,
-        scoreRight,
-      },
-    },
-  )
+  // 1/-1 is the "winner picked, no score entered" encoding used when a team is
+  // tapped rather than scored, the same pair MatchCard hides. Rendering it here
+  // would show a bare "-1" as though it were a real result.
+  let showScore = switch (score, scoreLeft, scoreRight) {
+  | (None, _, _) => false
+  | (Some(_), 1., -1.) => false
+  | (Some(_), -1., 1.) => false
+  | _ => true
+  }
 
-  // Watch the score fields
-  let scoreLeftValue = switch watch(ScoreLeft) {
-  | Some(String(s)) => s->Float.fromString->Option.getOr(0.)
-  | Some(Number(n)) => n
-  | _ => 0.
-  }
-  let scoreRightValue = switch watch(ScoreRight) {
-  | Some(String(s)) => s->Float.fromString->Option.getOr(0.)
-  | Some(Number(n)) => n
-  | _ => 0.
-  }
+  let scoreDisplay = value =>
+    <div className="w-16 text-sm text-center font-bold text-slate-800">
+      {showScore ? value->Float.toString->React.string : <span className="text-slate-300"> {React.string("—")} </span>}
+    </div>
 
   let handleSave = () => {
-    // Keep the original match order - don't swap teams based on winner
-    let match = (team1, team2)
-    let scoreData = (scoreLeftValue, scoreRightValue)
-
-    // Only submit a score if:
-    // 1. All players are selected (ratedMatch is Ok)
-    // 2. There's actually a winner (scores are not both 0 or equal)
-    let hasWinner =
-      scoreLeftValue != scoreRightValue && (scoreLeftValue != 0. || scoreRightValue != 0.)
-
-    onSave((match, ratedMatch->Result.isOk && hasWinner ? Some(scoreData) : None))
+    // Keep the original match order - don't swap teams based on winner, and
+    // hand the recorded score straight back: this view cannot change it, so
+    // re-deriving it here could only ever lose one.
+    onSave(((team1, team2), score))
   }
 
   <div className="bg-white rounded-lg border-2 border-blue-500 shadow-sm overflow-hidden">
@@ -99,12 +57,19 @@ let make = (
       <div className="flex items-center gap-1">
         {onDelete
         ->Option.map(deleteFn =>
-          <button
-            onClick={_ => deleteFn()}
-            className="p-1 text-red-700 hover:bg-red-200 rounded transition-colors"
-            ariaLabel={ts`Delete match`}>
-            <Lucide.Trash2 className="w-4 h-4" />
-          </button>
+          // Same guard as the display view's delete: deleting is destructive
+          // whichever view you happen to be in.
+          <ConfirmButton
+            button={<button
+              type_="button"
+              className="p-1 text-red-700 hover:bg-red-200 rounded transition-colors"
+              ariaLabel={ts`Delete match`}>
+              <Lucide.Trash2 className="w-4 h-4" />
+            </button>}
+            title={t`Delete this match?`}
+            description={t`The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon.`}
+            onConfirmed={deleteFn}
+          />
         )
         ->Option.getOr(React.null)}
         <button
@@ -123,15 +88,7 @@ let make = (
       <div className="p-2 bg-slate-50 flex-1 border-b border-slate-200">
         <div className="flex items-center justify-between mb-2">
           <div className="text-xs font-semibold text-slate-600"> {(ts`TEAM 1`)->React.string} </div>
-          <Input
-            id="scoreLeft"
-            className="w-16 px-2 py-1 text-sm text-center border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder={ts`Score`}
-            type_="number"
-            pattern="[0-9]*"
-            inputMode="numeric"
-            register={register(ScoreLeft)}
-          />
+          {scoreDisplay(scoreLeft)}
         </div>
         <div className="space-y-2"> {team1Element} </div>
       </div>
@@ -148,15 +105,7 @@ let make = (
       <div className="p-2 bg-slate-50 flex-1">
         <div className="flex items-center justify-between mb-2">
           <div className="text-xs font-semibold text-slate-600"> {(ts`TEAM 2`)->React.string} </div>
-          <Input
-            id="scoreRight"
-            className="w-16 px-2 py-1 text-sm text-center border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder={ts`Score`}
-            type_="number"
-            pattern="[0-9]*"
-            inputMode="numeric"
-            register={register(ScoreRight)}
-          />
+          {scoreDisplay(scoreRight)}
         </div>
         <div className="space-y-2"> {team2Element} </div>
       </div>

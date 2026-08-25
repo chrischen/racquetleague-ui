@@ -58,10 +58,8 @@ msgstr ""
 #~ msgstr "Selkirk SLK Era パドル"
 
 #: src/components/pages/LeaguePage.re.mjs:48
-#~ msgid ""
-#~ "This prize will be awarded to the top male and female players on this day."
-#~ msgstr ""
-#~ "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
+#~ msgid "This prize will be awarded to the top male and female players on this day."
+#~ msgstr "この賞品は、この日のトップ男性プレイヤーと女性プレイヤーに授与されます。"
 
 #: src/components/pages/LeaguePage.re.mjs:35
 #~ msgid "Tokyo Badminton League"
@@ -69,8 +67,7 @@ msgstr ""
 
 #: src/components/pages/LeaguePage.re.mjs:71
 #~ msgid "Top female and top male players will each receive the prize."
-#~ msgstr ""
-#~ "トップの女性およびトップの男性プレイヤーがそれぞれ賞品を受け取ります。"
+#~ msgstr "トップの女性およびトップの男性プレイヤーがそれぞれ賞品を受け取ります。"
 
 #: src/components/pages/LeaguePage.re.mjs:130
 #~ msgid "volair pickleball"

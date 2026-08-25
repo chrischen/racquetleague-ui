@@ -235,6 +235,7 @@ function MatchCard(props) {
   };
   var team2 = match[1];
   var team1 = match[0];
+  var unscored = Core__Option.isNone(score);
   var match$3 = Core__Option.getOr(Core__Option.map(score, (function (param) {
               return [
                       param[0],
@@ -249,6 +250,7 @@ function MatchCard(props) {
   var currentWinner = scoreLeftValue > scoreRightValue ? "Left" : (
       scoreRightValue > scoreLeftValue ? "Right" : undefined
     );
+  var isDraw = !unscored && currentWinner === undefined;
   var handleSave = function (param) {
     var updatedScore = param[1];
     var updatedMatch = param[0];
@@ -500,15 +502,19 @@ function MatchCard(props) {
                                                     children: Caml_obj.equal(currentWinner, "Left") ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                             className: "w-5 h-5 text-yellow-500 fill-yellow-500"
                                                           }) : (
-                                                        currentWinner === undefined && team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
-                                                                className: "w-4 h-4 text-blue-500 fill-blue-500"
+                                                        isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
+                                                                className: "w-5 h-5 text-amber-600"
                                                               }) : (
-                                                            currentWinner === undefined && team1History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                    className: "w-4 h-4 text-red-600"
+                                                            unscored && team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
+                                                                    className: "w-4 h-4 text-blue-500 fill-blue-500"
                                                                   }) : (
-                                                                currentWinner === undefined && team1History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                        className: "w-4 h-4 text-amber-600"
-                                                                      }) : null
+                                                                unscored && team1History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                        className: "w-4 h-4 text-red-600"
+                                                                      }) : (
+                                                                    unscored && team1History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                            className: "w-4 h-4 text-amber-600"
+                                                                          }) : null
+                                                                  )
                                                               )
                                                           )
                                                       ),
@@ -588,15 +594,19 @@ function MatchCard(props) {
                                                     children: Caml_obj.equal(currentWinner, "Right") ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                             className: "w-5 h-5 text-yellow-500 fill-yellow-500"
                                                           }) : (
-                                                        currentWinner === undefined && !team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
-                                                                className: "w-4 h-4 text-blue-500 fill-blue-500"
+                                                        isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
+                                                                className: "w-5 h-5 text-amber-600"
                                                               }) : (
-                                                            currentWinner === undefined && team2History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                    className: "w-4 h-4 text-red-600"
+                                                            unscored && !team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
+                                                                    className: "w-4 h-4 text-blue-500 fill-blue-500"
                                                                   }) : (
-                                                                currentWinner === undefined && team2History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                        className: "w-4 h-4 text-amber-600"
-                                                                      }) : null
+                                                                unscored && team2History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                        className: "w-4 h-4 text-red-600"
+                                                                      }) : (
+                                                                    unscored && team2History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                            className: "w-4 h-4 text-amber-600"
+                                                                          }) : null
+                                                                  )
                                                               )
                                                           )
                                                       ),

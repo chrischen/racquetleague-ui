@@ -122,12 +122,8 @@ msgid "72 hours before"
 msgstr "72 ชั่วโมงก่อน"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
-msgstr ""
-"จะมีการเก็บเงินมัดจำที่สามารถคืนได้เมื่อมีผู้เข้าร่วม "
-"คุณสามารถอนุมัติผู้เข้าร่วมด้วยตนเองได้โดยคลิกที่ชื่อในรายการ RSVP"
+msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
+msgstr "จะมีการเก็บเงินมัดจำที่สามารถคืนได้เมื่อมีผู้เข้าร่วม คุณสามารถอนุมัติผู้เข้าร่วมด้วยตนเองได้โดยคลิกที่ชื่อในรายการ RSVP"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:844
 #: src/components/organisms/CreateLocationEventForm.re.mjs:866
@@ -168,9 +164,7 @@ msgid "Cancel deadline (optional)"
 msgstr "กำหนดเวลายกเลิก (ไม่บังคับ)"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Casual play focused on fun and social interaction. Perfect for all skill "
-"levels."
+msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
 msgstr "เล่นแบบสบายๆ เน้นความสนุกและการเข้าสังคม เหมาะกับทุกระดับทักษะ"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
@@ -373,8 +367,7 @@ msgid "Require payment from attendees"
 msgstr "ต้องการการชำระเงินจากผู้เข้าร่วม"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid ""
-"Serious play with rankings and ratings. Games may affect your player rating."
+msgid "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr "การเล่นจริงจังพร้อมอันดับและเรตติ้ง เกมอาจส่งผลต่อเรตติ้งผู้เล่นของคุณ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
@@ -390,9 +383,7 @@ msgid "Start date and time"
 msgstr "วันที่และเวลาเริ่มต้น"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid ""
-"The participation fee is charged automatically and transferred to your "
-"Stripe account."
+msgid "The participation fee is charged automatically and transferred to your Stripe account."
 msgstr "ค่าธรรมเนียมการเข้าร่วมจะถูกเรียกเก็บโดยอัตโนมัติและโอนไปยังบัญชี Stripe ของคุณ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015

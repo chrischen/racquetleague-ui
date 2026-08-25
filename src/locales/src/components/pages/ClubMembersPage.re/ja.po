@@ -17,6 +17,11 @@ msgstr ""
 msgid "Approve"
 msgstr "承認"
 
+#: src/components/pages/ClubMembersPage.re.mjs:179
+#, fuzzy
+#~ msgid "Are you sure you want to remove"
+#~ msgstr "本当に{0}をサークルから削除しますか？"
+
 #: src/components/pages/ClubMembersPage.re.mjs:209
 #: src/components/pages/ClubMembersPage.re.mjs:232
 msgid "Are you sure you want to remove {0} from the club?"
@@ -25,6 +30,10 @@ msgstr "本当に{0}をサークルから削除しますか？"
 #: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
 msgstr "サークルが見つかりません"
+
+#: src/components/pages/ClubMembersPage.re.mjs:183
+#~ msgid "from the club?"
+#~ msgstr "をクラブから削除しますか？"
 
 #: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
@@ -47,12 +56,3 @@ msgstr "削除"
 #: src/components/pages/ClubMembersPage.re.mjs:231
 msgid "Remove member?"
 msgstr "メンバーを削除しますか？"
-
-#: src/components/pages/ClubMembersPage.re.mjs:179
-#, fuzzy
-#~ msgid "Are you sure you want to remove"
-#~ msgstr "本当に{0}をサークルから削除しますか？"
-
-#: src/components/pages/ClubMembersPage.re.mjs:183
-#~ msgid "from the club?"
-#~ msgstr "をクラブから削除しますか？"

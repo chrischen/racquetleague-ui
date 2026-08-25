@@ -80,14 +80,8 @@ msgid "Starting…"
 msgstr "Đang khởi động…"
 
 #: src/components/pages/LoginPage.re.mjs:354
-msgid ""
-"The installed app uses a separate browser, so we'll complete sign-in in your "
-"system browser. Tap the button below, sign in there, and we'll automatically "
-"sign you in here."
-msgstr ""
-"Ứng dụng đã cài đặt sử dụng trình duyệt riêng, vì vậy chúng tôi sẽ hoàn tất "
-"đăng nhập trên trình duyệt hệ thống của bạn. Nhấn nút bên dưới, đăng nhập ở "
-"đó và chúng tôi sẽ tự động đăng nhập cho bạn tại đây."
+msgid "The installed app uses a separate browser, so we'll complete sign-in in your system browser. Tap the button below, sign in there, and we'll automatically sign you in here."
+msgstr "Ứng dụng đã cài đặt sử dụng trình duyệt riêng, vì vậy chúng tôi sẽ hoàn tất đăng nhập trên trình duyệt hệ thống của bạn. Nhấn nút bên dưới, đăng nhập ở đó và chúng tôi sẽ tự động đăng nhập cho bạn tại đây."
 
 #: src/components/pages/LoginPage.re.mjs:399
 msgid "Waiting for sign-in to complete…"
@@ -98,9 +92,5 @@ msgid "Your code"
 msgstr "Mã của bạn"
 
 #: src/components/pages/LoginPage.re.mjs:279
-msgid ""
-"Your LINE account does not have an email associated. Please set an email "
-"address for your account from the LINE app, and then try again."
-msgstr ""
-"Tài khoản LINE của bạn không có email liên kết. Vui lòng đặt địa chỉ email "
-"cho tài khoản của bạn từ ứng dụng LINE, sau đó thử lại."
+msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
+msgstr "Tài khoản LINE của bạn không có email liên kết. Vui lòng đặt địa chỉ email cho tài khoản của bạn từ ứng dụng LINE, sau đó thử lại."

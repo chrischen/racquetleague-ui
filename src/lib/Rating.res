@@ -484,6 +484,11 @@ module Match = {
   }
 
   // Get winners based on score - returns player IDs of the winning team and their score
+  //
+  // On a tied score this arbitrarily labels team2 the "winner". That is fine:
+  // the backend infers draw/winner/loser from the score values alone, so the
+  // winners/losers labels in the submit payload are vestigial. Do not "fix"
+  // the tie case here — order the arrays however, the score is the truth.
   let getWinners = (match: t<'a>, score: (float, float)): (array<string>, float) => {
     let (team1, team2) = match
     let (team1Score, team2Score) = score

@@ -33,6 +33,11 @@ msgstr "[ไม่มีหัวข้อ]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
 
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
+
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
@@ -77,6 +82,10 @@ msgstr "{0} นาที"
 msgid "{0} minutes"
 msgstr "{0} นาที"
 
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
+
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -86,9 +95,18 @@ msgstr "{0}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "กิจกรรม"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
 
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
@@ -175,8 +193,7 @@ msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
+msgid "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
@@ -203,9 +220,7 @@ msgid "Couldn't find this location — pick it:"
 msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid ""
-"Create a hosted event at this time. Others can join, you pick venue and "
-"rules."
+msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
@@ -225,6 +240,10 @@ msgstr "กำลังสร้าง..."
 msgid "Date:"
 msgstr "วันที่:"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
+
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "คำอธิบาย:"
@@ -242,14 +261,16 @@ msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
@@ -323,6 +344,10 @@ msgstr "รักษาโปรไฟล์นักกีฬาของคุ
 msgid "leave event"
 msgstr "ออกจากกิจกรรม"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
+
 #: src/components/organisms/ProfileModal.re.mjs:542
 msgid "Level"
 msgstr "ระดับ"
@@ -332,6 +357,10 @@ msgstr "ระดับ"
 msgid "Location:"
 msgstr "สถานที่:"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "ช่วงเวลาว่างยาว"
+
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "ชาย"
@@ -339,6 +368,10 @@ msgstr "ชาย"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -364,6 +397,10 @@ msgstr "แผนใหม่"
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
@@ -410,9 +447,7 @@ msgid "Select exactly one time window to host an event"
 msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
 #: src/components/organisms/EventsList.re.mjs:381
@@ -431,23 +466,25 @@ msgstr "กิจกรรมที่แนะนำ"
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid ""
-"Tell me the time and place of your event, or any other details. You can also "
-"let me know the details to include and I can even add the translations."
-msgstr ""
-"บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
-"คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
+msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+msgstr "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid ""
-"Tell others you're down to play. Players with overlapping times can invite "
-"you."
+msgid "Tell others you're down to play. Players with overlapping times can invite you."
 msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "เวลา:"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -472,58 +509,3 @@ msgstr "เราต้องการข้อมูลบางอย่าง
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "คุณอยากเล่นเมื่อไหร่?"
-
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "ซ่อนกิ{hiddenCountDesc} {0} รายการ"
-
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0} ส่วนตัว {shadowCountDesc} ถูกซ่อน"
-
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "กิจกรรม"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {จกรรม} other {จกรรม}}"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "บอกรายละเอียดกิจกรรมที่คุณต้องการสร้าง..."
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "บอกเราว่าคุณต้องการเล่นเมื่อไหร่และที่ไหน เราจะช่วยคุณสร้างกิจกรรม "
-#~ "คุณสามารถพูดคุยต่อเพื่อปรับแต่งรายละเอียดได้"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "ช่วงเวลาว่างยาว"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "ตรงกับเวลาของฉัน"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "เปิด"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "เวลา:"

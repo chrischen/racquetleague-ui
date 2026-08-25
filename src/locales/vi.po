@@ -5134,6 +5134,102 @@ msgstr "Cá nhân"
 msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
 msgstr "Những người chơi được xếp hạng cao hơn James Ignatowich có thể nhận được giảm giá lên đến 28% cho vợt RPM từ trang web chính thức của RPM. Đối với nữ, 20 nữ vận động viên hàng đầu có thể nhận được mức giảm giá tương tự. 15% sẽ được áp dụng qua mã PKURU15 và 13% còn lại thông qua hoàn tiền. Vui lòng liên hệ Chris Chen để được hỗ trợ đổi thưởng sau khi đặt hàng. Tất cả các người chơi khác có thể nhận giảm giá 15% cho vợt RPM bất kỳ lúc nào: giảm 15% tại rpmpb.com với mã:"
 
+#: src/components/organisms/ScoreModal.re.mjs:237
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là hòa"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:178
+msgid "{0} ratings"
+msgstr "{0} đánh giá"
+
+#: src/components/organisms/EventManager.re.mjs:508
+msgid "Changes aren't being saved"
+msgstr "Các thay đổi chưa được lưu"
+
+#: src/components/organisms/EventManager.re.mjs:334
+msgid "Connecting…"
+msgstr "Đang kết nối…"
+
+#: src/components/organisms/EventManager.re.mjs:461
+msgid "Delete all data"
+msgstr "Xóa tất cả dữ liệu"
+
+#: src/components/organisms/EventManager.re.mjs:390
+msgid "Delete all saved event data?"
+msgstr "Xóa tất cả dữ liệu sự kiện đã lưu?"
+
+#: src/components/organisms/EventManager.re.mjs:448
+msgid "Everything stored on this device is already synced to the server."
+msgstr "Mọi thứ được lưu trên thiết bị này đã được đồng bộ lên máy chủ."
+
+#: src/components/organisms/EventManager.re.mjs:526
+msgid "Free up space"
+msgstr "Giải phóng dung lượng"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:164
+msgid "Global ratings"
+msgstr "Xếp hạng toàn cầu"
+
+#: src/components/organisms/EventManager.re.mjs:313
+msgid "Not saved"
+msgstr "Chưa lưu"
+
+#: src/components/organisms/EventManager.re.mjs:418
+msgid "Other events on this device"
+msgstr "Các sự kiện khác trên thiết bị này"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
+msgstr "Người chơi bắt đầu với xếp hạng họ đạt được trong câu lạc bộ này; những ai chưa có sẽ bắt đầu từ xếp hạng mặc định. Thay đổi trong sự kiện được tính từ đó."
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:190
+msgid "Players start on their global rating across all clubs."
+msgstr "Người chơi bắt đầu với xếp hạng toàn cầu của họ trên tất cả các câu lạc bộ."
+
+#: src/components/organisms/EventManager.re.mjs:538
+msgid "Retry"
+msgstr "Thử lại"
+
+#: src/components/organisms/EventManager.re.mjs:327
+msgid "Saved"
+msgstr "Đã lưu"
+
+#: src/components/organisms/EventManager.re.mjs:744
+msgid "this club"
+msgstr "câu lạc bộ này"
+
+#: src/components/organisms/EventManager.re.mjs:397
+msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+msgstr "Thao tác này sẽ xóa dữ liệu đã lưu của mọi sự kiện trên thiết bị này, bao gồm cả sự kiện hiện tại. Các sự kiện đã đồng bộ lên máy chủ có thể mở lại; những sự kiện chưa đồng bộ sẽ không thể khôi phục."
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
+msgstr "Các điểm số đó chưa đến được máy chủ. Hãy đồng bộ sự kiện này trước khi xóa, nếu không chúng sẽ bị mất."
+
+#: src/components/organisms/EventManager.re.mjs:445
+msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
+msgstr "Các điểm số đó chưa đến được máy chủ. Hãy đồng bộ sự kiện này, mở từng sự kiện khác và đồng bộ chúng trước khi xóa — nếu không chúng sẽ bị mất."
+
+#: src/components/organisms/EventManager.re.mjs:405
+msgid "Unsynced scores in this event"
+msgstr "Điểm số chưa đồng bộ trong sự kiện này"
+
+#: src/components/organisms/EventManager.re.mjs:431
+msgid "Unsynced scores in those events"
+msgstr "Điểm số chưa đồng bộ trong các sự kiện đó"
+
+#: src/components/organisms/EventManager.re.mjs:490
+msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
+msgstr "Trình duyệt của bạn đang chặn quyền lưu trữ cho trang web này. Nếu bạn đang dùng cửa sổ riêng tư, hãy chuyển sang cửa sổ thường; nếu không, hãy cho phép dữ liệu trang web và tải lại."
+
+#: src/components/organisms/EventManager.re.mjs:493
+msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
+msgstr "Trình duyệt của bạn đã hết dung lượng lưu trữ. Hãy xóa dữ liệu sự kiện cũ để giải phóng dung lượng, rồi thử lại."
+
+#: src/components/organisms/EventManager.re.mjs:496
+msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
+msgstr "Trình duyệt của bạn từ chối lưu sự kiện này. Hãy tải lại trang hoặc thử lại — nếu vẫn thất bại, tránh làm mới trang cho đến khi điểm số được đồng bộ."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

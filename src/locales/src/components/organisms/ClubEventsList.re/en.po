@@ -439,11 +439,11 @@ msgstr ""
 msgid "Court"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr ""
 
@@ -481,12 +481,13 @@ msgstr ""
 #~ msgid "Date:"
 #~ msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr ""
 
@@ -523,7 +524,7 @@ msgstr ""
 msgid "edit event"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr ""
 
@@ -543,8 +544,12 @@ msgstr ""
 msgid "Email is required"
 msgstr ""
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
+msgstr ""
+
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
@@ -724,7 +729,7 @@ msgstr ""
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr ""
 
@@ -775,7 +780,7 @@ msgstr ""
 #~ msgid "Location:"
 #~ msgstr ""
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr ""
 
@@ -846,7 +851,7 @@ msgstr ""
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr ""
 
@@ -994,7 +999,7 @@ msgstr ""
 msgid "Rated"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr ""
 
@@ -1040,7 +1045,7 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr ""
 
@@ -1085,7 +1090,7 @@ msgstr ""
 msgid "Saturday"
 msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr ""
 
@@ -1097,14 +1102,14 @@ msgstr ""
 msgid "Save profile"
 msgstr ""
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr ""
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
 msgid "Self-rating"
@@ -1190,11 +1195,15 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/ScoreModal.re.mjs:78
+msgid "Team {0}"
+msgstr ""
+
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr ""
 
@@ -1202,7 +1211,8 @@ msgstr ""
 #~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 #~ msgstr ""
 
-#: src/components/organisms/MatchCard.re.mjs:440
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
@@ -1302,9 +1312,9 @@ msgstr ""
 msgid "View Profile"
 msgstr ""
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr ""
 
@@ -1340,7 +1350,7 @@ msgstr ""
 msgid "Weekend"
 msgstr ""
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr ""
 

@@ -385,7 +385,8 @@ function PlayerCheckin(props) {
                                   return false;
                                 });
                           }),
-                        getUserFragmentRefs: getUserFragmentRefs
+                        getUserFragmentRefs: getUserFragmentRefs,
+                        seedSourceOption: props.seedSourceOption
                       }) : null,
                 match$2[0] ? JsxRuntime.jsx(SelfCheckinDisplay.make, {
                         onClose: (function () {

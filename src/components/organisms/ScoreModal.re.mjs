@@ -56,6 +56,7 @@ function ScoreModal(props) {
     onClose();
   };
   var canSubmit = Core__Option.isSome(team1Score) && Core__Option.isSome(team2Score);
+  var isDraw = winningScore !== undefined && losingScore !== undefined ? winningScore === losingScore : false;
   var numbers = Core__Array.fromInitializer(31, (function (i) {
           return i;
         }));
@@ -63,6 +64,38 @@ function ScoreModal(props) {
   winningTeamNumber = winningTeam === "Team1" ? 1 : 2;
   var losingTeamNumber;
   losingTeamNumber = winningTeam === "Team1" ? 2 : 1;
+  var teamHeading = function (teamNumber, isWinningSide) {
+    return JsxRuntime.jsxs("div", {
+                children: [
+                  isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
+                          className: "w-5 h-5 text-amber-600"
+                        }) : (
+                      isWinningSide ? JsxRuntime.jsx(LucideReact.Trophy, {
+                              className: "w-5 h-5 text-yellow-500 fill-yellow-500"
+                            }) : null
+                    ),
+                  JsxRuntime.jsx("h3", {
+                        children: isDraw ? t`Team ${teamNumber.toString()}` : (
+                            isWinningSide ? t`Winning Team (Team ${teamNumber.toString()})` : t`Losing Team (Team ${teamNumber.toString()})`
+                          ),
+                        className: isDraw ? "text-lg font-bold text-slate-700" : (
+                            isWinningSide ? "text-lg font-bold text-green-700" : "text-lg font-bold text-slate-600"
+                          )
+                      })
+                ],
+                className: "flex items-center gap-2"
+              });
+  };
+  var match$4 = isDraw ? [
+      "bg-slate-100",
+      "text-slate-700",
+      "bg-slate-600"
+    ] : [
+      "bg-green-100",
+      "text-green-700",
+      "bg-green-600"
+    ];
+  var accentSelected = match$4[2];
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsxs("div", {
                     children: [
@@ -70,9 +103,11 @@ function ScoreModal(props) {
                             children: [
                               JsxRuntime.jsxs("div", {
                                     children: [
-                                      JsxRuntime.jsx(LucideReact.Trophy, {
-                                            className: "w-6 h-6 text-yellow-500"
-                                          }),
+                                      isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
+                                              className: "w-6 h-6 text-amber-600"
+                                            }) : JsxRuntime.jsx(LucideReact.Trophy, {
+                                              className: "w-6 h-6 text-yellow-500"
+                                            }),
                                       JsxRuntime.jsx("h2", {
                                             children: t`Enter Match Score`,
                                             className: "text-xl font-bold text-slate-800"
@@ -97,18 +132,7 @@ function ScoreModal(props) {
                             children: [
                               JsxRuntime.jsxs("div", {
                                     children: [
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx(LucideReact.Trophy, {
-                                                    className: "w-5 h-5 text-yellow-500 fill-yellow-500"
-                                                  }),
-                                              JsxRuntime.jsx("h3", {
-                                                    children: t`Winning Team (Team ${winningTeamNumber.toString()})`,
-                                                    className: "text-lg font-bold text-green-700"
-                                                  })
-                                            ],
-                                            className: "flex items-center gap-2"
-                                          }),
+                                      teamHeading(winningTeamNumber, true),
                                       JsxRuntime.jsx("div", {
                                             children: match$3[0].map(function (player) {
                                                   return JsxRuntime.jsx(PlayerRow.make, {
@@ -127,9 +151,9 @@ function ScoreModal(props) {
                                                         children: Core__Option.getOr(Core__Option.map(winningScore, (function (s) {
                                                                     return s.toString();
                                                                   })), "—"),
-                                                        className: "text-3xl font-bold text-green-700"
+                                                        className: "text-3xl font-bold " + match$4[1]
                                                       }),
-                                                  className: "inline-block px-4 py-2 bg-green-100 rounded-lg"
+                                                  className: "inline-block px-4 py-2 " + match$4[0] + " rounded-lg"
                                                 }),
                                             className: "text-center mb-2"
                                           }),
@@ -140,7 +164,7 @@ function ScoreModal(props) {
                                                             })), false);
                                                   return JsxRuntime.jsx("button", {
                                                               children: num.toString(),
-                                                              className: isSelected ? "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-green-600 text-white" : "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200",
+                                                              className: isSelected ? "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 " + accentSelected + " text-white" : "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200",
                                                               onClick: (function (param) {
                                                                   if (winningTeam === "Team1") {
                                                                     return setTeam1Score(function (param) {
@@ -161,10 +185,7 @@ function ScoreModal(props) {
                                   }),
                               JsxRuntime.jsxs("div", {
                                     children: [
-                                      JsxRuntime.jsx("h3", {
-                                            children: t`Losing Team (Team ${losingTeamNumber.toString()})`,
-                                            className: "text-lg font-bold text-slate-600"
-                                          }),
+                                      teamHeading(losingTeamNumber, false),
                                       JsxRuntime.jsx("div", {
                                             children: match$3[1].map(function (player) {
                                                   return JsxRuntime.jsx(PlayerRow.make, {
@@ -192,7 +213,7 @@ function ScoreModal(props) {
                                       JsxRuntime.jsx("div", {
                                             children: numbers.map(function (num) {
                                                   var isDisabled = Core__Option.getOr(Core__Option.map(winningScore, (function (ws) {
-                                                              return num >= ws;
+                                                              return num > ws;
                                                             })), false);
                                                   var isSelected = Core__Option.getOr(Core__Option.map(losingScore, (function (s) {
                                                               return s === num;
@@ -228,6 +249,15 @@ function ScoreModal(props) {
                           }),
                       JsxRuntime.jsxs("div", {
                             children: [
+                              isDraw ? JsxRuntime.jsxs("span", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.Equal, {
+                                              className: "w-4 h-4"
+                                            }),
+                                        t`Equal scores — this will be recorded as a draw`
+                                      ],
+                                      className: "mr-auto flex items-center gap-1.5 text-sm font-medium text-amber-700"
+                                    }) : null,
                               JsxRuntime.jsxs("button", {
                                     children: [
                                       JsxRuntime.jsx(LucideReact.MinusCircle, {

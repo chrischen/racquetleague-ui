@@ -79,10 +79,14 @@ msgstr "と"
 msgid "cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/SubmitMatch.re.mjs:253
+#: src/components/organisms/SubmitMatch.re.mjs:249
 #: src/components/organisms/SortableSubmitMatch.re.mjs:301
 msgid "Cancel"
 msgstr "キャンセル"
+
+#: src/components/organisms/MatchesView.re.mjs:481
+#~ msgid "Checkin"
+#~ msgstr "チェックイン"
 
 #: src/components/organisms/AiTetsu.re.mjs:1646
 msgid "Checkin All Players"
@@ -146,14 +150,13 @@ msgstr "固定ペア"
 msgid "Gender Mixed Doubles"
 msgstr "男女混合ダブルス"
 
-#: src/components/organisms/SubmitMatch.re.mjs:390
+#: src/components/organisms/SubmitMatch.re.mjs:386
 msgid "Go Back"
 msgstr "戻る"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:38
 msgid "How many players should rest? (currently {0} players are resting)"
-msgstr ""
-"何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
+msgstr "何人のプレイヤーが休むべきですか？（現在{0}人のプレイヤーが休んでいます）"
 
 #: src/components/organisms/AiTetsu.re.mjs:1517
 msgid "Initialize Ratings"
@@ -171,7 +174,7 @@ msgstr "左チームのプレイヤー"
 msgid "Load more matches..."
 msgstr "もっと試合を読み込む..."
 
-#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SubmitMatch.re.mjs:405
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 #: src/components/organisms/AiTetsu.re.mjs:1748
 msgid "Loading"
@@ -204,14 +207,11 @@ msgstr "試合"
 
 #: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr ""
-"マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
+msgstr "マッチは、最大スキルスプレッドが+-1プレイヤーになるように配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr ""
-"マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されま"
-"す。"
+msgstr "マッチは、強いプレイヤーと弱いプレイヤーを混ぜながらスキルによって配置されます。"
 
 #: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
@@ -222,12 +222,8 @@ msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
-msgstr ""
-"キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選"
-"択してください。"
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
+msgstr "キューに十分なプレイヤーがいません。キュータブからプレイしたいプレイヤーを選択してください。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1564
 #: src/components/organisms/AiTetsu.re.mjs:1586
@@ -247,8 +243,7 @@ msgid "Player Name"
 msgstr "プレイヤー名"
 
 #: src/components/organisms/AiTetsu.re.mjs:1360
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
+msgid "Players in a team will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1381
@@ -256,16 +251,15 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "アンチチームのプレイヤーは、試合で一緒に配置されることはありません。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1439
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr "チームのプレイヤーは常に同じ側で一緒に試合に配置されます。"
 
 #: src/components/pages/LeagueEventPage.re.mjs:96
 msgid "please login before managing the session"
 msgstr "セッションを管理する前にログインしてください"
 
-#: src/components/organisms/SubmitMatch.re.mjs:311
-#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SubmitMatch.re.mjs:307
+#: src/components/organisms/SubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
@@ -315,6 +309,10 @@ msgstr "保存"
 msgid "Save"
 msgstr "保存"
 
+#: src/components/organisms/MatchList.re.mjs:292
+#~ msgid "Score:"
+#~ msgstr "スコア:"
+
 #: src/components/organisms/CompMatch.re.mjs:130
 msgid "Select"
 msgstr "選択"
@@ -332,14 +330,8 @@ msgid "Set as Male"
 msgstr "男性に設定"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にしま"
-"す。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部"
-"のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "これを設定すると、現在の休憩中のプレイヤーの数に合わせて、試合数を均等にします。 0に設定して無効にし、代わりに試合の質を最適化しますが、これにより、一部のプレイヤーが他のプレイヤーよりも多くの試合をプレイする可能性があります。"
 
 #: src/components/organisms/AiTetsu.re.mjs:1555
 msgid "Start Session"
@@ -349,7 +341,7 @@ msgstr "セッションを開始"
 msgid "START SESSION"
 msgstr "セッションを開始"
 
-#: src/components/organisms/SubmitMatch.re.mjs:397
+#: src/components/organisms/SubmitMatch.re.mjs:393
 msgid "Submit Rated"
 msgstr "評価を提出"
 
@@ -387,17 +379,9 @@ msgstr "番狂わせ"
 msgid "WIN"
 msgstr "勝ち"
 
-#: src/components/organisms/SubmitMatch.re.mjs:323
-#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "勝者"
-
-#: src/components/organisms/MatchesView.re.mjs:481
-#~ msgid "Checkin"
-#~ msgstr "チェックイン"
-
-#: src/components/organisms/MatchList.re.mjs:292
-#~ msgid "Score:"
-#~ msgstr "スコア:"

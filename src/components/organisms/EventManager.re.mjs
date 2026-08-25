@@ -28,6 +28,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as FullScreenRoundView from "./FullScreenRoundView.re.mjs";
 import * as PlayerSettingsModal from "./PlayerSettingsModal.re.mjs";
+import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as TeamManagementModal from "./TeamManagementModal.re.mjs";
 import * as AddGuestPlayersModal from "./AddGuestPlayersModal.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -35,6 +36,7 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as SeedAdjustmentTimeline from "./SeedAdjustmentTimeline.re.mjs";
 import * as EventManagerPersistence from "./EventManagerPersistence.re.mjs";
 import * as EventManager_event_graphql from "../../__generated__/EventManager_event_graphql.re.mjs";
+import * as EventManagerClubRatingsQuery_graphql from "../../__generated__/EventManagerClubRatingsQuery_graphql.re.mjs";
 import * as EventManagerRsvpsRefetchQuery_graphql from "../../__generated__/EventManagerRsvpsRefetchQuery_graphql.re.mjs";
 import * as EventManagerSubmitMatchMutation_graphql from "../../__generated__/EventManagerSubmitMatchMutation_graphql.re.mjs";
 
@@ -115,48 +117,80 @@ function EventManager$StorageUsageDebug(props) {
       });
   var setEstimate = match[1];
   var estimate_data = match[0];
+  var match$1 = React.useState(function () {
+        return EventManagerPersistence.storedBytes();
+      });
+  var setOwnBytes = match$1[1];
   React.useEffect((function () {
-          Core__Promise.$$catch(navigator.storage.estimate().then(function (est) {
-                    setEstimate(function (param) {
-                          return est;
-                        });
+          var refresh = function () {
+            setOwnBytes(function (param) {
+                  return EventManagerPersistence.storedBytes();
+                });
+            Core__Promise.$$catch(navigator.storage.estimate().then(function (est) {
+                      setEstimate(function (param) {
+                            return est;
+                          });
+                      return Promise.resolve();
+                    }), (function (param) {
                     return Promise.resolve();
-                  }), (function (param) {
-                  return Promise.resolve();
-                }));
+                  }));
+          };
+          refresh();
+          var intervalId = setInterval(refresh, 3000);
+          return (function () {
+                    clearInterval(intervalId);
+                  });
         }), []);
-  if (estimate_data === undefined) {
-    return null;
+  var kb = match$1[0] / 1024.0;
+  var ownLabel = kb < 1024.0 ? kb.toFixed(0) + " KB" : (kb / 1024.0).toFixed(1) + " MB";
+  var tmp;
+  if (estimate_data !== undefined) {
+    var quota = estimate_data.quota;
+    var usage = estimate_data.usage;
+    var usageMB = usage / (1024.0 * 1024.0);
+    var quotaMB = quota / (1024.0 * 1024.0);
+    var percentage = quota > 0.0 ? usage / quota * 100.0 : 0.0;
+    var barColor = percentage > 90.0 ? "bg-red-500" : (
+        percentage > 70.0 ? "bg-amber-500" : "bg-blue-500"
+      );
+    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            JsxRuntime.jsx("span", {
+                  children: "|",
+                  className: "text-xs text-slate-500"
+                }),
+            JsxRuntime.jsx("span", {
+                  children: "site " + usageMB.toFixed(1) + "/" + quotaMB.toFixed(0) + " MB",
+                  className: "text-xs text-slate-400 whitespace-nowrap",
+                  title: "Whole-origin usage reported by the browser. Includes caches and other storage this reset cannot clear."
+                }),
+            JsxRuntime.jsx("div", {
+                  children: JsxRuntime.jsx("div", {
+                        className: barColor + " h-2 rounded-full transition-all duration-300",
+                        style: {
+                          width: percentage.toFixed(1) + "%"
+                        }
+                      }),
+                  className: "w-16 bg-slate-600 rounded-full h-2 overflow-hidden"
+                }),
+            JsxRuntime.jsx("span", {
+                  children: percentage.toFixed(1) + "%",
+                  className: "text-xs text-slate-400 whitespace-nowrap"
+                })
+          ]
+        });
+  } else {
+    tmp = null;
   }
-  var quota = estimate_data.quota;
-  var usage = estimate_data.usage;
-  var usageMB = usage / (1024.0 * 1024.0);
-  var quotaMB = quota / (1024.0 * 1024.0);
-  var percentage = quota > 0.0 ? usage / quota * 100.0 : 0.0;
-  var barColor = percentage > 90.0 ? "bg-red-500" : (
-      percentage > 70.0 ? "bg-amber-500" : "bg-blue-500"
-    );
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("span", {
-                      children: usageMB.toFixed(1) + "/" + quotaMB.toFixed(0) + " MB",
-                      className: "text-xs text-slate-300 whitespace-nowrap"
+                      children: "events " + ownLabel,
+                      className: "text-xs font-medium text-slate-200 whitespace-nowrap"
                     }),
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsx("div", {
-                            className: barColor + " h-2 rounded-full transition-all duration-300",
-                            style: {
-                              width: percentage.toFixed(1) + "%"
-                            }
-                          }),
-                      className: "flex-1 bg-slate-600 rounded-full h-2 overflow-hidden"
-                    }),
-                JsxRuntime.jsx("span", {
-                      children: percentage.toFixed(1) + "%",
-                      className: "text-xs text-slate-300 whitespace-nowrap"
-                    })
+                tmp
               ],
-              className: "flex items-center gap-2 px-3 py-1 rounded bg-slate-700 min-w-[180px]"
+              className: "flex items-center gap-2 px-3 py-1 rounded bg-slate-700"
             });
 }
 
@@ -221,7 +255,7 @@ function EventManager$StorageLowWarning(props) {
                             className: "flex items-center gap-3 mb-4"
                           }),
                       JsxRuntime.jsx("p", {
-                            children: "Your browser storage is " + percentage.toFixed(1) + "% full. The app may lose data if storage runs out. Clear old event data to free up space.",
+                            children: "Your browser storage is " + percentage.toFixed(1) + "% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes.",
                             className: "text-sm text-slate-600 mb-4"
                           }),
                       JsxRuntime.jsx("div", {
@@ -245,7 +279,7 @@ function EventManager$StorageLowWarning(props) {
                                       })
                                   }),
                               JsxRuntime.jsx("button", {
-                                    children: "Clear Event Data",
+                                    children: "Free Up Space",
                                     className: "px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors",
                                     onClick: (function (param) {
                                         onClearData();
@@ -266,6 +300,268 @@ function EventManager$StorageLowWarning(props) {
 
 var StorageLowWarning = {
   make: EventManager$StorageLowWarning
+};
+
+function EventManager$PersistenceChip(props) {
+  var onShowError = props.onShowError;
+  var health = props.health;
+  var match = health.failure !== undefined ? [
+      "bg-red-600 hover:bg-red-700 text-white cursor-pointer",
+      JsxRuntime.jsx(LucideReact.AlertTriangle, {
+            className: "w-4 h-4"
+          }),
+      t`Not saved`
+    ] : (
+      health.ready ? (
+          health.activity === "saving" ? [
+              "bg-slate-700 text-slate-300",
+              JsxRuntime.jsx(LucideReact.Loader2, {
+                    className: "w-4 h-4 animate-spin"
+                  }),
+              t`Saving…`
+            ] : [
+              "bg-slate-700 text-emerald-400",
+              JsxRuntime.jsx(LucideReact.Check, {
+                    className: "w-4 h-4"
+                  }),
+              t`Saved`
+            ]
+        ) : [
+          "bg-slate-700 text-slate-300",
+          JsxRuntime.jsx(LucideReact.Loader2, {
+                className: "w-4 h-4 animate-spin"
+              }),
+          t`Connecting…`
+        ]
+    );
+  var match$1 = health.failure;
+  var isFailed = match$1 !== undefined;
+  return JsxRuntime.jsxs("button", {
+              children: [
+                match[1],
+                JsxRuntime.jsx("span", {
+                      children: match[2],
+                      className: "text-sm font-medium"
+                    })
+              ],
+              className: "flex items-center gap-2 px-3 py-2 rounded-lg transition-colors " + match[0],
+              disabled: !isFailed,
+              onClick: (function (param) {
+                  if (isFailed) {
+                    return onShowError();
+                  }
+                  
+                })
+            });
+}
+
+var PersistenceChip = {
+  make: EventManager$PersistenceChip
+};
+
+function EventManager$ClearAllStorageModal(props) {
+  var onCancel = props.onCancel;
+  var onConfirm = props.onConfirm;
+  var currentEventId = props.currentEventId;
+  var match = React.useState(function () {
+        return EventManagerPersistence.summarizeStoredData(currentEventId);
+      });
+  var summary = match[0];
+  var atRisk = summary.currentUnsyncedMatchCount + summary.otherUnsyncedMatchCount | 0;
+  var countClass = function (count) {
+    if (count > 0) {
+      return "font-semibold text-red-600";
+    } else {
+      return "font-semibold text-slate-900";
+    }
+  };
+  return JsxRuntime.jsx("div", {
+              children: JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("div", {
+                                    children: JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                          className: "w-5 h-5 text-red-600"
+                                        }),
+                                    className: "flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center"
+                                  }),
+                              JsxRuntime.jsx("h2", {
+                                    children: t`Delete all saved event data?`,
+                                    className: "text-lg font-bold text-slate-900"
+                                  })
+                            ],
+                            className: "flex items-center gap-3 mb-4"
+                          }),
+                      JsxRuntime.jsx("p", {
+                            children: t`This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered.`,
+                            className: "text-sm text-slate-600 mb-4"
+                          }),
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            children: t`Unsynced scores in this event`,
+                                            className: "text-slate-600"
+                                          }),
+                                      JsxRuntime.jsx("span", {
+                                            children: summary.currentUnsyncedMatchCount.toString(),
+                                            className: countClass(summary.currentUnsyncedMatchCount)
+                                          })
+                                    ],
+                                    className: "flex items-center justify-between"
+                                  }),
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            children: t`Other events on this device`,
+                                            className: "text-slate-600"
+                                          }),
+                                      JsxRuntime.jsx("span", {
+                                            children: summary.otherEventCount.toString(),
+                                            className: "font-semibold text-slate-900"
+                                          })
+                                    ],
+                                    className: "flex items-center justify-between mt-2"
+                                  }),
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            children: t`Unsynced scores in those events`,
+                                            className: "text-slate-600"
+                                          }),
+                                      JsxRuntime.jsx("span", {
+                                            children: summary.otherUnsyncedMatchCount.toString(),
+                                            className: countClass(summary.otherUnsyncedMatchCount)
+                                          })
+                                    ],
+                                    className: "flex items-center justify-between mt-2"
+                                  })
+                            ],
+                            className: "rounded-lg border border-slate-200 bg-slate-50 p-3 mb-4 text-sm"
+                          }),
+                      atRisk > 0 ? JsxRuntime.jsx("p", {
+                              children: summary.otherUnsyncedMatchCount > 0 ? t`Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost.` : t`Those scores have not reached the server. Sync this event before deleting, or they will be lost.`,
+                              className: "text-sm font-medium text-red-700 mb-5"
+                            }) : JsxRuntime.jsx("p", {
+                              children: t`Everything stored on this device is already synced to the server.`,
+                              className: "text-sm text-slate-600 mb-5"
+                            }),
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("button", {
+                                    children: t`Cancel`,
+                                    className: "px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors",
+                                    onClick: (function (param) {
+                                        onCancel();
+                                      })
+                                  }),
+                              JsxRuntime.jsx("button", {
+                                    children: t`Delete all data`,
+                                    className: "px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors",
+                                    onClick: (function (param) {
+                                        onConfirm();
+                                      })
+                                  })
+                            ],
+                            className: "flex justify-end gap-3"
+                          })
+                    ],
+                    className: "bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 p-6"
+                  }),
+              className: "fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+            });
+}
+
+var ClearAllStorageModal = {
+  make: EventManager$ClearAllStorageModal
+};
+
+function EventManager$PersistenceErrorBanner(props) {
+  var failure = props.failure;
+  var kind = failure[0];
+  var onDismiss = props.onDismiss;
+  var onFreeUpSpace = props.onFreeUpSpace;
+  var onRetry = props.onRetry;
+  var explanation;
+  switch (kind) {
+    case "StorageUnavailable" :
+        explanation = t`Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload.`;
+        break;
+    case "QuotaExceeded" :
+        explanation = t`Your browser is out of storage space. Clear old event data to free up space, then retry.`;
+        break;
+    case "UnknownFailure" :
+        explanation = t`Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced.`;
+        break;
+    
+  }
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                      className: "w-5 h-5 text-red-600 flex-shrink-0 mt-0.5"
+                    }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("p", {
+                              children: t`Changes aren't being saved`,
+                              className: "text-sm font-semibold text-red-900"
+                            }),
+                        JsxRuntime.jsx("p", {
+                              children: explanation,
+                              className: "mt-1 text-sm text-red-800"
+                            }),
+                        JsxRuntime.jsx("p", {
+                              children: failure[1],
+                              className: "mt-1 text-xs text-red-600 break-words"
+                            }),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                kind === "QuotaExceeded" ? JsxRuntime.jsxs("button", {
+                                        children: [
+                                          JsxRuntime.jsx(LucideReact.Trash2, {
+                                                className: "w-4 h-4"
+                                              }),
+                                          t`Free up space`
+                                        ],
+                                        className: "flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors",
+                                        onClick: (function (param) {
+                                            onFreeUpSpace();
+                                          })
+                                      }) : null,
+                                JsxRuntime.jsxs("button", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.RefreshCw, {
+                                              className: "w-4 h-4"
+                                            }),
+                                        t`Retry`
+                                      ],
+                                      className: kind === "QuotaExceeded" ? "flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-700 bg-red-100 hover:bg-red-200 rounded-lg transition-colors" : "flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors",
+                                      onClick: (function (param) {
+                                          onRetry();
+                                        })
+                                    }),
+                                JsxRuntime.jsx("button", {
+                                      children: t`Dismiss`,
+                                      className: "px-3 py-1.5 text-sm font-medium text-red-700 bg-red-100 hover:bg-red-200 rounded-lg transition-colors",
+                                      onClick: (function (param) {
+                                          onDismiss();
+                                        })
+                                    })
+                              ],
+                              className: "mt-3 flex flex-wrap gap-3"
+                            })
+                      ],
+                      className: "flex-1 min-w-0"
+                    })
+              ],
+              className: "mx-6 mt-4 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3"
+            });
+}
+
+var PersistenceErrorBanner = {
+  make: EventManager$PersistenceErrorBanner
 };
 
 function EventManager$OverallAverageQualityDebug(props) {
@@ -351,6 +647,85 @@ var OverallAverageQualityDebug = {
   make: EventManager$OverallAverageQualityDebug
 };
 
+var clubRatingNamespace = "doubles:comp";
+
+var convertVariables$1 = EventManagerClubRatingsQuery_graphql.Internal.convertVariables;
+
+var convertResponse$1 = EventManagerClubRatingsQuery_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = EventManagerClubRatingsQuery_graphql.Internal.convertWrapRawResponse;
+
+var use$2 = RescriptRelay_Query.useQuery(convertVariables$1, EventManagerClubRatingsQuery_graphql.node, convertResponse$1);
+
+var useLoader = RescriptRelay_Query.useLoader(convertVariables$1, EventManagerClubRatingsQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
+
+var usePreloaded = RescriptRelay_Query.usePreloaded(EventManagerClubRatingsQuery_graphql.node, convertResponse$1, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch = RescriptRelay_Query.$$fetch(EventManagerClubRatingsQuery_graphql.node, convertResponse$1, convertVariables$1);
+
+var fetchPromised = RescriptRelay_Query.fetchPromised(EventManagerClubRatingsQuery_graphql.node, convertResponse$1, convertVariables$1);
+
+var retain = RescriptRelay_Query.retain(EventManagerClubRatingsQuery_graphql.node, convertVariables$1);
+
+var ClubRatingsQuery = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  use: use$2,
+  useLoader: useLoader,
+  usePreloaded: usePreloaded,
+  $$fetch: $$fetch,
+  fetchPromised: fetchPromised,
+  retain: retain
+};
+
+function EventManager$ClubRatingsLoader(props) {
+  var onLoaded = props.onLoaded;
+  var data = use$2({
+        activitySlug: props.activitySlug,
+        clubId: props.clubId,
+        eventId: props.eventId,
+        namespace: clubRatingNamespace
+      }, undefined, undefined, undefined);
+  React.useEffect((function () {
+          var ratings = Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(data.event, (function ($$event) {
+                              return $$event.rsvps;
+                            })), (function (rsvps) {
+                          return rsvps.edges;
+                        })), []), (function (edge) {
+                  return Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(edge, (function (edge) {
+                                        return edge.node;
+                                      })), (function (node) {
+                                    return node.user;
+                                  })), (function (user) {
+                                return Core__Option.flatMap(user.rating, (function (rating) {
+                                              return Core__Option.map(rating.mu, (function (mu) {
+                                                            return [
+                                                                    user.id,
+                                                                    [
+                                                                      mu,
+                                                                      Core__Option.getOr(rating.sigma, 8.333)
+                                                                    ]
+                                                                  ];
+                                                          }));
+                                            }));
+                              }));
+                }));
+          onLoaded(ratings);
+        }), []);
+  return null;
+}
+
+var ClubRatingsLoader = {
+  make: EventManager$ClubRatingsLoader
+};
+
 function EventManager(props) {
   var __debug = props.debug;
   var eventId = props.eventId;
@@ -360,6 +735,25 @@ function EventManager(props) {
   var commitMutationCreateLeagueMatch = match[0];
   var eventTags = Core__Option.getOr(data.tags, []);
   var eventNamespace = eventTags.includes("comp") ? "doubles:comp" : "doubles:rec";
+  var match$1 = data.club;
+  var match$2 = Core__Option.flatMap(data.activity, (function (a) {
+          return a.slug;
+        }));
+  var clubRatingSource = match$1 !== undefined && match$2 !== undefined ? [
+      match$1.id,
+      Core__Option.getOr(match$1.name, t`this club`),
+      match$2
+    ] : undefined;
+  var match$3 = React.useState(function () {
+        return "GlobalRatings";
+      });
+  var setSeedSource = match$3[1];
+  var seedSource = match$3[0];
+  var match$4 = React.useState(function () {
+        
+      });
+  var setClubRatings = match$4[1];
+  var clubRatings = match$4[0];
   var eventStartTime = Core__Option.getOr(Core__Option.map(data.startDate, Util.Datetime.toDate), new Date());
   var submitMatch = function (match, score, activitySlug, matchId, createdAt) {
     var match$1 = Rating.Match.getWinners(match, score);
@@ -397,20 +791,40 @@ function EventManager(props) {
                         }), undefined);
                 }));
   };
-  var match$1 = React.useState(function () {
+  var match$5 = React.useState(function () {
         return debug;
       });
-  var setDebugMode = match$1[1];
-  var debugMode = match$1[0];
-  var match$2 = React.useState(function () {
+  var setDebugMode = match$5[1];
+  var debugMode = match$5[0];
+  var match$6 = React.useState(function () {
         return "Idle";
       });
-  var setSyncState = match$2[1];
-  var syncState = match$2[0];
-  var match$3 = React.useState(function () {
+  var setSyncState = match$6[1];
+  var syncState = match$6[0];
+  var match$7 = React.useState(function () {
         return 0;
       });
-  var setSyncProgress = match$3[1];
+  var setSyncProgress = match$7[1];
+  var persistenceHealth = EventManagerPersistence.Health.use();
+  var match$8 = React.useState(function () {
+        
+      });
+  var setDismissedFailure = match$8[1];
+  var match$9 = React.useState(function () {
+        return false;
+      });
+  var setShowClearAllStorage = match$9[1];
+  var match$10 = persistenceHealth.failure;
+  var visibleFailure;
+  if (match$10 !== undefined) {
+    var detail = match$10[1];
+    visibleFailure = Caml_obj.notequal(match$8[0], detail) ? [
+        match$10[0],
+        detail
+      ] : undefined;
+  } else {
+    visibleFailure = undefined;
+  }
   React.useEffect((function () {
           switch (syncState) {
             case "Idle" :
@@ -433,25 +847,53 @@ function EventManager(props) {
                     clearTimeout(timeoutId);
                   });
         }), [syncState]);
-  var match$4 = React.useState(function () {
+  var match$11 = React.useState(function () {
         return [];
       });
-  var setGuestPlayers = match$4[1];
-  var guestPlayers = match$4[0];
-  var match$5 = React.useState(function () {
+  var setGuestPlayers = match$11[1];
+  var guestPlayers = match$11[0];
+  var match$12 = React.useState(function () {
         return 9000;
       });
-  var setNextGuestId = match$5[1];
-  var nextGuestId = match$5[0];
-  var match$6 = React.useState(function () {
+  var setNextGuestId = match$12[1];
+  var nextGuestId = match$12[0];
+  var match$13 = React.useState(function () {
         return false;
       });
-  var setShowAddGuestsModal = match$6[1];
-  var match$7 = React.useState(function () {
+  var setShowAddGuestsModal = match$13[1];
+  var match$14 = React.useState(function () {
         return {};
       });
-  var setPlayerOverrides = match$7[1];
-  var playerOverrides = match$7[0];
+  var setPlayerOverrides = match$14[1];
+  var playerOverrides = match$14[0];
+  var baseRatingFor = function (userId, rsvpRating) {
+    var defaultRating = Rating.Rating.makeDefault();
+    if (seedSource !== "GlobalRatings" && clubRatings !== undefined) {
+      var match = Js_dict.get(clubRatings, userId);
+      if (match !== undefined) {
+        return [
+                match[0],
+                match[1],
+                0.0
+              ];
+      } else {
+        return [
+                defaultRating.mu,
+                defaultRating.sigma,
+                0.0
+              ];
+      }
+    }
+    if (rsvpRating !== undefined) {
+      return rsvpRating;
+    } else {
+      return [
+              defaultRating.mu,
+              defaultRating.sigma,
+              0.0
+            ];
+    }
+  };
   var players = React.useMemo((function () {
           return Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(data.rsvps, (function (rsvps) {
                                       return rsvps.edges;
@@ -473,16 +915,13 @@ function EventManager(props) {
                                             var overridePaid = Core__Option.flatMap(override, (function (o) {
                                                     return o.paid;
                                                   }));
-                                            var rating = rsvp.rating;
-                                            var match = rating !== undefined ? [
-                                                Core__Option.getOr(rating.mu, 25.0),
-                                                Core__Option.getOr(rating.sigma, 8.333),
-                                                Core__Option.getOr(rating.ordinal, 0.0)
-                                              ] : [
-                                                25.0,
-                                                8.333,
-                                                0.0
-                                              ];
+                                            var match = baseRatingFor(user.id, Core__Option.map(rsvp.rating, (function (rating) {
+                                                        return [
+                                                                Core__Option.getOr(rating.mu, 25.0),
+                                                                Core__Option.getOr(rating.sigma, 8.333),
+                                                                Core__Option.getOr(rating.ordinal, 0.0)
+                                                              ];
+                                                      })));
                                             var match$1 = user.gender;
                                             var tmp;
                                             tmp = match$1 !== undefined && (match$1 === "female" || match$1 === "male") && match$1 === "female" ? "Female" : "Male";
@@ -525,28 +964,30 @@ function EventManager(props) {
         data.rsvps,
         guestPlayers,
         playerOverrides,
-        nextGuestId
+        nextGuestId,
+        seedSource,
+        clubRatings
       ]);
-  var match$8 = React.useState(function () {
+  var match$15 = React.useState(function () {
         return [];
       });
-  var setRounds = match$8[1];
-  var rounds = match$8[0];
-  var match$9 = React.useState(function () {
+  var setRounds = match$15[1];
+  var rounds = match$15[0];
+  var match$16 = React.useState(function () {
         return false;
       });
-  var setIsDirty = match$9[1];
-  var isDirty = match$9[0];
-  var match$10 = React.useState(function () {
+  var setIsDirty = match$16[1];
+  var isDirty = match$16[0];
+  var match$17 = React.useState(function () {
         return new Set();
       });
-  var setCheckedInPlayerIds = match$10[1];
-  var checkedInPlayerIds = match$10[0];
-  var match$11 = React.useState(function () {
+  var setCheckedInPlayerIds = match$17[1];
+  var checkedInPlayerIds = match$17[0];
+  var match$18 = React.useState(function () {
         return 0;
       });
-  var setCurrentRoundInt = match$11[1];
-  var currentRoundInt = match$11[0];
+  var setCurrentRoundInt = match$18[1];
+  var currentRoundInt = match$18[0];
   var currentRoundRef = React.useRef(null);
   var allGoingOrPending = Core__Option.getOr(Core__Option.flatMap(data.rsvps, (function (rsvps) {
                 return rsvps.edges;
@@ -563,26 +1004,26 @@ function EventManager(props) {
       }).length;
   var max = data.maxRsvps;
   var goingPlayerCount = max !== undefined ? Math.min(allGoingOrPending, max) : allGoingOrPending;
-  var match$12 = React.useState(function () {
+  var match$19 = React.useState(function () {
         return Rating.suggestedCourtCount(goingPlayerCount);
       });
-  var setCourtCount = match$12[1];
-  var courtCount = match$12[0];
+  var setCourtCount = match$19[1];
+  var courtCount = match$19[0];
   var modernizeStrategy = function (s) {
     if (HighsBindings.isAvailable()) {
       switch (s) {
         case "Mixed" :
         case "Random" :
             return "SolverRandomBalanced";
+        case "CompetitivePlus" :
+        case "Competitive" :
+        case "DUPR" :
+            return "SolverCompetitivePlus";
         case "RoundRobin" :
         case "NoveltyRoundRobin" :
             return "SolverRoundRobin";
-        case "SolverRoundRobin" :
-        case "SolverRandomBalanced" :
-        case "SolverCompetitivePlus" :
-            return s;
         default:
-          return "SolverCompetitivePlus";
+          return s;
       }
     } else {
       switch (s) {
@@ -597,16 +1038,16 @@ function EventManager(props) {
       }
     }
   };
-  var match$13 = React.useState(function () {
+  var match$20 = React.useState(function () {
         return modernizeStrategy("CompetitivePlus");
       });
-  var setStrategy = match$13[1];
-  var strategy = match$13[0];
-  var match$14 = React.useState(function () {
+  var setStrategy = match$20[1];
+  var strategy = match$20[0];
+  var match$21 = React.useState(function () {
         return 1;
       });
-  var setDrawSeed = match$14[1];
-  var drawSeed = match$14[0];
+  var setDrawSeed = match$21[1];
+  var drawSeed = match$21[0];
   var generationSeed = data.id + ":" + drawSeed.toString();
   var handleNewSeed = function () {
     var next = Js_math.random_int(1, 100000);
@@ -618,21 +1059,21 @@ function EventManager(props) {
           return true;
         });
   };
-  var match$15 = React.useState(function () {
+  var match$22 = React.useState(function () {
         
       });
-  var setWeightConfig = match$15[1];
-  var weightConfig = match$15[0];
-  var match$16 = React.useState(function () {
+  var setWeightConfig = match$22[1];
+  var weightConfig = match$22[0];
+  var match$23 = React.useState(function () {
         return false;
       });
-  var setIsGenerating = match$16[1];
-  var isGenerating = match$16[0];
-  var match$17 = React.useState(function () {
+  var setIsGenerating = match$23[1];
+  var isGenerating = match$23[0];
+  var match$24 = React.useState(function () {
         return 0;
       });
-  var setHistoryRevision = match$17[1];
-  var historyRevision = match$17[0];
+  var setHistoryRevision = match$24[1];
+  var historyRevision = match$24[0];
   var bumpHistoryRevision = function () {
     setHistoryRevision(function (prev) {
           return prev + 1 | 0;
@@ -643,16 +1084,16 @@ function EventManager(props) {
     generationRequestRef.current = generationRequestRef.current + 1 | 0;
     return generationRequestRef.current;
   };
-  var match$18 = React.useState(function () {
+  var match$25 = React.useState(function () {
         return {};
       });
-  var setSolverMatchViolations = match$18[1];
-  var solverMatchViolations = match$18[0];
-  var match$19 = React.useState(function () {
+  var setSolverMatchViolations = match$25[1];
+  var solverMatchViolations = match$25[0];
+  var match$26 = React.useState(function () {
         return {};
       });
-  var setSolverRoundViolations = match$19[1];
-  var solverRoundViolations = match$19[0];
+  var setSolverRoundViolations = match$26[1];
+  var solverRoundViolations = match$26[0];
   var setAndSaveSolverMatchViolations = function (updater) {
     setSolverMatchViolations(function (prev) {
           var next = updater(prev);
@@ -667,41 +1108,41 @@ function EventManager(props) {
           return next;
         });
   };
-  var match$20 = React.useState(function () {
+  var match$27 = React.useState(function () {
         return true;
       });
-  var setSolverNoticeDismissed = match$20[1];
-  var match$21 = React.useState(function () {
+  var setSolverNoticeDismissed = match$27[1];
+  var match$28 = React.useState(function () {
         return [];
       });
-  var setRatingAdjustmentHistory = match$21[1];
-  var ratingAdjustmentHistory = match$21[0];
-  var match$22 = React.useState(function () {
+  var setRatingAdjustmentHistory = match$28[1];
+  var ratingAdjustmentHistory = match$28[0];
+  var match$29 = React.useState(function () {
         return Util.NonEmptyArray.empty;
       });
-  var setTeams = match$22[1];
-  var teams = match$22[0];
-  var match$23 = React.useState(function () {
+  var setTeams = match$29[1];
+  var teams = match$29[0];
+  var match$30 = React.useState(function () {
         return Util.NonEmptyArray.empty;
       });
-  var setAntiTeams = match$23[1];
-  var antiTeams = match$23[0];
-  var match$24 = React.useState(function () {
+  var setAntiTeams = match$30[1];
+  var antiTeams = match$30[0];
+  var match$31 = React.useState(function () {
         return false;
       });
-  var setTeamManagementOpen = match$24[1];
-  var match$25 = React.useState(function () {
+  var setTeamManagementOpen = match$31[1];
+  var match$32 = React.useState(function () {
         
       });
-  var setPlayerSettingsOpen = match$25[1];
-  var match$26 = React.useState(function () {
+  var setPlayerSettingsOpen = match$32[1];
+  var match$33 = React.useState(function () {
         return false;
       });
-  var setShowFullScreenRound = match$26[1];
-  var match$27 = React.useState(function () {
+  var setShowFullScreenRound = match$33[1];
+  var match$34 = React.useState(function () {
         return false;
       });
-  var setShowPrintableDraws = match$27[1];
+  var setShowPrintableDraws = match$34[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -741,6 +1182,9 @@ function EventManager(props) {
           if (storedStrategy !== rawStoredStrategy) {
             EventManagerPersistence.saveStrategy(data.id, storedStrategy);
           }
+          setSeedSource(function (param) {
+                return EventManagerPersistence.loadSeedSource(data.id);
+              });
           setDrawSeed(function (param) {
                 return EventManagerPersistence.loadDrawSeed(data.id);
               });
@@ -1509,8 +1953,8 @@ function EventManager(props) {
                 }));
   };
   var hasExistingDraws = rounds.length > 0;
-  var handleResetStorage = function () {
-    EventManagerPersistence.clearEventData(data.id);
+  var handleClearAllStorage = function () {
+    EventManagerPersistence.clearAllEventData();
     setRounds(function (param) {
           return [];
         });
@@ -1537,6 +1981,9 @@ function EventManager(props) {
         });
     setPlayerOverrides(function (param) {
           return {};
+        });
+    setShowClearAllStorage(function (param) {
+          return false;
         });
   };
   var handleDeleteAdjustment = function (timestamp) {
@@ -1653,7 +2100,7 @@ function EventManager(props) {
               };
       });
   var tmp;
-  if (match$26[0]) {
+  if (match$33[0]) {
     var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
     tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
           matches: currentRoundMatches,
@@ -1673,11 +2120,25 @@ function EventManager(props) {
     tmp = null;
   }
   var tmp$1;
+  tmp$1 = seedSource === "GlobalRatings" || clubRatingSource === undefined ? null : JsxRuntime.jsx(React.Suspense, {
+          children: Caml_option.some(JsxRuntime.jsx(EventManager$ClubRatingsLoader, {
+                    eventId: data.id,
+                    clubId: clubRatingSource[0],
+                    activitySlug: clubRatingSource[2],
+                    onLoaded: (function (ratings) {
+                        setClubRatings(function (param) {
+                              return Js_dict.fromArray(ratings);
+                            });
+                      })
+                  })),
+          fallback: Caml_option.some(null)
+        });
+  var tmp$2;
   if (hasExistingDraws) {
     var adjustmentsForRound0 = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound === -1;
         });
-    var tmp$2;
+    var tmp$3;
     if (rounds.length > 0) {
       var allMatches = rounds.flatMap(function (r) {
             return r;
@@ -1692,10 +2153,10 @@ function EventManager(props) {
               return false;
             }
           }).length;
-      var tmp$3;
+      var tmp$4;
       switch (syncState) {
         case "Idle" :
-            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$4 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.RotateCcw, {
                           className: "w-5 h-5"
@@ -1707,19 +2168,19 @@ function EventManager(props) {
                 });
             break;
         case "Syncing" :
-            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$4 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.RotateCcw, {
                           className: "w-5 h-5 animate-spin"
                         }),
                     JsxRuntime.jsx("span", {
-                          children: t`Syncing... ${match$3[0].toString()}%`
+                          children: t`Syncing... ${match$7[0].toString()}%`
                         })
                   ]
                 });
             break;
         case "Success" :
-            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$4 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.Check, {
                           className: "w-5 h-5"
@@ -1731,7 +2192,7 @@ function EventManager(props) {
                 });
             break;
         case "Error" :
-            tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+            tmp$4 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                   children: [
                     JsxRuntime.jsx(LucideReact.AlertCircle, {
                           className: "w-5 h-5"
@@ -1744,23 +2205,23 @@ function EventManager(props) {
             break;
         
       }
-      var tmp$4;
+      var tmp$5;
       switch (syncState) {
         case "Idle" :
-            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl";
+            tmp$5 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-600 hover:bg-blue-700 text-white hover:shadow-xl";
             break;
         case "Syncing" :
-            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait";
+            tmp$5 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-blue-500 text-white cursor-wait";
             break;
         case "Success" :
-            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white";
+            tmp$5 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-green-600 text-white";
             break;
         case "Error" :
-            tmp$4 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white";
+            tmp$5 = "flex items-center gap-3 px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg bg-red-600 text-white";
             break;
         
       }
-      tmp$2 = JsxRuntime.jsxs("div", {
+      tmp$3 = JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsxs("div", {
                     children: [
@@ -1781,8 +2242,8 @@ function EventManager(props) {
                               })
                           }),
                       JsxRuntime.jsx("button", {
-                            children: tmp$3,
-                            className: tmp$4,
+                            children: tmp$4,
+                            className: tmp$5,
                             disabled: syncState === "Syncing",
                             onClick: (function (param) {
                                 handleSyncScores();
@@ -1814,9 +2275,9 @@ function EventManager(props) {
             className: "mt-8 flex flex-col items-center gap-2"
           });
     } else {
-      tmp$2 = null;
+      tmp$3 = null;
     }
-    tmp$1 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+    tmp$2 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
           children: [
             JsxRuntime.jsx(RoundHeader.make, {
                   currentRound: currentRoundInt,
@@ -1862,7 +2323,7 @@ function EventManager(props) {
                                       }));
                               })
                           }) : null,
-                    match$20[0] ? null : JsxRuntime.jsxs("div", {
+                    match$27[0] ? null : JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsx(LucideReact.AlertTriangle, {
                                     className: "w-4 h-4 mt-0.5 shrink-0"
@@ -2059,18 +2520,18 @@ function EventManager(props) {
                                       ]
                                     }, roundNum.toString());
                         }),
-                    tmp$2
+                    tmp$3
                   ],
                   className: "flex-1 overflow-auto p-6"
                 })
           ]
         });
   } else {
-    tmp$1 = null;
+    tmp$2 = null;
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$24[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
+                match$31[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
                         teams: teamsAsData,
                         antiTeams: Util.NonEmptyArray.toArray(antiTeams).map(function (team, index) {
                               return {
@@ -2126,7 +2587,7 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
-                Core__Option.getOr(Core__Option.map(match$25[0], (function (player) {
+                Core__Option.getOr(Core__Option.map(match$32[0], (function (player) {
                             var isGuest = Core__Option.isNone(player.data);
                             if (isGuest) {
                               return JsxRuntime.jsx(PlayerSettingsModal.make, {
@@ -2207,7 +2668,7 @@ function EventManager(props) {
                                         });
                             }
                           })), null),
-                match$6[0] ? JsxRuntime.jsx(AddGuestPlayersModal.make, {
+                match$13[0] ? JsxRuntime.jsx(AddGuestPlayersModal.make, {
                         onAdd: handleAddGuestPlayers,
                         onClose: (function () {
                             setShowAddGuestsModal(function (param) {
@@ -2219,9 +2680,23 @@ function EventManager(props) {
                       mode: "sync",
                       children: tmp
                     }),
+                tmp$1,
                 JsxRuntime.jsx(EventManager$StorageLowWarning, {
-                      onClearData: handleResetStorage
+                      onClearData: (function () {
+                          setShowClearAllStorage(function (param) {
+                                return true;
+                              });
+                        })
                     }),
+                match$9[0] ? JsxRuntime.jsx(EventManager$ClearAllStorageModal, {
+                        currentEventId: data.id,
+                        onConfirm: handleClearAllStorage,
+                        onCancel: (function () {
+                            setShowClearAllStorage(function (param) {
+                                  return false;
+                                });
+                          })
+                      }) : null,
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("div", {
@@ -2233,6 +2708,14 @@ function EventManager(props) {
                                           }),
                                       JsxRuntime.jsxs("div", {
                                             children: [
+                                              JsxRuntime.jsx(EventManager$PersistenceChip, {
+                                                    health: persistenceHealth,
+                                                    onShowError: (function () {
+                                                        setDismissedFailure(function (param) {
+                                                              
+                                                            });
+                                                      })
+                                                  }),
                                               debugMode ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                       children: [
                                                         JsxRuntime.jsx(EventManager$StorageUsageDebug, {}),
@@ -2240,7 +2723,9 @@ function EventManager(props) {
                                                               children: t`Reset Storage`,
                                                               className: "px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors",
                                                               onClick: (function (param) {
-                                                                  handleResetStorage();
+                                                                  setShowClearAllStorage(function (param) {
+                                                                        return true;
+                                                                      });
                                                                 })
                                                             })
                                                       ]
@@ -2283,6 +2768,22 @@ function EventManager(props) {
                                   }),
                               className: "bg-slate-800 text-white px-6 py-4"
                             }),
+                        visibleFailure !== undefined ? JsxRuntime.jsx(EventManager$PersistenceErrorBanner, {
+                                failure: visibleFailure,
+                                onRetry: (function () {
+                                    EventManagerPersistence.retry();
+                                  }),
+                                onFreeUpSpace: (function () {
+                                    setShowClearAllStorage(function (param) {
+                                          return true;
+                                        });
+                                  }),
+                                onDismiss: (function () {
+                                    setDismissedFailure(function (param) {
+                                          return visibleFailure[1];
+                                        });
+                                  })
+                              }) : null,
                         JsxRuntime.jsx(PlayerCheckin.make, {
                               players: playersWithCounts,
                               checkedInPlayerIds: checkedInPlayerIds,
@@ -2306,7 +2807,25 @@ function EventManager(props) {
                                 }),
                               getUserFragmentRefs: getUserFragmentRefs,
                               initialPlayers: players,
-                              eventUrl: "https://www.pkuru.com/events/" + eventId
+                              eventUrl: "https://www.pkuru.com/events/" + eventId,
+                              seedSourceOption: Core__Option.map(clubRatingSource, (function (param) {
+                                      return {
+                                              clubName: param[1],
+                                              usingClubRatings: seedSource === "ClubRatings",
+                                              onUseClubRatings: (function (useClub) {
+                                                  var next = useClub ? "ClubRatings" : "GlobalRatings";
+                                                  setSeedSource(function (param) {
+                                                        return next;
+                                                      });
+                                                  EventManagerPersistence.saveSeedSource(data.id, next);
+                                                  setIsDirty(function (param) {
+                                                        return true;
+                                                      });
+                                                  bumpHistoryRevision();
+                                                }),
+                                              isLoading: seedSource === "ClubRatings" && Core__Option.isNone(clubRatings)
+                                            };
+                                    }))
                             }),
                         hasExistingDraws ? null : JsxRuntime.jsx(JsxRuntime.Fragment, {
                                 children: Caml_option.some(JsxRuntime.jsx(DrawGenerator.make, {
@@ -2328,11 +2847,11 @@ function EventManager(props) {
                                           onNewSeed: handleNewSeed
                                         }))
                               }),
-                        tmp$1
+                        tmp$2
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     }),
-                match$27[0] ? JsxRuntime.jsx(PrintableDraws.make, {
+                match$34[0] ? JsxRuntime.jsx(PrintableDraws.make, {
                         rounds: rounds.map(function (roundMatches, roundIdx) {
                               return {
                                       roundNumber: roundIdx + 1 | 0,
@@ -2380,7 +2899,13 @@ export {
   Fragment ,
   StorageUsageDebug ,
   StorageLowWarning ,
+  PersistenceChip ,
+  ClearAllStorageModal ,
+  PersistenceErrorBanner ,
   OverallAverageQualityDebug ,
+  clubRatingNamespace ,
+  ClubRatingsQuery ,
+  ClubRatingsLoader ,
   make ,
 }
 /*  Not a pure module */

@@ -60,6 +60,10 @@ msgstr "드래프트 시작: 2026년 9월 15일 화요일"
 msgid "Est. DUPR"
 msgstr "예상 DUPR"
 
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "여성"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:485
 msgid "Filter by club"
 msgstr "클럽으로 필터"
@@ -84,6 +88,10 @@ msgstr "다음 순위 로딩 중"
 msgid "Loading rankings..."
 msgstr "순위 로딩 중..."
 
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "남성"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:437
 msgid "Men"
 msgstr "남성"
@@ -92,29 +100,25 @@ msgstr "남성"
 msgid "No players found"
 msgstr "플레이어를 찾을 수 없습니다"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "공식 Dallash Flash 티셔츠 및 볼캡"
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:257
 msgid "Over ￥200,000 in prizes"
 msgstr "총 상금 ¥200,000 이상"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:120
+#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
+#~ msgstr "다양한 파트너와 복식 게임을 플레이하고 개인 레이팅을 받으세요. 매월 상위 플레이어에게 상이 수여됩니다."
 
 #: src/components/organisms/RatingList.re.mjs:687
 msgid "Player"
 msgstr "플레이어"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:214
-msgid ""
-"Players ranked higher than James Ignatowich can receive up to 28% off RPM "
-"paddles from the RPM official website. For women, top 20 women players can "
-"receive this same discount. 15% will be from the PKURU15 code and the "
-"remaining 13% via cash back. Contact Chris Chen for redemption after you "
-"place an order. All other players can receive 15% off RPM paddles at any "
-"time: 15% off at rpmpb.com with code:"
-msgstr ""
-"James Ignatowich보다 높은 랭킹의 선수들은 RPM 공식 웹사이트에서 RPM 패들을 최"
-"대 28% 할인받을 수 있습니다. 여성의 경우, 상위 20명의 여성 선수들도 동일한 할"
-"인을 받을 수 있습니다. 15%는 PKURU15 코드로 적용되며, 나머지 13%는 캐시백으"
-"로 제공됩니다. 주문 후 혜택 적용을 위해 Chris Chen에게 문의하세요. 그 외 모"
-"든 선수들은 언제든지 RPM 패들을 15% 할인받을 수 있습니다: rpmpb.com에서 코드"
-"를 사용하여 15% 할인:"
+msgid "Players ranked higher than James Ignatowich can receive up to 28% off RPM paddles from the RPM official website. For women, top 20 women players can receive this same discount. 15% will be from the PKURU15 code and the remaining 13% via cash back. Contact Chris Chen for redemption after you place an order. All other players can receive 15% off RPM paddles at any time: 15% off at rpmpb.com with code:"
+msgstr "James Ignatowich보다 높은 랭킹의 선수들은 RPM 공식 웹사이트에서 RPM 패들을 최대 28% 할인받을 수 있습니다. 여성의 경우, 상위 20명의 여성 선수들도 동일한 할인을 받을 수 있습니다. 15%는 PKURU15 코드로 적용되며, 나머지 13%는 캐시백으로 제공됩니다. 주문 후 혜택 적용을 위해 Chris Chen에게 문의하세요. 그 외 모든 선수들은 언제든지 RPM 패들을 15% 할인받을 수 있습니다: rpmpb.com에서 코드를 사용하여 15% 할인:"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:185
 msgid "Playoff Draft"
@@ -123,6 +127,10 @@ msgstr "플레이오프 드래프트"
 #: src/components/pages/LeagueRankingsPage.re.mjs:229
 msgid "Presented by"
 msgstr "제공"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
+#~ msgid "Prizes"
+#~ msgstr "상품"
 
 #: src/components/organisms/RatingList.re.mjs:691
 msgid "Rating"
@@ -146,39 +154,25 @@ msgstr "스폰서 로고"
 msgid "The official Pkuru.com competitive doubles rankings."
 msgstr "Pkuru.com 공식 경쟁 복식 랭킹."
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
+#~ msgid "The top 4 men and top 4 women players each earn a prize."
+#~ msgstr "상위 4명의 남성 및 상위 4명의 여성 플레이어가 각각 상품을 받습니다."
+
 #: src/components/pages/LeagueRankingsPage.re.mjs:209
-msgid ""
-"The top 8 men and top 8 women qualify — each bracket is drafted into 4 "
-"doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 "
-"widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction "
-"Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the "
-"prize, along with 1 bonus category to be decided for the 5th winner. Only "
-"players who are physically in Japan to receive the prizes are eligible to "
-"win. Any *Rated* event on Pkuru.com can submit rated matches that can "
-"qualify you for the top 8 draft. We reserve the right to disqualify players, "
-"matches, or clubs that are suspected of cheating at our own independent "
-"discretion and without notice. There is no cost to participation and "
-"Pkuru.com does not collect any fee from organizers participating in the "
-"Playoff Draft."
-msgstr ""
-"상위 8명의 남성과 상위 8명의 여성이 진출 자격을 얻으며, 각 브래킷은 드래프트"
-"를 통해 결승전을 위한 4개의 복식 팀으로 구성됩니다. 상품 구성: Ella Oh Pink "
-"V2 와이드바디 패들 2개, RPM Friction Pro V2 14mm 패들 2개, RPM Friction Pro "
-"V2 16mm 패들 1개. 남녀 복식 우승 팀이 상품을 수령하며, 5번째 우승자를 위한 보"
-"너스 카테고리 1개가 추가로 결정됩니다. 상품 수령을 위해 일본에 실제로 체류 중"
-"인 선수만 수상 자격이 있습니다. Pkuru.com의 *레이팅* 이벤트라면 어떤 것이든 "
-"레이팅 매치를 제출하여 상위 8인 드래프트 진출 자격을 얻을 수 있습니다. 당사"
-"는 독자적인 판단에 따라 사전 통보 없이 부정행위가 의심되는 선수, 매치 또는 클"
-"럽을 실격 처리할 권리를 보유합니다. 참가 비용은 없으며, Pkuru.com은 플레이오"
-"프 드래프트에 참가하는 주최자로부터 어떠한 수수료도 받지 않습니다."
+msgid "The top 8 men and top 8 women qualify — each bracket is drafted into 4 doubles teams for the finals. Prize pool includes 2 x Ella Oh Pink V2 widebody paddles, 2 x RPM Friction Pro V2 14mm paddles, and 1 x RPM Friction Pro V2 16mm paddle. The winning pair for mens and womens doubles receive the prize, along with 1 bonus category to be decided for the 5th winner. Only players who are physically in Japan to receive the prizes are eligible to win. Any *Rated* event on Pkuru.com can submit rated matches that can qualify you for the top 8 draft. We reserve the right to disqualify players, matches, or clubs that are suspected of cheating at our own independent discretion and without notice. There is no cost to participation and Pkuru.com does not collect any fee from organizers participating in the Playoff Draft."
+msgstr "상위 8명의 남성과 상위 8명의 여성이 진출 자격을 얻으며, 각 브래킷은 드래프트를 통해 결승전을 위한 4개의 복식 팀으로 구성됩니다. 상품 구성: Ella Oh Pink V2 와이드바디 패들 2개, RPM Friction Pro V2 14mm 패들 2개, RPM Friction Pro V2 16mm 패들 1개. 남녀 복식 우승 팀이 상품을 수령하며, 5번째 우승자를 위한 보너스 카테고리 1개가 추가로 결정됩니다. 상품 수령을 위해 일본에 실제로 체류 중인 선수만 수상 자격이 있습니다. Pkuru.com의 *레이팅* 이벤트라면 어떤 것이든 레이팅 매치를 제출하여 상위 8인 드래프트 진출 자격을 얻을 수 있습니다. 당사는 독자적인 판단에 따라 사전 통보 없이 부정행위가 의심되는 선수, 매치 또는 클럽을 실격 처리할 권리를 보유합니다. 참가 비용은 없으며, Pkuru.com은 플레이오프 드래프트에 참가하는 주최자로부터 어떠한 수수료도 받지 않습니다."
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:396
-msgid ""
-"To participate, join any event with the trophy icon (competitive rated "
-"events) to receive a rating."
-msgstr ""
-"참가하려면 트로피 아이콘이 있는 이벤트(경쟁 레이팅 이벤트)에 참가하여 레이팅"
-"을 받으세요."
+msgid "To participate, join any event with the trophy icon (competitive rated events) to receive a rating."
+msgstr "참가하려면 트로피 아이콘이 있는 이벤트(경쟁 레이팅 이벤트)에 참가하여 레이팅을 받으세요."
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:125
+#~ msgid "To participate, please join the events here:"
+#~ msgstr "참가하려면 여기서 이벤트에 참가하세요:"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
+#~ msgid "Top Player Awards"
+#~ msgstr "최우수 선수 시상"
 
 #: src/components/organisms/RatingList.re.mjs:758
 msgid "Try broadening your search or filters."
@@ -187,6 +181,10 @@ msgstr "검색어 또는 필터를 넓혀보세요."
 #: src/components/organisms/RatingList.re.mjs:424
 msgid "View my profile"
 msgstr "내 프로필 보기"
+
+#: src/components/pages/LeagueRankingsPage.re.mjs:100
+#~ msgid "View My Profile"
+#~ msgstr "내 프로필 보기"
 
 #: src/components/pages/LeagueRankingsPage.re.mjs:442
 msgid "Women"
@@ -199,43 +197,3 @@ msgstr "나"
 #: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "내 순위"
-
-#: src/components/organisms/RatingList.re.mjs:202
-#~ msgid "Female"
-#~ msgstr "여성"
-
-#: src/components/organisms/RatingList.re.mjs:204
-#~ msgid "Male"
-#~ msgstr "남성"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
-#~ msgstr "공식 Dallash Flash 티셔츠 및 볼캡"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:120
-#~ msgid ""
-#~ "Play doubles games with different partners and receive an individual "
-#~ "rating. Prizes are awarded monthly to top players."
-#~ msgstr ""
-#~ "다양한 파트너와 복식 게임을 플레이하고 개인 레이팅을 받으세요. 매월 상위 "
-#~ "플레이어에게 상이 수여됩니다."
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:128
-#~ msgid "Prizes"
-#~ msgstr "상품"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:93
-#~ msgid "The top 4 men and top 4 women players each earn a prize."
-#~ msgstr "상위 4명의 남성 및 상위 4명의 여성 플레이어가 각각 상품을 받습니다."
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:125
-#~ msgid "To participate, please join the events here:"
-#~ msgstr "참가하려면 여기서 이벤트에 참가하세요:"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:70
-#~ msgid "Top Player Awards"
-#~ msgstr "최우수 선수 시상"
-
-#: src/components/pages/LeagueRankingsPage.re.mjs:100
-#~ msgid "View My Profile"
-#~ msgstr "내 프로필 보기"

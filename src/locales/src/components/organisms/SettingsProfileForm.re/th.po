@@ -37,6 +37,10 @@ msgstr "ออสเตรเลีย"
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "ประวัติส่วนตัว"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
@@ -44,6 +48,10 @@ msgstr "ประวัติส่วนตัว"
 #: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Canada"
 msgstr "แคนาดา"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "ยกเลิก"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -64,6 +72,10 @@ msgstr "กำลังเชื่อมต่อ..."
 #: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "ประเทศ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "รายละเอียดเกี่ยวกับตัวคุณ"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -89,9 +101,17 @@ msgstr "DUPR ที่คาดการณ์"
 msgid "Female"
 msgstr "หญิง"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "ชื่อเต็ม"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "ชื่อเต็ม"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "เพศ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
@@ -142,12 +162,8 @@ msgid "Notifications"
 msgstr "การแจ้งเตือน"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid ""
-"Notifications are blocked. To enable them, go to your device or browser "
-"settings and allow notifications for this site."
-msgstr ""
-"การแจ้งเตือนถูกบล็อก หากต้องการเปิดใช้งาน "
-"ให้ไปที่การตั้งค่าอุปกรณ์หรือเบราว์เซอร์และอนุญาตการแจ้งเตือนสำหรับเว็บไซต์นี้"
+msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
+msgstr "การแจ้งเตือนถูกบล็อก หากต้องการเปิดใช้งาน ให้ไปที่การตั้งค่าอุปกรณ์หรือเบราว์เซอร์และอนุญาตการแจ้งเตือนสำหรับเว็บไซต์นี้"
 
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
@@ -157,17 +173,21 @@ msgstr "เปิดแอปจากหน้าจอหลักและเ
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "ไม่ต้องการระบุ"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "โปร"
 
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "โปรไฟล์"
+
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid ""
-"Push notifications are blocked. Check your browser or device notification "
-"settings for this site, then try again."
-msgstr ""
-"การแจ้งเตือนแบบพุชถูกบล็อก "
-"ตรวจสอบการตั้งค่าการแจ้งเตือนของเบราว์เซอร์หรืออุปกรณ์สำหรับเว็บไซต์นี้ แล้วลองอีกครั้ง"
+msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
+msgstr "การแจ้งเตือนแบบพุชถูกบล็อก ตรวจสอบการตั้งค่าการแจ้งเตือนของเบราว์เซอร์หรืออุปกรณ์สำหรับเว็บไซต์นี้ แล้วลองอีกครั้ง"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
@@ -176,6 +196,10 @@ msgstr "รับการแจ้งเตือนแบบพุชสำห
 #: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "ดำเนินการต่อ"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "บันทึก"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
@@ -190,9 +214,7 @@ msgid "seeking a doubles partner"
 msgstr "กำลังมองหาคู่คู่"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid ""
-"shows a badge next to your name in RSVP lists to tell people you are looking "
-"for a partner"
+msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:419
@@ -246,35 +268,3 @@ msgstr "บัญชี Stripe ของคุณเชื่อมต่อแ�
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "ประวัติส่วนตัว"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "ยกเลิก"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "รายละเอียดเกี่ยวกับตัวคุณ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "ชื่อเต็ม"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "เพศ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "ไม่ต้องการระบุ"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "โปรไฟล์"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "บันทึก"

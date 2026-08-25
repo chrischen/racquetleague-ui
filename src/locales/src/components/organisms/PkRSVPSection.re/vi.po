@@ -29,6 +29,10 @@ msgstr "{0} đã tham gia"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc trò chuyện sự kiện."
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "Giới thiệu"
@@ -139,6 +143,10 @@ msgstr "Mời người chơi"
 msgid "Invite to {0}"
 msgstr "Mời vào {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "Mời vào {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "Người chơi đã mời và tiềm năng"
@@ -146,6 +154,10 @@ msgstr "Người chơi đã mời và tiềm năng"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "Người chơi được mời đã được chuyển vào danh sách mời của sự kiện."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -257,12 +269,8 @@ msgid "Swipe left to skip · right to invite"
 msgstr "Vuốt trái để bỏ qua · phải để mời"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
-"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
@@ -278,36 +286,9 @@ msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ "
-"duyệt."
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr ""
-#~ "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc "
-#~ "trò chuyện sự kiện."
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "Mời vào {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "Người chơi được mời đã chuyển vào danh sách mời của sự kiện."
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "Xếp hạng của bạn {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ duyệt."
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid ""
-#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
-#~ "list."
-#~ msgstr ""
-#~ "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} "
-#~ "~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách "
-#~ "chờ."
+#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+#~ msgstr "Xếp hạng của bạn {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) thấp hơn mức tối thiểu. Bạn sẽ được đặt vào danh sách chờ."

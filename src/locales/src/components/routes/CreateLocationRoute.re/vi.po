@@ -34,11 +34,8 @@ msgid "details"
 msgstr "chi tiết"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:180
-msgid ""
-"Instructions or information that will apply to all events held at this "
-"location."
-msgstr ""
-"Hướng dẫn hoặc thông tin sẽ áp dụng cho tất cả sự kiện tại địa điểm này."
+msgid "Instructions or information that will apply to all events held at this location."
+msgstr "Hướng dẫn hoặc thông tin sẽ áp dụng cho tất cả sự kiện tại địa điểm này."
 
 #: src/components/organisms/CreateLocationForm.re.mjs:138
 msgid "location"

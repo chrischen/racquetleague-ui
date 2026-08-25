@@ -13,6 +13,30 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:543
+#~ msgid "Badminton"
+#~ msgstr "バドミントン"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:546
+#~ msgid "Table Tennis"
+#~ msgstr "卓球"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:549
+#~ msgid "Pickleball"
+#~ msgstr "ピックルボール"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/ClubEventsList.re.mjs:552
+#~ msgid "Futsal"
+#~ msgstr "フットサル"
+
+#: src/components/organisms/ClubEventsList.re.mjs:691
+#~ msgid "...load past events"
+#~ msgstr "...過去のイベントを読み込む"
+
 #: src/components/pages/PkEventPage.re.mjs:353
 msgid "...more"
 msgstr "...もっと見る"
@@ -25,6 +49,11 @@ msgstr "· {0} 保留中"
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
+#: src/components/organisms/EventItem.re.mjs:423
+#: src/components/organisms/ClubEventsList.re.mjs:209
+#~ msgid "[location missing]"
+#~ msgstr "[場所がありません]"
+
 #: src/components/organisms/PkEventRow.re.mjs:686
 #: src/components/organisms/PkEventRow.re.mjs:774
 msgid "[missing title]"
@@ -35,6 +64,10 @@ msgstr "[タイトルがありません]"
 #: src/components/organisms/ClubEventsList.re.mjs:105
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:178
+#~ msgid "{0} {hiddenDesc} hidden — show"
+#~ msgstr "{0} {hiddenDesc} 件非表示 — 表示する"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:102
 msgid "{0} continuous opening"
@@ -54,6 +87,24 @@ msgstr "{0}コート"
 msgid "{0} courts"
 msgstr "{0}コート"
 
+#: src/components/organisms/CreateEventsButton.re.mjs:113
+#~ msgid "{0} events created!"
+#~ msgstr "{0} イベントが作成されました！"
+
+#: src/components/organisms/EventItem.re.mjs:216
+#: src/components/organisms/EventItem.re.mjs:223
+#: src/components/organisms/ClubEventsList.re.mjs:173
+#: src/components/organisms/ClubEventsList.re.mjs:178
+#~ msgid "{0} hour"
+#~ msgstr "{0}時間"
+
+#: src/components/organisms/EventItem.re.mjs:217
+#: src/components/organisms/EventItem.re.mjs:224
+#: src/components/organisms/ClubEventsList.re.mjs:174
+#: src/components/organisms/ClubEventsList.re.mjs:179
+#~ msgid "{0} hours"
+#~ msgstr "{0}時間"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:444
 msgid "{0} joined"
 msgstr "{0} 参加済み"
@@ -65,6 +116,24 @@ msgstr "{0}施設"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0}施設"
+
+#: src/components/organisms/EventItem.re.mjs:228
+#: src/components/organisms/ClubEventsList.re.mjs:181
+#~ msgid "{0} minute"
+#~ msgstr "{0}分"
+
+#: src/components/organisms/EventItem.re.mjs:229
+#: src/components/organisms/ClubEventsList.re.mjs:182
+#~ msgid "{0} minutes"
+#~ msgstr "{0}分"
+
+#: src/components/organisms/ClubEventsList.re.mjs:552
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0}件のプライベート{shadowCountDesc}が非表示"
+
+#: src/components/pages/PkEventPage.re.mjs:380
+#~ msgid "{cancelTimeLeft} left to cancel"
+#~ msgstr "キャンセルまで残り{cancelTimeLeft}"
 
 #: src/components/organisms/PkEventRow.re.mjs:130
 #: src/components/organisms/PkEventRow.re.mjs:187
@@ -82,6 +151,11 @@ msgstr "{hs}時間{ms}分"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:105
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventItem.re.mjs:227
+#: src/components/organisms/ClubEventsList.re.mjs:180
+#~ msgid "{minutes, plural, one {{0}} other {{1}}}"
+#~ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:48
 msgid "{ms}m"
@@ -101,9 +175,21 @@ msgstr "アウトドア{n}面"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/EventItem.re.mjs:296
+#~ msgid "{playersCount, plural, one {player} other {players}}"
+#~ msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:526
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+
 #: src/components/shared/EventsListView.re.mjs:138
 msgid "{totalEvents, plural, one {{0}} other {{1}}}"
 msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:111
+#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/shared/EventsListView.re.mjs:173
 msgid "← previous"
@@ -112,6 +198,18 @@ msgstr "← 前へ"
 #: src/components/organisms/PkRSVPSection.re.mjs:510
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
+
+#: src/components/organisms/ClubEventsList.re.mjs:186
+#~ msgid "🚫 CANCELED"
+#~ msgstr "🚫 キャンセル"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会話に参加させましょう。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid "A small hold will be placed on your card and fully refunded after the event."
+#~ msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
@@ -125,6 +223,10 @@ msgstr "アクティビティ"
 msgid "Add a message..."
 msgstr "メッセージを追加..."
 
+#: src/components/organisms/AddEventButton.re.mjs:79
+#~ msgid "Add an Event"
+#~ msgstr "イベントを追加"
+
 #: src/components/organisms/ClubEventsList.re.mjs:123
 msgid "Add to {0}"
 msgstr "{0}に追加"
@@ -137,6 +239,14 @@ msgstr "詳細設定"
 msgid "Advanced players"
 msgstr "上級プレイヤー"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:175
+#~ msgid "AI Assistant"
+#~ msgstr "AIアシスタント"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:120
+#~ msgid "An error occurred. Please try again."
+#~ msgstr "エラーが発生しました。もう一度お試しください。"
+
 #: src/components/molecules/AddToCalendar.re.mjs:30
 msgid "Apple iCal"
 msgstr "Apple iCal"
@@ -148,6 +258,10 @@ msgstr "参加申込を承認"
 #: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:269
+#~ msgid "Ask"
+#~ msgstr "質問"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:402
 msgid "At {venue} now"
@@ -169,6 +283,10 @@ msgstr "イベント全体に参加可能"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
 msgid "Back to event"
 msgstr "イベントに戻る"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:150
+#~ msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
+#~ msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバドミントン。"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:219
 msgid "balanced"
@@ -215,16 +333,17 @@ msgstr "キャンセル"
 msgid "Cancellation deadline"
 msgstr "キャンセル期限"
 
+#: src/components/pages/PkEventPage.re.mjs:379
+#~ msgid "Cancellation deadline passed"
+#~ msgstr "キャンセル期限を過ぎました"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:385
 msgid "Cancellation deadline passed."
 msgstr "キャンセル期限を過ぎています。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:275
-msgid ""
-"Cancellation deadline passed. Contact the organizer on this page to cancel."
-msgstr ""
-"キャンセル期限を過ぎています。キャンセルするには、このページで主催者に連絡し"
-"てください。"
+msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgstr "キャンセル期限を過ぎています。キャンセルするには、このページで主催者に連絡してください。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancelling..."
@@ -247,6 +366,11 @@ msgstr "参加する"
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:432
+#: src/components/organisms/ClubEventsList.re.mjs:443
+#~ msgid "clear filter"
+#~ msgstr "フィルターをクリア"
+
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
@@ -267,12 +391,13 @@ msgstr "支払いを完了する"
 msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "プロフィールを完成させる"
+
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr ""
-"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
-"い。"
+msgid "Complete your profile before sharing availability with players and hosts."
+msgstr "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてください。"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
 msgid "Computed rating"
@@ -306,11 +431,11 @@ msgstr "プロフィールを保存できませんでした。もう一度お試
 msgid "Court"
 msgstr "コート"
 
-#: src/components/organisms/MatchCard.re.mjs:394
+#: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
 msgstr "コート{0}"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:132
+#: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "コート{0} - 編集中"
 
@@ -323,22 +448,56 @@ msgstr "コート"
 msgid "Courts:"
 msgstr "コート数："
 
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+#~ msgid "Create All Events"
+#~ msgstr "すべてのイベントを作成"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:139
 msgid "Create event"
 msgstr "イベントを作成"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:142
-#: src/components/organisms/MatchCard.re.mjs:435
+#: src/components/organisms/CreateEventsButton.re.mjs:42
+#~ msgid "Create This Event"
+#~ msgstr "このイベントを作成"
+
+#: src/components/pages/PkEventPage.re.mjs:410
+#~ msgid "Dallas Flash"
+#~ msgstr "ダラス・フラッシュ"
+
+#: src/components/pages/PkEventPage.re.mjs:424
+#~ msgid "Dallas Flash Swag"
+#~ msgstr "ダラス・フラッシュ グッズ"
+
+#: src/components/molecules/AIResponseCard.re.mjs:58
+#: src/components/molecules/AIResponseCard.re.mjs:162
+#~ msgid "Date:"
+#~ msgstr "日付:"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:63
+#: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
 msgstr "試合を削除"
 
-#: src/components/organisms/MatchCard.re.mjs:439
+#: src/components/organisms/MatchCardEdit.re.mjs:67
+#: src/components/organisms/MatchCard.re.mjs:441
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:157
 msgid "Deposit required to confirm your spot"
 msgstr "スポットを確定するにはデポジットが必要です"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "作成したいイベントを説明してください..."
+
+#: src/components/molecules/AIResponseCard.re.mjs:105
+#~ msgid "Description:"
+#~ msgstr "説明:"
+
+#: src/components/organisms/EventItem.re.mjs:469
+#~ msgid "details"
+#~ msgstr "詳細"
 
 #: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
@@ -357,7 +516,7 @@ msgstr "DUPR"
 msgid "edit event"
 msgstr "イベントを編集"
 
-#: src/components/organisms/MatchCard.re.mjs:448
+#: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
 msgstr "試合を編集"
 
@@ -366,20 +525,28 @@ msgid "Email address"
 msgstr "メールアドレス"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
-"用しようとしているメールアドレスでログインしてください。"
+msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgstr "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使用しようとしているメールアドレスでログインしてください。"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "メールアドレスは変更できません"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
-#: src/components/organisms/ScoreModal.re.mjs:77
+#: src/components/organisms/ScoreModal.re.mjs:112
 msgid "Enter Match Score"
 msgstr "試合のスコアを入力"
+
+#: src/components/organisms/ScoreModal.re.mjs:257
+msgid "Equal scores — this will be recorded as a draw"
+msgstr "同点 — 引き分けとして記録されます"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:215
 msgid "even"
@@ -389,6 +556,10 @@ msgstr "均等"
 #: src/components/organisms/ClubEventsList.re.mjs:108
 msgid "event"
 msgstr "イベント"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+#~ msgid "Event Details"
+#~ msgstr "イベント詳細"
 
 #: src/components/pages/PkEventPage.re.mjs:917
 msgid "Event not found"
@@ -420,6 +591,10 @@ msgstr "女性"
 msgid "Filtered by date"
 msgstr "日付でフィルター中"
 
+#: src/components/organisms/ClubEventsList.re.mjs:441
+#~ msgid "filtering by date"
+#~ msgstr "日付でフィルタリング"
+
 #: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
@@ -449,9 +624,26 @@ msgstr "Google カレンダー"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
+#: src/components/pages/PkEventPage.re.mjs:691
+#~ msgid "Host"
+#~ msgstr "ホスト"
+
 #: src/components/organisms/ProfileModal.re.mjs:480
 msgid "How other players will see you"
 msgstr "他のプレイヤーへの表示"
+
+#: src/components/pages/PkEventPage.re.mjs:366
+#: src/components/pages/PkEventPage.re.mjs:368
+#~ msgid "hr"
+#~ msgstr "時間"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "I can create events for you. Just give me your schedule."
+#~ msgstr "イベントを作成できます。スケジュールを教えてください。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:108
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
 
 #: src/components/molecules/LevelPicker.re.mjs:32
 msgid "Intermediate"
@@ -481,6 +673,10 @@ msgstr "プレイヤーを招待"
 msgid "Invite to {0}"
 msgstr "{0}に招待"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "{eventTitle}に招待"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "招待済みおよび候補プレイヤー"
@@ -488,6 +684,10 @@ msgstr "招待済みおよび候補プレイヤー"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "招待されたプレイヤーがイベントの招待リストに移動しました。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -497,6 +697,10 @@ msgstr "招待 · {0}"
 msgid "Join"
 msgstr "参加"
 
+#: src/components/organisms/EventItem.re.mjs:313
+#~ msgid "join event"
+#~ msgstr "参加する"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:506
 msgid "Join waitlist"
 msgstr "キャンセル待ちに登録"
@@ -504,6 +708,10 @@ msgstr "キャンセル待ちに登録"
 #: src/components/organisms/EventStickyFooter.re.mjs:396
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
+
+#: src/components/organisms/EventItem.re.mjs:260
+#~ msgid "joined"
+#~ msgstr "参加"
 
 #: src/components/organisms/PkEventRow.re.mjs:221
 msgid "Joined"
@@ -513,13 +721,17 @@ msgstr "参加"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Last Round"
 msgstr "前回のラウンド"
 
 #: src/components/organisms/PkEventRow.re.mjs:556
 msgid "Leave"
 msgstr "退出"
+
+#: src/components/organisms/EventItem.re.mjs:307
+#~ msgid "leave event"
+#~ msgstr "参加取り消し"
 
 #: src/components/organisms/PkEventRow.re.mjs:957
 #: src/components/organisms/EventStickyFooter.re.mjs:350
@@ -539,6 +751,10 @@ msgstr "キャンセル中..."
 msgid "less"
 msgstr "閉じる"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
+#~ msgstr "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
+
 #: src/components/organisms/ProfileModal.re.mjs:542
 msgid "Level"
 msgstr "レベル"
@@ -551,7 +767,12 @@ msgstr "読み込み中..."
 msgid "Location"
 msgstr "場所"
 
-#: src/components/organisms/ScoreModal.re.mjs:165
+#: src/components/molecules/AIResponseCard.re.mjs:90
+#: src/components/molecules/AIResponseCard.re.mjs:194
+#~ msgid "Location:"
+#~ msgstr "場所:"
+
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Losing Team (Team {0})"
 msgstr "敗北チーム（チーム{0}）"
 
@@ -572,6 +793,11 @@ msgstr "試合結果はDUPRに提出されます。"
 msgid "MEDIAN"
 msgstr "中央値"
 
+#: src/components/pages/PkEventPage.re.mjs:361
+#: src/components/pages/PkEventPage.re.mjs:366
+#~ msgid "min"
+#~ msgstr "分"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:222
 msgid "mixed"
 msgstr "混合"
@@ -589,6 +815,14 @@ msgstr "もっと見る →"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
+#: src/components/organisms/AIAssistantModal.re.mjs:149
+#~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
+#~ msgstr "明日18時から21時、KPIパークで5人必要。費用は割り勘。"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:279
+#~ msgid "New"
+#~ msgstr "新規"
+
 #: src/components/organisms/ClubEventsList.re.mjs:270
 msgid "Next {dayName}"
 msgstr "来週{dayName}"
@@ -603,14 +837,13 @@ msgstr "近くに他の会場で、イベントの時間帯に空いているコ
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:469
 msgid "No other same-day time at {venue} supports the full event duration."
-msgstr ""
-"{venue}で同日の他の時間帯にイベント全時間をサポートする枠はありません。"
+msgstr "{venue}で同日の他の時間帯にイベント全時間をサポートする枠はありません。"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
-#: src/components/organisms/ScoreModal.re.mjs:236
+#: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "スコアなし"
 
@@ -634,6 +867,10 @@ msgstr "未評価"
 msgid "Notes from the host"
 msgstr "ホストからのメモ"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
+#~ msgstr "公式Dallash FlashのTシャツとボールキャップ — 男子トップ4・女子トップ4の選手に授与"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:331
 msgid "On waitlist"
 msgstr "キャンセル待ち中"
@@ -653,6 +890,10 @@ msgstr "{venue}の他の時間帯"
 #: src/components/organisms/PkRSVPSection.re.mjs:414
 msgid "Participants"
 msgstr "参加者"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+#~ msgid "Pay {0}"
+#~ msgstr "{0}を支払う"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:147
 msgid "Pay {priceStr}"
@@ -678,6 +919,10 @@ msgstr "支払いに失敗しました"
 msgid "Payment required to confirm your spot"
 msgstr "スポットを確定するには支払いが必要です"
 
+#: src/components/organisms/EventItem.re.mjs:272
+#~ msgid "pending"
+#~ msgstr "保留中"
+
 #: src/components/organisms/PkEventRow.re.mjs:260
 msgid "Pending"
 msgstr "保留中"
@@ -695,6 +940,10 @@ msgstr "承認待ち"
 msgid "player"
 msgstr "プレイヤー"
 
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "プレイヤー"
+
 #: src/components/organisms/PkEventRow.re.mjs:132
 #: src/components/organisms/PkEventRow.re.mjs:189
 msgid "players"
@@ -703,6 +952,10 @@ msgstr "プレイヤー"
 #: src/components/pages/PkEventPage.re.mjs:422
 msgid "Playoff Draft"
 msgstr "プレーオフドラフト"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "回答しない"
 
 #: src/components/pages/PkEventPage.re.mjs:397
 msgid "Presented by"
@@ -716,6 +969,10 @@ msgstr "非公開"
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "プロ"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:265
+#~ msgid "Processing..."
+#~ msgstr "処理中..."
 
 #: src/components/organisms/StripePaymentEmbed.tsx:62
 msgid "Processing…"
@@ -734,13 +991,12 @@ msgstr "引っ張って更新"
 msgid "Rated"
 msgstr "レーティング戦"
 
-#: src/components/organisms/MatchCard.re.mjs:402
+#: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "試合を再調整"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid ""
-"Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
 #: src/components/shared/EventsListView.re.mjs:153
@@ -761,9 +1017,17 @@ msgstr "更新中…"
 msgid "Refund payment"
 msgstr "返金処理"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Release spot"
+#~ msgstr "スポットを解放"
+
 #: src/components/shared/PullToRefresh.re.mjs:244
 msgid "Release to refresh"
 msgstr "離して更新"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Releasing..."
+#~ msgstr "解放中..."
 
 #: src/components/organisms/RsvpOptions.re.mjs:212
 msgid "Remove from event"
@@ -773,9 +1037,13 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/MatchCard.re.mjs:415
+#: src/components/organisms/MatchCard.re.mjs:417
 msgid "Repeat"
 msgstr "繰り返し"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:269
+#~ msgid "Reply"
+#~ msgstr "返信"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:340
 msgid "Required: DUPR {minDuprStr}+"
@@ -814,22 +1082,26 @@ msgstr "RPM"
 msgid "Saturday"
 msgstr "土曜日"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:153
+#: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "保存"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "保存して参加する"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
-#: src/components/organisms/ScoreModal.re.mjs:244
+#: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "スコアを保存"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:180
-#: src/components/organisms/MatchCardEdit.re.mjs:217
-msgid "Score"
-msgstr "スコア"
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "スコア"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
 msgid "Self-rating"
@@ -848,12 +1120,16 @@ msgid "Share"
 msgstr "共有"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
-"ください。"
+msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgstr "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いてください。"
+
+#: src/components/organisms/ClubEventsList.re.mjs:399
+#~ msgid "share as text"
+#~ msgstr "テキストとして共有"
+
+#: src/components/organisms/ClubEventsList.re.mjs:310
+#~ msgid "show"
+#~ msgstr "表示"
 
 #: src/components/organisms/PkEventMessages.re.mjs:455
 msgid "Show all {0} items"
@@ -879,9 +1155,21 @@ msgstr "{0}をスキップ"
 msgid "SORTED BY START TIME"
 msgstr "開始時間順"
 
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
+#~ msgid "Sponsor logo"
+#~ msgstr "スポンサーロゴ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+#~ msgid "Spot held — pay to confirm"
+#~ msgstr "スポット確保済み — 支払いで確定"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:554
 msgid "SPREAD"
 msgstr "ばらつき"
+
+#: src/components/molecules/AIResponseCard.re.mjs:138
+#~ msgid "Suggested Events"
+#~ msgstr "提案されたイベント"
 
 #: src/components/organisms/ClubEventsList.re.mjs:246
 msgid "Sunday"
@@ -899,78 +1187,71 @@ msgstr "左にスワイプでスキップ・右にスワイプで招待"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:173
+#: src/components/organisms/ScoreModal.re.mjs:78
+msgid "Team {0}"
+msgstr "チーム {0}"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
 msgstr "チーム1"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:210
+#: src/components/organisms/MatchCardEdit.re.mjs:125
 msgid "TEAM 2"
 msgstr "チーム2"
 
-#: src/components/organisms/MatchCard.re.mjs:440
-msgid ""
-"The match will be removed from this round. You can restore the originally "
-"scheduled matches using the round reset icon."
-msgstr ""
-"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
-"元々予定されていた試合を復元できます。"
+#: src/components/organisms/AIAssistantModal.re.mjs:230
+#~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
+#~ msgstr "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教えていただければ、翻訳も追加できます。"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:68
+#: src/components/organisms/MatchCard.re.mjs:442
+msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、元々予定されていた試合を復元できます。"
 
 #: src/components/organisms/PkEventRow.re.mjs:958
 #: src/components/organisms/EventStickyFooter.re.mjs:460
-msgid ""
-"There are players on the waitlist. If you leave, your spot will be given to "
-"the next person. Are you sure?"
-msgstr ""
-"キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
-"す。よろしいですか？"
+msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
+msgstr "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されます。よろしいですか？"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid ""
-"This event is private. Please do not share this event without permission "
-"from the organizer."
+msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:165
-msgid ""
-"This is a deposit hold only — payment is due to the organizer at the event. "
-"The hold will be released after the event."
-msgstr ""
-"これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってくだ"
-"さい。仮押さえはイベント終了後に解除されます。"
+msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
+msgstr "これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってください。仮押さえはイベント終了後に解除されます。"
 
 #: src/components/organisms/StripePaymentEmbed.tsx:98
-msgid ""
-"This is a deposit hold only. You still need to pay the organizer in full at "
-"the event. The hold will be released after the event."
-msgstr ""
-"これはデポジットの仮押さえのみです。イベント当日に主催者へ全額をお支払いくだ"
-"さい。仮押さえはイベント終了後に解除されます。"
+msgid "This is a deposit hold only. You still need to pay the organizer in full at the event. The hold will be released after the event."
+msgstr "これはデポジットの仮押さえのみです。イベント当日に主催者へ全額をお支払いください。仮押さえはイベント終了後に解除されます。"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "他の人に表示される名前です"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
-msgid ""
-"This moves the event to another venue and reschedules everyone who already "
-"RSVP'd. Tap again to confirm."
-msgstr ""
-"イベントが別の会場に移動され、すでにRSVP済みの全員のスケジュールが変更されま"
-"す。もう一度タップして確認してください。"
+msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
+msgstr "イベントが別の会場に移動され、すでにRSVP済みの全員のスケジュールが変更されます。もう一度タップして確認してください。"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:437
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
-msgstr ""
-"すでにRSVP済みの全員のスケジュールが変更されます。もう一度タップして確認して"
-"ください。"
+msgstr "すでにRSVP済みの全員のスケジュールが変更されます。もう一度タップして確認してください。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
-"失われます。本当にこのユーザーの参加申込を制限しますか？"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は失われます。本当にこのユーザーの参加申込を制限しますか？"
 
 #: src/components/organisms/ClubEventsList.re.mjs:258
 msgid "Thursday"
 msgstr "木曜日"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "時間:"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+#~ msgid "Title:"
+#~ msgstr "タイトル:"
 
 #: src/components/shared/EventsListView.re.mjs:84
 #: src/components/organisms/ClubEventsList.re.mjs:229
@@ -985,6 +1266,10 @@ msgstr "明日"
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
+#~ msgid "Top Player Awards"
+#~ msgstr "トッププレイヤー賞"
 
 #: src/components/organisms/ClubEventsList.re.mjs:252
 msgid "Tuesday"
@@ -1019,11 +1304,15 @@ msgstr "組み合わせを見る"
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:198
-#: src/components/organisms/MatchCard.re.mjs:569
-#: src/components/organisms/MatchCard.re.mjs:576
+#: src/components/organisms/MatchCardEdit.re.mjs:113
+#: src/components/organisms/MatchCard.re.mjs:575
+#: src/components/organisms/MatchCard.re.mjs:582
 msgid "VS"
 msgstr "VS"
+
+#: src/components/organisms/EventItem.re.mjs:266
+#~ msgid "waitlist"
+#~ msgstr "ウェイトリスト"
 
 #: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Waitlist"
@@ -1053,7 +1342,7 @@ msgstr "水曜日"
 msgid "Weekend"
 msgstr "週末"
 
-#: src/components/organisms/ScoreModal.re.mjs:106
+#: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
@@ -1074,367 +1363,13 @@ msgid "You're in"
 msgstr "参加済み"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR "
-"{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
-"加されます。"
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR {viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追加されます。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
+#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+#~ msgstr "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR {viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追加されます。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr "あなたの参加登録は管理者の承認待ちです"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:543
-#~ msgid "Badminton"
-#~ msgstr "バドミントン"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:546
-#~ msgid "Table Tennis"
-#~ msgstr "卓球"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:549
-#~ msgid "Pickleball"
-#~ msgstr "ピックルボール"
-
-#. js-lingui-explicit-id
-#: src/components/organisms/ClubEventsList.re.mjs:552
-#~ msgid "Futsal"
-#~ msgstr "フットサル"
-
-#: src/components/organisms/ClubEventsList.re.mjs:691
-#~ msgid "...load past events"
-#~ msgstr "...過去のイベントを読み込む"
-
-#: src/components/organisms/EventItem.re.mjs:423
-#: src/components/organisms/ClubEventsList.re.mjs:209
-#~ msgid "[location missing]"
-#~ msgstr "[場所がありません]"
-
-#: src/components/organisms/ClubEventsList.re.mjs:178
-#~ msgid "{0} {hiddenDesc} hidden — show"
-#~ msgstr "{0} {hiddenDesc} 件非表示 — 表示する"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:113
-#~ msgid "{0} events created!"
-#~ msgstr "{0} イベントが作成されました！"
-
-#: src/components/organisms/EventItem.re.mjs:216
-#: src/components/organisms/EventItem.re.mjs:223
-#: src/components/organisms/ClubEventsList.re.mjs:173
-#: src/components/organisms/ClubEventsList.re.mjs:178
-#~ msgid "{0} hour"
-#~ msgstr "{0}時間"
-
-#: src/components/organisms/EventItem.re.mjs:217
-#: src/components/organisms/EventItem.re.mjs:224
-#: src/components/organisms/ClubEventsList.re.mjs:174
-#: src/components/organisms/ClubEventsList.re.mjs:179
-#~ msgid "{0} hours"
-#~ msgstr "{0}時間"
-
-#: src/components/organisms/EventItem.re.mjs:228
-#: src/components/organisms/ClubEventsList.re.mjs:181
-#~ msgid "{0} minute"
-#~ msgstr "{0}分"
-
-#: src/components/organisms/EventItem.re.mjs:229
-#: src/components/organisms/ClubEventsList.re.mjs:182
-#~ msgid "{0} minutes"
-#~ msgstr "{0}分"
-
-#: src/components/organisms/ClubEventsList.re.mjs:552
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0}件のプライベート{shadowCountDesc}が非表示"
-
-#: src/components/pages/PkEventPage.re.mjs:380
-#~ msgid "{cancelTimeLeft} left to cancel"
-#~ msgstr "キャンセルまで残り{cancelTimeLeft}"
-
-#: src/components/organisms/EventItem.re.mjs:227
-#: src/components/organisms/ClubEventsList.re.mjs:180
-#~ msgid "{minutes, plural, one {{0}} other {{1}}}"
-#~ msgstr "{minutes, plural, one {{0}} other {{1}}}"
-
-#: src/components/organisms/EventItem.re.mjs:296
-#~ msgid "{playersCount, plural, one {player} other {players}}"
-#~ msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
-
-#: src/components/organisms/ClubEventsList.re.mjs:526
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
-
-#: src/components/organisms/ClubEventsList.re.mjs:111
-#~ msgid "{totalHiddenCount, plural, one {event} other {events}}"
-#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
-
-#: src/components/organisms/ClubEventsList.re.mjs:186
-#~ msgid "🚫 CANCELED"
-#~ msgstr "🚫 キャンセル"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr ""
-#~ "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会"
-#~ "話に参加させましょう。"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-#~ msgid ""
-#~ "A small hold will be placed on your card and fully refunded after the "
-#~ "event."
-#~ msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
-
-#: src/components/organisms/AddEventButton.re.mjs:79
-#~ msgid "Add an Event"
-#~ msgstr "イベントを追加"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:175
-#~ msgid "AI Assistant"
-#~ msgstr "AIアシスタント"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:120
-#~ msgid "An error occurred. Please try again."
-#~ msgstr "エラーが発生しました。もう一度お試しください。"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:269
-#~ msgid "Ask"
-#~ msgstr "質問"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:150
-#~ msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
-#~ msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバドミントン。"
-
-#: src/components/pages/PkEventPage.re.mjs:379
-#~ msgid "Cancellation deadline passed"
-#~ msgstr "キャンセル期限を過ぎました"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:432
-#: src/components/organisms/ClubEventsList.re.mjs:443
-#~ msgid "clear filter"
-#~ msgstr "フィルターをクリア"
-
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "プロフィールを完成させる"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:42
-#~ msgid "Create All Events"
-#~ msgstr "すべてのイベントを作成"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:42
-#~ msgid "Create This Event"
-#~ msgstr "このイベントを作成"
-
-#: src/components/pages/PkEventPage.re.mjs:410
-#~ msgid "Dallas Flash"
-#~ msgstr "ダラス・フラッシュ"
-
-#: src/components/pages/PkEventPage.re.mjs:424
-#~ msgid "Dallas Flash Swag"
-#~ msgstr "ダラス・フラッシュ グッズ"
-
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
-#~ msgid "Date:"
-#~ msgstr "日付:"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "作成したいイベントを説明してください..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:105
-#~ msgid "Description:"
-#~ msgstr "説明:"
-
-#: src/components/organisms/EventItem.re.mjs:469
-#~ msgid "details"
-#~ msgstr "詳細"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "メールアドレスは変更できません"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:36
-#~ msgid "Event Details"
-#~ msgstr "イベント詳細"
-
-#: src/components/organisms/ClubEventsList.re.mjs:441
-#~ msgid "filtering by date"
-#~ msgstr "日付でフィルタリング"
-
-#: src/components/pages/PkEventPage.re.mjs:691
-#~ msgid "Host"
-#~ msgstr "ホスト"
-
-#: src/components/pages/PkEventPage.re.mjs:366
-#: src/components/pages/PkEventPage.re.mjs:368
-#~ msgid "hr"
-#~ msgstr "時間"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid "I can create events for you. Just give me your schedule."
-#~ msgstr "イベントを作成できます。スケジュールを教えてください。"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:108
-#~ msgid "I couldn't process that request. Please try again."
-#~ msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "{eventTitle}に招待"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
-
-#: src/components/organisms/EventItem.re.mjs:313
-#~ msgid "join event"
-#~ msgstr "参加する"
-
-#: src/components/organisms/EventItem.re.mjs:260
-#~ msgid "joined"
-#~ msgstr "参加"
-
-#: src/components/organisms/EventItem.re.mjs:307
-#~ msgid "leave event"
-#~ msgstr "参加取り消し"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid ""
-#~ "Let me know when and where you'd like to play, and I'll help you create "
-#~ "an event. You can continue talking to me in a conversation to refine any "
-#~ "details."
-#~ msgstr ""
-#~ "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。"
-#~ "会話を続けて詳細を調整することもできます。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
-#~ msgid "Location:"
-#~ msgstr "場所:"
-
-#: src/components/pages/PkEventPage.re.mjs:361
-#: src/components/pages/PkEventPage.re.mjs:366
-#~ msgid "min"
-#~ msgstr "分"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:149
-#~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
-#~ msgstr "明日18時から21時、KPIパークで5人必要。費用は割り勘。"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:279
-#~ msgid "New"
-#~ msgstr "新規"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
-#~ msgid ""
-#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
-#~ "and top 4 women players"
-#~ msgstr ""
-#~ "公式Dallash FlashのTシャツとボールキャップ — 男子トップ4・女子トップ4の選"
-#~ "手に授与"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:194
-#~ msgid "Pay {0}"
-#~ msgstr "{0}を支払う"
-
-#: src/components/organisms/EventItem.re.mjs:272
-#~ msgid "pending"
-#~ msgstr "保留中"
-
-#: src/components/organisms/MiniEventRsvp.re.mjs:57
-#~ msgid "Player"
-#~ msgstr "プレイヤー"
-
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "回答しない"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:265
-#~ msgid "Processing..."
-#~ msgstr "処理中..."
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Release spot"
-#~ msgstr "スポットを解放"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:182
-#~ msgid "Releasing..."
-#~ msgstr "解放中..."
-
-#: src/components/organisms/AIAssistantModal.re.mjs:269
-#~ msgid "Reply"
-#~ msgstr "返信"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "保存して参加する"
-
-#: src/components/organisms/ClubEventsList.re.mjs:399
-#~ msgid "share as text"
-#~ msgstr "テキストとして共有"
-
-#: src/components/organisms/ClubEventsList.re.mjs:310
-#~ msgid "show"
-#~ msgstr "表示"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:175
-#~ msgid "Sponsor logo"
-#~ msgstr "スポンサーロゴ"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:173
-#~ msgid "Spot held — pay to confirm"
-#~ msgstr "スポット確保済み — 支払いで確定"
-
-#: src/components/molecules/AIResponseCard.re.mjs:138
-#~ msgid "Suggested Events"
-#~ msgstr "提案されたイベント"
-
-#: src/components/organisms/AIAssistantModal.re.mjs:230
-#~ msgid ""
-#~ "Tell me the time and place of your event, or any other details. You can "
-#~ "also let me know the details to include and I can even add the "
-#~ "translations."
-#~ msgstr ""
-#~ "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教"
-#~ "えていただければ、翻訳も追加できます。"
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "他の人に表示される名前です"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "時間:"
-
-#: src/components/molecules/AIResponseCard.re.mjs:45
-#~ msgid "Title:"
-#~ msgstr "タイトル:"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:189
-#~ msgid "Top Player Awards"
-#~ msgstr "トッププレイヤー賞"
-
-#: src/components/organisms/EventItem.re.mjs:266
-#~ msgid "waitlist"
-#~ msgstr "ウェイトリスト"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid ""
-#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
-#~ "list."
-#~ msgstr ""
-#~ "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
-#~ "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに"
-#~ "追加されます。"

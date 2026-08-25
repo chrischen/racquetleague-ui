@@ -75,7 +75,7 @@ msgstr "และ"
 msgid "cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/SubmitMatch.re.mjs:253
+#: src/components/organisms/SubmitMatch.re.mjs:249
 #: src/components/organisms/SortableSubmitMatch.re.mjs:301
 msgid "Cancel"
 msgstr "ยกเลิก"
@@ -133,7 +133,7 @@ msgstr "คู่ครอง"
 msgid "Gender Mixed Doubles"
 msgstr "คู่คล้องผสมเพศ"
 
-#: src/components/organisms/SubmitMatch.re.mjs:390
+#: src/components/organisms/SubmitMatch.re.mjs:386
 msgid "Go Back"
 msgstr "กลับ"
 
@@ -153,7 +153,7 @@ msgstr "กระดานผู้นำ"
 msgid "left team players"
 msgstr "ผู้เล่นทีมซ้าย"
 
-#: src/components/organisms/SubmitMatch.re.mjs:409
+#: src/components/organisms/SubmitMatch.re.mjs:405
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 #: src/components/organisms/AiTetsu.re.mjs:1748
 msgid "Loading"
@@ -192,9 +192,7 @@ msgid "no players yet"
 msgstr "ยังไม่มีผู้เล่น"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid ""
-"Not enough players in the queue. Select the players who want to play from "
-"the Queue tab."
+msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
 msgstr "ผู้เล่นในคิวไม่เพียงพอ เลือกผู้เล่นที่ต้องการเล่นจาก แท็บคิว"
 
 #: src/components/organisms/AiTetsu.re.mjs:1564
@@ -215,8 +213,7 @@ msgid "Player Name"
 msgstr "ชื่อผู้เล่น"
 
 #: src/components/organisms/AiTetsu.re.mjs:1360
-msgid ""
-"Players in a team will always be placed in a match together on the same side."
+msgid "Players in a team will always be placed in a match together on the same side."
 msgstr "ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
 
 #: src/components/organisms/AiTetsu.re.mjs:1381
@@ -224,12 +221,11 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "ผู้เล่นในแอนตี้-ทีมจะไม่ถูกจับคู่ในการแข่งขันด้วยกันเลย"
 
 #: src/components/organisms/AiTetsu.re.mjs:1439
-msgid ""
-"Players in teams will always be placed in a match together on the same side."
+msgid "Players in teams will always be placed in a match together on the same side."
 msgstr "ผู้เล่นในทีมจะถูกจับคู่ในการแข่งขันด้วยกันเสมอในข้างเดียวกัน"
 
-#: src/components/organisms/SubmitMatch.re.mjs:311
-#: src/components/organisms/SubmitMatch.re.mjs:357
+#: src/components/organisms/SubmitMatch.re.mjs:307
+#: src/components/organisms/SubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
 msgid "Points"
@@ -296,13 +292,8 @@ msgid "Set as Male"
 msgstr "ตั้งเป็นชาย"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid ""
-"Set this to the number of players currently resting to enable even leveling "
-"of match counts. Set to 0 to disable and optimize match quality instead, but "
-"this may result in some players playing more matches than others."
-msgstr ""
-"กำหนดจำนวนผู้เล่นที่กำลังพักเพื่อให้การแจกจับคู่เท่าๆ กัน ตั้งค่าเป็น 0 "
-"เพื่อปิดการใช้งานและปรับปรุงคุณภาพการแข่งขัน แต่ อาจทำให้ผู้เล่นบางคนเล่นมากกว่าคนอื่น"
+msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
+msgstr "กำหนดจำนวนผู้เล่นที่กำลังพักเพื่อให้การแจกจับคู่เท่าๆ กัน ตั้งค่าเป็น 0 เพื่อปิดการใช้งานและปรับปรุงคุณภาพการแข่งขัน แต่ อาจทำให้ผู้เล่นบางคนเล่นมากกว่าคนอื่น"
 
 #: src/components/organisms/AiTetsu.re.mjs:1555
 msgid "Start Session"
@@ -312,7 +303,7 @@ msgstr "เริ่มเซสชั่น"
 msgid "START SESSION"
 msgstr "เริ่มเซสชั่น"
 
-#: src/components/organisms/SubmitMatch.re.mjs:397
+#: src/components/organisms/SubmitMatch.re.mjs:393
 msgid "Submit Rated"
 msgstr "ส่งผลที่มีเรตติ้ง"
 
@@ -341,8 +332,8 @@ msgstr "ทีมสุ่มสิ้นเชิง"
 msgid "Unqueue All"
 msgstr "ยกเลิกคิวทั้งหมด"
 
-#: src/components/organisms/SubmitMatch.re.mjs:323
-#: src/components/organisms/SubmitMatch.re.mjs:369
+#: src/components/organisms/SubmitMatch.re.mjs:319
+#: src/components/organisms/SubmitMatch.re.mjs:365
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"

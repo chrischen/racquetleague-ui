@@ -70,6 +70,11 @@ msgstr "インストール"
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.comアプリをインストール"
 
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "Racquet Leagueをインストール"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
@@ -116,8 +121,3 @@ msgstr "通知を表示"
 #: src/components/organisms/LeagueNav.re.mjs:122
 msgid "Your Profile"
 msgstr "あなたのプロフィール"
-
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-#~ msgid "Install Racquet League"
-#~ msgstr "Racquet Leagueをインストール"

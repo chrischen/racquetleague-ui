@@ -26,12 +26,8 @@ msgid "login with Line"
 msgstr "使用 Line 登录"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid ""
-"please try again outside of private browsing as it can interfere with Line "
-"login. if the problem persists, you can try the safe-mode login button below."
-msgstr ""
-"请在私人浏览模式之外重新尝试，因为它可能会干扰 Line 登录。如果问题仍然存在，"
-"您可以尝试下面的安全模式登录按钮。"
+msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
+msgstr "请在私人浏览模式之外重新尝试，因为它可能会干扰 Line 登录。如果问题仍然存在，您可以尝试下面的安全模式登录按钮。"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"

@@ -29,6 +29,10 @@ msgstr "{0} เข้าร่วมแล้ว"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ ทักษะ"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
+#~ msgstr "ความพร้อมตรงกับ {eventTitle} เชิญพวกเขาเลยเพื่อจองที่ในการสนทนากิจกรรม"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "เกี่ยวกับ"
@@ -139,6 +143,10 @@ msgstr "เชิญผู้เล่น"
 msgid "Invite to {0}"
 msgstr "เชิญเข้าร่วม {0}"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "เชิญเข้า {eventTitle}"
+
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "ผู้เล่นที่ได้รับเชิญและผู้เล่นที่อาจเข้าร่วม"
@@ -146,6 +154,10 @@ msgstr "ผู้เล่นที่ได้รับเชิญและผ
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
 msgid "Invited players have moved into the event's invited list."
 msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายชื่อผู้รับเชิญของกิจกรรมแล้ว"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายการผู้รับเชิญของกิจกรรมแล้ว"
 
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
@@ -195,6 +207,10 @@ msgstr "ชำระเงินสำเร็จแล้ว"
 #: src/components/organisms/PkRSVPSection.re.mjs:725
 msgid "Pending · {0}"
 msgstr "รอดำเนินการ · {0}"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "ผู้เล่น"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
@@ -257,12 +273,8 @@ msgid "Swipe left to skip · right to invite"
 msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเพื่อเชิญ"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid ""
-"This user will be removed from the Going/Waitlist. Their position will be "
-"lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr ""
-"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
-"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
@@ -278,36 +290,9 @@ msgid "Waitlist · {0}"
 msgstr "รายชื่อคอย · {0}"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid ""
-"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr ""
-"เรตติ้งของคุณ {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-"{viewerDuprHi}) ต่ำกว่าขั้นต่ำ คุณจะถูกใส่ในรายชื่อรอดำเนินการ"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid ""
-#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
-#~ "place in the event conversation."
-#~ msgstr "ความพร้อมตรงกับ {eventTitle} เชิญพวกเขาเลยเพื่อจองที่ในการสนทนากิจกรรม"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "เชิญเข้า {eventTitle}"
-
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายการผู้รับเชิญของกิจกรรมแล้ว"
-
-#: src/components/organisms/MiniEventRsvp.re.mjs:57
-#~ msgid "Player"
-#~ msgstr "ผู้เล่น"
+msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr "เรตติ้งของคุณ {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) ต่ำกว่าขั้นต่ำ คุณจะถูกใส่ในรายชื่อรอดำเนินการ"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid ""
-#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
-#~ "list."
-#~ msgstr ""
-#~ "คะแนนของคุณ {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
-#~ "{viewerDuprHi}) ต่ำกว่าเกณฑ์ขั้นต่ำสุด คุณจะถูกเพิ่มในรายชื่อรอดำเนินการ"
+#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+#~ msgstr "คะแนนของคุณ {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) ต่ำกว่าเกณฑ์ขั้นต่ำสุด คุณจะถูกเพิ่มในรายชื่อรอดำเนินการ"
