@@ -55,12 +55,12 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
     ->Option.flatMap(UseUserLocation.locationInputFromParam)
 
   // Level filter: the `level` URL param (set by the filter toolbar) is a
-  // DUPR-scale value; EventFilters.rating is denominated on the internal scale.
-  let rating =
+  // DUPR-scale value, which EventFilters.level takes as-is — the server
+  // matches it against the event's level tag ("3.5+" etc.), not minRating.
+  let level =
     url.searchParams
     ->Router.SearchParams.get("level")
     ->Option.flatMap(Float.fromString)
-    ->Option.map(Rating.duprToMu)
 
   (RelaySSRUtils.ssr ? Some(await Localized.loadMessages(params.lang, loadMessages)) : None)->ignore
   {
@@ -78,7 +78,7 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
         filters: {
           activitySlug: activity,
           shadow,
-          ?rating,
+          ?level,
         },
         activitySlug: activity,
       },

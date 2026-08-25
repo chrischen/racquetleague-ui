@@ -194,31 +194,27 @@ function SubmitMatch(props) {
     setSubmitting(function (param) {
           return true;
         });
-    if (data.scoreLeft === data.scoreRight) {
-      alert("No ties allowed");
-    } else {
-      Core__Option.map(onComplete, (function (f) {
-              var score_0 = data.scoreLeft;
-              var score_1 = data.scoreRight;
-              var score = [
-                score_0,
-                score_1
-              ];
-              var match = [
-                team1,
-                team2
-              ];
-              f([
-                    match,
-                    score
-                  ]);
-              setValue("scoreLeft", 0, undefined);
-              setValue("scoreRight", 0, undefined);
-              setSubmitting(function (param) {
-                    return false;
-                  });
-            }));
-    }
+    Core__Option.map(onComplete, (function (f) {
+            var score_0 = data.scoreLeft;
+            var score_1 = data.scoreRight;
+            var score = [
+              score_0,
+              score_1
+            ];
+            var match = [
+              team1,
+              team2
+            ];
+            f([
+                  match,
+                  score
+                ]);
+            setValue("scoreLeft", 0, undefined);
+            setValue("scoreRight", 0, undefined);
+            setSubmitting(function (param) {
+                  return false;
+                });
+          }));
   };
   var defaultView$1 = JsxRuntime.jsxs("div", {
         children: [

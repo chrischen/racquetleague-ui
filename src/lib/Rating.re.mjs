@@ -448,36 +448,71 @@ function contains_more_than_1_players(param, players) {
   return match_players.intersection(players$1).size > 1;
 }
 
-function rate(param) {
+function rate(param, $staropt$star) {
   var losers = param[1];
   var winners = param[0];
-  return Belt_Array.zipBy(Rating_rate([
-                    winners,
-                    losers
-                  ].map(function (__x) {
-                      return __x.map(function (player) {
-                                  return player.rating;
-                                });
-                    }), Caml_option.some({
-                      model: plackettLuce
-                    })), [
-              winners,
-              losers
-            ], (function (new_ratings, old_teams) {
-                return Belt_Array.zipBy(new_ratings, old_teams, (function (new_rating, old_player) {
-                              return {
-                                      data: old_player.data,
-                                      id: old_player.id,
-                                      intId: old_player.intId,
-                                      name: old_player.name,
-                                      rating: new_rating,
-                                      ratingOrdinal: old_player.ratingOrdinal,
-                                      paid: old_player.paid,
-                                      gender: old_player.gender,
-                                      count: old_player.count
-                                    };
-                            }));
-              }));
+  var isDraw = $staropt$star !== undefined ? $staropt$star : false;
+  if (isDraw) {
+    return Belt_Array.zipBy(Rating_rate([
+                      winners,
+                      losers
+                    ].map(function (__x) {
+                        return __x.map(function (player) {
+                                    return player.rating;
+                                  });
+                      }), Caml_option.some({
+                        model: plackettLuce,
+                        rank: [
+                          1,
+                          1
+                        ]
+                      })), [
+                winners,
+                losers
+              ], (function (new_ratings, old_teams) {
+                  return Belt_Array.zipBy(new_ratings, old_teams, (function (new_rating, old_player) {
+                                return {
+                                        data: old_player.data,
+                                        id: old_player.id,
+                                        intId: old_player.intId,
+                                        name: old_player.name,
+                                        rating: new_rating,
+                                        ratingOrdinal: old_player.ratingOrdinal,
+                                        paid: old_player.paid,
+                                        gender: old_player.gender,
+                                        count: old_player.count
+                                      };
+                              }));
+                }));
+  } else {
+    return Belt_Array.zipBy(Rating_rate([
+                      winners,
+                      losers
+                    ].map(function (__x) {
+                        return __x.map(function (player) {
+                                    return player.rating;
+                                  });
+                      }), Caml_option.some({
+                        model: plackettLuce
+                      })), [
+                winners,
+                losers
+              ], (function (new_ratings, old_teams) {
+                  return Belt_Array.zipBy(new_ratings, old_teams, (function (new_rating, old_player) {
+                                return {
+                                        data: old_player.data,
+                                        id: old_player.id,
+                                        intId: old_player.intId,
+                                        name: old_player.name,
+                                        rating: new_rating,
+                                        ratingOrdinal: old_player.ratingOrdinal,
+                                        paid: old_player.paid,
+                                        gender: old_player.gender,
+                                        count: old_player.count
+                                      };
+                              }));
+                }));
+  }
 }
 
 function toStableId$1(param) {
@@ -667,17 +702,25 @@ function rate$1(param) {
   return Core__Option.map(param[1], (function (s) {
                 var team2 = match[1];
                 var team1 = match[0];
-                var match$1 = s[0] > s[1] ? [
-                    team1,
-                    team2
-                  ] : [
-                    team2,
-                    team1
-                  ];
-                return rate([
-                            match$1[0],
-                            match$1[1]
-                          ]);
+                var x = s[0] - s[1];
+                if (x !== 0) {
+                  if (x > 0) {
+                    return rate([
+                                team1,
+                                team2
+                              ], undefined);
+                  } else {
+                    return rate([
+                                team2,
+                                team1
+                              ], undefined);
+                  }
+                } else {
+                  return rate([
+                              team1,
+                              team2
+                            ], true);
+                }
               }));
 }
 

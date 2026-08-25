@@ -257,9 +257,6 @@ let make = (
 
   let onSubmit = (data: inputsMatch) => {
     setSubmitting(_ => true)
-    switch data.scoreLeft == data.scoreRight {
-    | true => alert("No ties allowed")
-    | false =>
       onComplete
       ->Option.map(f => {
         let score = (data.scoreLeft, data.scoreRight)
@@ -273,7 +270,6 @@ let make = (
         // })
       })
       ->ignore
-    }
   }
 
   let defaultView =

@@ -332,6 +332,7 @@ and input_DoublesMatchInput_nullable = {
 and input_EventFilters = {
   activitySlug?: string,
   clubSlug?: string,
+  level?: float,
   locationId?: string,
   rating?: float,
   shadow?: bool,
@@ -343,6 +344,7 @@ and input_EventFilters = {
 and input_EventFilters_nullable = {
   activitySlug?: Js.Null.t<string>,
   clubSlug?: Js.Null.t<string>,
+  level?: Js.Null.t<float>,
   locationId?: Js.Null.t<string>,
   rating?: Js.Null.t<float>,
   shadow?: Js.Null.t<bool>,

@@ -3,7 +3,6 @@
 import * as Lang from "../shared/Lang.re.mjs";
 import * as Util from "../shared/Util.re.mjs";
 import * as Lingui from "../../locales/Lingui.re.mjs";
-import * as Rating from "../../lib/Rating.re.mjs";
 import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
@@ -125,7 +124,7 @@ async function loader(param) {
           return Util.Datetime.fromDate(new Date(d));
         }));
   var $$location = Core__Option.flatMap(Router.SearchParams.get(url.searchParams, UseUserLocation.locationParamKey), UseUserLocation.locationInputFromParam);
-  var rating = Core__Option.map(Core__Option.flatMap(Router.SearchParams.get(url.searchParams, "level"), Core__Float.fromString), Rating.duprToMu);
+  var level = Core__Option.flatMap(Router.SearchParams.get(url.searchParams, "level"), Core__Float.fromString);
   if (import.meta.env.SSR) {
     await Localized.loadMessages(params.lang, loadMessages);
   }
@@ -139,7 +138,7 @@ async function loader(param) {
                 before: before,
                 filters: {
                   activitySlug: params.activitySlug,
-                  rating: rating,
+                  level: level,
                   shadow: shadow
                 },
                 location: $$location

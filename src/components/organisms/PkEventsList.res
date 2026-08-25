@@ -367,9 +367,10 @@ let make = (
     ->Option.map(d => Js.Date.fromString(d))
 
   // Server-side level filter. The toolbar select reads/writes the `level` URL
-  // param (a DUPR-scale value); the route loaders convert it to the internal
-  // scale and pass it as EventFilters.rating, so changing it re-runs the
-  // loader — same flow as the location param.
+  // param (a DUPR-scale value); the route loaders pass it as
+  // EventFilters.level, which the server matches against the event's level
+  // tag ("3.5+" etc.), so changing it re-runs the loader — same flow as the
+  // location param.
   let minimumLevel =
     searchParams
     ->Router.ImmSearchParams.fromSearchParams

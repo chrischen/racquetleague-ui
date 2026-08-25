@@ -56,7 +56,7 @@ module Rating: {
     sigma: float,
   }
   type matchRatings = array<array<t>>
-  type opts = {model: option<RatingModel.t>}
+  type opts = {model?: RatingModel.t, rank?: array<int>}
 
   let get_rating: t => float
   let make: (float, float) => t
@@ -83,7 +83,7 @@ module Rating: {
   }
 
   type matchRatings = array<array<t>>
-  type opts = {model: option<RatingModel.t>}
+  type opts = {model?: RatingModel.t, rank?: array<int>}
 
   @module("openskill") external rating: option<t> => t = "rating"
   @module("openskill") external ordinal: t => float = "ordinal"
@@ -431,15 +431,32 @@ module Match = {
     match_players->intersection(players)->Set.size > 1
   }
 
-  let rate = ((winners, losers)) => {
-    Rating.rate(
-      ~ratings=[winners, losers]->Array.map(Array.map(_, (player: Player.t<'a>) => player.rating)),
-      ~opts=Some({model: Some(RatingModel.plackettLuce)}),
-    )->Belt.Array.zipBy([winners, losers], (new_ratings, old_teams) => {
-      new_ratings->Belt.Array.zipBy(old_teams, (new_rating, old_player) => {
-        {...old_player, Player.rating: new_rating}
+  let rate = ((winners, losers), ~isDraw=false) => {
+    switch isDraw {
+    | true =>
+      Rating.rate(
+        ~ratings=[winners, losers]->Array.map(
+          Array.map(_, (player: Player.t<'a>) => player.rating),
+        ),
+        // Rank [1, 1] indicates both teams are tied
+        ~opts=Some({model: RatingModel.plackettLuce, rank: [1, 1]}),
+      )->Belt.Array.zipBy([winners, losers], (new_ratings, old_teams) => {
+        new_ratings->Belt.Array.zipBy(old_teams, (new_rating, old_player) => {
+          {...old_player, Player.rating: new_rating}
+        })
       })
-    })
+    | _ =>
+      Rating.rate(
+        ~ratings=[winners, losers]->Array.map(
+          Array.map(_, (player: Player.t<'a>) => player.rating),
+        ),
+        ~opts=Some({model: RatingModel.plackettLuce}),
+      )->Belt.Array.zipBy([winners, losers], (new_ratings, old_teams) => {
+        new_ratings->Belt.Array.zipBy(old_teams, (new_rating, old_player) => {
+          {...old_player, Player.rating: new_rating}
+        })
+      })
+    }
   }
 
   let toStableId = ((t1, t2): t<'a>): string =>
@@ -574,8 +591,11 @@ module CompletedMatch = {
       let (team1, team2) = match
       let (team1Score, team2Score) = s
       // Determine winner and loser teams based on scores
-      let (winners, losers) = team1Score > team2Score ? (team1, team2) : (team2, team1)
-      Match.rate((winners, losers))
+      switch team1Score -. team2Score {
+      | 0. => Match.rate((team1, team2), ~isDraw=true)
+      | x if x > 0. => Match.rate((team1, team2))
+      | _ => Match.rate((team2, team1))
+      }
     })
   }
 }
@@ -1465,11 +1485,7 @@ let match_antiteam_violations = (
   avoidAllPlayers: array<array<Player.t<'a>>>,
 ): int =>
   avoidAllPlayers->Array.reduce(0, (acc, group) =>
-    group->Array.length < 2
-      ? acc
-      : match->Match.contains_more_than_1_players(group)
-      ? acc + 1
-      : acc
+    group->Array.length < 2 ? acc : match->Match.contains_more_than_1_players(group) ? acc + 1 : acc
   )
 
 // Indices of the avoid-groups this match violates, for violation reporting.
@@ -2740,7 +2756,13 @@ let getDeprioritizedPlayers = (
       | false => breakPlayers->Array.map(p => p.id)->Set.fromArray
       }
 
-    | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin | SolverRoundRobin | SolverRandomBalanced =>
+    | Mixed
+    | RoundRobin
+    | Random
+    | DUPR
+    | NoveltyRoundRobin
+    | SolverRoundRobin
+    | SolverRandomBalanced =>
       // Non-competitive strategy: prioritize players with most rounds since last break
       // Calculate rounds since last break for each player
       let playersWithRoundsSinceBreak = players->Array.map(player => {
