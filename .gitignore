@@ -27,3 +27,6 @@ lib/*
 
 .yarn/cache
 .yarn/install-state.gz
+
+# DinkHunt labeler UI bundle, linked in at image build (scripts/copy-labeler-dist.sh)
+labeler-dist/

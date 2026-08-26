@@ -115,6 +115,30 @@ export async function createServer(
       })
     );
   }
+
+  // DinkHunt labeler UI — a prebuilt bundle linked in at image build time
+  // (scripts/copy-labeler-dist.sh -> labeler-dist/, gitignored; the labeler
+  // project itself stays isolated in ../dinkhunt). Mounted BEFORE the SSR
+  // catch-all so /labeler never falls through to the router. Its API is the
+  // separate labeler service at /labeler-api; auth is the same-origin
+  // better-auth cookie, so no token setup for browser users.
+  const labelerDist = resolve("labeler-dist");
+  if (fs.existsSync(labelerDist)) {
+    app.use(
+      "/labeler",
+      expressStaticGzip(labelerDist, {
+        index: false,
+      })
+    );
+    // SPA fallback: /labeler and any client-side subroute get the shell.
+    app.get(["/labeler", "/labeler/*"], (req, res) => {
+      // Same rationale as the SSR handler: the shell must revalidate so it
+      // never references dead asset hashes after a deploy.
+      res.setHeader("Cache-Control", "no-cache");
+      res.sendFile(path.join(labelerDist, "index.html"));
+    });
+  }
+
   // loading render function needs to be moved out of the request handler due
   // to unknown bug with ssrLoadModule if it gets called again (such as on
   // page reload)
