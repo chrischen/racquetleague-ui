@@ -172,7 +172,7 @@ function EventHeader(props) {
                                                                                               month: "numeric",
                                                                                               day: "2-digit"
                                                                                             });
-                                                                                })), "Date TBD"),
+                                                                                })), t`Date TBD`),
                                                                       " ",
                                                                       Core__Option.getOr(Core__Option.map(until, (function (until) {
                                                                                   return JsxRuntime.jsx(ReactIntl.FormattedRelativeTime, {
@@ -208,7 +208,7 @@ function EventHeader(props) {
                                                                                                             ]
                                                                                                           });
                                                                                               }));
-                                                                                })), "Time TBD"),
+                                                                                })), t`Time TBD`),
                                                                       Core__Option.getOr(Core__Option.map(durationText, (function (duration) {
                                                                                   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                                                               children: [

@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "활성화"
+
 #: src/components/organisms/SelectPlayersList.re.mjs:98
 msgid "Match Count"
 msgstr "경기 횟수"
@@ -24,3 +28,7 @@ msgstr "아직 플레이어가 없습니다"
 #: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
 msgstr "플레이어"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:176
+msgid "Remove"
+msgstr "제거"

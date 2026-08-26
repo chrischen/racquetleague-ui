@@ -26,10 +26,6 @@ msgstr "イベントキャンセル済み"
 msgid "Event Uncanceled"
 msgstr "イベントキャンセル解除済み"
 
-#: src/components/pages/NotificationsPage.re.mjs:264
-#~ msgid "Event Update"
-#~ msgstr "イベント更新"
-
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "ホストメッセージ"
@@ -78,10 +74,14 @@ msgstr "キャンセル待ち解除"
 msgid "Removed from Event"
 msgstr "イベントから削除されました"
 
-#: src/components/pages/NotificationsPage.re.mjs:267
-#~ msgid "Status Update"
-#~ msgstr "ステータス更新"
-
 #: src/components/pages/NotificationsPage.re.mjs:119
 msgid "You're all caught up"
 msgstr "すべて確認済みです"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+#~ msgid "Event Update"
+#~ msgstr "イベント更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+#~ msgid "Status Update"
+#~ msgstr "ステータス更新"

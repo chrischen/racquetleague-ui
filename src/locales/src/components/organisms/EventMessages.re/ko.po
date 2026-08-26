@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr "종목"
+
 #: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "대기자 명단에서 참가"
@@ -38,7 +42,8 @@ msgid "Status message"
 msgstr "상태 메시지"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
 
 #: src/components/organisms/EventMessages.re.mjs:282

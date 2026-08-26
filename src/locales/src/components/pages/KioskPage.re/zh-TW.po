@@ -1,0 +1,378 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-25 22:44+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr "● 緩衝區就緒"
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr "18 秒片段・第 07 回合"
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr "已分析 24 次擊球・遊戲場次"
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr "進行中場次"
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr "分析"
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr "分析擷取中"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr "分析完成"
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr "分析模式"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr "分析設定"
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr "正在分析比賽"
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr "角度 {0}／{1}"
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr "進攻"
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr "比賽中可用"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr "返回模式"
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr "反手"
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr "最佳目標"
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr "落點回顧"
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr "相機已連接"
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr "相機取景與連接狀態良好"
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr "相機無法使用 — 請檢查權限後重試"
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr "拍攝數次發球後，結束以查看結果。"
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr "報到或離場"
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr "選擇操作"
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr "隨時可使用剪輯和線位判斷功能。"
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr "剪輯上一回合"
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr "剪輯已儲存・直播擷取繼續進行"
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr "聯絡"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr "已複製"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr "複製網址"
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr "從滾動影片緩衝區建立乾淨且可分享的剪輯。"
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr "捨棄"
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr "完成回顧"
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr "放短球分析"
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr "放短球落點"
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr "結束並分析"
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr "結束場次"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr "結束場次並退出"
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr "收集足夠的擊球後結束場次。"
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr "退出"
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr "正在尋找最清晰的鏡頭時刻並準備結果。"
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr "廚房區準確度"
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr "落點熱圖"
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr "上一回合"
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr "即時比賽"
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr "即時滾動場次"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr "即時場次"
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr "即時場次與滾動緩衝區仍在運作中"
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr "即時場次進行中・緩衝區錄製中"
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr "即時場次已結束"
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr "測量發球速度並回顧偵測到的發球片段。"
+
+#: src/components/organisms/Kiosk.re.mjs:783
+msgid "Next"
+msgstr "下一步"
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr "下一個彈跳片段"
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr "開始前無需選擇動作。"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr "關"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr "開"
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr "開啟"
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr "開啟資訊站設定"
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr "出界"
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr "球速峰值"
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr "匹克球攝影機資訊站"
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr "播放最後一次對打"
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr "播放發球回放"
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr "將手機鏡頭對準此代碼，開啟本場地的直播串流。"
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr "上一步"
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr "上一個彈跳片段"
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr "對打片段已就緒"
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr "從多個近距離時刻回顧最新彈跳。"
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr "滾動緩衝"
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr "滾動緩衝啟動中"
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr "滾動緩衝擷取"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr "滾動擷取並可選擇 YouTube 串流。"
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr "儲存片段"
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr "掃描觀看"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr "選擇模式，然後開始擷取。"
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr "請在啟動攝影機前選擇一項。"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr "已選擇的分析"
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr "發球 04・清晰讀取"
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr "偵測到發球"
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr "發球回放"
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr "發球速度分析"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr "課程設置"
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr "在課程中顯示觀看者 QR 碼"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr "開始分析"
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr "開始另一個課程"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr "開始直播課程"
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr "在 YouTube 上直播"
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr "攝影機持續將近期比賽畫面保留備用。"
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr "滾動緩衝區在您回放時持續運作。"
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr "追蹤放短球落點並揭示落球規律。"
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr "使用最新緩衝片段"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr "觀看網址"

@@ -26,10 +26,6 @@ msgstr "活動已取消"
 msgid "Event Uncanceled"
 msgstr "活動已恢復"
 
-#: src/components/pages/NotificationsPage.re.mjs:264
-#~ msgid "Event Update"
-#~ msgstr "活動更新"
-
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "主辦人訊息"
@@ -78,10 +74,14 @@ msgstr "已離開候補"
 msgid "Removed from Event"
 msgstr "已從活動中移除"
 
-#: src/components/pages/NotificationsPage.re.mjs:267
-#~ msgid "Status Update"
-#~ msgstr "狀態更新"
-
 #: src/components/pages/NotificationsPage.re.mjs:119
 msgid "You're all caught up"
 msgstr "您已全部看完"
+
+#: src/components/pages/NotificationsPage.re.mjs:264
+#~ msgid "Event Update"
+#~ msgstr "活動更新"
+
+#: src/components/pages/NotificationsPage.re.mjs:267
+#~ msgid "Status Update"
+#~ msgstr "狀態更新"

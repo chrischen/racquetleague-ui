@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr "Môn thể thao"
+
 #: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "tham gia từ danh sách chờ"
@@ -38,7 +42,8 @@ msgid "Status message"
 msgstr "Tin nhắn trạng thái"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
 
 #: src/components/organisms/EventMessages.re.mjs:282

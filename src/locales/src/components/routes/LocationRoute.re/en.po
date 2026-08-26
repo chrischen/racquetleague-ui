@@ -503,6 +503,10 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr ""
+
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr ""

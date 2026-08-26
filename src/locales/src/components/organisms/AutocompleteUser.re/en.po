@@ -12,3 +12,7 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
+
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
+msgstr ""

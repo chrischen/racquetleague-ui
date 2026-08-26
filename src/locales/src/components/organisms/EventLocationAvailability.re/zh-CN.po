@@ -74,11 +74,6 @@ msgstr "{n}个室外场地"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
-#, fuzzy
-#~ msgid "Alternate location"
-#~ msgstr "活动地点"
-
 #: src/components/organisms/EventLocationAvailability.re.mjs:402
 msgid "At {venue} now"
 msgstr "现在在 {venue}"
@@ -116,11 +111,6 @@ msgstr "{venue} 当天没有其他时间段支持完整的活动时长。"
 msgid "Not available"
 msgstr "不可用"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:409
-#, fuzzy
-#~ msgid "Other locations and times"
-#~ msgstr "同时段的其他地点"
-
 #: src/components/organisms/EventLocationAvailability.re.mjs:475
 msgid "Other locations at this time"
 msgstr "同时段的其他地点"
@@ -134,8 +124,11 @@ msgid "Reserve"
 msgstr "预订"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:479
-msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
-msgstr "此操作将把活动移至其他场馆，并为所有已报名的人重新安排时间。再次点击以确认。"
+msgid ""
+"This moves the event to another venue and reschedules everyone who already "
+"RSVP'd. Tap again to confirm."
+msgstr ""
+"此操作将把活动移至其他场馆，并为所有已报名的人重新安排时间。再次点击以确认。"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:437
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
@@ -152,3 +145,13 @@ msgstr "使用该选项"
 #: src/components/organisms/EventLocationAvailability.re.mjs:456
 msgid "Use time"
 msgstr "使用该时间"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#, fuzzy
+#~ msgid "Alternate location"
+#~ msgstr "活动地点"
+
+#: src/components/organisms/EventLocationAvailability.re.mjs:409
+#, fuzzy
+#~ msgid "Other locations and times"
+#~ msgstr "同时段的其他地点"

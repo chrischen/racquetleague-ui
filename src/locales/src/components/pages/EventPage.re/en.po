@@ -65,6 +65,10 @@ msgstr ""
 msgid "+{0} more"
 msgstr ""
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr ""
+
 #: src/components/organisms/RSVPSection.re.mjs:673
 #: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
@@ -100,6 +104,10 @@ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:117
 msgid "Biography is required"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
 msgstr ""
 
 #: src/components/pages/EventPage.re.mjs:191
@@ -142,6 +150,10 @@ msgstr ""
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
 #: src/components/organisms/ProfileModal.re.mjs:286
@@ -159,6 +171,10 @@ msgstr ""
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
 msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
@@ -209,6 +225,10 @@ msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:257
 msgid "Equal scores — this will be recorded as a draw"
+msgstr ""
+
+#: src/components/organisms/EventDetails.re.mjs:47
+msgid "Event Details"
 msgstr ""
 
 #: src/components/pages/EventPage.re.mjs:391
@@ -299,6 +319,10 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr ""
+
 #: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr ""
@@ -351,6 +375,10 @@ msgstr ""
 #: src/components/pages/EventPage.re.mjs:124
 #~ msgid "No location details provided."
 #~ msgstr ""
+
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
+msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
@@ -552,6 +580,10 @@ msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
 msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:244

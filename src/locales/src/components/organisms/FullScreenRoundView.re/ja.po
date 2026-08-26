@@ -25,10 +25,6 @@ msgstr "全画面表示を閉じる"
 msgid "COURT {0}"
 msgstr "コート{0}"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "このラウンドは不参加"
-
 #: src/components/organisms/FullScreenRoundView.re.mjs:33
 msgid "Round {0}"
 msgstr "ラウンド{0}"
@@ -36,3 +32,11 @@ msgstr "ラウンド{0}"
 #: src/components/organisms/FullScreenRoundView.re.mjs:109
 msgid "SERVING"
 msgstr "サーブ権"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
+msgid "VS"
+msgstr "VS"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "このラウンドは不参加"

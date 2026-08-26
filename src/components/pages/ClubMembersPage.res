@@ -1,4 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 
 module Query = %relay(`
   query ClubMembersPageQuery(
@@ -127,7 +128,7 @@ module MemberItem = {
           <div className="flex items-center gap-2">
             <span
               className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200">
-              {"Pending"->React.string}
+              {t`Pending`}
             </span>
             {viewerIsAdmin
               ? <>
@@ -192,13 +193,13 @@ module MemberItem = {
               {isOwner
                 ? <span
                     className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200">
-                    {"Owner"->React.string}
+                    {t`Owner`}
                   </span>
                 : React.null}
               {isAdmin && !isOwner
                 ? <span
                     className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
-                    {"Admin"->React.string}
+                    {t`Admin`}
                   </span>
                 : React.null}
             </div>
@@ -385,7 +386,7 @@ let make = () => {
             </div>
           </h1>
           <div className="mt-8">
-            <React.Suspense fallback={<div> {"Loading members..."->React.string} </div>}>
+            <React.Suspense fallback={<div> {t`Loading members...`} </div>}>
               <ClubMembersData clubId={club.id} viewerIsAdmin={viewerIsAdmin} />
             </React.Suspense>
           </div>

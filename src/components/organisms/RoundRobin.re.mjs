@@ -1064,7 +1064,7 @@ function RoundRobin(props) {
                               children: JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsx("h1", {
-                                            children: "Round Robin Tournament",
+                                            children: t`Round Robin Tournament`,
                                             className: "text-2xl font-bold"
                                           }),
                                       JsxRuntime.jsxs("div", {

@@ -36,3 +36,7 @@ msgstr ""
 #: src/components/organisms/FullScreenRoundView.re.mjs:109
 msgid "SERVING"
 msgstr ""
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
+msgid "VS"
+msgstr ""

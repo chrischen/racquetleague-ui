@@ -370,6 +370,10 @@ msgstr ""
 #~ msgid "load more"
 #~ msgstr ""
 
+#: src/components/pages/ViewerEventsPage.re.mjs:98
+msgid "Loading events..."
+msgstr ""
+
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
 msgid "Location:"
@@ -514,6 +518,10 @@ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:51
 msgid "Tomorrow"
+msgstr ""
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
 msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:266

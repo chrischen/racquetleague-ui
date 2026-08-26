@@ -271,7 +271,7 @@ function SelectMatch(props) {
                       children: JsxRuntime.jsxs("section", {
                             children: [
                               JsxRuntime.jsx("h2", {
-                                    children: "Winners",
+                                    children: t`Winners`,
                                     className: "sr-only",
                                     id: "section-1-title"
                                   }),
@@ -295,7 +295,7 @@ function SelectMatch(props) {
                       children: JsxRuntime.jsxs("section", {
                             children: [
                               JsxRuntime.jsx("h2", {
-                                    children: "Losers",
+                                    children: t`Losers`,
                                     className: "sr-only",
                                     id: "section-2-title"
                                   }),

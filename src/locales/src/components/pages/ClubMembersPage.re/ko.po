@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "관리자"
+
 #: src/components/pages/ClubMembersPage.re.mjs:198
 msgid "Approve"
 msgstr "승인"
@@ -22,9 +26,21 @@ msgstr "승인"
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "{0}을(를) 클럽에서 제거하시겠습니까?"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "취소"
+
 #: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
 msgstr "클럽을 찾을 수 없습니다"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "확인"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "멤버 불러오는 중..."
 
 #: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
@@ -34,6 +50,11 @@ msgstr "멤버"
 msgid "No members found"
 msgstr "멤버를 찾을 수 없습니다"
 
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "소유자"
+
+#: src/components/pages/ClubMembersPage.re.mjs:191
 #: src/components/pages/ClubMembersPage.re.mjs:382
 msgid "Pending"
 msgstr "대기 중"

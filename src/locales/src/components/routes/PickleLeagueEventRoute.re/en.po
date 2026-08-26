@@ -188,6 +188,10 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr ""
+
 #: src/components/organisms/MatchHistoryList.re.mjs:522
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
@@ -384,4 +388,8 @@ msgstr ""
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
 msgstr ""

@@ -70,15 +70,6 @@ msgstr "インストール"
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.comアプリをインストール"
 
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-#~ msgid "Install Racquet League"
-#~ msgstr "Racquet Leagueをインストール"
-
-#: src/components/pages/LeagueLayout.re.mjs:91
-#~ msgid "japan pickle league"
-#~ msgstr "日本ピックルリーグ"
-
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
@@ -100,10 +91,6 @@ msgstr "ユーザーメニューを開く"
 #: src/components/organisms/LeagueNav.re.mjs:301
 msgid "Profile picture"
 msgstr "プロフィール写真"
-
-#: src/components/organisms/Nav.re.mjs:99
-#~ msgid "racquet league"
-#~ msgstr "ラケットリーグ"
 
 #: src/components/organisms/LeagueNav.re.mjs:106
 msgid "Rankings"
@@ -129,3 +116,16 @@ msgstr "通知を表示"
 #: src/components/organisms/LeagueNav.re.mjs:122
 msgid "Your Profile"
 msgstr "あなたのプロフィール"
+
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "Racquet Leagueをインストール"
+
+#: src/components/pages/LeagueLayout.re.mjs:91
+#~ msgid "japan pickle league"
+#~ msgstr "日本ピックルリーグ"
+
+#: src/components/organisms/Nav.re.mjs:99
+#~ msgid "racquet league"
+#~ msgstr "ラケットリーグ"

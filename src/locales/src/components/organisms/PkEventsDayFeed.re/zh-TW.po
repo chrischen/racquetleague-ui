@@ -67,18 +67,6 @@ msgstr "{0} 位球員"
 msgid "{0} players"
 msgstr "{0} 位球員"
 
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
-#~ msgid "{0} segment"
-#~ msgstr "{0} 時段"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
-#~ msgid "{0} segments"
-#~ msgstr "{0} 個時段"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
-#~ msgid "{0}–{1} courts"
-#~ msgstr "{0}–{1} 個場地"
-
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:200
 msgid "{first} + {0} more"
 msgstr "{first} + {0} 位更多"
@@ -97,10 +85,6 @@ msgstr "{hs}小時 {ms}分"
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:65
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
-#~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
-#~ msgstr "{minCourts, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:48
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:283
@@ -130,14 +114,6 @@ msgstr "可參加"
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:434
 msgid "Cancel editing availability"
 msgstr "取消編輯可用時間"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-#~ msgid "Choose a segment up to four hours to plan this time."
-#~ msgstr "請選擇最多四小時的時段以規劃此時間。"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
-#~ msgid "Continuous court availability"
-#~ msgstr "連續場地可用性"
 
 #: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
@@ -174,18 +150,6 @@ msgstr "隱藏時段"
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:376
 msgid "Mark available"
 msgstr "標記為有空"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
-#~ msgid "Match your availability to the selected segment, then invite players."
-#~ msgstr "將您的可用時間與所選時段配對，然後邀請球員。"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
-#~ msgid "Open span"
-#~ msgstr "開放時間段"
-
-#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
-#~ msgid "Plan this time"
-#~ msgstr "規劃此時間"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
@@ -234,3 +198,40 @@ msgstr "您："
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:421
 msgid "Your availability in this slot"
 msgstr "您在此時段的可用時間"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:84
+#~ msgid "{0} segment"
+#~ msgstr "{0} 時段"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:85
+#~ msgid "{0} segments"
+#~ msgstr "{0} 個時段"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:82
+#~ msgid "{0}–{1} courts"
+#~ msgstr "{0}–{1} 個場地"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:79
+#~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{minCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid "Choose a segment up to four hours to plan this time."
+#~ msgstr "請選擇最多四小時的時段以規劃此時間。"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:128
+#~ msgid "Continuous court availability"
+#~ msgstr "連續場地可用性"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:287
+#~ msgid ""
+#~ "Match your availability to the selected segment, then invite players."
+#~ msgstr "將您的可用時間與所選時段配對，然後邀請球員。"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:132
+#~ msgid "Open span"
+#~ msgstr "開放時間段"
+
+#: src/components/organisms/CourtPseudoEventRow.re.mjs:297
+#~ msgid "Plan this time"
+#~ msgstr "規劃此時間"

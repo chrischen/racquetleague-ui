@@ -11,6 +11,9 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as EventDetails_event_graphql from "../../__generated__/EventDetails_event_graphql.re.mjs";
 
+import { t } from '@lingui/macro'
+;
+
 var convertFragment = EventDetails_event_graphql.Internal.convertFragment;
 
 function use(fRef) {
@@ -41,7 +44,7 @@ function EventDetails(props) {
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("button", {
-                              children: "Event Details",
+                              children: t`Event Details`,
                               className: Core.cx("py-2 px-4 font-medium text-sm", activeTab === "details" ? "text-blue-600 border-b-2 border-blue-600" : "text-gray-500 hover:text-gray-700"),
                               onClick: (function (param) {
                                   setActiveTab(function (param) {
@@ -50,7 +53,7 @@ function EventDetails(props) {
                                 })
                             }),
                         JsxRuntime.jsx("button", {
-                              children: "Location Details",
+                              children: t`Location Details`,
                               className: Core.cx("py-2 px-4 font-medium text-sm", activeTab === "location" ? "text-blue-600 border-b-2 border-blue-600" : "text-gray-500 hover:text-gray-700"),
                               onClick: (function (param) {
                                   setActiveTab(function (param) {
@@ -123,4 +126,4 @@ export {
   Fragment ,
   make ,
 }
-/* react Not a pure module */
+/*  Not a pure module */

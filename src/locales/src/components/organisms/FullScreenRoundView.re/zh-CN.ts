@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"进行中的回合\",\"Kbi7Yx\":\"退出全屏\",\"hlIKDQ\":[\"球场 \",[\"0\"]],\"xXKDhD\":[\"第 \",[\"0\"],\" 回合\"],\"9UIlf9\":\"发球中\",\"FKn1hm\":\"本轮不参赛\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"进行中的回合\",\"Kbi7Yx\":\"退出全屏\",\"hlIKDQ\":[\"球场 \",[\"0\"]],\"xXKDhD\":[\"第 \",[\"0\"],\" 回合\"],\"9UIlf9\":\"发球中\",\"tP6Aw4\":\"VS\",\"FKn1hm\":\"本轮不参赛\"}");

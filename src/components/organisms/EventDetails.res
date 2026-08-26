@@ -1,3 +1,5 @@
+%%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 module Fragment = %relay(`
 	fragment EventDetails_event on Event {
 		details
@@ -41,7 +43,7 @@ let make = (~event) => {
             : "text-gray-500 hover:text-gray-700",
         ])}
         onClick={_ => setActiveTab(_ => "details")}>
-        {React.string("Event Details")}
+        {t`Event Details`}
       </button>
       <button
         className={Util.cx([
@@ -51,7 +53,7 @@ let make = (~event) => {
             : "text-gray-500 hover:text-gray-700",
         ])}
         onClick={_ => setActiveTab(_ => "location")}>
-        {React.string("Location Details")}
+        {t`Location Details`}
       </button>
     </div>
     {activeTab == "details"

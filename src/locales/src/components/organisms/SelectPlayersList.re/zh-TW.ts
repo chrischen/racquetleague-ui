@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"u2UoSb\":\"比賽次數\",\"827u5r\":\"還沒有球員\",\"vRayGs\":\"球員\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PaQ3df\":\"啟用\",\"u2UoSb\":\"比賽次數\",\"827u5r\":\"還沒有球員\",\"vRayGs\":\"球員\",\"t/YqKh\":\"移除\"}");

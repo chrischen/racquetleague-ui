@@ -26,6 +26,14 @@ msgstr "イベント"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
+#: src/components/pages/DefaultLayout2.re.mjs:182
+msgid "Racquet League"
+msgstr "ラケットリーグ"
+
+#: src/components/pages/DefaultLayout2.re.mjs:81
+msgid "Rankings"
+msgstr "ランキング"
+
 #: src/components/pages/DefaultLayout2.re.mjs:173
 #~ msgid "Logout"
 #~ msgstr "ログアウト"
@@ -38,14 +46,6 @@ msgstr "Lineでログイン"
 #: src/components/pages/DefaultLayout2.re.mjs:160
 #~ msgid "Privacy Policy"
 #~ msgstr "プライバシーポリシー"
-
-#: src/components/pages/DefaultLayout2.re.mjs:182
-msgid "Racquet League"
-msgstr "ラケットリーグ"
-
-#: src/components/pages/DefaultLayout2.re.mjs:81
-msgid "Rankings"
-msgstr "ランキング"
 
 #: src/components/pages/DefaultLayout2.re.mjs:166
 #~ msgid "Share Feedback"

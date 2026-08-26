@@ -80,8 +80,13 @@ msgid "Starting…"
 msgstr "시작 중…"
 
 #: src/components/pages/LoginPage.re.mjs:354
-msgid "The installed app uses a separate browser, so we'll complete sign-in in your system browser. Tap the button below, sign in there, and we'll automatically sign you in here."
-msgstr "설치된 앱은 별도의 브라우저를 사용하므로 시스템 브라우저에서 로그인을 완료합니다. 아래 버튼을 탭하여 로그인하면 자동으로 로그인됩니다."
+msgid ""
+"The installed app uses a separate browser, so we'll complete sign-in in your "
+"system browser. Tap the button below, sign in there, and we'll automatically "
+"sign you in here."
+msgstr ""
+"설치된 앱은 별도의 브라우저를 사용하므로 시스템 브라우저에서 로그인을 완료합"
+"니다. 아래 버튼을 탭하여 로그인하면 자동으로 로그인됩니다."
 
 #: src/components/pages/LoginPage.re.mjs:399
 msgid "Waiting for sign-in to complete…"
@@ -92,5 +97,9 @@ msgid "Your code"
 msgstr "내 코드"
 
 #: src/components/pages/LoginPage.re.mjs:279
-msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
-msgstr "LINE 계정에 연결된 이메일이 없습니다. LINE 앱에서 계정의 이메일 주소를 설정한 다음 다시 시도하세요."
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"LINE 계정에 연결된 이메일이 없습니다. LINE 앱에서 계정의 이메일 주소를 설정"
+"한 다음 다시 시도하세요."

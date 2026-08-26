@@ -21,8 +21,16 @@ msgstr ""
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:198
 msgid "Capture payment"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:174

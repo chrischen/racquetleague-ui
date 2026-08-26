@@ -29,10 +29,6 @@ msgstr "{0} câu lạc bộ"
 msgid "Active players"
 msgstr "Người chơi tích cực"
 
-#: src/components/pages/ClubsListPage.re.mjs:487
-#~ msgid "All levels"
-#~ msgstr "Tất cả cấp độ"
-
 #: src/components/pages/ClubsListPage.re.mjs:333
 msgid "Badminton"
 msgstr "Cầu lông"
@@ -63,8 +59,12 @@ msgid "Clubs"
 msgstr "Câu lạc bộ"
 
 #: src/components/pages/ClubsListPage.re.mjs:379
-msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
-msgstr "Tìm và tham gia câu lạc bộ, được xếp hạng theo mức độ hoạt động, trình độ chơi và số lượng người chơi quay lại."
+msgid ""
+"Find and join clubs, ranked by activity, level of play and how many players "
+"come back."
+msgstr ""
+"Tìm và tham gia câu lạc bộ, được xếp hạng theo mức độ hoạt động, trình độ "
+"chơi và số lượng người chơi quay lại."
 
 #: src/components/pages/ClubsListPage.re.mjs:492
 msgid "Load more clubs"
@@ -81,10 +81,6 @@ msgstr "Trình độ trung bình"
 #: src/components/pages/ClubsListPage.re.mjs:152
 msgid "Member"
 msgstr "Thành viên"
-
-#: src/components/pages/ClubsListPage.re.mjs:481
-#~ msgid "Minimum club level"
-#~ msgstr "Trình độ câu lạc bộ tối thiểu"
 
 #: src/components/pages/ClubsListPage.re.mjs:183
 msgid "Next"
@@ -119,10 +115,6 @@ msgstr "Tỷ lệ giữ chân"
 msgid "Search clubs"
 msgstr "Tìm kiếm câu lạc bộ"
 
-#: src/components/pages/ClubsListPage.re.mjs:453
-#~ msgid "Sport"
-#~ msgstr "Môn thể thao"
-
 #: src/components/pages/ClubsListPage.re.mjs:284
 msgid "Total members"
 msgstr "Tổng số thành viên"
@@ -131,10 +123,23 @@ msgstr "Tổng số thành viên"
 msgid "Try a different search, or pick another sport in the sidebar."
 msgstr "Thử tìm kiếm khác, hoặc chọn môn thể thao khác trong thanh bên."
 
-#: src/components/pages/ClubsListPage.re.mjs:560
-#~ msgid "Try a different sport or a lower level, or clear your filters."
-#~ msgstr "Thử môn thể thao khác hoặc trình độ thấp hơn, hoặc xóa bộ lọc của bạn."
-
 #: src/components/pages/ClubsListPage.re.mjs:309
 msgid "View club"
 msgstr "Xem câu lạc bộ"
+
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr "Tất cả cấp độ"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr "Trình độ câu lạc bộ tối thiểu"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr "Môn thể thao"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+#~ msgid "Try a different sport or a lower level, or clear your filters."
+#~ msgstr ""
+#~ "Thử môn thể thao khác hoặc trình độ thấp hơn, hoặc xóa bộ lọc của bạn."

@@ -29,10 +29,6 @@ msgstr "{0} 参加済み"
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
-#~ msgid "A good availability match for {eventTitle}. Invite them now to reserve a place in the event conversation."
-#~ msgstr "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会話に参加させましょう。"
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
 msgid "About"
 msgstr "について"
@@ -69,6 +65,10 @@ msgstr "記録されたプレイに基づく"
 msgid "Beginner"
 msgstr "初心者"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "キャンセル"
+
 #: src/components/organisms/RsvpOptions.re.mjs:198
 msgid "Capture payment"
 msgstr "支払いを確定"
@@ -84,6 +84,10 @@ msgstr "完全な初心者"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
 msgid "Computed rating"
 msgstr "算出されたレーティング"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Confirmed · {0}"
@@ -143,10 +147,6 @@ msgstr "プレイヤーを招待"
 msgid "Invite to {0}"
 msgstr "{0}に招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "{eventTitle}に招待"
-
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "招待済みおよび候補プレイヤー"
@@ -155,13 +155,14 @@ msgstr "招待済みおよび候補プレイヤー"
 msgid "Invited players have moved into the event's invited list."
 msgstr "招待されたプレイヤーがイベントの招待リストに移動しました。"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
-#~ msgid "Invited players have moved into the event’s invited list."
-#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
-
 #: src/components/organisms/EventInvites.re.mjs:268
 msgid "Invites · {0}"
 msgstr "招待 · {0}"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr "レベル制限"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
 msgid "Male"
@@ -179,6 +180,10 @@ msgstr "混合"
 #: src/components/organisms/RsvpOptions.re.mjs:268
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
+
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
+msgstr "プレイヤーが見つかりません"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
 msgid "Not provided"
@@ -207,10 +212,6 @@ msgstr "支払い確定済み"
 #: src/components/organisms/PkRSVPSection.re.mjs:725
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
-
-#: src/components/organisms/MiniEventRsvp.re.mjs:57
-#~ msgid "Player"
-#~ msgstr "プレイヤー"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
@@ -273,8 +274,12 @@ msgid "Swipe left to skip · right to invite"
 msgstr "左にスワイプでスキップ・右にスワイプで招待"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は失われます。本当にこのユーザーの参加申込を制限しますか？"
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
+"失われます。本当にこのユーザーの参加申込を制限しますか？"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:476
 msgid "TOP 6 AVG"
@@ -290,9 +295,40 @@ msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:344
-msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-msgstr "あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR {viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追加されます。"
+msgid ""
+"Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+"{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
+msgstr ""
+"あなたのレーティング {viewerOrdinal2Str} ～ {viewerMuStr}（DUPR "
+"{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追"
+"加されます。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
+#~ msgid ""
+#~ "A good availability match for {eventTitle}. Invite them now to reserve a "
+#~ "place in the event conversation."
+#~ msgstr ""
+#~ "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会"
+#~ "話に参加させましょう。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
+#~ msgid "Invite to {eventTitle}"
+#~ msgstr "{eventTitle}に招待"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
+#~ msgid "Invited players have moved into the event’s invited list."
+#~ msgstr "招待したプレイヤーがイベントの招待リストに移動しました。"
+
+#: src/components/organisms/MiniEventRsvp.re.mjs:57
+#~ msgid "Player"
+#~ msgstr "プレイヤー"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
-#~ msgid "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
-#~ msgstr "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR {viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに追加されます。"
+#~ msgid ""
+#~ "Your rating {viewerOrdinalStr} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
+#~ "{viewerDuprHi}) is below the minimum. You will be placed in the pending "
+#~ "list."
+#~ msgstr ""
+#~ "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
+#~ "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに"
+#~ "追加されます。"

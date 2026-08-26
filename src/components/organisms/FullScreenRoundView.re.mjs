@@ -126,7 +126,7 @@ function FullScreenRoundView(props) {
                                                               }),
                                                           JsxRuntime.jsx("div", {
                                                                 children: JsxRuntime.jsx("span", {
-                                                                      children: "VS",
+                                                                      children: t`VS`,
                                                                       className: "text-xs md:text-xl font-black text-slate-500 italic"
                                                                     }),
                                                                 className: "relative bg-slate-800 px-2 md:px-3"

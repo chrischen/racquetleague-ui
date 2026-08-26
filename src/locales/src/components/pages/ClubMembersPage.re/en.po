@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr ""
+
 #: src/components/pages/ClubMembersPage.re.mjs:198
 msgid "Approve"
 msgstr ""
@@ -26,13 +30,25 @@ msgstr ""
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr ""
+
 #: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/pages/ClubMembersPage.re.mjs:183
 #~ msgid "from the club?"
 #~ msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr ""
 
 #: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
@@ -42,6 +58,11 @@ msgstr ""
 msgid "No members found"
 msgstr ""
 
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:191
 #: src/components/pages/ClubMembersPage.re.mjs:382
 msgid "Pending"
 msgstr ""

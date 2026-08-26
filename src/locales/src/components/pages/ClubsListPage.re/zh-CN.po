@@ -29,10 +29,6 @@ msgstr "{0} 个俱乐部"
 msgid "Active players"
 msgstr "活跃球员"
 
-#: src/components/pages/ClubsListPage.re.mjs:487
-#~ msgid "All levels"
-#~ msgstr "所有级别"
-
 #: src/components/pages/ClubsListPage.re.mjs:333
 msgid "Badminton"
 msgstr "羽毛球"
@@ -63,7 +59,9 @@ msgid "Clubs"
 msgstr "俱乐部"
 
 #: src/components/pages/ClubsListPage.re.mjs:379
-msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
+msgid ""
+"Find and join clubs, ranked by activity, level of play and how many players "
+"come back."
 msgstr "查找并加入俱乐部，按活跃度、竞技水平及回访球员数量排名。"
 
 #: src/components/pages/ClubsListPage.re.mjs:492
@@ -81,10 +79,6 @@ msgstr "中位水平"
 #: src/components/pages/ClubsListPage.re.mjs:152
 msgid "Member"
 msgstr "会员"
-
-#: src/components/pages/ClubsListPage.re.mjs:481
-#~ msgid "Minimum club level"
-#~ msgstr "最低俱乐部级别"
 
 #: src/components/pages/ClubsListPage.re.mjs:183
 msgid "Next"
@@ -119,10 +113,6 @@ msgstr "留存率"
 msgid "Search clubs"
 msgstr "搜索俱乐部"
 
-#: src/components/pages/ClubsListPage.re.mjs:453
-#~ msgid "Sport"
-#~ msgstr "运动项目"
-
 #: src/components/pages/ClubsListPage.re.mjs:284
 msgid "Total members"
 msgstr "会员总数"
@@ -131,10 +121,22 @@ msgstr "会员总数"
 msgid "Try a different search, or pick another sport in the sidebar."
 msgstr "请尝试其他搜索词，或在侧边栏选择其他运动。"
 
-#: src/components/pages/ClubsListPage.re.mjs:560
-#~ msgid "Try a different sport or a lower level, or clear your filters."
-#~ msgstr "请尝试其他运动项目或降低级别要求，或清除筛选条件。"
-
 #: src/components/pages/ClubsListPage.re.mjs:309
 msgid "View club"
 msgstr "查看俱乐部"
+
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr "所有级别"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr "最低俱乐部级别"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr "运动项目"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+#~ msgid "Try a different sport or a lower level, or clear your filters."
+#~ msgstr "请尝试其他运动项目或降低级别要求，或清除筛选条件。"

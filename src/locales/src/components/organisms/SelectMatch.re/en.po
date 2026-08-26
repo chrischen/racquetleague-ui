@@ -38,6 +38,10 @@ msgstr ""
 #~ msgid "Loading"
 #~ msgstr ""
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr ""
+
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
 msgstr ""
@@ -77,3 +81,7 @@ msgstr ""
 #: src/components/organisms/SubmitMatch.re.mjs:375
 #~ msgid "Winner"
 #~ msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr ""

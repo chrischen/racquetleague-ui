@@ -26,5 +26,10 @@ msgid "save"
 msgstr "保存"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
-msgstr "设置为当前休息的球员数量，以启用比赛场次的均衡分配。设置为0可以禁用此功能并优化比赛质量，但这可能导致某些球员比其他球员参加更多比赛。"
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"设置为当前休息的球员数量，以启用比赛场次的均衡分配。设置为0可以禁用此功能并优"
+"化比赛质量，但这可能导致某些球员比其他球员参加更多比赛。"

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"u2UoSb\":\"Match Count\",\"827u5r\":\"no players yet\",\"vRayGs\":\"Player\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PaQ3df\":\"Enable\",\"u2UoSb\":\"Match Count\",\"827u5r\":\"no players yet\",\"vRayGs\":\"Player\",\"t/YqKh\":\"Remove\"}");

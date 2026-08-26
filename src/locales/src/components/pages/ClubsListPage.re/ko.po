@@ -29,10 +29,6 @@ msgstr "{0}개 클럽"
 msgid "Active players"
 msgstr "활동 중인 플레이어"
 
-#: src/components/pages/ClubsListPage.re.mjs:487
-#~ msgid "All levels"
-#~ msgstr "모든 레벨"
-
 #: src/components/pages/ClubsListPage.re.mjs:333
 msgid "Badminton"
 msgstr "배드민턴"
@@ -63,8 +59,12 @@ msgid "Clubs"
 msgstr "클럽"
 
 #: src/components/pages/ClubsListPage.re.mjs:379
-msgid "Find and join clubs, ranked by activity, level of play and how many players come back."
-msgstr "활동성, 실력 수준, 재방문 플레이어 수를 기준으로 순위가 매겨진 클럽을 찾아 가입하세요."
+msgid ""
+"Find and join clubs, ranked by activity, level of play and how many players "
+"come back."
+msgstr ""
+"활동성, 실력 수준, 재방문 플레이어 수를 기준으로 순위가 매겨진 클럽을 찾아 가"
+"입하세요."
 
 #: src/components/pages/ClubsListPage.re.mjs:492
 msgid "Load more clubs"
@@ -81,10 +81,6 @@ msgstr "중간 레벨"
 #: src/components/pages/ClubsListPage.re.mjs:152
 msgid "Member"
 msgstr "회원"
-
-#: src/components/pages/ClubsListPage.re.mjs:481
-#~ msgid "Minimum club level"
-#~ msgstr "최소 클럽 레벨"
 
 #: src/components/pages/ClubsListPage.re.mjs:183
 msgid "Next"
@@ -119,10 +115,6 @@ msgstr "유지율"
 msgid "Search clubs"
 msgstr "클럽 검색"
 
-#: src/components/pages/ClubsListPage.re.mjs:453
-#~ msgid "Sport"
-#~ msgstr "종목"
-
 #: src/components/pages/ClubsListPage.re.mjs:284
 msgid "Total members"
 msgstr "총 회원 수"
@@ -131,10 +123,22 @@ msgstr "총 회원 수"
 msgid "Try a different search, or pick another sport in the sidebar."
 msgstr "다른 검색어를 시도하거나 사이드바에서 다른 스포츠를 선택하세요."
 
-#: src/components/pages/ClubsListPage.re.mjs:560
-#~ msgid "Try a different sport or a lower level, or clear your filters."
-#~ msgstr "다른 종목이나 낮은 레벨로 시도해보거나 필터를 초기화하세요."
-
 #: src/components/pages/ClubsListPage.re.mjs:309
 msgid "View club"
 msgstr "클럽 보기"
+
+#: src/components/pages/ClubsListPage.re.mjs:487
+#~ msgid "All levels"
+#~ msgstr "모든 레벨"
+
+#: src/components/pages/ClubsListPage.re.mjs:481
+#~ msgid "Minimum club level"
+#~ msgstr "최소 클럽 레벨"
+
+#: src/components/pages/ClubsListPage.re.mjs:453
+#~ msgid "Sport"
+#~ msgstr "종목"
+
+#: src/components/pages/ClubsListPage.re.mjs:560
+#~ msgid "Try a different sport or a lower level, or clear your filters."
+#~ msgstr "다른 종목이나 낮은 레벨로 시도해보거나 필터를 초기화하세요."

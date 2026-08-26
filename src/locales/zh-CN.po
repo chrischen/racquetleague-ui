@@ -5684,6 +5684,443 @@ msgstr "您的浏览器存储空间不足。请清除旧赛事数据以释放空
 msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
 msgstr "您的浏览器拒绝保存此赛事。请重新加载页面或重试——如果持续失败，请避免刷新页面，直到比分同步完成。"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "确认"
+
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "循环赛抽签"
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr "试试这些示例："
+
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "败者组"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "胜者组"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr "级别限制"
+
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr "场地详情"
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "日期待定"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "时间待定"
+
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr "释放空间"
+
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr "体育赛事签表"
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr "存储空间即将满"
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid "Your browser storage is {0}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes."
+msgstr "您的浏览器存储已使用 {0}%。若存储空间耗尽，应用可能丢失数据。释放空间将清除此设备上所有赛事的已保存数据——您将有机会查看具体删除的内容。"
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr "● 缓冲就绪"
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr "18秒片段 · 第07回合"
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr "已分析24次击球 · 游戏会话"
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr "进行中的会话"
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr "分析"
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr "分析捕获已激活"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr "分析完成"
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr "分析模式"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr "分析设置"
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr "正在分析比赛"
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr "角度 {0} / {1}"
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr "上网进攻"
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr "比赛时可用"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr "返回模式"
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr "反手"
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr "最佳落点"
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr "落点回顾"
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr "摄像头已连接"
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr "摄像头取景和连接正常"
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr "摄像头不可用 — 请检查权限后重试"
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr "拍摄几次发球，然后结束以查看结果。"
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr "签入或签出"
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr "选择操作"
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr "剪辑和线判操作随时可用。"
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr "剪辑上一回合"
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr "剪辑已保存 · 直播捕捉继续"
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr "联系"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr "已复制"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr "复制链接"
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr "从滚动视频缓冲区创建简洁、可分享的剪辑。"
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr "丢弃"
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr "完成回顾"
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr "放小球分析"
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr "放小球落点"
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr "结束并分析"
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr "结束会话"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr "结束会话并退出"
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr "收集足够的击球后结束会话。"
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr "退出"
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr "正在寻找最清晰的画面并准备结果。"
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr "厨房区准确率"
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr "落点热图"
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr "上一回合"
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr "实时比赛"
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr "实时滚动会话"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr "实时会话"
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr "实时会话和滚动缓冲区仍在运行"
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr "直播会话继续 · 缓冲录制中"
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr "实时会话已结束"
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr "测量发球速度并查看检测到的发球片段。"
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr "下一个弹跳片段"
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr "开始前无需选择动作。"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr "关"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr "开"
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr "打开"
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr "打开信息亭设置"
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr "出界"
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr "球速峰值"
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr "匹克球摄像信息亭"
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr "播放最近一拍"
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr "播放发球回放"
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr "用手机摄像头扫描二维码，观看本场地直播。"
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr "上一步"
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr "上一个弹跳片段"
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr "对打片段已就绪"
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr "从多个近景时刻回顾最新弹跳。"
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr "滚动缓冲"
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr "滚动缓冲已激活"
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr "滚动缓冲捕捉"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr "滚动捕捉，可选YouTube直播。"
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr "保存片段"
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr "扫码观看"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr "选择模式，然后开始捕捉。"
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr "请在启动摄像头前选择一项。"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr "已选分析"
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr "发球 04 · 清晰读取"
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr "检测到发球"
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr "发球回放"
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr "发球速度分析"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr "会话设置"
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr "在会话期间显示观看者二维码"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr "开始分析"
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr "开始另一个会话"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr "开始直播会话"
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr "在YouTube上直播"
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr "摄像头持续缓存最近的比赛画面，随时可用。"
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr "回放期间滚动缓冲继续运行。"
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr "追踪放短球落点并揭示落地规律。"
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr "使用最新缓冲画面"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr "观看链接"
+
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "添加赛事"
+
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr "评分："
+
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "启用"
+
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "管理员"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "正在加载成员..."
+
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "所有者"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -5724,11 +6161,6 @@ msgstr "您的浏览器拒绝保存此赛事。请重新加载页面或重试—
 #~ msgid "No players added yet"
 #~ msgstr "还没有球员"
 
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "循环赛抽签"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
@@ -5748,3 +6180,28 @@ msgstr "您的浏览器拒绝保存此赛事。请重新加载页面或重试—
 #, fuzzy
 #~ msgid "Other locations and times"
 #~ msgstr "同时段的其他地点"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "此设备上存储的所有内容已同步到服务器。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} 个评分"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} 位球员"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+#~ msgstr "这将删除此设备上所有赛事的已保存数据，包括当前赛事。已同步到服务器的赛事可以重新打开；未同步的内容将无法恢复。"
+
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
+#~ msgstr "这些比分尚未上传到服务器。请在删除前同步此赛事，否则数据将丢失。"

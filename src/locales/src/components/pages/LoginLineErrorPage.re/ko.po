@@ -26,8 +26,13 @@ msgid "login with Line"
 msgstr "Line으로 로그인"
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:37
-msgid "please try again outside of private browsing as it can interfere with Line login. if the problem persists, you can try the safe-mode login button below."
-msgstr "비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세요."
+msgid ""
+"please try again outside of private browsing as it can interfere with Line "
+"login. if the problem persists, you can try the safe-mode login button below."
+msgstr ""
+"비공개 브라우징이 Line 로그인을 방해할 수 있으므로 비공개 브라우징 외부에서 "
+"다시 시도하세요. 문제가 계속되면 아래의 안전 모드 로그인 버튼을 사용해 보세"
+"요."
 
 #: src/components/pages/LoginLineErrorPage.re.mjs:41
 msgid "safe-mode login with Line"

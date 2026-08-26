@@ -129,13 +129,12 @@ msgstr "6 小時前"
 msgid "72 hours before"
 msgstr "72小時前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:827
-#~ msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
-#~ msgstr "當有人加入時，系統會收取訂金授權。實際上不會扣款，授權將在活動結束後自動解除。您應親自手動收取參加費用。您也可以在 RSVP 名單中點擊參加者姓名來手動審核。"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
-msgstr "當有人加入時將收取可退還的押金。您可以在報名名單中點擊參與者姓名來手動審核。"
+msgid ""
+"A refundable deposit is collected when someone joins. You can manually "
+"approve attendees by clicking their name in the RSVP list."
+msgstr ""
+"當有人加入時將收取可退還的押金。您可以在報名名單中點擊參與者姓名來手動審核。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:665
 msgid "Action proposal"
@@ -213,12 +212,10 @@ msgid "Cancel deadline (optional)"
 msgstr "取消期限(選填)"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
 msgstr "以樂趣和社交為主的休閒遊戲。適合所有技能水平。"
-
-#: src/components/pages/CreateEventPage.re.mjs:136
-#~ msgid "choose the location where this event will be held."
-#~ msgstr "選擇舉辦此活動的地點。"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
@@ -339,8 +336,11 @@ msgid "e.g., City Ballers Club"
 msgstr "例如：城市球員俱樂部"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:751
-msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
-msgstr "例如：每週四下午6點在中央公園舉行的匹克球聚會，適合3.5+級別的競技球員..."
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"例如：每週四下午6點在中央公園舉行的匹克球聚會，適合3.5+級別的競技球員..."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:705
 msgid "End time"
@@ -354,10 +354,6 @@ msgstr "結束時間是必填項目"
 msgid "Enter price"
 msgstr "輸入價格"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "建立活動時發生錯誤。請重試。"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:76
 msgid "event date is required"
 msgstr "活動日期是必填項目"
@@ -370,10 +366,6 @@ msgstr "活動詳情"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:798
 msgid "Event details (optional)"
 msgstr "活動詳情（可選）"
-
-#: src/components/pages/CreateEventPage.re.mjs:135
-#~ msgid "event location"
-#~ msgstr "活動地點"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:592
 msgid "Event schedule"
@@ -428,10 +420,6 @@ msgstr "週五晚上的匡克球"
 msgid "Generating..."
 msgstr "生成中..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:137
-#~ msgid "I couldn't process that request. Please try again."
-#~ msgstr "無法處理該請求，請重試。"
-
 #: src/components/organisms/AIAssistantEmbed.re.mjs:443
 msgid "Let AI help you fill out the details below"
 msgstr "讓 AI 幫助您填寫以下詳細資料"
@@ -452,10 +440,6 @@ msgstr "地點"
 #: src/components/molecules/AIResponseCard.re.mjs:194
 msgid "Location:"
 msgstr "地點："
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:816
-#~ msgid "Max attendees (optional)"
-#~ msgstr "最大參加人數（可選）"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:734
 msgid "Max RSVPs (optional)"
@@ -540,7 +524,8 @@ msgid "Reset"
 msgstr "重置"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid "Serious play with rankings and ratings. Games may affect your player rating."
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
 msgstr "嚴肅的比賽，帶有排名和評級。比賽可能影響您的球員評級。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
@@ -564,12 +549,10 @@ msgid "The action completed with GraphQL errors."
 msgstr "該動作已完成，但包含 GraphQL 錯誤。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid "The participation fee is charged automatically and transferred to your Stripe account."
+msgid ""
+"The participation fee is charged automatically and transferred to your "
+"Stripe account."
 msgstr "參與費用將自動收取並轉入您的 Stripe 帳戶。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:850
-#~ msgid "The participation fee is charged immediately and transferred to your Stripe account."
-#~ msgstr "參加費用將立即扣款並轉入您的 Stripe 帳戶。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015
 msgid "This event is private"
@@ -602,3 +585,41 @@ msgstr "使用 Stripe"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:840
 msgid "Without Stripe"
 msgstr "不使用 Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+#~ msgid ""
+#~ "A deposit authorization is collected when someone joins. No money is "
+#~ "actually charged and the authorization is removed automatically after "
+#~ "your event. You should collect any participation fees manually in person. "
+#~ "You can also manually approve attendees by clicking their name in the "
+#~ "RSVP list."
+#~ msgstr ""
+#~ "當有人加入時，系統會收取訂金授權。實際上不會扣款，授權將在活動結束後自動解"
+#~ "除。您應親自手動收取參加費用。您也可以在 RSVP 名單中點擊參加者姓名來手動審"
+#~ "核。"
+
+#: src/components/pages/CreateEventPage.re.mjs:136
+#~ msgid "choose the location where this event will be held."
+#~ msgstr "選擇舉辦此活動的地點。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "建立活動時發生錯誤。請重試。"
+
+#: src/components/pages/CreateEventPage.re.mjs:135
+#~ msgid "event location"
+#~ msgstr "活動地點"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:137
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr "無法處理該請求，請重試。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+#~ msgid "Max attendees (optional)"
+#~ msgstr "最大參加人數（可選）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+#~ msgid ""
+#~ "The participation fee is charged immediately and transferred to your "
+#~ "Stripe account."
+#~ msgstr "參加費用將立即扣款並轉入您的 Stripe 帳戶。"

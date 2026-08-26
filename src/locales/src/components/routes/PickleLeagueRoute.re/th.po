@@ -58,7 +58,8 @@ msgstr ""
 #~ msgstr "ไม้พาย Selkirk SLK Era"
 
 #: src/components/pages/LeaguePage.re.mjs:48
-#~ msgid "This prize will be awarded to the top male and female players on this day."
+#~ msgid ""
+#~ "This prize will be awarded to the top male and female players on this day."
 #~ msgstr "รางวัลนี้จะมอบให้กับผู้เล่นชายและหญิงอันดับต้นในวันนี้"
 
 #: src/components/pages/LeaguePage.re.mjs:35

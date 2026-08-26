@@ -193,6 +193,28 @@ var Repeat = {};
 
 var Sun = {};
 
+var Camera = {};
+
+var $$History = {};
+
+var Radio = {};
+
+var ScanLine = {};
+
+var Scissors = {};
+
+var Wifi = {};
+
+var Target = {};
+
+var Square = {};
+
+var Download = {};
+
+var Copy = {};
+
+var Youtube = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -290,5 +312,16 @@ export {
   Moon ,
   Repeat ,
   Sun ,
+  Camera ,
+  $$History ,
+  Radio ,
+  ScanLine ,
+  Scissors ,
+  Wifi ,
+  Target ,
+  Square ,
+  Download ,
+  Copy ,
+  Youtube ,
 }
 /* No side effect */

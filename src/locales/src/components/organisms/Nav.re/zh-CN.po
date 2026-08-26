@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "添加赛事"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"

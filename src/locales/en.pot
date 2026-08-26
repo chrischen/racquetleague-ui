@@ -6446,3 +6446,443 @@ msgid ""
 "Your browser refused to save this event. Reload the page or retry — if it "
 "keeps failing, avoid refreshing until scores are synced."
 msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr ""
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr ""
+
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid ""
+"Your browser storage is {0}% full. The app may lose data if storage runs "
+"out. Freeing space clears saved data for every event on this device — you'll "
+"get a chance to review what that removes."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr ""
+
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr ""
+
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr ""
+
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr ""
+
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr ""

@@ -12,3 +12,7 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
+
+#: src/components/pages/NotFoundDefault.re.mjs:11
+msgid "page not found"
+msgstr ""

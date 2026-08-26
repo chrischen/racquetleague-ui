@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"進行中のラウンド\",\"Kbi7Yx\":\"全画面表示を閉じる\",\"hlIKDQ\":[\"コート\",[\"0\"]],\"xXKDhD\":[\"ラウンド\",[\"0\"]],\"9UIlf9\":\"サーブ権\",\"FKn1hm\":\"このラウンドは不参加\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"RQe+iX\":\"進行中のラウンド\",\"Kbi7Yx\":\"全画面表示を閉じる\",\"hlIKDQ\":[\"コート\",[\"0\"]],\"xXKDhD\":[\"ラウンド\",[\"0\"]],\"9UIlf9\":\"サーブ権\",\"tP6Aw4\":\"VS\",\"FKn1hm\":\"このラウンドは不参加\"}");

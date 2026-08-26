@@ -5688,6 +5688,443 @@ msgstr "เบราว์เซอร์ของคุณพื้นที่
 msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
 msgstr "เบราว์เซอร์ของคุณปฏิเสธการบันทึกอีเวนต์นี้ โหลดหน้าใหม่หรือลองอีกครั้ง หากยังล้มเหลวอยู่ ให้หลีกเลี่ยงการรีเฟรชจนกว่าคะแนนจะถูกซิงค์"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "จับคู่แบบพบกันหมด"
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr "ลองตัวอย่างเหล่านี้:"
+
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "ผู้แพ้"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "ผู้ชนะ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr "ข้อจำกัดระดับ"
+
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr "รายละเอียดสถานที่"
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "วันที่ยังไม่กำหนด"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "เวลายังไม่กำหนด"
+
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr "เพิ่มพื้นที่ว่าง"
+
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr "ตารางการแข่งขันกีฬา"
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr "พื้นที่จัดเก็บใกล้เต็ม"
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid "Your browser storage is {0}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes."
+msgstr "พื้นที่จัดเก็บของเบราว์เซอร์เต็ม {0}% แล้ว แอปอาจสูญเสียข้อมูลหากพื้นที่หมด การเพิ่มพื้นที่ว่างจะลบข้อมูลที่บันทึกไว้ของทุกอีเวนต์บนอุปกรณ์นี้ — คุณจะได้ตรวจสอบสิ่งที่จะถูกลบก่อน"
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr "● บัฟเฟอร์พร้อมแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr "คลิป 18 วินาที · แรลลี 07"
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr "วิเคราะห์ 24 ช็อต · เซสชันเกม"
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr "เซสชันที่ใช้งานอยู่"
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr "การวิเคราะห์"
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr "การบันทึกการวิเคราะห์ทำงานอยู่"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr "การวิเคราะห์เสร็จสมบูรณ์"
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr "โหมดการวิเคราะห์"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr "ตั้งค่าการวิเคราะห์"
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr "กำลังวิเคราะห์การเล่น"
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr "มุม {0} จาก {1}"
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr "การเข้าหาลูก"
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr "ใช้งานได้ขณะเล่น"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr "กลับไปที่โหมด"
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr "แบ็คแฮนด์"
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr "เป้าหมายที่ดีที่สุด"
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr "ตรวจสอบการเด้ง"
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr "เชื่อมต่อกล้องแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr "มุมกล้องและการเชื่อมต่ออยู่ในเกณฑ์ดี"
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr "กล้องไม่พร้อมใช้งาน — ตรวจสอบสิทธิ์และลองอีกครั้ง"
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr "บันทึกเสิร์ฟหลายครั้ง จากนั้นสิ้นสุดเพื่อดูผลลัพธ์"
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr "เช็คอินหรือเช็คเอาท์"
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr "เลือกการดำเนินการ"
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr "การคลิปและตรวจสอบเส้นพร้อมใช้งานได้ตลอดเวลา"
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr "คลิปการตีครั้งล่าสุด"
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr "บันทึกคลิปแล้ว · การบันทึกสดดำเนินต่อ"
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr "ติดต่อ"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr "คัดลอกแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr "คัดลอก URL"
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr "สร้างคลิปที่สะอาดและแชร์ได้จากบัฟเฟอร์วิดีโอต่อเนื่อง"
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr "ยกเลิก"
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr "ดูเสร็จแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr "การวิเคราะห์ดรอปช็อต"
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr "ตำแหน่งดรอปช็อต"
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr "สิ้นสุดและวิเคราะห์"
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr "สิ้นสุดเซสชัน"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr "สิ้นสุดเซสชันและออก"
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr "สิ้นสุดเซสชันเมื่อเก็บข้อมูลช็อตเพียงพอแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr "ออก"
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr "กำลังค้นหาช่วงกล้องที่ชัดเจนที่สุดและเตรียมผลลัพธ์"
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr "ความแม่นยำในครัว"
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr "แผนที่ความร้อนจุดลงบอล"
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr "การตีครั้งล่าสุด"
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr "เกมสด"
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr "เซสชันต่อเนื่องสด"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr "เซสชันสด"
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr "เซสชันสดและบัฟเฟอร์ต่อเนื่องยังคงทำงานอยู่"
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr "เซสชันสดดำเนินต่อ · กำลังบันทึกบัฟเฟอร์"
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr "เซสชันสดสิ้นสุดแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr "วัดความเร็วเสิร์ฟและดูคลิปเสิร์ฟที่ตรวจจับได้"
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr "คลิปลูกเด้งถัดไป"
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr "ไม่จำเป็นต้องเลือกการกระทำก่อนเริ่ม"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr "ปิด"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr "เปิด"
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr "เปิด"
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr "เปิดการตั้งค่าคีออสก์"
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr "ออก"
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr "ความเร็วสูงสุดของลูกบอล"
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr "คีออสก์กล้องพิกเกิลบอล"
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr "เล่นแรลลี่ล่าสุด"
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr "เล่นการเสิร์ฟซ้ำ"
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr "ชี้กล้องโทรศัพท์ไปที่โค้ดเพื่อเปิดสตรีมสดของคอร์ตนี้"
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr "ก่อนหน้า"
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr "คลิปลูกเด้งก่อนหน้า"
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr "คลิปแรลลี่พร้อมแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr "ดูลูกเด้งล่าสุดจากหลายมุมใกล้ชิด"
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr "บัฟเฟอร์ต่อเนื่อง"
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr "บัฟเฟอร์ต่อเนื่องทำงานอยู่"
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr "การบันทึกบัฟเฟอร์ต่อเนื่อง"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr "การบันทึกต่อเนื่องพร้อมสตรีม YouTube แบบเลือกได้"
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr "บันทึกคลิป"
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr "สแกนเพื่อดู"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr "เลือกโหมด แล้วเริ่มการบันทึก"
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr "เลือกหนึ่งรายการก่อนเริ่มกล้อง"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr "การวิเคราะห์ที่เลือก"
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr "เสิร์ฟ 04 · อ่านค่าชัดเจน"
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr "ตรวจจับการเสิร์ฟแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr "การเสิร์ฟซ้ำ"
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr "การวิเคราะห์ความเร็วเสิร์ฟ"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr "การตั้งค่าเซสชัน"
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr "แสดง QR code สำหรับผู้ชมระหว่างเซสชัน"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr "เริ่มการวิเคราะห์"
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr "เริ่มเซสชันใหม่"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr "เริ่มเซสชันสด"
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr "สตรีมบน YouTube"
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr "กล้องจะบันทึกการเล่นล่าสุดไว้พร้อมใช้งานตลอดเวลา"
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr "บัฟเฟอร์แบบต่อเนื่องทำงานขณะที่คุณรีวิว"
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr "ติดตามตำแหน่ง drop-shot และเผยรูปแบบการลงของลูก"
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr "ใช้ฟุตเทจจากบัฟเฟอร์ล่าสุด"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr "URL สำหรับรับชม"
+
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "เพิ่มอีเวนต์"
+
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr "คะแนน:"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "เปิดใช้งาน"
+
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "แอดมิน"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "กำลังโหลดสมาชิก..."
+
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "เจ้าของ"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -5728,11 +6165,6 @@ msgstr "เบราว์เซอร์ของคุณปฏิเสธก
 #~ msgid "No players added yet"
 #~ msgstr "ยังไม่มีผู้เล่น"
 
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "จับคู่แบบพบกันหมด"
-
 #: src/components/organisms/PkEventsList.re.mjs:257
 #, fuzzy
 #~ msgid "Your availability for {0}"
@@ -5747,3 +6179,28 @@ msgstr "เบราว์เซอร์ของคุณปฏิเสธก
 #, fuzzy
 #~ msgid "Other locations and times"
 #~ msgstr "สถานที่อื่นในเวลานี้"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "ทุกอย่างที่จัดเก็บบนอุปกรณ์นี้ได้ซิงค์กับเซิร์ฟเวอร์แล้ว"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} การให้คะแนน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} คน"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+#~ msgstr "การดำเนินการนี้จะลบข้อมูลที่บันทึกไว้ของทุกอีเวนต์บนอุปกรณ์นี้ รวมถึงอีเวนต์นี้ด้วย อีเวนต์ที่ซิงค์กับเซิร์ฟเวอร์แล้วสามารถเปิดใหม่ได้ แต่ข้อมูลที่ยังไม่ได้ซิงค์จะไม่สามารถกู้คืนได้"
+
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
+#~ msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"

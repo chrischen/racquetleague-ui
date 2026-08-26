@@ -154,7 +154,7 @@ function EventMessages(props) {
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("h2", {
-                      children: "Activity",
+                      children: t`Activity`,
                       className: "text-lg font-semibold mb-4"
                     }),
                 Core__Option.getOr(Core__Option.map(props.viewerHasRsvp, (function (has) {

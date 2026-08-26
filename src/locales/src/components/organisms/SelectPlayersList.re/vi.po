@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "Bật"
+
 #: src/components/organisms/SelectPlayersList.re.mjs:98
 msgid "Match Count"
 msgstr "Số trận đấu"
@@ -24,3 +28,7 @@ msgstr "chưa có người chơi"
 #: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
 msgstr "Người chơi"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:176
+msgid "Remove"
+msgstr "Xóa"

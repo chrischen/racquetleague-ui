@@ -13,10 +13,6 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:195
-#~ msgid "A small hold will be placed on your card and fully refunded after the event."
-#~ msgstr "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy đủ sau sự kiện."
-
 #: src/components/molecules/LevelPicker.re.mjs:42
 msgid "Advanced"
 msgstr "Nâng cao"
@@ -37,6 +33,10 @@ msgstr "Tiểu sử"
 msgid "Biography is required"
 msgstr "Tiểu sử là bắt buộc"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "Hủy"
+
 #: src/components/organisms/EventStickyFooter.re.mjs:173
 msgid "Cancel RSVP"
 msgstr "Hủy đăng ký"
@@ -51,7 +51,8 @@ msgid "Cancellation deadline passed."
 msgstr "Đã quá hạn hủy."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:275
-msgid "Cancellation deadline passed. Contact the organizer on this page to cancel."
+msgid ""
+"Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để hủy."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:173
@@ -79,13 +80,16 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "Hoàn thiện hồ sơ của bạn"
-
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
-msgstr "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người tổ chức."
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
+"tổ chức."
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "Xác nhận"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -111,12 +115,12 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "Không thể thay đổi email"
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -203,41 +207,42 @@ msgstr "Cần thanh toán để xác nhận chỗ của bạn"
 msgid "Pending approval"
 msgstr "Chờ phê duyệt"
 
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "Không muốn tiết lộ"
-
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
-
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "Lưu & Tham gia sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
-msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do họ nên mời bạn."
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
+"họ nên mời bạn."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:460
-msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
-msgstr "Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người tiếp theo. Bạn có chắc không?"
+msgid ""
+"There are players on the waitlist. If you leave, your spot will be given to "
+"the next person. Are you sure?"
+msgstr ""
+"Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
+"người tiếp theo. Bạn có chắc không?"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:165
-msgid "This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event."
-msgstr "Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "Đây là cách người khác sẽ thấy bạn"
+msgid ""
+"This is a deposit hold only — payment is due to the organizer at the event. "
+"The hold will be released after the event."
+msgstr ""
+"Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
+"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
 
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
-msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:243
 msgid "Withdraw RSVP"
@@ -254,3 +259,31 @@ msgstr "Bạn đã tham gia"
 #: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid ""
+#~ "A small hold will be placed on your card and fully refunded after the "
+#~ "event."
+#~ msgstr ""
+#~ "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy "
+#~ "đủ sau sự kiện."
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "Hoàn thiện hồ sơ của bạn"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "Không thể thay đổi email"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "Không muốn tiết lộ"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "Lưu & Tham gia sự kiện"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "Đây là cách người khác sẽ thấy bạn"

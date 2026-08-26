@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/EventManager.re.mjs:851
-#~ msgid "({0} players per round)"
-#~ msgstr "(每回合 {0} 名球員)"
-
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -107,10 +103,6 @@ msgstr "全部已更新"
 msgid "Alternate favourite/underdog roles"
 msgstr "交替強弱隊角色"
 
-#: src/components/molecules/DrawGenerator.re.mjs:109
-#~ msgid "and generate new matches for {0} players"
-#~ msgstr "並為 {0} 名球員生成新比賽"
-
 #: src/components/organisms/EventManager.re.mjs:2539
 msgid "Anti-Team {0}"
 msgstr "反對隊 {0}"
@@ -122,10 +114,6 @@ msgstr "反對隊"
 #: src/components/molecules/SolverWeightsPanel.re.mjs:208
 msgid "Any mix"
 msgstr "任意混合"
-
-#: src/components/organisms/EventManager.re.mjs:824
-#~ msgid "Available Courts:"
-#~ msgstr "可用場地數："
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:227
 msgid "Avoid recent repeats"
@@ -139,10 +127,7 @@ msgstr "平衡隊伍"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "在全新搭檔與均衡對戰之間取得平衡。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "測試版"
-
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -154,10 +139,6 @@ msgstr "取消"
 #: src/components/organisms/EventManager.re.mjs:508
 msgid "Changes aren't being saved"
 msgstr "變更未儲存"
-
-#: src/components/molecules/DrawGenerator.re.mjs:68
-#~ msgid "Classic random round-robin draws"
-#~ msgstr "經典隨機循環賽"
 
 #: src/components/molecules/DrawGenerator.re.mjs:108
 msgid "Classic round-robin draws"
@@ -183,6 +164,10 @@ msgstr "競技模式"
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "競技+"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
 
 #: src/components/organisms/EventManager.re.mjs:334
 msgid "Connecting…"
@@ -229,11 +214,6 @@ msgstr "建立您的第一支隊伍開始"
 msgid "Current Round:"
 msgstr "當前回合："
 
-#: src/components/organisms/EventManager.re.mjs:204
-#, fuzzy
-#~ msgid "Current Round: {0}"
-#~ msgstr "當前回合："
-
 #: src/components/molecules/SolverWeightsPanel.re.mjs:154
 msgid "Custom"
 msgstr "自訂"
@@ -249,10 +229,6 @@ msgstr "調試：開啟"
 #: src/components/organisms/EventManager.re.mjs:461
 msgid "Delete all data"
 msgstr "刪除所有資料"
-
-#: src/components/molecules/DrawGenerator.re.mjs:107
-#~ msgid "delete all rounds below"
-#~ msgstr "刪除以下所有回合"
 
 #: src/components/organisms/EventManager.re.mjs:390
 msgid "Delete all saved event data?"
@@ -276,6 +252,7 @@ msgstr "刪除隊伍"
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
+#: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
 #: src/components/organisms/EventManager.re.mjs:2336
 msgid "Dismiss"
@@ -285,13 +262,14 @@ msgstr "關閉"
 msgid "Drag players in order of strongest to weakest."
 msgstr "依強至弱的順序拖曳排列球員。"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "拖曳球員以重新排序他們的初始種子"
-
 #: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
-msgstr "每種策略使用調校好的配置；調整任何滑桿將使此賽事切換為自訂混合模式。公平上場時間與輪換機制始終強制執行，無法調低。"
+msgid ""
+"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"to a custom mix. Fair play time and rotation are always enforced and can't "
+"be turned down."
+msgstr ""
+"每種策略使用調校好的配置；調整任何滑桿將使此賽事切換為自訂混合模式。公平上場"
+"時間與輪換機制始終強制執行，無法調低。"
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -325,19 +303,13 @@ msgstr "分數相同 — 此場將記錄為平局"
 msgid "Event check-in"
 msgstr "活動報到"
 
-#: src/components/organisms/EventManager.re.mjs:198
-#, fuzzy
-#~ msgid "Event Manager"
-#~ msgstr "賽事管理器圖示"
-
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
-msgstr "全員輪換：每輪皆有全新搭檔與對手，優先安排最具競爭性的對陣，直到多樣性需求促使混合分配。"
-
-#: src/components/organisms/EventManager.re.mjs:394
-#, fuzzy
-#~ msgid "Everything stored for those events is already synced to the server."
-#~ msgstr "此裝置上儲存的所有內容已同步至伺服器。"
+msgid ""
+"Everyone rotates: fresh partners and opponents every round, taking the most "
+"competitive matchups first until variety forces mixing."
+msgstr ""
+"全員輪換：每輪皆有全新搭檔與對手，優先安排最具競爭性的對陣，直到多樣性需求促"
+"使混合分配。"
 
 #: src/components/organisms/EventManager.re.mjs:448
 msgid "Everything stored on this device is already synced to the server."
@@ -363,8 +335,14 @@ msgstr "女性"
 msgid "Free up space"
 msgstr "釋放空間"
 
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr "釋放空間"
+
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgid ""
+"Fresh, varied matchups every round, with each match's teams balanced by "
+"skill."
 msgstr "每輪全新多樣化對陣，每場比賽均依技術水準平衡分隊。"
 
 #: src/components/organisms/RoundSection.re.mjs:535
@@ -372,7 +350,9 @@ msgid "Full Screen View"
 msgstr "全螢幕檢視"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
 msgstr "未來輪次已輸入分數。重新生成將會刪除這些分數。您確定嗎？"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
@@ -386,14 +366,6 @@ msgstr "生成"
 #: src/components/molecules/DrawGenerator.re.mjs:358
 msgid "Generate Draws"
 msgstr "生成對戰表"
-
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Generate Initial Draws"
-#~ msgstr "生成初始對戰表"
-
-#: src/components/molecules/DrawGenerator.re.mjs:111
-#~ msgid "Generate matches for {0} players across {1} {courtText}"
-#~ msgstr "為 {0} 名球員在 {1} 個{courtText}生成比賽"
 
 #: src/components/molecules/DrawGenerator.re.mjs:363
 #: src/components/organisms/EventManager.re.mjs:1822
@@ -462,10 +434,6 @@ msgstr "場比賽"
 msgid "Mix players"
 msgstr "混合球員"
 
-#: src/components/molecules/DrawGenerator.re.mjs:63
-#~ msgid "Mix players of different levels in matches but still split stronger players to balance teams."
-#~ msgstr "混合不同水平的球員，但仍然分散強隊以平衡隊伍。"
-
 #: src/components/molecules/DrawGenerator.re.mjs:102
 msgid "Mixed"
 msgstr "混合"
@@ -518,10 +486,6 @@ msgstr "還沒有隊伍"
 msgid "Not paid"
 msgstr "未付款"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "本輪不上場"
-
 #: src/components/organisms/EventManager.re.mjs:313
 msgid "Not saved"
 msgstr "未儲存"
@@ -535,7 +499,8 @@ msgid "Opponent variety"
 msgstr "對手多樣性"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgid ""
+"Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "在技術區間內優先安排均衡對戰的最佳化籤表。"
 
 #: src/components/organisms/EventManager.re.mjs:2332
@@ -566,25 +531,24 @@ msgstr "球員ID"
 msgid "Player Settings"
 msgstr "球員設定"
 
-#: src/components/organisms/EventManager.re.mjs:223
-#~ msgid "Players"
-#~ msgstr "尋找球員"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "球員以其在本俱樂部獲得的評分作為起始分；若無評分則從預設評分開始。賽事期間的變動將以此為基準計算。"
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"球員以其在本俱樂部獲得的評分作為起始分；若無評分則從預設評分開始。賽事期間的"
+"變動將以此為基準計算。"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
 msgstr "球員以其跨所有俱樂部的全域評分作為起始分。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
 msgstr "球員將被分為技能水平相似的組別，以技能平衡的隊伍進行循環賽。"
-
-#: src/components/molecules/DrawGenerator.re.mjs:58
-#~ msgid "Players will be divided into similar skill level groups that round-robin."
-#~ msgstr "球員將按相似的技能水平分組進行循環賽。"
 
 #: src/components/organisms/EventManager.re.mjs:1822
 msgid "Preparing optimizer…"
@@ -618,10 +582,6 @@ msgstr "優先考慮實力均衡的對局，而非新對手組合。"
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "優先考慮新夥伴與對手組合，而非實力均衡的對局。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr "隨機"
-
 #: src/components/molecules/DrawGenerator.re.mjs:86
 msgid "Random Balanced"
 msgstr "隨機均衡"
@@ -642,17 +602,9 @@ msgstr "重新生成輪次？"
 msgid "Repeat"
 msgstr "重複"
 
-#: src/components/molecules/DrawGenerator.re.mjs:62
-#~ msgid "Replace Future Rounds"
-#~ msgstr "取代未來回合"
-
 #: src/components/molecules/PlayerReplaceModal.re.mjs:61
 msgid "Replace Player"
 msgstr "替換球員"
-
-#: src/components/molecules/DrawGenerator.re.mjs:162
-#~ msgid "Replace Rounds Below"
-#~ msgstr "取代以下回合"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:66
 msgid "Replacing:"
@@ -733,32 +685,17 @@ msgstr "儲存中…"
 msgid "Scan to check in"
 msgstr "掃描以報到"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "比分"
-
 #: src/components/organisms/EventManager.re.mjs:2189
 msgid "Scores Synced!"
 msgstr "比分已同步！"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:289
-#, fuzzy
-#~ msgid "Seed from {0} ratings"
-#~ msgstr "{0} 個評分"
 
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "種子："
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:271
-#, fuzzy
-#~ msgid "Seeded {0} players"
-#~ msgstr "{0} 位球員"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -784,10 +721,13 @@ msgstr "為填滿球場，部分規則須彈性調整"
 msgid "Split each match into its most even teams"
 msgstr "將每場對局分為最均衡的隊伍"
 
-#: src/components/organisms/EventManager.re.mjs:208
-#, fuzzy
-#~ msgid "Start Next Round"
-#~ msgstr "前進至下一回合"
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr "運動賽事籤表"
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr "儲存空間即將滿"
 
 #: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
@@ -844,7 +784,9 @@ msgstr "隊伍"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
 #: src/components/organisms/EventManager.re.mjs:744
@@ -852,34 +794,31 @@ msgid "this club"
 msgstr "本俱樂部"
 
 #: src/components/organisms/EventManager.re.mjs:397
-msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
-msgstr "此操作將刪除此裝置上所有賽事的已儲存資料，包含本賽事。已同步至伺服器的賽事可重新開啟；未同步的資料將無法復原。"
-
-#: src/components/organisms/EventManager.re.mjs:356
-#, fuzzy
-#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
-#~ msgstr "此操作將刪除此裝置上所有賽事的已儲存資料，包含本賽事。已同步至伺服器的賽事可重新開啟；未同步的資料將無法復原。"
-
-#: src/components/molecules/DrawGenerator.re.mjs:105
-#~ msgid "This will"
-#~ msgstr "這將會"
+msgid ""
+"This deletes the saved data for every event on this device, including this "
+"one. Events already synced to the server can be reopened; anything unsynced "
+"cannot be recovered."
+msgstr ""
+"此操作將刪除此裝置上所有賽事的已儲存資料，包含本賽事。已同步至伺服器的賽事可"
+"重新開啟；未同步的資料將無法復原。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr "這將刪除所有未來回合並生成新比賽"
 
-#: src/components/organisms/EventManager.re.mjs:391
-#, fuzzy
-#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
-#~ msgstr "這些比分尚未上傳至伺服器。請在刪除前先同步本賽事，否則資料將會遺失。"
-
 #: src/components/organisms/EventManager.re.mjs:445
-msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
+msgid ""
+"Those scores have not reached the server. Sync this event before deleting, "
+"or they will be lost."
 msgstr "這些比分尚未上傳至伺服器。請在刪除前先同步本賽事，否則資料將會遺失。"
 
 #: src/components/organisms/EventManager.re.mjs:445
-msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
-msgstr "這些比分尚未上傳至伺服器。請先同步本賽事，並開啟每個其他賽事逐一同步後，再執行刪除，否則資料將會遺失。"
+msgid ""
+"Those scores have not reached the server. Sync this event, and open each "
+"other event and sync it, before deleting — otherwise they are lost."
+msgstr ""
+"這些比分尚未上傳至伺服器。請先同步本賽事，並開啟每個其他賽事逐一同步後，再執"
+"行刪除，否則資料將會遺失。"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:209
 msgid "Tight bands"
@@ -911,12 +850,15 @@ msgid "Update Rounds Below"
 msgstr "更新以下回合"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
 
@@ -925,13 +867,156 @@ msgid "Winning Team (Team {0})"
 msgstr "獲勝隊（隊伍 {0}）"
 
 #: src/components/organisms/EventManager.re.mjs:490
-msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
-msgstr "您的瀏覽器封鎖了此網站的儲存空間。若您使用的是無痕視窗，請切換至一般視窗；否則請允許網站資料存取並重新載入。"
+msgid ""
+"Your browser is blocking storage for this site. If you're in a private "
+"window, switch to a normal one; otherwise allow site data and reload."
+msgstr ""
+"您的瀏覽器封鎖了此網站的儲存空間。若您使用的是無痕視窗，請切換至一般視窗；否"
+"則請允許網站資料存取並重新載入。"
 
 #: src/components/organisms/EventManager.re.mjs:493
-msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
+msgid ""
+"Your browser is out of storage space. Clear old event data to free up space, "
+"then retry."
 msgstr "您的瀏覽器儲存空間不足。請清除舊的賽事資料以釋放空間，然後重試。"
 
 #: src/components/organisms/EventManager.re.mjs:496
-msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
-msgstr "您的瀏覽器拒絕儲存本賽事。請重新載入頁面或重試——若持續失敗，請避免重新整理，直到比分同步完成。"
+msgid ""
+"Your browser refused to save this event. Reload the page or retry — if it "
+"keeps failing, avoid refreshing until scores are synced."
+msgstr ""
+"您的瀏覽器拒絕儲存本賽事。請重新載入頁面或重試——若持續失敗，請避免重新整理，"
+"直到比分同步完成。"
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid ""
+"Your browser storage is {0}% full. The app may lose data if storage runs "
+"out. Freeing space clears saved data for every event on this device — you'll "
+"get a chance to review what that removes."
+msgstr ""
+"您的瀏覽器儲存空間已使用 {0}%。若空間耗盡，應用程式可能會遺失資料。釋放空間將"
+"清除此裝置上所有賽事的已儲存資料——您將有機會確認將被移除的內容。"
+
+#: src/components/organisms/EventManager.re.mjs:851
+#~ msgid "({0} players per round)"
+#~ msgstr "(每回合 {0} 名球員)"
+
+#: src/components/molecules/DrawGenerator.re.mjs:109
+#~ msgid "and generate new matches for {0} players"
+#~ msgstr "並為 {0} 名球員生成新比賽"
+
+#: src/components/organisms/EventManager.re.mjs:824
+#~ msgid "Available Courts:"
+#~ msgstr "可用場地數："
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "測試版"
+
+#: src/components/molecules/DrawGenerator.re.mjs:68
+#~ msgid "Classic random round-robin draws"
+#~ msgstr "經典隨機循環賽"
+
+#: src/components/organisms/EventManager.re.mjs:204
+#, fuzzy
+#~ msgid "Current Round: {0}"
+#~ msgstr "當前回合："
+
+#: src/components/molecules/DrawGenerator.re.mjs:107
+#~ msgid "delete all rounds below"
+#~ msgstr "刪除以下所有回合"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "拖曳球員以重新排序他們的初始種子"
+
+#: src/components/organisms/EventManager.re.mjs:198
+#, fuzzy
+#~ msgid "Event Manager"
+#~ msgstr "賽事管理器圖示"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "此裝置上儲存的所有內容已同步至伺服器。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Generate Initial Draws"
+#~ msgstr "生成初始對戰表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:111
+#~ msgid "Generate matches for {0} players across {1} {courtText}"
+#~ msgstr "為 {0} 名球員在 {1} 個{courtText}生成比賽"
+
+#: src/components/molecules/DrawGenerator.re.mjs:63
+#~ msgid ""
+#~ "Mix players of different levels in matches but still split stronger "
+#~ "players to balance teams."
+#~ msgstr "混合不同水平的球員，但仍然分散強隊以平衡隊伍。"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "本輪不上場"
+
+#: src/components/organisms/EventManager.re.mjs:223
+#~ msgid "Players"
+#~ msgstr "尋找球員"
+
+#: src/components/molecules/DrawGenerator.re.mjs:58
+#~ msgid ""
+#~ "Players will be divided into similar skill level groups that round-robin."
+#~ msgstr "球員將按相似的技能水平分組進行循環賽。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:67
+#~ msgid "Random"
+#~ msgstr "隨機"
+
+#: src/components/molecules/DrawGenerator.re.mjs:62
+#~ msgid "Replace Future Rounds"
+#~ msgstr "取代未來回合"
+
+#: src/components/molecules/DrawGenerator.re.mjs:162
+#~ msgid "Replace Rounds Below"
+#~ msgstr "取代以下回合"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "比分"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} 個評分"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} 位球員"
+
+#: src/components/organisms/EventManager.re.mjs:208
+#, fuzzy
+#~ msgid "Start Next Round"
+#~ msgstr "前進至下一回合"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid ""
+#~ "This frees up space by deleting saved data for every event on this device "
+#~ "— not just this one. Events already synced to the server can be reopened; "
+#~ "anything unsynced cannot be recovered."
+#~ msgstr ""
+#~ "此操作將刪除此裝置上所有賽事的已儲存資料，包含本賽事。已同步至伺服器的賽事"
+#~ "可重新開啟；未同步的資料將無法復原。"
+
+#: src/components/molecules/DrawGenerator.re.mjs:105
+#~ msgid "This will"
+#~ msgstr "這將會"
+
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid ""
+#~ "Those scores have not reached the server. Open each event and sync it "
+#~ "before deleting, or they will be lost."
+#~ msgstr ""
+#~ "這些比分尚未上傳至伺服器。請在刪除前先同步本賽事，否則資料將會遺失。"

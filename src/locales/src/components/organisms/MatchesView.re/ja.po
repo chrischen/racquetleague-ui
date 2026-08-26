@@ -46,10 +46,6 @@ msgstr "と"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/MatchesView.re.mjs:481
-#~ msgid "Checkin"
-#~ msgstr "チェックイン"
-
 #: src/components/organisms/MatchesView.re.mjs:645
 msgid "Choose Match"
 msgstr "試合を選択"
@@ -66,21 +62,9 @@ msgstr "パネルを閉じる"
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
-#: src/components/organisms/MatchesView.re.mjs:124
-#~ msgid "Deselect All"
-#~ msgstr "すべて選択解除"
-
 #: src/components/organisms/SortableSubmitMatch.re.mjs:319
 msgid "Enter Score"
 msgstr "スコアを入力"
-
-#: src/components/organisms/SortableSubmitMatch.re.mjs:323
-#~ msgid "Finished"
-#~ msgstr "終了"
-
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
-#~ msgid "Go Back"
-#~ msgstr "戻る"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 msgid "Loading"
@@ -89,10 +73,6 @@ msgstr "読み込み中"
 #: src/components/organisms/MatchesView.re.mjs:612
 msgid "Matches"
 msgstr "試合"
-
-#: src/components/organisms/MatchesView.re.mjs:125
-#~ msgid "Players on Break"
-#~ msgstr "休憩中のプレイヤー"
 
 #: src/components/organisms/SortableSubmitMatch.re.mjs:353
 #: src/components/organisms/SortableSubmitMatch.re.mjs:403
@@ -117,25 +97,13 @@ msgstr "すべてキューに入れる"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/MatchesView.re.mjs:124
-#~ msgid "Select All"
-#~ msgstr "すべて選択"
-
 #: src/components/organisms/MatchesView.re.mjs:500
 msgid "START SESSION"
 msgstr "セッションを開始"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:363
-#~ msgid "Submit Rated"
-#~ msgstr "評価を提出"
-
 #: src/components/organisms/MatchesView.re.mjs:519
 msgid "SUBMIT RESULTS"
 msgstr "結果を提出"
-
-#: src/components/organisms/MatchesView.re.mjs:111
-#~ msgid "Toggle All"
-#~ msgstr "すべてを切り替える"
 
 #: src/components/organisms/MatchesView.re.mjs:211
 #: src/components/organisms/MatchesView.re.mjs:290
@@ -146,3 +114,35 @@ msgstr "すべてのキューを解除"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/MatchesView.re.mjs:481
+#~ msgid "Checkin"
+#~ msgstr "チェックイン"
+
+#: src/components/organisms/MatchesView.re.mjs:124
+#~ msgid "Deselect All"
+#~ msgstr "すべて選択解除"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+#~ msgid "Finished"
+#~ msgstr "終了"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#~ msgid "Go Back"
+#~ msgstr "戻る"
+
+#: src/components/organisms/MatchesView.re.mjs:125
+#~ msgid "Players on Break"
+#~ msgstr "休憩中のプレイヤー"
+
+#: src/components/organisms/MatchesView.re.mjs:124
+#~ msgid "Select All"
+#~ msgstr "すべて選択"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:363
+#~ msgid "Submit Rated"
+#~ msgstr "評価を提出"
+
+#: src/components/organisms/MatchesView.re.mjs:111
+#~ msgid "Toggle All"
+#~ msgstr "すべてを切り替える"

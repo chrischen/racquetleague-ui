@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundRobin.re.mjs:463
-#~ msgid "{0, plural, one {player} other {players}}"
-#~ msgstr "ผู้เล่น"
-
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -58,11 +54,6 @@ msgstr "เพิ่มผู้เล่นแขก"
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:47
 msgid "Add Guest Players"
 msgstr "เพิ่มผู้เล่นแขก"
-
-#: src/components/organisms/RoundRobin.re.mjs:363
-#, fuzzy
-#~ msgid "Add Players"
-#~ msgstr "เพิ่มผู้เล่น"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
@@ -116,10 +107,7 @@ msgstr "จัดทีมให้สมดุล"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "สมดุลระหว่างคู่ใหม่และการแข่งขันที่สูสี"
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "เบต้า"
-
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -151,6 +139,10 @@ msgstr "แข่งขัน"
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "แข่งขัน+"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "ยืนยัน"
 
 #: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
@@ -196,11 +188,6 @@ msgstr "รอบปัจจุบัน:"
 msgid "Custom"
 msgstr "กำหนดเอง"
 
-#: src/components/organisms/RoundRobin.re.mjs:346
-#, fuzzy
-#~ msgid "Debug Mode"
-#~ msgstr "ดีบัก: เปิด"
-
 #: src/components/organisms/RoundRobin.re.mjs:1091
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
@@ -231,13 +218,14 @@ msgstr "ลบการแข่งขันนี้หรือไม่?"
 msgid "Drag players in order of strongest to weakest."
 msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
-
 #: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
-msgstr "แต่ละกลยุทธ์ใช้โปรไฟล์ที่ปรับแต่งไว้ การปรับสไลด์ใดๆ จะเปลี่ยนอีเวนต์นี้เป็นรูปแบบกำหนดเอง เวลาเล่นที่เป็นธรรมและการหมุนเวียนจะถูกบังคับใช้เสมอและไม่สามารถลดได้"
+msgid ""
+"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"to a custom mix. Fair play time and rotation are always enforced and can't "
+"be turned down."
+msgstr ""
+"แต่ละกลยุทธ์ใช้โปรไฟล์ที่ปรับแต่งไว้ การปรับสไลด์ใดๆ จะเปลี่ยนอีเวนต์นี้เป็นรูปแบบกำหนดเอง "
+"เวลาเล่นที่เป็นธรรมและการหมุนเวียนจะถูกบังคับใช้เสมอและไม่สามารถลดได้"
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -272,15 +260,21 @@ msgid "Event check-in"
 msgstr "เช็คอินกิจกรรม"
 
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
-msgstr "ทุกคนหมุนเวียน: คู่ใหม่และคู่แข่งใหม่ทุกรอบ โดยเลือกการแข่งขันที่ดุเดือดที่สุดก่อน จนกว่าความหลากหลายจะบังคับให้ผสม"
+msgid ""
+"Everyone rotates: fresh partners and opponents every round, taking the most "
+"competitive matchups first until variety forces mixing."
+msgstr ""
+"ทุกคนหมุนเวียน: คู่ใหม่และคู่แข่งใหม่ทุกรอบ โดยเลือกการแข่งขันที่ดุเดือดที่สุดก่อน "
+"จนกว่าความหลากหลายจะบังคับให้ผสม"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "หญิง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgid ""
+"Fresh, varied matchups every round, with each match's teams balanced by "
+"skill."
 msgstr "แมตช์หลากหลายและสดใหม่ทุกรอบ โดยจัดทีมให้สมดุลตามทักษะ"
 
 #: src/components/organisms/RoundSection.re.mjs:535
@@ -288,7 +282,9 @@ msgid "Full Screen View"
 msgstr "โหมดเต็มจอ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
 msgstr "รอบในอนาคตมีคะแนนที่ป้อนแล้ว การสร้างใหม่จะลบคะแนนเหล่านี้ คุณแน่ใจหรือไม่?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
@@ -403,11 +399,6 @@ msgstr "ยังไม่มีแอนตี้ทีม"
 msgid "No available players"
 msgstr "ไม่มีผู้เล่นว่าง"
 
-#: src/components/organisms/RoundRobin.re.mjs:451
-#, fuzzy
-#~ msgid "No players added yet"
-#~ msgstr "ยังไม่มีผู้เล่น"
-
 #: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "ไม่มีคะแนน"
@@ -429,7 +420,8 @@ msgid "Opponent variety"
 msgstr "ความหลากหลายของคู่แข่ง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgid ""
+"Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "การจับสลากที่ปรับให้เหมาะสม เน้นเกมที่สูสีภายในกลุ่มทักษะเดียวกัน"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
@@ -452,20 +444,23 @@ msgstr "รหัสผู้เล่น"
 msgid "Player Settings"
 msgstr "การตั้งค่าผู้เล่น"
 
-#: src/components/organisms/RoundRobin.re.mjs:359
-#~ msgid "Players"
-#~ msgstr "หาผู้เล่น"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น "
+"การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
 msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนระดับโลกของตนจากทุกสโมสร"
 
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
 msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่มระดับทักษะที่ใกล้เคียงกันและแข่งขันแบบรอบโรบินโดยทีมจะสมดุลตามทักษะ"
 
 #: src/components/organisms/RoundRobin.re.mjs:693
@@ -538,10 +533,9 @@ msgstr "รอบ {0}"
 msgid "Round Robin"
 msgstr "รอบโรบิน"
 
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "จับคู่แบบพบกันหมด"
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "จับคู่แบบพบกันหมด"
 
 #: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
@@ -579,28 +573,13 @@ msgstr "บันทึกทีม"
 msgid "Scan to check in"
 msgstr "สแกนเพื่อเช็คอิน"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "คะแนน"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:289
-#, fuzzy
-#~ msgid "Seed from {0} ratings"
-#~ msgstr "{0} การให้คะแนน"
-
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "ซีด:"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:271
-#, fuzzy
-#~ msgid "Seeded {0} players"
-#~ msgstr "{0} คน"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -661,8 +640,11 @@ msgstr "ทีม"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
@@ -682,12 +664,15 @@ msgid "Update Rounds Below"
 msgstr "อัปเดตรอบด้านล่าง"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
 
@@ -698,3 +683,49 @@ msgstr "ทีมชนะ (ทีม {0})"
 #: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "เบราว์เซอร์ของคุณเก่าเกินไปสำหรับฟีเจอร์นี้"
+
+#: src/components/organisms/RoundRobin.re.mjs:463
+#~ msgid "{0, plural, one {player} other {players}}"
+#~ msgstr "ผู้เล่น"
+
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "เพิ่มผู้เล่น"
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "เบต้า"
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "ดีบัก: เปิด"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "ยังไม่มีผู้เล่น"
+
+#: src/components/organisms/RoundRobin.re.mjs:359
+#~ msgid "Players"
+#~ msgstr "หาผู้เล่น"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "คะแนน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} การให้คะแนน"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} คน"

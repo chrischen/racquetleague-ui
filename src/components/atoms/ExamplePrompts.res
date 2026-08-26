@@ -1,8 +1,10 @@
+%%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 @react.component
 let make = (~examples: array<string>, ~onExampleClick: string => unit) => {
   <div className="space-y-3">
     <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
-      {React.string("Try these examples:")}
+      {t`Try these examples:`}
     </p>
     <div className="flex flex-wrap gap-2">
       {examples

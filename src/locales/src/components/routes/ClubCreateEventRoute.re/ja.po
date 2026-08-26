@@ -75,7 +75,8 @@ msgstr "全レベル"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:390
 msgid "{0} event(s) couldn't be created (they may already exist)."
-msgstr "{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
+msgstr ""
+"{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
@@ -129,13 +130,13 @@ msgstr "6時間前まで"
 msgid "72 hours before"
 msgstr "72時間前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:827
-#~ msgid "A deposit authorization is collected when someone joins. No money is actually charged and the authorization is removed automatically after your event. You should collect any participation fees manually in person. You can also manually approve attendees by clicking their name in the RSVP list."
-#~ msgstr "参加者が登録する際に、デポジットの承認が収集されます。実際には料金は請求されず、イベント終了後に承認は自動的に解除されます。参加費は現地で手動にて徴収してください。また、RSVPリストで参加者の名前をクリックすることで、手動承認することもできます。"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:851
-msgid "A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list."
-msgstr "参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリックすることで、手動で承認できます。"
+msgid ""
+"A refundable deposit is collected when someone joins. You can manually "
+"approve attendees by clicking their name in the RSVP list."
+msgstr ""
+"参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリッ"
+"クすることで、手動で承認できます。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:665
 msgid "Action proposal"
@@ -213,12 +214,11 @@ msgid "Cancel deadline (optional)"
 msgstr "キャンセル期限（任意）"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid "Casual play focused on fun and social interaction. Perfect for all skill levels."
-msgstr "楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
-
-#: src/components/pages/CreateEventPage.re.mjs:136
-#~ msgid "choose the location where this event will be held."
-#~ msgstr "このイベントが開催される場所を選択してください。"
+msgid ""
+"Casual play focused on fun and social interaction. Perfect for all skill "
+"levels."
+msgstr ""
+"楽しさと社交を重視したカジュアルなプレイ。すべてのスキルレベルに最適です。"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
@@ -339,8 +339,12 @@ msgid "e.g., City Ballers Club"
 msgstr "例：シティボーラーズクラブ"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:751
-msgid "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players..."
-msgstr "例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上のプレイヤー向け..."
+msgid ""
+"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+"competitive play for 3.5+ players..."
+msgstr ""
+"例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上の"
+"プレイヤー向け..."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:705
 msgid "End time"
@@ -354,10 +358,6 @@ msgstr "終了時刻が必要です"
 msgid "Enter price"
 msgstr "金額を入力"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:76
 msgid "event date is required"
 msgstr "イベント日付が必要です"
@@ -370,10 +370,6 @@ msgstr "イベント詳細"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:798
 msgid "Event details (optional)"
 msgstr "イベント詳細（オプション）"
-
-#: src/components/pages/CreateEventPage.re.mjs:135
-#~ msgid "event location"
-#~ msgstr "イベント場所"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:592
 msgid "Event schedule"
@@ -427,10 +423,6 @@ msgstr "金曜夜のピックルボール"
 #: src/components/organisms/AIAssistantEmbed.re.mjs:794
 msgid "Generating..."
 msgstr "生成中..."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:137
-#~ msgid "I couldn't process that request. Please try again."
-#~ msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:443
 msgid "Let AI help you fill out the details below"
@@ -536,8 +528,11 @@ msgid "Reset"
 msgstr "リセット"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1265
-msgid "Serious play with rankings and ratings. Games may affect your player rating."
-msgstr "ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティングに影響する場合があります。"
+msgid ""
+"Serious play with rankings and ratings. Games may affect your player rating."
+msgstr ""
+"ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティン"
+"グに影響する場合があります。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1049
 msgid "Show less"
@@ -560,12 +555,10 @@ msgid "The action completed with GraphQL errors."
 msgstr "アクションはGraphQLエラーで完了しました。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:874
-msgid "The participation fee is charged automatically and transferred to your Stripe account."
+msgid ""
+"The participation fee is charged automatically and transferred to your "
+"Stripe account."
 msgstr "参加費は自動的に請求され、あなたのStripeアカウントに振り込まれます。"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:850
-#~ msgid "The participation fee is charged immediately and transferred to your Stripe account."
-#~ msgstr "参加費は即時請求され、あなたのStripeアカウントに振り込まれます。"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1015
 msgid "This event is private"
@@ -598,3 +591,38 @@ msgstr "Stripeあり"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:840
 msgid "Without Stripe"
 msgstr "Stripeなし"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:827
+#~ msgid ""
+#~ "A deposit authorization is collected when someone joins. No money is "
+#~ "actually charged and the authorization is removed automatically after "
+#~ "your event. You should collect any participation fees manually in person. "
+#~ "You can also manually approve attendees by clicking their name in the "
+#~ "RSVP list."
+#~ msgstr ""
+#~ "参加者が登録する際に、デポジットの承認が収集されます。実際には料金は請求さ"
+#~ "れず、イベント終了後に承認は自動的に解除されます。参加費は現地で手動にて徴"
+#~ "収してください。また、RSVPリストで参加者の名前をクリックすることで、手動承"
+#~ "認することもできます。"
+
+#: src/components/pages/CreateEventPage.re.mjs:136
+#~ msgid "choose the location where this event will be held."
+#~ msgstr "このイベントが開催される場所を選択してください。"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
+
+#: src/components/pages/CreateEventPage.re.mjs:135
+#~ msgid "event location"
+#~ msgstr "イベント場所"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:137
+#~ msgid "I couldn't process that request. Please try again."
+#~ msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:850
+#~ msgid ""
+#~ "The participation fee is charged immediately and transferred to your "
+#~ "Stripe account."
+#~ msgstr "参加費は即時請求され、あなたのStripeアカウントに振り込まれます。"

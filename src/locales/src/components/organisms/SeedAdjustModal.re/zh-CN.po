@@ -29,10 +29,6 @@ msgstr "取消"
 msgid "Drag players in order of strongest to weakest."
 msgstr "按从强到弱的顺序拖动球员。"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "拖动球员以重新排序他们的初始种子"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
 msgstr "全球评分"
@@ -42,8 +38,13 @@ msgid "mu"
 msgstr "μ"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "球员从其在本俱乐部获得的评分开始；没有评分的球员从默认评分开始。赛事期间的变化从该评分起计算。"
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"球员从其在本俱乐部获得的评分开始；没有评分的球员从默认评分开始。赛事期间的变"
+"化从该评分起计算。"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
@@ -52,6 +53,20 @@ msgstr "球员从其跨所有俱乐部的全球评分开始。"
 #: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "保存种子调整"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "拖动球员以重新排序他们的初始种子"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:289
 #, fuzzy
@@ -62,11 +77,3 @@ msgstr "保存种子调整"
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0} 位球员"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""

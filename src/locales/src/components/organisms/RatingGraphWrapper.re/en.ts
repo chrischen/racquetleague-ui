@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"Rating History\",\"56ttmm\":\"The shaded area represents rating uncertainty. Narrower bands indicate higher confidence.\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"Rating History\",\"w4thw3\":\"Rating:\",\"56ttmm\":\"The shaded area represents rating uncertainty. Narrower bands indicate higher confidence.\"}");

@@ -188,7 +188,7 @@ function ClubMembersPage$MemberItem(props) {
                   JsxRuntime.jsxs("div", {
                         children: [
                           JsxRuntime.jsx("span", {
-                                children: "Pending",
+                                children: t`Pending`,
                                 className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200"
                               }),
                           viewerIsAdmin ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
@@ -267,11 +267,11 @@ function ClubMembersPage$MemberItem(props) {
                       JsxRuntime.jsxs("div", {
                             children: [
                               isOwner ? JsxRuntime.jsx("span", {
-                                      children: "Owner",
+                                      children: t`Owner`,
                                       className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200"
                                     }) : null,
                               isAdmin && !isOwner ? JsxRuntime.jsx("span", {
-                                      children: "Admin",
+                                      children: t`Admin`,
                                       className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200"
                                     }) : null
                             ],
@@ -467,7 +467,7 @@ function ClubMembersPage(props) {
                                                                         viewerIsAdmin: viewerIsAdmin
                                                                       })),
                                                               fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                                        children: "Loading members..."
+                                                                        children: t`Loading members...`
                                                                       }))
                                                             }),
                                                         className: "mt-8"

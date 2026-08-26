@@ -17,6 +17,10 @@ msgstr ""
 msgid "left team players"
 msgstr "왼쪽 팀 플레이어"
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "패자"
+
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
 msgstr "아직 플레이어가 없습니다"
@@ -32,3 +36,7 @@ msgstr "경기 대기열에 추가"
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
 msgstr "오른쪽 팀 플레이어"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "승자"

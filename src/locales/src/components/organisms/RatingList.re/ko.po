@@ -38,10 +38,6 @@ msgstr "드래프트 마감 · 상위 8명 진출"
 msgid "Est. DUPR"
 msgstr "예상 DUPR"
 
-#: src/components/organisms/RatingList.re.mjs:202
-#~ msgid "Female"
-#~ msgstr "여성"
-
 #: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "플레이어 더 불러오기..."
@@ -49,10 +45,6 @@ msgstr "플레이어 더 불러오기..."
 #: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "다음 순위 로딩 중"
-
-#: src/components/organisms/RatingList.re.mjs:204
-#~ msgid "Male"
-#~ msgstr "남성"
 
 #: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
@@ -81,3 +73,11 @@ msgstr "나"
 #: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "내 순위"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "여성"
+
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "남성"

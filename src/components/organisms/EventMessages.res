@@ -1,5 +1,6 @@
 %%raw("import { css, cx } from '@linaria/core'")
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 module Fragment = %relay(`
   fragment EventMessages_query on Query
   @argumentDefinitions(topic: { type: "String!" }, 
@@ -128,7 +129,7 @@ let make = (
   let messages = data.messagesByTopic->Fragment.getConnectionNodes
 
   <div className="bg-white rounded-lg shadow-sm p-4 md:p-5 mt-4">
-    <h2 className="text-lg font-semibold mb-4"> {React.string("Activity")} </h2>
+    <h2 className="text-lg font-semibold mb-4"> {t`Activity`} </h2>
     {viewerHasRsvp
     ->Option.map(has => has ? <Message eventId /> : React.null)
     ->Option.getOr(React.null)}

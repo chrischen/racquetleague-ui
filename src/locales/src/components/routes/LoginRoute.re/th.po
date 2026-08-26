@@ -26,10 +26,6 @@ msgstr "เกิดข้อผิดพลาด: {message}"
 msgid "Back to events"
 msgstr "กลับไปที่กิจกรรม"
 
-#: src/components/pages/LoginPage.re.mjs:91
-#~ msgid "cancel login"
-#~ msgstr "ยกเลิกการเข้าสู่ระบบ"
-
 #: src/components/pages/LoginPage.re.mjs:75
 #: src/components/pages/LoginPage.re.mjs:77
 msgid "Check your email for a magic link to sign in!"
@@ -39,21 +35,9 @@ msgstr "ตรวจสอบอีเมลของคุณเพื่อร
 msgid "Continue with LINE"
 msgstr "ดำเนินการต่อด้วย LINE"
 
-#: src/components/pages/LoginPage.re.mjs:64
-#~ msgid "display name"
-#~ msgstr "ชื่อที่แสดง"
-
-#: src/components/pages/LoginPage.re.mjs:44
-#~ msgid "email address"
-#~ msgstr "ที่อยู่อีเมล"
-
 #: src/components/pages/LoginPage.re.mjs:465
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
-
-#: src/components/pages/LoginPage.re.mjs:55
-#~ msgid "event organizers and other users cannot view your email"
-#~ msgstr "ผู้จัดกิจกรรมและผู้ใช้คนอื่นไม่สามารถดูอีเมลของคุณได้"
 
 #: src/components/pages/LoginPage.re.mjs:73
 msgid "Failed to send magic link: {0}"
@@ -67,18 +51,9 @@ msgstr "หากเบราว์เซอร์ของคุณไม่เ
 msgid "Login failed: {0}"
 msgstr "เข้าสู่ระบบล้มเหลว: {0}"
 
-#: src/components/pages/LoginPage.re.mjs:28
-#: src/components/pages/LoginPage.re.mjs:85
-#~ msgid "login with Line"
-#~ msgstr "เข้าสู่ระบบด้วย Line"
-
 #: src/components/pages/LoginPage.re.mjs:344
 msgid "New users will be automatically registered"
 msgstr "ผู้ใช้ใหม่จะถูกลงทะเบียนโดยอัตโนมัติ"
-
-#: src/components/pages/LoginPage.re.mjs:51
-#~ msgid "notification of updates or cancellations to events (you can opt out)"
-#~ msgstr "การแจ้งเตือนการอัปเดตหรือการยกเลิกกิจกรรม (คุณสามารถยกเลิกได้)"
 
 #: src/components/pages/LoginPage.re.mjs:384
 msgid "Open browser to continue"
@@ -88,26 +63,9 @@ msgstr "เปิดเบราว์เซอร์เพื่อดำเน
 msgid "or continue with email"
 msgstr "หรือดำเนินการต่อด้วยอีเมล"
 
-#: src/components/pages/LoginPage.re.mjs:32
-#~ msgid "privacy disclosure"
-#~ msgstr "การเปิดเผยความเป็นส่วนตัว"
-
-#: src/components/pages/LoginPage.re.mjs:72
-#~ msgid "profile picture"
-#~ msgstr "รูปโปรไฟล์"
-
-#: src/components/pages/LoginPage.re.mjs:68
-#: src/components/pages/LoginPage.re.mjs:76
-#~ msgid "publicly displayed on event attendance lists"
-#~ msgstr "แสดงสาธารณะในรายชื่อผู้เข้าร่วมกิจกรรม"
-
 #: src/components/pages/LoginPage.re.mjs:506
 msgid "Send magic link"
 msgstr "ส่งลิงก์วิเศษ"
-
-#: src/components/pages/LoginPage.re.mjs:88
-#~ msgid "Sign in to Events"
-#~ msgstr "ลงชื่อเข้าใช้กิจกรรม"
 
 #: src/components/pages/LoginPage.re.mjs:340
 msgid "Sign in to Pkuru.com"
@@ -122,21 +80,72 @@ msgid "Starting…"
 msgstr "กำลังเริ่มต้น…"
 
 #: src/components/pages/LoginPage.re.mjs:354
-msgid "The installed app uses a separate browser, so we'll complete sign-in in your system browser. Tap the button below, sign in there, and we'll automatically sign you in here."
-msgstr "แอปที่ติดตั้งใช้เบราว์เซอร์แยกต่างหาก ดังนั้นเราจะดำเนินการเข้าสู่ระบบในเบราว์เซอร์ของระบบ แตะปุ่มด้านล่าง เข้าสู่ระบบที่นั่น แล้วเราจะเข้าสู่ระบบให้คุณโดยอัตโนมัติ"
+msgid ""
+"The installed app uses a separate browser, so we'll complete sign-in in your "
+"system browser. Tap the button below, sign in there, and we'll automatically "
+"sign you in here."
+msgstr ""
+"แอปที่ติดตั้งใช้เบราว์เซอร์แยกต่างหาก ดังนั้นเราจะดำเนินการเข้าสู่ระบบในเบราว์เซอร์ของระบบ "
+"แตะปุ่มด้านล่าง เข้าสู่ระบบที่นั่น แล้วเราจะเข้าสู่ระบบให้คุณโดยอัตโนมัติ"
 
 #: src/components/pages/LoginPage.re.mjs:399
 msgid "Waiting for sign-in to complete…"
 msgstr "กำลังรอการเข้าสู่ระบบให้เสร็จสมบูรณ์…"
-
-#: src/components/pages/LoginPage.re.mjs:38
-#~ msgid "we will collect the following information from your Line account"
-#~ msgstr "เราจะเก็บข้อมูลต่อไปนี้จากบัญชี Line ของคุณ"
 
 #: src/components/pages/LoginPage.re.mjs:362
 msgid "Your code"
 msgstr "รหัสของคุณ"
 
 #: src/components/pages/LoginPage.re.mjs:279
-msgid "Your LINE account does not have an email associated. Please set an email address for your account from the LINE app, and then try again."
-msgstr "บัชชี LINE ของคุณไม่มีอีเมลเชื่อมโยง กรุณาตั้งค่าที่อยู่อีเมลสำหรับบัชชีของคุณจากแอป LINE แล้วลองอีกครั้ง"
+msgid ""
+"Your LINE account does not have an email associated. Please set an email "
+"address for your account from the LINE app, and then try again."
+msgstr ""
+"บัชชี LINE ของคุณไม่มีอีเมลเชื่อมโยง กรุณาตั้งค่าที่อยู่อีเมลสำหรับบัชชีของคุณจากแอป LINE "
+"แล้วลองอีกครั้ง"
+
+#: src/components/pages/LoginPage.re.mjs:91
+#~ msgid "cancel login"
+#~ msgstr "ยกเลิกการเข้าสู่ระบบ"
+
+#: src/components/pages/LoginPage.re.mjs:64
+#~ msgid "display name"
+#~ msgstr "ชื่อที่แสดง"
+
+#: src/components/pages/LoginPage.re.mjs:44
+#~ msgid "email address"
+#~ msgstr "ที่อยู่อีเมล"
+
+#: src/components/pages/LoginPage.re.mjs:55
+#~ msgid "event organizers and other users cannot view your email"
+#~ msgstr "ผู้จัดกิจกรรมและผู้ใช้คนอื่นไม่สามารถดูอีเมลของคุณได้"
+
+#: src/components/pages/LoginPage.re.mjs:28
+#: src/components/pages/LoginPage.re.mjs:85
+#~ msgid "login with Line"
+#~ msgstr "เข้าสู่ระบบด้วย Line"
+
+#: src/components/pages/LoginPage.re.mjs:51
+#~ msgid "notification of updates or cancellations to events (you can opt out)"
+#~ msgstr "การแจ้งเตือนการอัปเดตหรือการยกเลิกกิจกรรม (คุณสามารถยกเลิกได้)"
+
+#: src/components/pages/LoginPage.re.mjs:32
+#~ msgid "privacy disclosure"
+#~ msgstr "การเปิดเผยความเป็นส่วนตัว"
+
+#: src/components/pages/LoginPage.re.mjs:72
+#~ msgid "profile picture"
+#~ msgstr "รูปโปรไฟล์"
+
+#: src/components/pages/LoginPage.re.mjs:68
+#: src/components/pages/LoginPage.re.mjs:76
+#~ msgid "publicly displayed on event attendance lists"
+#~ msgstr "แสดงสาธารณะในรายชื่อผู้เข้าร่วมกิจกรรม"
+
+#: src/components/pages/LoginPage.re.mjs:88
+#~ msgid "Sign in to Events"
+#~ msgstr "ลงชื่อเข้าใช้กิจกรรม"
+
+#: src/components/pages/LoginPage.re.mjs:38
+#~ msgid "we will collect the following information from your Line account"
+#~ msgstr "เราจะเก็บข้อมูลต่อไปนี้จากบัญชี Line ของคุณ"

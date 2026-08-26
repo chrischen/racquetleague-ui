@@ -1,3 +1,6 @@
+%%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
+
 // Assuming bindings for Alert, AlertActions, AlertDescription, AlertTitle, Button exist
 // Example paths - adjust based on your project structure
 open Alert
@@ -22,8 +25,8 @@ let make = (
     <AlertTitle> {title} </AlertTitle>
     <AlertDescription> {description} </AlertDescription>
     <AlertActions>
-      <Button plain=true onClick={_ => setIsOpen(_ => false)}> {"Cancel"->React.string} </Button>
-      <Button onClick=handleConfirm> {"Confirm"->React.string} </Button>
+      <Button plain=true onClick={_ => setIsOpen(_ => false)}> {t`Cancel`} </Button>
+      <Button onClick=handleConfirm> {t`Confirm`} </Button>
     </AlertActions>
   </Alert>
 }

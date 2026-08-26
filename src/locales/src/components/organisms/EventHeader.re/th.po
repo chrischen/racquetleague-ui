@@ -33,6 +33,10 @@ msgstr "Apple iCal"
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "วันที่ยังไม่กำหนด"
+
 #: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "แท็กกิจกรรม: {tag}"
@@ -72,7 +76,8 @@ msgid "Rated"
 msgstr "มีการจัดอันดับ"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
 #: src/components/atoms/EventTag.re.mjs:46
@@ -88,8 +93,14 @@ msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid "This event is private. Please do not share this event without permission from the organizer."
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "เวลายังไม่กำหนด"
 
 #: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"

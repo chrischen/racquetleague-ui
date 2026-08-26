@@ -195,6 +195,10 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr ""
+
 #: src/components/organisms/AiTetsu.re.mjs:1728
 msgid "manual team"
 msgstr ""
@@ -422,4 +426,8 @@ msgstr ""
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
+msgstr ""
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
 msgstr ""

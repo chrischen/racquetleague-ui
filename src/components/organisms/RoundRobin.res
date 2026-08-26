@@ -939,7 +939,7 @@ let make = (~debug: bool=false) => {
       <div className="min-h-screen bg-slate-50 flex flex-col">
         <div className="bg-slate-800 text-white px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold"> {React.string("Round Robin Tournament")} </h1>
+            <h1 className="text-2xl font-bold"> {t`Round Robin Tournament`} </h1>
             <div className="flex items-center gap-2">
               <Link
                 to="/event-manager-guide"

@@ -13,6 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "确认"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "场地 {0} - 编辑中"
@@ -23,16 +31,11 @@ msgstr "删除比赛"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
 msgid "Delete this match?"
-msgstr ""
+msgstr "删除这场比赛？"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "保存"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "比分"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
@@ -43,9 +46,16 @@ msgid "TEAM 2"
 msgstr "队伍 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr ""
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 msgid "VS"
 msgstr "VS"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "比分"

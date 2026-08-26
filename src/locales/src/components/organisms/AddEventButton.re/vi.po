@@ -78,8 +78,11 @@ msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
-msgstr "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người tổ chức."
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
+"tổ chức."
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
@@ -93,8 +96,12 @@ msgid "Could not save your profile. Please try again."
 msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
-msgstr "Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, bạn chọn địa điểm và luật chơi."
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr ""
+"Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
+"bạn chọn địa điểm và luật chơi."
 
 #: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
@@ -109,8 +116,12 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -160,10 +171,6 @@ msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho c�
 msgid "Level"
 msgstr "Trình độ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "Khung giờ dài"
-
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "Nam"
@@ -171,10 +178,6 @@ msgstr "Nam"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "Khớp giờ của tôi"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -187,10 +190,6 @@ msgstr "Kế hoạch mới"
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "Không phải bây giờ"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "mở"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
@@ -217,20 +216,23 @@ msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
-msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do họ nên mời bạn."
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
+"họ nên mời bạn."
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid "Tell others you're down to play. Players with overlapping times can invite you."
-msgstr "Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
+msgstr ""
+"Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
 msgid "Today"
@@ -242,8 +244,25 @@ msgstr "Ngày mai"
 
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
-msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "Bạn muốn chơi lúc nào?"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "Khung giờ dài"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "Khớp giờ của tôi"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "mở"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"

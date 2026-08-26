@@ -13,6 +13,10 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "Quản trị viên"
+
 #: src/components/pages/ClubMembersPage.re.mjs:198
 msgid "Approve"
 msgstr "Chấp thuận"
@@ -22,9 +26,21 @@ msgstr "Chấp thuận"
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "Bạn có chắc muốn xóa {0} khỏi câu lạc bộ không?"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "Hủy"
+
 #: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
 msgstr "không tìm thấy câu lạc bộ"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "Đang tải thành viên..."
 
 #: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
@@ -34,6 +50,11 @@ msgstr "Thành viên"
 msgid "No members found"
 msgstr "Không tìm thấy thành viên"
 
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "Chủ sở hữu"
+
+#: src/components/pages/ClubMembersPage.re.mjs:191
 #: src/components/pages/ClubMembersPage.re.mjs:382
 msgid "Pending"
 msgstr "Đang chờ"

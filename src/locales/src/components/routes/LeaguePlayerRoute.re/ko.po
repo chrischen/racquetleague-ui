@@ -121,6 +121,10 @@ msgstr "예측"
 msgid "Rating History"
 msgstr "레이팅 기록"
 
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr "평점:"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:1194
 msgid "Recent Matches"
 msgstr "최근 경기"
@@ -134,8 +138,11 @@ msgid "Strong Against"
 msgstr "강점 상대"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
-msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
-msgstr "음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
+msgid ""
+"The shaded area represents rating uncertainty. Narrower bands indicate "
+"higher confidence."
+msgstr ""
+"음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
 
 #: src/components/organisms/MatchHistoryList.re.mjs:630
 msgid "Upset"

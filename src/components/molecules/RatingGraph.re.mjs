@@ -4,6 +4,9 @@ import * as Recharts from "recharts";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
+import { t } from '@lingui/macro'
+;
+
 var ResponsiveContainer = {};
 
 var ComposedChart = {};
@@ -34,7 +37,7 @@ function RatingGraph$CustomTooltip(props) {
                                         }),
                                     JsxRuntime.jsxs("p", {
                                           children: [
-                                            "Rating: ",
+                                            t`Rating: `,
                                             JsxRuntime.jsx("span", {
                                                   children: data.rating.toString(),
                                                   className: "font-semibold text-blue-600"
@@ -178,4 +181,4 @@ export {
   make ,
   $$default as default,
 }
-/* recharts Not a pure module */
+/*  Not a pure module */

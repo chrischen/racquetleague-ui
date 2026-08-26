@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"hOdM7G\":\"版權所有 球拍聯盟貢獻者\",\"GCkpYm\":\"使用 Line 登入\",\"UdC6Dp\":\"球拍聯盟\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"（登出）\",\"3igsBN\":\"新增活動\",\"hOdM7G\":\"版權所有 球拍聯盟貢獻者\",\"GCkpYm\":\"使用 Line 登入\",\"UdC6Dp\":\"球拍聯盟\"}");

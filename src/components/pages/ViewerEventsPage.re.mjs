@@ -95,7 +95,7 @@ function ViewerEventsPage(props) {
                                             })
                                       })),
                               fallback: Caml_option.some(JsxRuntime.jsx(Layout.Container.make, {
-                                        children: "Loading events..."
+                                        children: t`Loading events...`
                                       }))
                             });
                 })

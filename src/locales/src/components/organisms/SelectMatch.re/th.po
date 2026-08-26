@@ -17,6 +17,10 @@ msgstr ""
 msgid "left team players"
 msgstr "ผู้เล่นทีมซ้าย"
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "ผู้แพ้"
+
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
 msgstr "ยังไม่มีผู้เล่น"
@@ -32,3 +36,7 @@ msgstr "จัดคิวแมทช์"
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
 msgstr "ผู้เล่นทีมขวา"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "ผู้ชนะ"

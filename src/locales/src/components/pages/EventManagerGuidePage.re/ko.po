@@ -18,12 +18,20 @@ msgid ": Classic round-robin format where everyone plays with everyone."
 msgstr ": 모든 사람이 서로 경기하는 클래식 라운드 로빈 형식."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:194
-msgid ": Players are divided into similar skill levels. Teams are balanced to create close matches."
-msgstr ": 플레이어는 비슷한 실력 수준으로 나뉩니다. 팀은 치열한 경기를 위해 균형잡힙니다."
+msgid ""
+": Players are divided into similar skill levels. Teams are balanced to "
+"create close matches."
+msgstr ""
+": 플레이어는 비슷한 실력 수준으로 나뉩니다. 팀은 치열한 경기를 위해 균형잡힙"
+"니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:202
-msgid ": Teams are balanced by skill, but players are not strictly separated by level."
-msgstr ": 팀은 실력으로 균형잡히지만, 플레이어가 수준에 따라 엄격히 분리되지는 않습니다."
+msgid ""
+": Teams are balanced by skill, but players are not strictly separated by "
+"level."
+msgstr ""
+": 팀은 실력으로 균형잡히지만, 플레이어가 수준에 따라 엄격히 분리되지는 않습니"
+"다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:141
 msgid "Adjust Seeds"
@@ -62,8 +70,12 @@ msgid "Edit player details like name, gender, or payment status."
 msgstr "이름, 성별 또는 결제 상태와 같은 플레이어 세부 정보를 편집합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:354
-msgid "Enter scores directly on the match cards. Tap to select a winner, or press and hold to input the score as well."
-msgstr "경기 카드에 직접 점수를 입력하세요. 탭하여 승자를 선택하거나, 길게 눌러 점수도 입력합니다."
+msgid ""
+"Enter scores directly on the match cards. Tap to select a winner, or press "
+"and hold to input the score as well."
+msgstr ""
+"경기 카드에 직접 점수를 입력하세요. 탭하여 승자를 선택하거나, 길게 눌러 점수"
+"도 입력합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:350
 msgid "Entering Results & Syncing"
@@ -98,8 +110,17 @@ msgid "Icons Guide"
 msgstr "아이콘 가이드"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:217
-msgid "In Competitive or Mixed mode, the system will regenerate future matches when you select the winner of the matches in the current or past rounds. This is recommended in order to optimize future rounds based on the new data. In Round-Robin mode, the future rounds will not change unless you manually change them."
-msgstr "경쟁 또는 혼합 모드에서 현재 또는 이전 라운드의 경기 승자를 선택하면 시스템이 향후 경기를 재생성합니다. 새 데이터를 기반으로 향후 라운드를 최적화하기 위해 권장됩니다. 라운드 로빈 모드에서는 수동으로 변경하지 않는 한 향후 라운드가 변경되지 않습니다."
+msgid ""
+"In Competitive or Mixed mode, the system will regenerate future matches when "
+"you select the winner of the matches in the current or past rounds. This is "
+"recommended in order to optimize future rounds based on the new data. In "
+"Round-Robin mode, the future rounds will not change unless you manually "
+"change them."
+msgstr ""
+"경쟁 또는 혼합 모드에서 현재 또는 이전 라운드의 경기 승자를 선택하면 시스템"
+"이 향후 경기를 재생성합니다. 새 데이터를 기반으로 향후 라운드를 최적화하기 위"
+"해 권장됩니다. 라운드 로빈 모드에서는 수동으로 변경하지 않는 한 향후 라운드"
+"가 변경되지 않습니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:308
 msgid "Manage players directly from the Check-in list:"
@@ -146,8 +167,17 @@ msgid "Rebalance"
 msgstr "재조정"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:248
-msgid "Regenerates the current round with the same players but moves players around to balance the skill level of each court. This will aggressively optimize each court to have the highest chance of having a tie, but may not divide the court by level groups. Useful if you replace a player and need the matches to be balanced again."
-msgstr "같은 플레이어로 현재 라운드를 재생성하되, 각 코트의 실력 수준을 균형잡기 위해 플레이어를 이동합니다. 각 코트의 무승부 가능성을 최대화하도록 적극적으로 최적화하지만, 수준 그룹으로 코트를 나누지 않을 수 있습니다. 플레이어를 교체하고 경기를 다시 균형잡아야 할 때 유용합니다."
+msgid ""
+"Regenerates the current round with the same players but moves players around "
+"to balance the skill level of each court. This will aggressively optimize "
+"each court to have the highest chance of having a tie, but may not divide "
+"the court by level groups. Useful if you replace a player and need the "
+"matches to be balanced again."
+msgstr ""
+"같은 플레이어로 현재 라운드를 재생성하되, 각 코트의 실력 수준을 균형잡기 위"
+"해 플레이어를 이동합니다. 각 코트의 무승부 가능성을 최대화하도록 적극적으로 "
+"최적화하지만, 수준 그룹으로 코트를 나누지 않을 수 있습니다. 플레이어를 교체하"
+"고 경기를 다시 균형잡아야 할 때 유용합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:81
 msgid "Reset"
@@ -194,20 +224,33 @@ msgid "Sync Scores"
 msgstr "점수 동기화"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:185
-msgid "The Draw Generator allows you to create matches based on different strategies:"
+msgid ""
+"The Draw Generator allows you to create matches based on different "
+"strategies:"
 msgstr "대진 생성기를 사용하면 다양한 전략을 기반으로 경기를 만들 수 있습니다:"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:389
-msgid "The Event Manager works offline! All data is saved locally to your device."
-msgstr "이벤트 관리자는 오프라인에서 작동합니다! 모든 데이터가 기기에 로컬로 저장됩니다."
+msgid ""
+"The Event Manager works offline! All data is saved locally to your device."
+msgstr ""
+"이벤트 관리자는 오프라인에서 작동합니다! 모든 데이터가 기기에 로컬로 저장됩니"
+"다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:339
-msgid "to adjust player ratings (seeds) for the event. This affects matchmaking but not their permanent rating."
-msgstr "이벤트를 위한 플레이어 레이팅(시드)을 조정합니다. 이것은 매치메이킹에 영향을 주지만 영구 레이팅에는 영향을 주지 않습니다."
+msgid ""
+"to adjust player ratings (seeds) for the event. This affects matchmaking but "
+"not their permanent rating."
+msgstr ""
+"이벤트를 위한 플레이어 레이팅(시드)을 조정합니다. 이것은 매치메이킹에 영향을 "
+"주지만 영구 레이팅에는 영향을 주지 않습니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:330
-msgid "to create Teams (always play together) or Anti-Teams (never play together on the same court)."
-msgstr "팀(항상 함께 경기) 또는 안티팀(같은 코트에서 절대 함께 경기하지 않음)을 만들려면."
+msgid ""
+"to create Teams (always play together) or Anti-Teams (never play together on "
+"the same court)."
+msgstr ""
+"팀(항상 함께 경기) 또는 안티팀(같은 코트에서 절대 함께 경기하지 않음)을 만들"
+"려면."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:45
 msgid "Toggle player attendance. Green means checked in."
@@ -223,9 +266,16 @@ msgid "Use the"
 msgstr "사용"
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:220
-msgid "You can also adjust the number of courts. The system requires 4 players per court."
-msgstr "코트 수도 조정할 수 있습니다. 시스템은 코트당 4명의 플레이어가 필요합니다."
+msgid ""
+"You can also adjust the number of courts. The system requires 4 players per "
+"court."
+msgstr ""
+"코트 수도 조정할 수 있습니다. 시스템은 코트당 4명의 플레이어가 필요합니다."
 
 #: src/components/pages/EventManagerGuidePage.re.mjs:392
-msgid "You can run an entire event without internet. Just make sure to Sync Scores when you have a connection again to save the results."
-msgstr "인터넷 없이 전체 이벤트를 진행할 수 있습니다. 결과를 저장하려면 연결이 다시 되면 점수를 동기화하세요."
+msgid ""
+"You can run an entire event without internet. Just make sure to Sync Scores "
+"when you have a connection again to save the results."
+msgstr ""
+"인터넷 없이 전체 이벤트를 진행할 수 있습니다. 결과를 저장하려면 연결이 다시 "
+"되면 점수를 동기화하세요."

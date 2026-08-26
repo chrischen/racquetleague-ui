@@ -41,10 +41,6 @@ msgstr "Tìm trò chơi"
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
-#: src/components/organisms/NavViewer.re.mjs:65
-#~ msgid "My Clubs"
-#~ msgstr "Câu lạc bộ của tôi"
-
 #: src/components/pages/DefaultLayoutMap.re.mjs:94
 #: src/components/pages/DefaultLayoutMap.re.mjs:147
 msgid "Pickleball"
@@ -59,3 +55,7 @@ msgstr "pkuru"
 #: src/components/pages/DefaultLayoutMap.re.mjs:308
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
+
+#: src/components/organisms/NavViewer.re.mjs:65
+#~ msgid "My Clubs"
+#~ msgstr "Câu lạc bộ của tôi"

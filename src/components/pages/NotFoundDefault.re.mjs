@@ -3,9 +3,12 @@
 import * as Layout from "../shared/Layout.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
+import { t } from '@lingui/macro'
+;
+
 function NotFoundDefault(props) {
   return JsxRuntime.jsx(Layout.Container.make, {
-              children: "page not found"
+              children: t`page not found`
             });
 }
 
@@ -14,4 +17,4 @@ var make = NotFoundDefault;
 export {
   make ,
 }
-/* Layout Not a pure module */
+/*  Not a pure module */

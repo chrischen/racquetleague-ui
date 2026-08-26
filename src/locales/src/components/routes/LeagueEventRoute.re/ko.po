@@ -184,6 +184,10 @@ msgstr "경기 로딩 중..."
 msgid "Loading..."
 msgstr "로딩 중..."
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "패자"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:522
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
@@ -218,8 +222,11 @@ msgid "no players yet"
 msgstr "아직 플레이어가 없습니다"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
-msgstr "대기열에 플레이어가 부족합니다. 대기열 탭에서 경기할 플레이어를 선택하세요."
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"대기열에 플레이어가 부족합니다. 대기열 탭에서 경기할 플레이어를 선택하세요."
 
 #: src/components/organisms/AiTetsu.re.mjs:1564
 #: src/components/organisms/AiTetsu.re.mjs:1586
@@ -239,7 +246,8 @@ msgid "Player Name"
 msgstr "플레이어 이름"
 
 #: src/components/organisms/AiTetsu.re.mjs:1360
-msgid "Players in a team will always be placed in a match together on the same side."
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
 msgstr "팀의 플레이어는 항상 같은 편으로 함께 경기에 배정됩니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1381
@@ -247,7 +255,8 @@ msgid "Players in an anti-team will never be placed in a match together."
 msgstr "안티팀의 플레이어는 절대 함께 경기에 배정되지 않습니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1439
-msgid "Players in teams will always be placed in a match together on the same side."
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
 msgstr "팀의 플레이어는 항상 같은 편으로 함께 경기에 배정됩니다."
 
 #: src/components/pages/LeagueEventPage.re.mjs:96
@@ -322,8 +331,14 @@ msgid "Set as Male"
 msgstr "남성으로 설정"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
-msgstr "현재 쉬고 있는 플레이어 수로 설정하면 경기 횟수를 균등하게 조정합니다. 0으로 설정하면 비활성화하고 경기 품질을 최적화하지만, 일부 플레이어가 더 많은 경기를 할 수 있습니다."
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"현재 쉬고 있는 플레이어 수로 설정하면 경기 횟수를 균등하게 조정합니다. 0으로 "
+"설정하면 비활성화하고 경기 품질을 최적화하지만, 일부 플레이어가 더 많은 경기"
+"를 할 수 있습니다."
 
 #: src/components/organisms/AiTetsu.re.mjs:1555
 msgid "Start Session"
@@ -376,4 +391,8 @@ msgstr "승"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
+msgstr "승자"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
 msgstr "승자"

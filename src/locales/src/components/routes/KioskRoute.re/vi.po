@@ -1,0 +1,379 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-25 22:44+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr "● BỘ ĐỆM SẴN SÀNG"
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr "Đoạn clip 18 giây · Hiệp 07"
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr "24 cú đánh đã phân tích · Phiên thi đấu"
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr "PHIÊN ĐANG HOẠT ĐỘNG"
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr "Phân Tích"
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr "Đang thu thập phân tích"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr "PHÂN TÍCH HOÀN TẤT"
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr "Chế độ phân tích"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr "Cài đặt phân tích"
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr "Đang phân tích lối chơi"
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr "Góc {0} trong {1}"
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr "Tiếp Cận"
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr "Khả dụng khi đang thi đấu"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr "Quay lại chế độ"
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr "Trái tay"
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr "Mục tiêu tốt nhất"
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr "Xem lại cú nảy"
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr "Camera đã kết nối"
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr "Góc quay và kết nối camera ổn"
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr "Camera không khả dụng — kiểm tra quyền truy cập và thử lại"
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr "Thực hiện một vài cú giao bóng, sau đó kết thúc để xem kết quả."
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr "Điểm danh vào hoặc ra"
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr "Chọn một hành động"
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr "Các hành động cắt clip và kiểm tra đường kẻ luôn sẵn sàng."
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr "Cắt clip pha bóng vừa rồi"
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr "Clip đã lưu · tiếp tục ghi hình trực tiếp"
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr "Liên hệ"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr "Đã sao chép"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr "Sao chép URL"
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr "Tạo clip gọn gàng, có thể chia sẻ từ bộ đệm video liên tục."
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr "Hủy bỏ"
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr "Xem xong"
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr "Phân tích cú đánh thả"
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr "Vị trí đánh thả"
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr "Kết thúc & phân tích"
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr "Kết thúc phiên"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr "Kết thúc phiên và thoát"
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr "Kết thúc phiên khi bạn đã thu thập đủ cú đánh."
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr "Thoát"
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr "Đang tìm khung hình rõ nhất và chuẩn bị kết quả."
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr "Độ chính xác vào bếp"
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr "BẢN ĐỒ NHIỆT ĐIỂM RƠI"
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr "Pha bóng vừa rồi"
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr "Trận đấu trực tiếp"
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr "Phiên quay vòng trực tiếp"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr "Phiên trực tiếp"
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr "Phiên trực tiếp và bộ đệm quay vòng vẫn đang hoạt động"
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr "PHIÊN TRỰC TIẾP TIẾP TỤC · ĐANG GHI BỘ ĐỆM"
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr "Phiên trực tiếp đã kết thúc"
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr "Đo tốc độ giao bóng và xem lại đoạn clip giao bóng được phát hiện."
+
+#: src/components/organisms/Kiosk.re.mjs:783
+msgid "Next"
+msgstr "Tiếp theo"
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr "Clip nảy tiếp theo"
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr "Không cần chọn hành động trước khi bắt đầu."
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr "TẮT"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr "BẬT"
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr "Mở"
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr "Mở cài đặt kiosk"
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr "OUT"
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr "Tốc độ bóng cao nhất"
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr "Kiosk camera Pickleball"
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr "Phát lại pha bóng cuối"
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr "Phát lại giao bóng"
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr "Hướng camera điện thoại vào mã để xem trực tiếp sân này."
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr "Trước"
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr "Clip nảy trước đó"
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr "Clip pha bóng đã sẵn sàng"
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr "Xem lại lần nảy bóng gần nhất từ nhiều khoảnh khắc cận cảnh."
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr "Bộ đệm cuộn"
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr "Bộ đệm cuộn đang hoạt động"
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr "CHỤP BỘ ĐỆM CUỘN"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr "Quay liên tục với tùy chọn phát trực tiếp YouTube."
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr "Lưu clip"
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr "Quét để xem"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr "Chọn chế độ, sau đó bắt đầu quay."
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr "Vui lòng chọn một tùy chọn trước khi khởi động camera."
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr "PHÂN TÍCH ĐÃ CHỌN"
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr "Giao bóng 04 · Đọc rõ"
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr "Đã phát hiện giao bóng"
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr "Phát lại giao bóng"
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr "Phân tích tốc độ giao bóng"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr "THIẾT LẬP PHIÊN"
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr "Hiển thị mã QR cho người xem trong phiên"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr "Bắt đầu phân tích"
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr "Bắt đầu phiên khác"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr "Bắt đầu phiên trực tiếp"
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr "Phát trên YouTube"
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr ""
+"Camera liên tục lưu trữ các pha bóng gần nhất sẵn sàng cho mọi tình huống."
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr "Bộ đệm cuộn tiếp tục hoạt động trong khi bạn xem lại."
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr "Theo dõi vị trí cú đánh chìm và hiển thị mẫu điểm rơi."
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr "Sử dụng cảnh quay đệm mới nhất"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr "URL XEM"

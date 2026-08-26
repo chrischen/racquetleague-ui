@@ -287,7 +287,7 @@ let make = (
         className="mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40">
         <div
           className="font-mono text-[11px] tracking-wider text-amber-700 dark:text-amber-400 uppercase mb-1">
-          {"LEVEL RESTRICTION"->React.string}
+          {t`LEVEL RESTRICTION`}
         </div>
         <div className="text-xs text-amber-800 dark:text-amber-300">
           {t`Required: DUPR ${minDuprStr}+`}
@@ -301,7 +301,7 @@ let make = (
         className="mb-3 p-3 rounded-lg bg-gray-50 dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40]">
         <div
           className="font-mono text-[11px] tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-1">
-          {"LEVEL RESTRICTION"->React.string}
+          {t`LEVEL RESTRICTION`}
         </div>
         <div className="text-xs text-gray-700 dark:text-gray-300">
           {t`Requires DUPR ${minDuprStr}+ to join`}

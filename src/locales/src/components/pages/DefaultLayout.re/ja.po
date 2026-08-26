@@ -17,13 +17,13 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "イベントを追加"
+
 #: src/components/organisms/Footer.re.mjs:19
 msgid "copyright the racquet league contributors"
 msgstr "著作権ラケットリーグの寄稿者"
-
-#: src/components/molecules/LoginLink.re.mjs:10
-#~ msgid "login"
-#~ msgstr "ログイン"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -33,3 +33,7 @@ msgstr "Lineでログイン"
 #: src/components/organisms/Nav.re.mjs:98
 msgid "racquet league"
 msgstr "ラケットリーグ"
+
+#: src/components/molecules/LoginLink.re.mjs:10
+#~ msgid "login"
+#~ msgstr "ログイン"

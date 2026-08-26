@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "แอดมิน"
+
 #: src/components/pages/ClubMembersPage.re.mjs:198
 msgid "Approve"
 msgstr "อนุมัติ"
@@ -22,9 +26,21 @@ msgstr "อนุมัติ"
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ {0} ออกจากคลับ?"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "ยกเลิก"
+
 #: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
 msgstr "ไม่พบคลับ"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "กำลังโหลดสมาชิก..."
 
 #: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
@@ -34,6 +50,11 @@ msgstr "สมาชิก"
 msgid "No members found"
 msgstr "ไม่พบสมาชิก"
 
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "เจ้าของ"
+
+#: src/components/pages/ClubMembersPage.re.mjs:191
 #: src/components/pages/ClubMembersPage.re.mjs:382
 msgid "Pending"
 msgstr "รอการอนุมัติ"

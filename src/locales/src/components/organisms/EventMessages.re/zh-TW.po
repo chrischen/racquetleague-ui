@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr "活動"
+
 #: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr "從等待列表中加入"
@@ -29,10 +33,6 @@ msgstr "退出了活動"
 msgid "No activity yet"
 msgstr "尚無活動"
 
-#: src/components/organisms/EventMessages.re.mjs:125
-#~ msgid "Save"
-#~ msgstr "儲存"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "傳送"
@@ -42,7 +42,8 @@ msgid "Status message"
 msgstr "狀態訊息"
 
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
 
 #: src/components/organisms/EventMessages.re.mjs:282
@@ -56,3 +57,7 @@ msgstr "已受邀參加活動"
 #: src/components/organisms/EventMessages.re.mjs:297
 msgid "was removed from the event by admin"
 msgstr "已被管理員從活動中移除"
+
+#: src/components/organisms/EventMessages.re.mjs:125
+#~ msgid "Save"
+#~ msgstr "儲存"

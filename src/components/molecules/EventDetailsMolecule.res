@@ -1,4 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 // EventDetails molecule in ReScript React
 // Props: event with organizerDetails and locationDetails
 
@@ -21,7 +22,7 @@ let make = (~event: event) => {
             : "text-gray-500 hover:text-gray-700",
         ])}
         onClick={_ => setActiveTab(_ => "details")}>
-        {React.string("Event Details")}
+        {t`Event Details`}
       </button>
       <button
         className={Util.cx([
@@ -31,7 +32,7 @@ let make = (~event: event) => {
             : "text-gray-500 hover:text-gray-700",
         ])}
         onClick={_ => setActiveTab(_ => "location")}>
-        {React.string("Location Details")}
+        {t`Location Details`}
       </button>
     </div>
     {activeTab == "details"

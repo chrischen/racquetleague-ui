@@ -5934,6 +5934,443 @@ msgstr "ブラウザのストレージ容量が不足しています。古いイ
 msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
 msgstr "ブラウザがこのイベントの保存を拒否しました。ページをリロードするか再試行してください。問題が続く場合は、スコアが同期されるまでページの更新を避けてください。"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
+
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "ラウンドロビン組み合わせ"
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr "例を試してみる："
+
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "敗者"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "勝者"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr "レベル制限"
+
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr "場所の詳細"
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "日程未定"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "時間未定"
+
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr "空き容量を確保"
+
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr "スポーツイベントのドロー"
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr "ストレージがほぼいっぱい"
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid "Your browser storage is {0}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes."
+msgstr "ブラウザのストレージが{0}%いっぱいです。ストレージが不足すると、アプリのデータが失われる可能性があります。空き容量を確保すると、このデバイス上のすべてのイベントの保存データが削除されます。削除内容は事前に確認できます。"
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr "● バッファ準備完了"
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr "18秒クリップ · ラリー07"
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr "24ショット分析済み · ゲームセッション"
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr "セッション進行中"
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr "分析"
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr "分析キャプチャ有効"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr "分析完了"
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr "分析モード"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr "分析設定"
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr "プレーを分析中"
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr "アングル {0} / {1}"
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr "アプローチ"
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr "プレー中に利用可能"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr "モードに戻る"
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr "バックハンド"
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr "ベストターゲット"
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr "バウンスレビュー"
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr "カメラ接続済み"
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr "カメラのフレーミングと接続は良好です"
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr "カメラを使用できません — 権限を確認して再試行してください"
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr "サーブを数回キャプチャしてから、終了して結果を確認してください。"
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr "チェックイン／アウト"
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr "アクションを選択"
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr "クリップとラインチェックはいつでも実行できます。"
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr "直前のラリーをクリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr "クリップ保存済み · ライブキャプチャ継続中"
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr "お問い合わせ"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr "コピーしました"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr "URLをコピー"
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr "ローリング映像バッファからクリーンで共有可能なクリップを作成します。"
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr "破棄"
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr "レビュー完了"
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr "ドロップショット分析"
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr "ドロップショットの配置"
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr "終了して分析"
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr "セッションを終了"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr "セッションを終了して退出"
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr "十分なショットを収集したらセッションを終了してください。"
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr "退出"
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr "最も鮮明なカメラの瞬間を検索し、結果を準備しています。"
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr "キッチン精度"
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr "着地ヒートマップ"
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr "直前のラリー"
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr "ライブゲーム"
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr "ライブローリングセッション"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr "ライブセッション"
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr "ライブセッションとローリングバッファはまだアクティブです"
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr "ライブセッション継続中 · バッファ録画中"
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr "ライブセッション終了"
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr "サーブ速度を計測し、検出されたサーブクリップを確認します。"
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr "次のバウンスクリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr "開始前にアクションを選択する必要はありません。"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr "オフ"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr "オン"
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr "開く"
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr "キオスク設定を開く"
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr "アウト"
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr "ボール最高速度"
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr "ピックルボール カメラキオスク"
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr "最後のラリーを再生"
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr "サーブリプレイを再生"
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr "このコートのライブ配信を開くには、スマートフォンのカメラをコードに向けてください。"
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr "前へ"
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr "前のバウンスクリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr "ラリークリップ準備完了"
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr "複数のクローズアップシーンから最新のバウンスを確認します。"
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr "ローリングバッファ"
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr "ローリングバッファ有効"
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr "ローリングバッファキャプチャ"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr "オプションのYouTubeストリーミング付きローリングキャプチャ。"
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr "クリップを保存"
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr "スキャンして視聴"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr "モードを選択してからキャプチャを開始してください。"
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr "カメラを起動する前にいずれかを選択してください。"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr "選択中の分析"
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr "サーブ 04 · 正常読取"
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr "サーブ検出"
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr "サーブリプレイ"
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr "サーブ速度分析"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr "セッション設定"
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr "セッション中に視聴者用QRコードを表示する"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr "分析を開始"
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr "別のセッションを開始"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr "ライブセッションを開始"
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr "YouTubeでストリーミング"
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr "カメラは直近のプレーを常時バッファリングし、いつでも確認できます。"
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr "レビュー中もローリングバッファは継続されます。"
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr "ドロップショットの配置を追跡し、着地パターンを明らかにします。"
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr "最新のバッファ映像を使用"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr "視聴URL"
+
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "イベントを追加"
+
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr "評価："
+
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "有効にする"
+
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "管理者"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "メンバーを読み込み中..."
+
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "オーナー"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -5973,11 +6410,6 @@ msgstr "ブラウザがこのイベントの保存を拒否しました。ペー
 #, fuzzy
 #~ msgid "No players added yet"
 #~ msgstr "まだプレーヤーがいません"
-
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "ラウンドロビン組み合わせ"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
@@ -6053,3 +6485,28 @@ msgstr "ブラウザがこのイベントの保存を拒否しました。ペー
 #, fuzzy
 #~ msgid "Other locations and times"
 #~ msgstr "この時間の他の会場"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "このデバイスに保存されているすべてのデータは、すでにサーバーと同期されています。"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} 件の評価"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0}人のプレイヤー"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+#~ msgstr "このデバイス上のすべてのイベント（このイベントを含む）の保存データを削除します。サーバーに同期済みのイベントは再度開くことができますが、未同期のデータは復元できません。"
+
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
+#~ msgstr "これらのスコアはサーバーに届いていません。削除前にこのイベントを同期してください。同期しない場合、データは失われます。"

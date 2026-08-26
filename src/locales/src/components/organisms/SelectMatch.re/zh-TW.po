@@ -17,6 +17,10 @@ msgstr ""
 msgid "left team players"
 msgstr "左隊球員"
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "敗者"
+
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
 msgstr "還沒有球員"
@@ -32,3 +36,7 @@ msgstr "比賽入隊"
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
 msgstr "右隊球員"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "勝者"

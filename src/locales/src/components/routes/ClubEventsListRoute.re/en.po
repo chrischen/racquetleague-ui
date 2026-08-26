@@ -210,6 +210,7 @@ msgstr ""
 msgid "Biography is required"
 msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/StripePaymentEmbed.tsx:55
 msgid "Cancel"
 msgstr ""
@@ -302,6 +303,10 @@ msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
 msgid "Computed rating"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:454
@@ -599,6 +604,11 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr ""
+
 #: src/components/organisms/EventStickyFooter.re.mjs:139
 msgid "Loading..."
 msgstr ""
@@ -664,6 +674,10 @@ msgstr ""
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:469
 msgid "No other same-day time at {venue} supports the full event duration."
+msgstr ""
+
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:44

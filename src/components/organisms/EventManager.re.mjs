@@ -248,14 +248,14 @@ function EventManager$StorageLowWarning(props) {
                                     className: "flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center"
                                   }),
                               JsxRuntime.jsx("h2", {
-                                    children: "Storage Almost Full",
+                                    children: t`Storage Almost Full`,
                                     className: "text-lg font-bold text-slate-900"
                                   })
                             ],
                             className: "flex items-center gap-3 mb-4"
                           }),
                       JsxRuntime.jsx("p", {
-                            children: "Your browser storage is " + percentage.toFixed(1) + "% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes.",
+                            children: t`Your browser storage is ${percentage.toFixed(1)}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes.`,
                             className: "text-sm text-slate-600 mb-4"
                           }),
                       JsxRuntime.jsx("div", {
@@ -270,7 +270,7 @@ function EventManager$StorageLowWarning(props) {
                       JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsx("button", {
-                                    children: "Dismiss",
+                                    children: t`Dismiss`,
                                     className: "px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors",
                                     onClick: (function (param) {
                                         setDismissed(function (param) {
@@ -279,7 +279,7 @@ function EventManager$StorageLowWarning(props) {
                                       })
                                   }),
                               JsxRuntime.jsx("button", {
-                                    children: "Free Up Space",
+                                    children: t`Free Up Space`,
                                     className: "px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors",
                                     onClick: (function (param) {
                                         onClearData();
@@ -2703,8 +2703,8 @@ function EventManager(props) {
                               children: JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsx("h1", {
-                                            children: "Sports Event Draws",
-                                            className: "text-2xl font-bold"
+                                            children: t`Sports Event Draws`,
+                                            className: "hidden sm:block text-2xl font-bold"
                                           }),
                                       JsxRuntime.jsxs("div", {
                                             children: [
@@ -2764,7 +2764,7 @@ function EventManager(props) {
                                             className: "flex items-center gap-2"
                                           })
                                     ],
-                                    className: "flex items-center justify-between"
+                                    className: "flex items-center justify-end sm:justify-between"
                                   }),
                               className: "bg-slate-800 text-white px-6 py-4"
                             }),

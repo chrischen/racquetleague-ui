@@ -13,10 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RoundRobin.re.mjs:463
-#~ msgid "{0, plural, one {player} other {players}}"
-#~ msgstr "位球员"
-
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -58,11 +54,6 @@ msgstr "添加访客球员"
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:47
 msgid "Add Guest Players"
 msgstr "添加访客球员"
-
-#: src/components/organisms/RoundRobin.re.mjs:363
-#, fuzzy
-#~ msgid "Add Players"
-#~ msgstr "添加球员"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
@@ -116,10 +107,7 @@ msgstr "平衡队伍"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "在新搭档与势均力敌的比赛之间取得平衡。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "测试版"
-
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -151,6 +139,10 @@ msgstr "竞技模式"
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "竞技+"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "确认"
 
 #: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
@@ -196,11 +188,6 @@ msgstr "当前回合："
 msgid "Custom"
 msgstr "自定义"
 
-#: src/components/organisms/RoundRobin.re.mjs:346
-#, fuzzy
-#~ msgid "Debug Mode"
-#~ msgstr "调试：开启"
-
 #: src/components/organisms/RoundRobin.re.mjs:1091
 msgid "Debug: OFF"
 msgstr "调试：关闭"
@@ -231,13 +218,14 @@ msgstr "删除这场比赛？"
 msgid "Drag players in order of strongest to weakest."
 msgstr "按从强到弱的顺序拖动球员。"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "拖动球员以重新排序他们的初始种子"
-
 #: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
-msgstr "每种策略使用预设配置；调整任意滑块将切换为自定义混合模式。上场时间公平性与轮换规则始终强制执行，不可降低。"
+msgid ""
+"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"to a custom mix. Fair play time and rotation are always enforced and can't "
+"be turned down."
+msgstr ""
+"每种策略使用预设配置；调整任意滑块将切换为自定义混合模式。上场时间公平性与轮"
+"换规则始终强制执行，不可降低。"
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -272,15 +260,21 @@ msgid "Event check-in"
 msgstr "活动签到"
 
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
-msgstr "全员轮换：每轮更换新搭档和对手，优先安排最具竞争性的对阵，直至多样性需求促使混搭。"
+msgid ""
+"Everyone rotates: fresh partners and opponents every round, taking the most "
+"competitive matchups first until variety forces mixing."
+msgstr ""
+"全员轮换：每轮更换新搭档和对手，优先安排最具竞争性的对阵，直至多样性需求促使"
+"混搭。"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "女性"
 
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgid ""
+"Fresh, varied matchups every round, with each match's teams balanced by "
+"skill."
 msgstr "每轮对阵新鲜多样，每场比赛按技术水平均衡分队。"
 
 #: src/components/organisms/RoundSection.re.mjs:535
@@ -288,7 +282,9 @@ msgid "Full Screen View"
 msgstr "全屏查看"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
 msgstr "未来轮次已输入分数。重新生成将会删除这些分数。您确定吗？"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
@@ -403,11 +399,6 @@ msgstr "尚无反对队"
 msgid "No available players"
 msgstr "没有可用的球员"
 
-#: src/components/organisms/RoundRobin.re.mjs:451
-#, fuzzy
-#~ msgid "No players added yet"
-#~ msgstr "还没有球员"
-
 #: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "无比分"
@@ -420,10 +411,6 @@ msgstr "还没有队伍"
 msgid "Not paid"
 msgstr "未支付"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "本轮不参赛"
-
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "打开手机摄像头，扫描此二维码，加入活动。"
@@ -433,7 +420,8 @@ msgid "Opponent variety"
 msgstr "对手多样性"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgid ""
+"Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "在同一技术段内优先安排势均力敌比赛的优化排列。"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
@@ -456,20 +444,23 @@ msgstr "球员ID"
 msgid "Player Settings"
 msgstr "球员设置"
 
-#: src/components/organisms/RoundRobin.re.mjs:359
-#~ msgid "Players"
-#~ msgstr "寻找球员"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "球员从其在本俱乐部获得的评分开始；没有评分的球员从默认评分开始。赛事期间的变化从该评分起计算。"
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"球员从其在本俱乐部获得的评分开始；没有评分的球员从默认评分开始。赛事期间的变"
+"化从该评分起计算。"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
 msgstr "球员从其跨所有俱乐部的全球评分开始。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
 msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
 
 #: src/components/organisms/RoundRobin.re.mjs:693
@@ -542,10 +533,9 @@ msgstr "第 {0} 回合"
 msgid "Round Robin"
 msgstr "循环赛"
 
-#: src/components/organisms/RoundRobin.re.mjs:323
-#, fuzzy
-#~ msgid "Round Robin Tournament"
-#~ msgstr "循环赛抽签"
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "循环赛抽签"
 
 #: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
@@ -583,28 +573,13 @@ msgstr "保存队伍"
 msgid "Scan to check in"
 msgstr "扫码签到"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "比分"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:289
-#, fuzzy
-#~ msgid "Seed from {0} ratings"
-#~ msgstr "{0} 个评分"
-
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "种子："
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:271
-#, fuzzy
-#~ msgid "Seeded {0} players"
-#~ msgstr "{0} 位球员"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -665,7 +640,9 @@ msgstr "队伍"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
@@ -686,12 +663,15 @@ msgid "Update Rounds Below"
 msgstr "更新以下回合"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
 
@@ -702,3 +682,53 @@ msgstr "获胜队（队伍 {0}）"
 #: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "您的浏览器版本过低，无法使用此功能。"
+
+#: src/components/organisms/RoundRobin.re.mjs:463
+#~ msgid "{0, plural, one {player} other {players}}"
+#~ msgstr "位球员"
+
+#: src/components/organisms/RoundRobin.re.mjs:363
+#, fuzzy
+#~ msgid "Add Players"
+#~ msgstr "添加球员"
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "测试版"
+
+#: src/components/organisms/RoundRobin.re.mjs:346
+#, fuzzy
+#~ msgid "Debug Mode"
+#~ msgstr "调试：开启"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "拖动球员以重新排序他们的初始种子"
+
+#: src/components/organisms/RoundRobin.re.mjs:451
+#, fuzzy
+#~ msgid "No players added yet"
+#~ msgstr "还没有球员"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "本轮不参赛"
+
+#: src/components/organisms/RoundRobin.re.mjs:359
+#~ msgid "Players"
+#~ msgstr "寻找球员"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "比分"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0} 个评分"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0} 位球员"

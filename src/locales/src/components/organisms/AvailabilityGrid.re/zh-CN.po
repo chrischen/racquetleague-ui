@@ -30,7 +30,8 @@ msgid "Add time windows above"
 msgstr "在上方添加时间段"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:229
-msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
+msgid ""
+"Add time windows to each day. Drag to move them, grab the edges to resize."
 msgstr "为每天添加时间段。拖动可移动，拖动边缘可调整大小。"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:305
@@ -38,28 +39,17 @@ msgid "Clear"
 msgstr "清除"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:380
-msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
+msgid ""
+"Drag a window to move it · drag the edges to resize · tap + to add another"
 msgstr "拖动时间段移动 · 拖动边缘调整大小 · 点击 + 添加更多"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:446
 msgid "Let hosts schedule events when most of you are free"
 msgstr "让发起人在大多数人空闲时安排活动"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "长时段空档"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "匹配我的时间"
-
 #: src/components/organisms/AvailabilityGrid.re.mjs:260
 msgid "One-off"
 msgstr "单次"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "开放"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
@@ -85,10 +75,6 @@ msgstr "日程"
 msgid "Share with your club"
 msgstr "与你的俱乐部分享"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "点击任意位置添加时间段"
-
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
@@ -112,3 +98,19 @@ msgstr "你什么时候有空打球？"
 #: src/components/organisms/AvailabilityGrid.re.mjs:388
 msgid "Your availability"
 msgstr "你的空闲时间"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "长时段空档"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "匹配我的时间"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "开放"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "点击任意位置添加时间段"

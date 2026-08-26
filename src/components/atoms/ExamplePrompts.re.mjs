@@ -2,12 +2,15 @@
 
 import * as JsxRuntime from "react/jsx-runtime";
 
+import { t } from '@lingui/macro'
+;
+
 function ExamplePrompts(props) {
   var onExampleClick = props.onExampleClick;
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("p", {
-                      children: "Try these examples:",
+                      children: t`Try these examples:`,
                       className: "text-sm font-medium text-gray-700 dark:text-gray-300"
                     }),
                 JsxRuntime.jsx("div", {
@@ -32,4 +35,4 @@ var make = ExamplePrompts;
 export {
   make ,
 }
-/* react/jsx-runtime Not a pure module */
+/*  Not a pure module */

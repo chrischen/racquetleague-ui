@@ -70,11 +70,6 @@ msgstr "安裝"
 msgid "Install Pkuru.com App"
 msgstr "安裝 Pkuru.com 應用程式"
 
-#: src/components/shared/InstallPwa.re.mjs:395
-#: src/components/shared/InstallPwa.re.mjs:467
-#~ msgid "Install Racquet League"
-#~ msgstr "安裝 Racquet League"
-
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"
@@ -121,3 +116,8 @@ msgstr "查看通知"
 #: src/components/organisms/LeagueNav.re.mjs:122
 msgid "Your Profile"
 msgstr "您的個人資料"
+
+#: src/components/shared/InstallPwa.re.mjs:395
+#: src/components/shared/InstallPwa.re.mjs:467
+#~ msgid "Install Racquet League"
+#~ msgstr "安裝 Racquet League"

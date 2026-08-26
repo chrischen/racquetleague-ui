@@ -21,14 +21,6 @@ msgstr "キャンセル"
 msgid "Enter Score"
 msgstr "スコアを入力"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:323
-#~ msgid "Finished"
-#~ msgstr "終了"
-
-#: src/components/organisms/SortableSubmitMatch.re.mjs:439
-#~ msgid "Go Back"
-#~ msgstr "戻る"
-
 #: src/components/organisms/SortableSubmitMatch.re.mjs:449
 msgid "Loading"
 msgstr "読み込み中"
@@ -47,11 +39,19 @@ msgstr "予測される勝者"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/SortableSubmitMatch.re.mjs:363
-#~ msgid "Submit Rated"
-#~ msgstr "評価を提出"
-
 #: src/components/organisms/SortableSubmitMatch.re.mjs:368
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "勝者"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:323
+#~ msgid "Finished"
+#~ msgstr "終了"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:439
+#~ msgid "Go Back"
+#~ msgstr "戻る"
+
+#: src/components/organisms/SortableSubmitMatch.re.mjs:363
+#~ msgid "Submit Rated"
+#~ msgstr "評価を提出"

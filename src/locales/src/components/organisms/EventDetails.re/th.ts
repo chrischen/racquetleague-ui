@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"QcCPs8\":\"รายละเอียดกิจกรรม\",\"AC8C/Z\":\"รายละเอียดสถานที่\"}");

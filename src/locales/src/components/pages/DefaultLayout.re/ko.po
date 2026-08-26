@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "(로그아웃)"
 
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "이벤트 추가"
+
 #: src/components/organisms/Footer.re.mjs:19
 msgid "copyright the racquet league contributors"
 msgstr "저작권 racquet league 기여자"

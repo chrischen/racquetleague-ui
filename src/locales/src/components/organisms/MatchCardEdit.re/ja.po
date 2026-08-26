@@ -13,6 +13,14 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "コート{0} - 編集中"
@@ -23,16 +31,11 @@ msgstr "試合を削除"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
 msgid "Delete this match?"
-msgstr ""
+msgstr "この試合を削除しますか？"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "保存"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "スコア"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
@@ -43,9 +46,18 @@ msgid "TEAM 2"
 msgstr "チーム2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
 msgstr ""
+"この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
+"元々予定されていた試合を復元できます。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 msgid "VS"
 msgstr "VS"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "スコア"

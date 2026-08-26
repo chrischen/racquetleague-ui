@@ -18,7 +18,8 @@ msgid "Find League Games"
 msgstr "查找联盟比赛"
 
 #: src/components/pages/FindGamesPage.re.mjs:30
-msgid "To participate in the league and win prizes, please join the league events."
+msgid ""
+"To participate in the league and win prizes, please join the league events."
 msgstr "要参加联盟并赢取奖品，请加入联盟活动。"
 
 #: src/components/pages/FindGamesPage.re.mjs:24

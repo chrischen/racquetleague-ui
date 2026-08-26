@@ -119,6 +119,7 @@ msgstr ""
 #~ msgid "Beta"
 #~ msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -153,6 +154,10 @@ msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:396
@@ -551,9 +556,9 @@ msgstr ""
 msgid "Round Robin"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:323
-#~ msgid "Round Robin Tournament"
-#~ msgstr ""
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
@@ -698,6 +703,7 @@ msgstr ""
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr ""
 

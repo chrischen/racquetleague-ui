@@ -1,4 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 %%raw("import '../../global/static.css'")
 
 module Query = %relay(`
@@ -723,7 +724,7 @@ module Layout = {
                                   <React.Suspense
                                     fallback={<div
                                       className="flex items-center justify-center h-32 text-gray-400 dark:text-gray-500 text-sm font-mono">
-                                      {"Loading..."->React.string}
+                                      {t`Loading...`}
                                     </div>}>
                                     {content}
                                   </React.Suspense>

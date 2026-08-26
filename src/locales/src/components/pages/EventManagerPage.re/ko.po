@@ -127,10 +127,7 @@ msgstr "팀 균형"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "새로운 파트너와 균등한 경기 수준을 균형 있게 조정합니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "베타"
-
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -167,6 +164,10 @@ msgstr "경쟁"
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "경쟁+"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "확인"
 
 #: src/components/organisms/EventManager.re.mjs:334
 msgid "Connecting…"
@@ -251,6 +252,7 @@ msgstr "팀 삭제"
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
 
+#: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
 #: src/components/organisms/EventManager.re.mjs:2336
 msgid "Dismiss"
@@ -260,13 +262,15 @@ msgstr "닫기"
 msgid "Drag players in order of strongest to weakest."
 msgstr "강한 순서대로 플레이어를 드래그하세요."
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
-
 #: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
-msgstr "각 전략은 최적화된 프로필을 사용합니다. 슬라이더를 조정하면 이벤트가 사용자 지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 수 없습니다."
+msgid ""
+"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"to a custom mix. Fair play time and rotation are always enforced and can't "
+"be turned down."
+msgstr ""
+"각 전략은 최적화된 프로필을 사용합니다. 슬라이더를 조정하면 이벤트가 사용자 "
+"지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 "
+"수 없습니다."
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -301,13 +305,12 @@ msgid "Event check-in"
 msgstr "이벤트 체크인"
 
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
-msgstr "모든 선수가 로테이션합니다: 매 라운드 새로운 파트너와 상대를 만나며, 다양성을 위해 혼합이 필요해질 때까지 가장 경쟁적인 매치업을 우선합니다."
-
-#: src/components/organisms/EventManager.re.mjs:394
-#, fuzzy
-#~ msgid "Everything stored for those events is already synced to the server."
-#~ msgstr "이 기기에 저장된 모든 항목이 이미 서버에 동기화되었습니다."
+msgid ""
+"Everyone rotates: fresh partners and opponents every round, taking the most "
+"competitive matchups first until variety forces mixing."
+msgstr ""
+"모든 선수가 로테이션합니다: 매 라운드 새로운 파트너와 상대를 만나며, 다양성"
+"을 위해 혼합이 필요해질 때까지 가장 경쟁적인 매치업을 우선합니다."
 
 #: src/components/organisms/EventManager.re.mjs:448
 msgid "Everything stored on this device is already synced to the server."
@@ -333,8 +336,14 @@ msgstr "여성"
 msgid "Free up space"
 msgstr "공간 확보"
 
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr "공간 확보"
+
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgid ""
+"Fresh, varied matchups every round, with each match's teams balanced by "
+"skill."
 msgstr "매 라운드 새롭고 다양한 매치업, 각 경기 팀은 실력별로 균형을 맞춥니다."
 
 #: src/components/organisms/RoundSection.re.mjs:535
@@ -342,8 +351,12 @@ msgid "Full Screen View"
 msgstr "전체 화면 보기"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
-msgstr "향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실합니까?"
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
+msgstr ""
+"향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실"
+"합니까?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
 msgid "Gender"
@@ -476,10 +489,6 @@ msgstr "아직 팀이 없습니다"
 msgid "Not paid"
 msgstr "미납"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "이번 라운드 불참"
-
 #: src/components/organisms/EventManager.re.mjs:313
 msgid "Not saved"
 msgstr "저장되지 않음"
@@ -493,7 +502,8 @@ msgid "Opponent variety"
 msgstr "상대 다양성"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgid ""
+"Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "실력 범위 내에서 균등한 경기를 우선하는 최적화된 대진표."
 
 #: src/components/organisms/EventManager.re.mjs:2332
@@ -525,16 +535,26 @@ msgid "Player Settings"
 msgstr "플레이어 설정"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "플레이어는 이 클럽 내에서 획득한 평점으로 시작하며, 평점이 없는 플레이어는 기본 평점으로 시작합니다. 이벤트 중 변경 사항은 해당 시점을 기준으로 측정됩니다."
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"플레이어는 이 클럽 내에서 획득한 평점으로 시작하며, 평점이 없는 플레이어는 기"
+"본 평점으로 시작합니다. 이벤트 중 변경 사항은 해당 시점을 기준으로 측정됩니"
+"다."
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
 msgstr "플레이어는 모든 클럽에 걸친 글로벌 평점으로 시작합니다."
 
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
-msgstr "플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 나뉩니다."
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
+msgstr ""
+"플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 "
+"나뉩니다."
 
 #: src/components/pages/EventManagerPage.re.mjs:88
 msgid "please login before managing the session"
@@ -675,32 +695,17 @@ msgstr "저장 중…"
 msgid "Scan to check in"
 msgstr "스캔하여 체크인"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "점수"
-
 #: src/components/organisms/EventManager.re.mjs:2189
 msgid "Scores Synced!"
 msgstr "점수 동기화됨!"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:289
-#, fuzzy
-#~ msgid "Seed from {0} ratings"
-#~ msgstr "{0}개의 평점"
 
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "시드:"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:271
-#, fuzzy
-#~ msgid "Seeded {0} players"
-#~ msgstr "{0}명"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -725,6 +730,14 @@ msgstr "코트를 채우기 위해 일부 규칙을 조정해야 했습니다"
 #: src/components/molecules/SolverWeightsPanel.re.mjs:224
 msgid "Split each match into its most even teams"
 msgstr "각 경기를 가장 균등한 팀으로 나누기"
+
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr "스포츠 이벤트 대진표"
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr "저장 공간 거의 꽉 참"
 
 #: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
@@ -781,38 +794,46 @@ msgstr "팀"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 복원할 수 있습니다."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
+"복원할 수 있습니다."
 
 #: src/components/organisms/EventManager.re.mjs:744
 msgid "this club"
 msgstr "이 클럽"
 
 #: src/components/organisms/EventManager.re.mjs:397
-msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
-msgstr "이 기기의 모든 이벤트(현재 이벤트 포함)에 대한 저장 데이터가 삭제됩니다. 이미 서버에 동기화된 이벤트는 다시 열 수 있지만, 동기화되지 않은 데이터는 복구할 수 없습니다."
-
-#: src/components/organisms/EventManager.re.mjs:356
-#, fuzzy
-#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
-#~ msgstr "이 기기의 모든 이벤트(현재 이벤트 포함)에 대한 저장 데이터가 삭제됩니다. 이미 서버에 동기화된 이벤트는 다시 열 수 있지만, 동기화되지 않은 데이터는 복구할 수 없습니다."
+msgid ""
+"This deletes the saved data for every event on this device, including this "
+"one. Events already synced to the server can be reopened; anything unsynced "
+"cannot be recovered."
+msgstr ""
+"이 기기의 모든 이벤트(현재 이벤트 포함)에 대한 저장 데이터가 삭제됩니다. 이"
+"미 서버에 동기화된 이벤트는 다시 열 수 있지만, 동기화되지 않은 데이터는 복구"
+"할 수 없습니다."
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
 msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 
-#: src/components/organisms/EventManager.re.mjs:391
-#, fuzzy
-#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
-#~ msgstr "해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하세요. 그렇지 않으면 데이터가 손실됩니다."
+#: src/components/organisms/EventManager.re.mjs:445
+msgid ""
+"Those scores have not reached the server. Sync this event before deleting, "
+"or they will be lost."
+msgstr ""
+"해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하세"
+"요. 그렇지 않으면 데이터가 손실됩니다."
 
 #: src/components/organisms/EventManager.re.mjs:445
-msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
-msgstr "해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하세요. 그렇지 않으면 데이터가 손실됩니다."
-
-#: src/components/organisms/EventManager.re.mjs:445
-msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
-msgstr "해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하고, 다른 이벤트를 각각 열어 동기화하세요. 그렇지 않으면 데이터가 손실됩니다."
+msgid ""
+"Those scores have not reached the server. Sync this event, and open each "
+"other event and sync it, before deleting — otherwise they are lost."
+msgstr ""
+"해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하"
+"고, 다른 이벤트를 각각 열어 동기화하세요. 그렇지 않으면 데이터가 손실됩니다."
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:209
 msgid "Tight bands"
@@ -844,12 +865,15 @@ msgid "Update Rounds Below"
 msgstr "아래 라운드 업데이트"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
 
@@ -858,13 +882,87 @@ msgid "Winning Team (Team {0})"
 msgstr "승리 팀 (팀 {0})"
 
 #: src/components/organisms/EventManager.re.mjs:490
-msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
-msgstr "브라우저가 이 사이트의 저장소를 차단하고 있습니다. 사생활 보호 창을 사용 중이라면 일반 창으로 전환하거나, 사이트 데이터를 허용한 후 새로고침하세요."
+msgid ""
+"Your browser is blocking storage for this site. If you're in a private "
+"window, switch to a normal one; otherwise allow site data and reload."
+msgstr ""
+"브라우저가 이 사이트의 저장소를 차단하고 있습니다. 사생활 보호 창을 사용 중이"
+"라면 일반 창으로 전환하거나, 사이트 데이터를 허용한 후 새로고침하세요."
 
 #: src/components/organisms/EventManager.re.mjs:493
-msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
-msgstr "브라우저의 저장 공간이 부족합니다. 이전 이벤트 데이터를 삭제하여 공간을 확보한 후 다시 시도하세요."
+msgid ""
+"Your browser is out of storage space. Clear old event data to free up space, "
+"then retry."
+msgstr ""
+"브라우저의 저장 공간이 부족합니다. 이전 이벤트 데이터를 삭제하여 공간을 확보"
+"한 후 다시 시도하세요."
 
 #: src/components/organisms/EventManager.re.mjs:496
-msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
-msgstr "브라우저가 이 이벤트를 저장하지 못했습니다. 페이지를 새로고침하거나 다시 시도하세요. 계속 실패할 경우 점수가 동기화될 때까지 새로고침을 피하세요."
+msgid ""
+"Your browser refused to save this event. Reload the page or retry — if it "
+"keeps failing, avoid refreshing until scores are synced."
+msgstr ""
+"브라우저가 이 이벤트를 저장하지 못했습니다. 페이지를 새로고침하거나 다시 시도"
+"하세요. 계속 실패할 경우 점수가 동기화될 때까지 새로고침을 피하세요."
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid ""
+"Your browser storage is {0}% full. The app may lose data if storage runs "
+"out. Freeing space clears saved data for every event on this device — you'll "
+"get a chance to review what that removes."
+msgstr ""
+"브라우저 저장 공간이 {0}% 찼습니다. 저장 공간이 부족하면 데이터가 손실될 수 "
+"있습니다. 공간을 확보하면 이 기기의 모든 이벤트에 저장된 데이터가 삭제됩니다 "
+"— 삭제되는 항목을 미리 확인할 수 있습니다."
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "베타"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "이 기기에 저장된 모든 항목이 이미 서버에 동기화되었습니다."
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "이번 라운드 불참"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "점수"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0}개의 평점"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0}명"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid ""
+#~ "This frees up space by deleting saved data for every event on this device "
+#~ "— not just this one. Events already synced to the server can be reopened; "
+#~ "anything unsynced cannot be recovered."
+#~ msgstr ""
+#~ "이 기기의 모든 이벤트(현재 이벤트 포함)에 대한 저장 데이터가 삭제됩니다. "
+#~ "이미 서버에 동기화된 이벤트는 다시 열 수 있지만, 동기화되지 않은 데이터는 "
+#~ "복구할 수 없습니다."
+
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid ""
+#~ "Those scores have not reached the server. Open each event and sync it "
+#~ "before deleting, or they will be lost."
+#~ msgstr ""
+#~ "해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하"
+#~ "세요. 그렇지 않으면 데이터가 손실됩니다."

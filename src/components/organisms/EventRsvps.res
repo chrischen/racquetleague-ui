@@ -447,7 +447,7 @@ let make = (~event, ~user) => {
         </dd>
       </div>
       <div className="flex-none self-end px-6 pt-4">
-        <dt className="sr-only"> {"Status"->React.string} </dt>
+        <dt className="sr-only"> {t`Status`} </dt>
         {spotsAvailable
         ->Option.map(count => {
           switch count {

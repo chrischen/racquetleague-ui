@@ -33,11 +33,6 @@ msgstr "[タイトルがありません]"
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/organisms/EventsList.re.mjs:260
-#, fuzzy
-#~ msgid "{0} {hiddenCountDesc}"
-#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
-
 #: src/components/organisms/EventsList.re.mjs:263
 msgid "{0} {hiddenCountDesc} hidden"
 msgstr "{0}5件の{hiddenCountDesc}非表示"
@@ -52,7 +47,8 @@ msgstr "{0}コート"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:390
 msgid "{0} event(s) couldn't be created (they may already exist)."
-msgstr "{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
+msgstr ""
+"{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:386
 msgid "{0} events created!"
@@ -82,10 +78,6 @@ msgstr "{0}分"
 msgid "{0} minutes"
 msgstr "{0}分"
 
-#: src/components/organisms/EventsList.re.mjs:231
-#~ msgid "{0} private {shadowCountDesc} hidden"
-#~ msgstr "{0}件のプライベート{shadowCountDesc}が非表示"
-
 #: src/components/organisms/EventItem.re.mjs:227
 #: src/components/organisms/EventsList.re.mjs:115
 msgid "{minutes, plural, one {{0}} other {{1}}}"
@@ -95,18 +87,9 @@ msgstr "{minutes, plural, one {{0}} other {{1}}}"
 msgid "{playersCount, plural, one {player} other {players}}"
 msgstr "{playersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/EventsList.re.mjs:200
-#~ msgid "{shadowCount, plural, one {event} other {events}}"
-#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
-
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
-
-#: src/components/organisms/EventsList.re.mjs:229
-#, fuzzy
-#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
-#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
 
 #: src/components/organisms/EventsList.re.mjs:232
 msgid "{totalHiddenCount, plural, one {event} other {events}}"
@@ -143,10 +126,6 @@ msgstr "午後"
 #: src/components/organisms/AIAssistantModal.re.mjs:163
 msgid "AI Assistant"
 msgstr "AIアシスタント"
-
-#: src/components/pages/ViewerEventsPage.re.mjs:53
-#~ msgid "all events"
-#~ msgstr "すべてのイベント"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:108
 msgid "An error occurred. Please try again."
@@ -197,8 +176,11 @@ msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
-msgstr "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてください。"
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
+"い。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
 msgid "Continue"
@@ -224,8 +206,12 @@ msgid "Couldn't find this location — pick it:"
 msgstr "この場所が見つかりませんでした — こちらから選択してください："
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
-msgstr "この時間にホストイベントを作成します。他の人が参加でき、会場とルールはあなたが決めます。"
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
+msgstr ""
+"この時間にホストイベントを作成します。他の人が参加でき、会場とルールはあなた"
+"が決めます。"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
@@ -244,17 +230,9 @@ msgstr "作成中..."
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:229
-#~ msgid "Describe the event you want to create..."
-#~ msgstr "作成したいイベントを説明してください..."
-
 #: src/components/molecules/AIResponseCard.re.mjs:105
 msgid "Description:"
 msgstr "説明:"
-
-#: src/components/organisms/EventItem.re.mjs:469
-#~ msgid "details"
-#~ msgstr "詳細"
 
 #: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
@@ -269,16 +247,16 @@ msgid "Email address"
 msgstr "メールアドレス"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使用しようとしているメールアドレスでログインしてください。"
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
+"用しようとしているメールアドレスでログインしてください。"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:117
-#~ msgid "Error creating events. Please try again."
-#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
@@ -344,10 +322,6 @@ msgstr "参加する"
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/EventsList.re.mjs:194
-#~ msgid "Joined"
-#~ msgstr "参加"
-
 #: src/components/organisms/ProfileModal.re.mjs:309
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
@@ -356,26 +330,18 @@ msgstr "プレイヤープロフィールをコミュニティに役立つ正確
 msgid "leave event"
 msgstr "参加取り消し"
 
-#: src/components/organisms/AIAssistantModal.re.mjs:180
-#~ msgid "Let me know when and where you'd like to play, and I'll help you create an event. You can continue talking to me in a conversation to refine any details."
-#~ msgstr "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。会話を続けて詳細を調整することもできます。"
-
 #: src/components/organisms/ProfileModal.re.mjs:542
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/organisms/EventsList.re.mjs:598
-#~ msgid "load more"
-#~ msgstr "もっと読み込む"
+#: src/components/pages/ViewerEventsPage.re.mjs:98
+msgid "Loading events..."
+msgstr "イベントを読み込んでいます..."
 
 #: src/components/molecules/AIResponseCard.re.mjs:90
 #: src/components/molecules/AIResponseCard.re.mjs:194
 msgid "Location:"
 msgstr "場所:"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "長時間空き"
 
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
@@ -384,10 +350,6 @@ msgstr "男性"
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "参加可能にする"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "自分の時間に合わせる"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -413,10 +375,6 @@ msgstr "新しいプラン"
 #: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Not now"
 msgstr "後で"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "空き"
 
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
@@ -463,8 +421,12 @@ msgid "Select exactly one time window to host an event"
 msgstr "イベントをホストするには時間枠をひとつ選択してください"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
-msgstr "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いてください。"
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
+"ください。"
 
 #: src/components/organisms/EventsList.re.mjs:381
 msgid "share as text"
@@ -482,25 +444,23 @@ msgstr "提案されたイベント"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "タップして時間枠を追加"
-
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:218
-msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
-msgstr "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教えていただければ、翻訳も追加できます。"
+msgid ""
+"Tell me the time and place of your event, or any other details. You can also "
+"let me know the details to include and I can even add the translations."
+msgstr ""
+"イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
+"ていただければ、翻訳も追加できます。"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
 msgstr "プレー希望を伝えましょう。時間が重なるプレーヤーからお誘いが届きます。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:68
-#~ msgid "Time:"
-#~ msgstr "時間:"
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
@@ -514,6 +474,10 @@ msgstr "今日"
 msgid "Tomorrow"
 msgstr "明日"
 
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr "例を試してみる："
+
 #: src/components/organisms/EventItem.re.mjs:266
 msgid "waitlist"
 msgstr "ウェイトリスト"
@@ -525,3 +489,74 @@ msgstr "イベント参加に必要な情報を入力してください"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "いつプレーしたいですか？"
+
+#: src/components/organisms/EventsList.re.mjs:260
+#, fuzzy
+#~ msgid "{0} {hiddenCountDesc}"
+#~ msgstr "{0}5件の{hiddenCountDesc}非表示"
+
+#: src/components/organisms/EventsList.re.mjs:231
+#~ msgid "{0} private {shadowCountDesc} hidden"
+#~ msgstr "{0}件のプライベート{shadowCountDesc}が非表示"
+
+#: src/components/organisms/EventsList.re.mjs:200
+#~ msgid "{shadowCount, plural, one {event} other {events}}"
+#~ msgstr "{shadowCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/organisms/EventsList.re.mjs:229
+#, fuzzy
+#~ msgid "{totalHiddenCount, plural, one {event hidden} other {events hidden}}"
+#~ msgstr "{totalHiddenCount, plural, one {イベント} other {イベント}}"
+
+#: src/components/pages/ViewerEventsPage.re.mjs:53
+#~ msgid "all events"
+#~ msgstr "すべてのイベント"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:229
+#~ msgid "Describe the event you want to create..."
+#~ msgstr "作成したいイベントを説明してください..."
+
+#: src/components/organisms/EventItem.re.mjs:469
+#~ msgid "details"
+#~ msgstr "詳細"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:117
+#~ msgid "Error creating events. Please try again."
+#~ msgstr "イベントの作成中にエラーが発生しました。もう一度お試しください。"
+
+#: src/components/organisms/EventsList.re.mjs:194
+#~ msgid "Joined"
+#~ msgstr "参加"
+
+#: src/components/organisms/AIAssistantModal.re.mjs:180
+#~ msgid ""
+#~ "Let me know when and where you'd like to play, and I'll help you create "
+#~ "an event. You can continue talking to me in a conversation to refine any "
+#~ "details."
+#~ msgstr ""
+#~ "いつ、どこでプレーしたいか教えてください。イベントの作成をお手伝いします。"
+#~ "会話を続けて詳細を調整することもできます。"
+
+#: src/components/organisms/EventsList.re.mjs:598
+#~ msgid "load more"
+#~ msgstr "もっと読み込む"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間空き"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "自分の時間に合わせる"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "空き"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "タップして時間枠を追加"
+
+#: src/components/molecules/AIResponseCard.re.mjs:68
+#~ msgid "Time:"
+#~ msgstr "時間:"

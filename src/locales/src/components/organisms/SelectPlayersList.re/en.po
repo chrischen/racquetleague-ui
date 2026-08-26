@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr ""
+
 #: src/components/organisms/SelectPlayersList.re.mjs:98
 msgid "Match Count"
 msgstr ""
@@ -23,4 +27,8 @@ msgstr ""
 
 #: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
+msgstr ""
+
+#: src/components/organisms/SelectPlayersList.re.mjs:176
+msgid "Remove"
 msgstr ""

@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "启用"
+
 #: src/components/organisms/SelectPlayersList.re.mjs:98
 msgid "Match Count"
 msgstr "比赛场次"
@@ -24,3 +28,7 @@ msgstr "还没有球员"
 #: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
 msgstr "球员"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:176
+msgid "Remove"
+msgstr "移除"

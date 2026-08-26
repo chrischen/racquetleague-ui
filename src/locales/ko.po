@@ -5230,6 +5230,443 @@ msgstr "브라우저의 저장 공간이 부족합니다. 이전 이벤트 데�
 msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
 msgstr "브라우저가 이 이벤트를 저장하지 못했습니다. 페이지를 새로고침하거나 다시 시도하세요. 계속 실패할 경우 점수가 동기화될 때까지 새로고침을 피하세요."
 
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "확인"
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr "예시를 참고하세요:"
+
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "패자"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "승자"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:336
+#: src/components/organisms/PkRSVPSection.re.mjs:357
+msgid "LEVEL RESTRICTION"
+msgstr "레벨 제한"
+
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr "장소 세부 정보"
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "날짜 미정"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "시간 미정"
+
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
+msgstr "공간 확보"
+
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr "스포츠 이벤트 대진표"
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr "저장 공간 거의 꽉 참"
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid "Your browser storage is {0}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes."
+msgstr "브라우저 저장 공간이 {0}% 찼습니다. 저장 공간이 부족하면 데이터가 손실될 수 있습니다. 공간을 확보하면 이 기기의 모든 이벤트에 저장된 데이터가 삭제됩니다 — 삭제되는 항목을 미리 확인할 수 있습니다."
+
+#: src/components/organisms/Kiosk.re.mjs:478
+msgid "● BUFFER READY"
+msgstr "● 버퍼 준비 완료"
+
+#: src/components/organisms/Kiosk.re.mjs:658
+msgid "18-second clip · Rally 07"
+msgstr "18초 클립 · 랠리 07"
+
+#: src/components/organisms/Kiosk.re.mjs:550
+msgid "24 shots analyzed · Game session"
+msgstr "24개 샷 분석 완료 · 게임 세션"
+
+#: src/components/organisms/Kiosk.re.mjs:212
+msgid "ACTIVE SESSION"
+msgstr "진행 중인 세션"
+
+#: src/components/organisms/Kiosk.re.mjs:1435
+msgid "Analysis"
+msgstr "분석"
+
+#: src/components/organisms/Kiosk.re.mjs:912
+msgid "Analysis capture active"
+msgstr "분석 캡처 활성화됨"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "ANALYSIS COMPLETE"
+msgstr "분석 완료"
+
+#: src/components/organisms/Kiosk.re.mjs:1515
+msgid "Analysis modes"
+msgstr "분석 모드"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Analysis setup"
+msgstr "분석 설정"
+
+#: src/components/organisms/Kiosk.re.mjs:956
+msgid "Analyzing the play"
+msgstr "플레이 분석 중"
+
+#: src/components/organisms/Kiosk.re.mjs:722
+msgid "Angle {0} of {1}"
+msgstr "{1} 중 {0}번째 각도"
+
+#: src/components/organisms/Kiosk.re.mjs:703
+msgid "Approach"
+msgstr "어프로치"
+
+#: src/components/organisms/Kiosk.re.mjs:1453
+msgid "Available while playing"
+msgstr "플레이 중 사용 가능"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "Back to modes"
+msgstr "모드로 돌아가기"
+
+#: src/components/organisms/Kiosk.re.mjs:604
+msgid "Backhand"
+msgstr "백핸드"
+
+#: src/components/organisms/Kiosk.re.mjs:600
+msgid "Best target"
+msgstr "최적 타깃"
+
+#: src/components/organisms/Kiosk.re.mjs:721
+msgid "Bounce review"
+msgstr "바운스 리뷰"
+
+#: src/components/organisms/Kiosk.re.mjs:1257
+msgid "Camera connected"
+msgstr "카메라 연결됨"
+
+#: src/components/organisms/Kiosk.re.mjs:1408
+msgid "Camera framing and connection look good"
+msgstr "카메라 프레이밍 및 연결 상태 양호"
+
+#: src/components/organisms/Kiosk.re.mjs:1193
+msgid "Camera unavailable — check permissions and try again"
+msgstr "카메라를 사용할 수 없습니다 — 권한을 확인하고 다시 시도하세요"
+
+#: src/components/organisms/Kiosk.re.mjs:70
+msgid "Capture several serves, then end to view the result."
+msgstr "서브를 여러 번 캡처한 후 종료하면 결과를 확인할 수 있습니다."
+
+#: src/components/organisms/Kiosk.re.mjs:30
+msgid "Check in or out"
+msgstr "체크인 또는 체크아웃"
+
+#: src/components/organisms/Kiosk.re.mjs:468
+msgid "Choose an action"
+msgstr "동작 선택"
+
+#: src/components/organisms/Kiosk.re.mjs:872
+msgid "Clip and line-check actions are ready at any time."
+msgstr "클립 및 라인 확인 기능은 언제든지 사용할 수 있습니다."
+
+#: src/components/organisms/Kiosk.re.mjs:28
+msgid "Clip last rally"
+msgstr "마지막 랠리 클립"
+
+#: src/components/organisms/Kiosk.re.mjs:1187
+msgid "Clip saved · live capture continues"
+msgstr "클립 저장됨 · 라이브 캡처 계속 중"
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "Contact"
+msgstr "문의"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copied"
+msgstr "복사됨"
+
+#: src/components/organisms/Kiosk.re.mjs:423
+msgid "Copy URL"
+msgstr "URL 복사"
+
+#: src/components/organisms/Kiosk.re.mjs:36
+msgid "Create a clean, shareable clip from the rolling video buffer."
+msgstr "롤링 비디오 버퍼에서 깔끔하고 공유 가능한 클립을 만드세요."
+
+#: src/components/organisms/Kiosk.re.mjs:673
+msgid "Discard"
+msgstr "삭제"
+
+#: src/components/organisms/Kiosk.re.mjs:809
+msgid "Done reviewing"
+msgstr "검토 완료"
+
+#: src/components/organisms/Kiosk.re.mjs:52
+msgid "Drop shot analysis"
+msgstr "드롭샷 분석"
+
+#: src/components/organisms/Kiosk.re.mjs:549
+msgid "Drop shot placement"
+msgstr "드롭샷 배치"
+
+#: src/components/organisms/Kiosk.re.mjs:930
+msgid "End & analyze"
+msgstr "종료 및 분석"
+
+#: src/components/organisms/Kiosk.re.mjs:887
+msgid "End session"
+msgstr "세션 종료"
+
+#: src/components/organisms/Kiosk.re.mjs:1287
+msgid "End session and exit"
+msgstr "세션 종료 및 나가기"
+
+#: src/components/organisms/Kiosk.re.mjs:68
+msgid "End the session when you have collected enough shots."
+msgstr "충분한 샷을 수집했으면 세션을 종료하세요."
+
+#: src/components/organisms/Kiosk.re.mjs:713
+msgid "Exit"
+msgstr "나가기"
+
+#: src/components/organisms/Kiosk.re.mjs:960
+msgid "Finding the clearest camera moments and preparing your result."
+msgstr "가장 선명한 카메라 순간을 찾아 결과를 준비 중입니다."
+
+#: src/components/organisms/Kiosk.re.mjs:587
+msgid "Kitchen accuracy"
+msgstr "키친 정확도"
+
+#: src/components/organisms/Kiosk.re.mjs:576
+msgid "LANDING HEATMAP"
+msgstr "착지 히트맵"
+
+#: src/components/organisms/Kiosk.re.mjs:662
+msgid "Last rally"
+msgstr "마지막 랠리"
+
+#: src/components/organisms/Kiosk.re.mjs:1423
+msgid "Live game"
+msgstr "라이브 게임"
+
+#: src/components/organisms/Kiosk.re.mjs:1181
+msgid "Live rolling session"
+msgstr "라이브 롤링 세션"
+
+#: src/components/organisms/Kiosk.re.mjs:1321
+msgid "Live session"
+msgstr "라이브 세션"
+
+#: src/components/organisms/Kiosk.re.mjs:982
+msgid "Live session and rolling buffer are still active"
+msgstr "라이브 세션 및 롤링 버퍼가 아직 활성 상태입니다"
+
+#: src/components/organisms/Kiosk.re.mjs:947
+msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
+msgstr "라이브 세션 계속 중 · 버퍼 녹화 중"
+
+#: src/components/organisms/Kiosk.re.mjs:1190
+msgid "Live session ended"
+msgstr "라이브 세션 종료됨"
+
+#: src/components/organisms/Kiosk.re.mjs:62
+msgid "Measure serve speed and review the detected serve clip."
+msgstr "서브 속도를 측정하고 감지된 서브 클립을 검토합니다."
+
+#: src/components/organisms/Kiosk.re.mjs:791
+msgid "Next bounce clip"
+msgstr "다음 바운스 클립"
+
+#: src/components/organisms/Kiosk.re.mjs:1457
+msgid "No action selection is needed before starting."
+msgstr "시작 전에 동작을 선택할 필요가 없습니다."
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "OFF"
+msgstr "끄기"
+
+#: src/components/organisms/Kiosk.re.mjs:1372
+msgid "ON"
+msgstr "켜기"
+
+#: src/components/organisms/Kiosk.re.mjs:433
+msgid "Open"
+msgstr "열기"
+
+#: src/components/organisms/Kiosk.re.mjs:1266
+msgid "Open kiosk settings"
+msgstr "키오스크 설정 열기"
+
+#: src/components/organisms/Kiosk.re.mjs:744
+msgid "OUT"
+msgstr "아웃"
+
+#: src/components/organisms/Kiosk.re.mjs:632
+msgid "Peak ball speed"
+msgstr "최고 볼 속도"
+
+#: src/components/organisms/Kiosk.re.mjs:1240
+msgid "Pickleball camera kiosk"
+msgstr "피클볼 카메라 키오스크"
+
+#: src/components/organisms/Kiosk.re.mjs:663
+msgid "Play last rally"
+msgstr "마지막 랠리 재생"
+
+#: src/components/organisms/Kiosk.re.mjs:625
+msgid "Play serve replay"
+msgstr "서브 리플레이 재생"
+
+#: src/components/organisms/Kiosk.re.mjs:390
+msgid "Point a phone camera at the code to open this court's live stream."
+msgstr "이 코트의 라이브 스트림을 열려면 카메라로 코드를 스캔하세요."
+
+#: src/components/organisms/Kiosk.re.mjs:759
+msgid "Previous"
+msgstr "이전"
+
+#: src/components/organisms/Kiosk.re.mjs:763
+msgid "Previous bounce clip"
+msgstr "이전 바운스 클립"
+
+#: src/components/organisms/Kiosk.re.mjs:657
+msgid "Rally clip ready"
+msgstr "랠리 클립 준비됨"
+
+#: src/components/organisms/Kiosk.re.mjs:38
+msgid "Review the latest bounce from multiple close-up moments."
+msgstr "여러 근접 장면에서 최신 바운스를 검토합니다."
+
+#: src/components/organisms/Kiosk.re.mjs:835
+msgid "Rolling buffer"
+msgstr "롤링 버퍼"
+
+#: src/components/organisms/Kiosk.re.mjs:868
+msgid "Rolling buffer active"
+msgstr "롤링 버퍼 활성"
+
+#: src/components/organisms/Kiosk.re.mjs:545
+msgid "ROLLING BUFFER CAPTURE"
+msgstr "롤링 버퍼 캡처"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Rolling capture with optional YouTube streaming."
+msgstr "선택적 YouTube 스트리밍을 포함한 롤링 캡처."
+
+#: src/components/organisms/Kiosk.re.mjs:687
+msgid "Save clip"
+msgstr "클립 저장"
+
+#: src/components/organisms/Kiosk.re.mjs:374
+msgid "Scan to watch"
+msgstr "스캔하여 시청"
+
+#: src/components/organisms/Kiosk.re.mjs:1332
+msgid "Select a mode, then start capture."
+msgstr "모드를 선택한 후 캡처를 시작하세요."
+
+#: src/components/organisms/Kiosk.re.mjs:1519
+msgid "Select one before starting the camera."
+msgstr "카메라를 시작하기 전에 하나를 선택하세요."
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SELECTED ANALYSIS"
+msgstr "선택된 분석"
+
+#: src/components/organisms/Kiosk.re.mjs:621
+msgid "Serve 04 · Clean read"
+msgstr "서브 04 · 정확한 인식"
+
+#: src/components/organisms/Kiosk.re.mjs:620
+msgid "Serve detected"
+msgstr "서브 감지됨"
+
+#: src/components/organisms/Kiosk.re.mjs:624
+msgid "Serve replay"
+msgstr "서브 리플레이"
+
+#: src/components/organisms/Kiosk.re.mjs:54
+msgid "Serve speed analysis"
+msgstr "서브 속도 분석"
+
+#: src/components/organisms/Kiosk.re.mjs:1338
+msgid "SESSION SETUP"
+msgstr "세션 설정"
+
+#: src/components/organisms/Kiosk.re.mjs:1363
+msgid "Show a viewer QR code during the session"
+msgstr "세션 중 시청자 QR 코드 표시"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start analysis"
+msgstr "분석 시작"
+
+#: src/components/organisms/Kiosk.re.mjs:278
+msgid "Start another session"
+msgstr "다른 세션 시작"
+
+#: src/components/organisms/Kiosk.re.mjs:1393
+msgid "Start live session"
+msgstr "라이브 세션 시작"
+
+#: src/components/organisms/Kiosk.re.mjs:1359
+msgid "Stream on YouTube"
+msgstr "유튜브에서 스트리밍"
+
+#: src/components/organisms/Kiosk.re.mjs:1505
+msgid "The camera continuously keeps recent play ready for either action."
+msgstr "카메라가 최근 플레이를 지속적으로 준비 상태로 유지합니다."
+
+#: src/components/organisms/Kiosk.re.mjs:472
+msgid "The rolling buffer continues while you review."
+msgstr "검토하는 동안 롤링 버퍼가 계속 작동합니다."
+
+#: src/components/organisms/Kiosk.re.mjs:60
+msgid "Track drop-shot placement and reveal landing patterns."
+msgstr "드롭샷 위치를 추적하고 착지 패턴을 분석합니다."
+
+#: src/components/organisms/Kiosk.re.mjs:512
+msgid "Use latest buffered footage"
+msgstr "최신 버퍼 영상 사용"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "VIEWING URL"
+msgstr "시청 URL"
+
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "이벤트 추가"
+
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr "평점:"
+
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "라운드 로빈 토너먼트"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "활성화"
+
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "관리자"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "멤버 불러오는 중..."
+
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "소유자"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
@@ -5249,3 +5686,28 @@ msgstr "브라우저가 이 이벤트를 저장하지 못했습니다. 페이지
 #, fuzzy
 #~ msgid "Other locations and times"
 #~ msgstr "이 시간대의 다른 장소"
+
+#: src/components/organisms/EventManager.re.mjs:394
+#, fuzzy
+#~ msgid "Everything stored for those events is already synced to the server."
+#~ msgstr "이 기기에 저장된 모든 항목이 이미 서버에 동기화되었습니다."
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0}개의 평점"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0}명"
+
+#: src/components/organisms/EventManager.re.mjs:356
+#, fuzzy
+#~ msgid "This frees up space by deleting saved data for every event on this device — not just this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
+#~ msgstr "이 기기의 모든 이벤트(현재 이벤트 포함)에 대한 저장 데이터가 삭제됩니다. 이미 서버에 동기화된 이벤트는 다시 열 수 있지만, 동기화되지 않은 데이터는 복구할 수 없습니다."
+
+#: src/components/organisms/EventManager.re.mjs:391
+#, fuzzy
+#~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
+#~ msgstr "해당 점수가 서버에 전달되지 않았습니다. 삭제하기 전에 이 이벤트를 동기화하세요. 그렇지 않으면 데이터가 손실됩니다."

@@ -13,26 +13,36 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/FindGamesPage.re.mjs:34
-#~ msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
-#~ msgstr "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベントに参加してください:"
-
 #: src/components/pages/FindGamesPage.re.mjs:33
 msgid "Find League Games"
 msgstr "リーグゲームを見つける"
 
-#: src/components/pages/FindGamesPage.re.mjs:33
-#~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
-#~ msgstr "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品は毎月トッププレイヤーに授与されます。"
-
-#: src/components/pages/FindGamesPage.re.mjs:28
-#~ msgid "Recreational Doubles"
-#~ msgstr "レクリエーショナルダブルス"
-
 #: src/components/pages/FindGamesPage.re.mjs:30
-msgid "To participate in the league and win prizes, please join the league events."
-msgstr "リーグに参加して賞品を獲得するには、リーグのイベントに参加してください。"
+msgid ""
+"To participate in the league and win prizes, please join the league events."
+msgstr ""
+"リーグに参加して賞品を獲得するには、リーグのイベントに参加してください。"
 
 #: src/components/pages/FindGamesPage.re.mjs:24
 msgid "Where to Play"
 msgstr "プレイする場所"
+
+#: src/components/pages/FindGamesPage.re.mjs:34
+#~ msgid ""
+#~ "Currently the league is in testing mode. To participate, please join the "
+#~ "Pickleball events here:"
+#~ msgstr ""
+#~ "現在、リーグはテストモードです。参加するには、こちらのピクルボールイベント"
+#~ "に参加してください:"
+
+#: src/components/pages/FindGamesPage.re.mjs:33
+#~ msgid ""
+#~ "Play doubles games with different partners and receive an individual "
+#~ "rating. Prizes are awarded monthly to top players."
+#~ msgstr ""
+#~ "異なるパートナーとダブルスゲームをプレイし、個別の評価を受け取ります。賞品"
+#~ "は毎月トッププレイヤーに授与されます。"
+
+#: src/components/pages/FindGamesPage.re.mjs:28
+#~ msgid "Recreational Doubles"
+#~ msgstr "レクリエーショナルダブルス"

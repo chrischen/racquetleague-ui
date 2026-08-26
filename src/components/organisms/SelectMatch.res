@@ -192,7 +192,7 @@ let make = (
   <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 md:gap-8">
     <div className="grid grid-cols-1 gap-4">
       <section ariaLabelledby="section-1-title" className="col-span-2">
-        <h2 className="sr-only" id="section-1-title"> {"Winners"->React.string} </h2>
+        <h2 className="sr-only" id="section-1-title"> {t`Winners`} </h2>
         <h2> {t`left team players`} </h2>
         <SelectEventPlayersList
           // event={event}
@@ -206,7 +206,7 @@ let make = (
     </div>
     <div className="grid grid-cols-1 gap-4">
       <section ariaLabelledby="section-2-title" className="col-span-2">
-        <h2 className="sr-only" id="section-2-title"> {"Losers"->React.string} </h2>
+        <h2 className="sr-only" id="section-2-title"> {t`Losers`} </h2>
         <h2> {t`right team players`} </h2>
         <SelectEventPlayersList
           players

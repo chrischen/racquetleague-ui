@@ -184,6 +184,10 @@ msgstr "Đang tải trận đấu..."
 msgid "Loading..."
 msgstr "Đang tải..."
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "Thua"
+
 #: src/components/organisms/MatchHistoryList.re.mjs:522
 #: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "LOSS"
@@ -203,11 +207,13 @@ msgstr "Trận đấu"
 
 #: src/components/organisms/CompMatch.re.mjs:232
 msgid "Matches are arranged by a maximum skill-spread of +- 1 players."
-msgstr "Các trận đấu được sắp xếp với chênh lệch kỹ năng tối đa ± 1 người chơi."
+msgstr ""
+"Các trận đấu được sắp xếp với chênh lệch kỹ năng tối đa ± 1 người chơi."
 
 #: src/components/organisms/CompMatch.re.mjs:237
 msgid "Matches are arranged by skill while mixing strong and weak players."
-msgstr "Các trận đấu được sắp xếp theo kỹ năng trong khi trộn người chơi mạnh và yếu."
+msgstr ""
+"Các trận đấu được sắp xếp theo kỹ năng trong khi trộn người chơi mạnh và yếu."
 
 #: src/components/organisms/CompMatch.re.mjs:235
 msgid "Mixed"
@@ -218,8 +224,12 @@ msgid "no players yet"
 msgstr "chưa có người chơi"
 
 #: src/components/organisms/CompMatch.re.mjs:410
-msgid "Not enough players in the queue. Select the players who want to play from the Queue tab."
-msgstr "Không đủ người chơi trong hàng đợi. Chọn người chơi muốn thi đấu từ tab Hàng đợi."
+msgid ""
+"Not enough players in the queue. Select the players who want to play from "
+"the Queue tab."
+msgstr ""
+"Không đủ người chơi trong hàng đợi. Chọn người chơi muốn thi đấu từ tab Hàng "
+"đợi."
 
 #: src/components/organisms/AiTetsu.re.mjs:1564
 #: src/components/organisms/AiTetsu.re.mjs:1586
@@ -239,16 +249,24 @@ msgid "Player Name"
 msgstr "Tên người chơi"
 
 #: src/components/organisms/AiTetsu.re.mjs:1360
-msgid "Players in a team will always be placed in a match together on the same side."
-msgstr "Người chơi trong một đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng một phía."
+msgid ""
+"Players in a team will always be placed in a match together on the same side."
+msgstr ""
+"Người chơi trong một đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng "
+"một phía."
 
 #: src/components/organisms/AiTetsu.re.mjs:1381
 msgid "Players in an anti-team will never be placed in a match together."
-msgstr "Người chơi trong một đội phản sẽ không bao giờ được xếp vào một trận đấu cùng nhau."
+msgstr ""
+"Người chơi trong một đội phản sẽ không bao giờ được xếp vào một trận đấu "
+"cùng nhau."
 
 #: src/components/organisms/AiTetsu.re.mjs:1439
-msgid "Players in teams will always be placed in a match together on the same side."
-msgstr "Người chơi trong các đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng một phía."
+msgid ""
+"Players in teams will always be placed in a match together on the same side."
+msgstr ""
+"Người chơi trong các đội sẽ luôn được xếp vào một trận đấu cùng nhau ở cùng "
+"một phía."
 
 #: src/components/pages/LeagueEventPage.re.mjs:96
 msgid "please login before managing the session"
@@ -322,8 +340,14 @@ msgid "Set as Male"
 msgstr "Đặt là Nam"
 
 #: src/components/organisms/SessionEvenPlayMode.re.mjs:53
-msgid "Set this to the number of players currently resting to enable even leveling of match counts. Set to 0 to disable and optimize match quality instead, but this may result in some players playing more matches than others."
-msgstr "Đặt số này bằng số người chơi đang nghỉ để cân bằng số lần thi đấu. Đặt 0 để tắt và tối ưu hóa chất lượng trận đấu thay thế, nhưng điều này có thể dẫn đến một số người chơi thi đấu nhiều hơn người khác."
+msgid ""
+"Set this to the number of players currently resting to enable even leveling "
+"of match counts. Set to 0 to disable and optimize match quality instead, but "
+"this may result in some players playing more matches than others."
+msgstr ""
+"Đặt số này bằng số người chơi đang nghỉ để cân bằng số lần thi đấu. Đặt 0 để "
+"tắt và tối ưu hóa chất lượng trận đấu thay thế, nhưng điều này có thể dẫn "
+"đến một số người chơi thi đấu nhiều hơn người khác."
 
 #: src/components/organisms/AiTetsu.re.mjs:1555
 msgid "Start Session"
@@ -377,3 +401,7 @@ msgstr "THẮNG"
 #: src/components/organisms/SortableSubmitMatch.re.mjs:418
 msgid "Winner"
 msgstr "Người chiến thắng"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "Thắng"

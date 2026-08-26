@@ -70,7 +70,7 @@ let make = (~query) => {
             {React.string(" - ")}
             <LangSwitch />
             {React.string(" - ")}
-            <Link to="/events/create"> {"Add Event"->React.string} </Link>
+            <Link to="/events/create"> {t`Add Event`} </Link>
           </nav>
         </header>
       </Layout.Container>}

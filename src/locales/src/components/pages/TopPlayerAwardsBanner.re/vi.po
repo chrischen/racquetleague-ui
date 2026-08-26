@@ -13,14 +13,6 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
-#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
-#~ msgstr "Áo phông và mũ lưỡi trai chính thức của Dallash Flash"
-
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
-#~ msgid "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men and top 4 women players"
-#~ msgstr "Áo T-Shirt và Mũ lưỡi trai Dallash Flash chính thức — trao tặng cho 4 nam và 4 nữ vận động viên xuất sắc nhất"
-
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:157
 msgid "Official RPM T-Shirts and Ball Caps"
 msgstr "Áo Thun và Mũ Lưỡi Trai Chính Hãng RPM"
@@ -38,10 +30,6 @@ msgstr "Giải thưởng"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
-#~ msgid "Sponsor logo"
-#~ msgstr "Logo nhà tài trợ"
-
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:120
 msgid "The top 4 men and top 4 women players each earn a prize."
 msgstr "Top 4 nam và top 4 nữ mỗi người sẽ nhận được một giải thưởng."
@@ -49,3 +37,19 @@ msgstr "Top 4 nam và top 4 nữ mỗi người sẽ nhận được một giả
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:97
 msgid "Top Player Awards"
 msgstr "Giải thưởng cầu thủ xuất sắc"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:132
+#~ msgid "Official Dallash Flash T-Shirts and Ball Caps"
+#~ msgstr "Áo phông và mũ lưỡi trai chính thức của Dallash Flash"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
+#~ msgid ""
+#~ "Official Dallash Flash T-Shirts and Ball Caps — awarded to the top 4 men "
+#~ "and top 4 women players"
+#~ msgstr ""
+#~ "Áo T-Shirt và Mũ lưỡi trai Dallash Flash chính thức — trao tặng cho 4 nam "
+#~ "và 4 nữ vận động viên xuất sắc nhất"
+
+#: src/components/pages/TopPlayerAwardsBanner.re.mjs:109
+#~ msgid "Sponsor logo"
+#~ msgstr "Logo nhà tài trợ"

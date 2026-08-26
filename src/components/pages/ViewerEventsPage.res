@@ -24,7 +24,7 @@ let make = () => {
   <WaitForMessages>
     {() => {
       <React.Suspense
-        fallback={<Layout.Container> {"Loading events..."->React.string} </Layout.Container>}>
+        fallback={<Layout.Container> {t`Loading events...`} </Layout.Container>}>
         <EventsList
           events=fragmentRefs
           header={<Layout.Container>

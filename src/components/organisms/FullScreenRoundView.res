@@ -1,4 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 
 open Rating
 
@@ -14,7 +15,7 @@ let make = (
   ~onClose: unit => unit,
   ~getUserFragmentRefs: 'a => option<RescriptRelay.fragmentRefs<[> #PlayerAvatar_user]>>,
 ) => {
-  let t = Lingui.UtilString.t
+  let ts = Lingui.UtilString.t
 
   <FramerMotion.Div
     key="fullscreen-round-view"
@@ -27,17 +28,17 @@ let make = (
       className="flex-shrink-0 bg-slate-900 border-b border-slate-800 px-4 sm:px-6 py-3 flex items-center justify-between">
       <div className="flex items-center gap-4">
         <h1 className="text-3xl md:text-4xl font-extrabold text-white">
-          {(t`Round ${roundNumber->Int.toString}`)->React.string}
+          {t`Round ${roundNumber->Int.toString}`}
         </h1>
         <span
           className="px-3 py-1 text-sm font-bold text-slate-900 bg-blue-400 rounded-full shadow-lg">
-          {(t`ACTIVE ROUND`)->React.string}
+          {t`ACTIVE ROUND`}
         </span>
       </div>
       <button
         onClick={_ => onClose()}
         className="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-full transition-colors"
-        title={t`Close Full Screen`}>
+        title={ts`Close Full Screen`}>
         <Lucide.X className="w-7 h-7" />
       </button>
     </div>
@@ -84,7 +85,7 @@ let make = (
           <div
             className="flex-shrink-0 bg-slate-950 px-3 md:px-4 py-1 md:py-2 text-center border-b border-slate-700">
             <h2 className="text-sm md:text-2xl font-bold text-slate-300 tracking-wider">
-              {(t`COURT ${courtNumber->Int.toString}`)->React.string}
+              {t`COURT ${courtNumber->Int.toString}`}
             </h2>
           </div>
           // Teams — serving team first
@@ -98,7 +99,7 @@ let make = (
                     />
                     <span
                       className="text-[10px] md:text-sm font-bold tracking-widest text-blue-400">
-                      {(t`SERVING`)->React.string}
+                      {t`SERVING`}
                     </span>
                   </div>
                 : React.null}
@@ -111,7 +112,7 @@ let make = (
               </div>
               <div className="relative bg-slate-800 px-2 md:px-3">
                 <span className="text-xs md:text-xl font-black text-slate-500 italic">
-                  {React.string("VS")}
+                  {t`VS`}
                 </span>
               </div>
             </div>

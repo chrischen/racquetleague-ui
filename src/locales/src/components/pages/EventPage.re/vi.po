@@ -65,6 +65,10 @@ msgstr "{0} giờ {1} phút"
 msgid "+{0} more"
 msgstr "+{0} nữa"
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr "Môn thể thao"
+
 #: src/components/organisms/RSVPSection.re.mjs:673
 #: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
@@ -102,6 +106,10 @@ msgstr "Tiểu sử"
 msgid "Biography is required"
 msgstr "Tiểu sử là bắt buộc"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "Hủy"
+
 #: src/components/pages/EventPage.re.mjs:191
 msgid "cancel event"
 msgstr "hủy sự kiện"
@@ -134,13 +142,16 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "Hoàn thiện hồ sơ của bạn"
-
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
-msgstr "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người tổ chức."
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
+msgstr ""
+"Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
+"tổ chức."
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "Xác nhận"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -160,6 +171,10 @@ msgstr "Sân {0} - Đang chỉnh sửa"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "Các sân:"
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "Ngày TBD"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
@@ -192,12 +207,12 @@ msgid "Email address"
 msgstr "Địa chỉ email"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr "Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập bằng email bạn đang cố dùng ở đây."
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "Không thể thay đổi email"
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"Địa chỉ email không khả dụng. Vui lòng sử dụng email khác hoặc đăng nhập "
+"bằng email bạn đang cố dùng ở đây."
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -210,6 +225,10 @@ msgstr "Nhập điểm số trận đấu"
 #: src/components/organisms/ScoreModal.re.mjs:257
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là hòa"
+
+#: src/components/organisms/EventDetails.re.mjs:47
+msgid "Event Details"
+msgstr "Chi tiết sự kiện"
 
 #: src/components/pages/EventPage.re.mjs:391
 msgid "Event not found"
@@ -295,6 +314,10 @@ msgstr "Tải thêm"
 msgid "Loading..."
 msgstr "Đang tải..."
 
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr "Chi Tiết Địa Điểm"
+
 #: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "Đăng nhập để tham gia"
@@ -323,6 +346,10 @@ msgstr "Chuyển vào danh sách chờ duyệt"
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
 msgstr "Chưa có hoạt động"
+
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
+msgstr "Không tìm thấy người chơi"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
@@ -353,10 +380,6 @@ msgstr "Đang chờ"
 msgid "Player"
 msgstr "Người chơi"
 
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "Không muốn tiết lộ"
-
 #: src/components/atoms/EventTag.re.mjs:141
 #: src/components/atoms/EventTag.re.mjs:143
 msgid "Private"
@@ -385,7 +408,8 @@ msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "Chơi giải trí, không tính vào xếp hạng thi đấu hay DUPR."
 
 #: src/components/organisms/RsvpOptions.re.mjs:190
@@ -435,10 +459,6 @@ msgstr "Đang xử lý RSVP..."
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "Lưu & Tham gia sự kiện"
-
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
@@ -446,11 +466,6 @@ msgstr "Lưu hồ sơ"
 #: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "Lưu điểm số"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "Điểm số"
 
 #: src/components/organisms/GoingRsvps.re.mjs:123
 msgid "See all"
@@ -461,8 +476,12 @@ msgid "Send"
 msgstr "Gửi"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
-msgstr "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do họ nên mời bạn."
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
+msgstr ""
+"Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
+"họ nên mời bạn."
 
 #: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
@@ -494,34 +513,57 @@ msgstr "ĐỘI 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên lịch ban đầu bằng biểu tượng đặt lại vòng."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
+"lịch ban đầu bằng biểu tượng đặt lại vòng."
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-msgstr "Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn rời sự kiện không?"
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"Sự kiện đã đầy, nếu bạn rời đi, chỗ của bạn sẽ được nhường cho người trong "
+"danh sách chờ. Nếu tham gia lại, bạn sẽ vào danh sách chờ. Bạn có chắc muốn "
+"rời sự kiện không?"
 
 #: src/components/pages/EventPage.re.mjs:266
 #: src/components/pages/EventPage.re.mjs:295
-msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
-msgstr "Sự kiện này là riêng tư và không thể tham gia trên Pkuru.com. Không đến sự kiện mà không có sự cho phép."
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"Sự kiện này là riêng tư và không thể tham gia trên Pkuru.com. Không đến sự "
+"kiện mà không có sự cho phép."
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid "This event is private. Please do not share this event without permission from the organizer."
-msgstr "Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của ban tổ chức."
-
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "Đây là cách người khác sẽ thấy bạn"
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
+msgstr ""
+"Sự kiện này là riêng tư. Vui lòng không chia sẻ mà không có sự cho phép của "
+"ban tổ chức."
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
+"nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "Giờ TBD"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
 
 #: src/components/pages/EventPage.re.mjs:180
@@ -572,7 +614,8 @@ msgstr "đã bị admin xóa khỏi sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
-msgstr "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
+msgstr ""
+"Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
 #: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
@@ -591,5 +634,36 @@ msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
-msgstr "Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm sự kiện JPL có xếp hạng để nâng cao điểm."
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"Xếp hạng của bạn {0} ~ {1} (DUPR {2} ~ {3}) quá thấp. Bạn sẽ được đặt vào "
+"danh sách chờ cho đến khi giới hạn xếp hạng được hạ xuống. Hãy tham gia thêm "
+"sự kiện JPL có xếp hạng để nâng cao điểm."
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "Hoàn thiện hồ sơ của bạn"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "Không thể thay đổi email"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "Không muốn tiết lộ"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "Lưu & Tham gia sự kiện"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "Điểm số"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "Đây là cách người khác sẽ thấy bạn"

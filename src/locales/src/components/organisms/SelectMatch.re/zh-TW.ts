@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"of+3Wd\":\"左隊球員\",\"827u5r\":\"還沒有球員\",\"vRayGs\":\"球員\",\"zE3EXc\":\"比賽入隊\",\"UD752P\":\"右隊球員\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"of+3Wd\":\"左隊球員\",\"OYMf6m\":\"敗者\",\"827u5r\":\"還沒有球員\",\"vRayGs\":\"球員\",\"zE3EXc\":\"比賽入隊\",\"UD752P\":\"右隊球員\",\"GRLMKx\":\"勝者\"}");

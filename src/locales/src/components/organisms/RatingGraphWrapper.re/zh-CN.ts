@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"评分历史\",\"56ttmm\":\"阴影区域表示评分的不确定性。较窄的带表示更高的置信度。\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"IPmYm3\":\"评分历史\",\"w4thw3\":\"评分：\",\"56ttmm\":\"阴影区域表示评分的不确定性。较窄的带表示更高的置信度。\"}");

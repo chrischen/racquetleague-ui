@@ -995,7 +995,7 @@ function PkuruLayout$Layout(props) {
                                                                                                               children: JsxRuntime.jsx(React.Suspense, {
                                                                                                                     children: Caml_option.some(content),
                                                                                                                     fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                                                                                              children: "Loading...",
+                                                                                                                              children: t`Loading...`,
                                                                                                                               className: "flex items-center justify-center h-32 text-gray-400 dark:text-gray-500 text-sm font-mono"
                                                                                                                             }))
                                                                                                                   }),

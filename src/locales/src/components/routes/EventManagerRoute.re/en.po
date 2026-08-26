@@ -143,6 +143,7 @@ msgstr ""
 #~ msgid "Beta"
 #~ msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -182,6 +183,10 @@ msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:334
@@ -275,6 +280,7 @@ msgstr ""
 msgid "Delete this match?"
 msgstr ""
 
+#: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
 #: src/components/organisms/EventManager.re.mjs:2336
 msgid "Dismiss"
@@ -358,6 +364,10 @@ msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:526
 msgid "Free up space"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:282
+msgid "Free Up Space"
 msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:87
@@ -783,9 +793,17 @@ msgstr ""
 msgid "Split each match into its most even teams"
 msgstr ""
 
+#: src/components/organisms/EventManager.re.mjs:2706
+msgid "Sports Event Draws"
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:208
 #~ msgid "Start Next Round"
 #~ msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:251
+msgid "Storage Almost Full"
+msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:366
 msgid "strategy"
@@ -913,6 +931,7 @@ msgstr ""
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr ""
 
@@ -930,4 +949,8 @@ msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:496
 msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:258
+msgid "Your browser storage is {0}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes."
 msgstr ""

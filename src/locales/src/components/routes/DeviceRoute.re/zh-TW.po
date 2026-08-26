@@ -41,10 +41,6 @@ msgstr "裝置已核准！您可以返回應用程式。"
 msgid "Redirecting to sign in…"
 msgstr "正在重新導向至登入頁面…"
 
-#: src/components/pages/DevicePage.re.mjs:226
-#~ msgid "Sign in"
-#~ msgstr "登入"
-
 #: src/components/pages/DevicePage.re.mjs:152
 msgid "Sign-in request denied."
 msgstr "登入請求已被拒絕。"
@@ -53,6 +49,11 @@ msgstr "登入請求已被拒絕。"
 msgid "Working…"
 msgstr "處理中…"
 
+#: src/components/pages/DevicePage.re.mjs:226
+#~ msgid "Sign in"
+#~ msgstr "登入"
+
 #: src/components/pages/DevicePage.re.mjs:222
-#~ msgid "You need to sign in here first so we can link this device to your account."
+#~ msgid ""
+#~ "You need to sign in here first so we can link this device to your account."
 #~ msgstr "您需要先在此登入，以便我們將此裝置連結至您的帳號。"

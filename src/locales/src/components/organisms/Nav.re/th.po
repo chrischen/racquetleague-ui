@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
 
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "เพิ่มอีเวนต์"
+
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
 msgid "login with Line"

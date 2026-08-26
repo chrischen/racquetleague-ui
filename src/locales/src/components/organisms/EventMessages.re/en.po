@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr ""
+
 #: src/components/organisms/EventMessages.re.mjs:294
 msgid "joined from waitlist"
 msgstr ""

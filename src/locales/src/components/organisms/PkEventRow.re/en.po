@@ -43,6 +43,10 @@ msgstr ""
 msgid "Biography is required"
 msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr ""
+
 #: src/components/organisms/PkEventRow.re.mjs:690
 msgid "Canceled"
 msgstr ""
@@ -65,6 +69,10 @@ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:306
 msgid "Complete your profile before sharing availability with players and hosts."
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:257

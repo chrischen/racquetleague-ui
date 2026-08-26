@@ -4,6 +4,9 @@ import * as Alert from "../catalyst/Alert.re.mjs";
 import * as Button from "../catalyst/Button.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
+import { t } from '@lingui/macro'
+;
+
 function ConfirmDialog(props) {
   var setIsOpen = props.setIsOpen;
   var onConfirmed = props.onConfirmed;
@@ -27,7 +30,7 @@ function ConfirmDialog(props) {
                       children: [
                         JsxRuntime.jsx(Button.Button.make, {
                               plain: true,
-                              children: "Cancel",
+                              children: t`Cancel`,
                               onClick: (function (param) {
                                   setIsOpen(function (param) {
                                         return false;
@@ -35,7 +38,7 @@ function ConfirmDialog(props) {
                                 })
                             }),
                         JsxRuntime.jsx(Button.Button.make, {
-                              children: "Confirm",
+                              children: t`Confirm`,
                               onClick: handleConfirm
                             })
                       ]
@@ -49,4 +52,4 @@ var make = ConfirmDialog;
 export {
   make ,
 }
-/* Alert Not a pure module */
+/*  Not a pure module */

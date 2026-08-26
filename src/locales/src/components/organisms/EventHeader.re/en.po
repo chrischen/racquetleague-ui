@@ -33,6 +33,10 @@ msgstr ""
 msgid "CANCELED"
 msgstr ""
 
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr ""
@@ -89,6 +93,10 @@ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid "This event is private. Please do not share this event without permission from the organizer."
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
 msgstr ""
 
 #: src/components/organisms/EventHeader.re.mjs:117

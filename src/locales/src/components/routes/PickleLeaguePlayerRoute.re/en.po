@@ -152,6 +152,10 @@ msgstr ""
 msgid "Rating History"
 msgstr ""
 
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr ""
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:1194
 msgid "Recent Matches"
 msgstr ""

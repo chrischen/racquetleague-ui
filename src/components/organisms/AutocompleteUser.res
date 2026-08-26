@@ -1,3 +1,5 @@
+%%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 module Query = %relay(`
   query AutocompleteUserQuery(
     $clubId: ID!
@@ -178,7 +180,7 @@ let make = (
               })
               ->React.array
             : <div className="px-3 py-4 text-center text-xs text-gray-500 dark:text-gray-400">
-                {"No players found"->React.string}
+                {t`No players found`}
               </div>}
         </div>
       : React.null}

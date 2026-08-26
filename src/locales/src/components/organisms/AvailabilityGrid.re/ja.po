@@ -30,36 +30,29 @@ msgid "Add time windows above"
 msgstr "上に時間枠を追加してください"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:229
-msgid "Add time windows to each day. Drag to move them, grab the edges to resize."
-msgstr "各日に時間枠を追加してください。ドラッグで移動、端をドラッグしてサイズ変更できます。"
+msgid ""
+"Add time windows to each day. Drag to move them, grab the edges to resize."
+msgstr ""
+"各日に時間枠を追加してください。ドラッグで移動、端をドラッグしてサイズ変更で"
+"きます。"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:305
 msgid "Clear"
 msgstr "クリア"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:380
-msgid "Drag a window to move it · drag the edges to resize · tap + to add another"
-msgstr "ウィンドウをドラッグして移動・端をドラッグしてサイズ変更・＋をタップして追加"
+msgid ""
+"Drag a window to move it · drag the edges to resize · tap + to add another"
+msgstr ""
+"ウィンドウをドラッグして移動・端をドラッグしてサイズ変更・＋をタップして追加"
 
 #: src/components/organisms/AvailabilityGrid.re.mjs:446
 msgid "Let hosts schedule events when most of you are free"
 msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "長時間空き"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "自分の時間に合わせる"
-
 #: src/components/organisms/AvailabilityGrid.re.mjs:260
 msgid "One-off"
 msgstr "単発"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "空き"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
@@ -85,10 +78,6 @@ msgstr "スケジュール"
 msgid "Share with your club"
 msgstr "クラブと共有"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "タップして時間枠を追加"
-
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
@@ -112,3 +101,19 @@ msgstr "いつプレーできますか？"
 #: src/components/organisms/AvailabilityGrid.re.mjs:388
 msgid "Your availability"
 msgstr "あなたの空き時間"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "長時間空き"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "自分の時間に合わせる"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "空き"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "タップして時間枠を追加"

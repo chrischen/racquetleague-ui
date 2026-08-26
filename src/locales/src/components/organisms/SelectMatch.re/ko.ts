@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"of+3Wd\":\"왼쪽 팀 플레이어\",\"827u5r\":\"아직 플레이어가 없습니다\",\"vRayGs\":\"플레이어\",\"zE3EXc\":\"경기 대기열에 추가\",\"UD752P\":\"오른쪽 팀 플레이어\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"of+3Wd\":\"왼쪽 팀 플레이어\",\"OYMf6m\":\"패자\",\"827u5r\":\"아직 플레이어가 없습니다\",\"vRayGs\":\"플레이어\",\"zE3EXc\":\"경기 대기열에 추가\",\"UD752P\":\"오른쪽 팀 플레이어\",\"GRLMKx\":\"승자\"}");

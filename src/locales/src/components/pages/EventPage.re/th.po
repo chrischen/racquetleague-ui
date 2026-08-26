@@ -65,6 +65,10 @@ msgstr "{0} ชั่วโมง {1} นาที"
 msgid "+{0} more"
 msgstr "+{0} คน"
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr "กิจกรรม"
+
 #: src/components/organisms/RSVPSection.re.mjs:673
 #: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
@@ -102,6 +106,10 @@ msgstr "ประวัติส่วนตัว"
 msgid "Biography is required"
 msgstr "กรุณากรอกประวัติย่อ"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "ยกเลิก"
+
 #: src/components/pages/EventPage.re.mjs:191
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
@@ -134,13 +142,14 @@ msgstr "ผู้เริ่มต้นสมบูรณ์"
 msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
-#: src/components/organisms/ProfileModal.re.mjs:335
-#~ msgid "Complete your profile"
-#~ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
-
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "ยืนยัน"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -160,6 +169,10 @@ msgstr "สนาม {0} - กำลังแก้ไข"
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
 msgid "Courts:"
 msgstr "คอร์ท:"
+
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "วันที่ยังไม่กำหนด"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
@@ -192,12 +205,10 @@ msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
-
-#: src/components/organisms/ProfileModal.re.mjs:303
-#~ msgid "Email cannot be changed"
-#~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -210,6 +221,10 @@ msgstr "ป้อนคะแนนแมตช์"
 #: src/components/organisms/ScoreModal.re.mjs:257
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "คะแนนเท่ากัน — จะถูกบันทึกเป็นเสมอ"
+
+#: src/components/organisms/EventDetails.re.mjs:47
+msgid "Event Details"
+msgstr "รายละเอียดกิจกรรม"
 
 #: src/components/pages/EventPage.re.mjs:391
 msgid "Event not found"
@@ -255,10 +270,6 @@ msgstr "ระดับกลาง"
 msgid "Intermediate+"
 msgstr "ระดับกลาง+"
 
-#: src/components/organisms/RSVPSection.re.mjs:424
-#~ msgid "Join"
-#~ msgstr "เข้าร่วม"
-
 #: src/components/atoms/EventSignupButton.re.mjs:65
 msgid "Join Event"
 msgstr "เข้าร่วมกิจกรรม"
@@ -299,6 +310,10 @@ msgstr "โหลดเพิ่มเติม"
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr "รายละเอียดสถานที่"
+
 #: src/components/atoms/EventSignupButton.re.mjs:68
 msgid "Login to Join"
 msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
@@ -315,14 +330,6 @@ msgstr "ระดับกลางขั้นต้นขึ้นไป"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/pages/EventPage.re.mjs:213
-#~ msgid "Manage Event"
-#~ msgstr "จัดการกิจกรรม"
-
-#: src/components/pages/EventPage.re.mjs:217
-#~ msgid "Manage Event (Beta)"
-#~ msgstr "จัดการกิจกรรม (เบต้า)"
-
 #: src/components/atoms/EventTag.re.mjs:50
 msgid "Matches will be submitted to DUPR."
 msgstr "การแข่งขันจะถูกส่งไปยัง DUPR"
@@ -336,13 +343,9 @@ msgstr "ย้ายไปรายชื่อรอ"
 msgid "No activity yet"
 msgstr "ยังไม่มีกิจกรรม"
 
-#: src/components/pages/EventPage.re.mjs:121
-#~ msgid "No event details provided."
-#~ msgstr "ไม่มีรายละเอียดกิจกรรม"
-
-#: src/components/pages/EventPage.re.mjs:124
-#~ msgid "No location details provided."
-#~ msgstr "ไม่มีรายละเอียดสถานที่"
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
+msgstr "ไม่พบผู้เล่น"
 
 #: src/components/atoms/EventTag.re.mjs:44
 msgid "No restriction on skill level. Open to all players."
@@ -373,10 +376,6 @@ msgstr "รอการอนุมัติ"
 msgid "Player"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/ProfileModal.re.mjs:397
-#~ msgid "Prefer not to say"
-#~ msgstr "ไม่ต้องการระบุ"
-
 #: src/components/atoms/EventTag.re.mjs:141
 #: src/components/atoms/EventTag.re.mjs:143
 msgid "Private"
@@ -405,7 +404,8 @@ msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "การเล่นเพื่อความบันเทิงที่จะไม่ถูกส่งไปยังเรตติ้งการแข่งขันหรือ DUPR"
 
 #: src/components/organisms/RsvpOptions.re.mjs:190
@@ -455,10 +455,6 @@ msgstr "กำลังรอการอนุมัติ..."
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/ProfileModal.re.mjs:429
-#~ msgid "Save & Join Event"
-#~ msgstr "บันทึกและเข้าร่วมกิจกรรม"
-
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
@@ -466,11 +462,6 @@ msgstr "บันทึกโปรไฟล์"
 #: src/components/organisms/ScoreModal.re.mjs:274
 msgid "Save Score"
 msgstr "บันทึกคะแนน"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "คะแนน"
 
 #: src/components/organisms/GoingRsvps.re.mjs:123
 msgid "See all"
@@ -481,12 +472,10 @@ msgid "Send"
 msgstr "ส่ง"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
-
-#: src/components/organisms/RSVPSection.re.mjs:516
-#~ msgid "Show all"
-#~ msgstr "แสดงทั้งหมด"
 
 #: src/components/organisms/GoingRsvps.re.mjs:140
 msgid "Show less"
@@ -499,10 +488,6 @@ msgstr "การฝึกฝนทักษะและการซ้อมเ
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid "Status message"
 msgstr "ข้อความสถานะ"
-
-#: src/components/pages/EventPage.re.mjs:168
-#~ msgid "submit matches"
-#~ msgstr "ส่งผลแมทช์"
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
@@ -522,34 +507,53 @@ msgstr "ทีม 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
 #: src/components/atoms/EventSignupButton.re.mjs:91
-msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
-msgstr "กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
+msgid ""
+"This event is full, so leaving the event will give your spot to someone on "
+"the waitlist. If you rejoin, you will join the waitlist. Are you sure you "
+"want to leave this event?"
+msgstr ""
+"กิจกรรมนี้เต็มแล้ว การออกจากกิจกรรมจะให้ที่นั่งของคุณกับคนใน รายชื่อคอย หากคุณเข้าร่วมใหม่ "
+"คุณจะเข้าสู่รายชื่อคอย คุณแน่ใจ ว่าต้องการออกจากกิจกรรมนี้หรือไม่?"
 
 #: src/components/pages/EventPage.re.mjs:266
 #: src/components/pages/EventPage.re.mjs:295
-msgid "This event is private and cannot be joined on Pkuru.com. Do not show up to the event without permission."
-msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัวและไม่สามารถเข้าร่วมผ่าน Pkuru.com ได้ ห้ามไปที่กิจกรรมโดยไม่ได้รับอนุญาต"
+msgid ""
+"This event is private and cannot be joined on Pkuru.com. Do not show up to "
+"the event without permission."
+msgstr ""
+"กิจกรรมนี้เป็นกิจกรรมส่วนตัวและไม่สามารถเข้าร่วมผ่าน Pkuru.com ได้ "
+"ห้ามไปที่กิจกรรมโดยไม่ได้รับอนุญาต"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid "This event is private. Please do not share this event without permission from the organizer."
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
 msgstr "กิจกรรมนี้เป็นกิจกรรมส่วนตัว กรุณาอย่าแชร์กิจกรรมนี้โดยไม่ได้รับอนุญาต จากผู้จัดงาน"
 
-#: src/components/organisms/ProfileModal.re.mjs:278
-#~ msgid "This is how others will see you"
-#~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
-
 #: src/components/organisms/RsvpOptions.re.mjs:269
-msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
-msgstr "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+msgid ""
+"This user will be removed from the Going/Waitlist. Their position will be "
+"lost if you move them back in. Are you sure you want to restrict their RSVP?"
+msgstr ""
+"ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
+"หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "เวลายังไม่กำหนด"
 
 #: src/components/organisms/RSVPSection.re.mjs:244
 #: src/components/organisms/RSVPSection.re.mjs:245
 #: src/components/organisms/EventMessages.re.mjs:125
-msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
+msgid ""
+"Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "พิมพ์ข้อความสถานะสำหรับให้คนอื่นเห็น... เช่น 'ฉันจะมาถึงตอน 19:00 น.'"
 
 #: src/components/pages/EventPage.re.mjs:180
@@ -619,5 +623,64 @@ msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
 #: src/components/organisms/RSVPSection.re.mjs:433
-msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
-msgstr "เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
+msgid ""
+"Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
+"pending list until the rating limit is lowered. Please join another JPL "
+"rated event to boost your rating."
+msgstr ""
+"เรตติ้งของคุณ {0} ~ {1} (DUPR {2} ~ {3}) ต่ำเกินไป คุณจะถูกใส่ใน "
+"รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
+"อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:335
+#~ msgid "Complete your profile"
+#~ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:303
+#~ msgid "Email cannot be changed"
+#~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/RSVPSection.re.mjs:424
+#~ msgid "Join"
+#~ msgstr "เข้าร่วม"
+
+#: src/components/pages/EventPage.re.mjs:213
+#~ msgid "Manage Event"
+#~ msgstr "จัดการกิจกรรม"
+
+#: src/components/pages/EventPage.re.mjs:217
+#~ msgid "Manage Event (Beta)"
+#~ msgstr "จัดการกิจกรรม (เบต้า)"
+
+#: src/components/pages/EventPage.re.mjs:121
+#~ msgid "No event details provided."
+#~ msgstr "ไม่มีรายละเอียดกิจกรรม"
+
+#: src/components/pages/EventPage.re.mjs:124
+#~ msgid "No location details provided."
+#~ msgstr "ไม่มีรายละเอียดสถานที่"
+
+#: src/components/organisms/ProfileModal.re.mjs:397
+#~ msgid "Prefer not to say"
+#~ msgstr "ไม่ต้องการระบุ"
+
+#: src/components/organisms/ProfileModal.re.mjs:429
+#~ msgid "Save & Join Event"
+#~ msgstr "บันทึกและเข้าร่วมกิจกรรม"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "คะแนน"
+
+#: src/components/organisms/RSVPSection.re.mjs:516
+#~ msgid "Show all"
+#~ msgstr "แสดงทั้งหมด"
+
+#: src/components/pages/EventPage.re.mjs:168
+#~ msgid "submit matches"
+#~ msgstr "ส่งผลแมทช์"
+
+#: src/components/organisms/ProfileModal.re.mjs:278
+#~ msgid "This is how others will see you"
+#~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"

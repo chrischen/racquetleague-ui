@@ -29,10 +29,6 @@ msgstr "Hủy"
 msgid "Drag players in order of strongest to weakest."
 msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
-
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
 msgstr "Xếp hạng toàn cầu"
@@ -42,16 +38,37 @@ msgid "mu"
 msgstr "mu"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "Người chơi bắt đầu với xếp hạng họ đạt được trong câu lạc bộ này; những ai chưa có sẽ bắt đầu từ xếp hạng mặc định. Thay đổi trong sự kiện được tính từ đó."
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"Người chơi bắt đầu với xếp hạng họ đạt được trong câu lạc bộ này; những ai "
+"chưa có sẽ bắt đầu từ xếp hạng mặc định. Thay đổi trong sự kiện được tính từ "
+"đó."
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
-msgstr "Người chơi bắt đầu với xếp hạng toàn cầu của họ trên tất cả các câu lạc bộ."
+msgstr ""
+"Người chơi bắt đầu với xếp hạng toàn cầu của họ trên tất cả các câu lạc bộ."
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:298
 msgid "Save Seed Adjustments"
 msgstr "Lưu điều chỉnh hạt giống"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:289
 #, fuzzy
@@ -62,11 +79,3 @@ msgstr "Lưu điều chỉnh hạt giống"
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0} người chơi"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""

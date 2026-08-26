@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/pages/ClubMembersPage.re.mjs:274
+msgid "Admin"
+msgstr "管理員"
+
 #: src/components/pages/ClubMembersPage.re.mjs:198
 msgid "Approve"
 msgstr "批准"
@@ -22,9 +26,21 @@ msgstr "批准"
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "您確定要將 {0} 從俱樂部中移除嗎？"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "取消"
+
 #: src/components/pages/ClubMembersPage.re.mjs:478
 msgid "club not found"
 msgstr "找不到俱樂部"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
+
+#: src/components/pages/ClubMembersPage.re.mjs:470
+msgid "Loading members..."
+msgstr "載入成員中..."
 
 #: src/components/pages/ClubMembersPage.re.mjs:458
 msgid "Members"
@@ -34,6 +50,11 @@ msgstr "成員"
 msgid "No members found"
 msgstr "找不到成員"
 
+#: src/components/pages/ClubMembersPage.re.mjs:270
+msgid "Owner"
+msgstr "擁有者"
+
+#: src/components/pages/ClubMembersPage.re.mjs:191
 #: src/components/pages/ClubMembersPage.re.mjs:382
 msgid "Pending"
 msgstr "待審核"

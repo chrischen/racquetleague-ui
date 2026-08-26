@@ -90,6 +90,10 @@ msgstr ""
 msgid "activity"
 msgstr ""
 
+#: src/components/organisms/EventMessages.re.mjs:157
+msgid "Activity"
+msgstr ""
+
 #: src/components/organisms/RSVPSection.re.mjs:673
 #: src/components/organisms/RSVPSection.re.mjs:765
 msgid "Add Member"
@@ -123,6 +127,10 @@ msgstr ""
 #~ msgid "Attendees"
 #~ msgstr ""
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr ""
+
 #: src/components/pages/Event.re.mjs:283
 msgid "cancel event"
 msgstr ""
@@ -137,6 +145,10 @@ msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:690
 msgid "Collapse"
+msgstr ""
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
 msgstr ""
 
 #: src/components/organisms/EventRsvps.re.mjs:511
@@ -319,6 +331,10 @@ msgstr ""
 
 #: src/components/organisms/EventMessages.re.mjs:178
 msgid "No activity yet"
+msgstr ""
+
+#: src/components/organisms/AutocompleteUser.re.mjs:208
+msgid "No players found"
 msgstr ""
 
 #: src/components/organisms/EventFullNames.re.mjs:97

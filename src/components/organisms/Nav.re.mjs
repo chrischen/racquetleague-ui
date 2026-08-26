@@ -112,7 +112,7 @@ function Nav(props) {
                                             " - ",
                                             JsxRuntime.jsx(LangProvider.Router.Link.make, {
                                                   to: "/events/create",
-                                                  children: "Add Event"
+                                                  children: t`Add Event`
                                                 })
                                           ]
                                         })

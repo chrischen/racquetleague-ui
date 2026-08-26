@@ -26,14 +26,6 @@ msgstr "{0} 個連續空檔"
 msgid "{0} continuous openings"
 msgstr "{0} 個連續空檔"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
-#~ msgid "{0} continuous span"
-#~ msgstr "{0} 個連續時間段"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
-#~ msgid "{0} continuous spans"
-#~ msgstr "{0} 個連續時間段"
-
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/molecules/CourtOpeningCard.re.mjs:56
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
@@ -46,14 +38,6 @@ msgstr "{0} 場"
 msgid "{0} courts"
 msgstr "{0} 場"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
-#~ msgid "{0} exact option"
-#~ msgstr "{0} 個完全符合的選項"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
-#~ msgid "{0} exact options"
-#~ msgstr "{0} 個完全符合的選項"
-
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:106
 msgid "{0} location"
 msgstr "{0} 個地點"
@@ -61,30 +45,6 @@ msgstr "{0} 個地點"
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:107
 msgid "{0} locations"
 msgstr "{0} 個地點"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
-#~ msgid "{0} segment"
-#~ msgstr "{0} 時段"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
-#~ msgid "{0} segments"
-#~ msgstr "{0} 個時段"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{0} time option"
-#~ msgstr "{0} 個時間選項"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
-#~ msgid "{0} time options"
-#~ msgstr "{0} 個時間選項"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
-#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
-#~ msgstr "{groupLocationsPhrase} 的 {groupCourtsPhrase}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
-#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{hs}h"
@@ -116,21 +76,9 @@ msgstr "{n} 室外"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
-#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
-#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
-#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
-
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
-#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
-#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
 msgid "Add time windows above"
@@ -178,12 +126,9 @@ msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
+msgid ""
+"Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
-#~ msgid "Continuous availability"
-#~ msgstr "連續可用性"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -196,14 +141,6 @@ msgstr "無法儲存您的個人資料，請再試一次。"
 msgid "Court"
 msgstr "場地"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
-#~ msgid "Court openings are shown only when they overlap your time."
-#~ msgstr "場地開放時段僅顯示與您的時間重疊的部分。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
-#~ msgid "Courts"
-#~ msgstr "場地"
-
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
 msgid "Courts Â· thickness = count"
 msgstr "場地 · 粗細 = 數量"
@@ -215,10 +152,6 @@ msgstr "涵蓋您完整時段的場地與空檔"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "各場地分別列出，並顯示其最大連續空檔。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
-#~ msgid "Courts available during your time"
-#~ msgstr "您的時段內可用場地"
 
 #: src/components/molecules/CourtOpeningCard.re.mjs:139
 msgid "Create event"
@@ -245,8 +178,12 @@ msgid "Email address"
 msgstr "電子郵件地址"
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵件地址登入。"
+msgid ""
+"Email address is unavailable. Please use a different email or login with the "
+"email you are trying to use here."
+msgstr ""
+"此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
+"件地址登入。"
 
 #: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Email is required"
@@ -263,10 +200,6 @@ msgstr "活動"
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
-
-#: src/components/molecules/LocationFilter.re.mjs:110
-#~ msgid "Filter by location"
-#~ msgstr "依地點篩選"
 
 #: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
@@ -316,18 +249,9 @@ msgstr "位置存取遭拒。請允許存取或選擇場地。"
 msgid "Location:"
 msgstr "地點："
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
-#~ msgid "Long opening"
-#~ msgstr "長時間開放"
-
 #: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Male"
 msgstr "男性"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "配合我的時間"
 
 #: src/components/molecules/LocationFilter.re.mjs:62
 msgid "Minimum event level"
@@ -345,17 +269,9 @@ msgstr "附近 · {radius} 公里"
 msgid "Not now"
 msgstr "暫不設定"
 
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "開放"
-
 #: src/components/molecules/LocationFilter.re.mjs:50
 msgid "Open spots"
 msgstr "開放名額"
-
-#: src/components/molecules/LocationFilter.re.mjs:36
-#~ msgid "Pick a location or use your current location."
-#~ msgstr "選擇地點或使用目前位置。"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
 msgid "Player availability heatmap"
@@ -389,33 +305,23 @@ msgstr "儲存中…"
 msgid "Schedule"
 msgstr "排程"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
-#~ msgid "Set your availability for the next 2 weeks. Tap a day to add a time window, drag to move, grab the edges to resize."
-#~ msgstr "設定未來 2 週的空閒時間。點擊某天以新增時間段，拖曳可移動，拉動邊緣可調整大小。"
-
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
-#~ msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; cyan cell borders show courts."
-#~ msgstr "設定您未來兩週的可用時間。您的活動與可用時段共用同一區塊；青色框線標示場地。"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
-msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
-msgstr "設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示可用場地越多。"
+msgid ""
+"Set your availability for the next 2 weeks. Your events and available "
+"windows share a footprint; thicker cyan lines mean more courts."
+msgstr ""
+"設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示"
+"可用場地越多。"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+msgid ""
+"Share a little about yourself so organizers or other players can see why "
+"they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
-#~ msgid "Tap an empty area of a day to add a window · drag to move · grab the edges to resize"
-#~ msgstr "點擊某天的空白區域以新增時間段・拖曳可移動・拉動邊緣可調整大小"
-
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
-#~ msgid "Tap an empty area to add time · select a cyan court opening up to 4h to match it · drag to move · grab the edges to resize"
-#~ msgstr "點擊空白處新增時間・選擇青色場地開放時段（最多4小時）以配合・拖曳移動・拉動邊緣調整大小"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
 msgid "Tap empty time to add · drag to move · grab edges to resize"
@@ -433,18 +339,6 @@ msgstr "使用附近位置"
 msgid "Use option"
 msgstr "使用此選項"
 
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
-#~ msgid "Use this time"
-#~ msgstr "使用此時段"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
-#~ msgid "View {groupCourtsPhrase} & reserve"
-#~ msgstr "查看 {groupCourtsPhrase} 並預訂"
-
-#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
-#~ msgid "View {segCourtsPhrase} & reserve"
-#~ msgstr "查看 {segCourtsPhrase} 並預訂"
-
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
@@ -461,10 +355,6 @@ msgstr "週末上午"
 msgid "When can you play?"
 msgstr "你什麼時候可以打球？"
 
-#: src/components/molecules/LocationFilter.re.mjs:28
-#~ msgid "Within {0} km · {1}, {2}"
-#~ msgstr "{0} 公里以內 · {1}，{2}"
-
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
 msgid "Your availability"
 msgstr "你的空閒時間"
@@ -472,3 +362,138 @@ msgstr "你的空閒時間"
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Your time"
 msgstr "您的時間"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:58
+#~ msgid "{0} continuous span"
+#~ msgstr "{0} 個連續時間段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:59
+#~ msgid "{0} continuous spans"
+#~ msgstr "{0} 個連續時間段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:62
+#~ msgid "{0} exact option"
+#~ msgstr "{0} 個完全符合的選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:63
+#~ msgid "{0} exact options"
+#~ msgstr "{0} 個完全符合的選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:137
+#~ msgid "{0} segment"
+#~ msgstr "{0} 時段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:138
+#~ msgid "{0} segments"
+#~ msgstr "{0} 個時段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{0} time option"
+#~ msgstr "{0} 個時間選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:54
+#~ msgid "{0} time options"
+#~ msgstr "{0} 個時間選項"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:151
+#~ msgid "{groupCourtsPhrase} at {groupLocationsPhrase}"
+#~ msgstr "{groupLocationsPhrase} 的 {groupCourtsPhrase}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:135
+#~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{groupLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:174
+#~ msgid "{segLocations, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segLocations, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:61
+#~ msgid "{segmentCount, plural, one {{0}} other {{1}}}"
+#~ msgstr "{segmentCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:53
+#~ msgid "{totalCourts, plural, one {{0}} other {{1}}}"
+#~ msgstr "{totalCourts, plural, one {{0}} other {{1}}}"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:149
+#~ msgid "Continuous availability"
+#~ msgstr "連續可用性"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:779
+#~ msgid "Court openings are shown only when they overlap your time."
+#~ msgstr "場地開放時段僅顯示與您的時間重疊的部分。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:625
+#~ msgid "Courts"
+#~ msgstr "場地"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
+#~ msgid "Courts available during your time"
+#~ msgstr "您的時段內可用場地"
+
+#: src/components/molecules/LocationFilter.re.mjs:110
+#~ msgid "Filter by location"
+#~ msgstr "依地點篩選"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
+#~ msgid "Long opening"
+#~ msgstr "長時間開放"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "配合我的時間"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "開放"
+
+#: src/components/molecules/LocationFilter.re.mjs:36
+#~ msgid "Pick a location or use your current location."
+#~ msgstr "選擇地點或使用目前位置。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
+#~ msgid ""
+#~ "Set your availability for the next 2 weeks. Tap a day to add a time "
+#~ "window, drag to move, grab the edges to resize."
+#~ msgstr ""
+#~ "設定未來 2 週的空閒時間。點擊某天以新增時間段，拖曳可移動，拉動邊緣可調整"
+#~ "大小。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#~ msgid ""
+#~ "Set your availability for the next 2 weeks. Your events and available "
+#~ "windows share a footprint; cyan cell borders show courts."
+#~ msgstr ""
+#~ "設定您未來兩週的可用時間。您的活動與可用時段共用同一區塊；青色框線標示場"
+#~ "地。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:692
+#~ msgid ""
+#~ "Tap an empty area of a day to add a window · drag to move · grab the "
+#~ "edges to resize"
+#~ msgstr "點擊某天的空白區域以新增時間段・拖曳可移動・拉動邊緣可調整大小"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:765
+#~ msgid ""
+#~ "Tap an empty area to add time · select a cyan court opening up to 4h to "
+#~ "match it · drag to move · grab the edges to resize"
+#~ msgstr ""
+#~ "點擊空白處新增時間・選擇青色場地開放時段（最多4小時）以配合・拖曳移動・拉"
+#~ "動邊緣調整大小"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:160
+#~ msgid "Use this time"
+#~ msgstr "使用此時段"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:181
+#~ msgid "View {groupCourtsPhrase} & reserve"
+#~ msgstr "查看 {groupCourtsPhrase} 並預訂"
+
+#: src/components/molecules/CourtAvailabilityGroups.re.mjs:217
+#~ msgid "View {segCourtsPhrase} & reserve"
+#~ msgstr "查看 {segCourtsPhrase} 並預訂"
+
+#: src/components/molecules/LocationFilter.re.mjs:28
+#~ msgid "Within {0} km · {1}, {2}"
+#~ msgstr "{0} 公里以內 · {1}，{2}"

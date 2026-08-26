@@ -17,6 +17,10 @@ msgstr ""
 msgid "Rating History"
 msgstr ""
 
+#: src/components/molecules/RatingGraph.re.mjs:40
+msgid "Rating:"
+msgstr ""
+
 #: src/components/organisms/RatingGraphWrapper.re.mjs:180
 msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr ""

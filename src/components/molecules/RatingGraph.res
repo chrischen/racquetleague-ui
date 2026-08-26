@@ -1,3 +1,5 @@
+%%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 // Type definitions
 type ratingDataPoint = {
   date: string,
@@ -111,7 +113,7 @@ module CustomTooltip = {
         <div className="bg-white px-4 py-3 rounded-lg shadow-lg border border-gray-200">
           <p className="text-sm font-medium text-gray-900 mb-1"> {data.date->React.string} </p>
           <p className="text-sm text-gray-700">
-            {"Rating: "->React.string}
+            {t`Rating: `}
             <span className="font-semibold text-blue-600">
               {data.rating->Float.toString->React.string}
             </span>

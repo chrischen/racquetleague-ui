@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"u2UoSb\":\"경기 횟수\",\"827u5r\":\"아직 플레이어가 없습니다\",\"vRayGs\":\"플레이어\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PaQ3df\":\"활성화\",\"u2UoSb\":\"경기 횟수\",\"827u5r\":\"아직 플레이어가 없습니다\",\"vRayGs\":\"플레이어\",\"t/YqKh\":\"제거\"}");

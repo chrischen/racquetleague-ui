@@ -13,6 +13,14 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "확인"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "코트 {0} - 편집 중"
@@ -23,16 +31,11 @@ msgstr "경기 삭제"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
 msgid "Delete this match?"
-msgstr ""
+msgstr "이 경기를 삭제하시겠습니까?"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "저장"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "점수"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
@@ -43,9 +46,18 @@ msgid "TEAM 2"
 msgstr "팀 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
 msgstr ""
+"경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
+"복원할 수 있습니다."
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 msgid "VS"
 msgstr "VS"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "점수"

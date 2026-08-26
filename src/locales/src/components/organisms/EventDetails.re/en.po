@@ -12,3 +12,11 @@ msgstr ""
 "Last-Translator: \n"
 "Language-Team: \n"
 "Plural-Forms: \n"
+
+#: src/components/organisms/EventDetails.re.mjs:47
+msgid "Event Details"
+msgstr ""
+
+#: src/components/organisms/EventDetails.re.mjs:56
+msgid "Location Details"
+msgstr ""

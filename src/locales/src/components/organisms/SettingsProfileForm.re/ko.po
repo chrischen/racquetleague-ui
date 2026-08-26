@@ -37,10 +37,6 @@ msgstr "호주"
 msgid "Beginner"
 msgstr "초급"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "자기소개"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "자기소개"
@@ -48,10 +44,6 @@ msgstr "자기소개"
 #: src/components/organisms/SettingsProfileForm.re.mjs:411
 msgid "Canada"
 msgstr "캐나다"
-
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "취소"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -72,10 +64,6 @@ msgstr "연결 중..."
 #: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "국가"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "자신에 대한 세부 정보"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -101,17 +89,9 @@ msgstr "예상 DUPR"
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "성명"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "본명"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "성별"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
@@ -162,8 +142,12 @@ msgid "Notifications"
 msgstr "알림"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
-msgstr "알림이 차단되어 있습니다. 활성화하려면 기기 또는 브라우저 설정에서 이 사이트의 알림을 허용해 주세요."
+msgid ""
+"Notifications are blocked. To enable them, go to your device or browser "
+"settings and allow notifications for this site."
+msgstr ""
+"알림이 차단되어 있습니다. 활성화하려면 기기 또는 브라우저 설정에서 이 사이트"
+"의 알림을 허용해 주세요."
 
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
@@ -173,21 +157,17 @@ msgstr "홈 화면에서 앱을 열고 알림을 활성화하세요"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "밝히지 않음"
-
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "프로"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "프로필"
-
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
-msgstr "푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확인한 후 다시 시도해 주세요."
+msgid ""
+"Push notifications are blocked. Check your browser or device notification "
+"settings for this site, then try again."
+msgstr ""
+"푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확"
+"인한 후 다시 시도해 주세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
@@ -196,10 +176,6 @@ msgstr "이벤트 알림 및 업데이트를 푸시 알림으로 받아보세요
 #: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "등록 재개"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "저장"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
@@ -214,7 +190,9 @@ msgid "seeking a doubles partner"
 msgstr "복식 파트너 구함"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:419
@@ -224,11 +202,6 @@ msgstr "싱가포르"
 #: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
-#~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
@@ -273,3 +246,42 @@ msgstr "Stripe 계정이 연결되어 결제를 받을 준비가 완료되었습
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "자기소개"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "취소"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "자신에 대한 세부 정보"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "성명"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "성별"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "밝히지 않음"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "프로필"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "저장"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid ""
+#~ "Some events require your legal name as shown on an ID "
+#~ "card.omeventsequoegashownour passporta"
+#~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."

@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"u2UoSb\":\"จำนวนแมทช์\",\"827u5r\":\"ยังไม่มีผู้เล่น\",\"vRayGs\":\"ผู้เล่น\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"PaQ3df\":\"เปิดใช้งาน\",\"u2UoSb\":\"จำนวนแมทช์\",\"827u5r\":\"ยังไม่มีผู้เล่น\",\"vRayGs\":\"ผู้เล่น\",\"t/YqKh\":\"ลบ\"}");

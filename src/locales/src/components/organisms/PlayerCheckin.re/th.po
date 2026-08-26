@@ -49,10 +49,6 @@ msgstr "ปิดจอแสดงผลการเช็คอินด้ว
 msgid "Drag players in order of strongest to weakest."
 msgstr "ลากผู้เล่นเรียงลำดับจากเก่งที่สุดไปอ่อนที่สุด"
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
-
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:34
 msgid "Event check-in"
 msgstr "เช็คอินกิจกรรม"
@@ -94,8 +90,13 @@ msgid "Player Check-in"
 msgstr "เช็คอินผู้เล่น"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"ผู้เล่นเริ่มต้นด้วยคะแนนที่ได้รับภายในสโมสรนี้ ผู้ที่ไม่มีคะแนนจะเริ่มจากคะแนนเริ่มต้น "
+"การเปลี่ยนแปลงระหว่างอีเวนต์จะวัดจากจุดนั้น"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
@@ -109,6 +110,20 @@ msgstr "บันทึกการปรับซีด"
 msgid "Scan to check in"
 msgstr "สแกนเพื่อเช็คอิน"
 
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:276
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "ลากผู้เล่นเพื่อจัดเรียงซีดเริ่มต้นใหม่"
+
 #: src/components/organisms/SeedAdjustModal.re.mjs:289
 #, fuzzy
 #~ msgid "Seed from {0} ratings"
@@ -118,11 +133,3 @@ msgstr "สแกนเพื่อเช็คอิน"
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0} คน"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""

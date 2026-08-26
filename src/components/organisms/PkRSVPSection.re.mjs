@@ -333,7 +333,7 @@ function PkRSVPSection(props) {
       ratingWarning = JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
-                    children: "LEVEL RESTRICTION",
+                    children: t`LEVEL RESTRICTION`,
                     className: "font-mono text-[11px] tracking-wider text-amber-700 dark:text-amber-400 uppercase mb-1"
                   }),
               JsxRuntime.jsx("div", {
@@ -354,7 +354,7 @@ function PkRSVPSection(props) {
       ratingWarning = JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
-                    children: "LEVEL RESTRICTION",
+                    children: t`LEVEL RESTRICTION`,
                     className: "font-mono text-[11px] tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-1"
                   }),
               JsxRuntime.jsx("div", {

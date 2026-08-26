@@ -216,6 +216,7 @@ module StorageUsageDebug = {
 module StorageLowWarning = {
   @react.component
   let make = (~onClearData: unit => unit) => {
+    open Lingui.Util
     let (storageInfo, setStorageInfo) = React.useState(() => None)
     let (dismissed, setDismissed) = React.useState(() => false)
 
@@ -250,16 +251,12 @@ module StorageLowWarning = {
               className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
               <Lucide.AlertTriangle className="w-5 h-5 text-red-600" />
             </div>
-            <h2 className="text-lg font-bold text-slate-900">
-              {React.string("Storage Almost Full")}
-            </h2>
+            <h2 className="text-lg font-bold text-slate-900"> {t`Storage Almost Full`} </h2>
           </div>
           <p className="text-sm text-slate-600 mb-4">
-            {React.string(
-              `Your browser storage is ${percentage->Float.toFixed(
-                  ~digits=1,
-                )}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes.`,
-            )}
+            {t`Your browser storage is ${percentage->Float.toFixed(
+                ~digits=1,
+              )}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes.`}
           </p>
           <div className="w-full bg-slate-200 rounded-full h-3 overflow-hidden mb-5">
             <div
@@ -271,7 +268,7 @@ module StorageLowWarning = {
             <button
               onClick={_ => setDismissed(_ => true)}
               className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors">
-              {React.string("Dismiss")}
+              {t`Dismiss`}
             </button>
             <button
               onClick={_ => {
@@ -279,7 +276,7 @@ module StorageLowWarning = {
                 setDismissed(_ => true)
               }}
               className="px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors">
-              {React.string("Free Up Space")}
+              {t`Free Up Space`}
             </button>
           </div>
         </div>
@@ -2300,8 +2297,12 @@ let make = (
       : React.null}
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <div className="bg-slate-800 text-white px-6 py-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold"> {React.string("Sports Event Draws")} </h1>
+        // The title is dead weight on a phone — the controls beside it are what
+        // an organiser actually reaches for mid-event. Hiding it leaves only one
+        // child in the row, so switch to justify-end there or the controls would
+        // jump to the left edge.
+        <div className="flex items-center justify-end sm:justify-between">
+          <h1 className="hidden sm:block text-2xl font-bold"> {t`Sports Event Draws`} </h1>
           <div className="flex items-center gap-2">
             <PersistenceChip
               health={persistenceHealth} onShowError={() => setDismissedFailure(_ => None)}

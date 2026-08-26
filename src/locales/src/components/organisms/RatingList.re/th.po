@@ -38,10 +38,6 @@ msgstr "เส้นตัดดราฟต์ · 8 อันดับแรก
 msgid "Est. DUPR"
 msgstr "DUPR โดยประมาณ"
 
-#: src/components/organisms/RatingList.re.mjs:202
-#~ msgid "Female"
-#~ msgstr "หญิง"
-
 #: src/components/organisms/RatingList.re.mjs:638
 msgid "Load more players..."
 msgstr "โหลดผู้เล่นเพิ่มเติม..."
@@ -49,10 +45,6 @@ msgstr "โหลดผู้เล่นเพิ่มเติม..."
 #: src/components/organisms/RatingList.re.mjs:614
 msgid "Loading next standings"
 msgstr "กำลังโหลดอันดับถัดไป"
-
-#: src/components/organisms/RatingList.re.mjs:204
-#~ msgid "Male"
-#~ msgstr "ชาย"
 
 #: src/components/organisms/RatingList.re.mjs:754
 msgid "No players found"
@@ -81,3 +73,11 @@ msgstr "คุณ"
 #: src/components/organisms/RatingList.re.mjs:308
 msgid "Your standing"
 msgstr "อันดับของคุณ"
+
+#: src/components/organisms/RatingList.re.mjs:202
+#~ msgid "Female"
+#~ msgstr "หญิง"
+
+#: src/components/organisms/RatingList.re.mjs:204
+#~ msgid "Male"
+#~ msgstr "ชาย"

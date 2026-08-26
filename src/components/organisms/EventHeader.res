@@ -1,4 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
+open Lingui.Util
 open LangProvider.Router
 
 module Fragment = %relay(`
@@ -138,7 +139,7 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
                       timeZone={data.timezone->Option.getOr("Asia/Tokyo")}
                     />
                   )
-                  ->Option.getOr("Date TBD"->React.string)}
+                  ->Option.getOr(t`Date TBD`)}
                   {" "->React.string}
                   {until
                   ->Option.map(until =>
@@ -168,7 +169,7 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
                       />
                     </>)
                   )
-                  ->Option.getOr("Time TBD"->React.string)}
+                  ->Option.getOr(t`Time TBD`)}
                   {durationText
                   ->Option.map(duration => <>
                     {" ("->React.string}

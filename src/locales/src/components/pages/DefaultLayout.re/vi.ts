@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(đăng xuất)\",\"hOdM7G\":\"bản quyền thuộc về các cộng tác viên racquet league\",\"GCkpYm\":\"đăng nhập bằng Line\",\"UdC6Dp\":\"racquet league\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"2WXhLW\":\"(đăng xuất)\",\"3igsBN\":\"Thêm sự kiện\",\"hOdM7G\":\"bản quyền thuộc về các cộng tác viên racquet league\",\"GCkpYm\":\"đăng nhập bằng Line\",\"UdC6Dp\":\"racquet league\"}");

@@ -33,6 +33,10 @@ msgstr "Apple iCal"
 msgid "CANCELED"
 msgstr "キャンセル"
 
+#: src/components/organisms/EventHeader.re.mjs:175
+msgid "Date TBD"
+msgstr "日程未定"
+
 #: src/components/atoms/EventTag.re.mjs:56
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
@@ -72,7 +76,8 @@ msgid "Rated"
 msgstr "レーティング戦"
 
 #: src/components/atoms/EventTag.re.mjs:52
-msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
+msgid ""
+"Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr "競技レーティングやDUPRに提出されないレクリエーショナルプレイ。"
 
 #: src/components/atoms/EventTag.re.mjs:46
@@ -88,8 +93,14 @@ msgid "sync calendar"
 msgstr "カレンダー同期"
 
 #: src/components/atoms/EventTag.re.mjs:54
-msgid "This event is private. Please do not share this event without permission from the organizer."
+msgid ""
+"This event is private. Please do not share this event without permission "
+"from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
+
+#: src/components/organisms/EventHeader.re.mjs:211
+msgid "Time TBD"
+msgstr "時間未定"
 
 #: src/components/organisms/EventHeader.re.mjs:117
 msgid "Unknown club"

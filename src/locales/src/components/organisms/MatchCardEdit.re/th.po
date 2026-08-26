@@ -13,6 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "ยืนยัน"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:52
 msgid "Court {0} - Editing"
 msgstr "สนาม {0} - กำลังแก้ไข"
@@ -23,16 +31,11 @@ msgstr "ลบการแข่งขัน"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
 msgid "Delete this match?"
-msgstr ""
+msgstr "ลบการแข่งขันนี้หรือไม่?"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "บันทึก"
-
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "คะแนน"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:96
 msgid "TEAM 1"
@@ -43,9 +46,17 @@ msgid "TEAM 2"
 msgstr "ทีม 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
 msgstr ""
+"การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 msgid "VS"
 msgstr "VS"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "คะแนน"

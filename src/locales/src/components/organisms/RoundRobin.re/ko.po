@@ -107,10 +107,7 @@ msgstr "팀 균형"
 msgid "Balances fresh partners against evenly matched games."
 msgstr "새로운 파트너와 균등한 경기 수준을 균형 있게 조정합니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:192
-#~ msgid "Beta"
-#~ msgstr "베타"
-
+#: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
@@ -142,6 +139,10 @@ msgstr "경쟁"
 #: src/components/molecules/DrawGenerator.re.mjs:91
 msgid "Competitive+"
 msgstr "경쟁+"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "확인"
 
 #: src/components/organisms/MatchCard.re.mjs:396
 msgid "Court {0}"
@@ -217,13 +218,15 @@ msgstr "이 경기를 삭제하시겠습니까?"
 msgid "Drag players in order of strongest to weakest."
 msgstr "강한 순서대로 플레이어를 드래그하세요."
 
-#: src/components/organisms/SeedAdjustModal.re.mjs:133
-#~ msgid "Drag players to reorder their initial seeding"
-#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
-
 #: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
-msgstr "각 전략은 최적화된 프로필을 사용합니다. 슬라이더를 조정하면 이벤트가 사용자 지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 수 없습니다."
+msgid ""
+"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"to a custom mix. Fair play time and rotation are always enforced and can't "
+"be turned down."
+msgstr ""
+"각 전략은 최적화된 프로필을 사용합니다. 슬라이더를 조정하면 이벤트가 사용자 "
+"지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 "
+"수 없습니다."
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -258,15 +261,21 @@ msgid "Event check-in"
 msgstr "이벤트 체크인"
 
 #: src/components/molecules/DrawGenerator.re.mjs:82
-msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
-msgstr "모든 선수가 로테이션합니다: 매 라운드 새로운 파트너와 상대를 만나며, 다양성을 위해 혼합이 필요해질 때까지 가장 경쟁적인 매치업을 우선합니다."
+msgid ""
+"Everyone rotates: fresh partners and opponents every round, taking the most "
+"competitive matchups first until variety forces mixing."
+msgstr ""
+"모든 선수가 로테이션합니다: 매 라운드 새로운 파트너와 상대를 만나며, 다양성"
+"을 위해 혼합이 필요해질 때까지 가장 경쟁적인 매치업을 우선합니다."
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:136
 msgid "Female"
 msgstr "여성"
 
 #: src/components/molecules/DrawGenerator.re.mjs:87
-msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
+msgid ""
+"Fresh, varied matchups every round, with each match's teams balanced by "
+"skill."
 msgstr "매 라운드 새롭고 다양한 매치업, 각 경기 팀은 실력별로 균형을 맞춥니다."
 
 #: src/components/organisms/RoundSection.re.mjs:535
@@ -274,8 +283,12 @@ msgid "Full Screen View"
 msgstr "전체 화면 보기"
 
 #: src/components/molecules/DrawGenerator.re.mjs:282
-msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
-msgstr "향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실합니까?"
+msgid ""
+"Future rounds have scores entered. Regenerating will delete these scores. "
+"Are you sure?"
+msgstr ""
+"향후 라운드에 점수가 입력되어 있습니다. 재생성하면 이 점수가 삭제됩니다. 확실"
+"합니까?"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:120
 msgid "Gender"
@@ -401,10 +414,6 @@ msgstr "아직 팀이 없습니다"
 msgid "Not paid"
 msgstr "미납"
 
-#: src/components/organisms/FullScreenRoundView.re.mjs:151
-#~ msgid "Not Playing This Round"
-#~ msgstr "이번 라운드 불참"
-
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 참가하세요."
@@ -414,7 +423,8 @@ msgid "Opponent variety"
 msgstr "상대 다양성"
 
 #: src/components/molecules/DrawGenerator.re.mjs:92
-msgid "Optimised draws that prioritise evenly matched games within a skill band."
+msgid ""
+"Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "실력 범위 내에서 균등한 경기를 우선하는 최적화된 대진표."
 
 #: src/components/organisms/PlayerCheckin.re.mjs:315
@@ -438,16 +448,26 @@ msgid "Player Settings"
 msgstr "플레이어 설정"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
-msgid "Players start on the rating they earned inside this club; those with none start from the default rating. Changes during the event are measured from there."
-msgstr "플레이어는 이 클럽 내에서 획득한 평점으로 시작하며, 평점이 없는 플레이어는 기본 평점으로 시작합니다. 이벤트 중 변경 사항은 해당 시점을 기준으로 측정됩니다."
+msgid ""
+"Players start on the rating they earned inside this club; those with none "
+"start from the default rating. Changes during the event are measured from "
+"there."
+msgstr ""
+"플레이어는 이 클럽 내에서 획득한 평점으로 시작하며, 평점이 없는 플레이어는 기"
+"본 평점으로 시작합니다. 이벤트 중 변경 사항은 해당 시점을 기준으로 측정됩니"
+"다."
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid "Players start on their global rating across all clubs."
 msgstr "플레이어는 모든 클럽에 걸친 글로벌 평점으로 시작합니다."
 
 #: src/components/molecules/DrawGenerator.re.mjs:98
-msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
-msgstr "플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 나뉩니다."
+msgid ""
+"Players will be divided into similar skill level groups that round-robin "
+"with teams balanced by skill."
+msgstr ""
+"플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 "
+"나뉩니다."
 
 #: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
@@ -519,6 +539,10 @@ msgstr "라운드 {0}"
 msgid "Round Robin"
 msgstr "라운드 로빈"
 
+#: src/components/organisms/RoundRobin.re.mjs:1067
+msgid "Round Robin Tournament"
+msgstr "라운드 로빈 토너먼트"
+
 #: src/components/molecules/DrawGenerator.re.mjs:107
 msgid "Round-Robin"
 msgstr "라운드 로빈"
@@ -555,28 +579,13 @@ msgstr "팀 저장"
 msgid "Scan to check in"
 msgstr "스캔하여 체크인"
 
-#: src/components/organisms/MatchCardEdit.re.mjs:184
-#: src/components/organisms/MatchCardEdit.re.mjs:221
-#~ msgid "Score"
-#~ msgstr "점수"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:289
-#, fuzzy
-#~ msgid "Seed from {0} ratings"
-#~ msgstr "{0}개의 평점"
-
 #: src/components/molecules/DrawGenerator.re.mjs:203
 msgid "Seed:"
 msgstr "시드:"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:271
-#, fuzzy
-#~ msgid "Seeded {0} players"
-#~ msgstr "{0}명"
-
-#: src/components/organisms/SeedAdjustModal.re.mjs:271
-#~ msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
-#~ msgstr ""
+msgid "Seeded {0} players · {1} with no club rating reset to the default seed"
+msgstr ""
 
 #: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
 msgid "Seeds Adjusted"
@@ -637,8 +646,12 @@ msgstr "팀"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
-msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
-msgstr "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 복원할 수 있습니다."
+msgid ""
+"The match will be removed from this round. You can restore the originally "
+"scheduled matches using the round reset icon."
+msgstr ""
+"경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
+"복원할 수 있습니다."
 
 #: src/components/molecules/DrawGenerator.re.mjs:305
 msgid "This will delete all future rounds and generate new matches"
@@ -658,12 +671,15 @@ msgid "Update Rounds Below"
 msgstr "아래 라운드 업데이트"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:276
-#~ msgid "Uses ratings earned inside this club. Players with none are reset to the default seed."
-#~ msgstr ""
+msgid ""
+"Uses ratings earned inside this club. Players with none are reset to the "
+"default seed."
+msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
 #: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/FullScreenRoundView.re.mjs:129
 msgid "VS"
 msgstr "VS"
 
@@ -674,3 +690,30 @@ msgstr "승리 팀 (팀 {0})"
 #: src/components/organisms/RoundRobin.re.mjs:689
 msgid "Your browser is too old to use this feature."
 msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습니다."
+
+#: src/components/molecules/DrawGenerator.re.mjs:192
+#~ msgid "Beta"
+#~ msgstr "베타"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:133
+#~ msgid "Drag players to reorder their initial seeding"
+#~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
+
+#: src/components/organisms/FullScreenRoundView.re.mjs:151
+#~ msgid "Not Playing This Round"
+#~ msgstr "이번 라운드 불참"
+
+#: src/components/organisms/MatchCardEdit.re.mjs:184
+#: src/components/organisms/MatchCardEdit.re.mjs:221
+#~ msgid "Score"
+#~ msgstr "점수"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:289
+#, fuzzy
+#~ msgid "Seed from {0} ratings"
+#~ msgstr "{0}개의 평점"
+
+#: src/components/organisms/SeedAdjustModal.re.mjs:271
+#, fuzzy
+#~ msgid "Seeded {0} players"
+#~ msgstr "{0}명"

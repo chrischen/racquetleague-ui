@@ -46,7 +46,9 @@ msgid "event location"
 msgstr "活動地點"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:180
-msgid "Instructions or information that will apply to all events held at this location."
+msgid ""
+"Instructions or information that will apply to all events held at this "
+"location."
 msgstr "適用於在此地點舉辦的所有活動的指示或資訊。"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:138

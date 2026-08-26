@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/SelectPlayersList.re.mjs:171
+msgid "Enable"
+msgstr "เปิดใช้งาน"
+
 #: src/components/organisms/SelectPlayersList.re.mjs:98
 msgid "Match Count"
 msgstr "จำนวนแมทช์"
@@ -24,3 +28,7 @@ msgstr "ยังไม่มีผู้เล่น"
 #: src/components/organisms/SelectPlayersList.re.mjs:73
 msgid "Player"
 msgstr "ผู้เล่น"
+
+#: src/components/organisms/SelectPlayersList.re.mjs:176
+msgid "Remove"
+msgstr "ลบ"

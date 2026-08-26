@@ -130,3 +130,7 @@ msgstr ""
 #: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Title:"
 msgstr ""
+
+#: src/components/atoms/ExamplePrompts.re.mjs:13
+msgid "Try these examples:"
+msgstr ""

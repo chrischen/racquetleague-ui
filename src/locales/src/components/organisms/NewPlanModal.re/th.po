@@ -50,7 +50,9 @@ msgid "Continue"
 msgstr "ดำเนินการต่อ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+msgid ""
+"Create a hosted event at this time. Others can join, you pick venue and "
+"rules."
 msgstr "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
@@ -65,17 +67,9 @@ msgstr "จัดอีเวนต์"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:491
-#~ msgid "Long opening"
-#~ msgstr "ช่วงเวลาว่างยาว"
-
 #: src/components/organisms/NewPlanModal.re.mjs:354
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
-#~ msgid "Match my time"
-#~ msgstr "ตรงกับเวลาของฉัน"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -84,10 +78,6 @@ msgstr "เช้า"
 #: src/components/organisms/NewPlanModal.re.mjs:203
 msgid "New plan"
 msgstr "แผนใหม่"
-
-#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
-#~ msgid "open"
-#~ msgstr "เปิด"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
 msgid "Player availability heatmap"
@@ -105,16 +95,14 @@ msgstr "บันทึก"
 msgid "Select exactly one time window to host an event"
 msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:411
-#~ msgid "Tap anywhere to add a time window"
-#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
-
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgid ""
+"Tell others you're down to play. Players with overlapping times can invite "
+"you."
 msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
@@ -128,3 +116,19 @@ msgstr "พรุ่งนี้"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "คุณอยากเล่นเมื่อไหร่?"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:491
+#~ msgid "Long opening"
+#~ msgstr "ช่วงเวลาว่างยาว"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
+#~ msgid "Match my time"
+#~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
+#~ msgid "open"
+#~ msgstr "เปิด"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:411
+#~ msgid "Tap anywhere to add a time window"
+#~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"

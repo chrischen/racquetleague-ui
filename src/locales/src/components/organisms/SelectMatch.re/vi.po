@@ -17,6 +17,10 @@ msgstr ""
 msgid "left team players"
 msgstr "người chơi đội trái"
 
+#: src/components/organisms/SelectMatch.re.mjs:298
+msgid "Losers"
+msgstr "Thua"
+
 #: src/components/organisms/SelectMatch.re.mjs:136
 msgid "no players yet"
 msgstr "chưa có người chơi"
@@ -32,3 +36,7 @@ msgstr "Xếp hàng trận đấu"
 #: src/components/organisms/SelectMatch.re.mjs:303
 msgid "right team players"
 msgstr "người chơi đội phải"
+
+#: src/components/organisms/SelectMatch.re.mjs:274
+msgid "Winners"
+msgstr "Thắng"

@@ -27,7 +27,9 @@ msgstr "スキャンできない場合は、クラブページからイベント
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
-msgstr "スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してください。"
+msgstr ""
+"スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
+"さい。"
 
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:38
 msgid "Scan to check in"

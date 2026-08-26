@@ -105,10 +105,10 @@ let make = (
                 {!selected
                   ? disabled
                       ? <UiAction onClick={_ => onEnable(player)}>
-                          {"Enable"->React.string}
+                          {t`Enable`}
                         </UiAction>
                       : <UiAction onClick={_ => onRemove(player)}>
-                          {"Remove"->React.string}
+                          {t`Remove`}
                         </UiAction>
                   : React.null}
               </td>

@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "Thêm sự kiện"
+
 #: src/components/organisms/Footer.re.mjs:19
 msgid "copyright the racquet league contributors"
 msgstr "bản quyền thuộc về các cộng tác viên racquet league"

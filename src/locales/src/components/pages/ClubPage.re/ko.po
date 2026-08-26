@@ -18,10 +18,6 @@ msgid "{0} open"
 msgstr "{0} 열림"
 
 #: src/components/pages/ClubPage.re.mjs:94
-#~ msgid "Active members"
-#~ msgstr "활성 회원"
-
-#: src/components/pages/ClubPage.re.mjs:94
 msgid "Active players"
 msgstr "활동 중인 플레이어"
 
@@ -157,3 +153,7 @@ msgstr "수요일"
 #: src/components/pages/ClubPage.re.mjs:321
 msgid "Yesterday"
 msgstr "어제"
+
+#: src/components/pages/ClubPage.re.mjs:94
+#~ msgid "Active members"
+#~ msgstr "활성 회원"

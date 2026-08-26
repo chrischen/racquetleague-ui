@@ -37,10 +37,6 @@ msgstr "オーストラリア"
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:289
-#~ msgid "biography"
-#~ msgstr "バイオグラフィー"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:545
 msgid "Biography"
 msgstr "自己紹介"
@@ -49,17 +45,14 @@ msgstr "自己紹介"
 msgid "Canada"
 msgstr "カナダ"
 
-#: src/components/molecules/forms/Form.re.mjs:304
-#~ msgid "cancel"
-#~ msgstr "キャンセル"
-
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:347
 msgid "Connect a Stripe account to receive payments from events you organize."
-msgstr "主催するイベントの支払いを受け取るには、Stripeアカウントを接続してください。"
+msgstr ""
+"主催するイベントの支払いを受け取るには、Stripeアカウントを接続してください。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:376
 msgid "Connect Stripe account"
@@ -72,10 +65,6 @@ msgstr "接続中..."
 #: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Country"
 msgstr "国"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:214
-#~ msgid "details about yourself"
-#~ msgstr "自己紹介"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
@@ -101,17 +90,9 @@ msgstr "推定DUPR"
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:222
-#~ msgid "full name"
-#~ msgstr "フルネーム"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Full name"
 msgstr "フルネーム"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:246
-#~ msgid "gender"
-#~ msgstr "性別"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:508
 msgid "Gender"
@@ -162,8 +143,12 @@ msgid "Notifications"
 msgstr "通知"
 
 #: src/components/shared/PushNotifications.re.mjs:431
-msgid "Notifications are blocked. To enable them, go to your device or browser settings and allow notifications for this site."
-msgstr "通知がブロックされています。有効にするには、デバイスまたはブラウザの設定でこのサイトの通知を許可してください。"
+msgid ""
+"Notifications are blocked. To enable them, go to your device or browser "
+"settings and allow notifications for this site."
+msgstr ""
+"通知がブロックされています。有効にするには、デバイスまたはブラウザの設定でこ"
+"のサイトの通知を許可してください。"
 
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
@@ -173,21 +158,17 @@ msgstr "ホーム画面からアプリを開き、通知を有効にしてくだ
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:507
-#~ msgid "Prefer not to say"
-#~ msgstr "回答しない"
-
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "プロ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:213
-#~ msgid "profile"
-#~ msgstr "プロフィール"
-
 #: src/components/shared/PushNotifications.re.mjs:302
-msgid "Push notifications are blocked. Check your browser or device notification settings for this site, then try again."
-msgstr "プッシュ通知がブロックされています。このサイトのブラウザまたはデバイスの通知設定を確認して、もう一度お試しください。"
+msgid ""
+"Push notifications are blocked. Check your browser or device notification "
+"settings for this site, then try again."
+msgstr ""
+"プッシュ通知がブロックされています。このサイトのブラウザまたはデバイスの通知"
+"設定を確認して、もう一度お試しください。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:614
 msgid "Receive push notifications for event reminders and updates."
@@ -196,10 +177,6 @@ msgstr "イベントのリマインダーや更新情報をプッシュ通知で
 #: src/components/organisms/SettingsProfileForm.re.mjs:379
 msgid "Resume onboarding"
 msgstr "登録を再開"
-
-#: src/components/molecules/forms/Form.re.mjs:311
-#~ msgid "save"
-#~ msgstr "保存"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:592
 msgid "Save profile"
@@ -214,8 +191,12 @@ msgid "seeking a doubles partner"
 msgstr "ダブルスパートナーを探しています"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
-msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
-msgstr "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えます。"
+msgid ""
+"shows a badge next to your name in RSVP lists to tell people you are looking "
+"for a partner"
+msgstr ""
+"RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
+"す。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:419
 msgid "Singapore"
@@ -224,11 +205,6 @@ msgstr "シンガポール"
 #: src/components/organisms/SettingsProfileForm.re.mjs:500
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:270
-#, fuzzy
-#~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
-#~ msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:431
 msgid "South Korea"
@@ -273,3 +249,43 @@ msgstr "Stripeアカウントが接続され、支払いを受け取る準備が
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 msgid "Your Stripe account is connected but onboarding is not yet complete."
 msgstr "Stripeアカウントは接続されていますが、登録がまだ完了していません。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:289
+#~ msgid "biography"
+#~ msgstr "バイオグラフィー"
+
+#: src/components/molecules/forms/Form.re.mjs:304
+#~ msgid "cancel"
+#~ msgstr "キャンセル"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:214
+#~ msgid "details about yourself"
+#~ msgstr "自己紹介"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:222
+#~ msgid "full name"
+#~ msgstr "フルネーム"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:246
+#~ msgid "gender"
+#~ msgstr "性別"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
+#~ msgid "Prefer not to say"
+#~ msgstr "回答しない"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:213
+#~ msgid "profile"
+#~ msgstr "プロフィール"
+
+#: src/components/molecules/forms/Form.re.mjs:311
+#~ msgid "save"
+#~ msgstr "保存"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:270
+#, fuzzy
+#~ msgid ""
+#~ "Some events require your legal name as shown on an ID "
+#~ "card.omeventsequoegashownour passporta"
+#~ msgstr ""
+#~ "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"

@@ -168,12 +168,12 @@ function SelectPlayersList(props) {
                                                                         onClick: (function (param) {
                                                                             onEnable(player);
                                                                           }),
-                                                                        children: "Enable"
+                                                                        children: t`Enable`
                                                                       }) : JsxRuntime.jsx(UiAction.make, {
                                                                         onClick: (function (param) {
                                                                             onRemove(player);
                                                                           }),
-                                                                        children: "Remove"
+                                                                        children: t`Remove`
                                                                       })
                                                               )
                                                           }),

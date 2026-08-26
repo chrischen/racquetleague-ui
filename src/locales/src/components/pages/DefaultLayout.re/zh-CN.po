@@ -17,6 +17,10 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
+#: src/components/organisms/Nav.re.mjs:115
+msgid "Add Event"
+msgstr "添加赛事"
+
 #: src/components/organisms/Footer.re.mjs:19
 msgid "copyright the racquet league contributors"
 msgstr "版权所有 网球联盟贡献者"

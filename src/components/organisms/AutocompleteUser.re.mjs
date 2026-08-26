@@ -9,6 +9,9 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AutocompleteUserQuery_graphql from "../../__generated__/AutocompleteUserQuery_graphql.re.mjs";
 
+import { t } from '@lingui/macro'
+;
+
 var convertVariables = AutocompleteUserQuery_graphql.Internal.convertVariables;
 
 var convertResponse = AutocompleteUserQuery_graphql.Internal.convertResponse;
@@ -202,7 +205,7 @@ function AutocompleteUser(props) {
                                               })
                                           }, user.id);
                               }) : JsxRuntime.jsx("div", {
-                                children: "No players found",
+                                children: t`No players found`,
                                 className: "px-3 py-4 text-center text-xs text-gray-500 dark:text-gray-400"
                               }),
                         className: "absolute top-full left-0 right-0 mt-1 bg-white dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40] rounded-lg shadow-lg z-50 py-1 max-h-48 overflow-y-auto"
@@ -219,4 +222,4 @@ export {
   getInitials ,
   make ,
 }
-/* use Not a pure module */
+/*  Not a pure module */

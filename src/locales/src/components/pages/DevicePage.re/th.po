@@ -41,10 +41,6 @@ msgstr "อนุมัติอุปกรณ์แล้ว! คุณสา�
 msgid "Redirecting to sign in…"
 msgstr "กำลังเปลี่ยนเส้นทางไปยังหน้าเข้าสู่ระบบ…"
 
-#: src/components/pages/DevicePage.re.mjs:226
-#~ msgid "Sign in"
-#~ msgstr "เข้าสู่ระบบ"
-
 #: src/components/pages/DevicePage.re.mjs:152
 msgid "Sign-in request denied."
 msgstr "คำขอเข้าสู่ระบบถูกปฏิเสธ"
@@ -53,6 +49,11 @@ msgstr "คำขอเข้าสู่ระบบถูกปฏิเสธ
 msgid "Working…"
 msgstr "กำลังดำเนินการ…"
 
+#: src/components/pages/DevicePage.re.mjs:226
+#~ msgid "Sign in"
+#~ msgstr "เข้าสู่ระบบ"
+
 #: src/components/pages/DevicePage.re.mjs:222
-#~ msgid "You need to sign in here first so we can link this device to your account."
+#~ msgid ""
+#~ "You need to sign in here first so we can link this device to your account."
 #~ msgstr "คุณต้องเข้าสู่ระบบที่นี่ก่อน เพื่อให้เราเชื่อมโยงอุปกรณ์นี้กับบัญชีของคุณได้"
