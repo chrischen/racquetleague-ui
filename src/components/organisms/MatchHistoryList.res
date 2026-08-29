@@ -244,9 +244,6 @@ module Match = {
       })
       ->Option.isSome
 
-    let isWin = userInWinners
-    let isLoss = !isWin
-
     // Parse score
     let (winnersScore, losersScore) =
       score
@@ -257,6 +254,15 @@ module Match = {
         }
       })
       ->Option.getOr((21.0, 18.0))
+
+    // The winners/losers split is arbitrary on a draw — the server has to put
+    // each team somewhere — so the score is what decides the result. Equal
+    // scores are a draw, covering both a real scoreline like 10-10 and the
+    // (-1,-1) unscored-draw sentinel. Without this, `userInWinners` alone
+    // rendered every tie as a win for one side and a loss for the other.
+    let isDraw = winnersScore == losersScore
+    let isWin = userInWinners && !isDraw
+    let isLoss = !userInWinners && !isDraw
 
     // Reorder for display: user's team always on left
     let (leftScore, rightScore) = if userInWinners {

@@ -13,33 +13,33 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:697
+#: src/components/organisms/MatchHistoryList.re.mjs:699
 msgid "...load previous matches"
 msgstr "...이전 경기 불러오기"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:524
+#: src/components/organisms/MatchHistoryList.re.mjs:588
 msgid "DRAW"
 msgstr "무승부"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:659
+#: src/components/organisms/MatchHistoryList.re.mjs:661
 msgid "Even"
 msgstr "균등"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:714
+#: src/components/organisms/MatchHistoryList.re.mjs:716
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:524
+#: src/components/organisms/MatchHistoryList.re.mjs:588
 msgid "LOSS"
 msgstr "패"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:630
+#: src/components/organisms/MatchHistoryList.re.mjs:632
 msgid "Upset"
 msgstr "이변"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:521
-#: src/components/organisms/MatchHistoryList.re.mjs:585
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "WIN"
 msgstr "승"

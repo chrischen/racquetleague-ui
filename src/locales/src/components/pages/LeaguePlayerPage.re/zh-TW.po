@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:697
+#: src/components/organisms/MatchHistoryList.re.mjs:699
 msgid "...load previous matches"
 msgstr "...載入之前的比賽"
 
@@ -45,8 +45,8 @@ msgstr "當前評分"
 msgid "Days at #1"
 msgstr "排名第一的天數"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:524
+#: src/components/organisms/MatchHistoryList.re.mjs:588
 msgid "DRAW"
 msgstr "平手"
 
@@ -62,7 +62,7 @@ msgstr "能提升較弱搭檔的水準"
 msgid "Estimated DUPR"
 msgstr "預估 DUPR"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:659
+#: src/components/organisms/MatchHistoryList.re.mjs:661
 msgid "Even"
 msgstr "勢均力敵"
 
@@ -78,7 +78,7 @@ msgstr "室內球場（室內球）"
 msgid "Indoor Court (Outdoor Ball)"
 msgstr "室內球場（室外球）"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:714
+#: src/components/organisms/MatchHistoryList.re.mjs:716
 msgid "Load more matches..."
 msgstr "載入更多比賽..."
 
@@ -86,8 +86,8 @@ msgstr "載入更多比賽..."
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:524
+#: src/components/organisms/MatchHistoryList.re.mjs:588
 msgid "LOSS"
 msgstr "負"
 
@@ -143,7 +143,7 @@ msgid ""
 "higher confidence."
 msgstr "陰影區域表示評分的不確定性。較窄的帶表示更高的置信度。"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:630
+#: src/components/organisms/MatchHistoryList.re.mjs:632
 msgid "Upset"
 msgstr "爆冷"
 
@@ -151,8 +151,8 @@ msgstr "爆冷"
 msgid "Weak Against"
 msgstr "弱勢對陣"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:521
-#: src/components/organisms/MatchHistoryList.re.mjs:585
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "WIN"
 msgstr "勝"
 

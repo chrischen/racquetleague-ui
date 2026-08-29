@@ -56,10 +56,14 @@ describe("CostModel weight mapping", () => {
       config(0, {
         partnerVariety: 1,
         opponentVariety: 1,
-        similarSkill: 0,
-        balanceTeams: false,
         avoidRecentRepeats: 1,
+        bandStrength: 0,
+        bandTolerance: 1,
+        balanceTeams: false,
+        splitBalanceFirst: false,
         alternateFavored: 0,
+        shakeUp: 0,
+        cohortRotation: 0,
       }),
     );
     expect(custom.wSpread).toBeGreaterThanOrEqual(50);
@@ -73,10 +77,14 @@ describe("CostModel weight mapping", () => {
       config(1, {
         partnerVariety: 1,
         opponentVariety: 1,
-        similarSkill: 1,
-        balanceTeams: true,
         avoidRecentRepeats: 1,
+        bandStrength: 1,
+        bandTolerance: 0,
+        balanceTeams: true,
+        splitBalanceFirst: true,
         alternateFavored: 1,
+        shakeUp: 1,
+        cohortRotation: 1,
       }),
     );
     expect(CostModel.maxMatchCost(adversarial)).toBeLessThanOrEqual(7000);
@@ -118,10 +126,14 @@ describe("CostModel weight mapping", () => {
     const custom = config(0.42, {
       partnerVariety: 0.1,
       opponentVariety: 0.2,
-      similarSkill: 0.3,
-      balanceTeams: true,
       avoidRecentRepeats: 0.4,
+      bandStrength: 0.3,
+      bandTolerance: 0.6,
+      balanceTeams: true,
+      splitBalanceFirst: true,
       alternateFavored: 0.5,
+      shakeUp: 0.05,
+      cohortRotation: 0.7,
     });
     const restored = CostModel.configFromJsonString(
       CostModel.configToJsonString(custom),
@@ -129,25 +141,26 @@ describe("CostModel weight mapping", () => {
     expect(restored).toEqual(custom);
   });
 
-  it("reads configs stored before spread and balance were separated", () => {
-    // The coupled "skillBalance" slider becomes both halves.
-    const legacy = JSON.stringify({
+  it("discards configs stored before the advanced vocabulary covered the presets", () => {
+    // Deliberate (2026-08): pre-v2 configs spoke the coupled "similarSkill"
+    // vocabulary and are discarded, not migrated — the event falls back to its
+    // strategy's preset. The version gate is what rejects them.
+    const v1 = JSON.stringify({
       qualityVsVariety: 0.5,
       advanced: {
         partnerVariety: 0.6,
         opponentVariety: 0.4,
-        skillBalance: 0.7,
+        similarSkill: 0.7,
+        balanceTeams: true,
         avoidRecentRepeats: 0.3,
         alternateFavored: 0.2,
       },
     });
-    const restored = CostModel.configFromJsonString(legacy);
-    expect(restored.advanced.similarSkill).toBeCloseTo(0.7, 6);
-    expect(restored.advanced.balanceTeams).toBe(true);
-    const low = CostModel.configFromJsonString(
-      legacy.replace('"skillBalance":0.7', '"skillBalance":0.1'),
-    );
-    expect(low.advanced.balanceTeams).toBe(false);
+    expect(CostModel.configFromJsonString(v1)).toBeUndefined();
+    // Even a slider-only pre-v2 config is rejected: no version field, no read.
+    expect(
+      CostModel.configFromJsonString(JSON.stringify({ qualityVsVariety: 0.3 })),
+    ).toBeUndefined();
   });
 
   it("returns nothing for malformed stored config", () => {
@@ -225,9 +238,36 @@ describe("CostModel preset profiles", () => {
     expect(CostModel.maxCohortWeight).toBeLessThan(4000 / 3);
   });
 
+  it("derives every preset from its config — one source of truth", () => {
+    // The panel displays presetConfig's advanced values; generation uses
+    // weightsForStrategy. These must be the same thing, or the panel lies.
+    for (const strategy of [
+      "SolverRoundRobin",
+      "SolverRandomBalanced",
+      "SolverCompetitivePlus",
+    ]) {
+      expect(CostModel.weightsForStrategy(strategy)).toEqual(
+        CostModel.weightsFromConfig(CostModel.presetConfig(strategy)),
+      );
+    }
+  });
+
   it("keeps Competitive+ on the slider axis, plus the cohort guardrail", () => {
+    // Its config is the 0.85 slider position's own decomposition, with one
+    // deviation: wOpponent sits on the log scale's floor (10) rather than the
+    // old derived wPartner/5 (4) — a tie-break-sized retune accepted so the
+    // preset is exactly representable in the advanced vocabulary.
+    const slider = CostModel.weightsFromConfig({
+      qualityVsVariety: 0.85,
+      advanced: undefined,
+    });
+    // The slider path computes tolerance as 0.9 * (1 - 0.85); the config path
+    // as 0.9 * 0.15 — same number, one ulp apart.
+    expect(cp.spreadTolerance).toBeCloseTo(slider.spreadTolerance, 12);
     expect(cp).toEqual({
-      ...CostModel.weightsFromConfig({ qualityVsVariety: 0.85, advanced: undefined }),
+      ...slider,
+      spreadTolerance: cp.spreadTolerance,
+      wOpponent: 10,
       wCohort: CostModel.maxCohortWeight,
     });
   });

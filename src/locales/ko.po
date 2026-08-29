@@ -5667,6 +5667,179 @@ msgstr "멤버 불러오는 중..."
 msgid "Owner"
 msgstr "소유자"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "어떤 조합이든 괜찮음"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "자동"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event."
+msgstr "자동이 이 값들을 조정 중입니다 — 현재 믹스를 고정하면 수동으로 조정할 수 있습니다. 자동은 이 이벤트에 대한 적응을 중단합니다."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "균형 잡힌 조합, 새 파트너 우선"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "밴드 허용 범위"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "밴드 함께 해체"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "보정 중"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "여기서 맞춤 설정"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "결정적"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
+msgid "Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "각 전략은 조정된 프로필을 사용하며, 값을 변경하면 이 이벤트가 맞춤 믹스로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 수 없습니다."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "새로운 매치업으로 팀을 구성하며, 팀이 불균등할 수 있습니다"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "실력별 그룹화"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "항상 가장 균등하게"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "선호 없음"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "끄기"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid "Ratings are {percent}% settled — the mix adjusts automatically as scores come in."
+msgstr "레이팅이 {percent}% 안정됨 — 점수가 들어올수록 믹스가 자동으로 조정됩니다."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "프리셋으로 초기화"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "실력 밴드 함께 로테이션"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "셰이크업"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "실력 밴딩"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
+msgstr "레이팅 보정을 위해 다양하고 균형 잡힌 매치업으로 시작한 후, 랭킹이 안정되면 경쟁적인 실력 밴드 방식으로 전환됩니다."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "팀 구성"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "파트너십 반복을 피하는 가장 균등한 구성"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "파트너십이 반복되더라도 가장 균등한 구성"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+msgid "{0}-second clip from the rolling buffer"
+msgstr "롤링 버퍼에서 {0}초 클립"
+
+#: src/components/organisms/Kiosk.re.mjs:741
+msgid "● BUFFER {0}s / {1}s"
+msgstr "● 버퍼 {0}s / {1}s"
+
+#: src/components/organisms/Kiosk.re.mjs:593
+msgid "Camera {0}"
+msgstr "카메라 {0}"
+
+#: src/components/organisms/Kiosk.re.mjs:519
+msgid "Camera source"
+msgstr "카메라 소스"
+
+#: src/components/organisms/Kiosk.re.mjs:540
+msgid "Choose which connected camera the kiosk uses. The change applies immediately, including to a running session."
+msgstr "키오스크에서 사용할 연결된 카메라를 선택하세요. 변경 사항은 진행 중인 세션을 포함하여 즉시 적용됩니다."
+
+#: src/components/organisms/Kiosk.re.mjs:742
+msgid "CLIPPING UNAVAILABLE"
+msgstr "클리핑 사용 불가"
+
+#: src/components/organisms/Kiosk.re.mjs:529
+msgid "Close settings"
+msgstr "설정 닫기"
+
+#: src/components/organisms/Kiosk.re.mjs:677
+msgid "COMING SOON"
+msgstr "출시 예정"
+
+#: src/components/organisms/Kiosk.re.mjs:1794
+msgid "Could not create the clip — the buffer keeps recording"
+msgstr "클립을 생성할 수 없습니다 — 버퍼가 계속 녹화 중입니다"
+
+#: src/components/organisms/Kiosk.re.mjs:515
+msgid "KIOSK SETTINGS"
+msgstr "키오스크 설정"
+
+#: src/components/organisms/Kiosk.re.mjs:561
+msgid "Let the browser pick the default device"
+msgstr "브라우저가 기본 장치를 자동 선택"
+
+#: src/components/organisms/Kiosk.re.mjs:639
+msgid "Local"
+msgstr "로컬"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "no audio"
+msgstr "오디오 없음"
+
+#: src/components/organisms/Kiosk.re.mjs:616
+msgid "No cameras detected. Connect a camera or allow camera access, then reopen settings."
+msgstr "감지된 카메라가 없습니다. 카메라를 연결하거나 카메라 접근을 허용한 후 설정을 다시 여세요."
+
+#: src/components/organisms/Kiosk.re.mjs:643
+msgid "On-device rolling buffer and clip processing"
+msgstr "장치 내 롤링 버퍼 및 클립 처리"
+
+#: src/components/organisms/Kiosk.re.mjs:622
+msgid "PROCESSING MODE"
+msgstr "처리 모드"
+
+#: src/components/organisms/Kiosk.re.mjs:684
+msgid "Stream to the server for processing"
+msgstr "처리를 위해 서버로 스트리밍"
+
+#: src/components/organisms/Kiosk.re.mjs:557
+msgid "System default camera"
+msgstr "시스템 기본 카메라"
+
+#: src/components/organisms/Kiosk.re.mjs:675
+msgid "Thin client"
+msgstr "씬 클라이언트"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

@@ -265,7 +265,8 @@ let make = (~debug: bool=false) => {
       | NoveltyRoundRobin
       | SolverRoundRobin
       | SolverRandomBalanced
-      | SolverCompetitivePlus => false
+      | SolverCompetitivePlus
+      | SolverAuto => false
       }
 
       // Check if any future rounds have scores recorded

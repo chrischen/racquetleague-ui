@@ -309,13 +309,14 @@ function ts(prim0, prim1) {
 function MatchList$Match(props) {
   var match = use$1(props.match);
   var winners = match.winners;
+  var score = match.score;
   var playerMetadata = match.playerMetadata;
   var namespace = match.namespace;
   var losers = match.losers;
   var createdAt = match.createdAt;
   console.log(playerMetadata);
   var metadata = decode$1(playerMetadata);
-  var isWinner = Core__Option.isSome(Core__Option.flatMap(props.user, (function (user) {
+  var onWinnersSide = Core__Option.isSome(Core__Option.flatMap(props.user, (function (user) {
               var user$1 = use$3(user);
               return Core__Option.flatMap(winners, (function (__x) {
                             return Core__Array.findMap(__x, (function (x) {
@@ -326,6 +327,15 @@ function MatchList$Match(props) {
                                         }));
                           }));
             })));
+  var isDraw;
+  if (score !== undefined && score.length === 2) {
+    var first = score[0];
+    var second = score[1];
+    isDraw = first === second;
+  } else {
+    isDraw = false;
+  }
+  var isWinner = onWinnersSide && !isDraw;
   var tmp;
   tmp = namespace === "doubles:comp" ? JsxRuntime.jsx(LucideReact.Trophy, {
           className: "h-4 w-4 text-amber-500"
@@ -341,14 +351,21 @@ function MatchList$Match(props) {
                             children: [
                               JsxRuntime.jsx("div", {
                                     children: JsxRuntime.jsx("span", {
-                                          children: isWinner ? JsxRuntime.jsx(Solid.CheckIcon, {
+                                          children: isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
                                                   className: "h-5 w-5 text-white",
                                                   "aria-hidden": "true"
-                                                }) : JsxRuntime.jsx(Outline.XMarkIcon, {
-                                                  className: "h-5 w-5 text-white",
-                                                  "aria-hidden": "true"
-                                                }),
-                                          className: Core$1.cx(isWinner ? "bg-green-500" : "bg-red-500", "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white")
+                                                }) : (
+                                              isWinner ? JsxRuntime.jsx(Solid.CheckIcon, {
+                                                      className: "h-5 w-5 text-white",
+                                                      "aria-hidden": "true"
+                                                    }) : JsxRuntime.jsx(Outline.XMarkIcon, {
+                                                      className: "h-5 w-5 text-white",
+                                                      "aria-hidden": "true"
+                                                    })
+                                            ),
+                                          className: Core$1.cx(isDraw ? "bg-amber-500" : (
+                                                  isWinner ? "bg-green-500" : "bg-red-500"
+                                                ), "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white")
                                         })
                                   }),
                               JsxRuntime.jsxs("div", {
@@ -358,7 +375,7 @@ function MatchList$Match(props) {
                                               JsxRuntime.jsxs("p", {
                                                     children: [
                                                       tmp,
-                                                      isWinner ? Core__Option.getOr(Core__Option.map(winners, (function (winners) {
+                                                      onWinnersSide ? Core__Option.getOr(Core__Option.map(winners, (function (winners) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
                                                                                       return x.fragmentRefs;
@@ -377,7 +394,7 @@ function MatchList$Match(props) {
                                                             children: " VS ",
                                                             className: "font-extrabold"
                                                           }),
-                                                      isWinner ? Core__Option.getOr(Core__Option.map(losers, (function (winners) {
+                                                      onWinnersSide ? Core__Option.getOr(Core__Option.map(losers, (function (winners) {
                                                                     return JsxRuntime.jsx(MatchList$InlineTeam, {
                                                                                 players: winners.map(function (x) {
                                                                                       return x.fragmentRefs;
@@ -403,13 +420,13 @@ function MatchList$Match(props) {
                                                                             children: [
                                                                               t`Score:`,
                                                                               " ",
-                                                                              Core__Option.getOr(Core__Option.map(match.score, (function (score) {
+                                                                              Core__Option.getOr(Core__Option.map(score, (function (score) {
                                                                                           if (score.length !== 2) {
                                                                                             return null;
                                                                                           }
                                                                                           var winScore = score[0];
                                                                                           var loseScore = score[1];
-                                                                                          if (isWinner) {
+                                                                                          if (onWinnersSide) {
                                                                                             return winScore.toFixed(0) + " - " + loseScore.toFixed(0);
                                                                                           } else {
                                                                                             return loseScore.toFixed(0) + " - " + winScore.toFixed(0);

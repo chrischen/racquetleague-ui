@@ -83,11 +83,11 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2433
+#: src/components/organisms/EventManager.re.mjs:2439
 msgid "Advance to Round {0}"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:152
+#: src/components/molecules/SolverWeightsPanel.re.mjs:276
 msgid "Advanced"
 msgstr ""
 
@@ -99,11 +99,11 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2267
+#: src/components/organisms/EventManager.re.mjs:2270
 msgid "all up to date"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:241
+#: src/components/molecules/SolverWeightsPanel.re.mjs:469
 msgid "Alternate favourite/underdog roles"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2539
+#: src/components/organisms/EventManager.re.mjs:2548
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -120,28 +120,57 @@ msgid "Anti-Teams"
 msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:208
-msgid "Any mix"
+#~ msgid "Any mix"
+#~ msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event."
 msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:824
 #~ msgid "Available Courts:"
 #~ msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:227
+#: src/components/molecules/SolverWeightsPanel.re.mjs:450
 msgid "Avoid recent repeats"
 msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:212
-msgid "Balance teams"
+#~ msgid "Balance teams"
+#~ msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Balances fresh partners against evenly matched games."
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
 msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:192
 #~ msgid "Beta"
 #~ msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr ""
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
@@ -160,7 +189,7 @@ msgstr ""
 #~ msgid "Classic random round-robin draws"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:108
+#: src/components/molecules/DrawGenerator.re.mjs:115
 msgid "Classic round-robin draws"
 msgstr ""
 
@@ -176,12 +205,13 @@ msgstr ""
 msgid "Close self check-in display"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:97
+#: src/components/molecules/SolverWeightsPanel.re.mjs:226
+#: src/components/molecules/SolverWeightsPanel.re.mjs:246
+#: src/components/molecules/DrawGenerator.re.mjs:104
 msgid "Competitive"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:91
+#: src/components/molecules/DrawGenerator.re.mjs:93
 msgid "Competitive+"
 msgstr ""
 
@@ -206,7 +236,7 @@ msgstr ""
 msgid "Court {0} - Editing"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:142
+#: src/components/molecules/DrawGenerator.re.mjs:149
 msgid "Courts:"
 msgstr ""
 
@@ -238,15 +268,19 @@ msgstr ""
 #~ msgid "Current Round: {0}"
 #~ msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:154
+#: src/components/molecules/SolverWeightsPanel.re.mjs:277
 msgid "Custom"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: ON"
 msgstr ""
 
@@ -280,9 +314,13 @@ msgstr ""
 msgid "Delete this match?"
 msgstr ""
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2336
+#: src/components/organisms/EventManager.re.mjs:2342
 msgid "Dismiss"
 msgstr ""
 
@@ -295,7 +333,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:268
-msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+#~ msgid "Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+#~ msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
+msgid "Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:450
@@ -334,7 +376,7 @@ msgstr ""
 #~ msgid "Event Manager"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:84
 msgid "Everyone rotates: fresh partners and opponents every round, taking the most competitive matchups first until variety forces mixing."
 msgstr ""
 
@@ -362,6 +404,10 @@ msgstr ""
 msgid "Female"
 msgstr ""
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:433
+msgid "Free"
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:526
 msgid "Free up space"
 msgstr ""
@@ -370,7 +416,11 @@ msgstr ""
 msgid "Free Up Space"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr ""
+
+#: src/components/molecules/DrawGenerator.re.mjs:89
 msgid "Fresh, varied matchups every round, with each match's teams balanced by skill."
 msgstr ""
 
@@ -378,7 +428,7 @@ msgstr ""
 msgid "Full Screen View"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:282
+#: src/components/molecules/DrawGenerator.re.mjs:292
 msgid "Future rounds have scores entered. Regenerating will delete these scores. Are you sure?"
 msgstr ""
 
@@ -386,11 +436,11 @@ msgstr ""
 msgid "Gender"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:238
+#: src/components/molecules/DrawGenerator.re.mjs:245
 msgid "Generate"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Generate Draws"
 msgstr ""
 
@@ -402,13 +452,17 @@ msgstr ""
 #~ msgid "Generate matches for {0} players across {1} {courtText}"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:363
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/molecules/DrawGenerator.re.mjs:373
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Generating…"
 msgstr ""
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
 msgstr ""
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
@@ -419,7 +473,7 @@ msgstr ""
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2740
+#: src/components/organisms/EventManager.re.mjs:2749
 msgid "Help"
 msgstr ""
 
@@ -456,7 +510,7 @@ msgstr ""
 msgid "match"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:131
+#: src/components/molecules/SolverWeightsPanel.re.mjs:265
 msgid "Match style"
 msgstr ""
 
@@ -465,7 +519,7 @@ msgstr ""
 msgid "matches"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:134
+#: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
 msgstr ""
 
@@ -473,8 +527,12 @@ msgstr ""
 #~ msgid "Mix players of different levels in matches but still split stronger players to balance teams."
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:102
+#: src/components/molecules/DrawGenerator.re.mjs:109
 msgid "Mixed"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
 msgstr ""
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
@@ -485,7 +543,7 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:272
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr ""
 
@@ -493,7 +551,7 @@ msgstr ""
 msgid "New Anti-Team"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:215
+#: src/components/molecules/DrawGenerator.re.mjs:222
 msgid "New seed — deals different matches"
 msgstr ""
 
@@ -511,6 +569,10 @@ msgstr ""
 
 #: src/components/organisms/PrintableDraws.re.mjs:169
 msgid "No draws generated yet."
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:266
@@ -533,19 +595,23 @@ msgstr ""
 msgid "Not saved"
 msgstr ""
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr ""
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:182
+#: src/components/molecules/SolverWeightsPanel.re.mjs:318
 msgid "Opponent variety"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:92
+#: src/components/molecules/DrawGenerator.re.mjs:94
 msgid "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2332
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 
@@ -557,7 +623,7 @@ msgstr ""
 msgid "Paid"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:168
+#: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr ""
 
@@ -585,7 +651,7 @@ msgstr ""
 msgid "Players start on their global rating across all clubs."
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:98
+#: src/components/molecules/DrawGenerator.re.mjs:105
 msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr ""
 
@@ -593,7 +659,7 @@ msgstr ""
 #~ msgid "Players will be divided into similar skill level groups that round-robin."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Preparing optimizer…"
 msgstr ""
 
@@ -609,7 +675,7 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2234
+#: src/components/organisms/EventManager.re.mjs:2237
 msgid "Print Draws"
 msgstr ""
 
@@ -617,20 +683,24 @@ msgstr ""
 msgid "Print Preview"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Prioritises evenly matched games over fresh partners."
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:138
+#: src/components/molecules/SolverWeightsPanel.re.mjs:249
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr ""
+#: src/components/molecules/SolverWeightsPanel.re.mjs:505
+msgid "Random"
+msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:86
+#: src/components/molecules/DrawGenerator.re.mjs:88
 msgid "Random Balanced"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid "Ratings are {percent}% settled — the mix adjusts automatically as scores come in."
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:404
@@ -641,7 +711,7 @@ msgstr ""
 msgid "Rebalance this round with current players"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:281
+#: src/components/molecules/DrawGenerator.re.mjs:291
 msgid "Regenerate Rounds?"
 msgstr ""
 
@@ -665,7 +735,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2723
+#: src/components/organisms/EventManager.re.mjs:2732
 msgid "Reset Storage"
 msgstr ""
 
@@ -677,12 +747,20 @@ msgstr ""
 msgid "Reset this round with mixed gender pairs"
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:255
-msgid "Reset to slider"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
 msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:255
+#~ msgid "Reset to slider"
+#~ msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:538
 msgid "Retry"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
 msgstr ""
 
 #: src/components/organisms/RoundSection.re.mjs:523
@@ -692,15 +770,15 @@ msgstr ""
 msgid "Round {0}"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:83
 msgid "Round Robin"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:114
 msgid "Round-Robin"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:103
+#: src/components/molecules/DrawGenerator.re.mjs:110
 msgid "Round-Robin with teams balanced by skill."
 msgstr ""
 
@@ -745,7 +823,7 @@ msgstr ""
 #~ msgid "Score"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2189
+#: src/components/organisms/EventManager.re.mjs:2192
 msgid "Scores Synced!"
 msgstr ""
 
@@ -753,7 +831,7 @@ msgstr ""
 #~ msgid "Seed from {0} ratings"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:203
+#: src/components/molecules/DrawGenerator.re.mjs:210
 msgid "Seed:"
 msgstr ""
 
@@ -773,8 +851,16 @@ msgstr ""
 msgid "SERVING"
 msgstr ""
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr ""
+
 #: src/components/molecules/SolverWeightsPanel.re.mjs:196
-msgid "Similar-skill matches"
+#~ msgid "Similar-skill matches"
+#~ msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
 msgstr ""
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:174
@@ -786,10 +872,10 @@ msgid "Some rules had to be bent to fill the courts"
 msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:224
-msgid "Split each match into its most even teams"
-msgstr ""
+#~ msgid "Split each match into its most even teams"
+#~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2706
+#: src/components/organisms/EventManager.re.mjs:2715
 msgid "Sports Event Draws"
 msgstr ""
 
@@ -797,36 +883,40 @@ msgstr ""
 #~ msgid "Start Next Round"
 #~ msgstr ""
 
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:251
 msgid "Storage Almost Full"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:366
+#: src/components/molecules/DrawGenerator.re.mjs:376
 msgid "strategy"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:178
+#: src/components/molecules/DrawGenerator.re.mjs:185
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2201
+#: src/components/organisms/EventManager.re.mjs:2204
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2165
+#: src/components/organisms/EventManager.re.mjs:2168
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2261
+#: src/components/organisms/EventManager.re.mjs:2264
 msgid "synced"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2177
+#: src/components/organisms/EventManager.re.mjs:2180
 msgid "Syncing... {0}%"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2096
+#: src/components/organisms/EventManager.re.mjs:2099
 msgid "Team {0}"
 msgstr ""
 
@@ -850,6 +940,10 @@ msgstr ""
 msgid "Team Name"
 msgstr ""
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr ""
+
 #: src/components/organisms/TeamManagementModal.re.mjs:326
 msgid "Teams"
 msgstr ""
@@ -857,6 +951,14 @@ msgstr ""
 #: src/components/organisms/MatchCardEdit.re.mjs:68
 #: src/components/organisms/MatchCard.re.mjs:442
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr ""
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
 msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:744
@@ -875,7 +977,7 @@ msgstr ""
 #~ msgid "This will"
 #~ msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:305
+#: src/components/molecules/DrawGenerator.re.mjs:315
 msgid "This will delete all future rounds and generate new matches"
 msgstr ""
 
@@ -891,11 +993,11 @@ msgstr ""
 msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
 msgstr ""
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:209
+#: src/components/molecules/SolverWeightsPanel.re.mjs:374
 msgid "Tight bands"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2263
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "to sync"
 msgstr ""
 
@@ -911,12 +1013,12 @@ msgstr ""
 msgid "Unsynced scores in those events"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Update Future Rounds"
 msgstr ""
 
-#: src/components/molecules/DrawGenerator.re.mjs:273
-#: src/components/molecules/DrawGenerator.re.mjs:293
+#: src/components/molecules/DrawGenerator.re.mjs:283
+#: src/components/molecules/DrawGenerator.re.mjs:303
 msgid "Update Rounds Below"
 msgstr ""
 

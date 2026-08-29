@@ -19,6 +19,7 @@ function DrawGenerator(props) {
   var __generatingLabel = props.generatingLabel;
   var __isGenerating = props.isGenerating;
   var onWeightConfigChange = props.onWeightConfigChange;
+  var __weightConfigIsCustom = props.weightConfigIsCustom;
   var weightConfig = props.weightConfig;
   var __futureRoundsHaveScores = props.futureRoundsHaveScores;
   var __highlight = props.highlight;
@@ -33,6 +34,7 @@ function DrawGenerator(props) {
   var isInitiallyExpanded = __isInitiallyExpanded !== undefined ? __isInitiallyExpanded : true;
   var highlight = __highlight !== undefined ? __highlight : false;
   var futureRoundsHaveScores = __futureRoundsHaveScores !== undefined ? __futureRoundsHaveScores : false;
+  var weightConfigIsCustom = __weightConfigIsCustom !== undefined ? __weightConfigIsCustom : false;
   var isGenerating = __isGenerating !== undefined ? __isGenerating : false;
   var generatingLabel = __generatingLabel !== undefined ? __generatingLabel : "";
   var allowSolverStrategies = __allowSolverStrategies !== undefined ? __allowSolverStrategies : true;
@@ -90,6 +92,11 @@ function DrawGenerator(props) {
         value: "SolverCompetitivePlus",
         label: t`Competitive+`,
         description: t`Optimised draws that prioritise evenly matched games within a skill band.`
+      },
+      {
+        value: "SolverAuto",
+        label: t`Auto`,
+        description: t`Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle.`
       }
     ] : [
       {
@@ -256,7 +263,10 @@ function DrawGenerator(props) {
                             })), null),
                   match$3 && weightConfig !== undefined && onWeightConfigChange !== undefined ? JsxRuntime.jsx(SolverWeightsPanel.make, {
                           config: weightConfig,
-                          onChange: onWeightConfigChange
+                          onChange: onWeightConfigChange,
+                          isCustom: weightConfigIsCustom,
+                          autoBlendT: props.autoBlendT,
+                          onReset: props.onWeightConfigReset
                         }) : null,
                   canGenerate ? null : JsxRuntime.jsx("div", {
                           children: t`Need ${minPlayersRequired.toString()} players for ${courtCount.toString()} ${courtText}. Currently ${checkedInPlayerCount.toString()} checked in.`,

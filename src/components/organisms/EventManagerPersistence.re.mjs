@@ -401,6 +401,8 @@ function strategyToString(strategy) {
         return "solver-random-balanced";
     case "SolverCompetitivePlus" :
         return "solver-competitive-plus";
+    case "SolverAuto" :
+        return "solver-auto";
     
   }
 }
@@ -419,6 +421,8 @@ function stringToStrategy(str) {
         return "Random";
     case "round-robin" :
         return "RoundRobin";
+    case "solver-auto" :
+        return "SolverAuto";
     case "solver-competitive" :
     case "solver-competitive-plus" :
         return "SolverCompetitivePlus";

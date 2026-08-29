@@ -6125,6 +6125,179 @@ msgstr "กำลังโหลดสมาชิก..."
 msgid "Owner"
 msgstr "เจ้าของ"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "ส่วนผสมใดก็ได้"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "อัตโนมัติ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event."
+msgstr "ระบบอัตโนมัติกำลังปรับค่าเหล่านี้อยู่ — หยุดค่าส่วนผสมปัจจุบันเพื่อปรับด้วยตนเอง ระบบอัตโนมัติจะหยุดปรับตัวสำหรับกิจกรรมนี้"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "สมดุล โดยให้คู่ใหม่ก่อน"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "ค่าความคลาดเคลื่อนของกลุ่มระดับ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "กลุ่มระดับแยกพร้อมกัน"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "กำลังปรับเทียบ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "ปรับแต่งจากนี้"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "กำหนดแน่นอน"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
+msgid "Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "แต่ละกลยุทธ์ใช้โปรไฟล์ที่ปรับแล้ว การปรับค่าใดก็ตามจะเปลี่ยนกิจกรรมนี้เป็นส่วนผสมแบบกำหนดเอง เวลาเล่นที่ยุติธรรมและการหมุนเวียนจะถูกบังคับใช้เสมอและไม่สามารถลดได้"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "การจับคู่ใหม่เป็นตัวกำหนดการแบ่งทีม โดยการแบ่งอาจไม่เท่ากัน"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "จัดกลุ่มตามทักษะ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "สม่ำเสมอที่สุดเสมอ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "ไม่มีการตั้งค่า"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "ปิด"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid "Ratings are {percent}% settled — the mix adjusts automatically as scores come in."
+msgstr "คะแนนตั้งแล้ว {percent}% — ส่วนผสมจะปรับอัตโนมัติเมื่อคะแนนเข้ามา"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "รีเซ็ตเป็นค่าตั้งต้น"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "หมุนกลุ่มระดับทักษะพร้อมกัน"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "สับเปลี่ยน"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "การจัดกลุ่มระดับทักษะ"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
+msgstr "เริ่มด้วยการจับคู่ที่หลากหลายและสมดุลเพื่อปรับเทียบคะแนน จากนั้นเปลี่ยนเป็นการแข่งขันตามกลุ่มทักษะเมื่อการจัดอันดับนิ่งแล้ว"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "การแบ่งทีม"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "การแบ่งที่สม่ำเสมอที่สุดโดยไม่ซ้ำคู่เดิม"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "การแบ่งที่สม่ำเสมอที่สุด แม้ว่าจะซ้ำคู่เดิม"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+msgid "{0}-second clip from the rolling buffer"
+msgstr "คลิปความยาว {0} วินาทีจากบัฟเฟอร์ต่อเนื่อง"
+
+#: src/components/organisms/Kiosk.re.mjs:741
+msgid "● BUFFER {0}s / {1}s"
+msgstr "● บัฟเฟอร์ {0}s / {1}s"
+
+#: src/components/organisms/Kiosk.re.mjs:593
+msgid "Camera {0}"
+msgstr "กล้อง {0}"
+
+#: src/components/organisms/Kiosk.re.mjs:519
+msgid "Camera source"
+msgstr "แหล่งสัญญาณกล้อง"
+
+#: src/components/organisms/Kiosk.re.mjs:540
+msgid "Choose which connected camera the kiosk uses. The change applies immediately, including to a running session."
+msgstr "เลือกกล้องที่เชื่อมต่อที่คีออสก์จะใช้ การเปลี่ยนแปลงมีผลทันที รวมถึงในระหว่างเซสชันที่กำลังดำเนินอยู่"
+
+#: src/components/organisms/Kiosk.re.mjs:742
+msgid "CLIPPING UNAVAILABLE"
+msgstr "ไม่สามารถคลิปได้"
+
+#: src/components/organisms/Kiosk.re.mjs:529
+msgid "Close settings"
+msgstr "ปิดการตั้งค่า"
+
+#: src/components/organisms/Kiosk.re.mjs:677
+msgid "COMING SOON"
+msgstr "เร็วๆ นี้"
+
+#: src/components/organisms/Kiosk.re.mjs:1794
+msgid "Could not create the clip — the buffer keeps recording"
+msgstr "ไม่สามารถสร้างคลิปได้ — บัฟเฟอร์กำลังบันทึกอยู่"
+
+#: src/components/organisms/Kiosk.re.mjs:515
+msgid "KIOSK SETTINGS"
+msgstr "การตั้งค่าคีออสก์"
+
+#: src/components/organisms/Kiosk.re.mjs:561
+msgid "Let the browser pick the default device"
+msgstr "ให้เบราว์เซอร์เลือกอุปกรณ์เริ่มต้น"
+
+#: src/components/organisms/Kiosk.re.mjs:639
+msgid "Local"
+msgstr "ภายในเครื่อง"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "no audio"
+msgstr "ไม่มีเสียง"
+
+#: src/components/organisms/Kiosk.re.mjs:616
+msgid "No cameras detected. Connect a camera or allow camera access, then reopen settings."
+msgstr "ไม่พบกล้อง กรุณาเชื่อมต่อกล้องหรืออนุญาตการเข้าถึงกล้อง แล้วเปิดการตั้งค่าใหม่อีกครั้ง"
+
+#: src/components/organisms/Kiosk.re.mjs:643
+msgid "On-device rolling buffer and clip processing"
+msgstr "บัฟเฟอร์แบบวนซ้ำและการประมวลผลคลิปบนอุปกรณ์"
+
+#: src/components/organisms/Kiosk.re.mjs:622
+msgid "PROCESSING MODE"
+msgstr "โหมดการประมวลผล"
+
+#: src/components/organisms/Kiosk.re.mjs:684
+msgid "Stream to the server for processing"
+msgstr "สตรีมไปยังเซิร์ฟเวอร์เพื่อประมวลผล"
+
+#: src/components/organisms/Kiosk.re.mjs:557
+msgid "System default camera"
+msgstr "กล้องเริ่มต้นของระบบ"
+
+#: src/components/organisms/Kiosk.re.mjs:675
+msgid "Thin client"
+msgstr "ไคลเอนต์แบบบาง"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

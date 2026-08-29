@@ -37,11 +37,39 @@ function emptyOutcome(matches) {
         };
 }
 
-function effectiveWeights(strategy, weightConfig) {
+function effectiveWeights(strategy, weightConfig, players, numCourts) {
+  var base = weightConfig !== undefined ? CostModel.weightsFromConfig(weightConfig) : (
+      strategy === "SolverAuto" ? CostModel.autoWeights(players) : CostModel.weightsForStrategy(strategy)
+    );
+  var mayUpgrade;
   if (weightConfig !== undefined) {
-    return CostModel.weightsFromConfig(weightConfig);
+    mayUpgrade = false;
   } else {
-    return CostModel.weightsForStrategy(strategy);
+    switch (strategy) {
+      case "SolverCompetitivePlus" :
+      case "SolverAuto" :
+          mayUpgrade = true;
+          break;
+      default:
+        mayUpgrade = false;
+    }
+  }
+  if (mayUpgrade && !base.splitBalanceFirst && SolverRound.splitBalanceIsFree(players.length, numCourts)) {
+    return {
+            wPartner: base.wPartner,
+            wOpponent: base.wOpponent,
+            wRepeatLast: base.wRepeatLast,
+            wRepeatGroup: base.wRepeatGroup,
+            balanceTeams: base.balanceTeams,
+            wSpread: base.wSpread,
+            wAlternate: base.wAlternate,
+            wNoise: base.wNoise,
+            splitBalanceFirst: true,
+            wCohort: base.wCohort,
+            spreadTolerance: base.spreadTolerance
+          };
+  } else {
+    return base;
   }
 }
 
@@ -85,9 +113,18 @@ async function generateRounds(numberOfRounds, availablePlayers, completedRounds,
   var seed = seedOpt !== undefined ? seedOpt : "round";
   var timeLimit = timeLimitOpt !== undefined ? timeLimitOpt : 1.0;
   if (Rating.isSolverStrategy(strategy)) {
-    var weights = effectiveWeights(strategy, weightConfig);
+    var weights = effectiveWeights(strategy, weightConfig, availablePlayers, courtCount);
     var courtOrder;
-    courtOrder = strategy === "SolverRandomBalanced" ? "ShuffledCourts" : "CourtsByLevel";
+    switch (strategy) {
+      case "SolverRandomBalanced" :
+          courtOrder = "ShuffledCourts";
+          break;
+      case "SolverAuto" :
+          courtOrder = CostModel.autoT(CostModel.readinessRatio(availablePlayers)) < 0.5 ? "ShuffledCourts" : "CourtsByLevel";
+          break;
+      default:
+        courtOrder = "CourtsByLevel";
+    }
     var highs = await HighsBindings.load();
     var outcomes = [];
     var fellBack = Core__Option.isNone(highs);

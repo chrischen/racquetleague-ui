@@ -6121,6 +6121,179 @@ msgstr "正在加载成员..."
 msgid "Owner"
 msgstr "所有者"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "任意组合均可"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "自动"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event."
+msgstr "自动正在调整这些值——冻结当前组合以手动调整。自动将停止为此赛事自适应。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "均衡，优先搭配新搭档"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "分组容差"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "分组同步轮换"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "校准中"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "从此处自定义"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "确定性"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
+msgid "Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "每种策略使用调优预设；调整任意值将使此赛事切换为自定义组合。公平上场时间和轮换始终强制执行，不可降低。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "以新鲜对阵决定分队方式；分队可能不均等"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "按技能分组"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "始终最均衡"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "无偏好"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "关闭"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid "Ratings are {percent}% settled — the mix adjusts automatically as scores come in."
+msgstr "评分已稳定 {percent}%——组合将随分数录入自动调整。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "重置为预设"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "技能分组同步轮换"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "随机打乱"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "技能分组"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
+msgstr "初期通过多样均衡的对阵校准评分，随着排名稳定逐步过渡到竞争性技能分组对战。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "分队方式"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "避免重复搭档的最均衡分队"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "最均衡分队，即使重复搭档"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+msgid "{0}-second clip from the rolling buffer"
+msgstr "来自滚动缓冲区的 {0} 秒片段"
+
+#: src/components/organisms/Kiosk.re.mjs:741
+msgid "● BUFFER {0}s / {1}s"
+msgstr "● 缓冲 {0}秒 / {1}秒"
+
+#: src/components/organisms/Kiosk.re.mjs:593
+msgid "Camera {0}"
+msgstr "摄像头 {0}"
+
+#: src/components/organisms/Kiosk.re.mjs:519
+msgid "Camera source"
+msgstr "摄像头来源"
+
+#: src/components/organisms/Kiosk.re.mjs:540
+msgid "Choose which connected camera the kiosk uses. The change applies immediately, including to a running session."
+msgstr "选择终端使用的已连接摄像头。更改立即生效，包括正在进行的会话。"
+
+#: src/components/organisms/Kiosk.re.mjs:742
+msgid "CLIPPING UNAVAILABLE"
+msgstr "剪辑不可用"
+
+#: src/components/organisms/Kiosk.re.mjs:529
+msgid "Close settings"
+msgstr "关闭设置"
+
+#: src/components/organisms/Kiosk.re.mjs:677
+msgid "COMING SOON"
+msgstr "即将推出"
+
+#: src/components/organisms/Kiosk.re.mjs:1794
+msgid "Could not create the clip — the buffer keeps recording"
+msgstr "无法创建片段 — 缓冲区持续录制中"
+
+#: src/components/organisms/Kiosk.re.mjs:515
+msgid "KIOSK SETTINGS"
+msgstr "信息亭设置"
+
+#: src/components/organisms/Kiosk.re.mjs:561
+msgid "Let the browser pick the default device"
+msgstr "让浏览器选择默认设备"
+
+#: src/components/organisms/Kiosk.re.mjs:639
+msgid "Local"
+msgstr "本地"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "no audio"
+msgstr "无音频"
+
+#: src/components/organisms/Kiosk.re.mjs:616
+msgid "No cameras detected. Connect a camera or allow camera access, then reopen settings."
+msgstr "未检测到摄像头。请连接摄像头或允许摄像头访问权限，然后重新打开设置。"
+
+#: src/components/organisms/Kiosk.re.mjs:643
+msgid "On-device rolling buffer and clip processing"
+msgstr "设备端滚动缓冲与片段处理"
+
+#: src/components/organisms/Kiosk.re.mjs:622
+msgid "PROCESSING MODE"
+msgstr "处理模式"
+
+#: src/components/organisms/Kiosk.re.mjs:684
+msgid "Stream to the server for processing"
+msgstr "流式传输至服务器进行处理"
+
+#: src/components/organisms/Kiosk.re.mjs:557
+msgid "System default camera"
+msgstr "系统默认摄像头"
+
+#: src/components/organisms/Kiosk.re.mjs:675
+msgid "Thin client"
+msgstr "瘦客户端"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

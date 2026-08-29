@@ -79,11 +79,11 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:2433
+#: src/components/organisms/EventManager.re.mjs:2439
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 轮"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:152
+#: src/components/molecules/SolverWeightsPanel.re.mjs:276
 msgid "Advanced"
 msgstr "高级"
 
@@ -95,15 +95,15 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
-#: src/components/organisms/EventManager.re.mjs:2267
+#: src/components/organisms/EventManager.re.mjs:2270
 msgid "all up to date"
 msgstr "全部已更新"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:241
+#: src/components/molecules/SolverWeightsPanel.re.mjs:469
 msgid "Alternate favourite/underdog roles"
 msgstr "交替强弱角色"
 
-#: src/components/organisms/EventManager.re.mjs:2539
+#: src/components/organisms/EventManager.re.mjs:2548
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -111,21 +111,44 @@ msgstr "反对队 {0}"
 msgid "Anti-Teams"
 msgstr "反对队"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:208
-msgid "Any mix"
-msgstr "任意混合"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "任意组合均可"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:227
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "自动"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid ""
+"Auto is adjusting these values — freeze the current mix to adjust them "
+"manually. Auto stops adapting for this event."
+msgstr "自动正在调整这些值——冻结当前组合以手动调整。自动将停止为此赛事自适应。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:450
 msgid "Avoid recent repeats"
 msgstr "避免近期重复对阵"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:212
-msgid "Balance teams"
-msgstr "平衡队伍"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "均衡，优先搭配新搭档"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Balances fresh partners against evenly matched games."
 msgstr "在新搭档与势均力敌的比赛之间取得平衡。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "分组容差"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "分组同步轮换"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "校准中"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
@@ -140,7 +163,7 @@ msgstr "取消"
 msgid "Changes aren't being saved"
 msgstr "更改未保存"
 
-#: src/components/molecules/DrawGenerator.re.mjs:108
+#: src/components/molecules/DrawGenerator.re.mjs:115
 msgid "Classic round-robin draws"
 msgstr "经典循环赛抽签"
 
@@ -156,12 +179,13 @@ msgstr "退出全屏"
 msgid "Close self check-in display"
 msgstr "关闭自助签到显示"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:97
+#: src/components/molecules/SolverWeightsPanel.re.mjs:226
+#: src/components/molecules/SolverWeightsPanel.re.mjs:246
+#: src/components/molecules/DrawGenerator.re.mjs:104
 msgid "Competitive"
 msgstr "竞技模式"
 
-#: src/components/molecules/DrawGenerator.re.mjs:91
+#: src/components/molecules/DrawGenerator.re.mjs:93
 msgid "Competitive+"
 msgstr "竞技+"
 
@@ -186,7 +210,7 @@ msgstr "球场 {0}"
 msgid "Court {0} - Editing"
 msgstr "场地 {0} - 编辑中"
 
-#: src/components/molecules/DrawGenerator.re.mjs:142
+#: src/components/molecules/DrawGenerator.re.mjs:149
 msgid "Courts:"
 msgstr "场地数："
 
@@ -214,15 +238,19 @@ msgstr "创建您的第一支队伍开始"
 msgid "Current Round:"
 msgstr "当前回合："
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:154
+#: src/components/molecules/SolverWeightsPanel.re.mjs:277
 msgid "Custom"
 msgstr "自定义"
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "从此处自定义"
+
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: ON"
 msgstr "调试：开启"
 
@@ -252,9 +280,13 @@ msgstr "删除队伍"
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "确定性"
+
 #: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2336
+#: src/components/organisms/EventManager.re.mjs:2342
 msgid "Dismiss"
 msgstr "关闭"
 
@@ -262,14 +294,14 @@ msgstr "关闭"
 msgid "Drag players in order of strongest to weakest."
 msgstr "按从强到弱的顺序拖动球员。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
 msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"Each strategy uses a tuned profile; adjusting any value switches this event "
 "to a custom mix. Fair play time and rotation are always enforced and can't "
 "be turned down."
 msgstr ""
-"每种策略使用预设配置；调整任意滑块将切换为自定义混合模式。上场时间公平性与轮"
-"换规则始终强制执行，不可降低。"
+"每种策略使用调优预设；调整任意值将使此赛事切换为自定义组合。公平上场时间和轮"
+"换始终强制执行，不可降低。"
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -303,7 +335,7 @@ msgstr "比分相同 — 将记录为平局"
 msgid "Event check-in"
 msgstr "活动签到"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:84
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -331,6 +363,10 @@ msgstr "备选方案：{0} 在混合轮中搭档，但队内无女性球员"
 msgid "Female"
 msgstr "女性"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:433
+msgid "Free"
+msgstr "免费"
+
 #: src/components/organisms/EventManager.re.mjs:526
 msgid "Free up space"
 msgstr "释放空间"
@@ -339,7 +375,11 @@ msgstr "释放空间"
 msgid "Free Up Space"
 msgstr "释放空间"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "以新鲜对阵决定分队方式；分队可能不均等"
+
+#: src/components/molecules/DrawGenerator.re.mjs:89
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -349,7 +389,7 @@ msgstr "每轮对阵新鲜多样，每场比赛按技术水平均衡分队。"
 msgid "Full Screen View"
 msgstr "全屏查看"
 
-#: src/components/molecules/DrawGenerator.re.mjs:282
+#: src/components/molecules/DrawGenerator.re.mjs:292
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -359,22 +399,26 @@ msgstr "未来轮次已输入分数。重新生成将会删除这些分数。您
 msgid "Gender"
 msgstr "性别"
 
-#: src/components/molecules/DrawGenerator.re.mjs:238
+#: src/components/molecules/DrawGenerator.re.mjs:245
 msgid "Generate"
 msgstr "生成"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Generate Draws"
 msgstr "生成对战表"
 
-#: src/components/molecules/DrawGenerator.re.mjs:363
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/molecules/DrawGenerator.re.mjs:373
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Generating…"
 msgstr "生成中……"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
 msgstr "全球评分"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "按技能分组"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -384,7 +428,7 @@ msgstr "访客姓名（每行一个）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "扫描遇到问题？请尝试从俱乐部页面查找活动。"
 
-#: src/components/organisms/EventManager.re.mjs:2740
+#: src/components/organisms/EventManager.re.mjs:2749
 msgid "Help"
 msgstr "帮助"
 
@@ -421,7 +465,7 @@ msgstr "男性"
 msgid "match"
 msgstr "场比赛"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:131
+#: src/components/molecules/SolverWeightsPanel.re.mjs:265
 msgid "Match style"
 msgstr "比赛模式"
 
@@ -430,13 +474,17 @@ msgstr "比赛模式"
 msgid "matches"
 msgstr "场比赛"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:134
+#: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
 msgstr "混合球员"
 
-#: src/components/molecules/DrawGenerator.re.mjs:102
+#: src/components/molecules/DrawGenerator.re.mjs:109
 msgid "Mixed"
 msgstr "混合"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "始终最均衡"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -446,7 +494,7 @@ msgstr "μ"
 msgid "Name"
 msgstr "名字"
 
-#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:272
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr "{1} 个{courtText}需要 {0} 名球员。目前已报到 {2} 人。"
 
@@ -454,7 +502,7 @@ msgstr "{1} 个{courtText}需要 {0} 名球员。目前已报到 {2} 人。"
 msgid "New Anti-Team"
 msgstr "新反对队"
 
-#: src/components/molecules/DrawGenerator.re.mjs:215
+#: src/components/molecules/DrawGenerator.re.mjs:222
 msgid "New seed — deals different matches"
 msgstr "新随机种子——生成不同对阵"
 
@@ -474,6 +522,10 @@ msgstr "没有可用的球员"
 msgid "No draws generated yet."
 msgstr "尚未生成对阵表。"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "无偏好"
+
 #: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "无比分"
@@ -490,20 +542,24 @@ msgstr "未支付"
 msgid "Not saved"
 msgstr "未保存"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "关闭"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "打开手机摄像头，扫描此二维码，加入活动。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:182
+#: src/components/molecules/SolverWeightsPanel.re.mjs:318
 msgid "Opponent variety"
 msgstr "对手多样性"
 
-#: src/components/molecules/DrawGenerator.re.mjs:92
+#: src/components/molecules/DrawGenerator.re.mjs:94
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "在同一技术段内优先安排势均力敌比赛的优化排列。"
 
-#: src/components/organisms/EventManager.re.mjs:2332
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "优化器不可用——本次排列已使用标准配对方式。"
 
@@ -515,7 +571,7 @@ msgstr "此设备上的其他赛事"
 msgid "Paid"
 msgstr "已支付"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:168
+#: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr "搭档多样性"
 
@@ -544,13 +600,13 @@ msgstr ""
 msgid "Players start on their global rating across all clubs."
 msgstr "球员从其跨所有俱乐部的全球评分开始。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:98
+#: src/components/molecules/DrawGenerator.re.mjs:105
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
 msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Preparing optimizer…"
 msgstr "正在准备优化器……"
 
@@ -566,7 +622,7 @@ msgstr "上一回合"
 msgid "Print"
 msgstr "打印"
 
-#: src/components/organisms/EventManager.re.mjs:2234
+#: src/components/organisms/EventManager.re.mjs:2237
 msgid "Print Draws"
 msgstr "打印对阵表"
 
@@ -574,17 +630,27 @@ msgstr "打印对阵表"
 msgid "Print Preview"
 msgstr "打印预览"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Prioritises evenly matched games over fresh partners."
 msgstr "优先安排实力均衡的比赛，而非新搭档组合。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:138
+#: src/components/molecules/SolverWeightsPanel.re.mjs:249
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "优先安排新搭档与新对手，而非实力均衡的比赛。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:86
+#: src/components/molecules/SolverWeightsPanel.re.mjs:505
+msgid "Random"
+msgstr "随机"
+
+#: src/components/molecules/DrawGenerator.re.mjs:88
 msgid "Random Balanced"
 msgstr "随机均衡"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid ""
+"Ratings are {percent}% settled — the mix adjusts automatically as scores "
+"come in."
+msgstr "评分已稳定 {percent}%——组合将随分数录入自动调整。"
 
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
@@ -594,7 +660,7 @@ msgstr "重新平衡比赛"
 msgid "Rebalance this round with current players"
 msgstr "用当前球员重新平衡这个回合"
 
-#: src/components/molecules/DrawGenerator.re.mjs:281
+#: src/components/molecules/DrawGenerator.re.mjs:291
 msgid "Regenerate Rounds?"
 msgstr "重新生成轮次？"
 
@@ -610,7 +676,7 @@ msgstr "替换球员"
 msgid "Replacing:"
 msgstr "替换："
 
-#: src/components/organisms/EventManager.re.mjs:2723
+#: src/components/organisms/EventManager.re.mjs:2732
 msgid "Reset Storage"
 msgstr "重置存储"
 
@@ -622,13 +688,17 @@ msgstr "用所有已报到的球员重置这个回合"
 msgid "Reset this round with mixed gender pairs"
 msgstr "使用混合性别配对重置此轮"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:255
-msgid "Reset to slider"
-msgstr "重置为滑块"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "重置为预设"
 
 #: src/components/organisms/EventManager.re.mjs:538
 msgid "Retry"
 msgstr "重试"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "技能分组同步轮换"
 
 #: src/components/organisms/RoundSection.re.mjs:523
 #: src/components/organisms/RoundSection.re.mjs:650
@@ -637,15 +707,15 @@ msgstr "重试"
 msgid "Round {0}"
 msgstr "第 {0} 回合"
 
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:83
 msgid "Round Robin"
 msgstr "循环赛"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:114
 msgid "Round-Robin"
 msgstr "循环赛"
 
-#: src/components/molecules/DrawGenerator.re.mjs:103
+#: src/components/molecules/DrawGenerator.re.mjs:110
 msgid "Round-Robin with teams balanced by skill."
 msgstr "技能平衡队伍的循环赛。"
 
@@ -685,11 +755,11 @@ msgstr "保存中…"
 msgid "Scan to check in"
 msgstr "扫码签到"
 
-#: src/components/organisms/EventManager.re.mjs:2189
+#: src/components/organisms/EventManager.re.mjs:2192
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
-#: src/components/molecules/DrawGenerator.re.mjs:203
+#: src/components/molecules/DrawGenerator.re.mjs:210
 msgid "Seed:"
 msgstr "种子："
 
@@ -705,9 +775,13 @@ msgstr "种子已调整"
 msgid "SERVING"
 msgstr "发球中"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:196
-msgid "Similar-skill matches"
-msgstr "相近水平匹配"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "随机打乱"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "技能分组"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:174
 msgid "Skill: {0}"
@@ -717,44 +791,47 @@ msgstr "技能：{0}"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "为填满场地，部分规则已作灵活处理"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:224
-msgid "Split each match into its most even teams"
-msgstr "将每场比赛分为最均衡的两队"
-
-#: src/components/organisms/EventManager.re.mjs:2706
+#: src/components/organisms/EventManager.re.mjs:2715
 msgid "Sports Event Draws"
 msgstr "体育赛事签表"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid ""
+"Starts with varied, balanced matchups to calibrate ratings, then shifts to "
+"competitive skill-banded play as rankings settle."
+msgstr ""
+"初期通过多样均衡的对阵校准评分，随着排名稳定逐步过渡到竞争性技能分组对战。"
 
 #: src/components/organisms/EventManager.re.mjs:251
 msgid "Storage Almost Full"
 msgstr "存储空间即将满"
 
-#: src/components/molecules/DrawGenerator.re.mjs:366
+#: src/components/molecules/DrawGenerator.re.mjs:376
 msgid "strategy"
 msgstr "策略"
 
-#: src/components/molecules/DrawGenerator.re.mjs:178
+#: src/components/molecules/DrawGenerator.re.mjs:185
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:2201
+#: src/components/organisms/EventManager.re.mjs:2204
 msgid "Sync Failed"
 msgstr "同步失败"
 
-#: src/components/organisms/EventManager.re.mjs:2165
+#: src/components/organisms/EventManager.re.mjs:2168
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:2261
+#: src/components/organisms/EventManager.re.mjs:2264
 msgid "synced"
 msgstr "已同步"
 
-#: src/components/organisms/EventManager.re.mjs:2177
+#: src/components/organisms/EventManager.re.mjs:2180
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2096
+#: src/components/organisms/EventManager.re.mjs:2099
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -778,6 +855,10 @@ msgstr "队伍成员（{0}人）"
 msgid "Team Name"
 msgstr "队伍名称"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "分队方式"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:326
 msgid "Teams"
 msgstr "队伍"
@@ -788,6 +869,14 @@ msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
 msgstr "该比赛将从此轮次中删除。您可以使用轮次重置图标恢复原定比赛。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "避免重复搭档的最均衡分队"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "最均衡分队，即使重复搭档"
 
 #: src/components/organisms/EventManager.re.mjs:744
 msgid "this club"
@@ -802,7 +891,7 @@ msgstr ""
 "这将删除此设备上所有赛事的已保存数据，包括当前赛事。已同步到服务器的赛事可以"
 "重新打开；未同步的内容将无法恢复。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:305
+#: src/components/molecules/DrawGenerator.re.mjs:315
 msgid "This will delete all future rounds and generate new matches"
 msgstr "这将删除所有未来回合并生成新比赛"
 
@@ -820,11 +909,11 @@ msgstr ""
 "这些比分尚未上传到服务器。请在删除前同步此赛事，并逐一打开其他赛事进行同步，"
 "否则数据将丢失。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:209
+#: src/components/molecules/SolverWeightsPanel.re.mjs:374
 msgid "Tight bands"
 msgstr "紧密分组"
 
-#: src/components/organisms/EventManager.re.mjs:2263
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "to sync"
 msgstr "待同步"
 
@@ -840,12 +929,12 @@ msgstr "此赛事中未同步的比分"
 msgid "Unsynced scores in those events"
 msgstr "这些赛事中未同步的比分"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Update Future Rounds"
 msgstr "更新未来回合"
 
-#: src/components/molecules/DrawGenerator.re.mjs:273
-#: src/components/molecules/DrawGenerator.re.mjs:293
+#: src/components/molecules/DrawGenerator.re.mjs:283
+#: src/components/molecules/DrawGenerator.re.mjs:303
 msgid "Update Rounds Below"
 msgstr "更新以下回合"
 
@@ -905,9 +994,17 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr "并为 {0} 名球员生成新比赛"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:208
+#~ msgid "Any mix"
+#~ msgstr "任意混合"
+
 #: src/components/organisms/EventManager.re.mjs:824
 #~ msgid "Available Courts:"
 #~ msgstr "可用场地数："
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:212
+#~ msgid "Balance teams"
+#~ msgstr "平衡队伍"
 
 #: src/components/molecules/DrawGenerator.re.mjs:192
 #~ msgid "Beta"
@@ -929,6 +1026,15 @@ msgstr ""
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
 #~ msgid "Drag players to reorder their initial seeding"
 #~ msgstr "拖动球员以重新排序他们的初始种子"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#~ msgid ""
+#~ "Each strategy uses a tuned profile; adjusting any slider switches this "
+#~ "event to a custom mix. Fair play time and rotation are always enforced "
+#~ "and can't be turned down."
+#~ msgstr ""
+#~ "每种策略使用预设配置；调整任意滑块将切换为自定义混合模式。上场时间公平性与"
+#~ "轮换规则始终强制执行，不可降低。"
 
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
@@ -967,10 +1073,6 @@ msgstr ""
 #~ "Players will be divided into similar skill level groups that round-robin."
 #~ msgstr "球员将按相似的技能水平分组进行循环赛。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr "随机"
-
 #: src/components/molecules/DrawGenerator.re.mjs:62
 #~ msgid "Replace Future Rounds"
 #~ msgstr "替换未来回合"
@@ -978,6 +1080,10 @@ msgstr ""
 #: src/components/molecules/DrawGenerator.re.mjs:162
 #~ msgid "Replace Rounds Below"
 #~ msgstr "替换以下回合"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:255
+#~ msgid "Reset to slider"
+#~ msgstr "重置为滑块"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:184
 #: src/components/organisms/MatchCardEdit.re.mjs:221
@@ -993,6 +1099,14 @@ msgstr ""
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0} 位球员"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:196
+#~ msgid "Similar-skill matches"
+#~ msgstr "相近水平匹配"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:224
+#~ msgid "Split each match into its most even teams"
+#~ msgstr "将每场比赛分为最均衡的两队"
 
 #: src/components/organisms/EventManager.re.mjs:208
 #, fuzzy

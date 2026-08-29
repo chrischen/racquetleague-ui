@@ -331,11 +331,47 @@ type pricedMatch<'a> = {
 //     strongest together" is almost never a foursome's most balanced split, so
 //     a balance-first filter makes such partnerships permanently unreachable —
 //     variety starves and round-robin repeats while fresh pairs remain
-//     (measured: 23 of 28 pairs on a rated 8-player whist). Balance yields to
+//     (measured: 22 of 28 pairs on a rated 8-player whist). Balance yields to
 //     variety and then breaks ties, which is also the literal reading of
 //     "random matchups with maximum variety, each match balanced". For
 //     Competitive+ it means each band round-robins internally before pairs
 //     repeat — matching that strategy's own description.
+//
+// ...but only where that starvation is real. The conflict — a foursome whose
+// most even split repeats a partnership while a fresher split does not —
+// needs the pool to be short of alternative foursomes. Measured coverage cost
+// of balance-first over a whist-bound session (distinct partnerships lost, as
+// a fraction of all possible pairs), against the blowout rate it buys:
+//
+//     8p / 2ct   21.4%   (28 -> 22 pairs)   blowouts 7% -> 2%
+//    12p / 3ct    7.6%   (64 -> 59)         blowouts 17% -> 10%
+//    16p / 4ct    5.0%   (120 -> 114)       blowouts 19% -> 10%
+//    20p / 5ct    2.6%   (188 -> 183)       blowouts 25% -> 12%
+//    12p / 2ct    1.5%   (44 -> 43)         blowouts 14% -> 5%
+//    16p / 3ct    1.7%   (90 -> 88)         blowouts 19% -> 10%
+//
+// The cost falls as the pool gains freedom, because with more candidate
+// foursomes the solver can find one whose most even split is *also* fresh, and
+// the two policies stop disagreeing. So the more even split can be taken for
+// free in a roomy pool, roughly halving the blowout rate at club sizes.
+//
+// 12p/3ct is deliberately left on the novelty-first side: 7.6% of a
+// round-robin's rotation promise is too much to trade, and exact-fill sessions
+// at that size do reach the whist bound in an evening.
+//
+// WHO may use this is decided in `SolverRounds.effectiveWeights`, not here,
+// and Round Robin is deliberately excluded. Measured: upgrading RR to
+// balance-first cut its blowouts (23% -> 16%) but destroyed its recovery from
+// an inverted ladder (rho +0.87 -> +0.35 at r30). Those are the same physical
+// quantity — an unbalanced split is both the blowout a player feels and the
+// only evidence that reaches rating-aligned error — so RR's blowout rate is
+// load-bearing: it is what makes it the documented remedy and the best final
+// convergence. Only the modes already documented as trapped (Competitive+,
+// and Auto once it has blended to them) can spend that leak for quality,
+// because they have already given it up.
+let splitBalanceIsFree = (~numPlayers: int, ~numCourts: int): bool =>
+  numPlayers >= 16 || numPlayers > numCourts * 4
+
 let filterToBalancedSplits = (
   priced: array<pricedMatch<'a>>,
   ~history: CostModel.history,
@@ -527,6 +563,7 @@ let prepare = (
       // Pass 1.5: with team balancing on, each foursome is reduced to its most
       // balanced split before anything else sees the candidates — including
       // the shortlist and the tier derivation below.
+      //
       let priced = weights.balanceTeams
         ? filterToBalancedSplits(priced, ~history, ~balanceFirst=weights.splitBalanceFirst)
         : priced

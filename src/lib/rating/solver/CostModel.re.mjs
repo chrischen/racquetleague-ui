@@ -73,51 +73,148 @@ function weightsFromConfig(config) {
             wRepeatLast: logScale(a.avoidRecentRepeats),
             wRepeatGroup: Math.round(logScale(a.partnerVariety) * 0.6),
             balanceTeams: a.balanceTeams,
-            wSpread: spreadWeightFor(a.similarSkill),
+            wSpread: spreadWeightFor(a.bandStrength),
             wAlternate: Math.round(1000 * clamp01(a.alternateFavored)),
-            wNoise: 0,
-            splitBalanceFirst: false,
-            wCohort: 0,
-            spreadTolerance: spreadToleranceFor(a.similarSkill)
+            wNoise: Math.round(1000 * clamp01(a.shakeUp)),
+            splitBalanceFirst: a.balanceTeams && a.splitBalanceFirst,
+            wCohort: Math.round(600 * clamp01(a.cohortRotation)),
+            spreadTolerance: 0.9 * clamp01(a.bandTolerance)
           };
   } else {
     return derived;
   }
 }
 
-function advancedFromPrimary(qualityVsVariety) {
-  var derived = weightsFromConfig({
-        qualityVsVariety: qualityVsVariety,
-        advanced: undefined
-      });
+function advancedFromWeights(w) {
   return {
-          partnerVariety: logScaleInverse(derived.wPartner),
-          opponentVariety: logScaleInverse(derived.wOpponent),
-          similarSkill: clamp01(qualityVsVariety),
-          balanceTeams: derived.balanceTeams,
-          avoidRecentRepeats: logScaleInverse(derived.wRepeatLast),
-          alternateFavored: derived.wAlternate / 1000
+          partnerVariety: logScaleInverse(w.wPartner),
+          opponentVariety: logScaleInverse(w.wOpponent),
+          avoidRecentRepeats: logScaleInverse(w.wRepeatLast),
+          bandStrength: w.wSpread / 1000,
+          bandTolerance: w.spreadTolerance / 0.9,
+          balanceTeams: w.balanceTeams,
+          splitBalanceFirst: w.splitBalanceFirst,
+          alternateFavored: w.wAlternate / 1000,
+          shakeUp: w.wNoise / 1000,
+          cohortRotation: w.wCohort / 600
         };
 }
 
+function advancedFromPrimary(qualityVsVariety) {
+  return advancedFromWeights(weightsFromConfig({
+                  qualityVsVariety: qualityVsVariety,
+                  advanced: undefined
+                }));
+}
+
+var noveltyAdvancedBase_opponentVariety = logScaleInverse(500);
+
+var noveltyAdvancedBase_avoidRecentRepeats = logScaleInverse(500);
+
+var noveltyAdvancedBase_bandStrength = 50 / 1000;
+
+var noveltyAdvancedBase = {
+  partnerVariety: 1.0,
+  opponentVariety: noveltyAdvancedBase_opponentVariety,
+  avoidRecentRepeats: noveltyAdvancedBase_avoidRecentRepeats,
+  bandStrength: noveltyAdvancedBase_bandStrength,
+  bandTolerance: 1.0,
+  balanceTeams: true,
+  splitBalanceFirst: false,
+  alternateFavored: 0.1,
+  shakeUp: 0,
+  cohortRotation: 0
+};
+
+var roundRobinConfig_advanced = {
+  partnerVariety: 1.0,
+  opponentVariety: noveltyAdvancedBase_opponentVariety,
+  avoidRecentRepeats: noveltyAdvancedBase_avoidRecentRepeats,
+  bandStrength: 0.14,
+  bandTolerance: 0.25 / 0.9,
+  balanceTeams: true,
+  splitBalanceFirst: false,
+  alternateFavored: 0.1,
+  shakeUp: 0,
+  cohortRotation: 0
+};
+
+var roundRobinConfig = {
+  qualityVsVariety: 0.15,
+  advanced: roundRobinConfig_advanced
+};
+
+var randomBalancedConfig_advanced = {
+  partnerVariety: 1.0,
+  opponentVariety: noveltyAdvancedBase_opponentVariety,
+  avoidRecentRepeats: noveltyAdvancedBase_avoidRecentRepeats,
+  bandStrength: noveltyAdvancedBase_bandStrength,
+  bandTolerance: 1.0,
+  balanceTeams: true,
+  splitBalanceFirst: true,
+  alternateFavored: 0,
+  shakeUp: 0.05,
+  cohortRotation: 0
+};
+
+var randomBalancedConfig = {
+  qualityVsVariety: 0.0,
+  advanced: randomBalancedConfig_advanced
+};
+
+var competitivePlusConfig = {
+  qualityVsVariety: 0.85,
+  advanced: {
+    partnerVariety: 0.15,
+    opponentVariety: 0,
+    avoidRecentRepeats: 0,
+    bandStrength: 0.85,
+    bandTolerance: 0.15,
+    balanceTeams: true,
+    splitBalanceFirst: false,
+    alternateFavored: 0.1,
+    shakeUp: 0,
+    cohortRotation: 1.0
+  }
+};
+
+var calibrateConfig_advanced = {
+  partnerVariety: 1.0,
+  opponentVariety: noveltyAdvancedBase_opponentVariety,
+  avoidRecentRepeats: noveltyAdvancedBase_avoidRecentRepeats,
+  bandStrength: 0.14,
+  bandTolerance: 0.25 / 0.9,
+  balanceTeams: true,
+  splitBalanceFirst: true,
+  alternateFavored: 0.1,
+  shakeUp: 0.05,
+  cohortRotation: 0
+};
+
+var calibrateConfig = {
+  qualityVsVariety: 0.15,
+  advanced: calibrateConfig_advanced
+};
+
 function presetConfig(strategy) {
   switch (strategy) {
-    case "Mixed" :
-    case "DUPR" :
-        return {
-                qualityVsVariety: 0.5,
-                advanced: undefined
-              };
-    case "SolverRandomBalanced" :
-        return {
-                qualityVsVariety: 0.0,
-                advanced: undefined
-              };
     case "CompetitivePlus" :
     case "Competitive" :
-    case "SolverCompetitivePlus" :
         return {
                 qualityVsVariety: 0.85,
+                advanced: undefined
+              };
+    case "SolverRoundRobin" :
+        return roundRobinConfig;
+    case "SolverRandomBalanced" :
+        return randomBalancedConfig;
+    case "SolverCompetitivePlus" :
+        return competitivePlusConfig;
+    case "Mixed" :
+    case "DUPR" :
+    case "SolverAuto" :
+        return {
+                qualityVsVariety: 0.5,
                 advanced: undefined
               };
     default:
@@ -144,86 +241,63 @@ var randomWeights = {
   spreadTolerance: randomWeights_spreadTolerance
 };
 
-var noveltyFirstBase = {
-  wPartner: 1000,
-  wOpponent: 500,
-  wRepeatLast: 500,
-  wRepeatGroup: 600,
-  balanceTeams: true,
-  wSpread: 50,
-  wAlternate: 100,
-  wNoise: 0,
-  splitBalanceFirst: false,
-  wCohort: 0,
-  spreadTolerance: 0.9
-};
+var roundRobinWeights = weightsFromConfig(roundRobinConfig);
 
-var roundRobinWeights = {
-  wPartner: 1000,
-  wOpponent: 500,
-  wRepeatLast: 500,
-  wRepeatGroup: 600,
-  balanceTeams: true,
-  wSpread: 140,
-  wAlternate: 100,
-  wNoise: 0,
-  splitBalanceFirst: false,
-  wCohort: 0,
-  spreadTolerance: 0.25
-};
+var randomBalancedWeights = weightsFromConfig(randomBalancedConfig);
 
-var randomBalancedWeights = {
-  wPartner: 1000,
-  wOpponent: 500,
-  wRepeatLast: 500,
-  wRepeatGroup: 600,
-  balanceTeams: true,
-  wSpread: 50,
-  wAlternate: 0,
-  wNoise: 50,
-  splitBalanceFirst: true,
-  wCohort: 0,
-  spreadTolerance: 0.9
-};
+var competitivePlusWeights = weightsFromConfig(competitivePlusConfig);
 
-var init = weightsFromConfig({
-      qualityVsVariety: 0.85,
-      advanced: undefined
-    });
+var calibrateWeights = weightsFromConfig(calibrateConfig);
 
-var competitivePlusWeights_wPartner = init.wPartner;
+function readinessRatio(players) {
+  var n = players.length;
+  if (n < 2) {
+    return 0;
+  }
+  var meanMu = Core__Array.reduce(players, 0, (function (acc, p) {
+          return acc + p.rating.mu;
+        })) / n;
+  var variance = Core__Array.reduce(players, 0, (function (acc, p) {
+          var d = p.rating.mu - meanMu;
+          return acc + d * d;
+        })) / n;
+  var meanSigma = Core__Array.reduce(players, 0, (function (acc, p) {
+          return acc + p.rating.sigma;
+        })) / n;
+  if (meanSigma <= 0) {
+    return 1;
+  } else {
+    return Math.sqrt(variance) / meanSigma;
+  }
+}
 
-var competitivePlusWeights_wOpponent = init.wOpponent;
+function autoT(ratio) {
+  return clamp01((ratio - 0.30) / (0.75 - 0.30));
+}
 
-var competitivePlusWeights_wRepeatLast = init.wRepeatLast;
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
 
-var competitivePlusWeights_wRepeatGroup = init.wRepeatGroup;
+function autoWeightsAt(t) {
+  return {
+          wPartner: lerp(calibrateWeights.wPartner, competitivePlusWeights.wPartner, t),
+          wOpponent: lerp(calibrateWeights.wOpponent, competitivePlusWeights.wOpponent, t),
+          wRepeatLast: lerp(calibrateWeights.wRepeatLast, competitivePlusWeights.wRepeatLast, t),
+          wRepeatGroup: lerp(calibrateWeights.wRepeatGroup, competitivePlusWeights.wRepeatGroup, t),
+          balanceTeams: true,
+          wSpread: lerp(calibrateWeights.wSpread, competitivePlusWeights.wSpread, t),
+          wAlternate: lerp(calibrateWeights.wAlternate, competitivePlusWeights.wAlternate, t),
+          wNoise: lerp(calibrateWeights.wNoise, competitivePlusWeights.wNoise, t),
+          splitBalanceFirst: t < 0.5,
+          wCohort: lerp(calibrateWeights.wCohort, competitivePlusWeights.wCohort, t),
+          spreadTolerance: lerp(calibrateWeights.spreadTolerance, competitivePlusWeights.spreadTolerance, t)
+        };
+}
 
-var competitivePlusWeights_balanceTeams = init.balanceTeams;
-
-var competitivePlusWeights_wSpread = init.wSpread;
-
-var competitivePlusWeights_wAlternate = init.wAlternate;
-
-var competitivePlusWeights_wNoise = init.wNoise;
-
-var competitivePlusWeights_splitBalanceFirst = init.splitBalanceFirst;
-
-var competitivePlusWeights_spreadTolerance = init.spreadTolerance;
-
-var competitivePlusWeights = {
-  wPartner: competitivePlusWeights_wPartner,
-  wOpponent: competitivePlusWeights_wOpponent,
-  wRepeatLast: competitivePlusWeights_wRepeatLast,
-  wRepeatGroup: competitivePlusWeights_wRepeatGroup,
-  balanceTeams: competitivePlusWeights_balanceTeams,
-  wSpread: competitivePlusWeights_wSpread,
-  wAlternate: competitivePlusWeights_wAlternate,
-  wNoise: competitivePlusWeights_wNoise,
-  splitBalanceFirst: competitivePlusWeights_splitBalanceFirst,
-  wCohort: 600,
-  spreadTolerance: competitivePlusWeights_spreadTolerance
-};
+function autoWeights(players) {
+  return autoWeightsAt(autoT(readinessRatio(players)));
+}
 
 function weightsForStrategy(strategy) {
   switch (strategy) {
@@ -235,6 +309,8 @@ function weightsForStrategy(strategy) {
         return randomBalancedWeights;
     case "SolverCompetitivePlus" :
         return competitivePlusWeights;
+    case "SolverAuto" :
+        return calibrateWeights;
     default:
       return weightsFromConfig(presetConfig(strategy));
   }
@@ -244,10 +320,14 @@ function advancedToJson(a) {
   var d = {};
   d["partnerVariety"] = a.partnerVariety;
   d["opponentVariety"] = a.opponentVariety;
-  d["similarSkill"] = a.similarSkill;
-  d["balanceTeams"] = a.balanceTeams;
   d["avoidRecentRepeats"] = a.avoidRecentRepeats;
+  d["bandStrength"] = a.bandStrength;
+  d["bandTolerance"] = a.bandTolerance;
+  d["balanceTeams"] = a.balanceTeams;
+  d["splitBalanceFirst"] = a.splitBalanceFirst;
   d["alternateFavored"] = a.alternateFavored;
+  d["shakeUp"] = a.shakeUp;
+  d["cohortRotation"] = a.cohortRotation;
   return d;
 }
 
@@ -256,20 +336,27 @@ function advancedFromJson(json) {
                 var num = function (key, fallback) {
                   return Core__Option.getOr(Core__Option.flatMap(Js_dict.get(d, key), Js_json.decodeNumber), fallback);
                 };
-                var legacySkillBalance = num("skillBalance", 0.5);
+                var bool = function (key, fallback) {
+                  return Core__Option.getOr(Core__Option.flatMap(Js_dict.get(d, key), Js_json.decodeBoolean), fallback);
+                };
                 return {
                         partnerVariety: num("partnerVariety", 0.5),
                         opponentVariety: num("opponentVariety", 0.5),
-                        similarSkill: num("similarSkill", legacySkillBalance),
-                        balanceTeams: Core__Option.getOr(Core__Option.flatMap(Js_dict.get(d, "balanceTeams"), Js_json.decodeBoolean), legacySkillBalance >= 0.2),
                         avoidRecentRepeats: num("avoidRecentRepeats", 0.5),
-                        alternateFavored: num("alternateFavored", 0.1)
+                        bandStrength: num("bandStrength", 0.5),
+                        bandTolerance: num("bandTolerance", 0.5),
+                        balanceTeams: bool("balanceTeams", true),
+                        splitBalanceFirst: bool("splitBalanceFirst", false),
+                        alternateFavored: num("alternateFavored", 0.1),
+                        shakeUp: num("shakeUp", 0),
+                        cohortRotation: num("cohortRotation", 0)
                       };
               }));
 }
 
 function configToJson(config) {
   var d = {};
+  d["v"] = 2;
   d["qualityVsVariety"] = config.qualityVsVariety;
   var a = config.advanced;
   if (a !== undefined) {
@@ -280,12 +367,18 @@ function configToJson(config) {
 
 function configFromJson(json) {
   return Core__Option.flatMap(Js_json.decodeObject(json), (function (d) {
-                return Core__Option.map(Core__Option.flatMap(Js_dict.get(d, "qualityVsVariety"), Js_json.decodeNumber), (function (qualityVsVariety) {
-                              return {
-                                      qualityVsVariety: qualityVsVariety,
-                                      advanced: Core__Option.flatMap(Js_dict.get(d, "advanced"), advancedFromJson)
-                                    };
-                            }));
+                var isCurrent = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(Js_dict.get(d, "v"), Js_json.decodeNumber), (function (v) {
+                            return v === 2;
+                          })), false);
+                if (isCurrent) {
+                  return Core__Option.map(Core__Option.flatMap(Js_dict.get(d, "qualityVsVariety"), Js_json.decodeNumber), (function (qualityVsVariety) {
+                                return {
+                                        qualityVsVariety: qualityVsVariety,
+                                        advanced: Core__Option.flatMap(Js_dict.get(d, "advanced"), advancedFromJson)
+                                      };
+                              }));
+                }
+                
               }));
 }
 
@@ -636,6 +729,12 @@ var minSpreadWeight = 50;
 
 var defaultAlternateWeight = 100;
 
+var autoRatioFloor = 0.30;
+
+var autoRatioCeiling = 0.75;
+
+var configVersion = 2;
+
 var evenZ = 0.1256613;
 
 var repeatFloor = 0.4;
@@ -667,14 +766,28 @@ export {
   spreadToleranceFor ,
   spreadWeightFor ,
   weightsFromConfig ,
+  advancedFromWeights ,
   advancedFromPrimary ,
+  noveltyAdvancedBase ,
+  roundRobinConfig ,
+  randomBalancedConfig ,
+  competitivePlusConfig ,
+  calibrateConfig ,
   presetConfig ,
   randomWeights ,
-  noveltyFirstBase ,
   roundRobinWeights ,
   randomBalancedWeights ,
   competitivePlusWeights ,
+  calibrateWeights ,
+  readinessRatio ,
+  autoRatioFloor ,
+  autoRatioCeiling ,
+  autoT ,
+  lerp ,
+  autoWeightsAt ,
+  autoWeights ,
   weightsForStrategy ,
+  configVersion ,
   advancedToJson ,
   advancedFromJson ,
   configToJson ,
@@ -702,4 +815,4 @@ export {
   byeStreakScale ,
   playerBenefit ,
 }
-/* randomWeights Not a pure module */
+/* noveltyAdvancedBase Not a pure module */

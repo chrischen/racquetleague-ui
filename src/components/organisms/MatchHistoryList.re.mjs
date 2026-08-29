@@ -329,7 +329,6 @@ function MatchHistoryList$Match(props) {
                                         }));
                           }));
             })));
-  var isLoss = !userInWinners;
   var match$1 = Core__Option.getOr(Core__Option.flatMap(match.score, (function (s) {
               if (s.length !== 2) {
                 return ;
@@ -346,6 +345,9 @@ function MatchHistoryList$Match(props) {
       ]);
   var losersScore = match$1[1];
   var winnersScore = match$1[0];
+  var isDraw = winnersScore === losersScore;
+  var isWin = userInWinners && !isDraw;
+  var isLoss = !userInWinners && !isDraw;
   var match$2 = userInWinners ? [
       winnersScore,
       losersScore
@@ -434,7 +436,7 @@ function MatchHistoryList$Match(props) {
   var favoredTeam = leftTeamProbability > 0.5 ? "left" : (
       leftTeamProbability < 0.5 ? "right" : "even"
     );
-  var wasUpset = favoredTeam === "left" && isLoss || favoredTeam === "right" && userInWinners;
+  var wasUpset = favoredTeam === "left" && isLoss || favoredTeam === "right" && isWin;
   var favoredProbability = Math.max(leftTeamProbability, rightTeamProbability);
   var barWidthPercentage = (favoredProbability - 0.5) / 0.5 * 100.0;
   var barPointsRight = leftTeamProbability < 0.5;
@@ -503,7 +505,7 @@ function MatchHistoryList$Match(props) {
                                             })
                                       ],
                                       className: "flex items-center justify-between gap-3 rounded-lg p-3 -m-3 mb-0 " + (
-                                        userInWinners ? "bg-emerald-50/50" : (
+                                        isWin ? "bg-emerald-50/50" : (
                                             isLoss ? "bg-rose-50/50" : "bg-gray-50/50"
                                           )
                                       )
@@ -518,12 +520,12 @@ function MatchHistoryList$Match(props) {
                                                 _isCompetitive ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                         className: "w-3 h-3"
                                                       }) : null,
-                                                userInWinners ? t`WIN` : (
+                                                isWin ? t`WIN` : (
                                                     isLoss ? t`LOSS` : t`DRAW`
                                                   )
                                               ],
                                               className: "px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 " + (
-                                                userInWinners ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : (
+                                                isWin ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : (
                                                     isLoss ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-gray-100 text-gray-700 border border-gray-200"
                                                   )
                                               )
@@ -547,7 +549,7 @@ function MatchHistoryList$Match(props) {
                                       ],
                                       className: "flex items-center justify-between gap-3 rounded-lg p-3 -m-3 mt-0 " + (
                                         isLoss ? "bg-emerald-50/50" : (
-                                            userInWinners ? "bg-rose-50/50" : "bg-gray-50/50"
+                                            isWin ? "bg-rose-50/50" : "bg-gray-50/50"
                                           )
                                       )
                                     })
@@ -559,7 +561,7 @@ function MatchHistoryList$Match(props) {
                                 JsxRuntime.jsx("div", {
                                       children: userInWinners ? renderWinnerBadges(winners, "left") : renderLoserBadges(losers, "left"),
                                       className: "flex-1 space-y-2 rounded-lg p-3 " + (
-                                        userInWinners ? "bg-emerald-50/50" : (
+                                        isWin ? "bg-emerald-50/50" : (
                                             isLoss ? "bg-rose-50/50" : "bg-gray-50/50"
                                           )
                                       )
@@ -582,12 +584,12 @@ function MatchHistoryList$Match(props) {
                                                 _isCompetitive ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                         className: "w-3 h-3"
                                                       }) : null,
-                                                userInWinners ? t`WIN` : (
+                                                isWin ? t`WIN` : (
                                                     isLoss ? t`LOSS` : t`DRAW`
                                                   )
                                               ],
                                               className: "px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 " + (
-                                                userInWinners ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : (
+                                                isWin ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : (
                                                     isLoss ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-gray-100 text-gray-700 border border-gray-200"
                                                   )
                                               )
@@ -599,7 +601,7 @@ function MatchHistoryList$Match(props) {
                                       children: userInWinners ? renderLoserBadges(losers, "right") : renderWinnerBadges(winners, "right"),
                                       className: "flex-1 space-y-2 rounded-lg p-3 " + (
                                         isLoss ? "bg-emerald-50/50" : (
-                                            userInWinners ? "bg-rose-50/50" : "bg-gray-50/50"
+                                            isWin ? "bg-rose-50/50" : "bg-gray-50/50"
                                           )
                                       )
                                     })

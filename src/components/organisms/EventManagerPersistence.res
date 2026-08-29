@@ -442,6 +442,7 @@ let strategyToString = (strategy: strategy): string => {
   | SolverRoundRobin => "solver-round-robin"
   | SolverRandomBalanced => "solver-random-balanced"
   | SolverCompetitivePlus => "solver-competitive-plus"
+  | SolverAuto => "solver-auto"
   }
 }
 
@@ -458,6 +459,7 @@ let stringToStrategy = (str: string): strategy => {
   | "solver-round-robin" => SolverRoundRobin
   | "solver-random-balanced" => SolverRandomBalanced
   | "solver-competitive-plus" => SolverCompetitivePlus
+  | "solver-auto" => SolverAuto
   // Pre-rename aliases: events stored while the presets were still named after
   // the qualityVsVariety axis. Read forever; written never — the next
   // `saveStrategy` rewrites the row with the current string.

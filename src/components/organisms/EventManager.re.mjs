@@ -1032,6 +1032,7 @@ function EventManager(props) {
         case "SolverRandomBalanced" :
             return "Mixed";
         case "SolverCompetitivePlus" :
+        case "SolverAuto" :
             return "CompetitivePlus";
         default:
           return s;
@@ -1195,15 +1196,7 @@ function EventManager(props) {
                 return EventManagerPersistence.loadSolverRoundViolations(data.id);
               });
           setWeightConfig(function (param) {
-                return Core__Option.flatMap(EventManagerPersistence.loadWeightConfig(data.id), (function (config) {
-                              var nominal = config.qualityVsVariety;
-                              var isNominal = nominal === CostModel.presetConfig(storedStrategy).qualityVsVariety || nominal === 0.15 || nominal === 0.5 || nominal === 0.85;
-                              if (Core__Option.isNone(config.advanced) && isNominal) {
-                                return ;
-                              } else {
-                                return config;
-                              }
-                            }));
+                return EventManagerPersistence.loadWeightConfig(data.id);
               });
           var storedCheckedInIds = EventManagerPersistence.loadCheckedInPlayerIds(data.id);
           if (storedCheckedInIds.length > 0) {
@@ -1818,7 +1811,17 @@ function EventManager(props) {
         });
     EventManagerPersistence.saveWeightConfig(data.id, config);
   };
+  var handleWeightConfigReset = function () {
+    setWeightConfig(function (param) {
+          
+        });
+    setIsDirty(function (param) {
+          return true;
+        });
+    EventManagerPersistence.clearWeightConfig(data.id);
+  };
   var effectiveWeightConfig = weightConfig !== undefined ? weightConfig : CostModel.presetConfig(strategy);
+  var autoBlendT = strategy === "SolverAuto" && Core__Option.isNone(weightConfig) ? CostModel.autoT(CostModel.readinessRatio(checkedInPlayers)) : undefined;
   var generatingLabel = HighsBindings.isLoaded() ? t`Generating…` : t`Preparing optimizer…`;
   var handleAdvanceRound = function () {
     if (currentRoundInt >= rounds.length) {
@@ -2303,7 +2306,10 @@ function EventManager(props) {
                             highlight: isDirty,
                             futureRoundsHaveScores: futureRoundsHaveScores,
                             weightConfig: effectiveWeightConfig,
+                            weightConfigIsCustom: Core__Option.isSome(weightConfig),
+                            autoBlendT: autoBlendT,
                             onWeightConfigChange: handleWeightConfigChange,
+                            onWeightConfigReset: handleWeightConfigReset,
                             isGenerating: isGenerating,
                             generatingLabel: generatingLabel,
                             drawSeed: drawSeed,
@@ -2511,7 +2517,10 @@ function EventManager(props) {
                                                 highlight: isDirty,
                                                 futureRoundsHaveScores: futureRoundsHaveScores,
                                                 weightConfig: effectiveWeightConfig,
+                                                weightConfigIsCustom: Core__Option.isSome(weightConfig),
+                                                autoBlendT: autoBlendT,
                                                 onWeightConfigChange: handleWeightConfigChange,
+                                                onWeightConfigReset: handleWeightConfigReset,
                                                 isGenerating: isGenerating,
                                                 generatingLabel: generatingLabel,
                                                 drawSeed: drawSeed,
@@ -2840,7 +2849,10 @@ function EventManager(props) {
                                           highlight: isDirty,
                                           futureRoundsHaveScores: futureRoundsHaveScores,
                                           weightConfig: effectiveWeightConfig,
+                                          weightConfigIsCustom: Core__Option.isSome(weightConfig),
+                                          autoBlendT: autoBlendT,
                                           onWeightConfigChange: handleWeightConfigChange,
+                                          onWeightConfigReset: handleWeightConfigReset,
                                           isGenerating: isGenerating,
                                           generatingLabel: generatingLabel,
                                           drawSeed: drawSeed,

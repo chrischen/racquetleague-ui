@@ -79,11 +79,11 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
-#: src/components/organisms/EventManager.re.mjs:2433
+#: src/components/organisms/EventManager.re.mjs:2439
 msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:152
+#: src/components/molecules/SolverWeightsPanel.re.mjs:276
 msgid "Advanced"
 msgstr "詳細設定"
 
@@ -95,15 +95,15 @@ msgstr "アレックス・ジョンソン"
 msgid "All checked-in players are already in this round"
 msgstr "チェックイン済みのプレイヤーは全員このラウンドに参加しています"
 
-#: src/components/organisms/EventManager.re.mjs:2267
+#: src/components/organisms/EventManager.re.mjs:2270
 msgid "all up to date"
 msgstr "すべて最新"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:241
+#: src/components/molecules/SolverWeightsPanel.re.mjs:469
 msgid "Alternate favourite/underdog roles"
 msgstr "お気に入り／アンダードッグの役割を交互に"
 
-#: src/components/organisms/EventManager.re.mjs:2539
+#: src/components/organisms/EventManager.re.mjs:2548
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -111,21 +111,46 @@ msgstr "アンチチーム {0}"
 msgid "Anti-Teams"
 msgstr "アンチチーム"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:208
-msgid "Any mix"
-msgstr "混合なんでも"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "どの組み合わせでも可"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:227
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "自動"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid ""
+"Auto is adjusting these values — freeze the current mix to adjust them "
+"manually. Auto stops adapting for this event."
+msgstr ""
+"自動がこれらの値を調整中です — 手動で調整するには現在のミックスを固定してくだ"
+"さい。自動はこのイベントへの適応を停止します。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:450
 msgid "Avoid recent repeats"
 msgstr "最近の対戦を避ける"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:212
-msgid "Balance teams"
-msgstr "チームのバランスを取る"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "バランス重視、新しいパートナーを優先"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Balances fresh partners against evenly matched games."
 msgstr "新鮮なパートナーと均衡のとれた試合のバランスを調整します。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "バンド許容範囲"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "バンドをまとめて解除"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "キャリブレーション中"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
@@ -140,7 +165,7 @@ msgstr "キャンセル"
 msgid "Changes aren't being saved"
 msgstr "変更は保存されていません"
 
-#: src/components/molecules/DrawGenerator.re.mjs:108
+#: src/components/molecules/DrawGenerator.re.mjs:115
 msgid "Classic round-robin draws"
 msgstr "クラシック総当たり抽選"
 
@@ -156,12 +181,13 @@ msgstr "全画面表示を閉じる"
 msgid "Close self check-in display"
 msgstr "セルフチェックイン画面を閉じる"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:97
+#: src/components/molecules/SolverWeightsPanel.re.mjs:226
+#: src/components/molecules/SolverWeightsPanel.re.mjs:246
+#: src/components/molecules/DrawGenerator.re.mjs:104
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/molecules/DrawGenerator.re.mjs:91
+#: src/components/molecules/DrawGenerator.re.mjs:93
 msgid "Competitive+"
 msgstr "競技+"
 
@@ -186,7 +212,7 @@ msgstr "コート{0}"
 msgid "Court {0} - Editing"
 msgstr "コート{0} - 編集中"
 
-#: src/components/molecules/DrawGenerator.re.mjs:142
+#: src/components/molecules/DrawGenerator.re.mjs:149
 msgid "Courts:"
 msgstr "コート数："
 
@@ -214,15 +240,19 @@ msgstr "最初のチームを作成して始めましょう"
 msgid "Current Round:"
 msgstr "現在のラウンド："
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:154
+#: src/components/molecules/SolverWeightsPanel.re.mjs:277
 msgid "Custom"
 msgstr "カスタム"
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "ここからカスタマイズ"
+
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
@@ -252,9 +282,13 @@ msgstr "チームを削除"
 msgid "Delete this match?"
 msgstr "この試合を削除しますか？"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "決定論的"
+
 #: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2336
+#: src/components/organisms/EventManager.re.mjs:2342
 msgid "Dismiss"
 msgstr "閉じる"
 
@@ -262,15 +296,15 @@ msgstr "閉じる"
 msgid "Drag players in order of strongest to weakest."
 msgstr "強い順にプレイヤーをドラッグしてください。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
 msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"Each strategy uses a tuned profile; adjusting any value switches this event "
 "to a custom mix. Fair play time and rotation are always enforced and can't "
 "be turned down."
 msgstr ""
-"各戦略は調整済みのプロファイルを使用します。スライダーを調整するとイベントが"
-"カスタムミックスに切り替わります。公平なプレイ時間とローテーションは常に適用"
-"され、下げることはできません。"
+"各ストラテジーは調整済みプロファイルを使用します。値を変更するとこのイベント"
+"はカスタムミックスに切り替わります。フェアプレー時間とローテーションは常に適"
+"用され、下げることはできません。"
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -304,7 +338,7 @@ msgstr "同点 — 引き分けとして記録されます"
 msgid "Event check-in"
 msgstr "イベントチェックイン"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:84
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -334,6 +368,10 @@ msgstr "フォールバック：{0}が混合ラウンドで女性なしでチー
 msgid "Female"
 msgstr "女性"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:433
+msgid "Free"
+msgstr "無料"
+
 #: src/components/organisms/EventManager.re.mjs:526
 msgid "Free up space"
 msgstr "空き容量を確保"
@@ -342,7 +380,11 @@ msgstr "空き容量を確保"
 msgid "Free Up Space"
 msgstr "空き容量を確保"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "新しい対戦でチーム分けを決定します。分け方が不均等になる場合があります"
+
+#: src/components/molecules/DrawGenerator.re.mjs:89
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -353,7 +395,7 @@ msgstr ""
 msgid "Full Screen View"
 msgstr "全画面表示"
 
-#: src/components/molecules/DrawGenerator.re.mjs:282
+#: src/components/molecules/DrawGenerator.re.mjs:292
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -365,22 +407,26 @@ msgstr ""
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/molecules/DrawGenerator.re.mjs:238
+#: src/components/molecules/DrawGenerator.re.mjs:245
 msgid "Generate"
 msgstr "生成"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Generate Draws"
 msgstr "組み合わせを生成"
 
-#: src/components/molecules/DrawGenerator.re.mjs:363
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/molecules/DrawGenerator.re.mjs:373
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Generating…"
 msgstr "生成中…"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
 msgstr "グローバル評価"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "スキルでグループ化"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -390,7 +436,7 @@ msgstr "ゲスト名（1行に1名）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
 
-#: src/components/organisms/EventManager.re.mjs:2740
+#: src/components/organisms/EventManager.re.mjs:2749
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -427,7 +473,7 @@ msgstr "男性"
 msgid "match"
 msgstr "試合"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:131
+#: src/components/molecules/SolverWeightsPanel.re.mjs:265
 msgid "Match style"
 msgstr "試合スタイル"
 
@@ -436,13 +482,17 @@ msgstr "試合スタイル"
 msgid "matches"
 msgstr "試合"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:134
+#: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
 msgstr "プレイヤーをミックス"
 
-#: src/components/molecules/DrawGenerator.re.mjs:102
+#: src/components/molecules/DrawGenerator.re.mjs:109
 msgid "Mixed"
 msgstr "混合"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "常に最も均等"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -452,7 +502,7 @@ msgstr "μ"
 msgid "Name"
 msgstr "名前"
 
-#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:272
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr ""
 "{1}{courtText}には{0}人のプレイヤーが必要です。現在{2}人がチェックイン済みで"
@@ -462,7 +512,7 @@ msgstr ""
 msgid "New Anti-Team"
 msgstr "新しいアンチチーム"
 
-#: src/components/molecules/DrawGenerator.re.mjs:215
+#: src/components/molecules/DrawGenerator.re.mjs:222
 msgid "New seed — deals different matches"
 msgstr "新しいシード — 異なる試合を生成"
 
@@ -482,6 +532,10 @@ msgstr "利用可能なプレイヤーがいません"
 msgid "No draws generated yet."
 msgstr "まだトーナメント表が生成されていません。"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "こだわりなし"
+
 #: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "スコアなし"
@@ -498,22 +552,26 @@ msgstr "未払い"
 msgid "Not saved"
 msgstr "未保存"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "オフ"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr ""
 "スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
 "さい。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:182
+#: src/components/molecules/SolverWeightsPanel.re.mjs:318
 msgid "Opponent variety"
 msgstr "対戦相手の多様性"
 
-#: src/components/molecules/DrawGenerator.re.mjs:92
+#: src/components/molecules/DrawGenerator.re.mjs:94
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "スキル帯内で均衡のとれた試合を優先する最適化されたドロー。"
 
-#: src/components/organisms/EventManager.re.mjs:2332
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 "オプティマイザー利用不可 — このドローには標準マッチメイキングを使用しました。"
@@ -526,7 +584,7 @@ msgstr "このデバイス上の他のイベント"
 msgid "Paid"
 msgstr "支払い済み"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:168
+#: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr "パートナーの多様性"
 
@@ -555,7 +613,7 @@ msgstr ""
 msgid "Players start on their global rating across all clubs."
 msgstr "選手はすべてのクラブを通じたグローバル評価からスタートします。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:98
+#: src/components/molecules/DrawGenerator.re.mjs:105
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
@@ -563,7 +621,7 @@ msgstr ""
 "プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチー"
 "ムで総当たり戦を行います。"
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Preparing optimizer…"
 msgstr "オプティマイザーを準備中…"
 
@@ -579,7 +637,7 @@ msgstr "前のラウンド"
 msgid "Print"
 msgstr "印刷"
 
-#: src/components/organisms/EventManager.re.mjs:2234
+#: src/components/organisms/EventManager.re.mjs:2237
 msgid "Print Draws"
 msgstr "トーナメント表を印刷"
 
@@ -587,17 +645,29 @@ msgstr "トーナメント表を印刷"
 msgid "Print Preview"
 msgstr "印刷プレビュー"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Prioritises evenly matched games over fresh partners."
 msgstr "均衡したゲームを新しい対戦相手より優先します。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:138
+#: src/components/molecules/SolverWeightsPanel.re.mjs:249
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "新しいパートナーや対戦相手を均衡したゲームより優先します。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:86
+#: src/components/molecules/SolverWeightsPanel.re.mjs:505
+msgid "Random"
+msgstr "ランダム"
+
+#: src/components/molecules/DrawGenerator.re.mjs:88
 msgid "Random Balanced"
 msgstr "ランダムバランス"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid ""
+"Ratings are {percent}% settled — the mix adjusts automatically as scores "
+"come in."
+msgstr ""
+"レーティングは{percent}%安定しています — スコアが入力されると自動的にミックス"
+"が調整されます。"
 
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
@@ -607,7 +677,7 @@ msgstr "試合を再調整"
 msgid "Rebalance this round with current players"
 msgstr "現在のプレイヤーでこのラウンドを再調整"
 
-#: src/components/molecules/DrawGenerator.re.mjs:281
+#: src/components/molecules/DrawGenerator.re.mjs:291
 msgid "Regenerate Rounds?"
 msgstr "ラウンドを再生成しますか？"
 
@@ -623,7 +693,7 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/EventManager.re.mjs:2723
+#: src/components/organisms/EventManager.re.mjs:2732
 msgid "Reset Storage"
 msgstr "ストレージをリセット"
 
@@ -635,13 +705,17 @@ msgstr "チェックイン済みの全プレイヤーでこのラウンドをリ
 msgid "Reset this round with mixed gender pairs"
 msgstr "混合ペアでこのラウンドをリセット"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:255
-msgid "Reset to slider"
-msgstr "スライダーにリセット"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "プリセットにリセット"
 
 #: src/components/organisms/EventManager.re.mjs:538
 msgid "Retry"
 msgstr "再試行"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "スキルバンドをまとめてローテーション"
 
 #: src/components/organisms/RoundSection.re.mjs:523
 #: src/components/organisms/RoundSection.re.mjs:650
@@ -650,15 +724,15 @@ msgstr "再試行"
 msgid "Round {0}"
 msgstr "ラウンド{0}"
 
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:83
 msgid "Round Robin"
 msgstr "総当たり戦"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:114
 msgid "Round-Robin"
 msgstr "総当たり戦"
 
-#: src/components/molecules/DrawGenerator.re.mjs:103
+#: src/components/molecules/DrawGenerator.re.mjs:110
 msgid "Round-Robin with teams balanced by skill."
 msgstr "スキルでバランスされたチームによる総当たり戦。"
 
@@ -698,11 +772,11 @@ msgstr "保存中…"
 msgid "Scan to check in"
 msgstr "スキャンしてチェックイン"
 
-#: src/components/organisms/EventManager.re.mjs:2189
+#: src/components/organisms/EventManager.re.mjs:2192
 msgid "Scores Synced!"
 msgstr "スコアを同期しました！"
 
-#: src/components/molecules/DrawGenerator.re.mjs:203
+#: src/components/molecules/DrawGenerator.re.mjs:210
 msgid "Seed:"
 msgstr "シード："
 
@@ -718,9 +792,13 @@ msgstr "シード調整済み"
 msgid "SERVING"
 msgstr "サーブ権"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:196
-msgid "Similar-skill matches"
-msgstr "同レベルの対戦"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "シャッフル"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "スキルバンド"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:174
 msgid "Skill: {0}"
@@ -730,44 +808,48 @@ msgstr "スキル：{0}"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "コートを埋めるためにルールを一部調整しました"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:224
-msgid "Split each match into its most even teams"
-msgstr "各マッチを最も均等なチームに分割"
-
-#: src/components/organisms/EventManager.re.mjs:2706
+#: src/components/organisms/EventManager.re.mjs:2715
 msgid "Sports Event Draws"
 msgstr "スポーツイベントのドロー"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid ""
+"Starts with varied, balanced matchups to calibrate ratings, then shifts to "
+"competitive skill-banded play as rankings settle."
+msgstr ""
+"レーティングをキャリブレーションするため多様でバランスの取れた対戦から始ま"
+"り、ランキングが安定するにつれて競技力別のスキルバンドプレイに移行します。"
 
 #: src/components/organisms/EventManager.re.mjs:251
 msgid "Storage Almost Full"
 msgstr "ストレージがほぼいっぱい"
 
-#: src/components/molecules/DrawGenerator.re.mjs:366
+#: src/components/molecules/DrawGenerator.re.mjs:376
 msgid "strategy"
 msgstr "戦略"
 
-#: src/components/molecules/DrawGenerator.re.mjs:178
+#: src/components/molecules/DrawGenerator.re.mjs:185
 msgid "Strategy:"
 msgstr "戦略："
 
-#: src/components/organisms/EventManager.re.mjs:2201
+#: src/components/organisms/EventManager.re.mjs:2204
 msgid "Sync Failed"
 msgstr "同期に失敗しました"
 
-#: src/components/organisms/EventManager.re.mjs:2165
+#: src/components/organisms/EventManager.re.mjs:2168
 msgid "Sync Scores"
 msgstr "スコアを同期"
 
-#: src/components/organisms/EventManager.re.mjs:2261
+#: src/components/organisms/EventManager.re.mjs:2264
 msgid "synced"
 msgstr "同期済み"
 
-#: src/components/organisms/EventManager.re.mjs:2177
+#: src/components/organisms/EventManager.re.mjs:2180
 msgid "Syncing... {0}%"
 msgstr "同期中... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2096
+#: src/components/organisms/EventManager.re.mjs:2099
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -791,6 +873,10 @@ msgstr "チームメンバー（{0}人）"
 msgid "Team Name"
 msgstr "チーム名"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "チーム分け"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:326
 msgid "Teams"
 msgstr "チーム"
@@ -803,6 +889,14 @@ msgid ""
 msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "パートナーの重複を避けた最も均等な分け方"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "パートナーが重複しても最も均等な分け方"
 
 #: src/components/organisms/EventManager.re.mjs:744
 msgid "this club"
@@ -818,7 +912,7 @@ msgstr ""
 "す。サーバーに同期済みのイベントは再度開くことができますが、未同期のデータは"
 "復元できません。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:305
+#: src/components/molecules/DrawGenerator.re.mjs:315
 msgid "This will delete all future rounds and generate new matches"
 msgstr "すべての今後のラウンドを削除して新しい試合を生成します"
 
@@ -838,11 +932,11 @@ msgstr ""
 "これらのスコアはサーバーに届いていません。削除前にこのイベントを同期し、他の"
 "各イベントを開いて同期してください。同期しない場合、データは失われます。"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:209
+#: src/components/molecules/SolverWeightsPanel.re.mjs:374
 msgid "Tight bands"
 msgstr "狭いバンド"
 
-#: src/components/organisms/EventManager.re.mjs:2263
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "to sync"
 msgstr "同期する"
 
@@ -858,12 +952,12 @@ msgstr "このイベントの未同期スコア"
 msgid "Unsynced scores in those events"
 msgstr "これらのイベントの未同期スコア"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Update Future Rounds"
 msgstr "今後のラウンドを更新"
 
-#: src/components/molecules/DrawGenerator.re.mjs:273
-#: src/components/molecules/DrawGenerator.re.mjs:293
+#: src/components/molecules/DrawGenerator.re.mjs:283
+#: src/components/molecules/DrawGenerator.re.mjs:303
 msgid "Update Rounds Below"
 msgstr "以降のラウンドを更新"
 
@@ -928,9 +1022,17 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr "{0}人のプレイヤーで新しい試合を生成"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:208
+#~ msgid "Any mix"
+#~ msgstr "混合なんでも"
+
 #: src/components/organisms/EventManager.re.mjs:824
 #~ msgid "Available Courts:"
 #~ msgstr "利用可能なコート数："
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:212
+#~ msgid "Balance teams"
+#~ msgstr "チームのバランスを取る"
 
 #: src/components/molecules/DrawGenerator.re.mjs:192
 #~ msgid "Beta"
@@ -952,6 +1054,16 @@ msgstr ""
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
 #~ msgid "Drag players to reorder their initial seeding"
 #~ msgstr "プレイヤーをドラッグして初期シードを並び替え"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#~ msgid ""
+#~ "Each strategy uses a tuned profile; adjusting any slider switches this "
+#~ "event to a custom mix. Fair play time and rotation are always enforced "
+#~ "and can't be turned down."
+#~ msgstr ""
+#~ "各戦略は調整済みのプロファイルを使用します。スライダーを調整するとイベント"
+#~ "がカスタムミックスに切り替わります。公平なプレイ時間とローテーションは常に"
+#~ "適用され、下げることはできません。"
 
 #: src/components/organisms/EventManager.re.mjs:198
 #, fuzzy
@@ -994,10 +1106,6 @@ msgstr ""
 #~ "Players will be divided into similar skill level groups that round-robin."
 #~ msgstr "プレイヤーは同じレベルのグループに分けられ、総当たり戦を行います。"
 
-#: src/components/molecules/DrawGenerator.re.mjs:67
-#~ msgid "Random"
-#~ msgstr "ランダム"
-
 #: src/components/molecules/DrawGenerator.re.mjs:62
 #~ msgid "Replace Future Rounds"
 #~ msgstr "今後のラウンドを置き換え"
@@ -1005,6 +1113,10 @@ msgstr ""
 #: src/components/molecules/DrawGenerator.re.mjs:162
 #~ msgid "Replace Rounds Below"
 #~ msgstr "以降のラウンドを置き換え"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:255
+#~ msgid "Reset to slider"
+#~ msgstr "スライダーにリセット"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:184
 #: src/components/organisms/MatchCardEdit.re.mjs:221
@@ -1020,6 +1132,14 @@ msgstr ""
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0}人のプレイヤー"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:196
+#~ msgid "Similar-skill matches"
+#~ msgstr "同レベルの対戦"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:224
+#~ msgid "Split each match into its most even teams"
+#~ msgstr "各マッチを最も均等なチームに分割"
 
 #: src/components/organisms/EventManager.re.mjs:208
 #, fuzzy

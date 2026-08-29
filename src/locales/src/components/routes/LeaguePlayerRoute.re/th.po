@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:697
+#: src/components/organisms/MatchHistoryList.re.mjs:699
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
@@ -45,8 +45,8 @@ msgstr "เรตติ้งปัจจุบัน"
 msgid "Days at #1"
 msgstr "วันที่อันดับ 1"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:524
+#: src/components/organisms/MatchHistoryList.re.mjs:588
 msgid "DRAW"
 msgstr "เสมอ"
 
@@ -62,7 +62,7 @@ msgstr "ยกระดับคู่เล่นที่อ่อนแอก
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:659
+#: src/components/organisms/MatchHistoryList.re.mjs:661
 msgid "Even"
 msgstr "สมดุล"
 
@@ -78,7 +78,7 @@ msgstr "คอร์ตในร่ม (ลูกบอลในร่ม)"
 msgid "Indoor Court (Outdoor Ball)"
 msgstr "คอร์ตในร่ม (ลูกบอลกลางแจ้ง)"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:714
+#: src/components/organisms/MatchHistoryList.re.mjs:716
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
@@ -86,8 +86,8 @@ msgstr "โหลดแมทช์เพิ่มเติม..."
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:524
+#: src/components/organisms/MatchHistoryList.re.mjs:588
 msgid "LOSS"
 msgstr "แพ้"
 
@@ -143,7 +143,7 @@ msgid ""
 "higher confidence."
 msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:630
+#: src/components/organisms/MatchHistoryList.re.mjs:632
 msgid "Upset"
 msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 
@@ -151,8 +151,8 @@ msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 msgid "Weak Against"
 msgstr "เสียเปรียบ"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:521
-#: src/components/organisms/MatchHistoryList.re.mjs:585
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "WIN"
 msgstr "ชนะ"
 

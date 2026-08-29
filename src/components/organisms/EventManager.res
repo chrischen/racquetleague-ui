@@ -904,11 +904,11 @@ let make = (
       | CompetitivePlus | Competitive | DUPR => SolverCompetitivePlus
       | Mixed | Random => SolverRandomBalanced
       | RoundRobin | NoveltyRoundRobin => SolverRoundRobin
-      | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus => s
+      | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus | SolverAuto => s
       }
     } else {
       switch s {
-      | SolverCompetitivePlus => CompetitivePlus
+      | SolverCompetitivePlus | SolverAuto => CompetitivePlus
       | SolverRandomBalanced => Mixed
       | SolverRoundRobin => NoveltyRoundRobin
       | _ => s
@@ -1076,26 +1076,11 @@ let make = (
     setSolverRoundViolations(_ => EventManagerPersistence.loadSolverRoundViolations(data.id))
 
     // Solver weight overrides, if the user has adjusted them for this event.
-    // An earlier flow wrote the strategy's nominal slider position on every
-    // selection; a stored config that merely equals that nominal is not a
-    // customisation, and treating it as one would pin the event to the slider
-    // mapping instead of the strategy's tuned profile.
-    setWeightConfig(_ =>
-      EventManagerPersistence.loadWeightConfig(data.id)->Option.flatMap(config => {
-        // Nominal-only configs are not customisations. Accept the current
-        // nominal and every value the old auto-store flow ever wrote (0.15 /
-        // 0.5 / 0.85): an event that stored the then-nominal 0.5 for Random
-        // Balanced must not stay pinned to mid-axis slider semantics after
-        // the preset moved.
-        let nominal = config.qualityVsVariety
-        let isNominal =
-          nominal == CostModel.presetConfig(storedStrategy).qualityVsVariety ||
-          nominal == 0.15 ||
-          nominal == 0.5 ||
-          nominal == 0.85
-        config.advanced->Option.isNone && isNominal ? None : Some(config)
-      })
-    )
+    // The codec's version gate discards configs written before the advanced
+    // panel spoke the full weight vocabulary (and, with them, the old
+    // nominal-slider auto-stores), so anything that loads here is a real
+    // customisation in the current vocabulary.
+    setWeightConfig(_ => EventManagerPersistence.loadWeightConfig(data.id))
 
     // Load checked-in player IDs from TinyBase
     let storedCheckedInIds = EventManagerPersistence.loadCheckedInPlayerIds(data.id)
@@ -1776,7 +1761,8 @@ let make = (
       | Mixed
       | SolverRoundRobin
       | SolverRandomBalanced
-      | SolverCompetitivePlus => true
+      | SolverCompetitivePlus
+      | SolverAuto => true
       // Pure-novelty strategies read partner and bye history, which a score
       // does not change.
       | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
@@ -1852,12 +1838,28 @@ let make = (
     EventManagerPersistence.saveWeightConfig(data.id, config)
   }
 
+  // Back to the strategy's tuned preset (and, for Auto, the live blend).
+  let handleWeightConfigReset = () => {
+    setWeightConfig(_ => None)
+    setIsDirty(_ => true)
+    EventManagerPersistence.clearWeightConfig(data.id)
+  }
+
   // Effective config shown by the weight panel: the stored override, or the
   // current strategy's preset.
   let effectiveWeightConfig = switch weightConfig {
   | Some(config) => config
   | None => CostModel.presetConfig(strategy)
   }
+
+  // Auto's live blend position, for the panel's display: computed from the
+  // same rated player state generation uses, so the values shown are the
+  // values the next draw will be built with. None once customised — a stored
+  // config freezes the mix and the display follows the store instead.
+  let autoBlendT =
+    strategy == SolverAuto && weightConfig->Option.isNone
+      ? Some(CostModel.autoT(CostModel.readinessRatio(checkedInPlayers)))
+      : None
 
   // First solve of a session waits on the wasm download, which is worth calling
   // out; later ones are fast enough that a plain spinner reads better.
@@ -2385,7 +2387,10 @@ let make = (
               onStrategyChange={handleStrategyChange}
               onGenerateDraws={handleGenerateDraws}
               weightConfig={effectiveWeightConfig}
+              weightConfigIsCustom={weightConfig->Option.isSome}
+              autoBlendT=?{autoBlendT}
               onWeightConfigChange={handleWeightConfigChange}
+              onWeightConfigReset={handleWeightConfigReset}
               drawSeed
               onNewSeed={handleNewSeed}
               isGenerating
@@ -2419,7 +2424,10 @@ let make = (
                     onStrategyChange={handleStrategyChange}
                     onGenerateDraws={handleGenerateDraws}
                     weightConfig={effectiveWeightConfig}
+                    weightConfigIsCustom={weightConfig->Option.isSome}
+                    autoBlendT=?{autoBlendT}
                     onWeightConfigChange={handleWeightConfigChange}
+                    onWeightConfigReset={handleWeightConfigReset}
                     drawSeed
                     onNewSeed={handleNewSeed}
                     isGenerating
@@ -2610,7 +2618,10 @@ let make = (
                         onStrategyChange={handleStrategyChange}
                         onGenerateDraws={handleGenerateDraws}
                         weightConfig={effectiveWeightConfig}
+                        weightConfigIsCustom={weightConfig->Option.isSome}
+                        autoBlendT=?{autoBlendT}
                         onWeightConfigChange={handleWeightConfigChange}
+                        onWeightConfigReset={handleWeightConfigReset}
                         drawSeed
                         onNewSeed={handleNewSeed}
                         isGenerating

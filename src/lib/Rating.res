@@ -1662,11 +1662,15 @@ type strategy =
   | SolverRoundRobin // novelty-first  -> greedy RoundRobin
   | SolverRandomBalanced // middle         -> greedy RoundRobin
   | SolverCompetitivePlus // quality-first  -> greedy Competitive
+  // Adaptive: starts as Random Balanced while ratings are still noise, and
+  // blends toward Competitive+ as the pool's ratings settle (measured by
+  // std(mu)/mean(sigma) — see `CostModel.autoT`). -> greedy Competitive
+  | SolverAuto
 
-// True for the three solver-backed presets.
+// True for the solver-backed presets.
 let isSolverStrategy = (strategy: strategy): bool =>
   switch strategy {
-  | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus => true
+  | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus | SolverAuto => true
   | CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
   }
 
@@ -2092,6 +2096,7 @@ let getMatches = (
       requiredPlayers,
     )
   | SolverCompetitivePlus
+  | SolverAuto
   | Competitive =>
     RankedMatches.strategy_by_competitive(
       players,
@@ -2712,7 +2717,7 @@ let getDeprioritizedPlayers = (
     Set.make()
   } else {
     switch strategy {
-    | Competitive | CompetitivePlus | SolverCompetitivePlus =>
+    | Competitive | CompetitivePlus | SolverCompetitivePlus | SolverAuto =>
       // Competitive strategy: prioritize players with highest play count
       let lastRounds =
         rounds->Array.slice(

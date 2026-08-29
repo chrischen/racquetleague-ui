@@ -99,17 +99,29 @@ let maxMatchCost = (w: costWeights): float =>
 // UI configuration -> weights
 // ---------------------------------------------------------------------------
 
+// The advanced panel's vocabulary. Every preference `costWeights` expresses is
+// present (only the guardrail tier — bye fairness, rotation, court fill — is
+// withheld), so the named presets are exactly representable as configs and the
+// panel can show the true tuned values rather than a slider approximation.
+// Sliders are [0, 1]; each field documents its mapping to the weight it drives.
 type advancedWeights = {
-  partnerVariety: float,
-  opponentVariety: float,
-  // Banding: 0 = skill plays no part in who shares a court (guardrail only),
-  // 1 = courts are grouped as tightly by skill as the pool allows. This is the
-  // intra-match skill spread as its own tunable, decoupled from balancing.
-  similarSkill: float,
+  partnerVariety: float, // log scale -> wPartner (wRepeatGroup derived at 0.6x)
+  opponentVariety: float, // log scale -> wOpponent
+  avoidRecentRepeats: float, // log scale -> wRepeatLast
+  // Banding, as its two real knobs. Strength: 0 = skill plays no part in who
+  // shares a court (the carry-match guardrail floor only), 1 = banding is a
+  // first-class objective. Tolerance: how much of the pool's mu range a
+  // foursome may span for free — 1 = ordinary mixing is free, 0 = the
+  // guardrail bites immediately (linear -> spreadTolerance = 0.9 * value).
+  bandStrength: float, // linear -> wSpread = max(floor, 1000 * value)
+  bandTolerance: float,
   // See `costWeights.balanceTeams` — a toggle, not a degree.
   balanceTeams: bool,
-  avoidRecentRepeats: float,
-  alternateFavored: float,
+  // See `costWeights.splitBalanceFirst`. Only meaningful with balance on.
+  splitBalanceFirst: bool,
+  alternateFavored: float, // linear -> wAlternate = 1000 * value
+  shakeUp: float, // linear -> wNoise = 1000 * value (tie-breaking jitter)
+  cohortRotation: float, // linear -> wCohort = 600 * value (capped guardrail-safe)
 }
 
 type uiWeightConfig = {
@@ -177,45 +189,206 @@ let weightsFromConfig = (config: uiWeightConfig): costWeights => {
       wRepeatLast: logScale(a.avoidRecentRepeats),
       wRepeatGroup: Js.Math.round(logScale(a.partnerVariety) *. 0.6),
       balanceTeams: a.balanceTeams,
-      wSpread: spreadWeightFor(a.similarSkill),
+      wSpread: spreadWeightFor(a.bandStrength),
       wAlternate: Js.Math.round(maxWeight *. clamp01(a.alternateFavored)),
-      wNoise: derived.wNoise,
-      wCohort: derived.wCohort,
-      splitBalanceFirst: derived.splitBalanceFirst,
-      spreadTolerance: spreadToleranceFor(a.similarSkill),
+      wNoise: Js.Math.round(maxWeight *. clamp01(a.shakeUp)),
+      wCohort: Js.Math.round(maxCohortWeight *. clamp01(a.cohortRotation)),
+      // Split ordering only exists once splits are constrained at all.
+      splitBalanceFirst: a.balanceTeams && a.splitBalanceFirst,
+      spreadTolerance: 0.9 *. clamp01(a.bandTolerance),
     }
   }
 }
 
-// The advanced-slider positions a given primary position implies. Opening the
-// accordion shows these; touching one of them marks the config custom.
-let advancedFromPrimary = (qualityVsVariety: float): advancedWeights => {
-  let derived = weightsFromConfig({qualityVsVariety, advanced: None})
-  {
-    partnerVariety: logScaleInverse(derived.wPartner),
-    opponentVariety: logScaleInverse(derived.wOpponent),
-    similarSkill: clamp01(qualityVsVariety),
-    balanceTeams: derived.balanceTeams,
-    avoidRecentRepeats: logScaleInverse(derived.wRepeatLast),
-    alternateFavored: derived.wAlternate /. maxWeight,
-  }
+// The advanced-panel representation of a weight set. Exact for config-derived
+// weights (the mappings are inverses); for blended weights (Auto's live
+// profile) the log-scale positions round to the nearest representable value —
+// display-grade, and the right seed for a customisation fork.
+let advancedFromWeights = (w: costWeights): advancedWeights => {
+  partnerVariety: logScaleInverse(w.wPartner),
+  opponentVariety: logScaleInverse(w.wOpponent),
+  avoidRecentRepeats: logScaleInverse(w.wRepeatLast),
+  bandStrength: w.wSpread /. maxWeight,
+  bandTolerance: w.spreadTolerance /. 0.9,
+  balanceTeams: w.balanceTeams,
+  splitBalanceFirst: w.splitBalanceFirst,
+  alternateFavored: w.wAlternate /. maxWeight,
+  shakeUp: w.wNoise /. maxWeight,
+  cohortRotation: w.wCohort /. maxCohortWeight,
 }
 
-// Nominal slider positions. NOT the effective preset weights — those are the
-// named profiles below (`weightsForStrategy`). This seeds the customisation
-// panel with a sensible starting point, and gives `SessionMetrics` a scale
-// point for scoring legacy-strategy rounds. Presets are code, not data: only a
-// *customised* `uiWeightConfig` is ever persisted, so preset retuning applies
-// retroactively.
+// The advanced-slider positions a given primary position implies. Shown when a
+// custom config has a primary value but no advanced overrides; touching one of
+// them marks the config custom.
+let advancedFromPrimary = (qualityVsVariety: float): advancedWeights =>
+  advancedFromWeights(weightsFromConfig({qualityVsVariety, advanced: None}))
+
+// ---------------------------------------------------------------------------
+// Solver preset configs
+// ---------------------------------------------------------------------------
+//
+// The solver strategies are configs in the advanced vocabulary, and
+// `weightsForStrategy` is literally `weightsFromConfig(presetConfig(s))`: one
+// source of truth, so the panel always displays the real tuned values and
+// forking a preset preserves its full behaviour. Presets are code, not data:
+// only a *customised* `uiWeightConfig` is ever persisted, so preset retuning
+// applies retroactively.
+//
+//   Round Robin      (SolverRoundRobin variant)
+//     Maximum variety: fresh partners are non-negotiable, opponents close
+//     behind. Ties break the Competitive+ way — banded, balanced matches — so
+//     a session *starts* competitive and mixes as each band's novelty
+//     exhausts. Splits are always balanced.
+//
+//   Random Balanced  (SolverRandomBalanced variant)
+//     The same novelty core with skill spread at *no concern*: who shares a
+//     court is rotation-random (plus a little tie-breaking jitter), and every
+//     match's teams are balanced by skill.
+//
+//   Competitive+     (SolverCompetitivePlus variant)
+//     Quality first: banding at full strength with balanced splits and cohort
+//     rotation, so bands play together and break together.
+
+// The novelty-first core Round Robin and Random Balanced share. wPartner 1000
+// with wOpponent/wRepeatLast at 500 and the derived group tier at 600 keeps
+// the legacy ordering teams > group > opponents: one partner repeat (400 on
+// the normalized scale) beats one foursome rerun (240) beats the whole
+// opponent range (200) — and all of it dominates every quality term.
+let noveltyAdvancedBase: advancedWeights = {
+  partnerVariety: 1.0, // wPartner 1000: fresh partners are non-negotiable
+  opponentVariety: logScaleInverse(500.),
+  avoidRecentRepeats: logScaleInverse(500.),
+  // "No concern for skill spread": the guardrail floor, at a tolerance where
+  // ordinary mixing is free.
+  bandStrength: minSpreadWeight /. maxWeight,
+  bandTolerance: 1.0,
+  // Splits are balanced by construction (the toggle is a hard filter), so no
+  // weight arithmetic is involved and novelty dominance is untouched.
+  balanceTeams: true,
+  splitBalanceFirst: false,
+  alternateFavored: 0.1,
+  shakeUp: 0.,
+  cohortRotation: 0.,
+}
+
+let roundRobinConfig: uiWeightConfig = {
+  qualityVsVariety: 0.15,
+  advanced: Some({
+    ...noveltyAdvancedBase,
+    // "Start off with competitive+ first until that's exhausted": a
+    // tiebreak-sized banding term with a tight shape. Early rounds — when
+    // every schedule is equally novel — come out banded and even; as each
+    // band's partner combinations run out, novelty dominance forces mixing.
+    // Deliberately a strength/tolerance pair the primary slider's coupled
+    // mapping cannot express. Dominance holds: 140 + 100 + 0 < 400.
+    bandStrength: 0.14, // wSpread 140
+    bandTolerance: 0.25 /. 0.9, // spreadTolerance 0.25
+  }),
+}
+
+let randomBalancedConfig: uiWeightConfig = {
+  qualityVsVariety: 0.0,
+  advanced: Some({
+    ...noveltyAdvancedBase,
+    // "Random should strictly randomize the matchup": noise at the legacy
+    // Random strategy's magnitude, so composition genuinely varies among
+    // comparably novel options — while one partner repeat (400) still
+    // dominates it, keeping maximum variety intact.
+    shakeUp: 0.05, // wNoise 50
+    // And no favoured/underdog steering — a random mode should not shape who
+    // is on which side of a matchup.
+    alternateFavored: 0.,
+    // Who plays whom is random; how they split is balanced.
+    splitBalanceFirst: true,
+  }),
+}
+
+let competitivePlusConfig: uiWeightConfig = {
+  qualityVsVariety: 0.85,
+  advanced: Some({
+    // The 0.85 slider position's own decomposition (wOpponent lands on the
+    // log scale's floor of 10 rather than the old derived 4 — a
+    // tie-break-sized retune accepted for exact representability)...
+    partnerVariety: 0.15, // wPartner 20
+    opponentVariety: 0., // wOpponent 10
+    avoidRecentRepeats: 0., // wRepeatLast 10
+    bandStrength: 0.85, // wSpread 850: banding at full strength
+    bandTolerance: 0.15, // spreadTolerance 0.135: the guardrail bites at once
+    balanceTeams: true,
+    splitBalanceFirst: false,
+    alternateFavored: 0.1,
+    shakeUp: 0.,
+    // ...plus leveled play's cohort rotation: the court fills strongest-first
+    // among fairness ties, so skill bands play together and take their breaks
+    // together instead of individuals alternating out of phase with their
+    // band. Capped below one game of count-deficit, so it can never trade
+    // play time.
+    cohortRotation: 1.0, // wCohort 600
+  }),
+}
+
+// Auto's cold-start endpoint. Not a picker preset and not a slider position:
+// it is the profile Auto opens with, tuned for the rounds where the ladder is
+// still fiction.
+//
+// It is the novelty-first core plus three things Random Balanced lacks:
+//
+//   1. LIGHT banding, at Round Robin's tiebreak strength (wSpread 140,
+//      tolerance 0.25) rather than Competitive+'s (850 / 0.135). Grouping
+//      comparable players makes each game closer and so more informative,
+//      while novelty dominance still forces cross-band play. It is *heavy*
+//      banding that stalls a cold start, by locking players into bands drawn
+//      on noise — the two are not the same lever, and Auto's blend cannot
+//      express this one, since it moves weight and tolerance together and so
+//      never visits "modest weight, tight tolerance".
+//   2. Favoured/underdog alternation, as Round Robin has.
+//   3. Balance-first splits, as Random Balanced has.
+//
+// Measured against opening with Random Balanced, cold start, 12 seeds over 20
+// rounds, with the two additions decomposed:
+//
+//   Random Balanced plain            20.31% blowouts
+//   + alternation                    19.06%
+//   + alternation + light banding    17.92%   <- this profile
+//
+// Both additions contribute, roughly equally, and the total (~2.4pp) has held
+// across four runs at different seed counts and horizons. Each individual step
+// is inside the per-seed noise (se ~1.9pp on a difference), so treat the total
+// as suggestive-but-not-proven and the split between the two as indicative
+// only. Rating error is a wash: it crosses back and forth between the two
+// endpoints across rounds, which is the signature of noise rather than effect.
+// So the honest claim is narrow: somewhat fewer blowouts, same accuracy.
+//
+// Why light banding helps at all, when ratings are still noise: it does not
+// reshape the distribution of foursome spread (measured: median span 0.63 vs
+// 0.64, p90 1.00 for both — though that metric is degenerate at cold start,
+// where the pool's own mu-range is tiny, so it cannot resolve the mechanism
+// either way). The plausible account is a weak tilt — from round 2 the visible
+// ratings correlate with truth just enough that preferring closer-rated
+// foursomes yields truly-comparable ones slightly more often. A ~1pp effect is
+// consistent with a tilt that weak. This is inference, not a measured
+// mechanism.
+let calibrateConfig: uiWeightConfig = {
+  qualityVsVariety: 0.15,
+  advanced: Some({
+    ...noveltyAdvancedBase,
+    bandStrength: 0.14,
+    bandTolerance: 0.25 /. 0.9,
+    splitBalanceFirst: true,
+    alternateFavored: 0.1,
+    shakeUp: 0.05,
+  }),
+}
+
 let presetConfig = (strategy: strategy): uiWeightConfig =>
   switch strategy {
-  | SolverRoundRobin => {qualityVsVariety: 0.15, advanced: None}
-  // At the variety end: Random Balanced is novelty-first with balance as a
-  // per-foursome tiebreak, not a mid-axis compromise — a 0.5 nominal here made
-  // the panel display "50% competitive" and seeded customs with heavy banding.
-  | SolverRandomBalanced => {qualityVsVariety: 0.0, advanced: None}
-  | SolverCompetitivePlus => {qualityVsVariety: 0.85, advanced: None}
-  // Legacy strategies get the nearest preset, so the cost model can also be
+  | SolverRoundRobin => roundRobinConfig
+  | SolverRandomBalanced => randomBalancedConfig
+  | SolverCompetitivePlus => competitivePlusConfig
+  // Auto's effective weights are a live blend (see `autoWeightsAt`); a custom
+  // config forked from it starts mid-axis, the blend's own halfway point.
+  | SolverAuto => {qualityVsVariety: 0.5, advanced: None}
+  // Legacy strategies get the nearest nominal, so the cost model can also be
   // used to *score* rounds produced by the greedy path (see `SessionMetrics`).
   | RoundRobin | NoveltyRoundRobin | Random => {qualityVsVariety: 0.15, advanced: None}
   | Mixed | DUPR => {qualityVsVariety: 0.5, advanced: None}
@@ -239,89 +412,79 @@ let randomWeights: costWeights = {
 }
 
 // ---------------------------------------------------------------------------
-// Solver preset profiles
+// Solver preset profiles — derived from the configs above, nothing more
+// ---------------------------------------------------------------------------
+
+let roundRobinWeights = weightsFromConfig(roundRobinConfig)
+let randomBalancedWeights = weightsFromConfig(randomBalancedConfig)
+let competitivePlusWeights = weightsFromConfig(competitivePlusConfig)
+let calibrateWeights = weightsFromConfig(calibrateConfig)
+
+// ---------------------------------------------------------------------------
+// Auto: Random Balanced -> Competitive+ as ratings settle
 // ---------------------------------------------------------------------------
 //
-// The three solver strategies are *named profiles*, not positions on the
-// qualityVsVariety scale. Two of them are lexicographic by construction —
-// novelty terms sized to dominate every quality term, so quality only ever
-// breaks ties among comparably-novel rounds — which a single scalar on the
-// Variety↔Competitive axis cannot express. (The slider still exists, but as
-// the vocabulary for *custom* configs.)
-//
-//   Round Robin      (SolverRoundRobin variant)
-//     Maximum variety: fresh partners are non-negotiable, opponents close
-//     behind. Ties break the Competitive+ way — banded, balanced matches — so
-//     a session *starts* competitive and mixes as each band's novelty
-//     exhausts. Splits are always balanced.
-//
-//   Random Balanced  (SolverRandomBalanced variant)
-//     The same novelty core with skill spread at *no concern*: who shares a
-//     court is rotation-random (plus a little tie-breaking jitter), and every
-//     match's teams are balanced by skill.
-//
-//   Competitive+     (SolverCompetitivePlus variant)
-//     Quality first: banding at full strength (spread tuned to max) with
-//     balanced splits. This one genuinely lives on the slider axis.
+// The measured convergence facts this encodes (see Convergence.test.ts): while
+// ratings are still noise, variety-first play with balanced splits teaches the
+// rating system fastest, and banding by those ratings only schedules fiction;
+// once ratings separate, Competitive+'s banding is accurate and is what leveled
+// play wants. "Settled" is a signal-to-noise ratio — how far the pool's mu
+// spread has grown past its mean sigma — not absolute sigma, which decays far
+// too slowly in openskill to ever cross a threshold.
 
-let noveltyFirstBase: costWeights = {
-  wPartner: 1000.,
-  // One repeated opponent pair costs wOpponent * 0.4 / 4 = 50 — sized to beat
-  // the largest realistic quality swing, so "maximum variety" covers opponents
-  // too, not just partners.
-  wOpponent: 500.,
-  wRepeatLast: 500.,
-  // One foursome rerun (0.4 * 600 = 240) outweighs the whole opponent range
-  // (200) but stays under one partner repeat (400): teams > group > opponents,
-  // the legacy tier order.
-  wRepeatGroup: 600.,
-  // Splits are balanced by construction (the toggle is a hard filter), so no
-  // weight arithmetic is involved and novelty dominance is untouched.
-  balanceTeams: true,
-  // "No concern for skill spread": the floor keeps only the carry-match
-  // guardrail alive, at a tolerance where ordinary mixing is free.
-  wSpread: minSpreadWeight,
-  wAlternate: 100.,
-  wNoise: 0.,
-  wCohort: 0.,
-  splitBalanceFirst: false,
-  spreadTolerance: 0.9,
+// Pool signal-to-noise: std(mu) / mean(sigma).
+let readinessRatio = (players: array<Player.t<'a>>): float => {
+  let n = players->Array.length->Int.toFloat
+  if n < 2. {
+    0.
+  } else {
+    let meanMu = players->Array.reduce(0., (acc, p) => acc +. p.rating.mu) /. n
+    let variance =
+      players->Array.reduce(0., (acc, p) => {
+        let d = p.rating.mu -. meanMu
+        acc +. d *. d
+      }) /. n
+    let meanSigma = players->Array.reduce(0., (acc, p) => acc +. p.rating.sigma) /. n
+    meanSigma <= 0. ? 1. : Js.Math.sqrt(variance) /. meanSigma
+  }
 }
 
-let roundRobinWeights = {
-  ...noveltyFirstBase,
-  // "Start off with competitive+ first until that's exhausted": a
-  // tiebreak-sized banding term with a tight shape. Early rounds — when every
-  // schedule is equally novel — come out banded and even; as each band's
-  // partner combinations run out (three rounds for a band of four), novelty
-  // dominance forces mixing. Deliberately a weight/tolerance pair the single
-  // `similarSkill` slider cannot express; presets are named profiles and need
-  // not live in the slider vocabulary. Dominance holds: 140 + 100 + 0 < 400.
-  wSpread: 140.,
-  spreadTolerance: 0.25,
+// Ratio -> blend position. 0.30 is just above a cold-start pool (measured
+// ~0.24 after one round); 0.75 is the "ratings have settled" criterion, where
+// pools land around round 8 at 16 players. Between the two the profile
+// interpolates, so a session drifts from calibration into leveled play instead
+// of jumping.
+let autoRatioFloor = 0.30
+let autoRatioCeiling = 0.75
+
+let autoT = (ratio: float): float =>
+  clamp01((ratio -. autoRatioFloor) /. (autoRatioCeiling -. autoRatioFloor))
+
+let lerp = (a: float, b: float, t: float): float => a +. (b -. a) *. t
+
+let autoWeightsAt = (t: float): costWeights => {
+  let cal = calibrateWeights
+  let cp = competitivePlusWeights
+  {
+    wPartner: lerp(cal.wPartner, cp.wPartner, t),
+    wOpponent: lerp(cal.wOpponent, cp.wOpponent, t),
+    wRepeatLast: lerp(cal.wRepeatLast, cp.wRepeatLast, t),
+    wRepeatGroup: lerp(cal.wRepeatGroup, cp.wRepeatGroup, t),
+    balanceTeams: true, // both endpoints: every match takes its balanced split
+    wSpread: lerp(cal.wSpread, cp.wSpread, t),
+    wAlternate: lerp(cal.wAlternate, cp.wAlternate, t),
+    wNoise: lerp(cal.wNoise, cp.wNoise, t),
+    wCohort: lerp(cal.wCohort, cp.wCohort, t),
+    // Boolean semantics switch at the midpoint: balance-first tie-breaking
+    // keeps blowouts down while the ladder is worst; novelty-first is what
+    // lets Competitive+ bands round-robin internally.
+    splitBalanceFirst: t < 0.5,
+    spreadTolerance: lerp(cal.spreadTolerance, cp.spreadTolerance, t),
+  }
 }
 
-let randomBalancedWeights = {
-  ...noveltyFirstBase,
-  // "Random should strictly randomize the matchup": noise at the legacy Random
-  // strategy's magnitude, so composition genuinely varies among comparably
-  // novel options — while one partner repeat (400) still dominates it, keeping
-  // maximum variety intact. Split balance is unaffected: the filter is hard.
-  wNoise: 50.,
-  // And no favoured/underdog steering — a random mode should not shape who is
-  // on which side of a matchup.
-  wAlternate: 0.,
-  // Who plays whom is random; how they split is balanced. See the field doc.
-  splitBalanceFirst: true,
-}
-
-let competitivePlusWeights = {
-  ...weightsFromConfig({qualityVsVariety: 0.85, advanced: None}),
-  // Leveled play rotates in cohorts: the court fills strongest-first among
-  // fairness ties, so skill bands play together and take their breaks
-  // together instead of individuals alternating out of phase with their band.
-  wCohort: maxCohortWeight,
-}
+let autoWeights = (players: array<Player.t<'a>>): costWeights =>
+  autoWeightsAt(autoT(readinessRatio(players)))
 
 let weightsForStrategy = (strategy: strategy): costWeights =>
   switch strategy {
@@ -329,6 +492,9 @@ let weightsForStrategy = (strategy: strategy): costWeights =>
   | SolverRoundRobin => roundRobinWeights
   | SolverRandomBalanced => randomBalancedWeights
   | SolverCompetitivePlus => competitivePlusWeights
+  // Static callers (no pool in hand) get the cold-start end; the live blend is
+  // dispatched in `SolverRounds.effectiveWeights`, which has the players.
+  | SolverAuto => calibrateWeights
   | s => weightsFromConfig(presetConfig(s))
   }
 
@@ -336,14 +502,25 @@ let weightsForStrategy = (strategy: strategy): costWeights =>
 // Persistence
 // ---------------------------------------------------------------------------
 
+// Configs written before the advanced panel spoke the full weight vocabulary
+// (the "similarSkill" era) are discarded on read rather than migrated — the
+// event falls back to its strategy's preset, which is a better approximation
+// of what the user had than any field-by-field guess. The version gate below
+// is what enforces that.
+let configVersion = 2.
+
 let advancedToJson = (a: advancedWeights): Js.Json.t => {
   let d = Js.Dict.empty()
   d->Js.Dict.set("partnerVariety", a.partnerVariety->Js.Json.number)
   d->Js.Dict.set("opponentVariety", a.opponentVariety->Js.Json.number)
-  d->Js.Dict.set("similarSkill", a.similarSkill->Js.Json.number)
-  d->Js.Dict.set("balanceTeams", a.balanceTeams->Js.Json.boolean)
   d->Js.Dict.set("avoidRecentRepeats", a.avoidRecentRepeats->Js.Json.number)
+  d->Js.Dict.set("bandStrength", a.bandStrength->Js.Json.number)
+  d->Js.Dict.set("bandTolerance", a.bandTolerance->Js.Json.number)
+  d->Js.Dict.set("balanceTeams", a.balanceTeams->Js.Json.boolean)
+  d->Js.Dict.set("splitBalanceFirst", a.splitBalanceFirst->Js.Json.boolean)
   d->Js.Dict.set("alternateFavored", a.alternateFavored->Js.Json.number)
+  d->Js.Dict.set("shakeUp", a.shakeUp->Js.Json.number)
+  d->Js.Dict.set("cohortRotation", a.cohortRotation->Js.Json.number)
   d->Js.Json.object_
 }
 
@@ -353,24 +530,25 @@ let advancedFromJson = (json: Js.Json.t): option<advancedWeights> =>
   ->Option.map(d => {
     let num = (key, fallback) =>
       d->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeNumber)->Option.getOr(fallback)
-    // Configs stored before spread and balance were separated carried a single
-    // coupled "skillBalance"; read it as both halves.
-    let legacySkillBalance = num("skillBalance", 0.5)
+    let bool = (key, fallback) =>
+      d->Js.Dict.get(key)->Option.flatMap(v => v->Js.Json.decodeBoolean)->Option.getOr(fallback)
     {
       partnerVariety: num("partnerVariety", 0.5),
       opponentVariety: num("opponentVariety", 0.5),
-      similarSkill: num("similarSkill", legacySkillBalance),
-      balanceTeams: d
-      ->Js.Dict.get("balanceTeams")
-      ->Option.flatMap(v => v->Js.Json.decodeBoolean)
-      ->Option.getOr(legacySkillBalance >= 0.2),
       avoidRecentRepeats: num("avoidRecentRepeats", 0.5),
+      bandStrength: num("bandStrength", 0.5),
+      bandTolerance: num("bandTolerance", 0.5),
+      balanceTeams: bool("balanceTeams", true),
+      splitBalanceFirst: bool("splitBalanceFirst", false),
       alternateFavored: num("alternateFavored", 0.1),
+      shakeUp: num("shakeUp", 0.),
+      cohortRotation: num("cohortRotation", 0.),
     }
   })
 
 let configToJson = (config: uiWeightConfig): Js.Json.t => {
   let d = Js.Dict.empty()
+  d->Js.Dict.set("v", configVersion->Js.Json.number)
   d->Js.Dict.set("qualityVsVariety", config.qualityVsVariety->Js.Json.number)
   switch config.advanced {
   | None => ()
@@ -382,15 +560,23 @@ let configToJson = (config: uiWeightConfig): Js.Json.t => {
 let configFromJson = (json: Js.Json.t): option<uiWeightConfig> =>
   json
   ->Js.Json.decodeObject
-  ->Option.flatMap(d =>
-    d
-    ->Js.Dict.get("qualityVsVariety")
-    ->Option.flatMap(v => v->Js.Json.decodeNumber)
-    ->Option.map(qualityVsVariety => {
-      qualityVsVariety,
-      advanced: d->Js.Dict.get("advanced")->Option.flatMap(advancedFromJson),
-    })
-  )
+  ->Option.flatMap(d => {
+    let isCurrent =
+      d
+      ->Js.Dict.get("v")
+      ->Option.flatMap(v => v->Js.Json.decodeNumber)
+      ->Option.map(v => v == configVersion)
+      ->Option.getOr(false)
+    isCurrent
+      ? d
+        ->Js.Dict.get("qualityVsVariety")
+        ->Option.flatMap(v => v->Js.Json.decodeNumber)
+        ->Option.map(qualityVsVariety => {
+          qualityVsVariety,
+          advanced: d->Js.Dict.get("advanced")->Option.flatMap(advancedFromJson),
+        })
+      : None
+  })
 
 let configToJsonString = (config: uiWeightConfig): string =>
   config->configToJson->Js.Json.stringify

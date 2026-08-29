@@ -13,14 +13,14 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchList.re.mjs:484
+#: src/components/organisms/MatchList.re.mjs:501
 msgid "...load previous matches"
 msgstr "...이전 경기 불러오기"
 
-#: src/components/organisms/MatchList.re.mjs:507
+#: src/components/organisms/MatchList.re.mjs:524
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
 
-#: src/components/organisms/MatchList.re.mjs:404
+#: src/components/organisms/MatchList.re.mjs:421
 msgid "Score:"
 msgstr "점수:"

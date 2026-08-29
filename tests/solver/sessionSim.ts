@@ -30,6 +30,9 @@ export type Scenario = {
   numPlayers: number;
   // Visible starting mu. Defaults to the cold-start 25 for everyone.
   startMu?: (i: number, theta: number) => number;
+  // Visible starting sigma, for settled-but-wrong priors (e.g. an inverted
+  // ladder carried in from earlier sessions). Defaults to the cold-start 25/3.
+  startSigma?: (i: number, theta: number) => number;
   gender?: (i: number) => "Male" | "Female";
   weightConfig?: unknown;
   teamConstraints?: Set<string>[];
@@ -37,6 +40,8 @@ export type Scenario = {
   requiredPlayerIds?: string[];
   // Roster changes: return the ids present at the start of the given round.
   roster?: (roundIndex: number, all: Player[]) => Player[];
+  // Mid-session strategy changes (e.g. calibrate, then switch to competitive).
+  strategyByRound?: (roundIndex: number) => string;
 };
 
 export type SimResult = {
@@ -90,6 +95,7 @@ export async function runSession(scenario: Scenario): Promise<SimResult> {
     const t = scenario.theta(i, next);
     const player = makePlayer(i, {
       mu: scenario.startMu?.(i, t) ?? 25,
+      sigma: scenario.startSigma?.(i, t),
       gender: scenario.gender?.(i),
     });
     theta[player.id] = t;
@@ -120,7 +126,7 @@ export async function runSession(scenario: Scenario): Promise<SimResult> {
       1,
       available,
       scoredRounds,
-      scenario.strategy,
+      scenario.strategyByRound?.(r) ?? scenario.strategy,
       scenario.courts,
       new Date(0),
       scenario.weightConfig,

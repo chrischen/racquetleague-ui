@@ -79,11 +79,11 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Advance to Next Round"
 msgstr "Tiến lên vòng tiếp theo"
 
-#: src/components/organisms/EventManager.re.mjs:2433
+#: src/components/organisms/EventManager.re.mjs:2439
 msgid "Advance to Round {0}"
 msgstr "Tiến lên vòng {0}"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:152
+#: src/components/molecules/SolverWeightsPanel.re.mjs:276
 msgid "Advanced"
 msgstr "Nâng cao"
 
@@ -95,15 +95,15 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "Tất cả người chơi đã check-in đều ở trong vòng này"
 
-#: src/components/organisms/EventManager.re.mjs:2267
+#: src/components/organisms/EventManager.re.mjs:2270
 msgid "all up to date"
 msgstr "đã cập nhật"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:241
+#: src/components/molecules/SolverWeightsPanel.re.mjs:469
 msgid "Alternate favourite/underdog roles"
 msgstr "Xen kẽ vai trò ưa thích/yếu thế"
 
-#: src/components/organisms/EventManager.re.mjs:2539
+#: src/components/organisms/EventManager.re.mjs:2548
 msgid "Anti-Team {0}"
 msgstr "Đội phản {0}"
 
@@ -111,21 +111,46 @@ msgstr "Đội phản {0}"
 msgid "Anti-Teams"
 msgstr "Các đội phản"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:208
-msgid "Any mix"
-msgstr "Bất kỳ hỗn hợp nào"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "Mọi tổ hợp đều được"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:227
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "Tự động"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid ""
+"Auto is adjusting these values — freeze the current mix to adjust them "
+"manually. Auto stops adapting for this event."
+msgstr ""
+"Tự động đang điều chỉnh các giá trị này — đóng băng hỗn hợp hiện tại để "
+"chỉnh thủ công. Tự động sẽ ngừng thích nghi cho sự kiện này."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:450
 msgid "Avoid recent repeats"
 msgstr "Tránh lặp lại gần đây"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:212
-msgid "Balance teams"
-msgstr "Cân bằng đội"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "Cân bằng, ưu tiên đối tác mới"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Balances fresh partners against evenly matched games."
 msgstr "Cân bằng giữa đối tác mới và các trận đấu đều sức."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "Dung sai nhóm"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "Các nhóm nghỉ cùng nhau"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "Đang hiệu chỉnh"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
@@ -140,7 +165,7 @@ msgstr "Hủy"
 msgid "Changes aren't being saved"
 msgstr "Các thay đổi chưa được lưu"
 
-#: src/components/molecules/DrawGenerator.re.mjs:108
+#: src/components/molecules/DrawGenerator.re.mjs:115
 msgid "Classic round-robin draws"
 msgstr "Bốc thăm round-robin cổ điển"
 
@@ -156,12 +181,13 @@ msgstr "Đóng Toàn Màn Hình"
 msgid "Close self check-in display"
 msgstr "Đóng màn hình tự check-in"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:97
+#: src/components/molecules/SolverWeightsPanel.re.mjs:226
+#: src/components/molecules/SolverWeightsPanel.re.mjs:246
+#: src/components/molecules/DrawGenerator.re.mjs:104
 msgid "Competitive"
 msgstr "Thi đấu"
 
-#: src/components/molecules/DrawGenerator.re.mjs:91
+#: src/components/molecules/DrawGenerator.re.mjs:93
 msgid "Competitive+"
 msgstr "Cạnh tranh+"
 
@@ -186,7 +212,7 @@ msgstr "SÂN {0}"
 msgid "Court {0} - Editing"
 msgstr "Sân {0} - Đang chỉnh sửa"
 
-#: src/components/molecules/DrawGenerator.re.mjs:142
+#: src/components/molecules/DrawGenerator.re.mjs:149
 msgid "Courts:"
 msgstr "Các sân:"
 
@@ -214,15 +240,19 @@ msgstr "Tạo đội đầu tiên của bạn để bắt đầu"
 msgid "Current Round:"
 msgstr "Vòng hiện tại:"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:154
+#: src/components/molecules/SolverWeightsPanel.re.mjs:277
 msgid "Custom"
 msgstr "Tùy chỉnh"
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "Tùy chỉnh từ đây"
+
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: OFF"
 msgstr "Gỡ lỗi: TẮT"
 
-#: src/components/organisms/EventManager.re.mjs:2752
+#: src/components/organisms/EventManager.re.mjs:2761
 msgid "Debug: ON"
 msgstr "Gỡ lỗi: BẬT"
 
@@ -252,9 +282,13 @@ msgstr "Xóa đội"
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "Xác định"
+
 #: src/components/organisms/EventManager.re.mjs:273
 #: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2336
+#: src/components/organisms/EventManager.re.mjs:2342
 msgid "Dismiss"
 msgstr "Bỏ qua"
 
@@ -262,15 +296,15 @@ msgstr "Bỏ qua"
 msgid "Drag players in order of strongest to weakest."
 msgstr "Kéo người chơi theo thứ tự từ mạnh nhất đến yếu nhất."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
 msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"Each strategy uses a tuned profile; adjusting any value switches this event "
 "to a custom mix. Fair play time and rotation are always enforced and can't "
 "be turned down."
 msgstr ""
-"Mỗi chiến lược dùng một cấu hình đã được tinh chỉnh; điều chỉnh bất kỳ thanh "
-"trượt nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian thi đấu "
-"công bằng và luân phiên luôn được áp dụng và không thể giảm xuống."
+"Mỗi chiến lược dùng một cấu hình đã tinh chỉnh; điều chỉnh bất kỳ giá trị "
+"nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian thi đấu công "
+"bằng và vòng xoay luôn được áp dụng và không thể giảm."
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -304,7 +338,7 @@ msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là h�
 msgid "Event check-in"
 msgstr "Check-in sự kiện"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:84
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -332,6 +366,10 @@ msgstr "Dự phòng: {0} cùng đội mà không có phụ nữ trong vòng hỗ
 msgid "Female"
 msgstr "Nữ"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:433
+msgid "Free"
+msgstr "Miễn phí"
+
 #: src/components/organisms/EventManager.re.mjs:526
 msgid "Free up space"
 msgstr "Giải phóng dung lượng"
@@ -340,7 +378,11 @@ msgstr "Giải phóng dung lượng"
 msgid "Free Up Space"
 msgstr "Giải Phóng Dung Lượng"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "Trận đấu mới quyết định cách chia đội; chia đội có thể không đều"
+
+#: src/components/molecules/DrawGenerator.re.mjs:89
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -352,7 +394,7 @@ msgstr ""
 msgid "Full Screen View"
 msgstr "Xem Toàn Màn Hình"
 
-#: src/components/molecules/DrawGenerator.re.mjs:282
+#: src/components/molecules/DrawGenerator.re.mjs:292
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -364,22 +406,26 @@ msgstr ""
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/molecules/DrawGenerator.re.mjs:238
+#: src/components/molecules/DrawGenerator.re.mjs:245
 msgid "Generate"
 msgstr "Tạo"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Generate Draws"
 msgstr "Tạo bốc thăm"
 
-#: src/components/molecules/DrawGenerator.re.mjs:363
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/molecules/DrawGenerator.re.mjs:373
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Generating…"
 msgstr "Đang tạo…"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
 msgstr "Xếp hạng toàn cầu"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "Nhóm theo kỹ năng"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -389,7 +435,7 @@ msgstr "Tên khách (mỗi tên một dòng)"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
 
-#: src/components/organisms/EventManager.re.mjs:2740
+#: src/components/organisms/EventManager.re.mjs:2749
 msgid "Help"
 msgstr "Trợ giúp"
 
@@ -426,7 +472,7 @@ msgstr "Nam"
 msgid "match"
 msgstr "trận đấu"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:131
+#: src/components/molecules/SolverWeightsPanel.re.mjs:265
 msgid "Match style"
 msgstr "Hình thức trận đấu"
 
@@ -435,13 +481,17 @@ msgstr "Hình thức trận đấu"
 msgid "matches"
 msgstr "trận đấu"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:134
+#: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
 msgstr "Pha trộn người chơi"
 
-#: src/components/molecules/DrawGenerator.re.mjs:102
+#: src/components/molecules/DrawGenerator.re.mjs:109
 msgid "Mixed"
 msgstr "Hỗn hợp"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "Luôn đều nhất"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -451,7 +501,7 @@ msgstr "mu"
 msgid "Name"
 msgstr "Tên"
 
-#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:272
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr "Cần {0} người chơi cho {1} {courtText}. Hiện có {2} đã check-in."
 
@@ -459,7 +509,7 @@ msgstr "Cần {0} người chơi cho {1} {courtText}. Hiện có {2} đã check-
 msgid "New Anti-Team"
 msgstr "Đội phản mới"
 
-#: src/components/molecules/DrawGenerator.re.mjs:215
+#: src/components/molecules/DrawGenerator.re.mjs:222
 msgid "New seed — deals different matches"
 msgstr "Seed mới — tạo ra các trận đấu khác nhau"
 
@@ -479,6 +529,10 @@ msgstr "Không có người chơi khả dụng"
 msgid "No draws generated yet."
 msgstr "Chưa có bảng đấu nào được tạo."
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "Không ưu tiên"
+
 #: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "Không có điểm"
@@ -495,22 +549,26 @@ msgstr "Chưa thanh toán"
 msgid "Not saved"
 msgstr "Chưa lưu"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "Tắt"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:182
+#: src/components/molecules/SolverWeightsPanel.re.mjs:318
 msgid "Opponent variety"
 msgstr "Đa dạng đối thủ"
 
-#: src/components/molecules/DrawGenerator.re.mjs:92
+#: src/components/molecules/DrawGenerator.re.mjs:94
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr ""
 "Lịch thi đấu được tối ưu hóa, ưu tiên các trận đấu đều sức trong cùng nhóm "
 "kỹ năng."
 
-#: src/components/organisms/EventManager.re.mjs:2332
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 "Trình tối ưu không khả dụng — đã dùng ghép cặp tiêu chuẩn cho lịch này."
@@ -523,7 +581,7 @@ msgstr "Các sự kiện khác trên thiết bị này"
 msgid "Paid"
 msgstr "Đã thanh toán"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:168
+#: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr "Đa dạng đối tác"
 
@@ -554,7 +612,7 @@ msgid "Players start on their global rating across all clubs."
 msgstr ""
 "Người chơi bắt đầu với xếp hạng toàn cầu của họ trên tất cả các câu lạc bộ."
 
-#: src/components/molecules/DrawGenerator.re.mjs:98
+#: src/components/molecules/DrawGenerator.re.mjs:105
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
@@ -562,7 +620,7 @@ msgstr ""
 "Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức "
 "round-robin với các đội cân bằng theo kỹ năng."
 
-#: src/components/organisms/EventManager.re.mjs:1822
+#: src/components/organisms/EventManager.re.mjs:1825
 msgid "Preparing optimizer…"
 msgstr "Đang chuẩn bị trình tối ưu…"
 
@@ -578,7 +636,7 @@ msgstr "Vòng trước"
 msgid "Print"
 msgstr "In"
 
-#: src/components/organisms/EventManager.re.mjs:2234
+#: src/components/organisms/EventManager.re.mjs:2237
 msgid "Print Draws"
 msgstr "In Bảng Đấu"
 
@@ -586,17 +644,29 @@ msgstr "In Bảng Đấu"
 msgid "Print Preview"
 msgstr "Xem Trước Khi In"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Prioritises evenly matched games over fresh partners."
 msgstr "Ưu tiên các trận đấu cân bằng hơn là đối tác mới."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:138
+#: src/components/molecules/SolverWeightsPanel.re.mjs:249
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "Ưu tiên đối tác và đối thủ mới hơn là các trận đấu cân bằng."
 
-#: src/components/molecules/DrawGenerator.re.mjs:86
+#: src/components/molecules/SolverWeightsPanel.re.mjs:505
+msgid "Random"
+msgstr "Ngẫu nhiên"
+
+#: src/components/molecules/DrawGenerator.re.mjs:88
 msgid "Random Balanced"
 msgstr "Ngẫu nhiên cân bằng"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid ""
+"Ratings are {percent}% settled — the mix adjusts automatically as scores "
+"come in."
+msgstr ""
+"Xếp hạng đã ổn định {percent}% — hỗn hợp tự động điều chỉnh khi điểm số cập "
+"nhật."
 
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
@@ -606,7 +676,7 @@ msgstr "Cân bằng lại trận đấu"
 msgid "Rebalance this round with current players"
 msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 
-#: src/components/molecules/DrawGenerator.re.mjs:281
+#: src/components/molecules/DrawGenerator.re.mjs:291
 msgid "Regenerate Rounds?"
 msgstr "Tái tạo vòng?"
 
@@ -622,7 +692,7 @@ msgstr "Thay thế người chơi"
 msgid "Replacing:"
 msgstr "Đang thay thế:"
 
-#: src/components/organisms/EventManager.re.mjs:2723
+#: src/components/organisms/EventManager.re.mjs:2732
 msgid "Reset Storage"
 msgstr "Đặt lại bộ nhớ"
 
@@ -634,13 +704,17 @@ msgstr "Đặt lại vòng này với tất cả người chơi đã check-in"
 msgid "Reset this round with mixed gender pairs"
 msgstr "Đặt lại vòng này với các cặp nam nữ hỗn hợp"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:255
-msgid "Reset to slider"
-msgstr "Đặt lại về thanh trượt"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "Đặt lại về cài đặt sẵn"
 
 #: src/components/organisms/EventManager.re.mjs:538
 msgid "Retry"
 msgstr "Thử lại"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "Xoay nhóm kỹ năng cùng nhau"
 
 #: src/components/organisms/RoundSection.re.mjs:523
 #: src/components/organisms/RoundSection.re.mjs:650
@@ -649,15 +723,15 @@ msgstr "Thử lại"
 msgid "Round {0}"
 msgstr "Vòng {0}"
 
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:83
 msgid "Round Robin"
 msgstr "Vòng tròn"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:114
 msgid "Round-Robin"
 msgstr "Round-Robin"
 
-#: src/components/molecules/DrawGenerator.re.mjs:103
+#: src/components/molecules/DrawGenerator.re.mjs:110
 msgid "Round-Robin with teams balanced by skill."
 msgstr "Round-Robin với các đội cân bằng theo kỹ năng."
 
@@ -697,11 +771,11 @@ msgstr "Đang lưu…"
 msgid "Scan to check in"
 msgstr "Quét để check-in"
 
-#: src/components/organisms/EventManager.re.mjs:2189
+#: src/components/organisms/EventManager.re.mjs:2192
 msgid "Scores Synced!"
 msgstr "Điểm số đã được đồng bộ!"
 
-#: src/components/molecules/DrawGenerator.re.mjs:203
+#: src/components/molecules/DrawGenerator.re.mjs:210
 msgid "Seed:"
 msgstr "Hạt giống:"
 
@@ -717,9 +791,13 @@ msgstr "Đã điều chỉnh hạt giống"
 msgid "SERVING"
 msgstr "ĐANG GIAO BÓNG"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:196
-msgid "Similar-skill matches"
-msgstr "Trận đấu trình độ tương đương"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "Xáo trộn"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "Phân nhóm kỹ năng"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:174
 msgid "Skill: {0}"
@@ -729,44 +807,48 @@ msgstr "Kỹ năng: {0}"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "Một số quy tắc đã phải linh hoạt để lấp đầy các sân"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:224
-msgid "Split each match into its most even teams"
-msgstr "Chia mỗi trận thành các đội cân bằng nhất"
-
-#: src/components/organisms/EventManager.re.mjs:2706
+#: src/components/organisms/EventManager.re.mjs:2715
 msgid "Sports Event Draws"
 msgstr "Kết Quả Sự Kiện Thể Thao"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid ""
+"Starts with varied, balanced matchups to calibrate ratings, then shifts to "
+"competitive skill-banded play as rankings settle."
+msgstr ""
+"Bắt đầu với các trận đấu đa dạng, cân bằng để hiệu chỉnh xếp hạng, sau đó "
+"chuyển sang thi đấu theo nhóm kỹ năng cạnh tranh khi thứ hạng ổn định."
 
 #: src/components/organisms/EventManager.re.mjs:251
 msgid "Storage Almost Full"
 msgstr "Bộ Nhớ Gần Đầy"
 
-#: src/components/molecules/DrawGenerator.re.mjs:366
+#: src/components/molecules/DrawGenerator.re.mjs:376
 msgid "strategy"
 msgstr "chiến lược"
 
-#: src/components/molecules/DrawGenerator.re.mjs:178
+#: src/components/molecules/DrawGenerator.re.mjs:185
 msgid "Strategy:"
 msgstr "Chiến lược:"
 
-#: src/components/organisms/EventManager.re.mjs:2201
+#: src/components/organisms/EventManager.re.mjs:2204
 msgid "Sync Failed"
 msgstr "Đồng bộ thất bại"
 
-#: src/components/organisms/EventManager.re.mjs:2165
+#: src/components/organisms/EventManager.re.mjs:2168
 msgid "Sync Scores"
 msgstr "Đồng bộ điểm số"
 
-#: src/components/organisms/EventManager.re.mjs:2261
+#: src/components/organisms/EventManager.re.mjs:2264
 msgid "synced"
 msgstr "đã đồng bộ"
 
-#: src/components/organisms/EventManager.re.mjs:2177
+#: src/components/organisms/EventManager.re.mjs:2180
 msgid "Syncing... {0}%"
 msgstr "Đang đồng bộ... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2096
+#: src/components/organisms/EventManager.re.mjs:2099
 msgid "Team {0}"
 msgstr "Đội {0}"
 
@@ -790,6 +872,10 @@ msgstr "Thành viên đội ({0})"
 msgid "Team Name"
 msgstr "Tên đội"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "Chia đội"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:326
 msgid "Teams"
 msgstr "Các đội"
@@ -802,6 +888,14 @@ msgid ""
 msgstr ""
 "Trận đấu sẽ bị xóa khỏi vòng này. Bạn có thể khôi phục các trận đấu được lên "
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "Chia đều nhất mà không lặp lại cặp đôi"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "Chia đều nhất, dù có lặp lại cặp đôi"
 
 #: src/components/organisms/EventManager.re.mjs:744
 msgid "this club"
@@ -817,7 +911,7 @@ msgstr ""
 "gồm cả sự kiện hiện tại. Các sự kiện đã đồng bộ lên máy chủ có thể mở lại; "
 "những sự kiện chưa đồng bộ sẽ không thể khôi phục."
 
-#: src/components/molecules/DrawGenerator.re.mjs:305
+#: src/components/molecules/DrawGenerator.re.mjs:315
 msgid "This will delete all future rounds and generate new matches"
 msgstr "Điều này sẽ xóa tất cả các vòng tiếp theo và tạo trận đấu mới"
 
@@ -837,11 +931,11 @@ msgstr ""
 "Các điểm số đó chưa đến được máy chủ. Hãy đồng bộ sự kiện này, mở từng sự "
 "kiện khác và đồng bộ chúng trước khi xóa — nếu không chúng sẽ bị mất."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:209
+#: src/components/molecules/SolverWeightsPanel.re.mjs:374
 msgid "Tight bands"
 msgstr "Dải trình độ hẹp"
 
-#: src/components/organisms/EventManager.re.mjs:2263
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "to sync"
 msgstr "cần đồng bộ"
 
@@ -857,12 +951,12 @@ msgstr "Điểm số chưa đồng bộ trong sự kiện này"
 msgid "Unsynced scores in those events"
 msgstr "Điểm số chưa đồng bộ trong các sự kiện đó"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Update Future Rounds"
 msgstr "Cập nhật các vòng tiếp theo"
 
-#: src/components/molecules/DrawGenerator.re.mjs:273
-#: src/components/molecules/DrawGenerator.re.mjs:293
+#: src/components/molecules/DrawGenerator.re.mjs:283
+#: src/components/molecules/DrawGenerator.re.mjs:303
 msgid "Update Rounds Below"
 msgstr "Cập nhật các vòng bên dưới"
 
@@ -918,6 +1012,14 @@ msgstr ""
 "dung lượng. Giải phóng dung lượng sẽ xóa dữ liệu đã lưu cho mọi sự kiện trên "
 "thiết bị này — bạn sẽ có cơ hội xem lại những gì bị xóa."
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:208
+#~ msgid "Any mix"
+#~ msgstr "Bất kỳ hỗn hợp nào"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:212
+#~ msgid "Balance teams"
+#~ msgstr "Cân bằng đội"
+
 #: src/components/molecules/DrawGenerator.re.mjs:192
 #~ msgid "Beta"
 #~ msgstr "Beta"
@@ -925,6 +1027,16 @@ msgstr ""
 #: src/components/organisms/SeedAdjustModal.re.mjs:133
 #~ msgid "Drag players to reorder their initial seeding"
 #~ msgstr "Kéo người chơi để sắp xếp lại thứ hạng hạt giống ban đầu"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#~ msgid ""
+#~ "Each strategy uses a tuned profile; adjusting any slider switches this "
+#~ "event to a custom mix. Fair play time and rotation are always enforced "
+#~ "and can't be turned down."
+#~ msgstr ""
+#~ "Mỗi chiến lược dùng một cấu hình đã được tinh chỉnh; điều chỉnh bất kỳ "
+#~ "thanh trượt nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian "
+#~ "thi đấu công bằng và luân phiên luôn được áp dụng và không thể giảm xuống."
 
 #: src/components/organisms/EventManager.re.mjs:394
 #, fuzzy
@@ -934,6 +1046,10 @@ msgstr ""
 #: src/components/organisms/FullScreenRoundView.re.mjs:151
 #~ msgid "Not Playing This Round"
 #~ msgstr "Không Chơi Vòng Này"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:255
+#~ msgid "Reset to slider"
+#~ msgstr "Đặt lại về thanh trượt"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:184
 #: src/components/organisms/MatchCardEdit.re.mjs:221
@@ -949,6 +1065,14 @@ msgstr ""
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0} người chơi"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:196
+#~ msgid "Similar-skill matches"
+#~ msgstr "Trận đấu trình độ tương đương"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:224
+#~ msgid "Split each match into its most even teams"
+#~ msgstr "Chia mỗi trận thành các đội cân bằng nhất"
 
 #: src/components/organisms/EventManager.re.mjs:356
 #, fuzzy

@@ -19,7 +19,15 @@ let make = (
   ~highlight: bool=false,
   ~futureRoundsHaveScores: bool=false,
   ~weightConfig: option<CostModel.uiWeightConfig>=?,
+  // Whether `weightConfig` is a stored customisation rather than the current
+  // strategy's preset; drives the panel's "Custom" affordances.
+  ~weightConfigIsCustom: bool=false,
+  // Auto's live blend position, from the caller's current rating state. Only
+  // ever Some while the Auto preset is selected and uncustomised.
+  ~autoBlendT: option<float>=?,
   ~onWeightConfigChange: option<CostModel.uiWeightConfig => unit>=?,
+  // Clears the stored customisation, returning to the strategy's preset.
+  ~onWeightConfigReset: option<unit => unit>=?,
   ~isGenerating: bool=false,
   ~generatingLabel: string="",
   // Set false by callers that still drive generation through the synchronous
@@ -77,6 +85,11 @@ let make = (
           value: Rating.SolverCompetitivePlus,
           label: ts`Competitive+`,
           description: ts`Optimised draws that prioritise evenly matched games within a skill band.`,
+        },
+        {
+          value: Rating.SolverAuto,
+          label: ts`Auto`,
+          description: ts`Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle.`,
         },
       ]
     : [
@@ -293,7 +306,13 @@ let make = (
                   // Weight configuration, only for the solver-backed presets
                   {switch (strategy->Rating.isSolverStrategy, weightConfig, onWeightConfigChange) {
                   | (true, Some(config), Some(onChange)) =>
-                    <SolverWeightsPanel config onChange />
+                    <SolverWeightsPanel
+                      config
+                      onChange
+                      isCustom=weightConfigIsCustom
+                      autoBlendT=?{autoBlendT}
+                      onReset=?{onWeightConfigReset}
+                    />
                   | _ => React.null
                   }}
                   // Not enough players warning

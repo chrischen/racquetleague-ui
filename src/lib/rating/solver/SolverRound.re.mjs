@@ -194,6 +194,14 @@ function poolViolatedTeams(match, pools) {
             });
 }
 
+function splitBalanceIsFree(numPlayers, numCourts) {
+  if (numPlayers >= 16) {
+    return true;
+  } else {
+    return numPlayers > (numCourts << 2);
+  }
+}
+
 function filterToBalancedSplits(priced, history, balanceFirst) {
   var byQuad = new Map();
   priced.forEach(function (p) {
@@ -650,6 +658,7 @@ export {
   seedRound ,
   shortlistIndices ,
   poolViolatedTeams ,
+  splitBalanceIsFree ,
   filterToBalancedSplits ,
   prepare ,
   objectiveOfSelection ,

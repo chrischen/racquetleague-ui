@@ -21,22 +21,26 @@ function fromPercent(raw) {
 }
 
 function SolverWeightsPanel$Slider(props) {
+  var __disabled = props.disabled;
   var __rightHint = props.rightHint;
   var __leftHint = props.leftHint;
   var onChange = props.onChange;
+  var label = props.label;
   var leftHint = __leftHint !== undefined ? __leftHint : "";
   var rightHint = __rightHint !== undefined ? __rightHint : "";
+  var disabled = __disabled !== undefined ? __disabled : false;
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsx("span", {
-                            children: props.label,
-                            className: "font-medium"
-                          }),
-                      className: "flex items-center justify-between text-xs text-slate-600"
-                    }),
+                label === "" ? null : JsxRuntime.jsx("div", {
+                        children: JsxRuntime.jsx("span", {
+                              children: label,
+                              className: "font-medium"
+                            }),
+                        className: "flex items-center justify-between text-xs text-slate-600"
+                      }),
                 JsxRuntime.jsx("input", {
                       className: "w-full accent-blue-600",
+                      disabled: disabled,
                       max: "100",
                       min: "0",
                       step: 1,
@@ -58,7 +62,7 @@ function SolverWeightsPanel$Slider(props) {
                         className: "flex justify-between text-[10px] text-slate-400"
                       })
               ],
-              className: "flex flex-col gap-1"
+              className: disabled ? "flex flex-col gap-1 opacity-60" : "flex flex-col gap-1"
             });
 }
 
@@ -66,53 +70,97 @@ var Slider = {
   make: SolverWeightsPanel$Slider
 };
 
-function SolverWeightsPanel$Toggle(props) {
-  var __hint = props.hint;
+function fromWeights(balanceTeams, splitBalanceFirst) {
+  if (balanceTeams) {
+    if (splitBalanceFirst) {
+      return "MostEven";
+    } else {
+      return "BalancedFreshFirst";
+    }
+  } else {
+    return "Free";
+  }
+}
+
+function SolverWeightsPanel$SplitMode(props) {
+  var __disabled = props.disabled;
   var onChange = props.onChange;
-  var hint = __hint !== undefined ? __hint : "";
-  return JsxRuntime.jsxs("label", {
+  var value = props.value;
+  var disabled = __disabled !== undefined ? __disabled : false;
+  var name = React.useId();
+  return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsxs("span", {
-                      children: [
-                        JsxRuntime.jsx("span", {
-                              children: props.label,
-                              className: "text-xs font-medium text-slate-600"
-                            }),
-                        hint === "" ? null : JsxRuntime.jsx("span", {
-                                children: hint,
-                                className: "text-[10px] text-slate-400"
-                              })
-                      ],
-                      className: "flex flex-col"
+                JsxRuntime.jsx("span", {
+                      children: props.label,
+                      className: "text-xs font-medium text-slate-600"
                     }),
-                JsxRuntime.jsx("input", {
-                      className: "mt-0.5 h-4 w-4 shrink-0 accent-blue-600",
-                      checked: props.checked,
-                      type: "checkbox",
-                      onChange: (function (e) {
-                          onChange(e.target.checked);
-                        })
+                JsxRuntime.jsx("div", {
+                      children: props.options.map(function (param) {
+                            var title = param[1];
+                            var mode = param[0];
+                            return JsxRuntime.jsxs("label", {
+                                        children: [
+                                          JsxRuntime.jsx("input", {
+                                                className: "mt-0.5 h-4 w-4 shrink-0 accent-blue-600",
+                                                checked: mode === value,
+                                                disabled: disabled,
+                                                name: name,
+                                                type: "radio",
+                                                onChange: (function (param) {
+                                                    onChange(mode);
+                                                  })
+                                              }),
+                                          JsxRuntime.jsxs("span", {
+                                                children: [
+                                                  JsxRuntime.jsx("span", {
+                                                        children: title,
+                                                        className: "text-xs font-medium text-slate-600"
+                                                      }),
+                                                  JsxRuntime.jsx("span", {
+                                                        children: param[2],
+                                                        className: "text-[10px] text-slate-400"
+                                                      })
+                                                ],
+                                                className: "flex flex-col"
+                                              })
+                                        ],
+                                        className: disabled ? "flex items-start gap-2 cursor-default" : "flex items-start gap-2 cursor-pointer"
+                                      }, title);
+                          }),
+                      className: "flex flex-col gap-1.5"
                     })
               ],
-              className: "flex items-start justify-between gap-3 cursor-pointer"
+              className: disabled ? "flex flex-col gap-1 sm:col-span-2 opacity-60" : "flex flex-col gap-1 sm:col-span-2"
             });
 }
 
-var Toggle = {
-  make: SolverWeightsPanel$Toggle
+var SplitMode = {
+  fromWeights: fromWeights,
+  make: SolverWeightsPanel$SplitMode
 };
 
 function SolverWeightsPanel(props) {
+  var onReset = props.onReset;
+  var autoBlendT = props.autoBlendT;
+  var __isCustom = props.isCustom;
   var onChange = props.onChange;
   var config = props.config;
+  var isCustom = __isCustom !== undefined ? __isCustom : false;
+  var hasAdvancedOverrides = isCustom && Core__Option.isSome(config.advanced);
   var match = React.useState(function () {
-        return Core__Option.isSome(config.advanced);
+        if (hasAdvancedOverrides) {
+          return "AdvancedView";
+        } else {
+          return "StyleView";
+        }
       });
-  var setAdvancedOpen = match[1];
-  var advancedOpen = match[0];
-  var a = config.advanced;
-  var advanced = a !== undefined ? a : CostModel.advancedFromPrimary(config.qualityVsVariety);
-  var isCustom = Core__Option.isSome(config.advanced);
+  var setView = match[1];
+  var view = match[0];
+  var match$1 = config.advanced;
+  var advanced = autoBlendT !== undefined ? CostModel.advancedFromWeights(CostModel.autoWeightsAt(autoBlendT)) : (
+      match$1 !== undefined ? match$1 : CostModel.advancedFromPrimary(config.qualityVsVariety)
+    );
+  var isAuto = Core__Option.isSome(autoBlendT);
   var handlePrimary = function (value) {
     onChange({
           qualityVsVariety: value,
@@ -125,44 +173,127 @@ function SolverWeightsPanel(props) {
           advanced: next
         });
   };
+  var handleCustomizeFromAuto = function () {
+    onChange({
+          qualityVsVariety: config.qualityVsVariety,
+          advanced: advanced
+        });
+  };
+  var openStyle = function () {
+    if (hasAdvancedOverrides) {
+      handlePrimary(config.qualityVsVariety);
+    }
+    setView(function (param) {
+          return "StyleView";
+        });
+  };
+  var sectionHeader = function (open_, onClick, label, chip) {
+    return JsxRuntime.jsxs("button", {
+                children: [
+                  open_ ? JsxRuntime.jsx(LucideReact.ChevronUp, {
+                          className: "w-4 h-4"
+                        }) : JsxRuntime.jsx(LucideReact.ChevronDown, {
+                          className: "w-4 h-4"
+                        }),
+                  label,
+                  chip
+                ],
+                className: "flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-slate-900",
+                onClick: onClick
+              });
+  };
+  var tmp;
+  if (view === "StyleView") {
+    if (autoBlendT !== undefined) {
+      var percent = Math.round(autoBlendT * 100).toString();
+      tmp = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsx("div", {
+                    children: JsxRuntime.jsx("div", {
+                          className: "h-full bg-blue-600 rounded",
+                          style: {
+                            width: percent + "%"
+                          }
+                        }),
+                    className: "h-2 w-full rounded bg-slate-200 overflow-hidden"
+                  }),
+              JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("span", {
+                            children: t`Calibrating`
+                          }),
+                      JsxRuntime.jsx("span", {
+                            children: t`Competitive`
+                          })
+                    ],
+                    className: "flex justify-between text-[10px] text-slate-400"
+                  }),
+              JsxRuntime.jsx("p", {
+                    children: t`Ratings are ${percent}% settled — the mix adjusts automatically as scores come in.`,
+                    className: "mt-1 text-xs text-slate-500 italic"
+                  })
+            ],
+            className: "mt-2 flex flex-col gap-1"
+          });
+    } else {
+      tmp = JsxRuntime.jsxs("div", {
+            children: [
+              JsxRuntime.jsx(SolverWeightsPanel$Slider, {
+                    label: "",
+                    value: config.qualityVsVariety,
+                    onChange: handlePrimary,
+                    leftHint: t`Mix players`,
+                    rightHint: t`Competitive`
+                  }),
+              JsxRuntime.jsx("p", {
+                    children: config.qualityVsVariety < 0.35 ? t`Prioritises fresh partners and opponents over evenly matched games.` : (
+                        config.qualityVsVariety > 0.65 ? t`Prioritises evenly matched games over fresh partners.` : t`Balances fresh partners against evenly matched games.`
+                      ),
+                    className: "mt-2 text-xs text-slate-500 italic"
+                  })
+            ],
+            className: "mt-2"
+          });
+    }
+  } else {
+    tmp = null;
+  }
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx(SolverWeightsPanel$Slider, {
-                      label: t`Match style`,
-                      value: config.qualityVsVariety,
-                      onChange: handlePrimary,
-                      leftHint: t`Mix players`,
-                      rightHint: t`Competitive`
-                    }),
-                JsxRuntime.jsx("p", {
-                      children: config.qualityVsVariety < 0.35 ? t`Prioritises fresh partners and opponents over evenly matched games.` : (
-                          config.qualityVsVariety > 0.65 ? t`Prioritises evenly matched games over fresh partners.` : t`Balances fresh partners against evenly matched games.`
-                        ),
-                      className: "mt-2 text-xs text-slate-500 italic"
-                    }),
+                sectionHeader(view === "StyleView", (function (param) {
+                        openStyle();
+                      }), t`Match style`, isAuto ? JsxRuntime.jsx("span", {
+                            children: t`Auto`,
+                            className: "ml-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-100 text-blue-700"
+                          }) : null),
+                tmp,
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsxs("button", {
-                              children: [
-                                advancedOpen ? JsxRuntime.jsx(LucideReact.ChevronUp, {
-                                        className: "w-4 h-4"
-                                      }) : JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                        className: "w-4 h-4"
+                        sectionHeader(view === "AdvancedView", (function (param) {
+                                setView(function (param) {
+                                      return "AdvancedView";
+                                    });
+                              }), t`Advanced`, isCustom ? JsxRuntime.jsx("span", {
+                                    children: t`Custom`,
+                                    className: "ml-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-slate-200 text-slate-700"
+                                  }) : null),
+                        view === "AdvancedView" && isAuto ? JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("button", {
+                                        children: t`Customize from here`,
+                                        className: "self-start text-xs font-medium text-blue-600 hover:text-blue-800",
+                                        onClick: (function (param) {
+                                            handleCustomizeFromAuto();
+                                          })
                                       }),
-                                t`Advanced`,
-                                isCustom ? JsxRuntime.jsx("span", {
-                                        children: t`Custom`,
-                                        className: "ml-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-slate-200 text-slate-700"
-                                      }) : null
-                              ],
-                              className: "flex items-center gap-1 text-xs font-medium text-slate-600 hover:text-slate-900",
-                              onClick: (function (param) {
-                                  setAdvancedOpen(function (prev) {
-                                        return !prev;
-                                      });
-                                })
-                            }),
-                        advancedOpen ? JsxRuntime.jsxs("div", {
+                                  JsxRuntime.jsx("span", {
+                                        children: t`Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event.`,
+                                        className: "text-[10px] text-slate-400"
+                                      })
+                                ],
+                                className: "mt-3 flex flex-col gap-1"
+                              }) : null,
+                        view === "AdvancedView" ? JsxRuntime.jsxs("div", {
                                 children: [
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Partner variety`,
@@ -171,12 +302,17 @@ function SolverWeightsPanel(props) {
                                             handleAdvanced({
                                                   partnerVariety: v,
                                                   opponentVariety: advanced.opponentVariety,
-                                                  similarSkill: advanced.similarSkill,
-                                                  balanceTeams: advanced.balanceTeams,
                                                   avoidRecentRepeats: advanced.avoidRecentRepeats,
-                                                  alternateFavored: advanced.alternateFavored
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: advanced.bandTolerance,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: advanced.cohortRotation
                                                 });
-                                          })
+                                          }),
+                                        disabled: isAuto
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Opponent variety`,
@@ -185,43 +321,130 @@ function SolverWeightsPanel(props) {
                                             handleAdvanced({
                                                   partnerVariety: advanced.partnerVariety,
                                                   opponentVariety: v,
-                                                  similarSkill: advanced.similarSkill,
-                                                  balanceTeams: advanced.balanceTeams,
                                                   avoidRecentRepeats: advanced.avoidRecentRepeats,
-                                                  alternateFavored: advanced.alternateFavored
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: advanced.bandTolerance,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: advanced.cohortRotation
                                                 });
-                                          })
+                                          }),
+                                        disabled: isAuto
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
-                                        label: t`Similar-skill matches`,
-                                        value: advanced.similarSkill,
+                                        label: t`Skill banding`,
+                                        value: advanced.bandStrength,
                                         onChange: (function (v) {
                                             handleAdvanced({
                                                   partnerVariety: advanced.partnerVariety,
                                                   opponentVariety: advanced.opponentVariety,
-                                                  similarSkill: v,
+                                                  avoidRecentRepeats: advanced.avoidRecentRepeats,
+                                                  bandStrength: v,
+                                                  bandTolerance: advanced.bandTolerance,
                                                   balanceTeams: advanced.balanceTeams,
-                                                  avoidRecentRepeats: advanced.avoidRecentRepeats,
-                                                  alternateFavored: advanced.alternateFavored
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: advanced.cohortRotation
                                                 });
                                           }),
-                                        leftHint: t`Any mix`,
-                                        rightHint: t`Tight bands`
+                                        leftHint: t`No preference`,
+                                        rightHint: t`Group by skill`,
+                                        disabled: isAuto
                                       }),
-                                  JsxRuntime.jsx(SolverWeightsPanel$Toggle, {
-                                        label: t`Balance teams`,
-                                        checked: advanced.balanceTeams,
+                                  JsxRuntime.jsx(SolverWeightsPanel$Slider, {
+                                        label: t`Band tolerance`,
+                                        value: advanced.bandTolerance,
                                         onChange: (function (v) {
                                             handleAdvanced({
                                                   partnerVariety: advanced.partnerVariety,
                                                   opponentVariety: advanced.opponentVariety,
-                                                  similarSkill: advanced.similarSkill,
-                                                  balanceTeams: v,
                                                   avoidRecentRepeats: advanced.avoidRecentRepeats,
-                                                  alternateFavored: advanced.alternateFavored
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: v,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: advanced.cohortRotation
                                                 });
                                           }),
-                                        hint: t`Split each match into its most even teams`
+                                        leftHint: t`Tight bands`,
+                                        rightHint: t`Any mix is fine`,
+                                        disabled: isAuto
+                                      }),
+                                  JsxRuntime.jsx(SolverWeightsPanel$SplitMode, {
+                                        label: t`Team split`,
+                                        value: fromWeights(advanced.balanceTeams, advanced.splitBalanceFirst),
+                                        onChange: (function (mode) {
+                                            var tmp;
+                                            switch (mode) {
+                                              case "Free" :
+                                                  tmp = {
+                                                    partnerVariety: advanced.partnerVariety,
+                                                    opponentVariety: advanced.opponentVariety,
+                                                    avoidRecentRepeats: advanced.avoidRecentRepeats,
+                                                    bandStrength: advanced.bandStrength,
+                                                    bandTolerance: advanced.bandTolerance,
+                                                    balanceTeams: false,
+                                                    splitBalanceFirst: false,
+                                                    alternateFavored: advanced.alternateFavored,
+                                                    shakeUp: advanced.shakeUp,
+                                                    cohortRotation: advanced.cohortRotation
+                                                  };
+                                                  break;
+                                              case "BalancedFreshFirst" :
+                                                  tmp = {
+                                                    partnerVariety: advanced.partnerVariety,
+                                                    opponentVariety: advanced.opponentVariety,
+                                                    avoidRecentRepeats: advanced.avoidRecentRepeats,
+                                                    bandStrength: advanced.bandStrength,
+                                                    bandTolerance: advanced.bandTolerance,
+                                                    balanceTeams: true,
+                                                    splitBalanceFirst: false,
+                                                    alternateFavored: advanced.alternateFavored,
+                                                    shakeUp: advanced.shakeUp,
+                                                    cohortRotation: advanced.cohortRotation
+                                                  };
+                                                  break;
+                                              case "MostEven" :
+                                                  tmp = {
+                                                    partnerVariety: advanced.partnerVariety,
+                                                    opponentVariety: advanced.opponentVariety,
+                                                    avoidRecentRepeats: advanced.avoidRecentRepeats,
+                                                    bandStrength: advanced.bandStrength,
+                                                    bandTolerance: advanced.bandTolerance,
+                                                    balanceTeams: true,
+                                                    splitBalanceFirst: true,
+                                                    alternateFavored: advanced.alternateFavored,
+                                                    shakeUp: advanced.shakeUp,
+                                                    cohortRotation: advanced.cohortRotation
+                                                  };
+                                                  break;
+                                              
+                                            }
+                                            handleAdvanced(tmp);
+                                          }),
+                                        options: [
+                                          [
+                                            "Free",
+                                            t`Free`,
+                                            t`Fresh matchups decide how teams split; splits can be uneven`
+                                          ],
+                                          [
+                                            "BalancedFreshFirst",
+                                            t`Balanced, fresh partners first`,
+                                            t`The most even split that avoids repeating a partnership`
+                                          ],
+                                          [
+                                            "MostEven",
+                                            t`Most even always`,
+                                            t`The most even split, even if a partnership repeats`
+                                          ]
+                                        ],
+                                        disabled: isAuto
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Avoid recent repeats`,
@@ -230,12 +453,17 @@ function SolverWeightsPanel(props) {
                                             handleAdvanced({
                                                   partnerVariety: advanced.partnerVariety,
                                                   opponentVariety: advanced.opponentVariety,
-                                                  similarSkill: advanced.similarSkill,
-                                                  balanceTeams: advanced.balanceTeams,
                                                   avoidRecentRepeats: v,
-                                                  alternateFavored: advanced.alternateFavored
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: advanced.bandTolerance,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: advanced.cohortRotation
                                                 });
-                                          })
+                                          }),
+                                        disabled: isAuto
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Alternate favourite/underdog roles`,
@@ -244,18 +472,65 @@ function SolverWeightsPanel(props) {
                                             handleAdvanced({
                                                   partnerVariety: advanced.partnerVariety,
                                                   opponentVariety: advanced.opponentVariety,
-                                                  similarSkill: advanced.similarSkill,
-                                                  balanceTeams: advanced.balanceTeams,
                                                   avoidRecentRepeats: advanced.avoidRecentRepeats,
-                                                  alternateFavored: v
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: advanced.bandTolerance,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: v,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: advanced.cohortRotation
                                                 });
-                                          })
+                                          }),
+                                        disabled: isAuto
                                       }),
-                                  isCustom ? JsxRuntime.jsx("button", {
-                                          children: t`Reset to slider`,
+                                  JsxRuntime.jsx(SolverWeightsPanel$Slider, {
+                                        label: t`Shake-up`,
+                                        value: advanced.shakeUp,
+                                        onChange: (function (v) {
+                                            handleAdvanced({
+                                                  partnerVariety: advanced.partnerVariety,
+                                                  opponentVariety: advanced.opponentVariety,
+                                                  avoidRecentRepeats: advanced.avoidRecentRepeats,
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: advanced.bandTolerance,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: v,
+                                                  cohortRotation: advanced.cohortRotation
+                                                });
+                                          }),
+                                        leftHint: t`Deterministic`,
+                                        rightHint: t`Random`,
+                                        disabled: isAuto
+                                      }),
+                                  JsxRuntime.jsx(SolverWeightsPanel$Slider, {
+                                        label: t`Rotate skill bands together`,
+                                        value: advanced.cohortRotation,
+                                        onChange: (function (v) {
+                                            handleAdvanced({
+                                                  partnerVariety: advanced.partnerVariety,
+                                                  opponentVariety: advanced.opponentVariety,
+                                                  avoidRecentRepeats: advanced.avoidRecentRepeats,
+                                                  bandStrength: advanced.bandStrength,
+                                                  bandTolerance: advanced.bandTolerance,
+                                                  balanceTeams: advanced.balanceTeams,
+                                                  splitBalanceFirst: advanced.splitBalanceFirst,
+                                                  alternateFavored: advanced.alternateFavored,
+                                                  shakeUp: advanced.shakeUp,
+                                                  cohortRotation: v
+                                                });
+                                          }),
+                                        leftHint: t`Off`,
+                                        rightHint: t`Bands break together`,
+                                        disabled: isAuto
+                                      }),
+                                  isCustom && onReset !== undefined ? JsxRuntime.jsx("button", {
+                                          children: t`Reset to preset`,
                                           className: "self-end text-xs font-medium text-blue-600 hover:text-blue-800",
                                           onClick: (function (param) {
-                                              handlePrimary(config.qualityVsVariety);
+                                              onReset();
                                             })
                                         }) : null
                                 ],
@@ -265,7 +540,7 @@ function SolverWeightsPanel(props) {
                       className: "mt-3"
                     }),
                 JsxRuntime.jsx("p", {
-                      children: t`Each strategy uses a tuned profile; adjusting any slider switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down.`,
+                      children: t`Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down.`,
                       className: "mt-3 text-[11px] text-slate-400"
                     })
               ],
@@ -279,7 +554,7 @@ export {
   sliderPercent ,
   fromPercent ,
   Slider ,
-  Toggle ,
+  SplitMode ,
   make ,
 }
 /*  Not a pure module */

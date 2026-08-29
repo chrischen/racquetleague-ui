@@ -67,7 +67,7 @@ msgstr "다음 라운드로 진행"
 msgid "Advance to Round {0}"
 msgstr "라운드 {0}으로 진행"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:152
+#: src/components/molecules/SolverWeightsPanel.re.mjs:276
 msgid "Advanced"
 msgstr "고급"
 
@@ -79,7 +79,7 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:241
+#: src/components/molecules/SolverWeightsPanel.re.mjs:469
 msgid "Alternate favourite/underdog roles"
 msgstr "강자/약자 역할 교대"
 
@@ -91,21 +91,46 @@ msgstr "안티팀 {0}"
 msgid "Anti-Teams"
 msgstr "안티팀"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:208
-msgid "Any mix"
-msgstr "제한 없음"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "어떤 조합이든 괜찮음"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:227
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "자동"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid ""
+"Auto is adjusting these values — freeze the current mix to adjust them "
+"manually. Auto stops adapting for this event."
+msgstr ""
+"자동이 이 값들을 조정 중입니다 — 현재 믹스를 고정하면 수동으로 조정할 수 있습"
+"니다. 자동은 이 이벤트에 대한 적응을 중단합니다."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:450
 msgid "Avoid recent repeats"
 msgstr "최근 중복 방지"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:212
-msgid "Balance teams"
-msgstr "팀 균형"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "균형 잡힌 조합, 새 파트너 우선"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Balances fresh partners against evenly matched games."
 msgstr "새로운 파트너와 균등한 경기 수준을 균형 있게 조정합니다."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "밴드 허용 범위"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "밴드 함께 해체"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "보정 중"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/SeedAdjustModal.re.mjs:291
@@ -115,7 +140,7 @@ msgstr "새로운 파트너와 균등한 경기 수준을 균형 있게 조정�
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/molecules/DrawGenerator.re.mjs:108
+#: src/components/molecules/DrawGenerator.re.mjs:115
 msgid "Classic round-robin draws"
 msgstr "클래식 라운드 로빈 대진"
 
@@ -131,12 +156,13 @@ msgstr "전체 화면 닫기"
 msgid "Close self check-in display"
 msgstr "셀프 체크인 화면 닫기"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:135
-#: src/components/molecules/DrawGenerator.re.mjs:97
+#: src/components/molecules/SolverWeightsPanel.re.mjs:226
+#: src/components/molecules/SolverWeightsPanel.re.mjs:246
+#: src/components/molecules/DrawGenerator.re.mjs:104
 msgid "Competitive"
 msgstr "경쟁"
 
-#: src/components/molecules/DrawGenerator.re.mjs:91
+#: src/components/molecules/DrawGenerator.re.mjs:93
 msgid "Competitive+"
 msgstr "경쟁+"
 
@@ -156,7 +182,7 @@ msgstr "코트 {0}"
 msgid "Court {0} - Editing"
 msgstr "코트 {0} - 편집 중"
 
-#: src/components/molecules/DrawGenerator.re.mjs:142
+#: src/components/molecules/DrawGenerator.re.mjs:149
 msgid "Courts:"
 msgstr "코트:"
 
@@ -184,9 +210,13 @@ msgstr "시작하려면 첫 번째 팀을 만드세요"
 msgid "Current Round:"
 msgstr "현재 라운드:"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:154
+#: src/components/molecules/SolverWeightsPanel.re.mjs:277
 msgid "Custom"
 msgstr "사용자 지정"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "여기서 맞춤 설정"
 
 #: src/components/organisms/RoundRobin.re.mjs:1091
 msgid "Debug: OFF"
@@ -214,19 +244,22 @@ msgstr "팀 삭제"
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "결정적"
+
 #: src/components/organisms/SeedAdjustModal.re.mjs:142
 msgid "Drag players in order of strongest to weakest."
 msgstr "강한 순서대로 플레이어를 드래그하세요."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
 msgid ""
-"Each strategy uses a tuned profile; adjusting any slider switches this event "
+"Each strategy uses a tuned profile; adjusting any value switches this event "
 "to a custom mix. Fair play time and rotation are always enforced and can't "
 "be turned down."
 msgstr ""
-"각 전략은 최적화된 프로필을 사용합니다. 슬라이더를 조정하면 이벤트가 사용자 "
-"지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 "
-"수 없습니다."
+"각 전략은 조정된 프로필을 사용하며, 값을 변경하면 이 이벤트가 맞춤 믹스로 전"
+"환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 낮출 수 없습니다."
 
 #: src/components/organisms/MatchCard.re.mjs:450
 msgid "Edit match"
@@ -260,7 +293,7 @@ msgstr "동점 — 무승부로 기록됩니다"
 msgid "Event check-in"
 msgstr "이벤트 체크인"
 
-#: src/components/molecules/DrawGenerator.re.mjs:82
+#: src/components/molecules/DrawGenerator.re.mjs:84
 msgid ""
 "Everyone rotates: fresh partners and opponents every round, taking the most "
 "competitive matchups first until variety forces mixing."
@@ -272,7 +305,15 @@ msgstr ""
 msgid "Female"
 msgstr "여성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:87
+#: src/components/molecules/SolverWeightsPanel.re.mjs:433
+msgid "Free"
+msgstr "무료"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "새로운 매치업으로 팀을 구성하며, 팀이 불균등할 수 있습니다"
+
+#: src/components/molecules/DrawGenerator.re.mjs:89
 msgid ""
 "Fresh, varied matchups every round, with each match's teams balanced by "
 "skill."
@@ -282,7 +323,7 @@ msgstr "매 라운드 새롭고 다양한 매치업, 각 경기 팀은 실력별
 msgid "Full Screen View"
 msgstr "전체 화면 보기"
 
-#: src/components/molecules/DrawGenerator.re.mjs:282
+#: src/components/molecules/DrawGenerator.re.mjs:292
 msgid ""
 "Future rounds have scores entered. Regenerating will delete these scores. "
 "Are you sure?"
@@ -294,21 +335,25 @@ msgstr ""
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/molecules/DrawGenerator.re.mjs:238
+#: src/components/molecules/DrawGenerator.re.mjs:245
 msgid "Generate"
 msgstr "생성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Generate Draws"
 msgstr "대진 생성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:363
+#: src/components/molecules/DrawGenerator.re.mjs:373
 msgid "Generating…"
 msgstr "생성 중…"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:164
 msgid "Global ratings"
 msgstr "글로벌 평점"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "실력별 그룹화"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:71
 msgid "Guest Names (one per line)"
@@ -354,7 +399,7 @@ msgstr "남성"
 msgid "match"
 msgstr "경기"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:131
+#: src/components/molecules/SolverWeightsPanel.re.mjs:265
 msgid "Match style"
 msgstr "경기 방식"
 
@@ -362,13 +407,17 @@ msgstr "경기 방식"
 msgid "matches"
 msgstr "경기"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:134
+#: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
 msgstr "선수 혼합"
 
-#: src/components/molecules/DrawGenerator.re.mjs:102
+#: src/components/molecules/DrawGenerator.re.mjs:109
 msgid "Mixed"
 msgstr "혼합"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "항상 가장 균등하게"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
@@ -378,7 +427,7 @@ msgstr "뮤"
 msgid "Name"
 msgstr "이름"
 
-#: src/components/molecules/DrawGenerator.re.mjs:262
+#: src/components/molecules/DrawGenerator.re.mjs:272
 msgid "Need {0} players for {1} {courtText}. Currently {2} checked in."
 msgstr "{1} {courtText}에 {0}명의 플레이어가 필요합니다. 현재 {2}명 체크인."
 
@@ -386,7 +435,7 @@ msgstr "{1} {courtText}에 {0}명의 플레이어가 필요합니다. 현재 {2}
 msgid "New Anti-Team"
 msgstr "새 안티팀"
 
-#: src/components/molecules/DrawGenerator.re.mjs:215
+#: src/components/molecules/DrawGenerator.re.mjs:222
 msgid "New seed — deals different matches"
 msgstr "새 시드 — 다른 경기를 배정합니다"
 
@@ -402,6 +451,10 @@ msgstr "아직 안티팀이 없습니다"
 msgid "No available players"
 msgstr "가능한 플레이어 없음"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "선호 없음"
+
 #: src/components/organisms/ScoreModal.re.mjs:266
 msgid "No Score"
 msgstr "점수 없음"
@@ -414,15 +467,19 @@ msgstr "아직 팀이 없습니다"
 msgid "Not paid"
 msgstr "미납"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "끄기"
+
 #: src/components/organisms/SelfCheckinDisplay.re.mjs:42
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 참가하세요."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:182
+#: src/components/molecules/SolverWeightsPanel.re.mjs:318
 msgid "Opponent variety"
 msgstr "상대 다양성"
 
-#: src/components/molecules/DrawGenerator.re.mjs:92
+#: src/components/molecules/DrawGenerator.re.mjs:94
 msgid ""
 "Optimised draws that prioritise evenly matched games within a skill band."
 msgstr "실력 범위 내에서 균등한 경기를 우선하는 최적화된 대진표."
@@ -431,7 +488,7 @@ msgstr "실력 범위 내에서 균등한 경기를 우선하는 최적화된 �
 msgid "Paid"
 msgstr "납부됨"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:168
+#: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr "파트너 다양성"
 
@@ -461,7 +518,7 @@ msgstr ""
 msgid "Players start on their global rating across all clubs."
 msgstr "플레이어는 모든 클럽에 걸친 글로벌 평점으로 시작합니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:98
+#: src/components/molecules/DrawGenerator.re.mjs:105
 msgid ""
 "Players will be divided into similar skill level groups that round-robin "
 "with teams balanced by skill."
@@ -481,17 +538,28 @@ msgstr "미리보기 ({0} 게스트{1})"
 msgid "Previous Round"
 msgstr "이전 라운드"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:139
+#: src/components/molecules/SolverWeightsPanel.re.mjs:250
 msgid "Prioritises evenly matched games over fresh partners."
 msgstr "균등한 경기를 새로운 파트너보다 우선시합니다."
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:138
+#: src/components/molecules/SolverWeightsPanel.re.mjs:249
 msgid "Prioritises fresh partners and opponents over evenly matched games."
 msgstr "균등한 경기보다 새로운 파트너 및 상대를 우선시합니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:86
+#: src/components/molecules/SolverWeightsPanel.re.mjs:505
+msgid "Random"
+msgstr "랜덤"
+
+#: src/components/molecules/DrawGenerator.re.mjs:88
 msgid "Random Balanced"
 msgstr "랜덤 균형"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid ""
+"Ratings are {percent}% settled — the mix adjusts automatically as scores "
+"come in."
+msgstr ""
+"레이팅이 {percent}% 안정됨 — 점수가 들어올수록 믹스가 자동으로 조정됩니다."
 
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
@@ -501,7 +569,7 @@ msgstr "경기 재조정"
 msgid "Rebalance this round with current players"
 msgstr "현재 플레이어로 이 라운드 재조정"
 
-#: src/components/molecules/DrawGenerator.re.mjs:281
+#: src/components/molecules/DrawGenerator.re.mjs:291
 msgid "Regenerate Rounds?"
 msgstr "라운드를 재생성하시겠습니까?"
 
@@ -525,9 +593,13 @@ msgstr "체크인한 모든 플레이어로 이 라운드 초기화"
 msgid "Reset this round with mixed gender pairs"
 msgstr "혼합 성별 페어로 이 라운드 초기화"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:255
-msgid "Reset to slider"
-msgstr "슬라이더로 초기화"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "프리셋으로 초기화"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "실력 밴드 함께 로테이션"
 
 #: src/components/organisms/RoundSection.re.mjs:523
 #: src/components/organisms/RoundSection.re.mjs:650
@@ -535,7 +607,7 @@ msgstr "슬라이더로 초기화"
 msgid "Round {0}"
 msgstr "라운드 {0}"
 
-#: src/components/molecules/DrawGenerator.re.mjs:81
+#: src/components/molecules/DrawGenerator.re.mjs:83
 msgid "Round Robin"
 msgstr "라운드 로빈"
 
@@ -543,11 +615,11 @@ msgstr "라운드 로빈"
 msgid "Round Robin Tournament"
 msgstr "라운드 로빈 토너먼트"
 
-#: src/components/molecules/DrawGenerator.re.mjs:107
+#: src/components/molecules/DrawGenerator.re.mjs:114
 msgid "Round-Robin"
 msgstr "라운드 로빈"
 
-#: src/components/molecules/DrawGenerator.re.mjs:103
+#: src/components/molecules/DrawGenerator.re.mjs:110
 msgid "Round-Robin with teams balanced by skill."
 msgstr "실력이 균형잡힌 팀으로 라운드 로빈."
 
@@ -579,7 +651,7 @@ msgstr "팀 저장"
 msgid "Scan to check in"
 msgstr "스캔하여 체크인"
 
-#: src/components/molecules/DrawGenerator.re.mjs:203
+#: src/components/molecules/DrawGenerator.re.mjs:210
 msgid "Seed:"
 msgstr "시드:"
 
@@ -595,23 +667,31 @@ msgstr "시드 조정됨"
 msgid "SERVING"
 msgstr "서브 중"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:196
-msgid "Similar-skill matches"
-msgstr "비슷한 실력 매칭"
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "셰이크업"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "실력 밴딩"
 
 #: src/components/molecules/PlayerReplaceModal.re.mjs:174
 msgid "Skill: {0}"
 msgstr "실력: {0}"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:224
-msgid "Split each match into its most even teams"
-msgstr "각 경기를 가장 균등한 팀으로 나누기"
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid ""
+"Starts with varied, balanced matchups to calibrate ratings, then shifts to "
+"competitive skill-banded play as rankings settle."
+msgstr ""
+"레이팅 보정을 위해 다양하고 균형 잡힌 매치업으로 시작한 후, 랭킹이 안정되면 "
+"경쟁적인 실력 밴드 방식으로 전환됩니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:366
+#: src/components/molecules/DrawGenerator.re.mjs:376
 msgid "strategy"
 msgstr "전략"
 
-#: src/components/molecules/DrawGenerator.re.mjs:178
+#: src/components/molecules/DrawGenerator.re.mjs:185
 msgid "Strategy:"
 msgstr "전략:"
 
@@ -640,6 +720,10 @@ msgstr "팀 멤버 ({0})"
 msgid "Team Name"
 msgstr "팀 이름"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "팀 구성"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:326
 msgid "Teams"
 msgstr "팀"
@@ -653,20 +737,28 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/molecules/DrawGenerator.re.mjs:305
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "파트너십 반복을 피하는 가장 균등한 구성"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "파트너십이 반복되더라도 가장 균등한 구성"
+
+#: src/components/molecules/DrawGenerator.re.mjs:315
 msgid "This will delete all future rounds and generate new matches"
 msgstr "향후 모든 라운드가 삭제되고 새 경기가 생성됩니다"
 
-#: src/components/molecules/SolverWeightsPanel.re.mjs:209
+#: src/components/molecules/SolverWeightsPanel.re.mjs:374
 msgid "Tight bands"
 msgstr "촘촘한 밴드"
 
-#: src/components/molecules/DrawGenerator.re.mjs:358
+#: src/components/molecules/DrawGenerator.re.mjs:368
 msgid "Update Future Rounds"
 msgstr "향후 라운드 업데이트"
 
-#: src/components/molecules/DrawGenerator.re.mjs:273
-#: src/components/molecules/DrawGenerator.re.mjs:293
+#: src/components/molecules/DrawGenerator.re.mjs:283
+#: src/components/molecules/DrawGenerator.re.mjs:303
 msgid "Update Rounds Below"
 msgstr "아래 라운드 업데이트"
 
@@ -691,6 +783,14 @@ msgstr "승리 팀 (팀 {0})"
 msgid "Your browser is too old to use this feature."
 msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습니다."
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:208
+#~ msgid "Any mix"
+#~ msgstr "제한 없음"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:212
+#~ msgid "Balance teams"
+#~ msgstr "팀 균형"
+
 #: src/components/molecules/DrawGenerator.re.mjs:192
 #~ msgid "Beta"
 #~ msgstr "베타"
@@ -699,9 +799,23 @@ msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습�
 #~ msgid "Drag players to reorder their initial seeding"
 #~ msgstr "플레이어를 드래그하여 초기 시드를 재정렬하세요"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:268
+#~ msgid ""
+#~ "Each strategy uses a tuned profile; adjusting any slider switches this "
+#~ "event to a custom mix. Fair play time and rotation are always enforced "
+#~ "and can't be turned down."
+#~ msgstr ""
+#~ "각 전략은 최적화된 프로필을 사용합니다. 슬라이더를 조정하면 이벤트가 사용"
+#~ "자 지정 혼합으로 전환됩니다. 공정 플레이 시간과 로테이션은 항상 적용되며 "
+#~ "낮출 수 없습니다."
+
 #: src/components/organisms/FullScreenRoundView.re.mjs:151
 #~ msgid "Not Playing This Round"
 #~ msgstr "이번 라운드 불참"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:255
+#~ msgid "Reset to slider"
+#~ msgstr "슬라이더로 초기화"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:184
 #: src/components/organisms/MatchCardEdit.re.mjs:221
@@ -717,3 +831,11 @@ msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습�
 #, fuzzy
 #~ msgid "Seeded {0} players"
 #~ msgstr "{0}명"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:196
+#~ msgid "Similar-skill matches"
+#~ msgstr "비슷한 실력 매칭"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:224
+#~ msgid "Split each match into its most even teams"
+#~ msgstr "각 경기를 가장 균등한 팀으로 나누기"

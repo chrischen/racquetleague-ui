@@ -231,13 +231,27 @@ module Match = {
     Js.log(playerMetadata)
     let metadata = PlayerMetadata.decode(playerMetadata)
 
-    let isWinner =
+    // Which side of the payload this player sits on. On a draw the split into
+    // winners/losers is arbitrary — the server picks one — so this says only
+    // "which team", never "who won". It still drives ordering, so the viewed
+    // player's own team reads first either way.
+    let onWinnersSide =
       user
       ->Option.flatMap(user => {
         let user = MatchListUserFragment.use(user)
         winners->Option.flatMap(Array.findMap(_, x => x.id == user.id ? Some(user.id) : None))
       })
       ->Option.isSome
+
+    // The score is the truth about the result, and it is aligned to
+    // (winners, losers). Equal scores are a draw — that covers both a real
+    // scoreline like 10-10 and the (-1,-1) unscored-draw sentinel.
+    let isDraw = switch score {
+    | Some([first, second]) => first == second
+    | _ => false
+    }
+
+    let isWinner = onWinnersSide && !isDraw
 
     <li key={id}>
       <div className="relative pb-8">
@@ -250,12 +264,16 @@ module Match = {
           <div>
             <span
               className={Util.cx([
-                isWinner ? "bg-green-500" : "bg-red-500",
+                isDraw ? "bg-amber-500" : isWinner ? "bg-green-500" : "bg-red-500",
                 "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white",
               ])}>
-              {isWinner
-                ? <HeroIcons.CheckIcon className="h-5 w-5 text-white" \"aria-hidden"="true" />
-                : <HeroIcons.XMarkIcon className="h-5 w-5 text-white" \"aria-hidden"="true" />}
+              {if isDraw {
+                <Lucide.Equal className="h-5 w-5 text-white" \"aria-hidden"="true" />
+              } else if isWinner {
+                <HeroIcons.CheckIcon className="h-5 w-5 text-white" \"aria-hidden"="true" />
+              } else {
+                <HeroIcons.XMarkIcon className="h-5 w-5 text-white" \"aria-hidden"="true" />
+              }}
             </span>
           </div>
           <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
@@ -265,7 +283,7 @@ module Match = {
                 | Some("doubles:comp") => <Lucide.Trophy className="h-4 w-4 text-amber-500" />
                 | _ => React.null
                 }}
-                {isWinner
+                {onWinnersSide
                   ? {
                       winners
                       ->Option.map(winners =>
@@ -281,7 +299,7 @@ module Match = {
                       ->Option.getOr(React.null)
                     }}
                 <span className="font-extrabold"> {" VS "->React.string} </span>
-                {isWinner
+                {onWinnersSide
                   ? {
                       losers
                       ->Option.map(winners =>
@@ -307,7 +325,9 @@ module Match = {
                       ->Option.map(score =>
                         switch score {
                         | [winScore, loseScore] =>
-                          switch isWinner {
+                          // Ordered to match the teams above: this player's
+                          // side first, whatever the result was.
+                          switch onWinnersSide {
                           | true =>
                             (winScore->Float.toFixed(~digits=0) ++
                             " - " ++

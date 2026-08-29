@@ -75,14 +75,37 @@ let emptyOutcome = (matches): roundOutcome<'a> => {
 
 // Effective weights: the strategy's preset, overridden by any stored user
 // configuration. Presets stay in code so retuning them applies retroactively.
+// Auto is the one preset that reads the pool: its profile is a live blend from
+// Random Balanced toward Competitive+ as the players' ratings settle.
 let effectiveWeights = (
   ~strategy: strategy,
   ~weightConfig: option<CostModel.uiWeightConfig>,
-): CostModel.costWeights =>
-  switch weightConfig {
-  | Some(config) => CostModel.weightsFromConfig(config)
-  | None => CostModel.weightsForStrategy(strategy)
+  ~players: array<Player.t<'a>>,
+  ~numCourts: int,
+): CostModel.costWeights => {
+  let base = switch (weightConfig, strategy) {
+  | (Some(config), _) => CostModel.weightsFromConfig(config)
+  | (None, SolverAuto) => CostModel.autoWeights(players)
+  | (None, _) => CostModel.weightsForStrategy(strategy)
   }
+  // Pool-aware split policy (see `SolverRound.splitBalanceIsFree`): in a roomy
+  // pool the most even split is available for free, so the banded quality
+  // modes take it and roughly halve their blowout rate.
+  //
+  // Round Robin is excluded on purpose — its unbalanced splits ARE its
+  // recovery from rating-aligned error, and trading them for quality would
+  // silently retire the operator remedy. A custom config is excluded too: an
+  // explicit "Balanced, fresh partners first" choice must mean what it says.
+  let mayUpgrade = switch (weightConfig, strategy) {
+  | (None, SolverCompetitivePlus | SolverAuto) => true
+  | _ => false
+  }
+  mayUpgrade &&
+  !base.splitBalanceFirst &&
+  SolverRound.splitBalanceIsFree(~numPlayers=players->Array.length, ~numCourts)
+    ? {...base, splitBalanceFirst: true}
+    : base
+}
 
 // Same 10-minute stagger `Rating.generateRoundsRec` applies.
 let roundCreatedAt = (~startTime: Js.Date.t, ~roundIndex: int): Js.Date.t => {
@@ -194,12 +217,23 @@ let generateRounds = async (
       fellBackToGreedy: false,
     }
   } else {
-    let weights = effectiveWeights(~strategy, ~weightConfig)
+    let weights = effectiveWeights(
+      ~strategy,
+      ~weightConfig,
+      ~players=availablePlayers,
+      ~numCourts=courtCount,
+    )
     // Court order: Round Robin bands first and Competitive+ is leveled by
     // definition, so both put the strongest court at court 1. Random Balanced
     // is the one mode that must *look* random, so its courts shuffle per seed.
+    // Auto follows its blend: random-looking while it plays like Random
+    // Balanced, leveled once the competitive half of the profile dominates.
     let courtOrder = switch strategy {
     | SolverRandomBalanced => SolverRound.ShuffledCourts
+    | SolverAuto =>
+      CostModel.autoT(CostModel.readinessRatio(availablePlayers)) < 0.5
+        ? SolverRound.ShuffledCourts
+        : SolverRound.CourtsByLevel
     | _ => SolverRound.CourtsByLevel
     }
     // Loaded once and reused for every round in this request.

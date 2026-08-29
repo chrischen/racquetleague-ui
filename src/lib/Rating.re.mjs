@@ -1803,6 +1803,7 @@ function isSolverStrategy(strategy) {
     case "SolverRoundRobin" :
     case "SolverRandomBalanced" :
     case "SolverCompetitivePlus" :
+    case "SolverAuto" :
         return true;
     default:
       return false;
@@ -2042,7 +2043,6 @@ var RankedMatches = {
 };
 
 function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts, genderMixed) {
-  var exit = 0;
   switch (strategy) {
     case "CompetitivePlus" :
         return strategy_by_competitive_plus(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers, courts, genderMixed);
@@ -2058,21 +2058,11 @@ function getMatches(players, consumedPlayers, strategy, priorityPlayers, avoidAl
         return strategy_by_novelty(players, avoidAllPlayers, teamConstraints, requiredPlayers);
     case "SolverRoundRobin" :
     case "SolverRandomBalanced" :
-        exit = 1;
         break;
-    case "Competitive" :
-    case "SolverCompetitivePlus" :
-        exit = 2;
-        break;
-    
+    default:
+      return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
   }
-  switch (exit) {
-    case 1 :
-        return strategy_by_round_robin(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
-    case 2 :
-        return strategy_by_competitive(players, consumedPlayers, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
-    
-  }
+  return strategy_by_round_robin(players, priorityPlayers, avoidAllPlayers, teamConstraints, requiredPlayers);
 }
 
 function noveltyOpponentPairIds(param) {
@@ -2607,6 +2597,7 @@ function getDeprioritizedPlayers(rounds, players, $$break, strategy) {
     case "CompetitivePlus" :
     case "Competitive" :
     case "SolverCompetitivePlus" :
+    case "SolverAuto" :
         break;
     default:
       var playersWithRoundsSinceBreak = players.map(function (player) {

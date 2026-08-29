@@ -5667,6 +5667,179 @@ msgstr "Đang tải thành viên..."
 msgid "Owner"
 msgstr "Chủ sở hữu"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "Mọi tổ hợp đều được"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "Tự động"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event."
+msgstr "Tự động đang điều chỉnh các giá trị này — đóng băng hỗn hợp hiện tại để chỉnh thủ công. Tự động sẽ ngừng thích nghi cho sự kiện này."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "Cân bằng, ưu tiên đối tác mới"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "Dung sai nhóm"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "Các nhóm nghỉ cùng nhau"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "Đang hiệu chỉnh"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "Tùy chỉnh từ đây"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "Xác định"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
+msgid "Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "Mỗi chiến lược dùng một cấu hình đã tinh chỉnh; điều chỉnh bất kỳ giá trị nào sẽ chuyển sự kiện này sang hỗn hợp tùy chỉnh. Thời gian thi đấu công bằng và vòng xoay luôn được áp dụng và không thể giảm."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "Trận đấu mới quyết định cách chia đội; chia đội có thể không đều"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "Nhóm theo kỹ năng"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "Luôn đều nhất"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "Không ưu tiên"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "Tắt"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid "Ratings are {percent}% settled — the mix adjusts automatically as scores come in."
+msgstr "Xếp hạng đã ổn định {percent}% — hỗn hợp tự động điều chỉnh khi điểm số cập nhật."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "Đặt lại về cài đặt sẵn"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "Xoay nhóm kỹ năng cùng nhau"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "Xáo trộn"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "Phân nhóm kỹ năng"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
+msgstr "Bắt đầu với các trận đấu đa dạng, cân bằng để hiệu chỉnh xếp hạng, sau đó chuyển sang thi đấu theo nhóm kỹ năng cạnh tranh khi thứ hạng ổn định."
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "Chia đội"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "Chia đều nhất mà không lặp lại cặp đôi"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "Chia đều nhất, dù có lặp lại cặp đôi"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+msgid "{0}-second clip from the rolling buffer"
+msgstr "Đoạn clip {0} giây từ bộ đệm liên tục"
+
+#: src/components/organisms/Kiosk.re.mjs:741
+msgid "● BUFFER {0}s / {1}s"
+msgstr "● BỘ ĐỆM {0}s / {1}s"
+
+#: src/components/organisms/Kiosk.re.mjs:593
+msgid "Camera {0}"
+msgstr "Camera {0}"
+
+#: src/components/organisms/Kiosk.re.mjs:519
+msgid "Camera source"
+msgstr "Nguồn camera"
+
+#: src/components/organisms/Kiosk.re.mjs:540
+msgid "Choose which connected camera the kiosk uses. The change applies immediately, including to a running session."
+msgstr "Chọn camera đã kết nối mà kiosk sử dụng. Thay đổi áp dụng ngay lập tức, kể cả khi phiên đang chạy."
+
+#: src/components/organisms/Kiosk.re.mjs:742
+msgid "CLIPPING UNAVAILABLE"
+msgstr "KHÔNG THỂ CẮT CLIP"
+
+#: src/components/organisms/Kiosk.re.mjs:529
+msgid "Close settings"
+msgstr "Đóng cài đặt"
+
+#: src/components/organisms/Kiosk.re.mjs:677
+msgid "COMING SOON"
+msgstr "SẮP RA MẮT"
+
+#: src/components/organisms/Kiosk.re.mjs:1794
+msgid "Could not create the clip — the buffer keeps recording"
+msgstr "Không thể tạo clip — bộ đệm vẫn đang ghi"
+
+#: src/components/organisms/Kiosk.re.mjs:515
+msgid "KIOSK SETTINGS"
+msgstr "CÀI ĐẶT KIOSK"
+
+#: src/components/organisms/Kiosk.re.mjs:561
+msgid "Let the browser pick the default device"
+msgstr "Để trình duyệt chọn thiết bị mặc định"
+
+#: src/components/organisms/Kiosk.re.mjs:639
+msgid "Local"
+msgstr "Cục bộ"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "no audio"
+msgstr "không có âm thanh"
+
+#: src/components/organisms/Kiosk.re.mjs:616
+msgid "No cameras detected. Connect a camera or allow camera access, then reopen settings."
+msgstr "Không phát hiện camera nào. Hãy kết nối camera hoặc cấp quyền truy cập camera, sau đó mở lại cài đặt."
+
+#: src/components/organisms/Kiosk.re.mjs:643
+msgid "On-device rolling buffer and clip processing"
+msgstr "Bộ đệm cuộn và xử lý clip trên thiết bị"
+
+#: src/components/organisms/Kiosk.re.mjs:622
+msgid "PROCESSING MODE"
+msgstr "CHẾ ĐỘ XỬ LÝ"
+
+#: src/components/organisms/Kiosk.re.mjs:684
+msgid "Stream to the server for processing"
+msgstr "Truyền lên máy chủ để xử lý"
+
+#: src/components/organisms/Kiosk.re.mjs:557
+msgid "System default camera"
+msgstr "Camera mặc định của hệ thống"
+
+#: src/components/organisms/Kiosk.re.mjs:675
+msgid "Thin client"
+msgstr "Thin client"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"

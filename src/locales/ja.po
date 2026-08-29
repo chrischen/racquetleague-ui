@@ -6371,6 +6371,179 @@ msgstr "メンバーを読み込み中..."
 msgid "Owner"
 msgstr "オーナー"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:375
+msgid "Any mix is fine"
+msgstr "どの組み合わせでも可"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+#: src/components/molecules/DrawGenerator.re.mjs:98
+msgid "Auto"
+msgstr "自動"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event."
+msgstr "自動がこれらの値を調整中です — 手動で調整するには現在のミックスを固定してください。自動はこのイベントへの適応を停止します。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:438
+msgid "Balanced, fresh partners first"
+msgstr "バランス重視、新しいパートナーを優先"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:358
+msgid "Band tolerance"
+msgstr "バンド許容範囲"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:526
+msgid "Bands break together"
+msgstr "バンドをまとめて解除"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:223
+msgid "Calibrating"
+msgstr "キャリブレーション中"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:283
+msgid "Customize from here"
+msgstr "ここからカスタマイズ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:504
+msgid "Deterministic"
+msgstr "決定論的"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:543
+msgid "Each strategy uses a tuned profile; adjusting any value switches this event to a custom mix. Fair play time and rotation are always enforced and can't be turned down."
+msgstr "各ストラテジーは調整済みプロファイルを使用します。値を変更するとこのイベントはカスタムミックスに切り替わります。フェアプレー時間とローテーションは常に適用され、下げることはできません。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:434
+msgid "Fresh matchups decide how teams split; splits can be uneven"
+msgstr "新しい対戦でチーム分けを決定します。分け方が不均等になる場合があります"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:354
+msgid "Group by skill"
+msgstr "スキルでグループ化"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:443
+msgid "Most even always"
+msgstr "常に最も均等"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:353
+msgid "No preference"
+msgstr "こだわりなし"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:525
+msgid "Off"
+msgstr "オフ"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:232
+msgid "Ratings are {percent}% settled — the mix adjusts automatically as scores come in."
+msgstr "レーティングは{percent}%安定しています — スコアが入力されると自動的にミックスが調整されます。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:530
+msgid "Reset to preset"
+msgstr "プリセットにリセット"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:509
+msgid "Rotate skill bands together"
+msgstr "スキルバンドをまとめてローテーション"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:488
+msgid "Shake-up"
+msgstr "シャッフル"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:337
+msgid "Skill banding"
+msgstr "スキルバンド"
+
+#: src/components/molecules/DrawGenerator.re.mjs:99
+msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
+msgstr "レーティングをキャリブレーションするため多様でバランスの取れた対戦から始まり、ランキングが安定するにつれて競技力別のスキルバンドプレイに移行します。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:379
+msgid "Team split"
+msgstr "チーム分け"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:439
+msgid "The most even split that avoids repeating a partnership"
+msgstr "パートナーの重複を避けた最も均等な分け方"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:444
+msgid "The most even split, even if a partnership repeats"
+msgstr "パートナーが重複しても最も均等な分け方"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+msgid "{0}-second clip from the rolling buffer"
+msgstr "ローリングバッファからの{0}秒クリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:741
+msgid "● BUFFER {0}s / {1}s"
+msgstr "● バッファ {0}s / {1}s"
+
+#: src/components/organisms/Kiosk.re.mjs:593
+msgid "Camera {0}"
+msgstr "カメラ {0}"
+
+#: src/components/organisms/Kiosk.re.mjs:519
+msgid "Camera source"
+msgstr "カメラソース"
+
+#: src/components/organisms/Kiosk.re.mjs:540
+msgid "Choose which connected camera the kiosk uses. The change applies immediately, including to a running session."
+msgstr "キオスクが使用する接続済みカメラを選択します。変更は即時に適用され、実行中のセッションにも反映されます。"
+
+#: src/components/organisms/Kiosk.re.mjs:742
+msgid "CLIPPING UNAVAILABLE"
+msgstr "クリップ作成不可"
+
+#: src/components/organisms/Kiosk.re.mjs:529
+msgid "Close settings"
+msgstr "設定を閉じる"
+
+#: src/components/organisms/Kiosk.re.mjs:677
+msgid "COMING SOON"
+msgstr "近日公開"
+
+#: src/components/organisms/Kiosk.re.mjs:1794
+msgid "Could not create the clip — the buffer keeps recording"
+msgstr "クリップを作成できませんでした — バッファーは録画を継続しています"
+
+#: src/components/organisms/Kiosk.re.mjs:515
+msgid "KIOSK SETTINGS"
+msgstr "キオスク設定"
+
+#: src/components/organisms/Kiosk.re.mjs:561
+msgid "Let the browser pick the default device"
+msgstr "ブラウザにデフォルトデバイスを選択させる"
+
+#: src/components/organisms/Kiosk.re.mjs:639
+msgid "Local"
+msgstr "ローカル"
+
+#: src/components/organisms/Kiosk.re.mjs:293
+msgid "no audio"
+msgstr "音声なし"
+
+#: src/components/organisms/Kiosk.re.mjs:616
+msgid "No cameras detected. Connect a camera or allow camera access, then reopen settings."
+msgstr "カメラが検出されませんでした。カメラを接続するかカメラへのアクセスを許可してから、設定を再度開いてください。"
+
+#: src/components/organisms/Kiosk.re.mjs:643
+msgid "On-device rolling buffer and clip processing"
+msgstr "デバイス上でのローリングバッファーとクリップ処理"
+
+#: src/components/organisms/Kiosk.re.mjs:622
+msgid "PROCESSING MODE"
+msgstr "処理モード"
+
+#: src/components/organisms/Kiosk.re.mjs:684
+msgid "Stream to the server for processing"
+msgstr "処理のためにサーバーへストリーミング"
+
+#: src/components/organisms/Kiosk.re.mjs:557
+msgid "System default camera"
+msgstr "システムデフォルトカメラ"
+
+#: src/components/organisms/Kiosk.re.mjs:675
+msgid "Thin client"
+msgstr "シンクライアント"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
