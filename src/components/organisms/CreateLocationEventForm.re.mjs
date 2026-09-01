@@ -115,6 +115,10 @@ function CreateLocationEventForm(props) {
   var commitMutationUpdate = match$1[0];
   var navigate = ReactRouterDom.useNavigate();
   var isUpdate = Core__Option.isSome(eventId);
+  var useNewEventDefaults = !isUpdate && !Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
+              return pf.fromExistingEvent;
+            })), false);
+  var newEventCancelDeadline = useNewEventDefaults ? 86400000 : undefined;
   var defaultFormValues = prefilledValues !== undefined ? ({
         title: Core__Option.getOr(prefilledValues.title, ""),
         activity: Core__Option.getOr(selectedActivity, ""),
@@ -124,10 +128,11 @@ function CreateLocationEventForm(props) {
         endTime: Core__Option.getOr(prefilledValues.endDate, ""),
         listed: Core__Option.getOr(prefilledValues.listed, false),
         price: prefilledValues.price,
-        cancelDeadline: prefilledValues.cancelDeadline
+        cancelDeadline: Core__Option.orElse(prefilledValues.cancelDeadline, newEventCancelDeadline)
       }) : ({
         activity: Core__Option.getOr(selectedActivity, ""),
-        listed: false
+        listed: false,
+        cancelDeadline: newEventCancelDeadline
       });
   var match$2 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
@@ -848,7 +853,7 @@ function CreateLocationEventForm(props) {
                                                             className: "flex items-center gap-1.5"
                                                           }),
                                                       JsxRuntime.jsx("p", {
-                                                            children: t`A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list.`,
+                                                            children: t`A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list.`,
                                                             className: "text-gray-600 dark:text-gray-400 mt-0.5"
                                                           })
                                                     ],
@@ -876,7 +881,7 @@ function CreateLocationEventForm(props) {
                                                                       children: [
                                                                         " ",
                                                                         JsxRuntime.jsx("a", {
-                                                                              children: t`Connect a Stripe account`,
+                                                                              children: t`Connect a Stripe account to activate`,
                                                                               className: "text-blue-600 dark:text-blue-400 underline hover:opacity-80",
                                                                               href: "/settings/profile"
                                                                             })

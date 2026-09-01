@@ -1661,16 +1661,24 @@ type strategy =
   // unavailable these fall back to the greedy branch noted on each case.
   | SolverRoundRobin // novelty-first  -> greedy RoundRobin
   | SolverRandomBalanced // middle         -> greedy RoundRobin
-  | SolverCompetitivePlus // quality-first  -> greedy Competitive
-  // Adaptive: starts as Random Balanced while ratings are still noise, and
-  // blends toward Competitive+ as the pool's ratings settle (measured by
-  // std(mu)/mean(sigma) — see `CostModel.autoT`). -> greedy Competitive
-  | SolverAuto
+  | SolverCompetitivePlusStatic // quality-first  -> greedy Competitive
+  // ADAPTIVE Competitive+, and the one the picker actually offers under that
+  // name: it calibrates while the ratings are still noise, then blends into
+  // `SolverCompetitivePlusStatic` as the pool settles (measured by std(mu)/mean(sigma)
+  // — see `CostModel.adaptiveBlend`). At full blend it is byte-for-byte identical
+  // `SolverCompetitivePlusStatic`, which is why the two were merged in the UI.
+  //
+  // `SolverCompetitivePlusStatic` is kept as the STATIC profile: no calibration
+  // phase, bands from round one. It is no longer selectable, but the
+  // convergence suite and the matchmaking lab both need it as the unblended
+  // reference to measure the adaptive version against.
+  //  -> greedy Competitive
+  | SolverCompetitivePlus
 
 // True for the solver-backed presets.
 let isSolverStrategy = (strategy: strategy): bool =>
   switch strategy {
-  | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus | SolverAuto => true
+  | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlusStatic | SolverCompetitivePlus => true
   | CompetitivePlus | Competitive | Mixed | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
   }
 
@@ -2095,8 +2103,8 @@ let getMatches = (
       teamConstraints,
       requiredPlayers,
     )
+  | SolverCompetitivePlusStatic
   | SolverCompetitivePlus
-  | SolverAuto
   | Competitive =>
     RankedMatches.strategy_by_competitive(
       players,
@@ -2717,7 +2725,7 @@ let getDeprioritizedPlayers = (
     Set.make()
   } else {
     switch strategy {
-    | Competitive | CompetitivePlus | SolverCompetitivePlus | SolverAuto =>
+    | Competitive | CompetitivePlus | SolverCompetitivePlusStatic | SolverCompetitivePlus =>
       // Competitive strategy: prioritize players with highest play count
       let lastRounds =
         rounds->Array.slice(

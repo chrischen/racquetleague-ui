@@ -208,7 +208,7 @@ describe("SolverRounds", () => {
     const strength = (m: { match: Match }) =>
       [...m.match[0], ...m.match[1]].reduce((a, p) => a + p.rating.mu, 0);
 
-    for (const strategy of ["SolverRoundRobin", "SolverCompetitivePlus"]) {
+    for (const strategy of ["SolverRoundRobin", "SolverCompetitivePlusStatic"]) {
       const result = await generate({
         numberOfRounds: 1,
         players,
@@ -288,7 +288,7 @@ describe("SolverRounds", () => {
       numberOfRounds: 2,
       players,
       courts: 4,
-      strategy: "SolverCompetitivePlus",
+      strategy: "SolverCompetitivePlusStatic",
       weightConfig: { qualityVsVariety: 0, advanced: undefined },
     });
 

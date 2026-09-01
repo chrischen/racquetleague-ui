@@ -6298,6 +6298,896 @@ msgstr "系統預設攝影機"
 msgid "Thin client"
 msgstr "精簡型用戶端"
 
+#: src/components/molecules/SolverWeightsPanel.re.mjs:266
+msgid "Adaptive"
+msgstr "自適應"
+
+#: src/components/molecules/DrawGenerator.re.mjs:94
+msgid "Evenly matched games within a skill band. While ratings are still new it mixes players to learn them first, then bands as the rankings settle."
+msgstr "在技術區間內進行均衡對局。評分初期會混合所有玩家以學習其水準，待排名穩定後再進行分組。"
+
+#: src/components/molecules/SolverWeightsPanel.re.mjs:290
+msgid "These values are following the ratings automatically. Freeze the current mix to adjust them by hand — it will stop adapting for this event."
+msgstr "這些數值正在自動跟隨評分調整。凍結目前的配置以手動調整——凍結後將停止為此賽事自動適應。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:985
+msgid "· % chance the game ends level, by true skill · higher is better"
+msgstr "· % 的比賽以相同技術水平結束，依真實技術而定 · 越高越好"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:981
+msgid "· % of games decided by 9+ · rolling 5"
+msgstr "· % 的比賽以 9 分以上差距決定勝負 · 滾動 5 場"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:989
+msgid "· mean gap between predicted and true win chance · 0 = called every game right"
+msgstr "· 預測勝率與真實勝率的平均差距 · 0 = 每場比賽都預測正確"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:980
+msgid "· mean ladder places off · lower is better"
+msgstr "· 平均排名偏差 · 越低越好"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1303
+msgid "{0} · {1} sit"
+msgstr "{0} · {1} 輪空"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1108
+msgid "{0} · not achievable"
+msgstr "{0} · 無法達成"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1351
+msgid "{0} / {1} solves"
+msgstr "{0} / {1} 求解"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1185
+msgid "{0} players · {1} courts · {2} rounds · real solver"
+msgstr "{0} 名玩家 · {1} 場地 · {2} 輪 · 真實求解器"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:74
+msgid "A settled pool with unrated newcomers spread across the true ladder. Their ratings start mid-pool regardless of real skill."
+msgstr "一個穩定的組別，未評級的新人分散於真實排名中。無論實際技術如何，其評分均從組別中段開始。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:48
+msgid "Accurate ladder"
+msgstr "準確排名"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:84
+msgid "band member"
+msgstr "分組成員"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:122
+msgid "Banding from round one, with no calibration phase. Trusts whatever ratings it is given — which is why it opens badly from a cold start. Reference profile, not a mode players can pick."
+msgstr "從第一輪開始分組，無校準階段。信任所給予的任何評分——這也是為何從冷啟動開始表現不佳的原因。此為參考配置，非玩家可選擇的模式。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:938
+msgid "BLOWOUT"
+msgstr "大比分"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:981
+msgid "Blowout rate"
+msgstr "大比分率"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1017
+msgid "blowouts"
+msgstr "大比分場次"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:46
+msgid "Cold start"
+msgstr "冷啟動"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:98
+msgid "Competitive+ (adaptive)"
+msgstr "競技+ （自適應）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:96
+msgid "Competitive+ (static)"
+msgstr "競技+ （靜態）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:906
+msgid "court {0}"
+msgstr "場地 {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1285
+msgid "courts"
+msgstr "場地"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:919
+msgid "def"
+msgstr "防守"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:980
+msgid "Distance from truth"
+msgstr "與真實的距離"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1188
+msgid "Does balanced matchmaking find the truth?"
+msgstr "平衡配對能找到真相嗎？"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:68
+msgid "EVERY rating is the exact mirror of true skill, held confidently — the strongest player reads as the weakest. Balanced play is blind to this: matches look 50/50 under both truth and belief, so no evidence ever arrives. Only the variety modes escape it."
+msgstr "每個評分都是真實技術的完全鏡像，且被確信地持有——最強的玩家被視為最弱。平衡對戰對此視而不見：在真實與認知下，比賽看起來都是五五開，因此從未產生任何依據。只有多樣模式能逃脫這個困境。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1353
+msgid "every round is a real ILP solve · {0} rounds to build"
+msgstr "每輪皆為真實 ILP 求解 · 需 {0} 輪建立"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1353
+msgid "every round is a real ILP solve · {0} rounds to build — this will take a while"
+msgstr "每輪皆為真實 ILP 求解 · 需 {0} 輪建立——這將需要一段時間"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:64
+msgid "Everyone at the default rating. Nothing is known yet — the case every new event starts from."
+msgstr "所有人皆為預設評分。目前尚無任何資訊——這是每個新賽事的起始狀態。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:72
+msgid "Global order is right, but each band of four is internally reversed. Banded play CAN see this error, so Competitive+ self-corrects."
+msgstr "整體順序正確，但每四人一組的內部順序相反。分組對戰可偵測到此誤差，因此競技+可自我修正。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:82
+msgid "inverted insert"
+msgstr "倒序插入"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:52
+msgid "Inverted inserts"
+msgstr "倒序插入"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:50
+msgid "Inverted ladder (complete)"
+msgstr "反轉階梯（完成）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:605
+msgid "leading"
+msgstr "領先"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:985
+msgid "Match quality"
+msgstr "比賽品質"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:128
+msgid "Matchmakes from hidden true skill instead of the ratings. Not a strategy anyone can run — it marks the best match quality this pool allows, so the distance from it is what imperfect ratings cost. Its ladder never improves: a game that is genuinely even is a coin flip, and coin flips teach nothing."
+msgstr "從隱藏的真實技能而非評分進行配對。這不是任何人都能執行的策略——它標示出此組別所能達到的最佳比賽品質，因此與它的差距就是不完美評分所付出的代價。它的階梯永遠不會進步：真正勢均力敵的比賽就是一次擲硬幣，而擲硬幣什麼也學不到。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:136
+msgid "Maximum rotation. Its unbalanced splits are what let it recover a broken ladder."
+msgstr "最大輪換。其不均衡的分組正是讓它能修復破損階梯的原因。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:890
+msgid "No games yet — press play or step."
+msgstr "尚無比賽——請按播放或單步執行。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:132
+msgid "No preferences at all: no balancing, no rotation, pure jitter. The floor every real strategy should beat on match quality — and, surprisingly, the fastest early learner."
+msgstr "完全無偏好：不平衡、不輪換、純隨機。這是每個真實策略在比賽品質上都應超越的基準——而且出乎意料地，它是早期學習最快的。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:100
+msgid "Open play (JP style)"
+msgstr "開放打球（JP 風格）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:112
+msgid "Open play (US style)"
+msgstr "開放打球（US 風格）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1480
+msgid "optimiser unavailable — some rounds fell back to the greedy engine"
+msgstr "最佳化器不可用——部分輪次回退至貪婪引擎"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:102
+msgid "Oracle (knows truth)"
+msgstr "神諭（知曉真相）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1372
+msgid "pause"
+msgstr "暫停"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1170
+msgid "Pick a scenario and press Run. Each round is a real solve through the same optimiser the app uses, so a run takes a few seconds."
+msgstr "選擇一個情境並按執行。每一輪都是透過應用程式所使用的同一個最佳化器進行真實求解，因此執行需要幾秒鐘。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1009
+msgid "places off"
+msgstr "名次偏差"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1372
+msgid "play"
+msgstr "播放"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:138
+msgid "Players self-sort into a beginner group and an intermediate/advanced group and stay there, mixing only around the middle of the pool. Teams are drawn at random within a level and never evened out; a blowout gets run back and a close game keeps the same four on court."
+msgstr "玩家自行分為初學者組和中高級組並留在原組，僅在組別交界處混合。隊伍在同一級別內隨機組成且從不均衡調整；大比分差的比賽會重賽，而勢均力敵的比賽則保持原來四人繼續上場。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:928
+msgid "pred {0}%"
+msgstr "預測 {0}%"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1013
+msgid "quality"
+msgstr "品質"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+msgid "Random (baseline)"
+msgstr "隨機（基準）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:134
+msgid "Random composition with partner and opponent rotation, but still no team balancing. Isolates what novelty alone buys over pure chance."
+msgstr "隨機組成，搭配夥伴與對手輪換，但仍不進行隊伍平衡。用於隔離單純新鮮感相對於純隨機所帶來的效益。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:130
+msgid "Random composition, most even split available in every match."
+msgstr "隨機組成，每場比賽採用最均衡的分組。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:108
+msgid "Random, no repeats"
+msgstr "隨機，不重複"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1146
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking and the highlights. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better). Bold marks the best in each column."
+msgstr "依三欄合併排名，權重相同。虛線以下的列從隱藏真實技能進行配對——代表上限，排除於排名與亮點標示之外。名次偏差 = 平均玩家距其真實排名的距離（越低越好）· 品質 = 依真實技能計算比賽打平的機率（越高越好）· 大比分差 = 分差 9 分以上的比賽佔比（越低越好）。粗體標示各欄最佳值。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:850
+msgid "rating ·"
+msgstr "評分 ·"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:989
+msgid "Rating forecast error"
+msgstr "評分預測誤差"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:66
+msgid "Ratings already match the truth, held confidently. This is where match quality is the product."
+msgstr "評分已與真相吻合，且信心十足。此時比賽品質才是真正的產出。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1198
+msgid "Red ticks are true skill; blue bars are what the rating system currently believes. Rows are ordered by true skill, strongest first — a correct system reads as a clean staircase."
+msgstr "紅色刻度為真實技能；藍色長條為評分系統目前的判斷。列依真實技能排序，最強者在前——正確的系統呈現為清晰的階梯狀。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1227
+msgid "reseed ({0})"
+msgstr "重新分配種子（{0}）"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1393
+msgid "reset"
+msgstr "重置"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:820
+msgid "rho {0} · off by {1} places"
+msgstr "rho {0} · 偏差 {1} 個名次"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:126
+msgid "Rotate through everyone, teams drawn as they come. Only when a foursome splits sharply into two strong and two weak does anyone even out the sides — and then which weak player goes with which strong is left to chance."
+msgstr "輪流讓所有人上場，隊伍隨機組成。只有當四人組明顯分成兩強兩弱時，才會平衡雙方陣容——而哪位弱者與哪位強者同隊，則交由隨機決定。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:884
+msgid "Round {0} · {1}"
+msgstr "第 {0} 輪 · {1}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1405
+msgid "round {0}/{1}"
+msgstr "第 {0}/{1} 輪"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1314
+msgid "rounds"
+msgstr "輪次"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1343
+msgid "Run simulation"
+msgstr "執行模擬"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1343
+msgid "running…"
+msgstr "執行中…"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:959
+msgid "sitting out: {0}"
+msgstr "輪空：{0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1432
+msgid "speed"
+msgstr "速度"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:993
+msgid "Standings at round {0}"
+msgstr "第 {0} 輪積分榜"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1381
+msgid "step"
+msgstr "步驟"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:70
+msgid "The same confident inversion, but applied to only a third of the pool — the rest are correctly rated anchors. The error is now visible against those anchors, so it should correct far faster than a complete inversion."
+msgstr "相同的反轉邏輯，但僅套用於三分之一的玩家——其餘為評級正確的錨點玩家。由於誤差在錨點玩家的對比下會顯現出來，修正速度應遠快於完全反轉的情況。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:857
+msgid "true skill"
+msgstr "真實實力"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:817
+msgid "Truth ladder — {0}"
+msgstr "真實排行榜 — {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:86
+msgid "unrated newcomer"
+msgstr "未評級新手"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:56
+msgid "Unrated newcomers"
+msgstr "未評級新手"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:945
+msgid "UPSET"
+msgstr "爆冷"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:124
+msgid "What the app ships as Competitive+: calibrates with variety while the ratings are noise, then blends into banded play as they settle. Identical to the static profile once the ladder has any spread."
+msgstr "此即應用程式內建的競技+模式：在評級雜訊較大時以多樣化對戰進行校準，隨著評級趨於穩定後逐漸融入分級對戰。一旦排行榜出現差距，表現與靜態模式完全相同。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:54
+msgid "Within-band inversion"
+msgstr "同級別內反轉"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+msgid "APPROVE"
+msgstr "批准"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+msgid "Approve {0}"
+msgstr "批准 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+msgid "Approve for {eventTitle}"
+msgstr "為 {eventTitle} 批准"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+msgid "Approved players have moved into the confirmed list."
+msgstr "已批准的球員已移至確認名單。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+msgid "Close request review"
+msgstr "關閉請求審核"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+msgid "KEEP"
+msgstr "保留"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+msgid "Keep {0} pending"
+msgstr "保留 {0} 待審"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+msgid "No message left with the request"
+msgstr "請求未附留言"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:800
+msgid "Review {0} pending requests with swipe cards"
+msgstr "以滑動卡片審核 {0} 筆待審請求"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+msgid "Review requests"
+msgstr "審核請求"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+msgid "Swipe left to keep pending · right to approve"
+msgstr "向左滑動保留待審・向右滑動批准"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:798
+msgid "Swipe review"
+msgstr "滑動審核"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+msgid "Waiting for approval to join"
+msgstr "等待批准加入"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:856
+msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
+msgstr "系統將進行押金授權。此操作不會實際扣款，且會自動從該用戶帳戶消失。您可以在 RSVP 名單中點擊姓名，手動批准未完成付款授權的參加者。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:884
+msgid "Connect a Stripe account to activate"
+msgstr "連結 Stripe 帳戶以啟用"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1590
+msgid "{0} · ± shown"
+msgstr "{0} · 顯示 ±"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1368
+msgid "± is the standard error over {0} seeds. {1} strategies are tied for best on ladder error — their gaps are inside the error bars, so the ordering between them is not a result."
+msgstr "± 為 {0} 個種子的標準誤差。{1} 個策略在階梯誤差上並列最佳——其差距在誤差範圍內，因此它們之間的排序並非實質結果。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1368
+msgid "± is the standard error over {0} seeds. Bold marks a value nothing else is within error of."
+msgstr "± 為 {0} 個種子的標準誤差。粗體標示該值與其他值的差距超出誤差範圍。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1590
+msgid "1 · no error"
+msgstr "1・無誤差"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+msgid "a bunched pack, most players hard to tell apart, nobody outside the group"
+msgstr "密集群組，大多數球員難以區分，無人明顯突出"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1722
+msgid "field"
+msgstr "場域"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1398
+msgid "Pick a scenario and press Run. Each round is a real solve through the same optimiser the app uses, and every field is simulated across several seeds, so a run takes a little while."
+msgstr "選擇一個情境並按下執行。每一輪均透過應用程式所使用的相同最佳化器進行真實求解，且每個場域會跨多個種子進行模擬，因此執行需要一些時間。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1370
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better)."
+msgstr "依三欄合併排名，權重相同。虛線以下的列以隱藏真實技能進行配對——標示上限並排除於排名之外。名次偏差 = 球員平均距離其真實排名的差距（越低越好）・品質 = 依真實技能計算比賽勢均力敵的機率（越高越好）・大比分差 = 比分差距達 9 分以上的比賽比例（越低越好）。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1572
+msgid "seeds"
+msgstr "種子數"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1367
+msgid "Single seed — no error bars, so treat any ordering here as provisional. Raise the seed count to tell real differences from noise."
+msgstr "單一種子——無誤差範圍，此處任何排序均應視為暫定結果。增加種子數量以區分真實差異與雜訊。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+msgid "skill spread evenly across the range, plus a ringer and a beginner"
+msgstr "技能均勻分佈於範圍內，另含一名尖子球員與一名新手"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1730
+msgid "tight"
+msgstr "緊密"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1726
+msgid "varied"
+msgstr "多元"
+
+#: src/components/molecules/DrawGenerator.re.mjs:88
+msgid "Balanced Round Robin"
+msgstr "均衡循環賽"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1374
+msgid "· {0} · every level, % chance of a level game"
+msgstr "· {0} · 每個級別，% 機率的同級對局"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1374
+msgid "· {0} players · every strategy"
+msgstr "· {0} 名球員 · 每種策略"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "· median game's % chance of ending level · immune to blowout drag"
+msgstr "· 中位數對局的同級結束機率 · 不受懸殊比分拖累"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1209
+msgid "· players marked ↑ ↑↑ ↓ are improving or slipping as the session runs"
+msgstr "· 標記 ↑ ↑↑ ↓ 的球員在本場次中正在進步或退步"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:68
+msgid "{0} KB"
+msgstr "{0} KB"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:65
+msgid "{0}p · {1} courts · {2} rounds · {3} seeds"
+msgstr "{0}人 · {1} 場地 · {2} 輪 · {3} 種子"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1721
+msgid "a narrow, heavily bunched pack — hard to tell anyone apart"
+msgstr "差距極小、高度集中的群體——難以區分任何人"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1718
+msgid "a wide field plus a ringer and a beginner nobody can balance around"
+msgstr "寬幅分布，加上一名頂尖高手和一名新手，無人能平衡"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1724
+msgid "about a 1.0 DUPR spread, roughly 3.0 to 4.0 — what most clubs look like"
+msgstr "約 1.0 DUPR 分差，大致從 3.0 到 4.0——大多數俱樂部的典型情況"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:986
+msgid "all bands"
+msgstr "所有組別"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2035
+msgid "Could not load the saved run: {loadError}"
+msgstr "無法載入已儲存的執行紀錄：{loadError}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2194
+msgid "everyone mixes"
+msgstr "全員混合"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2194
+msgid "fixed squads of 4"
+msgstr "固定 4 人小隊"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1953
+msgid "loading…"
+msgstr "載入中…"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "Match quality · typical game"
+msgstr "對局品質 · 典型對局"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1372
+msgid "Match quality by band"
+msgstr "各組別對局品質"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:146
+msgid "Maximum rotation with light banding — novelty first, but still rating-aware, unlike the avoid-repeats baseline. Its unbalanced splits are what let it recover a broken ladder."
+msgstr "最大輪換搭配輕度分組——優先求新鮮感，但仍具評級意識，有別於純粹避免重複的基準。不均等的分組讓它能修復失衡的積分梯隊。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1344
+msgid "mean"
+msgstr "平均值"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1348
+msgid "median"
+msgstr "中位數"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:142
+msgid "No preferences at all: no balancing, no rotation, pure jitter. A synthetic floor — real clubs avoid repeats, so the realistic baseline is Random, avoid repeats."
+msgstr "完全無偏好：不平衡、不輪換、純隨機擾動。作為合成下限——真實俱樂部會避免重複，因此實際基準為「隨機，避免重複」。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:148
+msgid "Players self-sort into a beginner group and an intermediate/advanced group and stay there, mixing only around the middle of the pool. Teams are drawn at random within a level and never evened out; about half of blowouts get run back — once — and a close game may keep the same four on court."
+msgstr "球員自行分成初學者組與中高級組並留在各組，僅在分組交界處混合。隊伍在同級別內隨機組成且從不平衡；約一半的懸殊對局會重賽一次，而接近的比賽可能保持同四人上場。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2021
+msgid "precomputed · loads in a second instead of an hour"
+msgstr "預先運算 · 幾秒內載入，而非耗時數小時"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:144
+msgid "Random composition with partner and opponent rotation, but still no team balancing — what open play actually does, and the realistic rating-free baseline. Novelty buys variety and faster convergence, not match quality."
+msgstr "隨機組合搭配換搭檔與換對手輪換，但仍不平衡隊伍——即公開打球的實際做法，也是不依賴評級的實際基準。新鮮感帶來多樣性與更快收斂，而非更高對局品質。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+msgid "Random, avoid repeats"
+msgstr "隨機，避免重複"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1657
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better)."
+msgstr "依三欄綜合排名，權重相等。虛線以下的列依隱藏真實技能進行配對——標示上限並排除於排名之外。三者皆為最近 {0} 輪的滾動平均值，反映各策略當前表現而非整體表現——拖動輪次滑桿可觀察變化。名次差 = 平均球員距真實排名的距離（越低越好）· 品質 = 依真實技能計算對局同級結束機率（越高越好）· 懸殊 = 比分差距 9+ 的對局比例（越低越好）。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1949
+msgid "saved runs"
+msgstr "已儲存的執行紀錄"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1699
+msgid "showing a saved run · {0} · {1} players · {2} courts · {3} rounds · {4} seeds. Ladder and round detail come from the first seed; the charts and standings average all of them."
+msgstr "顯示已儲存的執行紀錄 · {0} · {1} 名球員 · {2} 場地 · {3} 輪 · {4} 種子。積分梯隊與輪次詳情來自第一個種子；圖表與積分榜為所有種子的平均值。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1491
+msgid "Standings at round {0} · last {1} rounds"
+msgstr "第 {0} 輪後的積分榜 · 最近 {1} 輪"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1491
+msgid "Standings before play"
+msgstr "開賽前積分榜"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:67
+#: src/components/organisms/MatchmakingLab.re.mjs:2177
+msgid "tournament"
+msgstr "錦標賽"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1832
+msgid "typical"
+msgstr "典型"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:421
+msgid "· % chance the game ends level · solid: Competitive+ · dashed: random, avoid repeats"
+msgstr "· 比賽以平手（勢均力敵）收場的機率 · 實線：Competitive+ · 虛線：隨機、避免重複"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:950
+msgid "· % of games decided by 9+ · lower is better"
+msgstr "· 分差達 9 分以上的比賽占比 · 越低越好"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1136
+msgid "18,900 rounds solved"
+msgstr "已求解 18,900 輪"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1139
+msgid "24 players · 4 court"
+msgstr "24 位球員 · 4 面球場"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1142
+msgid "7 seeds per club"
+msgstr "每個俱樂部 7 組種子"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1123
+msgid "75,600 simulated games, nine strategies, three kinds of club — and one clear recommendation."
+msgstr "75,600 場模擬比賽、九種策略、三類俱樂部——以及一個明確的建議。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:681
+msgid "A lopsided match that wastes one side's time. An 11–0 “pickle” is the canonical example."
+msgstr "一面倒的比賽會浪費其中一方的時間。11–0 的「pickle」就是最典型的例子。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:965
+msgid "A tight club gives the best floor — random dealing manages 64% quality there against 46% in a varied club — at some cost in ranking accuracy, since players who are genuinely close are hard to order. But controlling the roster does not control the matchups: dealt randomly, that same club still blows out 46% of its games; Competitive+ blows out 8% and holds 79% quality. The gap exists because skill is not a fixed number. Even hand-picked members fluctuate wildly day to day — improving in bursts, slumping, showing up tired — and a rating system accounts for that in real time, adjusting after every game, so each sessions' matches are built on current form rather than on the level everyone was admitted at. Pkuru keeps hidden ratings even for “unrated” events, so no one's public rating is at stake, and the same ratings pair you with the right drilling partner — even for drills, evenly matched partners matter. (I often prefer a wall: it beats most human drilling partners.)"
+msgstr "程度接近的俱樂部有最好的下限——在那裡隨機分組也能達到 64% 的比賽品質，而程度落差大的俱樂部只有 46%——代價是排名準確度較低，因為實力真正接近的球員本來就難以排序。但控制成員名單並不等於控制對戰組合：同一個俱樂部若隨機分組，仍有 46% 的比賽淪為一面倒；Competitive+ 只有 8%，並維持 79% 的品質。差距之所以存在，是因為實力並非固定數字。即使是精挑細選的成員，狀態每天都劇烈起伏——時而突飛猛進、時而低潮、時而帶著疲憊上場——而評分系統會即時反映這些變化，每場比賽後都調整，因此每次活動的對戰都建立在當下狀態，而非入會時的水準。Pkuru 即使在「不計分」的活動中也會保留隱藏評分，因此沒有人的公開評分會受影響，而同一套評分也能為你配到合適的練球夥伴——即使只是練球，實力相當的夥伴同樣重要。（我常常寧可對牆練：它勝過大多數人類練球夥伴。）"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:718
+msgid "A tight club here means everyone within about 0.68 DUPR points, most of the pack inside 0.4 — and it is where matchmaking should matter least. For the opening rounds it is: with everyone close, any way of dealing the courts produces playable games. But small differences still decide games, and the ratings learn them fast. Competitive+ holds a sustained lead over the avoid-repeats baseline from about round 5. One session in, it is blowing out 33% of games to the baseline's 44%; with mature ratings that becomes 8% against 46% — and Balanced Round Robin's 20%:"
+msgstr "這裡所謂程度接近的俱樂部，是指所有人落在約 0.68 DUPR 分之內，且多數人集中在 0.4 分以內——照理說這是配對最不重要的情境。開頭幾輪確實如此：大家實力相近，怎麼分場都能打出可玩的比賽。但細微差距仍會決定勝負，而評分系統很快就能學到。從約第 5 輪起，Competitive+ 就持續領先「避免重複」的基準做法。一次活動後，它的一面倒比賽為 33%，基準做法為 44%；當評分成熟後，差距變成 8% 對 46%——而 Balanced Round Robin 為 20%："
+
+#: src/components/organisms/MatchmakingReport.re.mjs:689
+msgid "An organiser who knows everyone's true skill and rigs matches accordingly, overriding the ratings. Rigged matches starve the rating system: place a strong newcomer only against strong players and all the system sees is losses."
+msgstr "一位知道每個人真實實力、並據此安排比賽、凌駕於評分之上的主辦者。人為安排的比賽會讓評分系統「餓死」：若只讓一位實力強的新人對上強者，系統看到的就只有敗績。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:835
+msgid "Balanced Round Robin converges best here too, but only by a hair over adaptive Competitive+ — and the two are effectively identical on quality and blowouts."
+msgstr "Balanced Round Robin 在這裡的收斂也最好，但只以些微差距領先自適應的 Competitive+——兩者在比賽品質與一面倒比例上實質相同。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:900
+msgid "Balanced Round Robin leads while ratings are still noise; the static Competitive+ profile catches it around round 13 — about one session — and the adaptive version never leaves its side. Once ratings are mature, every real strategy lands within about a quarter of a place of the same ladder — on accuracy they are tied inside the error bars, and the difference that remains is the quality of the games played along the way. The quality chart above shows the same trade-off from the other side: static banding matches Balanced Round Robin for the first ten rounds, falls behind by the end of the first session — 49% blowouts to its 40% at round 13, the cost of banding on ratings that are still noise — then overtakes for good around round 20 as the bands become real. The adaptive blend exists to take the better half of both."
+msgstr "當評分仍是雜訊時，Balanced Round Robin 領先；靜態的 Competitive+ 設定約在第 13 輪追上——大約一次活動的長度——而自適應版本則始終緊隨其側。一旦評分成熟，所有實用策略都落在同一個排行榜約四分之一名次以內——就準確度而言它們在誤差範圍內打平，剩下的差別在於過程中比賽的品質。上方的品質圖從另一面呈現同樣的取捨：靜態分段在前十輪與 Balanced Round Robin 不相上下，到第一次活動結束時落後——第 13 輪時 49% 對 40% 的一面倒比例，這是在評分仍是雜訊時進行分段的代價——接著約在第 20 輪隨著分段變得真實而永久超前。自適應的混合策略，正是為了兼取兩者較好的一半。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:680
+msgid "Blowout"
+msgstr "一面倒"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:724
+#: src/components/organisms/MatchmakingReport.re.mjs:792
+#: src/components/organisms/MatchmakingReport.re.mjs:863
+msgid "blowouts · Competitive+"
+msgstr "一面倒比賽 · Competitive+"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:729
+#: src/components/organisms/MatchmakingReport.re.mjs:797
+#: src/components/organisms/MatchmakingReport.re.mjs:868
+msgid "blowouts · random, no repeat"
+msgstr "一面倒比賽 · 隨機、不重複"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:959
+msgid "Blowouts fade more slowly than quality: 52% one session in, 30% after two, 19% by round 50, 8% by round 100 — most of the way to the Oracle's 5% floor. In a varied club they never fully go away: Competitive+ bottoms out near 35% and even the Oracle blows out 23%, because a ringer and a beginner make some matches unsaveable."
+msgstr "一面倒比賽消退得比品質慢：一次活動後 52%，兩次後 30%，第 50 輪時 19%，第 100 輪時 8%——已接近 Oracle 的 5% 下限。在程度落差大的俱樂部裡，這種比賽永遠不會完全消失：Competitive+ 最低約 35%，即使是 Oracle 也有 23%，因為高手與新手同場，有些比賽本來就無解。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:355
+msgid "click a strategy to isolate it"
+msgstr "點選策略以單獨檢視"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:410
+msgid "Competitive+ match quality, by club"
+msgstr "Competitive+ 的比賽品質（依俱樂部類型）"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:932
+msgid "Conclusion"
+msgstr "結論"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1078
+msgid "Could not load the data behind this article: {0}"
+msgstr "無法載入本文的資料：{0}"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:768
+msgid "Distance from truth — tight club"
+msgstr "與真實值的差距——程度接近的俱樂部"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:907
+msgid "Distance from truth — typical club"
+msgstr "與真實值的差距——一般俱樂部"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:926
+msgid "Distance from truth — typical club, with the Oracle"
+msgstr "與真實值的差距——一般俱樂部（含 Oracle）"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:842
+msgid "Distance from truth — varied club"
+msgstr "與真實值的差距——程度落差大的俱樂部"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:847
+msgid "Early in my organising days I still switched from greedy, numerically balanced matches to banded Competitive+. Banding forces every match to come from a contiguous block of skill, even when that is numerically “unbalanced”. A rating cannot capture everything about a real game: the best and the worst player against two average players may balance mathematically, but in practice it plays worse than an “unbalanced” match of three 4.0s and a 5.0. Banding suppresses the measured quality score slightly because of this override — that is the price of never pairing a ringer with a total beginner just to make the numbers work out."
+msgstr "在我剛開始辦活動的日子裡，我仍從貪婪式、數值平衡的配對改用分段式的 Competitive+。分段強制每場比賽都來自一段連續的實力區間，即使數值上看起來「不平衡」。評分無法涵蓋真實比賽的一切：最強與最弱的球員對上兩位中等球員，數學上或許平衡，但實際打起來比三位 4.0 加一位 5.0 的「不平衡」比賽更糟。正因為這種凌駕機制，分段會略為壓低所測得的品質分數——這就是絕不為了湊數字而讓高手與完全的新手同場的代價。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:734
+#: src/components/organisms/MatchmakingReport.re.mjs:802
+#: src/components/organisms/MatchmakingReport.re.mjs:873
+msgid "even games · Competitive+"
+msgstr "勢均力敵的比賽 · Competitive+"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:739
+#: src/components/organisms/MatchmakingReport.re.mjs:807
+#: src/components/organisms/MatchmakingReport.re.mjs:878
+msgid "even games · random, no repeat"
+msgstr "勢均力敵的比賽 · 隨機、不重複"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1145
+msgid "every round a real ILP solve"
+msgstr "每一輪都進行真正的 ILP 求解"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:980
+msgid "For a single court of five or six players, the rating system admittedly adds little. The tool still helps: it remembers who has partnered whom, keeps play counts even, and tracks each player's rating change round by round even with nothing submitted — the session runs fairly, and everyone sees how they actually did. People reliably overrate their own performance, even when they do not show it."
+msgstr "若只有一面球場、五、六位球員，評分系統確實幫助有限。但工具仍然有用：它會記住誰與誰搭檔過、讓上場次數平均，並逐輪追蹤每位球員的評分變化，即使沒有回報任何成績——活動進行得公平，每個人也能看到自己實際的表現。人們總是可靠地高估自己的表現，即使嘴上不說。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1002
+msgid "Future improvements"
+msgstr "未來的改進"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:698
+msgid "How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic clubs: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve gradually, one improves quickly — up to half a DUPR point, with gains tapering as they settle — and one slowly slips, the same players in every strategy's run so the comparison stays fair. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so round 13 stands in for “one session” below, while the 100-round horizon — seven or eight sessions of persisted ratings — shows the system once everyone's rating is mature. Charts are interactive — hover for values, click a strategy to isolate its line."
+msgstr "數據如何產生：一次模擬——24 位球員、4 個球場、100 輪——在三個合成球會中以 7 組隨機種子重跑：多元型（實力分布廣泛，另加一位高手與一位新手）、典型型（DUPR 差距約 1.0）與緊密型（實力集中）。真實實力並非固定不變：如同真實球會，約 20% 的球員會逐步進步，一位進步迅速——最多提升半個 DUPR 分，增幅隨其穩定而遞減——另有一位緩慢退步；每種策略的模擬皆採用相同球員，以確保比較公平。每一輪都經由 app 所使用的同一最佳化引擎實際求解。圖表為所有種子的 5 輪滾動平均；標題數字則彙整最後 25 輪。時間尺度：實際一場活動約 12–14 輪，因此以下用第 13 輪代表「一場活動」，而 100 輪的跨度——相當於七、八場活動累積的評分——則呈現所有人評分成熟後的系統狀態。圖表可互動——游標懸停查看數值，點選策略可單獨顯示其曲線。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:983
+msgid "If you are going to use a round robin table at all, use the Pkuru Round Robin tool: the same table, better matches, every default tunable. And every simulation in this article can be rerun for a club shaped like yours."
+msgstr "如果你無論如何都要用循環賽表，那就用 Pkuru 循環賽工具：同樣的表格、更好的對戰、每項預設值皆可調整。而本文中的每一項模擬，都能依你球會的樣貌重新執行。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:761
+msgid "In a tight club even the static Competitive+ profile keeps up with Balanced Round Robin almost immediately: when everyone is close, a band drawn from noisy ratings is barely different from one drawn from true skill, so banding costs nothing here. The adaptive Competitive+ tracks Balanced Round Robin from the first round by construction — it runs it until ratings settle. The calibration phase earns its keep in the wider clubs below, where banding on noise genuinely restricts the movement that would fix the ratings."
+msgstr "在緊密型球會中，即使是靜態的 Competitive+ 也幾乎立刻就能跟上 Balanced Round Robin：當所有人實力相近時，依有雜訊的評分劃分的分級，與依真實實力劃分幾乎沒有差別，因此分級在此毫無代價。自適應的 Competitive+ 在設計上從第一輪起就與 Balanced Round Robin 一致——它會先執行後者，直到評分穩定。校準階段的價值展現在下方實力較分散的球會，那裡依雜訊分級會實質限制原本能修正評分的流動。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:773
+msgid "In the real world assembling a tight club of similarly skilled players is challenging because on any given day a player's performance might fluctuate by 0.5 points or more. The rating system however can adjust for this variance within a few rounds of play."
+msgstr "在現實中，要組成一個實力相近的緊密型球會相當困難，因為球員在任何一天的表現都可能起伏 0.5 分甚至更多。不過評分系統能在幾輪比賽內修正這種變異。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:684
+msgid "Inversion"
+msgstr "評分倒置"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:826
+msgid "JP-style open play is the avoid-repeats baseline plus one intervention: a foursome is split when it is obviously lopsided — the pairs half a DUPR apart, the bar real organisers actually use. The surprise is that the intervention buys nothing measurable: JP lands within the error bars of its own baseline everywhere, a point or two of quality in this club at best. Splits that rare cannot move a session. Politeness that fixes only the egregious matches is worth almost nothing; the gains begin when every match is deliberately balanced, which is exactly what nobody does socially."
+msgstr "日式開放打法是「避免重複」的基準做法，再加上一項介入：當一組四人明顯失衡時就拆開——兩對相差半個 DUPR，這正是實際主辦者採用的標準。令人意外的是，這項介入沒有帶來任何可衡量的效益：JP 在各處都落在自身基準的誤差範圍內，在這個球會頂多提升一兩點品質。如此罕見的拆分無法改變一場活動。只修正極端失衡的客套做法幾乎毫無價值；真正的收穫始於每一場對戰都被刻意平衡——而這正是社交場合中沒有人會做的事。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:962
+msgid "Level-controlled clubs"
+msgstr "分級管控的球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1089
+msgid "loading the precomputed run…"
+msgstr "正在載入預先計算的結果…"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:749
+msgid "Match quality — tight club"
+msgstr "對戰品質 — 緊密型球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:888
+msgid "Match quality — typical club"
+msgstr "對戰品質 — 典型球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:817
+msgid "Match quality — varied club"
+msgstr "對戰品質 — 多元型球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1112
+msgid "Matchmaking strategies, measured"
+msgstr "配對策略實測"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:783
+msgid "Most open-play sessions in Japan are more varied than the organiser likes to think: in the current pickleball scene it is hard to gather even one court of genuinely similar players at once if only simply due to day-to-day skill fluctuations."
+msgstr "日本多數的開放打球場次，比主辦者以為的更加參差：在當前的匹克球環境中，光是要同時湊齊一個球場實力真正相近的球員都很困難，哪怕只是因為每天實力的自然波動。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1042
+msgid "No precomputed run is published."
+msgstr "尚未發布預先計算的結果。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:986
+msgid "Open the interactive Matchmaking Lab →"
+msgstr "開啟互動式配對實驗室 →"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:688
+msgid "Oracle"
+msgstr "先知模式"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1011
+msgid "Our simulation currently handles players getting better and worse over time (change in their true underlying skill), but it doesn't handle random unrated drop in players that come back infrequently or never at all. It should also fluctuate a player's skill between sessions (about every 13 rounds) due to random day-to-day jitter in performance."
+msgstr "我們的模擬目前能處理球員實力隨時間變好或變差（真實底層實力的改變），但尚未處理偶爾才回來、甚至再也不出現的無評分球員。它也應該加入場次之間（約每 13 輪）因日常表現隨機波動而造成的實力起伏。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1101
+msgid "Pkuru · matchmaking report"
+msgstr "Pkuru · 配對報告"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:482
+msgid "random, avoid repeats"
+msgstr "隨機、避免重複"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:758
+#: src/components/organisms/MatchmakingReport.re.mjs:832
+#: src/components/organisms/MatchmakingReport.re.mjs:897
+msgid "Ratings convergence"
+msgstr "評分收斂"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1005
+msgid "Ratings keep sharpening for 30–40 rounds — two to three sessions — and while the matchmaking is already better than the baseline by round 5, the first dozen rounds of a true cold start remain the roughest stretch of a club's life. I want to explore using score differentials to shorten them — potentially producing usable ratings within a round or two of an unrated player's first game. Currently the Round Robin tool already supports manually specified player rankings. The risk is that this is itself a form of oracle: reading more into a result than it actually says could tamper with convergence rather than speed it up."
+msgstr "評分會持續精準化 30–40 輪——即兩到三場活動——雖然配對品質在第 5 輪就已優於基準，但真正從零開始的頭十幾輪仍是球會生命中最顛簸的階段。我想探索用比分差距來縮短這段期間——有機會在無評分球員打完一兩場後就產生可用的評分。目前循環賽工具已支援手動指定球員排名。風險在於這本身也是一種先知模式：從結果中解讀出超過其真實含意的資訊，可能會干擾收斂，而非加速它。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:685
+msgid "Ratings pointing the wrong way: a strong player rated low, a weak player rated high. Strong players who take it easy on beginners can invert their own rating — unintentional sandbagging."
+msgstr "評分指向錯誤方向：強者評分偏低、弱者評分偏高。對新手手下留情的強者可能讓自己的評分倒置——無意間的「藏分」。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1163
+msgid "Run these simulations yourself in the interactive lab →"
+msgstr "在互動實驗室中自行執行這些模擬 →"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1008
+msgid "Since we can simulate the match quality effects of adding a player into an event, we can create an RSVP system that admits player based on their impact to the session, rather than the simple first-come-first-serve setups most events have."
+msgstr "既然我們能模擬加入某位球員對活動對戰品質的影響，就能打造一套依球員對場次影響程度來錄取的報名系統，而非多數活動採用的先到先得制。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:977
+msgid "Single-court events"
+msgstr "單場地活動"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:786
+msgid "The baseline here is what open play actually deals: random courts that avoid repeating partners and opponents. (Measured against pure random, avoiding repeats changes match quality not at all — novelty buys variety and a slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls away from it within the first handful of rounds — by round 5 its games are already measurably better, because every result moves a cold rating a long way. Even a club of all-unrated players gets value inside their first session, though in this club the early gain is match quality; the blowouts barely move in one session, because preventing a varied club's worst games takes ratings accurate enough to see them coming. With mature ratings the gap is decisive:"
+msgstr "此處的基準是開放打法實際的安排方式：隨機分配球場，並避免重複的隊友與對手。（相較於純隨機，避免重複完全不會改變對戰品質——新鮮感帶來的是變化與略快的排名收斂，僅此而已。）從零開始，Competitive+ 在最初幾輪內就拉開差距——到第 5 輪其比賽品質已明顯更佳，因為每筆結果都會大幅移動尚未穩定的評分。即使是全員無評分的球會，也能在第一場活動內獲得價值，不過在這個球會中，早期的收穫是對戰品質；懸殊比分在一場活動內幾乎沒有改善，因為要避免多元型球會中最糟的比賽，需要準確到足以提前預見的評分。當評分成熟後，差距則相當決定性："
+
+#: src/components/organisms/MatchmakingReport.re.mjs:974
+msgid "The idea that beginners and lower-rated players do not want balanced games is a myth — in the US and Vietnam, DUPR round robins run routinely at the 2.0–3.0 levels. Everyone benefits from an even match, and no rating needs to be at stake: the round robin tool can arrange matches by rating without submitting results."
+msgstr "認為新手與低評分球員不想要勢均力敵比賽的想法是個迷思——在美國與越南，DUPR 循環賽在 2.0–3.0 等級照樣定期舉行。人人都受惠於勢均力敵的對戰，而且不必拿評分冒險：循環賽工具可依評分安排對戰，而不提交成績。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:919
+msgid "The lesson for organisers: use manual seeding conservatively. The more you pre-place players at their true level, the slower their rating gets there on its own."
+msgstr "給主辦者的啟示：手動設定種子時要保守。你越是把球員預先擺在他們的真實水準上，他們的評分自行到達那裡的速度就越慢。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:916
+msgid "The Oracle knows everyone's real skill and hand-balances every match. It is in the field to demonstrate one thing: rigging matches by what you know prevents the ratings from ever learning it. Strong players are always split and cancel each other out, so no informative result ever arrives — the Oracle posts the best match quality of any strategy and the worst ladder accuracy, stuck around seven places off forever. US-style open play's starved ladder is the same effect arrived at by accident, in a milder dose."
+msgstr "先知模式知道每個人的真實實力，並親手平衡每一場對戰。它出現在測試中只為證明一件事：依你已知的資訊操控對戰，會讓評分永遠學不到東西。強者總是被拆開並互相抵銷，因此永遠不會出現有資訊價值的結果——先知模式的對戰品質是所有策略中最好的，排名準確度卻是最差的，永遠卡在約七個名次的誤差。美式開放打法中「餓死」的排名，正是同樣的效應在無意間、以較輕微的劑量發生。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1017
+msgid "This is a live document, so I will be updating the modelling, data, and conclusions as they are discovered."
+msgstr "這是一份持續更新的文件，我會隨著新發現不斷更新模型、數據與結論。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:971
+msgid "This is where matchmaking lifts hardest. Blowouts are never fun — for the stronger team they are a waste of time — and members you subject to them often enough go elsewhere. Competitive+ prevents five of every six blowouts in a typical club, halves them in a genuinely varied one, and its banding lets a session holding a beginner group and an advanced group still resolve into good matches instead of carry games."
+msgstr "這正是配對機制發揮最大效用之處。一面倒的比賽從來都不有趣——對強隊而言是浪費時間——而經常被安排到這種比賽的會員往往會另尋他處。Competitive+ 在典型球會中可避免六場一面倒比賽中的五場，在程度真正參差的球會中則可減半；其分級機制讓同時容納初學組與進階組的場次仍能形成優質對戰，而非「帶飛」局。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:675
+msgid "Three terms worth pinning down"
+msgstr "三個值得釐清的名詞"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:394
+#: src/components/organisms/MatchmakingReport.re.mjs:537
+msgid "Tight club"
+msgstr "程度集中的球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:712
+msgid "Tight skill spread"
+msgstr "程度差距小"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:669
+msgid "Two things decide which matchmaking strategy is best: the skill spread of the club, and what you mean by “best”. Spread is how far apart your players are in real ability. “Best” splits into two goals — keeping everyone in tight, high-quality matches, and converging ratings to the truth quickly — and while ratings are still unknown — somewhere in the first fifteen rounds, about one session — you cannot have both. Faster convergence means injecting randomness into the matchmaking, which costs match quality now; optimising quality means trusting ratings that are still noise, which locks misrated players in place. Some early time must be spent in exploratory, suboptimal matches — unless you seed initial ratings by hand. Once ratings settle, the tension mostly dissolves: the same strategy can hold the best match quality in the field while converging as fast as anything else."
+msgstr "決定哪種配對策略最佳的因素有兩個：球會的程度分布，以及你如何定義「最佳」。分布指的是球員實際能力的差距有多大。「最佳」可分為兩個目標——讓所有人都打到勢均力敵的高品質比賽，以及讓評分快速收斂至真實水準——而在評分仍未明朗時（約前十五輪，大約一場活動的時間），兩者無法兼得。加快收斂意味著在配對中注入隨機性，當下的比賽品質便會下降；追求品質則意味著信賴仍充滿雜訊的評分，使被錯估的球員固定在錯誤位置。除非你手動設定初始評分，否則早期必須花些時間在探索性、非最佳的比賽上。一旦評分穩定下來，這種矛盾大致就消解了：同一套策略既能維持全場最佳的比賽品質，收斂速度也不遜於其他任何方式。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:851
+msgid "Typical 3.0–4.0 spread"
+msgstr "典型 3.0–4.0 程度分布"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:389
+#: src/components/organisms/MatchmakingReport.re.mjs:539
+msgid "Typical club"
+msgstr "典型球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:829
+msgid "US-style open play — courts labelled by level, players choosing their own — does somewhat better: matches only form within the stronger or the weaker half of the club, so the skill gaps inside a match shrink. The simulation also models the format's social habits — about half of badly beaten teams run one revenge match, and close foursomes often stay on for another game; both mean replaying a match, and the games people choose to replay are usually the wrong ones. It nets out at 50% quality and 64% blowouts here, against the baseline's 46% and 68% — real, but a long way from matchmaking by rating, where Competitive+ reaches 66% and 35% in the same club. One caution for anyone submitting rated DUPR matches from such sessions: repeats and self-sorted courts carry little rating information, so they converge ratings poorly — the simulated ladder ends up more than two places off, against about one and a half for every other format."
+msgstr "美式自由開放打法——場地依程度標示、球員自行選擇——表現稍好：比賽只在球會中較強或較弱的一半內形成，因此單場內的程度差距縮小。模擬也納入了這種形式的社交習慣——約半數慘敗的隊伍會再打一場復仇賽，而勢均力敵的四人組常會續留再打一場；兩者都意味著重複同一場對戰，而人們選擇重打的通常都是不該重打的那些。最終結果為品質 50%、一面倒比賽 64%，相較基準的 46% 與 68%——確有改善，但距離依評分配對仍差得遠：在同一球會中 Competitive+ 可達 66% 與 35%。若你打算將這類場次的比賽提交為 DUPR 計分賽，需注意：重複對戰與自行分組的場地所含的評分資訊很少，因此評分收斂很差——模擬中的排名最終偏離超過兩個名次，而其他所有形式約為一個半。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:935
+msgid "Use Competitive+. The adaptive version opens with Balanced Round Robin while ratings are unknown, then switches to banded play as they settle — the fastest convergence available, with the best match quality in the field. Two-thirds of the gain arrives in the first session and most of the rest by the end of the second (63% → 73% → 79% quality in a typical club), and because ratings persist, each session starts where the last one left off."
+msgstr "使用 Competitive+。自適應版本在評分未明時以平衡循環賽開場，待評分穩定後切換為分級對戰——收斂速度最快，比賽品質也是全場最佳。三分之二的效益在第一場活動就會顯現，其餘大部分在第二場結束時到位（典型球會品質為 63% → 73% → 79%），而且由於評分會保留，每場活動都能承接上一場的成果。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:384
+#: src/components/organisms/MatchmakingReport.re.mjs:542
+msgid "Varied club"
+msgstr "程度參差的球會"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:777
+msgid "Varied skill levels"
+msgstr "程度差異大"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1014
+msgid "We have access to live match data from real sessions that use Round Robin tool, including match scores. That means I can calculate the effects of things like asymmetrical matches or the actual efficacy of the algorithms."
+msgstr "我們能取得使用循環賽工具的真實場次即時比賽數據，包括比分。這代表我可以計算諸如不對稱對戰的影響，或演算法的實際成效。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:938
+msgid "What switching is worth, with mature ratings in a typical club: 23 points of match quality and blowouts cut from 59% to 10% against JP-style open play (which plays like dealing at random); 7 points and 18 fewer blowouts against a plain round-robin table; 17 points and 42 fewer against a curated private session run as open play."
+msgstr "在評分成熟的典型球會中，改用它的價值：相較日式自由開放打法（其表現形同隨機分配），比賽品質提升 23 分，一面倒比賽從 59% 降至 10%；相較普通循環賽表，品質提升 7 分、一面倒比賽減少 18 個百分點；相較以自由開放形式進行的精選私人場次，品質提升 17 分、一面倒比賽減少 42 個百分點。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:913
+msgid "Why the Oracle never converges"
+msgstr "為何 Oracle 永遠不會收斂"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:968
+msgid "Wide-level open plays"
+msgstr "程度跨度大的自由開放打法"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:857
+msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines within the first handful of rounds, and one session in it already leads the avoid-repeats baseline by 9 points of quality and 10 points of blowouts. The full benefit arrives with mature ratings: 10% blowouts against the baseline's 62%, and a 78% chance of an even game against 53%. Those mature numbers match a hand-picked tight-skill club (79% and 8%) — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster:"
+msgstr "在實際的 1.0 DUPR 分布下，Competitive+ 在最初幾輪內就拉開與各基準的差距，一場活動下來已比「避免重複」基準高出 9 分品質與 10 分一面倒比賽表現。完整效益在評分成熟後顯現：一面倒比賽僅 10%，基準則為 62%；勢均力敵比賽的機率達 78%，基準為 53%。這些成熟數據可媲美精挑細選、程度集中的球會（79% 與 8%）——演算法透過配對，達成你原本得靠篩選名單才能得到的結果："
+
+#: src/components/organisms/MatchmakingReport.re.mjs:672
+msgid "You have probably heard that to improve, you should play people better than you. The advice is not wrong — it is impractical. For you to play up, someone better than you has to play down. The only version of it that scales is playing people close to your level, with occasional games slightly up or slightly down. That is the goal of the Round Robin tool, and it is what these matchmaking algorithms are trying to accomplish."
+msgstr "你大概聽過：想進步就要跟比自己強的人打。這建議沒錯——只是不切實際。你要往上打，就得有比你強的人往下打。唯一能規模化的版本，是跟程度相近的人打，偶爾稍微往上或往下打一場。這正是循環賽工具的目標，也是這些配對演算法想要達成的事。"
+
+#: src/components/pages/MatchmakingReportPage.re.mjs:35
+msgid "← Back to Pkuru.com"
+msgstr "← 返回 Pkuru.com"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

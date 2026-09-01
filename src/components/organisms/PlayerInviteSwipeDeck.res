@@ -2,9 +2,15 @@
 
 let ts = Lingui.UtilString.t
 
-// Tinder-style invite review deck (ReScript port of the former
-// PlayerInviteSwipeDeck.tsx). Each card reads its own profile fragment so the
-// host only threads ids/names plus a fragment ref per candidate.
+// Tinder-style player review deck (ReScript port of the former
+// PlayerInviteSwipeDeck.tsx). Two verdicts, one interaction: `Invite` reviews
+// available players to invite, `Approve` reviews pending join requests. A right
+// swipe commits the verdict, a left swipe leaves the player as they were.
+//
+// A card body renders from the plain `profile` record, so it serves both
+// sources: invite candidates carry a Relay fragment the card reads itself,
+// while pending RSVPs are built from data the host already holds (their rating
+// hangs off the RSVP, which is activity-scoped without fragment arguments).
 
 // ─── framer-motion drag bindings (local: only this deck drags) ───────────────
 
@@ -98,13 +104,33 @@ module UserFragment = %relay(`
   }
 `)
 
-// One reviewable candidate: `name` backs the deck chrome (button labels,
-// counters) so it renders before the card mounts; the card itself reads the
-// fragment.
+// What a right swipe means. Drives every label, the accept icon, and which
+// context box the card shows.
+type mode = Invite | Approve
+
+// A card body's data, independent of where it came from.
+type profile = {
+  displayName: string,
+  picture: option<string>,
+  gender: option<RelaySchemaAssets_graphql.enum_Gender>,
+  biography: option<string>,
+  selfDupr: option<float>,
+  computedDupr: option<float>,
+  // Approve mode: the note the requester left on their RSVP.
+  note: option<string>,
+}
+
+type playerSource =
+  | FromFragment(RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>)
+  | FromProfile(profile)
+
+// One reviewable player. `id` is whatever the accept handler acts on — a user
+// id when inviting, an RSVP id when approving. `name` backs the deck chrome
+// (button labels, counters) so it renders before the card mounts.
 type player = {
   id: string,
   name: string,
-  user: RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>,
+  source: playerSource,
 }
 
 type direction = Left | Right
@@ -125,33 +151,32 @@ let initialsOf = (name: string): string =>
 
 // ─── Card ────────────────────────────────────────────────────────────────────
 
-module SwipePlayerCard = {
+module ProfileCard = {
   @react.component
   let make = (
-    ~player: player,
+    ~profile: profile,
+    ~mode: mode,
     ~eventTitle: string,
-    ~eventVenue: string,
-    ~eventTimeLabel: string,
+    ~eventVenue: option<string>,
+    ~eventTimeLabel: option<string>,
     ~exitDirection: direction,
     ~onSwipe: direction => unit,
   ) => {
-    let user = UserFragment.use(player.user)
     let x = useMotionValue(0.)
     let rotate = useTransform(x, [-200., 200.], [-14., 14.])
-    let inviteOpacity = useTransform(x, [0., 100.], [0., 1.])
+    let acceptOpacity = useTransform(x, [0., 100.], [0., 1.])
     let skipOpacity = useTransform(x, [0., -100.], [0., 1.])
 
-    let displayName = user.lineUsername->Option.getOr(player.name)
+    let displayName = profile.displayName
 
-    // Ratings live on the internal scale; the card speaks estimated DUPR.
-    let selfDupr = user.selfRating->Option.map(Rating.guessDupr)
+    let selfDupr = profile.selfDupr
     let selfLevel =
       selfDupr
       ->Option.map(LevelPicker.nearest)
       ->Option.flatMap(v =>
         LevelPicker.options()->Array.find(o => LevelPicker.isSelected(Some(v), o.value))
       )
-    let computedDupr = user.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr)
+    let computedDupr = profile.computedDupr
 
     // Ring around the avatar: strongest signal available, on a 0–5 DUPR axis.
     let visualRating = computedDupr->Option.orElse(selfDupr)->Option.getOr(0.)
@@ -159,7 +184,7 @@ module SwipePlayerCard = {
     let circumference = 2. *. Js.Math._PI *. 37.
     let ringColor = visualRating >= 4. ? "#7c3aed" : visualRating >= 3. ? "#ffb042" : "#94a3b8"
 
-    let genderLabel = switch user.gender {
+    let genderLabel = switch profile.gender {
     | Some(RelaySchemaAssets_graphql.Male) => ts`Male`
     | Some(Female) => ts`Female`
     | _ => ts`Gender not provided`
@@ -186,12 +211,15 @@ module SwipePlayerCard = {
       className="absolute inset-0 flex cursor-grab touch-pan-y flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl active:cursor-grabbing dark:border-[#3a3b40] dark:bg-[#1e1f23]"
       \"aria-label"=displayName>
       <MotionFadeDiv
-        style={opacity: inviteOpacity}
+        style={opacity: acceptOpacity}
         className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-[#bdf25d]/10"
         \"aria-hidden"="true">
         <span
           className="-rotate-12 rounded-xl border-4 border-[#84b62c] bg-white/90 px-5 py-2 text-3xl font-black tracking-widest text-[#648d1c] shadow-sm dark:bg-[#1e1f23]/90 dark:text-[#bdf25d]">
-          {(ts`INVITE`)->React.string}
+          {switch mode {
+          | Invite => ts`INVITE`
+          | Approve => ts`APPROVE`
+          }->React.string}
         </span>
       </MotionFadeDiv>
       <MotionFadeDiv
@@ -200,7 +228,10 @@ module SwipePlayerCard = {
         \"aria-hidden"="true">
         <span
           className="rotate-12 rounded-xl border-4 border-gray-500 bg-white/90 px-5 py-2 text-3xl font-black tracking-widest text-gray-500 shadow-sm dark:bg-[#1e1f23]/90">
-          {(ts`SKIP`)->React.string}
+          {switch mode {
+          | Invite => ts`SKIP`
+          | Approve => ts`KEEP`
+          }->React.string}
         </span>
       </MotionFadeDiv>
       <div className="flex flex-1 flex-col items-center overflow-y-auto p-7">
@@ -230,7 +261,7 @@ module SwipePlayerCard = {
           </svg>
           <span
             className="absolute inset-2 flex items-center justify-center overflow-hidden rounded-full bg-gray-100 text-lg font-bold text-gray-700 dark:bg-[#2a2b30] dark:text-gray-200">
-            {switch user.picture {
+            {switch profile.picture {
             | Some(picture) if picture != "" =>
               <img src=picture alt="" className="h-full w-full object-cover" draggable=false />
             | _ => {
@@ -294,7 +325,7 @@ module SwipePlayerCard = {
           </div>
         </div>
         // Biography
-        {switch user.biography {
+        {switch profile.biography {
         | Some(bio) if bio->String.trim != "" =>
           <div className="mt-4 w-full">
             <p
@@ -307,23 +338,81 @@ module SwipePlayerCard = {
           </div>
         | _ => React.null
         }}
-        // Availability match
-        <div
-          className="mt-4 w-full rounded-xl border border-violet-100 bg-violet-50/70 p-3 dark:border-violet-900/50 dark:bg-violet-950/20">
-          <p className="text-xs font-semibold text-violet-900 dark:text-violet-200">
-            {(ts`Available for the full event`)->React.string}
-          </p>
-          <p
-            className="mt-1 font-mono text-[10px] leading-relaxed text-violet-700 dark:text-violet-400">
-            {(eventTimeLabel ++ " · " ++ eventVenue)->React.string}
-          </p>
-        </div>
+        // Context box: why this player is worth inviting, or what they said
+        // when they asked to join.
+        {switch mode {
+        | Invite =>
+          <div
+            className="mt-4 w-full rounded-xl border border-violet-100 bg-violet-50/70 p-3 dark:border-violet-900/50 dark:bg-violet-950/20">
+            <p className="text-xs font-semibold text-violet-900 dark:text-violet-200">
+              {(ts`Available for the full event`)->React.string}
+            </p>
+            {switch (eventTimeLabel, eventVenue) {
+            | (Some(time), Some(venue)) =>
+              <p
+                className="mt-1 font-mono text-[10px] leading-relaxed text-violet-700 dark:text-violet-400">
+                {(time ++ " · " ++ venue)->React.string}
+              </p>
+            | _ => React.null
+            }}
+          </div>
+        | Approve =>
+          <div
+            className="mt-4 w-full rounded-xl border border-amber-100 bg-amber-50/70 p-3 dark:border-amber-900/50 dark:bg-amber-950/20">
+            <p className="text-xs font-semibold text-amber-900 dark:text-amber-200">
+              {(ts`Waiting for approval to join`)->React.string}
+            </p>
+            {switch profile.note->Option.filter(n => n->String.trim != "") {
+            | Some(note) =>
+              <p className="mt-1.5 text-sm leading-relaxed text-amber-800 dark:text-amber-300">
+                {note->React.string}
+              </p>
+            | None =>
+              <p
+                className="mt-1 font-mono text-[10px] leading-relaxed text-amber-700 dark:text-amber-400">
+                {(ts`No message left with the request`)->React.string}
+              </p>
+            }}
+          </div>
+        }}
       </div>
       <footer
         className="flex-shrink-0 border-t border-gray-100 bg-gray-50 p-4 text-center text-xs font-medium text-gray-500 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-400">
-        {(ts`Invite to ${eventTitle}`)->React.string}
+        {switch mode {
+        | Invite => ts`Invite to ${eventTitle}`
+        | Approve => ts`Approve for ${eventTitle}`
+        }->React.string}
       </footer>
     </MotionArticle>
+  }
+}
+
+// Invite candidates arrive as a fragment ref: read it here, then hand the card
+// the same plain profile the approve path builds by hand.
+module FragmentCard = {
+  @react.component
+  let make = (
+    ~userRef: RescriptRelay.fragmentRefs<[#PlayerInviteSwipeDeck_user]>,
+    ~fallbackName: string,
+    ~mode: mode,
+    ~eventTitle: string,
+    ~eventVenue: option<string>,
+    ~eventTimeLabel: option<string>,
+    ~exitDirection: direction,
+    ~onSwipe: direction => unit,
+  ) => {
+    let user = UserFragment.use(userRef)
+    // Ratings live on the internal scale; the card speaks estimated DUPR.
+    let profile = {
+      displayName: user.lineUsername->Option.getOr(fallbackName),
+      picture: user.picture,
+      gender: user.gender,
+      biography: user.biography,
+      selfDupr: user.selfRating->Option.map(Rating.guessDupr),
+      computedDupr: user.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
+      note: None,
+    }
+    <ProfileCard profile mode eventTitle eventVenue eventTimeLabel exitDirection onSwipe />
   }
 }
 
@@ -333,13 +422,14 @@ module SwipePlayerCard = {
 let make = (
   ~players: array<player>,
   ~eventTitle: string,
-  ~eventVenue: string,
-  ~eventTimeLabel: string,
-  ~onInvite: string => unit,
+  ~eventVenue: option<string>=?,
+  ~eventTimeLabel: option<string>=?,
+  ~mode: mode=Invite,
+  ~onAccept: string => unit,
   ~onClose: unit => unit,
 ) => {
   let ts = Lingui.UtilString.t
-  // Snapshot the queue at open so store updates from sent invites don't
+  // Snapshot the queue at open so store updates from committed verdicts don't
   // reshuffle the remaining cards mid-review.
   let (reviewQueue, _) = React.useState(() => players)
   let (currentIndex, setCurrentIndex) = React.useState(() => 0)
@@ -379,7 +469,9 @@ let make = (
     | Some(player) => {
         setExitDirection(_ => direction)
         switch direction {
-        | Right => onInvite(player.id)
+        | Right => onAccept(player.id)
+        // Left is deliberately inert: skipping an invite, or leaving a request
+        // pending, is the same "change nothing" verdict.
         | Left => ()
         }
         setCurrentIndex(index => index + 1)
@@ -408,17 +500,26 @@ let make = (
           type_="button"
           onClick={_ => onClose()}
           className="-ml-1 rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:text-gray-400 dark:hover:bg-[#2a2b30] dark:hover:text-gray-100"
-          ariaLabel={ts`Close swipe invitations`}>
+          ariaLabel={switch mode {
+          | Invite => ts`Close swipe invitations`
+          | Approve => ts`Close request review`
+          }}>
           <Lucide.X size=19 \"aria-hidden"="true" />
         </button>
         <div className="min-w-0 text-center">
           <h2
             id="player-invite-deck-title"
             className="truncate text-sm font-semibold text-gray-900 dark:text-gray-100">
-            {(ts`Invite players`)->React.string}
+            {switch mode {
+            | Invite => ts`Invite players`
+            | Approve => ts`Review requests`
+            }->React.string}
           </h2>
           <p className="truncate font-mono text-[10px] text-gray-500 dark:text-gray-400">
-            {(eventTitle ++ " · " ++ eventTimeLabel)->React.string}
+            {switch eventTimeLabel {
+            | Some(time) => eventTitle ++ " · " ++ time
+            | None => eventTitle
+            }->React.string}
           </p>
         </div>
         <span
@@ -432,9 +533,28 @@ let make = (
           <div className="relative aspect-[3/4] min-h-[380px] max-h-[520px] w-full">
             <AnimatePresenceCustom custom={exitDirection->directionToString} mode="wait">
               {switch currentPlayer {
-              | Some(player) =>
-                <SwipePlayerCard
-                  key=player.id player eventTitle eventVenue eventTimeLabel exitDirection onSwipe=handleSwipe
+              | Some({id, name, source: FromFragment(userRef)}) =>
+                <FragmentCard
+                  key=id
+                  userRef
+                  fallbackName=name
+                  mode
+                  eventTitle
+                  eventVenue
+                  eventTimeLabel
+                  exitDirection
+                  onSwipe=handleSwipe
+                />
+              | Some({id, source: FromProfile(profile)}) =>
+                <ProfileCard
+                  key=id
+                  profile
+                  mode
+                  eventTitle
+                  eventVenue
+                  eventTimeLabel
+                  exitDirection
+                  onSwipe=handleSwipe
                 />
               | None =>
                 <FramerMotion.DivCss
@@ -451,7 +571,10 @@ let make = (
                   </h3>
                   <p
                     className="mt-2 max-w-xs text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                    {(ts`Invited players have moved into the event's invited list.`)->React.string}
+                    {switch mode {
+                    | Invite => ts`Invited players have moved into the event's invited list.`
+                    | Approve => ts`Approved players have moved into the confirmed list.`
+                    }->React.string}
                   </p>
                   <button
                     type_="button"
@@ -474,19 +597,31 @@ let make = (
                   type_="button"
                   onClick={_ => handleSwipe(Left)}
                   className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-gray-200 bg-white text-gray-400 shadow-md transition-transform hover:scale-105 hover:border-red-300 hover:bg-red-50 hover:text-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 active:scale-95 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:hover:border-red-700 dark:hover:bg-red-950/20"
-                  ariaLabel={ts`Skip ${player.name}`}>
+                  ariaLabel={switch mode {
+                  | Invite => ts`Skip ${player.name}`
+                  | Approve => ts`Keep ${player.name} pending`
+                  }}>
                   <Lucide.X size=25 strokeWidth=2.5 \"aria-hidden"="true" />
                 </button>
                 <button
                   type_="button"
                   onClick={_ => handleSwipe(Right)}
                   className="flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#aee050] bg-[#bdf25d] text-black shadow-md transition-transform hover:scale-105 hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 active:scale-95"
-                  ariaLabel={ts`Invite ${player.name}`}>
-                  <Lucide.UserPlus size=25 strokeWidth=2.5 \"aria-hidden"="true" />
+                  ariaLabel={switch mode {
+                  | Invite => ts`Invite ${player.name}`
+                  | Approve => ts`Approve ${player.name}`
+                  }}>
+                  {switch mode {
+                  | Invite => <Lucide.UserPlus size=25 strokeWidth=2.5 \"aria-hidden"="true" />
+                  | Approve => <Lucide.Check size=25 strokeWidth=2.5 \"aria-hidden"="true" />
+                  }}
                 </button>
               </FramerMotion.DivCss>
               <p className="mt-3 font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                {(ts`Swipe left to skip · right to invite`)->React.string}
+                {switch mode {
+                | Invite => ts`Swipe left to skip · right to invite`
+                | Approve => ts`Swipe left to keep pending · right to approve`
+                }->React.string}
               </p>
             </>
           | None => React.null

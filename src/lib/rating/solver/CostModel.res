@@ -148,6 +148,10 @@ let minSpreadWeight = 50.
 // Constant across the primary slider; only the advanced slider moves it.
 let defaultAlternateWeight = 100.
 
+// Where "Competitive+" sits on the primary slider. Cohort rotation switches on
+// here and above; `competitivePlusConfig` is this position's decomposition.
+let competitivePosition = 0.85
+
 // Slider -> how much skill spread a foursome may have for free.
 //
 // At the mixing end almost anything goes, so only a genuine
@@ -176,7 +180,12 @@ let weightsFromConfig = (config: uiWeightConfig): costWeights => {
     wSpread: spreadWeightFor(t),
     wAlternate: defaultAlternateWeight,
     wNoise: 0.,
-    wCohort: 0.,
+    // Cohort rotation switches on at the Competitive+ position and above.
+    // Bands playing and breaking together is what leveled play means, so the
+    // primary slider should reach it — without this the slider could get you
+    // Competitive+'s banding but never its rotation, and only the advanced
+    // panel could restore it.
+    wCohort: t >= competitivePosition ? maxCohortWeight : 0.,
     splitBalanceFirst: false,
     spreadTolerance: spreadToleranceFor(t),
   }
@@ -201,7 +210,7 @@ let weightsFromConfig = (config: uiWeightConfig): costWeights => {
 }
 
 // The advanced-panel representation of a weight set. Exact for config-derived
-// weights (the mappings are inverses); for blended weights (Auto's live
+// weights (the mappings are inverses); for blended weights (the adaptive
 // profile) the log-scale positions round to the nearest representable value —
 // display-grade, and the right seed for a customisation fork.
 let advancedFromWeights = (w: costWeights): advancedWeights => {
@@ -245,7 +254,7 @@ let advancedFromPrimary = (qualityVsVariety: float): advancedWeights =>
 //     court is rotation-random (plus a little tie-breaking jitter), and every
 //     match's teams are balanced by skill.
 //
-//   Competitive+     (SolverCompetitivePlus variant)
+//   Competitive+     (SolverCompetitivePlusStatic variant)
 //     Quality first: banding at full strength with balanced splits and cohort
 //     rotation, so bands play together and break together.
 
@@ -327,8 +336,9 @@ let competitivePlusConfig: uiWeightConfig = {
   }),
 }
 
-// Auto's cold-start endpoint. Not a picker preset and not a slider position:
-// it is the profile Auto opens with, tuned for the rounds where the ladder is
+// The adaptive profile's cold-start endpoint. Not a picker preset and not a slider position:
+// it is the profile Competitive+ opens with, tuned for the rounds where the
+// ladder is
 // still fiction.
 //
 // It is the novelty-first core plus three things Random Balanced lacks:
@@ -338,7 +348,7 @@ let competitivePlusConfig: uiWeightConfig = {
 //      comparable players makes each game closer and so more informative,
 //      while novelty dominance still forces cross-band play. It is *heavy*
 //      banding that stalls a cold start, by locking players into bands drawn
-//      on noise — the two are not the same lever, and Auto's blend cannot
+//      on noise — the two are not the same lever, and the blend cannot
 //      express this one, since it moves weight and tolerance together and so
 //      never visits "modest weight, tight tolerance".
 //   2. Favoured/underdog alternation, as Round Robin has.
@@ -384,10 +394,11 @@ let presetConfig = (strategy: strategy): uiWeightConfig =>
   switch strategy {
   | SolverRoundRobin => roundRobinConfig
   | SolverRandomBalanced => randomBalancedConfig
-  | SolverCompetitivePlus => competitivePlusConfig
-  // Auto's effective weights are a live blend (see `autoWeightsAt`); a custom
-  // config forked from it starts mid-axis, the blend's own halfway point.
-  | SolverAuto => {qualityVsVariety: 0.5, advanced: None}
+  | SolverCompetitivePlusStatic => competitivePlusConfig
+  // The adaptive profile's weights are a live blend (see `adaptiveWeightsAt`);
+  // a custom config forked from it starts mid-axis, the blend's own halfway
+  // point.
+  | SolverCompetitivePlus => {qualityVsVariety: 0.5, advanced: None}
   // Legacy strategies get the nearest nominal, so the cost model can also be
   // used to *score* rounds produced by the greedy path (see `SessionMetrics`).
   | RoundRobin | NoveltyRoundRobin | Random => {qualityVsVariety: 0.15, advanced: None}
@@ -421,7 +432,7 @@ let competitivePlusWeights = weightsFromConfig(competitivePlusConfig)
 let calibrateWeights = weightsFromConfig(calibrateConfig)
 
 // ---------------------------------------------------------------------------
-// Auto: Random Balanced -> Competitive+ as ratings settle
+// Adaptive Competitive+: calibrate first, band once the ratings earn it
 // ---------------------------------------------------------------------------
 //
 // The measured convergence facts this encodes (see Convergence.test.ts): while
@@ -454,15 +465,15 @@ let readinessRatio = (players: array<Player.t<'a>>): float => {
 // pools land around round 8 at 16 players. Between the two the profile
 // interpolates, so a session drifts from calibration into leveled play instead
 // of jumping.
-let autoRatioFloor = 0.30
-let autoRatioCeiling = 0.75
+let readinessFloor = 0.30
+let readinessCeiling = 0.75
 
-let autoT = (ratio: float): float =>
-  clamp01((ratio -. autoRatioFloor) /. (autoRatioCeiling -. autoRatioFloor))
+let adaptiveBlend = (ratio: float): float =>
+  clamp01((ratio -. readinessFloor) /. (readinessCeiling -. readinessFloor))
 
 let lerp = (a: float, b: float, t: float): float => a +. (b -. a) *. t
 
-let autoWeightsAt = (t: float): costWeights => {
+let adaptiveWeightsAt = (t: float): costWeights => {
   let cal = calibrateWeights
   let cp = competitivePlusWeights
   {
@@ -483,18 +494,18 @@ let autoWeightsAt = (t: float): costWeights => {
   }
 }
 
-let autoWeights = (players: array<Player.t<'a>>): costWeights =>
-  autoWeightsAt(autoT(readinessRatio(players)))
+let adaptiveWeights = (players: array<Player.t<'a>>): costWeights =>
+  adaptiveWeightsAt(adaptiveBlend(readinessRatio(players)))
 
 let weightsForStrategy = (strategy: strategy): costWeights =>
   switch strategy {
   | Random => randomWeights
   | SolverRoundRobin => roundRobinWeights
   | SolverRandomBalanced => randomBalancedWeights
-  | SolverCompetitivePlus => competitivePlusWeights
+  | SolverCompetitivePlusStatic => competitivePlusWeights
   // Static callers (no pool in hand) get the cold-start end; the live blend is
   // dispatched in `SolverRounds.effectiveWeights`, which has the players.
-  | SolverAuto => calibrateWeights
+  | SolverCompetitivePlus => calibrateWeights
   | s => weightsFromConfig(presetConfig(s))
   }
 
@@ -852,6 +863,34 @@ let guardrail = (normalized: float): float => {
   let squared = normalized *. normalized
   squared *. squared
 }
+
+// Quad mu range -> [0, 1], relative to the pool and to how much spread the
+// current settings tolerate.
+// There IS an irreducible error floor, and it is large. Measured at 18 players
+// over 80 rounds: mean sigma settles near 4.1 and is still falling, while
+// adjacent players in the pack differ by 0.4 to 0.8 of true skill — the rating
+// uncertainty is five to fifteen times the differences it is being asked to
+// resolve, and mean ladder error plateaus around two places no matter how long
+// a session runs. That floor belongs to the outcome noise, not to any
+// matchmaker, and nothing here can go beneath it.
+//
+// It is tempting to conclude that banding on differences smaller than sigma is
+// banding on noise, and to make the free allowance at least sqrt(2)*sigma so
+// the term never asserts precision the ratings lack. That was built and
+// measured (4 seeds, both field compositions, 25 rounds) and it is WRONG —
+// every banded strategy got worse:
+//
+//   mean ladder error      no floor    with floor
+//   Competitive+ mixed       2.50        3.47
+//   Competitive+ tight       2.11        2.83
+//   adaptive     mixed       2.75        3.42
+//   adaptive     tight       2.44        2.97
+//
+// The error was treating "not statistically distinguishable at one standard
+// deviation" as "carries no information". A weak signal still correlates with
+// the truth, so banding on it still beats ignoring it; suppressing everything
+// under sigma throws away real signal in exchange for a principle. The spread
+// term is allowed to act on differences it cannot prove.
 
 // Quad mu range -> [0, 1], relative to the pool and to how much spread the
 // current settings tolerate.

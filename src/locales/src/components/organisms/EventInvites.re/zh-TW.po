@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:348
 msgid "About"
 msgstr "關於"
 
@@ -21,15 +21,31 @@ msgstr "關於"
 msgid "Advanced"
 msgstr "進階"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+msgid "APPROVE"
+msgstr "批准"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+msgid "Approve {0}"
+msgstr "批准 {0}"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+msgid "Approve for {eventTitle}"
+msgstr "為 {eventTitle} 批准"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+msgid "Approved players have moved into the confirmed list."
+msgstr "已批准的球員已移至確認名單。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:170
 msgid "Available for the full event"
 msgstr "全程皆可參加"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
 msgid "Back to event"
 msgstr "返回活動"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:331
 msgid "Based on recorded play"
 msgstr "根據已記錄的比賽"
 
@@ -37,7 +53,11 @@ msgstr "根據已記錄的比賽"
 msgid "Beginner"
 msgstr "初學者"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+msgid "Close request review"
+msgstr "關閉請求審核"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
 msgid "Close swipe invitations"
 msgstr "關閉滑動邀請"
 
@@ -45,20 +65,20 @@ msgstr "關閉滑動邀請"
 msgid "Complete Beginner"
 msgstr "完全初學者"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:321
 msgid "Computed rating"
 msgstr "計算評級"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:525
 msgid "Everyone reviewed"
 msgstr "已全部審閱"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:133
 msgid "Gender not provided"
 msgstr "未提供性別"
 
@@ -74,27 +94,27 @@ msgstr "中級+"
 msgid "invite"
 msgstr "邀請"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
 msgid "INVITE"
 msgstr "邀請"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
 msgid "Invite {0}"
 msgstr "邀請 {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
 msgid "Invite players"
 msgstr "邀請球員"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
-msgid "Invite to {0}"
-msgstr "邀請至 {0}"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+msgid "Invite to {eventTitle}"
+msgstr "邀請至 {eventTitle}"
 
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "已邀請及潛在球員"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
 msgid "Invited players have moved into the event's invited list."
 msgstr "受邀玩家已移至活動的受邀名單。"
 
@@ -102,15 +122,27 @@ msgstr "受邀玩家已移至活動的受邀名單。"
 msgid "Invites · {0}"
 msgstr "邀請 · {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+msgid "KEEP"
+msgstr "保留"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+msgid "Keep {0} pending"
+msgstr "保留 {0} 待審"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+msgid "No message left with the request"
+msgstr "請求未附留言"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:312
 msgid "Not provided"
 msgstr "未提供"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:336
 msgid "Not yet rated"
 msgstr "尚未評級"
 
@@ -126,7 +158,11 @@ msgstr "專業"
 msgid "Review {0} potential players with swipe cards"
 msgstr "以滑動卡片審閱 {0} 位潛在球員"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+msgid "Review requests"
+msgstr "審核請求"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
 msgid "Self-rating"
 msgstr "自我評級"
 
@@ -134,11 +170,11 @@ msgstr "自我評級"
 msgid "Send invite"
 msgstr "發送邀請"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
 msgid "SKIP"
 msgstr "跳過"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
 msgid "Skip {0}"
 msgstr "跳過 {0}"
 
@@ -146,7 +182,11 @@ msgstr "跳過 {0}"
 msgid "Swipe invites"
 msgstr "滑動邀請"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+msgid "Swipe left to keep pending · right to approve"
+msgstr "向左滑動保留待審・向右滑動批准"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
 msgid "Swipe left to skip · right to invite"
 msgstr "左滑跳過 · 右滑邀請"
 
@@ -154,15 +194,19 @@ msgstr "左滑跳過 · 右滑邀請"
 msgid "View Profile"
 msgstr "查看個人資料"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+msgid "Waiting for approval to join"
+msgstr "等待批准加入"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.tsx:323
 #~ msgid ""
 #~ "A good availability match for {eventTitle}. Invite them now to reserve a "
 #~ "place in the event conversation."
 #~ msgstr "{eventTitle} 的可用時間非常吻合。立即邀請他們以加入活動對話。"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "邀請至 {eventTitle}"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+#~ msgid "Invite to {0}"
+#~ msgstr "邀請至 {0}"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
 #~ msgid "Invited players have moved into the event’s invited list."

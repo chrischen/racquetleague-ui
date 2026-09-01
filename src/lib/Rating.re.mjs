@@ -1802,8 +1802,8 @@ function isSolverStrategy(strategy) {
   switch (strategy) {
     case "SolverRoundRobin" :
     case "SolverRandomBalanced" :
+    case "SolverCompetitivePlusStatic" :
     case "SolverCompetitivePlus" :
-    case "SolverAuto" :
         return true;
     default:
       return false;
@@ -2596,8 +2596,8 @@ function getDeprioritizedPlayers(rounds, players, $$break, strategy) {
   switch (strategy) {
     case "CompetitivePlus" :
     case "Competitive" :
+    case "SolverCompetitivePlusStatic" :
     case "SolverCompetitivePlus" :
-    case "SolverAuto" :
         break;
     default:
       var playersWithRoundsSinceBreak = players.map(function (player) {

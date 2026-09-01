@@ -4,12 +4,26 @@
 // These assertions encode findings validated experimentally (2026-07,
 // 16 players / 4 courts / cold start / linear truth, 6 seeds):
 //
-//   preset            r4     r7     r10
-//   RandomBalanced    0.64   0.74   0.76
-//   RoundRobin        0.50   0.78   0.79
-//   Competitive+      0.40   0.68   0.77   (post wOpponent 4->10 retune, 2026-08)
-//   Auto              0.71   0.81   0.80
-//   variety, balance OFF        →    0.73
+//   preset             r2     r4     r10    rankErr r1 / r4 / r10   blowouts
+//   RandomBalanced    0.39   0.64   0.85    4.08 / 3.08 / 1.85     29.6%
+//   RoundRobin        0.36   0.61   0.82    4.46 / 3.15 / 2.08     32.9%
+//   Competitive+      0.39   0.65   0.81    4.08 / 2.79 / 2.08     25.8%   (adaptive)
+//   Competitive+ st.  0.35   0.49   0.81    4.46 / 3.54 / 2.00     28.7%   (static)
+//
+// RE-BASELINED 2026-08 after a FIXTURE FIX: players used to be created in
+// true-skill order, so any deterministic tie-break in the solver paired
+// adjacent slots — which were adjacent in real skill — and handed the
+// zero-jitter strategies accidentally well-matched opening rounds. The hidden
+// ladder is now dealt out in a seeded permutation (`ladderPermutation` in
+// sessionSim), so a player's slot carries no skill information.
+//
+// What that corrected: the round-1 gap between jittered and deterministic
+// modes was 2.04 vs 3.67 ladder places and is now 4.08 vs 4.46 — so roughly
+// three quarters of the "jitter is worth 1.6 places on the opening round"
+// finding was fixture artefact, not jitter. The adaptive preset's cold-start
+// lead is real but narrower than first measured: it still leads at r4 (2.79 vs
+// 3.08 / 3.15 / 3.54) and still has the lowest blowout rate, but it no longer
+// leads at r10, where RandomBalanced does (1.85 vs 2.08).
 //
 // and mechanism facts: cold-start mu-degeneracy splits all round-1
 // partnerships (0/48 kept, any preset); the readiness signal std(mu)/mean(sigma)
@@ -146,8 +160,8 @@ const measured = (key: string, opts: Parameters<typeof measureConvergence>[0]) =
 
 const rb = () => measured("rb", { strategy: "SolverRandomBalanced" });
 const rr = () => measured("rr", { strategy: "SolverRoundRobin" });
-const cp = () => measured("cp", { strategy: "SolverCompetitivePlus" });
-const auto = () => measured("auto", { strategy: "SolverAuto" });
+const cp = () => measured("cp", { strategy: "SolverCompetitivePlusStatic" });
+const auto = () => measured("auto", { strategy: "SolverCompetitivePlus" });
 const at = (m: ConvergenceMeasurement, round: number) => m.spearmanByRound[round - 1];
 
 describe("rating convergence", () => {
@@ -204,7 +218,10 @@ describe("rating convergence", () => {
     expect(at(a, 4)).toBeGreaterThanOrEqual(0.55);
     expect(at(a, 4)).toBeGreaterThanOrEqual(at(await cp(), 4) + 0.1);
     expect(at(a, 10)).toBeGreaterThanOrEqual(0.7);
-    expect(at(a, 10)).toBeGreaterThanOrEqual(at(await rb(), 10) - 0.03);
+    // Post-fixture-fix the gap to RandomBalanced at r10 is 0.04 (0.81 vs
+    // 0.85), so this floor is 0.06 — the claim is "does not give up much
+    // endgame accuracy", not "matches it".
+    expect(at(a, 10)).toBeGreaterThanOrEqual(at(await rb(), 10) - 0.06);
 
     const last = (m: ConvergenceMeasurement) => bandingByRound(m).at(-1)!;
     expect(last(a)).toBeLessThanOrEqual(last(await rb()) - 0.15);
@@ -229,7 +246,7 @@ describe("rating convergence", () => {
       } as any);
     const rr2 = await inverted("SolverRoundRobin", "rr-inverted");
     const rb2 = await inverted("SolverRandomBalanced", "rb-inverted");
-    const cp2 = await inverted("SolverCompetitivePlus", "cp-inverted");
+    const cp2 = await inverted("SolverCompetitivePlusStatic", "cp-inverted");
     // The mechanism in its purest form: unbalanced play covers the blind
     // subspace directly, so a pure-random control escapes fastest of all. This
     // is the anchor for the whole theory — if unstructured play ever stops
@@ -251,7 +268,8 @@ describe("rating convergence", () => {
       startMu: (i: number) => 45 - i * 2,
       startSigma: () => 7,
     } as any);
-    expect(at(rand, 30)).toBeGreaterThanOrEqual(0.8);
+    // 0.797 measured post-fixture-fix; floor set below it, not at it.
+    expect(at(rand, 30)).toBeGreaterThanOrEqual(0.75);
     expect(at(rand, 18)).toBeGreaterThanOrEqual(at(rb2, 18) + 0.3);
     // The practical remedy: a session of Round Robin substantially recovers
     // the ladder (novelty exhaustion forces cross-band play) and is markedly
@@ -278,9 +296,9 @@ describe("rating convergence", () => {
         startMu: (i: number) => 15 + i * 2,
         startSigma: () => 7,
       } as any);
-    const a = await accurate("SolverAuto", "auto-accurate");
+    const a = await accurate("SolverCompetitivePlus", "auto-accurate");
     const rb2 = await accurate("SolverRandomBalanced", "rb-accurate");
-    const cp2 = await accurate("SolverCompetitivePlus", "cp-accurate");
+    const cp2 = await accurate("SolverCompetitivePlusStatic", "cp-accurate");
     const q = (m: ConvergenceMeasurement) => sessionQuality(m);
 
     // Competitive+ delivers what it promises: near-coin-flip games, no true
@@ -306,7 +324,7 @@ describe("rating convergence", () => {
     // band members are visibly close but truly unequal — so Competitive+ must
     // recover without probes. Baseline: rho 0.88 -> 0.93 by round 12.
     const m = await measured("cp-inband", {
-      strategy: "SolverCompetitivePlus",
+      strategy: "SolverCompetitivePlusStatic",
       seeds: [1, 2, 3],
       numRounds: 12,
       theta: (i: number) => 15 + i * 2,
@@ -326,13 +344,20 @@ describe("rating convergence", () => {
     // positions at r10 vs 2.42 for all three.
     const a = await auto();
     const blow = (m: ConvergenceMeasurement) => sessionQuality(m).blowoutFraction;
-    const err = (m: ConvergenceMeasurement) => ratingErrorByRound(m).rankError[9];
+    const errAt = (m: ConvergenceMeasurement, round: number) =>
+      ratingErrorByRound(m).rankError[round - 1];
     for (const other of [await rb(), await cp(), await rr()]) {
+      // Fewest blowouts of any preset, and the most accurate ladder EARLY,
+      // which is what the calibration phase is for.
       expect(blow(a)).toBeLessThanOrEqual(blow(other));
-      expect(err(a)).toBeLessThanOrEqual(err(other));
+      expect(errAt(a, 4)).toBeLessThanOrEqual(errAt(other, 4));
     }
-    // And in absolute terms: under two ladder positions of error by round 10.
-    expect(err(a)).toBeLessThanOrEqual(2.3);
+    // The r10 lead does NOT hold and is deliberately not asserted: after the
+    // fixture fix RandomBalanced is ahead there (1.85 vs 2.08 places off). The
+    // calibration phase buys early accuracy and quality, not a better endgame
+    // ladder — an earlier version of this test claimed both, on numbers the
+    // fixture artefact had inflated.
+    expect(errAt(a, 10)).toBeLessThanOrEqual(2.4);
   }, 1_200_000);
 
   it("the pool-aware split upgrade spares Round Robin's leak", async () => {
@@ -353,7 +378,7 @@ describe("rating convergence", () => {
       } as any);
     const blow = (m: ConvergenceMeasurement) => sessionQuality(m).blowoutFraction;
     const rrA = await accurate("SolverRoundRobin", "rr-accurate");
-    const cpA = await accurate("SolverCompetitivePlus", "cp-accurate");
+    const cpA = await accurate("SolverCompetitivePlusStatic", "cp-accurate");
     // Round Robin keeps its unbalanced splits — the leak is intact...
     expect(blow(rrA)).toBeGreaterThanOrEqual(0.1);
     // ...and the banded mode took the upgrade. If this margin ever collapses,

@@ -1,0 +1,543 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-09-01 10:42+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:407
+#~ msgid "· % chance the game ends level · same strategy, three rooms"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:421
+msgid "· % chance the game ends level · solid: Competitive+ · dashed: random, avoid repeats"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:750
+#: src/components/organisms/MatchmakingReport.re.mjs:818
+#: src/components/organisms/MatchmakingReport.re.mjs:889
+msgid "· % chance the game ends level, by true skill · higher is better"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:950
+msgid "· % of games decided by 9+ · lower is better"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:769
+#: src/components/organisms/MatchmakingReport.re.mjs:843
+#: src/components/organisms/MatchmakingReport.re.mjs:908
+#: src/components/organisms/MatchmakingReport.re.mjs:927
+msgid "· mean ladder places off · lower is better"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1136
+msgid "18,900 rounds solved"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1139
+msgid "24 players · 4 court"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1026
+#~ msgid "24 players · 4 courts"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1142
+msgid "7 seeds per club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1029
+#~ msgid "7 seeds per room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1123
+msgid "75,600 simulated games, nine strategies, three kinds of club — and one clear recommendation."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1010
+#~ msgid "75,600 simulated games, nine strategies, three kinds of room — and one clear recommendation."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:681
+msgid "A lopsided match that wastes one side's time. An 11–0 “pickle” is the canonical example."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:965
+msgid "A tight club gives the best floor — random dealing manages 64% quality there against 46% in a varied club — at some cost in ranking accuracy, since players who are genuinely close are hard to order. But controlling the roster does not control the matchups: dealt randomly, that same club still blows out 46% of its games; Competitive+ blows out 8% and holds 79% quality. The gap exists because skill is not a fixed number. Even hand-picked members fluctuate wildly day to day — improving in bursts, slumping, showing up tired — and a rating system accounts for that in real time, adjusting after every game, so each sessions' matches are built on current form rather than on the level everyone was admitted at. Pkuru keeps hidden ratings even for “unrated” events, so no one's public rating is at stake, and the same ratings pair you with the right drilling partner — even for drills, evenly matched partners matter. (I often prefer a wall: it beats most human drilling partners.)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:718
+msgid "A tight club here means everyone within about 0.68 DUPR points, most of the pack inside 0.4 — and it is where matchmaking should matter least. For the opening rounds it is: with everyone close, any way of dealing the courts produces playable games. But small differences still decide games, and the ratings learn them fast. Competitive+ holds a sustained lead over the avoid-repeats baseline from about round 5. One session in, it is blowing out 33% of games to the baseline's 44%; with mature ratings that becomes 8% against 46% — and Balanced Round Robin's 20%:"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:689
+msgid "An organiser who knows everyone's true skill and rigs matches accordingly, overriding the ratings. Rigged matches starve the rating system: place a strong newcomer only against strong players and all the system sees is losses."
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:114
+msgid "Balanced Round Robin"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:835
+msgid "Balanced Round Robin converges best here too, but only by a hair over adaptive Competitive+ — and the two are effectively identical on quality and blowouts."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:699
+#~ msgid "Balanced Round Robin converges fastest early. Static Competitive+ lags it, because early ratings are mostly noise, and banding on noise restricts exactly the movement that would fix them. The adaptive Competitive+ runs Balanced Round Robin until ratings settle and only then switches to banded play — which is why its line tracks Balanced Round Robin from the very first round."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:900
+msgid "Balanced Round Robin leads while ratings are still noise; the static Competitive+ profile catches it around round 13 — about one session — and the adaptive version never leaves its side. Once ratings are mature, every real strategy lands within about a quarter of a place of the same ladder — on accuracy they are tied inside the error bars, and the difference that remains is the quality of the games played along the way. The quality chart above shows the same trade-off from the other side: static banding matches Balanced Round Robin for the first ten rounds, falls behind by the end of the first session — 49% blowouts to its 40% at round 13, the cost of banding on ratings that are still noise — then overtakes for good around round 20 as the bands become real. The adaptive blend exists to take the better half of both."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:680
+msgid "Blowout"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:949
+msgid "Blowout rate"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:724
+#: src/components/organisms/MatchmakingReport.re.mjs:792
+#: src/components/organisms/MatchmakingReport.re.mjs:863
+msgid "blowouts · Competitive+"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:732
+#: src/components/organisms/MatchmakingReport.re.mjs:803
+#~ msgid "blowouts · random play"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:729
+#: src/components/organisms/MatchmakingReport.re.mjs:797
+#: src/components/organisms/MatchmakingReport.re.mjs:868
+msgid "blowouts · random, no repeat"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:959
+msgid "Blowouts fade more slowly than quality: 52% one session in, 30% after two, 19% by round 50, 8% by round 100 — most of the way to the Oracle's 5% floor. In a varied club they never fully go away: Competitive+ bottoms out near 35% and even the Oracle blows out 23%, because a ringer and a beginner make some matches unsaveable."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:897
+#~ msgid "Blowouts fade slowly in a varied room — they are not fully mitigated until around round 100. A typical room reaches tight-room blowout rates within 30–40 rounds."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:355
+msgid "click a strategy to isolate it"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:108
+msgid "Competitive+ (adaptive)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+msgid "Competitive+ (static)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:410
+msgid "Competitive+ match quality, by club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:396
+#~ msgid "Competitive+ match quality, by room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:932
+msgid "Conclusion"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:876
+#~ msgid "Concretely, in a typical room, switching a JP-style open play session to Competitive+ is worth about 17 points of match quality and 16 points of blowouts. Against a round-robin table it is worth about 9 and 7. Even in a tightly curated private session, Competitive+ beats open play by about 11 points of quality and 10 of blowouts. These are relative numbers from synthetic rooms — and they are measured at round 100, with quality improving roughly linearly along the way. Since Pkuru persists ratings across sessions, the gains keep compounding."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1078
+msgid "Could not load the data behind this article: {0}"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:768
+msgid "Distance from truth — tight club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:706
+#~ msgid "Distance from truth — tight room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:907
+msgid "Distance from truth — typical club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:926
+msgid "Distance from truth — typical club, with the Oracle"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:842
+#~ msgid "Distance from truth — typical room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:861
+#~ msgid "Distance from truth — typical room, with the Oracle"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:842
+msgid "Distance from truth — varied club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:777
+#~ msgid "Distance from truth — varied room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:847
+msgid "Early in my organising days I still switched from greedy, numerically balanced matches to banded Competitive+. Banding forces every match to come from a contiguous block of skill, even when that is numerically “unbalanced”. A rating cannot capture everything about a real game: the best and the worst player against two average players may balance mathematically, but in practice it plays worse than an “unbalanced” match of three 4.0s and a 5.0. Banding suppresses the measured quality score slightly because of this override — that is the price of never pairing a ringer with a total beginner just to make the numbers work out."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:734
+#: src/components/organisms/MatchmakingReport.re.mjs:802
+#: src/components/organisms/MatchmakingReport.re.mjs:873
+msgid "even games · Competitive+"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:742
+#: src/components/organisms/MatchmakingReport.re.mjs:813
+#~ msgid "even games · random play"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:739
+#: src/components/organisms/MatchmakingReport.re.mjs:807
+#: src/components/organisms/MatchmakingReport.re.mjs:878
+msgid "even games · random, no repeat"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1145
+msgid "every round a real ILP solve"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:980
+msgid "For a single court of five or six players, the rating system admittedly adds little. The tool still helps: it remembers who has partnered whom, keeps play counts even, and tracks each player's rating change round by round even with nothing submitted — the session runs fairly, and everyone sees how they actually did. People reliably overrate their own performance, even when they do not show it."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:721
+#~ msgid "From a cold start, Competitive+ pulls away from the random and round-robin baselines around round 11 — roughly one three-hour session at six players per court. A club of all-unrated players should expect their first session to play no better than random while ratings are learned. After that, quality compounds. By round 100 the gap is decisive:"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1002
+msgid "Future improvements"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:698
+msgid "How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic clubs: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve gradually, one improves quickly — up to half a DUPR point, with gains tapering as they settle — and one slowly slips, the same players in every strategy's run so the comparison stays fair. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so round 13 stands in for “one session” below, while the 100-round horizon — seven or eight sessions of persisted ratings — shows the system once everyone's rating is mature. Charts are interactive — hover for values, click a strategy to isolate its line."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:660
+#~ msgid "How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic rooms: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Charts are interactive — hover for values, click a strategy to isolate its line."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:660
+#~ msgid "How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic rooms: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve slightly over the session, one improves fast enough to cross most of the pack, and one slowly gets worse — the same players in every strategy's run, so the comparison stays fair. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Charts are interactive — hover for values, click a strategy to isolate its line."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:983
+msgid "If you are going to use a round robin table at all, use the Pkuru Round Robin tool: the same table, better matches, every default tunable. And every simulation in this article can be rerun for a club shaped like yours."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:761
+msgid "In a tight club even the static Competitive+ profile keeps up with Balanced Round Robin almost immediately: when everyone is close, a band drawn from noisy ratings is barely different from one drawn from true skill, so banding costs nothing here. The adaptive Competitive+ tracks Balanced Round Robin from the first round by construction — it runs it until ratings settle. The calibration phase earns its keep in the wider clubs below, where banding on noise genuinely restricts the movement that would fix the ratings."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:773
+msgid "In the real world assembling a tight club of similarly skilled players is challenging because on any given day a player's performance might fluctuate by 0.5 points or more. The rating system however can adjust for this variance within a few rounds of play."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:684
+msgid "Inversion"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:764
+#~ msgid "JP-style open play beats random slightly, most likely because it splits obviously unbalanced foursomes — a behaviour I programmed in because Japanese organisers actually do it. In the US that mixing often is not there: players do not know each other well enough to restack a match, and the ones who do are already clumped into a foursome."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:826
+msgid "JP-style open play is the avoid-repeats baseline plus one intervention: a foursome is split when it is obviously lopsided — the pairs half a DUPR apart, the bar real organisers actually use. The surprise is that the intervention buys nothing measurable: JP lands within the error bars of its own baseline everywhere, a point or two of quality in this club at best. Splits that rare cannot move a session. Politeness that fixes only the egregious matches is worth almost nothing; the gains begin when every match is deliberately balanced, which is exactly what nobody does socially."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:962
+msgid "Level-controlled clubs"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1089
+msgid "loading the precomputed run…"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:715
+#: src/components/organisms/MatchmakingReport.re.mjs:780
+#: src/components/organisms/MatchmakingReport.re.mjs:854
+msgid "Match quality"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:749
+msgid "Match quality — tight club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:687
+#~ msgid "Match quality — tight room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:888
+msgid "Match quality — typical club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:823
+#~ msgid "Match quality — typical room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:817
+msgid "Match quality — varied club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:752
+#~ msgid "Match quality — varied room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1112
+msgid "Matchmaking strategies, measured"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:783
+msgid "Most open-play sessions in Japan are more varied than the organiser likes to think: in the current pickleball scene it is hard to gather even one court of genuinely similar players at once if only simply due to day-to-day skill fluctuations."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:718
+#~ msgid "Most open-play sessions in Japan are more varied than the organiser likes to think: in the current pickleball scene it is hard to gather even one court of genuinely similar players at once."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1042
+msgid "No precomputed run is published."
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:110
+msgid "Open play (JP style)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:122
+msgid "Open play (US style)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:986
+msgid "Open the interactive Matchmaking Lab →"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:688
+msgid "Oracle"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:112
+msgid "Oracle (knows truth)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1011
+msgid "Our simulation currently handles players getting better and worse over time (change in their true underlying skill), but it doesn't handle random unrated drop in players that come back infrequently or never at all. It should also fluctuate a player's skill between sessions (about every 13 rounds) due to random day-to-day jitter in performance."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1101
+msgid "Pkuru · matchmaking report"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:116
+msgid "Random (baseline)"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:482
+msgid "random, avoid repeats"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+msgid "Random, avoid repeats"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+#~ msgid "Random, no repeats"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:758
+#: src/components/organisms/MatchmakingReport.re.mjs:832
+#: src/components/organisms/MatchmakingReport.re.mjs:897
+msgid "Ratings convergence"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:904
+#~ msgid "Ratings do not settle until 30–40 rounds in, and a single session lasts 10–12: by the time ratings become useful, the session has ended. I want to explore using score differentials to accelerate cold starts — potentially producing usable ratings within a round or two of an unrated player's first game. The risk is that this is itself a form of oracle: reading more into a result than it actually says could tamper with convergence rather than speed it up."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1005
+msgid "Ratings keep sharpening for 30–40 rounds — two to three sessions — and while the matchmaking is already better than the baseline by round 5, the first dozen rounds of a true cold start remain the roughest stretch of a club's life. I want to explore using score differentials to shorten them — potentially producing usable ratings within a round or two of an unrated player's first game. Currently the Round Robin tool already supports manually specified player rankings. The risk is that this is itself a form of oracle: reading more into a result than it actually says could tamper with convergence rather than speed it up."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:685
+msgid "Ratings pointing the wrong way: a strong player rated low, a weak player rated high. Strong players who take it easy on beginners can invert their own rating — unintentional sandbagging."
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:120
+msgid "Round Robin"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:835
+#~ msgid "Round Robin and Balanced Round Robin lead early. Competitive+ catches up after roughly 20 rounds and tracks Balanced Round Robin from there to round 100."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1163
+msgid "Run these simulations yourself in the interactive lab →"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1008
+msgid "Since we can simulate the match quality effects of adding a player into an event, we can create an RSVP system that admits player based on their impact to the session, rather than the simple first-come-first-serve setups most events have."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:977
+msgid "Single-court events"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:786
+msgid "The baseline here is what open play actually deals: random courts that avoid repeating partners and opponents. (Measured against pure random, avoiding repeats changes match quality not at all — novelty buys variety and a slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls away from it within the first handful of rounds — by round 5 its games are already measurably better, because every result moves a cold rating a long way. Even a club of all-unrated players gets value inside their first session, though in this club the early gain is match quality; the blowouts barely move in one session, because preventing a varied club's worst games takes ratings accurate enough to see them coming. With mature ratings the gap is decisive:"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:974
+msgid "The idea that beginners and lower-rated players do not want balanced games is a myth — in the US and Vietnam, DUPR round robins run routinely at the 2.0–3.0 levels. Everyone benefits from an even match, and no rating needs to be at stake: the round robin tool can arrange matches by rating without submitting results."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:919
+msgid "The lesson for organisers: use manual seeding conservatively. The more you pre-place players at their true level, the slower their rating gets there on its own."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:916
+msgid "The Oracle knows everyone's real skill and hand-balances every match. It is in the field to demonstrate one thing: rigging matches by what you know prevents the ratings from ever learning it. Strong players are always split and cancel each other out, so no informative result ever arrives — the Oracle posts the best match quality of any strategy and the worst ladder accuracy, stuck around seven places off forever. US-style open play's starved ladder is the same effect arrived at by accident, in a milder dose."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:851
+#~ msgid "The Oracle knows everyone's real skill and hand-balances every match. It is in the field to demonstrate one thing: rigging matches by what you know prevents the ratings from ever learning it. Strong players are always split and cancel each other out, so no informative result ever arrives — the Oracle posts the best match quality of any strategy and the worst ladder accuracy, stuck seven to eight places off forever."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1017
+msgid "This is a live document, so I will be updating the modelling, data, and conclusions as they are discovered."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:971
+msgid "This is where matchmaking lifts hardest. Blowouts are never fun — for the stronger team they are a waste of time — and members you subject to them often enough go elsewhere. Competitive+ prevents five of every six blowouts in a typical club, halves them in a genuinely varied one, and its banding lets a session holding a beginner group and an advanced group still resolve into good matches instead of carry games."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:675
+msgid "Three terms worth pinning down"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:394
+#: src/components/organisms/MatchmakingReport.re.mjs:537
+msgid "Tight club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:387
+#: src/components/organisms/MatchmakingReport.re.mjs:508
+#~ msgid "Tight room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:873
+#~ msgid "Tight rooms give the best quality and the fewest blowouts, at some cost in ranking accuracy — players who are genuinely close are hard to order. If you can control the roster, keep the spread tight; even random matchmaking performs decently there. If you cannot, Competitive+'s banding compensates: a session holding a beginner group and an advanced group still resolves into good matches."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:712
+msgid "Tight skill spread"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:669
+msgid "Two things decide which matchmaking strategy is best: the skill spread of the club, and what you mean by “best”. Spread is how far apart your players are in real ability. “Best” splits into two goals — keeping everyone in tight, high-quality matches, and converging ratings to the truth quickly — and while ratings are still unknown — somewhere in the first fifteen rounds, about one session — you cannot have both. Faster convergence means injecting randomness into the matchmaking, which costs match quality now; optimising quality means trusting ratings that are still noise, which locks misrated players in place. Some early time must be spent in exploratory, suboptimal matches — unless you seed initial ratings by hand. Once ratings settle, the tension mostly dissolves: the same strategy can hold the best match quality in the field while converging as fast as anything else."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:631
+#~ msgid "Two things decide which matchmaking strategy is best: the skill spread of the room, and what you mean by “best”. Spread is how far apart your players are in real ability. “Best” splits into two goals — keeping everyone in tight, high-quality matches, and converging ratings to the truth quickly — and while ratings are still unknown, somewhere in the first fifteen rounds, you cannot have both. Faster convergence means injecting randomness into the matchmaking, which costs match quality now; optimising quality means trusting ratings that are still noise, which locks misrated players in place. Some early time must be spent in exploratory, suboptimal matches — unless you seed initial ratings by hand. Once ratings settle, the tension mostly dissolves: the same strategy can hold the best match quality in the field while converging as fast as anything else."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:631
+#~ msgid "Two things decide which matchmaking strategy is best: the skill spread of the room, and what you mean by “best”. Spread is how far apart your players are in real ability. “Best” splits into two goals that pull against each other — keeping everyone in tight, high-quality matches, and converging ratings to the truth quickly. You cannot fully have both. Faster convergence means injecting randomness into the matchmaking, which costs match quality now; optimising quality means trusting the ratings, which makes it harder for misrated players to move. And because noisy ratings degrade every rating-based match, some time must be spent in exploratory, suboptimal matches — unless you seed initial ratings by hand."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:851
+msgid "Typical 3.0–4.0 spread"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:389
+#: src/components/organisms/MatchmakingReport.re.mjs:539
+msgid "Typical club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:382
+#: src/components/organisms/MatchmakingReport.re.mjs:510
+#~ msgid "Typical room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:829
+msgid "US-style open play — courts labelled by level, players choosing their own — does somewhat better: matches only form within the stronger or the weaker half of the club, so the skill gaps inside a match shrink. The simulation also models the format's social habits — about half of badly beaten teams run one revenge match, and close foursomes often stay on for another game; both mean replaying a match, and the games people choose to replay are usually the wrong ones. It nets out at 50% quality and 64% blowouts here, against the baseline's 46% and 68% — real, but a long way from matchmaking by rating, where Competitive+ reaches 66% and 35% in the same club. One caution for anyone submitting rated DUPR matches from such sessions: repeats and self-sorted courts carry little rating information, so they converge ratings poorly — the simulated ladder ends up more than two places off, against about one and a half for every other format."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:761
+#~ msgid "US-style open play — courts labelled by level, players sorting themselves — comes out worse than pure random on every measure, with a 60% blowout rate. Two greedy individual behaviours explain it. Players who find a decent match clump together and stay, stranding the leftover strong players in poorly balanced games. And stacked teams like to run the “revenge” match, doubling down on the bad matchup. A few lucky foursomes get good practice; the room as a whole pays for it."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:870
+#~ msgid "Use Competitive+. The adaptive version handles the cold start with Balanced Round Robin, then switches to banded play as ratings settle — the fastest convergence available, with match quality at the top of the field."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:935
+msgid "Use Competitive+. The adaptive version opens with Balanced Round Robin while ratings are unknown, then switches to banded play as they settle — the fastest convergence available, with the best match quality in the field. Two-thirds of the gain arrives in the first session and most of the rest by the end of the second (63% → 73% → 79% quality in a typical club), and because ratings persist, each session starts where the last one left off."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:384
+#: src/components/organisms/MatchmakingReport.re.mjs:542
+msgid "Varied club"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:377
+#: src/components/organisms/MatchmakingReport.re.mjs:513
+#~ msgid "Varied room"
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:777
+msgid "Varied skill levels"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1014
+msgid "We have access to live match data from real sessions that use Round Robin tool, including match scores. That means I can calculate the effects of things like asymmetrical matches or the actual efficacy of the algorithms."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:938
+msgid "What switching is worth, with mature ratings in a typical club: 23 points of match quality and blowouts cut from 59% to 10% against JP-style open play (which plays like dealing at random); 7 points and 18 fewer blowouts against a plain round-robin table; 17 points and 42 fewer against a curated private session run as open play."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:680
+#~ msgid "When everyone is close in skill, rating-based matchmaking has little to add at first. Competitive+ only starts to pull away from round robin around round 16, and the gains stay minor until about round 30 — in a tight room, almost any way of dealing the courts produces decent games."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:913
+msgid "Why the Oracle never converges"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:968
+msgid "Wide-level open plays"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:792
+#~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:857
+msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines within the first handful of rounds, and one session in it already leads the avoid-repeats baseline by 9 points of quality and 10 points of blowouts. The full benefit arrives with mature ratings: 10% blowouts against the baseline's 62%, and a 78% chance of an even game against 53%. Those mature numbers match a hand-picked tight-skill club (79% and 8%) — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster:"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:672
+msgid "You have probably heard that to improve, you should play people better than you. The advice is not wrong — it is impractical. For you to play up, someone better than you has to play down. The only version of it that scales is playing people close to your level, with occasional games slightly up or slightly down. That is the goal of the Round Robin tool, and it is what these matchmaking algorithms are trying to accomplish."
+msgstr ""

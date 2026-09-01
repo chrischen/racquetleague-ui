@@ -1,0 +1,730 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-30 01:38+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1374
+msgid "· {0} · every level, % chance of a level game"
+msgstr "· {0} · mọi cấp độ, % cơ hội trận đấu ngang tài"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1374
+msgid "· {0} players · every strategy"
+msgstr "· {0} người chơi · mọi chiến lược"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "· % chance the game ends level, by true skill · higher is better"
+msgstr ""
+"· % khả năng trận đấu kết thúc hòa, theo kỹ năng thực · càng cao càng tốt"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1333
+msgid "· % of games decided by 9+ · rolling 5"
+msgstr "· % trận được quyết định bởi 9+ điểm · trung bình 5 vòng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1365
+msgid ""
+"· mean gap between predicted and true win chance · 0 = called every game "
+"right"
+msgstr ""
+"· khoảng cách trung bình giữa tỷ lệ thắng dự đoán và thực tế · 0 = dự đoán "
+"đúng mọi trận"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1332
+msgid "· mean ladder places off · lower is better"
+msgstr "· số bậc thang trung bình bị lệch · càng thấp càng tốt"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "· median game's % chance of ending level · immune to blowout drag"
+msgstr ""
+"· % cơ hội trận đấu trung vị kết thúc ngang tài · miễn nhiễm với kéo lệch tỷ "
+"số"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1209
+msgid "· players marked ↑ ↑↑ ↓ are improving or slipping as the session runs"
+msgstr ""
+"· người chơi được đánh dấu ↑ ↑↑ ↓ đang tiến bộ hoặc sa sút trong suốt phiên "
+"đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2136
+msgid "{0} · {1} sit"
+msgstr "{0} · {1} nghỉ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2223
+msgid "{0} · ± shown"
+msgstr "{0} · hiển thị ±"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1615
+msgid "{0} · not achievable"
+msgstr "{0} · không thể đạt được"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2241
+msgid "{0} / {1} solves"
+msgstr "{0} / {1} lời giải"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:68
+msgid "{0} KB"
+msgstr "{0} KB"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1919
+msgid "{0} players · {1} courts · {2} rounds · real solver"
+msgstr "{0} người chơi · {1} sân · {2} vòng · bộ giải thực"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:65
+msgid "{0}p · {1} courts · {2} rounds · {3} seeds"
+msgstr "{0} người · {1} sân · {2} vòng · {3} hạt giống"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1655
+msgid ""
+"± is the standard error over {0} seeds. {1} strategies are tied for best on "
+"ladder error — their gaps are inside the error bars, so the ordering between "
+"them is not a result."
+msgstr ""
+"± là sai số chuẩn trên {0} seed. {1} chiến lược có kết quả tốt nhất ngang "
+"nhau về sai số bậc thang — khoảng cách của chúng nằm trong biên sai số, nên "
+"thứ tự giữa chúng không phải là kết quả thực."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1655
+msgid ""
+"± is the standard error over {0} seeds. Bold marks a value nothing else is "
+"within error of."
+msgstr ""
+"± là sai số chuẩn trên {0} seed. Chữ đậm đánh dấu giá trị mà không có giá "
+"trị nào khác nằm trong biên sai số."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2223
+msgid "1 · no error"
+msgstr "1 · không có sai số"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1721
+msgid "a narrow, heavily bunched pack — hard to tell anyone apart"
+msgstr "nhóm xếp chặt, hẹp — khó phân biệt ai với ai"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:84
+msgid ""
+"A settled pool with unrated newcomers spread across the true ladder. Their "
+"ratings start mid-pool regardless of real skill."
+msgstr ""
+"Một nhóm ổn định với những người mới chưa được xếp hạng phân bổ đều theo "
+"thang kỹ năng thực. Điểm đánh giá của họ bắt đầu ở mức giữa nhóm bất kể kỹ "
+"năng thực tế."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1718
+msgid "a wide field plus a ringer and a beginner nobody can balance around"
+msgstr ""
+"sân rộng gồm một tay chơi xuất sắc và một người mới mà không ai có thể cân "
+"bằng được"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1724
+msgid "about a 1.0 DUPR spread, roughly 3.0 to 4.0 — what most clubs look like"
+msgstr ""
+"trải dài khoảng 1.0 DUPR, từ 3.0 đến 4.0 — điển hình của hầu hết các câu lạc "
+"bộ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:51
+msgid "Accurate ladder"
+msgstr "Bảng xếp hạng chính xác"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:986
+msgid "all bands"
+msgstr "tất cả các nhóm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:114
+msgid "Balanced Round Robin"
+msgstr "Vòng Robin Cân Bằng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:94
+msgid "band member"
+msgstr "thành viên nhóm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:132
+msgid ""
+"Banding from round one, with no calibration phase. Trusts whatever ratings "
+"it is given — which is why it opens badly from a cold start. Reference "
+"profile, not a mode players can pick."
+msgstr ""
+"Phân nhóm từ vòng một, không có giai đoạn hiệu chỉnh. Tin tưởng vào bất kỳ "
+"điểm đánh giá nào được cung cấp — đó là lý do tại sao hiệu quả kém khi bắt "
+"đầu từ đầu. Hồ sơ tham chiếu, không phải chế độ người chơi có thể chọn."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1290
+msgid "BLOWOUT"
+msgstr "THẮNG ĐẬM"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1333
+msgid "Blowout rate"
+msgstr "Tỷ lệ thắng đậm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1515
+msgid "blowouts"
+msgstr "thắng đậm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:49
+msgid "Cold start"
+msgstr "Khởi đầu lạnh"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:108
+msgid "Competitive+ (adaptive)"
+msgstr "Competitive+ (thích ứng)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+msgid "Competitive+ (static)"
+msgstr "Competitive+ (tĩnh)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2035
+msgid "Could not load the saved run: {loadError}"
+msgstr "Không thể tải phiên đã lưu: {loadError}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1258
+msgid "court {0}"
+msgstr "sân {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2118
+msgid "courts"
+msgstr "sân"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1271
+msgid "def"
+msgstr "mặc định"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1332
+msgid "Distance from truth"
+msgstr "Khoảng cách so với thực tế"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1922
+msgid "Does balanced matchmaking find the truth?"
+msgstr "Ghép trận cân bằng có tìm ra sự thật không?"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:78
+msgid ""
+"EVERY rating is the exact mirror of true skill, held confidently — the "
+"strongest player reads as the weakest. Balanced play is blind to this: "
+"matches look 50/50 under both truth and belief, so no evidence ever arrives. "
+"Only the variety modes escape it."
+msgstr ""
+"MỌI điểm đánh giá đều là hình ảnh phản chiếu chính xác của kỹ năng thực, "
+"được giữ chắc chắn — người chơi mạnh nhất lại được đọc là yếu nhất. Lối chơi "
+"cân bằng bị mù quáng trước điều này: các trận đấu trông 50/50 dưới cả sự "
+"thật lẫn niềm tin, vì vậy không có bằng chứng nào xuất hiện. Chỉ các chế độ "
+"đa dạng mới thoát khỏi điều này."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2243
+msgid "every round is a real ILP solve · {0} rounds to build"
+msgstr "mỗi vòng là một lời giải ILP thực · {0} vòng để xây dựng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2243
+msgid ""
+"every round is a real ILP solve · {0} rounds to build — this will take a "
+"while"
+msgstr ""
+"mỗi vòng là một lời giải ILP thực · {0} vòng để xây dựng — quá trình này sẽ "
+"mất một lúc"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:74
+msgid ""
+"Everyone at the default rating. Nothing is known yet — the case every new "
+"event starts from."
+msgstr ""
+"Tất cả mọi người ở điểm đánh giá mặc định. Chưa có thông tin nào — trường "
+"hợp mọi sự kiện mới bắt đầu từ đây."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2194
+msgid "everyone mixes"
+msgstr "mọi người cùng thi đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1824
+msgid "field"
+msgstr "trường đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2194
+msgid "fixed squads of 4"
+msgstr "đội cố định 4 người"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:82
+msgid ""
+"Global order is right, but each band of four is internally reversed. Banded "
+"play CAN see this error, so Competitive+ self-corrects."
+msgstr ""
+"Thứ tự tổng thể là đúng, nhưng mỗi nhóm bốn người bị đảo ngược nội bộ. Lối "
+"chơi theo nhóm CÓ THỂ nhận ra lỗi này, vì vậy Competitive+ tự điều chỉnh."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:92
+msgid "inverted insert"
+msgstr "chèn ngược"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:55
+msgid "Inverted inserts"
+msgstr "Chèn ngược"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:53
+msgid "Inverted ladder (complete)"
+msgstr "Bảng xếp hạng đảo ngược (hoàn chỉnh)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:882
+msgid "leading"
+msgstr "dẫn đầu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1953
+msgid "loading…"
+msgstr "đang tải…"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "Match quality"
+msgstr "Chất lượng trận đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "Match quality · typical game"
+msgstr "Chất lượng trận đấu · trận điển hình"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1372
+msgid "Match quality by band"
+msgstr "Chất lượng trận đấu theo nhóm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:138
+msgid ""
+"Matchmakes from hidden true skill instead of the ratings. Not a strategy "
+"anyone can run — it marks the best match quality this pool allows, so the "
+"distance from it is what imperfect ratings cost. Its ladder never improves: "
+"a game that is genuinely even is a coin flip, and coin flips teach nothing."
+msgstr ""
+"Ghép trận từ kỹ năng thực ẩn thay vì xếp hạng. Không phải chiến lược ai cũng "
+"dùng được — nó đánh dấu chất lượng trận tốt nhất mà nhóm này cho phép, nên "
+"khoảng cách so với nó chính là cái giá của xếp hạng không chính xác. Bảng "
+"xếp hạng của nó không bao giờ cải thiện: một trận thực sự cân bằng là tung "
+"đồng xu, và tung đồng xu không dạy được gì."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:146
+msgid ""
+"Maximum rotation with light banding — novelty first, but still rating-aware, "
+"unlike the avoid-repeats baseline. Its unbalanced splits are what let it "
+"recover a broken ladder."
+msgstr ""
+"Luân chuyển tối đa với phân nhóm nhẹ — ưu tiên sự mới mẻ nhưng vẫn tính đến "
+"xếp hạng, khác với cơ sở tránh lặp lại. Cách chia không cân bằng giúp nó "
+"khôi phục thang đấu bị phá vỡ."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1344
+msgid "mean"
+msgstr "trung bình"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1348
+msgid "median"
+msgstr "trung vị"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1242
+msgid "No games yet — press play or step."
+msgstr "Chưa có trận nào — nhấn phát hoặc bước tiếp."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:142
+msgid ""
+"No preferences at all: no balancing, no rotation, pure jitter. A synthetic "
+"floor — real clubs avoid repeats, so the realistic baseline is Random, avoid "
+"repeats."
+msgstr ""
+"Hoàn toàn ngẫu nhiên: không cân bằng, không luân chuyển, chỉ có xáo trộn. "
+"Đây là ngưỡng sàn tổng hợp — câu lạc bộ thực tế tránh lặp lại, nên cơ sở "
+"thực tế là Ngẫu nhiên, tránh lặp lại."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:110
+msgid "Open play (JP style)"
+msgstr "Chơi mở (phong cách JP)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:122
+msgid "Open play (US style)"
+msgstr "Chơi mở (phong cách Mỹ)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1890
+msgid "optimiser unavailable — some rounds fell back to the greedy engine"
+msgstr "trình tối ưu không khả dụng — một số vòng đã dùng lại công cụ tham lam"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:112
+msgid "Oracle (knows truth)"
+msgstr "Oracle (biết sự thật)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1731
+msgid "pause"
+msgstr "tạm dừng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1685
+msgid ""
+"Pick a scenario and press Run. Each round is a real solve through the same "
+"optimiser the app uses, and every field is simulated across several seeds, "
+"so a run takes a little while."
+msgstr ""
+"Chọn một kịch bản và nhấn Chạy. Mỗi vòng là một lần giải thực sự qua bộ tối "
+"ưu hóa mà ứng dụng sử dụng, và mỗi trường đấu được mô phỏng qua nhiều seed, "
+"nên một lần chạy mất một chút thời gian."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1507
+msgid "places off"
+msgstr "lệch vị trí"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1731
+msgid "play"
+msgstr "phát"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2085
+msgid "players"
+msgstr "người chơi"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:148
+msgid ""
+"Players self-sort into a beginner group and an intermediate/advanced group "
+"and stay there, mixing only around the middle of the pool. Teams are drawn "
+"at random within a level and never evened out; about half of blowouts get "
+"run back — once — and a close game may keep the same four on court."
+msgstr ""
+"Người chơi tự phân thành nhóm mới và nhóm trung cấp/nâng cao và ở lại đó, "
+"chỉ hòa trộn quanh giữa nhóm. Đội được rút ngẫu nhiên trong cùng cấp và "
+"không bao giờ được cân bằng; khoảng một nửa các trận lệch lạc được chơi lại "
+"— một lần — và trận sát nút có thể giữ nguyên bốn người trên sân."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2021
+msgid "precomputed · loads in a second instead of an hour"
+msgstr "đã tính sẵn · tải trong vài giây thay vì cả tiếng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1280
+msgid "pred {0}%"
+msgstr "dự đoán {0}%"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1511
+msgid "quality"
+msgstr "chất lượng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:116
+msgid "Random (baseline)"
+msgstr "Ngẫu nhiên (cơ sở)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:144
+msgid ""
+"Random composition with partner and opponent rotation, but still no team "
+"balancing — what open play actually does, and the realistic rating-free "
+"baseline. Novelty buys variety and faster convergence, not match quality."
+msgstr ""
+"Ghép đội ngẫu nhiên có luân chuyển đối tác và đối thủ, nhưng vẫn không cân "
+"bằng đội — đúng như chơi mở thực tế làm, và là cơ sở thực tế không cần xếp "
+"hạng. Sự mới mẻ mang lại đa dạng và hội tụ nhanh hơn, không mang lại chất "
+"lượng trận đấu."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:140
+msgid "Random composition, most even split available in every match."
+msgstr "Thành phần ngẫu nhiên, phân chia cân bằng nhất có thể trong mỗi trận."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+msgid "Random, avoid repeats"
+msgstr "Ngẫu nhiên, tránh lặp lại"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1657
+msgid ""
+"Ranked by the three columns combined, weighted equally. Rows below the "
+"dashed line matchmake from hidden true skill — they mark the ceiling and are "
+"excluded from the ranking. All three are rolling averages over the last {0} "
+"rounds, so they say how each strategy is doing now rather than how it did "
+"overall — drag the round slider to watch them move. places off = how far the "
+"average player sits from their true rank (lower better) · quality = chance a "
+"game ends level, by true skill (higher better) · blowouts = share of games "
+"decided by 9+ (lower better)."
+msgstr ""
+"Xếp hạng theo ba cột kết hợp, trọng số đều nhau. Các hàng dưới đường nét đứt "
+"ghép đấu dựa trên kỹ năng thực ẩn — chúng đánh dấu giới hạn trần và bị loại "
+"khỏi bảng xếp hạng. Cả ba là trung bình cuộn trong {0} vòng gần nhất, thể "
+"hiện hiệu suất hiện tại của mỗi chiến lược chứ không phải tổng thể — kéo "
+"thanh trượt vòng để xem chúng thay đổi. vị trí lệch = khoảng cách trung bình "
+"của người chơi so với thứ hạng thực (thấp hơn tốt hơn) · chất lượng = xác "
+"suất trận kết thúc ngang tài theo kỹ năng thực (cao hơn tốt hơn) · lệch lạc "
+"= tỷ lệ trận thắng cách 9+ điểm (thấp hơn tốt hơn)."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1201
+msgid "rating ·"
+msgstr "xếp hạng ·"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1365
+msgid "Rating forecast error"
+msgstr "Sai số dự báo xếp hạng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:76
+msgid ""
+"Ratings already match the truth, held confidently. This is where match "
+"quality is the product."
+msgstr ""
+"Xếp hạng đã khớp với sự thật, được giữ vững chắc. Đây là nơi chất lượng trận "
+"đấu là sản phẩm."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1932
+msgid ""
+"Red ticks are true skill; blue bars are what the rating system currently "
+"believes. Rows are ordered by true skill, strongest first — a correct system "
+"reads as a clean staircase."
+msgstr ""
+"Tích đỏ là kỹ năng thực; thanh xanh là những gì hệ thống xếp hạng hiện tin "
+"tưởng. Các hàng được sắp xếp theo kỹ năng thực, mạnh nhất trước — một hệ "
+"thống chính xác hiển thị như một bậc thang rõ ràng."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2060
+msgid "reseed ({0})"
+msgstr "gieo lại ({0})"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1752
+msgid "reset"
+msgstr "đặt lại"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1171
+msgid "rho {0} · off by {1} places"
+msgstr "rho {0} · lệch {1} bậc"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:136
+msgid ""
+"Rotate through everyone, teams drawn as they come. Only when a foursome "
+"splits sharply into two strong and two weak does anyone even out the sides — "
+"and then which weak player goes with which strong is left to chance."
+msgstr ""
+"Xoay vòng tất cả mọi người, các đội được bốc thăm ngẫu nhiên. Chỉ khi một "
+"nhóm bốn người có sự chênh lệch rõ rệt giữa hai người mạnh và hai người yếu "
+"thì mới cân bằng các bên — và lúc đó người yếu nào ghép với người mạnh nào "
+"vẫn do may rủi quyết định."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1236
+msgid "Round {0} · {1}"
+msgstr "Vòng {0} · {1}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1764
+msgid "round {0}/{1}"
+msgstr "vòng {0}/{1}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:120
+msgid "Round Robin"
+msgstr "Vòng tròn"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2147
+msgid "rounds"
+msgstr "vòng đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2233
+msgid "Run simulation"
+msgstr "Chạy mô phỏng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2233
+msgid "running…"
+msgstr "đang chạy…"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1949
+msgid "saved runs"
+msgstr "phiên đã lưu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2205
+msgid "seeds"
+msgstr "seed"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1699
+msgid ""
+"showing a saved run · {0} · {1} players · {2} courts · {3} rounds · {4} "
+"seeds. Ladder and round detail come from the first seed; the charts and "
+"standings average all of them."
+msgstr ""
+"đang xem phiên đã lưu · {0} · {1} người chơi · {2} sân · {3} vòng · {4} hạt "
+"giống. Thang đấu và chi tiết vòng lấy từ hạt giống đầu tiên; biểu đồ và bảng "
+"xếp hạng lấy trung bình tất cả."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1654
+msgid ""
+"Single seed — no error bars, so treat any ordering here as provisional. "
+"Raise the seed count to tell real differences from noise."
+msgstr ""
+"Một seed duy nhất — không có biên sai số, vì vậy hãy xem mọi thứ tự ở đây là "
+"tạm thời. Tăng số lượng seed để phân biệt sự khác biệt thực sự với nhiễu."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1311
+msgid "sitting out: {0}"
+msgstr "ngồi ngoài: {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1791
+msgid "speed"
+msgstr "tốc độ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1491
+msgid "Standings at round {0} · last {1} rounds"
+msgstr "Bảng xếp hạng sau vòng {0} · {1} vòng gần nhất"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1491
+msgid "Standings before play"
+msgstr "Bảng xếp hạng trước khi thi đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1740
+msgid "step"
+msgstr "bước"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:80
+msgid ""
+"The same confident inversion, but applied to only a third of the pool — the "
+"rest are correctly rated anchors. The error is now visible against those "
+"anchors, so it should correct far faster than a complete inversion."
+msgstr ""
+"Phép đảo ngược tương tự nhưng chỉ áp dụng cho một phần ba nhóm — phần còn "
+"lại là các điểm neo được xếp hạng chính xác. Sai số lúc này trở nên rõ ràng "
+"so với các điểm neo đó, vì vậy quá trình hiệu chỉnh sẽ nhanh hơn nhiều so "
+"với đảo ngược hoàn toàn."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1836
+msgid "tight"
+msgstr "sít sao"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:67
+#: src/components/organisms/MatchmakingLab.re.mjs:2177
+msgid "tournament"
+msgstr "giải đấu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1208
+msgid "true skill"
+msgstr "kỹ năng thực sự"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1168
+msgid "Truth ladder — {0}"
+msgstr "Bảng thứ hạng thực — {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1832
+msgid "typical"
+msgstr "điển hình"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:96
+msgid "unrated newcomer"
+msgstr "người mới chưa được xếp hạng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:59
+msgid "Unrated newcomers"
+msgstr "Người mới chưa được xếp hạng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1297
+msgid "UPSET"
+msgstr "BẤT NGỜ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1828
+msgid "varied"
+msgstr "đa dạng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:134
+msgid ""
+"What the app ships as Competitive+: calibrates with variety while the "
+"ratings are noise, then blends into banded play as they settle. Identical to "
+"the static profile once the ladder has any spread."
+msgstr ""
+"Tính năng Competitive+ của ứng dụng: hiệu chỉnh bằng cách đa dạng hoá khi "
+"điểm số còn nhiễu, sau đó chuyển dần sang lối ghép đấu theo nhóm khi điểm số "
+"ổn định. Giống hệt hồ sơ tĩnh khi bảng xếp hạng đã có độ phân tán."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:57
+msgid "Within-band inversion"
+msgstr "Đảo ngược trong cùng nhóm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+#~ msgid ""
+#~ "a bunched pack, most players hard to tell apart, nobody outside the group"
+#~ msgstr ""
+#~ "một nhóm đông đúc, hầu hết người chơi khó phân biệt, không ai đứng ngoài "
+#~ "nhóm"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:146
+#~ msgid ""
+#~ "Maximum rotation. Its unbalanced splits are what let it recover a broken "
+#~ "ladder."
+#~ msgstr ""
+#~ "Xoay vòng tối đa. Các phân nhóm không cân bằng chính là điều giúp nó phục "
+#~ "hồi bảng xếp hạng bị lệch."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:142
+#~ msgid ""
+#~ "No preferences at all: no balancing, no rotation, pure jitter. The floor "
+#~ "every real strategy should beat on match quality — and, surprisingly, the "
+#~ "fastest early learner."
+#~ msgstr ""
+#~ "Hoàn toàn không có ưu tiên: không cân bằng, không xoay vòng, ngẫu nhiên "
+#~ "thuần túy. Mức sàn mà mọi chiến lược thực sự cần vượt qua về chất lượng "
+#~ "trận — và, bất ngờ thay, học nhanh nhất ở giai đoạn đầu."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1170
+#~ msgid ""
+#~ "Pick a scenario and press Run. Each round is a real solve through the "
+#~ "same optimiser the app uses, so a run takes a few seconds."
+#~ msgstr ""
+#~ "Chọn kịch bản và nhấn Chạy. Mỗi vòng là một lần giải thực qua cùng trình "
+#~ "tối ưu mà ứng dụng sử dụng, nên một lần chạy mất vài giây."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:148
+#~ msgid ""
+#~ "Players self-sort into a beginner group and an intermediate/advanced "
+#~ "group and stay there, mixing only around the middle of the pool. Teams "
+#~ "are drawn at random within a level and never evened out; a blowout gets "
+#~ "run back and a close game keeps the same four on court."
+#~ msgstr ""
+#~ "Người chơi tự phân nhóm thành nhóm mới bắt đầu và nhóm trung cấp/nâng "
+#~ "cao, ở trong nhóm đó, chỉ trộn lẫn ở giữa nhóm. Đội được rút ngẫu nhiên "
+#~ "theo trình độ và không bao giờ được cân bằng; trận thua đậm được chơi lại "
+#~ "và trận sít sao giữ nguyên bốn người trên sân."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+#~ msgid "Random Balanced"
+#~ msgstr "Ngẫu nhiên cân bằng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:144
+#~ msgid ""
+#~ "Random composition with partner and opponent rotation, but still no team "
+#~ "balancing. Isolates what novelty alone buys over pure chance."
+#~ msgstr ""
+#~ "Thành phần ngẫu nhiên với xoay vòng đối tác và đối thủ, nhưng vẫn không "
+#~ "cân bằng đội. Cô lập những gì sự mới lạ đơn thuần mang lại so với ngẫu "
+#~ "nhiên thuần túy."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+#~ msgid "Random, no repeats"
+#~ msgstr "Ngẫu nhiên, không lặp lại"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1146
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking and the highlights. places off = how far "
+#~ "the average player sits from their true rank (lower better) · quality = "
+#~ "chance a game ends level, by true skill (higher better) · blowouts = "
+#~ "share of games decided by 9+ (lower better). Bold marks the best in each "
+#~ "column."
+#~ msgstr ""
+#~ "Xếp hạng theo ba cột kết hợp, trọng số bằng nhau. Các hàng dưới đường đứt "
+#~ "nét ghép trận từ kỹ năng thực ẩn — chúng đánh dấu mức trần và bị loại "
+#~ "khỏi xếp hạng và phần nổi bật. lệch vị trí = người chơi trung bình cách "
+#~ "xa thứ hạng thực bao nhiêu bậc (thấp hơn tốt hơn) · chất lượng = xác suất "
+#~ "trận kết thúc cân bằng theo kỹ năng thực (cao hơn tốt hơn) · thua đậm = "
+#~ "tỷ lệ trận thắng cách biệt 9+ điểm (thấp hơn tốt hơn). In đậm đánh dấu "
+#~ "tốt nhất ở mỗi cột."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1370
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. places off = how far the average player "
+#~ "sits from their true rank (lower better) · quality = chance a game ends "
+#~ "level, by true skill (higher better) · blowouts = share of games decided "
+#~ "by 9+ (lower better)."
+#~ msgstr ""
+#~ "Xếp hạng theo tổng hợp ba cột, trọng số bằng nhau. Các hàng bên dưới "
+#~ "đường đứt nét ghép cặp từ kỹ năng thực ẩn — chúng đánh dấu giới hạn trên "
+#~ "và bị loại khỏi xếp hạng. vị trí lệch = khoảng cách trung bình của người "
+#~ "chơi so với hạng thực (thấp hơn tốt hơn) · chất lượng = xác suất trận đấu "
+#~ "kết thúc cân bằng theo kỹ năng thực (cao hơn tốt hơn) · thua đậm = tỷ lệ "
+#~ "trận đấu quyết định bởi 9+ điểm (thấp hơn tốt hơn)."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+#~ msgid "skill spread evenly across the range, plus a ringer and a beginner"
+#~ msgstr ""
+#~ "kỹ năng phân bổ đều trên toàn dải, cộng với một tay chơi xuất sắc và một "
+#~ "người mới bắt đầu"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1204
+#~ msgid "Standings at round {0}"
+#~ msgstr "Bảng xếp hạng sau vòng {0}"

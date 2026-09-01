@@ -86,17 +86,40 @@ function simulateScore(
   return team1Wins ? [MAX_SCORE, loserScore] : [loserScore, MAX_SCORE];
 }
 
+// Deal the ladder out in a seeded permutation so a player's SLOT carries no
+// information about their skill. Scenario functions are all indexed through the
+// same permutation, so the relationship between a player's truth and their
+// starting rating is preserved exactly — only the correlation between slot
+// order and skill order is broken.
+//
+// Without this, any deterministic tie-break in the solver pairs adjacent slots,
+// which were adjacent in true skill, and the zero-jitter strategies get
+// accidentally well-matched opening rounds. It made round 1 unreadable: the
+// jittered modes scored 2.04 mean ladder places off against the deterministic
+// ones' 3.67, a gap that was pure fixture artefact.
+function ladderPermutation(seed: number, n: number): number[] {
+  const next = rng(seed ^ 0x5bf03635);
+  const out = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(next() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
 export async function runSession(scenario: Scenario): Promise<SimResult> {
   const next = rng(scenario.seed);
+  const ranks = ladderPermutation(scenario.seed, scenario.numPlayers);
 
   const theta: Truth = {};
   const initialPlayers: Player[] = [];
   for (let i = 0; i < scenario.numPlayers; i++) {
-    const t = scenario.theta(i, next);
+    const rank = ranks[i];
+    const t = scenario.theta(rank, next);
     const player = makePlayer(i, {
-      mu: scenario.startMu?.(i, t) ?? 25,
-      sigma: scenario.startSigma?.(i, t),
-      gender: scenario.gender?.(i),
+      mu: scenario.startMu?.(rank, t) ?? 25,
+      sigma: scenario.startSigma?.(rank, t),
+      gender: scenario.gender?.(rank),
     });
     theta[player.id] = t;
     initialPlayers.push(player);

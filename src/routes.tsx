@@ -313,6 +313,27 @@ export const routes: RouteObject[] = [
         handle: "src/components/routes/LoginRoute.gen.tsx",
       },
       {
+        // Courtside camera kiosk. Renders full screen outside the app shell.
+        path: "kiosk",
+        lazy: () => import("./components/routes/KioskRoute.gen"),
+        handle: "src/components/routes/KioskRoute.gen.tsx",
+      },
+      {
+        // Matchmaking convergence lab: runs the real solver presets against a
+        // hidden ground truth. Full screen, outside the app shell.
+        path: "matchmaking-lab",
+        lazy: () => import("./components/routes/MatchmakingLabRoute.gen"),
+        handle: "src/components/routes/MatchmakingLabRoute.gen.tsx",
+      },
+      {
+        // Infographic-style write-up of the lab's findings, with the lab's
+        // charts inlined against the precomputed run. Full screen, outside
+        // the app shell.
+        path: "matchmaking-report",
+        lazy: () => import("./components/routes/MatchmakingReportRoute.gen"),
+        handle: "src/components/routes/MatchmakingReportRoute.gen.tsx",
+      },
+      {
         path: "league/events/:eventId/:activitySlug/manager",
         lazy: () => import("./components/routes/EventManagerRoute.gen"),
         handle: "src/components/routes/EventManagerRoute.gen.tsx",

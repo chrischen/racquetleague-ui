@@ -75,8 +75,8 @@ let emptyOutcome = (matches): roundOutcome<'a> => {
 
 // Effective weights: the strategy's preset, overridden by any stored user
 // configuration. Presets stay in code so retuning them applies retroactively.
-// Auto is the one preset that reads the pool: its profile is a live blend from
-// Random Balanced toward Competitive+ as the players' ratings settle.
+// Competitive+ is the one preset that reads the pool: its profile is a live
+// blend out of the calibration profile as the players' ratings settle.
 let effectiveWeights = (
   ~strategy: strategy,
   ~weightConfig: option<CostModel.uiWeightConfig>,
@@ -85,7 +85,7 @@ let effectiveWeights = (
 ): CostModel.costWeights => {
   let base = switch (weightConfig, strategy) {
   | (Some(config), _) => CostModel.weightsFromConfig(config)
-  | (None, SolverAuto) => CostModel.autoWeights(players)
+  | (None, SolverCompetitivePlus) => CostModel.adaptiveWeights(players)
   | (None, _) => CostModel.weightsForStrategy(strategy)
   }
   // Pool-aware split policy (see `SolverRound.splitBalanceIsFree`): in a roomy
@@ -97,7 +97,7 @@ let effectiveWeights = (
   // silently retire the operator remedy. A custom config is excluded too: an
   // explicit "Balanced, fresh partners first" choice must mean what it says.
   let mayUpgrade = switch (weightConfig, strategy) {
-  | (None, SolverCompetitivePlus | SolverAuto) => true
+  | (None, SolverCompetitivePlusStatic | SolverCompetitivePlus) => true
   | _ => false
   }
   mayUpgrade &&
@@ -226,12 +226,12 @@ let generateRounds = async (
     // Court order: Round Robin bands first and Competitive+ is leveled by
     // definition, so both put the strongest court at court 1. Random Balanced
     // is the one mode that must *look* random, so its courts shuffle per seed.
-    // Auto follows its blend: random-looking while it plays like Random
-    // Balanced, leveled once the competitive half of the profile dominates.
+    // The adaptive profile follows its blend: random-looking while it is still
+    // calibrating, leveled once the competitive half dominates.
     let courtOrder = switch strategy {
     | SolverRandomBalanced => SolverRound.ShuffledCourts
-    | SolverAuto =>
-      CostModel.autoT(CostModel.readinessRatio(availablePlayers)) < 0.5
+    | SolverCompetitivePlus =>
+      CostModel.adaptiveBlend(CostModel.readinessRatio(availablePlayers)) < 0.5
         ? SolverRound.ShuffledCourts
         : SolverRound.CourtsByLevel
     | _ => SolverRound.CourtsByLevel

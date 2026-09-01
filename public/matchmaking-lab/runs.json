@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "runs": [
+    {
+      "file": "cold-24p-4c-100r-7s.json.gz",
+      "label": "ColdStart · 24 players · 4 courts · 100 rounds · 7 seeds",
+      "scenario": "ColdStart",
+      "numPlayers": 24,
+      "courts": 4,
+      "numRounds": 100,
+      "seedCount": 7,
+      "tournament": false,
+      "bytes": 1453278
+    }
+  ]
+}

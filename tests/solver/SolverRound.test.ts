@@ -235,7 +235,7 @@ describe("SolverRound", () => {
     for (const strategy of [
       "SolverRoundRobin",
       "SolverRandomBalanced",
-      "SolverCompetitivePlus",
+      "SolverCompetitivePlusStatic",
     ]) {
       const result = await solveRound({ players, courts: 2, strategy });
       result.matches.forEach((m: { match: Match }) => {
@@ -353,7 +353,7 @@ describe("SolverRound", () => {
     const result = await solveRound({
       players: rankedPool(),
       courts: 5,
-      strategy: "SolverCompetitivePlus",
+      strategy: "SolverCompetitivePlusStatic",
     });
     expect(meanCourtSpan(result.matches)).toBeLessThan(8);
     expectBalancedSplits(result.matches);
@@ -392,7 +392,7 @@ describe("SolverRound", () => {
     const { rounds } = await playSession({
       players,
       courts: 4,
-      strategy: "SolverCompetitivePlus",
+      strategy: "SolverCompetitivePlusStatic",
       numRounds: 5,
     });
 

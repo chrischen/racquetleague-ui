@@ -1015,15 +1015,15 @@ function EventManager(props) {
         case "Mixed" :
         case "Random" :
             return "SolverRandomBalanced";
-        case "CompetitivePlus" :
-        case "Competitive" :
-        case "DUPR" :
-            return "SolverCompetitivePlus";
         case "RoundRobin" :
         case "NoveltyRoundRobin" :
             return "SolverRoundRobin";
+        case "SolverRoundRobin" :
+        case "SolverRandomBalanced" :
+        case "SolverCompetitivePlus" :
+            return s;
         default:
-          return s;
+          return "SolverCompetitivePlus";
       }
     } else {
       switch (s) {
@@ -1031,8 +1031,8 @@ function EventManager(props) {
             return "NoveltyRoundRobin";
         case "SolverRandomBalanced" :
             return "Mixed";
+        case "SolverCompetitivePlusStatic" :
         case "SolverCompetitivePlus" :
-        case "SolverAuto" :
             return "CompetitivePlus";
         default:
           return s;
@@ -1821,7 +1821,7 @@ function EventManager(props) {
     EventManagerPersistence.clearWeightConfig(data.id);
   };
   var effectiveWeightConfig = weightConfig !== undefined ? weightConfig : CostModel.presetConfig(strategy);
-  var autoBlendT = strategy === "SolverAuto" && Core__Option.isNone(weightConfig) ? CostModel.autoT(CostModel.readinessRatio(checkedInPlayers)) : undefined;
+  var blendT = strategy === "SolverCompetitivePlus" && Core__Option.isNone(weightConfig) ? CostModel.adaptiveBlend(CostModel.readinessRatio(checkedInPlayers)) : undefined;
   var generatingLabel = HighsBindings.isLoaded() ? t`Generating…` : t`Preparing optimizer…`;
   var handleAdvanceRound = function () {
     if (currentRoundInt >= rounds.length) {
@@ -2307,7 +2307,7 @@ function EventManager(props) {
                             futureRoundsHaveScores: futureRoundsHaveScores,
                             weightConfig: effectiveWeightConfig,
                             weightConfigIsCustom: Core__Option.isSome(weightConfig),
-                            autoBlendT: autoBlendT,
+                            blendT: blendT,
                             onWeightConfigChange: handleWeightConfigChange,
                             onWeightConfigReset: handleWeightConfigReset,
                             isGenerating: isGenerating,
@@ -2518,7 +2518,7 @@ function EventManager(props) {
                                                 futureRoundsHaveScores: futureRoundsHaveScores,
                                                 weightConfig: effectiveWeightConfig,
                                                 weightConfigIsCustom: Core__Option.isSome(weightConfig),
-                                                autoBlendT: autoBlendT,
+                                                blendT: blendT,
                                                 onWeightConfigChange: handleWeightConfigChange,
                                                 onWeightConfigReset: handleWeightConfigReset,
                                                 isGenerating: isGenerating,
@@ -2850,7 +2850,7 @@ function EventManager(props) {
                                           futureRoundsHaveScores: futureRoundsHaveScores,
                                           weightConfig: effectiveWeightConfig,
                                           weightConfigIsCustom: Core__Option.isSome(weightConfig),
-                                          autoBlendT: autoBlendT,
+                                          blendT: blendT,
                                           onWeightConfigChange: handleWeightConfigChange,
                                           onWeightConfigReset: handleWeightConfigReset,
                                           isGenerating: isGenerating,

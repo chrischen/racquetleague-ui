@@ -14,62 +14,62 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1425
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1430
 msgid "Badminton"
 msgstr "バドミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1429
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1434
 msgid "Table Tennis"
 msgstr "卓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1433
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1438
 msgid "Pickleball"
 msgstr "ピックルボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1442
 msgid "Futsal"
 msgstr "フットサル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1441
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1446
 msgid "Basketball"
 msgstr "バスケットボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1445
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1450
 msgid "Volleyball"
 msgstr "バレーボール"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1449
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1454
 msgid "Crossminton"
 msgstr "クロスミントン"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1458
 msgid "Padel"
 msgstr "パデル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1457
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1462
 msgid "drill"
 msgstr "ドリル"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1461
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1466
 msgid "comp"
 msgstr "競技"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1465
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1470
 msgid "rec"
 msgstr "練習試合"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1469
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1474
 msgid "all level"
 msgstr "全レベル"
 
@@ -82,15 +82,15 @@ msgstr ""
 msgid "{0} events created!"
 msgstr "{0} イベントが作成されました！"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:521
+#: src/components/organisms/CreateLocationEventForm.re.mjs:526
 msgid "{0} hours"
 msgstr "{0}時間"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:521
+#: src/components/organisms/CreateLocationEventForm.re.mjs:526
 msgid "{0} hours and {1} minutes"
 msgstr "{0}時間{1}分"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:523
+#: src/components/organisms/CreateLocationEventForm.re.mjs:528
 msgid "{0} minutes"
 msgstr "{0}分"
 
@@ -98,52 +98,54 @@ msgstr "{0}分"
 msgid "+ Add new club..."
 msgstr "+ 新しいクラブを追加..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:757
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
 msgid "1 hour before"
 msgstr "1時間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
 msgid "1 week before"
 msgstr "1週間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:769
+#: src/components/organisms/CreateLocationEventForm.re.mjs:774
 msgid "12 hours before"
 msgstr "12時間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:761
+#: src/components/organisms/CreateLocationEventForm.re.mjs:766
 msgid "2 hours before"
 msgstr "2時間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+#: src/components/organisms/CreateLocationEventForm.re.mjs:778
 msgid "24 hours before"
 msgstr "24時間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:777
+#: src/components/organisms/CreateLocationEventForm.re.mjs:782
 msgid "48 hours before"
 msgstr "48時間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+#: src/components/organisms/CreateLocationEventForm.re.mjs:770
 msgid "6 hours before"
 msgstr "6時間前まで"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:781
+#: src/components/organisms/CreateLocationEventForm.re.mjs:786
 msgid "72 hours before"
 msgstr "72時間前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+#: src/components/organisms/CreateLocationEventForm.re.mjs:856
 msgid ""
-"A refundable deposit is collected when someone joins. You can manually "
-"approve attendees by clicking their name in the RSVP list."
+"A deposit authorization is made. This is not a charge and it automatically "
+"disappears from the person's account. You can manually approve attendees who "
+"do not authorize payment by clicking their name in the RSVP list."
 msgstr ""
-"参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をクリッ"
-"クすることで、手動で承認できます。"
+"デポジットの仮承認が行われます。これは請求ではなく、自動的にアカウントから消"
+"えます。RSVPリストで名前をクリックすることで、支払いを承認しなかった参加者を"
+"手動で承認できます。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:665
 msgid "Action proposal"
 msgstr "アクションの提案"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:844
-#: src/components/organisms/CreateLocationEventForm.re.mjs:866
+#: src/components/organisms/CreateLocationEventForm.re.mjs:849
+#: src/components/organisms/CreateLocationEventForm.re.mjs:871
 msgid "Active"
 msgstr "有効"
 
@@ -155,7 +157,7 @@ msgstr "アクティビティ"
 msgid "activity is required"
 msgstr "アクティビティが必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:802
+#: src/components/organisms/CreateLocationEventForm.re.mjs:807
 msgid "Add any additional information about the event..."
 msgstr "イベントに関する追加情報を入力してください..."
 
@@ -184,11 +186,11 @@ msgstr "続行するには、保留中のアクションを承認または拒否
 msgid "Approved"
 msgstr "承認済み"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:445
+#: src/components/organisms/CreateLocationEventForm.re.mjs:450
 msgid "at"
 msgstr "時"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#: src/components/organisms/CreateLocationEventForm.re.mjs:795
 msgid "Attendees cannot cancel their RSVP after this deadline"
 msgstr "この期限後、参加者はRSVPをキャンセルできません"
 
@@ -200,20 +202,20 @@ msgstr "承認待ち"
 msgid "Brief description of the club..."
 msgstr "クラブの簡単な説明..."
 
-#: src/components/pages/CreateEventPage.re.mjs:247
+#: src/components/pages/CreateEventPage.re.mjs:248
 msgid "Bulk create"
 msgstr "一括作成"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
-#: src/components/pages/CreateEventPage.re.mjs:236
+#: src/components/pages/CreateEventPage.re.mjs:237
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:747
+#: src/components/organisms/CreateLocationEventForm.re.mjs:752
 msgid "Cancel deadline (optional)"
 msgstr "キャンセル期限（任意）"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1265
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1270
 msgid ""
 "Casual play focused on fun and social interaction. Perfect for all skill "
 "levels."
@@ -240,14 +242,14 @@ msgstr "クラブURL"
 msgid "club-name"
 msgstr "クラブ名"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:456
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1219
+#: src/components/organisms/CreateLocationEventForm.re.mjs:461
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1224
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
-msgid "Connect a Stripe account"
-msgstr "Stripeアカウントを連携する"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:884
+msgid "Connect a Stripe account to activate"
+msgstr "有効にするにはStripeアカウントを連携してください"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 msgid "Continue"
@@ -277,8 +279,8 @@ msgstr "すべてのイベントを作成"
 msgid "Create Club"
 msgstr "クラブを作成"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
-#: src/components/pages/CreateEventPage.re.mjs:242
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
+#: src/components/pages/CreateEventPage.re.mjs:243
 msgid "Create Event"
 msgstr "イベントを作成"
 
@@ -323,14 +325,14 @@ msgstr "説明:"
 msgid "Done"
 msgstr "完了"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:464
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1302
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
+#: src/components/organisms/CreateLocationEventForm.re.mjs:469
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1307
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1337
 msgid "Drill session"
 msgstr "練習セッション"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:461
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1283
+#: src/components/organisms/CreateLocationEventForm.re.mjs:466
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1288
 msgid "DUPR rated"
 msgstr "DUPRレーティング"
 
@@ -346,7 +348,7 @@ msgstr ""
 "例: セントラルパークで毎週木曜日午後6時にピックルボール、競技レベル3.5以上の"
 "プレイヤー向け..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:705
+#: src/components/organisms/CreateLocationEventForm.re.mjs:710
 msgid "End time"
 msgstr "終了時刻"
 
@@ -354,7 +356,7 @@ msgstr "終了時刻"
 msgid "end time is required"
 msgstr "終了時刻が必要です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:829
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
 msgid "Enter price"
 msgstr "金額を入力"
 
@@ -363,23 +365,23 @@ msgid "event date is required"
 msgstr "イベント日付が必要です"
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1077
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1082
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#: src/components/organisms/CreateLocationEventForm.re.mjs:803
 msgid "Event details (optional)"
 msgstr "イベント詳細（オプション）"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:592
+#: src/components/organisms/CreateLocationEventForm.re.mjs:597
 msgid "Event schedule"
 msgstr "イベントスケジュール"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:722
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
 msgid "Event title"
 msgstr "イベントタイトル"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1208
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1213
 msgid "Event type"
 msgstr "イベントタイプ"
 
@@ -395,11 +397,11 @@ msgstr "実行失敗"
 msgid "Fill with AI"
 msgstr "AIで入力"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1375
 msgid "Find Players"
 msgstr "プレイヤーを探す"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1006
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1011
 msgid "Find players for your event?"
 msgstr "イベントのプレイヤーを募集しますか？"
 
@@ -407,16 +409,16 @@ msgstr "イベントのプレイヤーを募集しますか？"
 msgid "Form filled • Click to expand"
 msgstr "フォーム入力済み • クリックで展開"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1170
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1175
 msgid "Format"
 msgstr "形式"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1276
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1327
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1281
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
 msgid "Format options"
 msgstr "形式オプション"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:726
+#: src/components/organisms/CreateLocationEventForm.re.mjs:731
 msgid "Friday Night Pickleball"
 msgstr "金曜夜のピックルボール"
 
@@ -428,7 +430,7 @@ msgstr "生成中..."
 msgid "Let AI help you fill out the details below"
 msgstr "AIに下記の詳細を入力してもらいましょう"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1011
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1016
 msgid "List your event publicly to help fill open spots"
 msgstr "空き枠を埋めるためにイベントを公開する"
 
@@ -436,7 +438,7 @@ msgstr "空き枠を埋めるためにイベントを公開する"
 msgid "Loading conversation history..."
 msgstr "会話履歴を読み込み中..."
 
-#: src/components/pages/CreateEventPage.re.mjs:270
+#: src/components/pages/CreateEventPage.re.mjs:271
 msgid "Location"
 msgstr "場所"
 
@@ -445,11 +447,11 @@ msgstr "場所"
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:734
+#: src/components/organisms/CreateLocationEventForm.re.mjs:739
 msgid "Max RSVPs (optional)"
 msgstr "最大参加人数（オプション）"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:975
+#: src/components/organisms/CreateLocationEventForm.re.mjs:980
 msgid "Minimum rating (optional)"
 msgstr "最低レーティング（任意）"
 
@@ -461,20 +463,20 @@ msgstr "クラブなし"
 msgid "No club / Independent event"
 msgstr "クラブなし / 個人イベント"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:753
+#: src/components/organisms/CreateLocationEventForm.re.mjs:758
 msgid "No deadline"
 msgstr "期限なし"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:738
+#: src/components/organisms/CreateLocationEventForm.re.mjs:743
 msgid "No limit"
 msgstr "制限なし"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:979
+#: src/components/organisms/CreateLocationEventForm.re.mjs:984
 msgid "No minimum"
 msgstr "制限なし"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:450
-#: src/components/organisms/CreateLocationEventForm.re.mjs:469
+#: src/components/organisms/CreateLocationEventForm.re.mjs:455
+#: src/components/organisms/CreateLocationEventForm.re.mjs:474
 msgid "Not set"
 msgstr "未設定"
 
@@ -482,7 +484,7 @@ msgstr "未設定"
 msgid "Operation:"
 msgstr "操作："
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1138
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1143
 msgid "Paid event"
 msgstr "有料イベント"
 
@@ -494,32 +496,32 @@ msgstr "⌘+Enterで続ける"
 msgid "Press ⌘+Enter to generate"
 msgstr "⌘+Enterで生成"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:819
+#: src/components/organisms/CreateLocationEventForm.re.mjs:824
 msgid "Price"
 msgstr "料金"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:474
+#: src/components/organisms/CreateLocationEventForm.re.mjs:479
 msgid "Private event"
 msgstr "プライベートイベント"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:488
+#: src/components/organisms/CreateLocationEventForm.re.mjs:493
 msgid "Public"
 msgstr "公開"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:490
+#: src/components/organisms/CreateLocationEventForm.re.mjs:495
 msgid "Public event"
 msgstr "公開イベント"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1049
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
 msgid "Read more..."
 msgstr "続きを読む..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:458
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1215
+#: src/components/organisms/CreateLocationEventForm.re.mjs:463
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1220
 msgid "Recreational"
 msgstr "レクリエーション"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1143
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1148
 msgid "Require payment from attendees"
 msgstr "参加者に支払いを求める"
 
@@ -527,22 +529,22 @@ msgstr "参加者に支払いを求める"
 msgid "Reset"
 msgstr "リセット"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1265
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1270
 msgid ""
 "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr ""
 "ランキングとレーティングを伴う本格的なプレイ。試合結果がプレイヤーレーティン"
 "グに影響する場合があります。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1049
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
 msgid "Show less"
 msgstr "折りたたむ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:921
+#: src/components/organisms/CreateLocationEventForm.re.mjs:926
 msgid "Skill level"
 msgstr "スキルレベル"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:688
+#: src/components/organisms/CreateLocationEventForm.re.mjs:693
 msgid "Start date and time"
 msgstr "開始日時"
 
@@ -554,17 +556,17 @@ msgstr "提案されたイベント"
 msgid "The action completed with GraphQL errors."
 msgstr "アクションはGraphQLエラーで完了しました。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:874
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
 msgid ""
 "The participation fee is charged automatically and transferred to your "
 "Stripe account."
 msgstr "参加費は自動的に請求され、あなたのStripeアカウントに振り込まれます。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1015
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1020
 msgid "This event is private"
 msgstr "このイベントは非公開です"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1015
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1020
 msgid "This event is public"
 msgstr "このイベントは公開です"
 
@@ -580,15 +582,15 @@ msgstr "タイトル:"
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動ステップの要求が多すぎます。手動で続行してください。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1409
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
 msgid "Update Event"
 msgstr "イベントを更新"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:862
+#: src/components/organisms/CreateLocationEventForm.re.mjs:867
 msgid "With Stripe"
 msgstr "Stripeあり"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:840
+#: src/components/organisms/CreateLocationEventForm.re.mjs:845
 msgid "Without Stripe"
 msgstr "Stripeなし"
 
@@ -605,9 +607,21 @@ msgstr "Stripeなし"
 #~ "収してください。また、RSVPリストで参加者の名前をクリックすることで、手動承"
 #~ "認することもできます。"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:851
+#~ msgid ""
+#~ "A refundable deposit is collected when someone joins. You can manually "
+#~ "approve attendees by clicking their name in the RSVP list."
+#~ msgstr ""
+#~ "参加時に返金可能なデポジットが徴収されます。RSVPリストで参加者の名前をク"
+#~ "リックすることで、手動で承認できます。"
+
 #: src/components/pages/CreateEventPage.re.mjs:136
 #~ msgid "choose the location where this event will be held."
 #~ msgstr "このイベントが開催される場所を選択してください。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#~ msgid "Connect a Stripe account"
+#~ msgstr "Stripeアカウントを連携する"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."

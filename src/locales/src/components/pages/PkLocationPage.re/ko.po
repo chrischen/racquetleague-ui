@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...더 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:449
+#: src/components/organisms/PkRSVPSection.re.mjs:508
 msgid "· {0} pending"
 msgstr "· {0} 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:447
+#: src/components/organisms/PkRSVPSection.re.mjs:506
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
@@ -87,7 +87,7 @@ msgstr "{0}개 이벤트"
 msgid "{0} events"
 msgstr "{0}개 이벤트"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:444
+#: src/components/organisms/PkRSVPSection.re.mjs:503
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
@@ -206,11 +206,11 @@ msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 msgid "← previous"
 msgstr "← 이전"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:510
+#: src/components/organisms/PkRSVPSection.re.mjs:569
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:305
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:348
 msgid "About"
 msgstr "소개"
 
@@ -246,9 +246,25 @@ msgstr "언제든지"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+msgid "APPROVE"
+msgstr "승인"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+msgid "Approve {0}"
+msgstr "{0} 승인"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+msgid "Approve for {eventTitle}"
+msgstr "{eventTitle}에 대해 승인"
+
 #: src/components/organisms/RsvpOptions.re.mjs:164
 msgid "Approve RSVP"
 msgstr "참가 승인"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+msgid "Approved players have moved into the confirmed list."
+msgstr "승인된 플레이어가 확정 목록으로 이동했습니다."
 
 #: src/components/organisms/RsvpOptions.re.mjs:253
 msgid "Are you sure you want to remove this person from the event?"
@@ -268,19 +284,19 @@ msgstr "보증금 승인"
 msgid "Available"
 msgstr "가능"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:318
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:170
 msgid "Available for the full event"
 msgstr "전체 이벤트 참가 가능"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:502
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
 msgid "Back to event"
 msgstr "이벤트로 돌아가기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:219
+#: src/components/organisms/PkRSVPSection.re.mjs:278
 msgid "balanced"
 msgstr "균형"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:288
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:331
 msgid "Based on recorded play"
 msgstr "기록된 경기 기반"
 
@@ -374,7 +390,11 @@ msgstr "지우기"
 msgid "Close profile form"
 msgstr "프로필 양식 닫기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:432
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+msgid "Close request review"
+msgstr "요청 검토 닫기"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
 msgid "Close swipe invitations"
 msgstr "스와이프 초대 닫기"
 
@@ -395,7 +415,7 @@ msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:278
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:321
 msgid "Computed rating"
 msgstr "산출된 레이팅"
 
@@ -408,7 +428,7 @@ msgstr "확인"
 msgid "Confirm move"
 msgstr "이동 확인"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:594
+#: src/components/organisms/PkRSVPSection.re.mjs:653
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
@@ -427,7 +447,7 @@ msgstr "이벤트 복사"
 msgid "Could not save your profile. Please try again."
 msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:766
+#: src/components/organisms/PkRSVPSection.re.mjs:854
 #: src/components/organisms/PkEventsAvailabilityDay.re.mjs:181
 #: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
@@ -496,8 +516,8 @@ msgstr "완료"
 msgid "Drag or resize within"
 msgstr "내에서 드래그하거나 크기 조정"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:484
-#: src/components/organisms/PkRSVPSection.re.mjs:501
+#: src/components/organisms/PkRSVPSection.re.mjs:543
+#: src/components/organisms/PkRSVPSection.re.mjs:560
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -541,7 +561,7 @@ msgstr "경기 점수 입력"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "동점 — 무승부로 기록됩니다"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:215
+#: src/components/organisms/PkRSVPSection.re.mjs:274
 msgid "even"
 msgstr "균등"
 
@@ -575,12 +595,12 @@ msgstr "이벤트가 업데이트되었습니다"
 msgid "events"
 msgstr "이벤트"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:494
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:525
 msgid "Everyone reviewed"
 msgstr "모두 검토 완료"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
 msgid "Female"
 msgstr "여성"
 
@@ -608,8 +628,8 @@ msgstr "슬롯 마감"
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:133
 msgid "Gender not provided"
 msgstr "성별 미제공"
 
@@ -649,27 +669,27 @@ msgstr "중급+"
 msgid "invite"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
 msgid "INVITE"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
 msgid "Invite {0}"
 msgstr "{0} 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:442
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
 msgid "Invite players"
 msgstr "플레이어 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
-msgid "Invite to {0}"
-msgstr "{0}에 초대"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+msgid "Invite to {eventTitle}"
+msgstr "{eventTitle}에 초대"
 
 #: src/components/organisms/EventInvites.re.mjs:402
 msgid "Invited and potential players"
 msgstr "초대된 플레이어 및 잠재적 플레이어"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:498
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
 msgid "Invited players have moved into the event's invited list."
 msgstr "초대된 플레이어가 이벤트의 초대 목록으로 이동되었습니다."
 
@@ -692,6 +712,14 @@ msgstr "대기자 명단 등록 (#{0})"
 #: src/components/organisms/PkEventRow.re.mjs:221
 msgid "Joined"
 msgstr "참가함"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+msgid "KEEP"
+msgstr "유지"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+msgid "Keep {0} pending"
+msgstr "{0} 대기 상태로 유지"
 
 #: src/components/organisms/ProfileModal.re.mjs:309
 msgid "Keep your player profile accurate and useful to the community."
@@ -727,8 +755,8 @@ msgstr "간략히"
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:336
-#: src/components/organisms/PkRSVPSection.re.mjs:357
+#: src/components/organisms/PkRSVPSection.re.mjs:395
+#: src/components/organisms/PkRSVPSection.re.mjs:416
 msgid "LEVEL RESTRICTION"
 msgstr "레벨 제한"
 
@@ -766,7 +794,7 @@ msgid "Lower intermediate and above"
 msgstr "중하급 이상"
 
 #: src/components/organisms/ProfileModal.re.mjs:497
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:130
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
 msgid "Male"
 msgstr "남성"
 
@@ -779,7 +807,7 @@ msgstr "가능 표시"
 msgid "Matches will be submitted to DUPR."
 msgstr "경기 결과가 DUPR에 제출됩니다."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:493
+#: src/components/organisms/PkRSVPSection.re.mjs:552
 msgid "MEDIAN"
 msgstr "중간값"
 
@@ -787,7 +815,7 @@ msgstr "중간값"
 msgid "Minimum event level"
 msgstr "최소 이벤트 레벨"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:222
+#: src/components/organisms/PkRSVPSection.re.mjs:281
 msgid "mixed"
 msgstr "혼합"
 
@@ -828,6 +856,10 @@ msgstr "{venue}에는 전체 이벤트 시간을 커버하는 코트가 없습�
 msgid "No court is currently available for an entire selected window."
 msgstr "현재 선택한 전체 시간대에 이용 가능한 코트가 없습니다."
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+msgid "No message left with the request"
+msgstr "요청과 함께 남긴 메시지가 없습니다"
+
 #: src/components/organisms/EventLocationAvailability.re.mjs:512
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr "근처 다른 장소에는 이벤트 시간 동안 사용 가능한 코트가 없습니다."
@@ -856,11 +888,11 @@ msgstr "사용 불가"
 msgid "Not now"
 msgstr "나중에"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:269
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:312
 msgid "Not provided"
 msgstr "미제공"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:293
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:336
 msgid "Not yet rated"
 msgstr "아직 평가되지 않음"
 
@@ -892,7 +924,7 @@ msgstr "이 시간대의 다른 장소"
 msgid "Other times at {venue}"
 msgstr "{venue}의 다른 시간대"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:414
+#: src/components/organisms/PkRSVPSection.re.mjs:473
 msgid "Participants"
 msgstr "참가자"
 
@@ -924,7 +956,7 @@ msgstr "자리 확정을 위해 결제가 필요합니다"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:725
+#: src/components/organisms/PkRSVPSection.re.mjs:784
 msgid "Pending · {0}"
 msgstr "대기 중 · {0}"
 
@@ -1044,11 +1076,11 @@ msgstr "이 RSVP 제거"
 msgid "Repeat"
 msgstr "반복"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:340
+#: src/components/organisms/PkRSVPSection.re.mjs:399
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "필수: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:361
+#: src/components/organisms/PkRSVPSection.re.mjs:420
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
 
@@ -1060,9 +1092,17 @@ msgstr "예약"
 msgid "Results will be submitted to competitive ratings."
 msgstr "결과가 경쟁 레이팅에 제출됩니다."
 
+#: src/components/organisms/PkRSVPSection.re.mjs:800
+msgid "Review {0} pending requests with swipe cards"
+msgstr "스와이프 카드로 대기 중인 요청 {0}건 검토"
+
 #: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "스와이프 카드로 잠재적 플레이어 {0}명 검토"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+msgid "Review requests"
+msgstr "요청 검토"
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
 msgid "Round {0}"
@@ -1097,7 +1137,7 @@ msgstr "프로필 저장"
 msgid "Save Score"
 msgstr "점수 저장"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:254
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
 msgid "Self-rating"
 msgstr "자가 평가"
 
@@ -1141,11 +1181,11 @@ msgstr "간략히 보기"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "기술 향상을 위한 스킬 연습 및 드릴"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:198
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
 msgid "SKIP"
 msgstr "건너뛰기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
 msgid "Skip {0}"
 msgstr "{0} 건너뛰기"
 
@@ -1153,7 +1193,7 @@ msgstr "{0} 건너뛰기"
 msgid "SORTED BY START TIME"
 msgstr "시작 시간 순 정렬"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:554
+#: src/components/organisms/PkRSVPSection.re.mjs:613
 msgid "SPREAD"
 msgstr "분산"
 
@@ -1165,9 +1205,17 @@ msgstr "일요일"
 msgid "Swipe invites"
 msgstr "스와이프 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:556
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+msgid "Swipe left to keep pending · right to approve"
+msgstr "왼쪽으로 스와이프하면 대기 유지 · 오른쪽으로 스와이프하면 승인"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
 msgid "Swipe left to skip · right to invite"
 msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:798
+msgid "Swipe review"
+msgstr "스와이프 검토"
 
 #: src/components/molecules/AddToCalendar.re.mjs:107
 msgid "sync calendar"
@@ -1277,7 +1325,7 @@ msgstr "도쿄"
 msgid "Tomorrow"
 msgstr "내일"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:476
+#: src/components/organisms/PkRSVPSection.re.mjs:535
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
@@ -1328,11 +1376,15 @@ msgstr "슬롯 보기"
 msgid "VS"
 msgstr "VS"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+msgid "Waiting for approval to join"
+msgstr "참가 승인 대기 중"
+
 #: src/components/organisms/PkEventRow.re.mjs:557
 msgid "Waitlist"
 msgstr "대기자 명단"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:660
+#: src/components/organisms/PkRSVPSection.re.mjs:719
 msgid "Waitlist · {0}"
 msgstr "대기자 명단 · {0}"
 
@@ -1392,7 +1444,7 @@ msgstr "참가 완료"
 msgid "Your availability in this slot"
 msgstr "이 슬롯에서 나의 가용성"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:344
+#: src/components/organisms/PkRSVPSection.re.mjs:403
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -1562,9 +1614,9 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgid "hr"
 #~ msgstr "시간"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.tsx:330
-#~ msgid "Invite to {eventTitle}"
-#~ msgstr "{eventTitle}에 초대"
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
+#~ msgid "Invite to {0}"
+#~ msgstr "{0}에 초대"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.tsx:181
 #~ msgid "Invited players have moved into the event’s invited list."

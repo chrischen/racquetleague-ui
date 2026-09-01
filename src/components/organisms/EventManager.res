@@ -901,14 +901,16 @@ let make = (
   let modernizeStrategy = (s: strategy): strategy =>
     if HighsBindings.isAvailable() {
       switch s {
-      | CompetitivePlus | Competitive | DUPR => SolverCompetitivePlus
+      // Competitive+ now means the adaptive profile (`SolverCompetitivePlus`); the
+      // static one is no longer selectable, so events holding it upgrade.
+      | CompetitivePlus | Competitive | DUPR | SolverCompetitivePlusStatic => SolverCompetitivePlus
       | Mixed | Random => SolverRandomBalanced
       | RoundRobin | NoveltyRoundRobin => SolverRoundRobin
-      | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus | SolverAuto => s
+      | SolverRoundRobin | SolverRandomBalanced | SolverCompetitivePlus => s
       }
     } else {
       switch s {
-      | SolverCompetitivePlus | SolverAuto => CompetitivePlus
+      | SolverCompetitivePlusStatic | SolverCompetitivePlus => CompetitivePlus
       | SolverRandomBalanced => Mixed
       | SolverRoundRobin => NoveltyRoundRobin
       | _ => s
@@ -1761,8 +1763,8 @@ let make = (
       | Mixed
       | SolverRoundRobin
       | SolverRandomBalanced
-      | SolverCompetitivePlus
-      | SolverAuto => true
+      | SolverCompetitivePlusStatic
+      | SolverCompetitivePlus => true
       // Pure-novelty strategies read partner and bye history, which a score
       // does not change.
       | RoundRobin | Random | DUPR | NoveltyRoundRobin => false
@@ -1838,7 +1840,7 @@ let make = (
     EventManagerPersistence.saveWeightConfig(data.id, config)
   }
 
-  // Back to the strategy's tuned preset (and, for Auto, the live blend).
+  // Back to the strategy's tuned preset (and, for Competitive+, the live blend).
   let handleWeightConfigReset = () => {
     setWeightConfig(_ => None)
     setIsDirty(_ => true)
@@ -1852,13 +1854,13 @@ let make = (
   | None => CostModel.presetConfig(strategy)
   }
 
-  // Auto's live blend position, for the panel's display: computed from the
+  // Competitive+'s live blend position, for the panel's display: computed from the
   // same rated player state generation uses, so the values shown are the
   // values the next draw will be built with. None once customised — a stored
   // config freezes the mix and the display follows the store instead.
-  let autoBlendT =
-    strategy == SolverAuto && weightConfig->Option.isNone
-      ? Some(CostModel.autoT(CostModel.readinessRatio(checkedInPlayers)))
+  let blendT =
+    strategy == SolverCompetitivePlus && weightConfig->Option.isNone
+      ? Some(CostModel.adaptiveBlend(CostModel.readinessRatio(checkedInPlayers)))
       : None
 
   // First solve of a session waits on the wasm download, which is worth calling
@@ -2388,7 +2390,7 @@ let make = (
               onGenerateDraws={handleGenerateDraws}
               weightConfig={effectiveWeightConfig}
               weightConfigIsCustom={weightConfig->Option.isSome}
-              autoBlendT=?{autoBlendT}
+              blendT=?{blendT}
               onWeightConfigChange={handleWeightConfigChange}
               onWeightConfigReset={handleWeightConfigReset}
               drawSeed
@@ -2425,7 +2427,7 @@ let make = (
                     onGenerateDraws={handleGenerateDraws}
                     weightConfig={effectiveWeightConfig}
                     weightConfigIsCustom={weightConfig->Option.isSome}
-                    autoBlendT=?{autoBlendT}
+                    blendT=?{blendT}
                     onWeightConfigChange={handleWeightConfigChange}
                     onWeightConfigReset={handleWeightConfigReset}
                     drawSeed
@@ -2619,7 +2621,7 @@ let make = (
                         onGenerateDraws={handleGenerateDraws}
                         weightConfig={effectiveWeightConfig}
                         weightConfigIsCustom={weightConfig->Option.isSome}
-                        autoBlendT=?{autoBlendT}
+                        blendT=?{blendT}
                         onWeightConfigChange={handleWeightConfigChange}
                         onWeightConfigReset={handleWeightConfigReset}
                         drawSeed

@@ -85,18 +85,13 @@ function DrawGenerator(props) {
       },
       {
         value: "SolverRandomBalanced",
-        label: t`Random Balanced`,
+        label: t`Balanced Round Robin`,
         description: t`Fresh, varied matchups every round, with each match's teams balanced by skill.`
       },
       {
         value: "SolverCompetitivePlus",
         label: t`Competitive+`,
-        description: t`Optimised draws that prioritise evenly matched games within a skill band.`
-      },
-      {
-        value: "SolverAuto",
-        label: t`Auto`,
-        description: t`Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle.`
+        description: t`Evenly matched games within a skill band. While ratings are still new it mixes players to learn them first, then bands as the rankings settle.`
       }
     ] : [
       {
@@ -265,7 +260,7 @@ function DrawGenerator(props) {
                           config: weightConfig,
                           onChange: onWeightConfigChange,
                           isCustom: weightConfigIsCustom,
-                          autoBlendT: props.autoBlendT,
+                          blendT: props.blendT,
                           onReset: props.onWeightConfigReset
                         }) : null,
                   canGenerate ? null : JsxRuntime.jsx("div", {

@@ -399,10 +399,10 @@ function strategyToString(strategy) {
         return "solver-round-robin";
     case "SolverRandomBalanced" :
         return "solver-random-balanced";
+    case "SolverCompetitivePlusStatic" :
+        return "solver-competitive-plus-static";
     case "SolverCompetitivePlus" :
         return "solver-competitive-plus";
-    case "SolverAuto" :
-        return "solver-auto";
     
   }
 }
@@ -422,10 +422,11 @@ function stringToStrategy(str) {
     case "round-robin" :
         return "RoundRobin";
     case "solver-auto" :
-        return "SolverAuto";
     case "solver-competitive" :
     case "solver-competitive-plus" :
         return "SolverCompetitivePlus";
+    case "solver-competitive-plus-static" :
+        return "SolverCompetitivePlusStatic";
     case "solver-balanced" :
     case "solver-random-balanced" :
         return "SolverRandomBalanced";

@@ -162,7 +162,8 @@ function CreateEventPage(props) {
               })),
         cancelDeadline: Core__Option.flatMap(cancelDeadlineParam, (function (v) {
                 return Core__Int.fromString(v, undefined);
-              }))
+              })),
+        fromExistingEvent: true
       }) : undefined;
   var handleSingleEventSuggested = function (eventDetails) {
     var startDate = new Date(eventDetails.date);

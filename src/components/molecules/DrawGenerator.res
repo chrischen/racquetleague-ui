@@ -22,9 +22,9 @@ let make = (
   // Whether `weightConfig` is a stored customisation rather than the current
   // strategy's preset; drives the panel's "Custom" affordances.
   ~weightConfigIsCustom: bool=false,
-  // Auto's live blend position, from the caller's current rating state. Only
-  // ever Some while the Auto preset is selected and uncustomised.
-  ~autoBlendT: option<float>=?,
+  // Competitive+'s live blend position, from the caller's current rating
+  // state. Only ever Some while that preset is selected and uncustomised.
+  ~blendT: option<float>=?,
   ~onWeightConfigChange: option<CostModel.uiWeightConfig => unit>=?,
   // Clears the stored customisation, returning to the strategy's preset.
   ~onWeightConfigReset: option<unit => unit>=?,
@@ -78,18 +78,17 @@ let make = (
         },
         {
           value: Rating.SolverRandomBalanced,
-          label: ts`Random Balanced`,
+          label: ts`Balanced Round Robin`,
           description: ts`Fresh, varied matchups every round, with each match's teams balanced by skill.`,
         },
         {
+          // The adaptive variant, offered under the familiar name. It is
+          // identical to the static `SolverCompetitivePlusStatic` once ratings carry
+          // any spread, and only differs by calibrating first when they do
+          // not — so there is nothing to gain from offering both.
           value: Rating.SolverCompetitivePlus,
           label: ts`Competitive+`,
-          description: ts`Optimised draws that prioritise evenly matched games within a skill band.`,
-        },
-        {
-          value: Rating.SolverAuto,
-          label: ts`Auto`,
-          description: ts`Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle.`,
+          description: ts`Evenly matched games within a skill band. While ratings are still new it mixes players to learn them first, then bands as the rankings settle.`,
         },
       ]
     : [
@@ -310,7 +309,7 @@ let make = (
                       config
                       onChange
                       isCustom=weightConfigIsCustom
-                      autoBlendT=?{autoBlendT}
+                      blendT=?{blendT}
                       onReset=?{onWeightConfigReset}
                     />
                   | _ => React.null

@@ -15,11 +15,13 @@ import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as PlayerInviteSwipeDeck from "./PlayerInviteSwipeDeck.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as PkRSVPSection_user_graphql from "../../__generated__/PkRSVPSection_user_graphql.re.mjs";
 import * as PkRSVPSection_event_graphql from "../../__generated__/PkRSVPSection_event_graphql.re.mjs";
 import * as PkRSVPSectionAddUserMutation_graphql from "../../__generated__/PkRSVPSectionAddUserMutation_graphql.re.mjs";
+import * as PkRSVPSectionUpdateListTypeMutation_graphql from "../../__generated__/PkRSVPSectionUpdateListTypeMutation_graphql.re.mjs";
 import * as PkRSVPSectionCaptureAllPaymentsMutation_graphql from "../../__generated__/PkRSVPSectionCaptureAllPaymentsMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -52,15 +54,35 @@ var Fragment = {
   useOpt: useOpt
 };
 
-var convertVariables = PkRSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+var convertVariables = PkRSVPSectionUpdateListTypeMutation_graphql.Internal.convertVariables;
 
-var convertResponse = PkRSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+var convertResponse = PkRSVPSectionUpdateListTypeMutation_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse = PkRSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse = PkRSVPSectionUpdateListTypeMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, PkRSVPSectionAddUserMutation_graphql.node, convertResponse, convertWrapRawResponse);
+var commitMutation = RescriptRelay_Mutation.commitMutation(convertVariables, PkRSVPSectionUpdateListTypeMutation_graphql.node, convertResponse, convertWrapRawResponse);
 
-var use$1 = RescriptRelay_Mutation.useMutation(convertVariables, PkRSVPSectionAddUserMutation_graphql.node, convertResponse, convertWrapRawResponse);
+var use$1 = RescriptRelay_Mutation.useMutation(convertVariables, PkRSVPSectionUpdateListTypeMutation_graphql.node, convertResponse, convertWrapRawResponse);
+
+var UpdateListTypeMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables,
+  convertResponse: convertResponse,
+  convertWrapRawResponse: convertWrapRawResponse,
+  commitMutation: commitMutation,
+  use: use$1
+};
+
+var convertVariables$1 = PkRSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+
+var convertResponse$1 = PkRSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$1 = PkRSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
 
 var PkRSVPSectionAddUserMutation_gender_decode = PkRSVPSectionAddUserMutation_graphql.Utils.gender_decode;
 
@@ -71,26 +93,6 @@ var PkRSVPSectionAddUserMutation = {
   gender_fromString: PkRSVPSectionAddUserMutation_gender_fromString,
   Operation: undefined,
   Types: undefined,
-  convertVariables: convertVariables,
-  convertResponse: convertResponse,
-  convertWrapRawResponse: convertWrapRawResponse,
-  commitMutation: commitMutation,
-  use: use$1
-};
-
-var convertVariables$1 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
-
-var convertResponse$1 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
-
-var convertWrapRawResponse$1 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
-
-var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
-
-var PkRSVPSectionCaptureAllPaymentsMutation = {
-  Operation: undefined,
-  Types: undefined,
   convertVariables: convertVariables$1,
   convertResponse: convertResponse$1,
   convertWrapRawResponse: convertWrapRawResponse$1,
@@ -98,9 +100,29 @@ var PkRSVPSectionCaptureAllPaymentsMutation = {
   use: use$2
 };
 
+var convertVariables$2 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
+
+var convertResponse$2 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$2 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var PkRSVPSectionCaptureAllPaymentsMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$2,
+  convertResponse: convertResponse$2,
+  convertWrapRawResponse: convertWrapRawResponse$2,
+  commitMutation: commitMutation$2,
+  use: use$3
+};
+
 var convertFragment$1 = PkRSVPSection_user_graphql.Internal.convertFragment;
 
-function use$3(fRef) {
+function use$4(fRef) {
   return RescriptRelay_Fragment.useFragment(PkRSVPSection_user_graphql.node, convertFragment$1, fRef);
 }
 
@@ -112,23 +134,29 @@ var UserFragment = {
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment$1,
-  use: use$3,
+  use: use$4,
   useOpt: useOpt$1
 };
 
 function PkRSVPSection(props) {
   var eventData = use(props.event);
   var viewerUser = Core__Option.map(props.user, (function (u) {
-          return use$3(u);
+          return use$4(u);
         }));
   var match = React.useState(function () {
         return false;
       });
   var setIsAddingPlayer = match[1];
-  var match$1 = use$1();
-  var commitMutationAddUser = match$1[0];
-  var match$2 = use$2();
-  var commitCaptureAll = match$2[0];
+  var match$1 = React.useState(function () {
+        return false;
+      });
+  var setPendingSwipeOpen = match$1[1];
+  var match$2 = use$1();
+  var commitUpdateListType = match$2[0];
+  var match$3 = use$2();
+  var commitMutationAddUser = match$3[0];
+  var match$4 = use$3();
+  var commitCaptureAll = match$4[0];
   var handleAddUser = function (user) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventData.id, "PkRSVPSection_event_rsvps", undefined);
     commitMutationAddUser({
@@ -187,6 +215,37 @@ function PkRSVPSection(props) {
       });
   var waitlistCount = waitlistRsvps.length;
   var pendingCount = pendingRsvps.length;
+  var pendingReviewPlayers = Core__Array.filterMap(pendingRsvps, (function (n) {
+          return Core__Option.map(n.user, (function (u) {
+                        var name = Core__Option.getOr(u.lineUsername, "?");
+                        return {
+                                id: n.id,
+                                name: name,
+                                source: {
+                                  TAG: "FromProfile",
+                                  _0: {
+                                    displayName: name,
+                                    picture: u.picture,
+                                    gender: u.gender,
+                                    biography: u.biography,
+                                    selfDupr: Core__Option.map(u.selfRating, Rating.guessDupr),
+                                    computedDupr: Core__Option.map(Core__Option.flatMap(n.rating, (function (r) {
+                                                return r.mu;
+                                              })), Rating.guessDupr),
+                                    note: n.message
+                                  }
+                                }
+                              };
+                      }));
+        }));
+  var handleApprove = function (rsvpId) {
+    commitUpdateListType({
+          input: {
+            listType: 0,
+            rsvpId: rsvpId
+          }
+        }, undefined, undefined, undefined, undefined, undefined, undefined);
+  };
   var mus = confirmedRsvps.map(function (n) {
         return Core__Option.getOr(Core__Option.flatMap(n.rating, (function (r) {
                           return r.mu;
@@ -200,7 +259,7 @@ function PkRSVPSection(props) {
           }
         }));
   var maxRating$1 = maxRating === 0 ? 1 : maxRating;
-  var match$3;
+  var match$5;
   if (mus.length >= 2) {
     var duprVals = mus.map(Rating.guessDupr);
     var n = duprVals.length;
@@ -211,7 +270,7 @@ function PkRSVPSection(props) {
             return acc + (v - mean) * (v - mean);
           })) / n;
     var stdDev = Math.sqrt(variance);
-    var match$4 = stdDev < 0.3 ? [
+    var match$6 = stdDev < 0.3 ? [
         t`even`,
         "text-emerald-500 dark:text-emerald-400"
       ] : (
@@ -223,13 +282,13 @@ function PkRSVPSection(props) {
             "text-amber-500 dark:text-amber-400"
           ]
       );
-    match$3 = [
+    match$5 = [
       "±" + stdDev.toFixed(2),
-      match$4[0],
-      match$4[1]
+      match$6[0],
+      match$6[1]
     ];
   } else {
-    match$3 = [
+    match$5 = [
       "—",
       "",
       "text-gray-400 dark:text-gray-500"
@@ -430,7 +489,7 @@ function PkRSVPSection(props) {
                                             }),
                                         className: "p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40",
                                         title: "Capture all payments",
-                                        disabled: match$2[1],
+                                        disabled: match$4[1],
                                         onClick: (function (param) {
                                             commitCaptureAll({
                                                   eventId: eventData.id
@@ -555,12 +614,12 @@ function PkRSVPSection(props) {
                                       className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: match$3[0],
+                                      children: match$5[0],
                                       className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: match$3[1],
-                                      className: "font-mono text-[11px] mt-0.5 " + match$3[2]
+                                      children: match$5[1],
+                                      className: "font-mono text-[11px] mt-0.5 " + match$5[2]
                                     })
                               ],
                               className: "px-3 py-2.5"
@@ -728,9 +787,27 @@ function PkRSVPSection(props) {
                                       }),
                                   JsxRuntime.jsx("div", {
                                         className: "h-px flex-1 bg-gray-200 dark:bg-[#3a3b40]"
-                                      })
+                                      }),
+                                  eventData.viewerIsAdmin && pendingReviewPlayers.length > 0 ? JsxRuntime.jsxs("button", {
+                                          children: [
+                                            JsxRuntime.jsx(LucideReact.Layers, {
+                                                  size: 10,
+                                                  strokeWidth: 2.5,
+                                                  "aria-hidden": "true"
+                                                }),
+                                            t`Swipe review`
+                                          ],
+                                          "aria-label": t`Review ${pendingReviewPlayers.length.toString()} pending requests with swipe cards`,
+                                          className: "absolute right-0 top-1/2 inline-flex -translate-y-1/2 items-center gap-1 rounded-md bg-amber-500 px-2 py-1 text-[9px] font-semibold text-white transition-colors hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:bg-amber-500 dark:hover:bg-amber-400 dark:hover:text-amber-950",
+                                          type: "button",
+                                          onClick: (function (param) {
+                                              setPendingSwipeOpen(function (param) {
+                                                    return true;
+                                                  });
+                                            })
+                                        }) : null
                                 ],
-                                className: "flex items-center gap-2 mb-2"
+                                className: "relative flex items-center gap-2 mb-2"
                               }),
                           JsxRuntime.jsx("div", {
                                 children: pendingRsvps.map(function (edge) {
@@ -749,6 +826,17 @@ function PkRSVPSection(props) {
                               })
                         ],
                         className: "mt-2.5"
+                      }) : null,
+                match$1[0] ? JsxRuntime.jsx(PlayerInviteSwipeDeck.make, {
+                        players: pendingReviewPlayers,
+                        eventTitle: Core__Option.getOr(eventData.title, ""),
+                        mode: "Approve",
+                        onAccept: handleApprove,
+                        onClose: (function () {
+                            setPendingSwipeOpen(function (param) {
+                                  return false;
+                                });
+                          })
                       }) : null,
                 JsxRuntime.jsx(EventInvites.make, {
                       eventId: eventData.id,
@@ -800,6 +888,7 @@ var make = PkRSVPSection;
 
 export {
   Fragment ,
+  UpdateListTypeMutation ,
   PkRSVPSectionAddUserMutation ,
   PkRSVPSectionCaptureAllPaymentsMutation ,
   UserFragment ,

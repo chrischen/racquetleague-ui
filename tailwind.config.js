@@ -61,7 +61,19 @@ export default {
           800: '#c182f8',
           900: '#8d6ba6',
         },
-        leaguePrimary: '#BC012C'
+        leaguePrimary: '#BC012C',
+        // Camera kiosk palette (see src/components/organisms/Kiosk.res).
+        kiosk: {
+          bg: '#0A0D11',
+          surface: '#12161C',
+          raised: '#181E26',
+          border: '#242C36',
+          muted: '#8A94A3',
+          accent: '#C6FF3D',
+          accentDark: '#9FDE00',
+          court: '#355D49',
+          courtLight: '#416D56',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -95,6 +107,15 @@ export default {
       minHeight: theme => ({
         ...theme('spacing'),
       }),
+      // The aspect-ratio plugin replaces theme.aspectRatio with its numeric
+      // scale, which silently kills the core aspect-auto/square/video
+      // utilities; restore them here (the root-level aspectRatio block below
+      // is outside `theme` and has no effect).
+      aspectRatio: {
+        auto: 'auto',
+        square: '1 / 1',
+        video: '16 / 9',
+      },
     },
   },
   aspectRatio: {

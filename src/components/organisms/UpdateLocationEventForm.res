@@ -86,6 +86,9 @@ let make = (~event, ~location, ~query, ~isCopy=false, ~viewerStripeChargesEnable
     tags: ?eventData.tags,
     price: ?eventData.price,
     cancelDeadline: ?eventData.cancelDeadline,
+    // Editing and copying both mirror the source event, so the form must not
+    // layer its new-event defaults over fields the source event left unset.
+    fromExistingEvent: true,
   }
 
   <>

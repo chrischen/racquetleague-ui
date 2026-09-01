@@ -48,7 +48,7 @@ const THRESHOLDS = {
   rankCorrelation: 0.7,
 };
 
-const SOLVER_PRESETS = ["SolverRoundRobin", "SolverRandomBalanced", "SolverCompetitivePlus"];
+const SOLVER_PRESETS = ["SolverRoundRobin", "SolverRandomBalanced", "SolverCompetitivePlusStatic"];
 
 const flatSkill = (i: number) => 20 + (i % 8) * 1.5;
 
@@ -153,7 +153,7 @@ describe("simulated sessions", () => {
 
   it("scenario 5: skewed skills — the outlier is not parked with the weakest", async () => {
     const results = await runSeeds({
-      strategy: "SolverCompetitivePlus",
+      strategy: "SolverCompetitivePlusStatic",
       numPlayers: 16,
       courts: 4,
       // One player far above the pool, plus two clusters.
@@ -162,8 +162,14 @@ describe("simulated sessions", () => {
     });
 
     results.forEach((result) => {
-      const strongest = result.initialPlayers[0].id;
-      const weakest = new Set(result.initialPlayers.slice(8).map((p) => p.id));
+      // Rank by hidden truth: player slots no longer carry skill order (the
+      // harness deals the ladder out in a seeded permutation), so slice(0)
+      // and slice(8) would pick arbitrary players.
+      const byTruth = [...result.initialPlayers].sort(
+        (a, b) => result.theta[b.id] - result.theta[a.id],
+      );
+      const strongest = byTruth[0].id;
+      const weakest = new Set(byTruth.slice(8).map((p) => p.id));
       const carries = result.rounds
         .flatMap((round) => round)
         .filter(({ match }) => {
@@ -284,7 +290,7 @@ describe("simulated sessions", () => {
 
   it("delivers match quality on the competitive preset", async () => {
     const results = await runSeeds({
-      strategy: "SolverCompetitivePlus",
+      strategy: "SolverCompetitivePlusStatic",
       numPlayers: 16,
       courts: 4,
       numRounds: 8,
@@ -386,7 +392,7 @@ describe("simulated sessions", () => {
     const randomBalanced = rbResults.map((r) => analyze(r));
     // ...and it balances without banding the courts.
     expect(meanOf(randomBalanced.map((m) => m.meanSpread))).toBeGreaterThan(
-      meanOf((await runPreset("SolverCompetitivePlus")).map((m) => m.meanSpread)),
+      meanOf((await runPreset("SolverCompetitivePlusStatic")).map((m) => m.meanSpread)),
     );
   }, 1_200_000);
 
@@ -426,7 +432,7 @@ describe("simulated sessions", () => {
       meanOf(variety.legacy.map((m) => m.maxGames - m.minGames)),
     );
 
-    const competitive = await compare("SolverCompetitivePlus", "Competitive");
+    const competitive = await compare("SolverCompetitivePlusStatic", "Competitive");
     expect(meanOf(competitive.solver.map((m) => m.meanMuGap))).toBeLessThanOrEqual(
       meanOf(competitive.legacy.map((m) => m.meanMuGap)),
     );

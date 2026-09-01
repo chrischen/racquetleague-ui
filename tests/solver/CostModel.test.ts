@@ -109,7 +109,7 @@ describe("CostModel weight mapping", () => {
     for (const strategy of [
       "SolverRoundRobin",
       "SolverRandomBalanced",
-      "SolverCompetitivePlus",
+      "SolverCompetitivePlusStatic",
     ]) {
       const preset = CostModel.presetConfig(strategy);
       const restored = CostModel.configFromJsonString(
@@ -187,7 +187,7 @@ describe("CostModel preset profiles", () => {
   // axis; these pin the structural properties each use case depends on.
   const rr = CostModel.weightsForStrategy("SolverRoundRobin"); // Round Robin
   const rb = CostModel.weightsForStrategy("SolverRandomBalanced"); // Random Balanced
-  const cp = CostModel.weightsForStrategy("SolverCompetitivePlus"); // Competitive+
+  const cp = CostModel.weightsForStrategy("SolverCompetitivePlusStatic"); // Competitive+
 
   it("keeps novelty dominant in the novelty-first presets", () => {
     // One repeated partnership (repeatFloor 0.4 of the normalized scale) must
@@ -244,7 +244,7 @@ describe("CostModel preset profiles", () => {
     for (const strategy of [
       "SolverRoundRobin",
       "SolverRandomBalanced",
-      "SolverCompetitivePlus",
+      "SolverCompetitivePlusStatic",
     ]) {
       expect(CostModel.weightsForStrategy(strategy)).toEqual(
         CostModel.weightsFromConfig(CostModel.presetConfig(strategy)),
@@ -458,7 +458,7 @@ describe("CostModel bye fairness", () => {
       roundsSinceLastBye: new Map([["p0", 99]]),
     };
     const benefit = CostModel.playerBenefit(
-      CostModel.weightsForStrategy("SolverCompetitivePlus"), // cohort at its cap
+      CostModel.weightsForStrategy("SolverCompetitivePlusStatic"), // cohort at its cap
       history,
       makePlayer(0, { count: 0 }),
       true,

@@ -1,0 +1,1133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-01 10:42+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:421
+msgid ""
+"· % chance the game ends level · solid: Competitive+ · dashed: random, avoid "
+"repeats"
+msgstr ""
+"· % โอกาสที่เกมจะจบแบบเสมอกัน · เส้นทึบ: Competitive+ · เส้นประ: สุ่ม, หลีกเลี่ยงคู่ซ้ำ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:750
+#: src/components/organisms/MatchmakingReport.re.mjs:818
+#: src/components/organisms/MatchmakingReport.re.mjs:889
+msgid "· % chance the game ends level, by true skill · higher is better"
+msgstr "· % โอกาสที่เกมจบเสมอ โดยทักษะจริง · ยิ่งสูงยิ่งดี"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:950
+msgid "· % of games decided by 9+ · lower is better"
+msgstr "· % ของเกมที่ตัดสินด้วยแต้มต่าง 9+ · ยิ่งต่ำยิ่งดี"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:769
+#: src/components/organisms/MatchmakingReport.re.mjs:843
+#: src/components/organisms/MatchmakingReport.re.mjs:908
+#: src/components/organisms/MatchmakingReport.re.mjs:927
+msgid "· mean ladder places off · lower is better"
+msgstr "· ค่าเฉลี่ยอันดับบันไดที่คลาดเคลื่อน · ยิ่งต่ำยิ่งดี"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1136
+msgid "18,900 rounds solved"
+msgstr "แก้โจทย์แล้ว 18,900 รอบ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1139
+msgid "24 players · 4 court"
+msgstr "ผู้เล่น 24 คน · 4 สนาม"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1142
+msgid "7 seeds per club"
+msgstr "7 ซีดต่อคลับ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1123
+msgid ""
+"75,600 simulated games, nine strategies, three kinds of club — and one clear "
+"recommendation."
+msgstr "75,600 เกมจำลอง เก้ากลยุทธ์ สามประเภทคลับ — และหนึ่งข้อแนะนำที่ชัดเจน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:681
+msgid ""
+"A lopsided match that wastes one side's time. An 11–0 “pickle” is the "
+"canonical example."
+msgstr "แมตช์ที่ห่างชั้นกันมากซึ่งทำให้ฝ่ายหนึ่งเสียเวลาเปล่า ตัวอย่างคลาสสิกคือ “pickle” 11–0"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:965
+msgid ""
+"A tight club gives the best floor — random dealing manages 64% quality there "
+"against 46% in a varied club — at some cost in ranking accuracy, since "
+"players who are genuinely close are hard to order. But controlling the "
+"roster does not control the matchups: dealt randomly, that same club still "
+"blows out 46% of its games; Competitive+ blows out 8% and holds 79% quality. "
+"The gap exists because skill is not a fixed number. Even hand-picked members "
+"fluctuate wildly day to day — improving in bursts, slumping, showing up "
+"tired — and a rating system accounts for that in real time, adjusting after "
+"every game, so each sessions' matches are built on current form rather than "
+"on the level everyone was admitted at. Pkuru keeps hidden ratings even for "
+"“unrated” events, so no one's public rating is at stake, and the same "
+"ratings pair you with the right drilling partner — even for drills, evenly "
+"matched partners matter. (I often prefer a wall: it beats most human "
+"drilling partners.)"
+msgstr ""
+"คลับที่ระดับฝีมือใกล้เคียงกันให้พื้นคุณภาพที่ดีที่สุด — การจับคู่แบบสุ่มยังได้คุณภาพ 64% ที่นั่น เทียบกับ 46% "
+"ในคลับที่ฝีมือหลากหลาย — โดยแลกกับความแม่นยำของการจัดอันดับบางส่วน "
+"เพราะผู้เล่นที่ฝีมือใกล้กันจริง ๆ นั้นยากที่จะเรียงลำดับ "
+"แต่การควบคุมรายชื่อสมาชิกไม่ได้ควบคุมการจับคู่: หากจับคู่แบบสุ่ม คลับเดียวกันนั้นก็ยังมีเกมที่ห่างชั้นถึง "
+"46% ขณะที่ Competitive+ ห่างชั้นเพียง 8% และรักษาคุณภาพไว้ที่ 79% "
+"ช่องว่างนี้เกิดขึ้นเพราะฝีมือไม่ใช่ตัวเลขที่หยุดนิ่ง "
+"แม้แต่สมาชิกที่คัดมาด้วยมือก็ยังผันผวนอย่างมากในแต่ละวัน — พัฒนาขึ้นเป็นช่วง ๆ ตกฟอร์ม "
+"หรือมาเล่นตอนเหนื่อย — และระบบเรตติ้งคำนึงถึงสิ่งเหล่านั้นแบบเรียลไทม์ โดยปรับหลังจบทุกเกม "
+"ทำให้แมตช์ในแต่ละเซสชันสร้างขึ้นจากฟอร์มปัจจุบัน ไม่ใช่จากระดับที่ทุกคนถูกรับเข้ามา Pkuru "
+"เก็บเรตติ้งที่ซ่อนไว้แม้ในอีเวนต์แบบ “ไม่คิดเรตติ้ง” จึงไม่มีใครต้องเสี่ยงกับเรตติ้งสาธารณะของตน "
+"และเรตติ้งชุดเดียวกันนี้ก็จับคู่คุณกับคู่ซ้อมที่เหมาะสม — แม้แต่การซ้อม คู่ที่ฝีมือใกล้กันก็สำคัญ "
+"(ผมมักชอบกำแพงมากกว่า: มันดีกว่าคู่ซ้อมมนุษย์ส่วนใหญ่)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:718
+msgid ""
+"A tight club here means everyone within about 0.68 DUPR points, most of the "
+"pack inside 0.4 — and it is where matchmaking should matter least. For the "
+"opening rounds it is: with everyone close, any way of dealing the courts "
+"produces playable games. But small differences still decide games, and the "
+"ratings learn them fast. Competitive+ holds a sustained lead over the avoid-"
+"repeats baseline from about round 5. One session in, it is blowing out 33% "
+"of games to the baseline's 44%; with mature ratings that becomes 8% against "
+"46% — and Balanced Round Robin's 20%:"
+msgstr ""
+"คลับที่ฝีมือใกล้เคียงกันในที่นี้หมายถึงทุกคนอยู่ในช่วงประมาณ 0.68 คะแนน DUPR โดยส่วนใหญ่อยู่ในช่วง "
+"0.4 — และเป็นกรณีที่การจับคู่ควรมีผลน้อยที่สุด สำหรับรอบแรก ๆ ก็เป็นเช่นนั้นจริง: "
+"เมื่อทุกคนฝีมือใกล้กัน วิธีจัดสนามแบบใดก็ให้เกมที่เล่นได้ แต่ความต่างเล็ก ๆ ก็ยังตัดสินเกม "
+"และเรตติ้งเรียนรู้มันได้เร็ว Competitive+ "
+"นำหน้าเกณฑ์พื้นฐานแบบหลีกเลี่ยงคู่ซ้ำอย่างต่อเนื่องตั้งแต่ประมาณรอบที่ 5 เมื่อผ่านไปหนึ่งเซสชัน "
+"มันมีเกมห่างชั้น 33% เทียบกับ 44% ของเกณฑ์พื้นฐาน และเมื่อเรตติ้งนิ่งแล้วตัวเลขกลายเป็น 8% "
+"เทียบกับ 46% — และ 20% ของ Balanced Round Robin:"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:689
+msgid ""
+"An organiser who knows everyone's true skill and rigs matches accordingly, "
+"overriding the ratings. Rigged matches starve the rating system: place a "
+"strong newcomer only against strong players and all the system sees is "
+"losses."
+msgstr ""
+"ผู้จัดที่รู้ฝีมือจริงของทุกคนและจัดแมตช์ตามนั้น โดยข้ามเรตติ้งไป "
+"แมตช์ที่จัดแบบนี้ทำให้ระบบเรตติ้งขาดข้อมูล: ถ้าจัดผู้เล่นใหม่ที่เก่งไปเจอเฉพาะผู้เล่นเก่ง "
+"ระบบก็จะเห็นแต่ความพ่ายแพ้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:114
+msgid "Balanced Round Robin"
+msgstr "Balanced Round Robin"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:835
+msgid ""
+"Balanced Round Robin converges best here too, but only by a hair over "
+"adaptive Competitive+ — and the two are effectively identical on quality and "
+"blowouts."
+msgstr ""
+"Balanced Round Robin ลู่เข้าได้ดีที่สุดในกรณีนี้ด้วย แต่นำ Competitive+ "
+"แบบปรับตัวเพียงเส้นยาแดง — และทั้งสองแทบไม่ต่างกันเลยทั้งด้านคุณภาพและเกมห่างชั้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:699
+msgid ""
+"Balanced Round Robin converges fastest early. Static Competitive+ lags it, "
+"because early ratings are mostly noise, and banding on noise restricts "
+"exactly the movement that would fix them. The adaptive Competitive+ runs "
+"Balanced Round Robin until ratings settle and only then switches to banded "
+"play — which is why its line tracks Balanced Round Robin from the very first "
+"round."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:900
+msgid ""
+"Balanced Round Robin leads while ratings are still noise; the static "
+"Competitive+ profile catches it around round 13 — about one session — and "
+"the adaptive version never leaves its side. Once ratings are mature, every "
+"real strategy lands within about a quarter of a place of the same ladder — "
+"on accuracy they are tied inside the error bars, and the difference that "
+"remains is the quality of the games played along the way. The quality chart "
+"above shows the same trade-off from the other side: static banding matches "
+"Balanced Round Robin for the first ten rounds, falls behind by the end of "
+"the first session — 49% blowouts to its 40% at round 13, the cost of banding "
+"on ratings that are still noise — then overtakes for good around round 20 as "
+"the bands become real. The adaptive blend exists to take the better half of "
+"both."
+msgstr ""
+"Balanced Round Robin นำหน้าในช่วงที่เรตติ้งยังเป็นเพียงสัญญาณรบกวน โปรไฟล์ Competitive+ "
+"แบบคงที่ตามทันราวรอบที่ 13 — ประมาณหนึ่งเซสชัน — และเวอร์ชันปรับตัวก็ไม่เคยห่างจากมันเลย "
+"เมื่อเรตติ้งนิ่งแล้ว ทุกกลยุทธ์ที่ใช้งานจริงจะได้อันดับต่างกันไม่ถึงประมาณหนึ่งในสี่ของตำแหน่ง — "
+"ในด้านความแม่นยำถือว่าเสมอกันภายในช่วงความคลาดเคลื่อน "
+"และสิ่งที่ต่างกันจริงคือคุณภาพของเกมที่เล่นไปตลอดทาง "
+"กราฟคุณภาพด้านบนแสดงการแลกเปลี่ยนเดียวกันจากอีกด้าน: การแบ่งชั้นแบบคงที่เทียบเท่า Balanced "
+"Round Robin ในสิบรอบแรก แล้วตกหลังเมื่อจบเซสชันแรก — เกมห่างชั้น 49% เทียบกับ 40% ที่รอบ "
+"13 ซึ่งเป็นราคาของการแบ่งชั้นบนเรตติ้งที่ยังเป็นสัญญาณรบกวน — แล้วแซงขึ้นอย่างถาวรราวรอบที่ 20 "
+"เมื่อการแบ่งชั้นเริ่มสมจริง การผสมแบบปรับตัวมีขึ้นเพื่อเอาส่วนที่ดีกว่าของทั้งสองแบบ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:680
+msgid "Blowout"
+msgstr "เกมห่างชั้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:949
+msgid "Blowout rate"
+msgstr "อัตราบลาวเอาต์"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:724
+#: src/components/organisms/MatchmakingReport.re.mjs:792
+#: src/components/organisms/MatchmakingReport.re.mjs:863
+msgid "blowouts · Competitive+"
+msgstr "เกมห่างชั้น · Competitive+"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:729
+#: src/components/organisms/MatchmakingReport.re.mjs:797
+#: src/components/organisms/MatchmakingReport.re.mjs:868
+msgid "blowouts · random, no repeat"
+msgstr "เกมห่างชั้น · สุ่ม, ไม่ซ้ำคู่"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:959
+msgid ""
+"Blowouts fade more slowly than quality: 52% one session in, 30% after two, "
+"19% by round 50, 8% by round 100 — most of the way to the Oracle's 5% floor. "
+"In a varied club they never fully go away: Competitive+ bottoms out near 35% "
+"and even the Oracle blows out 23%, because a ringer and a beginner make some "
+"matches unsaveable."
+msgstr ""
+"เกมห่างชั้นลดลงช้ากว่าคุณภาพ: 52% เมื่อผ่านหนึ่งเซสชัน, 30% หลังสองเซสชัน, 19% เมื่อถึงรอบ "
+"50, 8% เมื่อถึงรอบ 100 — เกือบถึงพื้นที่ 5% ของ Oracle ในคลับที่ฝีมือหลากหลาย "
+"เกมห่างชั้นไม่หายไปหมด: Competitive+ ลงต่ำสุดราว 35% และแม้แต่ Oracle ก็ยังห่างชั้น 23% "
+"เพราะเมื่อมีมือฉกาจกับมือใหม่ ก็มีบางแมตช์ที่แก้ไม่ได้"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:897
+msgid ""
+"Blowouts fade slowly in a varied room — they are not fully mitigated until "
+"around round 100. A typical room reaches tight-room blowout rates within 30–"
+"40 rounds."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:355
+msgid "click a strategy to isolate it"
+msgstr "คลิกกลยุทธ์เพื่อแสดงเฉพาะกลยุทธ์นั้น"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:108
+msgid "Competitive+ (adaptive)"
+msgstr "Competitive+ (ปรับตัว)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+msgid "Competitive+ (static)"
+msgstr "Competitive+ (คงที่)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:410
+msgid "Competitive+ match quality, by club"
+msgstr "คุณภาพแมตช์ของ Competitive+ แยกตามคลับ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:932
+msgid "Conclusion"
+msgstr "บทสรุป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:876
+msgid ""
+"Concretely, in a typical room, switching a JP-style open play session to "
+"Competitive+ is worth about 17 points of match quality and 16 points of "
+"blowouts. Against a round-robin table it is worth about 9 and 7. Even in a "
+"tightly curated private session, Competitive+ beats open play by about 11 "
+"points of quality and 10 of blowouts. These are relative numbers from "
+"synthetic rooms — and they are measured at round 100, with quality improving "
+"roughly linearly along the way. Since Pkuru persists ratings across "
+"sessions, the gains keep compounding."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1078
+msgid "Could not load the data behind this article: {0}"
+msgstr "ไม่สามารถโหลดข้อมูลของบทความนี้: {0}"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:768
+msgid "Distance from truth — tight club"
+msgstr "ระยะห่างจากค่าจริง — คลับฝีมือใกล้กัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:907
+msgid "Distance from truth — typical club"
+msgstr "ระยะห่างจากค่าจริง — คลับทั่วไป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:926
+msgid "Distance from truth — typical club, with the Oracle"
+msgstr "ระยะห่างจากค่าจริง — คลับทั่วไป พร้อม Oracle"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:842
+msgid "Distance from truth — varied club"
+msgstr "ระยะห่างจากค่าจริง — คลับฝีมือหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:847
+msgid ""
+"Early in my organising days I still switched from greedy, numerically "
+"balanced matches to banded Competitive+. Banding forces every match to come "
+"from a contiguous block of skill, even when that is numerically "
+"“unbalanced”. A rating cannot capture everything about a real game: the best "
+"and the worst player against two average players may balance mathematically, "
+"but in practice it plays worse than an “unbalanced” match of three 4.0s and "
+"a 5.0. Banding suppresses the measured quality score slightly because of "
+"this override — that is the price of never pairing a ringer with a total "
+"beginner just to make the numbers work out."
+msgstr ""
+"ในช่วงต้นของการเป็นผู้จัด ผมก็ยังเปลี่ยนจากการจัดแมตช์แบบ greedy ที่สมดุลเชิงตัวเลข มาเป็น "
+"Competitive+ แบบแบ่งชั้น การแบ่งชั้นบังคับให้ทุกแมตช์มาจากบล็อกฝีมือที่ต่อเนื่องกัน แม้ว่ามันจะ "
+"“ไม่สมดุล” ในเชิงตัวเลข เรตติ้งไม่สามารถจับทุกอย่างในเกมจริงได้: "
+"ผู้เล่นเก่งสุดคู่กับแย่สุดสู้กับผู้เล่นระดับกลางสองคนอาจสมดุลทางคณิตศาสตร์ "
+"แต่ในทางปฏิบัติเล่นแล้วแย่กว่าแมตช์ที่ “ไม่สมดุล” ระหว่างสาม 4.0 กับหนึ่ง 5.0 "
+"การแบ่งชั้นจึงกดคะแนนคุณภาพที่วัดได้ลงเล็กน้อยเพราะการข้ามกฎนี้ — "
+"นั่นคือราคาของการไม่จับมือฉกาจไว้กับมือใหม่สุด ๆ เพียงเพื่อให้ตัวเลขลงตัว"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:734
+#: src/components/organisms/MatchmakingReport.re.mjs:802
+#: src/components/organisms/MatchmakingReport.re.mjs:873
+msgid "even games · Competitive+"
+msgstr "เกมสูสี · Competitive+"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:739
+#: src/components/organisms/MatchmakingReport.re.mjs:807
+#: src/components/organisms/MatchmakingReport.re.mjs:878
+msgid "even games · random, no repeat"
+msgstr "เกมสูสี · สุ่ม, ไม่ซ้ำคู่"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1145
+msgid "every round a real ILP solve"
+msgstr "ทุกรอบคือการแก้ ILP จริง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:980
+msgid ""
+"For a single court of five or six players, the rating system admittedly adds "
+"little. The tool still helps: it remembers who has partnered whom, keeps "
+"play counts even, and tracks each player's rating change round by round even "
+"with nothing submitted — the session runs fairly, and everyone sees how they "
+"actually did. People reliably overrate their own performance, even when they "
+"do not show it."
+msgstr ""
+"สำหรับสนามเดียวที่มีผู้เล่นห้าหรือหกคน ต้องยอมรับว่าระบบเรตติ้งช่วยได้ไม่มาก "
+"แต่เครื่องมือนี้ยังมีประโยชน์: มันจำได้ว่าใครเคยเป็นคู่กับใคร ทำให้จำนวนเกมที่ได้เล่นเท่ากัน "
+"และติดตามการเปลี่ยนแปลงเรตติ้งของผู้เล่นแต่ละคนทีละรอบแม้ไม่ได้ส่งผลอะไรเลย — "
+"เซสชันดำเนินไปอย่างยุติธรรม และทุกคนเห็นว่าตัวเองเล่นได้อย่างไรจริง ๆ "
+"ผู้คนมักประเมินผลงานของตัวเองสูงเกินไปเสมอ แม้จะไม่แสดงออกก็ตาม"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:721
+msgid ""
+"From a cold start, Competitive+ pulls away from the random and round-robin "
+"baselines around round 11 — roughly one three-hour session at six players "
+"per court. A club of all-unrated players should expect their first session "
+"to play no better than random while ratings are learned. After that, quality "
+"compounds. By round 100 the gap is decisive:"
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1002
+msgid "Future improvements"
+msgstr "การปรับปรุงในอนาคต"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:698
+msgid ""
+"How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds "
+"— replayed across 7 seeds in three synthetic clubs: varied (skills spread "
+"across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR "
+"spread), and tight (a bunched pack). True skills are not frozen: as in a "
+"real club, about 20% of players improve gradually, one improves quickly — up "
+"to half a DUPR point, with gains tapering as they settle — and one slowly "
+"slips, the same players in every strategy's run so the comparison stays "
+"fair. Every round is a real solve through the same optimiser the app uses. "
+"Charts are 5-round rolling averages across all seeds; headline numbers "
+"summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so "
+"round 13 stands in for “one session” below, while the 100-round horizon — "
+"seven or eight sessions of persisted ratings — shows the system once "
+"everyone's rating is mature. Charts are interactive — hover for values, "
+"click a strategy to isolate its line."
+msgstr ""
+"ที่มาของตัวเลข: การจำลองหนึ่งชุด — ผู้เล่น 24 คน, สนาม 4 สนาม, 100 รอบ — เล่นซ้ำด้วย 7 "
+"seed ในสโมสรจำลองสามแบบ: หลากหลาย (ฝีมือกระจายทั่วช่วง บวกผู้เล่นเก่งเกินพิกัดและมือใหม่), "
+"ทั่วไป (ช่วงห่างราว 1.0 DUPR) และแคบ (กลุ่มที่เกาะกลุ่มกันแน่น) ฝีมือจริงไม่ได้ถูกตรึงไว้: "
+"เช่นเดียวกับสโมสรจริง ผู้เล่นราว 20% พัฒนาขึ้นทีละน้อย หนึ่งคนพัฒนาเร็ว — สูงสุดครึ่งแต้ม DUPR "
+"โดยอัตราการพัฒนาค่อย ๆ ลดลงเมื่อเข้าที่ — และหนึ่งคนถดถอยช้า ๆ "
+"โดยเป็นผู้เล่นชุดเดียวกันในทุกกลยุทธ์ เพื่อให้การเปรียบเทียบยุติธรรม "
+"ทุกรอบคือการคำนวณจริงผ่านตัวหาค่าเหมาะที่สุดตัวเดียวกับที่แอปใช้ กราฟเป็นค่าเฉลี่ยเคลื่อนที่ 5 "
+"รอบจากทุก seed ตัวเลขพาดหัวสรุปจาก 25 รอบสุดท้าย ช่วงเวลา: เซสชันจริงคือ 12–14 รอบ "
+"ดังนั้นรอบที่ 13 จึงแทน “หนึ่งเซสชัน” ด้านล่าง ส่วนกรอบ 100 รอบ — "
+"เจ็ดหรือแปดเซสชันของเรตติงที่สะสมไว้ — แสดงระบบเมื่อเรตติงของทุกคนสุกงอมแล้ว กราฟโต้ตอบได้ "
+"— ชี้เพื่อดูค่า คลิกกลยุทธ์เพื่อแยกดูเส้นนั้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:983
+msgid ""
+"If you are going to use a round robin table at all, use the Pkuru Round "
+"Robin tool: the same table, better matches, every default tunable. And every "
+"simulation in this article can be rerun for a club shaped like yours."
+msgstr ""
+"ถ้าจะใช้ตารางพบกันหมดอยู่แล้ว ให้ใช้เครื่องมือ Pkuru Round Robin: ตารางเดิม แมตช์ดีกว่า "
+"ปรับค่าเริ่มต้นได้ทุกอย่าง "
+"และทุกการจำลองในบทความนี้สามารถรันใหม่สำหรับสโมสรที่มีลักษณะแบบของคุณได้"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:761
+msgid ""
+"In a tight club even the static Competitive+ profile keeps up with Balanced "
+"Round Robin almost immediately: when everyone is close, a band drawn from "
+"noisy ratings is barely different from one drawn from true skill, so banding "
+"costs nothing here. The adaptive Competitive+ tracks Balanced Round Robin "
+"from the first round by construction — it runs it until ratings settle. The "
+"calibration phase earns its keep in the wider clubs below, where banding on "
+"noise genuinely restricts the movement that would fix the ratings."
+msgstr ""
+"ในสโมสรที่ฝีมือใกล้เคียงกัน แม้แต่โปรไฟล์ Competitive+ แบบคงที่ก็ตามทัน Balanced Round "
+"Robin แทบจะทันที: เมื่อทุกคนใกล้เคียงกัน "
+"การแบ่งกลุ่มจากเรตติงที่มีสัญญาณรบกวนแทบไม่ต่างจากการแบ่งจากฝีมือจริง การแบ่งกลุ่มจึงไม่มีต้นทุนที่นี่ "
+"ส่วน Competitive+ แบบปรับตัวจะเกาะติด Balanced Round Robin "
+"ตั้งแต่รอบแรกโดยการออกแบบ — มันใช้วิธีนั้นจนกว่าเรตติงจะนิ่ง "
+"ช่วงปรับเทียบจะคุ้มค่าในสโมสรที่กว้างกว่าด้านล่าง "
+"ที่ซึ่งการแบ่งกลุ่มบนสัญญาณรบกวนจำกัดการเคลื่อนไหวที่จะช่วยแก้เรตติงจริง ๆ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:773
+msgid ""
+"In the real world assembling a tight club of similarly skilled players is "
+"challenging because on any given day a player's performance might fluctuate "
+"by 0.5 points or more. The rating system however can adjust for this "
+"variance within a few rounds of play."
+msgstr ""
+"ในโลกจริง การรวบรวมสโมสรที่ผู้เล่นฝีมือใกล้เคียงกันเป็นเรื่องท้าทาย "
+"เพราะในแต่ละวันฟอร์มของผู้เล่นอาจแกว่งได้ 0.5 แต้มหรือมากกว่า "
+"แต่ระบบเรตติงสามารถปรับชดเชยความแปรปรวนนี้ได้ภายในการเล่นไม่กี่รอบ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:684
+msgid "Inversion"
+msgstr "การกลับด้าน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:764
+msgid ""
+"JP-style open play beats random slightly, most likely because it splits "
+"obviously unbalanced foursomes — a behaviour I programmed in because "
+"Japanese organisers actually do it. In the US that mixing often is not "
+"there: players do not know each other well enough to restack a match, and "
+"the ones who do are already clumped into a foursome."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:826
+msgid ""
+"JP-style open play is the avoid-repeats baseline plus one intervention: a "
+"foursome is split when it is obviously lopsided — the pairs half a DUPR "
+"apart, the bar real organisers actually use. The surprise is that the "
+"intervention buys nothing measurable: JP lands within the error bars of its "
+"own baseline everywhere, a point or two of quality in this club at best. "
+"Splits that rare cannot move a session. Politeness that fixes only the "
+"egregious matches is worth almost nothing; the gains begin when every match "
+"is deliberately balanced, which is exactly what nobody does socially."
+msgstr ""
+"Open play สไตล์ญี่ปุ่นคือเกณฑ์พื้นฐานแบบเลี่ยงคู่ซ้ำ บวกการแทรกแซงหนึ่งอย่าง: "
+"แยกกลุ่มสี่คนเมื่อเห็นชัดว่าไม่สูสี — คู่ที่ห่างกันครึ่ง DUPR ซึ่งเป็นเกณฑ์ที่ผู้จัดจริงใช้กัน "
+"สิ่งที่น่าแปลกใจคือการแทรกแซงนี้แทบไม่ได้อะไรที่วัดได้: JP "
+"อยู่ในช่วงความคลาดเคลื่อนของเกณฑ์พื้นฐานของตัวเองทุกที่ "
+"ดีขึ้นอย่างมากก็แค่หนึ่งถึงสองจุดของคุณภาพในสโมสรนี้ "
+"การแยกที่เกิดขึ้นน้อยขนาดนั้นไม่อาจเปลี่ยนทั้งเซสชันได้ ความสุภาพที่แก้เฉพาะแมตช์ที่แย่สุด ๆ "
+"แทบไม่มีค่า กำไรจะเริ่มเกิดเมื่อทุกแมตช์ถูกจัดให้สมดุลอย่างตั้งใจ "
+"ซึ่งเป็นสิ่งที่ไม่มีใครทำกันในบรรยากาศสังคม"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:962
+msgid "Level-controlled clubs"
+msgstr "สโมสรที่ควบคุมระดับฝีมือ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1089
+msgid "loading the precomputed run…"
+msgstr "กำลังโหลดผลการรันที่คำนวณไว้ล่วงหน้า…"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:715
+#: src/components/organisms/MatchmakingReport.re.mjs:780
+#: src/components/organisms/MatchmakingReport.re.mjs:854
+msgid "Match quality"
+msgstr "คุณภาพการแข่งขัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:749
+msgid "Match quality — tight club"
+msgstr "คุณภาพแมตช์ — สโมสรฝีมือใกล้เคียง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:888
+msgid "Match quality — typical club"
+msgstr "คุณภาพแมตช์ — สโมสรทั่วไป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:817
+msgid "Match quality — varied club"
+msgstr "คุณภาพแมตช์ — สโมสรหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1112
+msgid "Matchmaking strategies, measured"
+msgstr "กลยุทธ์การจับคู่ วัดผลจริง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:783
+msgid ""
+"Most open-play sessions in Japan are more varied than the organiser likes to "
+"think: in the current pickleball scene it is hard to gather even one court "
+"of genuinely similar players at once if only simply due to day-to-day skill "
+"fluctuations."
+msgstr ""
+"เซสชัน open play ส่วนใหญ่ในญี่ปุ่นหลากหลายกว่าที่ผู้จัดคิด: ในวงการพิกเคิลบอลปัจจุบัน "
+"ยากที่จะรวมผู้เล่นฝีมือใกล้เคียงกันจริง ๆ ได้แม้แต่สนามเดียวในคราวเดียว "
+"แม้เพียงเพราะฟอร์มที่แกว่งไปในแต่ละวัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1042
+msgid "No precomputed run is published."
+msgstr "ยังไม่มีการเผยแพร่ผลการรันที่คำนวณไว้ล่วงหน้า"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:110
+msgid "Open play (JP style)"
+msgstr "โอเพ่นเพลย์ (สไตล์ JP)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:122
+msgid "Open play (US style)"
+msgstr "โอเพ่นเพลย์ (สไตล์ US)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:986
+msgid "Open the interactive Matchmaking Lab →"
+msgstr "เปิด Matchmaking Lab แบบโต้ตอบ →"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:688
+msgid "Oracle"
+msgstr "Oracle"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:112
+msgid "Oracle (knows truth)"
+msgstr "Oracle (รู้ความจริง)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1011
+msgid ""
+"Our simulation currently handles players getting better and worse over time "
+"(change in their true underlying skill), but it doesn't handle random "
+"unrated drop in players that come back infrequently or never at all. It "
+"should also fluctuate a player's skill between sessions (about every 13 "
+"rounds) due to random day-to-day jitter in performance."
+msgstr ""
+"การจำลองของเราตอนนี้รองรับผู้เล่นที่เก่งขึ้นและถดถอยลงตามเวลา (การเปลี่ยนแปลงของฝีมือจริง) "
+"แต่ยังไม่รองรับผู้เล่นที่ไม่มีเรตติงซึ่งหายไปแล้วกลับมานาน ๆ ครั้งหรือไม่กลับมาเลย "
+"และควรให้ฝีมือของผู้เล่นแกว่งระหว่างเซสชัน (ทุก ๆ ราว 13 รอบ) "
+"จากความผันผวนของฟอร์มรายวันแบบสุ่มด้วย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1101
+msgid "Pkuru · matchmaking report"
+msgstr "Pkuru · รายงานการจับคู่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:116
+msgid "Random (baseline)"
+msgstr "สุ่ม (พื้นฐาน)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:482
+msgid "random, avoid repeats"
+msgstr "สุ่ม เลี่ยงคู่ซ้ำ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+msgid "Random, avoid repeats"
+msgstr "สุ่ม หลีกเลี่ยงซ้ำ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:758
+#: src/components/organisms/MatchmakingReport.re.mjs:832
+#: src/components/organisms/MatchmakingReport.re.mjs:897
+msgid "Ratings convergence"
+msgstr "การลู่เข้าของเรตติง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1005
+msgid ""
+"Ratings keep sharpening for 30–40 rounds — two to three sessions — and while "
+"the matchmaking is already better than the baseline by round 5, the first "
+"dozen rounds of a true cold start remain the roughest stretch of a club's "
+"life. I want to explore using score differentials to shorten them — "
+"potentially producing usable ratings within a round or two of an unrated "
+"player's first game. Currently the Round Robin tool already supports "
+"manually specified player rankings. The risk is that this is itself a form "
+"of oracle: reading more into a result than it actually says could tamper "
+"with convergence rather than speed it up."
+msgstr ""
+"เรตติงจะคมชัดขึ้นเรื่อย ๆ ราว 30–40 รอบ — สองถึงสามเซสชัน — "
+"และแม้การจับคู่จะดีกว่าเกณฑ์พื้นฐานตั้งแต่รอบที่ 5 แต่สิบกว่ารอบแรกของการเริ่มจากศูนย์จริง ๆ "
+"ก็ยังเป็นช่วงที่ยากที่สุดของชีวิตสโมสร ผมอยากลองใช้ผลต่างคะแนนเพื่อย่นช่วงนั้น — "
+"อาจได้เรตติงที่ใช้งานได้ภายในหนึ่งถึงสองรอบหลังเกมแรกของผู้เล่นที่ยังไม่มีเรตติง ปัจจุบันเครื่องมือ "
+"Round Robin รองรับการกำหนดอันดับผู้เล่นด้วยตนเองอยู่แล้ว "
+"ความเสี่ยงคือสิ่งนี้เองก็เป็นรูปแบบหนึ่งของ oracle: การตีความผลลัพธ์เกินกว่าที่มันบอกจริง "
+"อาจไปรบกวนการลู่เข้าแทนที่จะเร่งให้เร็วขึ้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:685
+msgid ""
+"Ratings pointing the wrong way: a strong player rated low, a weak player "
+"rated high. Strong players who take it easy on beginners can invert their "
+"own rating — unintentional sandbagging."
+msgstr ""
+"เรตติงที่ชี้ผิดทาง: ผู้เล่นเก่งถูกให้เรตติงต่ำ ผู้เล่นอ่อนถูกให้เรตติงสูง "
+"ผู้เล่นเก่งที่ออมมือกับมือใหม่อาจทำให้เรตติงตัวเองกลับด้าน — เป็นการกดเรตติงโดยไม่ตั้งใจ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:120
+msgid "Round Robin"
+msgstr "รอบโรบิน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:835
+msgid ""
+"Round Robin and Balanced Round Robin lead early. Competitive+ catches up "
+"after roughly 20 rounds and tracks Balanced Round Robin from there to round "
+"100."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1163
+msgid "Run these simulations yourself in the interactive lab →"
+msgstr "ลองรันการจำลองเหล่านี้ด้วยตัวเองในแล็บโต้ตอบ →"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1008
+msgid ""
+"Since we can simulate the match quality effects of adding a player into an "
+"event, we can create an RSVP system that admits player based on their impact "
+"to the session, rather than the simple first-come-first-serve setups most "
+"events have."
+msgstr ""
+"เนื่องจากเราจำลองผลกระทบต่อคุณภาพแมตช์เมื่อเพิ่มผู้เล่นเข้าอีเวนต์ได้ เราจึงสร้างระบบ RSVP "
+"ที่รับผู้เล่นตามผลกระทบต่อเซสชันได้ แทนที่จะเป็นระบบมาก่อนได้ก่อนแบบที่อีเวนต์ส่วนใหญ่ใช้"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:977
+msgid "Single-court events"
+msgstr "อีเวนต์สนามเดียว"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:786
+msgid ""
+"The baseline here is what open play actually deals: random courts that avoid "
+"repeating partners and opponents. (Measured against pure random, avoiding "
+"repeats changes match quality not at all — novelty buys variety and a "
+"slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls "
+"away from it within the first handful of rounds — by round 5 its games are "
+"already measurably better, because every result moves a cold rating a long "
+"way. Even a club of all-unrated players gets value inside their first "
+"session, though in this club the early gain is match quality; the blowouts "
+"barely move in one session, because preventing a varied club's worst games "
+"takes ratings accurate enough to see them coming. With mature ratings the "
+"gap is decisive:"
+msgstr ""
+"เกณฑ์พื้นฐานที่นี่คือสิ่งที่ open play ทำจริง: จัดสนามแบบสุ่มโดยเลี่ยงการซ้ำคู่และคู่แข่ง "
+"(เทียบกับการสุ่มล้วน การเลี่ยงซ้ำไม่เปลี่ยนคุณภาพแมตช์เลย — "
+"ความแปลกใหม่ให้แค่ความหลากหลายและอันดับที่นิ่งเร็วขึ้นเล็กน้อย เท่านั้น) จากการเริ่มต้นจากศูนย์ "
+"Competitive+ ทิ้งห่างภายในไม่กี่รอบแรก — พอถึงรอบที่ 5 เกมของมันก็ดีขึ้นอย่างวัดได้แล้ว "
+"เพราะทุกผลการแข่งขันขยับเรตติงที่ยังใหม่ได้มาก "
+"แม้สโมสรที่ทุกคนยังไม่มีเรตติงก็ได้ประโยชน์ภายในเซสชันแรก "
+"แม้ในสโมสรนี้กำไรช่วงต้นจะอยู่ที่คุณภาพแมตช์ ส่วนเกมที่ขาดลอยแทบไม่ลดลงในหนึ่งเซสชัน "
+"เพราะการป้องกันเกมแย่ที่สุดของสโมสรที่หลากหลายต้องใช้เรตติงที่แม่นพอจะมองเห็นล่วงหน้า "
+"เมื่อเรตติงสุกงอมแล้ว ช่องว่างชัดเจนเด็ดขาด:"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:974
+msgid ""
+"The idea that beginners and lower-rated players do not want balanced games "
+"is a myth — in the US and Vietnam, DUPR round robins run routinely at the "
+"2.0–3.0 levels. Everyone benefits from an even match, and no rating needs to "
+"be at stake: the round robin tool can arrange matches by rating without "
+"submitting results."
+msgstr ""
+"ความคิดที่ว่ามือใหม่และผู้เล่นเรตติงต่ำไม่ต้องการเกมที่สูสีนั้นเป็นความเชื่อผิด ๆ — ในสหรัฐฯ "
+"และเวียดนาม มีการจัด DUPR round robin ที่ระดับ 2.0–3.0 เป็นประจำ "
+"ทุกคนได้ประโยชน์จากแมตช์ที่สูสี และไม่จำเป็นต้องมีเรตติงเป็นเดิมพัน: เครื่องมือ round robin "
+"สามารถจัดแมตช์ตามเรตติงได้โดยไม่ต้องส่งผลการแข่งขัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:919
+msgid ""
+"The lesson for organisers: use manual seeding conservatively. The more you "
+"pre-place players at their true level, the slower their rating gets there on "
+"its own."
+msgstr ""
+"บทเรียนสำหรับผู้จัด: ใช้การกำหนดอันดับเริ่มต้นด้วยตนเองอย่างระมัดระวัง "
+"ยิ่งคุณวางผู้เล่นไว้ที่ระดับจริงล่วงหน้ามากเท่าไหร่ เรตติงของเขาก็ยิ่งไปถึงจุดนั้นเองช้าลงเท่านั้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:916
+msgid ""
+"The Oracle knows everyone's real skill and hand-balances every match. It is "
+"in the field to demonstrate one thing: rigging matches by what you know "
+"prevents the ratings from ever learning it. Strong players are always split "
+"and cancel each other out, so no informative result ever arrives — the "
+"Oracle posts the best match quality of any strategy and the worst ladder "
+"accuracy, stuck around seven places off forever. US-style open play's "
+"starved ladder is the same effect arrived at by accident, in a milder dose."
+msgstr ""
+"Oracle รู้ฝีมือจริงของทุกคนและจัดสมดุลทุกแมตช์ด้วยมือ มันอยู่ในการทดลองนี้เพื่อแสดงสิ่งเดียว: "
+"การจัดแมตช์ตามสิ่งที่คุณรู้ ทำให้ระบบเรตติงไม่มีวันได้เรียนรู้สิ่งนั้น "
+"ผู้เล่นเก่งถูกแยกออกจากกันเสมอและหักล้างกันเอง จึงไม่มีผลลัพธ์ที่ให้ข้อมูลเลย — Oracle "
+"ทำคุณภาพแมตช์ได้ดีที่สุดในบรรดาทุกกลยุทธ์ แต่ความแม่นของอันดับแย่ที่สุด "
+"ติดอยู่ที่คลาดเคลื่อนราวเจ็ดอันดับตลอดไป อันดับที่ขาดข้อมูลของ open play "
+"สไตล์อเมริกันก็คือผลแบบเดียวกันที่เกิดขึ้นโดยบังเอิญ ในระดับที่เบากว่า"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1017
+msgid ""
+"This is a live document, so I will be updating the modelling, data, and "
+"conclusions as they are discovered."
+msgstr "นี่เป็นเอกสารที่ยังมีชีวิต ผมจะอัปเดตแบบจำลอง ข้อมูล และข้อสรุปเมื่อค้นพบสิ่งใหม่"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:971
+msgid ""
+"This is where matchmaking lifts hardest. Blowouts are never fun — for the "
+"stronger team they are a waste of time — and members you subject to them "
+"often enough go elsewhere. Competitive+ prevents five of every six blowouts "
+"in a typical club, halves them in a genuinely varied one, and its banding "
+"lets a session holding a beginner group and an advanced group still resolve "
+"into good matches instead of carry games."
+msgstr ""
+"นี่คือจุดที่การจับคู่ให้ผลมากที่สุด การชนะขาดไม่เคยสนุก — สำหรับทีมที่แข็งแกร่งกว่าก็เป็นการเสียเวลา "
+"— และสมาชิกที่ต้องเจอบ่อยๆ ก็มักจะย้ายไปที่อื่น Competitive+ "
+"ป้องกันการชนะขาดได้ห้าในหกครั้งในคลับทั่วไป ลดลงครึ่งหนึ่งในคลับที่ระดับฝีมือหลากหลายจริงๆ "
+"และการแบ่งช่วงระดับของมันทำให้เซสชันที่มีทั้งกลุ่มมือใหม่และกลุ่มมือขั้นสูงยังจัดแมตช์ที่ดีได้ "
+"แทนที่จะเป็นเกมที่ต้องคอยแบก"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:675
+msgid "Three terms worth pinning down"
+msgstr "สามคำที่ควรทำความเข้าใจให้ชัด"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:394
+#: src/components/organisms/MatchmakingReport.re.mjs:537
+msgid "Tight club"
+msgstr "คลับระดับใกล้เคียง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:873
+msgid ""
+"Tight rooms give the best quality and the fewest blowouts, at some cost in "
+"ranking accuracy — players who are genuinely close are hard to order. If you "
+"can control the roster, keep the spread tight; even random matchmaking "
+"performs decently there. If you cannot, Competitive+'s banding compensates: "
+"a session holding a beginner group and an advanced group still resolves into "
+"good matches."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:712
+msgid "Tight skill spread"
+msgstr "ช่วงฝีมือใกล้เคียงกัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:669
+msgid ""
+"Two things decide which matchmaking strategy is best: the skill spread of "
+"the club, and what you mean by “best”. Spread is how far apart your players "
+"are in real ability. “Best” splits into two goals — keeping everyone in "
+"tight, high-quality matches, and converging ratings to the truth quickly — "
+"and while ratings are still unknown — somewhere in the first fifteen rounds, "
+"about one session — you cannot have both. Faster convergence means injecting "
+"randomness into the matchmaking, which costs match quality now; optimising "
+"quality means trusting ratings that are still noise, which locks misrated "
+"players in place. Some early time must be spent in exploratory, suboptimal "
+"matches — unless you seed initial ratings by hand. Once ratings settle, the "
+"tension mostly dissolves: the same strategy can hold the best match quality "
+"in the field while converging as fast as anything else."
+msgstr ""
+"สองสิ่งที่ตัดสินว่ากลยุทธ์การจับคู่แบบใดดีที่สุด คือ ช่วงความต่างของฝีมือในคลับ และความหมายของคำว่า "
+"“ดีที่สุด” ช่วงความต่างคือระยะห่างของฝีมือจริงระหว่างผู้เล่น ส่วน “ดีที่สุด” แยกเป็นสองเป้าหมาย — "
+"ให้ทุกคนได้แมตช์ที่สูสีคุณภาพสูง และให้เรตติ้งลู่เข้าหาค่าจริงเร็วที่สุด — และในช่วงที่เรตติ้งยังไม่ชัดเจน "
+"ราวๆ สิบห้ารอบแรก หรือประมาณหนึ่งเซสชัน คุณจะได้ทั้งสองอย่างไม่ได้ "
+"การลู่เข้าที่เร็วกว่าหมายถึงการใส่ความสุ่มเข้าไปในการจับคู่ ซึ่งแลกมาด้วยคุณภาพแมตช์ในตอนนี้ "
+"ส่วนการเน้นคุณภาพหมายถึงการเชื่อเรตติ้งที่ยังเป็นสัญญาณรบกวน ซึ่งจะตรึงผู้เล่นที่เรตติ้งผิดให้อยู่ที่เดิม "
+"จึงต้องเสียเวลาช่วงต้นไปกับแมตช์แบบสำรวจที่ยังไม่ดีที่สุด — เว้นแต่คุณจะกำหนดเรตติ้งเริ่มต้นด้วยมือ "
+"เมื่อเรตติ้งนิ่งแล้ว ความขัดแย้งนี้ก็แทบหมดไป "
+"กลยุทธ์เดียวกันสามารถให้คุณภาพแมตช์ดีที่สุดในกลุ่มไปพร้อมกับลู่เข้าเร็วเท่ากับวิธีอื่นๆ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:851
+msgid "Typical 3.0–4.0 spread"
+msgstr "ช่วงทั่วไป 3.0–4.0"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:389
+#: src/components/organisms/MatchmakingReport.re.mjs:539
+msgid "Typical club"
+msgstr "คลับทั่วไป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:829
+msgid ""
+"US-style open play — courts labelled by level, players choosing their own — "
+"does somewhat better: matches only form within the stronger or the weaker "
+"half of the club, so the skill gaps inside a match shrink. The simulation "
+"also models the format's social habits — about half of badly beaten teams "
+"run one revenge match, and close foursomes often stay on for another game; "
+"both mean replaying a match, and the games people choose to replay are "
+"usually the wrong ones. It nets out at 50% quality and 64% blowouts here, "
+"against the baseline's 46% and 68% — real, but a long way from matchmaking "
+"by rating, where Competitive+ reaches 66% and 35% in the same club. One "
+"caution for anyone submitting rated DUPR matches from such sessions: repeats "
+"and self-sorted courts carry little rating information, so they converge "
+"ratings poorly — the simulated ladder ends up more than two places off, "
+"against about one and a half for every other format."
+msgstr ""
+"Open play แบบอเมริกัน — สนามติดป้ายบอกระดับ ผู้เล่นเลือกเอง — ทำได้ดีขึ้นบ้าง "
+"แมตช์เกิดขึ้นเฉพาะภายในครึ่งที่แข็งกว่าหรือครึ่งที่อ่อนกว่าของคลับ ทำให้ช่องว่างฝีมือในแมตช์แคบลง "
+"การจำลองยังรวมพฤติกรรมทางสังคมของรูปแบบนี้ด้วย — "
+"ประมาณครึ่งหนึ่งของทีมที่แพ้ขาดจะขอแก้มืออีกหนึ่งแมตช์ และกลุ่มสี่คนที่เล่นสูสีมักอยู่เล่นต่ออีกเกม "
+"ทั้งสองกรณีคือการเล่นแมตช์เดิมซ้ำ และเกมที่คนเลือกเล่นซ้ำมักเป็นเกมที่ไม่ควรซ้ำ สรุปแล้วได้คุณภาพ "
+"50% และชนะขาด 64% ที่นี่ เทียบกับเส้นฐาน 46% และ 68% — ดีขึ้นจริง "
+"แต่ยังห่างจากการจับคู่ด้วยเรตติ้งมาก ซึ่ง Competitive+ ทำได้ 66% และ 35% ในคลับเดียวกัน "
+"ข้อควรระวังสำหรับผู้ที่ส่งแมตช์เข้า DUPR จากเซสชันแบบนี้ "
+"การเล่นซ้ำและสนามที่ผู้เล่นจัดกันเองให้ข้อมูลเรตติ้งน้อยมาก จึงลู่เข้าได้แย่ — "
+"อันดับในแบบจำลองคลาดเคลื่อนกว่าสองอันดับ เทียบกับราวหนึ่งอันดับครึ่งของรูปแบบอื่นทั้งหมด"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:761
+msgid ""
+"US-style open play — courts labelled by level, players sorting themselves — "
+"comes out worse than pure random on every measure, with a 60% blowout rate. "
+"Two greedy individual behaviours explain it. Players who find a decent match "
+"clump together and stay, stranding the leftover strong players in poorly "
+"balanced games. And stacked teams like to run the “revenge” match, doubling "
+"down on the bad matchup. A few lucky foursomes get good practice; the room "
+"as a whole pays for it."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:870
+msgid ""
+"Use Competitive+. The adaptive version handles the cold start with Balanced "
+"Round Robin, then switches to banded play as ratings settle — the fastest "
+"convergence available, with match quality at the top of the field."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:935
+msgid ""
+"Use Competitive+. The adaptive version opens with Balanced Round Robin while "
+"ratings are unknown, then switches to banded play as they settle — the "
+"fastest convergence available, with the best match quality in the field. Two-"
+"thirds of the gain arrives in the first session and most of the rest by the "
+"end of the second (63% → 73% → 79% quality in a typical club), and because "
+"ratings persist, each session starts where the last one left off."
+msgstr ""
+"ใช้ Competitive+ เวอร์ชันปรับตัวจะเริ่มด้วย Balanced Round Robin ในช่วงที่เรตติ้งยังไม่รู้ "
+"แล้วเปลี่ยนไปเล่นแบบแบ่งช่วงระดับเมื่อเรตติ้งเริ่มนิ่ง — ลู่เข้าเร็วที่สุดที่มี "
+"พร้อมคุณภาพแมตช์ดีที่สุดในกลุ่ม สองในสามของผลลัพธ์เกิดขึ้นในเซสชันแรก "
+"และส่วนที่เหลือเกือบทั้งหมดภายในสิ้นเซสชันที่สอง (คุณภาพ 63% → 73% → 79% ในคลับทั่วไป) "
+"และเนื่องจากเรตติ้งถูกเก็บไว้ ทุกเซสชันจึงเริ่มต่อจากจุดที่เซสชันก่อนหน้าจบลง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:384
+#: src/components/organisms/MatchmakingReport.re.mjs:542
+msgid "Varied club"
+msgstr "คลับระดับหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:777
+msgid "Varied skill levels"
+msgstr "ระดับฝีมือหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1014
+msgid ""
+"We have access to live match data from real sessions that use Round Robin "
+"tool, including match scores. That means I can calculate the effects of "
+"things like asymmetrical matches or the actual efficacy of the algorithms."
+msgstr ""
+"เรามีข้อมูลแมตช์จริงจากเซสชันที่ใช้เครื่องมือ Round Robin รวมถึงสกอร์ของแต่ละแมตช์ "
+"นั่นหมายความว่าผมสามารถคำนวณผลกระทบของสิ่งต่างๆ เช่น แมตช์ที่ไม่สมดุล "
+"หรือประสิทธิภาพจริงของอัลกอริทึมได้"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:938
+msgid ""
+"What switching is worth, with mature ratings in a typical club: 23 points of "
+"match quality and blowouts cut from 59% to 10% against JP-style open play "
+"(which plays like dealing at random); 7 points and 18 fewer blowouts against "
+"a plain round-robin table; 17 points and 42 fewer against a curated private "
+"session run as open play."
+msgstr ""
+"การเปลี่ยนมาใช้คุ้มค่าแค่ไหน เมื่อเรตติ้งนิ่งแล้วในคลับทั่วไป: คุณภาพแมตช์เพิ่ม 23 จุด "
+"และการชนะขาดลดจาก 59% เหลือ 10% เทียบกับ open play แบบญี่ปุ่น "
+"(ซึ่งเล่นเหมือนการแจกคู่แบบสุ่ม) เพิ่ม 7 จุดและลดการชนะขาด 18 จุด เทียบกับตาราง round-"
+"robin ธรรมดา และเพิ่ม 17 จุดและลด 42 จุด เทียบกับเซสชันส่วนตัวที่คัดผู้เล่นมาแล้วแต่เล่นแบบ "
+"open play"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:680
+msgid ""
+"When everyone is close in skill, rating-based matchmaking has little to add "
+"at first. Competitive+ only starts to pull away from round robin around "
+"round 16, and the gains stay minor until about round 30 — in a tight room, "
+"almost any way of dealing the courts produces decent games."
+msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:913
+msgid "Why the Oracle never converges"
+msgstr "ทำไม Oracle จึงไม่ลู่เข้าเลย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:968
+msgid "Wide-level open plays"
+msgstr "Open play ที่ระดับฝีมือกว้าง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:857
+msgid ""
+"With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines "
+"within the first handful of rounds, and one session in it already leads the "
+"avoid-repeats baseline by 9 points of quality and 10 points of blowouts. The "
+"full benefit arrives with mature ratings: 10% blowouts against the "
+"baseline's 62%, and a 78% chance of an even game against 53%. Those mature "
+"numbers match a hand-picked tight-skill club (79% and 8%) — the algorithm "
+"recovers by matchmaking what you would otherwise get by gatekeeping the "
+"roster:"
+msgstr ""
+"ด้วยช่วงความต่างที่สมจริงราว 1.0 DUPR Competitive+ ทิ้งเส้นฐานตั้งแต่ไม่กี่รอบแรก "
+"และเมื่อจบหนึ่งเซสชันก็นำเส้นฐานแบบเลี่ยงเล่นซ้ำอยู่ 9 จุดในด้านคุณภาพ และ 10 "
+"จุดในด้านการชนะขาด ประโยชน์เต็มที่มาถึงเมื่อเรตติ้งนิ่ง: ชนะขาด 10% เทียบกับ 62% ของเส้นฐาน "
+"และโอกาส 78% ที่จะได้เกมสูสี เทียบกับ 53% "
+"ตัวเลขเมื่อเรตติ้งนิ่งเหล่านี้เทียบเท่าคลับที่คัดผู้เล่นระดับใกล้เคียงมาด้วยมือ (79% และ 8%) — "
+"อัลกอริทึมชดเชยด้วยการจับคู่ สิ่งที่ปกติคุณต้องได้จากการคัดกรองสมาชิก:"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:672
+msgid ""
+"You have probably heard that to improve, you should play people better than "
+"you. The advice is not wrong — it is impractical. For you to play up, "
+"someone better than you has to play down. The only version of it that scales "
+"is playing people close to your level, with occasional games slightly up or "
+"slightly down. That is the goal of the Round Robin tool, and it is what "
+"these matchmaking algorithms are trying to accomplish."
+msgstr ""
+"คุณคงเคยได้ยินว่าถ้าอยากเก่งขึ้น ต้องเล่นกับคนที่เก่งกว่า คำแนะนำนี้ไม่ผิด — แต่ทำจริงไม่ได้ "
+"เพราะการที่คุณจะได้เล่นกับคนเก่งกว่า ก็ต้องมีคนเก่งกว่ามาเล่นกับคนที่อ่อนกว่า "
+"วิธีเดียวที่ใช้ได้จริงในวงกว้างคือการเล่นกับคนที่ระดับใกล้เคียงกับคุณ "
+"โดยมีบางเกมที่สูงขึ้นหรือต่ำลงเล็กน้อย นั่นคือเป้าหมายของเครื่องมือ Round Robin "
+"และคือสิ่งที่อัลกอริทึมจับคู่เหล่านี้พยายามทำให้สำเร็จ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:407
+#, fuzzy
+#~ msgid "· % chance the game ends level · same strategy, three rooms"
+#~ msgstr ""
+#~ "· % โอกาสที่เกมจะจบแบบเสมอกัน · เส้นทึบ: Competitive+ · เส้นประ: สุ่ม, หลีกเลี่ยงคู่ซ้ำ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1026
+#, fuzzy
+#~ msgid "24 players · 4 courts"
+#~ msgstr "ผู้เล่น 24 คน · 4 สนาม"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1029
+#, fuzzy
+#~ msgid "7 seeds per room"
+#~ msgstr "7 ซีดต่อคลับ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1010
+#, fuzzy
+#~ msgid ""
+#~ "75,600 simulated games, nine strategies, three kinds of room — and one "
+#~ "clear recommendation."
+#~ msgstr "75,600 เกมจำลอง เก้ากลยุทธ์ สามประเภทคลับ — และหนึ่งข้อแนะนำที่ชัดเจน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:732
+#: src/components/organisms/MatchmakingReport.re.mjs:803
+#, fuzzy
+#~ msgid "blowouts · random play"
+#~ msgstr "เกมห่างชั้น · สุ่ม, ไม่ซ้ำคู่"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:396
+#, fuzzy
+#~ msgid "Competitive+ match quality, by room"
+#~ msgstr "คุณภาพแมตช์ของ Competitive+ แยกตามคลับ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:706
+#, fuzzy
+#~ msgid "Distance from truth — tight room"
+#~ msgstr "ระยะห่างจากค่าจริง — คลับฝีมือใกล้กัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:842
+#, fuzzy
+#~ msgid "Distance from truth — typical room"
+#~ msgstr "ระยะห่างจากค่าจริง — คลับทั่วไป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:861
+#, fuzzy
+#~ msgid "Distance from truth — typical room, with the Oracle"
+#~ msgstr "ระยะห่างจากค่าจริง — คลับทั่วไป พร้อม Oracle"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:777
+#, fuzzy
+#~ msgid "Distance from truth — varied room"
+#~ msgstr "ระยะห่างจากค่าจริง — คลับฝีมือหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:742
+#: src/components/organisms/MatchmakingReport.re.mjs:813
+#, fuzzy
+#~ msgid "even games · random play"
+#~ msgstr "เกมสูสี · สุ่ม, ไม่ซ้ำคู่"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:660
+#, fuzzy
+#~ msgid ""
+#~ "How the numbers were made: one simulation — 24 players, 4 courts, 100 "
+#~ "rounds — replayed across 7 seeds in three synthetic rooms: varied (skills "
+#~ "spread across the range, plus a ringer and a beginner), typical (about a "
+#~ "1.0 DUPR spread), and tight (a bunched pack). Every round is a real solve "
+#~ "through the same optimiser the app uses. Charts are 5-round rolling "
+#~ "averages across all seeds; headline numbers summarise the last 25 rounds. "
+#~ "Charts are interactive — hover for values, click a strategy to isolate "
+#~ "its line."
+#~ msgstr ""
+#~ "ที่มาของตัวเลข: การจำลองหนึ่งชุด — ผู้เล่น 24 คน, สนาม 4 สนาม, 100 รอบ — เล่นซ้ำด้วย "
+#~ "7 seed ในสโมสรจำลองสามแบบ: หลากหลาย (ฝีมือกระจายทั่วช่วง "
+#~ "บวกผู้เล่นเก่งเกินพิกัดและมือใหม่), ทั่วไป (ช่วงห่างราว 1.0 DUPR) และแคบ "
+#~ "(กลุ่มที่เกาะกลุ่มกันแน่น) ฝีมือจริงไม่ได้ถูกตรึงไว้: เช่นเดียวกับสโมสรจริง ผู้เล่นราว 20% "
+#~ "พัฒนาขึ้นทีละน้อย หนึ่งคนพัฒนาเร็ว — สูงสุดครึ่งแต้ม DUPR โดยอัตราการพัฒนาค่อย ๆ "
+#~ "ลดลงเมื่อเข้าที่ — และหนึ่งคนถดถอยช้า ๆ โดยเป็นผู้เล่นชุดเดียวกันในทุกกลยุทธ์ "
+#~ "เพื่อให้การเปรียบเทียบยุติธรรม ทุกรอบคือการคำนวณจริงผ่านตัวหาค่าเหมาะที่สุดตัวเดียวกับที่แอปใช้ "
+#~ "กราฟเป็นค่าเฉลี่ยเคลื่อนที่ 5 รอบจากทุก seed ตัวเลขพาดหัวสรุปจาก 25 รอบสุดท้าย ช่วงเวลา: "
+#~ "เซสชันจริงคือ 12–14 รอบ ดังนั้นรอบที่ 13 จึงแทน “หนึ่งเซสชัน” ด้านล่าง ส่วนกรอบ 100 รอบ "
+#~ "— เจ็ดหรือแปดเซสชันของเรตติงที่สะสมไว้ — แสดงระบบเมื่อเรตติงของทุกคนสุกงอมแล้ว "
+#~ "กราฟโต้ตอบได้ — ชี้เพื่อดูค่า คลิกกลยุทธ์เพื่อแยกดูเส้นนั้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:660
+#, fuzzy
+#~ msgid ""
+#~ "How the numbers were made: one simulation — 24 players, 4 courts, 100 "
+#~ "rounds — replayed across 7 seeds in three synthetic rooms: varied (skills "
+#~ "spread across the range, plus a ringer and a beginner), typical (about a "
+#~ "1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: "
+#~ "as in a real club, about 20% of players improve slightly over the "
+#~ "session, one improves fast enough to cross most of the pack, and one "
+#~ "slowly gets worse — the same players in every strategy's run, so the "
+#~ "comparison stays fair. Every round is a real solve through the same "
+#~ "optimiser the app uses. Charts are 5-round rolling averages across all "
+#~ "seeds; headline numbers summarise the last 25 rounds. Charts are "
+#~ "interactive — hover for values, click a strategy to isolate its line."
+#~ msgstr ""
+#~ "ที่มาของตัวเลข: การจำลองหนึ่งชุด — ผู้เล่น 24 คน, สนาม 4 สนาม, 100 รอบ — เล่นซ้ำด้วย "
+#~ "7 seed ในสโมสรจำลองสามแบบ: หลากหลาย (ฝีมือกระจายทั่วช่วง "
+#~ "บวกผู้เล่นเก่งเกินพิกัดและมือใหม่), ทั่วไป (ช่วงห่างราว 1.0 DUPR) และแคบ "
+#~ "(กลุ่มที่เกาะกลุ่มกันแน่น) ฝีมือจริงไม่ได้ถูกตรึงไว้: เช่นเดียวกับสโมสรจริง ผู้เล่นราว 20% "
+#~ "พัฒนาขึ้นทีละน้อย หนึ่งคนพัฒนาเร็ว — สูงสุดครึ่งแต้ม DUPR โดยอัตราการพัฒนาค่อย ๆ "
+#~ "ลดลงเมื่อเข้าที่ — และหนึ่งคนถดถอยช้า ๆ โดยเป็นผู้เล่นชุดเดียวกันในทุกกลยุทธ์ "
+#~ "เพื่อให้การเปรียบเทียบยุติธรรม ทุกรอบคือการคำนวณจริงผ่านตัวหาค่าเหมาะที่สุดตัวเดียวกับที่แอปใช้ "
+#~ "กราฟเป็นค่าเฉลี่ยเคลื่อนที่ 5 รอบจากทุก seed ตัวเลขพาดหัวสรุปจาก 25 รอบสุดท้าย ช่วงเวลา: "
+#~ "เซสชันจริงคือ 12–14 รอบ ดังนั้นรอบที่ 13 จึงแทน “หนึ่งเซสชัน” ด้านล่าง ส่วนกรอบ 100 รอบ "
+#~ "— เจ็ดหรือแปดเซสชันของเรตติงที่สะสมไว้ — แสดงระบบเมื่อเรตติงของทุกคนสุกงอมแล้ว "
+#~ "กราฟโต้ตอบได้ — ชี้เพื่อดูค่า คลิกกลยุทธ์เพื่อแยกดูเส้นนั้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:687
+#, fuzzy
+#~ msgid "Match quality — tight room"
+#~ msgstr "คุณภาพแมตช์ — สโมสรฝีมือใกล้เคียง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:823
+#, fuzzy
+#~ msgid "Match quality — typical room"
+#~ msgstr "คุณภาพแมตช์ — สโมสรทั่วไป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:752
+#, fuzzy
+#~ msgid "Match quality — varied room"
+#~ msgstr "คุณภาพแมตช์ — สโมสรหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:718
+#, fuzzy
+#~ msgid ""
+#~ "Most open-play sessions in Japan are more varied than the organiser likes "
+#~ "to think: in the current pickleball scene it is hard to gather even one "
+#~ "court of genuinely similar players at once."
+#~ msgstr ""
+#~ "เซสชัน open play ส่วนใหญ่ในญี่ปุ่นหลากหลายกว่าที่ผู้จัดคิด: ในวงการพิกเคิลบอลปัจจุบัน "
+#~ "ยากที่จะรวมผู้เล่นฝีมือใกล้เคียงกันจริง ๆ ได้แม้แต่สนามเดียวในคราวเดียว "
+#~ "แม้เพียงเพราะฟอร์มที่แกว่งไปในแต่ละวัน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+#~ msgid "Random, no repeats"
+#~ msgstr "สุ่ม ไม่ซ้ำ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:904
+#, fuzzy
+#~ msgid ""
+#~ "Ratings do not settle until 30–40 rounds in, and a single session lasts "
+#~ "10–12: by the time ratings become useful, the session has ended. I want "
+#~ "to explore using score differentials to accelerate cold starts — "
+#~ "potentially producing usable ratings within a round or two of an unrated "
+#~ "player's first game. The risk is that this is itself a form of oracle: "
+#~ "reading more into a result than it actually says could tamper with "
+#~ "convergence rather than speed it up."
+#~ msgstr ""
+#~ "เรตติงจะคมชัดขึ้นเรื่อย ๆ ราว 30–40 รอบ — สองถึงสามเซสชัน — "
+#~ "และแม้การจับคู่จะดีกว่าเกณฑ์พื้นฐานตั้งแต่รอบที่ 5 แต่สิบกว่ารอบแรกของการเริ่มจากศูนย์จริง ๆ "
+#~ "ก็ยังเป็นช่วงที่ยากที่สุดของชีวิตสโมสร ผมอยากลองใช้ผลต่างคะแนนเพื่อย่นช่วงนั้น — "
+#~ "อาจได้เรตติงที่ใช้งานได้ภายในหนึ่งถึงสองรอบหลังเกมแรกของผู้เล่นที่ยังไม่มีเรตติง "
+#~ "ปัจจุบันเครื่องมือ Round Robin รองรับการกำหนดอันดับผู้เล่นด้วยตนเองอยู่แล้ว "
+#~ "ความเสี่ยงคือสิ่งนี้เองก็เป็นรูปแบบหนึ่งของ oracle: การตีความผลลัพธ์เกินกว่าที่มันบอกจริง "
+#~ "อาจไปรบกวนการลู่เข้าแทนที่จะเร่งให้เร็วขึ้น"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:851
+#, fuzzy
+#~ msgid ""
+#~ "The Oracle knows everyone's real skill and hand-balances every match. It "
+#~ "is in the field to demonstrate one thing: rigging matches by what you "
+#~ "know prevents the ratings from ever learning it. Strong players are "
+#~ "always split and cancel each other out, so no informative result ever "
+#~ "arrives — the Oracle posts the best match quality of any strategy and the "
+#~ "worst ladder accuracy, stuck seven to eight places off forever."
+#~ msgstr ""
+#~ "Oracle รู้ฝีมือจริงของทุกคนและจัดสมดุลทุกแมตช์ด้วยมือ มันอยู่ในการทดลองนี้เพื่อแสดงสิ่งเดียว: "
+#~ "การจัดแมตช์ตามสิ่งที่คุณรู้ ทำให้ระบบเรตติงไม่มีวันได้เรียนรู้สิ่งนั้น "
+#~ "ผู้เล่นเก่งถูกแยกออกจากกันเสมอและหักล้างกันเอง จึงไม่มีผลลัพธ์ที่ให้ข้อมูลเลย — Oracle "
+#~ "ทำคุณภาพแมตช์ได้ดีที่สุดในบรรดาทุกกลยุทธ์ แต่ความแม่นของอันดับแย่ที่สุด "
+#~ "ติดอยู่ที่คลาดเคลื่อนราวเจ็ดอันดับตลอดไป อันดับที่ขาดข้อมูลของ open play "
+#~ "สไตล์อเมริกันก็คือผลแบบเดียวกันที่เกิดขึ้นโดยบังเอิญ ในระดับที่เบากว่า"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:387
+#: src/components/organisms/MatchmakingReport.re.mjs:508
+#, fuzzy
+#~ msgid "Tight room"
+#~ msgstr "คลับระดับใกล้เคียง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:631
+#, fuzzy
+#~ msgid ""
+#~ "Two things decide which matchmaking strategy is best: the skill spread of "
+#~ "the room, and what you mean by “best”. Spread is how far apart your "
+#~ "players are in real ability. “Best” splits into two goals — keeping "
+#~ "everyone in tight, high-quality matches, and converging ratings to the "
+#~ "truth quickly — and while ratings are still unknown, somewhere in the "
+#~ "first fifteen rounds, you cannot have both. Faster convergence means "
+#~ "injecting randomness into the matchmaking, which costs match quality now; "
+#~ "optimising quality means trusting ratings that are still noise, which "
+#~ "locks misrated players in place. Some early time must be spent in "
+#~ "exploratory, suboptimal matches — unless you seed initial ratings by "
+#~ "hand. Once ratings settle, the tension mostly dissolves: the same "
+#~ "strategy can hold the best match quality in the field while converging as "
+#~ "fast as anything else."
+#~ msgstr ""
+#~ "สองสิ่งที่ตัดสินว่ากลยุทธ์การจับคู่แบบใดดีที่สุด คือ ช่วงความต่างของฝีมือในคลับ "
+#~ "และความหมายของคำว่า “ดีที่สุด” ช่วงความต่างคือระยะห่างของฝีมือจริงระหว่างผู้เล่น ส่วน "
+#~ "“ดีที่สุด” แยกเป็นสองเป้าหมาย — ให้ทุกคนได้แมตช์ที่สูสีคุณภาพสูง "
+#~ "และให้เรตติ้งลู่เข้าหาค่าจริงเร็วที่สุด — และในช่วงที่เรตติ้งยังไม่ชัดเจน ราวๆ สิบห้ารอบแรก "
+#~ "หรือประมาณหนึ่งเซสชัน คุณจะได้ทั้งสองอย่างไม่ได้ "
+#~ "การลู่เข้าที่เร็วกว่าหมายถึงการใส่ความสุ่มเข้าไปในการจับคู่ ซึ่งแลกมาด้วยคุณภาพแมตช์ในตอนนี้ "
+#~ "ส่วนการเน้นคุณภาพหมายถึงการเชื่อเรตติ้งที่ยังเป็นสัญญาณรบกวน "
+#~ "ซึ่งจะตรึงผู้เล่นที่เรตติ้งผิดให้อยู่ที่เดิม จึงต้องเสียเวลาช่วงต้นไปกับแมตช์แบบสำรวจที่ยังไม่ดีที่สุด — "
+#~ "เว้นแต่คุณจะกำหนดเรตติ้งเริ่มต้นด้วยมือ เมื่อเรตติ้งนิ่งแล้ว ความขัดแย้งนี้ก็แทบหมดไป "
+#~ "กลยุทธ์เดียวกันสามารถให้คุณภาพแมตช์ดีที่สุดในกลุ่มไปพร้อมกับลู่เข้าเร็วเท่ากับวิธีอื่นๆ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:631
+#, fuzzy
+#~ msgid ""
+#~ "Two things decide which matchmaking strategy is best: the skill spread of "
+#~ "the room, and what you mean by “best”. Spread is how far apart your "
+#~ "players are in real ability. “Best” splits into two goals that pull "
+#~ "against each other — keeping everyone in tight, high-quality matches, and "
+#~ "converging ratings to the truth quickly. You cannot fully have both. "
+#~ "Faster convergence means injecting randomness into the matchmaking, which "
+#~ "costs match quality now; optimising quality means trusting the ratings, "
+#~ "which makes it harder for misrated players to move. And because noisy "
+#~ "ratings degrade every rating-based match, some time must be spent in "
+#~ "exploratory, suboptimal matches — unless you seed initial ratings by hand."
+#~ msgstr ""
+#~ "สองสิ่งที่ตัดสินว่ากลยุทธ์การจับคู่แบบใดดีที่สุด คือ ช่วงความต่างของฝีมือในคลับ "
+#~ "และความหมายของคำว่า “ดีที่สุด” ช่วงความต่างคือระยะห่างของฝีมือจริงระหว่างผู้เล่น ส่วน "
+#~ "“ดีที่สุด” แยกเป็นสองเป้าหมาย — ให้ทุกคนได้แมตช์ที่สูสีคุณภาพสูง "
+#~ "และให้เรตติ้งลู่เข้าหาค่าจริงเร็วที่สุด — และในช่วงที่เรตติ้งยังไม่ชัดเจน ราวๆ สิบห้ารอบแรก "
+#~ "หรือประมาณหนึ่งเซสชัน คุณจะได้ทั้งสองอย่างไม่ได้ "
+#~ "การลู่เข้าที่เร็วกว่าหมายถึงการใส่ความสุ่มเข้าไปในการจับคู่ ซึ่งแลกมาด้วยคุณภาพแมตช์ในตอนนี้ "
+#~ "ส่วนการเน้นคุณภาพหมายถึงการเชื่อเรตติ้งที่ยังเป็นสัญญาณรบกวน "
+#~ "ซึ่งจะตรึงผู้เล่นที่เรตติ้งผิดให้อยู่ที่เดิม จึงต้องเสียเวลาช่วงต้นไปกับแมตช์แบบสำรวจที่ยังไม่ดีที่สุด — "
+#~ "เว้นแต่คุณจะกำหนดเรตติ้งเริ่มต้นด้วยมือ เมื่อเรตติ้งนิ่งแล้ว ความขัดแย้งนี้ก็แทบหมดไป "
+#~ "กลยุทธ์เดียวกันสามารถให้คุณภาพแมตช์ดีที่สุดในกลุ่มไปพร้อมกับลู่เข้าเร็วเท่ากับวิธีอื่นๆ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:382
+#: src/components/organisms/MatchmakingReport.re.mjs:510
+#, fuzzy
+#~ msgid "Typical room"
+#~ msgstr "คลับทั่วไป"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:377
+#: src/components/organisms/MatchmakingReport.re.mjs:513
+#, fuzzy
+#~ msgid "Varied room"
+#~ msgstr "คลับระดับหลากหลาย"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:792
+#, fuzzy
+#~ msgid ""
+#~ "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the "
+#~ "baselines around round 12–15. By round 100 it blows out 11% of games "
+#~ "against 31% for random play, and schedules a 71% chance of an even game "
+#~ "against 49%. Those numbers match a hand-picked tight-skill session — the "
+#~ "algorithm recovers by matchmaking what you would otherwise get by "
+#~ "gatekeeping the roster."
+#~ msgstr ""
+#~ "ด้วยช่วงความต่างที่สมจริงราว 1.0 DUPR Competitive+ ทิ้งเส้นฐานตั้งแต่ไม่กี่รอบแรก "
+#~ "และเมื่อจบหนึ่งเซสชันก็นำเส้นฐานแบบเลี่ยงเล่นซ้ำอยู่ 9 จุดในด้านคุณภาพ และ 10 "
+#~ "จุดในด้านการชนะขาด ประโยชน์เต็มที่มาถึงเมื่อเรตติ้งนิ่ง: ชนะขาด 10% เทียบกับ 62% "
+#~ "ของเส้นฐาน และโอกาส 78% ที่จะได้เกมสูสี เทียบกับ 53% "
+#~ "ตัวเลขเมื่อเรตติ้งนิ่งเหล่านี้เทียบเท่าคลับที่คัดผู้เล่นระดับใกล้เคียงมาด้วยมือ (79% และ 8%) — "
+#~ "อัลกอริทึมชดเชยด้วยการจับคู่ สิ่งที่ปกติคุณต้องได้จากการคัดกรองสมาชิก:"

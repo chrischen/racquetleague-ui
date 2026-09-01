@@ -39,15 +39,15 @@ function emptyOutcome(matches) {
 
 function effectiveWeights(strategy, weightConfig, players, numCourts) {
   var base = weightConfig !== undefined ? CostModel.weightsFromConfig(weightConfig) : (
-      strategy === "SolverAuto" ? CostModel.autoWeights(players) : CostModel.weightsForStrategy(strategy)
+      strategy === "SolverCompetitivePlus" ? CostModel.adaptiveWeights(players) : CostModel.weightsForStrategy(strategy)
     );
   var mayUpgrade;
   if (weightConfig !== undefined) {
     mayUpgrade = false;
   } else {
     switch (strategy) {
+      case "SolverCompetitivePlusStatic" :
       case "SolverCompetitivePlus" :
-      case "SolverAuto" :
           mayUpgrade = true;
           break;
       default:
@@ -119,8 +119,8 @@ async function generateRounds(numberOfRounds, availablePlayers, completedRounds,
       case "SolverRandomBalanced" :
           courtOrder = "ShuffledCourts";
           break;
-      case "SolverAuto" :
-          courtOrder = CostModel.autoT(CostModel.readinessRatio(availablePlayers)) < 0.5 ? "ShuffledCourts" : "CourtsByLevel";
+      case "SolverCompetitivePlus" :
+          courtOrder = CostModel.adaptiveBlend(CostModel.readinessRatio(availablePlayers)) < 0.5 ? "ShuffledCourts" : "CourtsByLevel";
           break;
       default:
         courtOrder = "CourtsByLevel";

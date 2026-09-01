@@ -2,11 +2,17 @@
  * Translation pipeline using pofile + Anthropic Claude
  *
  * Usage:
- *   node scripts/translate-po.mjs [locale...]
+ *   node scripts/translate-po.mjs [locale...] [--refs <pattern>] [--force]
  *
  * Examples:
  *   node scripts/translate-po.mjs                  # translate all locales
  *   node scripts/translate-po.mjs ja ko            # translate specific locales
+ *   node scripts/translate-po.mjs --refs MatchmakingReport --force
+ *                                                  # re-translate one page's strings
+ *
+ * --refs limits the run to strings whose source references match the pattern
+ * (a regex, matched against the `#:` comments). --force re-translates strings
+ * that already have a translation; without it only empty ones are filled.
  *
  * Reads ANTHROPIC_API_KEY from .env.development (or existing env var).
  */
@@ -57,6 +63,28 @@ function getUntranslated(poFilePath) {
   })
 }
 
+// Structured output schema: forces the model to emit schema-valid JSON, so
+// quotes/newlines inside translated strings are always escaped correctly.
+const TRANSLATION_SCHEMA = {
+  type: 'object',
+  properties: {
+    translations: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          index: { type: 'integer', description: '1-based index of the source string' },
+          text: { type: 'string', description: 'the translated string' },
+        },
+        required: ['index', 'text'],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ['translations'],
+  additionalProperties: false,
+}
+
 /**
  * Send a batch of msgids to Claude and get back translations.
  * Returns an object mapping msgid -> translated string.
@@ -70,27 +98,27 @@ Rules:
 - Preserve all placeholders exactly as-is (e.g. {0}, {name}, {viewerOrdinalStr}, \\n, \\\\n)
 - Preserve all ICU plural syntax (e.g. {count, plural, one {...} other {...}})
 - Keep translations concise and natural for a sports/pickleball app UI
-- Return ONLY a JSON object mapping the 1-based index number (as string) to the translated string
-- Do not add any explanation or extra text
+- Return one entry per source string, using the same 1-based index shown below
 
 Strings to translate:
-${numbered}
+${numbered}`
 
-Return format example: {"1": "translation one", "2": "translation two"}`
+  // Streamed: Opus 5 thinks by default, so a batch can run long enough to hit
+  // the non-streaming HTTP timeout.
+  const response = await client.messages
+    .stream({
+      model: 'claude-opus-5',
+      max_tokens: 32000,
+      output_config: {
+        effort: 'medium',
+        format: { type: 'json_schema', schema: TRANSLATION_SCHEMA },
+      },
+      messages: [{ role: 'user', content: prompt }],
+    })
+    .finalMessage()
 
-  const message = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 4096,
-    messages: [{ role: 'user', content: prompt }],
-    stream: false,
-  })
-
-  // Parse response if it's a string
-  const response = typeof message === 'string' ? JSON.parse(message) : message
-
-  if (!response.content || response.content.length === 0) {
-    console.error('Unexpected API response:', JSON.stringify(response, null, 2))
-    throw new Error('Claude API returned unexpected response structure')
+  if (response.stop_reason === 'max_tokens') {
+    throw new Error('Response truncated at max_tokens; retry with a smaller batch')
   }
 
   // Find the text content block (skip thinking blocks)
@@ -100,56 +128,94 @@ Return format example: {"1": "translation one", "2": "translation two"}`
     throw new Error('Claude API response missing text content')
   }
 
-  const raw = textBlock.text.trim()
-  // Extract JSON from the response (handle potential markdown code fences)
-  const jsonMatch = raw.match(/\{[\s\S]*\}/)
-  if (!jsonMatch) throw new Error(`Claude returned unexpected format:\n${raw}`)
+  let parsed
+  try {
+    parsed = JSON.parse(textBlock.text)
+  } catch (err) {
+    throw new Error(`Claude returned unparseable JSON (${err.message}):\n${textBlock.text}`)
+  }
 
-  const indexed = JSON.parse(jsonMatch[0])
+  const byIndex = new Map(parsed.translations.map(t => [t.index, t.text]))
   const result = {}
   msgids.forEach((id, i) => {
-    const translation = indexed[String(i + 1)]
+    const translation = byIndex.get(i + 1)
     if (translation) result[id] = translation
   })
   return result
 }
 
+const MAX_ATTEMPTS = 3
+
 /**
- * Translate all untranslated strings in a .po file and save it.
+ * translateBatch with retries, covering both failure modes seen in practice:
+ * a whole batch erroring out (halve it and retry each half), and the model
+ * silently skipping some entries (retry just the missing ones).
  */
-async function translateFile(locale) {
+async function translateBatchWithRetry(msgids, targetLanguage, locale, attempt = 1) {
+  let result
+
+  try {
+    result = await translateBatch(msgids, targetLanguage)
+  } catch (err) {
+    if (attempt >= MAX_ATTEMPTS || msgids.length === 1) {
+      console.error(`[${locale}] Giving up on ${msgids.length} string(s): ${err.message}`)
+      return {}
+    }
+    console.warn(`[${locale}] Batch failed (${err.message}); retrying as two halves.`)
+    const mid = Math.ceil(msgids.length / 2)
+    const [a, b] = await Promise.all([
+      translateBatchWithRetry(msgids.slice(0, mid), targetLanguage, locale, attempt + 1),
+      translateBatchWithRetry(msgids.slice(mid), targetLanguage, locale, attempt + 1),
+    ])
+    return { ...a, ...b }
+  }
+
+  const missing = msgids.filter(id => !result[id])
+  if (missing.length > 0 && attempt < MAX_ATTEMPTS) {
+    console.warn(`[${locale}] ${missing.length} string(s) skipped by the model; retrying those.`)
+    Object.assign(result, await translateBatchWithRetry(missing, targetLanguage, locale, attempt + 1))
+  }
+  return result
+}
+
+/**
+ * Translate a .po file and save it. `refs` (a RegExp or null) limits the run to
+ * strings from matching source files; `force` re-translates existing translations.
+ */
+async function translateFile(locale, { refs, force }) {
   const filePath = path.join(LOCALES_DIR, `${locale}.po`)
   const languageName = LANGUAGE_NAMES[locale]
 
   console.log(`\n[${locale}] Loading ${filePath}...`)
   const content = readFileSync(filePath, 'utf8')
   const po = PO.parse(content)
-  const untranslated = po.items.filter(item => {
+  const pending = po.items.filter(item => {
     if (item.obsolete) return false
     if (!item.msgid) return false
-    return !item.msgstr[0]
+    if (refs && !(item.references || []).some(ref => refs.test(ref))) return false
+    return force || !item.msgstr[0]
   })
 
-  if (untranslated.length === 0) {
-    console.log(`[${locale}] All strings already translated, skipping.`)
+  if (pending.length === 0) {
+    console.log(`[${locale}] Nothing to translate, skipping.`)
     return
   }
 
-  console.log(`[${locale}] Found ${untranslated.length} untranslated strings.`)
+  console.log(`[${locale}] Found ${pending.length} strings to translate.`)
 
   // Batch in groups of 30 to stay within token limits
   const BATCH_SIZE = 30
   let translated = 0
 
-  for (let i = 0; i < untranslated.length; i += BATCH_SIZE) {
-    const batch = untranslated.slice(i, i + BATCH_SIZE)
+  for (let i = 0; i < pending.length; i += BATCH_SIZE) {
+    const batch = pending.slice(i, i + BATCH_SIZE)
     const msgids = batch.map(item => item.msgid)
 
     console.log(
-      `[${locale}] Translating batch ${Math.floor(i / BATCH_SIZE) + 1} (${batch.length} strings)...`
+      `[${locale}] Translating batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(pending.length / BATCH_SIZE)} (${batch.length} strings)...`
     )
 
-    const translations = await translateBatch(msgids, languageName)
+    const translations = await translateBatchWithRetry(msgids, languageName, locale)
 
     for (const item of batch) {
       if (translations[item.msgid]) {
@@ -159,10 +225,12 @@ async function translateFile(locale) {
         console.warn(`[${locale}] Warning: no translation returned for: ${item.msgid.slice(0, 60)}`)
       }
     }
+
+    // Save after each batch so a later failure doesn't discard finished work.
+    writeFileSync(filePath, po.toString())
   }
 
-  writeFileSync(filePath, po.toString())
-  console.log(`[${locale}] Saved. Translated ${translated}/${untranslated.length} strings.`)
+  console.log(`[${locale}] Saved. Translated ${translated}/${pending.length} strings.`)
 }
 
 async function main() {
@@ -171,7 +239,22 @@ async function main() {
     process.exit(1)
   }
 
-  const requested = process.argv.slice(2)
+  const argv = process.argv.slice(2)
+  const requested = []
+  let refsPattern = null
+  let force = false
+
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === '--force') force = true
+    else if (argv[i] === '--refs') refsPattern = argv[++i]
+    else requested.push(argv[i])
+  }
+
+  if (refsPattern === undefined) {
+    console.error('Error: --refs requires a pattern.')
+    process.exit(1)
+  }
+
   const locales = requested.length > 0 ? requested : ALL_LOCALES
 
   const invalid = locales.filter(l => !LANGUAGE_NAMES[l])
@@ -181,9 +264,13 @@ async function main() {
     process.exit(1)
   }
 
-  console.log(`Translating locales: ${locales.join(', ')} (in parallel)`)
+  const refs = refsPattern ? new RegExp(refsPattern) : null
 
-  await Promise.all(locales.map(locale => translateFile(locale)))
+  console.log(`Translating locales: ${locales.join(', ')} (in parallel)`)
+  if (refs) console.log(`Limited to strings from sources matching /${refsPattern}/`)
+  if (force) console.log('Re-translating strings that already have translations')
+
+  await Promise.all(locales.map(locale => translateFile(locale, { refs, force })))
 
   console.log('\nDone.')
 }

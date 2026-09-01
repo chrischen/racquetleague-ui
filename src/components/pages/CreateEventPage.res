@@ -120,6 +120,10 @@ let make = () => {
             cancelDeadline: ?cancelDeadlineParam->Option.flatMap(v => Int.fromString(v)),
             startDate: ?startDateTimeParam,
             endDate: ?endTimeParam,
+            // Copies mirror the source event, so the form must not layer its
+            // new-event defaults (e.g. cancel deadline) over the fields the
+            // source event left unset.
+            fromExistingEvent: true,
           }
           values
         })

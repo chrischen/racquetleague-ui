@@ -1,0 +1,680 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-30 01:37+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1374
+msgid "· {0} · every level, % chance of a level game"
+msgstr "· {0} · ทุกระดับ, % โอกาสเกมสูสี"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1374
+msgid "· {0} players · every strategy"
+msgstr "· ผู้เล่น {0} คน · ทุกกลยุทธ์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "· % chance the game ends level, by true skill · higher is better"
+msgstr "· % โอกาสที่เกมจบเสมอ โดยทักษะจริง · ยิ่งสูงยิ่งดี"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1333
+msgid "· % of games decided by 9+ · rolling 5"
+msgstr "· % ของเกมที่ตัดสินด้วย 9+ · rolling 5"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1365
+msgid ""
+"· mean gap between predicted and true win chance · 0 = called every game "
+"right"
+msgstr "· ค่าเฉลี่ยความต่างระหว่างโอกาสชนะที่คาดไว้กับจริง · 0 = ทายถูกทุกเกม"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1332
+msgid "· mean ladder places off · lower is better"
+msgstr "· ค่าเฉลี่ยอันดับบันไดที่คลาดเคลื่อน · ยิ่งต่ำยิ่งดี"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "· median game's % chance of ending level · immune to blowout drag"
+msgstr "· % โอกาสเกมกลางจบสูสี · ไม่ถูกดึงโดยเกมขาดลอย"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1209
+msgid "· players marked ↑ ↑↑ ↓ are improving or slipping as the session runs"
+msgstr "· ผู้เล่นที่มีเครื่องหมาย ↑ ↑↑ ↓ กำลังพัฒนาหรือถดถอยระหว่างเซสชัน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2136
+msgid "{0} · {1} sit"
+msgstr "{0} · {1} นั่งพัก"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2223
+msgid "{0} · ± shown"
+msgstr "{0} · แสดง ±"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1615
+msgid "{0} · not achievable"
+msgstr "{0} · ไม่สามารถทำได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2241
+msgid "{0} / {1} solves"
+msgstr "{0} / {1} แก้ได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:68
+msgid "{0} KB"
+msgstr "{0} KB"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1919
+msgid "{0} players · {1} courts · {2} rounds · real solver"
+msgstr "{0} ผู้เล่น · {1} คอร์ท · {2} รอบ · solver จริง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:65
+msgid "{0}p · {1} courts · {2} rounds · {3} seeds"
+msgstr "{0}p · {1} คอร์ท · {2} รอบ · {3} ซีด"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1655
+msgid ""
+"± is the standard error over {0} seeds. {1} strategies are tied for best on "
+"ladder error — their gaps are inside the error bars, so the ordering between "
+"them is not a result."
+msgstr ""
+"± คือค่าคลาดเคลื่อนมาตรฐานจาก {0} ซีด มี {1} "
+"กลยุทธ์ที่เสมอกันในอันดับดีที่สุดบนค่าความคลาดเคลื่อนของแลดเดอร์ — "
+"ช่องว่างระหว่างกันอยู่ภายในแถบค่าคลาดเคลื่อน ดังนั้นลำดับระหว่างกันจึงไม่ใช่ผลลัพธ์ที่ชัดเจน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1655
+msgid ""
+"± is the standard error over {0} seeds. Bold marks a value nothing else is "
+"within error of."
+msgstr ""
+"± คือค่าคลาดเคลื่อนมาตรฐานจาก {0} ซีด ตัวหนาหมายถึงค่าที่ไม่มีค่าอื่นใดอยู่ในระยะค่าคลาดเคลื่อน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2223
+msgid "1 · no error"
+msgstr "1 · ไม่มีค่าคลาดเคลื่อน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1721
+msgid "a narrow, heavily bunched pack — hard to tell anyone apart"
+msgstr "กลุ่มแน่นและใกล้เคียงกันมาก — แยกความต่างแทบไม่ออก"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:84
+msgid ""
+"A settled pool with unrated newcomers spread across the true ladder. Their "
+"ratings start mid-pool regardless of real skill."
+msgstr ""
+"กลุ่มที่มั่นคงพร้อมผู้มาใหม่ที่ยังไม่มีเรตติ้ง กระจายตัวทั่วบันไดจริง "
+"เรตติ้งของพวกเขาเริ่มต้นที่กลางกลุ่มโดยไม่คำนึงถึงทักษะจริง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1718
+msgid "a wide field plus a ringer and a beginner nobody can balance around"
+msgstr "ช่วงระดับกว้าง มีทั้งเซียนและมือใหม่ที่ยากจะปรับสมดุล"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1724
+msgid "about a 1.0 DUPR spread, roughly 3.0 to 4.0 — what most clubs look like"
+msgstr "ช่วง DUPR ประมาณ 1.0 ราว 3.0 ถึง 4.0 — คล้ายคลับส่วนใหญ่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:51
+msgid "Accurate ladder"
+msgstr "บันไดที่แม่นยำ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:986
+msgid "all bands"
+msgstr "ทุกกลุ่ม"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:114
+msgid "Balanced Round Robin"
+msgstr "Balanced Round Robin"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:94
+msgid "band member"
+msgstr "สมาชิกกลุ่ม"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:132
+msgid ""
+"Banding from round one, with no calibration phase. Trusts whatever ratings "
+"it is given — which is why it opens badly from a cold start. Reference "
+"profile, not a mode players can pick."
+msgstr ""
+"การแบ่งกลุ่มตั้งแต่รอบแรก โดยไม่มีช่วงปรับเทียบ เชื่อถือเรตติ้งที่ได้รับมา — "
+"นั่นคือเหตุผลที่เริ่มต้นได้ไม่ดีจากจุดเริ่มต้นใหม่ เป็นโปรไฟล์อ้างอิง ไม่ใช่โหมดที่ผู้เล่นเลือกได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1290
+msgid "BLOWOUT"
+msgstr "บลาวเอาต์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1333
+msgid "Blowout rate"
+msgstr "อัตราบลาวเอาต์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1515
+msgid "blowouts"
+msgstr "บลาวเอาต์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:49
+msgid "Cold start"
+msgstr "เริ่มต้นจากศูนย์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:108
+msgid "Competitive+ (adaptive)"
+msgstr "Competitive+ (ปรับตัว)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+msgid "Competitive+ (static)"
+msgstr "Competitive+ (คงที่)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2035
+msgid "Could not load the saved run: {loadError}"
+msgstr "ไม่สามารถโหลดการรันที่บันทึกไว้: {loadError}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1258
+msgid "court {0}"
+msgstr "คอร์ท {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2118
+msgid "courts"
+msgstr "คอร์ท"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1271
+msgid "def"
+msgstr "def"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1332
+msgid "Distance from truth"
+msgstr "ระยะห่างจากความเป็นจริง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1922
+msgid "Does balanced matchmaking find the truth?"
+msgstr "การจับคู่ที่สมดุลค้นพบความจริงได้ไหม?"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:78
+msgid ""
+"EVERY rating is the exact mirror of true skill, held confidently — the "
+"strongest player reads as the weakest. Balanced play is blind to this: "
+"matches look 50/50 under both truth and belief, so no evidence ever arrives. "
+"Only the variety modes escape it."
+msgstr ""
+"ทุกเรตติ้งเป็นกระจกสะท้อนทักษะจริงอย่างแน่วแน่ — ผู้เล่นที่แข็งแกร่งที่สุดถูกอ่านว่าอ่อนแอที่สุด "
+"การเล่นที่สมดุลมองไม่เห็นสิ่งนี้: แมตช์ดูเหมือน 50/50 ทั้งในความจริงและความเชื่อ "
+"จึงไม่มีหลักฐานใดมาถึงเลย มีเพียงโหมดหลากหลายเท่านั้นที่หลุดพ้นจากสิ่งนี้ได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2243
+msgid "every round is a real ILP solve · {0} rounds to build"
+msgstr "ทุกรอบเป็น ILP solve จริง · สร้าง {0} รอบ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2243
+msgid ""
+"every round is a real ILP solve · {0} rounds to build — this will take a "
+"while"
+msgstr "ทุกรอบเป็น ILP solve จริง · สร้าง {0} รอบ — อาจใช้เวลาสักครู่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:74
+msgid ""
+"Everyone at the default rating. Nothing is known yet — the case every new "
+"event starts from."
+msgstr "ทุกคนอยู่ที่เรตติ้งเริ่มต้น ยังไม่มีข้อมูลใด — สถานการณ์ที่ทุกอีเวนต์ใหม่เริ่มต้น"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2194
+msgid "everyone mixes"
+msgstr "ทุกคนปะปนกัน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1824
+msgid "field"
+msgstr "สนาม"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2194
+msgid "fixed squads of 4"
+msgstr "ทีมคงที่ 4 คน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:82
+msgid ""
+"Global order is right, but each band of four is internally reversed. Banded "
+"play CAN see this error, so Competitive+ self-corrects."
+msgstr ""
+"ลำดับโดยรวมถูกต้อง แต่แต่ละกลุ่มสี่คนถูกกลับด้านภายใน "
+"การเล่นแบบแบ่งกลุ่มสามารถมองเห็นข้อผิดพลาดนี้ได้ Competitive+ จึงแก้ไขตัวเองได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:92
+msgid "inverted insert"
+msgstr "แทรกแบบกลับด้าน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:55
+msgid "Inverted inserts"
+msgstr "การแทรกแบบกลับด้าน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:53
+msgid "Inverted ladder (complete)"
+msgstr "บันไดกลับด้าน (สมบูรณ์)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:882
+msgid "leading"
+msgstr "นำอยู่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1953
+msgid "loading…"
+msgstr "กำลังโหลด…"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "Match quality"
+msgstr "คุณภาพการแข่งขัน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1337
+msgid "Match quality · typical game"
+msgstr "คุณภาพแมตช์ · เกมทั่วไป"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1372
+msgid "Match quality by band"
+msgstr "คุณภาพแมตช์ตามกลุ่ม"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:138
+msgid ""
+"Matchmakes from hidden true skill instead of the ratings. Not a strategy "
+"anyone can run — it marks the best match quality this pool allows, so the "
+"distance from it is what imperfect ratings cost. Its ladder never improves: "
+"a game that is genuinely even is a coin flip, and coin flips teach nothing."
+msgstr ""
+"จับคู่จากทักษะจริงที่ซ่อนอยู่แทนที่จะใช้คะแนนเรตติ้ง ไม่ใช่กลยุทธ์ที่ใครก็รันได้ — "
+"แต่เป็นตัวบ่งชี้คุณภาพการแข่งขันสูงสุดที่กลุ่มนี้ทำได้ ดังนั้นระยะห่างจากจุดนี้คือต้นทุนของเรตติ้งที่ไม่สมบูรณ์ "
+"บันไดของมันไม่เคยดีขึ้น: เกมที่สูสีจริง ๆ คือการโยนเหรียญ และการโยนเหรียญไม่สอนอะไรทั้งนั้น"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:146
+msgid ""
+"Maximum rotation with light banding — novelty first, but still rating-aware, "
+"unlike the avoid-repeats baseline. Its unbalanced splits are what let it "
+"recover a broken ladder."
+msgstr ""
+"หมุนเวียนสูงสุดพร้อมแบ่งกลุ่มเบาๆ — เน้นความแปลกใหม่ก่อน แต่ยังคำนึงถึงเรตติ้ง "
+"ต่างจากแนวทางหลีกเลี่ยงการซ้ำล้วนๆ การแบ่งที่ไม่สมดุลช่วยฟื้นบันไดที่พังได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1344
+msgid "mean"
+msgstr "ค่าเฉลี่ย"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1348
+msgid "median"
+msgstr "ค่ากลาง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1242
+msgid "No games yet — press play or step."
+msgstr "ยังไม่มีเกม — กด เล่น หรือ ก้าวต่อไป"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:142
+msgid ""
+"No preferences at all: no balancing, no rotation, pure jitter. A synthetic "
+"floor — real clubs avoid repeats, so the realistic baseline is Random, avoid "
+"repeats."
+msgstr ""
+"ไม่มีการตั้งค่าใดๆ: ไม่ปรับสมดุล ไม่หมุนเวียน สุ่มล้วน เป็นค่าพื้นฐานสังเคราะห์ — "
+"คลับจริงหลีกเลี่ยงการซ้ำ ดังนั้นค่าอ้างอิงที่สมจริงคือ สุ่ม หลีกเลี่ยงซ้ำ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:110
+msgid "Open play (JP style)"
+msgstr "โอเพ่นเพลย์ (สไตล์ JP)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:122
+msgid "Open play (US style)"
+msgstr "โอเพ่นเพลย์ (สไตล์ US)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1890
+msgid "optimiser unavailable — some rounds fell back to the greedy engine"
+msgstr "ตัวปรับแต่งไม่พร้อมใช้งาน — บางรอบใช้เครื่องมือ greedy แทน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:112
+msgid "Oracle (knows truth)"
+msgstr "Oracle (รู้ความจริง)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1731
+msgid "pause"
+msgstr "หยุด"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1685
+msgid ""
+"Pick a scenario and press Run. Each round is a real solve through the same "
+"optimiser the app uses, and every field is simulated across several seeds, "
+"so a run takes a little while."
+msgstr ""
+"เลือกสถานการณ์แล้วกด เริ่ม แต่ละรอบเป็นการแก้ปัญหาจริงผ่านตัวปรับแต่งเดียวกับที่แอปใช้ "
+"และทุกสนามถูกจำลองด้วยซีดหลายตัว ดังนั้นการรันจึงใช้เวลาสักครู่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1507
+msgid "places off"
+msgstr "อันดับที่คลาดเคลื่อน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1731
+msgid "play"
+msgstr "เล่น"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2085
+msgid "players"
+msgstr "ผู้เล่น"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:148
+msgid ""
+"Players self-sort into a beginner group and an intermediate/advanced group "
+"and stay there, mixing only around the middle of the pool. Teams are drawn "
+"at random within a level and never evened out; about half of blowouts get "
+"run back — once — and a close game may keep the same four on court."
+msgstr ""
+"ผู้เล่นแบ่งกลุ่มเองเป็นกลุ่มมือใหม่และกลุ่มกลาง/สูง แล้วอยู่ในกลุ่มนั้น ปะปนเฉพาะตรงกลางของกลุ่มรวม "
+"ทีมจับฉลากภายในระดับโดยไม่ปรับให้เท่ากัน ประมาณครึ่งหนึ่งของเกมขาดลอยจะเล่นซ้ำหนึ่งครั้ง "
+"และเกมสูสีอาจคงสี่คนเดิมไว้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2021
+msgid "precomputed · loads in a second instead of an hour"
+msgstr "คำนวณล่วงหน้า · โหลดในไม่กี่วินาทีแทนที่จะเป็นชั่วโมง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1280
+msgid "pred {0}%"
+msgstr "ทาย {0}%"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1511
+msgid "quality"
+msgstr "คุณภาพ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:116
+msgid "Random (baseline)"
+msgstr "สุ่ม (พื้นฐาน)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:144
+msgid ""
+"Random composition with partner and opponent rotation, but still no team "
+"balancing — what open play actually does, and the realistic rating-free "
+"baseline. Novelty buys variety and faster convergence, not match quality."
+msgstr ""
+"สุ่มผสมพาร์ทเนอร์และคู่แข่ง แต่ยังไม่ปรับสมดุลทีม — สะท้อน Open Play จริง "
+"และเป็นค่าอ้างอิงที่ไม่ใช้เรตติ้ง ความหลากหลายช่วยให้รูปแบบชัดขึ้น ไม่ใช่คุณภาพแมตช์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:140
+msgid "Random composition, most even split available in every match."
+msgstr "จัดทีมสุ่ม แบ่งทีมสมดุลที่สุดเท่าที่ทำได้ในทุกแมตช์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+msgid "Random, avoid repeats"
+msgstr "สุ่ม หลีกเลี่ยงซ้ำ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1657
+msgid ""
+"Ranked by the three columns combined, weighted equally. Rows below the "
+"dashed line matchmake from hidden true skill — they mark the ceiling and are "
+"excluded from the ranking. All three are rolling averages over the last {0} "
+"rounds, so they say how each strategy is doing now rather than how it did "
+"overall — drag the round slider to watch them move. places off = how far the "
+"average player sits from their true rank (lower better) · quality = chance a "
+"game ends level, by true skill (higher better) · blowouts = share of games "
+"decided by 9+ (lower better)."
+msgstr ""
+"จัดอันดับจากสามคอลัมน์รวมกัน น้ำหนักเท่ากัน แถวใต้เส้นประจับคู่จากทักษะจริงที่ซ่อนอยู่ — "
+"เป็นเพดานและไม่นำมาจัดอันดับ ทั้งสามเป็นค่าเฉลี่ยเคลื่อนที่ใน {0} รอบล่าสุด "
+"จึงบอกสถานะปัจจุบันของแต่ละกลยุทธ์ ลากแถบเลือกรอบเพื่อดูการเปลี่ยนแปลง places off = "
+"ระยะห่างเฉลี่ยของผู้เล่นจากอันดับจริง (ต่ำดีกว่า) · quality = โอกาสเกมจบสูสีตามทักษะจริง "
+"(สูงดีกว่า) · blowouts = สัดส่วนเกมที่ห่างกัน 9+ คะแนน (ต่ำดีกว่า)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1201
+msgid "rating ·"
+msgstr "เรตติ้ง ·"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1365
+msgid "Rating forecast error"
+msgstr "ความคลาดเคลื่อนของการคาดการณ์เรตติ้ง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:76
+msgid ""
+"Ratings already match the truth, held confidently. This is where match "
+"quality is the product."
+msgstr "เรตติ้งตรงกับความจริงแล้ว และมั่นใจในระดับสูง นี่คือจุดที่คุณภาพการแข่งขันเป็นผลลัพธ์สำคัญ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1932
+msgid ""
+"Red ticks are true skill; blue bars are what the rating system currently "
+"believes. Rows are ordered by true skill, strongest first — a correct system "
+"reads as a clean staircase."
+msgstr ""
+"เครื่องหมายแดงคือทักษะจริง แถบสีน้ำเงินคือสิ่งที่ระบบเรตติ้งเชื่อในปัจจุบัน แถวเรียงตามทักษะจริง "
+"แข็งแกร่งสุดก่อน — ระบบที่ถูกต้องจะอ่านเป็นบันไดที่เรียบสม่ำเสมอ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2060
+msgid "reseed ({0})"
+msgstr "รีซีด ({0})"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1752
+msgid "reset"
+msgstr "รีเซ็ต"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1171
+msgid "rho {0} · off by {1} places"
+msgstr "rho {0} · คลาดเคลื่อน {1} อันดับ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:136
+msgid ""
+"Rotate through everyone, teams drawn as they come. Only when a foursome "
+"splits sharply into two strong and two weak does anyone even out the sides — "
+"and then which weak player goes with which strong is left to chance."
+msgstr ""
+"สลับผู้เล่นทุกคนโดยจับทีมตามที่จับได้ ยกเว้นเมื่อกลุ่มสี่คนแบ่งชัดเป็นสองเก่งสองอ่อน จึงจะจัดสมดุลฝั่ง — "
+"แล้วจับสลากว่าผู้เล่นอ่อนคนไหนจะได้คู่กับผู้เล่นเก่งคนไหน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1236
+msgid "Round {0} · {1}"
+msgstr "รอบที่ {0} · {1}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1764
+msgid "round {0}/{1}"
+msgstr "รอบ {0}/{1}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:120
+msgid "Round Robin"
+msgstr "รอบโรบิน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2147
+msgid "rounds"
+msgstr "รอบ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2233
+msgid "Run simulation"
+msgstr "รันการจำลอง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2233
+msgid "running…"
+msgstr "กำลังรัน…"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1949
+msgid "saved runs"
+msgstr "การรันที่บันทึกไว้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:2205
+msgid "seeds"
+msgstr "ซีด"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1699
+msgid ""
+"showing a saved run · {0} · {1} players · {2} courts · {3} rounds · {4} "
+"seeds. Ladder and round detail come from the first seed; the charts and "
+"standings average all of them."
+msgstr ""
+"กำลังแสดงการรันที่บันทึกไว้ · {0} · ผู้เล่น {1} คน · {2} คอร์ท · {3} รอบ · {4} ซีด "
+"บันไดและรายละเอียดรอบมาจากซีดแรก ส่วนกราฟและตารางคะแนนเฉลี่ยจากทุกซีด"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1654
+msgid ""
+"Single seed — no error bars, so treat any ordering here as provisional. "
+"Raise the seed count to tell real differences from noise."
+msgstr ""
+"ซีดเดียว — ไม่มีแถบค่าคลาดเคลื่อน ดังนั้นควรถือว่าลำดับใดๆ ที่นี่เป็นเพียงเบื้องต้น "
+"เพิ่มจำนวนซีดเพื่อแยกแยะความแตกต่างที่แท้จริงออกจากสัญญาณรบกวน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1311
+msgid "sitting out: {0}"
+msgstr "พักรอบ: {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1791
+msgid "speed"
+msgstr "ความเร็ว"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1491
+msgid "Standings at round {0} · last {1} rounds"
+msgstr "ตารางคะแนน ณ รอบ {0} · {1} รอบล่าสุด"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1491
+msgid "Standings before play"
+msgstr "ตารางคะแนนก่อนเริ่มเล่น"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1740
+msgid "step"
+msgstr "ขั้นตอน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:80
+msgid ""
+"The same confident inversion, but applied to only a third of the pool — the "
+"rest are correctly rated anchors. The error is now visible against those "
+"anchors, so it should correct far faster than a complete inversion."
+msgstr ""
+"การสลับแบบเดิมแต่ใช้กับเพียงหนึ่งในสามของผู้เล่น — ที่เหลือเป็นผู้เล่นอ้างอิงที่คะแนนถูกต้อง "
+"ข้อผิดพลาดจะเห็นชัดเมื่อเทียบกับผู้เล่นอ้างอิง จึงควรแก้ไขได้เร็วกว่าการสลับทั้งหมด"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1836
+msgid "tight"
+msgstr "ใกล้เคียงกัน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:67
+#: src/components/organisms/MatchmakingLab.re.mjs:2177
+msgid "tournament"
+msgstr "ทัวร์นาเมนต์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1208
+msgid "true skill"
+msgstr "ทักษะที่แท้จริง"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1168
+msgid "Truth ladder — {0}"
+msgstr "บันไดความจริง — {0}"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1832
+msgid "typical"
+msgstr "ทั่วไป"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:96
+msgid "unrated newcomer"
+msgstr "มือใหม่ยังไม่มีคะแนน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:59
+msgid "Unrated newcomers"
+msgstr "มือใหม่ยังไม่มีคะแนน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1297
+msgid "UPSET"
+msgstr "พลิกล็อก"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1828
+msgid "varied"
+msgstr "หลากหลาย"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:134
+msgid ""
+"What the app ships as Competitive+: calibrates with variety while the "
+"ratings are noise, then blends into banded play as they settle. Identical to "
+"the static profile once the ladder has any spread."
+msgstr ""
+"โหมด Competitive+ ที่แอปใช้งาน: ปรับเทียบด้วยความหลากหลายขณะที่คะแนนยังไม่นิ่ง แล้วค่อยๆ "
+"เปลี่ยนเป็นการจับคู่ตามระดับเมื่อคะแนนเสถียรขึ้น เหมือนกับโปรไฟล์แบบคงที่เมื่อบันไดมีช่วงกว้างแล้ว"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:57
+msgid "Within-band inversion"
+msgstr "การสลับภายในระดับเดียวกัน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+#~ msgid ""
+#~ "a bunched pack, most players hard to tell apart, nobody outside the group"
+#~ msgstr "กลุ่มที่อัดแน่น ผู้เล่นส่วนใหญ่แยกแยะได้ยาก ไม่มีใครโดดเด่นออกจากกลุ่ม"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:146
+#~ msgid ""
+#~ "Maximum rotation. Its unbalanced splits are what let it recover a broken "
+#~ "ladder."
+#~ msgstr "การหมุนเวียนสูงสุด การแบ่งทีมที่ไม่สมดุลคือสิ่งที่ช่วยให้มันฟื้นบันไดที่พังได้"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:142
+#~ msgid ""
+#~ "No preferences at all: no balancing, no rotation, pure jitter. The floor "
+#~ "every real strategy should beat on match quality — and, surprisingly, the "
+#~ "fastest early learner."
+#~ msgstr ""
+#~ "ไม่มีการตั้งค่าใด ๆ เลย: ไม่มีการปรับสมดุล ไม่มีการหมุนเวียน สุ่มล้วน ๆ "
+#~ "นี่คือพื้นฐานที่ทุกกลยุทธ์จริงควรเอาชนะในด้านคุณภาพการแข่งขัน — และที่น่าแปลกใจคือ "
+#~ "เรียนรู้ได้เร็วที่สุดในช่วงแรก"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1170
+#~ msgid ""
+#~ "Pick a scenario and press Run. Each round is a real solve through the "
+#~ "same optimiser the app uses, so a run takes a few seconds."
+#~ msgstr ""
+#~ "เลือกสถานการณ์แล้วกด รัน แต่ละรอบคือการแก้ปัญหาจริงผ่านตัวปรับแต่งเดียวกับที่แอปใช้ "
+#~ "ดังนั้นการรันหนึ่งครั้งจะใช้เวลาสักครู่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:148
+#~ msgid ""
+#~ "Players self-sort into a beginner group and an intermediate/advanced "
+#~ "group and stay there, mixing only around the middle of the pool. Teams "
+#~ "are drawn at random within a level and never evened out; a blowout gets "
+#~ "run back and a close game keeps the same four on court."
+#~ msgstr ""
+#~ "ผู้เล่นแบ่งกลุ่มเองเป็นกลุ่มมือใหม่และกลุ่มกลาง/ขั้นสูง และอยู่ในกลุ่มนั้น "
+#~ "โดยผสมกันเฉพาะบริเวณกลางของกลุ่มเท่านั้น ทีมถูกจับสลากภายในระดับโดยไม่มีการปรับสมดุล "
+#~ "เกมที่แพ้ขาดลอยจะรีแมตช์ และเกมสูสีจะคงผู้เล่นทั้งสี่คนไว้บนคอร์ต"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:106
+#~ msgid "Random Balanced"
+#~ msgstr "สุ่มแบบสมดุล"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:144
+#~ msgid ""
+#~ "Random composition with partner and opponent rotation, but still no team "
+#~ "balancing. Isolates what novelty alone buys over pure chance."
+#~ msgstr ""
+#~ "จัดทีมสุ่มพร้อมหมุนเวียนพาร์ทเนอร์และคู่แข่ง แต่ยังไม่มีการปรับสมดุลทีม "
+#~ "ใช้วัดว่าความแปลกใหม่เพียงอย่างเดียวให้ผลเหนือกว่าการสุ่มล้วน ๆ แค่ไหน"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:118
+#~ msgid "Random, no repeats"
+#~ msgstr "สุ่ม ไม่ซ้ำ"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1146
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking and the highlights. places off = how far "
+#~ "the average player sits from their true rank (lower better) · quality = "
+#~ "chance a game ends level, by true skill (higher better) · blowouts = "
+#~ "share of games decided by 9+ (lower better). Bold marks the best in each "
+#~ "column."
+#~ msgstr ""
+#~ "จัดอันดับจากสามคอลัมน์รวมกัน น้ำหนักเท่ากัน แถวใต้เส้นประจับคู่จากทักษะจริงที่ซ่อนอยู่ — "
+#~ "บ่งบอกเพดานสูงสุดและไม่รวมในการจัดอันดับและไฮไลต์ อันดับที่คลาดเคลื่อน = "
+#~ "ระยะห่างเฉลี่ยของผู้เล่นจากอันดับจริง (น้อยดีกว่า) · คุณภาพ = "
+#~ "โอกาสที่เกมจบแบบสูสีตามทักษะจริง (มากดีกว่า) · บลาวท์ = สัดส่วนเกมที่ชนะขาด 9+ แต้ม "
+#~ "(น้อยดีกว่า) ตัวหนาหมายถึงดีที่สุดในแต่ละคอลัมน์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1370
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. places off = how far the average player "
+#~ "sits from their true rank (lower better) · quality = chance a game ends "
+#~ "level, by true skill (higher better) · blowouts = share of games decided "
+#~ "by 9+ (lower better)."
+#~ msgstr ""
+#~ "จัดอันดับจากสามคอลัมน์รวมกัน โดยให้น้ำหนักเท่ากัน "
+#~ "แถวใต้เส้นประจับคู่โดยใช้ทักษะที่แท้จริงที่ซ่อนอยู่ — "
+#~ "แถวเหล่านี้แสดงเพดานและถูกยกเว้นจากการจัดอันดับ ตำแหน่งที่คลาด = "
+#~ "ระยะห่างเฉลี่ยของผู้เล่นจากอันดับจริง (น้อยกว่าดีกว่า) · คุณภาพ = "
+#~ "โอกาสที่เกมจบแบบสูสีตามทักษะจริง (มากกว่าดีกว่า) · เกมขาด = "
+#~ "สัดส่วนเกมที่ตัดสินด้วยคะแนนห่าง 9+ (น้อยกว่าดีกว่า)"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1757
+#~ msgid "skill spread evenly across the range, plus a ringer and a beginner"
+#~ msgstr "ทักษะกระจายสม่ำเสมอทั่วช่วง บวกกับผู้เล่นเก่งมากและผู้เล่นมือใหม่"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1204
+#~ msgid "Standings at round {0}"
+#~ msgstr "ตารางคะแนน ณ รอบที่ {0}"

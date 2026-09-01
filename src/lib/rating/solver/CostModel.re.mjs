@@ -51,6 +51,7 @@ function weightsFromConfig(config) {
   var derived_wRepeatGroup = Math.round(wPartner * 0.6);
   var derived_balanceTeams = t >= 0.2;
   var derived_wSpread = spreadWeightFor(t);
+  var derived_wCohort = t >= 0.85 ? 600 : 0;
   var derived_spreadTolerance = spreadToleranceFor(t);
   var derived = {
     wPartner: wPartner,
@@ -62,7 +63,7 @@ function weightsFromConfig(config) {
     wAlternate: 100,
     wNoise: 0,
     splitBalanceFirst: false,
-    wCohort: 0,
+    wCohort: derived_wCohort,
     spreadTolerance: derived_spreadTolerance
   };
   var a = config.advanced;
@@ -208,11 +209,11 @@ function presetConfig(strategy) {
         return roundRobinConfig;
     case "SolverRandomBalanced" :
         return randomBalancedConfig;
-    case "SolverCompetitivePlus" :
+    case "SolverCompetitivePlusStatic" :
         return competitivePlusConfig;
     case "Mixed" :
     case "DUPR" :
-    case "SolverAuto" :
+    case "SolverCompetitivePlus" :
         return {
                 qualityVsVariety: 0.5,
                 advanced: undefined
@@ -271,7 +272,7 @@ function readinessRatio(players) {
   }
 }
 
-function autoT(ratio) {
+function adaptiveBlend(ratio) {
   return clamp01((ratio - 0.30) / (0.75 - 0.30));
 }
 
@@ -279,7 +280,7 @@ function lerp(a, b, t) {
   return a + (b - a) * t;
 }
 
-function autoWeightsAt(t) {
+function adaptiveWeightsAt(t) {
   return {
           wPartner: lerp(calibrateWeights.wPartner, competitivePlusWeights.wPartner, t),
           wOpponent: lerp(calibrateWeights.wOpponent, competitivePlusWeights.wOpponent, t),
@@ -295,8 +296,8 @@ function autoWeightsAt(t) {
         };
 }
 
-function autoWeights(players) {
-  return autoWeightsAt(autoT(readinessRatio(players)));
+function adaptiveWeights(players) {
+  return adaptiveWeightsAt(adaptiveBlend(readinessRatio(players)));
 }
 
 function weightsForStrategy(strategy) {
@@ -307,9 +308,9 @@ function weightsForStrategy(strategy) {
         return roundRobinWeights;
     case "SolverRandomBalanced" :
         return randomBalancedWeights;
-    case "SolverCompetitivePlus" :
+    case "SolverCompetitivePlusStatic" :
         return competitivePlusWeights;
-    case "SolverAuto" :
+    case "SolverCompetitivePlus" :
         return calibrateWeights;
     default:
       return weightsFromConfig(presetConfig(strategy));
@@ -729,9 +730,11 @@ var minSpreadWeight = 50;
 
 var defaultAlternateWeight = 100;
 
-var autoRatioFloor = 0.30;
+var competitivePosition = 0.85;
 
-var autoRatioCeiling = 0.75;
+var readinessFloor = 0.30;
+
+var readinessCeiling = 0.75;
 
 var configVersion = 2;
 
@@ -763,6 +766,7 @@ export {
   logScaleInverse ,
   minSpreadWeight ,
   defaultAlternateWeight ,
+  competitivePosition ,
   spreadToleranceFor ,
   spreadWeightFor ,
   weightsFromConfig ,
@@ -780,12 +784,12 @@ export {
   competitivePlusWeights ,
   calibrateWeights ,
   readinessRatio ,
-  autoRatioFloor ,
-  autoRatioCeiling ,
-  autoT ,
+  readinessFloor ,
+  readinessCeiling ,
+  adaptiveBlend ,
   lerp ,
-  autoWeightsAt ,
-  autoWeights ,
+  adaptiveWeightsAt ,
+  adaptiveWeights ,
   weightsForStrategy ,
   configVersion ,
   advancedToJson ,

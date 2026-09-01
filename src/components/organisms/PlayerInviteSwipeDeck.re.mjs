@@ -82,10 +82,13 @@ function initialsOf(name) {
               }).join("");
 }
 
-function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
+function PlayerInviteSwipeDeck$ProfileCard(props) {
   var onSwipe = props.onSwipe;
-  var player = props.player;
-  var user = use(player.user);
+  var eventTimeLabel = props.eventTimeLabel;
+  var eventVenue = props.eventVenue;
+  var eventTitle = props.eventTitle;
+  var mode = props.mode;
+  var profile = props.profile;
   var x = FramerMotion.useMotionValue(0);
   var rotate = FramerMotion.useTransform(x, [
         -200,
@@ -94,7 +97,7 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
         -14,
         14
       ]);
-  var inviteOpacity = FramerMotion.useTransform(x, [
+  var acceptOpacity = FramerMotion.useTransform(x, [
         0,
         100
       ], [
@@ -108,23 +111,21 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
         0,
         1
       ]);
-  var displayName = Core__Option.getOr(user.lineUsername, player.name);
-  var selfDupr = Core__Option.map(user.selfRating, Rating.guessDupr);
+  var displayName = profile.displayName;
+  var selfDupr = profile.selfDupr;
   var selfLevel = Core__Option.flatMap(Core__Option.map(selfDupr, LevelPicker.nearest), (function (v) {
           return LevelPicker.options().find(function (o) {
                       return LevelPicker.isSelected(v, o.value);
                     });
         }));
-  var computedDupr = Core__Option.map(Core__Option.flatMap(user.rating, (function (r) {
-              return r.mu;
-            })), Rating.guessDupr);
+  var computedDupr = profile.computedDupr;
   var visualRating = Core__Option.getOr(Core__Option.orElse(computedDupr, selfDupr), 0);
   var ringProgress = Math.min(visualRating / 5, 1);
   var circumference = 2 * Math.PI * 37;
   var ringColor = visualRating >= 4 ? "#7c3aed" : (
       visualRating >= 3 ? "#ffb042" : "#94a3b8"
     );
-  var match = user.gender;
+  var match = profile.gender;
   var genderLabel = match !== undefined ? (
       match === "female" || match === "male" ? (
           match === "female" ? t`Female` : t`Male`
@@ -139,11 +140,15 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
       return ;
     }
   };
-  var picture = user.picture;
   var tmp;
+  tmp = mode === "Invite" ? t`INVITE` : t`APPROVE`;
+  var tmp$1;
+  tmp$1 = mode === "Invite" ? t`SKIP` : t`KEEP`;
+  var picture = profile.picture;
+  var tmp$2;
   var exit = 0;
   if (picture !== undefined && picture !== "") {
-    tmp = JsxRuntime.jsx("img", {
+    tmp$2 = JsxRuntime.jsx("img", {
           className: "h-full w-full object-cover",
           draggable: false,
           alt: "",
@@ -154,9 +159,47 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
   }
   if (exit === 1) {
     var initials = initialsOf(displayName);
-    tmp = initials === "" ? "?" : initials;
+    tmp$2 = initials === "" ? "?" : initials;
   }
-  var bio = user.biography;
+  var bio = profile.biography;
+  var tmp$3;
+  if (mode === "Invite") {
+    tmp$3 = JsxRuntime.jsxs("div", {
+          children: [
+            JsxRuntime.jsx("p", {
+                  children: t`Available for the full event`,
+                  className: "text-xs font-semibold text-violet-900 dark:text-violet-200"
+                }),
+            eventTimeLabel !== undefined && eventVenue !== undefined ? JsxRuntime.jsx("p", {
+                    children: eventTimeLabel + " · " + eventVenue,
+                    className: "mt-1 font-mono text-[10px] leading-relaxed text-violet-700 dark:text-violet-400"
+                  }) : null
+          ],
+          className: "mt-4 w-full rounded-xl border border-violet-100 bg-violet-50/70 p-3 dark:border-violet-900/50 dark:bg-violet-950/20"
+        });
+  } else {
+    var note = Core__Option.filter(profile.note, (function (n) {
+            return n.trim() !== "";
+          }));
+    tmp$3 = JsxRuntime.jsxs("div", {
+          children: [
+            JsxRuntime.jsx("p", {
+                  children: t`Waiting for approval to join`,
+                  className: "text-xs font-semibold text-amber-900 dark:text-amber-200"
+                }),
+            note !== undefined ? JsxRuntime.jsx("p", {
+                    children: note,
+                    className: "mt-1.5 text-sm leading-relaxed text-amber-800 dark:text-amber-300"
+                  }) : JsxRuntime.jsx("p", {
+                    children: t`No message left with the request`,
+                    className: "mt-1 font-mono text-[10px] leading-relaxed text-amber-700 dark:text-amber-400"
+                  })
+          ],
+          className: "mt-4 w-full rounded-xl border border-amber-100 bg-amber-50/70 p-3 dark:border-amber-900/50 dark:bg-amber-950/20"
+        });
+  }
+  var tmp$4;
+  tmp$4 = mode === "Invite" ? t`Invite to ${eventTitle}` : t`Approve for ${eventTitle}`;
   return JsxRuntime.jsxs(FramerMotion.motion.article, {
               custom: directionToString(props.exitDirection),
               style: {
@@ -179,12 +222,12 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
               children: [
                 JsxRuntime.jsx(FramerMotion.motion.div, {
                       style: {
-                        opacity: inviteOpacity
+                        opacity: acceptOpacity
                       },
                       className: "pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-[#bdf25d]/10",
                       "aria-hidden": "true",
                       children: Caml_option.some(JsxRuntime.jsx("span", {
-                                children: t`INVITE`,
+                                children: tmp,
                                 className: "-rotate-12 rounded-xl border-4 border-[#84b62c] bg-white/90 px-5 py-2 text-3xl font-black tracking-widest text-[#648d1c] shadow-sm dark:bg-[#1e1f23]/90 dark:text-[#bdf25d]"
                               }))
                     }),
@@ -195,7 +238,7 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
                       className: "pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-gray-500/10",
                       "aria-hidden": "true",
                       children: Caml_option.some(JsxRuntime.jsx("span", {
-                                children: t`SKIP`,
+                                children: tmp$1,
                                 className: "rotate-12 rounded-xl border-4 border-gray-500 bg-white/90 px-5 py-2 text-3xl font-black tracking-widest text-gray-500 shadow-sm dark:bg-[#1e1f23]/90"
                               }))
                     }),
@@ -232,7 +275,7 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
                                       width: "80"
                                     }),
                                 JsxRuntime.jsx("span", {
-                                      children: tmp,
+                                      children: tmp$2,
                                       className: "absolute inset-2 flex items-center justify-center overflow-hidden rounded-full bg-gray-100 text-lg font-bold text-gray-700 dark:bg-[#2a2b30] dark:text-gray-200"
                                     })
                               ],
@@ -312,40 +355,65 @@ function PlayerInviteSwipeDeck$SwipePlayerCard(props) {
                                 ],
                                 className: "mt-4 w-full"
                               }) : null,
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("p", {
-                                      children: t`Available for the full event`,
-                                      className: "text-xs font-semibold text-violet-900 dark:text-violet-200"
-                                    }),
-                                JsxRuntime.jsx("p", {
-                                      children: props.eventTimeLabel + " · " + props.eventVenue,
-                                      className: "mt-1 font-mono text-[10px] leading-relaxed text-violet-700 dark:text-violet-400"
-                                    })
-                              ],
-                              className: "mt-4 w-full rounded-xl border border-violet-100 bg-violet-50/70 p-3 dark:border-violet-900/50 dark:bg-violet-950/20"
-                            })
+                        tmp$3
                       ],
                       className: "flex flex-1 flex-col items-center overflow-y-auto p-7"
                     }),
                 JsxRuntime.jsx("footer", {
-                      children: t`Invite to ${props.eventTitle}`,
+                      children: tmp$4,
                       className: "flex-shrink-0 border-t border-gray-100 bg-gray-50 p-4 text-center text-xs font-medium text-gray-500 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-400"
                     })
               ]
             });
 }
 
-var SwipePlayerCard = {
-  make: PlayerInviteSwipeDeck$SwipePlayerCard
+var ProfileCard = {
+  make: PlayerInviteSwipeDeck$ProfileCard
+};
+
+function PlayerInviteSwipeDeck$FragmentCard(props) {
+  var user = use(props.userRef);
+  var profile_displayName = Core__Option.getOr(user.lineUsername, props.fallbackName);
+  var profile_picture = user.picture;
+  var profile_gender = user.gender;
+  var profile_biography = user.biography;
+  var profile_selfDupr = Core__Option.map(user.selfRating, Rating.guessDupr);
+  var profile_computedDupr = Core__Option.map(Core__Option.flatMap(user.rating, (function (r) {
+              return r.mu;
+            })), Rating.guessDupr);
+  var profile = {
+    displayName: profile_displayName,
+    picture: profile_picture,
+    gender: profile_gender,
+    biography: profile_biography,
+    selfDupr: profile_selfDupr,
+    computedDupr: profile_computedDupr,
+    note: undefined
+  };
+  return JsxRuntime.jsx(PlayerInviteSwipeDeck$ProfileCard, {
+              profile: profile,
+              mode: props.mode,
+              eventTitle: props.eventTitle,
+              eventVenue: props.eventVenue,
+              eventTimeLabel: props.eventTimeLabel,
+              exitDirection: props.exitDirection,
+              onSwipe: props.onSwipe
+            });
+}
+
+var FragmentCard = {
+  make: PlayerInviteSwipeDeck$FragmentCard
 };
 
 function PlayerInviteSwipeDeck(props) {
   var onClose = props.onClose;
-  var onInvite = props.onInvite;
+  var onAccept = props.onAccept;
+  var __mode = props.mode;
   var eventTimeLabel = props.eventTimeLabel;
+  var eventVenue = props.eventVenue;
   var eventTitle = props.eventTitle;
   var players = props.players;
+  var mode = __mode !== undefined ? __mode : "Invite";
   var match = React.useState(function () {
         return players;
       });
@@ -398,7 +466,7 @@ function PlayerInviteSwipeDeck(props) {
           return direction;
         });
     if (direction !== "Left") {
-      onInvite(currentPlayer.id);
+      onAccept(currentPlayer.id);
     }
     setCurrentIndex(function (index) {
           return index + 1 | 0;
@@ -406,6 +474,136 @@ function PlayerInviteSwipeDeck(props) {
   };
   var total = reviewQueue.length.toString();
   var counter = currentPlayer !== undefined ? (currentIndex + 1 | 0).toString() + "/" + total : total + "/" + total;
+  var tmp;
+  tmp = mode === "Invite" ? t`Close swipe invitations` : t`Close request review`;
+  var tmp$1;
+  tmp$1 = mode === "Invite" ? t`Invite players` : t`Review requests`;
+  var tmp$2;
+  if (currentPlayer !== undefined) {
+    var userRef = currentPlayer.source;
+    var id = currentPlayer.id;
+    tmp$2 = userRef.TAG === "FromFragment" ? JsxRuntime.jsx(PlayerInviteSwipeDeck$FragmentCard, {
+            userRef: userRef._0,
+            fallbackName: currentPlayer.name,
+            mode: mode,
+            eventTitle: eventTitle,
+            eventVenue: eventVenue,
+            eventTimeLabel: eventTimeLabel,
+            exitDirection: exitDirection,
+            onSwipe: handleSwipe
+          }, id) : JsxRuntime.jsx(PlayerInviteSwipeDeck$ProfileCard, {
+            profile: userRef._0,
+            mode: mode,
+            eventTitle: eventTitle,
+            eventVenue: eventVenue,
+            eventTimeLabel: eventTimeLabel,
+            exitDirection: exitDirection,
+            onSwipe: handleSwipe
+          }, id);
+  } else {
+    var tmp$3;
+    tmp$3 = mode === "Invite" ? t`Invited players have moved into the event's invited list.` : t`Approved players have moved into the confirmed list.`;
+    tmp$2 = JsxRuntime.jsxs(FramerMotion.motion.div, {
+          className: "absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 p-7 text-center dark:border-[#3a3b40] dark:bg-[#1e1f23]",
+          animate: {
+            opacity: 1,
+            scale: 1
+          },
+          initial: {
+            opacity: 0,
+            scale: 0.94
+          },
+          children: [
+            JsxRuntime.jsx("span", {
+                  children: JsxRuntime.jsx(LucideReact.Check, {
+                        size: 30,
+                        "aria-hidden": "true"
+                      }),
+                  className: "mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-violet-100 bg-white text-violet-500 shadow-sm dark:border-violet-900/50 dark:bg-[#2a2b30] dark:text-violet-300"
+                }),
+            JsxRuntime.jsx("h3", {
+                  children: t`Everyone reviewed`,
+                  className: "text-lg font-semibold text-gray-900 dark:text-gray-100"
+                }),
+            JsxRuntime.jsx("p", {
+                  children: tmp$3,
+                  className: "mt-2 max-w-xs text-sm leading-relaxed text-gray-500 dark:text-gray-400"
+                }),
+            JsxRuntime.jsx("button", {
+                  children: t`Back to event`,
+                  className: "mt-6 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-200 dark:hover:bg-[#353640]",
+                  type: "button",
+                  onClick: (function (param) {
+                      onClose();
+                    })
+                })
+          ]
+        }, "complete");
+  }
+  var tmp$4;
+  if (currentPlayer !== undefined) {
+    var tmp$5;
+    tmp$5 = mode === "Invite" ? t`Skip ${currentPlayer.name}` : t`Keep ${currentPlayer.name} pending`;
+    var tmp$6;
+    tmp$6 = mode === "Invite" ? JsxRuntime.jsx(LucideReact.UserPlus, {
+            size: 25,
+            strokeWidth: 2.5,
+            "aria-hidden": "true"
+          }) : JsxRuntime.jsx(LucideReact.Check, {
+            size: 25,
+            strokeWidth: 2.5,
+            "aria-hidden": "true"
+          });
+    var tmp$7;
+    tmp$7 = mode === "Invite" ? t`Invite ${currentPlayer.name}` : t`Approve ${currentPlayer.name}`;
+    var tmp$8;
+    tmp$8 = mode === "Invite" ? t`Swipe left to skip · right to invite` : t`Swipe left to keep pending · right to approve`;
+    tmp$4 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            JsxRuntime.jsxs(FramerMotion.motion.div, {
+                  className: "mt-7 flex items-center gap-8",
+                  animate: {
+                    opacity: 1,
+                    y: 0
+                  },
+                  initial: {
+                    opacity: 0,
+                    y: 14
+                  },
+                  children: [
+                    JsxRuntime.jsx("button", {
+                          children: JsxRuntime.jsx(LucideReact.X, {
+                                size: 25,
+                                strokeWidth: 2.5,
+                                "aria-hidden": "true"
+                              }),
+                          "aria-label": tmp$5,
+                          className: "flex h-14 w-14 items-center justify-center rounded-full border-2 border-gray-200 bg-white text-gray-400 shadow-md transition-transform hover:scale-105 hover:border-red-300 hover:bg-red-50 hover:text-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 active:scale-95 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:hover:border-red-700 dark:hover:bg-red-950/20",
+                          type: "button",
+                          onClick: (function (param) {
+                              handleSwipe("Left");
+                            })
+                        }),
+                    JsxRuntime.jsx("button", {
+                          children: tmp$6,
+                          "aria-label": tmp$7,
+                          className: "flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#aee050] bg-[#bdf25d] text-black shadow-md transition-transform hover:scale-105 hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 active:scale-95",
+                          type: "button",
+                          onClick: (function (param) {
+                              handleSwipe("Right");
+                            })
+                        })
+                  ]
+                }),
+            JsxRuntime.jsx("p", {
+                  children: tmp$8,
+                  className: "mt-3 font-mono text-[10px] text-gray-400 dark:text-gray-500"
+                })
+          ]
+        });
+  } else {
+    tmp$4 = null;
+  }
   return ReactDom.createPortal(JsxRuntime.jsxs(FramerMotion.motion.div, {
                   className: "fixed inset-0 z-[70] flex flex-col bg-white dark:bg-[#222326]",
                   animate: {
@@ -429,7 +627,7 @@ function PlayerInviteSwipeDeck(props) {
                                         "aria-hidden": "true"
                                       }),
                                   ref: Caml_option.some(closeButtonRef),
-                                  "aria-label": t`Close swipe invitations`,
+                                  "aria-label": tmp,
                                   className: "-ml-1 rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:text-gray-400 dark:hover:bg-[#2a2b30] dark:hover:text-gray-100",
                                   type: "button",
                                   onClick: (function (param) {
@@ -439,12 +637,12 @@ function PlayerInviteSwipeDeck(props) {
                             JsxRuntime.jsxs("div", {
                                   children: [
                                     JsxRuntime.jsx("h2", {
-                                          children: t`Invite players`,
+                                          children: tmp$1,
                                           className: "truncate text-sm font-semibold text-gray-900 dark:text-gray-100",
                                           id: "player-invite-deck-title"
                                         }),
                                     JsxRuntime.jsx("p", {
-                                          children: eventTitle + " · " + eventTimeLabel,
+                                          children: eventTimeLabel !== undefined ? eventTitle + " · " + eventTimeLabel : eventTitle,
                                           className: "truncate font-mono text-[10px] text-gray-500 dark:text-gray-400"
                                         })
                                   ],
@@ -465,99 +663,11 @@ function PlayerInviteSwipeDeck(props) {
                                         children: JsxRuntime.jsx(FramerMotion.AnimatePresence, {
                                               custom: directionToString(exitDirection),
                                               mode: "wait",
-                                              children: currentPlayer !== undefined ? JsxRuntime.jsx(PlayerInviteSwipeDeck$SwipePlayerCard, {
-                                                      player: currentPlayer,
-                                                      eventTitle: eventTitle,
-                                                      eventVenue: props.eventVenue,
-                                                      eventTimeLabel: eventTimeLabel,
-                                                      exitDirection: exitDirection,
-                                                      onSwipe: handleSwipe
-                                                    }, currentPlayer.id) : JsxRuntime.jsxs(FramerMotion.motion.div, {
-                                                      className: "absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 p-7 text-center dark:border-[#3a3b40] dark:bg-[#1e1f23]",
-                                                      animate: {
-                                                        opacity: 1,
-                                                        scale: 1
-                                                      },
-                                                      initial: {
-                                                        opacity: 0,
-                                                        scale: 0.94
-                                                      },
-                                                      children: [
-                                                        JsxRuntime.jsx("span", {
-                                                              children: JsxRuntime.jsx(LucideReact.Check, {
-                                                                    size: 30,
-                                                                    "aria-hidden": "true"
-                                                                  }),
-                                                              className: "mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-violet-100 bg-white text-violet-500 shadow-sm dark:border-violet-900/50 dark:bg-[#2a2b30] dark:text-violet-300"
-                                                            }),
-                                                        JsxRuntime.jsx("h3", {
-                                                              children: t`Everyone reviewed`,
-                                                              className: "text-lg font-semibold text-gray-900 dark:text-gray-100"
-                                                            }),
-                                                        JsxRuntime.jsx("p", {
-                                                              children: t`Invited players have moved into the event's invited list.`,
-                                                              className: "mt-2 max-w-xs text-sm leading-relaxed text-gray-500 dark:text-gray-400"
-                                                            }),
-                                                        JsxRuntime.jsx("button", {
-                                                              children: t`Back to event`,
-                                                              className: "mt-6 rounded-lg border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-200 dark:hover:bg-[#353640]",
-                                                              type: "button",
-                                                              onClick: (function (param) {
-                                                                  onClose();
-                                                                })
-                                                            })
-                                                      ]
-                                                    }, "complete")
+                                              children: tmp$2
                                             }),
                                         className: "relative aspect-[3/4] min-h-[380px] max-h-[520px] w-full"
                                       }),
-                                  currentPlayer !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                          children: [
-                                            JsxRuntime.jsxs(FramerMotion.motion.div, {
-                                                  className: "mt-7 flex items-center gap-8",
-                                                  animate: {
-                                                    opacity: 1,
-                                                    y: 0
-                                                  },
-                                                  initial: {
-                                                    opacity: 0,
-                                                    y: 14
-                                                  },
-                                                  children: [
-                                                    JsxRuntime.jsx("button", {
-                                                          children: JsxRuntime.jsx(LucideReact.X, {
-                                                                size: 25,
-                                                                strokeWidth: 2.5,
-                                                                "aria-hidden": "true"
-                                                              }),
-                                                          "aria-label": t`Skip ${currentPlayer.name}`,
-                                                          className: "flex h-14 w-14 items-center justify-center rounded-full border-2 border-gray-200 bg-white text-gray-400 shadow-md transition-transform hover:scale-105 hover:border-red-300 hover:bg-red-50 hover:text-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 active:scale-95 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:hover:border-red-700 dark:hover:bg-red-950/20",
-                                                          type: "button",
-                                                          onClick: (function (param) {
-                                                              handleSwipe("Left");
-                                                            })
-                                                        }),
-                                                    JsxRuntime.jsx("button", {
-                                                          children: JsxRuntime.jsx(LucideReact.UserPlus, {
-                                                                size: 25,
-                                                                strokeWidth: 2.5,
-                                                                "aria-hidden": "true"
-                                                              }),
-                                                          "aria-label": t`Invite ${currentPlayer.name}`,
-                                                          className: "flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#aee050] bg-[#bdf25d] text-black shadow-md transition-transform hover:scale-105 hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 active:scale-95",
-                                                          type: "button",
-                                                          onClick: (function (param) {
-                                                              handleSwipe("Right");
-                                                            })
-                                                        })
-                                                  ]
-                                                }),
-                                            JsxRuntime.jsx("p", {
-                                                  children: t`Swipe left to skip · right to invite`,
-                                                  className: "mt-3 font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                })
-                                          ]
-                                        }) : null
+                                  tmp$4
                                 ],
                                 className: "flex w-full max-w-[380px] flex-col items-center"
                               }),
@@ -578,7 +688,8 @@ export {
   UserFragment ,
   directionToString ,
   initialsOf ,
-  SwipePlayerCard ,
+  ProfileCard ,
+  FragmentCard ,
   make ,
 }
 /*  Not a pure module */

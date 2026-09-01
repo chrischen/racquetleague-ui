@@ -407,13 +407,17 @@ function EventInvites(props) {
                                         return {
                                                 id: c.id,
                                                 name: c.name,
-                                                user: c.user
+                                                source: {
+                                                  TAG: "FromFragment",
+                                                  _0: c.user
+                                                }
                                               };
                                       }),
                                   eventTitle: props.eventTitle,
                                   eventVenue: props.venueName,
                                   eventTimeLabel: $$window[3],
-                                  onInvite: handleInvite,
+                                  mode: "Invite",
+                                  onAccept: handleInvite,
                                   onClose: (function () {
                                       setSwipeOpen(function (param) {
                                             return false;

@@ -164,7 +164,7 @@ describe("solver exactness", () => {
         1 + Math.floor(next() * 3),
         next,
       );
-      const strategy = ["SolverRoundRobin", "SolverRandomBalanced", "SolverCompetitivePlus"][
+      const strategy = ["SolverRoundRobin", "SolverRandomBalanced", "SolverCompetitivePlusStatic"][
         seed % 3
       ];
       await assertOptimal(
@@ -200,7 +200,7 @@ describe("solver exactness", () => {
       const base = makePool(12, () => 18 + Math.floor(next() * 24));
       const { rounds, players } = randomHistory(base, 3, 2, next);
       await assertOptimal(
-        { players, rounds, courts: 3, strategy: "SolverCompetitivePlus" },
+        { players, rounds, courts: 3, strategy: "SolverCompetitivePlusStatic" },
         `12p seed ${seed}`,
       );
     }

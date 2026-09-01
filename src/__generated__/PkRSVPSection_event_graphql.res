@@ -24,13 +24,17 @@ module Types = {
     sigma: option<float>,
   }
   and fragment_rsvps_edges_node_user = {
+    biography: option<string>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
+    picture: option<string>,
+    selfRating: option<float>,
   }
   and fragment_rsvps_edges_node = {
     @live id: string,
     listType: option<int>,
+    message: option<string>,
     rating: option<fragment_rsvps_edges_node_rating>,
     user: option<fragment_rsvps_edges_node_user>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #MiniEventRsvp_rsvp | #PkEventRsvp_rsvp]>,
@@ -330,6 +334,13 @@ return {
                   "storageKey": null
                 },
                 {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "message",
+                  "storageKey": null
+                },
+                {
                   "args": null,
                   "kind": "FragmentSpread",
                   "name": "PkEventRsvp_rsvp"
@@ -354,6 +365,27 @@ return {
                       "args": null,
                       "kind": "ScalarField",
                       "name": "gender",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "picture",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "biography",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "selfRating",
                       "storageKey": null
                     }
                   ],

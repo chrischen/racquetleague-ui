@@ -333,12 +333,13 @@ let make = (
               players={visibleCandidates->Array.map(c => {
                 PlayerInviteSwipeDeck.id: c.id,
                 name: c.name,
-                user: c.user,
+                source: FromFragment(c.user),
               })}
               eventTitle
               eventVenue=venueName
               eventTimeLabel=timeLabel
-              onInvite=handleInvite
+              mode=PlayerInviteSwipeDeck.Invite
+              onAccept=handleInvite
               onClose={() => setSwipeOpen(_ => false)}
             />
           | _ => React.null

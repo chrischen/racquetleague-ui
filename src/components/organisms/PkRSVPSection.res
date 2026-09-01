@@ -32,12 +32,20 @@ module Fragment = %relay(`
         node {
           id
           listType
+          # Feeds the approve-review deck card. The RSVP's own rating is already
+          # activity-scoped, so pending players don't need the deck's user
+          # fragment (which would need an activitySlug argument this fragment
+          # has no variable for).
+          message
           ...PkEventRsvp_rsvp
           ...MiniEventRsvp_rsvp
           user {
             id
             lineUsername
             gender
+            picture
+            biography
+            selfRating
           }
           rating {
             ordinal
@@ -45,6 +53,20 @@ module Fragment = %relay(`
             sigma
           }
         }
+      }
+    }
+  }
+`)
+
+module UpdateListTypeMutation = %relay(`
+  mutation PkRSVPSectionUpdateListTypeMutation($input: UpdateRsvpListTypeInput!) {
+    updateRsvpListType(input: $input) {
+      rsvp {
+        id
+        listType
+      }
+      errors {
+        message
       }
     }
   }
@@ -112,6 +134,8 @@ let make = (
   let viewerUser = user->Option.map(u => UserFragment.use(u))
 
   let (isAddingPlayer, setIsAddingPlayer) = React.useState(() => false)
+  let (pendingSwipeOpen, setPendingSwipeOpen) = React.useState(() => false)
+  let (commitUpdateListType, _updateListTypeInFlight) = UpdateListTypeMutation.use()
   let (commitMutationAddUser, _addUserInFlight) = PkRSVPSectionAddUserMutation.use()
   let (commitCaptureAll, isCaptureAllInFlight) = PkRSVPSectionCaptureAllPaymentsMutation.use()
 
@@ -160,6 +184,34 @@ let make = (
   let waitlistRsvps = mainList->Array.filterWithIndex((_, i) => isWaitlist(i))
   let waitlistCount = waitlistRsvps->Array.length
   let pendingCount = pendingRsvps->Array.length
+
+  // Pending requests as review cards. The deck acts on the RSVP id, since
+  // approving updates the RSVP's list type rather than the user.
+  let pendingReviewPlayers = pendingRsvps->Array.filterMap(n =>
+    n.user->Option.map(u => {
+      let name = u.lineUsername->Option.getOr("?")
+      {
+        PlayerInviteSwipeDeck.id: n.id,
+        name,
+        source: PlayerInviteSwipeDeck.FromProfile({
+          displayName: name,
+          picture: u.picture,
+          gender: u.gender,
+          biography: u.biography,
+          selfDupr: u.selfRating->Option.map(Rating.guessDupr),
+          computedDupr: n.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
+          note: n.message,
+        }),
+      }
+    })
+  )
+
+  // Right swipe approves onto the confirmed list; a left swipe leaves the RSVP
+  // pending, so there is nothing to commit for it.
+  let handleApprove = (rsvpId: string) =>
+    commitUpdateListType(
+      ~variables={input: {rsvpId, listType: 0}},
+    )->RescriptRelay.Disposable.ignore
 
   let mus = confirmedRsvps->Array.map(n => n.rating->Option.flatMap(r => r.mu)->Option.getOr(25.))
   let maxRating = mus->Array.reduce(0., (acc, mu) => mu > acc ? mu : acc)
@@ -537,7 +589,7 @@ let make = (
     /* Pending section */
     {pendingRsvps->Array.length > 0
       ? <div className="mt-2.5">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="relative flex items-center gap-2 mb-2">
             <div className="h-px flex-1 bg-gray-200 dark:bg-[#3a3b40]" />
             <span
               className="font-mono text-[11px] tracking-wider text-amber-500 dark:text-amber-400 uppercase flex items-center gap-1">
@@ -554,6 +606,18 @@ let make = (
               {(ts`Pending · ${Int.toString(pendingRsvps->Array.length)}`)->React.string}
             </span>
             <div className="h-px flex-1 bg-gray-200 dark:bg-[#3a3b40]" />
+            {eventData.viewerIsAdmin && pendingReviewPlayers->Array.length > 0
+              ? <button
+                  type_="button"
+                  onClick={_ => setPendingSwipeOpen(_ => true)}
+                  className="absolute right-0 top-1/2 inline-flex -translate-y-1/2 items-center gap-1 rounded-md bg-amber-500 px-2 py-1 text-[9px] font-semibold text-white transition-colors hover:bg-amber-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:bg-amber-500 dark:hover:bg-amber-400 dark:hover:text-amber-950"
+                  ariaLabel={ts`Review ${Int.toString(
+                      pendingReviewPlayers->Array.length,
+                    )} pending requests with swipe cards`}>
+                  <Lucide.Layers size=10 strokeWidth=2.5 \"aria-hidden"="true" />
+                  {(ts`Swipe review`)->React.string}
+                </button>
+              : React.null}
           </div>
           <div className="flex flex-wrap gap-1.5">
             {pendingRsvps
@@ -573,6 +637,17 @@ let make = (
             ->React.array}
           </div>
         </div>
+      : React.null}
+    /* Approve-review deck. Rendered outside the pending section so approving
+       the last request doesn't unmount the deck before its summary card. */
+    {pendingSwipeOpen
+      ? <PlayerInviteSwipeDeck
+          players=pendingReviewPlayers
+          eventTitle={eventData.title->Option.getOr("")}
+          mode=PlayerInviteSwipeDeck.Approve
+          onAccept=handleApprove
+          onClose={() => setPendingSwipeOpen(_ => false)}
+        />
       : React.null}
     /* Sent and potential invites */
     <EventInvites

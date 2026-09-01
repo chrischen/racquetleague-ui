@@ -141,7 +141,7 @@ var SplitMode = {
 
 function SolverWeightsPanel(props) {
   var onReset = props.onReset;
-  var autoBlendT = props.autoBlendT;
+  var blendT = props.blendT;
   var __isCustom = props.isCustom;
   var onChange = props.onChange;
   var config = props.config;
@@ -157,10 +157,10 @@ function SolverWeightsPanel(props) {
   var setView = match[1];
   var view = match[0];
   var match$1 = config.advanced;
-  var advanced = autoBlendT !== undefined ? CostModel.advancedFromWeights(CostModel.autoWeightsAt(autoBlendT)) : (
+  var advanced = blendT !== undefined ? CostModel.advancedFromWeights(CostModel.adaptiveWeightsAt(blendT)) : (
       match$1 !== undefined ? match$1 : CostModel.advancedFromPrimary(config.qualityVsVariety)
     );
-  var isAuto = Core__Option.isSome(autoBlendT);
+  var isAdaptive = Core__Option.isSome(blendT);
   var handlePrimary = function (value) {
     onChange({
           qualityVsVariety: value,
@@ -173,7 +173,7 @@ function SolverWeightsPanel(props) {
           advanced: next
         });
   };
-  var handleCustomizeFromAuto = function () {
+  var handleCustomizeFromAdaptive = function () {
     onChange({
           qualityVsVariety: config.qualityVsVariety,
           advanced: advanced
@@ -204,8 +204,8 @@ function SolverWeightsPanel(props) {
   };
   var tmp;
   if (view === "StyleView") {
-    if (autoBlendT !== undefined) {
-      var percent = Math.round(autoBlendT * 100).toString();
+    if (blendT !== undefined) {
+      var percent = Math.round(blendT * 100).toString();
       tmp = JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
@@ -262,8 +262,8 @@ function SolverWeightsPanel(props) {
               children: [
                 sectionHeader(view === "StyleView", (function (param) {
                         openStyle();
-                      }), t`Match style`, isAuto ? JsxRuntime.jsx("span", {
-                            children: t`Auto`,
+                      }), t`Match style`, isAdaptive ? JsxRuntime.jsx("span", {
+                            children: t`Adaptive`,
                             className: "ml-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-100 text-blue-700"
                           }) : null),
                 tmp,
@@ -277,17 +277,17 @@ function SolverWeightsPanel(props) {
                                     children: t`Custom`,
                                     className: "ml-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-slate-200 text-slate-700"
                                   }) : null),
-                        view === "AdvancedView" && isAuto ? JsxRuntime.jsxs("div", {
+                        view === "AdvancedView" && isAdaptive ? JsxRuntime.jsxs("div", {
                                 children: [
                                   JsxRuntime.jsx("button", {
                                         children: t`Customize from here`,
                                         className: "self-start text-xs font-medium text-blue-600 hover:text-blue-800",
                                         onClick: (function (param) {
-                                            handleCustomizeFromAuto();
+                                            handleCustomizeFromAdaptive();
                                           })
                                       }),
                                   JsxRuntime.jsx("span", {
-                                        children: t`Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event.`,
+                                        children: t`These values are following the ratings automatically. Freeze the current mix to adjust them by hand — it will stop adapting for this event.`,
                                         className: "text-[10px] text-slate-400"
                                       })
                                 ],
@@ -312,7 +312,7 @@ function SolverWeightsPanel(props) {
                                                   cohortRotation: advanced.cohortRotation
                                                 });
                                           }),
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Opponent variety`,
@@ -331,7 +331,7 @@ function SolverWeightsPanel(props) {
                                                   cohortRotation: advanced.cohortRotation
                                                 });
                                           }),
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Skill banding`,
@@ -352,7 +352,7 @@ function SolverWeightsPanel(props) {
                                           }),
                                         leftHint: t`No preference`,
                                         rightHint: t`Group by skill`,
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Band tolerance`,
@@ -373,7 +373,7 @@ function SolverWeightsPanel(props) {
                                           }),
                                         leftHint: t`Tight bands`,
                                         rightHint: t`Any mix is fine`,
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$SplitMode, {
                                         label: t`Team split`,
@@ -444,7 +444,7 @@ function SolverWeightsPanel(props) {
                                             t`The most even split, even if a partnership repeats`
                                           ]
                                         ],
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Avoid recent repeats`,
@@ -463,7 +463,7 @@ function SolverWeightsPanel(props) {
                                                   cohortRotation: advanced.cohortRotation
                                                 });
                                           }),
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Alternate favourite/underdog roles`,
@@ -482,7 +482,7 @@ function SolverWeightsPanel(props) {
                                                   cohortRotation: advanced.cohortRotation
                                                 });
                                           }),
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Shake-up`,
@@ -503,7 +503,7 @@ function SolverWeightsPanel(props) {
                                           }),
                                         leftHint: t`Deterministic`,
                                         rightHint: t`Random`,
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   JsxRuntime.jsx(SolverWeightsPanel$Slider, {
                                         label: t`Rotate skill bands together`,
@@ -524,7 +524,7 @@ function SolverWeightsPanel(props) {
                                           }),
                                         leftHint: t`Off`,
                                         rightHint: t`Bands break together`,
-                                        disabled: isAuto
+                                        disabled: isAdaptive
                                       }),
                                   isCustom && onReset !== undefined ? JsxRuntime.jsx("button", {
                                           children: t`Reset to preset`,

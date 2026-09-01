@@ -11,7 +11,8 @@
 // rotating players in.
 //
 // The panel is two mutually exclusive sections — "Match style" (the slider,
-// or Auto's live readout) and "Advanced" (the individual values). Opening one
+// or the adaptive live readout) and "Advanced" (the individual values).
+// Opening one
 // closes the other, mirroring the engine's own either/or: weights come from
 // the slider curve or from explicit advanced values, never both. The slider
 // still feeds the advanced view — with no overrides stored, the advanced
@@ -124,14 +125,14 @@ let make = (
   // presets carry explicit advanced values too, precisely so the advanced
   // section shows the real tuned numbers.
   ~isCustom: bool=false,
-  // The Auto preset's live blend position (0 = Random Balanced, 1 =
-  // Competitive+), recomputed by the caller from the current ratings. Present
-  // only while Auto is selected and uncustomised; the panel then displays the
+  // Competitive+'s live blend position (0 = still calibrating, 1 = fully
+  // banded), recomputed by the caller from the current ratings. Present only
+  // while that preset is selected and uncustomised; the panel then displays the
   // blend's actual values instead of anything stored, so what's on screen is a
   // function of the pool's rating state — exactly what generation uses.
-  ~autoBlendT: option<float>=?,
+  ~blendT: option<float>=?,
   // Clears the stored customisation, returning the event to the strategy's
-  // tuned preset (and, for Auto, re-enabling the live blend).
+  // tuned preset (and, for the adaptive one, re-enabling the live blend).
   ~onReset: option<unit => unit>=?,
 ) => {
   let ts = Lingui.UtilString.t
@@ -140,26 +141,27 @@ let make = (
   // section that greets you; everything else opens on the style slider.
   let (view, setView) = React.useState(() => hasAdvancedOverrides ? AdvancedView : StyleView)
 
-  // Auto shows its live blend; otherwise a slider-only custom config shows the
-  // values the primary slider implies.
-  let advanced = switch (autoBlendT, config.advanced) {
-  | (Some(t), _) => CostModel.advancedFromWeights(CostModel.autoWeightsAt(t))
+  // The adaptive preset shows its live blend; otherwise a slider-only custom
+  // config shows the values the primary slider implies.
+  let advanced = switch (blendT, config.advanced) {
+  | (Some(t), _) => CostModel.advancedFromWeights(CostModel.adaptiveWeightsAt(t))
   | (None, Some(a)) => a
   | (None, None) => CostModel.advancedFromPrimary(config.qualityVsVariety)
   }
 
-  let isAuto = autoBlendT->Option.isSome
-  // Auto's values rewrite themselves from the rating state; a stray drag would
-  // silently freeze the blend, so customising it is an explicit action below.
-  let locked = isAuto
+  let isAdaptive = blendT->Option.isSome
+  // The adaptive values rewrite themselves from the rating state; a stray drag
+  // would silently freeze the blend, so customising it is an explicit action
+  // below.
+  let locked = isAdaptive
 
   let handlePrimary = value => onChange({CostModel.qualityVsVariety: value, advanced: None})
 
   let handleAdvanced = (next: CostModel.advancedWeights) =>
     onChange({...config, advanced: Some(next)})
 
-  // Freeze Auto's current blend into a fixed custom mix and unlock the panel.
-  let handleCustomizeFromAuto = () => onChange({...config, advanced: Some(advanced)})
+  // Freeze the current blend into a fixed custom mix and unlock the panel.
+  let handleCustomizeFromAdaptive = () => onChange({...config, advanced: Some(advanced)})
 
   // Reopening the style section is also a mode switch when advanced values
   // were in force: the slider takes over, dropping the overrides.
@@ -186,18 +188,19 @@ let make = (
       ~open_=view == StyleView,
       ~onClick=_ => openStyle(),
       ~label=ts`Match style`,
-      ~chip=isAuto
+      ~chip=isAdaptive
         ? <span
             className="ml-1 px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-100 text-blue-700">
-            {(ts`Auto`)->React.string}
+            {(ts`Adaptive`)->React.string}
           </span>
         : React.null,
     )}
-    {switch (view, autoBlendT) {
+    {switch (view, blendT) {
     | (AdvancedView, _) => React.null
     | (StyleView, Some(t)) => {
-        // Auto has no fixed position on the variety<->quality axis: show where
-        // the blend currently sits instead of a slider pretending it does.
+        // The adaptive preset has no fixed position on the variety<->quality
+        // axis: show where the blend currently sits instead of a slider
+        // pretending it does.
         let percent = (t *. 100.)->Js.Math.round->Float.toString
         <div className="mt-2 flex flex-col gap-1">
           <div className="h-2 w-full rounded bg-slate-200 overflow-hidden">
@@ -247,16 +250,16 @@ let make = (
             </span>
           : React.null,
       )}
-      {view == AdvancedView && isAuto
+      {view == AdvancedView && isAdaptive
         ? <div className="mt-3 flex flex-col gap-1">
             <button
-              onClick={_ => handleCustomizeFromAuto()}
+              onClick={_ => handleCustomizeFromAdaptive()}
               className="self-start text-xs font-medium text-blue-600 hover:text-blue-800">
               {(ts`Customize from here`)->React.string}
             </button>
             <span className="text-[10px] text-slate-400">
               {(
-                ts`Auto is adjusting these values — freeze the current mix to adjust them manually. Auto stops adapting for this event.`
+                ts`These values are following the ratings automatically. Freeze the current mix to adjust them by hand — it will stop adapting for this event.`
               )->React.string}
             </span>
           </div>

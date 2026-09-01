@@ -147,7 +147,15 @@ type prefilledValues = {
   tags?: array<string>,
   price?: int,
   cancelDeadline?: int,
+  // Set when these values were copied from an existing event: a missing field
+  // then means the source event had none, so the form's own defaults for new
+  // events must not fill it in.
+  fromExistingEvent?: bool,
 }
+
+// New events default to a 24h cancel deadline (in ms, matching the select's
+// option values). Updates and copies keep whatever the source event had.
+let defaultCancelDeadline = 24 * 60 * 60 * 1000
 
 // Calculate duration in hours between start date and end time
 let calculateDurationHours = (startDateTime: Js.Date.t, endDateTime: Js.Date.t): option<float> => {
@@ -178,6 +186,14 @@ let make = (
 
   let isUpdate = eventId->Option.isSome
 
+  // The form only fills in its own defaults for a genuinely new event: editing
+  // and copying both carry the source event's values, where a missing field
+  // means the event has none.
+  let useNewEventDefaults =
+    !isUpdate &&
+    !(prefilledValues->Option.flatMap(pf => pf.fromExistingEvent)->Option.getOr(false))
+  let newEventCancelDeadline = useNewEventDefaults ? Some(defaultCancelDeadline) : None
+
   // Determine default values from prefilledValues or use defaults
   let defaultFormValues: defaultValuesOfInputs = switch prefilledValues {
   | Some(pf) => {
@@ -189,11 +205,12 @@ let make = (
       endTime: pf.endDate->Option.getOr(""),
       listed: pf.listed->Option.getOr(false),
       price: ?pf.price,
-      cancelDeadline: ?pf.cancelDeadline,
+      cancelDeadline: ?pf.cancelDeadline->Option.orElse(newEventCancelDeadline),
     }
   | None => {
       listed: false,
       activity: selectedActivity->Option.getOr(""),
+      cancelDeadline: ?newEventCancelDeadline,
     }
   }
 
@@ -969,7 +986,7 @@ let make = (
                             : React.null}
                         </div>
                         <p className="text-gray-600 dark:text-gray-400 mt-0.5">
-                          {t`A refundable deposit is collected when someone joins. You can manually approve attendees by clicking their name in the RSVP list.`}
+                          {t`A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list.`}
                         </p>
                       </div>
                       <div
@@ -995,7 +1012,7 @@ let make = (
                                 <a
                                   href="/settings/profile"
                                   className="text-blue-600 dark:text-blue-400 underline hover:opacity-80">
-                                  {t`Connect a Stripe account`}
+                                  {t`Connect a Stripe account to activate`}
                                 </a>
                               </>
                             : React.null}

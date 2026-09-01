@@ -441,8 +441,8 @@ let strategyToString = (strategy: strategy): string => {
   | NoveltyRoundRobin => "novelty-round-robin"
   | SolverRoundRobin => "solver-round-robin"
   | SolverRandomBalanced => "solver-random-balanced"
+  | SolverCompetitivePlusStatic => "solver-competitive-plus-static"
   | SolverCompetitivePlus => "solver-competitive-plus"
-  | SolverAuto => "solver-auto"
   }
 }
 
@@ -458,8 +458,11 @@ let stringToStrategy = (str: string): strategy => {
   | "novelty-round-robin" => NoveltyRoundRobin
   | "solver-round-robin" => SolverRoundRobin
   | "solver-random-balanced" => SolverRandomBalanced
+  // The stored name now resolves to the adaptive profile, which is what
+  // "Competitive+" means; the static one is no longer selectable.
   | "solver-competitive-plus" => SolverCompetitivePlus
-  | "solver-auto" => SolverAuto
+  | "solver-competitive-plus-static" => SolverCompetitivePlusStatic
+  | "solver-auto" => SolverCompetitivePlus
   // Pre-rename aliases: events stored while the presets were still named after
   // the qualityVsVariety axis. Read forever; written never — the next
   // `saveStrategy` rewrites the row with the current string.
