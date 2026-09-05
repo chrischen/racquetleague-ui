@@ -16,6 +16,19 @@ import * as JsxRuntime from "react/jsx-runtime";
 import { t } from '@lingui/macro'
 ;
 
+function releaseClip(clip) {
+  setTimeout((function () {
+          URL.revokeObjectURL(clip.url);
+        }), 60000);
+}
+
+function timeLabel() {
+  var now = new Date();
+  var hours = now.getHours().toString().padStart(2, "0");
+  var minutes = now.getMinutes().toString().padStart(2, "0");
+  return hours + ":" + minutes;
+}
+
 var liveStreamUrl = "https://youtube.com/live/courtside-court04";
 
 var cameraStorageKey = "kiosk.cameraDeviceId";
@@ -232,7 +245,7 @@ function Kiosk$CameraView(props) {
                       className: "absolute bottom-4 left-4 right-4 flex items-end justify-between sm:bottom-5 sm:left-5 sm:right-5"
                     })
               ],
-              className: Core.cx("relative h-full min-h-[280px] w-full overflow-hidden border-2 border-kiosk-border", Core__Option.isSome(stream) ? "bg-black" : "bg-kiosk-court")
+              className: Core.cx("relative h-full w-full overflow-hidden border-2 border-kiosk-border", Core__Option.isSome(stream) ? "bg-black" : "bg-kiosk-court min-h-[330px]")
             });
 }
 
@@ -717,6 +730,9 @@ var SettingsPanel = {
 };
 
 function Kiosk$LiveActionControls(props) {
+  var onReview = props.onReview;
+  var clips = props.clips;
+  var clipping = props.clipping;
   var clipEnabled = props.clipEnabled;
   var bufferStatus = props.bufferStatus;
   var onAction = props.onAction;
@@ -760,7 +776,7 @@ function Kiosk$LiveActionControls(props) {
                                     strokeWidth: 2.4,
                                     "aria-hidden": "true"
                                   });
-                            var disabled = action === "RallyClip" && !clipEnabled;
+                            var disabled = action === "RallyClip" && (!clipEnabled || clipping);
                             return JsxRuntime.jsxs("button", {
                                         children: [
                                           JsxRuntime.jsx("span", {
@@ -774,7 +790,7 @@ function Kiosk$LiveActionControls(props) {
                                                         className: "block text-xl font-extrabold leading-tight"
                                                       }),
                                                   JsxRuntime.jsx("span", {
-                                                        children: t`Use latest buffered footage`,
+                                                        children: action === "RallyClip" && clipping ? t`Clipping…` : t`Use latest buffered footage`,
                                                         className: "mt-2 block text-sm font-medium leading-5 opacity-70"
                                                       })
                                                 ]
@@ -789,7 +805,33 @@ function Kiosk$LiveActionControls(props) {
                                       }, liveActionKey(action));
                           }),
                       className: "mt-5 grid gap-3 sm:grid-cols-2"
-                    })
+                    }),
+                clips.length === 0 ? null : JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsx("p", {
+                                children: t`RECENT CLIPS`,
+                                className: "shrink-0 font-mono text-xs font-semibold text-kiosk-muted"
+                              }),
+                          clips.map(function (clip) {
+                                return JsxRuntime.jsxs("button", {
+                                            children: [
+                                              JsxRuntime.jsx(LucideReact.Play, {
+                                                    size: 16,
+                                                    className: "fill-current text-kiosk-accent",
+                                                    "aria-hidden": "true"
+                                                  }),
+                                              clip.durationSeconds.toFixed(0) + " s · " + clip.capturedAt
+                                            ],
+                                            className: "flex min-h-14 shrink-0 items-center gap-2 whitespace-nowrap border-2 border-kiosk-border bg-kiosk-raised px-4 font-mono text-sm font-semibold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border",
+                                            type: "button",
+                                            onClick: (function (param) {
+                                                onReview(clip);
+                                              })
+                                          }, clip.url);
+                              })
+                        ],
+                        className: "mt-4 flex items-center gap-3 overflow-x-auto"
+                      })
               ],
               className: "mt-4 shrink-0 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:p-6"
             });
@@ -800,6 +842,7 @@ var LiveActionControls = {
 };
 
 function Kiosk$ResultPanel(props) {
+  var onDelete = props.onDelete;
   var onSaved = props.onSaved;
   var onDone = props.onDone;
   var clip = props.clip;
@@ -920,35 +963,32 @@ function Kiosk$ResultPanel(props) {
     }
   }
   if (modeId._0 === "RallyClip") {
-    var subtitle = clip !== undefined ? t`${clip.durationSeconds.toFixed(0)}-second clip from the rolling buffer` : t`18-second clip · Rally 07`;
-    return JsxRuntime.jsxs(Kiosk$ResultShell, {
-                title: t`Rally clip ready`,
-                subtitle: subtitle,
-                eyebrow: eyebrow,
-                children: [
-                  clip !== undefined ? JsxRuntime.jsx(Kiosk$ClipPlayer, {
+    if (clip !== undefined) {
+      return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                  title: t`Rally clip`,
+                  subtitle: t`${clip.durationSeconds.toFixed(0)}-second clip · ${clip.capturedAt}`,
+                  eyebrow: eyebrow,
+                  children: [
+                    JsxRuntime.jsx(Kiosk$ClipPlayer, {
                           clip: clip
-                        }) : JsxRuntime.jsx(Kiosk$VideoMock, {
-                          label: t`Last rally`,
-                          playLabel: t`Play last rally`
                         }),
-                  JsxRuntime.jsxs("div", {
-                        children: [
-                          JsxRuntime.jsxs("button", {
-                                children: [
-                                  JsxRuntime.jsx(LucideReact.Trash2, {
-                                        size: 23,
-                                        "aria-hidden": "true"
-                                      }),
-                                  t`Discard`
-                                ],
-                                className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-border bg-kiosk-raised px-5 text-lg font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/15",
-                                type: "button",
-                                onClick: (function (param) {
-                                    onDone();
-                                  })
-                              }),
-                          clip !== undefined ? JsxRuntime.jsxs("a", {
+                    JsxRuntime.jsxs("div", {
+                          children: [
+                            JsxRuntime.jsxs("button", {
+                                  children: [
+                                    JsxRuntime.jsx(LucideReact.Trash2, {
+                                          size: 23,
+                                          "aria-hidden": "true"
+                                        }),
+                                    t`Delete clip`
+                                  ],
+                                  className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-border bg-kiosk-raised px-5 text-lg font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/15",
+                                  type: "button",
+                                  onClick: (function (param) {
+                                      onDelete();
+                                    })
+                                }),
+                            JsxRuntime.jsxs("a", {
                                   children: [
                                     JsxRuntime.jsx(LucideReact.Download, {
                                           size: 23,
@@ -956,31 +996,48 @@ function Kiosk$ResultPanel(props) {
                                         }),
                                     t`Save clip`
                                   ],
-                                  className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark",
+                                  className: "flex min-h-20 items-center justify-center gap-3 border-2 border-white bg-white px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-white/80",
                                   download: "courtside-rally-" + Date.now().toString() + ".mp4",
                                   href: clip.url,
                                   onClick: (function (param) {
                                       onSaved();
                                     })
-                                }) : JsxRuntime.jsxs("button", {
+                                }),
+                            JsxRuntime.jsxs("button", {
                                   children: [
-                                    JsxRuntime.jsx(LucideReact.Download, {
+                                    JsxRuntime.jsx(LucideReact.Check, {
                                           size: 23,
                                           "aria-hidden": "true"
                                         }),
-                                    t`Save clip`
+                                    t`Done`
                                   ],
                                   className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark",
                                   type: "button",
                                   onClick: (function (param) {
-                                      onSaved();
+                                      onDone();
                                     })
                                 })
-                        ],
-                        className: "mt-5 grid gap-3 sm:grid-cols-2"
-                      })
-                ]
-              });
+                          ],
+                          className: "mt-5 grid gap-3 sm:grid-cols-3"
+                        })
+                  ]
+                });
+    } else {
+      return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                  title: t`Rally clip`,
+                  subtitle: t`No clip selected`,
+                  eyebrow: eyebrow,
+                  children: [
+                    JsxRuntime.jsx(Kiosk$VideoMock, {
+                          label: t`Last rally`,
+                          playLabel: t`Play last rally`
+                        }),
+                    JsxRuntime.jsx(Kiosk$DoneButton, {
+                          onClick: onDone
+                        })
+                  ]
+                });
+    }
   }
   var bounceFrames = [
     [
@@ -1136,7 +1193,10 @@ function Kiosk$SessionWorkspace(props) {
                                 JsxRuntime.jsx(Kiosk$LiveActionControls, {
                                       onAction: props.onLiveAction,
                                       bufferStatus: props.bufferStatus,
-                                      clipEnabled: props.clipEnabled
+                                      clipEnabled: props.clipEnabled,
+                                      clipping: props.clipping,
+                                      clips: props.clips,
+                                      onReview: props.onReviewClip
                                     }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
@@ -1274,9 +1334,10 @@ function Kiosk$SessionWorkspace(props) {
                             }) : null,
                       JsxRuntime.jsx(Kiosk$ResultPanel, {
                             modeId: props.resultMode,
-                            clip: props.clip,
+                            clip: props.reviewClip,
                             onDone: props.onResultDone,
                             onSaved: props.onSaved,
+                            onDelete: props.onDeleteClip,
                             isLiveSession: isLiveSession
                           })
                     ]
@@ -1362,10 +1423,21 @@ function Kiosk(props) {
       });
   var setClippingReady = match$13[1];
   var match$14 = React.useState(function () {
+        return [];
+      });
+  var setClips = match$14[1];
+  var clips = match$14[0];
+  var match$15 = React.useState(function () {
         
       });
-  var setClip = match$14[1];
-  var clip = match$14[0];
+  var setReviewClip = match$15[1];
+  var reviewClip = match$15[0];
+  var match$16 = React.useState(function () {
+        return false;
+      });
+  var setClipping = match$16[1];
+  var clipping = match$16[0];
+  var clipsRef = React.useRef([]);
   React.useEffect((function () {
           var id = localStorage.getItem(cameraStorageKey);
           if (!(id == null) && id !== "") {
@@ -1490,15 +1562,13 @@ function Kiosk(props) {
                   });
         }), [stream]);
   React.useEffect((function () {
-          if (clip !== undefined) {
-            return (function () {
-                      setTimeout((function () {
-                              URL.revokeObjectURL(clip.url);
-                            }), 60000);
-                    });
-          }
-          
-        }), [clip]);
+          clipsRef.current = clips;
+        }), [clips]);
+  React.useEffect((function () {
+          return (function () {
+                    clipsRef.current.forEach(releaseClip);
+                  });
+        }), []);
   var resetSession = function () {
     setStage(function (param) {
           return "Ready";
@@ -1506,8 +1576,12 @@ function Kiosk(props) {
     setElapsed(function (param) {
           return 0;
         });
-    setClip(function (param) {
+    setReviewClip(function (param) {
           
+        });
+    setClips(function (previous) {
+          previous.forEach(releaseClip);
+          return [];
         });
     setStream(function (param) {
           
@@ -1682,14 +1756,11 @@ function Kiosk(props) {
   };
   var handleLiveAction = function (action) {
     if (action === "RallyClip") {
-      setResultMode(function (param) {
-            return {
-                    TAG: "LiveResult",
-                    _0: "RallyClip"
-                  };
-          });
-      setStage(function (param) {
-            return "Processing";
+      if (clipping) {
+        return ;
+      }
+      setClipping(function (param) {
+            return true;
           });
       var run = async function () {
         var session = sessionRef.current;
@@ -1697,30 +1768,41 @@ function Kiosk(props) {
           var result = await session.takeClip();
           if (result.TAG === "Ok") {
             var result$1 = result._0;
-            setClip(function (param) {
-                  return {
-                          url: URL.createObjectURL(result$1.blob),
-                          durationSeconds: result$1.durationSeconds,
-                          hasAudio: result$1.hasAudio
-                        };
+            var clip_url = URL.createObjectURL(result$1.blob);
+            var clip_durationSeconds = result$1.durationSeconds;
+            var clip_hasAudio = result$1.hasAudio;
+            var clip_capturedAt = timeLabel();
+            var clip = {
+              url: clip_url,
+              durationSeconds: clip_durationSeconds,
+              hasAudio: clip_hasAudio,
+              capturedAt: clip_capturedAt
+            };
+            setClips(function (previous) {
+                  var next = [clip].concat(previous);
+                  if (next.length > 5) {
+                    next.slice(5).forEach(releaseClip);
+                    return next.slice(0, 5);
+                  } else {
+                    return next;
+                  }
                 });
-            return setStage(function (param) {
-                        return "Result";
-                      });
+            setNotice(function (param) {
+                  return "ClipSaved";
+                });
+          } else {
+            console.error("[kiosk] takeClip failed:", result._0);
+            setNotice(function (param) {
+                  return "ClipFailed";
+                });
           }
-          console.error("[kiosk] takeClip failed:", result._0);
+        } else {
           setNotice(function (param) {
                 return "ClipFailed";
               });
-          return setStage(function (param) {
-                      return "Active";
-                    });
         }
-        setNotice(function (param) {
-              return "ClipFailed";
-            });
-        return setStage(function (param) {
-                    return "Active";
+        return setClipping(function (param) {
+                    return false;
                   });
       };
       run();
@@ -1736,6 +1818,36 @@ function Kiosk(props) {
           return "Processing";
         });
   };
+  var handleReviewClip = function (clip) {
+    setReviewClip(function (param) {
+          return clip;
+        });
+    setResultMode(function (param) {
+          return {
+                  TAG: "LiveResult",
+                  _0: "RallyClip"
+                };
+        });
+    setStage(function (param) {
+          return "Result";
+        });
+  };
+  var handleDeleteClip = function () {
+    if (reviewClip !== undefined) {
+      releaseClip(reviewClip);
+      setClips(function (previous) {
+            return previous.filter(function (existing) {
+                        return existing.url !== reviewClip.url;
+                      });
+          });
+    }
+    setReviewClip(function (param) {
+          
+        });
+    setStage(function (param) {
+          return "Active";
+        });
+  };
   var handleFinishAnalysis = function () {
     setResultMode(function (param) {
           return {
@@ -1748,7 +1860,7 @@ function Kiosk(props) {
         });
   };
   var handleResultDone = function () {
-    setClip(function (param) {
+    setReviewClip(function (param) {
           
         });
     if (category === "Live") {
@@ -1761,9 +1873,8 @@ function Kiosk(props) {
   };
   var handleSaved = function () {
     setNotice(function (param) {
-          return "ClipSaved";
+          return "ClipDownloaded";
         });
-    handleResultDone();
   };
   var handleEndLive = function () {
     resetSession();
@@ -1792,6 +1903,9 @@ function Kiosk(props) {
           break;
       case "ClipFailed" :
           tmp$1 = t`Could not create the clip — the buffer keeps recording`;
+          break;
+      case "ClipDownloaded" :
+          tmp$1 = t`Clip downloaded`;
           break;
       
     }
@@ -1908,10 +2022,14 @@ function Kiosk(props) {
                                       elapsed: match$5[0],
                                       streamingEnabled: streamingEnabled,
                                       stream: stream,
-                                      clip: clip,
+                                      reviewClip: reviewClip,
+                                      clips: clips,
+                                      clipping: clipping,
                                       bufferStatus: captureStatus,
                                       clipEnabled: clipEnabled,
                                       onLiveAction: handleLiveAction,
+                                      onReviewClip: handleReviewClip,
+                                      onDeleteClip: handleDeleteClip,
                                       onFinishAnalysis: handleFinishAnalysis,
                                       onEndLive: handleEndLive,
                                       onResultDone: handleResultDone,
@@ -2174,9 +2292,14 @@ function Kiosk(props) {
             });
 }
 
+var maxClipHistory = 5;
+
 var make = Kiosk;
 
 export {
+  maxClipHistory ,
+  releaseClip ,
+  timeLabel ,
   liveStreamUrl ,
   cameraStorageKey ,
   liveActionKey ,

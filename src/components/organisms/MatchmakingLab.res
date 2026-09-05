@@ -157,6 +157,7 @@ let strategyLabel = (entry: SimLab.labStrategy) =>
   | "oracle" => ts`Oracle (knows truth)`
   | "jp" => ts`Open play (JP style)`
   | "us" => ts`Open play (US style)`
+  | "koc" => ts`King of the court`
   | other => other
   }
 
@@ -171,6 +172,7 @@ let strategyBlurb = (entry: SimLab.labStrategy) =>
   | "oracle" => ts`Matchmakes from hidden true skill instead of the ratings. Not a strategy anyone can run — it marks the best match quality this pool allows, so the distance from it is what imperfect ratings cost. Its ladder never improves: a game that is genuinely even is a coin flip, and coin flips teach nothing.`
   | "jp" => ts`Rotate through everyone, teams drawn as they come. Only when a foursome splits sharply into two strong and two weak does anyone even out the sides — and then which weak player goes with which strong is left to chance.`
   | "us" => ts`Players self-sort into a beginner group and an intermediate/advanced group and stay there, mixing only around the middle of the pool. Teams are drawn at random within a level and never evened out; about half of blowouts get run back — once — and a close game may keep the same four on court.`
+  | "koc" => ts`Ranked courts: winners move up and split, losers slide down, and the bottom court's losers rotate out for whoever has sat longest. Every arriving pair is split across the net, so nobody keeps a winning partner. No ratings anywhere — the court ladder is the format's only memory.`
   | _ => ""
   }
 

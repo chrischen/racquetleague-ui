@@ -169,6 +169,13 @@ return {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "smartRsvpThreshold",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "Activity",
       "kind": "LinkedField",
       "name": "activity",

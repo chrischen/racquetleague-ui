@@ -59,6 +59,7 @@ module Types = {
     maxRsvps: option<int>,
     minRating: option<float>,
     price: option<int>,
+    smartRsvpThreshold: option<float>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
     timezone: option<string>,
@@ -242,6 +243,13 @@ return {
       "storageKey": null
     },
     (v1/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "smartRsvpThreshold",
+      "storageKey": null
+    },
     {
       "alias": null,
       "args": null,

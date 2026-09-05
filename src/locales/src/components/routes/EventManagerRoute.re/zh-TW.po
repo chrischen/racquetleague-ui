@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:111
+msgid "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+msgstr "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -83,7 +87,7 @@ msgstr "調整球員種子"
 msgid "Advance to Next Round"
 msgstr "前進至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:2439
+#: src/components/organisms/EventManager.re.mjs:2513
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 輪"
 
@@ -99,7 +103,7 @@ msgstr "亞歷克斯·約翰遜"
 msgid "All checked-in players are already in this round"
 msgstr "所有已報到的球員都已在這個回合中"
 
-#: src/components/organisms/EventManager.re.mjs:2270
+#: src/components/organisms/EventManager.re.mjs:2344
 msgid "all up to date"
 msgstr "全部已更新"
 
@@ -107,7 +111,7 @@ msgstr "全部已更新"
 msgid "Alternate favourite/underdog roles"
 msgstr "交替強弱隊角色"
 
-#: src/components/organisms/EventManager.re.mjs:2548
+#: src/components/organisms/EventManager.re.mjs:2622
 msgid "Anti-Team {0}"
 msgstr "反對隊 {0}"
 
@@ -152,11 +156,12 @@ msgstr "校準中"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
-#: src/components/organisms/EventManager.re.mjs:454
+#: src/components/organisms/EventStateImportModal.re.mjs:135
+#: src/components/organisms/EventManager.re.mjs:458
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/EventManager.re.mjs:508
+#: src/components/organisms/EventManager.re.mjs:512
 msgid "Changes aren't being saved"
 msgstr "變更未儲存"
 
@@ -165,6 +170,9 @@ msgid "Classic round-robin draws"
 msgstr "經典循環賽抽籤"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+#: src/components/organisms/EventStateExportModal.re.mjs:74
+#: src/components/organisms/EventStateExportModal.re.mjs:105
+#: src/components/organisms/EventStateImportModal.re.mjs:92
 msgid "Close"
 msgstr "關閉"
 
@@ -190,9 +198,17 @@ msgstr "競技+"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/EventManager.re.mjs:334
+#: src/components/organisms/EventManager.re.mjs:338
 msgid "Connecting…"
 msgstr "連線中…"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:119
+msgid "Copied"
+msgstr "已複製"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:128
+msgid "Copy"
+msgstr "複製"
 
 #: src/components/organisms/MatchCard.re.mjs:396
 #: src/components/molecules/SolverWarnings.re.mjs:86
@@ -243,19 +259,19 @@ msgstr "自訂"
 msgid "Customize from here"
 msgstr "從此處自訂"
 
-#: src/components/organisms/EventManager.re.mjs:2761
+#: src/components/organisms/EventManager.re.mjs:2872
 msgid "Debug: OFF"
 msgstr "調試：關閉"
 
-#: src/components/organisms/EventManager.re.mjs:2761
+#: src/components/organisms/EventManager.re.mjs:2872
 msgid "Debug: ON"
 msgstr "調試：開啟"
 
-#: src/components/organisms/EventManager.re.mjs:461
+#: src/components/organisms/EventManager.re.mjs:465
 msgid "Delete all data"
 msgstr "刪除所有資料"
 
-#: src/components/organisms/EventManager.re.mjs:390
+#: src/components/organisms/EventManager.re.mjs:394
 msgid "Delete all saved event data?"
 msgstr "刪除所有已儲存的賽事資料？"
 
@@ -281,9 +297,9 @@ msgstr "刪除這場比賽？"
 msgid "Deterministic"
 msgstr "確定性"
 
-#: src/components/organisms/EventManager.re.mjs:273
-#: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2342
+#: src/components/organisms/EventManager.re.mjs:277
+#: src/components/organisms/EventManager.re.mjs:550
+#: src/components/organisms/EventManager.re.mjs:2416
 msgid "Dismiss"
 msgstr "關閉"
 
@@ -348,9 +364,14 @@ msgstr ""
 "全員輪換：每輪皆有全新搭檔與對手，優先安排最具競爭性的對陣，直到多樣性需求促"
 "使混合分配。"
 
-#: src/components/organisms/EventManager.re.mjs:448
+#: src/components/organisms/EventManager.re.mjs:452
 msgid "Everything stored on this device is already synced to the server."
 msgstr "此裝置上儲存的所有內容已同步至伺服器。"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:64
+#: src/components/organisms/EventManager.re.mjs:2824
+msgid "Export History"
+msgstr "匯出紀錄"
 
 #: src/components/molecules/SolverWarnings.re.mjs:44
 msgid "Fallback: {0} are paired outside their group"
@@ -372,11 +393,11 @@ msgstr "女性"
 msgid "Free"
 msgstr "免費"
 
-#: src/components/organisms/EventManager.re.mjs:526
+#: src/components/organisms/EventManager.re.mjs:530
 msgid "Free up space"
 msgstr "釋放空間"
 
-#: src/components/organisms/EventManager.re.mjs:282
+#: src/components/organisms/EventManager.re.mjs:286
 msgid "Free Up Space"
 msgstr "釋放空間"
 
@@ -413,7 +434,7 @@ msgid "Generate Draws"
 msgstr "生成對戰表"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1825
+#: src/components/organisms/EventManager.re.mjs:1850
 msgid "Generating…"
 msgstr "生成中…"
 
@@ -433,9 +454,26 @@ msgstr "訪客姓名（每行一個）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "掃描有問題嗎？請嘗試從俱樂部頁面尋找活動。"
 
-#: src/components/organisms/EventManager.re.mjs:2749
+#: src/components/organisms/EventManager.re.mjs:2860
 msgid "Help"
 msgstr "說明"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:143
+msgid "Import"
+msgstr "匯入"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:82
+#: src/components/organisms/EventManager.re.mjs:2834
+msgid "Import History"
+msgstr "匯入紀錄"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:48
+msgid ""
+"Imported matches count as already synced, and keep their original ids so "
+"syncing again cannot duplicate them on the server."
+msgstr ""
+"匯入的比賽會視為已同步，並保留原始 ID，因此再次同步時不會在伺服器上產生重複資"
+"料。"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:360
 msgid "Invite player"
@@ -478,6 +516,10 @@ msgstr "比賽模式"
 #: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
 msgstr "場比賽"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:43
+msgid "Matches to import"
+msgstr "要匯入的比賽"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
@@ -543,7 +585,7 @@ msgstr "還沒有隊伍"
 msgid "Not paid"
 msgstr "未付款"
 
-#: src/components/organisms/EventManager.re.mjs:313
+#: src/components/organisms/EventManager.re.mjs:317
 msgid "Not saved"
 msgstr "未儲存"
 
@@ -559,11 +601,11 @@ msgstr "開啟手機相機，掃描此碼並加入活動。"
 msgid "Opponent variety"
 msgstr "對手多樣性"
 
-#: src/components/organisms/EventManager.re.mjs:2338
+#: src/components/organisms/EventManager.re.mjs:2412
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "最佳化工具無法使用——此籤表改用標準配對機制。"
 
-#: src/components/organisms/EventManager.re.mjs:418
+#: src/components/organisms/EventManager.re.mjs:422
 msgid "Other events on this device"
 msgstr "此裝置上的其他賽事"
 
@@ -574,6 +616,10 @@ msgstr "已付款"
 #: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr "搭檔多樣性"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:106
+msgid "Paste an exported history"
+msgstr "貼上已匯出的紀錄"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
@@ -610,7 +656,7 @@ msgstr "球員將被分為技能水平相似的組別，以技能平衡的隊伍
 msgid "please login before managing the session"
 msgstr "請在管理會話之前登入"
 
-#: src/components/organisms/EventManager.re.mjs:1825
+#: src/components/organisms/EventManager.re.mjs:1850
 msgid "Preparing optimizer…"
 msgstr "正在準備最佳化工具…"
 
@@ -626,7 +672,7 @@ msgstr "上一回合"
 msgid "Print"
 msgstr "列印"
 
-#: src/components/organisms/EventManager.re.mjs:2237
+#: src/components/organisms/EventManager.re.mjs:2311
 msgid "Print Draws"
 msgstr "列印賽程"
 
@@ -676,7 +722,7 @@ msgstr "替換球員"
 msgid "Replacing:"
 msgstr "替換："
 
-#: src/components/organisms/EventManager.re.mjs:2732
+#: src/components/organisms/EventManager.re.mjs:2843
 msgid "Reset Storage"
 msgstr "重置儲存空間"
 
@@ -692,7 +738,7 @@ msgstr "使用混合性別配對重置此輪"
 msgid "Reset to preset"
 msgstr "重設為預設"
 
-#: src/components/organisms/EventManager.re.mjs:538
+#: src/components/organisms/EventManager.re.mjs:542
 msgid "Retry"
 msgstr "重試"
 
@@ -719,6 +765,17 @@ msgstr "循環賽"
 msgid "Round-Robin with teams balanced by skill."
 msgstr "技能平衡隊伍的循環賽。"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:119
+msgid ""
+"Rounds are placed in the timeline by their timestamps, so importing can add "
+"rounds before the ones already here."
+msgstr ""
+"各輪次會依時間戳記排入時間軸，因此匯入時可能會在現有輪次之前插入新的輪次。"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:42
+msgid "Rounds to import"
+msgstr "要匯入的輪次"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "儲存"
@@ -743,11 +800,11 @@ msgstr "儲存種子調整"
 msgid "Save Team"
 msgstr "儲存隊伍"
 
-#: src/components/organisms/EventManager.re.mjs:327
+#: src/components/organisms/EventManager.re.mjs:331
 msgid "Saved"
 msgstr "已儲存"
 
-#: src/components/organisms/EventManager.re.mjs:321
+#: src/components/organisms/EventManager.re.mjs:325
 msgid "Saving…"
 msgstr "儲存中…"
 
@@ -755,7 +812,13 @@ msgstr "儲存中…"
 msgid "Scan to check in"
 msgstr "掃描以報到"
 
-#: src/components/organisms/EventManager.re.mjs:2192
+#: src/components/organisms/EventStateExportModal.re.mjs:86
+msgid ""
+"Scored matches and rating adjustments only. Paste this into Import History "
+"on another device."
+msgstr "僅包含已計分的比賽與評分調整。請將此內容貼到另一部裝置的「匯入紀錄」。"
+
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -787,15 +850,27 @@ msgstr "技術級距分組"
 msgid "Skill: {0}"
 msgstr "技能：{0}"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:46
+msgid "Skipped rating adjustments"
+msgstr "已略過的評分調整"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:45
+msgid "Skipped, already here"
+msgstr "已略過，這裡已存在"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:44
+msgid "Skipped, players not in this event"
+msgstr "已略過，球員不在此活動中"
+
 #: src/components/molecules/SolverWarnings.re.mjs:71
 msgid "Some rules had to be bent to fill the courts"
 msgstr "為填滿球場，部分規則須彈性調整"
 
-#: src/components/organisms/EventManager.re.mjs:2715
+#: src/components/organisms/EventManager.re.mjs:2807
 msgid "Sports Event Draws"
 msgstr "運動賽事籤表"
 
-#: src/components/organisms/EventManager.re.mjs:251
+#: src/components/organisms/EventManager.re.mjs:255
 msgid "Storage Almost Full"
 msgstr "儲存空間即將滿"
 
@@ -807,24 +882,24 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:2204
+#: src/components/organisms/EventManager.re.mjs:2278
 msgid "Sync Failed"
 msgstr "同步失敗"
 
-#: src/components/organisms/EventManager.re.mjs:2168
+#: src/components/organisms/EventManager.re.mjs:2242
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:2264
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "synced"
 msgstr "已同步"
 
-#: src/components/organisms/EventManager.re.mjs:2180
+#: src/components/organisms/EventManager.re.mjs:2254
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2099
+#: src/components/organisms/EventManager.re.mjs:2173
 msgid "Team {0}"
 msgstr "第 {0} 隊"
 
@@ -879,11 +954,11 @@ msgstr ""
 "這些數值正在自動跟隨評分調整。凍結目前的配置以手動調整——凍結後將停止為此賽事"
 "自動適應。"
 
-#: src/components/organisms/EventManager.re.mjs:744
+#: src/components/organisms/EventManager.re.mjs:748
 msgid "this club"
 msgstr "本俱樂部"
 
-#: src/components/organisms/EventManager.re.mjs:397
+#: src/components/organisms/EventManager.re.mjs:401
 msgid ""
 "This deletes the saved data for every event on this device, including this "
 "one. Events already synced to the server can be reopened; anything unsynced "
@@ -896,13 +971,13 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "這將刪除所有未來回合並生成新比賽"
 
-#: src/components/organisms/EventManager.re.mjs:445
+#: src/components/organisms/EventManager.re.mjs:449
 msgid ""
 "Those scores have not reached the server. Sync this event before deleting, "
 "or they will be lost."
 msgstr "這些比分尚未上傳至伺服器。請在刪除前先同步本賽事，否則資料將會遺失。"
 
-#: src/components/organisms/EventManager.re.mjs:445
+#: src/components/organisms/EventManager.re.mjs:449
 msgid ""
 "Those scores have not reached the server. Sync this event, and open each "
 "other event and sync it, before deleting — otherwise they are lost."
@@ -914,7 +989,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "緊密分組"
 
-#: src/components/organisms/EventManager.re.mjs:2266
+#: src/components/organisms/EventManager.re.mjs:2340
 msgid "to sync"
 msgstr "待同步"
 
@@ -922,11 +997,11 @@ msgstr "待同步"
 msgid "Tournament Draws"
 msgstr "錦標賽賽程"
 
-#: src/components/organisms/EventManager.re.mjs:405
+#: src/components/organisms/EventManager.re.mjs:409
 msgid "Unsynced scores in this event"
 msgstr "本賽事中未同步的比分"
 
-#: src/components/organisms/EventManager.re.mjs:431
+#: src/components/organisms/EventManager.re.mjs:435
 msgid "Unsynced scores in those events"
 msgstr "那些賽事中未同步的比分"
 
@@ -952,11 +1027,15 @@ msgstr ""
 msgid "VS"
 msgstr "VS"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:126
+msgid "Wait for the draw currently being generated to finish."
+msgstr "請等待目前正在產生的賽程表完成。"
+
 #: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "獲勝隊（隊伍 {0}）"
 
-#: src/components/organisms/EventManager.re.mjs:490
+#: src/components/organisms/EventManager.re.mjs:494
 msgid ""
 "Your browser is blocking storage for this site. If you're in a private "
 "window, switch to a normal one; otherwise allow site data and reload."
@@ -964,13 +1043,13 @@ msgstr ""
 "您的瀏覽器封鎖了此網站的儲存空間。若您使用的是無痕視窗，請切換至一般視窗；否"
 "則請允許網站資料存取並重新載入。"
 
-#: src/components/organisms/EventManager.re.mjs:493
+#: src/components/organisms/EventManager.re.mjs:497
 msgid ""
 "Your browser is out of storage space. Clear old event data to free up space, "
 "then retry."
 msgstr "您的瀏覽器儲存空間不足。請清除舊的賽事資料以釋放空間，然後重試。"
 
-#: src/components/organisms/EventManager.re.mjs:496
+#: src/components/organisms/EventManager.re.mjs:500
 msgid ""
 "Your browser refused to save this event. Reload the page or retry — if it "
 "keeps failing, avoid refreshing until scores are synced."
@@ -978,7 +1057,7 @@ msgstr ""
 "您的瀏覽器拒絕儲存本賽事。請重新載入頁面或重試——若持續失敗，請避免重新整理，"
 "直到比分同步完成。"
 
-#: src/components/organisms/EventManager.re.mjs:258
+#: src/components/organisms/EventManager.re.mjs:262
 msgid ""
 "Your browser storage is {0}% full. The app may lose data if storage runs "
 "out. Freeing space clears saved data for every event on this device — you'll "

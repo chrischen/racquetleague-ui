@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yz7wBu\":\"닫기\",\"6V3Ea3\":\"복사됨\",\"he3ygx\":\"복사\",\"wrCvgh\":\"기록 내보내기\",\"9xpPmW\":\"점수가 기록된 경기와 레이팅 조정만 포함됩니다. 다른 기기의 기록 가져오기에 붙여넣으세요.\"}");

@@ -69,8 +69,8 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:673
-#: src/components/organisms/RSVPSection.re.mjs:765
+#: src/components/organisms/RSVPSection.re.mjs:760
+#: src/components/organisms/RSVPSection.re.mjs:855
 msgid "Add Member"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgstr ""
 msgid "Close profile form"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:690
+#: src/components/organisms/RSVPSection.re.mjs:777
 msgid "Collapse"
 msgstr ""
 
@@ -227,6 +227,10 @@ msgstr ""
 msgid "Equal scores — this will be recorded as a draw"
 msgstr ""
 
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Evaluating pending requests…"
+msgstr ""
+
 #: src/components/organisms/EventDetails.re.mjs:47
 msgid "Event Details"
 msgstr ""
@@ -311,11 +315,11 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:781
+#: src/components/organisms/RSVPSection.re.mjs:871
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:868
 msgid "Loading..."
 msgstr ""
 
@@ -460,7 +464,7 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:431
+#: src/components/organisms/RSVPSection.re.mjs:513
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
@@ -476,9 +480,9 @@ msgstr ""
 msgid "Round Robin Draws"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:552
-#: src/components/organisms/RSVPSection.re.mjs:591
-#: src/components/organisms/RSVPSection.re.mjs:712
+#: src/components/organisms/RSVPSection.re.mjs:636
+#: src/components/organisms/RSVPSection.re.mjs:675
+#: src/components/organisms/RSVPSection.re.mjs:799
 msgid "RSVP"
 msgstr ""
 
@@ -486,7 +490,15 @@ msgstr ""
 msgid "RSVP Pending..."
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/organisms/RSVPSection.re.mjs:186
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Run Smart RSVP now"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:327
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr ""
@@ -561,6 +573,10 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
+#: src/components/organisms/RSVPSection.re.mjs:501
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr ""
+
 #: src/components/atoms/EventSignupButton.re.mjs:91
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
@@ -586,8 +602,8 @@ msgstr ""
 msgid "Time TBD"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:244
-#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/RSVPSection.re.mjs:311
+#: src/components/organisms/RSVPSection.re.mjs:312
 #: src/components/organisms/EventMessages.re.mjs:125
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr ""
@@ -666,6 +682,6 @@ msgstr ""
 msgid "You're Waitlisted"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:515
 msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
 msgstr ""

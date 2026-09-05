@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yz7wBu\":\"關閉\",\"6V3Ea3\":\"已複製\",\"he3ygx\":\"複製\",\"wrCvgh\":\"匯出紀錄\",\"9xpPmW\":\"僅包含已計分的比賽與評分調整。請將此內容貼到另一部裝置的「匯入紀錄」。\"}");

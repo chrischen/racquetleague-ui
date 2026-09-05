@@ -401,6 +401,13 @@ return {
               {
                 "alias": null,
                 "args": null,
+                "kind": "ScalarField",
+                "name": "smartRsvpThreshold",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
                 "concreteType": "Activity",
                 "kind": "LinkedField",
                 "name": "activity",
@@ -527,12 +534,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "18c74f0e15c7211057af2ffe9f40b463",
+    "cacheID": "090860452cabc711425043aeb88afd6c",
     "id": null,
     "metadata": {},
     "name": "EventLocationAvailabilityUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation EventLocationAvailabilityUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      id\n      startDate\n      endDate\n      location {\n        id\n        name\n        details\n        address\n        links\n        coords {\n          lat\n          lng\n        }\n        ...LocationMap_location\n      }\n      ...EventLocationAvailability_event\n    }\n  }\n}\n\nfragment EventLocationAvailability_event on Event {\n  id\n  title\n  details\n  startDate\n  endDate\n  timezone\n  listed\n  tags\n  maxRsvps\n  minRating\n  cancelDeadline\n  price\n  activity {\n    id\n  }\n  club {\n    id\n  }\n  location {\n    id\n  }\n  courtAvailability {\n    id\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n    courts {\n      name\n      courtType\n      price\n      intervals {\n        startHour\n        endHour\n      }\n    }\n  }\n}\n\nfragment LocationMap_location on Location {\n  id\n  coords {\n    lng\n    lat\n  }\n  address\n}\n"
+    "text": "mutation EventLocationAvailabilityUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      id\n      startDate\n      endDate\n      location {\n        id\n        name\n        details\n        address\n        links\n        coords {\n          lat\n          lng\n        }\n        ...LocationMap_location\n      }\n      ...EventLocationAvailability_event\n    }\n  }\n}\n\nfragment EventLocationAvailability_event on Event {\n  id\n  title\n  details\n  startDate\n  endDate\n  timezone\n  listed\n  tags\n  maxRsvps\n  minRating\n  cancelDeadline\n  price\n  smartRsvpThreshold\n  activity {\n    id\n  }\n  club {\n    id\n  }\n  location {\n    id\n  }\n  courtAvailability {\n    id\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n    courts {\n      name\n      courtType\n      price\n      intervals {\n        startHour\n        endHour\n      }\n    }\n  }\n}\n\nfragment LocationMap_location on Location {\n  id\n  coords {\n    lng\n    lat\n  }\n  address\n}\n"
   }
 };
 })() `)

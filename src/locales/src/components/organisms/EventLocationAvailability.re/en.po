@@ -78,7 +78,7 @@ msgstr ""
 #~ msgid "Alternate location"
 #~ msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:402
+#: src/components/organisms/EventLocationAvailability.re.mjs:403
 msgid "At {venue} now"
 msgstr ""
 
@@ -86,12 +86,12 @@ msgstr ""
 msgid "Available"
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:454
-#: src/components/organisms/EventLocationAvailability.re.mjs:496
+#: src/components/organisms/EventLocationAvailability.re.mjs:455
+#: src/components/organisms/EventLocationAvailability.re.mjs:497
 msgid "Confirm move"
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/organisms/EventLocationAvailability.re.mjs:332
 msgid "Courts"
 msgstr ""
 
@@ -99,15 +99,15 @@ msgstr ""
 msgid "Create event"
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#: src/components/organisms/EventLocationAvailability.re.mjs:419
 msgid "No court at {venue} covers the full event window."
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:512
+#: src/components/organisms/EventLocationAvailability.re.mjs:513
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:469
+#: src/components/organisms/EventLocationAvailability.re.mjs:470
 msgid "No other same-day time at {venue} supports the full event duration."
 msgstr ""
 
@@ -119,11 +119,11 @@ msgstr ""
 #~ msgid "Other locations and times"
 #~ msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:475
+#: src/components/organisms/EventLocationAvailability.re.mjs:476
 msgid "Other locations at this time"
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:426
+#: src/components/organisms/EventLocationAvailability.re.mjs:427
 msgid "Other times at {venue}"
 msgstr ""
 
@@ -131,15 +131,15 @@ msgstr ""
 msgid "Reserve"
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:479
+#: src/components/organisms/EventLocationAvailability.re.mjs:480
 msgid "This moves the event to another venue and reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:437
+#: src/components/organisms/EventLocationAvailability.re.mjs:438
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:498
+#: src/components/organisms/EventLocationAvailability.re.mjs:499
 msgid "Use location"
 msgstr ""
 
@@ -147,6 +147,6 @@ msgstr ""
 msgid "Use option"
 msgstr ""
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:456
+#: src/components/organisms/EventLocationAvailability.re.mjs:457
 msgid "Use time"
 msgstr ""

@@ -74,7 +74,7 @@ msgstr "실외 {n}개"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:402
+#: src/components/organisms/EventLocationAvailability.re.mjs:403
 msgid "At {venue} now"
 msgstr "{venue}에서 진행 중"
 
@@ -82,12 +82,12 @@ msgstr "{venue}에서 진행 중"
 msgid "Available"
 msgstr "가능"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:454
-#: src/components/organisms/EventLocationAvailability.re.mjs:496
+#: src/components/organisms/EventLocationAvailability.re.mjs:455
+#: src/components/organisms/EventLocationAvailability.re.mjs:497
 msgid "Confirm move"
 msgstr "이동 확인"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/organisms/EventLocationAvailability.re.mjs:332
 msgid "Courts"
 msgstr "코트"
 
@@ -95,15 +95,15 @@ msgstr "코트"
 msgid "Create event"
 msgstr "이벤트 만들기"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#: src/components/organisms/EventLocationAvailability.re.mjs:419
 msgid "No court at {venue} covers the full event window."
 msgstr "{venue}에는 전체 이벤트 시간을 커버하는 코트가 없습니다."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:512
+#: src/components/organisms/EventLocationAvailability.re.mjs:513
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr "근처 다른 장소에는 이벤트 시간 동안 사용 가능한 코트가 없습니다."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:469
+#: src/components/organisms/EventLocationAvailability.re.mjs:470
 msgid "No other same-day time at {venue} supports the full event duration."
 msgstr "{venue}에는 이벤트 전체 시간을 지원하는 다른 당일 시간대가 없습니다."
 
@@ -111,11 +111,11 @@ msgstr "{venue}에는 이벤트 전체 시간을 지원하는 다른 당일 시�
 msgid "Not available"
 msgstr "사용 불가"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:475
+#: src/components/organisms/EventLocationAvailability.re.mjs:476
 msgid "Other locations at this time"
 msgstr "이 시간대의 다른 장소"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:426
+#: src/components/organisms/EventLocationAvailability.re.mjs:427
 msgid "Other times at {venue}"
 msgstr "{venue}의 다른 시간대"
 
@@ -123,7 +123,7 @@ msgstr "{venue}의 다른 시간대"
 msgid "Reserve"
 msgstr "예약"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:479
+#: src/components/organisms/EventLocationAvailability.re.mjs:480
 msgid ""
 "This moves the event to another venue and reschedules everyone who already "
 "RSVP'd. Tap again to confirm."
@@ -131,13 +131,13 @@ msgstr ""
 "이 작업은 이벤트를 다른 장소로 이동하고 이미 참석 확인한 모든 참가자의 일정"
 "을 변경합니다. 다시 탭하여 확인하세요."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:437
+#: src/components/organisms/EventLocationAvailability.re.mjs:438
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr ""
 "이 작업은 이미 참석 확인한 모든 참가자의 일정을 변경합니다. 다시 탭하여 확인"
 "하세요."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:498
+#: src/components/organisms/EventLocationAvailability.re.mjs:499
 msgid "Use location"
 msgstr "장소 사용"
 
@@ -145,7 +145,7 @@ msgstr "장소 사용"
 msgid "Use option"
 msgstr "옵션 사용"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:456
+#: src/components/organisms/EventLocationAvailability.re.mjs:457
 msgid "Use time"
 msgstr "시간 사용"
 

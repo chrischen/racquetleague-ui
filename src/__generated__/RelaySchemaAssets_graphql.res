@@ -15,6 +15,19 @@ type enum_CourtType_input =
 
 
 @live @unboxed
+type enum_SmartRsvpAlgorithm = 
+  | Ilp
+  | BestFit
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_SmartRsvpAlgorithm_input = 
+  | Ilp
+  | BestFit
+
+
+@live @unboxed
 type enum_Gender = 
   | @as("female") Female
   | @as("male") Male
@@ -214,6 +227,7 @@ and input_CreateEventInput = {
   maxRsvps?: int,
   minRating?: float,
   price?: int,
+  smartRsvpThreshold?: float,
   startDate: Util.Datetime.t,
   tags?: array<string>,
   timezone?: string,
@@ -232,6 +246,7 @@ and input_CreateEventInput_nullable = {
   maxRsvps?: Js.Null.t<int>,
   minRating?: Js.Null.t<float>,
   price?: Js.Null.t<int>,
+  smartRsvpThreshold?: Js.Null.t<float>,
   startDate: Util.Datetime.t,
   tags?: Js.Null.t<array<string>>,
   timezone?: Js.Null.t<string>,

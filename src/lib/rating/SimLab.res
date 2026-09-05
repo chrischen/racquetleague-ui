@@ -50,6 +50,9 @@ type roundEngine =
   // here to show what the solver is being compared against in the real world.
   | JapanOpenPlay
   | AmericanOpenPlay
+  // King of the court: ranked courts, winners move up and split, losers slide
+  // down, the bottom court's losers rotate out to the queue.
+  | KingCourtPlay
 
 // Identity and behaviour only — the display name and description live in the
 // UI layer (`MatchmakingLab`), where they can be wrapped in translation
@@ -205,6 +208,16 @@ let strategies: array<labStrategy> = [
     isBaseline: true,
     usesTruth: false,
     engine: AmericanOpenPlay,
+  },
+  {
+    id: "koc",
+    short: "KOC",
+    color: "#5B7F3C",
+    strategy: SolverRandomBalanced,
+    weightConfig: None,
+    isBaseline: true,
+    usesTruth: false,
+    engine: KingCourtPlay,
   },
 ]
 
@@ -551,67 +564,16 @@ let buildPlayers = (
 // function FITTED from real recorded scores, not an arbitrary constant.
 let maxScore = 11.0
 
-// A team as the app's model would see it if it knew the truth: hidden skill
-// as mu, no uncertainty.
-let truthRatings = (team: Team.t<'a>, ~truth: array<float>) =>
-  team->Array.map(p => Rating.make(truth->Array.getUnsafe(p.intId), 0.0))
-
-// Openskill's probit saturates to a literal 0.0 or 1.0 in floating point once
-// the gap passes about two DUPR — the varied room's ringer-vs-beginner games.
-// The world never grants certainty (an injury or a sandbag is always
-// possible), and everything downstream treats these as probabilities.
-let clampProb = (p: float) => Js.Math.max_float(1e-9, Js.Math.min_float(1.0 -. 1e-9, p))
-
-let trueWinProbability = (match: Match.t<'a>, ~truth: array<float>) => {
-  let (team1, team2) = match
-  Rating.predictWin([truthRatings(team1, ~truth), truthRatings(team2, ~truth)])
-  ->Array.get(0)
-  ->Option.getOr(0.5)
-  ->clampProb
-}
-
-// Draw probability as a match-quality proxy. `Rating.predictDraw` is the app's
-// own model of "how likely is this game to end level", which is the most
-// direct statement of an even match available — high means well matched.
-//
-// The true version swaps hidden skill in for each player's mu with a FIXED
-// uncertainty of beta: the chance a game between these known skills ends
-// level, a pure function of who is on the court. Beta is the model's own
-// game-to-game performance variance — even a player of exactly known skill
-// does not play the same game twice — and it is also what keeps openskill's
-// draw heuristic inside its calibrated regime: at sigma 0 the formula is not
-// a probability at all (a perfectly even match reads 132%), while at sigma =
-// beta it is bounded and still discriminates across the whole gap range
-// (even 84% · 8-mu gap 63% · 28-mu gap 3%).
-//
-// Two historical bugs live in this function, both caught by the metrics
-// misbehaving:
-//   - It once used each player's LIVE sigma, which contaminated every
-//     quality curve with rating confidence: the same physical matchup read
-//     as higher quality later in the session merely because games had been
-//     played. The Random baseline exposed it — its composition cannot
-//     improve, yet its plotted quality climbed all session.
-//   - The fix overshot to sigma 0, where the heuristic exceeds 1.0 for
-//     near-even teams. The MEDIAN game quality exposed that one: Balanced
-//     Round Robin's median read 102%.
-// The constant must stay a constant — never anything that changes as the
-// session runs. The clamp is insurance, not the fix.
-let drawSigma = CostModel.defaultBeta
-
-let drawProbability = (match: Match.t<'a>, ~truth: option<array<float>>) => {
-  let (team1, team2) = match
-  let ratingsOf = (team: Team.t<'a>) =>
-    team->Array.map((p): Rating.t =>
-      switch truth {
-      | Some(t) => Rating.make(t->Array.getUnsafe(p.intId), drawSigma)
-      | None => p.rating
-      }
-    )
-  Js.Math.max_float(
-    0.0,
-    Js.Math.min_float(1.0, Rating.predictDraw([ratingsOf(team1), ratingsOf(team2)])),
-  )
-}
+// The truth-based metrics — `truthRatings`, `clampProb`, `trueWinProbability`,
+// `drawSigma` and `drawProbability` — live in `Rating` now (opened above),
+// next to the event quality score that shares them, and their history moved
+// with them. Re-bound here so the lab's tests and callers keep their entry
+// points.
+let truthRatings = truthRatings
+let clampProb = clampProb
+let trueWinProbability = trueWinProbability
+let drawSigma = drawSigma
+let drawProbability = drawProbability
 
 // What the RATINGS expected, through the same model the app uses everywhere:
 // openskill's own predictWin over the ratings embedded at match time. This is
@@ -627,19 +589,33 @@ let predictedWinProbability = (match: Match.t<'a>) => {
   ->clampProb
 }
 
-// A score line consistent with the true win probability: the more lopsided the
-// matchup, the further the loser falls short.
+// Scores come from simulating the game rally by rally: each point is a
+// Bernoulli trial with a per-rally probability solved so that the GAME-level
+// win chance equals the world's `trueWinProbability` exactly. Winners, and
+// therefore ratings, convergence and every ladder metric, are untouched by
+// this choice — only the margins change, and they now have the spread real
+// rally scoring produces.
+//
+// The model itself lives in `Rating.ScoreModel`, because it runs in both
+// directions: the lab uses it forward to simulate scores, and the app can use
+// it in reverse to read them (`ScoreModel.rateWithScore`, the score-aware
+// rating update). These aliases keep the lab's public surface stable.
+let maxScore = ScoreModel.maxScore
+let gameWinProb = ScoreModel.gameWinProb
+let rallyProbFor = ScoreModel.rallyProbFor
+
 let simulateScore = (match: Match.t<'a>, ~truth: array<float>, ~prng: SolverPrng.t) => {
-  let p1 = trueWinProbability(match, ~truth)
-  let team1Wins = SolverPrng.nextFloat(prng) < p1
-  let dominance = Js.Math.abs_float(p1 -. 0.5) *. 2.0
-  let expectedLoser = (maxScore -. 2.0) *. (1.0 -. dominance)
-  let jitter = (SolverPrng.nextFloat(prng) -. 0.5) *. 4.0
-  let loser = Js.Math.max_float(
-    0.0,
-    Js.Math.min_float(maxScore -. 2.0, Js.Math.round(expectedLoser +. jitter)),
-  )
-  team1Wins ? (maxScore, loser) : (loser, maxScore)
+  let q = rallyProbFor(trueWinProbability(match, ~truth))
+  let s1 = ref(0.0)
+  let s2 = ref(0.0)
+  while s1.contents < maxScore && s2.contents < maxScore {
+    if SolverPrng.nextFloat(prng) < q {
+      s1 := s1.contents +. 1.0
+    } else {
+      s2 := s2.contents +. 1.0
+    }
+  }
+  (s1.contents, s2.contents)
 }
 
 // ---------------------------------------------------------------------------
@@ -928,6 +904,118 @@ let americanCarryOvers = (
   ->Array.slice(~start=0, ~end=Js.Math.max_int(0, maxCarried))
 }
 
+// King of the court. Courts are ranked, top first, and the round is built
+// entirely from the previous one:
+//   - a court's winners move UP one court (the top court's winners stay);
+//   - its losers slide DOWN one court (the bottom court's losers rotate out);
+//   - the bottom court refills from whoever has sat longest.
+// EVERY arriving pair splits: the two who just won together on the lower
+// court are put on opposite sides, as are the two who arrived from above, so
+// each new team is one player from above and one from below — nobody keeps a
+// winning partner. No ratings are consulted anywhere; position on the court
+// ladder is the format's only memory.
+let buildKingCourtRound = (
+  ~players: array<Player.t<'a>>,
+  ~courts: int,
+  ~rounds: array<array<completedMatchEntity<'a>>>,
+  ~prng: SolverPrng.t,
+): array<Match.t<'a>> => {
+  let byId = Js.Dict.empty()
+  players->Array.forEach(p => byId->Js.Dict.set(p.id, p))
+  let prev = rounds->Array.get(rounds->Array.length - 1)->Option.getOr([])
+
+  let side = (c: int, winning: bool): array<Player.t<'a>> =>
+    prev
+    ->Array.get(c)
+    ->Option.flatMap(e =>
+      switch e.score {
+      | Some((a, b)) => {
+          let (t1, t2) = e.match
+          Some(a > b == winning ? t1 : t2)
+        }
+      | None => None
+      }
+    )
+    ->Option.getOr([])
+
+  // Intended occupants per court, [pair-from-above, pair-from-below] order.
+  let intended = if prev->Array.length == 0 {
+    // Opening round: deal at random.
+    let sh = shuffle(players, ~prng)
+    Belt.Array.makeBy(Js.Math.min_int(courts, sh->Array.length / 4), c =>
+      sh->Array.slice(~start=c * 4, ~end=c * 4 + 4)
+    )
+  } else {
+    Belt.Array.makeBy(courts, c => {
+      let fromAbove = c == 0 ? side(0, true) : side(c - 1, false)
+      let fromBelow = c < courts - 1 ? side(c + 1, true) : []
+      Array.concat(fromAbove, fromBelow)
+    })
+  }
+
+  // Repair pass: drop the absent, never seat anyone twice, and backfill each
+  // short court from the queue — present players not yet seated, longest
+  // sitting first. Absences and the bottom court's refill both land here.
+  let seatedIds = Set.make()
+  let repaired = intended->Array.map(group =>
+    group->Array.filterMap(p =>
+      switch byId->Js.Dict.get(p.id) {
+      | Some(fresh) if !(seatedIds->Set.has(p.id)) => {
+          seatedIds->Set.add(p.id)
+          Some(fresh)
+        }
+      | _ => None
+      }
+    )
+  )
+  // The bottom court's losers go to the BACK of the line — they rotate out
+  // for at least a round, whatever their play count, or a tie on counts could
+  // seat them right back down.
+  let rotatedOut =
+    prev
+    ->Array.get(prev->Array.length - 1)
+    ->Option.flatMap(e =>
+      switch e.score {
+      | Some((a, b)) => {
+          let (t1, t2) = e.match
+          Some((a > b ? t2 : t1)->Array.map(p => p.id))
+        }
+      | None => None
+      }
+    )
+    ->Option.getOr([])
+    ->Set.fromArray
+  let waiting = shuffle(players->Array.filter(p => !(seatedIds->Set.has(p.id))), ~prng)
+  let queue = Array.concat(
+    waiting
+    ->Array.filter(p => !(rotatedOut->Set.has(p.id)))
+    ->Array.toSorted((a, b) => Float.fromInt(a.count - b.count)),
+    waiting->Array.filter(p => rotatedOut->Set.has(p.id)),
+  )
+  let qi = ref(0)
+  let matches = []
+  repaired->Array.forEach(group => {
+    let g = group->Array.copy
+    while g->Array.length < 4 && qi.contents < queue->Array.length {
+      switch queue->Array.get(qi.contents) {
+      | Some(p) => g->Array.push(p)
+      | None => ()
+      }
+      qi := qi.contents + 1
+    }
+    switch g {
+    | [a, b, c, d] =>
+      // {a, b} came down (or stayed) together, {c, d} came up together: both
+      // pairs split across the net, the coin deciding who partners whom.
+      matches->Array.push(
+        SolverPrng.nextFloat(prng) < 0.5 ? ([a, c], [b, d]) : ([a, d], [b, c]),
+      )
+    | _ => () // the roster cannot fill this court tonight
+    }
+  })
+  matches
+}
+
 let buildOpenPlayRound = (
   ~style: roundEngine,
   ~players: array<Player.t<'a>>,
@@ -942,6 +1030,7 @@ let buildOpenPlayRound = (
   let previous = rounds->Array.get(rounds->Array.length - 1)->Option.getOr([])
   let beforePrevious = rounds->Array.get(rounds->Array.length - 2)->Option.getOr([])
 
+  let presentIds = players->Array.map(p => p.id)->Set.fromArray
   let carried = switch style {
   | AmericanOpenPlay =>
     americanCarryOvers(
@@ -950,6 +1039,9 @@ let buildOpenPlayRound = (
       ~maxCarried=Js.Math.max_int(0, courts - 1),
       ~prng,
     )
+    // A carried match survives only while all four are still in the building
+    // — a drop-in leaving between sessions dissolves it.
+    ->Array.filter(m => Match.players(m)->Array.every(p => presentIds->Set.has(p.id)))
   | _ => []
   }
   let carriedIds =
@@ -1202,6 +1294,123 @@ let truthAt = (~base: array<float>, ~roles: array<drift>, ~round: int): array<fl
     driftAt(roles->Array.get(i)->Option.getOr(Steady), ~round)
   )
 
+// ---------------------------------------------------------------------------
+// Sessions: form jitter and drop-ins
+// ---------------------------------------------------------------------------
+
+// A real club plays in sessions of roughly this many rounds; the 100-round
+// horizon is seven or eight of them. Session boundaries are where day-to-day
+// form changes and where attendance changes.
+let sessionLength = 13
+
+let sessionOf = (round: int) => round <= 1 ? 0 : (round - 1) / sessionLength
+
+// Day-to-day form: each session, every player performs at their underlying
+// skill plus a temporary offset — up to about 0.15 DUPR either way, centred
+// on zero (sum of two uniforms, so mid-sized swings are more common than
+// extremes). Drawn once per run from its own seeded stream and shared by
+// every strategy, so all of them face the same good days and bad days.
+//
+// Outcomes are played at the PERFORMED level (`performedAt`); the ladder
+// metrics stay graded against the underlying level (`truthAt`). That split is
+// deliberate: next session's form is unknowable, so the best possible rating
+// tracks underlying skill and treats form as noise — the test is whether the
+// rating system sees THROUGH a whole session of correlated noise without
+// being dragged around by it, not whether it chases the unknowable.
+let formSwingDupr = 0.15
+
+let formTable = (~numPlayers: int, ~numRounds: int, ~seed: int): array<array<float>> => {
+  let sessions = sessionOf(numRounds) + 1
+  let prng = SolverPrng.fromSeedString("lab-form:" ++ Int.toString(seed))
+  Belt.Array.makeBy(sessions, _ =>
+    Belt.Array.makeBy(numPlayers, _ => {
+      let u1 = SolverPrng.nextFloat(prng)
+      let u2 = SolverPrng.nextFloat(prng)
+      (u1 +. u2 -. 1.0) *. formSwingDupr *. muPerDupr
+    })
+  )
+}
+
+// Skill as PLAYED this round: underlying truth plus this session's form.
+let performedAt = (
+  ~base: array<float>,
+  ~roles: array<drift>,
+  ~form: array<array<float>>,
+  ~round: int,
+): array<float> => {
+  let offsets = form->Array.get(sessionOf(round))->Option.getOr([])
+  truthAt(~base, ~roles, ~round)->Array.mapWithIndex((v, i) =>
+    v +. offsets->Array.get(i)->Option.getOr(0.0)
+  )
+}
+
+// Drop-ins: two players who attend only some sessions — one from the 70th
+// percentile of the true ladder and one from the 30th, so the model covers a
+// drop-in the club has to place high and one it has to place low. They arrive
+// UNRATED whatever the scenario says — a drop-in is by definition someone the
+// system has no history for — first appear in a random session, and either
+// never return or return sporadically. The plan is drawn once per run and
+// shared by every strategy. There is always at least ONE drop-in: when the
+// roster has no slack over the seats, their absent sessions simply run a
+// court short — which is exactly what happens to a real club that planned
+// its courts around someone who did not come back.
+let dropInReturnChance = 0.3
+let dropInPercentiles = [0.7, 0.3]
+
+type attendancePlan = {
+  isDropIn: array<bool>,
+  // [session][player]
+  attends: array<array<bool>>,
+}
+
+let dropInPlan = (
+  ~numPlayers: int,
+  ~courts: int,
+  ~numRounds: int,
+  ~seed: int,
+  ~ranks: array<int>,
+): attendancePlan => {
+  let sessions = sessionOf(numRounds) + 1
+  let seats = courts * 4
+  let count = Js.Math.max_int(
+    1,
+    Js.Math.min_int(dropInPercentiles->Array.length, numPlayers - seats),
+  )
+  let prng = SolverPrng.fromSeedString("lab-dropins:" ++ Int.toString(seed))
+  let isDropIn = Belt.Array.make(numPlayers, false)
+  // The slot holding a given ladder percentile. `ranks` maps slot -> ladder
+  // rank (0 = weakest), so invert it at the ranks we want.
+  for i in 0 to count - 1 {
+    let pct = dropInPercentiles->Array.getUnsafe(i)
+    let wantRank = Js.Math.round(pct *. Float.fromInt(numPlayers - 1))->Float.toInt
+    ranks->Array.forEachWithIndex((r, slot) =>
+      if r == wantRank {
+        isDropIn->Array.setUnsafe(slot, true)
+      }
+    )
+  }
+  // Attendance per drop-in: one first appearance; half are one-and-done, the
+  // rest come back to any later session with `dropInReturnChance`.
+  let attends = Belt.Array.makeBy(sessions, _ => Belt.Array.make(numPlayers, true))
+  isDropIn->Array.forEachWithIndex((isD, player) =>
+    if isD {
+      let first = Js.Math.floor_int(SolverPrng.nextFloat(prng) *. Float.fromInt(sessions))
+      let oneAndDone = SolverPrng.nextFloat(prng) < 0.5
+      for sess in 0 to sessions - 1 {
+        let there = if sess == first {
+          true
+        } else if sess < first || oneAndDone {
+          false
+        } else {
+          SolverPrng.nextFloat(prng) < dropInReturnChance
+        }
+        (attends->Array.getUnsafe(sess))->Array.setUnsafe(player, there)
+      }
+    }
+  )
+  {isDropIn, attends}
+}
+
 type labResult = {
   scenario: scenario,
   seed: int,
@@ -1211,6 +1420,11 @@ type labResult = {
   // Starting truth; `truthAt` applies drift for a given round.
   truth: array<float>,
   driftRoles: array<drift>,
+  // Per-session performance offsets, [session][player]; see `formTable`.
+  form: array<array<float>>,
+  // Which players are drop-ins, and who attends which session.
+  dropIns: array<bool>,
+  attendance: array<array<bool>>,
   names: array<string>,
   flagged: array<bool>,
   runs: array<strategyRun>,
@@ -1296,6 +1510,8 @@ let simulateStrategy = async (
   ~initialPlayers: array<Player.t<unit>>,
   ~baseTruth: array<float>,
   ~roles: array<drift>,
+  ~form: array<array<float>>,
+  ~plan: attendancePlan,
   ~courts: int,
   ~numRounds: int,
   ~seed: int,
@@ -1329,18 +1545,30 @@ let simulateStrategy = async (
       ~adjustments=[],
     )
 
-    // Truth as it stands this round: players drift, so the target moves.
+    // The round being built is round.contents + 1 in human terms; sessions,
+    // form and attendance are all keyed on it.
+    let thisRound = round.contents + 1
+    // Truth as it stands this round: players drift, so the target moves. The
+    // ladder metrics grade against this. Outcomes are played at `performed` —
+    // truth plus this session's form.
     let truth = truthAt(~base=baseTruth, ~roles, ~round=round.contents)
+    let performed = performedAt(~base=baseTruth, ~roles, ~form, ~round=thisRound)
 
-    // An oracle sees the truth when CHOOSING matches only. The results it
-    // produces still update the real ratings, so its ladder column stays an
-    // honest measure of what its matches teach.
+    // An oracle sees the truth when CHOOSING matches only — today's PERFORMED
+    // truth, the strongest oracle there is. The results it produces still
+    // update the real ratings, so its ladder column stays an honest measure
+    // of what its matches teach.
     let solverPlayers = entry.usesTruth
       ? state->Array.map(p => {
-          let t = truth->Array.getUnsafe(p.intId)
+          let t = performed->Array.getUnsafe(p.intId)
           {...p, rating: Rating.make(t, p.rating.sigma), ratingOrdinal: t}
         })
       : state
+    // Only the players attending this session are in the pool tonight.
+    let attending =
+      plan.attends->Array.get(sessionOf(thisRound))->Option.getOr([])
+    let isPresent = (p: Player.t<'a>) => attending->Array.get(p.intId)->Option.getOr(true)
+    let presentPlayers = solverPlayers->Array.filter(isPresent)
     let realById = Js.Dict.empty()
     state->Array.forEach(p => realById->Js.Dict.set(p.id, p))
     let restoreRatings = (match: Match.t<'a>): Match.t<'a> => {
@@ -1362,7 +1590,7 @@ let simulateStrategy = async (
     | SolverEngine =>
       let result = await SolverRounds.generateRounds(
         ~numberOfRounds=1,
-        ~availablePlayers=solverPlayers,
+        ~availablePlayers=presentPlayers,
         ~completedRounds=scoredRounds.contents,
         ~strategy=entry.strategy,
         ~courtCount=courts,
@@ -1382,10 +1610,24 @@ let simulateStrategy = async (
         ->Option.getOr([]),
         result.fellBackToGreedy,
       )
+    | KingCourtPlay if pods == None => (
+        buildKingCourtRound(
+          ~players=presentPlayers,
+          ~courts,
+          ~rounds=scoredRounds.contents,
+          ~prng=SolverPrng.fromSeedString(
+            seedString ++ "#open#" ++ round.contents->Int.toString,
+          ),
+        ),
+        false,
+      )
+    // Tournament pods override every open-play format — the squads are the
+    // teams — so king-of-the-court with pods routes through the shared
+    // pod-pairing path like the other styles.
     | style => (
         buildOpenPlayRound(
           ~style,
-          ~players=solverPlayers,
+          ~players=presentPlayers,
           ~courts,
           ~rounds=scoredRounds.contents,
           ~truth,
@@ -1413,8 +1655,8 @@ let simulateStrategy = async (
         // number recorded from here on uses the real ratings.
         let match = entry.usesTruth ? restoreRatings(rawMatch) : rawMatch
         let predicted = predictedWinProbability(match)
-        let trueProb = trueWinProbability(match, ~truth)
-        let (s1, s2) = simulateScore(match, ~truth, ~prng=outcomePrng)
+        let trueProb = trueWinProbability(match, ~truth=performed)
+        let (s1, s2) = simulateScore(match, ~truth=performed, ~prng=outcomePrng)
         let (team1, team2) = match
         team1->Array.forEach(p => seatedIds->Set.add(p.id))
         team2->Array.forEach(p => seatedIds->Set.add(p.id))
@@ -1430,7 +1672,7 @@ let simulateStrategy = async (
           isBlowout: Js.Math.abs_float(s1 -. s2) >= 9.0,
           isUpset: (predicted > 0.5) != (s1 > s2),
           predictedDraw: drawProbability(match, ~truth=None),
-          trueDraw: drawProbability(match, ~truth=Some(truth)),
+          trueDraw: drawProbability(match, ~truth=Some(performed)),
         }
         let entity: CompletedMatchEntity.t<'a> = {
           id: randomUUID(),
@@ -1456,7 +1698,7 @@ let simulateStrategy = async (
           ~truth,
           ~games=scored->Array.map(((_, r)) => r),
           ~byes=initialPlayers
-          ->Array.filter(p => !(seatedIds->Set.has(p.id)))
+          ->Array.filter(p => isPresent(p) && !(seatedIds->Set.has(p.id)))
           ->Array.map(p => p.name),
           ~numPlayers,
           ~numBands=courts,
@@ -1493,7 +1735,22 @@ let run = async (
   // Drawn once and shared by every strategy in this run, so the comparison is
   // between matchmakers rather than between different luck about who improved.
   let roles = driftRoles(~numPlayers, ~seed)
-  let initialPlayers = buildPlayers(~scenario, ~numPlayers, ~ranks, ~dist)
+  let form = formTable(~numPlayers, ~numRounds, ~seed)
+  let plan = dropInPlan(~numPlayers, ~courts, ~numRounds, ~seed, ~ranks)
+  let initialPlayers =
+    buildPlayers(~scenario, ~numPlayers, ~ranks, ~dist)->Array.map(p =>
+      // A drop-in arrives unrated whatever the scenario's prior says — the
+      // system has no history for them. The dagger marks them everywhere a
+      // name is shown.
+      plan.isDropIn->Array.get(p.intId)->Option.getOr(false)
+        ? {
+            ...p,
+            name: p.name ++ "\u2020",
+            rating: Rating.makeDefault(),
+            ratingOrdinal: Rating.makeDefault()->Rating.ordinal,
+          }
+        : p
+    )
   let pods = tournament ? Some(partnerPods(~players=initialPlayers, ~seed)) : None
 
   let runs = []
@@ -1504,6 +1761,8 @@ let run = async (
       ~initialPlayers,
       ~baseTruth,
       ~roles,
+      ~form,
+      ~plan,
       ~courts,
       ~numRounds,
       ~seed,
@@ -1522,6 +1781,9 @@ let run = async (
     numRounds,
     truth: baseTruth,
     driftRoles: roles,
+    form,
+    dropIns: plan.isDropIn,
+    attendance: plan.attends,
     names: initialPlayers->Array.map(p => p.name),
     flagged: Belt.Array.makeBy(numPlayers, index =>
       isFlagged(~scenario, ~index, ~numPlayers)

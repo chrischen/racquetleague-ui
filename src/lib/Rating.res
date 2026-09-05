@@ -61,6 +61,10 @@ module Rating: {
   let get_rating: t => float
   let make: (float, float) => t
   let makeDefault: unit => t
+  // openskill's default beta: sigma / 2 at the default sigma of 25 / 3. The
+  // model's per-game performance variance, and the one constant the solver's
+  // cost model and the event quality score both take from the library.
+  let defaultBeta: float
   let predictDraw: array<array<t>> => float
   let predictWin: array<array<t>> => array<float>
   let ordinal: t => float
@@ -145,6 +149,8 @@ module Rating: {
     rating(Some({mu, sigma}))
   }
 
+  let defaultBeta = 25. /. 6.
+
   let makeDefault: unit => t = () => {
     rating(None)
   }
@@ -160,6 +166,123 @@ module Rating: {
     make(t.mu, sigma)
   }
 }
+
+// ---------------------------------------------------------------------------
+// ScoreModel — what a final score says, and a score-aware rate
+// ---------------------------------------------------------------------------
+//
+// A doubles game modelled as independent rallies: each point is a Bernoulli
+// trial with probability q, first to `maxScore` wins. `gameWinProb` maps a
+// rally probability to a game-win probability in closed form; `rallyProbFor`
+// inverts it. The matchmaking lab uses the forward direction to SIMULATE
+// scores; this module also uses the reverse direction to READ them — a final
+// score's rally split is the maximum-likelihood estimate of q, and pushing it
+// back through `gameWinProb` yields the win probability the score IMPLIES.
+// An 11–0 implies near-certainty; an 11–9 implies little more than a coin
+// flip that happened to land.
+//
+// `rateWithScore` turns that into a score-aware update whose purpose is to
+// ACCELERATE convergence: a decisive score carries more information than a
+// bare win, so it is applied as if the winner had beaten this team several
+// times running — the step count fixed by the margin alone, capped so
+// correlated rallies are never mistaken for unlimited independent evidence.
+module ScoreModel = {
+  let maxScore = 11.0
+
+  // P(reach maxScore first | per-rally win probability q).
+  let gameWinProb = (q: float) => {
+    let target = maxScore->Float.toInt
+    let total = ref(0.0)
+    let coef = ref(1.0) // C(target - 1 + k, k), built incrementally
+    for k in 0 to target - 1 {
+      if k > 0 {
+        coef := coef.contents *. Float.fromInt(target - 1 + k) /. Float.fromInt(k)
+      }
+      total :=
+        total.contents +.
+        coef.contents *.
+        Js.Math.pow_float(~base=q, ~exp=maxScore) *.
+        Js.Math.pow_float(~base=1.0 -. q, ~exp=Float.fromInt(k))
+    }
+    total.contents
+  }
+
+  // The rally probability that makes the game a p-favourite. `gameWinProb` is
+  // strictly increasing in q, so bisection converges fast.
+  let rallyProbFor = (p: float) => {
+    let lo = ref(0.0001)
+    let hi = ref(0.9999)
+    for _ in 0 to 45 {
+      let mid = (lo.contents +. hi.contents) /. 2.0
+      if gameWinProb(mid) < p {
+        lo := mid
+      } else {
+        hi := mid
+      }
+    }
+    (lo.contents +. hi.contents) /. 2.0
+  }
+
+  // The game-win probability a final score implies for the winner.
+  let impliedWinProb = (~winnerScore: float, ~loserScore: float) => {
+    let total = winnerScore +. loserScore
+    total <= 0.0 ? 0.5 : gameWinProb(winnerScore /. total)
+  }
+
+  // Score-aware rate combinator: a decisive score carries more information
+  // than a bare win, so it is applied as more than one win. The number of
+  // applications depends only on the SCORE — a fixed, monotone map from the
+  // implied win probability to a step count — never on the current ratings:
+  // evidence is worth what it is worth regardless of what was believed
+  // before. (An earlier draft iterated until the updated ratings PREDICTED
+  // the implied probability; that chases the posterior — settled, confident
+  // ratings would burn the whole cap on an 11-9 — which is exactly the
+  // over-reading the cap exists to prevent.)
+  //
+  //   11-9, 11-8 (implied < 0.80)          -> 1 step: a squeaker is a win
+  //   11-7, 11-6 (implied 0.80 - 0.95)     -> 2 steps
+  //   11-5, 11-4 (implied 0.95 - 0.995)    -> 3 steps
+  //   11-3 and worse (implied >= 0.995)    -> maxSteps: several wins running
+  //
+  // The cap exists because rallies within one game are correlated evidence,
+  // not independent games: without it, a single freak night could teleport a
+  // rating — reading more into a result than it can really say.
+  let stepThresholds = [0.80, 0.95, 0.995]
+
+  let stepsFor = (~implied: float, ~maxSteps: int) => {
+    let extra = stepThresholds->Array.reduce(0, (acc, t) => implied >= t ? acc + 1 : acc)
+    Js.Math.max_int(1, Js.Math.min_int(maxSteps, 1 + extra))
+  }
+
+  let rateWithScore = (
+    ~base: (~ratings: Rating.matchRatings, ~opts: option<Rating.opts>=?) => Rating.matchRatings,
+    ~ratings: Rating.matchRatings,
+    ~score: (float, float),
+    ~maxSteps: int=4,
+  ): Rating.matchRatings => {
+    let (s1, s2) = score
+    if s1 == s2 {
+      ratings // a draw carries no ordering information for a win-based rater
+    } else {
+      let rank = s1 > s2 ? [0, 1] : [1, 0]
+      let implied = impliedWinProb(
+        ~winnerScore=Js.Math.max_float(s1, s2),
+        ~loserScore=Js.Math.min_float(s1, s2),
+      )
+      let steps = stepsFor(~implied, ~maxSteps=Js.Math.max_int(1, maxSteps))
+      let current = ref(ratings)
+      for _ in 1 to steps {
+        current := base(~ratings=current.contents, ~opts=Some({rank: rank}))
+      }
+      current.contents
+    }
+  }
+
+  // The combinator applied to the app's own rate function.
+  let rateScored = (~ratings: Rating.matchRatings, ~score: (float, float)) =>
+    rateWithScore(~base=Rating.rate, ~ratings, ~score)
+}
+
 module Player = {
   type t<'a> = {
     data: option<'a>,
@@ -3114,4 +3237,366 @@ let generateSingleRound = (
   )
 
   newRound->Array.get(0)
+}
+
+// ---------------------------------------------------------------------------
+// Event quality — the predicted match quality of a roster
+// ---------------------------------------------------------------------------
+//
+// How even would the games be if these players, at the ratings they hold
+// right now, played a standard event? Reported as a range, because the
+// ratings are uncertain, and cheap enough to recompute every time an RSVP
+// changes — `rsvpQualityImpact` at the bottom is the "with and without these
+// players" comparison built on it.
+//
+// The standard event: one club session of `standardEventRounds` rounds, each
+// `standardRoundMinutes` long (the stagger the greedy engine already stamps on
+// its rounds), with courts sized so about `standardPlayersPerCourt` players
+// share each court — four on, two resting — which is where byes come from.
+//
+// The simulation drives the greedy engine above (`generateRounds`, strategy
+// `CompetitivePlus` by default): each round is matchmade from the visible
+// ratings, each game's winner is one Bernoulli draw on the true win
+// probability — no score model — and the result replays through
+// `toPlayerStateWithAdjustments`, i.e. the standard openskill rate over
+// win/loss alone. The greedy engine is the ILP solver's own fallback profile
+// and, measured in the matchmaking lab, reproduces the solver's event quality
+// to within the sampling noise at 30-100x less cost; it is also the only
+// engine this module CAN call, since the solver modules depend on this one.
+// The lab (`SimLab`) still drives the ILP when the point is to compare them.
+//
+// It is a proxy, chosen deliberately: an actual Competitive+ event is built by
+// the ILP, which optimises every court of a round jointly, while the greedy
+// engine fills courts top-down. They agree because the greedy selection
+// criterion is draw probability — the very quantity scored here — and the
+// with/without delta is more robust still, since an engine's bias is shared
+// by both runs and cancels. Expect the most divergence on unrated-heavy
+// rosters (adaptive Competitive+ mixes to calibrate before it bands) and on
+// strongly banded rosters late in a session (the ILP's variety weights force
+// cross-band games where greedy relaxes its avoidance filters). The lab can
+// certify the gap across its fields and scenarios when that matters.
+//
+// Ground truth. An event that has not happened yet has no hidden ladder, so
+// the truth is taken FROM the ratings: openskill keeps each one as a Gaussian
+// belief N(mu, sigma) about where the player's skill really is, independent
+// across players, and `simulateEventQualityRange` samples possible worlds from
+// those beliefs. Whichever world is being played, its truth is frozen for the
+// whole event — quality must be a function of who is on court, never of what
+// the ratings did mid-simulation (see `drawSigma`).
+
+let standardEventRounds = 13
+let standardRoundMinutes = 10
+let standardPlayersPerCourt = 6
+
+// Courts for a roster at the standard density, never more than the roster can
+// fill: 12 players -> 2 courts, 24 -> 4. The rounding means a court opens once
+// it can be about two-thirds occupied rather than only when a full six exist.
+let standardCourts = (numPlayers: int) =>
+  Js.Math.max_int(
+    1,
+    Js.Math.min_int(
+      numPlayers / 4,
+      Js.Math.round(numPlayers->Int.toFloat /. standardPlayersPerCourt->Int.toFloat)->Float.toInt,
+    ),
+  )
+
+// The courts a round actually runs: the event's courts, but never more than the
+// roster can fill four a side. With three courts (an 18-seat event): 7 players
+// play on one court, 8 to 11 on two, 12 and up on all three.
+let courtsInUse = (~courts: int, ~players: int) =>
+  Js.Math.min_int(Js.Math.max_int(1, courts), players / 4)
+
+// --- Truth-based metrics (shared with the lab) ------------------------------
+//
+// `truth` is indexed by `Player.intId`: the skill each player REALLY has in the
+// world being simulated.
+
+// A team as the model would see it if it knew the truth: hidden skill as mu,
+// no uncertainty.
+let truthRatings = (team: Team.t<'a>, ~truth: array<float>) =>
+  team->Array.map(p => Rating.make(truth->Array.getUnsafe(p.intId), 0.0))
+
+// Openskill's probit saturates to a literal 0.0 or 1.0 in floating point once
+// the gap passes about two DUPR. The world never grants certainty (an injury
+// or a sandbag is always possible), and everything downstream treats these as
+// probabilities.
+let clampProb = (p: float) => Js.Math.max_float(1e-9, Js.Math.min_float(1.0 -. 1e-9, p))
+
+let trueWinProbability = (match: Match.t<'a>, ~truth: array<float>) => {
+  let (team1, team2) = match
+  Rating.predictWin([truthRatings(team1, ~truth), truthRatings(team2, ~truth)])
+  ->Array.get(0)
+  ->Option.getOr(0.5)
+  ->clampProb
+}
+
+// Draw probability as a match-quality proxy. `Rating.predictDraw` is the app's
+// own model of "how likely is this game to end level", which is the most
+// direct statement of an even match available — high means well matched.
+//
+// The true version swaps hidden skill in for each player's mu with a FIXED
+// uncertainty of beta: the chance a game between these known skills ends
+// level, a pure function of who is on the court. Beta is the model's own
+// game-to-game performance variance — even a player of exactly known skill
+// does not play the same game twice. The scale is openskill's, and openskill
+// 4.1 rewrote this function: an even doubles game now reads about 18%, an
+// 8-mu team gap 14%, a 28-mu gap 1% (under 4.0 the same three read 84%, 63%
+// and 3%, and at sigma 0 the old formula exceeded 1). Only the ratio between
+// games carries meaning, never the absolute figure, and any threshold or
+// archived curve keyed to the old scale is stale.
+//
+// Two historical bugs live in this function, both caught by the lab's metrics
+// misbehaving:
+//   - It once used each player's LIVE sigma, which contaminated every
+//     quality curve with rating confidence: the same physical matchup read
+//     as higher quality later in the session merely because games had been
+//     played. The Random baseline exposed it — its composition cannot
+//     improve, yet its plotted quality climbed all session.
+//   - The fix overshot to sigma 0, where the heuristic exceeds 1.0 for
+//     near-even teams. The MEDIAN game quality exposed that one: Balanced
+//     Round Robin's median read 102%.
+// The constant must stay a constant — never anything that changes as the
+// session runs. The clamp is insurance, not the fix.
+let drawSigma = Rating.defaultBeta
+
+let drawProbability = (match: Match.t<'a>, ~truth: option<array<float>>) => {
+  let (team1, team2) = match
+  let ratingsOf = (team: Team.t<'a>) =>
+    team->Array.map((p): Rating.t =>
+      switch truth {
+      | Some(t) => Rating.make(t->Array.getUnsafe(p.intId), drawSigma)
+      | None => p.rating
+      }
+    )
+  Js.Math.max_float(
+    0.0,
+    Js.Math.min_float(1.0, Rating.predictDraw([ratingsOf(team1), ratingsOf(team2)])),
+  )
+}
+
+// --- One simulated event ----------------------------------------------------
+
+// Reindex so intId indexes the truth array whatever ids the caller's players
+// arrived with, and zero the play counts — it is a fresh event, and counts are
+// what the engine uses to share the byes out.
+let freshEventPlayers = (players: array<Player.t<'a>>): array<Player.t<'a>> =>
+  players->Array.mapWithIndex((p, i) => {...p, intId: i, count: 0})
+
+// The lowest slot on a team: an orientation for the match that does not depend
+// on which side the engine happened to list first.
+let leadSlot = (team: Team.t<'a>) =>
+  team->Array.reduce(-1, (acc, p) => acc < 0 || p.intId < acc ? p.intId : acc)
+
+// Mean quality over every game of one event played in the world `truth`
+// describes, or None when the roster cannot produce a single game.
+let eventQualityWithTruth = (
+  ~initialPlayers: array<Player.t<'a>>,
+  ~truth: array<float>,
+  ~strategy: strategy,
+  ~numRounds: int,
+  ~seedString: string,
+  ~courts: option<int>,
+): option<float> => {
+  // The event's courts when the caller knows them (capacity / 6), else the
+  // roster's own; a round runs only the courts the roster can fill.
+  let courts = switch courts {
+  | Some(c) => c
+  | None => standardCourts(initialPlayers->Array.length)
+  }
+  let outcomePrng = SolverPrng.fromSeedString(seedString ++ ":outcomes")
+  let startTime = Js.Date.fromFloat(0.0)
+  let scoredRounds = ref([])
+  let qualityTotal = ref(0.0)
+  let gameCount = ref(0)
+  let round = ref(0)
+  while round.contents < numRounds {
+    let state = toPlayerStateWithAdjustments(
+      scoredRounds.contents,
+      ~players=initialPlayers,
+      ~adjustments=[],
+    )
+    let generated =
+      generateRounds(
+        ~startRoundNumber=round.contents + 1,
+        ~numberOfRounds=1,
+        ~availablePlayers=state,
+        ~completedRounds=scoredRounds.contents,
+        ~strategy,
+        ~courtCount=courtsInUse(~courts, ~players=state->Array.length),
+        ~startTime,
+        (),
+      )
+      ->Array.get(0)
+      ->Option.getOr([])
+    if generated->Array.length == 0 {
+      round := numRounds // the pool cannot produce another round
+    } else {
+      // The engine stores each match with play counts already incremented, so
+      // scoring is the only thing left to add.
+      let scored = generated->Array.map(entity => {
+        let match = entity.match
+        qualityTotal := qualityTotal.contents +. drawProbability(match, ~truth=Some(truth))
+        gameCount := gameCount.contents + 1
+        // One coin flip at the game's true win probability decides the winner;
+        // the 1-0 score encodes it and nothing more, and the replay rates it
+        // with the plain openskill update. The flip is taken from the side
+        // holding the lowest slot, so the engine's cosmetic team-order swap
+        // (`Math.random` in `generateMatches`) cannot change the realised
+        // winner and a seed reproduces the event exactly.
+        let (team1, team2) = match
+        let p = trueWinProbability(match, ~truth)
+        let u = SolverPrng.nextFloat(outcomePrng)
+        let team1Wins = leadSlot(team1) <= leadSlot(team2) ? u < p : !(u < 1.0 -. p)
+        {...entity, score: Some(team1Wins ? (1.0, 0.0) : (0.0, 1.0))}
+      })
+      scoredRounds := Array.concat(scoredRounds.contents, [scored])
+      round := round.contents + 1
+    }
+  }
+  gameCount.contents == 0
+    ? None
+    : Some(qualityTotal.contents /. gameCount.contents->Int.toFloat)
+}
+
+// --- The range --------------------------------------------------------------
+
+// A standard normal draw (Box-Muller) from the seeded stream, so the sampled
+// worlds are reproducible per seed like everything else here.
+let nextGaussian = (prng: SolverPrng.t) => {
+  let u1 = Js.Math.max_float(1e-12, SolverPrng.nextFloat(prng))
+  let u2 = SolverPrng.nextFloat(prng)
+  Js.Math.sqrt(-2.0 *. Js.Math.log(u1)) *. Js.Math.cos(2.0 *. Js.Math._PI *. u2)
+}
+
+// Linearly interpolated quantile of an unsorted sample; 0 on an empty one.
+let quantile = (values: array<float>, q: float) => {
+  let sorted = values->Array.toSorted((a, b) => a -. b)
+  let n = sorted->Array.length
+  if n == 0 {
+    0.0
+  } else {
+    let pos = Js.Math.max_float(0.0, Js.Math.min_float(1.0, q)) *. (n - 1)->Int.toFloat
+    let lo = Js.Math.floor_int(pos)
+    let hi = Js.Math.min_int(n - 1, lo + 1)
+    let frac = pos -. lo->Int.toFloat
+    sorted->Array.getUnsafe(lo) *. (1.0 -. frac) +. sorted->Array.getUnsafe(hi) *. frac
+  }
+}
+
+// The rating's sigma is the model's uncertainty about where a player's skill
+// really is. The range pushes exactly that uncertainty through the simulation:
+// each sample draws one possible world — every player's true skill drawn from
+// their own belief, independently of everyone else's — and plays a full event
+// in it, with the engine still seeing only the ratings and never the sampled
+// truth. The spread of event quality across those worlds is the answer,
+// reported as the 5th and 95th percentiles (a 90% predictive interval) around
+// the median.
+//
+// This is the joint treatment the ratings' semantics call for. The obvious
+// shortcut — one run with everyone at mu - 3 sigma and one at mu + 3 sigma —
+// is not, and was tried: match probabilities depend only on rating GAPS, so a
+// shift the whole roster shares cancels (equal sigmas gave a width of zero),
+// while the corners it visits — every player mis-rated in the same direction
+// at once — are worlds the model assigns essentially zero probability, and
+// their quality did not even bracket the central estimate.
+//
+// Skill draws are made in player order from one stream, so two rosters that
+// share a prefix share those players' sampled skills under the same seed —
+// which is what makes `rsvpQualityImpact` a paired comparison.
+let qualitySamples = 16
+let qualityIntervalLow = 0.05
+let qualityIntervalHigh = 0.95
+
+type qualityRange = {
+  low: float,
+  mid: float,
+  high: float,
+}
+
+let simulateEventQualityRange = (
+  ~players: array<Player.t<'a>>,
+  ~strategy: strategy=CompetitivePlus,
+  ~numRounds: int=standardEventRounds,
+  ~samples: int=qualitySamples,
+  ~seed: int=1,
+  ~courts: option<int>=?,
+): option<qualityRange> => {
+  if players->Array.length < 4 || samples < 1 {
+    None
+  } else {
+    let initialPlayers = freshEventPlayers(players)
+    let seedString = "event-quality:" ++ Int.toString(seed)
+    let skillPrng = SolverPrng.fromSeedString(seedString ++ ":skills")
+    let results = []
+    for i in 0 to samples - 1 {
+      let truth =
+        initialPlayers->Array.map(p => p.rating.mu +. p.rating.sigma *. nextGaussian(skillPrng))
+      switch eventQualityWithTruth(
+        ~initialPlayers,
+        ~truth,
+        ~strategy,
+        ~numRounds,
+        ~seedString=seedString ++ ":sample:" ++ Int.toString(i),
+        ~courts,
+      ) {
+      | Some(q) => results->Array.push(q)
+      | None => ()
+      }
+    }
+    results->Array.length == 0
+      ? None
+      : Some({
+          low: quantile(results, qualityIntervalLow),
+          mid: quantile(results, 0.5),
+          high: quantile(results, qualityIntervalHigh),
+        })
+  }
+}
+
+// --- One RSVP's effect ------------------------------------------------------
+
+type rsvpQualityImpact = {
+  // The roster as it stands; None when it cannot form a game on its own.
+  before: option<qualityRange>,
+  // The roster with the candidates added.
+  after: option<qualityRange>,
+  // after.mid - before.mid: positive means the candidates improve the event.
+  delta: option<float>,
+}
+
+// The candidates go LAST, so under one seed every existing player keeps the
+// identical sampled skill in both runs and the delta is a paired difference —
+// the noise of two independent estimates would swamp one player's effect.
+// A group is scored as a group: `after` is the roster plus every candidate, so
+// a pair that only works together reads as one addition. Single-candidate
+// callers pass `[candidate]`.
+// `before` can be handed in from the previous RSVP (its `after`), which halves
+// the cost; it must have been computed with the same seed and settings.
+let rsvpQualityImpact = (
+  ~players: array<Player.t<'a>>,
+  ~candidates: array<Player.t<'a>>,
+  ~strategy: strategy=CompetitivePlus,
+  ~numRounds: int=standardEventRounds,
+  ~samples: int=qualitySamples,
+  ~seed: int=1,
+  ~before: option<qualityRange>=?,
+  ~courts: option<int>=?,
+): rsvpQualityImpact => {
+  let before = switch before {
+  | Some(known) => Some(known)
+  | None => simulateEventQualityRange(~players, ~strategy, ~numRounds, ~samples, ~seed, ~courts?)
+  }
+  let after = simulateEventQualityRange(
+    ~players=Array.concat(players, candidates),
+    ~strategy,
+    ~numRounds,
+    ~samples,
+    ~seed,
+    ~courts?,
+  )
+  let delta = switch (before, after) {
+  | (Some(b), Some(a)) => Some(a.mid -. b.mid)
+  | _ => None
+  }
+  {before, after, delta}
 }

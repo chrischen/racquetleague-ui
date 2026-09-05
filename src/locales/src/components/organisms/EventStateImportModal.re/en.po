@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-09-05 18:58+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:111
+msgid "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:135
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:92
+msgid "Close"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:143
+msgid "Import"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:82
+msgid "Import History"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:48
+msgid "Imported matches count as already synced, and keep their original ids so syncing again cannot duplicate them on the server."
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:43
+msgid "Matches to import"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:106
+msgid "Paste an exported history"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:119
+msgid "Rounds are placed in the timeline by their timestamps, so importing can add rounds before the ones already here."
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:42
+msgid "Rounds to import"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:46
+msgid "Skipped rating adjustments"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:45
+msgid "Skipped, already here"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:44
+msgid "Skipped, players not in this event"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:126
+msgid "Wait for the draw currently being generated to finish."
+msgstr ""

@@ -12,6 +12,7 @@ import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Openskill from "openskill";
 import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as Caml_int32 from "rescript/lib/es6/caml_int32.js";
+import * as SolverPrng from "./rating/solver/SolverPrng.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -116,6 +117,8 @@ function make(mu, sigma) {
             });
 }
 
+var defaultBeta = 25 / 6;
+
 function makeDefault() {
   return Openskill.rating(undefined);
 }
@@ -147,6 +150,7 @@ var Rating = {
   get_rating: get_rating,
   make: make,
   makeDefault: makeDefault,
+  defaultBeta: defaultBeta,
   predictDraw: Rating_predictDraw,
   predictWin: Rating_predictWin,
   ordinal: Rating_ordinal,
@@ -155,6 +159,99 @@ var Rating = {
   predictScoreDifferential: predictScoreDifferential,
   predictWinnerScore: predictWinnerScore,
   predictLoserScore: predictLoserScore
+};
+
+function gameWinProb(q) {
+  var target = 11;
+  var total = 0.0;
+  var coef = 1.0;
+  for(var k = 0; k < target; ++k){
+    if (k > 0) {
+      coef = coef * ((target - 1 | 0) + k | 0) / k;
+    }
+    total = total + coef * Math.pow(q, 11.0) * Math.pow(1.0 - q, k);
+  }
+  return total;
+}
+
+function rallyProbFor(p) {
+  var lo = 0.0001;
+  var hi = 0.9999;
+  for(var _for = 0; _for <= 45; ++_for){
+    var mid = (lo + hi) / 2.0;
+    if (gameWinProb(mid) < p) {
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+  return (lo + hi) / 2.0;
+}
+
+function impliedWinProb(winnerScore, loserScore) {
+  var total = winnerScore + loserScore;
+  if (total <= 0.0) {
+    return 0.5;
+  } else {
+    return gameWinProb(winnerScore / total);
+  }
+}
+
+var stepThresholds = [
+  0.80,
+  0.95,
+  0.995
+];
+
+function stepsFor(implied, maxSteps) {
+  var extra = Core__Array.reduce(stepThresholds, 0, (function (acc, t) {
+          if (implied >= t) {
+            return acc + 1 | 0;
+          } else {
+            return acc;
+          }
+        }));
+  return Math.max(1, Math.min(maxSteps, 1 + extra | 0));
+}
+
+function rateWithScore(base, ratings, score, maxStepsOpt) {
+  var maxSteps = maxStepsOpt !== undefined ? maxStepsOpt : 4;
+  var s2 = score[1];
+  var s1 = score[0];
+  if (s1 === s2) {
+    return ratings;
+  }
+  var rank = s1 > s2 ? [
+      0,
+      1
+    ] : [
+      1,
+      0
+    ];
+  var implied = impliedWinProb(Math.max(s1, s2), Math.min(s1, s2));
+  var steps = stepsFor(implied, Math.max(1, maxSteps));
+  var current = ratings;
+  for(var _for = 1; _for <= steps; ++_for){
+    current = base(current, Caml_option.some({
+              rank: rank
+            }));
+  }
+  return current;
+}
+
+function rateScored(ratings, score) {
+  return rateWithScore(Rating_rate, ratings, score, undefined);
+}
+
+var ScoreModel = {
+  maxScore: 11.0,
+  gameWinProb: gameWinProb,
+  rallyProbFor: rallyProbFor,
+  impliedWinProb: impliedWinProb,
+  stepThresholds: stepThresholds,
+  stepsFor: stepsFor,
+  rateWithScore: rateWithScore,
+  rateScored: rateScored
 };
 
 function makeDefaultRatingPlayer(name, gender, intId) {
@@ -2857,6 +2954,206 @@ function generateSingleRound(roundIndex, rounds, availablePlayers, strategy, cou
   return newRound[0];
 }
 
+function standardCourts(numPlayers) {
+  return Math.max(1, Math.min(numPlayers / 4 | 0, Math.round(numPlayers / 6) | 0));
+}
+
+function courtsInUse(courts, players) {
+  return Math.min(Math.max(1, courts), players / 4 | 0);
+}
+
+function truthRatings(team, truth) {
+  return team.map(function (p) {
+              return make(truth[p.intId], 0.0);
+            });
+}
+
+function clampProb(p) {
+  return Math.max(1e-9, Math.min(1.0 - 1e-9, p));
+}
+
+function trueWinProbability(match, truth) {
+  return clampProb(Core__Option.getOr(Rating_predictWin([
+                        truthRatings(match[0], truth),
+                        truthRatings(match[1], truth)
+                      ])[0], 0.5));
+}
+
+function drawProbability(match, truth) {
+  var ratingsOf = function (team) {
+    return team.map(function (p) {
+                if (truth !== undefined) {
+                  return make(truth[p.intId], defaultBeta);
+                } else {
+                  return p.rating;
+                }
+              });
+  };
+  return Math.max(0.0, Math.min(1.0, Rating_predictDraw([
+                      ratingsOf(match[0]),
+                      ratingsOf(match[1])
+                    ])));
+}
+
+function freshEventPlayers(players) {
+  return players.map(function (p, i) {
+              return {
+                      data: p.data,
+                      id: p.id,
+                      intId: i,
+                      name: p.name,
+                      rating: p.rating,
+                      ratingOrdinal: p.ratingOrdinal,
+                      paid: p.paid,
+                      gender: p.gender,
+                      count: 0
+                    };
+            });
+}
+
+function leadSlot(team) {
+  return Core__Array.reduce(team, -1, (function (acc, p) {
+                if (acc < 0 || p.intId < acc) {
+                  return p.intId;
+                } else {
+                  return acc;
+                }
+              }));
+}
+
+function eventQualityWithTruth(initialPlayers, truth, strategy, numRounds, seedString, courts) {
+  var courts$1 = courts !== undefined ? courts : standardCourts(initialPlayers.length);
+  var outcomePrng = SolverPrng.fromSeedString(seedString + ":outcomes");
+  var startTime = new Date(0.0);
+  var scoredRounds = [];
+  var qualityTotal = {
+    contents: 0.0
+  };
+  var gameCount = {
+    contents: 0
+  };
+  var round = 0;
+  while(round < numRounds) {
+    var state = toPlayerStateWithAdjustments(scoredRounds, initialPlayers, []);
+    var generated = Core__Option.getOr(generateRounds(round + 1 | 0, 1, state, scoredRounds, strategy, courtsInUse(courts$1, state.length), undefined, undefined, undefined, startTime, undefined)[0], []);
+    if (generated.length === 0) {
+      round = numRounds;
+    } else {
+      var scored = generated.map(function (entity) {
+            var match = entity.match;
+            qualityTotal.contents = qualityTotal.contents + drawProbability(match, truth);
+            gameCount.contents = gameCount.contents + 1 | 0;
+            var p = trueWinProbability(match, truth);
+            var u = SolverPrng.nextFloat(outcomePrng);
+            var team1Wins = leadSlot(match[0]) <= leadSlot(match[1]) ? u < p : u >= 1.0 - p;
+            return {
+                    id: entity.id,
+                    match: entity.match,
+                    score: team1Wins ? [
+                        1.0,
+                        0.0
+                      ] : [
+                        0.0,
+                        1.0
+                      ],
+                    createdAt: entity.createdAt,
+                    synced: entity.synced
+                  };
+          });
+      scoredRounds = scoredRounds.concat([scored]);
+      round = round + 1 | 0;
+    }
+  };
+  if (gameCount.contents === 0) {
+    return ;
+  } else {
+    return qualityTotal.contents / gameCount.contents;
+  }
+}
+
+function nextGaussian(prng) {
+  var u1 = Math.max(1e-12, SolverPrng.nextFloat(prng));
+  var u2 = SolverPrng.nextFloat(prng);
+  return Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+}
+
+function quantile(values, q) {
+  var sorted = values.toSorted(function (a, b) {
+        return a - b;
+      });
+  var n = sorted.length;
+  if (n === 0) {
+    return 0.0;
+  }
+  var pos = Math.max(0.0, Math.min(1.0, q)) * (n - 1 | 0);
+  var lo = Js_math.floor_int(pos);
+  var hi = Math.min(n - 1 | 0, lo + 1 | 0);
+  var frac = pos - lo;
+  return sorted[lo] * (1.0 - frac) + sorted[hi] * frac;
+}
+
+function simulateEventQualityRange(players, strategyOpt, numRoundsOpt, samplesOpt, seedOpt, courts) {
+  var strategy = strategyOpt !== undefined ? strategyOpt : "CompetitivePlus";
+  var numRounds = numRoundsOpt !== undefined ? numRoundsOpt : 13;
+  var samples = samplesOpt !== undefined ? samplesOpt : 16;
+  var seed = seedOpt !== undefined ? seedOpt : 1;
+  if (players.length < 4 || samples < 1) {
+    return ;
+  }
+  var initialPlayers = freshEventPlayers(players);
+  var seedString = "event-quality:" + seed.toString();
+  var skillPrng = SolverPrng.fromSeedString(seedString + ":skills");
+  var results = [];
+  for(var i = 0; i < samples; ++i){
+    var truth = initialPlayers.map(function (p) {
+          return p.rating.mu + p.rating.sigma * nextGaussian(skillPrng);
+        });
+    var q = eventQualityWithTruth(initialPlayers, truth, strategy, numRounds, seedString + ":sample:" + i.toString(), courts);
+    if (q !== undefined) {
+      results.push(q);
+    }
+    
+  }
+  if (results.length === 0) {
+    return ;
+  } else {
+    return {
+            low: quantile(results, 0.05),
+            mid: quantile(results, 0.5),
+            high: quantile(results, 0.95)
+          };
+  }
+}
+
+function rsvpQualityImpact(players, candidates, strategyOpt, numRoundsOpt, samplesOpt, seedOpt, before, courts) {
+  var strategy = strategyOpt !== undefined ? strategyOpt : "CompetitivePlus";
+  var numRounds = numRoundsOpt !== undefined ? numRoundsOpt : 13;
+  var samples = samplesOpt !== undefined ? samplesOpt : 16;
+  var seed = seedOpt !== undefined ? seedOpt : 1;
+  var before$1 = before !== undefined ? before : simulateEventQualityRange(players, strategy, numRounds, samples, seed, courts);
+  var after = simulateEventQualityRange(players.concat(candidates), strategy, numRounds, samples, seed, courts);
+  var delta = before$1 !== undefined && after !== undefined ? after.mid - before$1.mid : undefined;
+  return {
+          before: before$1,
+          after: after,
+          delta: delta
+        };
+}
+
+var standardEventRounds = 13;
+
+var standardRoundMinutes = 10;
+
+var standardPlayersPerCourt = 6;
+
+var drawSigma = defaultBeta;
+
+var qualitySamples = 16;
+
+var qualityIntervalLow = 0.05;
+
+var qualityIntervalHigh = 0.95;
+
 export {
   isSupported ,
   randomUUID ,
@@ -2864,6 +3161,7 @@ export {
   Gender ,
   makeGuest ,
   Rating ,
+  ScoreModel ,
   Player ,
   Team ,
   TeamCountDict ,
@@ -2926,5 +3224,25 @@ export {
   suggestedCourtCount ,
   generateRounds ,
   generateSingleRound ,
+  standardEventRounds ,
+  standardRoundMinutes ,
+  standardPlayersPerCourt ,
+  standardCourts ,
+  courtsInUse ,
+  truthRatings ,
+  clampProb ,
+  trueWinProbability ,
+  drawSigma ,
+  drawProbability ,
+  freshEventPlayers ,
+  leadSlot ,
+  eventQualityWithTruth ,
+  nextGaussian ,
+  quantile ,
+  qualitySamples ,
+  qualityIntervalLow ,
+  qualityIntervalHigh ,
+  simulateEventQualityRange ,
+  rsvpQualityImpact ,
 }
 /* plackettLuce Not a pure module */

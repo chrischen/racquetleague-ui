@@ -12,6 +12,7 @@ type prefilledValues = {
   tags?: array<string>,
   price?: int,
   cancelDeadline?: int,
+  smartRsvpThreshold?: float,
   fromExistingEvent?: bool,
 }
 

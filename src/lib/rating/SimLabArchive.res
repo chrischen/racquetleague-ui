@@ -32,7 +32,9 @@ open SimLab
 
 // Bump on any shape change to `SimLab.labResult`, then regenerate the assets.
 // v2: `frame.medianDrawProb`.
-let version = 2
+// v3: session model — `form`, `dropIns`, `attendance` on labResult; outcomes
+//     drawn at performed (form-adjusted) skill.
+let version = 3
 
 // ---------------------------------------------------------------------------
 // Wire types
@@ -86,6 +88,9 @@ type wireResult = {
   numRounds: int,
   truth: array<float>,
   driftRoles: array<drift>,
+  form: array<array<float>>,
+  dropIns: array<bool>,
+  attendance: array<array<bool>>,
   names: array<string>,
   flagged: array<bool>,
   runs: array<wireRun>,
@@ -179,6 +184,9 @@ let toWire = (r: labResult, ~detail: bool): wireResult => {
   numRounds: r.numRounds,
   truth: r.truth->Array.map(r4),
   driftRoles: r.driftRoles,
+  form: r.form->Array.map(offsets => offsets->Array.map(r4)),
+  dropIns: r.dropIns,
+  attendance: r.attendance,
   names: r.names,
   flagged: r.flagged,
   runs: r.runs->Array.map(run => {
@@ -277,6 +285,9 @@ let fromWire = (w: wireResult): result<labResult, string> => {
       numRounds: w.numRounds,
       truth: w.truth,
       driftRoles: w.driftRoles,
+      form: w.form,
+      dropIns: w.dropIns,
+      attendance: w.attendance,
       names: w.names,
       flagged: w.flagged,
       runs,

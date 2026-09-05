@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-05 18:58+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:111
+msgid "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+msgstr "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:135
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:92
+msgid "Close"
+msgstr "닫기"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:143
+msgid "Import"
+msgstr "가져오기"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:82
+msgid "Import History"
+msgstr "기록 가져오기"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:48
+msgid ""
+"Imported matches count as already synced, and keep their original ids so "
+"syncing again cannot duplicate them on the server."
+msgstr ""
+"가져온 경기는 이미 동기화된 것으로 처리되며 원래 ID를 유지하므로, 다시 동기화"
+"해도 서버에 중복 생성되지 않습니다."
+
+#: src/components/organisms/EventStateImportModal.re.mjs:43
+msgid "Matches to import"
+msgstr "가져올 경기"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:106
+msgid "Paste an exported history"
+msgstr "내보낸 기록을 붙여넣으세요"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:119
+msgid ""
+"Rounds are placed in the timeline by their timestamps, so importing can add "
+"rounds before the ones already here."
+msgstr ""
+"라운드는 타임스탬프에 따라 타임라인에 배치되므로, 가져오기를 하면 기존 라운"
+"드 앞에 추가될 수 있습니다."
+
+#: src/components/organisms/EventStateImportModal.re.mjs:42
+msgid "Rounds to import"
+msgstr "가져올 라운드"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:46
+msgid "Skipped rating adjustments"
+msgstr "건너뛴 레이팅 조정"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:45
+msgid "Skipped, already here"
+msgstr "건너뜀, 이미 있음"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:44
+msgid "Skipped, players not in this event"
+msgstr "건너뜀, 이 이벤트에 없는 선수"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:126
+msgid "Wait for the draw currently being generated to finish."
+msgstr "현재 생성 중인 대진표가 완료될 때까지 기다리세요."

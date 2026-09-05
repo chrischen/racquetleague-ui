@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "runs": [
     {
       "file": "cold-24p-4c-100r-7s.json.gz",
@@ -10,7 +10,7 @@
       "numRounds": 100,
       "seedCount": 7,
       "tournament": false,
-      "bytes": 1453278
+      "bytes": 1648918
     }
   ]
 }

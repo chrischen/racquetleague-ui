@@ -13,19 +13,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:508
+#: src/components/organisms/PkRSVPSection.re.mjs:577
 msgid "· {0} pending"
 msgstr "· {0} รอดำเนินการ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:506
+#: src/components/organisms/PkRSVPSection.re.mjs:575
 msgid "· +{0} waitlist"
 msgstr "· +{0} รายชื่อคอย"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:503
+#: src/components/organisms/PkRSVPSection.re.mjs:572
 msgid "{0} joined"
 msgstr "{0} เข้าร่วมแล้ว"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:569
+#: src/components/organisms/PkRSVPSection.re.mjs:638
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ ทักษะ"
 
@@ -69,7 +69,7 @@ msgstr "ว่างตลอดกิจกรรม"
 msgid "Back to event"
 msgstr "กลับสู่กิจกรรม"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:278
+#: src/components/organisms/PkRSVPSection.re.mjs:319
 msgid "balanced"
 msgstr "สมดุล"
 
@@ -109,20 +109,24 @@ msgstr "เรตติ้งที่คำนวณแล้ว"
 msgid "Confirm"
 msgstr "ยืนยัน"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:653
+#: src/components/organisms/PkRSVPSection.re.mjs:722
 msgid "Confirmed · {0}"
 msgstr "⊡ยืนยันแล้ว · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:854
+#: src/components/organisms/PkRSVPSection.re.mjs:941
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:543
-#: src/components/organisms/PkRSVPSection.re.mjs:560
+#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:629
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:882
+msgid "Evaluating pending requests…"
+msgstr "กำลังประเมินคำขอที่รอดำเนินการ…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid "even"
 msgstr "เท่าเทียม"
 
@@ -187,8 +191,8 @@ msgstr "เก็บไว้"
 msgid "Keep {0} pending"
 msgstr "เก็บ {0} ไว้ในรายการรอ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:395
-#: src/components/organisms/PkRSVPSection.re.mjs:416
+#: src/components/organisms/PkRSVPSection.re.mjs:463
+#: src/components/organisms/PkRSVPSection.re.mjs:484
 msgid "LEVEL RESTRICTION"
 msgstr "ข้อจำกัดระดับ"
 
@@ -196,11 +200,11 @@ msgstr "ข้อจำกัดระดับ"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:621
 msgid "MEDIAN"
 msgstr "มัธยฐาน"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:281
+#: src/components/organisms/PkRSVPSection.re.mjs:322
 msgid "mixed"
 msgstr "หลากหลาย"
 
@@ -229,7 +233,7 @@ msgstr "ยังไม่มีเรตติ้ง"
 msgid "Open invite actions for {0}"
 msgstr "เปิดการดำเนินการเชิญสำหรับ {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:473
+#: src/components/organisms/PkRSVPSection.re.mjs:542
 msgid "Participants"
 msgstr "ผู้เข้าร่วม"
 
@@ -241,7 +245,7 @@ msgstr "ชำระเงินได้รับอนุมัติแล้
 msgid "Payment captured"
 msgstr "ชำระเงินสำเร็จแล้ว"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:784
+#: src/components/organisms/PkRSVPSection.re.mjs:853
 msgid "Pending · {0}"
 msgstr "รอดำเนินการ · {0}"
 
@@ -261,15 +265,15 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:399
+#: src/components/organisms/PkRSVPSection.re.mjs:467
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "ต้องการ: DUPR {minDuprStr} ขึ้นไป"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:420
+#: src/components/organisms/PkRSVPSection.re.mjs:488
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "ต้องมี DUPR {minDuprStr} ขึ้นไปจึงเข้าร่วมได้"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:800
+#: src/components/organisms/PkRSVPSection.re.mjs:869
 msgid "Review {0} pending requests with swipe cards"
 msgstr "ตรวจสอบ {0} คำขอที่รอดำเนินการด้วยการสไวป์การ์ด"
 
@@ -280,6 +284,14 @@ msgstr "ตรวจสอบผู้เล่นที่อาจเข้า
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
 msgid "Review requests"
 msgstr "ตรวจสอบคำขอ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:891
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr "เรียกใช้ Smart RSVP (จับคู่ดีที่สุด, ทดสอบ)"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:882
+msgid "Run Smart RSVP now"
+msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
 msgid "Self-rating"
@@ -301,7 +313,11 @@ msgstr "ข้าม"
 msgid "Skip {0}"
 msgstr "ข้าม {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:613
+#: src/components/organisms/PkRSVPSection.re.mjs:438
+msgid "SMART RSVP"
+msgstr "SMART RSVP"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:682
 msgid "SPREAD"
 msgstr "การกระจาย"
 
@@ -317,9 +333,16 @@ msgstr "สไวป์ซ้ายเพื่อเก็บไว้ · ข�
 msgid "Swipe left to skip · right to invite"
 msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเพื่อเชิญ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:867
 msgid "Swipe review"
 msgstr "ตรวจสอบด้วยการสไวป์"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+msgid ""
+"This event admits players automatically. Your request will be reviewed and "
+"you will be notified once a spot is confirmed."
+msgstr ""
+"กิจกรรมนี้รับผู้เล่นโดยอัตโนมัติ คำขอของคุณจะได้รับการตรวจสอบ และคุณจะได้รับแจ้งเมื่อยืนยันที่นั่งแล้ว"
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
@@ -329,7 +352,7 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:535
+#: src/components/organisms/PkRSVPSection.re.mjs:604
 msgid "TOP 6 AVG"
 msgstr "ค่าเฉลี่ย 6 อันดับ"
 
@@ -342,11 +365,11 @@ msgstr "ดูโปรไฟล์"
 msgid "Waiting for approval to join"
 msgstr "รอการอนุมัติเพื่อเข้าร่วม"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:719
+#: src/components/organisms/PkRSVPSection.re.mjs:788
 msgid "Waitlist · {0}"
 msgstr "รายชื่อคอย · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:403
+#: src/components/organisms/PkRSVPSection.re.mjs:471
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

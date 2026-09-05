@@ -162,6 +162,16 @@ var strategies = [
     isBaseline: true,
     usesTruth: false,
     engine: "AmericanOpenPlay"
+  },
+  {
+    id: "koc",
+    short: "KOC",
+    color: "#5B7F3C",
+    strategy: "SolverRandomBalanced",
+    weightConfig: undefined,
+    isBaseline: true,
+    usesTruth: false,
+    engine: "KingCourtPlay"
   }
 ];
 
@@ -389,41 +399,8 @@ function buildPlayers(scenario, numPlayers, ranks, dist) {
               }));
 }
 
-function truthRatings(team, truth) {
-  return team.map(function (p) {
-              return Rating.Rating.make(truth[p.intId], 0.0);
-            });
-}
-
-function clampProb(p) {
-  return Math.max(1e-9, Math.min(1.0 - 1e-9, p));
-}
-
-function trueWinProbability(match, truth) {
-  return clampProb(Core__Option.getOr(Rating.Rating.predictWin([
-                        truthRatings(match[0], truth),
-                        truthRatings(match[1], truth)
-                      ])[0], 0.5));
-}
-
-function drawProbability(match, truth) {
-  var ratingsOf = function (team) {
-    return team.map(function (p) {
-                if (truth !== undefined) {
-                  return Rating.Rating.make(truth[p.intId], CostModel.defaultBeta);
-                } else {
-                  return p.rating;
-                }
-              });
-  };
-  return Math.max(0.0, Math.min(1.0, Rating.Rating.predictDraw([
-                      ratingsOf(match[0]),
-                      ratingsOf(match[1])
-                    ])));
-}
-
 function predictedWinProbability(match) {
-  return clampProb(Core__Option.getOr(Rating.Rating.predictWin([
+  return Rating.clampProb(Core__Option.getOr(Rating.Rating.predictWin([
                         match[0].map(function (p) {
                               return p.rating;
                             }),
@@ -433,24 +410,27 @@ function predictedWinProbability(match) {
                       ])[0], 0.5));
 }
 
+var maxScore = Rating.ScoreModel.maxScore;
+
+var gameWinProb = Rating.ScoreModel.gameWinProb;
+
+var rallyProbFor = Rating.ScoreModel.rallyProbFor;
+
 function simulateScore(match, truth, prng) {
-  var p1 = trueWinProbability(match, truth);
-  var team1Wins = SolverPrng.nextFloat(prng) < p1;
-  var dominance = Math.abs(p1 - 0.5) * 2.0;
-  var expectedLoser = (11.0 - 2.0) * (1.0 - dominance);
-  var jitter = (SolverPrng.nextFloat(prng) - 0.5) * 4.0;
-  var loser = Math.max(0.0, Math.min(11.0 - 2.0, Math.round(expectedLoser + jitter)));
-  if (team1Wins) {
-    return [
-            11.0,
-            loser
-          ];
-  } else {
-    return [
-            loser,
-            11.0
-          ];
-  }
+  var q = rallyProbFor(Rating.trueWinProbability(match, truth));
+  var s1 = 0.0;
+  var s2 = 0.0;
+  while(s1 < maxScore && s2 < maxScore) {
+    if (SolverPrng.nextFloat(prng) < q) {
+      s1 = s1 + 1.0;
+    } else {
+      s2 = s2 + 1.0;
+    }
+  };
+  return [
+          s1,
+          s2
+        ];
 }
 
 function ranksOf(values) {
@@ -711,22 +691,125 @@ function americanCarryOvers(previous, beforePrevious, maxCarried, prng) {
                 })).slice(0, Math.max(0, maxCarried));
 }
 
+function buildKingCourtRound(players, courts, rounds, prng) {
+  var byId = {};
+  players.forEach(function (p) {
+        byId[p.id] = p;
+      });
+  var prev = Core__Option.getOr(rounds[rounds.length - 1 | 0], []);
+  var side = function (c, winning) {
+    return Core__Option.getOr(Core__Option.flatMap(prev[c], (function (e) {
+                      var match = e.score;
+                      if (match === undefined) {
+                        return ;
+                      }
+                      var match$1 = e.match;
+                      return match[0] > match[1] === winning ? match$1[0] : match$1[1];
+                    })), []);
+  };
+  var intended;
+  if (prev.length === 0) {
+    var sh = shuffle(players, prng);
+    intended = Belt_Array.makeBy(Math.min(courts, sh.length / 4 | 0), (function (c) {
+            return sh.slice((c << 2), (c << 2) + 4 | 0);
+          }));
+  } else {
+    intended = Belt_Array.makeBy(courts, (function (c) {
+            var fromAbove = c === 0 ? side(0, true) : side(c - 1 | 0, false);
+            var fromBelow = c < (courts - 1 | 0) ? side(c + 1 | 0, true) : [];
+            return fromAbove.concat(fromBelow);
+          }));
+  }
+  var seatedIds = new Set();
+  var repaired = intended.map(function (group) {
+        return Core__Array.filterMap(group, (function (p) {
+                      var fresh = Js_dict.get(byId, p.id);
+                      if (fresh !== undefined && !seatedIds.has(p.id)) {
+                        seatedIds.add(p.id);
+                        return fresh;
+                      }
+                      
+                    }));
+      });
+  var rotatedOut = new Set(Core__Option.getOr(Core__Option.flatMap(prev[prev.length - 1 | 0], (function (e) {
+                  var match = e.score;
+                  if (match === undefined) {
+                    return ;
+                  }
+                  var match$1 = e.match;
+                  return (
+                            match[0] > match[1] ? match$1[1] : match$1[0]
+                          ).map(function (p) {
+                              return p.id;
+                            });
+                })), []));
+  var waiting = shuffle(players.filter(function (p) {
+            return !seatedIds.has(p.id);
+          }), prng);
+  var queue = waiting.filter(function (p) {
+            return !rotatedOut.has(p.id);
+          }).toSorted(function (a, b) {
+          return a.count - b.count | 0;
+        }).concat(waiting.filter(function (p) {
+            return rotatedOut.has(p.id);
+          }));
+  var qi = {
+    contents: 0
+  };
+  var matches = [];
+  repaired.forEach(function (group) {
+        var g = group.slice();
+        while(g.length < 4 && qi.contents < queue.length) {
+          var p = queue[qi.contents];
+          if (p !== undefined) {
+            g.push(p);
+          }
+          qi.contents = qi.contents + 1 | 0;
+        };
+        if (g.length !== 4) {
+          return ;
+        }
+        var a = g[0];
+        var b = g[1];
+        var c = g[2];
+        var d = g[3];
+        matches.push(SolverPrng.nextFloat(prng) < 0.5 ? [
+                [
+                  a,
+                  c
+                ],
+                [
+                  b,
+                  d
+                ]
+              ] : [
+                [
+                  a,
+                  d
+                ],
+                [
+                  b,
+                  c
+                ]
+              ]);
+      });
+  return matches;
+}
+
 function buildOpenPlayRound(style, players, courts, rounds, truth, pods, prng) {
   var history = CostModel.buildHistory(rounds, players);
   var seats = (courts << 2);
   var previous = Core__Option.getOr(rounds[rounds.length - 1 | 0], []);
   var beforePrevious = Core__Option.getOr(rounds[rounds.length - 2 | 0], []);
+  var presentIds = new Set(players.map(function (p) {
+            return p.id;
+          }));
   var carried;
-  switch (style) {
-    case "SolverEngine" :
-    case "JapanOpenPlay" :
-        carried = [];
-        break;
-    case "AmericanOpenPlay" :
-        carried = americanCarryOvers(previous, beforePrevious, Math.max(0, courts - 1 | 0), prng);
-        break;
-    
-  }
+  carried = style === "AmericanOpenPlay" ? americanCarryOvers(previous, beforePrevious, Math.max(0, courts - 1 | 0), prng).filter(function (m) {
+          return Rating.Match.players(m).every(function (p) {
+                      return presentIds.has(p.id);
+                    });
+        }) : [];
   var carriedIds = new Set(carried.flatMap(function (m) {
             return Rating.Match.players(m).map(function (p) {
                         return p.id;
@@ -771,55 +854,43 @@ function buildOpenPlayRound(style, players, courts, rounds, truth, pods, prng) {
       i = i + 2 | 0;
     };
     quads = out;
+  } else if (style === "AmericanOpenPlay") {
+    var match = selfSortedBands(seated, truth, prng);
+    var lowerQuads = formFoursomes(match[0], history, false, prng);
+    var upperQuads = formFoursomes(match[1], history, false, prng);
+    var out$1 = [];
+    var li = 0;
+    var ui = 0;
+    var takeLowerFirst = SolverPrng.nextFloat(prng) < 0.5;
+    while(out$1.length < courtsLeft && (li < lowerQuads.length || ui < upperQuads.length)) {
+      var fromLower = takeLowerFirst;
+      var picked = fromLower ? lowerQuads[li] : upperQuads[ui];
+      if (picked !== undefined) {
+        out$1.push(picked);
+        if (fromLower) {
+          li = li + 1 | 0;
+        } else {
+          ui = ui + 1 | 0;
+        }
+      }
+      takeLowerFirst = !takeLowerFirst;
+    };
+    if (out$1.length < courtsLeft) {
+      var used = new Set(out$1.flatMap(function (q) {
+                return q.map(function (p) {
+                            return p.id;
+                          });
+              }));
+      var leftovers = seated.filter(function (p) {
+            return !used.has(p.id);
+          });
+      formFoursomes(leftovers, history, false, prng).slice(0, courtsLeft - out$1.length | 0).forEach(function (q) {
+            out$1.push(q);
+          });
+    }
+    quads = out$1;
   } else {
-    var exit = 0;
-    switch (style) {
-      case "SolverEngine" :
-      case "JapanOpenPlay" :
-          exit = 1;
-          break;
-      case "AmericanOpenPlay" :
-          var match = selfSortedBands(seated, truth, prng);
-          var lowerQuads = formFoursomes(match[0], history, false, prng);
-          var upperQuads = formFoursomes(match[1], history, false, prng);
-          var out$1 = [];
-          var li = 0;
-          var ui = 0;
-          var takeLowerFirst = SolverPrng.nextFloat(prng) < 0.5;
-          while(out$1.length < courtsLeft && (li < lowerQuads.length || ui < upperQuads.length)) {
-            var fromLower = takeLowerFirst;
-            var picked = fromLower ? lowerQuads[li] : upperQuads[ui];
-            if (picked !== undefined) {
-              out$1.push(picked);
-              if (fromLower) {
-                li = li + 1 | 0;
-              } else {
-                ui = ui + 1 | 0;
-              }
-            }
-            takeLowerFirst = !takeLowerFirst;
-          };
-          if (out$1.length < courtsLeft) {
-            var used = new Set(out$1.flatMap(function (q) {
-                      return q.map(function (p) {
-                                  return p.id;
-                                });
-                    }));
-            var leftovers = seated.filter(function (p) {
-                  return !used.has(p.id);
-                });
-            formFoursomes(leftovers, history, false, prng).slice(0, courtsLeft - out$1.length | 0).forEach(function (q) {
-                  out$1.push(q);
-                });
-          }
-          quads = out$1;
-          break;
-      
-    }
-    if (exit === 1) {
-      quads = formFoursomes(seated, history, true, prng).slice(0, courtsLeft);
-    }
-    
+    quads = formFoursomes(seated, history, true, prng).slice(0, courtsLeft);
   }
   var fresh = quads.map(function (quad) {
         var split;
@@ -843,16 +914,7 @@ function buildOpenPlayRound(style, players, courts, rounds, truth, pods, prng) {
           exit = 1;
         }
         if (exit === 1) {
-          switch (style) {
-            case "JapanOpenPlay" :
-                split = splitJapan(quad, truth, prng);
-                break;
-            case "SolverEngine" :
-            case "AmericanOpenPlay" :
-                split = splitRandom(quad, prng);
-                break;
-            
-          }
+          split = style === "JapanOpenPlay" ? splitJapan(quad, truth, prng) : splitRandom(quad, prng);
         }
         if (pods === undefined) {
           return split;
@@ -926,6 +988,79 @@ function truthAt(base, roles, round) {
   return base.map(function (v, i) {
               return v + driftAt(Core__Option.getOr(roles[i], "Steady"), round);
             });
+}
+
+function sessionOf(round) {
+  if (round <= 1) {
+    return 0;
+  } else {
+    return (round - 1 | 0) / 13 | 0;
+  }
+}
+
+function formTable(numPlayers, numRounds, seed) {
+  var sessions = sessionOf(numRounds) + 1 | 0;
+  var prng = SolverPrng.fromSeedString("lab-form:" + seed.toString());
+  return Belt_Array.makeBy(sessions, (function (param) {
+                return Belt_Array.makeBy(numPlayers, (function (param) {
+                              var u1 = SolverPrng.nextFloat(prng);
+                              var u2 = SolverPrng.nextFloat(prng);
+                              return (u1 + u2 - 1.0) * 0.15 * muPerDupr;
+                            }));
+              }));
+}
+
+function performedAt(base, roles, form, round) {
+  var offsets = Core__Option.getOr(form[sessionOf(round)], []);
+  return truthAt(base, roles, round).map(function (v, i) {
+              return v + Core__Option.getOr(offsets[i], 0.0);
+            });
+}
+
+var dropInPercentiles = [
+  0.7,
+  0.3
+];
+
+function dropInPlan(numPlayers, courts, numRounds, seed, ranks) {
+  var sessions = sessionOf(numRounds) + 1 | 0;
+  var seats = (courts << 2);
+  var count = Math.max(1, Math.min(dropInPercentiles.length, numPlayers - seats | 0));
+  var prng = SolverPrng.fromSeedString("lab-dropins:" + seed.toString());
+  var isDropIn = Belt_Array.make(numPlayers, false);
+  for(var i = 0; i < count; ++i){
+    var pct = dropInPercentiles[i];
+    var wantRank = Math.round(pct * (numPlayers - 1 | 0)) | 0;
+    ranks.forEach((function(wantRank){
+        return function (r, slot) {
+          if (r === wantRank) {
+            isDropIn[slot] = true;
+            return ;
+          }
+          
+        }
+        }(wantRank)));
+  }
+  var attends = Belt_Array.makeBy(sessions, (function (param) {
+          return Belt_Array.make(numPlayers, true);
+        }));
+  isDropIn.forEach(function (isD, player) {
+        if (!isD) {
+          return ;
+        }
+        var first = Js_math.floor_int(SolverPrng.nextFloat(prng) * sessions);
+        var oneAndDone = SolverPrng.nextFloat(prng) < 0.5;
+        for(var sess = 0; sess < sessions; ++sess){
+          var there = sess === first ? true : (
+              sess < first || oneAndDone ? false : SolverPrng.nextFloat(prng) < 0.3
+            );
+          attends[sess][player] = there;
+        }
+      });
+  return {
+          isDropIn: isDropIn,
+          attends: attends
+        };
 }
 
 function makeFrame(round, state, truth, games, byes, numPlayers, numBands) {
@@ -1009,7 +1144,7 @@ function makeFrame(round, state, truth, games, byes, numPlayers, numBands) {
         };
 }
 
-async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts, numRounds, seed, numPlayers, pods, onRound) {
+async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, plan, courts, numRounds, seed, numPlayers, pods, onRound) {
   var seedString = "lab:" + seed.toString() + ":" + entry.id;
   var outcomePrng = SolverPrng.fromSeedString(seedString + ":outcomes");
   var startTime = new Date(0.0);
@@ -1019,10 +1154,12 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
   var round = 0;
   while(round < numRounds) {
     var state = Rating.toPlayerStateWithAdjustments(scoredRounds, initialPlayers, []);
+    var thisRound = round + 1 | 0;
     var truth = truthAt(baseTruth, roles, round);
-    var solverPlayers = entry.usesTruth ? state.map((function(truth){
+    var performed = performedAt(baseTruth, roles, form, thisRound);
+    var solverPlayers = entry.usesTruth ? state.map((function(performed){
           return function (p) {
-            var t = truth[p.intId];
+            var t = performed[p.intId];
             return {
                     data: p.data,
                     id: p.id,
@@ -1035,7 +1172,14 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
                     count: p.count
                   };
           }
-          }(truth))) : state;
+          }(performed))) : state;
+    var attending = Core__Option.getOr(plan.attends[sessionOf(thisRound)], []);
+    var isPresent = (function(attending){
+    return function isPresent(p) {
+      return Core__Option.getOr(attending[p.intId], true);
+    }
+    }(attending));
+    var presentPlayers = solverPlayers.filter(isPresent);
     var realById = {};
     state.forEach((function(realById){
         return function (p) {
@@ -1075,7 +1219,7 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
     var exit = 0;
     switch (style) {
       case "SolverEngine" :
-          var result = await SolverRounds.generateRounds(1, solverPlayers, scoredRounds, entry.strategy, courts, startTime, entry.weightConfig, pods, undefined, undefined, undefined, undefined, round, seedString, undefined, undefined);
+          var result = await SolverRounds.generateRounds(1, presentPlayers, scoredRounds, entry.strategy, courts, startTime, entry.weightConfig, pods, undefined, undefined, undefined, undefined, round, seedString, undefined, undefined);
           match = [
             Core__Option.getOr(Core__Option.map(result.rounds[0], (function (outcome) {
                         return outcome.matches.map(function (m) {
@@ -1089,11 +1233,21 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
       case "AmericanOpenPlay" :
           exit = 1;
           break;
+      case "KingCourtPlay" :
+          if (pods === undefined) {
+            match = [
+              buildKingCourtRound(presentPlayers, courts, scoredRounds, SolverPrng.fromSeedString(seedString + "#open#" + round.toString())),
+              false
+            ];
+          } else {
+            exit = 1;
+          }
+          break;
       
     }
     if (exit === 1) {
       match = [
-        buildOpenPlayRound(style, solverPlayers, courts, scoredRounds, truth, pods, SolverPrng.fromSeedString(seedString + "#open#" + round.toString())),
+        buildOpenPlayRound(style, presentPlayers, courts, scoredRounds, truth, pods, SolverPrng.fromSeedString(seedString + "#open#" + round.toString())),
         false
       ];
     }
@@ -1106,12 +1260,12 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
     } else {
       var createdAt = new Date(startTime.getTime() + (round + 1 | 0) * 600000.0);
       var seatedIds = new Set();
-      var scored = matches.map((function(truth,createdAt,seatedIds){
+      var scored = matches.map((function(performed,createdAt,seatedIds){
           return function (rawMatch, courtIndex) {
             var match = entry.usesTruth ? restoreRatings(rawMatch) : rawMatch;
             var predicted = predictedWinProbability(match);
-            var trueProb = trueWinProbability(match, truth);
-            var match$1 = simulateScore(match, truth, outcomePrng);
+            var trueProb = Rating.trueWinProbability(match, performed);
+            var match$1 = simulateScore(match, performed, outcomePrng);
             var team2 = match[1];
             var team1 = match[0];
             var s2 = match$1[1];
@@ -1133,8 +1287,8 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
                 });
             var record_isBlowout = Math.abs(s1 - s2) >= 9.0;
             var record_isUpset = predicted > 0.5 !== s1 > s2;
-            var record_predictedDraw = drawProbability(match, undefined);
-            var record_trueDraw = drawProbability(match, truth);
+            var record_predictedDraw = Rating.drawProbability(match, undefined);
+            var record_trueDraw = Rating.drawProbability(match, performed);
             var record = {
               courtIndex: courtIndex,
               team1: record_team1,
@@ -1167,7 +1321,7 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
                     record
                   ];
           }
-          }(truth,createdAt,seatedIds)));
+          }(performed,createdAt,seatedIds)));
       scoredRounds = scoredRounds.concat([scored.map(function (param) {
                   return param[0];
                 })]);
@@ -1176,7 +1330,11 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, courts,
                     return param[1];
                   }), initialPlayers.filter((function(seatedIds){
                     return function (p) {
-                      return !seatedIds.has(p.id);
+                      if (isPresent(p)) {
+                        return !seatedIds.has(p.id);
+                      } else {
+                        return false;
+                      }
                     }
                     }(seatedIds))).map(function (p) {
                     return p.name;
@@ -1203,12 +1361,30 @@ async function run(scenario, seed, numPlayers, courts, numRounds, distOpt, tourn
           return trueSkill(ranks[index], numPlayers, dist);
         }));
   var roles = driftRoles(numPlayers, seed);
-  var initialPlayers = buildPlayers(scenario, numPlayers, ranks, dist);
+  var form = formTable(numPlayers, numRounds, seed);
+  var plan = dropInPlan(numPlayers, courts, numRounds, seed, ranks);
+  var initialPlayers = buildPlayers(scenario, numPlayers, ranks, dist).map(function (p) {
+        if (Core__Option.getOr(plan.isDropIn[p.intId], false)) {
+          return {
+                  data: p.data,
+                  id: p.id,
+                  intId: p.intId,
+                  name: p.name + "\u2020",
+                  rating: Rating.Rating.makeDefault(),
+                  ratingOrdinal: Rating.Rating.ordinal(Rating.Rating.makeDefault()),
+                  paid: p.paid,
+                  gender: p.gender,
+                  count: p.count
+                };
+        } else {
+          return p;
+        }
+      });
   var pods = tournament ? partnerPods(initialPlayers, seed) : undefined;
   var runs = [];
   for(var i = 0 ,i_finish = strategies.length; i < i_finish; ++i){
     var entry = strategies[i];
-    var run$1 = await simulateStrategy(entry, initialPlayers, baseTruth, roles, courts, numRounds, seed, numPlayers, pods, onRound);
+    var run$1 = await simulateStrategy(entry, initialPlayers, baseTruth, roles, form, plan, courts, numRounds, seed, numPlayers, pods, onRound);
     runs.push(run$1);
   }
   return {
@@ -1219,6 +1395,9 @@ async function run(scenario, seed, numPlayers, courts, numRounds, distOpt, tourn
           numRounds: numRounds,
           truth: baseTruth,
           driftRoles: roles,
+          form: form,
+          dropIns: plan.isDropIn,
+          attendance: plan.attends,
           names: initialPlayers.map(function (p) {
                 return p.name;
               }),
@@ -1245,9 +1424,15 @@ var beginnerSkill = 8.0;
 
 var settledSigma = 7.0;
 
-var maxScore = 11.0;
+var truthRatings = Rating.truthRatings;
 
-var drawSigma = CostModel.defaultBeta;
+var clampProb = Rating.clampProb;
+
+var trueWinProbability = Rating.trueWinProbability;
+
+var drawSigma = Rating.drawSigma;
+
+var drawProbability = Rating.drawProbability;
 
 var crossoverLow = 0.35;
 
@@ -1258,6 +1443,12 @@ var blowoutMargin = 9.0;
 var tightMargin = 2.0;
 
 var revengeChance = 0.5;
+
+var sessionLength = 13;
+
+var formSwingDupr = 0.15;
+
+var dropInReturnChance = 0.3;
 
 export {
   scenarios ,
@@ -1291,13 +1482,15 @@ export {
   settledSigma ,
   startingRating ,
   buildPlayers ,
-  maxScore ,
   truthRatings ,
   clampProb ,
   trueWinProbability ,
   drawSigma ,
   drawProbability ,
   predictedWinProbability ,
+  maxScore ,
+  gameWinProb ,
+  rallyProbFor ,
   simulateScore ,
   ranksOf ,
   spearman ,
@@ -1319,9 +1512,18 @@ export {
   rematchKey ,
   revengeChance ,
   americanCarryOvers ,
+  buildKingCourtRound ,
   buildOpenPlayRound ,
   bandsOf ,
   truthAt ,
+  sessionLength ,
+  sessionOf ,
+  formSwingDupr ,
+  formTable ,
+  performedAt ,
+  dropInReturnChance ,
+  dropInPercentiles ,
+  dropInPlan ,
   makeFrame ,
   simulateStrategy ,
   run ,

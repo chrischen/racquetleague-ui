@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yz7wBu\":\"ปิด\",\"6V3Ea3\":\"คัดลอกแล้ว\",\"he3ygx\":\"คัดลอก\",\"wrCvgh\":\"ส่งออกประวัติ\",\"9xpPmW\":\"เฉพาะแมตช์ที่บันทึกคะแนนแล้วและการปรับเรตติ้ง วางข้อมูลนี้ในเมนูนำเข้าประวัติบนอุปกรณ์อื่น\"}");

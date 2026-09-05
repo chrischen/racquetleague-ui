@@ -149,6 +149,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "smartRsvpThreshold",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "viewerIsAdmin",
       "storageKey": null
     },

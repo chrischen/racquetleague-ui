@@ -13,115 +13,111 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/Kiosk.re.mjs:923
-msgid "{0}-second clip from the rolling buffer"
-msgstr "ローリングバッファからの{0}秒クリップ"
+#: src/components/organisms/Kiosk.re.mjs:969
+msgid "{0}-second clip · {1}"
+msgstr "{0}秒のクリップ · {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:741
+#: src/components/organisms/Kiosk.re.mjs:757
 msgid "● BUFFER {0}s / {1}s"
 msgstr "● バッファ {0}s / {1}s"
 
-#: src/components/organisms/Kiosk.re.mjs:741
+#: src/components/organisms/Kiosk.re.mjs:757
 msgid "● BUFFER READY"
 msgstr "● バッファ準備完了"
 
-#: src/components/organisms/Kiosk.re.mjs:923
-msgid "18-second clip · Rally 07"
-msgstr "18秒クリップ · ラリー07"
-
-#: src/components/organisms/Kiosk.re.mjs:817
+#: src/components/organisms/Kiosk.re.mjs:860
 msgid "24 shots analyzed · Game session"
 msgstr "24ショット分析済み · ゲームセッション"
 
-#: src/components/organisms/Kiosk.re.mjs:217
+#: src/components/organisms/Kiosk.re.mjs:230
 msgid "ACTIVE SESSION"
 msgstr "セッション進行中"
 
-#: src/components/organisms/Kiosk.re.mjs:2042
+#: src/components/organisms/Kiosk.re.mjs:2160
 msgid "Analysis"
 msgstr "分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1198
+#: src/components/organisms/Kiosk.re.mjs:1258
 msgid "Analysis capture active"
 msgstr "分析キャプチャ有効"
 
-#: src/components/organisms/Kiosk.re.mjs:331
+#: src/components/organisms/Kiosk.re.mjs:344
 msgid "ANALYSIS COMPLETE"
 msgstr "分析完了"
 
-#: src/components/organisms/Kiosk.re.mjs:2122
+#: src/components/organisms/Kiosk.re.mjs:2240
 msgid "Analysis modes"
 msgstr "分析モード"
 
-#: src/components/organisms/Kiosk.re.mjs:1928
+#: src/components/organisms/Kiosk.re.mjs:2046
 msgid "Analysis setup"
 msgstr "分析設定"
 
-#: src/components/organisms/Kiosk.re.mjs:1243
+#: src/components/organisms/Kiosk.re.mjs:1303
 msgid "Analyzing the play"
 msgstr "プレーを分析中"
 
-#: src/components/organisms/Kiosk.re.mjs:1006
+#: src/components/organisms/Kiosk.re.mjs:1063
 msgid "Angle {0} of {1}"
 msgstr "アングル {0} / {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:987
+#: src/components/organisms/Kiosk.re.mjs:1044
 msgid "Approach"
 msgstr "アプローチ"
 
-#: src/components/organisms/Kiosk.re.mjs:2060
+#: src/components/organisms/Kiosk.re.mjs:2178
 msgid "Available while playing"
 msgstr "プレー中に利用可能"
 
-#: src/components/organisms/Kiosk.re.mjs:1891
+#: src/components/organisms/Kiosk.re.mjs:2005
 msgid "Back to modes"
 msgstr "モードに戻る"
 
-#: src/components/organisms/Kiosk.re.mjs:871
+#: src/components/organisms/Kiosk.re.mjs:914
 msgid "Backhand"
 msgstr "バックハンド"
 
-#: src/components/organisms/Kiosk.re.mjs:867
+#: src/components/organisms/Kiosk.re.mjs:910
 msgid "Best target"
 msgstr "ベストターゲット"
 
-#: src/components/organisms/Kiosk.re.mjs:1005
+#: src/components/organisms/Kiosk.re.mjs:1062
 msgid "Bounce review"
 msgstr "バウンスレビュー"
 
-#: src/components/organisms/Kiosk.re.mjs:593
+#: src/components/organisms/Kiosk.re.mjs:606
 msgid "Camera {0}"
 msgstr "カメラ {0}"
 
-#: src/components/organisms/Kiosk.re.mjs:1858
+#: src/components/organisms/Kiosk.re.mjs:1972
 msgid "Camera connected"
 msgstr "カメラ接続済み"
 
-#: src/components/organisms/Kiosk.re.mjs:2015
+#: src/components/organisms/Kiosk.re.mjs:2133
 msgid "Camera framing and connection look good"
 msgstr "カメラのフレーミングと接続は良好です"
 
-#: src/components/organisms/Kiosk.re.mjs:519
+#: src/components/organisms/Kiosk.re.mjs:532
 msgid "Camera source"
 msgstr "カメラソース"
 
-#: src/components/organisms/Kiosk.re.mjs:1791
+#: src/components/organisms/Kiosk.re.mjs:1902
 msgid "Camera unavailable — check permissions and try again"
 msgstr "カメラを使用できません — 権限を確認して再試行してください"
 
-#: src/components/organisms/Kiosk.re.mjs:75
+#: src/components/organisms/Kiosk.re.mjs:88
 msgid "Capture several serves, then end to view the result."
 msgstr "サーブを数回キャプチャしてから、終了して結果を確認してください。"
 
-#: src/components/organisms/Kiosk.re.mjs:35
+#: src/components/organisms/Kiosk.re.mjs:48
 msgid "Check in or out"
 msgstr "チェックイン／アウト"
 
-#: src/components/organisms/Kiosk.re.mjs:730
+#: src/components/organisms/Kiosk.re.mjs:746
 msgid "Choose an action"
 msgstr "アクションを選択"
 
-#: src/components/organisms/Kiosk.re.mjs:540
+#: src/components/organisms/Kiosk.re.mjs:553
 msgid ""
 "Choose which connected camera the kiosk uses. The change applies "
 "immediately, including to a running session."
@@ -129,159 +125,171 @@ msgstr ""
 "キオスクが使用する接続済みカメラを選択します。変更は即時に適用され、実行中の"
 "セッションにも反映されます。"
 
-#: src/components/organisms/Kiosk.re.mjs:1158
+#: src/components/organisms/Kiosk.re.mjs:1218
 msgid "Clip and line-check actions are ready at any time."
 msgstr "クリップとラインチェックはいつでも実行できます。"
 
-#: src/components/organisms/Kiosk.re.mjs:33
+#: src/components/organisms/Kiosk.re.mjs:1908
+msgid "Clip downloaded"
+msgstr "クリップをダウンロードしました"
+
+#: src/components/organisms/Kiosk.re.mjs:46
 msgid "Clip last rally"
 msgstr "直前のラリーをクリップ"
 
-#: src/components/organisms/Kiosk.re.mjs:1785
+#: src/components/organisms/Kiosk.re.mjs:1896
 msgid "Clip saved · live capture continues"
 msgstr "クリップ保存済み · ライブキャプチャ継続中"
 
-#: src/components/organisms/Kiosk.re.mjs:742
+#: src/components/organisms/Kiosk.re.mjs:758
 msgid "CLIPPING UNAVAILABLE"
 msgstr "クリップ作成不可"
 
-#: src/components/organisms/Kiosk.re.mjs:529
+#: src/components/organisms/Kiosk.re.mjs:793
+msgid "Clipping…"
+msgstr "クリップを作成中…"
+
+#: src/components/organisms/Kiosk.re.mjs:542
 msgid "Close settings"
 msgstr "設定を閉じる"
 
-#: src/components/organisms/Kiosk.re.mjs:677
+#: src/components/organisms/Kiosk.re.mjs:690
 msgid "COMING SOON"
 msgstr "近日公開"
 
-#: src/components/organisms/Kiosk.re.mjs:992
+#: src/components/organisms/Kiosk.re.mjs:1049
 msgid "Contact"
 msgstr "お問い合わせ"
 
-#: src/components/organisms/Kiosk.re.mjs:461
+#: src/components/organisms/Kiosk.re.mjs:474
 msgid "Copied"
 msgstr "コピーしました"
 
-#: src/components/organisms/Kiosk.re.mjs:461
+#: src/components/organisms/Kiosk.re.mjs:474
 msgid "Copy URL"
 msgstr "URLをコピー"
 
-#: src/components/organisms/Kiosk.re.mjs:1794
+#: src/components/organisms/Kiosk.re.mjs:1905
 msgid "Could not create the clip — the buffer keeps recording"
 msgstr "クリップを作成できませんでした — バッファーは録画を継続しています"
 
-#: src/components/organisms/Kiosk.re.mjs:41
+#: src/components/organisms/Kiosk.re.mjs:54
 msgid "Create a clean, shareable clip from the rolling video buffer."
 msgstr "ローリング映像バッファからクリーンで共有可能なクリップを作成します。"
 
-#: src/components/organisms/Kiosk.re.mjs:943
-msgid "Discard"
-msgstr "破棄"
+#: src/components/organisms/Kiosk.re.mjs:983
+msgid "Delete clip"
+msgstr "クリップを削除"
 
-#: src/components/organisms/Kiosk.re.mjs:1093
+#: src/components/organisms/Kiosk.re.mjs:1012
+msgid "Done"
+msgstr "完了"
+
+#: src/components/organisms/Kiosk.re.mjs:1150
 msgid "Done reviewing"
 msgstr "レビュー完了"
 
-#: src/components/organisms/Kiosk.re.mjs:57
+#: src/components/organisms/Kiosk.re.mjs:70
 msgid "Drop shot analysis"
 msgstr "ドロップショット分析"
 
-#: src/components/organisms/Kiosk.re.mjs:816
+#: src/components/organisms/Kiosk.re.mjs:859
 msgid "Drop shot placement"
 msgstr "ドロップショットの配置"
 
-#: src/components/organisms/Kiosk.re.mjs:1216
+#: src/components/organisms/Kiosk.re.mjs:1276
 msgid "End & analyze"
 msgstr "終了して分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1173
+#: src/components/organisms/Kiosk.re.mjs:1233
 msgid "End session"
 msgstr "セッションを終了"
 
-#: src/components/organisms/Kiosk.re.mjs:1891
+#: src/components/organisms/Kiosk.re.mjs:2005
 msgid "End session and exit"
 msgstr "セッションを終了して退出"
 
-#: src/components/organisms/Kiosk.re.mjs:73
+#: src/components/organisms/Kiosk.re.mjs:86
 msgid "End the session when you have collected enough shots."
 msgstr "十分なショットを収集したらセッションを終了してください。"
 
-#: src/components/organisms/Kiosk.re.mjs:997
+#: src/components/organisms/Kiosk.re.mjs:1054
 msgid "Exit"
 msgstr "退出"
 
-#: src/components/organisms/Kiosk.re.mjs:1247
+#: src/components/organisms/Kiosk.re.mjs:1307
 msgid "Finding the clearest camera moments and preparing your result."
 msgstr "最も鮮明なカメラの瞬間を検索し、結果を準備しています。"
 
-#: src/components/organisms/Kiosk.re.mjs:515
+#: src/components/organisms/Kiosk.re.mjs:528
 msgid "KIOSK SETTINGS"
 msgstr "キオスク設定"
 
-#: src/components/organisms/Kiosk.re.mjs:854
+#: src/components/organisms/Kiosk.re.mjs:897
 msgid "Kitchen accuracy"
 msgstr "キッチン精度"
 
-#: src/components/organisms/Kiosk.re.mjs:843
+#: src/components/organisms/Kiosk.re.mjs:886
 msgid "LANDING HEATMAP"
 msgstr "着地ヒートマップ"
 
-#: src/components/organisms/Kiosk.re.mjs:932
+#: src/components/organisms/Kiosk.re.mjs:1032
 msgid "Last rally"
 msgstr "直前のラリー"
 
-#: src/components/organisms/Kiosk.re.mjs:561
+#: src/components/organisms/Kiosk.re.mjs:574
 msgid "Let the browser pick the default device"
 msgstr "ブラウザにデフォルトデバイスを選択させる"
 
-#: src/components/organisms/Kiosk.re.mjs:2030
+#: src/components/organisms/Kiosk.re.mjs:2148
 msgid "Live game"
 msgstr "ライブゲーム"
 
-#: src/components/organisms/Kiosk.re.mjs:1775
+#: src/components/organisms/Kiosk.re.mjs:1886
 msgid "Live rolling session"
 msgstr "ライブローリングセッション"
 
-#: src/components/organisms/Kiosk.re.mjs:1928
+#: src/components/organisms/Kiosk.re.mjs:2046
 msgid "Live session"
 msgstr "ライブセッション"
 
-#: src/components/organisms/Kiosk.re.mjs:1269
+#: src/components/organisms/Kiosk.re.mjs:1329
 msgid "Live session and rolling buffer are still active"
 msgstr "ライブセッションとローリングバッファはまだアクティブです"
 
-#: src/components/organisms/Kiosk.re.mjs:1234
+#: src/components/organisms/Kiosk.re.mjs:1294
 msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
 msgstr "ライブセッション継続中 · バッファ録画中"
 
-#: src/components/organisms/Kiosk.re.mjs:1788
+#: src/components/organisms/Kiosk.re.mjs:1899
 msgid "Live session ended"
 msgstr "ライブセッション終了"
 
-#: src/components/organisms/Kiosk.re.mjs:639
+#: src/components/organisms/Kiosk.re.mjs:652
 msgid "Local"
 msgstr "ローカル"
 
-#: src/components/organisms/Kiosk.re.mjs:67
+#: src/components/organisms/Kiosk.re.mjs:80
 msgid "Measure serve speed and review the detected serve clip."
 msgstr "サーブ速度を計測し、検出されたサーブクリップを確認します。"
 
-#: src/components/organisms/Kiosk.re.mjs:1067
+#: src/components/organisms/Kiosk.re.mjs:1124
 msgid "Next"
 msgstr "次へ"
 
-#: src/components/organisms/Kiosk.re.mjs:1075
+#: src/components/organisms/Kiosk.re.mjs:1132
 msgid "Next bounce clip"
 msgstr "次のバウンスクリップ"
 
-#: src/components/organisms/Kiosk.re.mjs:2064
+#: src/components/organisms/Kiosk.re.mjs:2182
 msgid "No action selection is needed before starting."
 msgstr "開始前にアクションを選択する必要はありません。"
 
-#: src/components/organisms/Kiosk.re.mjs:293
+#: src/components/organisms/Kiosk.re.mjs:306
 msgid "no audio"
 msgstr "音声なし"
 
-#: src/components/organisms/Kiosk.re.mjs:616
+#: src/components/organisms/Kiosk.re.mjs:629
 msgid ""
 "No cameras detected. Connect a camera or allow camera access, then reopen "
 "settings."
@@ -289,177 +297,201 @@ msgstr ""
 "カメラが検出されませんでした。カメラを接続するかカメラへのアクセスを許可して"
 "から、設定を再度開いてください。"
 
-#: src/components/organisms/Kiosk.re.mjs:1979
+#: src/components/organisms/Kiosk.re.mjs:1028
+msgid "No clip selected"
+msgstr "クリップが選択されていません"
+
+#: src/components/organisms/Kiosk.re.mjs:2097
 msgid "OFF"
 msgstr "オフ"
 
-#: src/components/organisms/Kiosk.re.mjs:1979
+#: src/components/organisms/Kiosk.re.mjs:2097
 msgid "ON"
 msgstr "オン"
 
-#: src/components/organisms/Kiosk.re.mjs:643
+#: src/components/organisms/Kiosk.re.mjs:656
 msgid "On-device rolling buffer and clip processing"
 msgstr "デバイス上でのローリングバッファーとクリップ処理"
 
-#: src/components/organisms/Kiosk.re.mjs:471
+#: src/components/organisms/Kiosk.re.mjs:484
 msgid "Open"
 msgstr "開く"
 
-#: src/components/organisms/Kiosk.re.mjs:1867
+#: src/components/organisms/Kiosk.re.mjs:1981
 msgid "Open kiosk settings"
 msgstr "キオスク設定を開く"
 
-#: src/components/organisms/Kiosk.re.mjs:1028
+#: src/components/organisms/Kiosk.re.mjs:1085
 msgid "OUT"
 msgstr "アウト"
 
-#: src/components/organisms/Kiosk.re.mjs:899
+#: src/components/organisms/Kiosk.re.mjs:942
 msgid "Peak ball speed"
 msgstr "ボール最高速度"
 
-#: src/components/organisms/Kiosk.re.mjs:1841
+#: src/components/organisms/Kiosk.re.mjs:1955
 msgid "Pickleball camera kiosk"
 msgstr "ピックルボール カメラキオスク"
 
-#: src/components/organisms/Kiosk.re.mjs:933
+#: src/components/organisms/Kiosk.re.mjs:1033
 msgid "Play last rally"
 msgstr "最後のラリーを再生"
 
-#: src/components/organisms/Kiosk.re.mjs:892
+#: src/components/organisms/Kiosk.re.mjs:935
 msgid "Play serve replay"
 msgstr "サーブリプレイを再生"
 
-#: src/components/organisms/Kiosk.re.mjs:428
+#: src/components/organisms/Kiosk.re.mjs:441
 msgid "Point a phone camera at the code to open this court's live stream."
 msgstr ""
 "このコートのライブ配信を開くには、スマートフォンのカメラをコードに向けてくだ"
 "さい。"
 
-#: src/components/organisms/Kiosk.re.mjs:1043
+#: src/components/organisms/Kiosk.re.mjs:1100
 msgid "Previous"
 msgstr "前へ"
 
-#: src/components/organisms/Kiosk.re.mjs:1047
+#: src/components/organisms/Kiosk.re.mjs:1104
 msgid "Previous bounce clip"
 msgstr "前のバウンスクリップ"
 
-#: src/components/organisms/Kiosk.re.mjs:622
+#: src/components/organisms/Kiosk.re.mjs:635
 msgid "PROCESSING MODE"
 msgstr "処理モード"
 
-#: src/components/organisms/Kiosk.re.mjs:925
-msgid "Rally clip ready"
-msgstr "ラリークリップ準備完了"
+#: src/components/organisms/Kiosk.re.mjs:968
+#: src/components/organisms/Kiosk.re.mjs:1027
+msgid "Rally clip"
+msgstr "ラリークリップ"
 
-#: src/components/organisms/Kiosk.re.mjs:43
+#: src/components/organisms/Kiosk.re.mjs:812
+msgid "RECENT CLIPS"
+msgstr "最近のクリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:56
 msgid "Review the latest bounce from multiple close-up moments."
 msgstr "複数のクローズアップシーンから最新のバウンスを確認します。"
 
-#: src/components/organisms/Kiosk.re.mjs:1119
+#: src/components/organisms/Kiosk.re.mjs:1176
 msgid "Rolling buffer"
 msgstr "ローリングバッファ"
 
-#: src/components/organisms/Kiosk.re.mjs:1154
+#: src/components/organisms/Kiosk.re.mjs:1214
 msgid "Rolling buffer active"
 msgstr "ローリングバッファ有効"
 
-#: src/components/organisms/Kiosk.re.mjs:812
+#: src/components/organisms/Kiosk.re.mjs:855
 msgid "ROLLING BUFFER CAPTURE"
 msgstr "ローリングバッファキャプチャ"
 
-#: src/components/organisms/Kiosk.re.mjs:1939
+#: src/components/organisms/Kiosk.re.mjs:2057
 msgid "Rolling capture with optional YouTube streaming."
 msgstr "オプションのYouTubeストリーミング付きローリングキャプチャ。"
 
-#: src/components/organisms/Kiosk.re.mjs:957
-#: src/components/organisms/Kiosk.re.mjs:971
+#: src/components/organisms/Kiosk.re.mjs:997
 msgid "Save clip"
 msgstr "クリップを保存"
 
-#: src/components/organisms/Kiosk.re.mjs:412
+#: src/components/organisms/Kiosk.re.mjs:425
 msgid "Scan to watch"
 msgstr "スキャンして視聴"
 
-#: src/components/organisms/Kiosk.re.mjs:1939
+#: src/components/organisms/Kiosk.re.mjs:2057
 msgid "Select a mode, then start capture."
 msgstr "モードを選択してからキャプチャを開始してください。"
 
-#: src/components/organisms/Kiosk.re.mjs:2126
+#: src/components/organisms/Kiosk.re.mjs:2244
 msgid "Select one before starting the camera."
 msgstr "カメラを起動する前にいずれかを選択してください。"
 
-#: src/components/organisms/Kiosk.re.mjs:1945
+#: src/components/organisms/Kiosk.re.mjs:2063
 msgid "SELECTED ANALYSIS"
 msgstr "選択中の分析"
 
-#: src/components/organisms/Kiosk.re.mjs:888
+#: src/components/organisms/Kiosk.re.mjs:931
 msgid "Serve 04 · Clean read"
 msgstr "サーブ 04 · 正常読取"
 
-#: src/components/organisms/Kiosk.re.mjs:887
+#: src/components/organisms/Kiosk.re.mjs:930
 msgid "Serve detected"
 msgstr "サーブ検出"
 
-#: src/components/organisms/Kiosk.re.mjs:891
+#: src/components/organisms/Kiosk.re.mjs:934
 msgid "Serve replay"
 msgstr "サーブリプレイ"
 
-#: src/components/organisms/Kiosk.re.mjs:59
+#: src/components/organisms/Kiosk.re.mjs:72
 msgid "Serve speed analysis"
 msgstr "サーブ速度分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1945
+#: src/components/organisms/Kiosk.re.mjs:2063
 msgid "SESSION SETUP"
 msgstr "セッション設定"
 
-#: src/components/organisms/Kiosk.re.mjs:1970
+#: src/components/organisms/Kiosk.re.mjs:2088
 msgid "Show a viewer QR code during the session"
 msgstr "セッション中に視聴者用QRコードを表示する"
 
-#: src/components/organisms/Kiosk.re.mjs:2000
+#: src/components/organisms/Kiosk.re.mjs:2118
 msgid "Start analysis"
 msgstr "分析を開始"
 
-#: src/components/organisms/Kiosk.re.mjs:316
+#: src/components/organisms/Kiosk.re.mjs:329
 msgid "Start another session"
 msgstr "別のセッションを開始"
 
-#: src/components/organisms/Kiosk.re.mjs:2000
+#: src/components/organisms/Kiosk.re.mjs:2118
 msgid "Start live session"
 msgstr "ライブセッションを開始"
 
-#: src/components/organisms/Kiosk.re.mjs:1966
+#: src/components/organisms/Kiosk.re.mjs:2084
 msgid "Stream on YouTube"
 msgstr "YouTubeでストリーミング"
 
-#: src/components/organisms/Kiosk.re.mjs:684
+#: src/components/organisms/Kiosk.re.mjs:697
 msgid "Stream to the server for processing"
 msgstr "処理のためにサーバーへストリーミング"
 
-#: src/components/organisms/Kiosk.re.mjs:557
+#: src/components/organisms/Kiosk.re.mjs:570
 msgid "System default camera"
 msgstr "システムデフォルトカメラ"
 
-#: src/components/organisms/Kiosk.re.mjs:2112
+#: src/components/organisms/Kiosk.re.mjs:2230
 msgid "The camera continuously keeps recent play ready for either action."
 msgstr "カメラは直近のプレーを常時バッファリングし、いつでも確認できます。"
 
-#: src/components/organisms/Kiosk.re.mjs:734
+#: src/components/organisms/Kiosk.re.mjs:750
 msgid "The rolling buffer continues while you review."
 msgstr "レビュー中もローリングバッファは継続されます。"
 
-#: src/components/organisms/Kiosk.re.mjs:675
+#: src/components/organisms/Kiosk.re.mjs:688
 msgid "Thin client"
 msgstr "シンクライアント"
 
-#: src/components/organisms/Kiosk.re.mjs:65
+#: src/components/organisms/Kiosk.re.mjs:78
 msgid "Track drop-shot placement and reveal landing patterns."
 msgstr "ドロップショットの配置を追跡し、着地パターンを明らかにします。"
 
-#: src/components/organisms/Kiosk.re.mjs:777
+#: src/components/organisms/Kiosk.re.mjs:793
 msgid "Use latest buffered footage"
 msgstr "最新のバッファ映像を使用"
 
-#: src/components/organisms/Kiosk.re.mjs:441
+#: src/components/organisms/Kiosk.re.mjs:454
 msgid "VIEWING URL"
 msgstr "視聴URL"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+#~ msgid "{0}-second clip from the rolling buffer"
+#~ msgstr "ローリングバッファからの{0}秒クリップ"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+#~ msgid "18-second clip · Rally 07"
+#~ msgstr "18秒クリップ · ラリー07"
+
+#: src/components/organisms/Kiosk.re.mjs:943
+#~ msgid "Discard"
+#~ msgstr "破棄"
+
+#: src/components/organisms/Kiosk.re.mjs:925
+#~ msgid "Rally clip ready"
+#~ msgstr "ラリークリップ準備完了"

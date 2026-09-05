@@ -67,6 +67,11 @@ function toWire(r, detail) {
           numRounds: r.numRounds,
           truth: r.truth.map(r4),
           driftRoles: r.driftRoles,
+          form: r.form.map(function (offsets) {
+                return offsets.map(r4);
+              }),
+          dropIns: r.dropIns,
+          attendance: r.attendance,
           names: r.names,
           flagged: r.flagged,
           runs: r.runs.map(function (run) {
@@ -88,7 +93,7 @@ function encode(byField, label, scenario, numPlayers, courts, numRounds, seed, s
                   });
       });
   var saved = {
-    version: 2,
+    version: 3,
     label: label,
     generatedAt: generatedAt,
     scenario: scenario,
@@ -170,6 +175,9 @@ function fromWire(w) {
               numRounds: w.numRounds,
               truth: w.truth,
               driftRoles: w.driftRoles,
+              form: w.form,
+              dropIns: w.dropIns,
+              attendance: w.attendance,
               names: w.names,
               flagged: w.flagged,
               runs: runs
@@ -222,10 +230,10 @@ function decode(text) {
               _0: "Not a saved lab run."
             };
     }
-    if (json.version !== 2) {
+    if (json.version !== 3) {
       return {
               TAG: "Error",
-              _0: "Saved run is format v" + json.version.toString() + "; this build reads v" + (2).toString() + ". Regenerate it with \`yarn lab:precompute\`."
+              _0: "Saved run is format v" + json.version.toString() + "; this build reads v" + (3).toString() + ". Regenerate it with \`yarn lab:precompute\`."
             };
     }
     if (!hasSpine(json)) {
@@ -292,7 +300,7 @@ function decodeManifest(text) {
             TAG: "Error",
             _0: "Not a saved-run manifest."
           };
-  } else if (json.version === 2) {
+  } else if (json.version === 3) {
     return {
             TAG: "Ok",
             _0: json
@@ -300,7 +308,7 @@ function decodeManifest(text) {
   } else {
     return {
             TAG: "Error",
-            _0: "Manifest is format v" + json.version.toString() + "; this build reads v" + (2).toString() + "."
+            _0: "Manifest is format v" + json.version.toString() + "; this build reads v" + (3).toString() + "."
           };
   }
 }
@@ -358,7 +366,7 @@ async function loadRun(file) {
   return decode(text);
 }
 
-var version = 2;
+var version = 3;
 
 export {
   version ,

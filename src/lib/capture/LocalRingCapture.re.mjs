@@ -126,12 +126,12 @@ async function configureVideo(state, metadata) {
   }
 }
 
-function encodeFrame(state, video, encoder, metadata) {
+function encodeFrame(state, video, encoder, nowMs) {
   if (state.flushing || encoder.encodeQueueSize > 2) {
     state.droppedFrames = state.droppedFrames + 1 | 0;
     return ;
   }
-  var timestampUs = metadata.mediaTime * 1000000;
+  var timestampUs = nowMs * 1000;
   state.lastVideoTsUs = timestampUs;
   var frame;
   try {
@@ -547,14 +547,14 @@ async function start(state, onStatus, stream) {
     };
   }
   if (playResult.TAG === "Ok") {
-    var onFrame = function (_now, metadata) {
+    var onFrame = function (now, metadata) {
       if (!state.running) {
         return ;
       }
       state.rvfc = Caml_option.some(video.requestVideoFrameCallback(onFrame));
       var encoder = state.videoEncoder;
       if (encoder !== undefined) {
-        return encodeFrame(state, video, Caml_option.valFromOption(encoder), metadata);
+        return encodeFrame(state, video, Caml_option.valFromOption(encoder), now);
       } else if (!state.videoConfiguring) {
         state.videoConfiguring = true;
         configureVideo(state, metadata);

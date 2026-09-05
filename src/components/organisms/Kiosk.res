@@ -20,14 +20,31 @@ type liveAction = RallyClip | LineCheck
 type analysisMode = DropShot | ServeSpeed
 type resultMode = LiveResult(liveAction) | AnalysisResult(analysisMode)
 type stage = Ready | Active | Processing | Result
-type notice = ClipSaved | LiveEnded | CameraError | ClipFailed
+type notice = ClipSaved | LiveEnded | CameraError | ClipFailed | ClipDownloaded
 
-// A muxed rally clip held as an object URL for playback + download. The URL
-// is revoked by an effect when this state is replaced or cleared.
+// A muxed rally clip held as an object URL for playback + download. Clips are
+// auto-saved into a per-session history; URLs are released when a clip is
+// deleted, evicted, or the session ends.
 type clipState = {
   url: string,
   durationSeconds: float,
   hasAudio: bool,
+  capturedAt: string, // "HH:MM" label for the history strip
+}
+
+// Bounded so a long session cannot accumulate unbounded blob memory.
+let maxClipHistory = 5
+
+// Delay revocation: a download may still be streaming this blob.
+let releaseClip = (clip: clipState) => {
+  let _ = setTimeout(() => CaptureSession.revokeObjectURL(clip.url), 60_000)
+}
+
+let timeLabel = () => {
+  let now = Date.make()
+  let hours = now->Date.getHours->Int.toString->String.padStart(2, "0")
+  let minutes = now->Date.getMinutes->Int.toString->String.padStart(2, "0")
+  hours ++ ":" ++ minutes
 }
 
 // TODO(kiosk): real per-court stream URL once YouTube streaming is wired up.
@@ -153,10 +170,11 @@ module CameraView = {
 
     <div
       className={cx([
-        // Fills whatever area the session layout gives it; object-contain
+        // Fills whatever area the session layout gives it (no min-height, so
+        // it can never push the control cluster off screen); object-contain
         // letterboxes any camera aspect against black instead of cropping.
-        "relative h-full min-h-[280px] w-full overflow-hidden border-2 border-kiosk-border",
-        stream->Option.isSome ? "bg-black" : "bg-kiosk-court",
+        "relative h-full w-full overflow-hidden border-2 border-kiosk-border",
+        stream->Option.isSome ? "bg-black" : "bg-kiosk-court min-h-[330px]",
       ])}>
       {switch stream {
       | Some(_) =>
@@ -536,6 +554,9 @@ module LiveActionControls = {
     ~onAction: liveAction => unit,
     ~bufferStatus: option<CaptureSession.status>,
     ~clipEnabled: bool,
+    ~clipping: bool,
+    ~clips: array<clipState>,
+    ~onReview: clipState => unit,
   ) => {
     <section className="mt-4 shrink-0 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:p-6">
       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
@@ -567,7 +588,7 @@ module LiveActionControls = {
           | RallyClip => <Lucide.Scissors \"aria-hidden"="true" size=31 strokeWidth=2.4 />
           | LineCheck => <Lucide.ScanLine \"aria-hidden"="true" size=31 strokeWidth=2.4 />
           }
-          let disabled = action == RallyClip && !clipEnabled
+          let disabled = action == RallyClip && (!clipEnabled || clipping)
           <button
             key={liveActionKey(action)}
             type_="button"
@@ -586,13 +607,34 @@ module LiveActionControls = {
             <span>
               <span className="block text-xl font-extrabold leading-tight"> {liveActionName(action)} </span>
               <span className="mt-2 block text-sm font-medium leading-5 opacity-70">
-                {t`Use latest buffered footage`}
+                {action == RallyClip && clipping ? t`Clipping…` : t`Use latest buffered footage`}
               </span>
             </span>
           </button>
         })
         ->React.array}
       </div>
+      {clips->Array.length == 0
+        ? React.null
+        : <div className="mt-4 flex items-center gap-3 overflow-x-auto">
+            <p className="shrink-0 font-mono text-xs font-semibold text-kiosk-muted">
+              {t`RECENT CLIPS`}
+            </p>
+            {clips
+            ->Array.map(clip =>
+              <button
+                key=clip.url
+                type_="button"
+                onClick={_ => onReview(clip)}
+                className="flex min-h-14 shrink-0 items-center gap-2 whitespace-nowrap border-2 border-kiosk-border bg-kiosk-raised px-4 font-mono text-sm font-semibold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border">
+                <Lucide.Play \"aria-hidden"="true" className="fill-current text-kiosk-accent" size=16 />
+                {React.string(
+                  clip.durationSeconds->Float.toFixed(~digits=0) ++ " s · " ++ clip.capturedAt,
+                )}
+              </button>
+            )
+            ->React.array}
+          </div>}
     </section>
   }
 }
@@ -604,6 +646,7 @@ module ResultPanel = {
     ~clip: option<clipState>,
     ~onDone: unit => unit,
     ~onSaved: unit => unit,
+    ~onDelete: unit => unit,
     ~isLiveSession: bool,
   ) => {
     let (bounceIndex, setBounceIndex) = React.useState(() => 1)
@@ -612,50 +655,52 @@ module ResultPanel = {
     // TODO(kiosk): apart from the rally clip, the result content below is
     // mock data awaiting its real pipeline.
     switch modeId {
-    | LiveResult(RallyClip) => {
-        let subtitle = switch clip {
-        | Some(clip) =>
-          t`${clip.durationSeconds->Float.toFixed(~digits=0)}-second clip from the rolling buffer`
-        | None => t`18-second clip · Rally 07`
-        }
-        <ResultShell title={t`Rally clip ready`} subtitle ?eyebrow>
-          {switch clip {
-          | Some(clip) => <ClipPlayer clip />
-          | None =>
-            // Defensive fallback: the clip action is disabled until the real
-            // buffer is ready, so this mock should not normally show.
-            <VideoMock label={t`Last rally`} playLabel={Lingui.UtilString.t`Play last rally`} />
-          }}
-          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+    | LiveResult(RallyClip) =>
+      // Review of an auto-saved clip from the history strip. The clip is
+      // already kept; Save is an optional local download, Delete removes it
+      // from the history, Done returns to the live view.
+      switch clip {
+      | Some(clip) =>
+        <ResultShell
+          title={t`Rally clip`}
+          subtitle={t`${clip.durationSeconds->Float.toFixed(
+              ~digits=0,
+            )}-second clip · ${clip.capturedAt}`}
+          ?eyebrow>
+          <ClipPlayer clip />
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <button
+              type_="button"
+              onClick={_ => onDelete()}
+              className="flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-border bg-kiosk-raised px-5 text-lg font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/15">
+              <Lucide.Trash2 \"aria-hidden"="true" size=23 />
+              {t`Delete clip`}
+            </button>
+            // TODO(kiosk): upload the clip to the server (instead of or as
+            // well as this local download) once a backend endpoint exists.
+            <a
+              href=clip.url
+              download={"courtside-rally-" ++ Date.now()->Float.toString ++ ".mp4"}
+              onClick={_ => onSaved()}
+              className="flex min-h-20 items-center justify-center gap-3 border-2 border-white bg-white px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-white/80">
+              <Lucide.Download \"aria-hidden"="true" size=23 />
+              {t`Save clip`}
+            </a>
             <button
               type_="button"
               onClick={_ => onDone()}
-              className="flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-border bg-kiosk-raised px-5 text-lg font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/15">
-              <Lucide.Trash2 \"aria-hidden"="true" size=23 />
-              {t`Discard`}
+              className="flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark">
+              <Lucide.Check \"aria-hidden"="true" size=23 />
+              {t`Done`}
             </button>
-            {switch clip {
-            | Some(clip) =>
-              // TODO(kiosk): upload the clip to the server (instead of or as
-              // well as this local download) once a backend endpoint exists.
-              <a
-                href=clip.url
-                download={"courtside-rally-" ++ Date.now()->Float.toString ++ ".mp4"}
-                onClick={_ => onSaved()}
-                className="flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark">
-                <Lucide.Download \"aria-hidden"="true" size=23 />
-                {t`Save clip`}
-              </a>
-            | None =>
-              <button
-                type_="button"
-                onClick={_ => onSaved()}
-                className="flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark">
-                <Lucide.Download \"aria-hidden"="true" size=23 />
-                {t`Save clip`}
-              </button>
-            }}
           </div>
+        </ResultShell>
+      | None =>
+        // Defensive fallback: the review screen is only reachable from a
+        // history entry, so this mock should not normally show.
+        <ResultShell title={t`Rally clip`} subtitle={t`No clip selected`} ?eyebrow>
+          <VideoMock label={t`Last rally`} playLabel={Lingui.UtilString.t`Play last rally`} />
+          <DoneButton onClick=onDone />
         </ResultShell>
       }
     | LiveResult(LineCheck) => {
@@ -787,10 +832,14 @@ module SessionWorkspace = {
     ~elapsed: int,
     ~streamingEnabled: bool,
     ~stream: option<UserMedia.t>,
-    ~clip: option<clipState>,
+    ~reviewClip: option<clipState>,
+    ~clips: array<clipState>,
+    ~clipping: bool,
     ~bufferStatus: option<CaptureSession.status>,
     ~clipEnabled: bool,
     ~onLiveAction: liveAction => unit,
+    ~onReviewClip: clipState => unit,
+    ~onDeleteClip: unit => unit,
     ~onFinishAnalysis: unit => unit,
     ~onEndLive: unit => unit,
     ~onResultDone: unit => unit,
@@ -829,7 +878,14 @@ module SessionWorkspace = {
               </p>
             </div>
           : React.null}
-        <ResultPanel modeId=resultMode clip onDone=onResultDone onSaved isLiveSession />
+        <ResultPanel
+          modeId=resultMode
+          clip=reviewClip
+          onDone=onResultDone
+          onSaved
+          onDelete=onDeleteClip
+          isLiveSession
+        />
       </div>
     | Active => {
         let sessionLabel = isLiveSession ? t`Rolling buffer` : analysisModeName(analysisMode)
@@ -850,7 +906,9 @@ module SessionWorkspace = {
           </div>
           {isLiveSession
             ? <>
-                <LiveActionControls onAction=onLiveAction bufferStatus clipEnabled />
+                <LiveActionControls
+                  onAction=onLiveAction bufferStatus clipEnabled clipping clips onReview=onReviewClip
+                />
                 <div
                   className="mt-4 flex shrink-0 flex-col gap-4 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:flex-row sm:items-stretch sm:justify-between sm:p-5">
                   <div className="flex min-h-20 items-center gap-4">
@@ -919,7 +977,12 @@ let make = () => {
   let sessionRef: React.ref<option<CaptureSession.t>> = React.useRef(None)
   let (captureStatus, setCaptureStatus) = React.useState(() => (None: option<CaptureSession.status>))
   let (clippingReady, setClippingReady) = React.useState(() => false)
-  let (clip, setClip) = React.useState(() => (None: option<clipState>))
+  // Auto-saved clip history (newest first), the clip open in review, and
+  // whether a takeClip is currently in flight.
+  let (clips, setClips) = React.useState(() => ([]: array<clipState>))
+  let (reviewClip, setReviewClip) = React.useState(() => (None: option<clipState>))
+  let (clipping, setClipping) = React.useState(() => false)
+  let clipsRef: React.ref<array<clipState>> = React.useRef([])
 
   // Restore the persisted camera and capture-mode choices. Runs in an effect
   // because the page is SSR'd and localStorage only exists in the browser.
@@ -1026,28 +1089,26 @@ let make = () => {
     }
   }, [stream])
 
-  // Revoke each clip's object URL when it is replaced, discarded, or the
-  // page unmounts — after a grace period, because "Save clip" clears the
-  // state while the browser may still be streaming the blob into a download
-  // (revoking immediately cancels it).
+  // Deletion/eviction/session-end release URLs explicitly; this pair covers
+  // the page unmounting with clips still in the history.
   React.useEffect1(() => {
-    switch clip {
-    | Some(clip) =>
-      Some(
-        () => {
-          let _ = setTimeout(() => CaptureSession.revokeObjectURL(clip.url), 60_000)
-        },
-      )
-    | None => None
-    }
-  }, [clip])
+    clipsRef.current = clips
+    None
+  }, [clips])
+  React.useEffect0(() => Some(() => clipsRef.current->Array.forEach(releaseClip)))
 
   let stopCamera = () => setStream(_ => None)
 
   let resetSession = () => {
     setStage(_ => Ready)
     setElapsed(_ => 0)
-    setClip(_ => None)
+    setReviewClip(_ => None)
+    // Clip history is per-session; release the blobs when it ends. (Releasing
+    // twice under StrictMode double-invoke is harmless.)
+    setClips(previous => {
+      previous->Array.forEach(releaseClip)
+      []
+    })
     stopCamera()
   }
 
@@ -1179,32 +1240,42 @@ let make = () => {
 
   let handleLiveAction = (action: liveAction) =>
     switch action {
-    | RallyClip => {
-        setResultMode(_ => LiveResult(RallyClip))
-        setStage(_ => Processing)
-        let run = async () =>
+    // Auto-save: the clip muxes in the background and drops into the history
+    // strip; the UI stays live and can clip again as soon as it finishes.
+    | RallyClip =>
+      if !clipping {
+        setClipping(_ => true)
+        let run = async () => {
           switch sessionRef.current {
           | Some(session) =>
             switch await session.takeClip() {
             | Ok(result) => {
-                setClip(_ => Some({
+                let clip = {
                   url: CaptureSession.createObjectURL(result.blob),
                   durationSeconds: result.durationSeconds,
                   hasAudio: result.hasAudio,
-                }))
-                setStage(_ => Result)
+                  capturedAt: timeLabel(),
+                }
+                setClips(previous => {
+                  let next = [clip]->Array.concat(previous)
+                  if next->Array.length > maxClipHistory {
+                    next->Array.sliceToEnd(~start=maxClipHistory)->Array.forEach(releaseClip)
+                    next->Array.slice(~start=0, ~end=maxClipHistory)
+                  } else {
+                    next
+                  }
+                })
+                setNotice(_ => Some(ClipSaved))
               }
             | Error(error) => {
                 Js.Console.error2("[kiosk] takeClip failed:", error)
                 setNotice(_ => Some(ClipFailed))
-                setStage(_ => Active)
               }
             }
-          | None => {
-              setNotice(_ => Some(ClipFailed))
-              setStage(_ => Active)
-            }
+          | None => setNotice(_ => Some(ClipFailed))
           }
+          setClipping(_ => false)
+        }
         run()->ignore
       }
     // TODO(kiosk): the line check is still a mock flow.
@@ -1214,6 +1285,25 @@ let make = () => {
       }
     }
 
+  // Open an auto-saved clip from the history strip in the review panel.
+  let handleReviewClip = (clip: clipState) => {
+    setReviewClip(_ => Some(clip))
+    setResultMode(_ => LiveResult(RallyClip))
+    setStage(_ => Result)
+  }
+
+  let handleDeleteClip = () => {
+    switch reviewClip {
+    | Some(clip) => {
+        releaseClip(clip)
+        setClips(previous => previous->Array.filter(existing => existing.url != clip.url))
+      }
+    | None => ()
+    }
+    setReviewClip(_ => None)
+    setStage(_ => Active)
+  }
+
   // TODO(kiosk): run the selected analysis over the captured session.
   let handleFinishAnalysis = () => {
     setResultMode(_ => AnalysisResult(selectedAnalysisMode))
@@ -1221,18 +1311,16 @@ let make = () => {
   }
 
   let handleResultDone = () => {
-    setClip(_ => None)
+    setReviewClip(_ => None)
     switch category {
     | Live => setStage(_ => Active)
     | Analysis => resetSession()
     }
   }
 
-  // TODO(kiosk): persist the clip somewhere real before confirming.
-  let handleSaved = () => {
-    setNotice(_ => Some(ClipSaved))
-    handleResultDone()
-  }
+  // "Save clip" in review = optional local download; stay on the review
+  // screen. TODO(kiosk): upload to the server once an endpoint exists.
+  let handleSaved = () => setNotice(_ => Some(ClipDownloaded))
 
   let handleEndLive = () => {
     resetSession()
@@ -1308,10 +1396,14 @@ let make = () => {
               elapsed
               streamingEnabled
               stream
-              clip
+              reviewClip
+              clips
+              clipping
               bufferStatus=captureStatus
               clipEnabled
               onLiveAction=handleLiveAction
+              onReviewClip=handleReviewClip
+              onDeleteClip=handleDeleteClip
               onFinishAnalysis=handleFinishAnalysis
               onEndLive=handleEndLive
               onResultDone=handleResultDone
@@ -1502,6 +1594,7 @@ let make = () => {
         | LiveEnded => t`Live session ended`
         | CameraError => t`Camera unavailable — check permissions and try again`
         | ClipFailed => t`Could not create the clip — the buffer keeps recording`
+        | ClipDownloaded => t`Clip downloaded`
         }}
       </div>
     | None => React.null

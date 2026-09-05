@@ -12,6 +12,7 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as RoundHeader from "../molecules/RoundHeader.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as Core__Result from "@rescript/core/src/Core__Result.re.mjs";
 import * as Core__String from "@rescript/core/src/Core__String.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as RoundSection from "./RoundSection.re.mjs";
@@ -26,11 +27,14 @@ import * as PrintableDraws from "./PrintableDraws.re.mjs";
 import * as SolverWarnings from "../molecules/SolverWarnings.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
+import * as EventStateTransfer from "../../lib/rating/EventStateTransfer.re.mjs";
 import * as FullScreenRoundView from "./FullScreenRoundView.re.mjs";
 import * as PlayerSettingsModal from "./PlayerSettingsModal.re.mjs";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as TeamManagementModal from "./TeamManagementModal.re.mjs";
 import * as AddGuestPlayersModal from "./AddGuestPlayersModal.re.mjs";
+import * as EventStateExportModal from "./EventStateExportModal.re.mjs";
+import * as EventStateImportModal from "./EventStateImportModal.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
 import * as SeedAdjustmentTimeline from "./SeedAdjustmentTimeline.re.mjs";
@@ -862,10 +866,19 @@ function EventManager(props) {
       });
   var setShowAddGuestsModal = match$13[1];
   var match$14 = React.useState(function () {
+        return false;
+      });
+  var setShowExportHistory = match$14[1];
+  var showExportHistory = match$14[0];
+  var match$15 = React.useState(function () {
+        return false;
+      });
+  var setShowImportHistory = match$15[1];
+  var match$16 = React.useState(function () {
         return {};
       });
-  var setPlayerOverrides = match$14[1];
-  var playerOverrides = match$14[0];
+  var setPlayerOverrides = match$16[1];
+  var playerOverrides = match$16[0];
   var baseRatingFor = function (userId, rsvpRating) {
     var defaultRating = Rating.Rating.makeDefault();
     if (seedSource !== "GlobalRatings" && clubRatings !== undefined) {
@@ -968,26 +981,26 @@ function EventManager(props) {
         seedSource,
         clubRatings
       ]);
-  var match$15 = React.useState(function () {
+  var match$17 = React.useState(function () {
         return [];
       });
-  var setRounds = match$15[1];
-  var rounds = match$15[0];
-  var match$16 = React.useState(function () {
+  var setRounds = match$17[1];
+  var rounds = match$17[0];
+  var match$18 = React.useState(function () {
         return false;
       });
-  var setIsDirty = match$16[1];
-  var isDirty = match$16[0];
-  var match$17 = React.useState(function () {
+  var setIsDirty = match$18[1];
+  var isDirty = match$18[0];
+  var match$19 = React.useState(function () {
         return new Set();
       });
-  var setCheckedInPlayerIds = match$17[1];
-  var checkedInPlayerIds = match$17[0];
-  var match$18 = React.useState(function () {
+  var setCheckedInPlayerIds = match$19[1];
+  var checkedInPlayerIds = match$19[0];
+  var match$20 = React.useState(function () {
         return 0;
       });
-  var setCurrentRoundInt = match$18[1];
-  var currentRoundInt = match$18[0];
+  var setCurrentRoundInt = match$20[1];
+  var currentRoundInt = match$20[0];
   var currentRoundRef = React.useRef(null);
   var allGoingOrPending = Core__Option.getOr(Core__Option.flatMap(data.rsvps, (function (rsvps) {
                 return rsvps.edges;
@@ -1004,11 +1017,11 @@ function EventManager(props) {
       }).length;
   var max = data.maxRsvps;
   var goingPlayerCount = max !== undefined ? Math.min(allGoingOrPending, max) : allGoingOrPending;
-  var match$19 = React.useState(function () {
+  var match$21 = React.useState(function () {
         return Rating.suggestedCourtCount(goingPlayerCount);
       });
-  var setCourtCount = match$19[1];
-  var courtCount = match$19[0];
+  var setCourtCount = match$21[1];
+  var courtCount = match$21[0];
   var modernizeStrategy = function (s) {
     if (HighsBindings.isAvailable()) {
       switch (s) {
@@ -1039,16 +1052,16 @@ function EventManager(props) {
       }
     }
   };
-  var match$20 = React.useState(function () {
+  var match$22 = React.useState(function () {
         return modernizeStrategy("CompetitivePlus");
       });
-  var setStrategy = match$20[1];
-  var strategy = match$20[0];
-  var match$21 = React.useState(function () {
+  var setStrategy = match$22[1];
+  var strategy = match$22[0];
+  var match$23 = React.useState(function () {
         return 1;
       });
-  var setDrawSeed = match$21[1];
-  var drawSeed = match$21[0];
+  var setDrawSeed = match$23[1];
+  var drawSeed = match$23[0];
   var generationSeed = data.id + ":" + drawSeed.toString();
   var handleNewSeed = function () {
     var next = Js_math.random_int(1, 100000);
@@ -1060,21 +1073,21 @@ function EventManager(props) {
           return true;
         });
   };
-  var match$22 = React.useState(function () {
+  var match$24 = React.useState(function () {
         
       });
-  var setWeightConfig = match$22[1];
-  var weightConfig = match$22[0];
-  var match$23 = React.useState(function () {
+  var setWeightConfig = match$24[1];
+  var weightConfig = match$24[0];
+  var match$25 = React.useState(function () {
         return false;
       });
-  var setIsGenerating = match$23[1];
-  var isGenerating = match$23[0];
-  var match$24 = React.useState(function () {
+  var setIsGenerating = match$25[1];
+  var isGenerating = match$25[0];
+  var match$26 = React.useState(function () {
         return 0;
       });
-  var setHistoryRevision = match$24[1];
-  var historyRevision = match$24[0];
+  var setHistoryRevision = match$26[1];
+  var historyRevision = match$26[0];
   var bumpHistoryRevision = function () {
     setHistoryRevision(function (prev) {
           return prev + 1 | 0;
@@ -1085,16 +1098,16 @@ function EventManager(props) {
     generationRequestRef.current = generationRequestRef.current + 1 | 0;
     return generationRequestRef.current;
   };
-  var match$25 = React.useState(function () {
+  var match$27 = React.useState(function () {
         return {};
       });
-  var setSolverMatchViolations = match$25[1];
-  var solverMatchViolations = match$25[0];
-  var match$26 = React.useState(function () {
+  var setSolverMatchViolations = match$27[1];
+  var solverMatchViolations = match$27[0];
+  var match$28 = React.useState(function () {
         return {};
       });
-  var setSolverRoundViolations = match$26[1];
-  var solverRoundViolations = match$26[0];
+  var setSolverRoundViolations = match$28[1];
+  var solverRoundViolations = match$28[0];
   var setAndSaveSolverMatchViolations = function (updater) {
     setSolverMatchViolations(function (prev) {
           var next = updater(prev);
@@ -1109,41 +1122,41 @@ function EventManager(props) {
           return next;
         });
   };
-  var match$27 = React.useState(function () {
+  var match$29 = React.useState(function () {
         return true;
       });
-  var setSolverNoticeDismissed = match$27[1];
-  var match$28 = React.useState(function () {
+  var setSolverNoticeDismissed = match$29[1];
+  var match$30 = React.useState(function () {
         return [];
       });
-  var setRatingAdjustmentHistory = match$28[1];
-  var ratingAdjustmentHistory = match$28[0];
-  var match$29 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setTeams = match$29[1];
-  var teams = match$29[0];
-  var match$30 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setAntiTeams = match$30[1];
-  var antiTeams = match$30[0];
+  var setRatingAdjustmentHistory = match$30[1];
+  var ratingAdjustmentHistory = match$30[0];
   var match$31 = React.useState(function () {
-        return false;
+        return Util.NonEmptyArray.empty;
       });
-  var setTeamManagementOpen = match$31[1];
+  var setTeams = match$31[1];
+  var teams = match$31[0];
   var match$32 = React.useState(function () {
-        
+        return Util.NonEmptyArray.empty;
       });
-  var setPlayerSettingsOpen = match$32[1];
+  var setAntiTeams = match$32[1];
+  var antiTeams = match$32[0];
   var match$33 = React.useState(function () {
         return false;
       });
-  var setShowFullScreenRound = match$33[1];
+  var setTeamManagementOpen = match$33[1];
   var match$34 = React.useState(function () {
+        
+      });
+  var setPlayerSettingsOpen = match$34[1];
+  var match$35 = React.useState(function () {
         return false;
       });
-  var setShowPrintableDraws = match$34[1];
+  var setShowFullScreenRound = match$35[1];
+  var match$36 = React.useState(function () {
+        return false;
+      });
+  var setShowPrintableDraws = match$36[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -1167,6 +1180,18 @@ function EventManager(props) {
         }), [
         rounds,
         currentRoundInt
+      ]);
+  var hasExportableHistory = EventStateTransfer.hasExportableHistory(rounds);
+  var exportHistoryText = React.useMemo((function () {
+          if (showExportHistory) {
+            return EventStateTransfer.encode(data.id, Date.now(), rounds, ratingAdjustmentHistory);
+          } else {
+            return "";
+          }
+        }), [
+        showExportHistory,
+        rounds,
+        ratingAdjustmentHistory
       ]);
   React.useEffect((function () {
           var stored = EventManagerPersistence.loadCourtCount(data.id);
@@ -2002,6 +2027,55 @@ function EventManager(props) {
           return updatedHistory;
         });
   };
+  var planImportHistory = function (text) {
+    return Core__Result.map(EventStateTransfer.decode(text), (function (payload) {
+                  return EventStateTransfer.plan(rounds, ratingAdjustmentHistory, solverRoundViolations, currentRoundInt, players, payload);
+                }));
+  };
+  var previewImportHistory = function (text) {
+    return Core__Result.map(planImportHistory(text), (function (p) {
+                  return p.counts;
+                }));
+  };
+  var handleImportHistory = function (text) {
+    var p = planImportHistory(text);
+    if (p.TAG !== "Ok") {
+      return ;
+    }
+    var p$1 = p._0;
+    if (p$1.counts.importedMatches <= 0) {
+      return ;
+    }
+    var nextRoundInt = p$1.currentRoundInt;
+    var roundViolations = p$1.roundViolations;
+    var adjustments = p$1.adjustments;
+    var mergedRounds = p$1.rounds;
+    beginGeneration();
+    setIsGenerating(function (param) {
+          return false;
+        });
+    updateRounds(function (param) {
+          return mergedRounds;
+        });
+    setRatingAdjustmentHistory(function (param) {
+          return adjustments;
+        });
+    EventManagerPersistence.saveRatingAdjustmentHistory(data.id, adjustments);
+    setAndSaveSolverRoundViolations(function (param) {
+          return roundViolations;
+        });
+    setCurrentRoundInt(function (param) {
+          return nextRoundInt;
+        });
+    EventManagerPersistence.saveCurrentRound(data.id, nextRoundInt);
+    setIsDirty(function (param) {
+          return true;
+        });
+    bumpHistoryRevision();
+    setShowImportHistory(function (param) {
+          return false;
+        });
+  };
   var updatePlayerOverrides = function (updatedPlayer) {
     var originalPlayer = playersWithCounts.find(function (p) {
           return p.id === updatedPlayer.id;
@@ -2103,7 +2177,7 @@ function EventManager(props) {
               };
       });
   var tmp;
-  if (match$33[0]) {
+  if (match$35[0]) {
     var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
     tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
           matches: currentRoundMatches,
@@ -2329,7 +2403,7 @@ function EventManager(props) {
                                       }));
                               })
                           }) : null,
-                    match$27[0] ? null : JsxRuntime.jsxs("div", {
+                    match$29[0] ? null : JsxRuntime.jsxs("div", {
                             children: [
                               JsxRuntime.jsx(LucideReact.AlertTriangle, {
                                     className: "w-4 h-4 mt-0.5 shrink-0"
@@ -2540,7 +2614,7 @@ function EventManager(props) {
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$31[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
+                match$33[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
                         teams: teamsAsData,
                         antiTeams: Util.NonEmptyArray.toArray(antiTeams).map(function (team, index) {
                               return {
@@ -2596,7 +2670,7 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
-                Core__Option.getOr(Core__Option.map(match$32[0], (function (player) {
+                Core__Option.getOr(Core__Option.map(match$34[0], (function (player) {
                             var isGuest = Core__Option.isNone(player.data);
                             if (isGuest) {
                               return JsxRuntime.jsx(PlayerSettingsModal.make, {
@@ -2685,6 +2759,24 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
+                showExportHistory ? JsxRuntime.jsx(EventStateExportModal.make, {
+                        text: exportHistoryText,
+                        onClose: (function () {
+                            setShowExportHistory(function (param) {
+                                  return false;
+                                });
+                          })
+                      }) : null,
+                match$15[0] ? JsxRuntime.jsx(EventStateImportModal.make, {
+                        preview: previewImportHistory,
+                        onImport: handleImportHistory,
+                        disabled: isGenerating,
+                        onClose: (function () {
+                            setShowImportHistory(function (param) {
+                                  return false;
+                                });
+                          })
+                      }) : null,
                 JsxRuntime.jsx(FramerMotion.AnimatePresence, {
                       mode: "sync",
                       children: tmp
@@ -2728,6 +2820,25 @@ function EventManager(props) {
                                               debugMode ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                       children: [
                                                         JsxRuntime.jsx(EventManager$StorageUsageDebug, {}),
+                                                        JsxRuntime.jsx("button", {
+                                                              children: t`Export History`,
+                                                              className: "px-3 py-1 text-sm font-semibold rounded bg-slate-700 hover:bg-slate-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                                                              disabled: !hasExportableHistory,
+                                                              onClick: (function (param) {
+                                                                  setShowExportHistory(function (param) {
+                                                                        return true;
+                                                                      });
+                                                                })
+                                                            }),
+                                                        JsxRuntime.jsx("button", {
+                                                              children: t`Import History`,
+                                                              className: "px-3 py-1 text-sm font-semibold rounded bg-slate-700 hover:bg-slate-600 transition-colors",
+                                                              onClick: (function (param) {
+                                                                  setShowImportHistory(function (param) {
+                                                                        return true;
+                                                                      });
+                                                                })
+                                                            }),
                                                         JsxRuntime.jsx("button", {
                                                               children: t`Reset Storage`,
                                                               className: "px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors",
@@ -2863,7 +2974,7 @@ function EventManager(props) {
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     }),
-                match$34[0] ? JsxRuntime.jsx(PrintableDraws.make, {
+                match$36[0] ? JsxRuntime.jsx(PrintableDraws.make, {
                         rounds: rounds.map(function (roundMatches, roundIdx) {
                               return {
                                       roundNumber: roundIdx + 1 | 0,

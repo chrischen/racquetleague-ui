@@ -7159,12 +7159,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ramda@npm:0.30.1":
-  version: 0.30.1
-  resolution: "@types/ramda@npm:0.30.1"
+"@types/ramda@npm:0.31.1":
+  version: 0.31.1
+  resolution: "@types/ramda@npm:0.31.1"
   dependencies:
-    types-ramda: "npm:^0.30.1"
-  checksum: 3975599065ebfb4a923566ec17e04e5c59ab3b010dc09fb4462393c0e1b6962ff88c852d43f0f524788e589efea09d0ccdf242306c32872d48caaf7ff0362934
+    types-ramda: "npm:^0.31.0"
+  checksum: a16b41a30f33e1ef521d4d57ce4949887906fae0a333d2845ee34ff39b21eee9a0b8db963338a5e9343ed9b23878fac1c362114bb4366d81abfc66d01e0066c2
   languageName: node
   linkType: hard
 
@@ -14841,16 +14841,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openskill@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "openskill@npm:4.0.3"
+"openskill@npm:4.1.1":
+  version: 4.1.1
+  resolution: "openskill@npm:4.1.1"
   dependencies:
     "@types/gaussian": "npm:1.2.2"
-    "@types/ramda": "npm:0.30.1"
+    "@types/ramda": "npm:0.31.1"
     gaussian: "npm:1.3.0"
-    ramda: "npm:0.30.1"
+    ramda: "npm:0.32.0"
     sort-unwind: "npm:3.1.0"
-  checksum: 3f83ad4c3c74e5b9c579dd7c83210c595185968478e770f5a2cc62978cedde83d4ef3ed774555a1223739b6d0a350d588a2e43bb520a0148e4b850576ad9e923
+  checksum: a6d4beb5d37f25a3394eae0f31557038c19f739d9c990edc43734e462bd2114fd1f0adaee32a36475b001d3542c5922b147fd53b36ae4006996370d678a6aa23
   languageName: node
   linkType: hard
 
@@ -15816,7 +15816,7 @@ __metadata:
     lucide-react: "npm:^0.554.0"
     mediabunny: "npm:^1.55.2"
     meros: "npm:^1.3.0"
-    openskill: "npm:^4.0.3"
+    openskill: "npm:4.1.1"
     po-parser: "npm:^2.1.1"
     pofile: "npm:^1.1.4"
     postcss: "npm:^8.4.32"
@@ -15867,10 +15867,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:0.30.1":
-  version: 0.30.1
-  resolution: "ramda@npm:0.30.1"
-  checksum: f3e1a7bc11f3a113edb3bb4764c2c22088c5896594934c01cf1980184d00f1d5a7af82761a3389419e2d51542ad2121ff44e718f40792d167e2846bba79a4c6d
+"ramda@npm:0.32.0":
+  version: 0.32.0
+  resolution: "ramda@npm:0.32.0"
+  checksum: ee03949247ce0cdbb86642c7087adb015552a91e29e21ffe63f1d3e492328144dc3028f7f804f53c028ce753e46e50d0f4ba09c24b394efb98c1e412a5dd046c
   languageName: node
   linkType: hard
 
@@ -18665,12 +18665,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"types-ramda@npm:^0.30.1":
-  version: 0.30.1
-  resolution: "types-ramda@npm:0.30.1"
+"types-ramda@npm:^0.31.0":
+  version: 0.31.0
+  resolution: "types-ramda@npm:0.31.0"
   dependencies:
     ts-toolbelt: "npm:^9.6.0"
-  checksum: b865c8f97df911b82b51b3cb4afa9b52b971d344dd79d203cd118e424a03761aebfea538c643f6283f700a3b4000d07d2168e353691b5caff076542bad78e420
+  checksum: bc1dcd7306da6449418640b4105db0dd682d9bcc50987caafb9fb99bd9a62801522ee59e9de5de6f136b817d01f2d7baa408acaa6ef3991aa28bd197f975fb85
   languageName: node
   linkType: hard
 

@@ -42,7 +42,7 @@ describe("MatchmakingReport", () => {
     render(React.createElement(MatchmakingReport.make));
 
     // The shell paints immediately…
-    expect(screen.getByText(/measured/i)).toBeTruthy();
+    expect(screen.getByText(/rec play, quantified/i)).toBeTruthy();
     // …and the article arrives once the run decodes.
     await waitFor(() => expect(screen.getByText(/Why the Oracle never converges/)).toBeTruthy(), {
       timeout: 30_000,
@@ -65,6 +65,26 @@ describe("MatchmakingReport", () => {
     // Isolating a strategy and switching the blowout room must not throw.
     fireEvent.click(chips[0]);
     fireEvent.click(screen.getAllByRole("button", { name: /Tight club/ })[0]);
+  }, 60_000);
+
+  it.runIf(published)("anchors each use case and highlights the linked one", async () => {
+    serveFromDisk();
+    window.location.hash = "#social-plays";
+    render(React.createElement(MatchmakingReport.make));
+    await waitFor(() => expect(screen.getByText(/Why the Oracle never converges/)).toBeTruthy(), {
+      timeout: 30_000,
+    });
+    // Every use case is addressable…
+    for (const id of [
+      "level-controlled-clubs", "wide-level-open-plays", "social-plays",
+      "single-court-events", "facility-owners",
+    ])
+      expect(document.getElementById(id)).toBeTruthy();
+    // …and only the linked one is highlighted.
+    const linked = document.getElementById("social-plays")!;
+    await waitFor(() => expect(linked.style.background).not.toBe("transparent"));
+    expect(document.getElementById("facility-owners")!.style.background).toBe("transparent");
+    window.location.hash = "";
   }, 60_000);
 
   it("reports a load failure in place of the article", async () => {

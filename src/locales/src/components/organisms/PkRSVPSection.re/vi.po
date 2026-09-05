@@ -13,19 +13,19 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:508
+#: src/components/organisms/PkRSVPSection.re.mjs:577
 msgid "· {0} pending"
 msgstr "· {0} đang chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:506
+#: src/components/organisms/PkRSVPSection.re.mjs:575
 msgid "· +{0} waitlist"
 msgstr "· +{0} chờ đợi"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:503
+#: src/components/organisms/PkRSVPSection.re.mjs:572
 msgid "{0} joined"
 msgstr "{0} đã tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:569
+#: src/components/organisms/PkRSVPSection.re.mjs:638
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ KỸ NĂNG"
 
@@ -69,7 +69,7 @@ msgstr "Rảnh suốt sự kiện"
 msgid "Back to event"
 msgstr "Quay lại sự kiện"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:278
+#: src/components/organisms/PkRSVPSection.re.mjs:319
 msgid "balanced"
 msgstr "cân bằng"
 
@@ -109,20 +109,24 @@ msgstr "Xếp hạng được tính toán"
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:653
+#: src/components/organisms/PkRSVPSection.re.mjs:722
 msgid "Confirmed · {0}"
 msgstr "Đã xác nhận · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:854
+#: src/components/organisms/PkRSVPSection.re.mjs:941
 msgid "Court"
 msgstr "Sân"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:543
-#: src/components/organisms/PkRSVPSection.re.mjs:560
+#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:629
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:882
+msgid "Evaluating pending requests…"
+msgstr "Đang xét các yêu cầu đang chờ…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid "even"
 msgstr "đồng đều"
 
@@ -187,8 +191,8 @@ msgstr "GIỮ"
 msgid "Keep {0} pending"
 msgstr "Giữ {0} đang chờ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:395
-#: src/components/organisms/PkRSVPSection.re.mjs:416
+#: src/components/organisms/PkRSVPSection.re.mjs:463
+#: src/components/organisms/PkRSVPSection.re.mjs:484
 msgid "LEVEL RESTRICTION"
 msgstr "GIỚI HẠN TRÌNH ĐỘ"
 
@@ -196,11 +200,11 @@ msgstr "GIỚI HẠN TRÌNH ĐỘ"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:621
 msgid "MEDIAN"
 msgstr "TRUNG VỊ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:281
+#: src/components/organisms/PkRSVPSection.re.mjs:322
 msgid "mixed"
 msgstr "đa dạng"
 
@@ -229,7 +233,7 @@ msgstr "Chưa được xếp hạng"
 msgid "Open invite actions for {0}"
 msgstr "Mở tùy chọn mời cho {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:473
+#: src/components/organisms/PkRSVPSection.re.mjs:542
 msgid "Participants"
 msgstr "Người tham gia"
 
@@ -241,7 +245,7 @@ msgstr "Thanh toán đã được ủy quyền"
 msgid "Payment captured"
 msgstr "Thanh toán đã được thu"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:784
+#: src/components/organisms/PkRSVPSection.re.mjs:853
 msgid "Pending · {0}"
 msgstr "Đang chờ · {0}"
 
@@ -261,15 +265,15 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:399
+#: src/components/organisms/PkRSVPSection.re.mjs:467
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "Yêu cầu: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:420
+#: src/components/organisms/PkRSVPSection.re.mjs:488
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "Cần DUPR {minDuprStr}+ để tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:800
+#: src/components/organisms/PkRSVPSection.re.mjs:869
 msgid "Review {0} pending requests with swipe cards"
 msgstr "Xem xét {0} yêu cầu đang chờ bằng thẻ vuốt"
 
@@ -280,6 +284,14 @@ msgstr "Xem {0} người chơi tiềm năng bằng thẻ vuốt"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
 msgid "Review requests"
 msgstr "Xem xét yêu cầu"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:891
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr "Chạy Smart RSVP (phù hợp nhất, thử nghiệm)"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:882
+msgid "Run Smart RSVP now"
+msgstr "Chạy Smart RSVP ngay"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
 msgid "Self-rating"
@@ -301,7 +313,11 @@ msgstr "BỎ QUA"
 msgid "Skip {0}"
 msgstr "Bỏ qua {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:613
+#: src/components/organisms/PkRSVPSection.re.mjs:438
+msgid "SMART RSVP"
+msgstr "RSVP THÔNG MINH"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:682
 msgid "SPREAD"
 msgstr "ĐỘ PHÂN TÁN"
 
@@ -317,9 +333,17 @@ msgstr "Vuốt trái để giữ chờ · phải để duyệt"
 msgid "Swipe left to skip · right to invite"
 msgstr "Vuốt trái để bỏ qua · phải để mời"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:867
 msgid "Swipe review"
 msgstr "Xem xét bằng vuốt"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+msgid ""
+"This event admits players automatically. Your request will be reviewed and "
+"you will be notified once a spot is confirmed."
+msgstr ""
+"Sự kiện này tự động duyệt người chơi. Yêu cầu của bạn sẽ được xem xét và bạn "
+"sẽ nhận được thông báo khi có chỗ được xác nhận."
 
 #: src/components/organisms/RsvpOptions.re.mjs:269
 msgid ""
@@ -329,7 +353,7 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:535
+#: src/components/organisms/PkRSVPSection.re.mjs:604
 msgid "TOP 6 AVG"
 msgstr "TB TOP 6"
 
@@ -342,11 +366,11 @@ msgstr "Xem hồ sơ"
 msgid "Waiting for approval to join"
 msgstr "Đang chờ duyệt để tham gia"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:719
+#: src/components/organisms/PkRSVPSection.re.mjs:788
 msgid "Waitlist · {0}"
 msgstr "Danh sách chờ · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:403
+#: src/components/organisms/PkRSVPSection.re.mjs:471
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

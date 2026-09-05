@@ -1,4 +1,5 @@
 import type { RouteObject } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import { RootErrorBoundary } from "./components/shared/RootErrorBoundary";
 
 const mainRoutes: RouteObject[] =
@@ -329,7 +330,19 @@ export const routes: RouteObject[] = [
         // Infographic-style write-up of the lab's findings, with the lab's
         // charts inlined against the precomputed run. Full screen, outside
         // the app shell.
+        // The article's original slug, kept as a permanent redirect so any
+        // link shared before the rename still lands.
         path: "matchmaking-report",
+        loader: ({ params }: { params: { lang?: string } }) =>
+          redirect(
+            params.lang
+              ? `/${params.lang}/why-you-cant-get-better-at-rec-play`
+              : "/why-you-cant-get-better-at-rec-play",
+            301,
+          ),
+      },
+      {
+        path: "why-you-cant-get-better-at-rec-play",
         lazy: () => import("./components/routes/MatchmakingReportRoute.gen"),
         handle: "src/components/routes/MatchmakingReportRoute.gen.tsx",
       },

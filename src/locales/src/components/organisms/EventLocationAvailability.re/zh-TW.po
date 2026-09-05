@@ -74,7 +74,7 @@ msgstr "{n} 室外"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:402
+#: src/components/organisms/EventLocationAvailability.re.mjs:403
 msgid "At {venue} now"
 msgstr "現在在 {venue}"
 
@@ -82,12 +82,12 @@ msgstr "現在在 {venue}"
 msgid "Available"
 msgstr "可參加"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:454
-#: src/components/organisms/EventLocationAvailability.re.mjs:496
+#: src/components/organisms/EventLocationAvailability.re.mjs:455
+#: src/components/organisms/EventLocationAvailability.re.mjs:497
 msgid "Confirm move"
 msgstr "確認移動"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/organisms/EventLocationAvailability.re.mjs:332
 msgid "Courts"
 msgstr "場地"
 
@@ -95,15 +95,15 @@ msgstr "場地"
 msgid "Create event"
 msgstr "建立賽事"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#: src/components/organisms/EventLocationAvailability.re.mjs:419
 msgid "No court at {venue} covers the full event window."
 msgstr "{venue} 沒有球場能涵蓋完整的活動時段。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:512
+#: src/components/organisms/EventLocationAvailability.re.mjs:513
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr "附近沒有其他場地在活動時段內有空閒球場。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:469
+#: src/components/organisms/EventLocationAvailability.re.mjs:470
 msgid "No other same-day time at {venue} supports the full event duration."
 msgstr "{venue} 當天沒有其他時間可支援完整的活動時長。"
 
@@ -111,11 +111,11 @@ msgstr "{venue} 當天沒有其他時間可支援完整的活動時長。"
 msgid "Not available"
 msgstr "不可用"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:475
+#: src/components/organisms/EventLocationAvailability.re.mjs:476
 msgid "Other locations at this time"
 msgstr "此時段的其他地點"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:426
+#: src/components/organisms/EventLocationAvailability.re.mjs:427
 msgid "Other times at {venue}"
 msgstr "{venue} 的其他時間"
 
@@ -123,7 +123,7 @@ msgstr "{venue} 的其他時間"
 msgid "Reserve"
 msgstr "預訂"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:479
+#: src/components/organisms/EventLocationAvailability.re.mjs:480
 msgid ""
 "This moves the event to another venue and reschedules everyone who already "
 "RSVP'd. Tap again to confirm."
@@ -131,11 +131,11 @@ msgstr ""
 "此操作將把活動移至另一場地，並為所有已回覆出席的人重新安排時間。再次點擊以確"
 "認。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:437
+#: src/components/organisms/EventLocationAvailability.re.mjs:438
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr "此操作將為所有已回覆出席的人重新安排時間。再次點擊以確認。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:498
+#: src/components/organisms/EventLocationAvailability.re.mjs:499
 msgid "Use location"
 msgstr "使用此地點"
 
@@ -143,7 +143,7 @@ msgstr "使用此地點"
 msgid "Use option"
 msgstr "使用此選項"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:456
+#: src/components/organisms/EventLocationAvailability.re.mjs:457
 msgid "Use time"
 msgstr "使用此時間"
 

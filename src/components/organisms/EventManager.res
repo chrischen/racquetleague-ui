@@ -752,6 +752,11 @@ let make = (
   // Modal state for adding guest players
   let (showAddGuestsModal, setShowAddGuestsModal) = React.useState(() => false)
 
+  // Debug-only history transfer, for moving an event's recorded rounds between
+  // devices or instances.
+  let (showExportHistory, setShowExportHistory) = React.useState(() => false)
+  let (showImportHistory, setShowImportHistory) = React.useState(() => false)
+
   // Load player overrides once and store in state
   let (
     playerOverrides: Js.Dict.t<EventManagerPersistence.playerOverride>,
@@ -1044,6 +1049,22 @@ let make = (
       index >= currentRoundInt && round->Array.some(match => match.score->Option.isSome)
     })
   }, (rounds, currentRoundInt))
+
+  // Only scored matches travel, so there is nothing to export until one exists.
+  let hasExportableHistory = EventStateTransfer.hasExportableHistory(rounds)
+
+  // Built only while the modal is open, so `exportedAt` does not churn on every
+  // render of the manager.
+  let exportHistoryText = React.useMemo(() =>
+    showExportHistory
+      ? EventStateTransfer.encode(
+          ~eventId=data.id,
+          ~exportedAt=Js.Date.now(),
+          ~rounds,
+          ~adjustments=ratingAdjustmentHistory,
+        )
+      : ""
+  , (showExportHistory, rounds, ratingAdjustmentHistory))
 
   // === DERIVED DATA ===
 
@@ -2025,6 +2046,75 @@ let make = (
     })
   }
 
+  // === HISTORY TRANSFER (debug) ===
+  //
+  // Exported matches keep their id, and `submitMatch` sends that id as the
+  // server's `syncId`, so a match imported here and synced from this device
+  // cannot become a second match on the server. Known limitation: TinyBase keys
+  // its `matches` rows by match id alone, device-wide, so importing a match that
+  // also lives under a *different* event on this same device re-keys that row to
+  // this event.
+  let planImportHistory = (text: string) =>
+    text
+    ->EventStateTransfer.decode
+    ->Result.map(payload =>
+      EventStateTransfer.plan(
+        ~existingRounds=rounds,
+        ~existingAdjustments=ratingAdjustmentHistory,
+        ~existingRoundViolations=solverRoundViolations,
+        ~currentRoundInt,
+        ~players,
+        ~payload,
+      )
+    )
+
+  let previewImportHistory = (text: string) =>
+    planImportHistory(text)->Result.map(p => p.EventStateTransfer.counts)
+
+  // Everything a plan touches indexes everything else — adjustments and solver
+  // warnings are filed against round indices the merge has just moved — so all of
+  // it is written in one synchronous commit. Keep this handler synchronous for
+  // that reason: the auto-regeneration effect below reads `rounds` and
+  // `currentRoundInt` from its render closure, and a deferred setter would leave
+  // it rebuilding the future against a timeline that no longer exists.
+  let handleImportHistory = (text: string) =>
+    switch planImportHistory(text) {
+    | Error(_) => ()
+    | Ok(p) => {
+        let {
+          EventStateTransfer.rounds: mergedRounds,
+          adjustments,
+          roundViolations,
+          currentRoundInt: nextRoundInt,
+          counts,
+        } = p
+
+        if counts.importedMatches > 0 {
+          // A generation already in flight would finish by writing the rounds it
+          // captured before the import, silently dropping it. Invalidate it; the
+          // history bump below starts a fresh one against the merged timeline.
+          beginGeneration()->ignore
+          setIsGenerating(_ => false)
+
+          updateRounds(_ => mergedRounds)
+
+          setRatingAdjustmentHistory(_ => adjustments)
+          EventManagerPersistence.saveRatingAdjustmentHistory(data.id, adjustments)
+
+          setAndSaveSolverRoundViolations(_ => roundViolations)
+
+          setCurrentRoundInt(_ => nextRoundInt)
+          EventManagerPersistence.saveCurrentRound(data.id, nextRoundInt)
+
+          // Imported results move ratings, so the unscored rounds ahead are stale
+          // in exactly the way a freshly entered score makes them stale.
+          setIsDirty(_ => true)
+          bumpHistoryRevision()
+          setShowImportHistory(_ => false)
+        }
+      }
+    }
+
   // Internal function to update player overrides
   let updatePlayerOverrides = (updatedPlayer: Player.t<rsvpNode>) => {
     // Find the original player to check if gender changed
@@ -2265,6 +2355,19 @@ let make = (
           onAdd={handleAddGuestPlayers} onClose={() => setShowAddGuestsModal(_ => false)}
         />
       : React.null}
+    {showExportHistory
+      ? <EventStateExportModal
+          text={exportHistoryText} onClose={() => setShowExportHistory(_ => false)}
+        />
+      : React.null}
+    {showImportHistory
+      ? <EventStateImportModal
+          preview={previewImportHistory}
+          onImport={handleImportHistory}
+          disabled={isGenerating}
+          onClose={() => setShowImportHistory(_ => false)}
+        />
+      : React.null}
     <FramerMotion.AnimatePresence mode="sync">
       {showFullScreenRound
         ? {
@@ -2314,6 +2417,17 @@ let make = (
             {debugMode
               ? <>
                   <StorageUsageDebug />
+                  <button
+                    onClick={_ => setShowExportHistory(_ => true)}
+                    disabled={!hasExportableHistory}
+                    className="px-3 py-1 text-sm font-semibold rounded bg-slate-700 hover:bg-slate-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    {t`Export History`}
+                  </button>
+                  <button
+                    onClick={_ => setShowImportHistory(_ => true)}
+                    className="px-3 py-1 text-sm font-semibold rounded bg-slate-700 hover:bg-slate-600 transition-colors">
+                    {t`Import History`}
+                  </button>
                   <button
                     onClick={_ => setShowClearAllStorage(_ => true)}
                     className="px-3 py-1 text-sm font-semibold rounded bg-red-600 hover:bg-red-700 transition-colors">

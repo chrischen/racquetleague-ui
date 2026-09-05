@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...もっと見る"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:508
+#: src/components/organisms/PkRSVPSection.re.mjs:577
 msgid "· {0} pending"
 msgstr "· {0} 保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:506
+#: src/components/organisms/PkRSVPSection.re.mjs:575
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
@@ -48,7 +48,7 @@ msgstr "{0}コート"
 msgid "{0} courts"
 msgstr "{0}コート"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:503
+#: src/components/organisms/PkRSVPSection.re.mjs:572
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
@@ -90,7 +90,7 @@ msgstr "アウトドア{n}面"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:569
+#: src/components/organisms/PkRSVPSection.re.mjs:638
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
@@ -138,7 +138,7 @@ msgstr "承認済みのプレイヤーが確定リストに移動しました。
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:402
+#: src/components/organisms/EventLocationAvailability.re.mjs:403
 msgid "At {venue} now"
 msgstr "{venue}で開催中"
 
@@ -159,7 +159,7 @@ msgstr "イベント全体に参加可能"
 msgid "Back to event"
 msgstr "イベントに戻る"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:278
+#: src/components/organisms/PkRSVPSection.re.mjs:319
 msgid "balanced"
 msgstr "バランス"
 
@@ -272,12 +272,12 @@ msgstr "算出されたレーティング"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:454
-#: src/components/organisms/EventLocationAvailability.re.mjs:496
+#: src/components/organisms/EventLocationAvailability.re.mjs:455
+#: src/components/organisms/EventLocationAvailability.re.mjs:497
 msgid "Confirm move"
 msgstr "移動を確認"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:653
+#: src/components/organisms/PkRSVPSection.re.mjs:722
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
@@ -296,7 +296,7 @@ msgstr "イベントをコピー"
 msgid "Could not save your profile. Please try again."
 msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:854
+#: src/components/organisms/PkRSVPSection.re.mjs:941
 msgid "Court"
 msgstr "コート"
 
@@ -308,7 +308,7 @@ msgstr "コート{0}"
 msgid "Court {0} - Editing"
 msgstr "コート{0} - 編集中"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/organisms/EventLocationAvailability.re.mjs:332
 #: src/components/pages/PkEventPage.re.mjs:745
 msgid "Courts"
 msgstr "コート"
@@ -343,8 +343,8 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:543
-#: src/components/organisms/PkRSVPSection.re.mjs:560
+#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:629
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -380,7 +380,11 @@ msgstr "試合のスコアを入力"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "同点 — 引き分けとして記録されます"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:274
+#: src/components/organisms/PkRSVPSection.re.mjs:882
+msgid "Evaluating pending requests…"
+msgstr "保留中のリクエストを評価しています…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:315
 msgid "even"
 msgstr "均等"
 
@@ -516,8 +520,8 @@ msgstr "閉じる"
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:395
-#: src/components/organisms/PkRSVPSection.re.mjs:416
+#: src/components/organisms/PkRSVPSection.re.mjs:463
+#: src/components/organisms/PkRSVPSection.re.mjs:484
 msgid "LEVEL RESTRICTION"
 msgstr "レベル制限"
 
@@ -546,11 +550,11 @@ msgstr "男性"
 msgid "Matches will be submitted to DUPR."
 msgstr "試合結果はDUPRに提出されます。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:552
+#: src/components/organisms/PkRSVPSection.re.mjs:621
 msgid "MEDIAN"
 msgstr "中央値"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:281
+#: src/components/organisms/PkRSVPSection.re.mjs:322
 msgid "mixed"
 msgstr "混合"
 
@@ -559,7 +563,7 @@ msgstr "混合"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#: src/components/organisms/EventLocationAvailability.re.mjs:419
 msgid "No court at {venue} covers the full event window."
 msgstr "{venue}にはイベント全時間帯をカバーするコートがありません。"
 
@@ -567,11 +571,11 @@ msgstr "{venue}にはイベント全時間帯をカバーするコートがあ�
 msgid "No message left with the request"
 msgstr "リクエストにメッセージはありません"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:512
+#: src/components/organisms/EventLocationAvailability.re.mjs:513
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr "近くに他の会場で、イベントの時間帯に空いているコートはありません。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:469
+#: src/components/organisms/EventLocationAvailability.re.mjs:470
 msgid "No other same-day time at {venue} supports the full event duration."
 msgstr ""
 "{venue}で同日の他の時間帯にイベント全時間をサポートする枠はありません。"
@@ -616,15 +620,15 @@ msgstr "キャンセル待ち中"
 msgid "Open invite actions for {0}"
 msgstr "{0}の招待アクションを開く"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:475
+#: src/components/organisms/EventLocationAvailability.re.mjs:476
 msgid "Other locations at this time"
 msgstr "この時間の他の会場"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:426
+#: src/components/organisms/EventLocationAvailability.re.mjs:427
 msgid "Other times at {venue}"
 msgstr "{venue}の他の時間帯"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:473
+#: src/components/organisms/PkRSVPSection.re.mjs:542
 msgid "Participants"
 msgstr "参加者"
 
@@ -652,7 +656,7 @@ msgstr "支払いに失敗しました"
 msgid "Payment required to confirm your spot"
 msgstr "スポットを確定するには支払いが必要です"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:784
+#: src/components/organisms/PkRSVPSection.re.mjs:853
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
@@ -732,11 +736,11 @@ msgstr "このRSVPを削除"
 msgid "Repeat"
 msgstr "繰り返し"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:399
+#: src/components/organisms/PkRSVPSection.re.mjs:467
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "必要なDUPR: {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:420
+#: src/components/organisms/PkRSVPSection.re.mjs:488
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
@@ -748,7 +752,7 @@ msgstr "予約する"
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:800
+#: src/components/organisms/PkRSVPSection.re.mjs:869
 msgid "Review {0} pending requests with swipe cards"
 msgstr "スワイプカードで{0}件の保留中リクエストを審査"
 
@@ -772,6 +776,14 @@ msgstr "ラウンドロビン組み合わせ"
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:36
 msgid "RPM"
 msgstr "RPM"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:891
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr "スマートRSVPを実行（最適マッチ、テスト）"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:882
+msgid "Run Smart RSVP now"
+msgstr "今すぐスマートRSVPを実行"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
@@ -829,7 +841,11 @@ msgstr "スキップ"
 msgid "Skip {0}"
 msgstr "{0}をスキップ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:613
+#: src/components/organisms/PkRSVPSection.re.mjs:438
+msgid "SMART RSVP"
+msgstr "スマートRSVP"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:682
 msgid "SPREAD"
 msgstr "ばらつき"
 
@@ -845,7 +861,7 @@ msgstr "左スワイプで保留 · 右スワイプで承認"
 msgid "Swipe left to skip · right to invite"
 msgstr "左にスワイプでスキップ・右にスワイプで招待"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:867
 msgid "Swipe review"
 msgstr "スワイプ審査"
 
@@ -878,6 +894,14 @@ msgstr ""
 "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
 "す。よろしいですか？"
 
+#: src/components/organisms/PkRSVPSection.re.mjs:442
+msgid ""
+"This event admits players automatically. Your request will be reviewed and "
+"you will be notified once a spot is confirmed."
+msgstr ""
+"このイベントは自動で参加者を承認します。リクエストは審査され、参加枠が確定し"
+"たら通知されます。"
+
 #: src/components/atoms/EventTag.re.mjs:54
 msgid ""
 "This event is private. Please do not share this event without permission "
@@ -900,7 +924,7 @@ msgstr ""
 "これはデポジットの仮押さえのみです。イベント当日に主催者へ全額をお支払いくだ"
 "さい。仮押さえはイベント終了後に解除されます。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:479
+#: src/components/organisms/EventLocationAvailability.re.mjs:480
 msgid ""
 "This moves the event to another venue and reschedules everyone who already "
 "RSVP'd. Tap again to confirm."
@@ -908,7 +932,7 @@ msgstr ""
 "イベントが別の会場に移動され、すでにRSVP済みの全員のスケジュールが変更されま"
 "す。もう一度タップして確認してください。"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:437
+#: src/components/organisms/EventLocationAvailability.re.mjs:438
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr ""
 "すでにRSVP済みの全員のスケジュールが変更されます。もう一度タップして確認して"
@@ -922,7 +946,7 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:535
+#: src/components/organisms/PkRSVPSection.re.mjs:604
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
@@ -934,7 +958,7 @@ msgstr "イベントをキャンセル解除"
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:498
+#: src/components/organisms/EventLocationAvailability.re.mjs:499
 msgid "Use location"
 msgstr "場所を使用"
 
@@ -942,7 +966,7 @@ msgstr "場所を使用"
 msgid "Use option"
 msgstr "オプションを使用"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:456
+#: src/components/organisms/EventLocationAvailability.re.mjs:457
 msgid "Use time"
 msgstr "時間を使用"
 
@@ -965,7 +989,7 @@ msgstr "VS"
 msgid "Waiting for approval to join"
 msgstr "参加承認待ち"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:719
+#: src/components/organisms/PkRSVPSection.re.mjs:788
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
@@ -993,7 +1017,7 @@ msgstr "取り消し中..."
 msgid "You're in"
 msgstr "参加済み"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:403
+#: src/components/organisms/PkRSVPSection.re.mjs:471
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."

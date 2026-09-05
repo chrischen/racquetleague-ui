@@ -94,8 +94,8 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:673
-#: src/components/organisms/RSVPSection.re.mjs:765
+#: src/components/organisms/RSVPSection.re.mjs:760
+#: src/components/organisms/RSVPSection.re.mjs:855
 msgid "Add Member"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Capture payment"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:690
+#: src/components/organisms/RSVPSection.re.mjs:777
 msgid "Collapse"
 msgstr ""
 
@@ -169,6 +169,10 @@ msgstr ""
 
 #: src/components/pages/Event.re.mjs:266
 msgid "edit event"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Evaluating pending requests…"
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:367
@@ -274,11 +278,11 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:781
+#: src/components/organisms/RSVPSection.re.mjs:871
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:868
 msgid "Loading..."
 msgstr ""
 
@@ -412,7 +416,7 @@ msgstr ""
 #~ msgid "Required rating: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:431
+#: src/components/organisms/RSVPSection.re.mjs:513
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
@@ -428,9 +432,9 @@ msgstr ""
 #~ msgid "Results will be submitted to the JPL rating system and/or DUPR."
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:552
-#: src/components/organisms/RSVPSection.re.mjs:591
-#: src/components/organisms/RSVPSection.re.mjs:712
+#: src/components/organisms/RSVPSection.re.mjs:636
+#: src/components/organisms/RSVPSection.re.mjs:675
+#: src/components/organisms/RSVPSection.re.mjs:799
 msgid "RSVP"
 msgstr ""
 
@@ -438,7 +442,15 @@ msgstr ""
 msgid "RSVP Pending..."
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/organisms/RSVPSection.re.mjs:186
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Run Smart RSVP now"
+msgstr ""
+
+#: src/components/organisms/RSVPSection.re.mjs:327
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr ""
@@ -497,6 +509,10 @@ msgstr ""
 msgid "sync calendar"
 msgstr ""
 
+#: src/components/organisms/RSVPSection.re.mjs:501
+msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr ""
+
 #: src/components/atoms/EventSignupButton.re.mjs:91
 msgid "This event is full, so leaving the event will give your spot to someone on the waitlist. If you rejoin, you will join the waitlist. Are you sure you want to leave this event?"
 msgstr ""
@@ -517,8 +533,8 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:244
-#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/RSVPSection.re.mjs:311
+#: src/components/organisms/RSVPSection.re.mjs:312
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -593,7 +609,7 @@ msgstr ""
 #~ msgid "you're waitlisted :("
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:515
 msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
 msgstr ""
 

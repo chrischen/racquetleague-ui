@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:111
+msgid "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+msgstr "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -83,7 +87,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Advance to Next Round"
 msgstr "ไปยังรอบถัดไป"
 
-#: src/components/organisms/EventManager.re.mjs:2439
+#: src/components/organisms/EventManager.re.mjs:2513
 msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
@@ -99,7 +103,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:2270
+#: src/components/organisms/EventManager.re.mjs:2344
 msgid "all up to date"
 msgstr "ทุกอย่างเป็นปัจจุบัน"
 
@@ -107,7 +111,7 @@ msgstr "ทุกอย่างเป็นปัจจุบัน"
 msgid "Alternate favourite/underdog roles"
 msgstr "สลับบทบาทเต็งและรอง"
 
-#: src/components/organisms/EventManager.re.mjs:2548
+#: src/components/organisms/EventManager.re.mjs:2622
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -152,11 +156,12 @@ msgstr "กำลังปรับเทียบ"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
-#: src/components/organisms/EventManager.re.mjs:454
+#: src/components/organisms/EventStateImportModal.re.mjs:135
+#: src/components/organisms/EventManager.re.mjs:458
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/EventManager.re.mjs:508
+#: src/components/organisms/EventManager.re.mjs:512
 msgid "Changes aren't being saved"
 msgstr "การเปลี่ยนแปลงไม่ได้ถูกบันทึก"
 
@@ -165,6 +170,9 @@ msgid "Classic round-robin draws"
 msgstr "การจับสลากแบบรอบโรบินคลาสสิก"
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+#: src/components/organisms/EventStateExportModal.re.mjs:74
+#: src/components/organisms/EventStateExportModal.re.mjs:105
+#: src/components/organisms/EventStateImportModal.re.mjs:92
 msgid "Close"
 msgstr "ปิด"
 
@@ -190,9 +198,17 @@ msgstr "แข่งขัน+"
 msgid "Confirm"
 msgstr "ยืนยัน"
 
-#: src/components/organisms/EventManager.re.mjs:334
+#: src/components/organisms/EventManager.re.mjs:338
 msgid "Connecting…"
 msgstr "กำลังเชื่อมต่อ…"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:119
+msgid "Copied"
+msgstr "คัดลอกแล้ว"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:128
+msgid "Copy"
+msgstr "คัดลอก"
 
 #: src/components/organisms/MatchCard.re.mjs:396
 #: src/components/molecules/SolverWarnings.re.mjs:86
@@ -243,19 +259,19 @@ msgstr "กำหนดเอง"
 msgid "Customize from here"
 msgstr "ปรับแต่งจากนี้"
 
-#: src/components/organisms/EventManager.re.mjs:2761
+#: src/components/organisms/EventManager.re.mjs:2872
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/EventManager.re.mjs:2761
+#: src/components/organisms/EventManager.re.mjs:2872
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
 
-#: src/components/organisms/EventManager.re.mjs:461
+#: src/components/organisms/EventManager.re.mjs:465
 msgid "Delete all data"
 msgstr "ลบข้อมูลทั้งหมด"
 
-#: src/components/organisms/EventManager.re.mjs:390
+#: src/components/organisms/EventManager.re.mjs:394
 msgid "Delete all saved event data?"
 msgstr "ลบข้อมูลอีเวนต์ที่บันทึกทั้งหมด?"
 
@@ -281,9 +297,9 @@ msgstr "ลบการแข่งขันนี้หรือไม่?"
 msgid "Deterministic"
 msgstr "กำหนดแน่นอน"
 
-#: src/components/organisms/EventManager.re.mjs:273
-#: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2342
+#: src/components/organisms/EventManager.re.mjs:277
+#: src/components/organisms/EventManager.re.mjs:550
+#: src/components/organisms/EventManager.re.mjs:2416
 msgid "Dismiss"
 msgstr "ปิด"
 
@@ -348,9 +364,14 @@ msgstr ""
 "ทุกคนหมุนเวียน: คู่ใหม่และคู่แข่งใหม่ทุกรอบ โดยเลือกการแข่งขันที่ดุเดือดที่สุดก่อน "
 "จนกว่าความหลากหลายจะบังคับให้ผสม"
 
-#: src/components/organisms/EventManager.re.mjs:448
+#: src/components/organisms/EventManager.re.mjs:452
 msgid "Everything stored on this device is already synced to the server."
 msgstr "ทุกอย่างที่จัดเก็บบนอุปกรณ์นี้ได้ซิงค์กับเซิร์ฟเวอร์แล้ว"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:64
+#: src/components/organisms/EventManager.re.mjs:2824
+msgid "Export History"
+msgstr "ส่งออกประวัติ"
 
 #: src/components/molecules/SolverWarnings.re.mjs:44
 msgid "Fallback: {0} are paired outside their group"
@@ -372,11 +393,11 @@ msgstr "หญิง"
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/organisms/EventManager.re.mjs:526
+#: src/components/organisms/EventManager.re.mjs:530
 msgid "Free up space"
 msgstr "เพิ่มพื้นที่ว่าง"
 
-#: src/components/organisms/EventManager.re.mjs:282
+#: src/components/organisms/EventManager.re.mjs:286
 msgid "Free Up Space"
 msgstr "เพิ่มพื้นที่ว่าง"
 
@@ -413,7 +434,7 @@ msgid "Generate Draws"
 msgstr "สร้างคู่แข่ง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1825
+#: src/components/organisms/EventManager.re.mjs:1850
 msgid "Generating…"
 msgstr "กำลังสร้าง…"
 
@@ -433,9 +454,25 @@ msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรท�
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
 
-#: src/components/organisms/EventManager.re.mjs:2749
+#: src/components/organisms/EventManager.re.mjs:2860
 msgid "Help"
 msgstr "ช่วยเหลือ"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:143
+msgid "Import"
+msgstr "นำเข้า"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:82
+#: src/components/organisms/EventManager.re.mjs:2834
+msgid "Import History"
+msgstr "นำเข้าประวัติ"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:48
+msgid ""
+"Imported matches count as already synced, and keep their original ids so "
+"syncing again cannot duplicate them on the server."
+msgstr ""
+"แมตช์ที่นำเข้าจะถือว่าซิงค์แล้ว และคงรหัสเดิมไว้ ดังนั้นการซิงค์อีกครั้งจะไม่ทำให้ข้อมูลซ้ำบนเซิร์ฟเวอร์"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:360
 msgid "Invite player"
@@ -478,6 +515,10 @@ msgstr "รูปแบบแมตช์"
 #: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
 msgstr "คู่แข่ง"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:43
+msgid "Matches to import"
+msgstr "แมตช์ที่จะนำเข้า"
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:245
 msgid "Mix players"
@@ -543,7 +584,7 @@ msgstr "ยังไม่มีทีม"
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
-#: src/components/organisms/EventManager.re.mjs:313
+#: src/components/organisms/EventManager.re.mjs:317
 msgid "Not saved"
 msgstr "ไม่ได้บันทึก"
 
@@ -559,11 +600,11 @@ msgstr "เปิดกล้องโทรศัพท์ สแกนโค�
 msgid "Opponent variety"
 msgstr "ความหลากหลายของคู่แข่ง"
 
-#: src/components/organisms/EventManager.re.mjs:2338
+#: src/components/organisms/EventManager.re.mjs:2412
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "ไม่สามารถใช้ตัวเพิ่มประสิทธิภาพได้ — ใช้การจับคู่มาตรฐานแทน"
 
-#: src/components/organisms/EventManager.re.mjs:418
+#: src/components/organisms/EventManager.re.mjs:422
 msgid "Other events on this device"
 msgstr "อีเวนต์อื่นในอุปกรณ์นี้"
 
@@ -574,6 +615,10 @@ msgstr "ชำระแล้ว"
 #: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
 msgstr "ความหลากหลายของคู่"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:106
+msgid "Paste an exported history"
+msgstr "วางประวัติที่ส่งออกไว้"
 
 #: src/components/organisms/PlayerCheckin.re.mjs:145
 msgid "Player Check-in"
@@ -610,7 +655,7 @@ msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่
 msgid "please login before managing the session"
 msgstr "กรุณาล็อคอินก่อนจัดการเซสชั่น"
 
-#: src/components/organisms/EventManager.re.mjs:1825
+#: src/components/organisms/EventManager.re.mjs:1850
 msgid "Preparing optimizer…"
 msgstr "กำลังเตรียมตัวเพิ่มประสิทธิภาพ…"
 
@@ -626,7 +671,7 @@ msgstr "รอบก่อนหน้า"
 msgid "Print"
 msgstr "พิมพ์"
 
-#: src/components/organisms/EventManager.re.mjs:2237
+#: src/components/organisms/EventManager.re.mjs:2311
 msgid "Print Draws"
 msgstr "พิมพ์ตารางการแข่งขัน"
 
@@ -676,7 +721,7 @@ msgstr "เปลี่ยนผู้เล่น"
 msgid "Replacing:"
 msgstr "กำลังเปลี่ยน:"
 
-#: src/components/organisms/EventManager.re.mjs:2732
+#: src/components/organisms/EventManager.re.mjs:2843
 msgid "Reset Storage"
 msgstr "รีเซ็ตที่เก็บข้อมูล"
 
@@ -692,7 +737,7 @@ msgstr "รีเซ็ตรอบนี้ด้วยคู่ผสมเพ
 msgid "Reset to preset"
 msgstr "รีเซ็ตเป็นค่าตั้งต้น"
 
-#: src/components/organisms/EventManager.re.mjs:538
+#: src/components/organisms/EventManager.re.mjs:542
 msgid "Retry"
 msgstr "ลองอีกครั้ง"
 
@@ -719,6 +764,16 @@ msgstr "รอบโรบิน"
 msgid "Round-Robin with teams balanced by skill."
 msgstr "รอบโรบินกับทีมที่สมดุลตามทักษะ"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:119
+msgid ""
+"Rounds are placed in the timeline by their timestamps, so importing can add "
+"rounds before the ones already here."
+msgstr "รอบจะถูกจัดวางในไทม์ไลน์ตามเวลาที่บันทึก การนำเข้าจึงอาจเพิ่มรอบก่อนหน้ารอบที่มีอยู่แล้ว"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:42
+msgid "Rounds to import"
+msgstr "รอบที่จะนำเข้า"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "บันทึก"
@@ -743,11 +798,11 @@ msgstr "บันทึกการปรับซีด"
 msgid "Save Team"
 msgstr "บันทึกทีม"
 
-#: src/components/organisms/EventManager.re.mjs:327
+#: src/components/organisms/EventManager.re.mjs:331
 msgid "Saved"
 msgstr "บันทึกแล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:321
+#: src/components/organisms/EventManager.re.mjs:325
 msgid "Saving…"
 msgstr "กำลังบันทึก…"
 
@@ -755,7 +810,13 @@ msgstr "กำลังบันทึก…"
 msgid "Scan to check in"
 msgstr "สแกนเพื่อเช็คอิน"
 
-#: src/components/organisms/EventManager.re.mjs:2192
+#: src/components/organisms/EventStateExportModal.re.mjs:86
+msgid ""
+"Scored matches and rating adjustments only. Paste this into Import History "
+"on another device."
+msgstr "เฉพาะแมตช์ที่บันทึกคะแนนแล้วและการปรับเรตติ้ง วางข้อมูลนี้ในเมนูนำเข้าประวัติบนอุปกรณ์อื่น"
+
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "Scores Synced!"
 msgstr "ซิงค์คะแนนเรียบร้อยแล้ว!"
 
@@ -787,15 +848,27 @@ msgstr "การจัดกลุ่มระดับทักษะ"
 msgid "Skill: {0}"
 msgstr "ทักษะ: {0}"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:46
+msgid "Skipped rating adjustments"
+msgstr "ข้ามการปรับเรตติ้ง"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:45
+msgid "Skipped, already here"
+msgstr "ข้าม เพราะมีอยู่แล้ว"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:44
+msgid "Skipped, players not in this event"
+msgstr "ข้าม เพราะผู้เล่นไม่ได้อยู่ในอีเวนต์นี้"
+
 #: src/components/molecules/SolverWarnings.re.mjs:71
 msgid "Some rules had to be bent to fill the courts"
 msgstr "ต้องผ่อนปรนกฎบางข้อเพื่อให้ครบสนาม"
 
-#: src/components/organisms/EventManager.re.mjs:2715
+#: src/components/organisms/EventManager.re.mjs:2807
 msgid "Sports Event Draws"
 msgstr "ตารางการแข่งขันกีฬา"
 
-#: src/components/organisms/EventManager.re.mjs:251
+#: src/components/organisms/EventManager.re.mjs:255
 msgid "Storage Almost Full"
 msgstr "พื้นที่จัดเก็บใกล้เต็ม"
 
@@ -807,24 +880,24 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/EventManager.re.mjs:2204
+#: src/components/organisms/EventManager.re.mjs:2278
 msgid "Sync Failed"
 msgstr "ซิงค์ล้มเหลว"
 
-#: src/components/organisms/EventManager.re.mjs:2168
+#: src/components/organisms/EventManager.re.mjs:2242
 msgid "Sync Scores"
 msgstr "ซิงค์คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:2264
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "synced"
 msgstr "ซิงค์แล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:2180
+#: src/components/organisms/EventManager.re.mjs:2254
 msgid "Syncing... {0}%"
 msgstr "กำลังซิงค์... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2099
+#: src/components/organisms/EventManager.re.mjs:2173
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
@@ -880,11 +953,11 @@ msgstr ""
 "ค่าเหล่านี้ปรับตามเรตติ้งโดยอัตโนมัติ หากต้องการปรับด้วยตนเอง ให้ล็อกการผสมปัจจุบัน — "
 "ระบบจะหยุดปรับตัวสำหรับอีเวนต์นี้"
 
-#: src/components/organisms/EventManager.re.mjs:744
+#: src/components/organisms/EventManager.re.mjs:748
 msgid "this club"
 msgstr "สโมสรนี้"
 
-#: src/components/organisms/EventManager.re.mjs:397
+#: src/components/organisms/EventManager.re.mjs:401
 msgid ""
 "This deletes the saved data for every event on this device, including this "
 "one. Events already synced to the server can be reopened; anything unsynced "
@@ -897,13 +970,13 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "จะลบรอบถัดไปทั้งหมดและสร้างแมตช์ใหม่"
 
-#: src/components/organisms/EventManager.re.mjs:445
+#: src/components/organisms/EventManager.re.mjs:449
 msgid ""
 "Those scores have not reached the server. Sync this event before deleting, "
 "or they will be lost."
 msgstr "คะแนนเหล่านั้นยังไม่ถึงเซิร์ฟเวอร์ ซิงค์อีเวนต์นี้ก่อนลบ มิฉะนั้นคะแนนจะสูญหาย"
 
-#: src/components/organisms/EventManager.re.mjs:445
+#: src/components/organisms/EventManager.re.mjs:449
 msgid ""
 "Those scores have not reached the server. Sync this event, and open each "
 "other event and sync it, before deleting — otherwise they are lost."
@@ -915,7 +988,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "กลุ่มระดับทักษะแคบ"
 
-#: src/components/organisms/EventManager.re.mjs:2266
+#: src/components/organisms/EventManager.re.mjs:2340
 msgid "to sync"
 msgstr "ที่จะซิงค์"
 
@@ -923,11 +996,11 @@ msgstr "ที่จะซิงค์"
 msgid "Tournament Draws"
 msgstr "ตารางการแข่งขัน"
 
-#: src/components/organisms/EventManager.re.mjs:405
+#: src/components/organisms/EventManager.re.mjs:409
 msgid "Unsynced scores in this event"
 msgstr "คะแนนที่ยังไม่ได้ซิงค์ในอีเวนต์นี้"
 
-#: src/components/organisms/EventManager.re.mjs:431
+#: src/components/organisms/EventManager.re.mjs:435
 msgid "Unsynced scores in those events"
 msgstr "คะแนนที่ยังไม่ได้ซิงค์ในอีเวนต์เหล่านั้น"
 
@@ -953,11 +1026,15 @@ msgstr ""
 msgid "VS"
 msgstr "VS"
 
+#: src/components/organisms/EventStateImportModal.re.mjs:126
+msgid "Wait for the draw currently being generated to finish."
+msgstr "รอให้การสร้างสายแข่งที่กำลังดำเนินอยู่เสร็จสิ้น"
+
 #: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
-#: src/components/organisms/EventManager.re.mjs:490
+#: src/components/organisms/EventManager.re.mjs:494
 msgid ""
 "Your browser is blocking storage for this site. If you're in a private "
 "window, switch to a normal one; otherwise allow site data and reload."
@@ -965,13 +1042,13 @@ msgstr ""
 "เบราว์เซอร์ของคุณบล็อกการจัดเก็บข้อมูลสำหรับเว็บไซต์นี้ หากคุณอยู่ในหน้าต่างส่วนตัว "
 "ให้เปลี่ยนไปใช้หน้าต่างปกติ มิฉะนั้นให้อนุญาตข้อมูลเว็บไซต์แล้วโหลดใหม่"
 
-#: src/components/organisms/EventManager.re.mjs:493
+#: src/components/organisms/EventManager.re.mjs:497
 msgid ""
 "Your browser is out of storage space. Clear old event data to free up space, "
 "then retry."
 msgstr "เบราว์เซอร์ของคุณพื้นที่จัดเก็บเต็มแล้ว ล้างข้อมูลอีเวนต์เก่าเพื่อเพิ่มพื้นที่ว่าง แล้วลองอีกครั้ง"
 
-#: src/components/organisms/EventManager.re.mjs:496
+#: src/components/organisms/EventManager.re.mjs:500
 msgid ""
 "Your browser refused to save this event. Reload the page or retry — if it "
 "keeps failing, avoid refreshing until scores are synced."
@@ -979,7 +1056,7 @@ msgstr ""
 "เบราว์เซอร์ของคุณปฏิเสธการบันทึกอีเวนต์นี้ โหลดหน้าใหม่หรือลองอีกครั้ง หากยังล้มเหลวอยู่ "
 "ให้หลีกเลี่ยงการรีเฟรชจนกว่าคะแนนจะถูกซิงค์"
 
-#: src/components/organisms/EventManager.re.mjs:258
+#: src/components/organisms/EventManager.re.mjs:262
 msgid ""
 "Your browser storage is {0}% full. The app may lose data if storage runs "
 "out. Freeing space clears saved data for every event on this device — you'll "

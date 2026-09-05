@@ -17,6 +17,7 @@ module Fragment = %relay(`
     maxRsvps
     minRating
     price
+    smartRsvpThreshold
     viewerIsAdmin
     activity {
       slug
@@ -99,6 +100,50 @@ module RSVPSectionCreateRatingMutation = %relay(`
    }
  }
 `)
+
+// The organizer's run of Smart RSVP's admission pass — for now the only way
+// admissions happen; the scheduled job is not deployed. Promoted RSVPs return
+// with their new list type.
+module RSVPSectionEvaluateSmartRsvpsMutation = %relay(`
+  mutation RSVPSectionEvaluateSmartRsvpsMutation($eventId: ID!, $algorithm: SmartRsvpAlgorithm) {
+    evaluateSmartRsvps(eventId: $eventId, algorithm: $algorithm) {
+      rsvps {
+        id
+        listType
+        joinTime
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+module SmartRsvpEvaluateButton = {
+  @react.component
+  let make = (~eventId: string) => {
+    let ts = Lingui.UtilString.t
+    let (commit, inFlight) = RSVPSectionEvaluateSmartRsvpsMutation.use()
+    <div className="mb-5 flex flex-wrap gap-2">
+      <button
+        type_="button"
+        disabled={inFlight}
+        onClick={_ => commit(~variables={eventId: eventId})->RescriptRelay.Disposable.ignore}
+        className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60">
+        {(inFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`)->React.string}
+      </button>
+      // Temporary, for comparing the two admission searches side by side.
+      <button
+        type_="button"
+        disabled={inFlight}
+        onClick={_ =>
+          commit(~variables={eventId: eventId, algorithm: RelaySchemaAssets_graphql.BestFit})->RescriptRelay.Disposable.ignore}
+        className="inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
+        {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
+      </button>
+    </div>
+  }
+}
 
 module RSVPSectionLeaveMutation = %relay(`
  mutation RSVPSectionLeaveMutation($connections: [ID!]!, $id: ID!) {
@@ -226,7 +271,17 @@ module ViewerStatusMessage = {
 let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
-  let {__id, maxRsvps, minRating, price, activity, viewerIsAdmin, club} = Fragment.use(event)
+  let {
+    __id,
+    id,
+    maxRsvps,
+    minRating,
+    price,
+    smartRsvpThreshold,
+    activity,
+    viewerIsAdmin,
+    club,
+  } = Fragment.use(event)
   let viewer = user->Option.map(user => UserFragment.use(user))
   let rsvps = data.rsvps->Fragment.getConnectionNodes
 
@@ -338,8 +393,21 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
     ->Option.flatMap(edge => edge.message)
   )
 
+  // Smart RSVP holds every join for automatic review, so nothing a viewer's own
+  // rating says about the event is the whole story any more: the notice below
+  // stands in for the rating-restriction warning as well.
+  let smartRsvpEnabled = smartRsvpThreshold->Option.isSome
+
   // Rating warning alert
   let ratingWarning = switch viewer {
+  | Some(_) if smartRsvpEnabled =>
+    viewerHasRsvp
+      ? React.null
+      : <div className="mb-3">
+          <InfoAlert cta={""->React.string} ctaClick={() => ()}>
+            {t`This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed.`}
+          </InfoAlert>
+        </div>
   | Some(_) =>
     switch viewerCanJoin {
     | Some(false) =>
@@ -564,6 +632,9 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
                   activitySlug=?{activity->Option.flatMap(a => a.slug)}
                   maxRating
                 />
+                {viewerIsAdmin && smartRsvpEnabled
+                  ? <SmartRsvpEvaluateButton eventId={id} />
+                  : React.null}
                 {viewerIsAdmin
                   ? club
                     ->Option.map(c =>
@@ -624,6 +695,9 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
           maxRating
           className=?Some("mb-5")
         />
+        {viewerIsAdmin && smartRsvpEnabled
+          ? <SmartRsvpEvaluateButton eventId={id} />
+          : React.null}
         {viewerIsAdmin
           ? club
             ->Option.map(c =>

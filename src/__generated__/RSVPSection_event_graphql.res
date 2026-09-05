@@ -50,6 +50,7 @@ module Types = {
     minRating: option<float>,
     price: option<int>,
     rsvps: option<fragment_rsvps>,
+    smartRsvpThreshold: option<float>,
     viewerIsAdmin: bool,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #GoingRsvps_event | #PendingRsvps_event | #RsvpWaitlist_event]>,
   }
@@ -216,6 +217,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "price",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "smartRsvpThreshold",
       "storageKey": null
     },
     {

@@ -108,6 +108,8 @@ function strategyLabel(entry) {
         return t`Competitive+ (adaptive)`;
     case "jp" :
         return t`Open play (JP style)`;
+    case "koc" :
+        return t`King of the court`;
     case "oracle" :
         return t`Oracle (knows truth)`;
     case "rb" :
@@ -134,6 +136,8 @@ function strategyBlurb(entry) {
         return t`What the app ships as Competitive+: calibrates with variety while the ratings are noise, then blends into banded play as they settle. Identical to the static profile once the ladder has any spread.`;
     case "jp" :
         return t`Rotate through everyone, teams drawn as they come. Only when a foursome splits sharply into two strong and two weak does anyone even out the sides — and then which weak player goes with which strong is left to chance.`;
+    case "koc" :
+        return t`Ranked courts: winners move up and split, losers slide down, and the bottom court's losers rotate out for whoever has sat longest. Every arriving pair is split across the net, so nobody keeps a winning partner. No ratings anywhere — the court ladder is the format's only memory.`;
     case "oracle" :
         return t`Matchmakes from hidden true skill instead of the ratings. Not a strategy anyone can run — it marks the best match quality this pool allows, so the distance from it is what imperfect ratings cost. Its ladder never improves: a game that is genuinely even is a coin flip, and coin flips teach nothing.`;
     case "rb" :

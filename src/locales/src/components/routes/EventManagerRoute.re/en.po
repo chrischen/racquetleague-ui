@@ -17,6 +17,10 @@ msgstr ""
 #~ msgid "({0} players per round)"
 #~ msgstr ""
 
+#: src/components/organisms/EventStateImportModal.re.mjs:111
+msgid "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+msgstr ""
+
 #: src/components/organisms/RoundSection.re.mjs:544
 #: src/components/organisms/RoundSection.re.mjs:654
 msgid "{0} {matchText}"
@@ -87,7 +91,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2439
+#: src/components/organisms/EventManager.re.mjs:2513
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -103,7 +107,7 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2270
+#: src/components/organisms/EventManager.re.mjs:2344
 msgid "all up to date"
 msgstr ""
 
@@ -115,7 +119,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2548
+#: src/components/organisms/EventManager.re.mjs:2622
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -185,11 +189,12 @@ msgstr ""
 #: src/components/organisms/PlayerSettingsModal.re.mjs:174
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
-#: src/components/organisms/EventManager.re.mjs:454
+#: src/components/organisms/EventStateImportModal.re.mjs:135
+#: src/components/organisms/EventManager.re.mjs:458
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:508
+#: src/components/organisms/EventManager.re.mjs:512
 msgid "Changes aren't being saved"
 msgstr ""
 
@@ -202,6 +207,9 @@ msgid "Classic round-robin draws"
 msgstr ""
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:57
+#: src/components/organisms/EventStateExportModal.re.mjs:74
+#: src/components/organisms/EventStateExportModal.re.mjs:105
+#: src/components/organisms/EventStateImportModal.re.mjs:92
 msgid "Close"
 msgstr ""
 
@@ -227,8 +235,16 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:334
+#: src/components/organisms/EventManager.re.mjs:338
 msgid "Connecting…"
+msgstr ""
+
+#: src/components/organisms/EventStateExportModal.re.mjs:119
+msgid "Copied"
+msgstr ""
+
+#: src/components/organisms/EventStateExportModal.re.mjs:128
+msgid "Copy"
 msgstr ""
 
 #: src/components/organisms/MatchCard.re.mjs:396
@@ -284,15 +300,15 @@ msgstr ""
 msgid "Customize from here"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2761
+#: src/components/organisms/EventManager.re.mjs:2872
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2761
+#: src/components/organisms/EventManager.re.mjs:2872
 msgid "Debug: ON"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:461
+#: src/components/organisms/EventManager.re.mjs:465
 msgid "Delete all data"
 msgstr ""
 
@@ -300,7 +316,7 @@ msgstr ""
 #~ msgid "delete all rounds below"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:390
+#: src/components/organisms/EventManager.re.mjs:394
 msgid "Delete all saved event data?"
 msgstr ""
 
@@ -326,9 +342,9 @@ msgstr ""
 msgid "Deterministic"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:273
-#: src/components/organisms/EventManager.re.mjs:546
-#: src/components/organisms/EventManager.re.mjs:2342
+#: src/components/organisms/EventManager.re.mjs:277
+#: src/components/organisms/EventManager.re.mjs:550
+#: src/components/organisms/EventManager.re.mjs:2416
 msgid "Dismiss"
 msgstr ""
 
@@ -396,8 +412,13 @@ msgstr ""
 #~ msgid "Everything stored for those events is already synced to the server."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:448
+#: src/components/organisms/EventManager.re.mjs:452
 msgid "Everything stored on this device is already synced to the server."
+msgstr ""
+
+#: src/components/organisms/EventStateExportModal.re.mjs:64
+#: src/components/organisms/EventManager.re.mjs:2824
+msgid "Export History"
 msgstr ""
 
 #: src/components/molecules/SolverWarnings.re.mjs:44
@@ -420,11 +441,11 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:526
+#: src/components/organisms/EventManager.re.mjs:530
 msgid "Free up space"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:282
+#: src/components/organisms/EventManager.re.mjs:286
 msgid "Free Up Space"
 msgstr ""
 
@@ -465,7 +486,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1825
+#: src/components/organisms/EventManager.re.mjs:1850
 msgid "Generating…"
 msgstr ""
 
@@ -485,8 +506,21 @@ msgstr ""
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2749
+#: src/components/organisms/EventManager.re.mjs:2860
 msgid "Help"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:143
+msgid "Import"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:82
+#: src/components/organisms/EventManager.re.mjs:2834
+msgid "Import History"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:48
+msgid "Imported matches count as already synced, and keep their original ids so syncing again cannot duplicate them on the server."
 msgstr ""
 
 #: src/components/organisms/PlayerCheckin.re.mjs:360
@@ -529,6 +563,10 @@ msgstr ""
 #: src/components/organisms/RoundSection.re.mjs:177
 #: src/components/organisms/PrintableDraws.re.mjs:89
 msgid "matches"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:43
+msgid "Matches to import"
 msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:245
@@ -603,7 +641,7 @@ msgstr ""
 #~ msgid "Not Playing This Round"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:313
+#: src/components/organisms/EventManager.re.mjs:317
 msgid "Not saved"
 msgstr ""
 
@@ -623,11 +661,11 @@ msgstr ""
 #~ msgid "Optimised draws that prioritise evenly matched games within a skill band."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2338
+#: src/components/organisms/EventManager.re.mjs:2412
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:418
+#: src/components/organisms/EventManager.re.mjs:422
 msgid "Other events on this device"
 msgstr ""
 
@@ -637,6 +675,10 @@ msgstr ""
 
 #: src/components/molecules/SolverWeightsPanel.re.mjs:299
 msgid "Partner variety"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:106
+msgid "Paste an exported history"
 msgstr ""
 
 #: src/components/organisms/PlayerCheckin.re.mjs:145
@@ -675,7 +717,7 @@ msgstr ""
 msgid "please login before managing the session"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1825
+#: src/components/organisms/EventManager.re.mjs:1850
 msgid "Preparing optimizer…"
 msgstr ""
 
@@ -691,7 +733,7 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2237
+#: src/components/organisms/EventManager.re.mjs:2311
 msgid "Print Draws"
 msgstr ""
 
@@ -751,7 +793,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2732
+#: src/components/organisms/EventManager.re.mjs:2843
 msgid "Reset Storage"
 msgstr ""
 
@@ -771,7 +813,7 @@ msgstr ""
 #~ msgid "Reset to slider"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:538
+#: src/components/organisms/EventManager.re.mjs:542
 msgid "Retry"
 msgstr ""
 
@@ -798,6 +840,14 @@ msgstr ""
 msgid "Round-Robin with teams balanced by skill."
 msgstr ""
 
+#: src/components/organisms/EventStateImportModal.re.mjs:119
+msgid "Rounds are placed in the timeline by their timestamps, so importing can add rounds before the ones already here."
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:42
+msgid "Rounds to import"
+msgstr ""
+
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr ""
@@ -822,11 +872,11 @@ msgstr ""
 msgid "Save Team"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:327
+#: src/components/organisms/EventManager.re.mjs:331
 msgid "Saved"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:321
+#: src/components/organisms/EventManager.re.mjs:325
 msgid "Saving…"
 msgstr ""
 
@@ -839,7 +889,11 @@ msgstr ""
 #~ msgid "Score"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2192
+#: src/components/organisms/EventStateExportModal.re.mjs:86
+msgid "Scored matches and rating adjustments only. Paste this into Import History on another device."
+msgstr ""
+
+#: src/components/organisms/EventManager.re.mjs:2266
 msgid "Scores Synced!"
 msgstr ""
 
@@ -883,6 +937,18 @@ msgstr ""
 msgid "Skill: {0}"
 msgstr ""
 
+#: src/components/organisms/EventStateImportModal.re.mjs:46
+msgid "Skipped rating adjustments"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:45
+msgid "Skipped, already here"
+msgstr ""
+
+#: src/components/organisms/EventStateImportModal.re.mjs:44
+msgid "Skipped, players not in this event"
+msgstr ""
+
 #: src/components/molecules/SolverWarnings.re.mjs:71
 msgid "Some rules had to be bent to fill the courts"
 msgstr ""
@@ -891,7 +957,7 @@ msgstr ""
 #~ msgid "Split each match into its most even teams"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2715
+#: src/components/organisms/EventManager.re.mjs:2807
 msgid "Sports Event Draws"
 msgstr ""
 
@@ -903,7 +969,7 @@ msgstr ""
 #~ msgid "Starts with varied, balanced matchups to calibrate ratings, then shifts to competitive skill-banded play as rankings settle."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:251
+#: src/components/organisms/EventManager.re.mjs:255
 msgid "Storage Almost Full"
 msgstr ""
 
@@ -915,24 +981,24 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2204
+#: src/components/organisms/EventManager.re.mjs:2278
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2168
+#: src/components/organisms/EventManager.re.mjs:2242
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2264
+#: src/components/organisms/EventManager.re.mjs:2338
 msgid "synced"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2180
+#: src/components/organisms/EventManager.re.mjs:2254
 msgid "Syncing... {0}%"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2099
+#: src/components/organisms/EventManager.re.mjs:2173
 msgid "Team {0}"
 msgstr ""
 
@@ -981,11 +1047,11 @@ msgstr ""
 msgid "These values are following the ratings automatically. Freeze the current mix to adjust them by hand — it will stop adapting for this event."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:744
+#: src/components/organisms/EventManager.re.mjs:748
 msgid "this club"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:397
+#: src/components/organisms/EventManager.re.mjs:401
 msgid "This deletes the saved data for every event on this device, including this one. Events already synced to the server can be reopened; anything unsynced cannot be recovered."
 msgstr ""
 
@@ -1005,11 +1071,11 @@ msgstr ""
 #~ msgid "Those scores have not reached the server. Open each event and sync it before deleting, or they will be lost."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:445
+#: src/components/organisms/EventManager.re.mjs:449
 msgid "Those scores have not reached the server. Sync this event before deleting, or they will be lost."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:445
+#: src/components/organisms/EventManager.re.mjs:449
 msgid "Those scores have not reached the server. Sync this event, and open each other event and sync it, before deleting — otherwise they are lost."
 msgstr ""
 
@@ -1017,7 +1083,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2266
+#: src/components/organisms/EventManager.re.mjs:2340
 msgid "to sync"
 msgstr ""
 
@@ -1025,11 +1091,11 @@ msgstr ""
 msgid "Tournament Draws"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:405
+#: src/components/organisms/EventManager.re.mjs:409
 msgid "Unsynced scores in this event"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:431
+#: src/components/organisms/EventManager.re.mjs:435
 msgid "Unsynced scores in those events"
 msgstr ""
 
@@ -1053,22 +1119,26 @@ msgstr ""
 msgid "VS"
 msgstr ""
 
+#: src/components/organisms/EventStateImportModal.re.mjs:126
+msgid "Wait for the draw currently being generated to finish."
+msgstr ""
+
 #: src/components/organisms/ScoreModal.re.mjs:79
 msgid "Winning Team (Team {0})"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:490
+#: src/components/organisms/EventManager.re.mjs:494
 msgid "Your browser is blocking storage for this site. If you're in a private window, switch to a normal one; otherwise allow site data and reload."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:493
+#: src/components/organisms/EventManager.re.mjs:497
 msgid "Your browser is out of storage space. Clear old event data to free up space, then retry."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:496
+#: src/components/organisms/EventManager.re.mjs:500
 msgid "Your browser refused to save this event. Reload the page or retry — if it keeps failing, avoid refreshing until scores are synced."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:258
+#: src/components/organisms/EventManager.re.mjs:262
 msgid "Your browser storage is {0}% full. The app may lose data if storage runs out. Freeing space clears saved data for every event on this device — you'll get a chance to review what that removes."
 msgstr ""

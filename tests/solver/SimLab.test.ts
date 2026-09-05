@@ -235,12 +235,18 @@ describe("SimLab scenarios", () => {
     const stacked = SimLab.drawProbability([team([0, 2], 0.5), team([1, 3], 0.5)], truth);
     expect(stacked).toBeLessThan(confident);
     // And it stays a probability. The first fix here pinned truth-sigma to 0,
-    // where openskill's draw heuristic leaves its calibrated regime and a
-    // near-even match reads MORE than certain — Balanced Round Robin's median
-    // game quality came out at 102%.
+    // where openskill 4.0's draw heuristic left its calibrated regime and a
+    // near-even match read MORE than certain — Balanced Round Robin's median
+    // game quality came out at 102%. openskill 4.1 rewrote the formula as a
+    // bounded probability on a far lower scale: this even game reads about
+    // 18% (it read 84% under 4.0). The pin below is a sentinel for exactly
+    // that — if it moves, the library's draw scale moved, and every quality
+    // figure downstream (thresholds, the archived lab runs, the report's
+    // prose) needs re-basing.
     const dead = SimLab.drawProbability([team([0, 1], 1), team([2, 3], 1)], [30, 26, 29, 27]);
-    expect(dead).toBeGreaterThan(0.5);
+    expect(dead).toBeGreaterThan(0);
     expect(dead).toBeLessThanOrEqual(1);
+    expect(dead).toBeCloseTo(0.178, 2);
   });
 
   it("JP-style splits an obviously lopsided foursome even at a cold start", () => {
@@ -308,6 +314,196 @@ describe("SimLab scenarios", () => {
     }
   }, 900_000);
 
+  it("day-to-day form is per session, seeded, bounded, and outcome-only", () => {
+    const muPerDupr = Rating.duprToMu(4.0) - Rating.duprToMu(3.0);
+    // 40 rounds = sessions 0..3.
+    const form = SimLab.formTable(18, 40, 1);
+    expect(form.length).toBe(4);
+    for (const session of form) {
+      expect(session.length).toBe(18);
+      for (const v of session) expect(Math.abs(v)).toBeLessThanOrEqual(0.15 * muPerDupr + 1e-9);
+    }
+    // Seeded: same seed same table, different seed different table.
+    expect(SimLab.formTable(18, 40, 1)).toEqual(form);
+    expect(SimLab.formTable(18, 40, 2)).not.toEqual(form);
+    // Form changes at session boundaries and only there: rounds 1..13 share an
+    // offset, round 14 draws a new one.
+    const base = Array.from({ length: 18 }, (_, i) => SimLab.trueSkill(i, 18, SimLab.typicalField));
+    const roles = SimLab.driftRoles(18, 1);
+    const offsetAt = (round: number) => {
+      const perf = SimLab.performedAt(base, roles, form, round);
+      const truth = SimLab.truthAt(base, roles, round);
+      return perf.map((v: number, i: number) => v - truth[i]);
+    };
+    offsetAt(5).forEach((v: number, i: number) => expect(v).toBeCloseTo(offsetAt(13)[i], 9));
+    const changed = offsetAt(14).some((v: number, i: number) => Math.abs(v - offsetAt(13)[i]) > 1e-6);
+    expect(changed).toBe(true);
+    // And within a session the offsets are exactly the drawn table.
+    offsetAt(5).forEach((v: number, i: number) => expect(v).toBeCloseTo(form[0][i], 9));
+  });
+
+  it("the drop-in plan takes the 70th and 30th percentile players, capped for small rosters", () => {
+    const ranks = SimLab.ladderPermutation(1, 24);
+    const plan = SimLab.dropInPlan(24, 4, 100, 1, ranks);
+    const count = plan.isDropIn.filter(Boolean).length;
+    expect(count).toBe(2);
+    // The chosen slots hold the ladder's 70th and 30th percentile ranks.
+    const chosenRanks = plan.isDropIn
+      .map((d: boolean, slot: number) => (d ? ranks[slot] : -1))
+      .filter((r: number) => r >= 0)
+      .sort((a: number, b: number) => a - b);
+    expect(chosenRanks).toEqual([Math.round(0.3 * 23), Math.round(0.7 * 23)]);
+    // Regulars attend everything; every drop-in has a first session and no
+    // attendance before it.
+    plan.isDropIn.forEach((isD: boolean, p: number) => {
+      const pattern = plan.attends.map((sess: boolean[]) => sess[p]);
+      if (!isD) expect(pattern.every(Boolean)).toBe(true);
+      else {
+        expect(pattern.some(Boolean)).toBe(true);
+        const first = pattern.indexOf(true);
+        expect(pattern.slice(0, first).some(Boolean)).toBe(false);
+      }
+    });
+    // Even with every drop-in absent, the regulars fill the courts.
+    expect(24 - count).toBeGreaterThanOrEqual(16);
+    // Deterministic per seed. Even a roster with no slack keeps ONE drop-in —
+    // their absent sessions run a court short, like a real club's would — and
+    // it is the 70th-percentile player.
+    expect(SimLab.dropInPlan(24, 4, 100, 1, ranks)).toEqual(plan);
+    const smallRanks = SimLab.ladderPermutation(1, 8);
+    const small = SimLab.dropInPlan(8, 2, 10, 1, smallRanks);
+    const smallChosen = small.isDropIn
+      .map((d: boolean, slot: number) => (d ? smallRanks[slot] : -1))
+      .filter((r: number) => r >= 0);
+    expect(smallChosen).toEqual([Math.round(0.7 * 7)]);
+  });
+
+  it("drop-ins arrive unrated, sit out their absent sessions, and courts still fill", async () => {
+    // AccuratePrior gives every REGULAR their true rating — so an unrated
+    // drop-in must be the scenario override, not a cold-start coincidence.
+    // 15 rounds spans two sessions, so an absence can actually occur.
+    const res = await SimLab.run("AccuratePrior", 3, 24, 4, 15, SimLab.typicalField, false, undefined);
+    const dropIdx = res.dropIns.map((d: boolean, i: number) => (d ? i : -1)).filter((i: number) => i >= 0);
+    expect(dropIdx.length).toBe(2);
+    // One placed high, one placed low: the 70th and 30th percentile of truth.
+    const ranks = SimLab.ladderPermutation(3, 24);
+    expect(dropIdx.map((i: number) => ranks[i]).sort((a: number, b: number) => a - b)).toEqual([
+      Math.round(0.3 * 23),
+      Math.round(0.7 * 23),
+    ]);
+    for (const r of res.runs) {
+      for (const i of dropIdx) {
+        // Unrated at the start, whatever the scenario prior says.
+        expect(r.frames[0].mu[i]).toBe(25);
+        expect(r.frames[0].sigma[i]).toBeCloseTo(25 / 3, 6);
+      }
+      for (let k = 1; k < r.frames.length; k++) {
+        const frame = r.frames[k];
+        // Every court still fills, absences and all.
+        expect(frame.games.length).toBe(4);
+        const seated = new Set(frame.games.flatMap((g: any) => g.playerIndices));
+        const session = SimLab.sessionOf(k);
+        for (const i of dropIdx) {
+          if (!res.attendance[session][i]) {
+            // Absent: not on court, and not listed as sitting out either —
+            // byes are for people in the building.
+            expect(seated.has(i)).toBe(false);
+            expect(frame.byes).not.toContain(res.names[i]);
+          }
+        }
+      }
+    }
+    // The plan is shared: every strategy faced the same attendance (byes and
+    // seatings differ, but an absent player is absent for all of them).
+    expect(res.names.filter((n: string) => n.includes("†")).length).toBe(2);
+  }, 900_000);
+
+  it("scores come from rallies: calibrated winners, realistic margins", () => {
+    // The rally probability inverts the game-win function exactly.
+    for (const p of [0.5, 0.7, 0.9, 0.99])
+      expect(SimLab.gameWinProb(SimLab.rallyProbFor(p))).toBeCloseTo(p, 6);
+    // Symmetry: even rallies make an even game.
+    expect(SimLab.gameWinProb(0.5)).toBeCloseTo(0.5, 9);
+
+    // Simulate many games at a fixed favourite strength through the real
+    // entry point and check both calibration and margin shape.
+    const sim = (p: number, n: number, seed: string) => {
+      // Choose truth so trueWinProbability(match) = p: solve the gap on the
+      // openskill probit by search.
+      let lo = 0, hi = 60;
+      for (let i = 0; i < 50; i++) {
+        const mid = (lo + hi) / 2;
+        const truth = [25 + mid / 2, 25 + mid / 2, 25 - mid / 2, 25 - mid / 2];
+        const t1 = [{ intId: 0, rating: { mu: 0, sigma: 0 } }, { intId: 1, rating: { mu: 0, sigma: 0 } }];
+        const t2 = [{ intId: 2, rating: { mu: 0, sigma: 0 } }, { intId: 3, rating: { mu: 0, sigma: 0 } }];
+        if (SimLab.trueWinProbability([t1, t2], truth) < p) lo = mid; else hi = mid;
+      }
+      const gap = (lo + hi) / 2;
+      const truth = [25 + gap / 2, 25 + gap / 2, 25 - gap / 2, 25 - gap / 2];
+      const t1 = [{ intId: 0, rating: { mu: 0, sigma: 0 } }, { intId: 1, rating: { mu: 0, sigma: 0 } }];
+      const t2 = [{ intId: 2, rating: { mu: 0, sigma: 0 } }, { intId: 3, rating: { mu: 0, sigma: 0 } }];
+      const prng = SolverPrng.fromSeedString(seed);
+      let wins = 0, blowouts = 0;
+      const margins: number[] = [];
+      for (let i = 0; i < n; i++) {
+        const [a, b] = SimLab.simulateScore([t1, t2], truth, prng);
+        if (a > b) wins++;
+        const m = Math.abs(a - b);
+        margins.push(m);
+        if (m >= 9) blowouts++;
+      }
+      return { winRate: wins / n, blowoutRate: blowouts / n, margins };
+    };
+
+    // Calibration: the favourite wins at the stated rate.
+    expect(sim(0.7, 4000, "cal-70").winRate).toBeCloseTo(0.7, 1);
+    expect(sim(0.9, 4000, "cal-90").winRate).toBeCloseTo(0.9, 1);
+    // Margin realism: a 90% favourite usually wins comfortably, NOT 11-2.
+    // Under the old dominance model this blowout share was 92%.
+    const strong = sim(0.9, 4000, "margin-90");
+    expect(strong.blowoutRate).toBeLessThan(0.45);
+    expect(strong.blowoutRate).toBeGreaterThan(0.05);
+    const median = strong.margins.sort((a, b) => a - b)[2000];
+    expect(median).toBeGreaterThanOrEqual(4);
+    expect(median).toBeLessThanOrEqual(8);
+    // And a coin-flip game rarely produces a drubbing.
+    expect(sim(0.5, 4000, "margin-50").blowoutRate).toBeLessThan(0.1);
+  });
+
+  it("king of the court moves winners up, splits every pair, rotates the bottom", async () => {
+    const res = await SimLab.run("AccuratePrior", 1, 24, 4, 8, SimLab.typicalField, false, undefined);
+    const frames = res.runs.find((x: any) => x.entry.id === "koc").frames.slice(1);
+    const winnersOf = (g: any) => (g.team1Score > g.team2Score ? g.team1 : g.team2);
+    const losersOf = (g: any) => (g.team1Score > g.team2Score ? g.team2 : g.team1);
+    for (let k = 1; k < frames.length; k++) {
+      const prev = frames[k - 1].games;
+      const cur = frames[k].games;
+      expect(cur.length).toBe(4);
+      for (let c = 0; c < cur.length; c++) {
+        const seatNames = new Set([...cur[c].team1, ...cur[c].team2]);
+        // Winners ascend (top court's winners stay)…
+        const ups = winnersOf(prev[Math.min(c + 1, prev.length - 1)]);
+        const fromAbove = c === 0 ? winnersOf(prev[0]) : losersOf(prev[c - 1]);
+        if (c < cur.length - 1)
+          for (const name of ups) expect(seatNames.has(name)).toBe(true);
+        for (const name of fromAbove) expect(seatNames.has(name)).toBe(true);
+        // …and every arriving pair is split across the net: the pair that won
+        // together below never stays a team, nor does the pair from above.
+        const sameTeam = (pair: string[]) =>
+          (cur[c].team1.includes(pair[0]) && cur[c].team1.includes(pair[1])) ||
+          (cur[c].team2.includes(pair[0]) && cur[c].team2.includes(pair[1]));
+        if (c < cur.length - 1 && ups.every((n: string) => seatNames.has(n)))
+          expect(sameTeam(ups)).toBe(false);
+        if (fromAbove.every((n: string) => seatNames.has(n)))
+          expect(sameTeam(fromAbove)).toBe(false);
+      }
+      // The bottom court's losers rotate out.
+      const bottomLosers = losersOf(prev[prev.length - 1]);
+      const seatedNow = new Set(cur.flatMap((g: any) => [...g.team1, ...g.team2]));
+      for (const name of bottomLosers) expect(seatedNow.has(name)).toBe(false);
+    }
+  }, 900_000);
+
   it("is deterministic per seed", async () => {
     const [a, b] = await Promise.all([run("ColdStart"), run("ColdStart")]);
     const ladder = (r: any) => r.runs.map((x: any) => x.frames.at(-1).mu);
@@ -316,11 +512,22 @@ describe("SimLab scenarios", () => {
 
   it("an inverted ladder starts wrong and stays measurable", async () => {
     const result = await run("Inverted", { rounds: 2 });
+    const ranks = SimLab.ladderPermutation(1, 8);
     for (const r of result.runs) {
-      // Round 0 is the prior: a perfect inversion reads as rho = -1.
-      expect(r.frames[0].spearman).toBeCloseTo(-1, 6);
-      // And the ladder error is the maximum a pool of 8 can carry.
-      expect(r.frames[0].rankError).toBe(4);
+      // Round 0 is the prior. Every REGULAR carries the exact mirror of their
+      // true skill around the ladder's midpoint; the drop-in carries the
+      // default instead — being unrated is what makes them a drop-in,
+      // whatever the scenario says.
+      const mid =
+        (SimLab.trueSkill(0, 8, SimLab.variedField) + SimLab.trueSkill(7, 8, SimLab.variedField)) / 2;
+      r.frames[0].mu.forEach((mu: number, slot: number) => {
+        if (result.dropIns[slot]) expect(mu).toBe(25);
+        else expect(mu).toBeCloseTo(2 * mid - SimLab.trueSkill(ranks[slot], 8, SimLab.variedField), 4);
+      });
+      // With one slot pulled to the middle the inversion is no longer a
+      // perfect -1, but it must still read as strongly inverted.
+      expect(r.frames[0].spearman).toBeLessThan(-0.7);
+      expect(r.frames[0].rankError).toBeGreaterThanOrEqual(3);
     }
   }, 300_000);
 });

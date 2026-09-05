@@ -23,6 +23,7 @@ import * as PkRSVPSection_event_graphql from "../../__generated__/PkRSVPSection_
 import * as PkRSVPSectionAddUserMutation_graphql from "../../__generated__/PkRSVPSectionAddUserMutation_graphql.re.mjs";
 import * as PkRSVPSectionUpdateListTypeMutation_graphql from "../../__generated__/PkRSVPSectionUpdateListTypeMutation_graphql.re.mjs";
 import * as PkRSVPSectionCaptureAllPaymentsMutation_graphql from "../../__generated__/PkRSVPSectionCaptureAllPaymentsMutation_graphql.re.mjs";
+import * as PkRSVPSectionEvaluateSmartRsvpsMutation_graphql from "../../__generated__/PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -74,15 +75,41 @@ var UpdateListTypeMutation = {
   use: use$1
 };
 
-var convertVariables$1 = PkRSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+var convertVariables$1 = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Internal.convertVariables;
 
-var convertResponse$1 = PkRSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+var convertResponse$1 = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse$1 = PkRSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse$1 = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1, PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
 
-var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
+
+var EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_decode = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Utils.smartRsvpAlgorithm_decode;
+
+var EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_fromString = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Utils.smartRsvpAlgorithm_fromString;
+
+var EvaluateSmartRsvpsMutation = {
+  smartRsvpAlgorithm_decode: EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_decode,
+  smartRsvpAlgorithm_fromString: EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_fromString,
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$1,
+  convertResponse: convertResponse$1,
+  convertWrapRawResponse: convertWrapRawResponse$1,
+  commitMutation: commitMutation$1,
+  use: use$2
+};
+
+var convertVariables$2 = PkRSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+
+var convertResponse$2 = PkRSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$2 = PkRSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
 
 var PkRSVPSectionAddUserMutation_gender_decode = PkRSVPSectionAddUserMutation_graphql.Utils.gender_decode;
 
@@ -93,26 +120,6 @@ var PkRSVPSectionAddUserMutation = {
   gender_fromString: PkRSVPSectionAddUserMutation_gender_fromString,
   Operation: undefined,
   Types: undefined,
-  convertVariables: convertVariables$1,
-  convertResponse: convertResponse$1,
-  convertWrapRawResponse: convertWrapRawResponse$1,
-  commitMutation: commitMutation$1,
-  use: use$2
-};
-
-var convertVariables$2 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
-
-var convertResponse$2 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
-
-var convertWrapRawResponse$2 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
-
-var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
-
-var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
-
-var PkRSVPSectionCaptureAllPaymentsMutation = {
-  Operation: undefined,
-  Types: undefined,
   convertVariables: convertVariables$2,
   convertResponse: convertResponse$2,
   convertWrapRawResponse: convertWrapRawResponse$2,
@@ -120,9 +127,29 @@ var PkRSVPSectionCaptureAllPaymentsMutation = {
   use: use$3
 };
 
+var convertVariables$3 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
+
+var convertResponse$3 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$3 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$3, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+
+var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$3, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+
+var PkRSVPSectionCaptureAllPaymentsMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$3,
+  convertResponse: convertResponse$3,
+  convertWrapRawResponse: convertWrapRawResponse$3,
+  commitMutation: commitMutation$3,
+  use: use$4
+};
+
 var convertFragment$1 = PkRSVPSection_user_graphql.Internal.convertFragment;
 
-function use$4(fRef) {
+function use$5(fRef) {
   return RescriptRelay_Fragment.useFragment(PkRSVPSection_user_graphql.node, convertFragment$1, fRef);
 }
 
@@ -134,14 +161,14 @@ var UserFragment = {
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment$1,
-  use: use$4,
+  use: use$5,
   useOpt: useOpt$1
 };
 
 function PkRSVPSection(props) {
   var eventData = use(props.event);
   var viewerUser = Core__Option.map(props.user, (function (u) {
-          return use$4(u);
+          return use$5(u);
         }));
   var match = React.useState(function () {
         return false;
@@ -154,9 +181,12 @@ function PkRSVPSection(props) {
   var match$2 = use$1();
   var commitUpdateListType = match$2[0];
   var match$3 = use$2();
-  var commitMutationAddUser = match$3[0];
+  var isEvaluateSmartRsvpsInFlight = match$3[1];
+  var commitEvaluateSmartRsvps = match$3[0];
   var match$4 = use$3();
-  var commitCaptureAll = match$4[0];
+  var commitMutationAddUser = match$4[0];
+  var match$5 = use$4();
+  var commitCaptureAll = match$5[0];
   var handleAddUser = function (user) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventData.id, "PkRSVPSection_event_rsvps", undefined);
     commitMutationAddUser({
@@ -238,6 +268,17 @@ function PkRSVPSection(props) {
                               };
                       }));
         }));
+  var handleEvaluateSmartRsvps = function () {
+    commitEvaluateSmartRsvps({
+          eventId: eventData.id
+        }, undefined, undefined, undefined, undefined, undefined, undefined);
+  };
+  var handleEvaluateSmartRsvpsBestFit = function () {
+    commitEvaluateSmartRsvps({
+          algorithm: "BestFit",
+          eventId: eventData.id
+        }, undefined, undefined, undefined, undefined, undefined, undefined);
+  };
   var handleApprove = function (rsvpId) {
     commitUpdateListType({
           input: {
@@ -259,7 +300,7 @@ function PkRSVPSection(props) {
           }
         }));
   var maxRating$1 = maxRating === 0 ? 1 : maxRating;
-  var match$5;
+  var match$6;
   if (mus.length >= 2) {
     var duprVals = mus.map(Rating.guessDupr);
     var n = duprVals.length;
@@ -270,7 +311,7 @@ function PkRSVPSection(props) {
             return acc + (v - mean) * (v - mean);
           })) / n;
     var stdDev = Math.sqrt(variance);
-    var match$6 = stdDev < 0.3 ? [
+    var match$7 = stdDev < 0.3 ? [
         t`even`,
         "text-emerald-500 dark:text-emerald-400"
       ] : (
@@ -282,13 +323,13 @@ function PkRSVPSection(props) {
             "text-amber-500 dark:text-amber-400"
           ]
       );
-    match$5 = [
+    match$6 = [
       "±" + stdDev.toFixed(2),
-      match$6[0],
-      match$6[1]
+      match$7[0],
+      match$7[1]
     ];
   } else {
-    match$5 = [
+    match$6 = [
       "—",
       "",
       "text-gray-400 dark:text-gray-500"
@@ -380,53 +421,81 @@ function PkRSVPSection(props) {
   var viewerCanJoin = Core__Option.map(minRating, (function (min) {
           return viewerOrdinal2 >= min;
         }));
+  var viewerHasRsvp = Core__Option.getOr(Core__Option.map(viewerUser, (function (v) {
+              return rsvps.some(function (n) {
+                          return Core__Option.getOr(Core__Option.map(n.user, (function (u) {
+                                            return u.id === v.id;
+                                          })), false);
+                        });
+            })), false);
+  var match$8 = eventData.smartRsvpThreshold;
   var ratingWarning;
-  if (minRating !== undefined) {
-    var minDuprStr = Rating.guessDupr(minRating).toFixed(2);
-    var exit = 0;
-    if (viewerUser !== undefined && viewerCanJoin !== undefined && !viewerCanJoin) {
-      var viewerOrdinal2Str = viewerOrdinal2.toFixed(2);
-      var viewerMuStr = viewerRatingVal.mu.toFixed(2);
-      var viewerDuprLo = Rating.guessDupr(viewerOrdinal2).toFixed(2);
-      var viewerDuprHi = Rating.guessDupr(viewerRatingVal.mu).toFixed(2);
-      ratingWarning = JsxRuntime.jsxs("div", {
+  var exit = 0;
+  if (match$8 !== undefined && viewerUser !== undefined) {
+    ratingWarning = viewerHasRsvp ? null : JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
-                    children: t`LEVEL RESTRICTION`,
-                    className: "font-mono text-[11px] tracking-wider text-amber-700 dark:text-amber-400 uppercase mb-1"
+                    children: t`SMART RSVP`,
+                    className: "font-mono text-[11px] tracking-wider text-blue-700 dark:text-blue-400 uppercase mb-1"
                   }),
               JsxRuntime.jsx("div", {
-                    children: t`Required: DUPR ${minDuprStr}+`,
-                    className: "text-xs text-amber-800 dark:text-amber-300"
-                  }),
-              JsxRuntime.jsx("div", {
-                    children: t`Your rating ${viewerOrdinal2Str} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`,
-                    className: "text-xs text-amber-700/80 dark:text-amber-400/80 mt-0.5"
+                    children: t`This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed.`,
+                    className: "text-xs text-blue-800 dark:text-blue-300"
                   })
             ],
-            className: "mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40"
+            className: "mb-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/40"
           });
-    } else {
-      exit = 1;
-    }
-    if (exit === 1) {
-      ratingWarning = JsxRuntime.jsxs("div", {
-            children: [
-              JsxRuntime.jsx("div", {
-                    children: t`LEVEL RESTRICTION`,
-                    className: "font-mono text-[11px] tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-1"
-                  }),
-              JsxRuntime.jsx("div", {
-                    children: t`Requires DUPR ${minDuprStr}+ to join`,
-                    className: "text-xs text-gray-700 dark:text-gray-300"
-                  })
-            ],
-            className: "mb-3 p-3 rounded-lg bg-gray-50 dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40]"
-          });
-    }
-    
   } else {
-    ratingWarning = null;
+    exit = 1;
+  }
+  if (exit === 1) {
+    if (minRating !== undefined) {
+      var minDuprStr = Rating.guessDupr(minRating).toFixed(2);
+      var exit$1 = 0;
+      if (viewerUser !== undefined && viewerCanJoin !== undefined && !viewerCanJoin) {
+        var viewerOrdinal2Str = viewerOrdinal2.toFixed(2);
+        var viewerMuStr = viewerRatingVal.mu.toFixed(2);
+        var viewerDuprLo = Rating.guessDupr(viewerOrdinal2).toFixed(2);
+        var viewerDuprHi = Rating.guessDupr(viewerRatingVal.mu).toFixed(2);
+        ratingWarning = JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: t`LEVEL RESTRICTION`,
+                      className: "font-mono text-[11px] tracking-wider text-amber-700 dark:text-amber-400 uppercase mb-1"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: t`Required: DUPR ${minDuprStr}+`,
+                      className: "text-xs text-amber-800 dark:text-amber-300"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: t`Your rating ${viewerOrdinal2Str} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`,
+                      className: "text-xs text-amber-700/80 dark:text-amber-400/80 mt-0.5"
+                    })
+              ],
+              className: "mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40"
+            });
+      } else {
+        exit$1 = 2;
+      }
+      if (exit$1 === 2) {
+        ratingWarning = JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: t`LEVEL RESTRICTION`,
+                      className: "font-mono text-[11px] tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-1"
+                    }),
+                JsxRuntime.jsx("div", {
+                      children: t`Requires DUPR ${minDuprStr}+ to join`,
+                      className: "text-xs text-gray-700 dark:text-gray-300"
+                    })
+              ],
+              className: "mb-3 p-3 rounded-lg bg-gray-50 dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40]"
+            });
+      }
+      
+    } else {
+      ratingWarning = null;
+    }
   }
   var tmp;
   if (match[0]) {
@@ -489,7 +558,7 @@ function PkRSVPSection(props) {
                                             }),
                                         className: "p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40",
                                         title: "Capture all payments",
-                                        disabled: match$4[1],
+                                        disabled: match$5[1],
                                         onClick: (function (param) {
                                             commitCaptureAll({
                                                   eventId: eventData.id
@@ -614,12 +683,12 @@ function PkRSVPSection(props) {
                                       className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: match$5[0],
+                                      children: match$6[0],
                                       className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: match$5[1],
-                                      className: "font-mono text-[11px] mt-0.5 " + match$5[2]
+                                      children: match$6[1],
+                                      className: "font-mono text-[11px] mt-0.5 " + match$6[2]
                                     })
                               ],
                               className: "px-3 py-2.5"
@@ -809,6 +878,24 @@ function PkRSVPSection(props) {
                                 ],
                                 className: "relative flex items-center gap-2 mb-2"
                               }),
+                          eventData.viewerIsAdmin && Core__Option.isSome(eventData.smartRsvpThreshold) ? JsxRuntime.jsx("button", {
+                                  children: isEvaluateSmartRsvpsInFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
+                                  className: "mb-2 inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                  disabled: isEvaluateSmartRsvpsInFlight,
+                                  type: "button",
+                                  onClick: (function (param) {
+                                      handleEvaluateSmartRsvps();
+                                    })
+                                }) : null,
+                          eventData.viewerIsAdmin && Core__Option.isSome(eventData.smartRsvpThreshold) ? JsxRuntime.jsx("button", {
+                                  children: t`Run Smart RSVP (best-fit, test)`,
+                                  className: "mb-2 ml-2 inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
+                                  disabled: isEvaluateSmartRsvpsInFlight,
+                                  type: "button",
+                                  onClick: (function (param) {
+                                      handleEvaluateSmartRsvpsBestFit();
+                                    })
+                                }) : null,
                           JsxRuntime.jsx("div", {
                                 children: pendingRsvps.map(function (edge) {
                                       return JsxRuntime.jsx(PkEventRsvp.make, {
@@ -889,6 +976,7 @@ var make = PkRSVPSection;
 export {
   Fragment ,
   UpdateListTypeMutation ,
+  EvaluateSmartRsvpsMutation ,
   PkRSVPSectionAddUserMutation ,
   PkRSVPSectionCaptureAllPaymentsMutation ,
   UserFragment ,

@@ -74,7 +74,7 @@ msgstr "กลางแจ้ง {n} แห่ง"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:402
+#: src/components/organisms/EventLocationAvailability.re.mjs:403
 msgid "At {venue} now"
 msgstr "ตอนนี้อยู่ที่ {venue}"
 
@@ -82,12 +82,12 @@ msgstr "ตอนนี้อยู่ที่ {venue}"
 msgid "Available"
 msgstr "ว่าง"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:454
-#: src/components/organisms/EventLocationAvailability.re.mjs:496
+#: src/components/organisms/EventLocationAvailability.re.mjs:455
+#: src/components/organisms/EventLocationAvailability.re.mjs:497
 msgid "Confirm move"
 msgstr "ยืนยันการย้าย"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/organisms/EventLocationAvailability.re.mjs:332
 msgid "Courts"
 msgstr "สนาม"
 
@@ -95,15 +95,15 @@ msgstr "สนาม"
 msgid "Create event"
 msgstr "สร้างอีเวนต์"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#: src/components/organisms/EventLocationAvailability.re.mjs:419
 msgid "No court at {venue} covers the full event window."
 msgstr "ไม่มีคอร์ทที่ {venue} ที่ครอบคลุมช่วงเวลาทั้งหมดของกิจกรรม"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:512
+#: src/components/organisms/EventLocationAvailability.re.mjs:513
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr "ไม่มีสถานที่ใกล้เคียงอื่นที่มีคอร์ทว่างตรงช่วงเวลาของกิจกรรม"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:469
+#: src/components/organisms/EventLocationAvailability.re.mjs:470
 msgid "No other same-day time at {venue} supports the full event duration."
 msgstr "ไม่มีช่วงเวลาอื่นในวันเดียวกันที่ {venue} ที่รองรับระยะเวลาของกิจกรรมได้"
 
@@ -111,11 +111,11 @@ msgstr "ไม่มีช่วงเวลาอื่นในวันเด
 msgid "Not available"
 msgstr "ไม่ว่าง"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:475
+#: src/components/organisms/EventLocationAvailability.re.mjs:476
 msgid "Other locations at this time"
 msgstr "สถานที่อื่นในเวลานี้"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:426
+#: src/components/organisms/EventLocationAvailability.re.mjs:427
 msgid "Other times at {venue}"
 msgstr "เวลาอื่นที่ {venue}"
 
@@ -123,7 +123,7 @@ msgstr "เวลาอื่นที่ {venue}"
 msgid "Reserve"
 msgstr "จอง"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:479
+#: src/components/organisms/EventLocationAvailability.re.mjs:480
 msgid ""
 "This moves the event to another venue and reschedules everyone who already "
 "RSVP'd. Tap again to confirm."
@@ -131,11 +131,11 @@ msgstr ""
 "การดำเนินการนี้จะย้ายกิจกรรมไปยังสถานที่อื่นและเปลี่ยนกำหนดการของทุกคนที่ตอบรับแล้ว "
 "แตะอีกครั้งเพื่อยืนยัน"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:437
+#: src/components/organisms/EventLocationAvailability.re.mjs:438
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr "การดำเนินการนี้จะเปลี่ยนกำหนดการของทุกคนที่ตอบรับแล้ว แตะอีกครั้งเพื่อยืนยัน"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:498
+#: src/components/organisms/EventLocationAvailability.re.mjs:499
 msgid "Use location"
 msgstr "ใช้สถานที่นี้"
 
@@ -143,7 +143,7 @@ msgstr "ใช้สถานที่นี้"
 msgid "Use option"
 msgstr "ใช้ตัวเลือกนี้"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:456
+#: src/components/organisms/EventLocationAvailability.re.mjs:457
 msgid "Use time"
 msgstr "ใช้เวลานี้"
 

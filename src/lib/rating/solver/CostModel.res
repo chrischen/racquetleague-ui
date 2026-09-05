@@ -610,7 +610,7 @@ type side =
   | NeverPlayed
 
 // openskill defaults: mu = 25, sigma = mu / 3, beta = sigma / 2.
-let defaultBeta = 25. /. 6.
+let defaultBeta = Rating.defaultBeta
 
 // Normal quantile for p = 0.55, i.e. the edge of "predicted win prob 0.5 +- 0.05".
 let evenZ = 0.1256613

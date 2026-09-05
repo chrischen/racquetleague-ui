@@ -27,6 +27,7 @@ module Mutation = %relay(`
        timezone
        tags
        cancelDeadline
+       smartRsvpThreshold
      }
    }
  }
@@ -65,6 +66,7 @@ module UpdateMutation = %relay(`
        tags
        cancelDeadline
        price
+       smartRsvpThreshold
      }
      rsvps {
        id
@@ -147,6 +149,7 @@ type prefilledValues = {
   tags?: array<string>,
   price?: int,
   cancelDeadline?: int,
+  smartRsvpThreshold?: float,
   // Set when these values were copied from an existing event: a missing field
   // then means the source event had none, so the form's own defaults for new
   // events must not fill it in.
@@ -156,6 +159,13 @@ type prefilledValues = {
 // New events default to a 24h cancel deadline (in ms, matching the select's
 // option values). Updates and copies keep whatever the source event had.
 let defaultCancelDeadline = 24 * 60 * 60 * 1000
+
+// The threshold Smart RSVP is switched on at: the largest drop in mean
+// simulated match quality an automatic admission may cost. Quality is on
+// openskill's predictDraw scale, where an even doubles game reads ≈0.178, so
+// this is a small number. The form only offers the on/off choice; the value
+// itself lives in the database and can be tuned there.
+let defaultSmartRsvpThreshold = 0.005
 
 // Calculate duration in hours between start date and end time
 let calculateDurationHours = (startDateTime: Js.Date.t, endDateTime: Js.Date.t): option<float> => {
@@ -233,6 +243,11 @@ let make = (
 
   let (isPaidEvent, setIsPaidEvent) = React.useState(() =>
     prefilledValues->Option.flatMap(pf => pf.price)->Option.isSome
+  )
+
+  // Smart RSVP is on exactly when the event carries a threshold.
+  let (isSmartRsvpOn, setIsSmartRsvpOn) = React.useState(() =>
+    prefilledValues->Option.flatMap(pf => pf.smartRsvpThreshold)->Option.isSome
   )
 
   let startDate = watch(StartDate)
@@ -488,6 +503,9 @@ let make = (
       let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
 
       let priceValue = isPaidEvent ? data.price : None
+      // Sending no threshold is what turns Smart RSVP off; the UI only offers
+      // the toggle, so the value is always the default.
+      let smartRsvpThresholdValue = isSmartRsvpOn ? Some(defaultSmartRsvpThreshold) : None
 
       if isUpdate {
         // Update existing event
@@ -511,6 +529,7 @@ let make = (
                 tags: tagsToSubmit,
                 price: ?priceValue,
                 cancelDeadline: ?data.cancelDeadline,
+                smartRsvpThreshold: ?smartRsvpThresholdValue,
               },
             },
             ~onCompleted=(_response, _errors) => {
@@ -544,6 +563,7 @@ let make = (
               tags: tagsToSubmit,
               price: ?priceValue,
               cancelDeadline: ?data.cancelDeadline,
+              smartRsvpThreshold: ?smartRsvpThresholdValue,
             },
             connections: [connectionId],
           },
@@ -1336,6 +1356,25 @@ let make = (
                         </div>
                       </div>
                     : React.null}
+                  <div className="flex items-start gap-3 mt-6">
+                    <input
+                      id="smartRsvp"
+                      type_="checkbox"
+                      checked={isSmartRsvpOn}
+                      onChange={_ => setIsSmartRsvpOn(on => !on)}
+                      className="h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]"
+                    />
+                    <div>
+                      <label
+                        htmlFor="smartRsvp"
+                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        {t`Smart RSVP`}
+                      </label>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                        {t`New joins are held and admitted automatically based on match quality`}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               : React.null}
           </div>

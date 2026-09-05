@@ -174,13 +174,17 @@ let configureVideo = async (state, metadata: WebCodecs.frameMetadata) => {
   }
 }
 
-let encodeFrame = (state, video, encoder, metadata: WebCodecs.frameMetadata) =>
+let encodeFrame = (state, video, encoder, nowMs: float) =>
   // Check backpressure BEFORE constructing the frame — building and dropping
   // one still consumes a slot in the browser's frame pool.
   if state.flushing || encoder->WebCodecs.encodeQueueSize > maxVideoQueue {
     state.droppedFrames = state.droppedFrames + 1
   } else {
-    let timestampUs = metadata.mediaTime *. 1_000_000.
+    // Timestamps come from rVFC's `now` (performance.now domain), NOT
+    // metadata.mediaTime: WebKit reports mediaTime as a constant 0 for
+    // getUserMedia-backed video elements, which froze the whole ring.
+    // Everything downstream is relative, so any monotonic clock works.
+    let timestampUs = nowMs *. 1_000.
     state.lastVideoTsUs = timestampUs
     switch try {
       Some(WebCodecs.videoFrameFromElement(video, {timestamp: timestampUs}))
@@ -517,12 +521,12 @@ let start = async (state, ~onStatus: CaptureSession.status => unit, stream) =>
         Error(CaptureSession.VideoPlaybackFailed(message))
       }
     | Ok() => {
-        let rec onFrame = (_now: float, metadata: WebCodecs.frameMetadata) =>
+        let rec onFrame = (now: float, metadata: WebCodecs.frameMetadata) =>
           if state.running {
             // Re-arm first so a thrown error cannot kill the loop.
             state.rvfc = Some(video->WebCodecs.requestVideoFrameCallback(onFrame))
             switch state.videoEncoder {
-            | Some(encoder) => encodeFrame(state, video, encoder, metadata)
+            | Some(encoder) => encodeFrame(state, video, encoder, now)
             | None =>
               if !state.videoConfiguring {
                 state.videoConfiguring = true

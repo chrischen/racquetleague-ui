@@ -11,6 +11,7 @@ module Fragment = %relay(`
     maxRsvps
     price
     minRating
+    smartRsvpThreshold
     viewerIsAdmin
     tags
     club {
@@ -64,6 +65,25 @@ module UpdateListTypeMutation = %relay(`
       rsvp {
         id
         listType
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+// The organizer's run of Smart RSVP's admission pass: for now the only way
+// admissions happen, as the scheduled job is not deployed. The promoted RSVPs
+// come back with their new list type, which is enough for Relay to move them
+// out of the pending list.
+module EvaluateSmartRsvpsMutation = %relay(`
+  mutation PkRSVPSectionEvaluateSmartRsvpsMutation($eventId: ID!, $algorithm: SmartRsvpAlgorithm) {
+    evaluateSmartRsvps(eventId: $eventId, algorithm: $algorithm) {
+      rsvps {
+        id
+        listType
+        joinTime
       }
       errors {
         message
@@ -136,6 +156,8 @@ let make = (
   let (isAddingPlayer, setIsAddingPlayer) = React.useState(() => false)
   let (pendingSwipeOpen, setPendingSwipeOpen) = React.useState(() => false)
   let (commitUpdateListType, _updateListTypeInFlight) = UpdateListTypeMutation.use()
+  let (commitEvaluateSmartRsvps, isEvaluateSmartRsvpsInFlight) =
+    EvaluateSmartRsvpsMutation.use()
   let (commitMutationAddUser, _addUserInFlight) = PkRSVPSectionAddUserMutation.use()
   let (commitCaptureAll, isCaptureAllInFlight) = PkRSVPSectionCaptureAllPaymentsMutation.use()
 
@@ -205,6 +227,14 @@ let make = (
       }
     })
   )
+
+  let handleEvaluateSmartRsvps = () =>
+    commitEvaluateSmartRsvps(~variables={eventId: eventData.id})->RescriptRelay.Disposable.ignore
+  // Temporary, for comparing the two admission searches side by side.
+  let handleEvaluateSmartRsvpsBestFit = () =>
+    commitEvaluateSmartRsvps(
+      ~variables={eventId: eventData.id, algorithm: RelaySchemaAssets_graphql.BestFit},
+    )->RescriptRelay.Disposable.ignore
 
   // Right swipe approves onto the confirmed list; a left swipe leaves the RSVP
   // pending, so there is nothing to commit for it.
@@ -325,42 +355,68 @@ let make = (
   let viewerOrdinal2 = Rating.ordinal2(viewerRatingVal)
   let viewerCanJoin = minRating->Option.map(min => viewerOrdinal2 >= min)
 
-  let ratingWarning = switch minRating {
-  | Some(min) =>
-    let minDuprStr = min->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
-    switch (viewerUser, viewerCanJoin) {
-    | (Some(_), Some(false)) =>
-      let viewerOrdinal2Str = viewerOrdinal2->Float.toFixed(~digits=2)
-      let viewerMuStr = viewerRatingVal.mu->Float.toFixed(~digits=2)
-      let viewerDuprLo = viewerOrdinal2->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
-      let viewerDuprHi =
-        viewerRatingVal.mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
-      <div
-        className="mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40">
+  // Smart RSVP holds every join for automatic review, so the level restriction
+  // is no longer the thing that decides who gets in: the notice below stands in
+  // for it. Anyone who already has an RSVP has seen it.
+  let viewerHasRsvp =
+    viewerUser
+    ->Option.map(v =>
+      rsvps->Array.some(n => n.user->Option.map(u => u.id == v.id)->Option.getOr(false))
+    )
+    ->Option.getOr(false)
+
+  let ratingWarning = switch (eventData.smartRsvpThreshold, viewerUser) {
+  | (Some(_), Some(_)) =>
+    viewerHasRsvp
+      ? React.null
+      : <div
+          className="mb-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/40">
+          <div
+            className="font-mono text-[11px] tracking-wider text-blue-700 dark:text-blue-400 uppercase mb-1">
+            {t`SMART RSVP`}
+          </div>
+          <div className="text-xs text-blue-800 dark:text-blue-300">
+            {t`This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed.`}
+          </div>
+        </div>
+  | _ =>
+    switch minRating {
+    | Some(min) =>
+      let minDuprStr = min->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
+      switch (viewerUser, viewerCanJoin) {
+      | (Some(_), Some(false)) =>
+        let viewerOrdinal2Str = viewerOrdinal2->Float.toFixed(~digits=2)
+        let viewerMuStr = viewerRatingVal.mu->Float.toFixed(~digits=2)
+        let viewerDuprLo = viewerOrdinal2->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
+        let viewerDuprHi =
+          viewerRatingVal.mu->Rating.guessDupr->Js.Float.toFixedWithPrecision(~digits=2)
         <div
-          className="font-mono text-[11px] tracking-wider text-amber-700 dark:text-amber-400 uppercase mb-1">
-          {t`LEVEL RESTRICTION`}
+          className="mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40">
+          <div
+            className="font-mono text-[11px] tracking-wider text-amber-700 dark:text-amber-400 uppercase mb-1">
+            {t`LEVEL RESTRICTION`}
+          </div>
+          <div className="text-xs text-amber-800 dark:text-amber-300">
+            {t`Required: DUPR ${minDuprStr}+`}
+          </div>
+          <div className="text-xs text-amber-700/80 dark:text-amber-400/80 mt-0.5">
+            {t`Your rating ${viewerOrdinal2Str} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`}
+          </div>
         </div>
-        <div className="text-xs text-amber-800 dark:text-amber-300">
-          {t`Required: DUPR ${minDuprStr}+`}
-        </div>
-        <div className="text-xs text-amber-700/80 dark:text-amber-400/80 mt-0.5">
-          {t`Your rating ${viewerOrdinal2Str} ~ ${viewerMuStr} (DUPR ${viewerDuprLo} ~ ${viewerDuprHi}) is below the minimum. You will be placed in the pending list.`}
-        </div>
-      </div>
-    | _ =>
-      <div
-        className="mb-3 p-3 rounded-lg bg-gray-50 dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40]">
+      | _ =>
         <div
-          className="font-mono text-[11px] tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-1">
-          {t`LEVEL RESTRICTION`}
+          className="mb-3 p-3 rounded-lg bg-gray-50 dark:bg-[#2a2b30] border border-gray-200 dark:border-[#3a3b40]">
+          <div
+            className="font-mono text-[11px] tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-1">
+            {t`LEVEL RESTRICTION`}
+          </div>
+          <div className="text-xs text-gray-700 dark:text-gray-300">
+            {t`Requires DUPR ${minDuprStr}+ to join`}
+          </div>
         </div>
-        <div className="text-xs text-gray-700 dark:text-gray-300">
-          {t`Requires DUPR ${minDuprStr}+ to join`}
-        </div>
-      </div>
+      }
+    | None => React.null
     }
-  | None => React.null
   }
 
   <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
@@ -619,6 +675,26 @@ let make = (
                 </button>
               : React.null}
           </div>
+          {eventData.viewerIsAdmin && eventData.smartRsvpThreshold->Option.isSome
+            ? <button
+                type_="button"
+                disabled={isEvaluateSmartRsvpsInFlight}
+                onClick={_ => handleEvaluateSmartRsvps()}
+                className="mb-2 inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                {(
+                  isEvaluateSmartRsvpsInFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`
+                )->React.string}
+              </button>
+            : React.null}
+          {eventData.viewerIsAdmin && eventData.smartRsvpThreshold->Option.isSome
+            ? <button
+                type_="button"
+                disabled={isEvaluateSmartRsvpsInFlight}
+                onClick={_ => handleEvaluateSmartRsvpsBestFit()}
+                className="mb-2 ml-2 inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
+                {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
+              </button>
+            : React.null}
           <div className="flex flex-wrap gap-1.5">
             {pendingRsvps
             ->Array.map(edge =>

@@ -27,6 +27,7 @@ module Types = {
     minRating: option<float>,
     owner: option<fragment_owner>,
     price: option<int>,
+    smartRsvpThreshold: option<float>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
     timezone: option<string>,
@@ -195,6 +196,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "cancelDeadline",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "smartRsvpThreshold",
       "storageKey": null
     },
     {

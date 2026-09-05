@@ -29,6 +29,7 @@ module Fragment = %relay(`
     minRating
     cancelDeadline
     price
+    smartRsvpThreshold
     activity {
       id
     }
@@ -301,6 +302,9 @@ let make = (
               minRating: ?event.minRating,
               price: ?event.price,
               cancelDeadline: ?event.cancelDeadline,
+              // updateEvent unsets Smart RSVP when this is absent, so every
+              // caller must carry the event's current value through.
+              smartRsvpThreshold: ?event.smartRsvpThreshold,
               tags: ?event.tags,
               timezone: ?event.timezone,
             },

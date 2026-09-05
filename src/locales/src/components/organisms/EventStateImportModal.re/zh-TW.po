@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-05 18:58+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:111
+msgid "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+msgstr "{\\\"format\\\":\\\"pkuru-event-history\\\", ...}"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:135
+msgid "Cancel"
+msgstr "取消"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:92
+msgid "Close"
+msgstr "關閉"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:143
+msgid "Import"
+msgstr "匯入"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:82
+msgid "Import History"
+msgstr "匯入紀錄"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:48
+msgid ""
+"Imported matches count as already synced, and keep their original ids so "
+"syncing again cannot duplicate them on the server."
+msgstr ""
+"匯入的比賽會視為已同步，並保留原始 ID，因此再次同步時不會在伺服器上產生重複資"
+"料。"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:43
+msgid "Matches to import"
+msgstr "要匯入的比賽"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:106
+msgid "Paste an exported history"
+msgstr "貼上已匯出的紀錄"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:119
+msgid ""
+"Rounds are placed in the timeline by their timestamps, so importing can add "
+"rounds before the ones already here."
+msgstr ""
+"各輪次會依時間戳記排入時間軸，因此匯入時可能會在現有輪次之前插入新的輪次。"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:42
+msgid "Rounds to import"
+msgstr "要匯入的輪次"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:46
+msgid "Skipped rating adjustments"
+msgstr "已略過的評分調整"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:45
+msgid "Skipped, already here"
+msgstr "已略過，這裡已存在"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:44
+msgid "Skipped, players not in this event"
+msgstr "已略過，球員不在此活動中"
+
+#: src/components/organisms/EventStateImportModal.re.mjs:126
+msgid "Wait for the draw currently being generated to finish."
+msgstr "請等待目前正在產生的賽程表完成。"

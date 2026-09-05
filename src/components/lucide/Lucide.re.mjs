@@ -213,6 +213,8 @@ var Download = {};
 
 var Copy = {};
 
+var Upload = {};
+
 var Youtube = {};
 
 export {
@@ -322,6 +324,7 @@ export {
   Square ,
   Download ,
   Copy ,
+  Upload ,
   Youtube ,
 }
 /* No side effect */

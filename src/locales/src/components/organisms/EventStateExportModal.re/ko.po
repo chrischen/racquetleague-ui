@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-05 18:58+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:74
+#: src/components/organisms/EventStateExportModal.re.mjs:105
+msgid "Close"
+msgstr "닫기"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:119
+msgid "Copied"
+msgstr "복사됨"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:128
+msgid "Copy"
+msgstr "복사"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:64
+msgid "Export History"
+msgstr "기록 내보내기"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:86
+msgid ""
+"Scored matches and rating adjustments only. Paste this into Import History "
+"on another device."
+msgstr ""
+"점수가 기록된 경기와 레이팅 조정만 포함됩니다. 다른 기기의 기록 가져오기에 붙"
+"여넣으세요."

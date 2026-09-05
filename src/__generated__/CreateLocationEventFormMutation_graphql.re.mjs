@@ -190,6 +190,13 @@ v3 = {
       "kind": "ScalarField",
       "name": "cancelDeadline",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "smartRsvpThreshold",
+      "storageKey": null
     }
   ],
   "storageKey": null
@@ -259,12 +266,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "afd44161d478d91ad6d98e29d900dd76",
+    "cacheID": "ae274b234c6fe98b79c3d9668562ce49",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      timezone\n      tags\n      cancelDeadline\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormMutation(\n  $input: CreateEventInput!\n) {\n  createEvent(input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      activity {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      timezone\n      tags\n      cancelDeadline\n      smartRsvpThreshold\n    }\n  }\n}\n"
   }
 };
 })());

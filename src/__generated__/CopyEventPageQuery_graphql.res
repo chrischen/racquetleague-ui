@@ -382,6 +382,13 @@ return {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "smartRsvpThreshold",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "User",
             "kind": "LinkedField",
             "name": "owner",
@@ -531,12 +538,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7bb06a31d633e5f0f7730b06ee5297b4",
+    "cacheID": "0a47c213079d6f49e4e80e50d1c1f939",
     "id": null,
     "metadata": {},
     "name": "CopyEventPageQuery",
     "operationKind": "query",
-    "text": "query CopyEventPageQuery(\n  $copyEventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $copyEventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  viewer {\n    user {\n      stripeChargesEnabled\n      id\n    }\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n  owner {\n    stripeChargesEnabled\n    id\n  }\n}\n"
+    "text": "query CopyEventPageQuery(\n  $copyEventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $copyEventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  viewer {\n    user {\n      stripeChargesEnabled\n      id\n    }\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n  smartRsvpThreshold\n  owner {\n    stripeChargesEnabled\n    id\n  }\n}\n"
   }
 };
 })() `)

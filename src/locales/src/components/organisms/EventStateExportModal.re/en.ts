@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yz7wBu\":\"Close\",\"6V3Ea3\":\"Copied\",\"he3ygx\":\"Copy\",\"wrCvgh\":\"Export History\",\"9xpPmW\":\"Scored matches and rating adjustments only. Paste this into Import History on another device.\"}");

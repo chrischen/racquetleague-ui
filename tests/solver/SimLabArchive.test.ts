@@ -44,6 +44,14 @@ describe("SimLabArchive", () => {
         expect(after.seed).toBe(before.seed);
         expect(after.names).toEqual(before.names);
         expect(after.driftRoles).toEqual(before.driftRoles);
+        // The session model: who drops in, who attends which session, and the
+        // per-session form offsets (rounded to write precision).
+        expect(after.dropIns).toEqual(before.dropIns);
+        expect(after.attendance).toEqual(before.attendance);
+        expect(after.form.length).toBe(before.form.length);
+        after.form.forEach((sess: number[], si: number) =>
+          sess.forEach((v: number, i: number) => expect(v).toBeCloseTo(before.form[si][i], 3)),
+        );
         expect(after.runs.length).toBe(before.runs.length);
 
         for (let i = 0; i < before.runs.length; i++) {

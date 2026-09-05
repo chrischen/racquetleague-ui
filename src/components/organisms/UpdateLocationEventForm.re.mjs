@@ -92,6 +92,7 @@ function UpdateLocationEventForm(props) {
   var prefilledValues_tags = eventData.tags;
   var prefilledValues_price = eventData.price;
   var prefilledValues_cancelDeadline = eventData.cancelDeadline;
+  var prefilledValues_smartRsvpThreshold = eventData.smartRsvpThreshold;
   var prefilledValues_fromExistingEvent = true;
   var prefilledValues = {
     title: prefilledValues_title,
@@ -107,6 +108,7 @@ function UpdateLocationEventForm(props) {
     tags: prefilledValues_tags,
     price: prefilledValues_price,
     cancelDeadline: prefilledValues_cancelDeadline,
+    smartRsvpThreshold: prefilledValues_smartRsvpThreshold,
     fromExistingEvent: prefilledValues_fromExistingEvent
   };
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {

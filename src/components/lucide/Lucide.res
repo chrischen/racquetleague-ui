@@ -722,6 +722,12 @@ module Copy = {
     "Copy"
 }
 
+module Upload = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "Upload"
+}
+
 module Youtube = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =

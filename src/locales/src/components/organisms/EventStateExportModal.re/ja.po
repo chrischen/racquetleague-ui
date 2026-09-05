@@ -1,0 +1,39 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-05 18:58+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:74
+#: src/components/organisms/EventStateExportModal.re.mjs:105
+msgid "Close"
+msgstr "閉じる"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:119
+msgid "Copied"
+msgstr "コピーしました"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:128
+msgid "Copy"
+msgstr "コピー"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:64
+msgid "Export History"
+msgstr "履歴をエクスポート"
+
+#: src/components/organisms/EventStateExportModal.re.mjs:86
+msgid ""
+"Scored matches and rating adjustments only. Paste this into Import History "
+"on another device."
+msgstr ""
+"スコア済みの試合とレーティング調整のみ。別のデバイスの「履歴をインポート」に"
+"貼り付けてください。"

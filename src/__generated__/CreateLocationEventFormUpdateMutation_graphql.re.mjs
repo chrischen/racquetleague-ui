@@ -233,6 +233,13 @@ v3 = [
             "kind": "ScalarField",
             "name": "price",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "smartRsvpThreshold",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -292,12 +299,12 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "96ee7c0d30694ce9becbd984f35f5189",
+    "cacheID": "9ce2b84559ca2475192dbbd6ad5f5ff9",
     "id": null,
     "metadata": {},
     "name": "CreateLocationEventFormUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n        name\n        slug\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      tags\n      cancelDeadline\n      price\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
+    "text": "mutation CreateLocationEventFormUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      __typename\n      id\n      title\n      details\n      maxRsvps\n      minRating\n      timezone\n      activity {\n        id\n        name\n        slug\n      }\n      location {\n        id\n      }\n      club {\n        id\n        name\n        slug\n      }\n      startDate\n      endDate\n      listed\n      tags\n      cancelDeadline\n      price\n      smartRsvpThreshold\n    }\n    rsvps {\n      id\n      listType\n      joinTime\n      rsvpId\n    }\n  }\n}\n"
   }
 };
 })());

@@ -74,7 +74,7 @@ msgstr "{n} ngoài trời"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:402
+#: src/components/organisms/EventLocationAvailability.re.mjs:403
 msgid "At {venue} now"
 msgstr "Hiện tại tại {venue}"
 
@@ -82,12 +82,12 @@ msgstr "Hiện tại tại {venue}"
 msgid "Available"
 msgstr "Rảnh"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:454
-#: src/components/organisms/EventLocationAvailability.re.mjs:496
+#: src/components/organisms/EventLocationAvailability.re.mjs:455
+#: src/components/organisms/EventLocationAvailability.re.mjs:497
 msgid "Confirm move"
 msgstr "Xác nhận di chuyển"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:331
+#: src/components/organisms/EventLocationAvailability.re.mjs:332
 msgid "Courts"
 msgstr "Sân"
 
@@ -95,16 +95,16 @@ msgstr "Sân"
 msgid "Create event"
 msgstr "Tạo sự kiện"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:418
+#: src/components/organisms/EventLocationAvailability.re.mjs:419
 msgid "No court at {venue} covers the full event window."
 msgstr "Không có sân nào tại {venue} đáp ứng toàn bộ khung thời gian sự kiện."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:512
+#: src/components/organisms/EventLocationAvailability.re.mjs:513
 msgid "No other nearby venue has a court free for the event's hours."
 msgstr ""
 "Không có địa điểm lân cận nào khác có sân trống trong giờ diễn ra sự kiện."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:469
+#: src/components/organisms/EventLocationAvailability.re.mjs:470
 msgid "No other same-day time at {venue} supports the full event duration."
 msgstr ""
 "Không có khung giờ nào khác trong ngày tại {venue} phù hợp với toàn bộ thời "
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Not available"
 msgstr "Không khả dụng"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:475
+#: src/components/organisms/EventLocationAvailability.re.mjs:476
 msgid "Other locations at this time"
 msgstr "Địa điểm khác vào thời gian này"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:426
+#: src/components/organisms/EventLocationAvailability.re.mjs:427
 msgid "Other times at {venue}"
 msgstr "Thời gian khác tại {venue}"
 
@@ -126,7 +126,7 @@ msgstr "Thời gian khác tại {venue}"
 msgid "Reserve"
 msgstr "Đặt sân"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:479
+#: src/components/organisms/EventLocationAvailability.re.mjs:480
 msgid ""
 "This moves the event to another venue and reschedules everyone who already "
 "RSVP'd. Tap again to confirm."
@@ -134,12 +134,12 @@ msgstr ""
 "Thao tác này sẽ chuyển sự kiện sang địa điểm khác và đổi lịch cho tất cả "
 "người đã RSVP. Nhấn lại để xác nhận."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:437
+#: src/components/organisms/EventLocationAvailability.re.mjs:438
 msgid "This reschedules everyone who already RSVP'd. Tap again to confirm."
 msgstr ""
 "Thao tác này sẽ đổi lịch cho tất cả người đã RSVP. Nhấn lại để xác nhận."
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:498
+#: src/components/organisms/EventLocationAvailability.re.mjs:499
 msgid "Use location"
 msgstr "Dùng địa điểm này"
 
@@ -147,7 +147,7 @@ msgstr "Dùng địa điểm này"
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 
-#: src/components/organisms/EventLocationAvailability.re.mjs:456
+#: src/components/organisms/EventLocationAvailability.re.mjs:457
 msgid "Use time"
 msgstr "Dùng thời gian này"
 

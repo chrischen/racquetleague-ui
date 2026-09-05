@@ -278,6 +278,7 @@ function EventLocationAvailability(props) {
               maxRsvps: $$event.maxRsvps,
               minRating: $$event.minRating,
               price: $$event.price,
+              smartRsvpThreshold: $$event.smartRsvpThreshold,
               startDate: Util.Datetime.fromDate(shiftHours(startAt, startShift)),
               tags: $$event.tags,
               timezone: $$event.timezone,

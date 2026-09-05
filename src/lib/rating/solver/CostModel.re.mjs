@@ -396,7 +396,7 @@ function configFromJsonString(str) {
   }
 }
 
-var defaultBeta = 25 / 6;
+var defaultBeta = Rating.Rating.defaultBeta;
 
 function teamMuSum(team) {
   return Core__Array.reduce(team, 0, (function (acc, p) {

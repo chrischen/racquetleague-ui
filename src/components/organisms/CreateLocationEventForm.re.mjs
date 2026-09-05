@@ -157,44 +157,51 @@ function CreateLocationEventForm(props) {
       });
   var setIsPaidEvent = match$3[1];
   var isPaidEvent = match$3[0];
+  var match$4 = React.useState(function () {
+        return Core__Option.isSome(Core__Option.flatMap(prefilledValues, (function (pf) {
+                          return pf.smartRsvpThreshold;
+                        })));
+      });
+  var setIsSmartRsvpOn = match$4[1];
+  var isSmartRsvpOn = match$4[0];
   var startDate = watch("startDate");
   var endTime = watch("endTime");
   var title = watch("title");
   var hasPreloadedValues = Core__Option.isSome(eventId) || Core__Option.isSome(prefilledValues);
-  var match$4 = React.useState(function () {
+  var match$5 = React.useState(function () {
         if (hasPreloadedValues) {
           return "None";
         } else {
           return "EventDetailsSection";
         }
       });
-  var setExpandedSection = match$4[1];
-  var expandedSection = match$4[0];
+  var setExpandedSection = match$5[1];
+  var expandedSection = match$5[0];
   var eventDetailsExpanded = expandedSection === "EventDetailsSection";
   var activityFormatExpanded = expandedSection === "ActivityFormatSection";
   var findPlayersExpanded = expandedSection === "FindPlayersSection";
-  var match$5 = React.useState(function () {
+  var match$6 = React.useState(function () {
         return false;
       });
-  var setIsUserInitiatedChange = match$5[1];
-  var isUserInitiatedChange = match$5[0];
-  var match$6 = React.useState(function () {
+  var setIsUserInitiatedChange = match$6[1];
+  var isUserInitiatedChange = match$6[0];
+  var match$7 = React.useState(function () {
         return 2.0;
       });
-  var setEventDurationHours = match$6[1];
-  var eventDurationHours = match$6[0];
-  var match$7 = React.useState(function () {
+  var setEventDurationHours = match$7[1];
+  var eventDurationHours = match$7[0];
+  var match$8 = React.useState(function () {
         return false;
       });
-  var setIsLocationDetailsExpanded = match$7[1];
-  var isLocationDetailsExpanded = match$7[0];
-  var match$8 = React.useState(function () {
+  var setIsLocationDetailsExpanded = match$8[1];
+  var isLocationDetailsExpanded = match$8[0];
+  var match$9 = React.useState(function () {
         return Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.tags;
                         })), ["all level"]);
       });
-  var setSelectedTags = match$8[1];
-  var selectedTags = match$8[0];
+  var setSelectedTags = match$9[1];
+  var selectedTags = match$9[0];
   var eventType = selectedTags.includes("comp") ? "competitive" : "recreational";
   var isDrill = selectedTags.includes("drill");
   var isDupr = selectedTags.includes("dupr");
@@ -382,6 +389,7 @@ function CreateLocationEventForm(props) {
     var startDate = DateFns.parseISO(data.startDate);
     var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
     var priceValue = isPaidEvent ? data.price : undefined;
+    var smartRsvpThresholdValue = isSmartRsvpOn ? 0.005 : undefined;
     if (isUpdate) {
       if (eventId !== undefined) {
         commitMutationUpdate({
@@ -397,6 +405,7 @@ function CreateLocationEventForm(props) {
                 maxRsvps: data.maxRsvps,
                 minRating: data.minRating,
                 price: priceValue,
+                smartRsvpThreshold: smartRsvpThresholdValue,
                 startDate: Util.Datetime.fromDate(startDate),
                 tags: tagsToSubmit,
                 timezone: data.timezone,
@@ -424,6 +433,7 @@ function CreateLocationEventForm(props) {
             maxRsvps: data.maxRsvps,
             minRating: data.minRating,
             price: priceValue,
+            smartRsvpThreshold: smartRsvpThresholdValue,
             startDate: Util.Datetime.fromDate(startDate),
             tags: tagsToSubmit,
             timezone: data.timezone,
@@ -1025,7 +1035,36 @@ function CreateLocationEventForm(props) {
                                             ],
                                             className: "flex items-start gap-3 mb-4"
                                           }),
-                                      tmp$7
+                                      tmp$7,
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("input", {
+                                                    className: "h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]",
+                                                    id: "smartRsvp",
+                                                    checked: isSmartRsvpOn,
+                                                    type: "checkbox",
+                                                    onChange: (function (param) {
+                                                        setIsSmartRsvpOn(function (on) {
+                                                              return !on;
+                                                            });
+                                                      })
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("label", {
+                                                            children: t`Smart RSVP`,
+                                                            className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
+                                                            htmlFor: "smartRsvp"
+                                                          }),
+                                                      JsxRuntime.jsx("p", {
+                                                            children: t`New joins are held and admitted automatically based on match quality`,
+                                                            className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
+                                                          })
+                                                    ]
+                                                  })
+                                            ],
+                                            className: "flex items-start gap-3 mt-6"
+                                          })
                                     ],
                                     className: "px-4 pb-4 pt-6 border-t border-gray-100 dark:border-gray-800"
                                   });

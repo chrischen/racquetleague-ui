@@ -77,8 +77,8 @@ msgstr "hoạt động"
 msgid "Activity"
 msgstr "Môn thể thao"
 
-#: src/components/organisms/RSVPSection.re.mjs:673
-#: src/components/organisms/RSVPSection.re.mjs:765
+#: src/components/organisms/RSVPSection.re.mjs:760
+#: src/components/organisms/RSVPSection.re.mjs:855
 msgid "Add Member"
 msgstr "Thêm thành viên"
 
@@ -114,7 +114,7 @@ msgstr "ĐÃ HỦY"
 msgid "Capture payment"
 msgstr "Thu tiền thanh toán"
 
-#: src/components/organisms/RSVPSection.re.mjs:690
+#: src/components/organisms/RSVPSection.re.mjs:777
 msgid "Collapse"
 msgstr "Thu gọn"
 
@@ -129,6 +129,10 @@ msgstr "chi tiết"
 #: src/components/pages/Event.re.mjs:266
 msgid "edit event"
 msgstr "chỉnh sửa sự kiện"
+
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Evaluating pending requests…"
+msgstr "Đang xét các yêu cầu đang chờ…"
 
 #: src/components/pages/Event.re.mjs:367
 msgid "event @"
@@ -190,11 +194,11 @@ msgstr "giải đấu"
 msgid "left the event"
 msgstr "đã rời sự kiện"
 
-#: src/components/organisms/RSVPSection.re.mjs:781
+#: src/components/organisms/RSVPSection.re.mjs:871
 msgid "Load more"
 msgstr "Tải thêm"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:868
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -291,7 +295,7 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/RSVPSection.re.mjs:431
+#: src/components/organisms/RSVPSection.re.mjs:513
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
 
@@ -299,9 +303,9 @@ msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
 
-#: src/components/organisms/RSVPSection.re.mjs:552
-#: src/components/organisms/RSVPSection.re.mjs:591
-#: src/components/organisms/RSVPSection.re.mjs:712
+#: src/components/organisms/RSVPSection.re.mjs:636
+#: src/components/organisms/RSVPSection.re.mjs:675
+#: src/components/organisms/RSVPSection.re.mjs:799
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -309,7 +313,15 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "Đang xử lý RSVP..."
 
-#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/organisms/RSVPSection.re.mjs:186
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr "Chạy Smart RSVP (phù hợp nhất, thử nghiệm)"
+
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Run Smart RSVP now"
+msgstr "Chạy Smart RSVP ngay"
+
+#: src/components/organisms/RSVPSection.re.mjs:327
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr "Lưu"
@@ -353,6 +365,14 @@ msgstr "đăng ký tất cả sự kiện {activityName}"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
+#: src/components/organisms/RSVPSection.re.mjs:501
+msgid ""
+"This event admits players automatically. Your request will be reviewed and "
+"you will be notified once a spot is confirmed."
+msgstr ""
+"Sự kiện này tự động duyệt người chơi. Yêu cầu của bạn sẽ được xem xét và bạn "
+"sẽ nhận được thông báo khi có chỗ được xác nhận."
+
 #: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -387,8 +407,8 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/RSVPSection.re.mjs:244
-#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/RSVPSection.re.mjs:311
+#: src/components/organisms/RSVPSection.re.mjs:312
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
 msgid ""
@@ -447,7 +467,7 @@ msgstr "Bạn đang tham dự"
 msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 
-#: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:515
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

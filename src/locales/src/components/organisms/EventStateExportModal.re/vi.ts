@@ -1,0 +1,1 @@
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"yz7wBu\":\"Đóng\",\"6V3Ea3\":\"Đã sao chép\",\"he3ygx\":\"Sao chép\",\"wrCvgh\":\"Xuất lịch sử\",\"9xpPmW\":\"Chỉ gồm các trận đã ghi điểm và điều chỉnh xếp hạng. Dán nội dung này vào Nhập lịch sử trên thiết bị khác.\"}");

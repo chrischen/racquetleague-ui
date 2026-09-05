@@ -13,448 +13,480 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/Kiosk.re.mjs:923
-msgid "{0}-second clip from the rolling buffer"
-msgstr "คลิปความยาว {0} วินาทีจากบัฟเฟอร์ต่อเนื่อง"
+#: src/components/organisms/Kiosk.re.mjs:969
+msgid "{0}-second clip · {1}"
+msgstr "คลิป {0} วินาที · {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:741
+#: src/components/organisms/Kiosk.re.mjs:757
 msgid "● BUFFER {0}s / {1}s"
 msgstr "● บัฟเฟอร์ {0}s / {1}s"
 
-#: src/components/organisms/Kiosk.re.mjs:741
+#: src/components/organisms/Kiosk.re.mjs:757
 msgid "● BUFFER READY"
 msgstr "● บัฟเฟอร์พร้อมแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:923
-msgid "18-second clip · Rally 07"
-msgstr "คลิป 18 วินาที · แรลลี 07"
-
-#: src/components/organisms/Kiosk.re.mjs:817
+#: src/components/organisms/Kiosk.re.mjs:860
 msgid "24 shots analyzed · Game session"
 msgstr "วิเคราะห์ 24 ช็อต · เซสชันเกม"
 
-#: src/components/organisms/Kiosk.re.mjs:217
+#: src/components/organisms/Kiosk.re.mjs:230
 msgid "ACTIVE SESSION"
 msgstr "เซสชันที่ใช้งานอยู่"
 
-#: src/components/organisms/Kiosk.re.mjs:2042
+#: src/components/organisms/Kiosk.re.mjs:2160
 msgid "Analysis"
 msgstr "การวิเคราะห์"
 
-#: src/components/organisms/Kiosk.re.mjs:1198
+#: src/components/organisms/Kiosk.re.mjs:1258
 msgid "Analysis capture active"
 msgstr "การบันทึกการวิเคราะห์ทำงานอยู่"
 
-#: src/components/organisms/Kiosk.re.mjs:331
+#: src/components/organisms/Kiosk.re.mjs:344
 msgid "ANALYSIS COMPLETE"
 msgstr "การวิเคราะห์เสร็จสมบูรณ์"
 
-#: src/components/organisms/Kiosk.re.mjs:2122
+#: src/components/organisms/Kiosk.re.mjs:2240
 msgid "Analysis modes"
 msgstr "โหมดการวิเคราะห์"
 
-#: src/components/organisms/Kiosk.re.mjs:1928
+#: src/components/organisms/Kiosk.re.mjs:2046
 msgid "Analysis setup"
 msgstr "ตั้งค่าการวิเคราะห์"
 
-#: src/components/organisms/Kiosk.re.mjs:1243
+#: src/components/organisms/Kiosk.re.mjs:1303
 msgid "Analyzing the play"
 msgstr "กำลังวิเคราะห์การเล่น"
 
-#: src/components/organisms/Kiosk.re.mjs:1006
+#: src/components/organisms/Kiosk.re.mjs:1063
 msgid "Angle {0} of {1}"
 msgstr "มุม {0} จาก {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:987
+#: src/components/organisms/Kiosk.re.mjs:1044
 msgid "Approach"
 msgstr "การเข้าหาลูก"
 
-#: src/components/organisms/Kiosk.re.mjs:2060
+#: src/components/organisms/Kiosk.re.mjs:2178
 msgid "Available while playing"
 msgstr "ใช้งานได้ขณะเล่น"
 
-#: src/components/organisms/Kiosk.re.mjs:1891
+#: src/components/organisms/Kiosk.re.mjs:2005
 msgid "Back to modes"
 msgstr "กลับไปที่โหมด"
 
-#: src/components/organisms/Kiosk.re.mjs:871
+#: src/components/organisms/Kiosk.re.mjs:914
 msgid "Backhand"
 msgstr "แบ็คแฮนด์"
 
-#: src/components/organisms/Kiosk.re.mjs:867
+#: src/components/organisms/Kiosk.re.mjs:910
 msgid "Best target"
 msgstr "เป้าหมายที่ดีที่สุด"
 
-#: src/components/organisms/Kiosk.re.mjs:1005
+#: src/components/organisms/Kiosk.re.mjs:1062
 msgid "Bounce review"
 msgstr "ตรวจสอบการเด้ง"
 
-#: src/components/organisms/Kiosk.re.mjs:593
+#: src/components/organisms/Kiosk.re.mjs:606
 msgid "Camera {0}"
 msgstr "กล้อง {0}"
 
-#: src/components/organisms/Kiosk.re.mjs:1858
+#: src/components/organisms/Kiosk.re.mjs:1972
 msgid "Camera connected"
 msgstr "เชื่อมต่อกล้องแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:2015
+#: src/components/organisms/Kiosk.re.mjs:2133
 msgid "Camera framing and connection look good"
 msgstr "มุมกล้องและการเชื่อมต่ออยู่ในเกณฑ์ดี"
 
-#: src/components/organisms/Kiosk.re.mjs:519
+#: src/components/organisms/Kiosk.re.mjs:532
 msgid "Camera source"
 msgstr "แหล่งสัญญาณกล้อง"
 
-#: src/components/organisms/Kiosk.re.mjs:1791
+#: src/components/organisms/Kiosk.re.mjs:1902
 msgid "Camera unavailable — check permissions and try again"
 msgstr "กล้องไม่พร้อมใช้งาน — ตรวจสอบสิทธิ์และลองอีกครั้ง"
 
-#: src/components/organisms/Kiosk.re.mjs:75
+#: src/components/organisms/Kiosk.re.mjs:88
 msgid "Capture several serves, then end to view the result."
 msgstr "บันทึกเสิร์ฟหลายครั้ง จากนั้นสิ้นสุดเพื่อดูผลลัพธ์"
 
-#: src/components/organisms/Kiosk.re.mjs:35
+#: src/components/organisms/Kiosk.re.mjs:48
 msgid "Check in or out"
 msgstr "เช็คอินหรือเช็คเอาท์"
 
-#: src/components/organisms/Kiosk.re.mjs:730
+#: src/components/organisms/Kiosk.re.mjs:746
 msgid "Choose an action"
 msgstr "เลือกการดำเนินการ"
 
-#: src/components/organisms/Kiosk.re.mjs:540
+#: src/components/organisms/Kiosk.re.mjs:553
 msgid ""
 "Choose which connected camera the kiosk uses. The change applies "
 "immediately, including to a running session."
 msgstr ""
 "เลือกกล้องที่เชื่อมต่อที่คีออสก์จะใช้ การเปลี่ยนแปลงมีผลทันที รวมถึงในระหว่างเซสชันที่กำลังดำเนินอยู่"
 
-#: src/components/organisms/Kiosk.re.mjs:1158
+#: src/components/organisms/Kiosk.re.mjs:1218
 msgid "Clip and line-check actions are ready at any time."
 msgstr "การคลิปและตรวจสอบเส้นพร้อมใช้งานได้ตลอดเวลา"
 
-#: src/components/organisms/Kiosk.re.mjs:33
+#: src/components/organisms/Kiosk.re.mjs:1908
+msgid "Clip downloaded"
+msgstr "ดาวน์โหลดคลิปแล้ว"
+
+#: src/components/organisms/Kiosk.re.mjs:46
 msgid "Clip last rally"
 msgstr "คลิปการตีครั้งล่าสุด"
 
-#: src/components/organisms/Kiosk.re.mjs:1785
+#: src/components/organisms/Kiosk.re.mjs:1896
 msgid "Clip saved · live capture continues"
 msgstr "บันทึกคลิปแล้ว · การบันทึกสดดำเนินต่อ"
 
-#: src/components/organisms/Kiosk.re.mjs:742
+#: src/components/organisms/Kiosk.re.mjs:758
 msgid "CLIPPING UNAVAILABLE"
 msgstr "ไม่สามารถคลิปได้"
 
-#: src/components/organisms/Kiosk.re.mjs:529
+#: src/components/organisms/Kiosk.re.mjs:793
+msgid "Clipping…"
+msgstr "กำลังตัดคลิป…"
+
+#: src/components/organisms/Kiosk.re.mjs:542
 msgid "Close settings"
 msgstr "ปิดการตั้งค่า"
 
-#: src/components/organisms/Kiosk.re.mjs:677
+#: src/components/organisms/Kiosk.re.mjs:690
 msgid "COMING SOON"
 msgstr "เร็วๆ นี้"
 
-#: src/components/organisms/Kiosk.re.mjs:992
+#: src/components/organisms/Kiosk.re.mjs:1049
 msgid "Contact"
 msgstr "ติดต่อ"
 
-#: src/components/organisms/Kiosk.re.mjs:461
+#: src/components/organisms/Kiosk.re.mjs:474
 msgid "Copied"
 msgstr "คัดลอกแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:461
+#: src/components/organisms/Kiosk.re.mjs:474
 msgid "Copy URL"
 msgstr "คัดลอก URL"
 
-#: src/components/organisms/Kiosk.re.mjs:1794
+#: src/components/organisms/Kiosk.re.mjs:1905
 msgid "Could not create the clip — the buffer keeps recording"
 msgstr "ไม่สามารถสร้างคลิปได้ — บัฟเฟอร์กำลังบันทึกอยู่"
 
-#: src/components/organisms/Kiosk.re.mjs:41
+#: src/components/organisms/Kiosk.re.mjs:54
 msgid "Create a clean, shareable clip from the rolling video buffer."
 msgstr "สร้างคลิปที่สะอาดและแชร์ได้จากบัฟเฟอร์วิดีโอต่อเนื่อง"
 
-#: src/components/organisms/Kiosk.re.mjs:943
-msgid "Discard"
-msgstr "ยกเลิก"
+#: src/components/organisms/Kiosk.re.mjs:983
+msgid "Delete clip"
+msgstr "ลบคลิป"
 
-#: src/components/organisms/Kiosk.re.mjs:1093
+#: src/components/organisms/Kiosk.re.mjs:1012
+msgid "Done"
+msgstr "เสร็จ"
+
+#: src/components/organisms/Kiosk.re.mjs:1150
 msgid "Done reviewing"
 msgstr "ดูเสร็จแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:57
+#: src/components/organisms/Kiosk.re.mjs:70
 msgid "Drop shot analysis"
 msgstr "การวิเคราะห์ดรอปช็อต"
 
-#: src/components/organisms/Kiosk.re.mjs:816
+#: src/components/organisms/Kiosk.re.mjs:859
 msgid "Drop shot placement"
 msgstr "ตำแหน่งดรอปช็อต"
 
-#: src/components/organisms/Kiosk.re.mjs:1216
+#: src/components/organisms/Kiosk.re.mjs:1276
 msgid "End & analyze"
 msgstr "สิ้นสุดและวิเคราะห์"
 
-#: src/components/organisms/Kiosk.re.mjs:1173
+#: src/components/organisms/Kiosk.re.mjs:1233
 msgid "End session"
 msgstr "สิ้นสุดเซสชัน"
 
-#: src/components/organisms/Kiosk.re.mjs:1891
+#: src/components/organisms/Kiosk.re.mjs:2005
 msgid "End session and exit"
 msgstr "สิ้นสุดเซสชันและออก"
 
-#: src/components/organisms/Kiosk.re.mjs:73
+#: src/components/organisms/Kiosk.re.mjs:86
 msgid "End the session when you have collected enough shots."
 msgstr "สิ้นสุดเซสชันเมื่อเก็บข้อมูลช็อตเพียงพอแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:997
+#: src/components/organisms/Kiosk.re.mjs:1054
 msgid "Exit"
 msgstr "ออก"
 
-#: src/components/organisms/Kiosk.re.mjs:1247
+#: src/components/organisms/Kiosk.re.mjs:1307
 msgid "Finding the clearest camera moments and preparing your result."
 msgstr "กำลังค้นหาช่วงกล้องที่ชัดเจนที่สุดและเตรียมผลลัพธ์"
 
-#: src/components/organisms/Kiosk.re.mjs:515
+#: src/components/organisms/Kiosk.re.mjs:528
 msgid "KIOSK SETTINGS"
 msgstr "การตั้งค่าคีออสก์"
 
-#: src/components/organisms/Kiosk.re.mjs:854
+#: src/components/organisms/Kiosk.re.mjs:897
 msgid "Kitchen accuracy"
 msgstr "ความแม่นยำในครัว"
 
-#: src/components/organisms/Kiosk.re.mjs:843
+#: src/components/organisms/Kiosk.re.mjs:886
 msgid "LANDING HEATMAP"
 msgstr "แผนที่ความร้อนจุดลงบอล"
 
-#: src/components/organisms/Kiosk.re.mjs:932
+#: src/components/organisms/Kiosk.re.mjs:1032
 msgid "Last rally"
 msgstr "การตีครั้งล่าสุด"
 
-#: src/components/organisms/Kiosk.re.mjs:561
+#: src/components/organisms/Kiosk.re.mjs:574
 msgid "Let the browser pick the default device"
 msgstr "ให้เบราว์เซอร์เลือกอุปกรณ์เริ่มต้น"
 
-#: src/components/organisms/Kiosk.re.mjs:2030
+#: src/components/organisms/Kiosk.re.mjs:2148
 msgid "Live game"
 msgstr "เกมสด"
 
-#: src/components/organisms/Kiosk.re.mjs:1775
+#: src/components/organisms/Kiosk.re.mjs:1886
 msgid "Live rolling session"
 msgstr "เซสชันต่อเนื่องสด"
 
-#: src/components/organisms/Kiosk.re.mjs:1928
+#: src/components/organisms/Kiosk.re.mjs:2046
 msgid "Live session"
 msgstr "เซสชันสด"
 
-#: src/components/organisms/Kiosk.re.mjs:1269
+#: src/components/organisms/Kiosk.re.mjs:1329
 msgid "Live session and rolling buffer are still active"
 msgstr "เซสชันสดและบัฟเฟอร์ต่อเนื่องยังคงทำงานอยู่"
 
-#: src/components/organisms/Kiosk.re.mjs:1234
+#: src/components/organisms/Kiosk.re.mjs:1294
 msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
 msgstr "เซสชันสดดำเนินต่อ · กำลังบันทึกบัฟเฟอร์"
 
-#: src/components/organisms/Kiosk.re.mjs:1788
+#: src/components/organisms/Kiosk.re.mjs:1899
 msgid "Live session ended"
 msgstr "เซสชันสดสิ้นสุดแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:639
+#: src/components/organisms/Kiosk.re.mjs:652
 msgid "Local"
 msgstr "ภายในเครื่อง"
 
-#: src/components/organisms/Kiosk.re.mjs:67
+#: src/components/organisms/Kiosk.re.mjs:80
 msgid "Measure serve speed and review the detected serve clip."
 msgstr "วัดความเร็วเสิร์ฟและดูคลิปเสิร์ฟที่ตรวจจับได้"
 
-#: src/components/organisms/Kiosk.re.mjs:1067
+#: src/components/organisms/Kiosk.re.mjs:1124
 msgid "Next"
 msgstr "ถัดไป"
 
-#: src/components/organisms/Kiosk.re.mjs:1075
+#: src/components/organisms/Kiosk.re.mjs:1132
 msgid "Next bounce clip"
 msgstr "คลิปลูกเด้งถัดไป"
 
-#: src/components/organisms/Kiosk.re.mjs:2064
+#: src/components/organisms/Kiosk.re.mjs:2182
 msgid "No action selection is needed before starting."
 msgstr "ไม่จำเป็นต้องเลือกการกระทำก่อนเริ่ม"
 
-#: src/components/organisms/Kiosk.re.mjs:293
+#: src/components/organisms/Kiosk.re.mjs:306
 msgid "no audio"
 msgstr "ไม่มีเสียง"
 
-#: src/components/organisms/Kiosk.re.mjs:616
+#: src/components/organisms/Kiosk.re.mjs:629
 msgid ""
 "No cameras detected. Connect a camera or allow camera access, then reopen "
 "settings."
 msgstr "ไม่พบกล้อง กรุณาเชื่อมต่อกล้องหรืออนุญาตการเข้าถึงกล้อง แล้วเปิดการตั้งค่าใหม่อีกครั้ง"
 
-#: src/components/organisms/Kiosk.re.mjs:1979
+#: src/components/organisms/Kiosk.re.mjs:1028
+msgid "No clip selected"
+msgstr "ยังไม่ได้เลือกคลิป"
+
+#: src/components/organisms/Kiosk.re.mjs:2097
 msgid "OFF"
 msgstr "ปิด"
 
-#: src/components/organisms/Kiosk.re.mjs:1979
+#: src/components/organisms/Kiosk.re.mjs:2097
 msgid "ON"
 msgstr "เปิด"
 
-#: src/components/organisms/Kiosk.re.mjs:643
+#: src/components/organisms/Kiosk.re.mjs:656
 msgid "On-device rolling buffer and clip processing"
 msgstr "บัฟเฟอร์แบบวนซ้ำและการประมวลผลคลิปบนอุปกรณ์"
 
-#: src/components/organisms/Kiosk.re.mjs:471
+#: src/components/organisms/Kiosk.re.mjs:484
 msgid "Open"
 msgstr "เปิด"
 
-#: src/components/organisms/Kiosk.re.mjs:1867
+#: src/components/organisms/Kiosk.re.mjs:1981
 msgid "Open kiosk settings"
 msgstr "เปิดการตั้งค่าคีออสก์"
 
-#: src/components/organisms/Kiosk.re.mjs:1028
+#: src/components/organisms/Kiosk.re.mjs:1085
 msgid "OUT"
 msgstr "ออก"
 
-#: src/components/organisms/Kiosk.re.mjs:899
+#: src/components/organisms/Kiosk.re.mjs:942
 msgid "Peak ball speed"
 msgstr "ความเร็วสูงสุดของลูกบอล"
 
-#: src/components/organisms/Kiosk.re.mjs:1841
+#: src/components/organisms/Kiosk.re.mjs:1955
 msgid "Pickleball camera kiosk"
 msgstr "คีออสก์กล้องพิกเกิลบอล"
 
-#: src/components/organisms/Kiosk.re.mjs:933
+#: src/components/organisms/Kiosk.re.mjs:1033
 msgid "Play last rally"
 msgstr "เล่นแรลลี่ล่าสุด"
 
-#: src/components/organisms/Kiosk.re.mjs:892
+#: src/components/organisms/Kiosk.re.mjs:935
 msgid "Play serve replay"
 msgstr "เล่นการเสิร์ฟซ้ำ"
 
-#: src/components/organisms/Kiosk.re.mjs:428
+#: src/components/organisms/Kiosk.re.mjs:441
 msgid "Point a phone camera at the code to open this court's live stream."
 msgstr "ชี้กล้องโทรศัพท์ไปที่โค้ดเพื่อเปิดสตรีมสดของคอร์ตนี้"
 
-#: src/components/organisms/Kiosk.re.mjs:1043
+#: src/components/organisms/Kiosk.re.mjs:1100
 msgid "Previous"
 msgstr "ก่อนหน้า"
 
-#: src/components/organisms/Kiosk.re.mjs:1047
+#: src/components/organisms/Kiosk.re.mjs:1104
 msgid "Previous bounce clip"
 msgstr "คลิปลูกเด้งก่อนหน้า"
 
-#: src/components/organisms/Kiosk.re.mjs:622
+#: src/components/organisms/Kiosk.re.mjs:635
 msgid "PROCESSING MODE"
 msgstr "โหมดการประมวลผล"
 
-#: src/components/organisms/Kiosk.re.mjs:925
-msgid "Rally clip ready"
-msgstr "คลิปแรลลี่พร้อมแล้ว"
+#: src/components/organisms/Kiosk.re.mjs:968
+#: src/components/organisms/Kiosk.re.mjs:1027
+msgid "Rally clip"
+msgstr "คลิปแรลลี่"
 
-#: src/components/organisms/Kiosk.re.mjs:43
+#: src/components/organisms/Kiosk.re.mjs:812
+msgid "RECENT CLIPS"
+msgstr "คลิปล่าสุด"
+
+#: src/components/organisms/Kiosk.re.mjs:56
 msgid "Review the latest bounce from multiple close-up moments."
 msgstr "ดูลูกเด้งล่าสุดจากหลายมุมใกล้ชิด"
 
-#: src/components/organisms/Kiosk.re.mjs:1119
+#: src/components/organisms/Kiosk.re.mjs:1176
 msgid "Rolling buffer"
 msgstr "บัฟเฟอร์ต่อเนื่อง"
 
-#: src/components/organisms/Kiosk.re.mjs:1154
+#: src/components/organisms/Kiosk.re.mjs:1214
 msgid "Rolling buffer active"
 msgstr "บัฟเฟอร์ต่อเนื่องทำงานอยู่"
 
-#: src/components/organisms/Kiosk.re.mjs:812
+#: src/components/organisms/Kiosk.re.mjs:855
 msgid "ROLLING BUFFER CAPTURE"
 msgstr "การบันทึกบัฟเฟอร์ต่อเนื่อง"
 
-#: src/components/organisms/Kiosk.re.mjs:1939
+#: src/components/organisms/Kiosk.re.mjs:2057
 msgid "Rolling capture with optional YouTube streaming."
 msgstr "การบันทึกต่อเนื่องพร้อมสตรีม YouTube แบบเลือกได้"
 
-#: src/components/organisms/Kiosk.re.mjs:957
-#: src/components/organisms/Kiosk.re.mjs:971
+#: src/components/organisms/Kiosk.re.mjs:997
 msgid "Save clip"
 msgstr "บันทึกคลิป"
 
-#: src/components/organisms/Kiosk.re.mjs:412
+#: src/components/organisms/Kiosk.re.mjs:425
 msgid "Scan to watch"
 msgstr "สแกนเพื่อดู"
 
-#: src/components/organisms/Kiosk.re.mjs:1939
+#: src/components/organisms/Kiosk.re.mjs:2057
 msgid "Select a mode, then start capture."
 msgstr "เลือกโหมด แล้วเริ่มการบันทึก"
 
-#: src/components/organisms/Kiosk.re.mjs:2126
+#: src/components/organisms/Kiosk.re.mjs:2244
 msgid "Select one before starting the camera."
 msgstr "เลือกหนึ่งรายการก่อนเริ่มกล้อง"
 
-#: src/components/organisms/Kiosk.re.mjs:1945
+#: src/components/organisms/Kiosk.re.mjs:2063
 msgid "SELECTED ANALYSIS"
 msgstr "การวิเคราะห์ที่เลือก"
 
-#: src/components/organisms/Kiosk.re.mjs:888
+#: src/components/organisms/Kiosk.re.mjs:931
 msgid "Serve 04 · Clean read"
 msgstr "เสิร์ฟ 04 · อ่านค่าชัดเจน"
 
-#: src/components/organisms/Kiosk.re.mjs:887
+#: src/components/organisms/Kiosk.re.mjs:930
 msgid "Serve detected"
 msgstr "ตรวจจับการเสิร์ฟแล้ว"
 
-#: src/components/organisms/Kiosk.re.mjs:891
+#: src/components/organisms/Kiosk.re.mjs:934
 msgid "Serve replay"
 msgstr "การเสิร์ฟซ้ำ"
 
-#: src/components/organisms/Kiosk.re.mjs:59
+#: src/components/organisms/Kiosk.re.mjs:72
 msgid "Serve speed analysis"
 msgstr "การวิเคราะห์ความเร็วเสิร์ฟ"
 
-#: src/components/organisms/Kiosk.re.mjs:1945
+#: src/components/organisms/Kiosk.re.mjs:2063
 msgid "SESSION SETUP"
 msgstr "การตั้งค่าเซสชัน"
 
-#: src/components/organisms/Kiosk.re.mjs:1970
+#: src/components/organisms/Kiosk.re.mjs:2088
 msgid "Show a viewer QR code during the session"
 msgstr "แสดง QR code สำหรับผู้ชมระหว่างเซสชัน"
 
-#: src/components/organisms/Kiosk.re.mjs:2000
+#: src/components/organisms/Kiosk.re.mjs:2118
 msgid "Start analysis"
 msgstr "เริ่มการวิเคราะห์"
 
-#: src/components/organisms/Kiosk.re.mjs:316
+#: src/components/organisms/Kiosk.re.mjs:329
 msgid "Start another session"
 msgstr "เริ่มเซสชันใหม่"
 
-#: src/components/organisms/Kiosk.re.mjs:2000
+#: src/components/organisms/Kiosk.re.mjs:2118
 msgid "Start live session"
 msgstr "เริ่มเซสชันสด"
 
-#: src/components/organisms/Kiosk.re.mjs:1966
+#: src/components/organisms/Kiosk.re.mjs:2084
 msgid "Stream on YouTube"
 msgstr "สตรีมบน YouTube"
 
-#: src/components/organisms/Kiosk.re.mjs:684
+#: src/components/organisms/Kiosk.re.mjs:697
 msgid "Stream to the server for processing"
 msgstr "สตรีมไปยังเซิร์ฟเวอร์เพื่อประมวลผล"
 
-#: src/components/organisms/Kiosk.re.mjs:557
+#: src/components/organisms/Kiosk.re.mjs:570
 msgid "System default camera"
 msgstr "กล้องเริ่มต้นของระบบ"
 
-#: src/components/organisms/Kiosk.re.mjs:2112
+#: src/components/organisms/Kiosk.re.mjs:2230
 msgid "The camera continuously keeps recent play ready for either action."
 msgstr "กล้องจะบันทึกการเล่นล่าสุดไว้พร้อมใช้งานตลอดเวลา"
 
-#: src/components/organisms/Kiosk.re.mjs:734
+#: src/components/organisms/Kiosk.re.mjs:750
 msgid "The rolling buffer continues while you review."
 msgstr "บัฟเฟอร์แบบต่อเนื่องทำงานขณะที่คุณรีวิว"
 
-#: src/components/organisms/Kiosk.re.mjs:675
+#: src/components/organisms/Kiosk.re.mjs:688
 msgid "Thin client"
 msgstr "ไคลเอนต์แบบบาง"
 
-#: src/components/organisms/Kiosk.re.mjs:65
+#: src/components/organisms/Kiosk.re.mjs:78
 msgid "Track drop-shot placement and reveal landing patterns."
 msgstr "ติดตามตำแหน่ง drop-shot และเผยรูปแบบการลงของลูก"
 
-#: src/components/organisms/Kiosk.re.mjs:777
+#: src/components/organisms/Kiosk.re.mjs:793
 msgid "Use latest buffered footage"
 msgstr "ใช้ฟุตเทจจากบัฟเฟอร์ล่าสุด"
 
-#: src/components/organisms/Kiosk.re.mjs:441
+#: src/components/organisms/Kiosk.re.mjs:454
 msgid "VIEWING URL"
 msgstr "URL สำหรับรับชม"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+#~ msgid "{0}-second clip from the rolling buffer"
+#~ msgstr "คลิปความยาว {0} วินาทีจากบัฟเฟอร์ต่อเนื่อง"
+
+#: src/components/organisms/Kiosk.re.mjs:923
+#~ msgid "18-second clip · Rally 07"
+#~ msgstr "คลิป 18 วินาที · แรลลี 07"
+
+#: src/components/organisms/Kiosk.re.mjs:943
+#~ msgid "Discard"
+#~ msgstr "ยกเลิก"
+
+#: src/components/organisms/Kiosk.re.mjs:925
+#~ msgid "Rally clip ready"
+#~ msgstr "คลิปแรลลี่พร้อมแล้ว"

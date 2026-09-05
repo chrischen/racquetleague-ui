@@ -69,8 +69,8 @@ msgstr "+{0} 更多"
 msgid "Activity"
 msgstr "活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:673
-#: src/components/organisms/RSVPSection.re.mjs:765
+#: src/components/organisms/RSVPSection.re.mjs:760
+#: src/components/organisms/RSVPSection.re.mjs:855
 msgid "Add Member"
 msgstr "新增成員"
 
@@ -130,7 +130,7 @@ msgstr "收取款項"
 msgid "Close profile form"
 msgstr "關閉個人資料表單"
 
-#: src/components/organisms/RSVPSection.re.mjs:690
+#: src/components/organisms/RSVPSection.re.mjs:777
 msgid "Collapse"
 msgstr "收起"
 
@@ -224,6 +224,10 @@ msgstr "輸入比賽比分"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "分數相同 — 此場將記錄為平局"
 
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Evaluating pending requests…"
+msgstr "正在評估待處理的請求…"
+
 #: src/components/organisms/EventDetails.re.mjs:47
 msgid "Event Details"
 msgstr "活動詳情"
@@ -304,11 +308,11 @@ msgstr "退出了活動"
 msgid "Level"
 msgstr "等級"
 
-#: src/components/organisms/RSVPSection.re.mjs:781
+#: src/components/organisms/RSVPSection.re.mjs:871
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:868
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -426,7 +430,7 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重複"
 
-#: src/components/organisms/RSVPSection.re.mjs:431
+#: src/components/organisms/RSVPSection.re.mjs:513
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "所需評分：{0} (DUPR {1})"
 
@@ -442,9 +446,9 @@ msgstr "第 {0} 回合"
 msgid "Round Robin Draws"
 msgstr "循環賽抽籤"
 
-#: src/components/organisms/RSVPSection.re.mjs:552
-#: src/components/organisms/RSVPSection.re.mjs:591
-#: src/components/organisms/RSVPSection.re.mjs:712
+#: src/components/organisms/RSVPSection.re.mjs:636
+#: src/components/organisms/RSVPSection.re.mjs:675
+#: src/components/organisms/RSVPSection.re.mjs:799
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -452,7 +456,15 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "RSVP 待審核..."
 
-#: src/components/organisms/RSVPSection.re.mjs:260
+#: src/components/organisms/RSVPSection.re.mjs:186
+msgid "Run Smart RSVP (best-fit, test)"
+msgstr "執行智慧 RSVP（最佳配對，測試）"
+
+#: src/components/organisms/RSVPSection.re.mjs:175
+msgid "Run Smart RSVP now"
+msgstr "立即執行智慧 RSVP"
+
+#: src/components/organisms/RSVPSection.re.mjs:327
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "儲存"
@@ -514,6 +526,12 @@ msgid ""
 "scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
+#: src/components/organisms/RSVPSection.re.mjs:501
+msgid ""
+"This event admits players automatically. Your request will be reviewed and "
+"you will be notified once a spot is confirmed."
+msgstr "本活動將自動錄取球友。您的申請將經過審核，確認名額後會通知您。"
+
 #: src/components/atoms/EventSignupButton.re.mjs:91
 msgid ""
 "This event is full, so leaving the event will give your spot to someone on "
@@ -548,8 +566,8 @@ msgstr ""
 msgid "Time TBD"
 msgstr "時間待定"
 
-#: src/components/organisms/RSVPSection.re.mjs:244
-#: src/components/organisms/RSVPSection.re.mjs:245
+#: src/components/organisms/RSVPSection.re.mjs:311
+#: src/components/organisms/RSVPSection.re.mjs:312
 #: src/components/organisms/EventMessages.re.mjs:125
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -621,7 +639,7 @@ msgstr "您正在參加"
 msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
-#: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:515
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

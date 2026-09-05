@@ -14,110 +14,110 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1430
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1469
 msgid "Badminton"
 msgstr "Cầu lông"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1434
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1473
 msgid "Table Tennis"
 msgstr "Bóng bàn"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1438
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1477
 msgid "Pickleball"
 msgstr "Pickleball"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1442
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1481
 msgid "Futsal"
 msgstr "Futsal"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1446
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1485
 msgid "Basketball"
 msgstr "Bóng rổ"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1450
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1489
 msgid "Volleyball"
 msgstr "Bóng chuyền"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1454
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1493
 msgid "Crossminton"
 msgstr "Crossminton"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1458
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1497
 msgid "Padel"
 msgstr "Padel"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1462
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1501
 msgid "drill"
 msgstr "luyện tập"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1466
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1505
 msgid "comp"
 msgstr "thi đấu"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1470
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1509
 msgid "rec"
 msgstr "giải trí"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1474
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1513
 msgid "all level"
 msgstr "mọi trình độ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:526
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
 msgid "{0} hours"
 msgstr "{0} giờ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:526
+#: src/components/organisms/CreateLocationEventForm.re.mjs:536
 msgid "{0} hours and {1} minutes"
 msgstr "{0} giờ {1} phút"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:528
+#: src/components/organisms/CreateLocationEventForm.re.mjs:538
 msgid "{0} minutes"
 msgstr "{0} phút"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#: src/components/organisms/CreateLocationEventForm.re.mjs:772
 msgid "1 hour before"
 msgstr "1 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#: src/components/organisms/CreateLocationEventForm.re.mjs:800
 msgid "1 week before"
 msgstr "1 tuần trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:774
+#: src/components/organisms/CreateLocationEventForm.re.mjs:784
 msgid "12 hours before"
 msgstr "12 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:766
+#: src/components/organisms/CreateLocationEventForm.re.mjs:776
 msgid "2 hours before"
 msgstr "2 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:778
+#: src/components/organisms/CreateLocationEventForm.re.mjs:788
 msgid "24 hours before"
 msgstr "24 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:782
+#: src/components/organisms/CreateLocationEventForm.re.mjs:792
 msgid "48 hours before"
 msgstr "48 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:770
+#: src/components/organisms/CreateLocationEventForm.re.mjs:780
 msgid "6 hours before"
 msgstr "6 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:786
+#: src/components/organisms/CreateLocationEventForm.re.mjs:796
 msgid "72 hours before"
 msgstr "72 giờ trước"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:856
+#: src/components/organisms/CreateLocationEventForm.re.mjs:866
 msgid ""
 "A deposit authorization is made. This is not a charge and it automatically "
 "disappears from the person's account. You can manually approve attendees who "
@@ -128,8 +128,8 @@ msgstr ""
 "công những người tham dự không ủy quyền thanh toán bằng cách nhấp vào tên "
 "của họ trong danh sách RSVP."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:849
-#: src/components/organisms/CreateLocationEventForm.re.mjs:871
+#: src/components/organisms/CreateLocationEventForm.re.mjs:859
+#: src/components/organisms/CreateLocationEventForm.re.mjs:881
 msgid "Active"
 msgstr "Đang hoạt động"
 
@@ -137,23 +137,23 @@ msgstr "Đang hoạt động"
 msgid "activity is required"
 msgstr "cần có môn thể thao"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:807
+#: src/components/organisms/CreateLocationEventForm.re.mjs:817
 msgid "Add any additional information about the event..."
 msgstr "Thêm bất kỳ thông tin bổ sung nào về sự kiện..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:450
+#: src/components/organisms/CreateLocationEventForm.re.mjs:460
 msgid "at"
 msgstr "lúc"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:795
+#: src/components/organisms/CreateLocationEventForm.re.mjs:805
 msgid "Attendees cannot cancel their RSVP after this deadline"
 msgstr "Người tham gia không thể hủy RSVP sau thời hạn này"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:752
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
 msgid "Cancel deadline (optional)"
 msgstr "Hạn hủy (tùy chọn)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1270
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
 msgid ""
 "Casual play focused on fun and social interaction. Perfect for all skill "
 "levels."
@@ -161,31 +161,31 @@ msgstr ""
 "Chơi giải trí tập trung vào vui vẻ và giao lưu xã hội. Phù hợp với tất cả "
 "trình độ."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:461
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1224
+#: src/components/organisms/CreateLocationEventForm.re.mjs:471
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1263
 msgid "Competitive"
 msgstr "Thi đấu"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:884
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
 msgid "Connect a Stripe account to activate"
 msgstr "Kết nối tài khoản Stripe để kích hoạt"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
 msgid "Create Event"
 msgstr "Tạo sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:469
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1307
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1337
+#: src/components/organisms/CreateLocationEventForm.re.mjs:479
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1346
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1376
 msgid "Drill session"
 msgstr "Buổi luyện tập"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:466
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1288
+#: src/components/organisms/CreateLocationEventForm.re.mjs:476
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1327
 msgid "DUPR rated"
 msgstr "Có xếp hạng DUPR"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:710
+#: src/components/organisms/CreateLocationEventForm.re.mjs:720
 msgid "End time"
 msgstr "Giờ kết thúc"
 
@@ -193,7 +193,7 @@ msgstr "Giờ kết thúc"
 msgid "end time is required"
 msgstr "cần có giờ kết thúc"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:834
+#: src/components/organisms/CreateLocationEventForm.re.mjs:844
 msgid "Enter price"
 msgstr "Nhập giá"
 
@@ -201,139 +201,149 @@ msgstr "Nhập giá"
 msgid "event date is required"
 msgstr "cần có ngày sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1082
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:803
+#: src/components/organisms/CreateLocationEventForm.re.mjs:813
 msgid "Event details (optional)"
 msgstr "Chi tiết sự kiện (tùy chọn)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:597
+#: src/components/organisms/CreateLocationEventForm.re.mjs:607
 msgid "Event schedule"
 msgstr "Lịch trình sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+#: src/components/organisms/CreateLocationEventForm.re.mjs:737
 msgid "Event title"
 msgstr "Tiêu đề sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1213
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1252
 msgid "Event type"
 msgstr "Loại sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1375
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
 msgid "Find Players"
 msgstr "Tìm người chơi"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1011
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1021
 msgid "Find players for your event?"
 msgstr "Tìm người chơi cho sự kiện của bạn?"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1175
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1214
 msgid "Format"
 msgstr "Định dạng"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1281
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1320
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1371
 msgid "Format options"
 msgstr "Tùy chọn định dạng"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:731
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
 msgid "Friday Night Pickleball"
 msgstr "Pickleball tối thứ Sáu"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1016
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1026
 msgid "List your event publicly to help fill open spots"
 msgstr "Liệt kê sự kiện của bạn công khai để giúp lấp đầy chỗ trống"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:739
+#: src/components/organisms/CreateLocationEventForm.re.mjs:749
 msgid "Max RSVPs (optional)"
 msgstr "RSVP tối đa (tùy chọn)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:980
+#: src/components/organisms/CreateLocationEventForm.re.mjs:990
 msgid "Minimum rating (optional)"
 msgstr "Xếp hạng tối thiểu (tùy chọn)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:758
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid "New joins are held and admitted automatically based on match quality"
+msgstr ""
+"Người tham gia mới sẽ được giữ lại và duyệt tự động dựa trên độ phù hợp của "
+"trận đấu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:768
 msgid "No deadline"
 msgstr "Không có hạn"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:743
+#: src/components/organisms/CreateLocationEventForm.re.mjs:753
 msgid "No limit"
 msgstr "Không giới hạn"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:984
+#: src/components/organisms/CreateLocationEventForm.re.mjs:994
 msgid "No minimum"
 msgstr "Không có tối thiểu"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:455
-#: src/components/organisms/CreateLocationEventForm.re.mjs:474
+#: src/components/organisms/CreateLocationEventForm.re.mjs:465
+#: src/components/organisms/CreateLocationEventForm.re.mjs:484
 msgid "Not set"
 msgstr "Chưa đặt"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1143
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1182
 msgid "Paid event"
 msgstr "Sự kiện có phí"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:824
+#: src/components/organisms/CreateLocationEventForm.re.mjs:834
 msgid "Price"
 msgstr "Giá"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:479
+#: src/components/organisms/CreateLocationEventForm.re.mjs:489
 msgid "Private event"
 msgstr "Sự kiện riêng tư"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:493
+#: src/components/organisms/CreateLocationEventForm.re.mjs:503
 msgid "Public"
 msgstr "Công khai"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:495
+#: src/components/organisms/CreateLocationEventForm.re.mjs:505
 msgid "Public event"
 msgstr "Sự kiện công khai"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1093
 msgid "Read more..."
 msgstr "Đọc thêm..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:463
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1220
+#: src/components/organisms/CreateLocationEventForm.re.mjs:473
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
 msgid "Recreational"
 msgstr "Giải trí"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1148
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
 msgid "Require payment from attendees"
 msgstr "Yêu cầu thanh toán từ người tham dự"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1270
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1309
 msgid ""
 "Serious play with rankings and ratings. Games may affect your player rating."
 msgstr ""
 "Chơi nghiêm túc với bảng xếp hạng và đánh giá. Các trận đấu có thể ảnh hưởng "
 "đến xếp hạng của bạn."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1054
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1093
 msgid "Show less"
 msgstr "Thu gọn"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:926
+#: src/components/organisms/CreateLocationEventForm.re.mjs:936
 msgid "Skill level"
 msgstr "Trình độ kỹ năng"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:693
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1055
+msgid "Smart RSVP"
+msgstr "RSVP thông minh"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:703
 msgid "Start date and time"
 msgstr "Ngày và giờ bắt đầu"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:879
+#: src/components/organisms/CreateLocationEventForm.re.mjs:889
 msgid ""
 "The participation fee is charged automatically and transferred to your "
 "Stripe account."
 msgstr "Phí tham gia được tính tự động và chuyển vào tài khoản Stripe của bạn."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1020
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
 msgid "This event is private"
 msgstr "Sự kiện này ở chế độ riêng tư"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1020
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
 msgid "This event is public"
 msgstr "Sự kiện này ở chế độ công khai"
 
@@ -341,15 +351,15 @@ msgstr "Sự kiện này ở chế độ công khai"
 msgid "title is required"
 msgstr "cần có tiêu đề"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1414
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1453
 msgid "Update Event"
 msgstr "Cập nhật sự kiện"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:867
+#: src/components/organisms/CreateLocationEventForm.re.mjs:877
 msgid "With Stripe"
 msgstr "Với Stripe"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:845
+#: src/components/organisms/CreateLocationEventForm.re.mjs:855
 msgid "Without Stripe"
 msgstr "Không có Stripe"
 

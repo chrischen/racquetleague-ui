@@ -287,6 +287,12 @@ input CreateEventInput {
   maxRsvps: Int
   minRating: Float
   price: Int
+
+  """
+  Smart RSVP: omit to leave it off, or send the largest drop in simulated
+       match quality an automatic admission may cost.
+  """
+  smartRsvpThreshold: Float
   startDate: Datetime!
   tags: [String!]
   timezone: String
@@ -380,6 +386,26 @@ type Error {
   message: String!
 }
 
+"""
+Which admission search Smart RSVP runs. Window is the real one; BestFit is
+ the earlier all-candidate search, kept for comparison while the feature
+ settles.
+"""
+enum SmartRsvpAlgorithm {
+  Ilp
+  BestFit
+}
+
+type EvaluateSmartRsvpsResult implements HasErrors {
+  errors: [Error!]
+
+  """
+  The RSVPs this run admitted, now confirmed. Empty when nobody was
+       within the threshold, or when there was nothing pending.
+  """
+  rsvps: [Rsvp!]
+}
+
 type Event implements Node {
   activity: Activity
   cancelDeadline: Int
@@ -408,6 +434,13 @@ type Event implements Node {
   price: Int
   rsvps(after: String, before: String, first: Int): EventRsvpConnection
   shadow: Boolean
+
+  """
+  Smart RSVP: absent = off. When set, joins are held for review and admitted
+     automatically; the value is the largest drop in simulated match quality an
+     admission may cost.
+  """
+  smartRsvpThreshold: Float
   startDate: Datetime
   tags: [String!]
   timezone: String
@@ -551,7 +584,7 @@ type LeagueClubStat {
   retentionRate: Float
 
   """
-  The club's rank in the public listing: a weighted blend of activity, level and retention, with the ratios shrunk toward the population average by how much evidence backs them.
+  The club's rank in the public listing: a weighted blend of activity, level and retention, with the ratios shrunk toward the population average by how much evidence backs them. Exactly 0 when nobody was active at the club recently — the public listing hides such clubs.
   """
   score: Float!
 
@@ -863,6 +896,14 @@ type Mutation {
   deleteAvailabilityForTimeWindow(input: DeleteAvailabilityForTimeWindowInput!): DeleteAvailabilityForTimeWindowResult!
   deleteClub(input: DeleteClubInput!): DeleteClubResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
+
+  """
+  Runs Smart RSVP's admission pass for one event right now, exactly as the
+     offline job would: the pending list is evaluated against the event's
+     current going list and everyone within the threshold is promoted. Only an
+     organizer of the event may call it.
+  """
+  evaluateSmartRsvps(eventId: ID!, algorithm: SmartRsvpAlgorithm): EvaluateSmartRsvpsResult!
   inviteToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
