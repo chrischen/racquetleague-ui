@@ -231,10 +231,10 @@ module Match = {
     Js.log(playerMetadata)
     let metadata = PlayerMetadata.decode(playerMetadata)
 
-    // Which side of the payload this player sits on. On a draw the split into
-    // winners/losers is arbitrary — the server picks one — so this says only
-    // "which team", never "who won". It still drives ordering, so the viewed
-    // player's own team reads first either way.
+    // Which side of the payload this player sits on. The winners/losers split
+    // is vestigial — the score decides the result — so this says only "which
+    // team", never "who won". It drives ordering, so the viewed player's own
+    // team reads first either way.
     let onWinnersSide =
       user
       ->Option.flatMap(user => {
@@ -244,14 +244,15 @@ module Match = {
       ->Option.isSome
 
     // The score is the truth about the result, and it is aligned to
-    // (winners, losers). Equal scores are a draw — that covers both a real
-    // scoreline like 10-10 and the (-1,-1) unscored-draw sentinel.
-    let isDraw = switch score {
-    | Some([first, second]) => first == second
-    | _ => false
+    // (winners, losers): the higher score wins. Equal scores are a draw — that
+    // covers both a real scoreline like 10-10 and the (-1,-1) unscored-draw
+    // sentinel. Without a score, the side is the only signal left.
+    let (isWinner, isDraw) = switch score {
+    | Some([first, second]) =>
+      let (mine, theirs) = onWinnersSide ? (first, second) : (second, first)
+      (mine > theirs, mine == theirs)
+    | _ => (onWinnersSide, false)
     }
-
-    let isWinner = onWinnersSide && !isDraw
 
     <li key={id}>
       <div className="relative pb-8">

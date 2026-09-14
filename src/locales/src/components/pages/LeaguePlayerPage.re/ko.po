@@ -17,31 +17,31 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...이전 경기 불러오기"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#: src/components/pages/LeaguePlayerPage.re.mjs:159
 msgid "All"
 msgstr "전체"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:781
+#: src/components/pages/LeaguePlayerPage.re.mjs:802
 msgid "All Clubs"
 msgstr "전체 클럽"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:761
+#: src/components/pages/LeaguePlayerPage.re.mjs:782
 msgid "Back to league"
 msgstr "리그로 돌아가기"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:412
+#: src/components/pages/LeaguePlayerPage.re.mjs:407
 msgid "Balanced partner tendency"
 msgstr "균형잡힌 파트너 경향"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:458
+#: src/components/pages/LeaguePlayerPage.re.mjs:479
 msgid "Best Doubles Partners"
 msgstr "최고의 복식 파트너"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:873
+#: src/components/pages/LeaguePlayerPage.re.mjs:894
 msgid "Current Rating"
 msgstr "현재 레이팅"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:896
+#: src/components/pages/LeaguePlayerPage.re.mjs:917
 msgid "Days at #1"
 msgstr "#1 유지 일수"
 
@@ -50,15 +50,15 @@ msgstr "#1 유지 일수"
 msgid "DRAW"
 msgstr "무승부"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:409
+#: src/components/pages/LeaguePlayerPage.re.mjs:404
 msgid "Elevates weaker partners"
 msgstr "약한 파트너를 끌어올림"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:388
-#: src/components/pages/LeaguePlayerPage.re.mjs:925
-#: src/components/pages/LeaguePlayerPage.re.mjs:976
-#: src/components/pages/LeaguePlayerPage.re.mjs:1027
-#: src/components/pages/LeaguePlayerPage.re.mjs:1130
+#: src/components/pages/LeaguePlayerPage.re.mjs:383
+#: src/components/pages/LeaguePlayerPage.re.mjs:946
+#: src/components/pages/LeaguePlayerPage.re.mjs:999
+#: src/components/pages/LeaguePlayerPage.re.mjs:1052
+#: src/components/pages/LeaguePlayerPage.re.mjs:1146
 msgid "Estimated DUPR"
 msgstr "예상 DUPR"
 
@@ -66,23 +66,19 @@ msgstr "예상 DUPR"
 msgid "Even"
 msgstr "균등"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1083
-msgid "Hard Court"
-msgstr "하드 코트"
+#: src/components/pages/LeaguePlayerPage.re.mjs:1126
+msgid "Gym"
+msgstr "체육관"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:1111
-msgid "Indoor Court (Indoor Ball)"
-msgstr "실내 코트 (실내 공)"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:1097
-msgid "Indoor Court (Outdoor Ball)"
-msgstr "실내 코트 (실외 공)"
+msgid "Hard Court"
+msgstr "하드 코트"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:716
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1203
+#: src/components/pages/LeaguePlayerPage.re.mjs:1221
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -91,29 +87,37 @@ msgstr "로딩 중..."
 msgid "LOSS"
 msgstr "패"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:940
+#: src/components/pages/LeaguePlayerPage.re.mjs:961
 msgid "Men's Doubles"
 msgstr "남자 복식"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:991
+#: src/components/pages/LeaguePlayerPage.re.mjs:1014
 msgid "Mixed Doubles"
 msgstr "혼합 복식"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:478
-#: src/components/pages/LeaguePlayerPage.re.mjs:552
-#: src/components/pages/LeaguePlayerPage.re.mjs:626
-#: src/components/pages/LeaguePlayerPage.re.mjs:700
+#: src/components/pages/LeaguePlayerPage.re.mjs:499
+#: src/components/pages/LeaguePlayerPage.re.mjs:573
+#: src/components/pages/LeaguePlayerPage.re.mjs:647
+#: src/components/pages/LeaguePlayerPage.re.mjs:721
 msgid "No data for this category"
 msgstr "이 카테고리의 데이터 없음"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:405
+#: src/components/pages/LeaguePlayerPage.re.mjs:425
+msgid "Performs better in gyms"
+msgstr "체육관에서 더 좋은 경기력을 보임"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:422
+msgid "Performs better on hard courts"
+msgstr "하드 코트에서 더 좋은 경기력을 보임"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:400
 msgid "Performs better with stronger partners"
 msgstr "강한 파트너와 더 잘 수행함"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:491
-#: src/components/pages/LeaguePlayerPage.re.mjs:565
-#: src/components/pages/LeaguePlayerPage.re.mjs:639
-#: src/components/pages/LeaguePlayerPage.re.mjs:713
+#: src/components/pages/LeaguePlayerPage.re.mjs:512
+#: src/components/pages/LeaguePlayerPage.re.mjs:586
+#: src/components/pages/LeaguePlayerPage.re.mjs:660
+#: src/components/pages/LeaguePlayerPage.re.mjs:734
 msgid "Predicted"
 msgstr "예측"
 
@@ -125,15 +129,15 @@ msgstr "레이팅 기록"
 msgid "Rating:"
 msgstr "평점:"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1194
+#: src/components/pages/LeaguePlayerPage.re.mjs:1212
 msgid "Recent Matches"
 msgstr "최근 경기"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:825
+#: src/components/pages/LeaguePlayerPage.re.mjs:846
 msgid "Showing stats from {selectedClubName} only"
 msgstr "{selectedClubName}의 통계만 표시"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:606
+#: src/components/pages/LeaguePlayerPage.re.mjs:627
 msgid "Strong Against"
 msgstr "강점 상대"
 
@@ -148,7 +152,7 @@ msgstr ""
 msgid "Upset"
 msgstr "이변"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:680
+#: src/components/pages/LeaguePlayerPage.re.mjs:701
 msgid "Weak Against"
 msgstr "약점 상대"
 
@@ -157,10 +161,18 @@ msgstr "약점 상대"
 msgid "WIN"
 msgstr "승"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1042
+#: src/components/pages/LeaguePlayerPage.re.mjs:1067
 msgid "Women's Doubles"
 msgstr "여자 복식"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:532
+#: src/components/pages/LeaguePlayerPage.re.mjs:553
 msgid "Worst Doubles Partners"
 msgstr "최악의 복식 파트너"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#~ msgid "Indoor Court (Indoor Ball)"
+#~ msgstr "실내 코트 (실내 공)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1100
+#~ msgid "Indoor Court (Outdoor Ball)"
+#~ msgstr "실내 코트 (실외 공)"

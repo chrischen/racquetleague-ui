@@ -38,7 +38,7 @@ var Internal = {
 };
 
 function smartRsvpAlgorithm_decode($$enum) {
-  if ($$enum === "Ilp" || $$enum === "BestFit") {
+  if ($$enum === "BestFit" || $$enum === "Ilp") {
     return $$enum;
   }
   

@@ -41,6 +41,13 @@
 // range) falls across the session toward Competitive+'s level while
 // RandomBalanced stays mixed: it calibrates like RB, then bands like C+.
 //
+// Auto's ramp was moved later (2026-09): calibrate at full strength until
+// readiness 0.75, cross to Competitive+ by 1.0. Measured here, 6 seeds, rho at
+// r20: the straightforward raise 0.30 -> 1.0 gave 0.869, worse than either
+// endpoint (RB 0.911, C+ 0.908) — the interpolated profile is the problem, not
+// the timing — while 0.75 -> 1.0 gave 0.923 with banding still 0.54 at r10
+// and 0.31 at r20. Rationale on `CostModel.readinessFloor`.
+//
 // Rating-aligned blind spot (2026-08, revisited): a balanced match is one
 // whose team sums are equal *under the current ratings*, so its outcome says
 // almost nothing about error aligned with the ratings themselves — a perfectly
@@ -210,23 +217,33 @@ describe("rating convergence", () => {
   }, 1_200_000);
 
   it("Auto calibrates like Random Balanced, then bands like Competitive+", async () => {
-    // Baselines: rho 0.71 at r4 (vs C+ 0.40) and 0.80 at r10 — Auto must keep
-    // variety-first's early information without giving up endgame accuracy —
-    // and a final-round banding of 0.36, alongside RB 0.63 / C+ 0.34: by the
-    // session's end its courts are grouped by skill, not mixed.
+    // Baselines (2026-09, ramp 0.75 -> 1.0): rho 0.65 at r4 (vs C+ 0.49) and
+    // 0.82 at r10 — Auto must keep variety-first's early information without
+    // giving up endgame accuracy. The gap to RandomBalanced at r10 is 0.03
+    // (0.82 vs 0.85), so this floor is 0.06 — the claim is "does not give up
+    // much endgame accuracy", not "matches it".
     const a = await auto();
     expect(at(a, 4)).toBeGreaterThanOrEqual(0.55);
     expect(at(a, 4)).toBeGreaterThanOrEqual(at(await cp(), 4) + 0.1);
     expect(at(a, 10)).toBeGreaterThanOrEqual(0.7);
-    // Post-fixture-fix the gap to RandomBalanced at r10 is 0.04 (0.81 vs
-    // 0.85), so this floor is 0.06 — the claim is "does not give up much
-    // endgame accuracy", not "matches it".
     expect(at(a, 10)).toBeGreaterThanOrEqual(at(await rb(), 10) - 0.06);
 
-    const last = (m: ConvergenceMeasurement) => bandingByRound(m).at(-1)!;
-    expect(last(a)).toBeLessThanOrEqual(last(await rb()) - 0.15);
-    expect(last(a)).toBeLessThanOrEqual(last(await cp()) + 0.1);
-  }, 1_200_000);
+    // Banding is deliberately late (see the ramp note on
+    // `CostModel.readinessFloor`): at r10, readiness ~0.86, the courts are
+    // still mostly mixed — 0.54 against static C+'s 0.35 — and by r20,
+    // readiness ~1.3, fully grouped by skill: 0.31 alongside RB 0.66 / C+ 0.39,
+    // at a final accuracy (rho 0.92) that beats both endpoints.
+    const band = (m: ConvergenceMeasurement, round: number) => bandingByRound(m)[round - 1];
+    expect(band(a, 10)).toBeGreaterThanOrEqual(band(await cp(), 10) + 0.1);
+
+    const seeds = [1, 2, 3, 4];
+    const a20 = await measured("auto20", { strategy: "SolverCompetitivePlus", numRounds: 20, seeds });
+    const rb20 = await measured("rb20", { strategy: "SolverRandomBalanced", numRounds: 20, seeds });
+    const cp20 = await measured("cp20", { strategy: "SolverCompetitivePlusStatic", numRounds: 20, seeds });
+    expect(band(a20, 20)).toBeLessThanOrEqual(band(rb20, 20) - 0.15);
+    expect(band(a20, 20)).toBeLessThanOrEqual(band(cp20, 20) + 0.1);
+    expect(at(a20, 20)).toBeGreaterThanOrEqual(at(rb20, 20) - 0.05);
+  }, 2_400_000);
 
   it("variety modes are the documented remedy for an inverted ladder; banded modes are not", async () => {
     // Worst-case rating-aligned error: a perfectly inverted ladder carried in

@@ -75,7 +75,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:840
+#: src/components/organisms/RoundRobin.re.mjs:844
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Alternate favourite/underdog roles"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:940
+#: src/components/organisms/RoundRobin.re.mjs:944
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -250,11 +250,11 @@ msgstr ""
 #~ msgid "Debug Mode"
 #~ msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: ON"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr ""
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1079
+#: src/components/organisms/RoundRobin.re.mjs:1083
 msgid "Help"
 msgstr ""
 
@@ -564,7 +564,7 @@ msgstr ""
 msgid "Players will be divided into similar skill level groups that round-robin with teams balanced by skill."
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:693
+#: src/components/organisms/RoundRobin.re.mjs:697
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr ""
 
@@ -650,7 +650,7 @@ msgstr ""
 msgid "Round Robin"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:1067
+#: src/components/organisms/RoundRobin.re.mjs:1071
 msgid "Round Robin Tournament"
 msgstr ""
 
@@ -752,7 +752,7 @@ msgid "Strategy:"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:683
 msgid "Team {0}"
 msgstr ""
 
@@ -833,6 +833,6 @@ msgstr ""
 msgid "Winning Team (Team {0})"
 msgstr ""
 
-#: src/components/organisms/RoundRobin.re.mjs:689
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Your browser is too old to use this feature."
 msgstr ""

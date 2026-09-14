@@ -165,37 +165,51 @@ function shiftHours(date, hours) {
   return new Date(date.getTime() + hours * 3600000.0);
 }
 
-function EventLocationAvailability(props) {
-  var genericCourtName = props.genericCourtName;
-  var $$event = use(props.event);
-  var intl = ReactIntl.useIntl();
-  var match = React.useState(function () {
-        return false;
-      });
-  var setExpanded = match[1];
-  var expanded = match[0];
-  var match$1 = React.useState(function () {
-        
-      });
-  var setPendingSlot = match$1[1];
-  var pendingSlot = match$1[0];
-  var match$2 = use$1();
-  var updating = match$2[1];
-  var updateEvent = match$2[0];
-  var tz = Core__Option.getOr($$event.timezone, "Asia/Tokyo");
+function updateInput($$event, startDate, endDate, locationId, details) {
+  var match = $$event.activity;
+  var match$1 = $$event.location;
+  var match$2 = $$event.title;
   var match$3 = $$event.startDate;
   var match$4 = $$event.endDate;
-  if (match$3 === undefined) {
-    return null;
+  if (match !== undefined && match$1 !== undefined && match$2 !== undefined && match$3 !== undefined && match$4 !== undefined) {
+    return {
+            activity: match.id,
+            cancelDeadline: $$event.cancelDeadline,
+            clubId: Core__Option.map($$event.club, (function (c) {
+                    return c.id;
+                  })),
+            details: Core__Option.orElse(details, $$event.details),
+            endDate: Core__Option.getOr(endDate, Caml_option.valFromOption(match$4)),
+            listed: $$event.listed,
+            locationId: Core__Option.getOr(locationId, match$1.id),
+            maxRsvps: $$event.maxRsvps,
+            minRating: $$event.minRating,
+            price: $$event.price,
+            smartRsvpThreshold: $$event.smartRsvpThreshold,
+            startDate: Core__Option.getOr(startDate, Caml_option.valFromOption(match$3)),
+            tags: $$event.tags,
+            timezone: $$event.timezone,
+            title: match$2
+          };
   }
-  if (match$4 === undefined) {
-    return null;
+  
+}
+
+function resolve($$event, genericCourtName) {
+  var tz = Core__Option.getOr($$event.timezone, "Asia/Tokyo");
+  var match = $$event.startDate;
+  var match$1 = $$event.endDate;
+  if (match === undefined) {
+    return ;
+  }
+  if (match$1 === undefined) {
+    return ;
   }
   if ($$event.courtAvailability.length <= 0) {
-    return null;
+    return ;
   }
-  var startAt = Util.Datetime.toDate(Caml_option.valFromOption(match$3));
-  var endAt = Util.Datetime.toDate(Caml_option.valFromOption(match$4));
+  var startAt = Util.Datetime.toDate(Caml_option.valFromOption(match));
+  var endAt = Util.Datetime.toDate(Caml_option.valFromOption(match$1));
   var startHour = TimeWindow.hourInTimeZone(startAt, tz);
   var rawEndHour = TimeWindow.hourInTimeZone(endAt, tz);
   var endHour = rawEndHour <= startHour ? rawEndHour + 24.0 : rawEndHour;
@@ -256,47 +270,66 @@ function EventLocationAvailability(props) {
   var alternateLocationCourts = TimeWindow.clipCourtAvailabilityTo(TimeWindow.filterCourtAvailabilityByFullWindow(nearbyDays.flatMap(function (day) {
                 return courtsFromDay(day, genericCourtName);
               }), [eventWindow]), eventWindow);
+  return {
+          startAt: startAt,
+          endAt: endAt,
+          tz: tz,
+          eventWindow: eventWindow,
+          venue: venue,
+          currentLocationCourts: currentLocationCourts,
+          alternateTimeSlots: alternateTimeSlots,
+          alternateLocationCourts: alternateLocationCourts
+        };
+}
+
+function isAvailableAtEventTime($$event, genericCourtName) {
+  return Core__Option.map(resolve($$event, genericCourtName), (function (r) {
+                return r.currentLocationCourts.length > 0;
+              }));
+}
+
+function EventLocationAvailability(props) {
+  var $$event = use(props.event);
+  var intl = ReactIntl.useIntl();
+  var match = React.useState(function () {
+        return false;
+      });
+  var setExpanded = match[1];
+  var expanded = match[0];
+  var match$1 = React.useState(function () {
+        
+      });
+  var setPendingSlot = match$1[1];
+  var pendingSlot = match$1[0];
+  var match$2 = use$1();
+  var updating = match$2[1];
+  var updateEvent = match$2[0];
+  var match$3 = resolve($$event, props.genericCourtName);
+  if (match$3 === undefined) {
+    return null;
+  }
+  var alternateLocationCourts = match$3.alternateLocationCourts;
+  var alternateTimeSlots = match$3.alternateTimeSlots;
+  var currentLocationCourts = match$3.currentLocationCourts;
+  var venue = match$3.venue;
+  var eventWindow = match$3.eventWindow;
+  var endAt = match$3.endAt;
+  var startAt = match$3.startAt;
   var isAvailable = currentLocationCourts.length > 0;
   var statusLabel = isAvailable ? t`Available` : t`Not available`;
   var applyOption = function (startShift, venueId) {
-    var match = $$event.activity;
-    var match$1 = $$event.location;
-    var match$2 = $$event.title;
-    if (match !== undefined && match$1 !== undefined && match$2 !== undefined) {
-      updateEvent({
-            eventId: $$event.id,
-            input: {
-              activity: match.id,
-              cancelDeadline: $$event.cancelDeadline,
-              clubId: Core__Option.map($$event.club, (function (c) {
-                      return c.id;
-                    })),
-              details: $$event.details,
-              endDate: Util.Datetime.fromDate(shiftHours(endAt, startShift)),
-              listed: $$event.listed,
-              locationId: Core__Option.getOr(venueId, match$1.id),
-              maxRsvps: $$event.maxRsvps,
-              minRating: $$event.minRating,
-              price: $$event.price,
-              smartRsvpThreshold: $$event.smartRsvpThreshold,
-              startDate: Util.Datetime.fromDate(shiftHours(startAt, startShift)),
-              tags: $$event.tags,
-              timezone: $$event.timezone,
-              title: match$2
-            }
-          }, undefined, undefined, undefined, (function (param, param$1) {
-              setPendingSlot(function (param) {
-                    
-                  });
-            }), undefined, undefined);
-      return ;
-    }
-    
+    Core__Option.forEach(updateInput($$event, Caml_option.some(Util.Datetime.fromDate(shiftHours(startAt, startShift))), Caml_option.some(Util.Datetime.fromDate(shiftHours(endAt, startShift))), venueId, undefined), (function (input) {
+            updateEvent({
+                  eventId: $$event.id,
+                  input: input
+                }, undefined, undefined, undefined, (function (param, param$1) {
+                    setPendingSlot(function (param) {
+                          
+                        });
+                  }), undefined, undefined);
+          }));
   };
-  var match$5 = $$event.activity;
-  var match$6 = $$event.location;
-  var match$7 = $$event.title;
-  var canApply = match$5 !== undefined && match$6 !== undefined ? match$7 !== undefined : false;
+  var canApply = Core__Option.isSome(updateInput($$event, undefined, undefined, undefined, undefined));
   var slotKey = function (slot) {
     return "time:" + slot.start.toString() + "-" + slot.end.toString();
   };
@@ -347,12 +380,12 @@ function EventLocationAvailability(props) {
                                                     }),
                                                 JsxRuntime.jsx(ReactIntl.FormattedDate, {
                                                       value: startAt,
-                                                      timeZone: tz,
+                                                      timeZone: match$3.tz,
                                                       weekday: "short",
                                                       month: "short",
                                                       day: "2-digit"
                                                     }),
-                                                " · " + TimeWindow.hourLabelIntl(intl, startHour) + "–" + TimeWindow.hourLabelIntl(intl, endHour)
+                                                " · " + TimeWindow.hourLabelIntl(intl, eventWindow.start) + "–" + TimeWindow.hourLabelIntl(intl, eventWindow.end)
                                               ],
                                               className: "mt-0.5 flex items-center gap-1 font-mono text-[9px] text-gray-500 dark:text-gray-400"
                                             })
@@ -443,7 +476,7 @@ function EventLocationAvailability(props) {
                                                                         contentOnly: true,
                                                                         onSelectCourt: canApply && !updating ? (function (param) {
                                                                               if (isPending) {
-                                                                                return applyOption(slot.start - startHour, undefined);
+                                                                                return applyOption(slot.start - eventWindow.start, undefined);
                                                                               } else {
                                                                                 return setPendingSlot(function (param) {
                                                                                             return key;
@@ -532,6 +565,9 @@ export {
   UpdateMutation ,
   courtsFromDay ,
   shiftHours ,
+  updateInput ,
+  resolve ,
+  isAvailableAtEventTime ,
   make ,
 }
 /*  Not a pure module */

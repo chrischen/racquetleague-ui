@@ -295,6 +295,13 @@ return {
                   {
                     "alias": null,
                     "args": null,
+                    "kind": "ScalarField",
+                    "name": "mdDelta",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
                     "concreteType": "DisciplineRating",
                     "kind": "LinkedField",
                     "name": "wdRating",
@@ -312,6 +319,13 @@ return {
                   {
                     "alias": null,
                     "args": null,
+                    "kind": "ScalarField",
+                    "name": "wdDelta",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
                     "concreteType": "DisciplineRating",
                     "kind": "LinkedField",
                     "name": "xdRating",
@@ -324,6 +338,13 @@ return {
                     "args": null,
                     "kind": "ScalarField",
                     "name": "xdZScore",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "xdDelta",
                     "storageKey": null
                   },
                   {
@@ -553,9 +574,23 @@ return {
                   {
                     "alias": null,
                     "args": null,
+                    "kind": "ScalarField",
+                    "name": "hardcourtDelta",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "hardcourtDeltaSe",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
                     "concreteType": "DisciplineRating",
                     "kind": "LinkedField",
-                    "name": "indoorIndoorBallRating",
+                    "name": "gymRating",
                     "plural": false,
                     "selections": (v10/*: any*/),
                     "storageKey": null
@@ -564,24 +599,21 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "indoorIndoorBallZScore",
-                    "storageKey": null
-                  },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "concreteType": "DisciplineRating",
-                    "kind": "LinkedField",
-                    "name": "indoorOutdoorBallRating",
-                    "plural": false,
-                    "selections": (v10/*: any*/),
+                    "name": "gymZScore",
                     "storageKey": null
                   },
                   {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
-                    "name": "indoorOutdoorBallZScore",
+                    "name": "gymDelta",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "gymDeltaSe",
                     "storageKey": null
                   }
                 ],
@@ -597,12 +629,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "513b8cac3f971cb83700f2f0bd3ec940",
+    "cacheID": "1d806edf921e9423a81509c2d1e78686",
     "id": null,
     "metadata": {},
     "name": "LeaguePlayerPageUserStatsRefetchQuery",
     "operationKind": "query",
-    "text": "query LeaguePlayerPageUserStatsRefetchQuery(\n  $activitySlug: String!\n  $clubSlug: String\n  $namespace: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...LeaguePlayerPage_userStats_1bIgST\n    id\n  }\n}\n\nfragment LeaguePlayerPage_userStats_1bIgST on User {\n  rating(activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    ordinal\n    mu\n    id\n  }\n  leagueUserStats(activity: $activitySlug, namespace: \"doubles:comp\", clubSlug: $clubSlug) {\n    daysNumberOne\n    mdRating {\n      mu\n      sigma\n    }\n    mdZScore\n    wdRating {\n      mu\n      sigma\n    }\n    wdZScore\n    xdRating {\n      mu\n      sigma\n    }\n    xdZScore\n    bestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    worstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    bestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    worstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfPartnerTendency\n    hardcourtRating {\n      mu\n      sigma\n    }\n    hardcourtZScore\n    indoorIndoorBallRating {\n      mu\n      sigma\n    }\n    indoorIndoorBallZScore\n    indoorOutdoorBallRating {\n      mu\n      sigma\n    }\n    indoorOutdoorBallZScore\n  }\n  id\n}\n"
+    "text": "query LeaguePlayerPageUserStatsRefetchQuery(\n  $activitySlug: String!\n  $clubSlug: String\n  $namespace: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...LeaguePlayerPage_userStats_1bIgST\n    id\n  }\n}\n\nfragment LeaguePlayerPage_userStats_1bIgST on User {\n  rating(activitySlug: $activitySlug, namespace: $namespace, clubSlug: $clubSlug) {\n    ordinal\n    mu\n    id\n  }\n  leagueUserStats(activity: $activitySlug, namespace: \"doubles:comp\", clubSlug: $clubSlug) {\n    daysNumberOne\n    mdRating {\n      mu\n      sigma\n    }\n    mdZScore\n    mdDelta\n    wdRating {\n      mu\n      sigma\n    }\n    wdZScore\n    wdDelta\n    xdRating {\n      mu\n      sigma\n    }\n    xdZScore\n    xdDelta\n    bestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    worstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    bestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    worstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    wdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    xdWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfBestPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfWorstPartners {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfBestOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfWorstOpponents {\n      score\n      user {\n        id\n        lineUsername\n        picture\n        gender\n      }\n    }\n    mfPartnerTendency\n    hardcourtRating {\n      mu\n      sigma\n    }\n    hardcourtZScore\n    hardcourtDelta\n    hardcourtDeltaSe\n    gymRating {\n      mu\n      sigma\n    }\n    gymZScore\n    gymDelta\n    gymDeltaSe\n  }\n  id\n}\n"
   }
 };
 })());

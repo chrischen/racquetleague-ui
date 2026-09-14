@@ -5,6 +5,7 @@ import cors from "cors";
 import { fileURLToPath } from "node:url";
 import express from "express";
 import favicon from "serve-favicon";
+import compression from "compression";
 
 // Needed to process node imports without file extensions
 import "extensionless/register";
@@ -52,6 +53,27 @@ export async function createServer(
 
   const app = express();
 
+  // The SSR response was going out uncompressed: 655 KB on the wire for
+  // /e/pickleball, which gzip takes to about 60 KB.
+  //
+  // This is safe with the streamed render below even though a compressor
+  // normally buffers until it has a full block, which would hold the shell
+  // until the first Suspense boundary resolves. React's Node renderer calls
+  // `destination.flush()` after each write when the destination defines one,
+  // PreloadInsertingStreamNode.flush() forwards that to the response, and this
+  // middleware is what gives the response a flush() to forward to. Without it
+  // mounted, that chain ends in a no-op. Measured with a 1.5s boundary: shell
+  // readable at 3ms with this, 1514ms with a compressor that ignores flushes.
+  //
+  // Pre-compressed /assets are unaffected: compression skips any response that
+  // already carries a Content-Encoding.
+  //
+  // PKURU_NO_COMPRESSION is an ops kill switch. This touches every page
+  // response and its interaction with the streamed render is subtle (see the
+  // long note in PreloadInsertingStreamNode._write), so it is worth being able
+  // to turn off by config rather than by shipping a revert.
+  if (!process.env.PKURU_NO_COMPRESSION) app.use(compression());
+
   app.use(favicon(path.join(__dirname, 'src', 'assets', 'favicon.ico')));
 
   var corsOptions = {
@@ -93,6 +115,14 @@ export async function createServer(
         enableBrotli: true,
         orderPreference: ["br", "gz"],
         index: false,
+        // Everything under /assets carries a content hash in its filename, so a
+        // given URL can never change and the browser may keep it for as long as
+        // it likes. The serve-static default is max-age=0, which made returning
+        // visitors revalidate all ~100 module files on every navigation. The
+        // HTML stays no-cache (set in the SSR handler), so it always names the
+        // current hashes; the root-level mount below is left alone because it
+        // serves unhashed files (sw.js, the web manifest) that must revalidate.
+        serveStatic: { maxAge: "1y", immutable: true },
       })
     );
     /* app.use(

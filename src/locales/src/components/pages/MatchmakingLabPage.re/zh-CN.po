@@ -21,13 +21,15 @@ msgstr "· {0} · 每个级别，同级对战概率%"
 msgid "· {0} players · every strategy"
 msgstr "· {0} 名球员 · 每种策略"
 
-#: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid "· % chance the game ends level, by true skill · higher is better"
-msgstr "· % 的概率游戏以平局结束，基于真实技术实力 · 越高越好"
-
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
 msgstr "· 以9分以上差距决出胜负的比赛比例 · 滚动5场"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid ""
+"· match evenness by true skill · 100% = a perfectly even game · higher is "
+"better"
+msgstr "· 按真实水平衡量的对阵均衡度 · 100% = 完全势均力敌 · 越高越好"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
 msgid ""
@@ -404,15 +406,15 @@ msgid ""
 "excluded from the ranking. All three are rolling averages over the last {0} "
 "rounds, so they say how each strategy is doing now rather than how it did "
 "overall — drag the round slider to watch them move. places off = how far the "
-"average player sits from their true rank (lower better) · quality = chance a "
-"game ends level, by true skill (higher better) · blowouts = share of games "
-"decided by 9+ (lower better)."
+"average player sits from their true rank (lower better) · quality = how even "
+"the game is by true skill, 100% = perfectly even (higher better) · blowouts "
+"= share of games decided by 9+ (lower better)."
 msgstr ""
-"按三列综合排名，权重相同。虚线以下的行基于隐藏真实技能进行匹配——代表上限，不"
-"计入排名。三列均为最近 {0} 轮的滚动平均值，反映各策略当前表现而非整体表现——拖"
-"动轮次滑块可观察变化。排名偏差 = 球员平均排名与真实排名的差距（越低越好）· 质"
-"量 = 按真实技能计算的场次同级结束概率（越高越好）· 悬殊 = 比分差9+场次占比"
-"（越低越好）。"
+"按三列指标综合排名，权重相同。虚线以下的行按隐藏的真实水平配对——它们代表上"
+"限，不计入排名。三项均为最近 {0} 轮的滚动平均值，因此反映的是各策略当前的表"
+"现，而非整体表现——拖动轮次滑块可观察其变化。名次偏差 = 平均每位球员距其真实排"
+"名的差距（越低越好）· 质量 = 按真实水平衡量的对阵均衡度，100% = 完全势均力敌"
+"（越高越好）· 悬殊局 = 分差 9 分及以上的比赛占比（越低越好）。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:140
 msgid ""
@@ -596,6 +598,10 @@ msgstr ""
 msgid "Within-band inversion"
 msgstr "同段位内反转"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr "· % 的概率游戏以平局结束，基于真实技术实力 · 越高越好"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1757
 #~ msgid ""
 #~ "a bunched pack, most players hard to tell apart, nobody outside the group"
@@ -665,6 +671,23 @@ msgstr "同段位内反转"
 #~ "排除在排名和高亮之外。名次偏差 = 球员平均偏离真实排名的距离（越低越好）· "
 #~ "质量 = 按真实技能计算的比赛势均力敌概率（越高越好）· 大比分差 = 9分以上差"
 #~ "距的比赛占比（越低越好）。粗体标记各列最优值。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. All three are rolling averages over the "
+#~ "last {0} rounds, so they say how each strategy is doing now rather than "
+#~ "how it did overall — drag the round slider to watch them move. places off "
+#~ "= how far the average player sits from their true rank (lower better) · "
+#~ "quality = chance a game ends level, by true skill (higher better) · "
+#~ "blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr ""
+#~ "按三列综合排名，权重相同。虚线以下的行基于隐藏真实技能进行匹配——代表上限，"
+#~ "不计入排名。三列均为最近 {0} 轮的滚动平均值，反映各策略当前表现而非整体表"
+#~ "现——拖动轮次滑块可观察变化。排名偏差 = 球员平均排名与真实排名的差距（越低"
+#~ "越好）· 质量 = 按真实技能计算的场次同级结束概率（越高越好）· 悬殊 = 比分差"
+#~ "9+场次占比（越低越好）。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1370
 #~ msgid ""

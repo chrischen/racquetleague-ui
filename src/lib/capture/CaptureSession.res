@@ -70,9 +70,13 @@ type t = {
   // first frame has been encoded. Never takes ownership of the tracks —
   // the caller's stream lifecycle owns those.
   start: UserMedia.t => promise<result<unit, startError>>,
-  // Muxes the most recent <= target-duration footage into a standalone MP4.
-  // Capture keeps running during and after the call.
-  takeClip: unit => promise<result<clip, clipError>>,
+  // Muxes the most recent footage into a standalone MP4. Capture keeps
+  // running during and after the call. ``seconds`` trims to a shorter tail
+  // than the ring's target (analysis cost scales with FRAME COUNT, so a
+  // Challenge asks for a few seconds, not the whole buffer); omitted means
+  // the full ring. The cut lands on a GOP boundary, so the result can be
+  // slightly longer than asked.
+  takeClip: (~seconds: float=?) => promise<result<clip, clipError>>,
   // Idempotent teardown. Does NOT stop the MediaStream tracks.
   stop: unit => unit,
 }

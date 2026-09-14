@@ -67,7 +67,7 @@ msgstr "플레이어 시드 조정"
 msgid "Advance to Next Round"
 msgstr "다음 라운드로 진행"
 
-#: src/components/organisms/RoundRobin.re.mjs:840
+#: src/components/organisms/RoundRobin.re.mjs:844
 msgid "Advance to Round {0}"
 msgstr "라운드 {0}으로 진행"
 
@@ -87,7 +87,7 @@ msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다
 msgid "Alternate favourite/underdog roles"
 msgstr "강자/약자 역할 교대"
 
-#: src/components/organisms/RoundRobin.re.mjs:940
+#: src/components/organisms/RoundRobin.re.mjs:944
 msgid "Anti-Team {0}"
 msgstr "안티팀 {0}"
 
@@ -213,11 +213,11 @@ msgstr "사용자 지정"
 msgid "Customize from here"
 msgstr "여기서 맞춤 설정"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: OFF"
 msgstr "디버그: 끄기"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: ON"
 msgstr "디버그: 켜기"
 
@@ -366,7 +366,7 @@ msgstr "게스트 이름 (줄당 하나)"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "스캔에 문제가 있으신가요? 클럽 페이지에서 이벤트를 찾아보세요."
 
-#: src/components/organisms/RoundRobin.re.mjs:1079
+#: src/components/organisms/RoundRobin.re.mjs:1083
 msgid "Help"
 msgstr "도움말"
 
@@ -524,7 +524,7 @@ msgstr ""
 "플레이어는 실력이 균형잡힌 팀으로 라운드 로빈하는 비슷한 실력 수준 그룹으로 "
 "나뉩니다."
 
-#: src/components/organisms/RoundRobin.re.mjs:693
+#: src/components/organisms/RoundRobin.re.mjs:697
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr "Chrome, Firefox 또는 Safari의 최신 버전으로 업데이트해 주세요."
 
@@ -605,7 +605,7 @@ msgstr "라운드 {0}"
 msgid "Round Robin"
 msgstr "라운드 로빈"
 
-#: src/components/organisms/RoundRobin.re.mjs:1067
+#: src/components/organisms/RoundRobin.re.mjs:1071
 msgid "Round Robin Tournament"
 msgstr "라운드 로빈 토너먼트"
 
@@ -682,7 +682,7 @@ msgid "Strategy:"
 msgstr "전략:"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:683
 msgid "Team {0}"
 msgstr "팀 {0}"
 
@@ -773,7 +773,7 @@ msgstr "VS"
 msgid "Winning Team (Team {0})"
 msgstr "승리 팀 (팀 {0})"
 
-#: src/components/organisms/RoundRobin.re.mjs:689
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Your browser is too old to use this feature."
 msgstr "이 기능을 사용하기에는 브라우저가 너무 오래되었습니다."
 

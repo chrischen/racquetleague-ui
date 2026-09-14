@@ -77,8 +77,8 @@ msgstr "活动"
 msgid "Activity"
 msgstr "活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:760
-#: src/components/organisms/RSVPSection.re.mjs:855
+#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:1016
 msgid "Add Member"
 msgstr "添加成员"
 
@@ -114,7 +114,11 @@ msgstr "已取消"
 msgid "Capture payment"
 msgstr "收取付款"
 
-#: src/components/organisms/RSVPSection.re.mjs:777
+#: src/components/organisms/RSVPSection.re.mjs:325
+msgid "Clear preview"
+msgstr "清除预览"
+
+#: src/components/organisms/RSVPSection.re.mjs:933
 msgid "Collapse"
 msgstr "折叠"
 
@@ -130,7 +134,7 @@ msgstr "详情"
 msgid "edit event"
 msgstr "编辑活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:175
+#: src/components/organisms/RSVPSection.re.mjs:292
 msgid "Evaluating pending requests…"
 msgstr "正在评估待处理请求…"
 
@@ -194,11 +198,11 @@ msgstr "联盟"
 msgid "left the event"
 msgstr "退出了活动"
 
-#: src/components/organisms/RSVPSection.re.mjs:871
+#: src/components/organisms/RSVPSection.re.mjs:1032
 msgid "Load more"
 msgstr "加载更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:868
+#: src/components/organisms/RSVPSection.re.mjs:1029
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -255,14 +259,26 @@ msgstr "备注"
 msgid "Paid"
 msgstr "已支付"
 
-#: src/components/organisms/PendingRsvps.re.mjs:58
+#: src/components/organisms/PendingRsvps.re.mjs:60
 msgid "Pending"
 msgstr "待审核"
+
+#: src/components/organisms/RSVPSection.re.mjs:301
+msgid "Placing on the waitlist…"
+msgstr "正在加入候补名单…"
 
 #: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "球员"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Preview Smart RSVP"
+msgstr "预览智能报名"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Previewing…"
+msgstr "预览中…"
 
 #: src/components/atoms/EventTag.re.mjs:141
 #: src/components/atoms/EventTag.re.mjs:143
@@ -295,7 +311,7 @@ msgstr "从活动中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:513
+#: src/components/organisms/RSVPSection.re.mjs:664
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "最低评分要求：{0}（DUPR {1}）"
 
@@ -303,9 +319,9 @@ msgstr "最低评分要求：{0}（DUPR {1}）"
 msgid "Results will be submitted to competitive ratings."
 msgstr "比赛结果将提交至竞技评分系统。"
 
-#: src/components/organisms/RSVPSection.re.mjs:636
-#: src/components/organisms/RSVPSection.re.mjs:675
-#: src/components/organisms/RSVPSection.re.mjs:799
+#: src/components/organisms/RSVPSection.re.mjs:787
+#: src/components/organisms/RSVPSection.re.mjs:826
+#: src/components/organisms/RSVPSection.re.mjs:955
 msgid "RSVP"
 msgstr "报名"
 
@@ -313,15 +329,15 @@ msgstr "报名"
 msgid "RSVP Pending..."
 msgstr "报名待审..."
 
-#: src/components/organisms/RSVPSection.re.mjs:186
+#: src/components/organisms/RSVPSection.re.mjs:310
 msgid "Run Smart RSVP (best-fit, test)"
 msgstr "运行智能报名（最佳匹配，测试）"
 
-#: src/components/organisms/RSVPSection.re.mjs:175
+#: src/components/organisms/RSVPSection.re.mjs:292
 msgid "Run Smart RSVP now"
 msgstr "立即运行智能报名"
 
-#: src/components/organisms/RSVPSection.re.mjs:327
+#: src/components/organisms/RSVPSection.re.mjs:465
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr "保存"
@@ -348,6 +364,15 @@ msgstr "未经许可出现可能会因违反规则而被禁止。"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能练习和专注于技术提高的训练"
 
+#: src/components/organisms/RSVPSection.re.mjs:323
+msgid ""
+"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "智能报名将从 {1} 个待处理请求中通过 {0} 个：已在上方标记。"
+
+#: src/components/organisms/RSVPSection.re.mjs:301
+msgid "Smart Waitlist"
+msgstr "智能候补名单"
+
 #: src/components/organisms/EventMessages.re.mjs:118
 #: src/components/pages/Event.re.mjs:165
 msgid "Status message"
@@ -365,7 +390,7 @@ msgstr "订阅所有 {activityName} 活动"
 msgid "sync calendar"
 msgstr "同步日历"
 
-#: src/components/organisms/RSVPSection.re.mjs:501
+#: src/components/organisms/RSVPSection.re.mjs:652
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -402,8 +427,8 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/organisms/RSVPSection.re.mjs:311
-#: src/components/organisms/RSVPSection.re.mjs:312
+#: src/components/organisms/RSVPSection.re.mjs:449
+#: src/components/organisms/RSVPSection.re.mjs:450
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
 msgid ""
@@ -446,6 +471,10 @@ msgstr "已被邀请参加活动"
 msgid "was removed from the event by admin"
 msgstr "已被管理员从活动中移除"
 
+#: src/components/organisms/PendingRsvps.re.mjs:82
+msgid "Would be admitted"
+msgstr "将被通过"
+
 #: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "您将失去您的位置"
@@ -462,7 +491,7 @@ msgstr "您将参加"
 msgid "You're Waitlisted"
 msgstr "您在等待列表中"
 
-#: src/components/organisms/RSVPSection.re.mjs:515
+#: src/components/organisms/RSVPSection.re.mjs:666
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

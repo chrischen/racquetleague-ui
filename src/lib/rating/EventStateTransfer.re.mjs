@@ -93,6 +93,7 @@ function encode(eventId, exportedAt, rounds, adjustments) {
           return {
                   playerId: a.playerId,
                   differential: a.differential,
+                  sigmaDifferential: a.sigmaDifferential,
                   appliedAtRound: compact(a.appliedAtRound),
                   timestamp: a.timestamp
                 };
@@ -468,6 +469,7 @@ function plan(existingRounds, existingAdjustments, existingRoundViolations, curr
         return {
                 playerId: a.playerId,
                 differential: a.differential,
+                sigmaDifferential: a.sigmaDifferential,
                 appliedAtRound: remapE(a.appliedAtRound),
                 timestamp: a.timestamp
               };
@@ -483,11 +485,13 @@ function plan(existingRounds, existingAdjustments, existingRoundViolations, curr
         }
         var moved_playerId = a.playerId;
         var moved_differential = a.differential;
+        var moved_sigmaDifferential = a.sigmaDifferential;
         var moved_appliedAtRound = remapI(a.appliedAtRound);
         var moved_timestamp = a.timestamp;
         var moved = {
           playerId: moved_playerId,
           differential: moved_differential,
+          sigmaDifferential: moved_sigmaDifferential,
           appliedAtRound: moved_appliedAtRound,
           timestamp: moved_timestamp
         };

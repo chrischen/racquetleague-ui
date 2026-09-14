@@ -17,31 +17,31 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#: src/components/pages/LeaguePlayerPage.re.mjs:159
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:781
+#: src/components/pages/LeaguePlayerPage.re.mjs:802
 msgid "All Clubs"
 msgstr "ทุกสโมสร"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:761
+#: src/components/pages/LeaguePlayerPage.re.mjs:782
 msgid "Back to league"
 msgstr "กลับไปที่ลีก"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:412
+#: src/components/pages/LeaguePlayerPage.re.mjs:407
 msgid "Balanced partner tendency"
 msgstr "แนวโน้มความสมดุลกับคู่เล่น"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:458
+#: src/components/pages/LeaguePlayerPage.re.mjs:479
 msgid "Best Doubles Partners"
 msgstr "คู่ดับเบิลที่ดีที่สุด"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:873
+#: src/components/pages/LeaguePlayerPage.re.mjs:894
 msgid "Current Rating"
 msgstr "เรตติ้งปัจจุบัน"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:896
+#: src/components/pages/LeaguePlayerPage.re.mjs:917
 msgid "Days at #1"
 msgstr "วันที่อันดับ 1"
 
@@ -50,15 +50,15 @@ msgstr "วันที่อันดับ 1"
 msgid "DRAW"
 msgstr "เสมอ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:409
+#: src/components/pages/LeaguePlayerPage.re.mjs:404
 msgid "Elevates weaker partners"
 msgstr "ยกระดับคู่เล่นที่อ่อนแอกว่า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:388
-#: src/components/pages/LeaguePlayerPage.re.mjs:925
-#: src/components/pages/LeaguePlayerPage.re.mjs:976
-#: src/components/pages/LeaguePlayerPage.re.mjs:1027
-#: src/components/pages/LeaguePlayerPage.re.mjs:1130
+#: src/components/pages/LeaguePlayerPage.re.mjs:383
+#: src/components/pages/LeaguePlayerPage.re.mjs:946
+#: src/components/pages/LeaguePlayerPage.re.mjs:999
+#: src/components/pages/LeaguePlayerPage.re.mjs:1052
+#: src/components/pages/LeaguePlayerPage.re.mjs:1146
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
@@ -66,23 +66,19 @@ msgstr "DUPR ที่คาดการณ์"
 msgid "Even"
 msgstr "สมดุล"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1083
-msgid "Hard Court"
-msgstr "คอร์ตแข็ง"
+#: src/components/pages/LeaguePlayerPage.re.mjs:1126
+msgid "Gym"
+msgstr "โรงยิม"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:1111
-msgid "Indoor Court (Indoor Ball)"
-msgstr "คอร์ตในร่ม (ลูกบอลในร่ม)"
-
-#: src/components/pages/LeaguePlayerPage.re.mjs:1097
-msgid "Indoor Court (Outdoor Ball)"
-msgstr "คอร์ตในร่ม (ลูกบอลกลางแจ้ง)"
+msgid "Hard Court"
+msgstr "คอร์ตแข็ง"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:716
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1203
+#: src/components/pages/LeaguePlayerPage.re.mjs:1221
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -91,29 +87,37 @@ msgstr "กำลังโหลด..."
 msgid "LOSS"
 msgstr "แพ้"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:940
+#: src/components/pages/LeaguePlayerPage.re.mjs:961
 msgid "Men's Doubles"
 msgstr "ดับเบิลชาย"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:991
+#: src/components/pages/LeaguePlayerPage.re.mjs:1014
 msgid "Mixed Doubles"
 msgstr "ดับเบิลผสม"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:478
-#: src/components/pages/LeaguePlayerPage.re.mjs:552
-#: src/components/pages/LeaguePlayerPage.re.mjs:626
-#: src/components/pages/LeaguePlayerPage.re.mjs:700
+#: src/components/pages/LeaguePlayerPage.re.mjs:499
+#: src/components/pages/LeaguePlayerPage.re.mjs:573
+#: src/components/pages/LeaguePlayerPage.re.mjs:647
+#: src/components/pages/LeaguePlayerPage.re.mjs:721
 msgid "No data for this category"
 msgstr "ไม่มีข้อมูลสำหรับหมวดหมู่นี้"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:405
+#: src/components/pages/LeaguePlayerPage.re.mjs:425
+msgid "Performs better in gyms"
+msgstr "เล่นได้ดีกว่าในโรงยิม"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:422
+msgid "Performs better on hard courts"
+msgstr "เล่นได้ดีกว่าบนคอร์ตพื้นแข็ง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:400
 msgid "Performs better with stronger partners"
 msgstr "เล่นได้ดีขึ้นเมื่อคู่เล่นเก่งกว่า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:491
-#: src/components/pages/LeaguePlayerPage.re.mjs:565
-#: src/components/pages/LeaguePlayerPage.re.mjs:639
-#: src/components/pages/LeaguePlayerPage.re.mjs:713
+#: src/components/pages/LeaguePlayerPage.re.mjs:512
+#: src/components/pages/LeaguePlayerPage.re.mjs:586
+#: src/components/pages/LeaguePlayerPage.re.mjs:660
+#: src/components/pages/LeaguePlayerPage.re.mjs:734
 msgid "Predicted"
 msgstr "คาดการณ์"
 
@@ -125,15 +129,15 @@ msgstr "ประวัติเรตติ้ง"
 msgid "Rating:"
 msgstr "คะแนน:"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1194
+#: src/components/pages/LeaguePlayerPage.re.mjs:1212
 msgid "Recent Matches"
 msgstr "การแข่งขันล่าสุด"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:825
+#: src/components/pages/LeaguePlayerPage.re.mjs:846
 msgid "Showing stats from {selectedClubName} only"
 msgstr "แสดงสถิติจาก {selectedClubName} เท่านั้น"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:606
+#: src/components/pages/LeaguePlayerPage.re.mjs:627
 msgid "Strong Against"
 msgstr "ได้เปรียบ"
 
@@ -147,7 +151,7 @@ msgstr "พื้นที่แรเงาแสดงถึงความไ
 msgid "Upset"
 msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:680
+#: src/components/pages/LeaguePlayerPage.re.mjs:701
 msgid "Weak Against"
 msgstr "เสียเปรียบ"
 
@@ -156,17 +160,25 @@ msgstr "เสียเปรียบ"
 msgid "WIN"
 msgstr "ชนะ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1042
+#: src/components/pages/LeaguePlayerPage.re.mjs:1067
 msgid "Women's Doubles"
 msgstr "ดับเบิลหญิง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:532
+#: src/components/pages/LeaguePlayerPage.re.mjs:553
 msgid "Worst Doubles Partners"
 msgstr "คู่ดับเบิลที่แย่ที่สุด"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:131
 #~ msgid "Female"
 #~ msgstr "หญิง"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#~ msgid "Indoor Court (Indoor Ball)"
+#~ msgstr "คอร์ตในร่ม (ลูกบอลในร่ม)"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1100
+#~ msgid "Indoor Court (Outdoor Ball)"
+#~ msgstr "คอร์ตในร่ม (ลูกบอลกลางแจ้ง)"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:194
 #~ msgid "Loading rankings..."

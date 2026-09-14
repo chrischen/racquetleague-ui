@@ -46,7 +46,7 @@ msgstr ""
 msgid "Paid"
 msgstr ""
 
-#: src/components/organisms/PendingRsvps.re.mjs:58
+#: src/components/organisms/PendingRsvps.re.mjs:60
 msgid "Pending"
 msgstr ""
 
@@ -72,4 +72,8 @@ msgstr ""
 
 #: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
+msgstr ""
+
+#: src/components/organisms/PendingRsvps.re.mjs:82
+msgid "Would be admitted"
 msgstr ""

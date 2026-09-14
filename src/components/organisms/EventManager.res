@@ -1007,6 +1007,20 @@ let make = (
   // Rating adjustment history (chronological list of adjustments with round metadata)
   let (ratingAdjustmentHistory, setRatingAdjustmentHistory) = React.useState(() => [])
 
+  // The rating each player started on, per pool. This is what tells a base the
+  // server has already moved (a sync landed, and the new numbers came back)
+  // apart from one it has not, so the replay knows whether to fold synced
+  // matches on again. See RatingBaseline.
+  let (ratingBaseline: RatingBaseline.store, setRatingBaseline) = React.useState(() =>
+    Js.Dict.empty()
+  )
+
+  // Set once the mount effect has restored this event. The baseline tracker must
+  // not run against the empty pre-load state: it would record every played
+  // player's *current* base as the rating they started on, and the comparison
+  // that everything above rests on would never fire again.
+  let (hydrated, setHydrated) = React.useState(() => false)
+
   // Team constraints for matchmaking
   let (teams: NonEmptyArray.t<array<Player.t<rsvpNode>>>, setTeams) = React.useState(() =>
     NonEmptyArray.empty
@@ -1229,6 +1243,32 @@ let make = (
       }
     }
 
+    // Rating baseline. An event recorded before one was kept has played players
+    // with no entry; recover theirs from the draws themselves. Unplayed players
+    // are picked up by the tracker once the roster has settled.
+    let pool =
+      EventManagerPersistence.loadSeedSource(data.id)->EventManagerPersistence.seedSourceToString
+    let storedBaseline = EventManagerPersistence.loadRatingBaseline(data.id)
+    let restoredBaseline = switch storedBaseline->Js.Dict.get(pool) {
+    | Some(_) => storedBaseline
+    | None => {
+        let recovered = RatingBaseline.reconstruct(
+          ~rounds=loadedRounds,
+          ~adjustments=storedHistory,
+        )
+        if recovered->Js.Dict.keys->Array.length > 0 {
+          let next = storedBaseline->Js.Dict.entries->Js.Dict.fromArray
+          next->Js.Dict.set(pool, recovered)
+          EventManagerPersistence.saveRatingBaseline(data.id, next)
+          next
+        } else {
+          storedBaseline
+        }
+      }
+    }
+    setRatingBaseline(_ => restoredBaseline)
+    setHydrated(_ => true)
+
     None
   }, [data.id])
 
@@ -1243,6 +1283,49 @@ let make = (
       newRounds
     })
   }
+
+  // === RATING BASELINE ===
+
+  let pool = seedSource->EventManagerPersistence.seedSourceToString
+  let currentBaseline = ratingBaseline->Js.Dict.get(pool)->Option.getOr(Js.Dict.empty())
+
+  let saveBaseline = (next: RatingBaseline.t) => {
+    let store = ratingBaseline->Js.Dict.entries->Js.Dict.fromArray
+    store->Js.Dict.set(pool, next)
+    EventManagerPersistence.saveRatingBaseline(data.id, store)
+    setRatingBaseline(_ => store)
+  }
+
+  // Follow the base for anyone who has not played yet; a first score freezes
+  // their entry, after which it is the only record of where they started.
+  React.useEffect5(() => {
+    if hydrated {
+      let played = RatingBaseline.playersWithScores(rounds)
+      switch RatingBaseline.track(currentBaseline, ~players, ~played) {
+      | None => ()
+      | Some(next) => saveBaseline(next)
+      }
+    }
+    None
+  }, (hydrated, players, rounds, seedSource, ratingBaseline))
+
+  // Per player: has the server already folded their synced matches into the
+  // base we were handed? With nothing to compare, the pool decides — a sync
+  // moves the global pool and leaves the club pool where it was.
+  let baseIncludesSynced = React.useMemo(() =>
+    RatingBaseline.baseIncludesSynced(
+      currentBaseline,
+      ~players,
+      ~fallback=seedSource == EventManagerPersistence.GlobalRatings,
+    )
+  , (currentBaseline, players, seedSource))
+
+  // Players as they stood when the session began, for "change since" displays.
+  // The base alone will not do: after a sync it already carries the session.
+  let baselinePlayers = React.useMemo(() => RatingBaseline.applyTo(currentBaseline, players), (
+    currentBaseline,
+    players,
+  ))
 
   // Get checked-in players - memoized to prevent flashing on regeneration
   // Get players with updated state (counts and ratings) up to AND INCLUDING current round
@@ -1259,8 +1342,12 @@ let make = (
       ratingAdjustmentHistory->Array.filter(adj => adj.appliedAtRound < currentRoundInt)
     rounds
     ->Array.slice(~start=0, ~end=currentRoundInt)
-    ->toPlayerStateWithAdjustments(~players, ~adjustments=adjustmentsUpToCurrent)
-  }, (rounds, currentRoundInt, ratingAdjustmentHistory, players))
+    ->toPlayerStateWithAdjustments(
+      ~players,
+      ~adjustments=adjustmentsUpToCurrent,
+      ~baseIncludesSynced,
+    )
+  }, (rounds, currentRoundInt, ratingAdjustmentHistory, players, baseIncludesSynced))
 
   // Filter to only checked-in players with their updated ratings
   let checkedInPlayers = React.useMemo2(() => {
@@ -1286,7 +1373,11 @@ let make = (
     let playersForReset =
       rounds
       ->Array.slice(~start=0, ~end=roundIndex)
-      ->toPlayerStateWithAdjustments(~players, ~adjustments=adjustmentsUpToCurrentRound)
+      ->toPlayerStateWithAdjustments(
+        ~players,
+        ~adjustments=adjustmentsUpToCurrentRound,
+        ~baseIncludesSynced,
+      )
       ->Array.filter(p => checkedInPlayerIds->Set.has(p.id))
 
     // Solver-aware: dispatches to the ILP for the beta presets and to the
@@ -1353,7 +1444,7 @@ let make = (
       // Build a map of original mu values for all players
       let originalMuMap =
         checkedInPlayers
-        ->Array.map(p => (p.id, p.rating.mu))
+        ->Array.map(p => (p.id, (p.rating.mu, p.rating.sigma)))
         ->Js.Dict.fromArray
 
       let targetRound = currentRoundInt - 1 // Convert to 0-indexed roundIndex (-1 when on round 0)
@@ -1367,7 +1458,7 @@ let make = (
         originalMuMap
         ->Js.Dict.get(playerId)
         ->Option.forEach(
-          originalMu => {
+          ((originalMu, originalSigma)) => {
             let differential = adjustedMu -. originalMu
             if differential != 0.0 {
               adjustedPlayerIds->Set.add(playerId)->ignore
@@ -1375,6 +1466,9 @@ let make = (
               ->Array.push({
                 RatingAdjustment.playerId,
                 differential,
+                // A hand-set seed is knowledge: tighten sigma so the next
+                // result refines it rather than replacing it.
+                sigmaDifferential: RatingAdjustment.sigmaDifferentialFor(originalSigma),
                 appliedAtRound: targetRound,
                 timestamp,
               })
@@ -1504,7 +1598,11 @@ let make = (
     let playersBeforeRound =
       rounds
       ->Array.slice(~start=0, ~end=roundIndex)
-      ->toPlayerStateWithAdjustments(~players, ~adjustments=adjustmentsUpToCurrentRound)
+      ->toPlayerStateWithAdjustments(
+        ~players,
+        ~adjustments=adjustmentsUpToCurrentRound,
+        ~baseIncludesSynced,
+      )
 
     // Filter to only the players who were in this round
     let currentRoundPlayers =
@@ -1573,7 +1671,11 @@ let make = (
       let playersBeforeRound =
         rounds
         ->Array.slice(~start=0, ~end=roundIndex)
-        ->toPlayerStateWithAdjustments(~players, ~adjustments=adjustmentsUpToCurrentRound)
+        ->toPlayerStateWithAdjustments(
+        ~players,
+        ~adjustments=adjustmentsUpToCurrentRound,
+        ~baseIncludesSynced,
+      )
 
       // Filter to only the players in this match
       let matchPlayersWithState =
@@ -1947,6 +2049,14 @@ let make = (
 
             try {
               await submitMatch(match, scoreValue, slug, matchId, createdAt)
+              // Mark this match now, not the batch at the end. The server has
+              // already moved these players' ratings, and the replay relies on
+              // `synced` to know it; a later failure must not undo that.
+              updateRounds(currentRounds =>
+                currentRounds->Array.map(round =>
+                  round->Array.map(m => m.id == matchId ? {...m, synced: true} : m)
+                )
+              )
               results->Array.push(Ok())->ignore
               let progress = Float.fromInt(i + 1) /. Float.fromInt(totalMatches) *. 100.
               setSyncProgress(_ => progress->Float.toInt)
@@ -1969,22 +2079,6 @@ let make = (
             | Error() => false
             }
           )
-
-          if allSucceeded {
-            // Mark all scored matches as synced
-            updateRounds(currentRounds =>
-              currentRounds->Array.map(round =>
-                round->Array.map(
-                  m =>
-                    if m.score->Option.isSome {
-                      {...m, synced: true}
-                    } else {
-                      m
-                    },
-                )
-              )
-            )
-          }
 
           setSyncState(_ => allSucceeded ? Success : Error)
         }
@@ -2022,6 +2116,7 @@ let make = (
     setCourtCount(_ => suggestedCourtCount(players->Array.length))
     setCheckedInPlayerIds(_ => Set.make())
     setRatingAdjustmentHistory(_ => [])
+    setRatingBaseline(_ => Js.Dict.empty())
     setIsDirty(_ => false)
     setTeams(_ => NonEmptyArray.empty)
     setAntiTeams(_ => NonEmptyArray.empty)
@@ -2057,7 +2152,8 @@ let make = (
   let planImportHistory = (text: string) =>
     text
     ->EventStateTransfer.decode
-    ->Result.map(payload =>
+    ->Result.map(payload => (
+      payload,
       EventStateTransfer.plan(
         ~existingRounds=rounds,
         ~existingAdjustments=ratingAdjustmentHistory,
@@ -2065,11 +2161,11 @@ let make = (
         ~currentRoundInt,
         ~players,
         ~payload,
-      )
-    )
+      ),
+    ))
 
   let previewImportHistory = (text: string) =>
-    planImportHistory(text)->Result.map(p => p.EventStateTransfer.counts)
+    planImportHistory(text)->Result.map(((_, p)) => p.EventStateTransfer.counts)
 
   // Everything a plan touches indexes everything else — adjustments and solver
   // warnings are filed against round indices the merge has just moved — so all of
@@ -2080,7 +2176,7 @@ let make = (
   let handleImportHistory = (text: string) =>
     switch planImportHistory(text) {
     | Error(_) => ()
-    | Ok(p) => {
+    | Ok((payload, p)) => {
         let {
           EventStateTransfer.rounds: mergedRounds,
           adjustments,
@@ -2105,6 +2201,28 @@ let make = (
 
           setCurrentRoundInt(_ => nextRoundInt)
           EventManagerPersistence.saveCurrentRound(data.id, nextRoundInt)
+
+          // Players whose first scored matches arrived just now take their
+          // baseline from those matches. The tracker had pinned them to the
+          // current base, but the base here may already carry these very
+          // results if the exporting device synced them; the rating they were
+          // drawn at over there is the pre-session one. Recovered from the
+          // payload rather than the merge, so only the adjustments the
+          // exporting draw actually applied are subtracted.
+          let playedBefore = RatingBaseline.playersWithScores(rounds)
+          let recovered = RatingBaseline.reconstruct(
+            ~rounds=payload.EventStateTransfer.rounds,
+            ~adjustments=payload.adjustments,
+          )
+          let nextBaseline = currentBaseline->Js.Dict.entries->Js.Dict.fromArray
+          recovered
+          ->Js.Dict.entries
+          ->Array.forEach(((id, rating)) =>
+            if !(playedBefore->Set.has(id)) {
+              nextBaseline->Js.Dict.set(id, rating)
+            }
+          )
+          saveBaseline(nextBaseline)
 
           // Imported results move ratings, so the unscored rounds ahead are stale
           // in exactly the way a freshly entered score makes them stale.
@@ -2472,7 +2590,7 @@ let make = (
         onOpenPlayerSettings={player => setPlayerSettingsOpen(_ => Some(player))}
         onOpenAddGuests={() => setShowAddGuestsModal(_ => true)}
         getUserFragmentRefs
-        initialPlayers={players}
+        initialPlayers={baselinePlayers}
         eventUrl={"https://www.pkuru.com/events/" ++ eventId}
         seedSourceOption=?{clubRatingSource->Option.map(((_, clubName, _)) => {
           SeedAdjustModal.clubName,

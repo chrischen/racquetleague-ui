@@ -178,6 +178,20 @@ module EventUncancelMutation = %relay(`
   }
 `)
 
+// Inline edits from edit mode. `updateEvent` replaces the whole event, so the
+// input comes from EventLocationAvailability.updateInput, which carries every
+// current field through.
+module UpdateEventMutation = %relay(`
+  mutation PkEventPageUpdateEventMutation($eventId: ID!, $input: CreateEventInput!) {
+    updateEvent(eventId: $eventId, input: $input) {
+      event {
+        id
+        details
+      }
+    }
+  }
+`)
+
 type loaderData = PkEventPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
@@ -189,92 +203,123 @@ external useParams: unit => pageParams = "useParams"
 external writeToClipboard: string => Js.Promise.t<unit> = "writeText"
 @val @scope(("window", "location")) external locationHref: string = "href"
 
+// Every block on the page is one of these cards on the grey page ground.
+let cardClass = "mx-3 mt-3 rounded-xl border border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]"
+
 module EventTitleSection = {
   @react.component
-  let make = (~event: PkEventPageQuery_graphql.Types.response_event, ~secret: bool) => {
+  let make = (
+    ~event: PkEventPageQuery_graphql.Types.response_event,
+    ~secret: bool,
+    // Sponsor strip, rendered inside the card under the title block.
+    ~sponsor: React.element=React.null,
+  ) => {
     let ts = Lingui.UtilString.t
     let td = Lingui.UtilString.dynamic
     let (urlCopied, setUrlCopied) = React.useState(() => false)
-    <div className="px-5 pt-4 pb-3 border-b border-gray-100 dark:border-[#2a2b30]">
-      {event.deleted
-      ->Option.map(_ =>
-        <span
-          className="inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
-          {(ts`CANCELED`)->React.string}
-        </span>
-      )
-      ->Option.getOr(React.null)}
-      <div className="flex items-start justify-between gap-3">
-        <h1
-          className={Util.cx([
-            "text-lg font-semibold leading-tight flex-1 min-w-0",
-            event.deleted->Option.isSome
-              ? "line-through text-gray-400 dark:text-gray-500"
-              : "text-gray-900 dark:text-gray-100",
-          ])}>
-          {event.activity
-          ->Option.flatMap(a =>
-            a.slug->Option.map(slug => <>
+    <div className={cardClass ++ " overflow-hidden"}>
+      <div className="px-4 py-4">
+        /* Hosting club */
+        {event.club
+        ->Option.flatMap(club =>
+          club.slug->Option.map(slug => {
+            let name = club.name->Option.getOr(slug)
+            <Router.Link
+              to={"/clubs/" ++ slug}
+              className="mb-3 flex w-full items-center gap-2.5 rounded-md border-b border-gray-100 pb-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:border-[#2a2b30]">
+              <span
+                className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-[#bdf25d] text-xs font-bold text-black shadow-sm"
+                ariaHidden=true>
+                {PkEventMessages.makeInitials(name)->React.string}
+              </span>
+              <span className="min-w-0 flex-1">
+                <span
+                  className="block font-mono text-[8px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                  {t`Hosted by`}
+                </span>
+                <span
+                  className="block truncate text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  {name->React.string}
+                </span>
+              </span>
+              <Lucide.ChevronRight
+                size=14 className="flex-shrink-0 text-gray-400" \"aria-hidden"="true"
+              />
+            </Router.Link>
+          })
+        )
+        ->Option.getOr(React.null)}
+        {event.deleted
+        ->Option.map(_ =>
+          <span
+            className="inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
+            {(ts`CANCELED`)->React.string}
+          </span>
+        )
+        ->Option.getOr(React.null)}
+        /* Activity pill, linking to the activity's event list */
+        {event.activity
+        ->Option.flatMap(a =>
+          a.slug->Option.map(slug =>
+            <div className="mb-1 flex items-center gap-2">
               <Router.Link
                 to={"/e/" ++ slug}
-                className="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal">
+                className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/40 text-[10px] font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400" />
                 {td(a.name->Option.getOr(slug))->React.string}
               </Router.Link>
-              <span className="text-gray-300 dark:text-gray-600 mx-1.5 font-normal">
-                {"/"->React.string}
-              </span>
-            </>)
+            </div>
           )
-          ->Option.getOr(React.null)}
-          {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
-        </h1>
-        <button
-          onClick={_ => {
-            writeToClipboard(locationHref)->ignore
-            setUrlCopied(_ => true)
-            let _ = Js.Global.setTimeout(() => setUrlCopied(_ => false), 2000)
-          }}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black border border-[#a3d949] shadow-sm transition-colors flex-shrink-0">
-          <Lucide.Share size=13 strokeWidth={2.5} />
-          {(urlCopied ? ts`Copied!` : ts`Share`)->React.string}
-        </button>
-      </div>
-      {event.club
-      ->Option.flatMap(club =>
-        club.slug->Option.map(slug =>
-          <Router.Link
-            to={"/clubs/" ++ slug}
-            className="text-xs text-gray-600 dark:text-gray-300 mt-1 block hover:underline">
-            {club.name->Option.getOr(slug)->React.string}
-          </Router.Link>
         )
-      )
-      ->Option.getOr(React.null)}
-      <ResponsiveTooltip.Provider>
-        <div className="flex flex-wrap items-center gap-1.5 mt-2">
-          {event.listed == Some(false) ? <EventTag tag="unlisted" /> : React.null}
-          {event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
-            ? <EventTag tag="comp" />
-            : React.null}
-          {event.tags
-          ->Option.getOr([])
-          ->Array.filter(t => t->String.toLowerCase != "comp")
-          ->Array.mapWithIndex((tag, i) => <EventTag key={Int.toString(i)} tag />)
-          ->React.array}
-          <span className="font-mono text-xs font-medium text-gray-700 dark:text-gray-300">
-            {event.price
-            ->Option.map(p =>
-              if p == 0 {
-                ts`Free`
-              } else {
-                Int.toString(p) ++ "円"
-              }
-            )
-            ->Option.getOr("???円")
-            ->React.string}
-          </span>
+        ->Option.getOr(React.null)}
+        <div className="flex items-start justify-between gap-3">
+          <h1
+            className={Util.cx([
+              "text-lg font-semibold leading-tight flex-1 min-w-0",
+              event.deleted->Option.isSome
+                ? "line-through text-gray-400 dark:text-gray-500"
+                : "text-gray-900 dark:text-gray-100",
+            ])}>
+            {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
+          </h1>
+          <button
+            onClick={_ => {
+              writeToClipboard(locationHref)->ignore
+              setUrlCopied(_ => true)
+              let _ = Js.Global.setTimeout(() => setUrlCopied(_ => false), 2000)
+            }}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black border border-[#a3d949] shadow-sm transition-colors flex-shrink-0">
+            <Lucide.Share size=13 strokeWidth={2.5} />
+            {(urlCopied ? ts`Copied!` : ts`Share`)->React.string}
+          </button>
         </div>
-      </ResponsiveTooltip.Provider>
+        <p className="mt-1 font-mono text-xs text-gray-600 dark:text-gray-300">
+          {event.price
+          ->Option.map(p =>
+            if p == 0 {
+              ts`Free`
+            } else {
+              Int.toString(p) ++ "円"
+            }
+          )
+          ->Option.getOr("???円")
+          ->React.string}
+        </p>
+        <ResponsiveTooltip.Provider>
+          <div className="mt-2 flex flex-wrap items-center gap-1.5">
+            {event.listed == Some(false) ? <EventTag tag="unlisted" /> : React.null}
+            {event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
+              ? <EventTag tag="comp" />
+              : React.null}
+            {event.tags
+            ->Option.getOr([])
+            ->Array.filter(t => t->String.toLowerCase != "comp")
+            ->Array.mapWithIndex((tag, i) => <EventTag key={Int.toString(i)} tag />)
+            ->React.array}
+          </div>
+        </ResponsiveTooltip.Provider>
+      </div>
+      sponsor
     </div>
   }
 }
@@ -283,76 +328,124 @@ module EventLocationSection = {
   @react.component
   let make = (
     ~loc: PkEventPageQuery_graphql.Types.response_event_location,
+    // Whether a court at the venue covers the event window. None when the
+    // viewer can't see availability (it's an organizer tool), which hides the
+    // court badge rather than showing a false "not available".
+    ~courtStatus: option<bool>,
     // Court availability for this venue, already gated by the caller.
     ~availability: React.element=React.null,
   ) => {
     let ts = Lingui.UtilString.t
+    let (expanded, setExpanded) = React.useState(() => false)
     let (showFullDetails, setShowFullDetails) = React.useState(() => false)
-    <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
-      <h2
-        className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3">
-        {(ts`Location`)->React.string}
-      </h2>
-      // <div
-      //   className="h-24 rounded-lg border border-gray-200 dark:border-[#3a3b40] mb-3 overflow-hidden">
-      //   <LocationMap location={loc.fragmentRefs} />
-      // </div>
-      <p className="font-mono text-sm font-medium text-gray-900 dark:text-gray-100">
-        <Router.Link to={`/locations/${loc.id}`} className="hover:underline">
-          {loc.name->Option.getOr("?")->React.string}
-        </Router.Link>
-      </p>
-      {loc.details
-      ->Option.map(d => {
-        let limit = 100
-        let isTruncatable = String.length(d) > limit
-        let displayText =
-          !showFullDetails && isTruncatable ? String.slice(d, ~start=0, ~end=limit) : d
-        <p className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1">
-          {displayText->React.string}
-          {isTruncatable
-            ? <button
-                onClick={_ => setShowFullDetails(v => !v)}
-                className="ml-1 text-blue-500 hover:underline font-mono text-xs">
-                {(showFullDetails ? ts`less` : ts`...more`)->React.string}
-              </button>
-            : React.null}
-        </p>
-      })
-      ->Option.getOr(React.null)}
-      {loc.address
-      ->Option.map(addr => {
-        let defaultLink = loc.links->Option.flatMap(links => links->Array.get(0))
-        let mapsUrl =
-          defaultLink
-          ->Option.orElse(
-            loc.coords->Option.map(c =>
-              `https://maps.google.com/?q=${Float.toString(c.lat)},${Float.toString(c.lng)}`
-            ),
-          )
-          ->Option.getOr(`https://maps.google.com/?q=${addr}`)
-        <a
-          href=mapsUrl
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-mono text-xs text-gray-500 dark:text-gray-400 mt-1 block hover:underline">
-          {addr->React.string}
-        </a>
-      })
-      ->Option.getOr(React.null)}
-      availability
+    let name = loc.name->Option.getOr("?")
+    let courtLabel = switch courtStatus {
+    | Some(true) => (ts`Courts available`) ++ ". "
+    | Some(false) => (ts`No courts available`) ++ ". "
+    | None => ""
+    }
+    let toggleLabel = expanded ? ts`Hide location details` : ts`Show location details`
+    <div className={cardClass ++ " overflow-hidden"}>
+      <button
+        type_="button"
+        onClick={_ => setExpanded(v => !v)}
+        ariaExpanded=expanded
+        ariaLabel={name ++ ". " ++ courtLabel ++ toggleLabel}
+        className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:hover:bg-[#242529]">
+        <span className="min-w-0">
+          <span className="block text-xs font-medium text-gray-500 dark:text-gray-400">
+            {t`Location`}
+          </span>
+          <span className="block truncate text-sm font-semibold text-gray-900 dark:text-gray-100">
+            {name->React.string}
+          </span>
+        </span>
+        <span className="flex flex-shrink-0 items-center gap-2">
+          {switch courtStatus {
+          | Some(available) =>
+            let tone = available
+              ? "text-emerald-600 dark:text-emerald-400"
+              : "text-red-500 dark:text-red-400"
+            <>
+              <IsometricPickleballCourtIcon className={"h-7 w-8 " ++ tone} />
+              <span className={"inline-flex items-center gap-1 " ++ tone} ariaHidden=true>
+                {available ? <Lucide.CheckCircle2 size=15 /> : <Lucide.XCircle size=15 />}
+              </span>
+            </>
+          | None => React.null
+          }}
+          <Lucide.ChevronRight
+            size=15
+            className={"text-gray-400 transition-transform duration-200 " ++ (
+              expanded ? "rotate-90" : ""
+            )}
+            \"aria-hidden"="true"
+          />
+        </span>
+      </button>
+      {expanded
+        ? <div className="border-t border-gray-200 px-4 pb-4 pt-3 dark:border-[#2a2b30]">
+            {loc.details
+            ->Option.map(d => {
+              let limit = 100
+              let isTruncatable = String.length(d) > limit
+              let displayText =
+                !showFullDetails && isTruncatable ? String.slice(d, ~start=0, ~end=limit) : d
+              <p className="font-mono text-xs text-gray-500 dark:text-gray-400">
+                {displayText->React.string}
+                {isTruncatable
+                  ? <button
+                      type_="button"
+                      onClick={_ => setShowFullDetails(v => !v)}
+                      className="ml-1 text-blue-500 hover:underline font-mono text-xs">
+                      {(showFullDetails ? ts`less` : ts`...more`)->React.string}
+                    </button>
+                  : React.null}
+              </p>
+            })
+            ->Option.getOr(React.null)}
+            {loc.address
+            ->Option.map(addr => {
+              let defaultLink = loc.links->Option.flatMap(links => links->Array.get(0))
+              let mapsUrl =
+                defaultLink
+                ->Option.orElse(
+                  loc.coords->Option.map(c =>
+                    `https://maps.google.com/?q=${Float.toString(c.lat)},${Float.toString(c.lng)}`
+                  ),
+                )
+                ->Option.getOr(`https://maps.google.com/?q=${addr}`)
+              <a
+                href=mapsUrl
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-0.5 block font-mono text-xs text-gray-500 dark:text-gray-400 hover:underline">
+                {addr->React.string}
+              </a>
+            })
+            ->Option.getOr(React.null)}
+            <Router.Link
+              to={`/locations/${loc.id}`}
+              className="mt-1.5 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#5f8618] underline-offset-2 hover:underline dark:text-[#bdf25d]">
+              {t`View all events at this location`}
+              <Lucide.ChevronRight size=12 \"aria-hidden"="true" />
+            </Router.Link>
+            availability
+          </div>
+        : React.null}
     </div>
   }
 }
 
 // Sponsor + prize strip for competitive pickleball events, linking to the
 // league rankings (RPM Playoff Draft campaign). Uses the shared sponsor logo.
+// Sits inside the title card, under the title block.
 module SponsorBanner = {
   @react.component
   let make = () => {
     <Router.Link
       to="/league/pickleball"
-      className="px-5 py-3 border-b-2 border-violet-200 dark:border-violet-700/50 bg-violet-50 dark:bg-violet-900/30 hover:bg-violet-100 dark:hover:bg-violet-900/50 transition-colors flex items-center justify-between gap-3">
+      className="flex items-center justify-between gap-3 border-t border-violet-200 bg-violet-50 px-4 py-3 transition-colors hover:bg-violet-100 dark:border-violet-700/50 dark:bg-violet-900/30 dark:hover:bg-violet-900/50">
       <div className="flex items-center gap-2 min-w-0">
         <span
           className="font-mono text-[10px] font-semibold uppercase tracking-wider text-violet-700 dark:text-violet-300 flex-shrink-0">
@@ -377,6 +470,59 @@ module SponsorBanner = {
   }
 }
 
+// Notes card, editable in place while the page's edit mode is on.
+module HostNotesSection = {
+  @react.component
+  let make = (~notes: string, ~editable: bool, ~onEdited: string => unit) => {
+    let ts = Lingui.UtilString.t
+    let field = UseEditable.use(~editable, ~value=notes, ~onEdited=draft =>
+      onEdited(draft->String.trim)
+    )
+    let placeholder = ts`Add details participants should know before arriving`
+    <EditableSection
+      state=field.state
+      heading={t`Notes from the host`}
+      editLabel={ts`Edit notes from the host`}
+      saveLabel={t`Save notes`}
+      onStartEditing=field.startEditing
+      onCancel=field.cancel
+      onCommit=field.commit
+      editor={<>
+        <label className="sr-only" htmlFor="host-notes-input"> {t`Notes from the host`} </label>
+        <textarea
+          id="host-notes-input"
+          autoFocus=true
+          value=field.draft
+          rows=3
+          onChange={e => {
+            let next: string = ReactEvent.Form.target(e)["value"]
+            field.setDraft(_ => next)
+          }}
+          onKeyDown=field.onKeyDown
+          placeholder
+          className="w-full resize-none rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm leading-relaxed text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#94c93a] focus:ring-2 focus:ring-[#bdf25d]/40 dark:border-[#3a3b40] dark:bg-[#222326] dark:text-gray-100"
+        />
+      </>}>
+      {notes == ""
+        ? <span className="block text-sm leading-relaxed text-gray-400 dark:text-gray-500">
+            {placeholder->React.string}
+          </span>
+        : notes
+          ->String.split("\n")
+          ->Array.mapWithIndex((line, i) =>
+            <span
+              key={Int.toString(i)}
+              className={"block text-sm leading-relaxed text-gray-700 dark:text-gray-300" ++ (
+                i > 0 ? " mt-2" : ""
+              )}>
+              {line->React.string}
+            </span>
+          )
+          ->React.array}
+    </EditableSection>
+  }
+}
+
 module Inner = {
   @react.component
   let make = (
@@ -386,6 +532,10 @@ module Inner = {
       [> #UseProfileGate_query | #PkEventMessages_query],
     >,
     ~onRefresh: option<unit => Js.Promise.t<unit>>=?,
+    // Rendered as a route rather than inside the events drawer: the page
+    // ground and the sticky footer span the full width, with the cards in a
+    // centred column.
+    ~asPage: bool=false,
   ) => {
     let viewerUser = viewer->Option.flatMap(v => v.user)
     let ts = Lingui.UtilString.t
@@ -414,6 +564,28 @@ module Inner = {
     let (authorizeConnectedPayment, authorizingConnected) = AuthorizeConnectedPaymentMutation.use()
     let (confirmPayment, _confirming) = ConfirmPaymentMutation.use()
     let (paymentClientSecret, setPaymentClientSecret) = React.useState(() => None)
+    let (updateEvent, _updatingEvent) = UpdateEventMutation.use()
+    // Edit mode: organizers toggle it from the admin row, and every section
+    // built on UseEditable lights up until they're done.
+    let (editModeActive, setEditModeActive) = React.useState(() => false)
+
+    // Court availability feeds the badge on the collapsed location card as
+    // well as the organizer panel inside it.
+    let availabilityData = EventLocationAvailability.Fragment.use(event.fragmentRefs)
+    let genericCourtName = event.location->Option.flatMap(l => l.name)->Option.getOr(ts`Courts`)
+    let courtStatus = event.viewerIsAdmin
+      ? EventLocationAvailability.isAvailableAtEventTime(availabilityData, ~genericCourtName)
+      : None
+
+    let canEditInPlace = event.viewerIsAdmin && event.deleted->Option.isNone
+    let editable = editModeActive && canEditInPlace
+    let saveNotes = notes =>
+      EventLocationAvailability.updateInput(
+        availabilityData,
+        ~details=notes,
+      )->Option.forEach(input =>
+        updateEvent(~variables={eventId: event.id, input})->RescriptRelay.Disposable.ignore
+      )
 
     let secret = event.shadow->Option.getOr(false)
     let tz = event.timezone->Option.getOr("Asia/Tokyo")
@@ -497,70 +669,79 @@ module Inner = {
     let eventCurrency = allRsvpNodes->Array.findMap(n => n.payment->Option.map(p => p.currency))
     let isAuthorization = true
 
+    // Joined viewers get the activity feed in the sticky footer. When the
+    // footer isn't rendered (cancelled or shadow events, logged-out viewers)
+    // the feed stays in the page so it's never lost.
+    let footerShown =
+      event.deleted->Option.isNone && viewerUser->Option.isSome && event.shadow != Some(true)
+    let chatInFooter = isJoined && footerShown
+
+    let isSponsored =
+      event.activity->Option.flatMap(a => a.slug) == Some("pickleball") &&
+        event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
+
     if event.viewerIsBanned->Option.getOr(false) {
       <div className="p-6 text-center text-gray-500">
         {(ts`Cannot access variable "title"`)->React.string}
       </div>
     } else {
-      /* Top Bar */
       <div
-        className="relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"
+        className="relative w-full min-h-full bg-gray-50 dark:bg-[#18191c]"
         ref={ReactDOM.Ref.domRef(containerRef)}>
+        /* Top bar: date, time and refresh. Deliberately not sticky. */
         <div
-          className="bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0">
-          <div
-            className="font-mono text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1">
-            {event.startDate
-            ->Option.map(sd =>
-              <ReactIntl.FormattedDate
-                weekday=#short
-                day=#"2-digit"
-                month=#short
-                value={sd->Util.Datetime.toDate}
-                timeZone=tz
-              />
+          className="bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] flex-shrink-0">
+          <div className="mx-auto w-full max-w-2xl px-5 py-3 flex items-center justify-between">
+            <div
+              className="font-mono text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1">
+              {event.startDate
+              ->Option.map(sd =>
+                <ReactIntl.FormattedDate
+                  weekday=#short
+                  day=#"2-digit"
+                  month=#short
+                  value={sd->Util.Datetime.toDate}
+                  timeZone=tz
+                />
+              )
+              ->Option.getOr(React.null)}
+              {" "->React.string}
+              {event.startDate
+              ->Option.map(sd =>
+                <ReactIntl.FormattedTime value={sd->Util.Datetime.toDate} timeZone=tz />
+              )
+              ->Option.getOr(React.null)}
+              {event.endDate
+              ->Option.map(ed => <>
+                {" - "->React.string}
+                <ReactIntl.FormattedTime value={ed->Util.Datetime.toDate} timeZone=tz />
+              </>)
+              ->Option.getOr(React.null)}
+              {durationStr->Option.map(d => (" · " ++ d)->React.string)->Option.getOr(React.null)}
+            </div>
+            {onRefresh
+            ->Option.map(_ =>
+              <button
+                onClick={_ => triggerRefresh()}
+                disabled=isRefreshing
+                className="text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                title={isRefreshing ? ts`Refreshing…` : ts`Refresh event details`}>
+                <Lucide.RefreshCw size=13 className={isRefreshing ? "animate-spin" : ""} />
+              </button>
             )
             ->Option.getOr(React.null)}
-            {" "->React.string}
-            {event.startDate
-            ->Option.map(sd =>
-              <ReactIntl.FormattedTime value={sd->Util.Datetime.toDate} timeZone=tz />
-            )
-            ->Option.getOr(React.null)}
-            {event.endDate
-            ->Option.map(ed => <>
-              {" - "->React.string}
-              <ReactIntl.FormattedTime value={ed->Util.Datetime.toDate} timeZone=tz />
-            </>)
-            ->Option.getOr(React.null)}
-            {durationStr->Option.map(d => (" · " ++ d)->React.string)->Option.getOr(React.null)}
           </div>
-          {onRefresh
-          ->Option.map(_ =>
-            <button
-              onClick={_ => triggerRefresh()}
-              disabled=isRefreshing
-              className="text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-              title={isRefreshing ? ts`Refreshing…` : ts`Refresh event details`}>
-              <Lucide.RefreshCw size=13 className={isRefreshing ? "animate-spin" : ""} />
-            </button>
-          )
-          ->Option.getOr(React.null)}
         </div>
         <PullToRefresh.Indicator pullDistance isRefreshing={isPullRefreshing} />
-        <div className="flex-1 overflow-y-auto pb-24">
-          /* Title */
-          <EventTitleSection event secret />
-          /* Sponsor + prize strip — competitive pickleball events feed the Top Player awards */
-          {event.activity->Option.flatMap(a => a.slug) == Some("pickleball") &&
-            event.tags->Option.getOr([])->Array.some(t => t->String.toLowerCase == "comp")
-            ? <SponsorBanner />
-            : React.null}
+        <div className="mx-auto w-full max-w-2xl pb-24">
+          /* Title, with the sponsor + prize strip for competitive pickleball
+           events (they feed the Top Player awards) */
+          <EventTitleSection event secret sponsor={isSponsored ? <SponsorBanner /> : React.null} />
           /* Admin controls */
           {switch (event.viewerIsAdmin, viewerUser) {
           | (true, Some(_)) =>
-            <div className="px-5 py-3 border-b border-gray-100 dark:border-[#2a2b30]">
-              <div className="flex flex-row gap-2">
+            <div className={cardClass ++ " px-4 py-3"}>
+              <div className="flex flex-row flex-wrap gap-2">
                 <Button.Button
                   href={"/events/update/" ++
                   event.id ++
@@ -589,7 +770,19 @@ module Inner = {
                     {t`cancel event`}
                   </Button.Button>
                 }}
+                <Button.Button
+                  disabled={!canEditInPlace}
+                  className={editModeActive ? "ring-2 ring-[#94c93a]" : ""}
+                  onClick={_ => setEditModeActive(v => !v)}>
+                  <Lucide.Pencil size=13 \"aria-hidden"="true" />
+                  {editModeActive ? t`Done editing` : t`Edit in place`}
+                </Button.Button>
               </div>
+              {editModeActive
+                ? <p className="mt-2 font-mono text-[10px] text-[#547817] dark:text-[#bdf25d]">
+                    {t`Editable fields are highlighted below. Click one to edit it.`}
+                  </p>
+                : React.null}
             </div>
           | _ => React.null
           }}
@@ -598,11 +791,9 @@ module Inner = {
           | (Some(loc), false) =>
             <EventLocationSection
               loc
+              courtStatus
               availability={event.viewerIsAdmin
-                ? <EventLocationAvailability
-                    event={event.fragmentRefs}
-                    genericCourtName={loc.name->Option.getOr(ts`Courts`)}
-                  />
+                ? <EventLocationAvailability event={event.fragmentRefs} genericCourtName />
                 : React.null}
             />
           | _ => React.null
@@ -611,58 +802,12 @@ module Inner = {
           <PkRSVPSection
             event={event.fragmentRefs} user=?{viewerUser->Option.map(u => u.fragmentRefs)}
           />
-          /* Host */
-          // {event.owner
-          // ->Option.map(owner =>
-          //   <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
-          //     <h2
-          //       className="font-mono text-[10px] tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3">
-          //       {(ts`Host`)->React.string}
-          //     </h2>
-          //     <div className="flex items-center gap-2.5">
-          //       <div
-          //         className="w-9 h-9 rounded-full overflow-hidden bg-gray-100 dark:bg-[#2a2b30] flex items-center justify-center text-xs font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-[#3a3b40] flex-shrink-0">
-          //         {switch owner.picture {
-          //         | Some(url) =>
-          //           <img
-          //             src=url
-          //             alt={owner.lineUsername->Option.getOr("?")}
-          //             className="w-full h-full object-cover"
-          //           />
-          //         | None =>
-          //           owner.lineUsername->Option.map(makeInitials)->Option.getOr("?")->React.string
-          //         }}
-          //       </div>
-          //       <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
-          //         {owner.lineUsername->Option.getOr("?")->React.string}
-          //       </div>
-          //     </div>
-          //   </div>
-          // )
-          // ->Option.getOr(React.null)}
-          /* Notes */
-          {event.details
-          ->Option.map(details =>
-            <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
-              <h2
-                className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3">
-                {(ts`Notes from the host`)->React.string}
-              </h2>
-              <div className="space-y-2">
-                {details
-                ->String.split("\n")
-                ->Array.mapWithIndex((line, i) =>
-                  <p
-                    key={Int.toString(i)}
-                    className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-                    {line->React.string}
-                  </p>
-                )
-                ->React.array}
-              </div>
-            </div>
-          )
-          ->Option.getOr(React.null)}
+          /* Notes: organizers always get the card so they can add notes */
+          {switch (event.details, canEditInPlace) {
+          | (None, false) => React.null
+          | (details, _) =>
+            <HostNotesSection notes={details->Option.getOr("")} editable onEdited=saveNotes />
+          }}
           /* Round-robin draws */
           {switch event.activity {
           | Some(activity) =>
@@ -671,15 +816,18 @@ module Inner = {
               let managerHref = "/league/events/" ++ event.id ++ "/" ++ slug ++ "/manager"
               mounted
                 ? <React.Suspense fallback=React.null>
-                    <RoundRobinDrawsPreview eventId=event.id managerHref />
+                    <RoundRobinDrawsPreview eventId=event.id managerHref className="mx-3 mt-3" />
                   </React.Suspense>
                 : React.null
             | _ => React.null
             }
           | None => React.null
           }}
-          /* Activity feed */
-          <PkEventMessages queryRef=queryFragmentRefs eventId=event.id isJoined />
+          /* Activity feed, for viewers who haven't joined (joined viewers get
+           it in the sticky footer) */
+          {chatInFooter
+            ? React.null
+            : <PkEventMessages queryRef=queryFragmentRefs eventId=event.id isJoined />}
         </div>
         /* Sticky footer */
         <EventStickyFooter
@@ -713,6 +861,10 @@ module Inner = {
           queryFragmentRefs
           charging={charging || authorizingPlatform || authorizingConnected}
           isAuthorization
+          fullWidth=asPage
+          chat={chatInFooter
+            ? <PkEventMessages.FooterChat queryRef=queryFragmentRefs eventId=event.id />
+            : React.null}
           onPayClick={() =>
             viewerRsvpNode->Option.forEach(rsvp =>
               if isAuthorization {
@@ -825,7 +977,7 @@ let make = () => {
   <WaitForMessages>
     {() =>
       event
-      ->Option.map(event => <Inner event viewer queryFragmentRefs onRefresh />)
+      ->Option.map(event => <Inner event viewer queryFragmentRefs onRefresh asPage=true />)
       ->Option.getOr(<div className="p-6 text-center text-gray-500"> {t`Event not found`} </div>)}
   </WaitForMessages>
 }

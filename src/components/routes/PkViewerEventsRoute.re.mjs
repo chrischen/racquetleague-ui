@@ -7,6 +7,7 @@ import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as PkViewerEventsPage from "../pages/PkViewerEventsPage.re.mjs";
 import * as PkViewerEventsPageQuery_graphql from "../../__generated__/PkViewerEventsPageQuery_graphql.re.mjs";
@@ -38,8 +39,8 @@ async function loader(param) {
           data: PkViewerEventsPageQuery_graphql.load(RelayEnv.getRelayEnv(param.context, import.meta.env.SSR), {
                 after: after,
                 afterDate: afterDate,
-                availabilityFromDate: new Date().toISOString().slice(0, 10),
-                availabilityToDate: new Date(Date.now() + 28 * 86400000).toISOString().slice(0, 10),
+                availabilityFromDate: EventsListUtils.availabilityFromDate(),
+                availabilityToDate: EventsListUtils.availabilityToDate(),
                 before: before,
                 filters: {
                   viewer: true

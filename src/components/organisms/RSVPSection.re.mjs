@@ -13,11 +13,13 @@ import * as RsvpWaitlist from "./RsvpWaitlist.re.mjs";
 import * as WarningAlert from "../molecules/WarningAlert.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as MiniEventRsvp from "./MiniEventRsvp.re.mjs";
+import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
 import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as EventSignupButton from "../atoms/EventSignupButton.re.mjs";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -29,7 +31,9 @@ import * as RSVPSectionRefetchQuery_graphql from "../../__generated__/RSVPSectio
 import * as RSVPSectionLeaveMutation_graphql from "../../__generated__/RSVPSectionLeaveMutation_graphql.re.mjs";
 import * as RSVPSectionAddUserMutation_graphql from "../../__generated__/RSVPSectionAddUserMutation_graphql.re.mjs";
 import * as RSVPSectionCreateRatingMutation_graphql from "../../__generated__/RSVPSectionCreateRatingMutation_graphql.re.mjs";
+import * as RSVPSectionSmartWaitlistMutation_graphql from "../../__generated__/RSVPSectionSmartWaitlistMutation_graphql.re.mjs";
 import * as RSVPSectionUpdateMessageMutation_graphql from "../../__generated__/RSVPSectionUpdateMessageMutation_graphql.re.mjs";
+import * as RSVPSectionPreviewSmartRsvpsQuery_graphql from "../../__generated__/RSVPSectionPreviewSmartRsvpsQuery_graphql.re.mjs";
 import * as RSVPSectionEvaluateSmartRsvpsMutation_graphql from "../../__generated__/RSVPSectionEvaluateSmartRsvpsMutation_graphql.re.mjs";
 
 import { css, cx } from '@linaria/core'
@@ -164,56 +168,17 @@ var RSVPSectionEvaluateSmartRsvpsMutation = {
   use: use$4
 };
 
-function RSVPSection$SmartRsvpEvaluateButton(props) {
-  var eventId = props.eventId;
-  var match = use$4();
-  var inFlight = match[1];
-  var commit = match[0];
-  return JsxRuntime.jsxs("div", {
-              children: [
-                JsxRuntime.jsx("button", {
-                      children: inFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
-                      className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60",
-                      disabled: inFlight,
-                      type: "button",
-                      onClick: (function (param) {
-                          commit({
-                                eventId: eventId
-                              }, undefined, undefined, undefined, undefined, undefined, undefined);
-                        })
-                    }),
-                JsxRuntime.jsx("button", {
-                      children: t`Run Smart RSVP (best-fit, test)`,
-                      className: "inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
-                      disabled: inFlight,
-                      type: "button",
-                      onClick: (function (param) {
-                          commit({
-                                algorithm: "BestFit",
-                                eventId: eventId
-                              }, undefined, undefined, undefined, undefined, undefined, undefined);
-                        })
-                    })
-              ],
-              className: "mb-5 flex flex-wrap gap-2"
-            });
-}
+var convertVariables$3 = RSVPSectionSmartWaitlistMutation_graphql.Internal.convertVariables;
 
-var SmartRsvpEvaluateButton = {
-  make: RSVPSection$SmartRsvpEvaluateButton
-};
+var convertResponse$3 = RSVPSectionSmartWaitlistMutation_graphql.Internal.convertResponse;
 
-var convertVariables$3 = RSVPSectionLeaveMutation_graphql.Internal.convertVariables;
+var convertWrapRawResponse$3 = RSVPSectionSmartWaitlistMutation_graphql.Internal.convertWrapRawResponse;
 
-var convertResponse$3 = RSVPSectionLeaveMutation_graphql.Internal.convertResponse;
+var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$3, RSVPSectionSmartWaitlistMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
 
-var convertWrapRawResponse$3 = RSVPSectionLeaveMutation_graphql.Internal.convertWrapRawResponse;
+var use$5 = RescriptRelay_Mutation.useMutation(convertVariables$3, RSVPSectionSmartWaitlistMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
 
-var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$3, RSVPSectionLeaveMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
-
-var use$5 = RescriptRelay_Mutation.useMutation(convertVariables$3, RSVPSectionLeaveMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
-
-var RSVPSectionLeaveMutation = {
+var RSVPSectionSmartWaitlistMutation = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$3,
@@ -223,44 +188,217 @@ var RSVPSectionLeaveMutation = {
   use: use$5
 };
 
-var convertVariables$4 = RSVPSectionUpdateMessageMutation_graphql.Internal.convertVariables;
+var convertVariables$4 = RSVPSectionPreviewSmartRsvpsQuery_graphql.Internal.convertVariables;
 
-var convertResponse$4 = RSVPSectionUpdateMessageMutation_graphql.Internal.convertResponse;
+var convertResponse$4 = RSVPSectionPreviewSmartRsvpsQuery_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse$4 = RSVPSectionUpdateMessageMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse$4 = RSVPSectionPreviewSmartRsvpsQuery_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$4 = RescriptRelay_Mutation.commitMutation(convertVariables$4, RSVPSectionUpdateMessageMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+var use$6 = RescriptRelay_Query.useQuery(convertVariables$4, RSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$4);
 
-var use$6 = RescriptRelay_Mutation.useMutation(convertVariables$4, RSVPSectionUpdateMessageMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+var useLoader = RescriptRelay_Query.useLoader(convertVariables$4, RSVPSectionPreviewSmartRsvpsQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
 
-var RSVPSectionUpdateMessageMutation = {
+var usePreloaded = RescriptRelay_Query.usePreloaded(RSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$4, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch = RescriptRelay_Query.$$fetch(RSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$4, convertVariables$4);
+
+var fetchPromised = RescriptRelay_Query.fetchPromised(RSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$4, convertVariables$4);
+
+var retain = RescriptRelay_Query.retain(RSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertVariables$4);
+
+var PreviewSmartRsvpsQuery = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$4,
   convertResponse: convertResponse$4,
   convertWrapRawResponse: convertWrapRawResponse$4,
-  commitMutation: commitMutation$4,
-  use: use$6
+  use: use$6,
+  useLoader: useLoader,
+  usePreloaded: usePreloaded,
+  $$fetch: $$fetch,
+  fetchPromised: fetchPromised,
+  retain: retain
 };
 
-var convertVariables$5 = RSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+function RSVPSection$SmartRsvpEvaluateButton(props) {
+  var onPreview = props.onPreview;
+  var preview = props.preview;
+  var eventId = props.eventId;
+  var environment = RescriptRelay.useEnvironmentFromContext();
+  var match = use$4();
+  var inFlight = match[1];
+  var commit = match[0];
+  var match$1 = use$5();
+  var waitlisting = match$1[1];
+  var commitWaitlist = match$1[0];
+  var match$2 = React.useState(function () {
+        return false;
+      });
+  var setPreviewing = match$2[1];
+  var previewing = match$2[0];
+  var fetchPreview = function () {
+    setPreviewing(function (param) {
+          return true;
+        });
+    $$fetch(environment, {
+          eventId: eventId
+        }, (function (result) {
+            setPreviewing(function (param) {
+                  return false;
+                });
+            if (result.TAG === "Ok") {
+              return onPreview(Core__Option.getOr(result._0.previewSmartRsvps.rsvps, []).map(function (r) {
+                              return r.id;
+                            }));
+            } else {
+              return onPreview(undefined);
+            }
+          }), undefined, undefined);
+  };
+  var run = function (algorithm) {
+    commit({
+          algorithm: algorithm,
+          eventId: eventId
+        }, undefined, undefined, undefined, (function (param, param$1) {
+            onPreview(undefined);
+          }), undefined, undefined);
+  };
+  var smartWaitlist = function () {
+    commitWaitlist({
+          eventId: eventId
+        }, undefined, undefined, undefined, (function (param, param$1) {
+            onPreview(undefined);
+          }), undefined, undefined);
+  };
+  var busy = inFlight || previewing || waitlisting;
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("button", {
+                              children: previewing ? t`Previewing…` : t`Preview Smart RSVP`,
+                              className: "inline-flex items-center gap-1 rounded-md border border-emerald-600 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 dark:text-emerald-300 dark:hover:bg-emerald-900/30",
+                              disabled: busy,
+                              type: "button",
+                              onClick: (function (param) {
+                                  fetchPreview();
+                                })
+                            }),
+                        JsxRuntime.jsx("button", {
+                              children: inFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
+                              className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60",
+                              disabled: busy,
+                              type: "button",
+                              onClick: (function (param) {
+                                  run(undefined);
+                                })
+                            }),
+                        props.eventIsFull ? JsxRuntime.jsx("button", {
+                                children: waitlisting ? t`Placing on the waitlist…` : t`Smart Waitlist`,
+                                className: "inline-flex items-center gap-1 rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-amber-600 disabled:cursor-wait disabled:opacity-60",
+                                disabled: busy,
+                                type: "button",
+                                onClick: (function (param) {
+                                    smartWaitlist();
+                                  })
+                              }) : null,
+                        JsxRuntime.jsx("button", {
+                              children: t`Run Smart RSVP (best-fit, test)`,
+                              className: "inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
+                              disabled: busy,
+                              type: "button",
+                              onClick: (function (param) {
+                                  run("BestFit");
+                                })
+                            })
+                      ],
+                      className: "flex flex-wrap gap-2"
+                    }),
+                preview !== undefined ? JsxRuntime.jsxs("p", {
+                        children: [
+                          t`Smart RSVP would admit ${preview.length.toString()} of ${props.pendingCount.toString()} pending requests: they are marked above.`,
+                          JsxRuntime.jsx("button", {
+                                children: t`Clear preview`,
+                                className: "ml-2 font-semibold text-emerald-700 underline dark:text-emerald-300",
+                                type: "button",
+                                onClick: (function (param) {
+                                    onPreview(undefined);
+                                  })
+                              })
+                        ],
+                        className: "mt-2 text-xs text-gray-600 dark:text-gray-300"
+                      }) : null
+              ],
+              className: "mb-5"
+            });
+}
 
-var convertResponse$5 = RSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+var SmartRsvpEvaluateButton = {
+  make: RSVPSection$SmartRsvpEvaluateButton
+};
 
-var convertWrapRawResponse$5 = RSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+var convertVariables$5 = RSVPSectionLeaveMutation_graphql.Internal.convertVariables;
 
-var commitMutation$5 = RescriptRelay_Mutation.commitMutation(convertVariables$5, RSVPSectionAddUserMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+var convertResponse$5 = RSVPSectionLeaveMutation_graphql.Internal.convertResponse;
 
-var use$7 = RescriptRelay_Mutation.useMutation(convertVariables$5, RSVPSectionAddUserMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+var convertWrapRawResponse$5 = RSVPSectionLeaveMutation_graphql.Internal.convertWrapRawResponse;
 
-var RSVPSectionAddUserMutation = {
+var commitMutation$4 = RescriptRelay_Mutation.commitMutation(convertVariables$5, RSVPSectionLeaveMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+
+var use$7 = RescriptRelay_Mutation.useMutation(convertVariables$5, RSVPSectionLeaveMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
+
+var RSVPSectionLeaveMutation = {
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$5,
   convertResponse: convertResponse$5,
   convertWrapRawResponse: convertWrapRawResponse$5,
-  commitMutation: commitMutation$5,
+  commitMutation: commitMutation$4,
   use: use$7
+};
+
+var convertVariables$6 = RSVPSectionUpdateMessageMutation_graphql.Internal.convertVariables;
+
+var convertResponse$6 = RSVPSectionUpdateMessageMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$6 = RSVPSectionUpdateMessageMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$5 = RescriptRelay_Mutation.commitMutation(convertVariables$6, RSVPSectionUpdateMessageMutation_graphql.node, convertResponse$6, convertWrapRawResponse$6);
+
+var use$8 = RescriptRelay_Mutation.useMutation(convertVariables$6, RSVPSectionUpdateMessageMutation_graphql.node, convertResponse$6, convertWrapRawResponse$6);
+
+var RSVPSectionUpdateMessageMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$6,
+  convertResponse: convertResponse$6,
+  convertWrapRawResponse: convertWrapRawResponse$6,
+  commitMutation: commitMutation$5,
+  use: use$8
+};
+
+var convertVariables$7 = RSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+
+var convertResponse$7 = RSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$7 = RSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$6 = RescriptRelay_Mutation.commitMutation(convertVariables$7, RSVPSectionAddUserMutation_graphql.node, convertResponse$7, convertWrapRawResponse$7);
+
+var use$9 = RescriptRelay_Mutation.useMutation(convertVariables$7, RSVPSectionAddUserMutation_graphql.node, convertResponse$7, convertWrapRawResponse$7);
+
+var RSVPSectionAddUserMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$7,
+  convertResponse: convertResponse$7,
+  convertWrapRawResponse: convertWrapRawResponse$7,
+  commitMutation: commitMutation$6,
+  use: use$9
 };
 
 var sessionContext = AppContext.SessionContext;
@@ -285,7 +423,7 @@ function RSVPSection$ViewerStatusMessage(props) {
       });
   var setEditedMessage = match$1[1];
   var editedMessage = match$1[0];
-  var match$2 = use$6();
+  var match$2 = use$8();
   var commitMutationUpdateMessage = match$2[0];
   var handleSave = function () {
     var trimmedMessage = editedMessage.trim();
@@ -362,30 +500,40 @@ function RSVPSection(props) {
   var $$event = props.event;
   var match = ReactExperimental.useTransition();
   var startTransition = match[1];
-  var match$1 = usePagination($$event);
-  var isLoadingNext = match$1.isLoadingNext;
-  var loadNext = match$1.loadNext;
-  var data = match$1.data;
-  var match$2 = use($$event);
-  var viewerIsAdmin = match$2.viewerIsAdmin;
-  var minRating = match$2.minRating;
-  var maxRsvps = match$2.maxRsvps;
-  var id = match$2.id;
-  var club = match$2.club;
-  var activity = match$2.activity;
-  var __id = match$2.__id;
+  var match$1 = React.useState(function () {
+        
+      });
+  var setSmartRsvpPreview = match$1[1];
+  var smartRsvpPreview = match$1[0];
+  var onSmartRsvpPreview = function (ids) {
+    setSmartRsvpPreview(function (param) {
+          return ids;
+        });
+  };
+  var match$2 = usePagination($$event);
+  var isLoadingNext = match$2.isLoadingNext;
+  var loadNext = match$2.loadNext;
+  var data = match$2.data;
+  var match$3 = use($$event);
+  var viewerIsAdmin = match$3.viewerIsAdmin;
+  var minRating = match$3.minRating;
+  var maxRsvps = match$3.maxRsvps;
+  var id = match$3.id;
+  var club = match$3.club;
+  var activity = match$3.activity;
+  var __id = match$3.__id;
   var viewer = Core__Option.map(props.user, (function (user) {
           return use$1(user);
         }));
   var rsvps = getConnectionNodes(data.rsvps);
-  var match$3 = use$2();
-  var commitMutationJoin = match$3[0];
-  var match$4 = use$5();
-  var commitMutationLeave = match$4[0];
-  var match$5 = use$3();
-  var commitMutationCreateRating = match$5[0];
-  var match$6 = use$7();
-  var commitMutationAddUser = match$6[0];
+  var match$4 = use$2();
+  var commitMutationJoin = match$4[0];
+  var match$5 = use$7();
+  var commitMutationLeave = match$5[0];
+  var match$6 = use$3();
+  var commitMutationCreateRating = match$6[0];
+  var match$7 = use$9();
+  var commitMutationAddUser = match$7[0];
   var handleAddUser = function (user) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(__id, "RSVPSection_event_rsvps", undefined);
     commitMutationAddUser({
@@ -438,7 +586,10 @@ function RSVPSection(props) {
                     });
         }));
   var viewerHasRsvp = Core__Option.isSome(viewerRsvp);
-  var match$7 = Core__Option.getOr(Core__Option.map(viewerRsvp, (function (rsvp) {
+  var pendingCount = getConnectionNodes(data.rsvps).filter(function (edge) {
+        return isRestrictedRsvp(edge.listType);
+      }).length;
+  var match$8 = Core__Option.getOr(Core__Option.map(viewerRsvp, (function (rsvp) {
               if (isRestrictedRsvp(rsvp.listType)) {
                 return [
                         false,
@@ -493,7 +644,7 @@ function RSVPSection(props) {
                         return edge.message;
                       }));
         }));
-  var smartRsvpEnabled = Core__Option.isSome(match$2.smartRsvpThreshold);
+  var smartRsvpEnabled = Core__Option.isSome(match$3.smartRsvpThreshold);
   var ratingWarning = viewer !== undefined ? (
       smartRsvpEnabled ? (
           viewerHasRsvp ? null : JsxRuntime.jsx("div", {
@@ -560,18 +711,18 @@ function RSVPSection(props) {
             return max;
           }
         }));
-  var match$8 = React.useState(function () {
+  var match$9 = React.useState(function () {
         return false;
       });
-  var setMobileExpanded = match$8[1];
-  var mobileExpanded = match$8[0];
+  var setMobileExpanded = match$9[1];
+  var mobileExpanded = match$9[0];
   var rsvpButtonStatus = viewer !== undefined ? (
-      match$7[1] ? ({
+      match$8[1] ? ({
             TAG: "Joined",
             _0: "Pending"
           }) : (
           viewerHasRsvp ? (
-              match$7[0] ? ({
+              match$8[0] ? ({
                     TAG: "Joined",
                     _0: "Waitlisted"
                   }) : ({
@@ -748,10 +899,15 @@ function RSVPSection(props) {
                                                           activitySlug: Core__Option.flatMap(activity, (function (a) {
                                                                   return a.slug;
                                                                 })),
-                                                          maxRating: maxRating
+                                                          maxRating: maxRating,
+                                                          previewAdmittedIds: smartRsvpPreview
                                                         }),
                                                     viewerIsAdmin && smartRsvpEnabled ? JsxRuntime.jsx(RSVPSection$SmartRsvpEvaluateButton, {
-                                                            eventId: id
+                                                            eventId: id,
+                                                            pendingCount: pendingCount,
+                                                            eventIsFull: eventIsFull,
+                                                            preview: smartRsvpPreview,
+                                                            onPreview: onSmartRsvpPreview
                                                           }) : null,
                                                     viewerIsAdmin ? Core__Option.getOr(Core__Option.map(club, (function (c) {
                                                                   return JsxRuntime.jsxs("div", {
@@ -843,10 +999,15 @@ function RSVPSection(props) {
                                                 return a.slug;
                                               })),
                                         maxRating: maxRating,
-                                        className: "mb-5"
+                                        className: "mb-5",
+                                        previewAdmittedIds: smartRsvpPreview
                                       }),
                                   viewerIsAdmin && smartRsvpEnabled ? JsxRuntime.jsx(RSVPSection$SmartRsvpEvaluateButton, {
-                                          eventId: id
+                                          eventId: id,
+                                          pendingCount: pendingCount,
+                                          eventIsFull: eventIsFull,
+                                          preview: smartRsvpPreview,
+                                          onPreview: onSmartRsvpPreview
                                         }) : null,
                                   viewerIsAdmin ? Core__Option.getOr(Core__Option.map(club, (function (c) {
                                                 return JsxRuntime.jsxs("div", {
@@ -863,7 +1024,7 @@ function RSVPSection(props) {
                                                             className: "mb-5"
                                                           });
                                               })), null) : null,
-                                  match$1.hasNext || isLoadingNext ? JsxRuntime.jsx("div", {
+                                  match$2.hasNext || isLoadingNext ? JsxRuntime.jsx("div", {
                                           children: isLoadingNext ? JsxRuntime.jsx("span", {
                                                   children: t`Loading...`,
                                                   className: "text-sm text-gray-500"
@@ -895,6 +1056,8 @@ export {
   RSVPSectionJoinMutation ,
   RSVPSectionCreateRatingMutation ,
   RSVPSectionEvaluateSmartRsvpsMutation ,
+  RSVPSectionSmartWaitlistMutation ,
+  PreviewSmartRsvpsQuery ,
   SmartRsvpEvaluateButton ,
   RSVPSectionLeaveMutation ,
   RSVPSectionUpdateMessageMutation ,

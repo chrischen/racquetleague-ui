@@ -21,13 +21,15 @@ msgstr "· {0} · 全レベル、レベル戦の確率 %"
 msgid "· {0} players · every strategy"
 msgstr "· {0} 人 · 全戦略"
 
-#: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid "· % chance the game ends level, by true skill · higher is better"
-msgstr "· スキルに基づきゲームが同点で終わる確率（%）· 高いほど良い"
-
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
 msgstr "· 9点差以上で決着したゲームの割合（%）· 直近5試合"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid ""
+"· match evenness by true skill · 100% = a perfectly even game · higher is "
+"better"
+msgstr "・真の実力に基づく試合の均衡度・100% = 完全に互角の試合・高いほど良い"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
 msgid ""
@@ -415,16 +417,17 @@ msgid ""
 "excluded from the ranking. All three are rolling averages over the last {0} "
 "rounds, so they say how each strategy is doing now rather than how it did "
 "overall — drag the round slider to watch them move. places off = how far the "
-"average player sits from their true rank (lower better) · quality = chance a "
-"game ends level, by true skill (higher better) · blowouts = share of games "
-"decided by 9+ (lower better)."
+"average player sits from their true rank (lower better) · quality = how even "
+"the game is by true skill, 100% = perfectly even (higher better) · blowouts "
+"= share of games decided by 9+ (lower better)."
 msgstr ""
-"3列を同等の重みで合算してランク付け。破線以下の行は隠れた真のスキルからマッチ"
-"メイクしており、上限を示すためランキングから除外。3項目すべて直近{0}ラウンド"
-"の移動平均なので、全体的な成績ではなく現在の状況を示す — ラウンドスライダーを"
-"動かして変化を確認できる。順位のずれ = 平均的な選手が真のランクからどれだけ離"
-"れているか（低い方が良い） · 品質 = 真のスキルでゲームがレベルで終わる確率"
-"（高い方が良い） · 大差 = 9点差以上で決着したゲームの割合（低い方が良い）。"
+"3つの列を同じ重みで合算してランク付けしています。破線より下の行は隠れた真の実"
+"力でマッチメイクしており、上限値を示すためランキングからは除外しています。3つ"
+"とも直近{0}ラウンドの移動平均なので、全体の成績ではなく各戦略の「現在」の調子"
+"を表します——ラウンドのスライダーをドラッグすると変化が見られます。順位差 = 平"
+"均的なプレーヤーが真の順位からどれだけ離れているか（低いほど良い）・質 = 真の"
+"実力で見た試合の均衡度、100% = 完全に互角（高いほど良い）・大差 = 9点差以上で"
+"決着した試合の割合（低いほど良い）。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:140
 msgid ""
@@ -617,6 +620,10 @@ msgstr ""
 msgid "Within-band inversion"
 msgstr "バンド内逆転"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr "· スキルに基づきゲームが同点で終わる確率（%）· 高いほど良い"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1757
 #~ msgid ""
 #~ "a bunched pack, most players hard to tell apart, nobody outside the group"
@@ -695,6 +702,25 @@ msgstr "バンド内逆転"
 #~ "ほど良い）· 品質 = 真のスキルによって試合が拮抗して終わる確率（高いほど良"
 #~ "い）· 大差試合 = 9点差以上で決着した試合の割合（低いほど良い）。太字は各列"
 #~ "の最優秀値。"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. All three are rolling averages over the "
+#~ "last {0} rounds, so they say how each strategy is doing now rather than "
+#~ "how it did overall — drag the round slider to watch them move. places off "
+#~ "= how far the average player sits from their true rank (lower better) · "
+#~ "quality = chance a game ends level, by true skill (higher better) · "
+#~ "blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr ""
+#~ "3列を同等の重みで合算してランク付け。破線以下の行は隠れた真のスキルから"
+#~ "マッチメイクしており、上限を示すためランキングから除外。3項目すべて直近{0}"
+#~ "ラウンドの移動平均なので、全体的な成績ではなく現在の状況を示す — ラウンド"
+#~ "スライダーを動かして変化を確認できる。順位のずれ = 平均的な選手が真のラン"
+#~ "クからどれだけ離れているか（低い方が良い） · 品質 = 真のスキルでゲームがレ"
+#~ "ベルで終わる確率（高い方が良い） · 大差 = 9点差以上で決着したゲームの割合"
+#~ "（低い方が良い）。"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1370
 #~ msgid ""

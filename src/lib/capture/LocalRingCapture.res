@@ -49,6 +49,9 @@ type state = {
   mutable videoConfiguring: bool,
   mutable width: int,
   mutable height: int,
+  // The track's delivered frame rate (from getSettings at start); sizes the
+  // encoder's bitrate and level.  30 when the track does not report one.
+  mutable frameRate: float,
   mutable lastKeyUs: float,
   // Video and audio timestamps come from different clocks (video: media
   // timeline starting near 0; audio: often a machine-uptime clock). The
@@ -126,11 +129,26 @@ let configureVideo = async (state, metadata: WebCodecs.frameMetadata) => {
   let width = metadata.width
   let height = metadata.height
   let pixels = Int.toFloat(width * height)
-  let bitrate = Math.min(8_000_000., Math.max(1_500_000., 6_000_000. *. pixels /. (1920. *. 1080.)))
-  let candidates =
-    width * height > 1280 * 720
-      ? ["avc1.640028", "avc1.4d0028", "avc1.42e028"]
-      : ["avc1.4d001f", "avc1.42e01f", "avc1.640028"]
+  let fps = state.frameRate
+  // ~6 Mb/s per 1080p30 of court motion, scaled by pixels and frame rate.
+  // The ring is native resolution on purpose (clips and the Challenge
+  // player show the camera's real frames; only the detector downscales), and
+  // at 20 s it stays cheap: 1080p60 → 12 Mb/s → 30 MB.
+  let bitrate = Math.min(
+    24_000_000.,
+    Math.max(1_500_000., 6_000_000. *. pixels /. (1920. *. 1080.) *. Math.max(1., fps /. 30.)),
+  )
+  // H.264 level ladders by picture size: 4.2 covers 1080p60 (4.0 stops at
+  // 1080p30), 5.1/5.2 cover 4K.  A level too small for the picture is what
+  // isConfigSupported rejects, so each ladder starts at the level its size
+  // needs and falls back to the more widely supported ones.
+  let candidates = if width * height > 1920 * 1088 {
+    ["avc1.640033", "avc1.640034", "avc1.4d0033"]
+  } else if width * height > 1280 * 720 {
+    ["avc1.64002a", "avc1.640028", "avc1.4d002a", "avc1.4d0028", "avc1.42e028"]
+  } else {
+    ["avc1.4d001f", "avc1.42e01f", "avc1.640028"]
+  }
   let rec probe = async index =>
     switch candidates->Array.get(index) {
     | None => None
@@ -140,7 +158,7 @@ let configureVideo = async (state, metadata: WebCodecs.frameMetadata) => {
           width,
           height,
           bitrate,
-          framerate: 30.,
+          framerate: fps,
           latencyMode: "realtime",
           avc: {format: "avc"}, // out-of-band avcC; Annex B would break the MP4
           hardwareAcceleration: "no-preference",
@@ -337,7 +355,10 @@ let startAudio = (state, stream) =>
     }
   }
 
-let takeClip = async (state): result<CaptureSession.clip, CaptureSession.clipError> =>
+let takeClip = async (state, ~seconds: option<float>=?): result<
+  CaptureSession.clip,
+  CaptureSession.clipError,
+> =>
   switch (state.videoEncoder, state.videoCodec, state.running) {
   | (Some(encoder), Some(codec), true) => {
       // Flush so the freshest frames land in the ring. Safari's flush can
@@ -370,7 +391,12 @@ let takeClip = async (state): result<CaptureSession.clip, CaptureSession.clipErr
       state.flushing = false
       // The ring value is an immutable snapshot: encoding continues into
       // state.ring while we mux this one.
-      switch ClipRing.takeClip(state.ring, ~targetDurationUs) {
+      // Never longer than the ring holds; a trim request only shortens.
+      let windowUs = switch seconds {
+      | Some(value) => Math.min(targetDurationUs, Math.max(1., value) *. 1_000_000.)
+      | None => targetDurationUs
+      }
+      switch ClipRing.takeClip(state.ring, ~targetDurationUs=windowUs) {
       | None => Error(CaptureSession.BufferEmpty)
       | Some(clip) => {
           let videoChunks = clip.chunks->Array.map(chunk => {
@@ -498,6 +524,7 @@ let start = async (state, ~onStatus: CaptureSession.status => unit, stream) =>
     Error(CaptureSession.Unsupported)
   } else {
     state.running = true
+    state.frameRate = stream->UserMedia.videoFrameRate->Option.getOr(30.)
     let video = createElement("video")
     video->setMuted(true)
     video->setPlaysInline(true)
@@ -576,6 +603,7 @@ let make = (~onStatus: CaptureSession.status => unit): CaptureSession.t => {
     videoConfiguring: false,
     width: 0,
     height: 0,
+    frameRate: 30.,
     lastKeyUs: Float.Constants.negativeInfinity,
     lastVideoTsUs: 0.,
     audioEpochUs: None,
@@ -597,7 +625,7 @@ let make = (~onStatus: CaptureSession.status => unit): CaptureSession.t => {
   {
     capabilities,
     start: stream => start(state, ~onStatus, stream),
-    takeClip: () => takeClip(state),
+    takeClip: (~seconds=?) => takeClip(state, ~seconds?),
     stop: () => stop(state),
   }
 }

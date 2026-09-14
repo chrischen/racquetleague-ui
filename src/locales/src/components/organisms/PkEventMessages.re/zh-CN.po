@@ -13,26 +13,75 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventMessages.re.mjs:146
+#: src/components/organisms/PkEventMessages.re.mjs:333
+msgid "{messageCountStr} messages · {totalCountStr} updates"
+msgstr "{messageCountStr} 条消息 · {totalCountStr} 条动态"
+
+#: src/components/organisms/PkEventMessages.re.mjs:328
 msgid "Activity"
 msgstr "活动"
 
-#: src/components/organisms/PkEventMessages.re.mjs:467
-msgid "Add a message..."
-msgstr "添加消息..."
-
 #: src/components/organisms/PkEventMessages.re.mjs:328
+#: src/components/organisms/PkEventMessages.re.mjs:462
+msgid "Event chat"
+msgstr "活动聊天"
+
+#: src/components/organisms/PkEventMessages.re.mjs:213
 msgid "Event updated"
 msgstr "活动已更新"
 
-#: src/components/organisms/PkEventMessages.re.mjs:455
-msgid "Show all {0} items"
-msgstr "显示全部 {0} 条"
+#: src/components/organisms/PkEventMessages.re.mjs:333
+msgid "Join this event to take part in the chat"
+msgstr "加入此活动即可参与聊天"
 
-#: src/components/organisms/PkEventMessages.re.mjs:455
+#: src/components/organisms/PkEventMessages.re.mjs:204
+msgid "joined from waitlist"
+msgstr "从等待列表加入"
+
+#: src/components/organisms/PkEventMessages.re.mjs:194
+msgid "joined the event"
+msgstr "加入了活动"
+
+#: src/components/organisms/PkEventMessages.re.mjs:259
+msgid "left the event"
+msgstr "退出了活动"
+
+#: src/components/organisms/PkEventMessages.re.mjs:364
+msgid "Message everyone in this event"
+msgstr "向此活动的所有人发消息"
+
+#: src/components/organisms/PkEventMessages.re.mjs:366
+msgid "Message everyone in this event…"
+msgstr "向此活动的所有人发消息…"
+
+#: src/components/organisms/PkEventMessages.re.mjs:466
+msgid "No messages yet"
+msgstr "暂无消息"
+
+#: src/components/organisms/PkEventMessages.re.mjs:386
+msgid "Send message"
+msgstr "发送消息"
+
+#: src/components/organisms/PkEventMessages.re.mjs:352
 msgid "Show less"
 msgstr "收起"
 
-#: src/components/organisms/PkEventMessages.re.mjs:261
+#: src/components/organisms/PkEventMessages.re.mjs:352
+msgid "View all {totalCountStr} updates"
+msgstr "查看全部 {totalCountStr} 条动态"
+
+#: src/components/organisms/PkEventMessages.re.mjs:189
+msgid "was added to the event by admin"
+msgstr "已被管理员添加至活动"
+
+#: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "已被邀请参加活动"
+
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "添加消息..."
+
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "显示全部 {0} 条"

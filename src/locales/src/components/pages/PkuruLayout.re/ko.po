@@ -271,6 +271,7 @@ msgstr "더 불러오기"
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
 #: src/components/pages/PkuruLayout.re.mjs:998
+#: src/components/pages/PkuruLayout.re.mjs:1094
 msgid "Loading..."
 msgstr "로딩 중..."
 

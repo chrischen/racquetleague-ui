@@ -102,15 +102,180 @@ function makeInitials(name) {
                 }).join("").toUpperCase();
 }
 
-function PkEventMessages(props) {
-  var isJoined = props.isJoined;
+function isChatMessage(activityType) {
+  switch (activityType) {
+    case "comment_added" :
+    case "host_message" :
+        return true;
+    default:
+      return false;
+  }
+}
+
+function toMessage(node) {
+  var payload = Core__Option.flatMap(node.payload, decodePayload);
+  return {
+          id: node.id,
+          actor: Core__Option.getOr(Core__Option.flatMap(payload, (function (p) {
+                      return p.actorUserName;
+                    })), "?"),
+          activityType: Core__Option.getOr(Core__Option.flatMap(payload, (function (p) {
+                      return p.activityType;
+                    })), ""),
+          details: Core__Option.flatMap(payload, (function (p) {
+                  return p.details;
+                })),
+          timeStr: relativeTimeStr(node.createdAt)
+        };
+}
+
+function messagesOf(data) {
+  return getConnectionNodes(data.messagesByTopic).map(toMessage);
+}
+
+function PkEventMessages$ActivityRow(props) {
+  var message = props.message;
+  var timeStr = message.timeStr;
+  var details = message.details;
+  var actor = message.actor;
+  var time = JsxRuntime.jsx("span", {
+        children: timeStr,
+        className: "ml-1.5 text-[10px] text-gray-400 dark:text-gray-500"
+      });
+  var systemRow = function (icon, tone, textClass, body) {
+    return JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsx("div", {
+                        children: icon,
+                        className: "mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full " + tone
+                      }),
+                  JsxRuntime.jsx("div", {
+                        children: JsxRuntime.jsxs("p", {
+                              children: [
+                                body,
+                                time
+                              ],
+                              className: "pt-1 text-xs leading-relaxed " + textClass
+                            }),
+                        className: "min-w-0 flex-1"
+                      })
+                ],
+                className: "flex gap-2.5"
+              });
+  };
+  var actorRow = function (icon, tone, text) {
+    return systemRow(icon, tone, "text-gray-600 dark:text-gray-400", JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                    children: [
+                      JsxRuntime.jsx("span", {
+                            children: actor + " ",
+                            className: "font-semibold text-gray-800 dark:text-gray-200"
+                          }),
+                      text
+                    ]
+                  }));
+  };
+  var emerald = "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400";
+  var amber = "bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400";
+  var exit = 0;
+  switch (message.activityType) {
+    case "comment_added" :
+    case "host_message" :
+        exit = 1;
+        break;
+    case "rsvp_added" :
+        return actorRow(JsxRuntime.jsx(LucideReact.UserPlus, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }), emerald, t`was added to the event by admin`);
+    case "rsvp_created" :
+        return actorRow(JsxRuntime.jsx(LucideReact.UserPlus, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }), emerald, t`joined the event`);
+    case "rsvp_invited" :
+        return actorRow(JsxRuntime.jsx(LucideReact.Mail, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }), "bg-violet-50 text-violet-600 dark:bg-violet-900/20 dark:text-violet-400", t`was invited to the event`);
+    case "rsvp_promoted" :
+        return actorRow(JsxRuntime.jsx(LucideReact.ArrowUpCircle, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }), "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400", t`joined from waitlist`);
+    case "rsvp_deleted" :
+    case "rsvp_removed" :
+        exit = 2;
+        break;
+    case "update" :
+        return systemRow(JsxRuntime.jsx(LucideReact.Pencil, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }), amber, "text-amber-700 dark:text-amber-400", Core__Option.getOr(details, t`Event updated`));
+    default:
+      return actorRow(JsxRuntime.jsx(LucideReact.AlertCircle, {
+                      size: 13,
+                      "aria-hidden": "true"
+                    }), amber, Core__Option.getOr(details, ""));
+  }
+  switch (exit) {
+    case 1 :
+        return JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: makeInitials(actor),
+                            className: "mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-[10px] font-semibold text-gray-600 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-300"
+                          }),
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            children: actor,
+                                            className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                          }),
+                                      JsxRuntime.jsx("span", {
+                                            children: timeStr,
+                                            className: "text-[11px] text-gray-400 dark:text-gray-500"
+                                          })
+                                    ],
+                                    className: "flex items-baseline gap-2"
+                                  }),
+                              Core__Option.getOr(Core__Option.map(details, (function (d) {
+                                          return JsxRuntime.jsx("p", {
+                                                      children: d,
+                                                      className: "mt-0.5 text-sm leading-relaxed text-gray-700 dark:text-gray-300"
+                                                    });
+                                        })), null)
+                            ],
+                            className: "min-w-0 flex-1"
+                          })
+                    ],
+                    className: "flex gap-2.5"
+                  });
+    case 2 :
+        return actorRow(JsxRuntime.jsx(LucideReact.UserMinus, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }), "bg-red-50 text-red-500 dark:bg-red-900/20 dark:text-red-400", t`left the event`);
+    
+  }
+}
+
+var ActivityRow = {
+  make: PkEventMessages$ActivityRow
+};
+
+function PkEventMessages$Section(props) {
+  var __prominent = props.prominent;
+  var canPost = props.canPost;
   var eventId = props.eventId;
+  var prominent = __prominent !== undefined ? __prominent : false;
   var data = use(props.queryRef);
   var match = React.useState(function () {
         return false;
       });
-  var setShowAllActivity = match[1];
-  var showAllActivity = match[0];
+  var setShowAll = match[1];
+  var showAll = match[0];
   var match$1 = React.useState(function () {
         return "";
       });
@@ -119,8 +284,14 @@ function PkEventMessages(props) {
   var match$2 = use$1();
   var sendingMessage = match$2[1];
   var sendMessage = match$2[0];
-  var allMessages = getConnectionNodes(data.messagesByTopic);
-  var displayedMessages = showAllActivity ? allMessages : allMessages.slice(0, 5);
+  var allMessages = messagesOf(data);
+  var totalCount = allMessages.length;
+  var totalCountStr = totalCount.toString();
+  var messageCountStr = allMessages.filter(function (m) {
+          return isChatMessage(m.activityType);
+        }).length.toString();
+  var visible = showAll ? allMessages : allMessages.slice(0, 5);
+  var hasText = messageInput.trim() !== "";
   var onSendMessage = function () {
     var trimmed = messageInput.trim();
     if (!(trimmed !== "" && !sendingMessage)) {
@@ -138,361 +309,199 @@ function PkEventMessages(props) {
           return "";
         });
   };
-  return JsxRuntime.jsxs("div", {
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsx("h2", {
-                              children: t`Activity`,
-                              className: "font-mono text-[10px] tracking-wider text-gray-400 dark:text-gray-500 uppercase"
-                            }),
-                        JsxRuntime.jsx("span", {
-                              children: allMessages.length.toString() + " items",
-                              className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                            })
-                      ],
-                      className: "flex items-center justify-between mb-3"
-                    }),
-                JsxRuntime.jsx("div", {
-                      children: displayedMessages.map(function (msg) {
-                            var payload = Core__Option.flatMap(msg.payload, decodePayload);
-                            var activityType = Core__Option.getOr(Core__Option.flatMap(payload, (function (p) {
-                                        return p.activityType;
-                                      })), "");
-                            var actor = Core__Option.getOr(Core__Option.flatMap(payload, (function (p) {
-                                        return p.actorUserName;
-                                      })), "?");
-                            var details = Core__Option.flatMap(payload, (function (p) {
-                                    return p.details;
-                                  }));
-                            var timeStr = relativeTimeStr(msg.createdAt);
-                            var exit = 0;
-                            switch (activityType) {
-                              case "comment_added" :
-                              case "host_message" :
-                                  exit = 1;
-                                  break;
-                              case "rsvp_added" :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(LucideReact.UserPlus, {
-                                                            className: "w-3 h-3"
-                                                          }),
-                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400"
-                                                    }),
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsxs("span", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx("span", {
-                                                                            children: actor,
-                                                                            className: "font-medium"
-                                                                          }),
-                                                                      " was added to the event by admin"
-                                                                    ],
-                                                                    className: "text-xs text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: timeStr,
-                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-baseline gap-1.5"
-                                                          }),
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              case "rsvp_created" :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(LucideReact.UserPlus, {
-                                                            className: "w-3 h-3"
-                                                          }),
-                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400"
-                                                    }),
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsxs("span", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx("span", {
-                                                                            children: actor,
-                                                                            className: "font-medium"
-                                                                          }),
-                                                                      " joined the event"
-                                                                    ],
-                                                                    className: "text-xs text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: timeStr,
-                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-baseline gap-1.5"
-                                                          }),
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              case "rsvp_invited" :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(LucideReact.Mail, {
-                                                            className: "w-3 h-3"
-                                                          }),
-                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400"
-                                                    }),
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsxs("span", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx("span", {
-                                                                            children: actor,
-                                                                            className: "font-medium"
-                                                                          }),
-                                                                      " " + t`was invited to the event`
-                                                                    ],
-                                                                    className: "text-xs text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: timeStr,
-                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-baseline gap-1.5"
-                                                          }),
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              case "rsvp_promoted" :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(LucideReact.ArrowUpCircle, {
-                                                            className: "w-3 h-3"
-                                                          }),
-                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400"
-                                                    }),
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsxs("span", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx("span", {
-                                                                            children: actor,
-                                                                            className: "font-medium"
-                                                                          }),
-                                                                      " joined from waitlist"
-                                                                    ],
-                                                                    className: "text-xs text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: timeStr,
-                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-baseline gap-1.5"
-                                                          }),
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              case "rsvp_deleted" :
-                              case "rsvp_removed" :
-                                  exit = 2;
-                                  break;
-                              case "update" :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(LucideReact.Pencil, {
-                                                            className: "w-3 h-3"
-                                                          }),
-                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400"
-                                                    }),
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: Core__Option.getOr(details, t`Event updated`),
-                                                                    className: "text-xs text-amber-700 dark:text-amber-400"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: timeStr,
-                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-baseline gap-1.5"
-                                                          }),
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              default:
-                                return JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx(LucideReact.AlertCircle, {
-                                                          className: "w-3 h-3"
-                                                        }),
-                                                    className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400"
-                                                  }),
-                                              JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsxs("span", {
-                                                                  children: [
-                                                                    JsxRuntime.jsx("span", {
-                                                                          children: actor,
-                                                                          className: "font-medium"
-                                                                        }),
-                                                                    Core__Option.getOr(Core__Option.map(details, (function (d) {
-                                                                                return " " + d;
-                                                                              })), "")
-                                                                  ],
-                                                                  className: "text-xs text-gray-700 dark:text-gray-300"
-                                                                }),
-                                                            JsxRuntime.jsx("span", {
-                                                                  children: timeStr,
-                                                                  className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                })
-                                                          ],
-                                                          className: "flex items-baseline gap-1.5"
-                                                        }),
-                                                    className: "flex-1 min-w-0"
-                                                  })
-                                            ],
-                                            className: "flex gap-2.5"
-                                          }, msg.id);
-                            }
-                            switch (exit) {
-                              case 1 :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: makeInitials(actor),
-                                                      className: "w-7 h-7 rounded-full bg-gray-100 dark:bg-[#2a2b30] flex items-center justify-center text-[9px] font-medium text-gray-600 dark:text-gray-300 flex-shrink-0 mt-0.5"
-                                                    }),
-                                                JsxRuntime.jsxs("div", {
-                                                      children: [
-                                                        JsxRuntime.jsxs("div", {
-                                                              children: [
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: actor,
-                                                                      className: "text-xs font-medium text-gray-900 dark:text-gray-100"
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: timeStr,
-                                                                      className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                    })
-                                                              ],
-                                                              className: "flex items-baseline gap-1.5"
-                                                            }),
-                                                        Core__Option.getOr(Core__Option.map(details, (function (d) {
-                                                                    return JsxRuntime.jsx("p", {
-                                                                                children: d,
-                                                                                className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 leading-relaxed"
-                                                                              });
-                                                                  })), null)
-                                                      ],
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              case 2 :
-                                  return JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsx(LucideReact.UserX, {
-                                                            className: "w-3 h-3"
-                                                          }),
-                                                      className: "w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400"
-                                                    }),
-                                                JsxRuntime.jsx("div", {
-                                                      children: JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsxs("span", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx("span", {
-                                                                            children: actor,
-                                                                            className: "font-medium"
-                                                                          }),
-                                                                      " left the event"
-                                                                    ],
-                                                                    className: "text-xs text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: timeStr,
-                                                                    className: "font-mono text-[10px] text-gray-400 dark:text-gray-500"
-                                                                  })
-                                                            ],
-                                                            className: "flex items-baseline gap-1.5"
-                                                          }),
-                                                      className: "flex-1 min-w-0"
-                                                    })
-                                              ],
-                                              className: "flex gap-2.5"
-                                            }, msg.id);
-                              
-                            }
-                          }),
-                      className: "space-y-3"
-                    }),
-                allMessages.length > 5 ? JsxRuntime.jsx("button", {
-                        children: showAllActivity ? t`Show less` : t`Show all ${allMessages.length.toString()} items`,
-                        className: "mt-3 font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors",
-                        onClick: (function (param) {
-                            setShowAllActivity(function (v) {
-                                  return !v;
-                                });
-                          })
-                      }) : null,
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsx("input", {
-                              className: "flex-1 bg-transparent text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 border-0 outline-none focus:outline-none focus:ring-0",
-                              placeholder: t`Add a message...`,
-                              value: messageInput,
-                              onKeyDown: (function (e) {
-                                  if (e.key === "Enter" && isJoined) {
-                                    return onSendMessage();
-                                  }
-                                  
+  return JsxRuntime.jsx("section", {
+              children: JsxRuntime.jsxs("div", {
+                    children: [
+                      JsxRuntime.jsx("div", {
+                            children: JsxRuntime.jsxs("div", {
+                                  children: [
+                                    JsxRuntime.jsx("span", {
+                                          children: JsxRuntime.jsx(LucideReact.MessageCircle, {
+                                                size: 18,
+                                                "aria-hidden": "true"
+                                              }),
+                                          className: "flex h-9 w-9 items-center justify-center rounded-full bg-[#bdf25d]/25 text-[#547817] dark:bg-[#bdf25d]/15 dark:text-[#bdf25d]"
+                                        }),
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("h2", {
+                                                  children: prominent ? t`Event chat` : t`Activity`,
+                                                  className: "text-base font-semibold text-gray-900 dark:text-gray-100",
+                                                  id: "event-chat-title"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: canPost ? t`${messageCountStr} messages · ${totalCountStr} updates` : t`Join this event to take part in the chat`,
+                                                  className: "text-xs text-gray-500 dark:text-gray-400"
+                                                })
+                                          ]
+                                        })
+                                  ],
+                                  className: "flex items-center gap-2.5"
                                 }),
-                              onChange: (function (e) {
-                                  setMessageInput(function (param) {
-                                        return e.target.value;
+                            className: "mb-4 flex items-center justify-between gap-3"
+                          }),
+                      JsxRuntime.jsx("div", {
+                            children: visible.map(function (message) {
+                                  return JsxRuntime.jsx(PkEventMessages$ActivityRow, {
+                                              message: message
+                                            }, message.id);
+                                }),
+                            className: "space-y-3.5"
+                          }),
+                      totalCount > 5 ? JsxRuntime.jsx("button", {
+                              children: showAll ? t`Show less` : t`View all ${totalCountStr} updates`,
+                              className: "mt-3 text-xs font-semibold text-[#5f8618] underline-offset-2 transition-colors hover:text-[#476412] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d] dark:hover:text-[#d3ff85]",
+                              type: "button",
+                              onClick: (function (param) {
+                                  setShowAll(function (v) {
+                                        return !v;
                                       });
                                 })
+                            }) : null,
+                      canPost ? JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("input", {
+                                      "aria-label": t`Message everyone in this event`,
+                                      className: "min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:outline-none focus:ring-0 dark:text-gray-100 dark:placeholder:text-gray-500",
+                                      placeholder: t`Message everyone in this event…`,
+                                      type: "text",
+                                      value: messageInput,
+                                      onKeyDown: (function (e) {
+                                          if (e.key === "Enter") {
+                                            return onSendMessage();
+                                          }
+                                          
+                                        }),
+                                      onChange: (function (e) {
+                                          setMessageInput(function (param) {
+                                                return e.target.value;
+                                              });
+                                        })
+                                    }),
+                                JsxRuntime.jsx("button", {
+                                      children: JsxRuntime.jsx(LucideReact.Send, {
+                                            size: 15,
+                                            "aria-hidden": "true"
+                                          }),
+                                      "aria-label": t`Send message`,
+                                      className: Core.cx("flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]", hasText ? "bg-[#bdf25d] text-black hover:bg-[#aee050]" : "bg-gray-100 text-gray-300 dark:bg-[#2a2b30] dark:text-gray-600"),
+                                      disabled: !hasText || sendingMessage,
+                                      type: "button",
+                                      onClick: (function (param) {
+                                          onSendMessage();
+                                        })
+                                    })
+                              ],
+                              className: "mt-4 flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2.5 shadow-sm transition-colors focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/30 dark:border-[#3a3b40] dark:bg-[#222326]"
+                            }) : null
+                    ],
+                    className: prominent ? "mx-auto w-full max-w-2xl" : ""
+                  }),
+              "aria-labelledby": "event-chat-title",
+              className: Core.cx("px-5 py-5", prominent ? "border-b border-gray-100 bg-[#fbfdf7] dark:border-[#2a2b30] dark:bg-[#20231d]" : "mx-3 mt-3 rounded-xl border border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]")
+            });
+}
+
+var Section = {
+  make: PkEventMessages$Section
+};
+
+function PkEventMessages$FooterChat(props) {
+  var queryRef = props.queryRef;
+  var data = use(queryRef);
+  var match = React.useState(function () {
+        return false;
+      });
+  var setExpanded = match[1];
+  var expanded = match[0];
+  var latest = messagesOf(data).find(function (m) {
+        return isChatMessage(m.activityType);
+      });
+  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+              children: [
+                expanded ? JsxRuntime.jsx("div", {
+                        children: JsxRuntime.jsx(PkEventMessages$Section, {
+                              queryRef: queryRef,
+                              eventId: props.eventId,
+                              canPost: true,
+                              prominent: true
                             }),
-                        JsxRuntime.jsx("button", {
-                              children: JsxRuntime.jsx(LucideReact.Send, {
-                                    className: "w-3.5 h-3.5"
+                        className: "max-h-[46vh] overflow-y-auto border-b border-gray-200 dark:border-[#2a2b30]"
+                      }) : null,
+                JsxRuntime.jsx("button", {
+                      children: JsxRuntime.jsxs("span", {
+                            children: [
+                              JsxRuntime.jsx("span", {
+                                    children: JsxRuntime.jsx(LucideReact.MessageCircle, {
+                                          size: 14,
+                                          "aria-hidden": "true"
+                                        }),
+                                    className: "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#bdf25d]/25 text-[#547817] dark:bg-[#bdf25d]/15 dark:text-[#bdf25d]"
                                   }),
-                              className: Core.cx("flex-shrink-0 transition-colors", isJoined && messageInput.trim() !== "" ? "text-[#65a30d] dark:text-[#bdf25d] hover:text-[#4d7c0f]" : "text-gray-300 dark:text-gray-600"),
-                              disabled: !isJoined || sendingMessage || messageInput.trim() === "",
-                              onClick: (function (param) {
-                                  onSendMessage();
-                                })
-                            })
-                      ],
-                      className: "mt-4 flex items-center gap-2 border border-gray-200 dark:border-[#3a3b40] rounded-lg px-2.5 py-1.5 focus-within:border-gray-400 dark:focus-within:border-gray-500 transition-colors"
+                              JsxRuntime.jsx("span", {
+                                    children: latest !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                            children: [
+                                              JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      latest.actor,
+                                                      JsxRuntime.jsx("span", {
+                                                            children: latest.timeStr,
+                                                            className: "ml-1.5 font-normal text-gray-400 dark:text-gray-500"
+                                                          })
+                                                    ],
+                                                    className: "block text-xs font-semibold text-gray-900 dark:text-gray-100"
+                                                  }),
+                                              JsxRuntime.jsx("span", {
+                                                    children: Core__Option.getOr(latest.details, ""),
+                                                    className: "block truncate text-xs text-gray-600 dark:text-gray-300"
+                                                  })
+                                            ]
+                                          }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    children: t`Event chat`,
+                                                    className: "block text-xs font-semibold text-gray-900 dark:text-gray-100"
+                                                  }),
+                                              JsxRuntime.jsx("span", {
+                                                    children: t`No messages yet`,
+                                                    className: "block truncate text-xs text-gray-600 dark:text-gray-300"
+                                                  })
+                                            ]
+                                          }),
+                                    className: "min-w-0 flex-1"
+                                  }),
+                              JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                    size: 14,
+                                    className: "flex-shrink-0 text-gray-400 transition-transform duration-200 " + (
+                                      expanded ? "rotate-90" : "-rotate-90"
+                                    ),
+                                    "aria-hidden": "true"
+                                  })
+                            ],
+                            className: "mx-auto flex w-full max-w-2xl items-center gap-2.5 px-5 py-2.5"
+                          }),
+                      "aria-expanded": expanded,
+                      className: "block w-full border-b border-gray-200 bg-[#fbfdf7] text-left transition-colors hover:bg-[#f5f9ed] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:border-[#2a2b30] dark:bg-[#20231d] dark:hover:bg-[#25291f]",
+                      type: "button",
+                      onClick: (function (param) {
+                          setExpanded(function (v) {
+                                return !v;
+                              });
+                        })
                     })
-              ],
-              className: "px-5 py-4"
+              ]
+            });
+}
+
+var FooterChat = {
+  make: PkEventMessages$FooterChat
+};
+
+function PkEventMessages(props) {
+  return JsxRuntime.jsx(PkEventMessages$Section, {
+              queryRef: props.queryRef,
+              eventId: props.eventId,
+              canPost: props.isJoined
             });
 }
 
@@ -504,6 +513,12 @@ export {
   relativeTimeStr ,
   decodePayload ,
   makeInitials ,
+  isChatMessage ,
+  toMessage ,
+  messagesOf ,
+  ActivityRow ,
+  Section ,
+  FooterChat ,
   make ,
 }
 /*  Not a pure module */

@@ -22,11 +22,15 @@ msgid "· {0} players · every strategy"
 msgstr ""
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid "· % chance the game ends level, by true skill · higher is better"
-msgstr ""
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr ""
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
+msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid "· match evenness by true skill · 100% = a perfectly even game · higher is better"
 msgstr ""
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
@@ -366,7 +370,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1661
-msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better)."
+#~ msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr ""
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better)."
 msgstr ""
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1370

@@ -7567,6 +7567,298 @@ msgstr "回合片段"
 msgid "RECENT CLIPS"
 msgstr "最近的片段"
 
+#: src/components/organisms/PkEventMessages.re.mjs:332
+msgid "{messageCountStr} messages · {totalCountStr} updates"
+msgstr "{messageCountStr} 則訊息 · {totalCountStr} 則更新"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:188
+msgid "DUPR level key"
+msgstr "DUPR 等級說明"
+
+#: src/components/organisms/PkEventMessages.re.mjs:327
+#: src/components/organisms/PkEventMessages.re.mjs:458
+msgid "Event chat"
+msgstr "活動聊天室"
+
+#: src/components/pages/PkEventPage.re.mjs:376
+msgid "Hide location details"
+msgstr "隱藏地點詳細資訊"
+
+#: src/components/pages/PkEventPage.re.mjs:239
+msgid "Hosted by"
+msgstr "主辦者"
+
+#: src/components/organisms/PkEventMessages.re.mjs:332
+msgid "Join this event to take part in the chat"
+msgstr "加入此活動即可參與聊天"
+
+#: src/components/organisms/PkEventMessages.re.mjs:363
+msgid "Message everyone in this event"
+msgstr "傳訊息給此活動的所有人"
+
+#: src/components/organisms/PkEventMessages.re.mjs:365
+msgid "Message everyone in this event…"
+msgstr "傳訊息給此活動的所有人…"
+
+#: src/components/pages/PkEventPage.re.mjs:374
+msgid "No courts available"
+msgstr "沒有可用球場"
+
+#: src/components/organisms/PkEventMessages.re.mjs:462
+msgid "No messages yet"
+msgstr "尚無訊息"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:153
+msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {topSkill}."
+msgstr "球員等級分布從 DUPR 2.0 到 8.0。最高球場 DUPR 為 {topSkill}。"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:32
+msgid "Semi-Pro"
+msgstr "半職業"
+
+#: src/components/organisms/PkEventMessages.re.mjs:385
+msgid "Send message"
+msgstr "傳送訊息"
+
+#: src/components/pages/PkEventPage.re.mjs:376
+msgid "Show location details"
+msgstr "顯示地點詳細資訊"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:615
+msgid "Top court DUPR"
+msgstr "最高球場 DUPR"
+
+#: src/components/organisms/PkEventMessages.re.mjs:351
+msgid "View all {totalCountStr} updates"
+msgstr "查看全部 {totalCountStr} 則更新"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:626
+msgid "View less"
+msgstr "收合"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:626
+msgid "View more"
+msgstr "顯示更多"
+
+#: src/components/pages/PkEventPage.re.mjs:480
+msgid "View venue"
+msgstr "查看場地"
+
+#: src/components/pages/PkEventPage.re.mjs:581
+msgid "Add details participants should know before arriving"
+msgstr "新增參加者抵達前應知道的詳細資訊"
+
+#: src/components/molecules/EditableSection.re.mjs:51
+msgid "Click to edit"
+msgstr "點擊即可編輯"
+
+#: src/components/pages/PkEventPage.re.mjs:857
+msgid "Done editing"
+msgstr "完成編輯"
+
+#: src/components/pages/PkEventPage.re.mjs:857
+msgid "Edit in place"
+msgstr "就地編輯"
+
+#: src/components/pages/PkEventPage.re.mjs:585
+msgid "Edit notes from the host"
+msgstr "編輯主辦者備註"
+
+#: src/components/pages/PkEventPage.re.mjs:870
+msgid "Editable fields are highlighted below. Click one to edit it."
+msgstr "可編輯的欄位已在下方標示，點擊即可編輯。"
+
+#: src/components/molecules/EditableSection.re.mjs:73
+msgid "Editing"
+msgstr "編輯中"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:150
+msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {0}."
+msgstr "球員程度分佈為 DUPR 2.0 至 8.0。本場地最高 DUPR 為 {0}。"
+
+#: src/components/pages/PkEventPage.re.mjs:586
+msgid "Save notes"
+msgstr "儲存備註"
+
+#: src/components/pages/PkEventPage.re.mjs:503
+msgid "View all events at this location"
+msgstr "查看此地點的所有活動"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "{0} bounces detected · tap one to replay"
+msgstr "偵測到 {0} 次落地 · 點選其一重播"
+
+#: src/components/organisms/Kiosk.re.mjs:1164
+msgid "{0}-second buffer · {1}"
+msgstr "{0} 秒緩衝 · {1}"
+
+#: src/components/organisms/Kiosk.re.mjs:55
+#: src/components/organisms/Kiosk.re.mjs:1163
+#: src/components/organisms/Kiosk.re.mjs:1177
+#: src/components/organisms/Kiosk.re.mjs:1182
+msgid "Challenge"
+msgstr "挑戰"
+
+#: src/components/organisms/Kiosk.re.mjs:1379
+msgid "Court setup"
+msgstr "球場設定"
+
+#: src/components/organisms/Kiosk.re.mjs:1178
+msgid "No footage analyzed"
+msgstr "沒有已分析的影片"
+
+#: src/components/organisms/Kiosk.re.mjs:368
+msgid "No ground bounces were detected in the buffered footage."
+msgstr "在緩衝影片中未偵測到任何落地。"
+
+#: src/components/organisms/Kiosk.re.mjs:67
+msgid "Overlay detected bounces on the buffered footage and replay any of them."
+msgstr "在緩衝影片上疊加偵測到的落地，並可重播任一次。"
+
+#: src/components/organisms/Kiosk.re.mjs:1183
+msgid "Play challenge"
+msgstr "播放挑戰"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1040
+msgid "Clear preview"
+msgstr "清除預覽"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1007
+msgid "Preview Smart RSVP"
+msgstr "預覽智慧報名"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1007
+msgid "Previewing…"
+msgstr "預覽中…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1038
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
+msgstr "智慧報名將從 {1} 筆待處理申請中錄取 {0} 筆：已於下方標示。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1080
+msgid "Would be admitted"
+msgstr "將被錄取"
+
+#: src/components/organisms/Kiosk.re.mjs:1230
+msgid "No camera: Challenge runs on the server's fixed test clip."
+msgstr "無相機：挑戰將使用伺服器上的固定測試影片執行。"
+
+#: src/components/organisms/Kiosk.re.mjs:787
+msgid "Overlay"
+msgstr "疊加層"
+
+#: src/components/organisms/Kiosk.re.mjs:2568
+msgid "Test clip not found — put test_challenge.mov in the dinkhunt folder (and restart nothing; it is picked up live)"
+msgstr "找不到測試影片 — 請將 test_challenge.mov 放入 dinkhunt 資料夾（無需重新啟動，系統會即時偵測）"
+
+#: src/components/organisms/Kiosk.re.mjs:1226
+msgid "Test mode"
+msgstr "測試模式"
+
+#: src/components/organisms/Kiosk.re.mjs:778
+msgid "Zoom"
+msgstr "縮放"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "智慧報名將從 {1} 筆待處理申請中錄取 {0} 筆：已於上方標示。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1058
+msgid "Placing on the waitlist…"
+msgstr "正在加入候補名單…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1058
+msgid "Smart Waitlist"
+msgstr "智慧候補名單"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid "· match evenness by true skill · 100% = a perfectly even game · higher is better"
+msgstr "· 以真實實力衡量的對戰均衡度 · 100% = 完全勢均力敵 · 越高越好"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better)."
+msgstr "依三個欄位合併排序，權重相同。虛線以下的列是以隱藏的真實實力配對——它們代表上限，不列入排名。三者皆為最近 {0} 輪的滾動平均，因此反映的是各策略「目前」的表現，而非整體表現——拖動輪次滑桿即可看到變化。名次偏差 = 平均而言球員距離其真實名次有多遠（越低越好）· 均衡度 = 以真實實力衡量比賽有多勢均力敵，100% = 完全勢均力敵（越高越好）· 懸殊比賽 = 以 9 分以上分差結束的比賽佔比（越低越好）。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:427
+msgid "· match evenness · 100% = a perfectly even game · solid: Competitive+ · dashed: random, avoid repeats"
+msgstr "· 對戰均衡度 · 100% = 完全勢均力敵 · 實線：Competitive+ · 虛線：隨機、避免重複"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1191
+msgid "A tight club gives the best floor — random dealing manages 78% evenness there against 57% in a varied club — at some cost in ranking accuracy, since players who are genuinely close are hard to order. But controlling the roster does not control the matchups: dealt randomly, more than half of that club's games still start with a heavy favourite; Competitive+ cuts those suboptimal matches to little more than a third, holds 93% evenness, and blows out just 4% of games to random dealing's 14%. The gap exists because skill is not a fixed number. Even hand-picked members fluctuate wildly day to day — improving in bursts, slumping, showing up tired — and a rating system accounts for that in real time, adjusting after every game, so each sessions' matches are built on current form rather than on the level everyone was admitted at. Pkuru keeps hidden ratings even for “unrated” events, so no one's public rating is at stake, and the same ratings pair you with the right drilling partner — even for drills, evenly matched partners matter. (I often prefer a wall: it beats most human drilling partners.)"
+msgstr "實力集中的球會有最佳的下限——在那裡隨機分配也能達到 78% 的均衡度，而多元球會只有 57%——代價是排名準確度下降，因為實力真正接近的球員很難排出順序。但控制成員名單並不等於控制對戰組合：隨機分配下，該球會仍有超過一半的比賽一開始就有明顯大熱門；Competitive+ 把這些次佳對戰壓到僅略多於三分之一，維持 93% 的均衡度，懸殊比賽僅 4%，而隨機分配為 14%。差距之所以存在，是因為實力並非固定數值。即使是精挑細選的成員，每天狀態也起伏極大——時而突飛猛進、時而低潮、時而帶著疲憊上場——而評分系統會即時反映這些變化，每場比賽後調整，因此每次活動的配對建立在當下狀態，而非入會時的水平。Pkuru 即使在「不計分」活動中也會保留隱藏評分，因此沒有人的公開評分會受影響，而同一套評分也能為你配對合適的練球夥伴——即使是練球，實力相當的夥伴同樣重要。（我個人常常偏好打牆：它勝過大多數人類練球夥伴。）"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:880
+msgid "A tight club here means everyone within about 0.68 DUPR points, most of the pack inside 0.4 — and it is where matchmaking should matter least. For the first session or so it is: with everyone close, drubbings are rare however you deal — one session in, Competitive+ and the avoid-repeats baseline are within a couple of points of each other on blowouts, around 10%, though evenness already leads 87% to 81%. Then the ratings sort the pack out: the evenness lead is there from the first handful of rounds and never closes, the blowout gap opens in the second session, and with mature ratings blowouts fall to 4% against the baseline's 14% — with Balanced Round Robin at 8%:"
+msgstr "這裡所謂實力集中的球會，是指所有人都在約 0.68 DUPR 分之內，大多數人集中在 0.4 之內——照理說配對在這裡最不重要。頭一兩次活動確實如此：大家實力接近，無論怎麼分配，被痛宰的情況都很少見——一次活動下來，Competitive+ 與「避免重複」基準在懸殊比賽上只差幾個百分點，約 10%，不過均衡度已是 87% 對 81%。接著評分開始把大家分出層次：均衡度的領先從最初幾輪就出現且從未被追平，懸殊比賽的差距在第二次活動拉開，而在評分成熟後懸殊比賽降到 4%，基準為 14%——平衡循環賽則為 8%："
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1125
+msgid "Balanced Round Robin has no early lead here at all: the static Competitive+ profile is ahead of it on ladder accuracy from the first rounds and ahead on match evenness from about round 8 — with day-to-day form in the world, exact numeric balancing is partly chasing noise, while bands are robust to it. The evenness chart above shows the two lines separating within the first session and never rejoining. Once ratings are mature, every strategy a club could run lands within a sliver of the same ladder — 1.6 to 1.8 places off, tied inside the error bars — and the difference that remains is the quality of the games played along the way."
+msgstr "平衡循環賽在這裡完全沒有前期優勢：靜態的 Competitive+ 設定從最初幾輪就在階梯準確度上領先，並從約第 8 輪起在對戰均衡度上領先——在現實中每日狀態會波動，精確的數值平衡有一部分是在追逐雜訊，而分級帶對此則相當穩健。上方的均衡度圖表顯示兩條線在第一次活動內就分開，之後再未交會。一旦評分成熟，球會可採用的每種策略都落在幾乎相同的階梯準確度上——名次偏差 1.6 到 1.8，在誤差範圍內並列——剩下的差別，就是這一路上比賽的品質。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1040
+msgid "Every rated strategy ends within a sliver of the same ladder here — Round Robin's forced breadth edges it, 1.6 places off to adaptive Competitive+'s 1.7 — and with mature ratings Balanced Round Robin's games are as good as Competitive+'s in this club: 79% evenness and 14% blowouts against 80% and 15%. Once its splits are balanced, rotation costs nothing here. Where the two part company is the typical club below."
+msgstr "在這裡，每種使用評分的策略最後都落在幾乎相同的階梯上——循環賽強制的廣泛輪替讓它略勝一籌，名次偏差 1.6 對上自適應 Competitive+ 的 1.7——而在評分成熟後，平衡循環賽在這個球會的比賽品質與 Competitive+ 不相上下：79% 均衡度與 14% 懸殊比賽，對上 80% 與 15%。只要分組平衡得宜，輪替在這裡毫無代價。兩者真正分道揚鑣之處，是下面的典型球會。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:860
+msgid "How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic clubs: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve gradually, one improves quickly — up to half a DUPR point, with gains tapering as they settle — and one slowly slips, the same players in every strategy's run so the comparison stays fair. Sessions are modelled too: every 13 rounds is one session, each player carries a day-to-day form swing of up to ±0.15 DUPR that changes between sessions, and two drop-ins — one from the ladder's 70th percentile, one from its 30th — arrive unrated and attend only some sessions, sometimes never returning. Games are decided by form-adjusted skill; the ladder is graded against underlying skill, so the test is whether ratings see through the noise rather than chase it. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so round 13 stands in for “one session” below, while the 100-round horizon — seven or eight sessions of persisted ratings — shows the system once everyone's rating is mature. Human units: a game is counted as ten minutes flat — open plays typically run timed rounds. A three-hour event loses about 30 minutes to setup and warm-up, leaving 150 minutes for 13 rounds once a minute or two of changeover between rounds is counted; on court for about a third of those rounds, a player gets four to five games — call it 45 minutes of actual pickleball in a three-hour evening. The minute figures below are minutes of that; a “suboptimal match” is a game one side starts with at least an 80% chance of winning. “Match evenness” is the rating model's likelihood that a game ends level, scaled so a perfectly even matchup reads 100% — the model's own draw number is only meaningful relative to other games, so it is never shown raw. (The simulation's own roster is kinder — 16 of 24 seated per round — so if anything these figures are generous to the formats.) Charts are interactive — hover for values, click a strategy to isolate its line."
+msgstr "這些數字是怎麼來的：一次模擬——24 名球員、4 個場地、100 輪——在三種合成球會中以 7 組隨機種子重播：多元（實力橫跨整個範圍，另加一名高手與一名初學者）、典型（約 1.0 DUPR 的分佈幅度）與集中（實力緊密聚集）。真實實力並非固定不變：如同真實球會，約 20% 的球員會逐步進步，一名進步快速——最多提升半個 DUPR 分，進步幅度隨穩定而遞減——另有一名緩慢退步，且在每種策略的模擬中都是同一批人，以確保比較公平。活動場次也一併建模：每 13 輪為一次活動，每位球員帶有最多 ±0.15 DUPR 的每日狀態波動，並在不同活動間變化；另有兩名臨時參加者——一名來自階梯的第 70 百分位，一名來自第 30 百分位——以未評分身分加入，只參加部分活動，有時不再出現。比賽結果由狀態調整後的實力決定；階梯則以底層真實實力評分，因此測試的是評分能否看穿雜訊，而非追逐雜訊。每一輪都是透過 app 所用的同一套最佳化器實際求解。圖表為所有種子的 5 輪滾動平均；標題數字總結最後 25 輪。時間尺度：真實活動為 12–14 輪，因此下文以第 13 輪代表「一次活動」，而 100 輪的範圍——七到八次活動、評分持續累積——顯示所有人評分成熟後的系統狀態。人類單位：一場比賽固定計為十分鐘——公開場通常採計時制。三小時的活動約有 30 分鐘用於準備與熱身，扣除每輪間一兩分鐘的換場後，剩下 150 分鐘可打 13 輪；球員約有三分之一的輪次在場上，可打到四到五場——也就是三小時的晚間活動中約 45 分鐘的實際球敘。下文的分鐘數即指這些時間；「次佳對戰」是指一方開賽時至少有 80% 勝率的比賽。「對戰均衡度」是評分模型判定比賽以平局收場的可能性，經過縮放使完全勢均力敵的對戰顯示為 100%——模型本身的平局數值只有相對於其他比賽才有意義，因此從不直接顯示原始值。（模擬本身的出賽安排更寬厚——每輪 24 人中有 16 人上場——所以這些數字若有偏差，也是對各賽制較為寬容。）圖表可互動——將游標移上去可看數值，點選策略可單獨顯示其曲線。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:943
+msgid "In a tight club the static Competitive+ profile is ahead of Balanced Round Robin on ladder accuracy from the first session: when everyone is close, a band drawn from noisy ratings is barely different from one drawn from true skill, so banding costs nothing here. The adaptive Competitive+ opens in its calibration profile by construction and holds it until the ratings have visibly separated, which in a pack this tight takes most of two sessions — so it trails the static profile through the first session and catches it by the third. With day-to-day form in the world the wider clubs tell a similar story — banding on noisy ratings costs far less than exact numeric balancing gains — so the calibration phase is insurance against the one thing this club cannot show: a strong player banded early on a wrong rating and held there by games against the wrong opponents."
+msgstr "在實力集中的球會中，靜態 Competitive+ 設定從第一次活動起就在階梯準確度上領先平衡循環賽：當所有人實力接近時，以帶雜訊的評分劃出的分級帶，與以真實實力劃出的幾乎沒有差別，因此分級在這裡毫無代價。自適應 Competitive+ 依設計會先以校準模式開場，並維持到評分明顯分化為止，而在如此集中的群體中這要花上將近兩次活動——因此它在第一次活動落後靜態設定，到第三次追上。考量現實中的每日狀態波動，實力較分散的球會也呈現類似情形——在帶雜訊的評分上分級所付出的代價，遠低於精確數值平衡所帶來的收益——因此校準階段是一道保險，防範這個球會唯一無法呈現的風險：一名強手早早被錯誤評分歸入錯誤分級帶，並因持續對上錯誤對手而被困在那裡。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1034
+msgid "King of the court — winners move up a court and split, losers slide down, the bottom court rotates out — is the most interesting of the rating-free formats. It genuinely sorts: 72% evenness in a typical club, five points over shuffling, and its constant mixing keeps the ladder honest where US-style starves it. But moving one court per round is simply too slow a matchmaker: day-to-day form reshuffles the courts faster than the ladder can sort them, and 72% of its games still start suboptimal. The court ladder is a rating system with one bit of memory — it rediscovers each player's level every night, from scratch."
+msgstr "場地之王——勝方升一個場地並拆隊，敗方降一級，最低場地輪休——是無評分賽制中最有意思的一種。它確實能分層：在典型球會達到 72% 均衡度，比隨機洗牌高五個百分點，而其持續的混合也讓階梯保持準確，不像美式賽制那樣缺乏資訊。但每輪只移動一個場地，作為配對機制實在太慢：每日狀態波動重新打亂場地的速度，比階梯排序的速度更快，且仍有 72% 的比賽開賽即為次佳對戰。場地階梯其實就是一套只有一位元記憶的評分系統——它每晚都得從零開始重新發現每位球員的水平。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:896
+#: src/components/organisms/MatchmakingReport.re.mjs:984
+#: src/components/organisms/MatchmakingReport.re.mjs:1078
+msgid "match evenness · Competitive+"
+msgstr "對戰均衡度 · Competitive+"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:901
+#: src/components/organisms/MatchmakingReport.re.mjs:989
+#: src/components/organisms/MatchmakingReport.re.mjs:1083
+msgid "match evenness · random, avoid repeats"
+msgstr "對戰均衡度 · 隨機、避免重複"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1184
+msgid "Scored rally by rally, true drubbings are rarer than the raw matchup numbers suggest — and matchmaking removes most of the ones that remain. In a typical club Competitive+ has blowouts down to 16% within a session and about 6% within two, settling at 6% against the Oracle's 4% floor. A varied club keeps a hard residue: Competitive+ bottoms out near 15% while the baseline sits at 34%, and even the Oracle blows out 9% — a ringer, a beginner and an off night make some drubbings unavoidable."
+msgstr "逐分計算後，真正的慘敗比原始對戰數字所暗示的更罕見——而配對又消除了其中大部分。在典型球會中，Competitive+ 在一次活動內就把懸殊比賽降到 16%，兩次活動內約 6%，最終穩定在 6%，而 Oracle 的下限為 4%。多元球會則留下難以消除的殘餘：Competitive+ 最低約 15%，基準為 34%，即使是 Oracle 也有 9% 的懸殊比賽——一名高手、一名初學者加上一個狀態不佳的夜晚，使某些慘敗無可避免。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:968
+msgid "The baseline here is what open play actually deals: random courts that avoid repeating partners and opponents. (Measured against pure random, avoiding repeats changes match quality not at all — novelty buys variety and a slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls away from it within the first handful of rounds — by round 6 its games are already measurably better, because every result moves a cold rating a long way. Even a club of all-unrated players gets value inside their first session. With mature ratings the gap is decisive:"
+msgstr "這裡的基準是公開場實際的做法：隨機分配場地，但避免重複的隊友與對手。（相較於純隨機，避免重複對比賽品質毫無影響——新鮮感換來的是多樣性與稍快的階梯收斂，僅此而已。）從零開始，Competitive+ 在最初幾輪內就拉開差距——到第 6 輪其比賽品質已有可測量的提升，因為每個結果都會大幅移動尚未穩定的評分。即使是全員未評分的球會，也能在第一次活動內獲得價值。評分成熟後，差距更是決定性的："
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1031
+msgid "US-style open play — courts labelled by level, players choosing their own — does somewhat better: matches only form within the stronger or the weaker half of the club, so the skill gaps inside a match shrink. The simulation also models the format's social habits — about half of badly beaten teams run one revenge match, and close foursomes often stay on for another game; both mean replaying a match, and the games people choose to replay are usually the wrong ones. It nets out at 66% evenness and 26% blowouts here, against the baseline's 57% and 34% — real, but a long way from matchmaking by rating, where Competitive+ reaches 80% and 15% in the same club. One caution for anyone submitting rated DUPR matches from such sessions: repeats and self-sorted courts carry little rating information, so they converge ratings poorly — the simulated ladder ends up more than half a place worse than any strategy that mixes the club."
+msgstr "美式公開場——場地標示程度、球員自行選擇——表現稍好一些：比賽只在球會較強或較弱的一半內形成，因此比賽內的實力差距縮小。模擬也納入該賽制的社交習慣——約有一半被大比分擊敗的隊伍會打一場復仇賽，而勢均力敵的四人組常會留下再打一場；兩者都意味著重複同樣的對戰，而人們選擇重打的比賽通常正是不該重打的那些。最終在這裡得出 66% 均衡度與 26% 懸殊比賽，基準為 57% 與 34%——確實有改善，但距離依評分配對仍遠，同一球會中 Competitive+ 可達 80% 與 15%。對於想從這類活動提交 DUPR 計分賽的人有一點提醒：重複對戰與自行分層的場地所含的評分資訊很少，因此評分收斂很差——模擬中的階梯最後比任何會混合全會成員的策略都差上超過半個名次。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1160
+msgid "Use Competitive+. The adaptive version opens with Balanced Round Robin while ratings are unknown, then switches to banded play as they settle — the fastest convergence available, with the best match quality in the field. Three-quarters of the gain arrives in the first session and most of the rest by the end of the second (from 53% evenness on a cold first round to 83% by the end of the first session and 89% by the second, settling at 92% in a typical club), and because ratings persist, each session starts where the last one left off."
+msgstr "請使用 Competitive+。自適應版本會在評分未知時以平衡循環賽開場，待評分穩定後切換為分級帶對戰——這是目前收斂最快、且比賽品質最佳的做法。四分之三的效益在第一次活動就到位，其餘大部分在第二次活動結束前實現（從第一輪冷啟動的 53% 均衡度，到第一次活動結束時的 83%、第二次的 89%，最終在典型球會穩定於 92%），而由於評分會保留，每次活動都從上次結束的地方接續。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1163
+msgid "What switching is worth, with mature ratings in a typical club: 24 points of evenness and blowouts cut from 22% to 6% against JP-style open play (which plays like dealing at random); 8 points of evenness and blowouts from 10% to 6% against a plain round-robin table; 15 points and blowouts from 14% to 4% against a curated private session run as open play. In human terms: of the roughly 45 minutes of play a three-hour evening actually contains, a typical club's switch turns nearly twenty minutes of suboptimal matches into genuinely contested pickleball."
+msgstr "在典型球會中，評分成熟後切換賽制的價值：相較日式公開場（表現如同隨機分配），均衡度提升 24 個百分點，懸殊比賽從 22% 降至 6%；相較單純的循環賽表，均衡度提升 8 個百分點，懸殊比賽從 10% 降至 6%；相較以公開場方式運作的精選私人活動，提升 15 個百分點，懸殊比賽從 14% 降至 4%。換算成人的感受：三小時的晚間活動實際約含 45 分鐘的球敘，典型球會的這一切換，能把將近二十分鐘的次佳對戰，變成真正勢均力敵的匹克球。"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1062
+msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines within the first handful of rounds, and one session in it already leads the avoid-repeats baseline by 15 points of evenness and 3 of blowouts. The full benefit arrives with mature ratings: 6% blowouts against the baseline's 25%, and 92% evenness against 66%. Those mature numbers match a hand-picked tight-skill club (93% and 4%) — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster:"
+msgstr "在現實的 1.0 DUPR 分佈下，Competitive+ 在最初幾輪內就拉開與各基準的差距，一次活動後已領先「避免重複」基準 15 個百分點的均衡度與 3 個百分點的懸殊比賽。完整效益要等到評分成熟：懸殊比賽 6%，基準為 25%；均衡度 92%，基準為 66%。這些成熟數字已與精挑細選、實力集中的球會相當（93% 與 4%）——演算法以配對取回了你原本得靠嚴格篩選會員才能得到的品質："
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1126
+msgid "Gym"
+msgstr "體育館"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:425
+msgid "Performs better in gyms"
+msgstr "在體育館表現更佳"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:422
+msgid "Performs better on hard courts"
+msgstr "在硬地球場表現更佳"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

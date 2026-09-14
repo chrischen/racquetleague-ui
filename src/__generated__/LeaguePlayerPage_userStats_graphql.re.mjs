@@ -219,6 +219,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "mdDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "wdRating",
@@ -236,6 +243,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "wdDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "xdRating",
@@ -248,6 +262,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "xdZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "xdDelta",
           "storageKey": null
         },
         {
@@ -477,9 +498,23 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "hardcourtDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "hardcourtDeltaSe",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
-          "name": "indoorIndoorBallRating",
+          "name": "gymRating",
           "plural": false,
           "selections": (v2/*: any*/),
           "storageKey": null
@@ -488,24 +523,21 @@ return {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "indoorIndoorBallZScore",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "DisciplineRating",
-          "kind": "LinkedField",
-          "name": "indoorOutdoorBallRating",
-          "plural": false,
-          "selections": (v2/*: any*/),
+          "name": "gymZScore",
           "storageKey": null
         },
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "indoorOutdoorBallZScore",
+          "name": "gymDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "gymDeltaSe",
           "storageKey": null
         }
       ],

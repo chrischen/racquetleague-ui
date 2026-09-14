@@ -199,22 +199,59 @@ let courtsFromDay = (
 let shiftHours = (date: Date.t, hours: float): Date.t =>
   Date.fromTime(date->Date.getTime +. hours *. 3600000.0)
 
-@react.component
-let make = (
-  ~event: RescriptRelay.fragmentRefs<[> #EventLocationAvailability_event]>,
+// The full input for `updateEvent`, which replaces the event rather than
+// patching it: the event as it stands, with the given overrides. Every write
+// must carry every current field — updateEvent unsets Smart RSVP when the
+// threshold is absent — so this is the one place that spells them out. None
+// when the event lacks something CreateEventInput requires.
+let updateInput = (
+  event: EventLocationAvailability_event_graphql.Types.fragment,
+  ~startDate: option<Util.Datetime.t>=?,
+  ~endDate: option<Util.Datetime.t>=?,
+  ~locationId: option<string>=?,
+  ~details: option<string>=?,
+): option<RelaySchemaAssets_graphql.input_CreateEventInput> =>
+  switch (event.activity, event.location, event.title, event.startDate, event.endDate) {
+  | (Some(activity), Some(location), Some(title), Some(currentStart), Some(currentEnd)) =>
+    Some({
+      activity: activity.id,
+      locationId: locationId->Option.getOr(location.id),
+      title,
+      startDate: startDate->Option.getOr(currentStart),
+      endDate: endDate->Option.getOr(currentEnd),
+      clubId: ?event.club->Option.map(c => c.id),
+      details: ?details->Option.orElse(event.details),
+      listed: ?event.listed,
+      maxRsvps: ?event.maxRsvps,
+      minRating: ?event.minRating,
+      price: ?event.price,
+      cancelDeadline: ?event.cancelDeadline,
+      smartRsvpThreshold: ?event.smartRsvpThreshold,
+      tags: ?event.tags,
+      timezone: ?event.timezone,
+    })
+  | _ => None
+  }
+
+// Everything the panel derives from the fragment, or None when the event has
+// no dates or the resolver returned no availability (which is what viewers
+// who aren't organizers get).
+type resolved = {
+  startAt: Date.t,
+  endAt: Date.t,
+  tz: string,
+  eventWindow: TimeWindow.playIntent,
+  venue: string,
+  currentLocationCourts: array<TimeWindow.courtAvailability>,
+  alternateTimeSlots: array<TimeWindow.alternateCourtTimeSlot>,
+  alternateLocationCourts: array<TimeWindow.courtAvailability>,
+}
+
+let resolve = (
+  event: EventLocationAvailability_event_graphql.Types.fragment,
   ~genericCourtName: string,
-) => {
-  let event = Fragment.use(event)
-  let intl = ReactIntl.useIntl()
-  let fmt = h => TimeWindow.hourLabelIntl(intl, h)
-  let (expanded, setExpanded) = React.useState(() => false)
-  // Moving an event reschedules everyone who already RSVP'd, so the apply
-  // action takes a second click to confirm.
-  let (pendingSlot, setPendingSlot) = React.useState(() => None)
-  let (updateEvent, updating) = UpdateMutation.use()
-
+): option<resolved> => {
   let tz = event.timezone->Option.getOr("Asia/Tokyo")
-
   switch (event.startDate, event.endDate) {
   | (Some(startDate), Some(endDate)) if event.courtAvailability->Array.length > 0 =>
     let startAt = startDate->Util.Datetime.toDate
@@ -273,7 +310,55 @@ let make = (
         nearbyDays->Array.flatMap(day => courtsFromDay(day, ~genericCourtName)),
         [eventWindow],
       )->TimeWindow.clipCourtAvailabilityTo(eventWindow)
+    Some({
+      startAt,
+      endAt,
+      tz,
+      eventWindow,
+      venue,
+      currentLocationCourts,
+      alternateTimeSlots,
+      alternateLocationCourts,
+    })
+  | _ => None
+  }
+}
 
+// Whether a court at the event's own venue covers its full window. None when
+// there's no availability data to judge from, so callers can hide the badge
+// rather than show a false "not available".
+let isAvailableAtEventTime = (
+  event: EventLocationAvailability_event_graphql.Types.fragment,
+  ~genericCourtName: string,
+): option<bool> =>
+  resolve(event, ~genericCourtName)->Option.map(r => r.currentLocationCourts->Array.length > 0)
+
+@react.component
+let make = (
+  ~event: RescriptRelay.fragmentRefs<[> #EventLocationAvailability_event]>,
+  ~genericCourtName: string,
+) => {
+  let event = Fragment.use(event)
+  let intl = ReactIntl.useIntl()
+  let fmt = h => TimeWindow.hourLabelIntl(intl, h)
+  let (expanded, setExpanded) = React.useState(() => false)
+  // Moving an event reschedules everyone who already RSVP'd, so the apply
+  // action takes a second click to confirm.
+  let (pendingSlot, setPendingSlot) = React.useState(() => None)
+  let (updateEvent, updating) = UpdateMutation.use()
+
+  switch resolve(event, ~genericCourtName) {
+  | None => React.null
+  | Some({
+      startAt,
+      endAt,
+      tz,
+      eventWindow,
+      venue,
+      currentLocationCourts,
+      alternateTimeSlots,
+      alternateLocationCourts,
+    }) =>
     let isAvailable = currentLocationCourts->Array.length > 0
     let statusLabel = isAvailable ? ts`Available` : ts`Not available`
 
@@ -283,43 +368,20 @@ let make = (
     // without one are dropped above), so this can never write an availability
     // id into locationId.
     let applyOption = (~startShift: float, ~venueId: option<string>) =>
-      switch (event.activity, event.location, event.title) {
-      | (Some(activity), Some(location), Some(title)) =>
-        let delta = startShift
-        updateEvent(
-          ~variables={
-            eventId: event.id,
-            input: {
-              activity: activity.id,
-              locationId: venueId->Option.getOr(location.id),
-              title,
-              startDate: startAt->shiftHours(delta)->Util.Datetime.fromDate,
-              endDate: endAt->shiftHours(delta)->Util.Datetime.fromDate,
-              clubId: ?event.club->Option.map(c => c.id),
-              details: ?event.details,
-              listed: ?event.listed,
-              maxRsvps: ?event.maxRsvps,
-              minRating: ?event.minRating,
-              price: ?event.price,
-              cancelDeadline: ?event.cancelDeadline,
-              // updateEvent unsets Smart RSVP when this is absent, so every
-              // caller must carry the event's current value through.
-              smartRsvpThreshold: ?event.smartRsvpThreshold,
-              tags: ?event.tags,
-              timezone: ?event.timezone,
-            },
-          },
-          ~onCompleted=(_, _) => setPendingSlot(_ => None),
+      updateInput(
+        event,
+        ~startDate=startAt->shiftHours(startShift)->Util.Datetime.fromDate,
+        ~endDate=endAt->shiftHours(startShift)->Util.Datetime.fromDate,
+        ~locationId=?venueId,
+      )->Option.forEach(input =>
+        updateEvent(~variables={eventId: event.id, input}, ~onCompleted=(_, _) =>
+          setPendingSlot(_ => None)
         )->RescriptRelay.Disposable.ignore
-      | _ => ()
-      }
+      )
 
     // The apply action rewrites the event, so it needs everything
     // CreateEventInput requires. Without it the openings stay read-only.
-    let canApply = switch (event.activity, event.location, event.title) {
-    | (Some(_), Some(_), Some(_)) => true
-    | _ => false
-    }
+    let canApply = updateInput(event)->Option.isSome
 
     // Confirmation is keyed per option, so arming one card and then clicking a
     // different one re-arms rather than firing the wrong move.
@@ -511,6 +573,5 @@ let make = (
           </FramerMotion.Div>
         : React.null}
     </section>
-  | _ => React.null
   }
 }

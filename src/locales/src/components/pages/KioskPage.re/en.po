@@ -13,7 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/Kiosk.re.mjs:969
+#: src/components/organisms/Kiosk.re.mjs:754
+msgid "{0} bounces detected · tap one to replay"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1463
+msgid "{0}-second buffer · {1}"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1388
 msgid "{0}-second clip · {1}"
 msgstr ""
 
@@ -21,11 +29,11 @@ msgstr ""
 #~ msgid "{0}-second clip from the rolling buffer"
 #~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:757
+#: src/components/organisms/Kiosk.re.mjs:1288
 msgid "● BUFFER {0}s / {1}s"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:757
+#: src/components/organisms/Kiosk.re.mjs:1288
 msgid "● BUFFER READY"
 msgstr ""
 
@@ -33,155 +41,166 @@ msgstr ""
 #~ msgid "18-second clip · Rally 07"
 #~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:860
+#: src/components/organisms/Kiosk.re.mjs:1493
 msgid "24 shots analyzed · Game session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:230
+#: src/components/organisms/Kiosk.re.mjs:233
 msgid "ACTIVE SESSION"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2160
+#: src/components/organisms/Kiosk.re.mjs:2833
 msgid "Analysis"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1258
+#: src/components/organisms/Kiosk.re.mjs:1715
 msgid "Analysis capture active"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:344
+#: src/components/organisms/Kiosk.re.mjs:848
 msgid "ANALYSIS COMPLETE"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2240
+#: src/components/organisms/Kiosk.re.mjs:2913
 msgid "Analysis modes"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2046
+#: src/components/organisms/Kiosk.re.mjs:2719
 msgid "Analysis setup"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1303
+#: src/components/organisms/Kiosk.re.mjs:1760
 msgid "Analyzing the play"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1063
-msgid "Angle {0} of {1}"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1213
+#~ msgid "Angle {0} of {1}"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1044
-msgid "Approach"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1194
+#~ msgid "Approach"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2178
+#: src/components/organisms/Kiosk.re.mjs:2851
 msgid "Available while playing"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2005
+#: src/components/organisms/Kiosk.re.mjs:2665
 msgid "Back to modes"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:914
+#: src/components/organisms/Kiosk.re.mjs:1547
 msgid "Backhand"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:910
+#: src/components/organisms/Kiosk.re.mjs:1543
 msgid "Best target"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1062
-msgid "Bounce review"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1212
+#~ msgid "Bounce review"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:606
+#: src/components/organisms/Kiosk.re.mjs:1112
 msgid "Camera {0}"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1972
+#: src/components/organisms/Kiosk.re.mjs:2632
 msgid "Camera connected"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2133
+#: src/components/organisms/Kiosk.re.mjs:2806
 msgid "Camera framing and connection look good"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:532
+#: src/components/organisms/Kiosk.re.mjs:1038
 msgid "Camera source"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1902
+#: src/components/organisms/Kiosk.re.mjs:2559
 msgid "Camera unavailable — check permissions and try again"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:88
+#: src/components/organisms/Kiosk.re.mjs:91
 msgid "Capture several serves, then end to view the result."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:48
-msgid "Check in or out"
+#: src/components/organisms/Kiosk.re.mjs:51
+#: src/components/organisms/Kiosk.re.mjs:1462
+#: src/components/organisms/Kiosk.re.mjs:1476
+#: src/components/organisms/Kiosk.re.mjs:1481
+msgid "Challenge"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:746
+#: src/components/organisms/Kiosk.re.mjs:57
+#~ msgid "Check in or out"
+#~ msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1282
 msgid "Choose an action"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:553
+#: src/components/organisms/Kiosk.re.mjs:1059
 msgid "Choose which connected camera the kiosk uses. The change applies immediately, including to a running session."
 msgstr ""
 
 #: src/components/organisms/Kiosk.re.mjs:1218
-msgid "Clip and line-check actions are ready at any time."
-msgstr ""
+#~ msgid "Clip and line-check actions are ready at any time."
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1908
+#: src/components/organisms/Kiosk.re.mjs:2565
 msgid "Clip downloaded"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:46
+#: src/components/organisms/Kiosk.re.mjs:49
 msgid "Clip last rally"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1896
+#: src/components/organisms/Kiosk.re.mjs:2553
 msgid "Clip saved · live capture continues"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:758
+#: src/components/organisms/Kiosk.re.mjs:1289
 msgid "CLIPPING UNAVAILABLE"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:793
+#: src/components/organisms/Kiosk.re.mjs:1325
 msgid "Clipping…"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:542
+#: src/components/organisms/Kiosk.re.mjs:1048
 msgid "Close settings"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:690
+#: src/components/organisms/Kiosk.re.mjs:1196
 msgid "COMING SOON"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1049
-msgid "Contact"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1199
+#~ msgid "Contact"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:474
+#: src/components/organisms/Kiosk.re.mjs:978
 msgid "Copied"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:474
+#: src/components/organisms/Kiosk.re.mjs:978
 msgid "Copy URL"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1905
+#: src/components/organisms/Kiosk.re.mjs:2562
 msgid "Could not create the clip — the buffer keeps recording"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:54
+#: src/components/organisms/Kiosk.re.mjs:1665
+msgid "Court setup"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:57
 msgid "Create a clean, shareable clip from the rolling video buffer."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:983
+#: src/components/organisms/Kiosk.re.mjs:1402
 msgid "Delete clip"
 msgstr ""
 
@@ -189,180 +208,204 @@ msgstr ""
 #~ msgid "Discard"
 #~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1012
+#: src/components/organisms/Kiosk.re.mjs:1431
 msgid "Done"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1150
-msgid "Done reviewing"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1300
+#~ msgid "Done reviewing"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:70
+#: src/components/organisms/Kiosk.re.mjs:73
 msgid "Drop shot analysis"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:859
+#: src/components/organisms/Kiosk.re.mjs:1492
 msgid "Drop shot placement"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1276
+#: src/components/organisms/Kiosk.re.mjs:1733
 msgid "End & analyze"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1233
+#: src/components/organisms/Kiosk.re.mjs:1679
 msgid "End session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2005
+#: src/components/organisms/Kiosk.re.mjs:2665
 msgid "End session and exit"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:86
+#: src/components/organisms/Kiosk.re.mjs:89
 msgid "End the session when you have collected enough shots."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1054
-msgid "Exit"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1204
+#~ msgid "Exit"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1307
+#: src/components/organisms/Kiosk.re.mjs:1764
 msgid "Finding the clearest camera moments and preparing your result."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:528
+#: src/components/organisms/Kiosk.re.mjs:1034
 msgid "KIOSK SETTINGS"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:897
+#: src/components/organisms/Kiosk.re.mjs:1530
 msgid "Kitchen accuracy"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:886
+#: src/components/organisms/Kiosk.re.mjs:1519
 msgid "LANDING HEATMAP"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1032
+#: src/components/organisms/Kiosk.re.mjs:1451
 msgid "Last rally"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:574
+#: src/components/organisms/Kiosk.re.mjs:1080
 msgid "Let the browser pick the default device"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2148
+#: src/components/organisms/Kiosk.re.mjs:2821
 msgid "Live game"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1886
+#: src/components/organisms/Kiosk.re.mjs:2543
 msgid "Live rolling session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2046
+#: src/components/organisms/Kiosk.re.mjs:2719
 msgid "Live session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1329
+#: src/components/organisms/Kiosk.re.mjs:1786
 msgid "Live session and rolling buffer are still active"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1294
+#: src/components/organisms/Kiosk.re.mjs:1751
 msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1899
+#: src/components/organisms/Kiosk.re.mjs:2556
 msgid "Live session ended"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:652
+#: src/components/organisms/Kiosk.re.mjs:1158
 msgid "Local"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:80
+#: src/components/organisms/Kiosk.re.mjs:83
 msgid "Measure serve speed and review the detected serve clip."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1124
-msgid "Next"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1274
+#~ msgid "Next"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1132
-msgid "Next bounce clip"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1282
+#~ msgid "Next bounce clip"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2182
+#: src/components/organisms/Kiosk.re.mjs:2855
 msgid "No action selection is needed before starting."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:306
+#: src/components/organisms/Kiosk.re.mjs:309
 msgid "no audio"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:629
+#: src/components/organisms/Kiosk.re.mjs:1230
+msgid "No camera: Challenge runs on the server's fixed test clip."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1135
 msgid "No cameras detected. Connect a camera or allow camera access, then reopen settings."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1028
+#: src/components/organisms/Kiosk.re.mjs:1447
 msgid "No clip selected"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2097
+#: src/components/organisms/Kiosk.re.mjs:1477
+msgid "No footage analyzed"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:708
+msgid "No ground bounces were detected in the buffered footage."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:2770
 msgid "OFF"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2097
+#: src/components/organisms/Kiosk.re.mjs:2770
 msgid "ON"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:656
+#: src/components/organisms/Kiosk.re.mjs:1162
 msgid "On-device rolling buffer and clip processing"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:484
+#: src/components/organisms/Kiosk.re.mjs:988
 msgid "Open"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1981
+#: src/components/organisms/Kiosk.re.mjs:2641
 msgid "Open kiosk settings"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1085
-msgid "OUT"
+#: src/components/organisms/Kiosk.re.mjs:1235
+#~ msgid "OUT"
+#~ msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:787
+msgid "Overlay"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:942
+#: src/components/organisms/Kiosk.re.mjs:59
+msgid "Overlay detected bounces on the buffered footage and replay any of them."
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1575
 msgid "Peak ball speed"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1955
+#: src/components/organisms/Kiosk.re.mjs:2615
 msgid "Pickleball camera kiosk"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1033
+#: src/components/organisms/Kiosk.re.mjs:1482
+msgid "Play challenge"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1452
 msgid "Play last rally"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:935
+#: src/components/organisms/Kiosk.re.mjs:1568
 msgid "Play serve replay"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:441
+#: src/components/organisms/Kiosk.re.mjs:945
 msgid "Point a phone camera at the code to open this court's live stream."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1100
-msgid "Previous"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1250
+#~ msgid "Previous"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1104
-msgid "Previous bounce clip"
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:1254
+#~ msgid "Previous bounce clip"
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:635
+#: src/components/organisms/Kiosk.re.mjs:1141
 msgid "PROCESSING MODE"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:968
-#: src/components/organisms/Kiosk.re.mjs:1027
+#: src/components/organisms/Kiosk.re.mjs:1387
+#: src/components/organisms/Kiosk.re.mjs:1446
 msgid "Rally clip"
 msgstr ""
 
@@ -370,118 +413,130 @@ msgstr ""
 #~ msgid "Rally clip ready"
 #~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:812
+#: src/components/organisms/Kiosk.re.mjs:1344
 msgid "RECENT CLIPS"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:56
-msgid "Review the latest bounce from multiple close-up moments."
-msgstr ""
+#: src/components/organisms/Kiosk.re.mjs:69
+#~ msgid "Review the latest bounce from multiple close-up moments."
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1176
+#: src/components/organisms/Kiosk.re.mjs:1616
 msgid "Rolling buffer"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:1214
+#: src/components/organisms/Kiosk.re.mjs:1658
 msgid "Rolling buffer active"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:855
+#: src/components/organisms/Kiosk.re.mjs:1382
 msgid "ROLLING BUFFER CAPTURE"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2057
+#: src/components/organisms/Kiosk.re.mjs:2730
 msgid "Rolling capture with optional YouTube streaming."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:997
+#: src/components/organisms/Kiosk.re.mjs:1416
 msgid "Save clip"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:425
+#: src/components/organisms/Kiosk.re.mjs:929
 msgid "Scan to watch"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2057
+#: src/components/organisms/Kiosk.re.mjs:2730
 msgid "Select a mode, then start capture."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2244
+#: src/components/organisms/Kiosk.re.mjs:2917
 msgid "Select one before starting the camera."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2063
+#: src/components/organisms/Kiosk.re.mjs:2736
 msgid "SELECTED ANALYSIS"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:931
+#: src/components/organisms/Kiosk.re.mjs:1564
 msgid "Serve 04 · Clean read"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:930
+#: src/components/organisms/Kiosk.re.mjs:1563
 msgid "Serve detected"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:934
+#: src/components/organisms/Kiosk.re.mjs:1567
 msgid "Serve replay"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:72
+#: src/components/organisms/Kiosk.re.mjs:75
 msgid "Serve speed analysis"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2063
+#: src/components/organisms/Kiosk.re.mjs:2736
 msgid "SESSION SETUP"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2088
+#: src/components/organisms/Kiosk.re.mjs:2761
 msgid "Show a viewer QR code during the session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2118
+#: src/components/organisms/Kiosk.re.mjs:2791
 msgid "Start analysis"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:329
+#: src/components/organisms/Kiosk.re.mjs:833
 msgid "Start another session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2118
+#: src/components/organisms/Kiosk.re.mjs:2791
 msgid "Start live session"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2084
+#: src/components/organisms/Kiosk.re.mjs:2757
 msgid "Stream on YouTube"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:697
+#: src/components/organisms/Kiosk.re.mjs:1203
 msgid "Stream to the server for processing"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:570
+#: src/components/organisms/Kiosk.re.mjs:1076
 msgid "System default camera"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:2230
+#: src/components/organisms/Kiosk.re.mjs:2568
+msgid "Test clip not found — put test_challenge.mov in the dinkhunt folder (and restart nothing; it is picked up live)"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:1226
+msgid "Test mode"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:2903
 msgid "The camera continuously keeps recent play ready for either action."
 msgstr ""
 
 #: src/components/organisms/Kiosk.re.mjs:750
-msgid "The rolling buffer continues while you review."
-msgstr ""
+#~ msgid "The rolling buffer continues while you review."
+#~ msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:688
+#: src/components/organisms/Kiosk.re.mjs:1194
 msgid "Thin client"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:78
+#: src/components/organisms/Kiosk.re.mjs:81
 msgid "Track drop-shot placement and reveal landing patterns."
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:793
+#: src/components/organisms/Kiosk.re.mjs:1325
 msgid "Use latest buffered footage"
 msgstr ""
 
-#: src/components/organisms/Kiosk.re.mjs:454
+#: src/components/organisms/Kiosk.re.mjs:958
 msgid "VIEWING URL"
+msgstr ""
+
+#: src/components/organisms/Kiosk.re.mjs:778
+msgid "Zoom"
 msgstr ""

@@ -157,7 +157,7 @@ async function generateRounds(numberOfRounds, availablePlayers, completedRounds,
         players = Rating.updatePlayerState(players, [{
                 TAG: "Round",
                 _0: outcome.matches
-              }]);
+              }], undefined);
         roundIndex = roundIndex + 1 | 0;
         roundsRemaining = roundsRemaining - 1 | 0;
       } else {

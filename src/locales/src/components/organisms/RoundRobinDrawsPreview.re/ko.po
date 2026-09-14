@@ -29,7 +29,7 @@ msgstr "코트 {0}"
 msgid "Court {0} - Editing"
 msgstr "코트 {0} - 편집 중"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:196
 msgid "Courts:"
 msgstr "코트:"
 
@@ -75,11 +75,11 @@ msgstr "경기 재조정"
 msgid "Repeat"
 msgstr "반복"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:270
 msgid "Round {0}"
 msgstr "라운드 {0}"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:189
 msgid "Round Robin Draws"
 msgstr "라운드 로빈 대진"
 
@@ -112,7 +112,7 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:307
 msgid "View Full Draws"
 msgstr "전체 대진 보기"
 

@@ -386,16 +386,6 @@ type Error {
   message: String!
 }
 
-"""
-Which admission search Smart RSVP runs. Window is the real one; BestFit is
- the earlier all-candidate search, kept for comparison while the feature
- settles.
-"""
-enum SmartRsvpAlgorithm {
-  Ilp
-  BestFit
-}
-
 type EvaluateSmartRsvpsResult implements HasErrors {
   errors: [Error!]
 
@@ -620,17 +610,49 @@ type LeagueUserStat {
   bestOpponents: [LeagueUserStatEntry!]!
   bestPartners: [LeagueUserStatEntry!]!
   daysNumberOne: Float!
+
+  """
+  Fitted gym-floor offset from the overall rating, in mu. Positive = performs better here than overall.
+  """
+  gymDelta: Float
+
+  """Standard error of gymDelta."""
+  gymDeltaSe: Float
+
+  """
+  Gym: a multi-purpose gym floor — every venue not known to be a hard court.
+  """
+  gymRating: DisciplineRating
+  gymZScore: Float
+
+  """
+  Fitted hard court offset from the overall rating, in mu. Positive = performs better here than overall.
+  """
+  hardcourtDelta: Float
+
+  """Standard error of hardcourtDelta."""
+  hardcourtDeltaSe: Float
+
+  """Hard court: a dedicated hard playing surface, indoor or outdoor."""
   hardcourtRating: DisciplineRating
   hardcourtZScore: Float
-  indoorIndoorBallRating: DisciplineRating
-  indoorIndoorBallZScore: Float
-  indoorOutdoorBallRating: DisciplineRating
-  indoorOutdoorBallZScore: Float
   mdBestOpponents: [LeagueUserStatEntry!]!
   mdBestPartners: [LeagueUserStatEntry!]!
+
+  """
+  Fitted men's doubles offset from the overall rating, in mu. Positive = performs better here than overall.
+  """
+  mdDelta: Float
+
+  """Standard error of mdDelta."""
+  mdDeltaSe: Float
   mdRating: DisciplineRating
   mdWorstOpponents: [LeagueUserStatEntry!]!
   mdWorstPartners: [LeagueUserStatEntry!]!
+
+  """
+  Pool offset in standard errors from the player's own overall (delta / deltaSe); its sign is the offset's.
+  """
   mdZScore: Float
   mfBestOpponents: [LeagueUserStatEntry!]!
   mfBestPartners: [LeagueUserStatEntry!]!
@@ -641,6 +663,14 @@ type LeagueUserStat {
   userId: String!
   wdBestOpponents: [LeagueUserStatEntry!]!
   wdBestPartners: [LeagueUserStatEntry!]!
+
+  """
+  Fitted women's doubles offset from the overall rating, in mu. Positive = performs better here than overall.
+  """
+  wdDelta: Float
+
+  """Standard error of wdDelta."""
+  wdDeltaSe: Float
   wdRating: DisciplineRating
   wdWorstOpponents: [LeagueUserStatEntry!]!
   wdWorstPartners: [LeagueUserStatEntry!]!
@@ -649,6 +679,14 @@ type LeagueUserStat {
   worstPartners: [LeagueUserStatEntry!]!
   xdBestOpponents: [LeagueUserStatEntry!]!
   xdBestPartners: [LeagueUserStatEntry!]!
+
+  """
+  Fitted mixed doubles offset from the overall rating, in mu. Positive = performs better here than overall.
+  """
+  xdDelta: Float
+
+  """Standard error of xdDelta."""
+  xdDeltaSe: Float
   xdRating: DisciplineRating
   xdWorstOpponents: [LeagueUserStatEntry!]!
   xdWorstPartners: [LeagueUserStatEntry!]!
@@ -898,12 +936,14 @@ type Mutation {
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
 
   """
-  Runs Smart RSVP's admission pass for one event right now, exactly as the
-     offline job would: the pending list is evaluated against the event's
-     current going list and everyone within the threshold is promoted. Only an
-     organizer of the event may call it.
+  Runs Smart RSVP's admission pass for one event right now — the way
+     admissions happen today: the pending list is evaluated against the event's
+     current going list and the free seats are filled. Only an organizer of the
+     event may call it. `algorithm` selects the admission search; omit it for
+     the default. To see the outcome without committing it, query
+     `previewSmartRsvps` first.
   """
-  evaluateSmartRsvps(eventId: ID!, algorithm: SmartRsvpAlgorithm): EvaluateSmartRsvpsResult!
+  evaluateSmartRsvps(algorithm: SmartRsvpAlgorithm, eventId: ID!): EvaluateSmartRsvpsResult!
   inviteToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
@@ -929,6 +969,16 @@ type Mutation {
   setAvailabilityDay(input: SetAvailabilityDayInput!): SetAvailabilityDayResult!
   setAvailabilityDays(input: SetAvailabilityDaysInput!): SetAvailabilityDaysResult!
   setMembershipAdmin(input: SetMembershipAdminInput!): SetMembershipAdminResult!
+
+  """
+  Smart Waitlist: on a full Smart RSVP event, ranks every eligible pending
+     player by the same search — one seat at a time, as if seats were opening —
+     and places them all on the ordinary waitlist in that order, so the seats
+     that open later go to the search's choices. Players a gate still holds
+     stay pending. Refused while the event has free seats: run Smart RSVP for
+     those. Only an organizer of the event may call it.
+  """
+  smartWaitlist(algorithm: SmartRsvpAlgorithm, eventId: ID!): SmartWaitlistResult!
   unbanUserFromClub(input: UnbanUserFromClubInput!): UnbanUserFromClubResult!
   uncancelEvent(eventId: ID!): MutationResult2!
 
@@ -1058,6 +1108,13 @@ type Query {
   node(id: ID!): Node
   parseBulkEvents(input: String!): String!
   predictMatchOutcome(input: PredictMatchInput!): PredictMatchOutcome
+
+  """
+  What Smart RSVP would do for this event right now, without doing it — the
+   preview an organizer sees before committing with `evaluateSmartRsvps`. Same
+   authorization, same search selection, same answer.
+  """
+  previewSmartRsvps(algorithm: SmartRsvpAlgorithm, eventId: ID!): SmartRsvpPreview!
   ratings(activitySlug: String!, after: String, before: String, clubId: ID, clubSlug: String, first: Int, namespace: String!): RatingConnection!
 
   """
@@ -1186,6 +1243,36 @@ input SetMembershipAdminInput {
 type SetMembershipAdminResult implements HasErrors {
   errors: [Error!]
   membership: Membership
+}
+
+"""
+Which admission search Smart RSVP runs. Ilp, the constraint formulation,
+ is the default; BestFit is the earlier simulation-driven search, kept as an
+ alternate for comparison.
+"""
+enum SmartRsvpAlgorithm {
+  BestFit
+  Ilp
+}
+
+type SmartRsvpPreview implements HasErrors {
+  errors: [Error!]
+
+  """
+  The RSVPs Smart RSVP would admit if it ran now. Nothing has moved: they
+     are still pending, and nobody has been notified.
+  """
+  rsvps: [Rsvp!]
+}
+
+type SmartWaitlistResult implements HasErrors {
+  errors: [Error!]
+
+  """
+  The RSVPs Smart Waitlist placed on the waitlist, in waitlist order.
+       Empty when no eligible player was pending.
+  """
+  rsvps: [Rsvp!]
 }
 
 type StripeAccountSessionResult implements HasErrors {

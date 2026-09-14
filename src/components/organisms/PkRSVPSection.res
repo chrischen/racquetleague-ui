@@ -92,6 +92,40 @@ module EvaluateSmartRsvpsMutation = %relay(`
   }
 `)
 
+// Smart Waitlist: on a full event, every eligible pending player is placed on
+// the ordinary waitlist in the search's order. The moved RSVPs come back with
+// their new list type and join time, which is what Relay needs to redraw them
+// on the waitlist.
+module SmartWaitlistMutation = %relay(`
+  mutation PkRSVPSectionSmartWaitlistMutation($eventId: ID!) {
+    smartWaitlist(eventId: $eventId) {
+      rsvps {
+        id
+        listType
+        joinTime
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+// What Smart RSVP would admit right now, without admitting anyone. Fetched
+// fresh on every click, since the pending list changes under it.
+module PreviewSmartRsvpsQuery = %relay(`
+  query PkRSVPSectionPreviewSmartRsvpsQuery($eventId: ID!) {
+    previewSmartRsvps(eventId: $eventId) {
+      rsvps {
+        id
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
 module PkRSVPSectionAddUserMutation = %relay(`
   mutation PkRSVPSectionAddUserMutation($connections: [ID!]!, $eventId: ID!, $userId: ID!) {
     addRsvpToEvent(eventId: $eventId, userId: $userId) {
@@ -155,9 +189,16 @@ let make = (
 
   let (isAddingPlayer, setIsAddingPlayer) = React.useState(() => false)
   let (pendingSwipeOpen, setPendingSwipeOpen) = React.useState(() => false)
+  // The level curve is always up; the number grid sits behind "View more".
+  let (showSkillDetail, setShowSkillDetail) = React.useState(() => false)
   let (commitUpdateListType, _updateListTypeInFlight) = UpdateListTypeMutation.use()
   let (commitEvaluateSmartRsvps, isEvaluateSmartRsvpsInFlight) =
     EvaluateSmartRsvpsMutation.use()
+  let (commitSmartWaitlist, isSmartWaitlistInFlight) = SmartWaitlistMutation.use()
+  let environment = RescriptRelay.useEnvironmentFromContext()
+  // The pending RSVP ids the last Smart RSVP preview would admit, if any.
+  let (smartRsvpPreview, setSmartRsvpPreview) = React.useState(() => None)
+  let (isPreviewingSmartRsvps, setIsPreviewingSmartRsvps) = React.useState(() => false)
   let (commitMutationAddUser, _addUserInFlight) = PkRSVPSectionAddUserMutation.use()
   let (commitCaptureAll, isCaptureAllInFlight) = PkRSVPSectionCaptureAllPaymentsMutation.use()
 
@@ -228,13 +269,39 @@ let make = (
     })
   )
 
-  let handleEvaluateSmartRsvps = () =>
-    commitEvaluateSmartRsvps(~variables={eventId: eventData.id})->RescriptRelay.Disposable.ignore
-  // Temporary, for comparing the two admission searches side by side.
-  let handleEvaluateSmartRsvpsBestFit = () =>
+  // What the next run would admit, marked in the pending list with nobody
+  // moved. A run clears it: the list it previewed no longer exists.
+  let handlePreviewSmartRsvps = () => {
+    setIsPreviewingSmartRsvps(_ => true)
+    let _ = PreviewSmartRsvpsQuery.fetch(
+      ~environment,
+      ~variables={eventId: eventData.id},
+      ~onResult=result => {
+        setIsPreviewingSmartRsvps(_ => false)
+        setSmartRsvpPreview(_ =>
+          switch result {
+          | Ok(data) =>
+            Some(data.previewSmartRsvps.rsvps->Option.getOr([])->Array.map(r => r.id))
+          | Error(_) => None
+          }
+        )
+      },
+    )
+  }
+  // `algorithm` is only for the temporary best-fit comparison button.
+  let handleEvaluateSmartRsvps = (~algorithm=?) =>
     commitEvaluateSmartRsvps(
-      ~variables={eventId: eventData.id, algorithm: RelaySchemaAssets_graphql.BestFit},
+      ~variables={eventId: eventData.id, algorithm: ?algorithm},
+      ~onCompleted=(_, _) => setSmartRsvpPreview(_ => None),
     )->RescriptRelay.Disposable.ignore
+  // On a full event: the pending list, ranked by the search, onto the waitlist.
+  let handleSmartWaitlist = () =>
+    commitSmartWaitlist(
+      ~variables={eventId: eventData.id},
+      ~onCompleted=(_, _) => setSmartRsvpPreview(_ => None),
+    )->RescriptRelay.Disposable.ignore
+  let smartRsvpBusy =
+    isEvaluateSmartRsvpsInFlight || isPreviewingSmartRsvps || isSmartWaitlistInFlight
 
   // Right swipe approves onto the confirmed list; a left swipe leaves the RSVP
   // pending, so there is nothing to commit for it.
@@ -419,12 +486,13 @@ let make = (
     }
   }
 
-  <div className="px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]">
+  <div
+    className="mx-3 mt-3 rounded-xl border border-gray-200 bg-white px-4 py-4 dark:border-[#2a2b30] dark:bg-[#1e1f23]">
     {ratingWarning}
     /* Header */
     <div className="flex items-center justify-between mb-3">
       <h2
-        className="font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase flex items-center gap-2">
+        className="flex items-center gap-2 text-base font-semibold text-gray-900 dark:text-gray-100">
         {(ts`Participants`)->React.string}
         {eventData.viewerIsAdmin && eventData.club->Option.isSome
           ? <button
@@ -490,62 +558,103 @@ let make = (
         />
       </div>
     </div>
-    /* Stats grid */
-    <div
-      className="grid grid-cols-2 sm:grid-cols-4 border border-gray-200 dark:border-[#3a3b40] rounded-lg overflow-hidden mb-4">
-      <div
-        className="px-3 py-2.5 border-r border-b sm:border-b-0 border-gray-200 dark:border-[#3a3b40]">
-        <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {t`TOP 6 AVG`}
-        </div>
-        <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
-          {top6AvgDuprStr->React.string}
-        </div>
-        <div className="font-mono text-[11px] text-gray-400 mt-0.5"> {t`DUPR`} </div>
-      </div>
-      <div
-        className="px-3 py-2.5 border-b sm:border-r sm:border-b-0 border-gray-200 dark:border-[#3a3b40]">
-        <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {t`MEDIAN`}
-        </div>
-        <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
-          {overallMedianDuprStr->React.string}
-        </div>
-        <div className="font-mono text-[11px] text-gray-400 mt-0.5"> {t`DUPR`} </div>
-      </div>
-      <div className="px-3 py-2.5 border-r border-gray-200 dark:border-[#3a3b40]">
-        <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {t`♂/♀ SKILL`}
-        </div>
-        <div
-          className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5 flex items-baseline gap-0.5">
-          <span className="text-blue-400"> {maleMedianDuprStr->React.string} </span>
-          <span className="text-gray-300 dark:text-gray-600 text-sm"> {"/"->React.string} </span>
-          <span className="text-pink-400"> {femaleMedianDuprStr->React.string} </span>
-        </div>
-        <div className="flex items-center gap-1.5 mt-1">
-          <div
-            className="flex-1 h-1 rounded-full bg-pink-300/40 dark:bg-pink-400/20 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-blue-400"
-              style={ReactDOM.Style.make(~width=Int.toString(malePct) ++ "%", ())}
-            />
+    /* Skill summary: the level curve up front, the number grid behind a toggle */
+    {mus->Array.length > 0
+      ? <div className="mb-4 mt-3">
+          <SkillDistributionChart
+            duprs={mus->Array.map(Rating.guessDupr)} topCourtDupr=top6AvgDuprStr
+          />
+          <div className="mt-2 flex items-center justify-between gap-3">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
+              {t`Top court DUPR`}
+              {" "->React.string}
+              <span className="font-semibold text-gray-900 dark:text-gray-100">
+                {top6AvgDuprStr->React.string}
+              </span>
+            </p>
+            <button
+              type_="button"
+              onClick={_ => setShowSkillDetail(v => !v)}
+              ariaExpanded=showSkillDetail
+              className="flex flex-shrink-0 items-center gap-1 text-xs font-semibold text-[#5f8618] underline-offset-2 transition-colors hover:text-[#476412] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d] dark:hover:text-[#d3ff85]">
+              {showSkillDetail ? t`View less` : t`View more`}
+              <Lucide.ChevronRight
+                size=13
+                className={"transition-transform duration-200 " ++ (
+                  showSkillDetail ? "rotate-90" : ""
+                )}
+                \"aria-hidden"="true"
+              />
+            </button>
           </div>
-          <span className="font-mono text-[9px] text-gray-400"> {genderGapStr->React.string} </span>
+          {showSkillDetail
+            ? <div
+                className="mt-2 grid grid-cols-2 sm:grid-cols-4 overflow-hidden rounded-md border border-gray-200 dark:border-[#3a3b40]">
+                <div
+                  className="border-r border-b sm:border-b-0 border-gray-200 px-3 py-2.5 dark:border-[#3a3b40]">
+                  <p
+                    className="text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    {t`TOP 6 AVG`}
+                  </p>
+                  <p className="mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    {top6AvgDuprStr->React.string}
+                  </p>
+                  <p className="text-[11px] text-gray-400"> {t`DUPR`} </p>
+                </div>
+                <div
+                  className="border-b sm:border-r sm:border-b-0 border-gray-200 px-3 py-2.5 dark:border-[#3a3b40]">
+                  <p
+                    className="text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    {t`MEDIAN`}
+                  </p>
+                  <p className="mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    {overallMedianDuprStr->React.string}
+                  </p>
+                  <p className="text-[11px] text-gray-400"> {t`DUPR`} </p>
+                </div>
+                <div className="border-r border-gray-200 px-3 py-2.5 dark:border-[#3a3b40]">
+                  <p
+                    className="text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    {t`♂/♀ SKILL`}
+                  </p>
+                  <p className="mt-0.5 flex items-baseline gap-1 text-lg font-semibold">
+                    <span className="text-blue-500 dark:text-blue-400">
+                      {maleMedianDuprStr->React.string}
+                    </span>
+                    <span className="text-sm text-gray-300 dark:text-gray-600">
+                      {"/"->React.string}
+                    </span>
+                    <span className="text-pink-500 dark:text-pink-400">
+                      {femaleMedianDuprStr->React.string}
+                    </span>
+                  </p>
+                  <div className="mt-1 flex items-center gap-1.5">
+                    <div
+                      className="h-1 flex-1 overflow-hidden rounded-full bg-pink-300/40 dark:bg-pink-400/20">
+                      <div
+                        className="h-full rounded-full bg-blue-400"
+                        style={ReactDOM.Style.make(~width=Int.toString(malePct) ++ "%", ())}
+                      />
+                    </div>
+                    <span className="text-[10px] text-gray-400"> {genderGapStr->React.string} </span>
+                  </div>
+                </div>
+                <div className="px-3 py-2.5">
+                  <p
+                    className="text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    {t`SPREAD`}
+                  </p>
+                  <p className="mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100">
+                    {spreadStr->React.string}
+                  </p>
+                  <p className={"text-[11px] " ++ spreadQualifierClass}>
+                    {spreadQualifier->React.string}
+                  </p>
+                </div>
+              </div>
+            : React.null}
         </div>
-      </div>
-      <div className="px-3 py-2.5">
-        <div className="font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500">
-          {t`SPREAD`}
-        </div>
-        <div className="font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5">
-          {spreadStr->React.string}
-        </div>
-        <div className={"font-mono text-[11px] mt-0.5 " ++ spreadQualifierClass}>
-          {spreadQualifier->React.string}
-        </div>
-      </div>
-    </div>
+      : React.null}
     /* Confirmed section */
     {confirmedRsvps->Array.length > 0
       ? <>
@@ -676,40 +785,90 @@ let make = (
               : React.null}
           </div>
           {eventData.viewerIsAdmin && eventData.smartRsvpThreshold->Option.isSome
-            ? <button
-                type_="button"
-                disabled={isEvaluateSmartRsvpsInFlight}
-                onClick={_ => handleEvaluateSmartRsvps()}
-                className="mb-2 inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                {(
-                  isEvaluateSmartRsvpsInFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`
-                )->React.string}
-              </button>
-            : React.null}
-          {eventData.viewerIsAdmin && eventData.smartRsvpThreshold->Option.isSome
-            ? <button
-                type_="button"
-                disabled={isEvaluateSmartRsvpsInFlight}
-                onClick={_ => handleEvaluateSmartRsvpsBestFit()}
-                className="mb-2 ml-2 inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
-                {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
-              </button>
+            ? <div className="mb-2">
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type_="button"
+                    disabled={smartRsvpBusy}
+                    onClick={_ => handlePreviewSmartRsvps()}
+                    className="inline-flex items-center gap-1 rounded-md border border-emerald-600 px-2 py-1 text-[10px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-emerald-300 dark:hover:bg-emerald-900/30">
+                    {(isPreviewingSmartRsvps ? ts`Previewing…` : ts`Preview Smart RSVP`)->React.string}
+                  </button>
+                  <button
+                    type_="button"
+                    disabled={smartRsvpBusy}
+                    onClick={_ => handleEvaluateSmartRsvps()}
+                    className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    {(
+                      isEvaluateSmartRsvpsInFlight
+                        ? ts`Evaluating pending requests…`
+                        : ts`Run Smart RSVP now`
+                    )->React.string}
+                  </button>
+                  {isFull
+                    ? <button
+                        type_="button"
+                        disabled={smartRsvpBusy}
+                        onClick={_ => handleSmartWaitlist()}
+                        className="inline-flex items-center gap-1 rounded-md bg-amber-500 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-amber-600 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:hover:bg-amber-400 dark:hover:text-amber-950">
+                        {(isSmartWaitlistInFlight ? ts`Placing on the waitlist…` : ts`Smart Waitlist`)->React.string}
+                      </button>
+                    : React.null}
+                  // Temporary, for comparing the two admission searches side by side.
+                  <button
+                    type_="button"
+                    disabled={smartRsvpBusy}
+                    onClick={_ => handleEvaluateSmartRsvps(~algorithm=RelaySchemaAssets_graphql.BestFit)}
+                    className="inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
+                    {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
+                  </button>
+                </div>
+                {switch smartRsvpPreview {
+                | Some(ids) =>
+                  <p className="mt-1.5 text-[11px] text-gray-600 dark:text-gray-300">
+                    {t`Smart RSVP would admit ${ids->Array.length->Int.toString} of ${pendingCount->Int.toString} pending requests: they are marked below.`}
+                    <button
+                      type_="button"
+                      onClick={_ => setSmartRsvpPreview(_ => None)}
+                      className="ml-1.5 font-semibold text-emerald-700 underline dark:text-emerald-300">
+                      {t`Clear preview`}
+                    </button>
+                  </p>
+                | None => React.null
+                }}
+              </div>
             : React.null}
           <div className="flex flex-wrap gap-1.5">
             {pendingRsvps
-            ->Array.map(edge =>
-              <PkEventRsvp
-                key=edge.id
-                eventId=eventData.id
-                rsvp={edge.fragmentRefs}
-                ?activitySlug
-                maxRating
-                isAdmin=eventData.viewerIsAdmin
-                isPending=true
-                showRating=isCompetitive
-                connectionKey="PkRSVPSection_event_rsvps"
-              />
-            )
+            ->Array.map(edge => {
+              let chip =
+                <PkEventRsvp
+                  key=edge.id
+                  eventId=eventData.id
+                  rsvp={edge.fragmentRefs}
+                  ?activitySlug
+                  maxRating
+                  isAdmin=eventData.viewerIsAdmin
+                  isPending=true
+                  showRating=isCompetitive
+                  connectionKey="PkRSVPSection_event_rsvps"
+                />
+              let wouldBeAdmitted =
+                smartRsvpPreview->Option.map(ids => ids->Array.includes(edge.id))->Option.getOr(false)
+              // A preview mark: the next run would admit this request.
+              wouldBeAdmitted
+                ? <span
+                    key=edge.id
+                    title={ts`Would be admitted`}
+                    className="relative inline-flex rounded-full ring-2 ring-emerald-500 ring-offset-1 dark:ring-offset-[#1e1f23]">
+                    chip
+                    <span
+                      className="absolute -right-1 -top-1 z-10 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-[#1e1f23]"
+                      ariaHidden=true
+                    />
+                  </span>
+                : chip
+            })
             ->React.array}
           </div>
         </div>

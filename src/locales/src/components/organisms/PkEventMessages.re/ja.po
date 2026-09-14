@@ -13,26 +13,75 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventMessages.re.mjs:146
+#: src/components/organisms/PkEventMessages.re.mjs:333
+msgid "{messageCountStr} messages · {totalCountStr} updates"
+msgstr "{messageCountStr}件のメッセージ · {totalCountStr}件の更新"
+
+#: src/components/organisms/PkEventMessages.re.mjs:328
 msgid "Activity"
 msgstr "アクティビティ"
 
-#: src/components/organisms/PkEventMessages.re.mjs:467
-msgid "Add a message..."
-msgstr "メッセージを追加..."
-
 #: src/components/organisms/PkEventMessages.re.mjs:328
+#: src/components/organisms/PkEventMessages.re.mjs:462
+msgid "Event chat"
+msgstr "イベントチャット"
+
+#: src/components/organisms/PkEventMessages.re.mjs:213
 msgid "Event updated"
 msgstr "イベントを更新しました"
 
-#: src/components/organisms/PkEventMessages.re.mjs:455
-msgid "Show all {0} items"
-msgstr "{0} 件すべて表示"
+#: src/components/organisms/PkEventMessages.re.mjs:333
+msgid "Join this event to take part in the chat"
+msgstr "チャットに参加するにはこのイベントに参加してください"
 
-#: src/components/organisms/PkEventMessages.re.mjs:455
+#: src/components/organisms/PkEventMessages.re.mjs:204
+msgid "joined from waitlist"
+msgstr "ウェイトリストから参加"
+
+#: src/components/organisms/PkEventMessages.re.mjs:194
+msgid "joined the event"
+msgstr "参加しました"
+
+#: src/components/organisms/PkEventMessages.re.mjs:259
+msgid "left the event"
+msgstr "離れました"
+
+#: src/components/organisms/PkEventMessages.re.mjs:364
+msgid "Message everyone in this event"
+msgstr "このイベントの全員にメッセージを送信"
+
+#: src/components/organisms/PkEventMessages.re.mjs:366
+msgid "Message everyone in this event…"
+msgstr "このイベントの全員にメッセージを送信…"
+
+#: src/components/organisms/PkEventMessages.re.mjs:466
+msgid "No messages yet"
+msgstr "メッセージはまだありません"
+
+#: src/components/organisms/PkEventMessages.re.mjs:386
+msgid "Send message"
+msgstr "メッセージを送信"
+
+#: src/components/organisms/PkEventMessages.re.mjs:352
 msgid "Show less"
 msgstr "折りたたむ"
 
-#: src/components/organisms/PkEventMessages.re.mjs:261
+#: src/components/organisms/PkEventMessages.re.mjs:352
+msgid "View all {totalCountStr} updates"
+msgstr "{totalCountStr}件の更新をすべて表示"
+
+#: src/components/organisms/PkEventMessages.re.mjs:189
+msgid "was added to the event by admin"
+msgstr "管理者によってイベントに追加されました"
+
+#: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr "イベントに招待されました"
+
+#: src/components/organisms/PkEventMessages.re.mjs:467
+#~ msgid "Add a message..."
+#~ msgstr "メッセージを追加..."
+
+#: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr "{0} 件すべて表示"

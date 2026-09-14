@@ -13,26 +13,75 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkEventMessages.re.mjs:146
+#: src/components/organisms/PkEventMessages.re.mjs:333
+msgid "{messageCountStr} messages · {totalCountStr} updates"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:328
 msgid "Activity"
 msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:467
-msgid "Add a message..."
-msgstr ""
+#~ msgid "Add a message..."
+#~ msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:328
+#: src/components/organisms/PkEventMessages.re.mjs:462
+msgid "Event chat"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:213
 msgid "Event updated"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:455
-msgid "Show all {0} items"
+#: src/components/organisms/PkEventMessages.re.mjs:333
+msgid "Join this event to take part in the chat"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:204
+msgid "joined from waitlist"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:194
+msgid "joined the event"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:259
+msgid "left the event"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:364
+msgid "Message everyone in this event"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:366
+msgid "Message everyone in this event…"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:466
+msgid "No messages yet"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:386
+msgid "Send message"
 msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:455
+#~ msgid "Show all {0} items"
+#~ msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:352
 msgid "Show less"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:261
+#: src/components/organisms/PkEventMessages.re.mjs:352
+msgid "View all {totalCountStr} updates"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:189
+msgid "was added to the event by admin"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:199
 msgid "was invited to the event"
 msgstr ""

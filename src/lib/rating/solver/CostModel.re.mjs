@@ -273,7 +273,7 @@ function readinessRatio(players) {
 }
 
 function adaptiveBlend(ratio) {
-  return clamp01((ratio - 0.30) / (0.75 - 0.30));
+  return clamp01((ratio - 0.75) / (1.0 - 0.75));
 }
 
 function lerp(a, b, t) {
@@ -732,9 +732,9 @@ var defaultAlternateWeight = 100;
 
 var competitivePosition = 0.85;
 
-var readinessFloor = 0.30;
+var readinessFloor = 0.75;
 
-var readinessCeiling = 0.75;
+var readinessCeiling = 1.0;
 
 var configVersion = 2;
 

@@ -1153,7 +1153,7 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
   var fellBack = false;
   var round = 0;
   while(round < numRounds) {
-    var state = Rating.toPlayerStateWithAdjustments(scoredRounds, initialPlayers, []);
+    var state = Rating.toPlayerStateWithAdjustments(scoredRounds, initialPlayers, [], undefined);
     var thisRound = round + 1 | 0;
     var truth = truthAt(baseTruth, roles, round);
     var performed = performedAt(baseTruth, roles, form, thisRound);
@@ -1325,7 +1325,7 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
       scoredRounds = scoredRounds.concat([scored.map(function (param) {
                   return param[0];
                 })]);
-      var after = Rating.toPlayerStateWithAdjustments(scoredRounds, initialPlayers, []);
+      var after = Rating.toPlayerStateWithAdjustments(scoredRounds, initialPlayers, [], undefined);
       frames.push(makeFrame(round + 1 | 0, after, truth, scored.map(function (param) {
                     return param[1];
                   }), initialPlayers.filter((function(seatedIds){
@@ -1434,6 +1434,10 @@ var drawSigma = Rating.drawSigma;
 
 var drawProbability = Rating.drawProbability;
 
+var evenGameDraw = Rating.evenGameDraw;
+
+var evenness = Rating.evenness;
+
 var crossoverLow = 0.35;
 
 var crossoverHigh = 0.65;
@@ -1487,6 +1491,8 @@ export {
   trueWinProbability ,
   drawSigma ,
   drawProbability ,
+  evenGameDraw ,
+  evenness ,
   predictedWinProbability ,
   maxScore ,
   gameWinProb ,

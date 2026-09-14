@@ -6,21 +6,22 @@ open Util
 // The kiosk runs full screen on a courtside touch device and has two session
 // categories:
 // - Live game: rolling capture with mid-game actions (clip last rally,
-//   in/out line check) and optional YouTube streaming with a viewer QR code.
+//   Challenge — bounce detection over the buffer via the dinkhunt analysis
+//   server) and optional YouTube streaming with a viewer QR code.
 // - Analysis: pick a mode (drop shot placement, serve speed), capture, then
 //   end the session to view the result.
 //
-// Only the camera feed is real: the start button requests the device camera
-// via getUserMedia and shows the live feed. Everything else (clip extraction,
-// line check, analysis results, YouTube streaming) is a UI shell around
-// mock data — the integration points are marked with TODO(kiosk).
+// Real today: the camera feed, the rolling-buffer clip extraction
+// (lib/capture), the Challenge flow (DinkHunt.res -> localhost analysis
+// server), and court calibration (KioskCourtCalib). Still mock shells:
+// analysis results and YouTube streaming — marked with TODO(kiosk).
 
 type category = Live | Analysis
-type liveAction = RallyClip | LineCheck
+type liveAction = RallyClip | Challenge
 type analysisMode = DropShot | ServeSpeed
 type resultMode = LiveResult(liveAction) | AnalysisResult(analysisMode)
 type stage = Ready | Active | Processing | Result
-type notice = ClipSaved | LiveEnded | CameraError | ClipFailed | ClipDownloaded
+type notice = ClipSaved | LiveEnded | CameraError | ClipFailed | ClipDownloaded | TestClipMissing
 
 // A muxed rally clip held as an object URL for playback + download. Clips are
 // auto-saved into a per-session history; URLs are released when a clip is
@@ -31,6 +32,29 @@ type clipState = {
   hasAudio: bool,
   capturedAt: string, // "HH:MM" label for the history strip
 }
+
+// A Challenge run: the buffered clip plus the dinkhunt shot-finder's ground
+// bounces over it (times are clip-relative, so they map straight onto the
+// player timeline). ``error`` keeps the clip reviewable even when analysis
+// failed (server down, camera not calibrated).
+type challengeState = {
+  clip: clipState,
+  bounces: array<DinkHunt.bounce>,
+  // Overlay data (empty when analysis failed): per-shot ball paths in clip
+  // pixels + the clip's native frame size the pixel space refers to.
+  paths: array<array<DinkHunt.pathPoint>>,
+  frameW: int,
+  frameH: int,
+  fps: float,
+  error: option<string>,
+}
+
+// How much of the rolling buffer a Challenge analyzes. Analysis cost is
+// per-FRAME (decode + detector; BlurBall resizes to 512x288 internally, so
+// clip resolution barely matters) — 8s of 60fps is ~480 frames against the
+// full ring's ~1200. Long enough to carry the shots either side of a bounce,
+// which is what the shot-finder needs to classify it.
+let challengeSeconds = 8.
 
 // Bounded so a long session cannot accumulate unbounded blob memory.
 let maxClipHistory = 5
@@ -54,6 +78,10 @@ let liveStreamUrl = "https://youtube.com/live/courtside-court04"
 // using the same device. Only touched from handlers/effects (no SSR access).
 let cameraStorageKey = "kiosk.cameraDeviceId"
 
+// Test mode: no camera needed — sessions start without a stream and the
+// Challenge action runs against the server's fixed test_challenge.mov.
+let testModeStorageKey = "kiosk.testMode"
+
 @val @scope("localStorage") external getStoredItem: string => Nullable.t<string> = "getItem"
 @val @scope("localStorage") external setStoredItem: (string, string) => unit = "setItem"
 @val @scope("localStorage") external removeStoredItem: string => unit = "removeItem"
@@ -63,19 +91,19 @@ open Lingui.Util
 let liveActionKey = action =>
   switch action {
   | RallyClip => "rally-clip"
-  | LineCheck => "line-check"
+  | Challenge => "challenge"
   }
 
 let liveActionName = action =>
   switch action {
   | RallyClip => t`Clip last rally`
-  | LineCheck => t`Check in or out`
+  | Challenge => t`Challenge`
   }
 
 let liveActionDescription = action =>
   switch action {
   | RallyClip => t`Create a clean, shareable clip from the rolling video buffer.`
-  | LineCheck => t`Review the latest bounce from multiple close-up moments.`
+  | Challenge => t`Overlay detected bounces on the buffered footage and replay any of them.`
   }
 
 let analysisModeKey = mode =>
@@ -286,6 +314,493 @@ module ClipPlayer = {
   }
 }
 
+module ChallengePlayer = {
+  // The Challenge review: the buffered clip with the shot-finder's ground
+  // bounces marked on a timeline strip. Tapping a marker seeks just ahead of
+  // the impact and plays; ½× keeps the replay readable on a kiosk screen.
+  @send external play: Dom.element => promise<unit> = "play"
+  @set external setCurrentTime: (Dom.element, float) => unit = "currentTime"
+  @set external setPlaybackRate: (Dom.element, float) => unit = "playbackRate"
+  @get external currentTime: Dom.element => float = "currentTime"
+  @send external pause: Dom.element => unit = "pause"
+  @get external isPaused: Dom.element => bool = "paused"
+  @val external requestAnimationFrame: (float => unit) => int = "requestAnimationFrame"
+  @val external cancelAnimationFrame: int => unit = "cancelAnimationFrame"
+
+  type domRect = {width: float, height: float}
+  @send external getBoundingClientRect: Dom.element => domRect = "getBoundingClientRect"
+
+  let zoomFactor = 2.6
+
+  // CSS transform that magnifies around a clip-space point: map the point's
+  // letterboxed display position to the container centre under scale(k).
+  // Applied to a wrapper holding BOTH the video and the overlay SVG, so the
+  // drawn arcs/markers stay glued to the pixels at any zoom.
+  let zoomTransformFor = (
+    rect: domRect,
+    frameW: float,
+    frameH: float,
+    (px, py): (float, float),
+  ): string => {
+    let scale = Math.min(rect.width /. frameW, rect.height /. frameH)
+    let ox = (rect.width -. frameW *. scale) /. 2.
+    let oy = (rect.height -. frameH *. scale) /. 2.
+    let dx = ox +. px *. scale // the bounce's display position, container coords
+    let dy = oy +. py *. scale
+    let tx = rect.width /. 2. -. dx *. zoomFactor
+    let ty = rect.height /. 2. -. dy *. zoomFactor
+    "translate(" ++
+    tx->Float.toFixed(~digits=1) ++
+    "px, " ++
+    ty->Float.toFixed(~digits=1) ++
+    "px) scale(" ++
+    zoomFactor->Float.toString ++
+    ")"
+  }
+
+  // The ball's overlay position at time ``t``: the path segment containing
+  // ``t``, linearly interpolated (paths are 30Hz samples of the fitted arcs,
+  // so lerp error is sub-pixel).
+  let ballAt = (paths: array<array<DinkHunt.pathPoint>>, t: float): option<(float, float)> =>
+    paths
+    ->Array.find(path =>
+      switch (path->Array.get(0), path->Array.get(path->Array.length - 1)) {
+      | (Some(first), Some(last)) => first.t <= t && t <= last.t
+      | _ => false
+      }
+    )
+    ->Option.flatMap(path => {
+      let index = ref(0)
+      while (
+        index.contents < path->Array.length - 2 &&
+          (path->Array.getUnsafe(index.contents + 1)).t < t
+      ) {
+        index := index.contents + 1
+      }
+      switch (path->Array.get(index.contents), path->Array.get(index.contents + 1)) {
+      | (Some(a), Some(b)) => {
+          let span = b.t -. a.t
+          let f = span <= 0. ? 0. : (t -. a.t) /. span
+          Some((a.x +. (b.x -. a.x) *. f, a.y +. (b.y -. a.y) *. f))
+        }
+      | _ => None
+      }
+    })
+
+  @react.component
+  let make = (~challenge: challengeState) => {
+    let videoRef = React.useRef(Nullable.null)
+    let (selected, setSelected) = React.useState(() => (None: option<int>))
+    let (slow, setSlow) = React.useState(() => true)
+    let (overlayOn, setOverlayOn) = React.useState(() => true)
+    let (now, setNow) = React.useState(() => 0.)
+    // Impact loop: replay a +/-6-frame window around the selected bounce on
+    // repeat. The window lives in a REF because the rAF tick below runs in a
+    // once-mounted closure and must always see the current target.
+    let (looping, setLooping) = React.useState(() => false)
+    let (zoomed, setZoomed) = React.useState(() => false)
+    let (playing, setPlaying) = React.useState(() => false)
+    let (zoomTransform, setZoomTransform) = React.useState(() => (None: option<string>))
+    let playerRef = React.useRef(Nullable.null)
+    let loopWindow = React.useRef((None: option<(float, float)>))
+    let duration = Math.max(challenge.clip.durationSeconds, 0.1)
+    let loopHalf = 6. /. Math.max(challenge.fps, 1.)
+
+    // Track playback time at display rate for the overlay (timeupdate fires
+    // only ~4Hz — too coarse for a riding ball marker).
+    React.useEffect1(() => {
+      let handle = ref(None)
+      let rec tick = _ => {
+        switch videoRef.current->Nullable.toOption {
+        | Some(el) => {
+            let t = el->currentTime
+            switch loopWindow.current {
+            | Some((start, stop)) if t > stop && !(el->isPaused) =>
+              el->setCurrentTime(start)
+            | _ => ()
+            }
+            setNow(previous => Math.abs(previous -. t) > 0.005 ? t : previous)
+          }
+        | None => ()
+        }
+        handle := Some(requestAnimationFrame(tick))
+      }
+      handle := Some(requestAnimationFrame(tick))
+      Some(
+        () =>
+          switch handle.contents {
+          | Some(id) => cancelAnimationFrame(id)
+          | None => ()
+          },
+      )
+    }, [])
+
+    let retargetZoom = (bounce: DinkHunt.bounce) =>
+      switch playerRef.current->Nullable.toOption {
+      | Some(el) => {
+          let x = bounce.pixel->Array.get(0)->Option.getOr(0.)
+          let y = bounce.pixel->Array.get(1)->Option.getOr(0.)
+          setZoomTransform(_ => Some(
+            zoomTransformFor(
+              getBoundingClientRect(el),
+              challenge.frameW->Int.toFloat,
+              challenge.frameH->Int.toFloat,
+              (x, y),
+            ),
+          ))
+        }
+      | None => ()
+      }
+
+    let startLoop = (bounce: DinkHunt.bounce) => {
+      let start = Math.max(0., bounce.t -. loopHalf)
+      loopWindow.current = Some((start, Math.min(duration, bounce.t +. loopHalf)))
+      setLooping(_ => true)
+      if zoomed {
+        retargetZoom(bounce)
+      }
+      switch videoRef.current->Nullable.toOption {
+      | Some(element) => {
+          element->setPlaybackRate(slow ? 0.5 : 1.0)
+          element->setCurrentTime(start)
+          element->play->ignore
+        }
+      | None => ()
+      }
+    }
+
+    let stopLoop = () => {
+      loopWindow.current = None
+      setLooping(_ => false)
+      setZoomTransform(_ => None)
+    }
+
+    let toggleZoom = () => {
+      let next = !zoomed
+      setZoomed(_ => next)
+      if next {
+        switch selected->Option.flatMap(i => challenge.bounces->Array.get(i)) {
+        | Some(bounce) if looping => retargetZoom(bounce)
+        | _ => ()
+        }
+      } else {
+        setZoomTransform(_ => None)
+      }
+    }
+
+    let replayBounce = (index: int, bounce: DinkHunt.bounce) => {
+      setSelected(_ => Some(index))
+      if looping {
+        startLoop(bounce) // retarget the loop to the newly picked bounce
+      } else {
+        switch videoRef.current->Nullable.toOption {
+        | Some(element) => {
+            element->setPlaybackRate(slow ? 0.5 : 1.0)
+            element->setCurrentTime(Math.max(0., bounce.t -. 0.75))
+            element->play->ignore
+          }
+        | None => ()
+        }
+      }
+    }
+
+    let frameStep = 1. /. Math.max(challenge.fps, 1.)
+    let stepBy = (frames: float) =>
+      switch videoRef.current->Nullable.toOption {
+      | Some(el) => {
+          el->pause
+          el->setCurrentTime(
+            Math.max(0., Math.min(duration, el->currentTime +. frames *. frameStep)),
+          )
+        }
+      | None => ()
+      }
+    let togglePlay = () =>
+      switch videoRef.current->Nullable.toOption {
+      | Some(el) =>
+        if el->isPaused {
+          el->setPlaybackRate(slow ? 0.5 : 1.0)
+          el->play->ignore
+        } else {
+          el->pause
+        }
+      | None => ()
+      }
+
+    <div>
+      <div
+        ref={ReactDOM.Ref.domRef(playerRef)}
+        className="relative aspect-video overflow-hidden border-2 border-kiosk-border bg-black">
+        <div
+          className="absolute inset-0 origin-top-left will-change-transform"
+          style={switch zoomTransform {
+          | Some(transform) => ReactDOM.Style.make(~transform, ())
+          | None => ReactDOM.Style.make()
+          }}>
+        <video
+          ref={ReactDOM.Ref.domRef(videoRef)}
+          src=challenge.clip.url
+          controls={zoomTransform == None}
+          playsInline=true
+          muted=true
+          onPlay={_ => setPlaying(_ => true)}
+          onPause={_ => setPlaying(_ => false)}
+          className="absolute inset-0 h-full w-full object-contain"
+        />
+        // analyze.py-style overlay: shot paths, bounce ground marks (appear
+        // at their moment of impact), and the ball marker riding the fitted
+        // arcs. viewBox = clip pixels; aligns with the object-contain video
+        // because both letterbox the same aspect into the same box.
+        {overlayOn && challenge.paths->Array.length > 0
+          ? <svg
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              viewBox={"0 0 " ++
+              challenge.frameW->Int.toString ++
+              " " ++
+              challenge.frameH->Int.toString}
+              preserveAspectRatio="xMidYMid meet">
+              {challenge.paths
+              ->Array.mapWithIndex((path, index) =>
+                <polyline
+                  key={index->Int.toString}
+                  points={path
+                  ->Array.map(pt => pt.x->Float.toString ++ "," ++ pt.y->Float.toString)
+                  ->Array.join(" ")}
+                  fill="none"
+                  stroke="#bef264"
+                  strokeWidth="3"
+                  strokeOpacity="0.55"
+                />
+              )
+              ->React.array}
+              {challenge.bounces
+              ->Array.mapWithIndex((bounce, index) =>
+                bounce.t <= now
+                  ? {
+                      let x = bounce.pixel->Array.get(0)->Option.getOr(0.)
+                      let y = bounce.pixel->Array.get(1)->Option.getOr(0.)
+                      <g key={index->Int.toString}>
+                        {// The perspective-correct marker: the server projects a ground
+                        // disc at the contact, so the ring foreshortens with depth.
+                        bounce.footprint->Array.length >= 3
+                          ? <polygon
+                              points={bounce.footprint
+                              ->Array.map(p =>
+                                p->Array.get(0)->Option.getOr(x)->Float.toString ++
+                                "," ++
+                                p->Array.get(1)->Option.getOr(y)->Float.toString
+                              )
+                              ->Array.join(" ")}
+                              fill="none"
+                              stroke={selected == Some(index) ? "#ffffff" : "#4ade80"}
+                              strokeWidth="4"
+                              strokeLinejoin="round"
+                            />
+                          : <ellipse
+                              cx={x->Float.toString}
+                              cy={y->Float.toString}
+                              rx="26"
+                              ry="10"
+                              fill="none"
+                              stroke={selected == Some(index) ? "#ffffff" : "#4ade80"}
+                              strokeWidth="4"
+                            />}
+                        <text
+                          x={x->Float.toString}
+                          y={(y -. 16.)->Float.toString}
+                          textAnchor="middle"
+                          fill={selected == Some(index) ? "#ffffff" : "#4ade80"}
+                          fontSize="24"
+                          fontWeight="800"
+                          fontFamily="monospace">
+                          {React.string("bounce " ++ (index + 1)->Int.toString)}
+                        </text>
+                      </g>
+                    }
+                  : React.null
+              )
+              ->React.array}
+              {switch ballAt(challenge.paths, now) {
+              | Some((x, y)) =>
+                <circle
+                  cx={x->Float.toString}
+                  cy={y->Float.toString}
+                  r="11"
+                  fill="#ef4444"
+                  stroke="#ffffff"
+                  strokeWidth="3"
+                />
+              | None => React.null
+              }}
+            </svg>
+          : React.null}
+        </div>
+      </div>
+      // Transport: pause + single-frame stepping. Deliberately OUTSIDE every
+      // mode — stepping works while looping (a paused loop does not wrap),
+      // zoomed, or with the overlay off. Frame readout uses the clip's fps.
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <button
+            type_="button"
+            ariaLabel="back one frame"
+            onClick={_ => stepBy(-1.)}
+            className="flex min-h-12 min-w-14 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised font-extrabold text-white active:bg-kiosk-border">
+            <Lucide.ChevronLeft \"aria-hidden"="true" size=20 />
+            {React.string("1f")}
+          </button>
+          <button
+            type_="button"
+            ariaLabel={playing ? "pause" : "play"}
+            onClick={_ => togglePlay()}
+            className="flex min-h-12 min-w-16 items-center justify-center border-2 border-kiosk-accent bg-kiosk-accent px-4 font-extrabold text-kiosk-bg active:bg-kiosk-accentDark">
+            {playing ? <Lucide.Square \"aria-hidden"="true" className="fill-current" size=16 /> : <Lucide.Play \"aria-hidden"="true" className="fill-current" size=16 />}
+          </button>
+          <button
+            type_="button"
+            ariaLabel="forward one frame"
+            onClick={_ => stepBy(1.)}
+            className="flex min-h-12 min-w-14 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised font-extrabold text-white active:bg-kiosk-border">
+            {React.string("1f")}
+            <Lucide.ChevronRight \"aria-hidden"="true" size=20 />
+          </button>
+        </div>
+        <p className="font-mono text-xs font-semibold text-kiosk-muted">
+          {React.string(
+            "f " ++
+            Math.floor(now *. challenge.fps)->Float.toFixed(~digits=0) ++
+            " · " ++
+            now->Float.toFixed(~digits=2) ++ "s",
+          )}
+        </p>
+      </div>
+      {switch challenge.error {
+      | Some(message) =>
+        <p
+          className="mt-3 border-2 border-red-400/40 bg-red-500/10 px-4 py-3 text-sm font-semibold text-red-300">
+          {React.string(message)}
+        </p>
+      | None => React.null
+      }}
+      {challenge.bounces->Array.length == 0 && challenge.error == None
+        ? <p className="mt-3 text-sm text-kiosk-muted">
+            {t`No ground bounces were detected in the buffered footage.`}
+          </p>
+        : React.null}
+      {challenge.bounces->Array.length > 0
+        ? <>
+            // Timeline strip: one marker per bounce at its clip-relative time.
+            <div className="relative mt-4 h-14 border-2 border-kiosk-border bg-kiosk-raised">
+              {challenge.bounces
+              ->Array.mapWithIndex((bounce, index) =>
+                <button
+                  key={index->Int.toString}
+                  type_="button"
+                  onClick={_ => replayBounce(index, bounce)}
+                  ariaLabel={"bounce " ++ (index + 1)->Int.toString}
+                  style={ReactDOM.Style.make(
+                    ~left=(bounce.t /. duration *. 100.)->Float.toFixed(~digits=1) ++ "%",
+                    (),
+                  )}
+                  className={cx([
+                    "absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 text-xs font-extrabold transition-transform active:scale-90",
+                    selected == Some(index)
+                      ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                      : "border-white/60 bg-kiosk-bg text-white",
+                  ])}>
+                  {React.string((index + 1)->Int.toString)}
+                </button>
+              )
+              ->React.array}
+            </div>
+            // Chip row: one large target per bounce (markers on the strip
+            // can overlap when impacts land within a second of each other).
+            <div className="mt-3 flex items-center gap-2 overflow-x-auto pb-1">
+              {challenge.bounces
+              ->Array.mapWithIndex((bounce, index) =>
+                <button
+                  key={index->Int.toString}
+                  type_="button"
+                  onClick={_ => replayBounce(index, bounce)}
+                  className={cx([
+                    "flex min-h-12 shrink-0 items-center gap-2 whitespace-nowrap border-2 px-4 font-mono text-sm font-extrabold transition-[background-color,transform] duration-150 ease-out active:translate-y-1",
+                    selected == Some(index)
+                      ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                      : "border-kiosk-border bg-kiosk-raised text-white active:bg-kiosk-border",
+                  ])}>
+                  <span> {React.string("#" ++ (index + 1)->Int.toString)} </span>
+                  <span className="opacity-70">
+                    {React.string(bounce.t->Float.toFixed(~digits=1) ++ "s")}
+                  </span>
+                </button>
+              )
+              ->React.array}
+            </div>
+            <div className="mt-2 flex items-center justify-between gap-3">
+              <p className="text-sm text-kiosk-muted">
+                {t`${challenge.bounces->Array.length->Int.toString} bounces detected · tap one to replay`}
+              </p>
+              <div className="flex items-center gap-2">
+                <button
+                  type_="button"
+                  disabled={selected == None}
+                  onClick={_ =>
+                    looping
+                      ? stopLoop()
+                      : switch selected->Option.flatMap(i => challenge.bounces->Array.get(i)) {
+                        | Some(bounce) => startLoop(bounce)
+                        | None => ()
+                        }}
+                  className={cx([
+                    "border-2 px-4 py-2 text-sm font-extrabold disabled:opacity-40",
+                    looping
+                      ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                      : "border-kiosk-border bg-kiosk-raised text-white",
+                  ])}>
+                  {React.string(looping ? "Looping" : "Loop " ++ `±` ++ "6f")}
+                </button>
+                <button
+                  type_="button"
+                  disabled={!looping}
+                  onClick={_ => toggleZoom()}
+                  className={cx([
+                    "border-2 px-4 py-2 text-sm font-extrabold disabled:opacity-40",
+                    zoomed && looping
+                      ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                      : "border-kiosk-border bg-kiosk-raised text-white",
+                  ])}>
+                  {t`Zoom`}
+                </button>
+                <button
+                  type_="button"
+                  onClick={_ => setOverlayOn(value => !value)}
+                  className={cx([
+                    "border-2 px-4 py-2 text-sm font-extrabold",
+                    overlayOn
+                      ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                      : "border-kiosk-border bg-kiosk-raised text-white",
+                  ])}>
+                  {t`Overlay`}
+                </button>
+                <button
+                  type_="button"
+                  onClick={_ => setSlow(value => !value)}
+                  className={cx([
+                    "border-2 px-4 py-2 text-sm font-extrabold",
+                    slow
+                      ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                      : "border-kiosk-border bg-kiosk-raised text-white",
+                  ])}>
+                  {React.string(slow ? "0.5x" : "1x")}
+                </button>
+              </div>
+            </div>
+          </>
+        : React.null}
+    </div>
+  }
+}
+
 module DoneButton = {
   @react.component
   let make = (~onClick: unit => unit) => {
@@ -403,6 +918,8 @@ module SettingsPanel = {
     ~onSelect: option<string> => unit,
     ~captureMode: CaptureSession.mode,
     ~onSelectMode: CaptureSession.mode => unit,
+    ~testMode: bool,
+    ~onToggleTestMode: unit => unit,
     ~onClose: unit => unit,
   ) => {
     let optionClass = selected =>
@@ -541,6 +1058,29 @@ module SettingsPanel = {
                 </span>
               </span>
             </button>
+            <button
+              type_="button"
+              ariaPressed={testMode ? #"true" : #"false"}
+              onClick={_ => onToggleTestMode()}
+              className={optionClass(testMode)}>
+              <span
+                className={cx([
+                  "flex h-12 w-12 shrink-0 items-center justify-center border-2",
+                  testMode ? "border-kiosk-bg/30" : "border-kiosk-border",
+                ])}>
+                <Lucide.Dices \"aria-hidden"="true" size=22 />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block font-extrabold leading-tight"> {t`Test mode`} </span>
+                <span
+                  className={cx([
+                    "mt-1 block text-sm",
+                    testMode ? "text-kiosk-bg/70" : "text-kiosk-muted",
+                  ])}>
+                  {t`No camera: Challenge runs on the server's fixed test clip.`}
+                </span>
+              </span>
+            </button>
           </div>
         </div>
       </div>
@@ -555,16 +1095,16 @@ module LiveActionControls = {
     ~bufferStatus: option<CaptureSession.status>,
     ~clipEnabled: bool,
     ~clipping: bool,
+    ~testMode: bool,
     ~clips: array<clipState>,
     ~onReview: clipState => unit,
   ) => {
-    <section className="mt-4 shrink-0 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:p-6">
+    // Rendered INSIDE the camera overlay (bottom of the video, over a scrim):
+    // no box of its own, compact rows, so the video keeps the screen.
+    <section>
       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
         <div>
-          <h2 className="text-xl font-extrabold text-white"> {t`Choose an action`} </h2>
-          <p className="mt-1 text-sm text-kiosk-muted">
-            {t`The rolling buffer continues while you review.`}
-          </p>
+          <h2 className="text-lg font-extrabold text-white"> {t`Choose an action`} </h2>
         </div>
         <p
           className={cx([
@@ -581,32 +1121,36 @@ module LiveActionControls = {
           }}
         </p>
       </div>
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        {[RallyClip, LineCheck]
+      <div className="mt-3 grid gap-3 sm:grid-cols-2">
+        {[RallyClip, Challenge]
         ->Array.map(action => {
           let icon = switch action {
           | RallyClip => <Lucide.Scissors \"aria-hidden"="true" size=31 strokeWidth=2.4 />
-          | LineCheck => <Lucide.ScanLine \"aria-hidden"="true" size=31 strokeWidth=2.4 />
+          | Challenge => <Lucide.Target \"aria-hidden"="true" size=31 strokeWidth=2.4 />
           }
-          let disabled = action == RallyClip && (!clipEnabled || clipping)
+          let disabled = switch action {
+          | RallyClip => !clipEnabled || clipping
+          // Test mode swaps the buffer for the server's fixed clip.
+          | Challenge => (!clipEnabled && !testMode) || clipping
+          }
           <button
             key={liveActionKey(action)}
             type_="button"
             disabled
             onClick={_ => onAction(action)}
             className={cx([
-              "flex min-h-32 items-center gap-5 border-2 px-5 text-left transition-[background-color,transform] duration-150 ease-out active:translate-y-1",
+              "flex min-h-20 items-center gap-4 border-2 px-4 text-left transition-[background-color,transform] duration-150 ease-out active:translate-y-1",
               action == RallyClip
                 ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg active:bg-kiosk-accentDark"
                 : "border-white bg-white text-kiosk-bg active:bg-white/80",
               disabled ? "cursor-not-allowed opacity-40 active:translate-y-0" : "",
             ])}>
-            <span className="flex h-16 w-16 shrink-0 items-center justify-center border-2 border-kiosk-bg/30">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-kiosk-bg/30">
               icon
             </span>
             <span>
-              <span className="block text-xl font-extrabold leading-tight"> {liveActionName(action)} </span>
-              <span className="mt-2 block text-sm font-medium leading-5 opacity-70">
+              <span className="block text-lg font-extrabold leading-tight"> {liveActionName(action)} </span>
+              <span className="mt-1 block text-xs font-medium leading-4 opacity-70">
                 {action == RallyClip && clipping ? t`Clipping…` : t`Use latest buffered footage`}
               </span>
             </span>
@@ -616,7 +1160,7 @@ module LiveActionControls = {
       </div>
       {clips->Array.length == 0
         ? React.null
-        : <div className="mt-4 flex items-center gap-3 overflow-x-auto">
+        : <div className="mt-3 flex items-center gap-3 overflow-x-auto">
             <p className="shrink-0 font-mono text-xs font-semibold text-kiosk-muted">
               {t`RECENT CLIPS`}
             </p>
@@ -644,12 +1188,12 @@ module ResultPanel = {
   let make = (
     ~modeId: resultMode,
     ~clip: option<clipState>,
+    ~challenge: option<challengeState>,
     ~onDone: unit => unit,
     ~onSaved: unit => unit,
     ~onDelete: unit => unit,
     ~isLiveSession: bool,
   ) => {
-    let (bounceIndex, setBounceIndex) = React.useState(() => 1)
     let eyebrow = isLiveSession ? Some(t`ROLLING BUFFER CAPTURE`) : None
 
     // TODO(kiosk): apart from the rally clip, the result content below is
@@ -703,77 +1247,24 @@ module ResultPanel = {
           <DoneButton onClick=onDone />
         </ResultShell>
       }
-    | LiveResult(LineCheck) => {
-        let bounceFrames = [
-          (t`Approach`, "-0.18 s", "left-[56%] top-[39%]"),
-          (t`Contact`, "0.00 s", "left-[66%] top-[66%]"),
-          (t`Exit`, "+0.14 s", "left-[77%] top-[47%]"),
-        ]
-        let frameCount = bounceFrames->Array.length
-        let (label, time, ballClass) =
-          bounceFrames->Array.getUnsafe(mod(bounceIndex, frameCount))
+    | LiveResult(Challenge) =>
+      switch challenge {
+      | Some(challenge) =>
         <ResultShell
-          title={t`Bounce review`}
-          subtitle={t`Angle ${(bounceIndex + 1)->Int.toString} of ${frameCount->Int.toString}`}
+          title={t`Challenge`}
+          subtitle={t`${challenge.clip.durationSeconds->Float.toFixed(
+              ~digits=0,
+            )}-second buffer · ${challenge.clip.capturedAt}`}
           ?eyebrow>
-          <div className="relative aspect-video overflow-hidden border-2 border-kiosk-border bg-kiosk-court">
-            <span className="absolute inset-y-0 left-[68%] w-1 bg-white/80" />
-            <span className="absolute inset-x-0 top-[72%] h-1 bg-white/80" />
-            <span
-              className={cx([
-                "absolute h-5 w-5 rounded-full border-4 border-kiosk-accent bg-white shadow-[0_0_0_6px_rgba(198,255,61,0.22)]",
-                ballClass,
-              ])}
-            />
-            <div
-              className="absolute bottom-3 left-3 rounded-lg bg-kiosk-bg/85 px-3 py-2 font-mono text-xs font-semibold text-white">
-              label
-              {React.string(" · " ++ time)}
-            </div>
-            {bounceIndex == 1
-              ? <div className="absolute right-3 top-3 rounded-lg bg-red-500 px-4 py-2 text-lg font-extrabold text-white">
-                  {t`OUT`}
-                </div>
-              : React.null}
-          </div>
-          <div className="mt-4 grid grid-cols-[minmax(64px,1fr)_auto_minmax(64px,1fr)] items-center gap-3">
-            <button
-              type_="button"
-              ariaLabel={Lingui.UtilString.t`Previous bounce clip`}
-              onClick={_ => setBounceIndex(i => mod(i + frameCount - 1, frameCount))}
-              className="flex min-h-20 items-center justify-center gap-2 border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border">
-              <Lucide.ChevronLeft \"aria-hidden"="true" size=25 />
-              <span className="hidden sm:inline"> {t`Previous`} </span>
-            </button>
-            <div className="flex gap-2">
-              {bounceFrames
-              ->Array.mapWithIndex((_, index) =>
-                <span
-                  key={index->Int.toString}
-                  className={cx([
-                    "h-3 w-3",
-                    index == bounceIndex ? "bg-kiosk-accent" : "bg-kiosk-border",
-                  ])}
-                />
-              )
-              ->React.array}
-            </div>
-            <button
-              type_="button"
-              ariaLabel={Lingui.UtilString.t`Next bounce clip`}
-              onClick={_ => setBounceIndex(i => mod(i + 1, frameCount))}
-              className="flex min-h-20 items-center justify-center gap-2 border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border">
-              <span className="hidden sm:inline"> {t`Next`} </span>
-              <Lucide.ChevronRight \"aria-hidden"="true" size=25 />
-            </button>
-          </div>
-          <button
-            type_="button"
-            onClick={_ => onDone()}
-            className="mt-4 flex min-h-20 w-full items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark">
-            <Lucide.Check \"aria-hidden"="true" size=23 />
-            {t`Done reviewing`}
-          </button>
+          <ChallengePlayer challenge />
+          <DoneButton onClick=onDone />
+        </ResultShell>
+      | None =>
+        // Analysis still in flight or takeClip failed; the Processing screen
+        // normally covers this — defensive fallback only.
+        <ResultShell title={t`Challenge`} subtitle={t`No footage analyzed`} ?eyebrow>
+          <VideoMock label={t`Challenge`} playLabel={Lingui.UtilString.t`Play challenge`} />
+          <DoneButton onClick=onDone />
         </ResultShell>
       }
     | AnalysisResult(DropShot) =>
@@ -833,6 +1324,11 @@ module SessionWorkspace = {
     ~streamingEnabled: bool,
     ~stream: option<UserMedia.t>,
     ~reviewClip: option<clipState>,
+    ~challenge: option<challengeState>,
+    ~calibOpen: bool,
+    ~onCalibDone: unit => unit,
+    ~onCalibOpen: unit => unit,
+    ~testMode: bool,
     ~clips: array<clipState>,
     ~clipping: bool,
     ~bufferStatus: option<CaptureSession.status>,
@@ -881,6 +1377,7 @@ module SessionWorkspace = {
         <ResultPanel
           modeId=resultMode
           clip=reviewClip
+          challenge
           onDone=onResultDone
           onSaved
           onDelete=onDeleteClip
@@ -899,39 +1396,63 @@ module SessionWorkspace = {
                 ? "grid grid-rows-[minmax(0,1fr)_auto] gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:grid-rows-1"
                 : "",
             ])}>
-            <CameraView
-              sessionLabel streamingEnabled={isLiveSession && streamingEnabled} elapsed stream
-            />
+            <div className="relative h-full min-h-0">
+              <CameraView
+                sessionLabel streamingEnabled={isLiveSession && streamingEnabled} elapsed stream
+              />
+              {isLiveSession && calibOpen
+                ? <KioskCourtCalib stream onDone={() => onCalibDone()} />
+                : React.null}
+              // The live controls FLOAT over the bottom of the video instead
+              // of stacking below it: on short screens the stacked layout
+              // squeezed the feed into a strip. The scrim keeps the white
+              // cards readable over any footage; pointer-events split so the
+              // transparent upper region still lets the video be tapped.
+              {isLiveSession
+                ? <div
+                    className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 pt-16 sm:p-4 sm:pt-20">
+                    <div className="pointer-events-auto">
+                      <LiveActionControls
+                        onAction=onLiveAction
+                        bufferStatus
+                        clipEnabled
+                        clipping
+                        testMode
+                        clips
+                        onReview=onReviewClip
+                      />
+                      <div className="mt-3 flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="flex h-9 w-9 items-center justify-center border-2 border-red-400/40 bg-red-500/15">
+                            <span className="h-2.5 w-2.5 bg-red-500" />
+                          </span>
+                          <p className="text-sm font-extrabold text-white">
+                            {t`Rolling buffer active`}
+                          </p>
+                        </div>
+                        <button
+                          type_="button"
+                          onClick={_ => onCalibOpen()}
+                          className="mr-2 flex min-h-12 shrink-0 items-center justify-center gap-2 border-2 border-white/30 bg-black/40 px-4 text-sm font-extrabold text-white active:bg-white/10">
+                          {t`Court setup`}
+                        </button>
+                        <button
+                          type_="button"
+                          onClick={_ => onEndLive()}
+                          className="flex min-h-12 shrink-0 items-center justify-center gap-2 border-2 border-red-400/50 bg-red-500/20 px-5 text-sm font-extrabold text-red-200 transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/30">
+                          <Lucide.Square \"aria-hidden"="true" className="fill-current" size=16 />
+                          {t`End session`}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                : React.null}
+            </div>
             {isLiveSession && streamingEnabled ? <LiveStreamShare /> : React.null}
           </div>
           {isLiveSession
-            ? <>
-                <LiveActionControls
-                  onAction=onLiveAction bufferStatus clipEnabled clipping clips onReview=onReviewClip
-                />
-                <div
-                  className="mt-4 flex shrink-0 flex-col gap-4 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:flex-row sm:items-stretch sm:justify-between sm:p-5">
-                  <div className="flex min-h-20 items-center gap-4">
-                    <span
-                      className="relative flex h-14 w-14 items-center justify-center border-2 border-red-400/40 bg-red-500/15">
-                      <span className="h-3 w-3 bg-red-500" />
-                    </span>
-                    <div>
-                      <p className="text-lg font-extrabold text-white"> {t`Rolling buffer active`} </p>
-                      <p className="text-sm text-kiosk-muted">
-                        {t`Clip and line-check actions are ready at any time.`}
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    type_="button"
-                    onClick={_ => onEndLive()}
-                    className="flex min-h-20 shrink-0 items-center justify-center gap-3 border-2 border-red-400/50 bg-red-500/10 px-7 text-lg font-extrabold text-red-200 transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/25">
-                    <Lucide.Square \"aria-hidden"="true" className="fill-current" size=20 />
-                    {t`End session`}
-                  </button>
-                </div>
-              </>
+            ? React.null // live controls are overlaid on the video above
             : <div
                 className="mt-4 flex shrink-0 flex-col gap-4 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:flex-row sm:items-stretch sm:justify-between sm:p-5">
                 <div className="flex min-h-20 items-center gap-4">
@@ -972,6 +1493,7 @@ let make = () => {
   let (cameras, setCameras) = React.useState(() => [])
   let (selectedCameraId, setSelectedCameraId) = React.useState(() => None)
   let (captureMode, setCaptureMode) = React.useState(() => CaptureSession.LocalRing)
+  let (testMode, setTestMode) = React.useState(() => false)
   // The live capture session (rolling buffer). A ref, not state: handlers
   // need the current session without re-rendering on session identity.
   let sessionRef: React.ref<option<CaptureSession.t>> = React.useRef(None)
@@ -981,6 +1503,10 @@ let make = () => {
   // whether a takeClip is currently in flight.
   let (clips, setClips) = React.useState(() => ([]: array<clipState>))
   let (reviewClip, setReviewClip) = React.useState(() => (None: option<clipState>))
+  let (challenge, setChallenge) = React.useState(() => (None: option<challengeState>))
+  // Court calibration overlay: opens when a live session starts (prefilled
+  // from the last confirmed corners), reopenable from the session controls.
+  let (calibOpen, setCalibOpen) = React.useState(() => false)
   let (clipping, setClipping) = React.useState(() => false)
   let clipsRef: React.ref<array<clipState>> = React.useRef([])
 
@@ -989,6 +1515,10 @@ let make = () => {
   React.useEffect0(() => {
     switch getStoredItem(cameraStorageKey)->Nullable.toOption {
     | Some(id) if id != "" => setSelectedCameraId(_ => Some(id))
+    | _ => ()
+    }
+    switch getStoredItem(testModeStorageKey)->Nullable.toOption {
+    | Some("1") => setTestMode(_ => true)
     | _ => ()
     }
     switch getStoredItem(CaptureSession.modeStorageKey)
@@ -1015,7 +1545,11 @@ let make = () => {
   // check and the analysis modes. The rally-clip path is real now — it
   // resolves itself via takeClip — so it is excluded here.
   React.useEffect2(() => {
-    if stage == Processing && resultMode != LiveResult(RallyClip) {
+    if (
+      stage == Processing &&
+      resultMode != LiveResult(RallyClip) &&
+      resultMode != LiveResult(Challenge)
+    ) {
       let timer = setTimeout(() => setStage(_ => Result), 1400)
       Some(() => clearTimeout(timer))
     } else {
@@ -1158,7 +1692,7 @@ let make = () => {
         let videoInputs = if needsPriming {
           try {
             let primed = await devices->UserMedia.getUserMedia(
-              UserMedia.constraintsFor(~deviceId=None),
+              UserMedia.constraintsFor(~deviceId=None, ~mode=BrowserDefault),
             )
             primed->UserMedia.stopAll
             let all = await devices->UserMedia.enumerateDevices
@@ -1224,7 +1758,15 @@ let make = () => {
   // Ask for the device camera (with mic in live sessions, for clip audio) and
   // show the live feed in the session workspace.
   let startSession = async () => {
-    switch UserMedia.mediaDevices->Nullable.toOption {
+    if testMode && category == Live {
+      // No camera required: the placeholder court renders, the buffer stays
+      // empty, and Challenge uses the server's fixed test clip. Calibration
+      // is skipped — the test clip carries its own court pkl server-side.
+      setStream(_ => None)
+      setElapsed(_ => 0)
+      setStage(_ => Active)
+    } else {
+      switch UserMedia.mediaDevices->Nullable.toOption {
     | None => setNotice(_ => Some(CameraError))
     | Some(devices) =>
       switch await acquireStream(devices, ~deviceId=selectedCameraId, ~wantAudio=category == Live) {
@@ -1232,8 +1774,12 @@ let make = () => {
           setStream(_ => Some(cameraStream))
           setElapsed(_ => 0)
           setStage(_ => Active)
+          if category == Live {
+            setCalibOpen(_ => true)
+          }
         }
       | None => setNotice(_ => Some(CameraError))
+      }
       }
     }
   }
@@ -1278,10 +1824,77 @@ let make = () => {
         }
         run()->ignore
       }
-    // TODO(kiosk): the line check is still a mock flow.
-    | LineCheck => {
-        setResultMode(_ => LiveResult(LineCheck))
+    // Challenge: freeze the buffer into a clip, ship it to the dinkhunt
+    // analysis server, and review its ground bounces. The clip is reviewable
+    // even when analysis fails (the error shows in the panel).
+    | Challenge =>
+      if !clipping {
+        setClipping(_ => true)
+        setResultMode(_ => LiveResult(Challenge))
         setStage(_ => Processing)
+        let run = async () => {
+          if testMode {
+            // Fixed test clip: fetch it for playback, analyze it BY NAME on
+            // the server (it already holds the file — nothing to upload).
+            switch await DinkHunt.fetchTestClip() {
+            | Ok(blobData) => {
+                let url = CaptureSession.createObjectURL(blobData)
+                let duration = await DinkHunt.urlDuration(url)
+                let clip = {
+                  url,
+                  durationSeconds: duration,
+                  hasAudio: false,
+                  capturedAt: timeLabel(),
+                }
+                let (bounces, paths, frameW, frameH, fps, error) = switch await DinkHunt.testChallengeAnalysis() {
+                | Ok(a) => (a.bounces, a.paths, a.width, a.height, a.fps, None)
+                | Error(message) => ([], [], 1920, 1080, 30., Some(message))
+                }
+                setChallenge(_ => Some({clip, bounces, paths, frameW, frameH, fps, error}))
+                setStage(_ => Result)
+              }
+            | Error(message) => {
+                Js.Console.error2("[kiosk] test clip fetch failed:", message)
+                setNotice(_ => Some(TestClipMissing))
+                setStage(_ => Active)
+              }
+            }
+            setClipping(_ => false)
+          } else {
+          switch sessionRef.current {
+          | Some(session) =>
+            switch await session.takeClip(~seconds=challengeSeconds) {
+            | Ok(result) => {
+                let clip = {
+                  url: CaptureSession.createObjectURL(result.blob),
+                  durationSeconds: result.durationSeconds,
+                  hasAudio: result.hasAudio,
+                  capturedAt: timeLabel(),
+                }
+                let (bounces, paths, frameW, frameH, fps, error) = switch await DinkHunt.challengeBounces(
+                  result.blob,
+                ) {
+                | Ok((_upload, a)) => (a.bounces, a.paths, a.width, a.height, a.fps, None)
+                | Error(message) => ([], [], 1920, 1080, 30., Some(message))
+                }
+                setChallenge(_ => Some({clip, bounces, paths, frameW, frameH, fps, error}))
+                setStage(_ => Result)
+              }
+            | Error(error) => {
+                Js.Console.error2("[kiosk] challenge takeClip failed:", error)
+                setNotice(_ => Some(ClipFailed))
+                setStage(_ => Active)
+              }
+            }
+          | None => {
+              setNotice(_ => Some(ClipFailed))
+              setStage(_ => Active)
+            }
+          }
+          setClipping(_ => false)
+          }
+        }
+        run()->ignore
       }
     }
 
@@ -1312,6 +1925,11 @@ let make = () => {
 
   let handleResultDone = () => {
     setReviewClip(_ => None)
+    switch challenge {
+    | Some(existing) => releaseClip(existing.clip)
+    | None => ()
+    }
+    setChallenge(_ => None)
     switch category {
     | Live => setStage(_ => Active)
     | Analysis => resetSession()
@@ -1397,6 +2015,11 @@ let make = () => {
               streamingEnabled
               stream
               reviewClip
+              challenge
+              calibOpen
+              onCalibDone={() => setCalibOpen(_ => false)}
+              onCalibOpen={() => setCalibOpen(_ => true)}
+              testMode
               clips
               clipping
               bufferStatus=captureStatus
@@ -1522,11 +2145,11 @@ let make = () => {
                       {t`No action selection is needed before starting.`}
                     </p>
                     <div className="mt-5 overflow-hidden border-2 border-kiosk-border bg-kiosk-surface">
-                      {[RallyClip, LineCheck]
+                      {[RallyClip, Challenge]
                       ->Array.mapWithIndex((action, index) => {
                         let icon = switch action {
                         | RallyClip => <Lucide.Scissors \"aria-hidden"="true" size=28 />
-                        | LineCheck => <Lucide.ScanLine \"aria-hidden"="true" size=28 />
+                        | Challenge => <Lucide.Target \"aria-hidden"="true" size=28 />
                         }
                         <div
                           key={liveActionKey(action)}
@@ -1575,6 +2198,12 @@ let make = () => {
     </main>
     {settingsOpen
       ? <SettingsPanel
+          testMode
+          onToggleTestMode={() => {
+            let next = !testMode
+            setTestMode(_ => next)
+            setStoredItem(testModeStorageKey, next ? "1" : "0")
+          }}
           cameras
           selectedCameraId
           onSelect={deviceId => selectCamera(deviceId)->ignore}
@@ -1594,6 +2223,8 @@ let make = () => {
         | LiveEnded => t`Live session ended`
         | CameraError => t`Camera unavailable — check permissions and try again`
         | ClipFailed => t`Could not create the clip — the buffer keeps recording`
+        | TestClipMissing =>
+          t`Test clip not found — put test_challenge.mov in the dinkhunt folder (and restart nothing; it is picked up live)`
         | ClipDownloaded => t`Clip downloaded`
         }}
       </div>

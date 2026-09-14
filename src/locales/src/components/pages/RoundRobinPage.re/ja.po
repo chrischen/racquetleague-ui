@@ -67,7 +67,7 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
-#: src/components/organisms/RoundRobin.re.mjs:840
+#: src/components/organisms/RoundRobin.re.mjs:844
 msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
@@ -87,7 +87,7 @@ msgstr "チェックイン済みのプレイヤーは全員このラウンドに
 msgid "Alternate favourite/underdog roles"
 msgstr "お気に入り／アンダードッグの役割を交互に"
 
-#: src/components/organisms/RoundRobin.re.mjs:940
+#: src/components/organisms/RoundRobin.re.mjs:944
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -213,11 +213,11 @@ msgstr "カスタム"
 msgid "Customize from here"
 msgstr "ここからカスタマイズ"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
@@ -368,7 +368,7 @@ msgstr "ゲスト名（1行に1名）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
 
-#: src/components/organisms/RoundRobin.re.mjs:1079
+#: src/components/organisms/RoundRobin.re.mjs:1083
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -529,7 +529,7 @@ msgstr ""
 "プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチー"
 "ムで総当たり戦を行います。"
 
-#: src/components/organisms/RoundRobin.re.mjs:693
+#: src/components/organisms/RoundRobin.re.mjs:697
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr "Chrome、Firefox、またはSafariの最新バージョンに更新してください。"
 
@@ -611,7 +611,7 @@ msgstr "ラウンド{0}"
 msgid "Round Robin"
 msgstr "総当たり戦"
 
-#: src/components/organisms/RoundRobin.re.mjs:1067
+#: src/components/organisms/RoundRobin.re.mjs:1071
 msgid "Round Robin Tournament"
 msgstr "ラウンドロビン組み合わせ"
 
@@ -688,7 +688,7 @@ msgid "Strategy:"
 msgstr "戦略："
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:683
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -779,7 +779,7 @@ msgstr "VS"
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
-#: src/components/organisms/RoundRobin.re.mjs:689
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Your browser is too old to use this feature."
 msgstr "この機能を使用するには、ブラウザが古すぎます。"
 

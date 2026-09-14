@@ -992,15 +992,40 @@ module RatingAdjustment = {
   type t = {
     playerId: string,
     differential: float, // Amount to adjust mu by
+    // Amount to adjust sigma by, normally negative: a seed an organiser has set
+    // by hand is a statement of knowledge, and the rating engine should treat
+    // it as one. Left at the pool's default uncertainty, the next result would
+    // move the player as far as if nothing were known about them, and the seed
+    // would be gone within a game or two. Additive rather than a target so the
+    // replay can invert it exactly (see `RatingBaseline.reconstruct`). Zero on
+    // records written before this field existed.
+    sigmaDifferential: float,
     appliedAtRound: int, // Which round this adjustment was applied (0 = before any matches)
     timestamp: float, // When the adjustment was made (Js.Date.now())
   }
+
+  // The uncertainty a hand-set seed carries. Half the cold-start default, which
+  // is where a pool's mean sigma settles after a long session (measured ~4.1
+  // over 80 rounds; see the error-floor note in `CostModel`): the organiser's
+  // judgement is credited with about as much evidence as a season of results.
+  let seededSigma = Rating.makeDefault().sigma /. 2.
+
+  // Never below this, whatever the replay adds up to. Sigma at 1 is already an
+  // assertion no rating here can earn; below it openskill's updates degenerate.
+  let minSigma = 1.
+
+  // The sigma change to record for a seed set while the player's sigma is
+  // `currentSigma`. Only ever tightens: a player the engine is already surer
+  // about than the seed target keeps that certainty.
+  let sigmaDifferentialFor = (currentSigma: float): float =>
+    Js.Math.min_float(0., seededSigma -. currentSigma)
 
   // Serialize to JSON
   let toJson = (adj: t): Js.Json.t => {
     let dict = Js.Dict.empty()
     dict->Js.Dict.set("playerId", adj.playerId->Js.Json.string)
     dict->Js.Dict.set("differential", adj.differential->Js.Json.number)
+    dict->Js.Dict.set("sigmaDifferential", adj.sigmaDifferential->Js.Json.number)
     dict->Js.Dict.set("appliedAtRound", adj.appliedAtRound->Int.toFloat->Js.Json.number)
     dict->Js.Dict.set("timestamp", adj.timestamp->Js.Json.number)
     dict->Js.Json.object_
@@ -1021,6 +1046,11 @@ module RatingAdjustment = {
         Some({
           playerId,
           differential,
+          // Absent on history written before seeds tightened sigma.
+          sigmaDifferential: dict
+          ->Js.Dict.get("sigmaDifferential")
+          ->Option.flatMap(v => v->Js.Json.decodeNumber)
+          ->Option.getOr(0.),
           appliedAtRound: appliedAtRound->Float.toInt,
           timestamp,
         })
@@ -2948,22 +2978,37 @@ let getDeprioritizedPlayers = (
 
 // Process a single timeline event (either adjustments or a round of matches)
 // Returns updated player state after applying the event
-let processTimelineEvent = (players: array<Player.t<'a>>, event: TimelineEvent.t<'a>): array<
-  Player.t<'a>,
-> => {
+// Whether a player's *base* rating — the one the fold starts from — already
+// carries the matches marked `synced`. Once the server has folded a match into a
+// player's rating and handed the result back, replaying that match on top of it
+// counts it twice. `RatingBaseline` answers this per player by comparing the
+// current base with the rating they started the session on; `_ => false` is the
+// plain fold that trusts nothing has moved.
+type baseIncludesSynced = string => bool
+
+let processTimelineEvent = (
+  players: array<Player.t<'a>>,
+  event: TimelineEvent.t<'a>,
+  ~baseIncludesSynced: baseIncludesSynced=_ => false,
+): array<Player.t<'a>> => {
   switch event {
   | Adjustment(adjustments) =>
-    // Apply rating adjustments (only adjust mu, keep sigma unchanged)
+    // Apply rating adjustments: mu moves by the differential, and sigma tightens
+    // by the sigma differential, floored so a replay whose earlier history has
+    // since changed cannot drive it to nothing.
     players->Array.map(player => {
-      let totalAdjustment =
-        adjustments
-        ->Array.filter(adj => adj.playerId == player.id)
-        ->Array.reduce(0.0, (sum, adj) => sum +. adj.differential)
+      let mine = adjustments->Array.filter(adj => adj.playerId == player.id)
+      let totalAdjustment = mine->Array.reduce(0.0, (sum, adj) => sum +. adj.differential)
+      let totalSigmaAdjustment =
+        mine->Array.reduce(0.0, (sum, adj) => sum +. adj.sigmaDifferential)
 
-      if totalAdjustment != 0.0 {
+      if totalAdjustment != 0.0 || totalSigmaAdjustment != 0.0 {
         let currentMu = player.rating.mu
         let currentSigma = player.rating.sigma
-        let adjustedRating = Rating.make(currentMu +. totalAdjustment, currentSigma)
+        let adjustedRating = Rating.make(
+          currentMu +. totalAdjustment,
+          Js.Math.max_float(RatingAdjustment.minSigma, currentSigma +. totalSigmaAdjustment),
+        )
         {
           ...player,
           rating: adjustedRating,
@@ -2975,10 +3020,19 @@ let processTimelineEvent = (players: array<Player.t<'a>>, event: TimelineEvent.t
     })
 
   | Round(matches) =>
-    // Process a round of matches: update counts and ratings
+    // Process a round of matches: update counts and ratings.
+    //
+    // A match is rated from the state the fold has reached, not from the players
+    // embedded in it. The embedded copies are the ratings at the moment the draw
+    // was made, and they go stale: a round drawn before earlier results were
+    // entered still holds the pre-result numbers, and strategies that do not
+    // rebuild future draws after a score never refresh them. Only the fold's own
+    // state is the rating a player actually held going into the match — which
+    // is also what the server folds from.
+    let running = players->Array.map(p => (p.id, p))->Map.fromArray
     let (countIncrements, ratingUpdates) = matches->Array.reduce((Map.make(), Map.make()), (
       (counts, ratings),
-      {match: m, score},
+      {match: m, score, synced},
     ) => {
       let (team1, team2) = m
       let allPlayers = Array.concat(team1, team2)
@@ -2990,15 +3044,22 @@ let processTimelineEvent = (players: array<Player.t<'a>>, event: TimelineEvent.t
         map
       })
 
-      // Update ratings if match was scored
-      let newRatings = switch (m, score)->CompletedMatch.rate {
+      // Update ratings if match was scored. A synced match whose result the
+      // server has already folded into a player's base is skipped for that
+      // player only; their opponents' bases may not have moved.
+      let current = m->Match.mapPlayers(p => running->Map.get(p.id)->Option.getOr(p))
+      let newRatings = switch (current, score)->CompletedMatch.rate {
       | None => ratings
       | Some(updatedTeams) =>
         updatedTeams
         ->Array.flat
         ->Array.reduce(ratings, (map, player) => {
-          map->Map.set(player.id, player.rating)
-          map
+          if synced && baseIncludesSynced(player.id) {
+            map
+          } else {
+            map->Map.set(player.id, player.rating)
+            map
+          }
         })
       }
 
@@ -3030,9 +3091,10 @@ let processTimelineEvent = (players: array<Player.t<'a>>, event: TimelineEvent.t
 let updatePlayerState = (
   ~players: array<Player.t<'a>>,
   ~timeline: array<TimelineEvent.t<'a>>,
+  ~baseIncludesSynced: baseIncludesSynced=_ => false,
 ): array<Player.t<'a>> => {
   timeline->Array.reduce(players, (currentPlayers, event) => {
-    processTimelineEvent(currentPlayers, event)
+    processTimelineEvent(currentPlayers, event, ~baseIncludesSynced)
   })
 }
 
@@ -3046,16 +3108,21 @@ let updatePlayerState = (
 //    a. Adjustments with appliedAtRound = N (before round N starts)
 //    b. Round N matches (rating changes from wins/losses)
 // 3. Final adjustments (appliedAtRound = rounds.length, after all rounds)
+//
+// `baseIncludesSynced` (see the type above) lets a caller whose base ratings
+// have been refreshed from the server after a sync leave the synced matches out
+// of the fold for the players they have already reached.
 let toPlayerStateWithAdjustments = (
   rounds: array<array<CompletedMatchEntity.t<'a>>>,
   ~players: array<Player.t<'a>>,
   ~adjustments: array<RatingAdjustment.t>,
+  ~baseIncludesSynced: baseIncludesSynced=_ => false,
 ): array<Player.t<'a>> => {
   // Build timeline from rounds and adjustments
   let timeline = TimelineEvent.fromRoundsAndAdjustments(rounds, adjustments)
 
   // Process timeline events sequentially
-  let finalPlayers = updatePlayerState(~players, ~timeline)
+  let finalPlayers = updatePlayerState(~players, ~timeline, ~baseIncludesSynced)
 
   finalPlayers
 }
@@ -3373,6 +3440,27 @@ let drawProbability = (match: Match.t<'a>, ~truth: option<array<float>>) => {
     Js.Math.min_float(1.0, Rating.predictDraw([ratingsOf(team1), ratingsOf(team2)])),
   )
 }
+
+// The draw likelihood of a perfectly even doubles game at the fixed draw
+// sigma: the ceiling `drawProbability` reaches with truth supplied, and the
+// unit every user-facing quality figure is expressed in. Match quality is
+// reported as `evenness`, draw likelihood over this ceiling, so 100% means a
+// perfectly even matchup.
+//
+// Why not the raw number: openskill documents its draw figure as meaningful
+// only relative to other matches, and its absolute scale has already moved
+// once — 4.0 -> 4.1 took this ceiling from 0.84 to 0.18 by fixing a doubled
+// pairwise sum and narrowing the assumed draw band (see the sentinel in
+// SimLab.test.ts). Dividing by the ceiling makes charts, prose and thresholds
+// immune to the next such change. Predicted quality reads live sigma and can
+// nose above the ceiling when a rating is surer than the draw sigma, hence the
+// clamp.
+let evenGameDraw = {
+  let even = Rating.make(25.0, drawSigma)
+  Rating.predictDraw([[even, even], [even, even]])
+}
+
+let evenness = (drawProb: float): float => Js.Math.min_float(1.0, drawProb /. evenGameDraw)
 
 // --- One simulated event ----------------------------------------------------
 

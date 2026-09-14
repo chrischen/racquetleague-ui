@@ -160,3 +160,16 @@ let scrollToGroup: string => unit = %raw(`function(key) {
   var el = document.getElementById("bucket-" + key);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }`)
+
+/** How far ahead the events pages ask for availability. The availability
+ feature only accepts availability up to this many days out, so anything
+ further is rows the server looks up for days nobody can see: at 28 days the
+ events page fetched about twice the court and player rows it could show. */
+let availabilityWindowDays = 14.
+
+let dateOnly = (d: Js.Date.t) => d->Js.Date.toISOString->String.slice(~start=0, ~end=10)
+
+let availabilityFromDate = () => Js.Date.make()->dateOnly
+
+let availabilityToDate = () =>
+  Js.Date.fromFloat(Js.Date.now() +. availabilityWindowDays *. 86400000.)->dateOnly

@@ -67,7 +67,7 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
-#: src/components/organisms/RoundRobin.re.mjs:840
+#: src/components/organisms/RoundRobin.re.mjs:844
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 轮"
 
@@ -87,7 +87,7 @@ msgstr "所有已报到的球员都已在这个回合中"
 msgid "Alternate favourite/underdog roles"
 msgstr "交替强弱角色"
 
-#: src/components/organisms/RoundRobin.re.mjs:940
+#: src/components/organisms/RoundRobin.re.mjs:944
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -213,11 +213,11 @@ msgstr "自定义"
 msgid "Customize from here"
 msgstr "从此处自定义"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: ON"
 msgstr "调试：开启"
 
@@ -364,7 +364,7 @@ msgstr "访客姓名（每行一个）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "扫描遇到问题？请尝试从俱乐部页面查找活动。"
 
-#: src/components/organisms/RoundRobin.re.mjs:1079
+#: src/components/organisms/RoundRobin.re.mjs:1083
 msgid "Help"
 msgstr "帮助"
 
@@ -519,7 +519,7 @@ msgid ""
 "with teams balanced by skill."
 msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍进行循环赛。"
 
-#: src/components/organisms/RoundRobin.re.mjs:693
+#: src/components/organisms/RoundRobin.re.mjs:697
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr "请更新至最新版本的 Chrome、Firefox 或 Safari。"
 
@@ -599,7 +599,7 @@ msgstr "第 {0} 回合"
 msgid "Round Robin"
 msgstr "循环赛"
 
-#: src/components/organisms/RoundRobin.re.mjs:1067
+#: src/components/organisms/RoundRobin.re.mjs:1071
 msgid "Round Robin Tournament"
 msgstr "循环赛抽签"
 
@@ -676,7 +676,7 @@ msgid "Strategy:"
 msgstr "策略："
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:683
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -765,7 +765,7 @@ msgstr "VS"
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
-#: src/components/organisms/RoundRobin.re.mjs:689
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Your browser is too old to use this feature."
 msgstr "您的浏览器版本过低，无法使用此功能。"
 

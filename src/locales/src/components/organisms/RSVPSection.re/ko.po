@@ -17,8 +17,8 @@ msgstr ""
 msgid "+{0} more"
 msgstr "+{0}명 더"
 
-#: src/components/organisms/RSVPSection.re.mjs:760
-#: src/components/organisms/RSVPSection.re.mjs:855
+#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:1016
 msgid "Add Member"
 msgstr "멤버 추가"
 
@@ -38,7 +38,11 @@ msgstr "취소"
 msgid "Capture payment"
 msgstr "결제 승인"
 
-#: src/components/organisms/RSVPSection.re.mjs:777
+#: src/components/organisms/RSVPSection.re.mjs:325
+msgid "Clear preview"
+msgstr "미리보기 지우기"
+
+#: src/components/organisms/RSVPSection.re.mjs:933
 msgid "Collapse"
 msgstr "접기"
 
@@ -46,7 +50,7 @@ msgstr "접기"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/components/organisms/RSVPSection.re.mjs:175
+#: src/components/organisms/RSVPSection.re.mjs:292
 msgid "Evaluating pending requests…"
 msgstr "대기 중인 요청 평가 중…"
 
@@ -62,11 +66,11 @@ msgstr "이벤트 참가"
 msgid "Join Waitlist"
 msgstr "대기자 명단 등록"
 
-#: src/components/organisms/RSVPSection.re.mjs:871
+#: src/components/organisms/RSVPSection.re.mjs:1032
 msgid "Load more"
 msgstr "더 불러오기"
 
-#: src/components/organisms/RSVPSection.re.mjs:868
+#: src/components/organisms/RSVPSection.re.mjs:1029
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -91,14 +95,26 @@ msgstr "미납"
 msgid "Paid"
 msgstr "납부됨"
 
-#: src/components/organisms/PendingRsvps.re.mjs:58
+#: src/components/organisms/PendingRsvps.re.mjs:60
 msgid "Pending"
 msgstr "대기 중"
+
+#: src/components/organisms/RSVPSection.re.mjs:301
+msgid "Placing on the waitlist…"
+msgstr "대기자 명단에 등록 중…"
 
 #: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "플레이어"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Preview Smart RSVP"
+msgstr "스마트 RSVP 미리보기"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Previewing…"
+msgstr "미리보는 중…"
 
 #: src/components/organisms/RsvpOptions.re.mjs:190
 msgid "Refund payment"
@@ -112,13 +128,13 @@ msgstr "이벤트에서 제거"
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
-#: src/components/organisms/RSVPSection.re.mjs:513
+#: src/components/organisms/RSVPSection.re.mjs:664
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "필요 레이팅: {0} (DUPR {1})"
 
-#: src/components/organisms/RSVPSection.re.mjs:636
-#: src/components/organisms/RSVPSection.re.mjs:675
-#: src/components/organisms/RSVPSection.re.mjs:799
+#: src/components/organisms/RSVPSection.re.mjs:787
+#: src/components/organisms/RSVPSection.re.mjs:826
+#: src/components/organisms/RSVPSection.re.mjs:955
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -126,15 +142,15 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "RSVP 처리 중..."
 
-#: src/components/organisms/RSVPSection.re.mjs:186
+#: src/components/organisms/RSVPSection.re.mjs:310
 msgid "Run Smart RSVP (best-fit, test)"
 msgstr "스마트 RSVP 실행(최적 매칭, 테스트)"
 
-#: src/components/organisms/RSVPSection.re.mjs:175
+#: src/components/organisms/RSVPSection.re.mjs:292
 msgid "Run Smart RSVP now"
 msgstr "지금 스마트 RSVP 실행"
 
-#: src/components/organisms/RSVPSection.re.mjs:327
+#: src/components/organisms/RSVPSection.re.mjs:465
 msgid "Save"
 msgstr "저장"
 
@@ -146,7 +162,18 @@ msgstr "전체 보기"
 msgid "Show less"
 msgstr "간략히 보기"
 
-#: src/components/organisms/RSVPSection.re.mjs:501
+#: src/components/organisms/RSVPSection.re.mjs:323
+msgid ""
+"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr ""
+"스마트 RSVP가 대기 중인 요청 {1}건 중 {0}건을 수락합니다. 위에 표시되어 있습"
+"니다."
+
+#: src/components/organisms/RSVPSection.re.mjs:301
+msgid "Smart Waitlist"
+msgstr "스마트 대기자 명단"
+
+#: src/components/organisms/RSVPSection.re.mjs:652
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -171,8 +198,8 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/RSVPSection.re.mjs:311
-#: src/components/organisms/RSVPSection.re.mjs:312
+#: src/components/organisms/RSVPSection.re.mjs:449
+#: src/components/organisms/RSVPSection.re.mjs:450
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정입니다.'"
@@ -184,6 +211,10 @@ msgstr "프로필 보기"
 #: src/components/organisms/RsvpWaitlist.re.mjs:60
 msgid "Waitlist"
 msgstr "대기자 명단"
+
+#: src/components/organisms/PendingRsvps.re.mjs:82
+msgid "Would be admitted"
+msgstr "수락 예정"
 
 #: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
@@ -197,7 +228,7 @@ msgstr "참가 중"
 msgid "You're Waitlisted"
 msgstr "대기 중"
 
-#: src/components/organisms/RSVPSection.re.mjs:515
+#: src/components/organisms/RSVPSection.re.mjs:666
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

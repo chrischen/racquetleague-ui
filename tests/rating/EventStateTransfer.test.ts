@@ -23,6 +23,7 @@ type Entity = {
 type Adjustment = {
   playerId: string;
   differential: number;
+  sigmaDifferential: number;
   appliedAtRound: number;
   timestamp: number;
 };
@@ -62,7 +63,7 @@ const adjustment = (
   appliedAtRound: number,
   timestamp = 1000,
   differential = 1.5,
-): Adjustment => ({ playerId, differential, appliedAtRound, timestamp });
+): Adjustment => ({ playerId, differential, sigmaDifferential: 0, appliedAtRound, timestamp });
 
 const encode = (rounds: Entity[][], adjustments: Adjustment[] = []) =>
   Transfer.encode("evt", 1_700_000_000_000, rounds, adjustments);

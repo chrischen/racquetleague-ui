@@ -52,6 +52,9 @@ let make = (
   ~activitySlug: option<string>=?,
   ~maxRating: float,
   ~className: option<string>=?,
+  // From a Smart RSVP preview: the ids of the RSVPs here the next run would
+  // admit. They are marked; nothing has moved.
+  ~previewAdmittedIds: option<array<string>>=?,
 ) => {
   let eventData = Fragment.use(event)
   let rsvps = eventData.rsvps->Fragment.getConnectionNodes
@@ -69,18 +72,32 @@ let make = (
       />
       <div className="flex flex-wrap gap-3">
         {restrictedRsvps
-        ->Array.map(edge =>
-          <EventRsvp
-            eventId=eventData.id
-            key={edge.id}
-            rsvp={edge.fragmentRefs}
-            viewer
-            activitySlug
-            maxRating
-            isAdmin=eventData.viewerIsAdmin
-            eventPrice=?eventData.price
-          />
-        )
+        ->Array.map(edge => {
+          let card =
+            <EventRsvp
+              eventId=eventData.id
+              key={edge.id}
+              rsvp={edge.fragmentRefs}
+              viewer
+              activitySlug
+              maxRating
+              isAdmin=eventData.viewerIsAdmin
+              eventPrice=?eventData.price
+            />
+          let wouldBeAdmitted =
+            previewAdmittedIds->Option.map(ids => ids->Array.includes(edge.id))->Option.getOr(false)
+          wouldBeAdmitted
+            ? <div
+                key={edge.id}
+                className="relative rounded-xl ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900">
+                <span
+                  className="absolute -top-2 left-2 z-10 rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  {t`Would be admitted`}
+                </span>
+                card
+              </div>
+            : card
+        })
         ->React.array}
       </div>
     </div>

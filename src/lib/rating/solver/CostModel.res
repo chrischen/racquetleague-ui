@@ -460,13 +460,40 @@ let readinessRatio = (players: array<Player.t<'a>>): float => {
   }
 }
 
-// Ratio -> blend position. 0.30 is just above a cold-start pool (measured
-// ~0.24 after one round); 0.75 is the "ratings have settled" criterion, where
-// pools land around round 8 at 16 players. Between the two the profile
-// interpolates, so a session drifts from calibration into leveled play instead
-// of jumping.
-let readinessFloor = 0.30
-let readinessCeiling = 0.75
+// Ratio -> blend position. The profile stays at the calibrate endpoint until a
+// typical pair of players sits 0.75 standard errors apart under the pool's own
+// posterior, then crosses to full Competitive+ by 1.0. The ratio is the RMS
+// pairwise z-score, so those are Φ = 0.77 and 0.84 — the model's own
+// confidence in a typical ordering — and 1.0 is the last point at which that
+// self-assessment still matches measured rank accuracy (lab archive: ratio 1.0
+// <-> rho 0.84; past it sigma shrinks below the error floor and the posterior
+// overstates itself). The 16-player fixture reaches 0.75 around round 8 and
+// 1.0 around round 13; a 24-player pool with byes takes roughly 12–15 and 20.
+//
+// Until 2026-09 the ramp ran 0.30 -> 0.75: rising from the first round and
+// fully banded by round 8. It was moved later because premature banding has a
+// cost the convergence numbers never see. A band drawn while ratings are still
+// noise holds a mis-placed player against same-band opponents whose results
+// confirm the placement — the rating-aligned blind spot, visible in the
+// wide-field archive as static Competitive+ falling behind variety play at
+// rounds 20–30 while the adaptive profile does not — and a strong player
+// banded early can spend the evening in the wrong band.
+//
+// Why the ramp is narrow rather than simply raised: the interpolated profile
+// is worse than either endpoint. Medium banding on medium-noise ratings
+// neither compares broadly nor bands accurately, and every round spent in it
+// costs accuracy. Measured on the 16-player fixture, 6 seeds, rho at r20:
+//
+//   ramp 0.30 -> 1.0   0.869        ramp 0.75 -> 1.0   0.923
+//   ramp 0.60 -> 1.0   0.868        ramp 0.90 -> 1.0   0.910
+//   Balanced Round Robin 0.911 · static Competitive+ 0.908
+//   hard switch RB -> C+ after any round 2–12: 0.88–0.94
+//
+// So: calibrate at full strength, cross over quickly. At r10 the courts are
+// still mostly mixed (banding 0.54 against static C+'s 0.35) and by r20 fully
+// grouped (0.31), at a final accuracy above both endpoints.
+let readinessFloor = 0.75
+let readinessCeiling = 1.0
 
 let adaptiveBlend = (ratio: float): float =>
   clamp01((ratio -. readinessFloor) /. (readinessCeiling -. readinessFloor))

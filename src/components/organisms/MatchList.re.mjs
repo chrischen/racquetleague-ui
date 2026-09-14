@@ -327,15 +327,31 @@ function MatchList$Match(props) {
                                         }));
                           }));
             })));
-  var isDraw;
+  var match$1;
   if (score !== undefined && score.length === 2) {
     var first = score[0];
     var second = score[1];
-    isDraw = first === second;
+    var match$2 = onWinnersSide ? [
+        first,
+        second
+      ] : [
+        second,
+        first
+      ];
+    var theirs = match$2[1];
+    var mine = match$2[0];
+    match$1 = [
+      mine > theirs,
+      mine === theirs
+    ];
   } else {
-    isDraw = false;
+    match$1 = [
+      onWinnersSide,
+      false
+    ];
   }
-  var isWinner = onWinnersSide && !isDraw;
+  var isDraw = match$1[1];
+  var isWinner = match$1[0];
   var tmp;
   tmp = namespace === "doubles:comp" ? JsxRuntime.jsx(LucideReact.Trophy, {
           className: "h-4 w-4 text-amber-500"

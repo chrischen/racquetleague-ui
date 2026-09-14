@@ -15,19 +15,6 @@ type enum_CourtType_input =
 
 
 @live @unboxed
-type enum_SmartRsvpAlgorithm = 
-  | Ilp
-  | BestFit
-  | FutureAddedValue(string)
-
-
-@live @unboxed
-type enum_SmartRsvpAlgorithm_input = 
-  | Ilp
-  | BestFit
-
-
-@live @unboxed
 type enum_Gender = 
   | @as("female") Female
   | @as("male") Male
@@ -49,6 +36,19 @@ type enum_Region =
 @live
 type enum_Region_input = 
   | @as("tokyo") Tokyo
+
+
+@live @unboxed
+type enum_SmartRsvpAlgorithm = 
+  | BestFit
+  | Ilp
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_SmartRsvpAlgorithm_input = 
+  | BestFit
+  | Ilp
 
 
 @live @unboxed

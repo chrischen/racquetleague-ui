@@ -17,7 +17,7 @@ msgstr ""
 msgid "Advanced"
 msgstr "고급"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:141
+#: src/components/organisms/EventStickyFooter.re.mjs:162
 msgid "Authorize deposit"
 msgstr "보증금 승인"
 
@@ -37,35 +37,35 @@ msgstr "자기소개를 입력해주세요"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:173
+#: src/components/organisms/EventStickyFooter.re.mjs:198
 msgid "Cancel RSVP"
 msgstr "참가 취소"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:267
-#: src/components/organisms/EventStickyFooter.re.mjs:377
+#: src/components/organisms/EventStickyFooter.re.mjs:293
+#: src/components/organisms/EventStickyFooter.re.mjs:404
 msgid "Cancellation deadline"
 msgstr "취소 마감일"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:385
+#: src/components/organisms/EventStickyFooter.re.mjs:412
 msgid "Cancellation deadline passed."
 msgstr "취소 마감일이 지났습니다."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:275
+#: src/components/organisms/EventStickyFooter.re.mjs:301
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr ""
 "취소 마감 시간이 지났습니다. 취소하려면 이 페이지에서 주최자에게 연락하세요."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:173
+#: src/components/organisms/EventStickyFooter.re.mjs:198
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:403
-#: src/components/organisms/EventStickyFooter.re.mjs:506
+#: src/components/organisms/EventStickyFooter.re.mjs:429
+#: src/components/organisms/EventStickyFooter.re.mjs:537
 msgid "Claim spot"
 msgstr "자리 확보"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:399
+#: src/components/organisms/EventStickyFooter.re.mjs:425
 msgid "Claim spot · {0}"
 msgstr "참가 신청 · {0}"
 
@@ -97,7 +97,7 @@ msgstr "확인"
 msgid "Could not save your profile. Please try again."
 msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:157
+#: src/components/organisms/EventStickyFooter.re.mjs:180
 msgid "Deposit required to confirm your spot"
 msgstr "자리 확정을 위해 보증금이 필요합니다"
 
@@ -149,11 +149,11 @@ msgstr "중급"
 msgid "Intermediate+"
 msgstr "중급+"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:506
+#: src/components/organisms/EventStickyFooter.re.mjs:537
 msgid "Join waitlist"
 msgstr "대기자 명단 등록"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:396
+#: src/components/organisms/EventStickyFooter.re.mjs:422
 msgid "Join waitlist (#{0})"
 msgstr "대기자 명단 등록 (#{0})"
 
@@ -161,16 +161,16 @@ msgstr "대기자 명단 등록 (#{0})"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:350
-#: src/components/organisms/EventStickyFooter.re.mjs:459
+#: src/components/organisms/EventStickyFooter.re.mjs:376
+#: src/components/organisms/EventStickyFooter.re.mjs:488
 msgid "Leave event"
 msgstr "이벤트 나가기"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:350
+#: src/components/organisms/EventStickyFooter.re.mjs:376
 msgid "Leave waitlist"
 msgstr "대기 명단에서 나가기"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:349
+#: src/components/organisms/EventStickyFooter.re.mjs:375
 msgid "Leaving..."
 msgstr "나가는 중..."
 
@@ -178,7 +178,7 @@ msgstr "나가는 중..."
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:139
+#: src/components/organisms/EventStickyFooter.re.mjs:160
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -190,19 +190,19 @@ msgstr "남성"
 msgid "Not now"
 msgstr "나중에"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:331
+#: src/components/organisms/EventStickyFooter.re.mjs:357
 msgid "On waitlist"
 msgstr "대기 중"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:147
+#: src/components/organisms/EventStickyFooter.re.mjs:168
 msgid "Pay {priceStr}"
 msgstr "{priceStr} 결제"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:157
+#: src/components/organisms/EventStickyFooter.re.mjs:180
 msgid "Payment required to confirm your spot"
 msgstr "자리 확정을 위해 결제가 필요합니다"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:229
+#: src/components/organisms/EventStickyFooter.re.mjs:254
 msgid "Pending approval"
 msgstr "승인 대기 중"
 
@@ -222,7 +222,7 @@ msgstr ""
 "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
 "주세요."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:460
+#: src/components/organisms/EventStickyFooter.re.mjs:489
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -230,7 +230,7 @@ msgstr ""
 "대기자 명단에 플레이어가 있습니다. 나가면 자리가 다음 사람에게 넘어갑니다. 확"
 "실합니까?"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:165
+#: src/components/organisms/EventStickyFooter.re.mjs:189
 msgid ""
 "This is a deposit hold only — payment is due to the organizer at the event. "
 "The hold will be released after the event."
@@ -242,19 +242,19 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:243
+#: src/components/organisms/EventStickyFooter.re.mjs:268
 msgid "Withdraw RSVP"
 msgstr "참가 취소"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:243
+#: src/components/organisms/EventStickyFooter.re.mjs:268
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:331
+#: src/components/organisms/EventStickyFooter.re.mjs:357
 msgid "You're in"
 msgstr "참가 완료"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:233
+#: src/components/organisms/EventStickyFooter.re.mjs:258
 msgid "Your RSVP is awaiting admin approval"
 msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 

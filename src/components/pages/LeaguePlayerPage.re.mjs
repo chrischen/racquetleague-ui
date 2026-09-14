@@ -5,7 +5,6 @@ import * as Rating from "../../lib/Rating.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
-import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -189,62 +188,58 @@ var FilterTabs = {
   make: LeaguePlayerPage$FilterTabs
 };
 
-function LeaguePlayerPage$ZScoreBadge(props) {
-  var zScore = props.zScore;
-  if (zScore === undefined) {
+function LeaguePlayerPage$DeltaBadge(props) {
+  var delta = props.delta;
+  if (delta === undefined) {
     return null;
   }
-  Math.abs(Core__Option.getOr(Core__Float.fromString(zScore.toFixed(1)), 0.0));
-  var sign = zScore >= 0.0 ? "+" : "";
-  var formatted = sign + zScore.toFixed(1) + "σ";
-  var match = zScore >= 1.0 ? [
-      "bg-emerald-100",
-      "text-emerald-700",
-      JsxRuntime.jsx(LucideReact.TrendingUp, {
-            className: "w-3 h-3"
-          })
-    ] : (
-      zScore >= 0.3 ? [
-          "bg-emerald-50",
-          "text-emerald-600",
+  var confident = Core__Option.getOr(Core__Option.map(props.zScore, (function (z) {
+              return Math.abs(z) >= 1.0;
+            })), false);
+  var match = props.activitySlug === "pickleball" ? [
+      Rating.guessDupr(25.0 + delta) - Rating.guessDupr(25.0),
+      2,
+      " DUPR"
+    ] : [
+      delta,
+      1,
+      ""
+    ];
+  var value = match[0];
+  var sign = value >= 0.0 ? "+" : "";
+  var formatted = sign + value.toFixed(match[1]) + match[2];
+  var match$1 = confident ? (
+      value > 0.0 ? [
+          "bg-emerald-100",
+          "text-emerald-700",
           JsxRuntime.jsx(LucideReact.TrendingUp, {
                 className: "w-3 h-3"
               })
-        ] : (
-          zScore > -0.3 ? [
-              "bg-gray-100",
-              "text-gray-600",
-              null
-            ] : (
-              zScore > -1.0 ? [
-                  "bg-rose-50",
-                  "text-rose-600",
-                  JsxRuntime.jsx(LucideReact.TrendingDown, {
-                        className: "w-3 h-3"
-                      })
-                ] : [
-                  "bg-rose-100",
-                  "text-rose-700",
-                  JsxRuntime.jsx(LucideReact.TrendingDown, {
-                        className: "w-3 h-3"
-                      })
-                ]
-            )
-        )
-    );
+        ] : [
+          "bg-rose-100",
+          "text-rose-700",
+          JsxRuntime.jsx(LucideReact.TrendingDown, {
+                className: "w-3 h-3"
+              })
+        ]
+    ) : [
+      "bg-gray-100",
+      "text-gray-600",
+      null
+    ];
   return JsxRuntime.jsxs("div", {
               children: [
-                match[2],
+                match$1[2],
                 JsxRuntime.jsx("span", {
                       children: formatted
                     })
               ],
-              className: "inline-flex items-center gap-1 px-2 py-0.5 rounded-full " + match[0] + " " + match[1] + " text-xs font-semibold"
+              className: "inline-flex items-center gap-1 px-2 py-0.5 rounded-full " + match$1[0] + " " + match$1[1] + " text-xs font-semibold"
             });
 }
 
-var ZScoreBadge = {
-  make: LeaguePlayerPage$ZScoreBadge
+var DeltaBadge = {
+  make: LeaguePlayerPage$DeltaBadge
 };
 
 function ordinal(mu, sigma) {
@@ -399,39 +394,65 @@ function LeaguePlayerPage$PlayerContent(props) {
   var tmp$1;
   if (stats !== undefined) {
     var tendency = stats.mfPartnerTendency;
-    if (tendency !== undefined) {
-      var match$5 = tendency > 0.1 ? [
-          "💪",
-          t`Performs better with stronger partners`
-        ] : (
-          tendency < -0.1 ? [
-              "🤝",
-              t`Elevates weaker partners`
+    var partnerBadge = tendency !== undefined ? (
+        tendency > 0.1 ? [
+            "💪",
+            t`Performs better with stronger partners`
+          ] : (
+            tendency < -0.1 ? [
+                "🤝",
+                t`Elevates weaker partners`
+              ] : [
+                "⚖️",
+                t`Balanced partner tendency`
+              ]
+          )
+      ) : undefined;
+    var match$5 = stats.hardcourtDelta;
+    var match$6 = stats.hardcourtDeltaSe;
+    var match$7 = stats.gymDelta;
+    var match$8 = stats.gymDeltaSe;
+    var surfaceBadge;
+    if (match$5 !== undefined && match$6 !== undefined && match$7 !== undefined && match$8 !== undefined) {
+      var pref = match$5 - match$7;
+      var se = Math.sqrt(match$6 * match$6 + match$8 * match$8);
+      surfaceBadge = se > 0.0 && Math.abs(pref / se) >= 1.0 ? (
+          pref > 0.0 ? [
+              "🏟️",
+              t`Performs better on hard courts`
             ] : [
-              "⚖️",
-              t`Balanced partner tendency`
+              "🏫",
+              t`Performs better in gyms`
             ]
-        );
-      tmp$1 = JsxRuntime.jsx("div", {
+        ) : undefined;
+    } else {
+      surfaceBadge = undefined;
+    }
+    var badges = Core__Array.filterMap([
+          partnerBadge,
+          surfaceBadge
+        ], (function (b) {
+            return b;
+          }));
+    tmp$1 = badges.length === 0 ? null : JsxRuntime.jsx("div", {
             children: JsxRuntime.jsx("div", {
-                  children: JsxRuntime.jsxs("div", {
-                        children: [
-                          JsxRuntime.jsx("span", {
-                                children: match$5[0]
-                              }),
-                          JsxRuntime.jsx("span", {
-                                children: match$5[1]
-                              })
-                        ],
-                        className: "inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-gray-200 shadow-sm text-sm text-gray-700 whitespace-nowrap flex-shrink-0"
+                  children: badges.map(function (param, i) {
+                        return JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx("span", {
+                                            children: param[0]
+                                          }),
+                                      JsxRuntime.jsx("span", {
+                                            children: param[1]
+                                          })
+                                    ],
+                                    className: "inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-gray-200 shadow-sm text-sm text-gray-700 whitespace-nowrap flex-shrink-0"
+                                  }, i.toString());
                       }),
                   className: "flex gap-2 overflow-x-auto pb-2 -mx-4 px-4"
                 }),
             className: "relative mb-6"
           });
-    } else {
-      tmp$1 = null;
-    }
   } else {
     tmp$1 = null;
   }
@@ -439,9 +460,9 @@ function LeaguePlayerPage$PlayerContent(props) {
   var stats$2 = statsData.leagueUserStats;
   var tmp$2;
   if (stats$2 !== undefined) {
-    var match$6 = stats$2.bestPartners;
+    var match$9 = stats$2.bestPartners;
     var tmp$3;
-    if (match$6.length !== 0) {
+    if (match$9.length !== 0) {
       var filtered = pickEntries(stats$2.bestPartners, stats$2.mdBestPartners, stats$2.wdBestPartners, stats$2.xdBestPartners, bestPartnersFilter);
       var mfEntries = stats$2.mfBestPartners.slice(0, 3);
       tmp$3 = JsxRuntime.jsxs("div", {
@@ -513,9 +534,9 @@ function LeaguePlayerPage$PlayerContent(props) {
     } else {
       tmp$3 = null;
     }
-    var match$7 = stats$2.worstPartners;
+    var match$10 = stats$2.worstPartners;
     var tmp$4;
-    if (match$7.length !== 0) {
+    if (match$10.length !== 0) {
       var filtered$1 = pickEntries(stats$2.worstPartners, stats$2.mdWorstPartners, stats$2.wdWorstPartners, stats$2.xdWorstPartners, worstPartnersFilter);
       var mfEntries$1 = stats$2.mfWorstPartners.slice(0, 3);
       tmp$4 = JsxRuntime.jsxs("div", {
@@ -587,9 +608,9 @@ function LeaguePlayerPage$PlayerContent(props) {
     } else {
       tmp$4 = null;
     }
-    var match$8 = stats$2.bestOpponents;
+    var match$11 = stats$2.bestOpponents;
     var tmp$5;
-    if (match$8.length !== 0) {
+    if (match$11.length !== 0) {
       var filtered$2 = pickEntries(stats$2.bestOpponents, stats$2.mdBestOpponents, stats$2.wdBestOpponents, stats$2.xdBestOpponents, bestOpponentsFilter);
       var mfEntries$2 = stats$2.mfBestOpponents.slice(0, 3);
       tmp$5 = JsxRuntime.jsxs("div", {
@@ -661,9 +682,9 @@ function LeaguePlayerPage$PlayerContent(props) {
     } else {
       tmp$5 = null;
     }
-    var match$9 = stats$2.worstOpponents;
+    var match$12 = stats$2.worstOpponents;
     var tmp$6;
-    if (match$9.length !== 0) {
+    if (match$12.length !== 0) {
       var filtered$3 = pickEntries(stats$2.worstOpponents, stats$2.mdWorstOpponents, stats$2.wdWorstOpponents, stats$2.xdWorstOpponents, worstOpponentsFilter);
       var mfEntries$3 = stats$2.mfWorstOpponents.slice(0, 3);
       tmp$6 = JsxRuntime.jsxs("div", {
@@ -940,8 +961,10 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                           children: t`Men's Doubles`,
                                                                           className: "text-sm font-medium text-gray-600"
                                                                         }),
-                                                                    JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
-                                                                          zScore: stats$1.mdZScore
+                                                                    JsxRuntime.jsx(LeaguePlayerPage$DeltaBadge, {
+                                                                          delta: stats$1.mdDelta,
+                                                                          zScore: stats$1.mdZScore,
+                                                                          activitySlug: activitySlug
                                                                         })
                                                                   ],
                                                                   className: "flex items-center justify-between mb-2"
@@ -991,8 +1014,10 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                           children: t`Mixed Doubles`,
                                                                           className: "text-sm font-medium text-gray-600"
                                                                         }),
-                                                                    JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
-                                                                          zScore: stats$1.xdZScore
+                                                                    JsxRuntime.jsx(LeaguePlayerPage$DeltaBadge, {
+                                                                          delta: stats$1.xdDelta,
+                                                                          zScore: stats$1.xdZScore,
+                                                                          activitySlug: activitySlug
                                                                         })
                                                                   ],
                                                                   className: "flex items-center justify-between mb-2"
@@ -1042,8 +1067,10 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                           children: t`Women's Doubles`,
                                                                           className: "text-sm font-medium text-gray-600"
                                                                         }),
-                                                                    JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
-                                                                          zScore: stats$1.wdZScore
+                                                                    JsxRuntime.jsx(LeaguePlayerPage$DeltaBadge, {
+                                                                          delta: stats$1.wdDelta,
+                                                                          zScore: stats$1.wdZScore,
+                                                                          activitySlug: activitySlug
                                                                         })
                                                                   ],
                                                                   className: "flex items-center justify-between mb-2"
@@ -1078,6 +1105,7 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                           r.sigma
                                                         ];
                                                 })),
+                                          stats$1.hardcourtDelta,
                                           stats$1.hardcourtZScore,
                                           "hardcourt",
                                           t`Hard Court`,
@@ -1086,40 +1114,28 @@ function LeaguePlayerPage$PlayerContent(props) {
                                           "text-amber-600"
                                         ],
                                         [
-                                          Core__Option.map(stats$1.indoorOutdoorBallRating, (function (r) {
+                                          Core__Option.map(stats$1.gymRating, (function (r) {
                                                   return [
                                                           r.mu,
                                                           r.sigma
                                                         ];
                                                 })),
-                                          stats$1.indoorOutdoorBallZScore,
-                                          "indoor-outdoor",
-                                          t`Indoor Court (Outdoor Ball)`,
-                                          "bg-teal-50",
-                                          "border-teal-100",
-                                          "text-teal-600"
-                                        ],
-                                        [
-                                          Core__Option.map(stats$1.indoorIndoorBallRating, (function (r) {
-                                                  return [
-                                                          r.mu,
-                                                          r.sigma
-                                                        ];
-                                                })),
-                                          stats$1.indoorIndoorBallZScore,
-                                          "indoor-indoor",
-                                          t`Indoor Court (Indoor Ball)`,
+                                          stats$1.gymDelta,
+                                          stats$1.gymZScore,
+                                          "gym",
+                                          t`Gym`,
                                           "bg-indigo-50",
                                           "border-indigo-100",
                                           "text-indigo-600"
                                         ]
                                       ], (function (param) {
-                                          var textColor = param[6];
-                                          var borderClass = param[5];
-                                          var bgClass = param[4];
-                                          var label = param[3];
-                                          var key = param[2];
-                                          var zScore = param[1];
+                                          var textColor = param[7];
+                                          var borderClass = param[6];
+                                          var bgClass = param[5];
+                                          var label = param[4];
+                                          var key = param[3];
+                                          var zScore = param[2];
+                                          var delta = param[1];
                                           return Core__Option.map(param[0], (function (param) {
                                                         var sigma = param[1];
                                                         var mu = param[0];
@@ -1145,8 +1161,10 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                                     children: label,
                                                                                     className: "text-sm font-medium text-gray-600"
                                                                                   }),
-                                                                              JsxRuntime.jsx(LeaguePlayerPage$ZScoreBadge, {
-                                                                                    zScore: zScore
+                                                                              JsxRuntime.jsx(LeaguePlayerPage$DeltaBadge, {
+                                                                                    delta: delta,
+                                                                                    zScore: zScore,
+                                                                                    activitySlug: activitySlug
                                                                                   })
                                                                             ],
                                                                             className: "flex items-center justify-between mb-2"
@@ -1269,7 +1287,7 @@ export {
   Params ,
   pickEntries ,
   FilterTabs ,
-  ZScoreBadge ,
+  DeltaBadge ,
   ordinal ,
   renderStatEntry ,
   PlayerContent ,

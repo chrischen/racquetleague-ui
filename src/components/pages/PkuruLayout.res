@@ -776,7 +776,27 @@ let make = () => {
     </Util.Helmet>
     <Layout viewer queryRefs=fragmentRefs>
       <GlobalQuery.DetectedLang />
-      <Router.Outlet />
+      // This boundary is what lets the server stream the frame ahead of the
+      // page. Pages read their preloaded query at the top of their component
+      // (e.g. Events.res `usePreloaded`), and React treats everything above the
+      // first Suspense boundary as the shell that `onShellReady` must wait for.
+      // With no boundary between here and the root, the shell was the whole
+      // page, so nothing left the server until the feed query had answered.
+      //
+      // It lives in this layout rather than in each page on purpose. Client
+      // navigations run inside a transition (`v7_startTransition` in
+      // wrapper.tsx), and React never swaps an already-visible boundary for its
+      // fallback during a transition, so moving between pages keeps the old
+      // page on screen until the new one is ready. A boundary mounted fresh by
+      // each page would show its fallback on every navigation instead, which is
+      // the flash the commented-out boundary in WaitForMessages was avoiding.
+      //
+      // The page's data is not fetched twice for this: RelaySSRUtils puts a
+      // start marker for each server query into the shell, and the client's
+      // network layer waits on that marker instead of refetching.
+      <React.Suspense fallback={<div className="p-6 text-sm text-gray-500"> {t`Loading...`} </div>}>
+        <Router.Outlet />
+      </React.Suspense>
     </Layout>
   </>
 }

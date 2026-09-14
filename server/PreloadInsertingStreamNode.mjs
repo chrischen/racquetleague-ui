@@ -81,7 +81,25 @@ export default class PreloadInsertingStreamNode extends Writable {
         this._writable.write(scriptTags);
       }
     // Finally write whatever React tried to write.
-    this._writable.write(chunk, encoding, callback);
+    //
+    // The completion callback is invoked here rather than deferred to the
+    // destination, because a compressed response gives us no reliable signal to
+    // defer on. Two ways that bites, both of which hang the response forever:
+    //
+    //  - `compression` replaces res.write with a two-argument
+    //    (chunk, encoding) function that silently drops a third argument, so
+    //    handing it `callback` means this stream is never told the write
+    //    finished and stops pulling from React after the first chunk.
+    //  - Waiting for res to emit "drain" instead does not work either: that
+    //    middleware writes into its own zlib stream, so when its write() returns
+    //    false it is zlib that is backed up, not res, and res may never drain.
+    //    The body arrives but "finish" never fires, so res.end() is never called.
+    //
+    // Acking immediately means this stream applies no backpressure upstream to
+    // React. That is fine here: the destination buffers, and an SSR document is
+    // bounded (a few hundred KB) rather than an open-ended stream.
+    this._writable.write(chunk, encoding);
+    callback();
   }
 
   flush() {

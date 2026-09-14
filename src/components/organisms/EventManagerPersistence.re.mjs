@@ -12,6 +12,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as SolverTypes from "../../lib/rating/solver/SolverTypes.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Core__Promise from "@rescript/core/src/Core__Promise.re.mjs";
+import * as RatingBaseline from "../../lib/rating/RatingBaseline.re.mjs";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators/src/Json_Decode.re.mjs";
 import * as PersisterIndexedDb from "tinybase/persisters/persister-indexed-db";
@@ -795,6 +796,28 @@ function saveRatingAdjustmentHistory(eventId, history) {
   eventStore.setRow("eventState", eventId, existingRow);
 }
 
+function loadRatingBaseline(eventId) {
+  var eventsTable = eventStore.getTable("eventState");
+  return Core__Option.mapOr(Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
+                            return Js_dict.get(row, "ratingBaseline");
+                          })), Js_json.decodeString), (function (str) {
+                    try {
+                      return JSON.parse(str);
+                    }
+                    catch (exn){
+                      console.log("[EventManagerPersistence] Failed to parse ratingBaseline JSON for event:", eventId);
+                      return ;
+                    }
+                  })), {}, RatingBaseline.fromJson);
+}
+
+function saveRatingBaseline(eventId, store) {
+  var eventsTable = eventStore.getTable("eventState");
+  var existingRow = Core__Option.getOr(Js_dict.get(eventsTable, eventId), {});
+  existingRow["ratingBaseline"] = JSON.stringify(RatingBaseline.toJson(store));
+  eventStore.setRow("eventState", eventId, existingRow);
+}
+
 function loadTeams(eventId) {
   var eventsTable = eventStore.getTable("eventState");
   return Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(Core__Option.flatMap(Js_dict.get(eventsTable, eventId), (function (row) {
@@ -1080,6 +1103,8 @@ export {
   loadPlayerSeedAdjustments ,
   savePlayerSeedAdjustments ,
   saveRatingAdjustmentHistory ,
+  loadRatingBaseline ,
+  saveRatingBaseline ,
   loadTeams ,
   saveTeams ,
   loadAntiTeams ,

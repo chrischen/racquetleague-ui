@@ -11,6 +11,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as PkEventsList from "../organisms/PkEventsList.re.mjs";
+import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -133,8 +134,8 @@ async function loader(param) {
                 activitySlug: Core__Option.getOr(params.activitySlug, "pickleball"),
                 after: after,
                 afterDate: afterDate,
-                availabilityFromDate: new Date().toISOString().slice(0, 10),
-                availabilityToDate: new Date(Date.now() + 28 * 86400000).toISOString().slice(0, 10),
+                availabilityFromDate: EventsListUtils.availabilityFromDate(),
+                availabilityToDate: EventsListUtils.availabilityToDate(),
                 before: before,
                 filters: {
                   activitySlug: params.activitySlug,

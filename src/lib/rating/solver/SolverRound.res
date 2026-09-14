@@ -232,17 +232,42 @@ let seedRound = (
   }
 
   // Seat the must-play players first: they are the reason feasibility could
-  // otherwise be lost.
-  order->Array.forEach(i =>
-    if (
-      picked->Array.length < target &&
-      uncovered->Set.size > 0 &&
-      disjoint(i) &&
-      idsOf(i)->Array.some(id => uncovered->Set.has(id))
-    ) {
-      take(i)
+  // otherwise be lost. Each pick is the candidate covering the MOST still-unseated
+  // must-plays, cheapest among equals — not merely the cheapest that covers one.
+  //
+  // That distinction is the whole guarantee once must-plays nearly fill the
+  // seats. 23 players on 3 courts is the plain case: 11 sat out last round, all
+  // 11 are owed a seat, and there are 12. A cheapest-first pick that carries
+  // fewer than four of them spends a seat the rest can no longer fit into, the
+  // shortlist ends up holding no round that seats everyone it must, and the
+  // exact-fill model is infeasible before the solver starts. What follows is the
+  // relaxed model, which is slow enough that its time budget can expire on a
+  // two-court incumbent — a court left empty with fifteen people waiting.
+  // Under full enumeration every quad of must-plays exists, so this seats 11 as
+  // 4 + 4 + 3 and the exact model stays feasible.
+  let rec seatMustPlays = () =>
+    if picked->Array.length < target && uncovered->Set.size > 0 {
+      let best = order->Array.reduce(None, (best, i) =>
+        if disjoint(i) {
+          let covers = idsOf(i)->Array.filter(id => uncovered->Set.has(id))->Array.length
+          switch best {
+          | Some((_, bestCovers)) if bestCovers >= covers => best
+          | _ => covers > 0 ? Some((i, covers)) : best
+          }
+        } else {
+          best
+        }
+      )
+      switch best {
+      | Some((i, _)) => {
+          take(i)
+          seatMustPlays()
+        }
+      | None => ()
+      }
     }
-  )
+  seatMustPlays()
+
   order->Array.forEach(i =>
     if picked->Array.length < target && disjoint(i) {
       take(i)

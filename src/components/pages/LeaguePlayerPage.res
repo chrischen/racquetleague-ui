@@ -21,16 +21,19 @@ module UserStatsFragment = %relay(`
         sigma
       }
       mdZScore
+      mdDelta
       wdRating {
         mu
         sigma
       }
       wdZScore
+      wdDelta
       xdRating {
         mu
         sigma
       }
       xdZScore
+      xdDelta
       bestPartners {
         score
         user {
@@ -217,16 +220,15 @@ module UserStatsFragment = %relay(`
         sigma
       }
       hardcourtZScore
-      indoorIndoorBallRating {
+      hardcourtDelta
+      hardcourtDeltaSe
+      gymRating {
         mu
         sigma
       }
-      indoorIndoorBallZScore
-      indoorOutdoorBallRating {
-        mu
-        sigma
-      }
-      indoorOutdoorBallZScore
+      gymZScore
+      gymDelta
+      gymDeltaSe
     }
   }
 `)
@@ -356,22 +358,26 @@ module FilterTabs = {
   }
 }
 
-module ZScoreBadge = {
+module DeltaBadge = {
+  // How far this pool's rating sits from the player's overall rating — in DUPR
+  // for pickleball, in rating points otherwise. The colour follows the sign;
+  // the badge stays grey while the offset is within one standard error of
+  // zero, when it cannot be told apart from "same as overall".
   @react.component
-  let make = (~zScore: option<float>) => {
-    switch zScore {
-    | Some(z) =>
-      let absZ = Float.fromString(z->Float.toFixed(~digits=1))->Option.getOr(0.0)->Math.abs
-      let sign = z >= 0.0 ? "+" : ""
-      let formatted = `${sign}${z->Float.toFixed(~digits=1)}σ`
-      let (bgColor, textColor, icon) = if z >= 1.0 {
-        ("bg-emerald-100", "text-emerald-700", <Lucide.TrendingUp className="w-3 h-3" />)
-      } else if z >= 0.3 {
-        ("bg-emerald-50", "text-emerald-600", <Lucide.TrendingUp className="w-3 h-3" />)
-      } else if z > -0.3 {
+  let make = (~delta: option<float>, ~zScore: option<float>, ~activitySlug: string) => {
+    switch delta {
+    | Some(d) =>
+      let confident = zScore->Option.map(z => Math.abs(z) >= 1.0)->Option.getOr(false)
+      let (value, digits, unit) = switch activitySlug {
+      | "pickleball" => (Rating.guessDupr(25.0 +. d) -. Rating.guessDupr(25.0), 2, " DUPR")
+      | _ => (d, 1, "")
+      }
+      let sign = value >= 0.0 ? "+" : ""
+      let formatted = `${sign}${value->Float.toFixed(~digits)}${unit}`
+      let (bgColor, textColor, icon) = if !confident {
         ("bg-gray-100", "text-gray-600", React.null)
-      } else if z > -1.0 {
-        ("bg-rose-50", "text-rose-600", <Lucide.TrendingDown className="w-3 h-3" />)
+      } else if value > 0.0 {
+        ("bg-emerald-100", "text-emerald-700", <Lucide.TrendingUp className="w-3 h-3" />)
       } else {
         ("bg-rose-100", "text-rose-700", <Lucide.TrendingDown className="w-3 h-3" />)
       }
@@ -641,25 +647,61 @@ module PlayerContent = {
         // Badges / Insights
         {switch statsData.leagueUserStats {
         | Some(stats) =>
-          switch stats.mfPartnerTendency {
+          let partnerBadge = switch stats.mfPartnerTendency {
           | Some(tendency) =>
-            let (emoji, label) = if tendency > 0.1 {
-              ("💪", t`Performs better with stronger partners`)
-            } else if tendency < -0.1 {
-              ("🤝", t`Elevates weaker partners`)
+            Some(
+              if tendency > 0.1 {
+                ("💪", t`Performs better with stronger partners`)
+              } else if tendency < -0.1 {
+                ("🤝", t`Elevates weaker partners`)
+              } else {
+                ("⚖️", t`Balanced partner tendency`)
+              },
+            )
+          | None => None
+          }
+          // Both surface offsets are measured against the player's overall
+          // rating, so their difference is the surface preference and the
+          // standard errors add in quadrature. The badge stays silent unless
+          // the preference is distinguishable from zero.
+          let surfaceBadge = switch (
+            stats.hardcourtDelta,
+            stats.hardcourtDeltaSe,
+            stats.gymDelta,
+            stats.gymDeltaSe,
+          ) {
+          | (Some(hc), Some(hcSe), Some(gym), Some(gymSe)) =>
+            let pref = hc -. gym
+            let se = Math.sqrt(hcSe *. hcSe +. gymSe *. gymSe)
+            if se > 0.0 && Math.abs(pref /. se) >= 1.0 {
+              Some(
+                pref > 0.0
+                  ? ("🏟️", t`Performs better on hard courts`)
+                  : ("🏫", t`Performs better in gyms`),
+              )
             } else {
-              ("⚖️", t`Balanced partner tendency`)
+              None
             }
+          | _ => None
+          }
+          let badges = [partnerBadge, surfaceBadge]->Array.filterMap(b => b)
+          if badges->Array.length == 0 {
+            React.null
+          } else {
             <div className="relative mb-6">
               <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4">
-                <div
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-gray-200 shadow-sm text-sm text-gray-700 whitespace-nowrap flex-shrink-0">
-                  <span> {emoji->React.string} </span>
-                  <span> {label} </span>
-                </div>
+                {badges
+                ->Array.mapWithIndex(((emoji, label), i) =>
+                  <div
+                    key={Int.toString(i)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white rounded-full border border-gray-200 shadow-sm text-sm text-gray-700 whitespace-nowrap flex-shrink-0">
+                    <span> {emoji->React.string} </span>
+                    <span> {label} </span>
+                  </div>
+                )
+                ->React.array}
               </div>
             </div>
-          | None => React.null
           }
         | None => React.null
         }}
@@ -673,7 +715,7 @@ module PlayerContent = {
               <div key="md" className="rounded-xl p-5 border bg-blue-50 border-blue-100">
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-sm font-medium text-gray-600"> {t`Men's Doubles`} </div>
-                  <ZScoreBadge zScore={stats.mdZScore} />
+                  <DeltaBadge delta={stats.mdDelta} zScore={stats.mdZScore} activitySlug />
                 </div>
                 <div className="flex items-start justify-between">
                   <div>
@@ -704,7 +746,7 @@ module PlayerContent = {
               <div key="xd" className="rounded-xl p-5 border bg-purple-50 border-purple-100">
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-sm font-medium text-gray-600"> {t`Mixed Doubles`} </div>
-                  <ZScoreBadge zScore={stats.xdZScore} />
+                  <DeltaBadge delta={stats.xdDelta} zScore={stats.xdZScore} activitySlug />
                 </div>
                 <div className="flex items-start justify-between">
                   <div>
@@ -735,7 +777,7 @@ module PlayerContent = {
               <div key="wd" className="rounded-xl p-5 border bg-pink-50 border-pink-100">
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-sm font-medium text-gray-600"> {t`Women's Doubles`} </div>
-                  <ZScoreBadge zScore={stats.wdZScore} />
+                  <DeltaBadge delta={stats.wdDelta} zScore={stats.wdZScore} activitySlug />
                 </div>
                 <div className="flex items-start justify-between">
                   <div>
@@ -760,10 +802,11 @@ module PlayerContent = {
               </div>
             })
             ->Option.getOr(React.null)}
-            // Court & Ball Type Ratings
+            // Surface Ratings
             {[
               (
                 stats.hardcourtRating->Option.map(r => (r.mu, r.sigma)),
+                stats.hardcourtDelta,
                 stats.hardcourtZScore,
                 "hardcourt",
                 t`Hard Court`,
@@ -772,31 +815,23 @@ module PlayerContent = {
                 "text-amber-600",
               ),
               (
-                stats.indoorOutdoorBallRating->Option.map(r => (r.mu, r.sigma)),
-                stats.indoorOutdoorBallZScore,
-                "indoor-outdoor",
-                t`Indoor Court (Outdoor Ball)`,
-                "bg-teal-50",
-                "border-teal-100",
-                "text-teal-600",
-              ),
-              (
-                stats.indoorIndoorBallRating->Option.map(r => (r.mu, r.sigma)),
-                stats.indoorIndoorBallZScore,
-                "indoor-indoor",
-                t`Indoor Court (Indoor Ball)`,
+                stats.gymRating->Option.map(r => (r.mu, r.sigma)),
+                stats.gymDelta,
+                stats.gymZScore,
+                "gym",
+                t`Gym`,
                 "bg-indigo-50",
                 "border-indigo-100",
                 "text-indigo-600",
               ),
             ]
-            ->Array.filterMap(((rating, zScore, key, label, bgClass, borderClass, textColor)) =>
+            ->Array.filterMap(((rating, delta, zScore, key, label, bgClass, borderClass, textColor)) =>
               rating->Option.map(((mu, sigma)) => {
                 let ord = ordinal(mu, sigma)
                 <div key className={`rounded-xl p-5 border ${bgClass} ${borderClass}`}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="text-sm font-medium text-gray-600"> {label} </div>
-                    <ZScoreBadge zScore />
+                    <DeltaBadge delta zScore activitySlug />
                   </div>
                   <div className="flex items-start justify-between">
                     <div>

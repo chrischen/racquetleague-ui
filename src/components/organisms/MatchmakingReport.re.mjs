@@ -424,7 +424,7 @@ function MatchmakingReport$CrossFieldChart(props) {
                               }
                             }),
                         JsxRuntime.jsx("span", {
-                              children: t`· % chance the game ends level · solid: Competitive+ · dashed: random, avoid repeats`,
+                              children: t`· match evenness · 100% = a perfectly even game · solid: Competitive+ · dashed: random, avoid repeats`,
                               style: {
                                 color: MatchmakingLab.mute,
                                 fontFamily: MatchmakingLab.monoFont,
@@ -857,7 +857,7 @@ function MatchmakingReport$Article(props) {
                       }
                     }),
                 JsxRuntime.jsx("div", {
-                      children: t`How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic clubs: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve gradually, one improves quickly — up to half a DUPR point, with gains tapering as they settle — and one slowly slips, the same players in every strategy's run so the comparison stays fair. Sessions are modelled too: every 13 rounds is one session, each player carries a day-to-day form swing of up to ±0.15 DUPR that changes between sessions, and two drop-ins — one from the ladder's 70th percentile, one from its 30th — arrive unrated and attend only some sessions, sometimes never returning. Games are decided by form-adjusted skill; the ladder is graded against underlying skill, so the test is whether ratings see through the noise rather than chase it. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so round 13 stands in for “one session” below, while the 100-round horizon — seven or eight sessions of persisted ratings — shows the system once everyone's rating is mature. Human units: a game is counted as ten minutes flat — open plays typically run timed rounds. A three-hour event loses about 30 minutes to setup and warm-up, leaving 150 minutes for 13 rounds once a minute or two of changeover between rounds is counted; on court for about a third of those rounds, a player gets four to five games — call it 45 minutes of actual pickleball in a three-hour evening. The minute figures below are minutes of that; a “suboptimal match” is a game one side starts with at least an 80% chance of winning. (The simulation's own roster is kinder — 16 of 24 seated per round — so if anything these figures are generous to the formats.) Charts are interactive — hover for values, click a strategy to isolate its line.`,
+                      children: t`How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic clubs: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve gradually, one improves quickly — up to half a DUPR point, with gains tapering as they settle — and one slowly slips, the same players in every strategy's run so the comparison stays fair. Sessions are modelled too: every 13 rounds is one session, each player carries a day-to-day form swing of up to ±0.15 DUPR that changes between sessions, and two drop-ins — one from the ladder's 70th percentile, one from its 30th — arrive unrated and attend only some sessions, sometimes never returning. Games are decided by form-adjusted skill; the ladder is graded against underlying skill, so the test is whether ratings see through the noise rather than chase it. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so round 13 stands in for “one session” below, while the 100-round horizon — seven or eight sessions of persisted ratings — shows the system once everyone's rating is mature. Human units: a game is counted as ten minutes flat — open plays typically run timed rounds. A three-hour event loses about 30 minutes to setup and warm-up, leaving 150 minutes for 13 rounds once a minute or two of changeover between rounds is counted; on court for about a third of those rounds, a player gets four to five games — call it 45 minutes of actual pickleball in a three-hour evening. The minute figures below are minutes of that; a “suboptimal match” is a game one side starts with at least an 80% chance of winning. “Match evenness” is the rating model's likelihood that a game ends level, scaled so a perfectly even matchup reads 100% — the model's own draw number is only meaningful relative to other games, so it is never shown raw. (The simulation's own roster is kinder — 16 of 24 seated per round — so if anything these figures are generous to the formats.) Charts are interactive — hover for values, click a strategy to isolate its line.`,
                       style: {
                         background: MatchmakingLab.panel,
                         border: "1px solid " + MatchmakingLab.rule,
@@ -877,7 +877,7 @@ function MatchmakingReport$Article(props) {
                       title: t`Match quality`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`A tight club here means everyone within about 0.68 DUPR points, most of the pack inside 0.4 — and it is where matchmaking should matter least. For the first session or so it is: with everyone close, drubbings are rare however you deal — one session in, Competitive+ and the avoid-repeats baseline are level on blowouts at about 13% each, though quality already leads 70% to 65%. Then the ratings sort the pack out: the quality lead is permanent from about round 8, and with mature ratings blowouts fall to 4% against the baseline's 14% — with Balanced Round Robin at 8%:`
+                      children: t`A tight club here means everyone within about 0.68 DUPR points, most of the pack inside 0.4 — and it is where matchmaking should matter least. For the first session or so it is: with everyone close, drubbings are rare however you deal — one session in, Competitive+ and the avoid-repeats baseline are within a couple of points of each other on blowouts, around 10%, though evenness already leads 87% to 81%. Then the ratings sort the pack out: the evenness lead is there from the first handful of rounds and never closes, the blowout gap opens in the second session, and with mature ratings blowouts fall to 4% against the baseline's 14% — with Balanced Round Robin at 8%:`
                     }),
                 JsxRuntime.jsxs(MatchmakingReport$StatRow, {
                       children: [
@@ -892,13 +892,13 @@ function MatchmakingReport$Article(props) {
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "77%",
-                              label: t`even games · Competitive+`,
+                              value: "93%",
+                              label: t`match evenness · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "62%",
-                              label: t`even games · random, avoid repeats`,
+                              value: "78%",
+                              label: t`match evenness · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
@@ -912,12 +912,12 @@ function MatchmakingReport$Article(props) {
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~12 min",
+                              value: "~17 min",
                               label: t`of your ~45 court minutes spent in suboptimal matches · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~25 min",
+                              value: "~27 min",
                               label: t`of your ~45 court minutes spent in suboptimal matches · random, avoid repeats`,
                               color: colorOf("rndnov")
                             })
@@ -929,7 +929,7 @@ function MatchmakingReport$Article(props) {
                       ids: qualityIds,
                       metric: "Quality",
                       title: t`Match quality — tight club`,
-                      unit: t`· % chance the game ends level, by true skill · higher is better`,
+                      unit: t`· match evenness by true skill · 100% = a perfectly even game · higher is better`,
                       maxRound: maxRound,
                       yDomain: [
                         0.0,
@@ -940,7 +940,7 @@ function MatchmakingReport$Article(props) {
                       title: t`Ratings convergence`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`In a tight club even the static Competitive+ profile keeps up with Balanced Round Robin almost immediately: when everyone is close, a band drawn from noisy ratings is barely different from one drawn from true skill, so banding costs nothing here. The adaptive Competitive+ tracks Balanced Round Robin from the first round by construction — it runs it until ratings settle. With day-to-day form in the world the wider clubs tell a similar story — banding on noisy ratings costs far less than exact numeric balancing gains — so the calibration phase is mostly insurance: it keeps the cold start safe in every club shape without giving anything up here.`
+                      children: t`In a tight club the static Competitive+ profile is ahead of Balanced Round Robin on ladder accuracy from the first session: when everyone is close, a band drawn from noisy ratings is barely different from one drawn from true skill, so banding costs nothing here. The adaptive Competitive+ opens in its calibration profile by construction and holds it until the ratings have visibly separated, which in a pack this tight takes most of two sessions — so it trails the static profile through the first session and catches it by the third. With day-to-day form in the world the wider clubs tell a similar story — banding on noisy ratings costs far less than exact numeric balancing gains — so the calibration phase is insurance against the one thing this club cannot show: a strong player banded early on a wrong rating and held there by games against the wrong opponents.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$ReportChart, {
                       data: dataOf(2),
@@ -965,7 +965,7 @@ function MatchmakingReport$Article(props) {
                       children: t`Most open-play sessions in Japan are more varied than the organiser likes to think: in the current pickleball scene it is hard to gather even one court of genuinely similar players at once if only simply due to day-to-day skill fluctuations.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`The baseline here is what open play actually deals: random courts that avoid repeating partners and opponents. (Measured against pure random, avoiding repeats changes match quality not at all — novelty buys variety and a slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls away from it within the first handful of rounds — by round 5 its games are already measurably better, because every result moves a cold rating a long way. Even a club of all-unrated players gets value inside their first session. With mature ratings the gap is decisive:`
+                      children: t`The baseline here is what open play actually deals: random courts that avoid repeating partners and opponents. (Measured against pure random, avoiding repeats changes match quality not at all — novelty buys variety and a slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls away from it within the first handful of rounds — by round 6 its games are already measurably better, because every result moves a cold rating a long way. Even a club of all-unrated players gets value inside their first session. With mature ratings the gap is decisive:`
                     }),
                 JsxRuntime.jsxs(MatchmakingReport$StatRow, {
                       children: [
@@ -975,37 +975,37 @@ function MatchmakingReport$Article(props) {
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "33%",
+                              value: "34%",
                               label: t`blowouts · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "64%",
-                              label: t`even games · Competitive+`,
+                              value: "80%",
+                              label: t`match evenness · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "45%",
-                              label: t`even games · random, avoid repeats`,
+                              value: "57%",
+                              label: t`match evenness · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~6 min",
+                              value: "~7 min",
                               label: t`of your ~45 court minutes spent in blowouts · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~14 min",
+                              value: "~15 min",
                               label: t`of your ~45 court minutes spent in blowouts · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~23 min",
+                              value: "~20 min",
                               label: t`of your ~45 court minutes spent in suboptimal matches · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~33 min",
+                              value: "~35 min",
                               label: t`of your ~45 court minutes spent in suboptimal matches · random, avoid repeats`,
                               color: colorOf("rndnov")
                             })
@@ -1017,7 +1017,7 @@ function MatchmakingReport$Article(props) {
                       ids: qualityIds,
                       metric: "Quality",
                       title: t`Match quality — varied club`,
-                      unit: t`· % chance the game ends level, by true skill · higher is better`,
+                      unit: t`· match evenness by true skill · 100% = a perfectly even game · higher is better`,
                       maxRound: maxRound,
                       yDomain: [
                         0.0,
@@ -1028,16 +1028,16 @@ function MatchmakingReport$Article(props) {
                       children: t`JP-style open play is the avoid-repeats baseline plus one intervention: a foursome is split when it is obviously lopsided — the pairs half a DUPR apart, the bar real organisers actually use. The surprise is how little the intervention buys: a few points of quality at the edge of the error bars, nowhere near the gap real matchmaking opens. Splits that rare cannot move a session. Politeness that fixes only the egregious matches is worth almost nothing; the gains begin when every match is deliberately balanced, which is exactly what nobody does socially.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`US-style open play — courts labelled by level, players choosing their own — does somewhat better: matches only form within the stronger or the weaker half of the club, so the skill gaps inside a match shrink. The simulation also models the format's social habits — about half of badly beaten teams run one revenge match, and close foursomes often stay on for another game; both mean replaying a match, and the games people choose to replay are usually the wrong ones. It nets out at 52% quality and 26% blowouts here, against the baseline's 45% and 33% — real, but a long way from matchmaking by rating, where Competitive+ reaches 64% and 15% in the same club. One caution for anyone submitting rated DUPR matches from such sessions: repeats and self-sorted courts carry little rating information, so they converge ratings poorly — the simulated ladder ends up roughly a full place worse than any strategy that mixes the club.`
+                      children: t`US-style open play — courts labelled by level, players choosing their own — does somewhat better: matches only form within the stronger or the weaker half of the club, so the skill gaps inside a match shrink. The simulation also models the format's social habits — about half of badly beaten teams run one revenge match, and close foursomes often stay on for another game; both mean replaying a match, and the games people choose to replay are usually the wrong ones. It nets out at 66% evenness and 26% blowouts here, against the baseline's 57% and 34% — real, but a long way from matchmaking by rating, where Competitive+ reaches 80% and 15% in the same club. One caution for anyone submitting rated DUPR matches from such sessions: repeats and self-sorted courts carry little rating information, so they converge ratings poorly — the simulated ladder ends up more than half a place worse than any strategy that mixes the club.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`King of the court — winners move up a court and split, losers slide down, the bottom court rotates out — is the most interesting of the rating-free formats. It genuinely sorts: 57% quality in a typical club, six points over shuffling, and its constant mixing keeps the ladder honest where US-style starves it. But moving one court per round is simply too slow a matchmaker: day-to-day form reshuffles the courts faster than the ladder can sort them, and 72% of its games still start suboptimal. The court ladder is a rating system with one bit of memory — it rediscovers each player's level every night, from scratch.`
+                      children: t`King of the court — winners move up a court and split, losers slide down, the bottom court rotates out — is the most interesting of the rating-free formats. It genuinely sorts: 72% evenness in a typical club, five points over shuffling, and its constant mixing keeps the ladder honest where US-style starves it. But moving one court per round is simply too slow a matchmaker: day-to-day form reshuffles the courts faster than the ladder can sort them, and 72% of its games still start suboptimal. The court ladder is a rating system with one bit of memory — it rediscovers each player's level every night, from scratch.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$SubHead, {
                       title: t`Ratings convergence`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`Balanced Round Robin still converges best here, though only by a hair over adaptive Competitive+ — and Competitive+ pays that hair back in the games themselves: 65% quality and 39% blowouts to Balanced Round Robin's 62% and 48%.`
+                      children: t`Every rated strategy ends within a sliver of the same ladder here — Round Robin's forced breadth edges it, 1.6 places off to adaptive Competitive+'s 1.7 — and with mature ratings Balanced Round Robin's games are as good as Competitive+'s in this club: 79% evenness and 14% blowouts against 80% and 15%. Once its splits are balanced, rotation costs nothing here. Where the two part company is the typical club below.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$ReportChart, {
                       data: dataOf(0),
@@ -1059,28 +1059,28 @@ function MatchmakingReport$Article(props) {
                       title: t`Match quality`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines within the first handful of rounds, and one session in it already leads the avoid-repeats baseline by 10 points of quality and 8 of blowouts. The full benefit arrives with mature ratings: 7% blowouts against the baseline's 24%, and a 76% chance of an even game against 51%. Those mature numbers match a hand-picked tight-skill club (77% and 4%) — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster:`
+                      children: t`With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines within the first handful of rounds, and one session in it already leads the avoid-repeats baseline by 15 points of evenness and 3 of blowouts. The full benefit arrives with mature ratings: 6% blowouts against the baseline's 25%, and 92% evenness against 66%. Those mature numbers match a hand-picked tight-skill club (93% and 4%) — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster:`
                     }),
                 JsxRuntime.jsxs(MatchmakingReport$StatRow, {
                       children: [
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "7%",
+                              value: "6%",
                               label: t`blowouts · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "24%",
+                              value: "25%",
                               label: t`blowouts · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "76%",
-                              label: t`even games · Competitive+`,
+                              value: "92%",
+                              label: t`match evenness · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "51%",
-                              label: t`even games · random, avoid repeats`,
+                              value: "66%",
+                              label: t`match evenness · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
@@ -1089,17 +1089,17 @@ function MatchmakingReport$Article(props) {
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~10 min",
+                              value: "~11 min",
                               label: t`of your ~45 court minutes spent in blowouts · random, avoid repeats`,
                               color: colorOf("rndnov")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~14 min",
+                              value: "~16 min",
                               label: t`of your ~45 court minutes spent in suboptimal matches · Competitive+`,
                               color: colorOf("cpa")
                             }),
                         JsxRuntime.jsx(MatchmakingReport$Stat, {
-                              value: "~33 min",
+                              value: "~34 min",
                               label: t`of your ~45 court minutes spent in suboptimal matches · random, avoid repeats`,
                               color: colorOf("rndnov")
                             })
@@ -1111,7 +1111,7 @@ function MatchmakingReport$Article(props) {
                       ids: qualityIds,
                       metric: "Quality",
                       title: t`Match quality — typical club`,
-                      unit: t`· % chance the game ends level, by true skill · higher is better`,
+                      unit: t`· match evenness by true skill · 100% = a perfectly even game · higher is better`,
                       maxRound: maxRound,
                       yDomain: [
                         0.0,
@@ -1122,7 +1122,7 @@ function MatchmakingReport$Article(props) {
                       title: t`Ratings convergence`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`Balanced Round Robin's early lead is brief: the static Competitive+ profile matches its ladder accuracy within a few rounds and pulls ahead of it on match quality from about round 6 — with day-to-day form in the world, exact numeric balancing is partly chasing noise, while bands are robust to it. The quality chart above shows the two lines separating within the first session and never rejoining. Once ratings are mature, every strategy a club could run lands within a sliver of the same ladder — tied inside the error bars — and the difference that remains is the quality of the games played along the way.`
+                      children: t`Balanced Round Robin has no early lead here at all: the static Competitive+ profile is ahead of it on ladder accuracy from the first rounds and ahead on match evenness from about round 8 — with day-to-day form in the world, exact numeric balancing is partly chasing noise, while bands are robust to it. The evenness chart above shows the two lines separating within the first session and never rejoining. Once ratings are mature, every strategy a club could run lands within a sliver of the same ladder — 1.6 to 1.8 places off, tied inside the error bars — and the difference that remains is the quality of the games played along the way.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$ReportChart, {
                       data: dataOf(1),
@@ -1157,10 +1157,10 @@ function MatchmakingReport$Article(props) {
                       title: t`Conclusion`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`Use Competitive+. The adaptive version opens with Balanced Round Robin while ratings are unknown, then switches to banded play as they settle — the fastest convergence available, with the best match quality in the field. About half the gain arrives in the first session and most of the rest by the end of the second (62% → 71% → 75% quality in a typical club), and because ratings persist, each session starts where the last one left off.`
+                      children: t`Use Competitive+. The adaptive version opens with Balanced Round Robin while ratings are unknown, then switches to banded play as they settle — the fastest convergence available, with the best match quality in the field. Three-quarters of the gain arrives in the first session and most of the rest by the end of the second (from 53% evenness on a cold first round to 83% by the end of the first session and 89% by the second, settling at 92% in a typical club), and because ratings persist, each session starts where the last one left off.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`What switching is worth, with mature ratings in a typical club: 22 points of match quality and blowouts cut from 22% to 7% against JP-style open play (which plays like dealing at random); 5 points of quality and blowouts from 11% to 7% against a plain round-robin table; 15 points and blowouts from 18% to 4% against a curated private session run as open play. In human terms: of the roughly 45 minutes of play a three-hour evening actually contains, a typical club's switch turns about twenty minutes of suboptimal matches into genuinely contested pickleball.`
+                      children: t`What switching is worth, with mature ratings in a typical club: 24 points of evenness and blowouts cut from 22% to 6% against JP-style open play (which plays like dealing at random); 8 points of evenness and blowouts from 10% to 6% against a plain round-robin table; 15 points and blowouts from 14% to 4% against a curated private session run as open play. In human terms: of the roughly 45 minutes of play a three-hour evening actually contains, a typical club's switch turns nearly twenty minutes of suboptimal matches into genuinely contested pickleball.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$CrossFieldChart, {
                       data: crossFieldQuality,
@@ -1181,14 +1181,14 @@ function MatchmakingReport$Article(props) {
                       extra: Caml_option.some(fieldTabs)
                     }),
                 JsxRuntime.jsx(MatchmakingReport$Para, {
-                      children: t`Scored rally by rally, true drubbings are rarer than the raw matchup numbers suggest — and matchmaking removes most of the ones that remain. In a typical club Competitive+ has blowouts down to 15% within a session and about 8% within two, settling at 7% against the Oracle's 4% floor. A varied club keeps a hard residue: Competitive+ bottoms out near 15% while the baseline sits at 33%, and even the Oracle blows out 7% — a ringer, a beginner and an off night make some drubbings unavoidable.`
+                      children: t`Scored rally by rally, true drubbings are rarer than the raw matchup numbers suggest — and matchmaking removes most of the ones that remain. In a typical club Competitive+ has blowouts down to 16% within a session and about 6% within two, settling at 6% against the Oracle's 4% floor. A varied club keeps a hard residue: Competitive+ bottoms out near 15% while the baseline sits at 34%, and even the Oracle blows out 9% — a ringer, a beginner and an off night make some drubbings unavoidable.`
                     }),
                 JsxRuntime.jsx(MatchmakingReport$UseCase, {
                       id: "level-controlled-clubs",
                       title: t`Level-controlled clubs`,
                       hash: hash,
                       children: JsxRuntime.jsx(MatchmakingReport$Para, {
-                            children: t`A tight club gives the best floor — random dealing manages 62% quality there against 45% in a varied club — at some cost in ranking accuracy, since players who are genuinely close are hard to order. But controlling the roster does not control the matchups: dealt randomly, more than half of that club's games still start with a heavy favourite; Competitive+ cuts those suboptimal matches to under a third, holds 77% quality, and blows out just 4% of games to random dealing's 14%. The gap exists because skill is not a fixed number. Even hand-picked members fluctuate wildly day to day — improving in bursts, slumping, showing up tired — and a rating system accounts for that in real time, adjusting after every game, so each sessions' matches are built on current form rather than on the level everyone was admitted at. Pkuru keeps hidden ratings even for “unrated” events, so no one's public rating is at stake, and the same ratings pair you with the right drilling partner — even for drills, evenly matched partners matter. (I often prefer a wall: it beats most human drilling partners.)`
+                            children: t`A tight club gives the best floor — random dealing manages 78% evenness there against 57% in a varied club — at some cost in ranking accuracy, since players who are genuinely close are hard to order. But controlling the roster does not control the matchups: dealt randomly, more than half of that club's games still start with a heavy favourite; Competitive+ cuts those suboptimal matches to little more than a third, holds 93% evenness, and blows out just 4% of games to random dealing's 14%. The gap exists because skill is not a fixed number. Even hand-picked members fluctuate wildly day to day — improving in bursts, slumping, showing up tired — and a rating system accounts for that in real time, adjusting after every game, so each sessions' matches are built on current form rather than on the level everyone was admitted at. Pkuru keeps hidden ratings even for “unrated” events, so no one's public rating is at stake, and the same ratings pair you with the right drilling partner — even for drills, evenly matched partners matter. (I often prefer a wall: it beats most human drilling partners.)`
                           })
                     }),
                 JsxRuntime.jsxs(MatchmakingReport$UseCase, {

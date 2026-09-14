@@ -69,8 +69,8 @@ msgstr "+{0} คน"
 msgid "Activity"
 msgstr "กิจกรรม"
 
-#: src/components/organisms/RSVPSection.re.mjs:760
-#: src/components/organisms/RSVPSection.re.mjs:855
+#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:1016
 msgid "Add Member"
 msgstr "เพิ่มสมาชิก"
 
@@ -126,11 +126,15 @@ msgstr "ไม่สามารถเข้าถึงตัวแปร \\\"t
 msgid "Capture payment"
 msgstr "รับชำระเงิน"
 
+#: src/components/organisms/RSVPSection.re.mjs:325
+msgid "Clear preview"
+msgstr "ล้างตัวอย่าง"
+
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "ปิดฟอร์มโปรไฟล์"
 
-#: src/components/organisms/RSVPSection.re.mjs:777
+#: src/components/organisms/RSVPSection.re.mjs:933
 msgid "Collapse"
 msgstr "ย่อ"
 
@@ -166,7 +170,7 @@ msgstr "สนาม {0}"
 msgid "Court {0} - Editing"
 msgstr "สนาม {0} - กำลังแก้ไข"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:196
 msgid "Courts:"
 msgstr "คอร์ท:"
 
@@ -222,7 +226,7 @@ msgstr "ป้อนคะแนนแมตช์"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "คะแนนเท่ากัน — จะถูกบันทึกเป็นเสมอ"
 
-#: src/components/organisms/RSVPSection.re.mjs:175
+#: src/components/organisms/RSVPSection.re.mjs:292
 msgid "Evaluating pending requests…"
 msgstr "กำลังประเมินคำขอที่รอดำเนินการ…"
 
@@ -306,11 +310,11 @@ msgstr "ออกจากกิจกรรม"
 msgid "Level"
 msgstr "ระดับ"
 
-#: src/components/organisms/RSVPSection.re.mjs:871
+#: src/components/organisms/RSVPSection.re.mjs:1032
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/RSVPSection.re.mjs:868
+#: src/components/organisms/RSVPSection.re.mjs:1029
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -371,14 +375,26 @@ msgstr "ยังไม่ได้ชำระ"
 msgid "Paid"
 msgstr "ชำระแล้ว"
 
-#: src/components/organisms/PendingRsvps.re.mjs:58
+#: src/components/organisms/PendingRsvps.re.mjs:60
 msgid "Pending"
 msgstr "รอการอนุมัติ"
+
+#: src/components/organisms/RSVPSection.re.mjs:301
+msgid "Placing on the waitlist…"
+msgstr "กำลังเพิ่มในรายชื่อรอ…"
 
 #: src/components/organisms/EventRsvp.re.mjs:61
 #: src/components/organisms/MiniEventRsvp.re.mjs:57
 msgid "Player"
 msgstr "ผู้เล่น"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Preview Smart RSVP"
+msgstr "ดูตัวอย่าง Smart RSVP"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Previewing…"
+msgstr "กำลังแสดงตัวอย่าง…"
 
 #: src/components/atoms/EventTag.re.mjs:141
 #: src/components/atoms/EventTag.re.mjs:143
@@ -428,7 +444,7 @@ msgstr "ลบการยืนยันนี้"
 msgid "Repeat"
 msgstr "ซ้ำ"
 
-#: src/components/organisms/RSVPSection.re.mjs:513
+#: src/components/organisms/RSVPSection.re.mjs:664
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
@@ -436,17 +452,17 @@ msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 msgid "Results will be submitted to competitive ratings."
 msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:270
 msgid "Round {0}"
 msgstr "รอบ {0}"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:189
 msgid "Round Robin Draws"
 msgstr "จับคู่แบบพบกันหมด"
 
-#: src/components/organisms/RSVPSection.re.mjs:636
-#: src/components/organisms/RSVPSection.re.mjs:675
-#: src/components/organisms/RSVPSection.re.mjs:799
+#: src/components/organisms/RSVPSection.re.mjs:787
+#: src/components/organisms/RSVPSection.re.mjs:826
+#: src/components/organisms/RSVPSection.re.mjs:955
 msgid "RSVP"
 msgstr "ยืนยันการเข้าร่วม"
 
@@ -454,15 +470,15 @@ msgstr "ยืนยันการเข้าร่วม"
 msgid "RSVP Pending..."
 msgstr "กำลังรอการอนุมัติ..."
 
-#: src/components/organisms/RSVPSection.re.mjs:186
+#: src/components/organisms/RSVPSection.re.mjs:310
 msgid "Run Smart RSVP (best-fit, test)"
 msgstr "เรียกใช้ Smart RSVP (จับคู่ดีที่สุด, ทดสอบ)"
 
-#: src/components/organisms/RSVPSection.re.mjs:175
+#: src/components/organisms/RSVPSection.re.mjs:292
 msgid "Run Smart RSVP now"
 msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 
-#: src/components/organisms/RSVPSection.re.mjs:327
+#: src/components/organisms/RSVPSection.re.mjs:465
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "บันทึก"
@@ -497,6 +513,15 @@ msgstr "แสดงน้อยลง"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
+#: src/components/organisms/RSVPSection.re.mjs:323
+msgid ""
+"Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "Smart RSVP จะรับ {0} จาก {1} คำขอที่รอดำเนินการ โดยทำเครื่องหมายไว้ด้านบน"
+
+#: src/components/organisms/RSVPSection.re.mjs:301
+msgid "Smart Waitlist"
+msgstr "รายชื่อรอแบบสมาร์ท"
+
 #: src/components/organisms/EventMessages.re.mjs:118
 msgid "Status message"
 msgstr "ข้อความสถานะ"
@@ -525,7 +550,7 @@ msgid ""
 msgstr ""
 "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
-#: src/components/organisms/RSVPSection.re.mjs:501
+#: src/components/organisms/RSVPSection.re.mjs:652
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -568,8 +593,8 @@ msgstr ""
 msgid "Time TBD"
 msgstr "เวลายังไม่กำหนด"
 
-#: src/components/organisms/RSVPSection.re.mjs:311
-#: src/components/organisms/RSVPSection.re.mjs:312
+#: src/components/organisms/RSVPSection.re.mjs:449
+#: src/components/organisms/RSVPSection.re.mjs:450
 #: src/components/organisms/EventMessages.re.mjs:125
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -591,7 +616,7 @@ msgstr "สถานที่ที่ไม่ทราบ"
 msgid "Upper intermediate and above"
 msgstr "ระดับกลางขั้นบนขึ้นไป"
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:307
 msgid "View Full Draws"
 msgstr "ดูการจับคู่ทั้งหมด"
 
@@ -629,6 +654,10 @@ msgstr "เราต้องการข้อมูลบางอย่าง
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
+#: src/components/organisms/PendingRsvps.re.mjs:82
+msgid "Would be admitted"
+msgstr "จะได้รับการตอบรับ"
+
 #: src/components/atoms/EventSignupButton.re.mjs:90
 msgid "You will lose your spot"
 msgstr "คุณจะเสียที่นั่ง"
@@ -641,7 +670,7 @@ msgstr "คุณจะไป"
 msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:515
+#: src/components/organisms/RSVPSection.re.mjs:666
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

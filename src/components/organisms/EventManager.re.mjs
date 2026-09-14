@@ -24,6 +24,7 @@ import * as HighsBindings from "../../lib/rating/solver/HighsBindings.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as PrintableDraws from "./PrintableDraws.re.mjs";
+import * as RatingBaseline from "../../lib/rating/RatingBaseline.re.mjs";
 import * as SolverWarnings from "../molecules/SolverWarnings.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
@@ -1132,31 +1133,41 @@ function EventManager(props) {
   var setRatingAdjustmentHistory = match$30[1];
   var ratingAdjustmentHistory = match$30[0];
   var match$31 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
+        return {};
       });
-  var setTeams = match$31[1];
-  var teams = match$31[0];
+  var setRatingBaseline = match$31[1];
+  var ratingBaseline = match$31[0];
   var match$32 = React.useState(function () {
-        return Util.NonEmptyArray.empty;
-      });
-  var setAntiTeams = match$32[1];
-  var antiTeams = match$32[0];
-  var match$33 = React.useState(function () {
         return false;
       });
-  var setTeamManagementOpen = match$33[1];
-  var match$34 = React.useState(function () {
-        
+  var setHydrated = match$32[1];
+  var hydrated = match$32[0];
+  var match$33 = React.useState(function () {
+        return Util.NonEmptyArray.empty;
       });
-  var setPlayerSettingsOpen = match$34[1];
+  var setTeams = match$33[1];
+  var teams = match$33[0];
+  var match$34 = React.useState(function () {
+        return Util.NonEmptyArray.empty;
+      });
+  var setAntiTeams = match$34[1];
+  var antiTeams = match$34[0];
   var match$35 = React.useState(function () {
         return false;
       });
-  var setShowFullScreenRound = match$35[1];
+  var setTeamManagementOpen = match$35[1];
   var match$36 = React.useState(function () {
+        
+      });
+  var setPlayerSettingsOpen = match$36[1];
+  var match$37 = React.useState(function () {
         return false;
       });
-  var setShowPrintableDraws = match$36[1];
+  var setShowFullScreenRound = match$37[1];
+  var match$38 = React.useState(function () {
+        return false;
+      });
+  var setShowPrintableDraws = match$38[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -1339,7 +1350,29 @@ function EventManager(props) {
             }
             
           }
-          
+          var pool = EventManagerPersistence.seedSourceToString(EventManagerPersistence.loadSeedSource(data.id));
+          var storedBaseline = EventManagerPersistence.loadRatingBaseline(data.id);
+          var match = Js_dict.get(storedBaseline, pool);
+          var restoredBaseline;
+          if (match !== undefined) {
+            restoredBaseline = storedBaseline;
+          } else {
+            var recovered = RatingBaseline.reconstruct(loadedRounds, storedHistory);
+            if (Object.keys(recovered).length > 0) {
+              var next = Js_dict.fromArray(Js_dict.entries(storedBaseline));
+              next[pool] = recovered;
+              EventManagerPersistence.saveRatingBaseline(data.id, next);
+              restoredBaseline = next;
+            } else {
+              restoredBaseline = storedBaseline;
+            }
+          }
+          setRatingBaseline(function (param) {
+                return restoredBaseline;
+              });
+          setHydrated(function (param) {
+                return true;
+              });
         }), [data.id]);
   var updateRounds = function (updater) {
     setRounds(function (currentRounds) {
@@ -1348,16 +1381,57 @@ function EventManager(props) {
           return newRounds;
         });
   };
+  var pool = EventManagerPersistence.seedSourceToString(seedSource);
+  var currentBaseline = Core__Option.getOr(Js_dict.get(ratingBaseline, pool), {});
+  var saveBaseline = function (next) {
+    var store = Js_dict.fromArray(Js_dict.entries(ratingBaseline));
+    store[pool] = next;
+    EventManagerPersistence.saveRatingBaseline(data.id, store);
+    setRatingBaseline(function (param) {
+          return store;
+        });
+  };
+  React.useEffect((function () {
+          if (hydrated) {
+            var played = RatingBaseline.playersWithScores(rounds);
+            var next = RatingBaseline.track(currentBaseline, players, played);
+            if (next !== undefined) {
+              saveBaseline(next);
+            }
+            
+          }
+          
+        }), [
+        hydrated,
+        players,
+        rounds,
+        seedSource,
+        ratingBaseline
+      ]);
+  var baseIncludesSynced = React.useMemo((function () {
+          return RatingBaseline.baseIncludesSynced(currentBaseline, players, seedSource === "GlobalRatings");
+        }), [
+        currentBaseline,
+        players,
+        seedSource
+      ]);
+  var baselinePlayers = React.useMemo((function () {
+          return RatingBaseline.applyTo(currentBaseline, players);
+        }), [
+        currentBaseline,
+        players
+      ]);
   var playersWithCounts = React.useMemo((function () {
           var adjustmentsUpToCurrent = ratingAdjustmentHistory.filter(function (adj) {
                 return adj.appliedAtRound < currentRoundInt;
               });
-          return Rating.toPlayerStateWithAdjustments(rounds.slice(0, currentRoundInt), players, adjustmentsUpToCurrent);
+          return Rating.toPlayerStateWithAdjustments(rounds.slice(0, currentRoundInt), players, adjustmentsUpToCurrent, baseIncludesSynced);
         }), [
         rounds,
         currentRoundInt,
         ratingAdjustmentHistory,
-        players
+        players,
+        baseIncludesSynced
       ]);
   var checkedInPlayers = React.useMemo((function () {
           return playersWithCounts.filter(function (p) {
@@ -1380,7 +1454,7 @@ function EventManager(props) {
     var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound <= roundIndex;
         });
-    var playersForReset = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound).filter(function (p) {
+    var playersForReset = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound, baseIncludesSynced).filter(function (p) {
           return checkedInPlayerIds.has(p.id);
         });
     var token = beginGeneration();
@@ -1431,7 +1505,10 @@ function EventManager(props) {
           var originalMuMap = Js_dict.fromArray(checkedInPlayers.map(function (p) {
                     return [
                             p.id,
-                            p.rating.mu
+                            [
+                              p.rating.mu,
+                              p.rating.sigma
+                            ]
                           ];
                   }));
           var targetRound = currentRoundInt - 1 | 0;
@@ -1441,13 +1518,14 @@ function EventManager(props) {
           sortedPlayers.forEach(function (param) {
                 var adjustedMu = param[1];
                 var playerId = param[0];
-                Core__Option.forEach(Js_dict.get(originalMuMap, playerId), (function (originalMu) {
-                        var differential = adjustedMu - originalMu;
+                Core__Option.forEach(Js_dict.get(originalMuMap, playerId), (function (param) {
+                        var differential = adjustedMu - param[0];
                         if (differential !== 0.0) {
                           adjustedPlayerIds.add(playerId);
                           newAdjustments.push({
                                 playerId: playerId,
                                 differential: differential,
+                                sigmaDifferential: Rating.RatingAdjustment.sigmaDifferentialFor(param[1]),
                                 appliedAtRound: targetRound,
                                 timestamp: timestamp
                               });
@@ -1565,7 +1643,7 @@ function EventManager(props) {
     var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound <= roundIndex;
         });
-    var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound);
+    var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound, baseIncludesSynced);
     var currentRoundPlayers = playersBeforeRound.filter(function (p) {
           return currentRoundPlayerIds.has(p.id);
         });
@@ -1611,7 +1689,7 @@ function EventManager(props) {
             var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
                   return adj.appliedAtRound <= roundIndex;
                 });
-            var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound);
+            var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound, baseIncludesSynced);
             var matchPlayersWithState = playersBeforeRound.filter(function (p) {
                   return matchPlayerIds.has(p.id);
                 });
@@ -1907,8 +1985,28 @@ function EventManager(props) {
       var results = [];
       for(var i = 0; i < totalMatches; ++i){
         var match = matchesWithScores[i];
+        var matchId = match[0];
         try {
-          await submitMatch(match[1], match[2], activitySlug, match[0], match[3]);
+          await submitMatch(match[1], match[2], activitySlug, matchId, match[3]);
+          updateRounds((function(matchId){
+              return function (currentRounds) {
+                return currentRounds.map(function (round) {
+                            return round.map(function (m) {
+                                        if (m.id === matchId) {
+                                          return {
+                                                  id: m.id,
+                                                  match: m.match,
+                                                  score: m.score,
+                                                  createdAt: m.createdAt,
+                                                  synced: true
+                                                };
+                                        } else {
+                                          return m;
+                                        }
+                                      });
+                          });
+              }
+              }(matchId)));
           results.push({
                 TAG: "Ok",
                 _0: undefined
@@ -1941,25 +2039,6 @@ function EventManager(props) {
               return false;
             }
           });
-      if (allSucceeded) {
-        updateRounds(function (currentRounds) {
-              return currentRounds.map(function (round) {
-                          return round.map(function (m) {
-                                      if (Core__Option.isSome(m.score)) {
-                                        return {
-                                                id: m.id,
-                                                match: m.match,
-                                                score: m.score,
-                                                createdAt: m.createdAt,
-                                                synced: true
-                                              };
-                                      } else {
-                                        return m;
-                                      }
-                                    });
-                        });
-            });
-      }
       return setSyncState(function (param) {
                   if (allSucceeded) {
                     return "Success";
@@ -1998,6 +2077,9 @@ function EventManager(props) {
     setRatingAdjustmentHistory(function (param) {
           return [];
         });
+    setRatingBaseline(function (param) {
+          return {};
+        });
     setIsDirty(function (param) {
           return false;
         });
@@ -2029,27 +2111,32 @@ function EventManager(props) {
   };
   var planImportHistory = function (text) {
     return Core__Result.map(EventStateTransfer.decode(text), (function (payload) {
-                  return EventStateTransfer.plan(rounds, ratingAdjustmentHistory, solverRoundViolations, currentRoundInt, players, payload);
+                  return [
+                          payload,
+                          EventStateTransfer.plan(rounds, ratingAdjustmentHistory, solverRoundViolations, currentRoundInt, players, payload)
+                        ];
                 }));
   };
   var previewImportHistory = function (text) {
-    return Core__Result.map(planImportHistory(text), (function (p) {
-                  return p.counts;
+    return Core__Result.map(planImportHistory(text), (function (param) {
+                  return param[1].counts;
                 }));
   };
   var handleImportHistory = function (text) {
-    var p = planImportHistory(text);
-    if (p.TAG !== "Ok") {
+    var match = planImportHistory(text);
+    if (match.TAG !== "Ok") {
       return ;
     }
-    var p$1 = p._0;
-    if (p$1.counts.importedMatches <= 0) {
+    var match$1 = match._0;
+    var p = match$1[1];
+    if (p.counts.importedMatches <= 0) {
       return ;
     }
-    var nextRoundInt = p$1.currentRoundInt;
-    var roundViolations = p$1.roundViolations;
-    var adjustments = p$1.adjustments;
-    var mergedRounds = p$1.rounds;
+    var nextRoundInt = p.currentRoundInt;
+    var roundViolations = p.roundViolations;
+    var adjustments = p.adjustments;
+    var mergedRounds = p.rounds;
+    var payload = match$1[0];
     beginGeneration();
     setIsGenerating(function (param) {
           return false;
@@ -2068,6 +2155,18 @@ function EventManager(props) {
           return nextRoundInt;
         });
     EventManagerPersistence.saveCurrentRound(data.id, nextRoundInt);
+    var playedBefore = RatingBaseline.playersWithScores(rounds);
+    var recovered = RatingBaseline.reconstruct(payload.rounds, payload.adjustments);
+    var nextBaseline = Js_dict.fromArray(Js_dict.entries(currentBaseline));
+    Js_dict.entries(recovered).forEach(function (param) {
+          var id = param[0];
+          if (!playedBefore.has(id)) {
+            nextBaseline[id] = param[1];
+            return ;
+          }
+          
+        });
+    saveBaseline(nextBaseline);
     setIsDirty(function (param) {
           return true;
         });
@@ -2177,7 +2276,7 @@ function EventManager(props) {
               };
       });
   var tmp;
-  if (match$35[0]) {
+  if (match$37[0]) {
     var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
     tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
           matches: currentRoundMatches,
@@ -2614,7 +2713,7 @@ function EventManager(props) {
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$33[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
+                match$35[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
                         teams: teamsAsData,
                         antiTeams: Util.NonEmptyArray.toArray(antiTeams).map(function (team, index) {
                               return {
@@ -2670,7 +2769,7 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
-                Core__Option.getOr(Core__Option.map(match$34[0], (function (player) {
+                Core__Option.getOr(Core__Option.map(match$36[0], (function (player) {
                             var isGuest = Core__Option.isNone(player.data);
                             if (isGuest) {
                               return JsxRuntime.jsx(PlayerSettingsModal.make, {
@@ -2926,7 +3025,7 @@ function EventManager(props) {
                                       });
                                 }),
                               getUserFragmentRefs: getUserFragmentRefs,
-                              initialPlayers: players,
+                              initialPlayers: baselinePlayers,
                               eventUrl: "https://www.pkuru.com/events/" + eventId,
                               seedSourceOption: Core__Option.map(clubRatingSource, (function (param) {
                                       return {
@@ -2974,7 +3073,7 @@ function EventManager(props) {
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     }),
-                match$36[0] ? JsxRuntime.jsx(PrintableDraws.make, {
+                match$38[0] ? JsxRuntime.jsx(PrintableDraws.make, {
                         rounds: rounds.map(function (roundMatches, roundIdx) {
                               return {
                                       roundNumber: roundIdx + 1 | 0,

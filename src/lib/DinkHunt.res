@@ -1,0 +1,207 @@
+// Client for the dinkhunt analysis server (tools/graphql_server.py in the
+// dinkhunt repo) — assumed to run on the same machine as the kiosk for now.
+//
+//   POST /clips     spools a muxed MP4 from the kiosk's rolling buffer and
+//                   returns its repo-relative path (plus whether a court
+//                   calibration sidecar was attached — see
+//                   DINKHUNT_KIOSK_COURT on the server side).
+//   POST /graphql   groundBounces(video) → the shot-finder's classified
+//                   ground bounces, with times relative to the clip start
+//                   (a spooled clip is a standalone video, so t maps
+//                   directly onto the kiosk's buffer timeline).
+
+let base = "http://localhost:3003"
+
+type bounce = {
+  i: int,
+  t: float, // seconds from clip start
+  frame: int,
+  world: array<float>, // court metres, Z = 0
+  pixel: array<float>, // image position in the clip's frame space
+  footprint: array<array<float>>, // projected ground disc (perspective-correct marker), clip pixels
+}
+
+type response
+@val external fetch: (string, 'init) => promise<response> = "fetch"
+@get external ok: response => bool = "ok"
+@get external status: response => int = "status"
+@send external json: response => promise<Js.Json.t> = "json"
+external unsafeFromJson: Js.Json.t => 'a = "%identity"
+
+type clipUpload = {path: string, calibrated: bool}
+type gqlError = {message: string}
+type gqlData = {groundBounces: array<bounce>}
+type gqlResponse = {data: Js.Nullable.t<gqlData>, errors: Js.Nullable.t<array<gqlError>>}
+
+let uploadClip = async (blob: CaptureSession.blob): result<clipUpload, string> =>
+  try {
+    let response = await fetch(
+      base ++ "/clips",
+      {"method": "POST", "headers": {"Content-Type": "video/mp4"}, "body": blob},
+    )
+    if response->ok {
+      Ok(unsafeFromJson(await response->json))
+    } else {
+      Error("clip upload failed (" ++ response->status->Int.toString ++ ")")
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+
+let groundBounces = async (video: string): result<array<bounce>, string> =>
+  try {
+    let query = "query($v: String!) { groundBounces(video: $v) { i t frame world pixel footprint } }"
+    let response = await fetch(
+      base ++ "/graphql",
+      {
+        "method": "POST",
+        "headers": {"Content-Type": "application/json"},
+        "body": Js.Json.stringifyAny({"query": query, "variables": {"v": video}}),
+      },
+    )
+    let payload: gqlResponse = unsafeFromJson(await response->json)
+    switch payload.errors->Js.Nullable.toOption {
+    | Some(errors) if errors->Array.length > 0 =>
+      Error((errors->Array.getUnsafe(0)).message)
+    | _ =>
+      switch payload.data->Js.Nullable.toOption {
+      | Some(data) => Ok(data.groundBounces)
+      | None => Error("empty GraphQL response")
+      }
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+
+// ── Challenge analysis (bounces + the analyze.py-style overlay data) ─────────
+
+type pathPoint = {t: float, x: float, y: float}
+type challengeAnalysis = {
+  width: int,
+  height: int,
+  fps: float,
+  bounces: array<bounce>,
+  paths: array<array<pathPoint>>, // per-shot ball paths, 30Hz, clip pixels
+}
+type challengeGqlData = {challenge: challengeAnalysis}
+type challengeGqlResponse = {
+  data: Js.Nullable.t<challengeGqlData>,
+  errors: Js.Nullable.t<array<gqlError>>,
+}
+
+let challengeAnalysis = async (video: string): result<challengeAnalysis, string> =>
+  try {
+    let query = "query($v: String!) { challenge(video: $v) { width height fps bounces { i t frame world pixel footprint } paths { t x y } } }"
+    let response = await fetch(
+      base ++ "/graphql",
+      {
+        "method": "POST",
+        "headers": {"Content-Type": "application/json"},
+        "body": Js.Json.stringifyAny({"query": query, "variables": {"v": video}}),
+      },
+    )
+    let payload: challengeGqlResponse = unsafeFromJson(await response->json)
+    switch payload.errors->Js.Nullable.toOption {
+    | Some(errors) if errors->Array.length > 0 => Error((errors->Array.getUnsafe(0)).message)
+    | _ =>
+      switch payload.data->Js.Nullable.toOption {
+      | Some(data) => Ok(data.challenge)
+      | None => Error("empty GraphQL response")
+      }
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+
+// The kiosk's one-call flow: spool the buffer clip, then analyze it.
+let challengeBounces = async (blob: CaptureSession.blob): result<
+  (clipUpload, challengeAnalysis),
+  string,
+> =>
+  switch await uploadClip(blob) {
+  | Error(message) => Error(message)
+  | Ok(upload) =>
+    switch await challengeAnalysis(upload.path) {
+    | Ok(analysis) => Ok((upload, analysis))
+    | Error(message) => Error(message)
+    }
+  }
+
+
+// ── Court calibration ────────────────────────────────────────────────────────
+
+type courtCorner = {name: string, x: float, y: float}
+type courtResult = {ok: bool, solved: bool, message: string}
+type courtGqlData = {setKioskCourt: courtResult}
+type courtGqlResponse = {
+  data: Js.Nullable.t<courtGqlData>,
+  errors: Js.Nullable.t<array<gqlError>>,
+}
+
+// Persist the kiosk camera's court corners on the analysis server (it writes
+// the court pkl that gets attached to every spooled clip) and solve the pose
+// immediately so bad drags fail loudly here, not hours later on a clip.
+let setKioskCourt = async (
+  ~width: int,
+  ~height: int,
+  ~corners: array<courtCorner>,
+): result<courtResult, string> =>
+  try {
+    let query = "mutation($w: Int!, $h: Int!, $c: [CornerInput!]!) { setKioskCourt(width: $w, height: $h, corners: $c) { ok solved message } }"
+    let response = await fetch(
+      base ++ "/graphql",
+      {
+        "method": "POST",
+        "headers": {"Content-Type": "application/json"},
+        "body": Js.Json.stringifyAny({
+          "query": query,
+          "variables": {"w": width, "h": height, "c": corners},
+        }),
+      },
+    )
+    let payload: courtGqlResponse = unsafeFromJson(await response->json)
+    switch payload.errors->Js.Nullable.toOption {
+    | Some(errors) if errors->Array.length > 0 => Error((errors->Array.getUnsafe(0)).message)
+    | _ =>
+      switch payload.data->Js.Nullable.toOption {
+      | Some(data) => Ok(data.setKioskCourt)
+      | None => Error("empty GraphQL response")
+      }
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+
+
+// ── Test mode (fixed clip, no camera needed) ─────────────────────────────────
+
+let testClipName = "test_challenge.mov"
+
+// Duration of a blob-backed video, probed off-DOM.
+let urlDuration: string => promise<float> = %raw(`(url) => new Promise((resolve) => {
+  const v = document.createElement('video');
+  v.preload = 'metadata';
+  v.onloadedmetadata = () => resolve(isFinite(v.duration) ? v.duration : 0);
+  v.onerror = () => resolve(0);
+  v.src = url;
+})`)
+
+@send external blob: response => promise<CaptureSession.blob> = "blob"
+
+// The fixed test clip the analysis server holds at its repo root — used by
+// the kiosk's test mode when no live camera/buffer exists. Analysis runs
+// server-side against the SAME file by name, so nothing is uploaded.
+let fetchTestClip = async (): result<CaptureSession.blob, string> =>
+  try {
+    let response = await fetch(base ++ "/testclip", {"method": "GET"})
+    if response->ok {
+      Ok(await response->blob)
+    } else {
+      Error("No test clip on the server — put test_challenge.mov in the dinkhunt repo root.")
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+
+let testChallengeAnalysis = (): promise<result<challengeAnalysis, string>> =>
+  challengeAnalysis(testClipName)

@@ -10,6 +10,7 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventsMapPage from "../pages/EventsMapPage.re.mjs";
+import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as UseUserLocation from "../../helpers/UseUserLocation.re.mjs";
 import * as EventsMapPageQuery_graphql from "../../__generated__/EventsMapPageQuery_graphql.re.mjs";
 
@@ -64,8 +65,8 @@ async function loader(param) {
                 activitySlug: activity,
                 after: after,
                 afterDate: afterDate,
-                availabilityFromDate: new Date().toISOString().slice(0, 10),
-                availabilityToDate: new Date(Date.now() + 28 * 86400000).toISOString().slice(0, 10),
+                availabilityFromDate: EventsListUtils.availabilityFromDate(),
+                availabilityToDate: EventsListUtils.availabilityToDate(),
                 before: before,
                 filters: {
                   activitySlug: activity,

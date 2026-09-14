@@ -29,7 +29,7 @@ msgstr ""
 msgid "Court {0} - Editing"
 msgstr ""
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:194
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:196
 msgid "Courts:"
 msgstr ""
 
@@ -75,11 +75,11 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:268
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:270
 msgid "Round {0}"
 msgstr ""
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:187
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:189
 msgid "Round Robin Draws"
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "The match will be removed from this round. You can restore the originally scheduled matches using the round reset icon."
 msgstr ""
 
-#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:305
+#: src/components/organisms/RoundRobinDrawsPreview.re.mjs:307
 msgid "View Full Draws"
 msgstr ""
 

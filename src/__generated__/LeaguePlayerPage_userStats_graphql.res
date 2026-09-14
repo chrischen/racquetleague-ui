@@ -24,15 +24,11 @@ module Types = {
     score: float,
     user: option<fragment_leagueUserStats_bestPartners_user>,
   }
+  and fragment_leagueUserStats_gymRating = {
+    mu: float,
+    sigma: float,
+  }
   and fragment_leagueUserStats_hardcourtRating = {
-    mu: float,
-    sigma: float,
-  }
-  and fragment_leagueUserStats_indoorIndoorBallRating = {
-    mu: float,
-    sigma: float,
-  }
-  and fragment_leagueUserStats_indoorOutdoorBallRating = {
     mu: float,
     sigma: float,
   }
@@ -232,14 +228,17 @@ module Types = {
     bestOpponents: array<fragment_leagueUserStats_bestOpponents>,
     bestPartners: array<fragment_leagueUserStats_bestPartners>,
     daysNumberOne: float,
+    gymDelta: option<float>,
+    gymDeltaSe: option<float>,
+    gymRating: option<fragment_leagueUserStats_gymRating>,
+    gymZScore: option<float>,
+    hardcourtDelta: option<float>,
+    hardcourtDeltaSe: option<float>,
     hardcourtRating: option<fragment_leagueUserStats_hardcourtRating>,
     hardcourtZScore: option<float>,
-    indoorIndoorBallRating: option<fragment_leagueUserStats_indoorIndoorBallRating>,
-    indoorIndoorBallZScore: option<float>,
-    indoorOutdoorBallRating: option<fragment_leagueUserStats_indoorOutdoorBallRating>,
-    indoorOutdoorBallZScore: option<float>,
     mdBestOpponents: array<fragment_leagueUserStats_mdBestOpponents>,
     mdBestPartners: array<fragment_leagueUserStats_mdBestPartners>,
+    mdDelta: option<float>,
     mdRating: option<fragment_leagueUserStats_mdRating>,
     mdWorstOpponents: array<fragment_leagueUserStats_mdWorstOpponents>,
     mdWorstPartners: array<fragment_leagueUserStats_mdWorstPartners>,
@@ -251,6 +250,7 @@ module Types = {
     mfWorstPartners: array<fragment_leagueUserStats_mfWorstPartners>,
     wdBestOpponents: array<fragment_leagueUserStats_wdBestOpponents>,
     wdBestPartners: array<fragment_leagueUserStats_wdBestPartners>,
+    wdDelta: option<float>,
     wdRating: option<fragment_leagueUserStats_wdRating>,
     wdWorstOpponents: array<fragment_leagueUserStats_wdWorstOpponents>,
     wdWorstPartners: array<fragment_leagueUserStats_wdWorstPartners>,
@@ -259,6 +259,7 @@ module Types = {
     worstPartners: array<fragment_leagueUserStats_worstPartners>,
     xdBestOpponents: array<fragment_leagueUserStats_xdBestOpponents>,
     xdBestPartners: array<fragment_leagueUserStats_xdBestPartners>,
+    xdDelta: option<float>,
     xdRating: option<fragment_leagueUserStats_xdRating>,
     xdWorstOpponents: array<fragment_leagueUserStats_xdWorstOpponents>,
     xdWorstPartners: array<fragment_leagueUserStats_xdWorstPartners>,
@@ -507,6 +508,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "mdDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "wdRating",
@@ -524,6 +532,13 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "wdDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
           "name": "xdRating",
@@ -536,6 +551,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "xdZScore",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "xdDelta",
           "storageKey": null
         },
         {
@@ -765,9 +787,23 @@ return {
         {
           "alias": null,
           "args": null,
+          "kind": "ScalarField",
+          "name": "hardcourtDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "hardcourtDeltaSe",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
-          "name": "indoorIndoorBallRating",
+          "name": "gymRating",
           "plural": false,
           "selections": (v2/*: any*/),
           "storageKey": null
@@ -776,24 +812,21 @@ return {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "indoorIndoorBallZScore",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "DisciplineRating",
-          "kind": "LinkedField",
-          "name": "indoorOutdoorBallRating",
-          "plural": false,
-          "selections": (v2/*: any*/),
+          "name": "gymZScore",
           "storageKey": null
         },
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "indoorOutdoorBallZScore",
+          "name": "gymDelta",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "gymDeltaSe",
           "storageKey": null
         }
       ],

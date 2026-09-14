@@ -217,6 +217,8 @@ var Upload = {};
 
 var Youtube = {};
 
+var UserMinus = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -326,5 +328,6 @@ export {
   Copy ,
   Upload ,
   Youtube ,
+  UserMinus ,
 }
 /* No side effect */

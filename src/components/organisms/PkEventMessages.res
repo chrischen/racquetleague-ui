@@ -89,247 +89,339 @@ let makeInitials = (name: string) =>
   ->Array.join("")
   ->String.toUpperCase
 
+// Chat messages written by people, as opposed to the system's RSVP and edit
+// rows. The footer's collapsed row previews the newest of these.
+let isChatMessage = activityType =>
+  switch activityType {
+  | "host_message" | "comment_added" => true
+  | _ => false
+  }
+
+type message = {
+  id: string,
+  actor: string,
+  activityType: string,
+  details: option<string>,
+  timeStr: string,
+}
+
+let toMessage = (node: Fragment.Types.fragment_messagesByTopic_edges_node): message => {
+  let payload = node.payload->Option.flatMap(decodePayload)
+  {
+    id: node.id,
+    actor: payload->Option.flatMap(p => p.actorUserName)->Option.getOr("?"),
+    activityType: payload->Option.flatMap(p => p.activityType)->Option.getOr(""),
+    details: payload->Option.flatMap(p => p.details),
+    timeStr: relativeTimeStr(node.createdAt),
+  }
+}
+
+// Newest first, matching the connection's prepend order.
+let messagesOf = (data: Fragment.Types.fragment) =>
+  data.messagesByTopic->Fragment.getConnectionNodes->Array.map(toMessage)
+
+module ActivityRow = {
+  @react.component
+  let make = (~message: message) => {
+    let ts = Lingui.UtilString.t
+    let {actor, activityType, details, timeStr} = message
+    let time =
+      <span className="ml-1.5 text-[10px] text-gray-400 dark:text-gray-500">
+        {timeStr->React.string}
+      </span>
+    // System rows: a toned icon disc and one line of small text.
+    let systemRow = (~icon, ~tone, ~textClass, ~body: React.element) =>
+      <div className="flex gap-2.5">
+        <div
+          className={"mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full " ++
+          tone}>
+          icon
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className={"pt-1 text-xs leading-relaxed " ++ textClass}>
+            body
+            time
+          </p>
+        </div>
+      </div>
+    let actorRow = (~icon, ~tone, ~text: string) =>
+      systemRow(
+        ~icon,
+        ~tone,
+        ~textClass="text-gray-600 dark:text-gray-400",
+        ~body=<>
+          <span className="font-semibold text-gray-800 dark:text-gray-200">
+            {(actor ++ " ")->React.string}
+          </span>
+          {text->React.string}
+        </>,
+      )
+    let emerald = "bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400"
+    let red = "bg-red-50 text-red-500 dark:bg-red-900/20 dark:text-red-400"
+    let amber = "bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+    let blue = "bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400"
+    let violet = "bg-violet-50 text-violet-600 dark:bg-violet-900/20 dark:text-violet-400"
+
+    switch activityType {
+    | "host_message" | "comment_added" =>
+      <div className="flex gap-2.5">
+        <div
+          className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-[10px] font-semibold text-gray-600 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-300">
+          {makeInitials(actor)->React.string}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex items-baseline gap-2">
+            <span className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+              {actor->React.string}
+            </span>
+            <span className="text-[11px] text-gray-400 dark:text-gray-500">
+              {timeStr->React.string}
+            </span>
+          </div>
+          {details
+          ->Option.map(d =>
+            <p className="mt-0.5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+              {d->React.string}
+            </p>
+          )
+          ->Option.getOr(React.null)}
+        </div>
+      </div>
+    | "update" =>
+      systemRow(
+        ~icon=<Lucide.Pencil size=13 \"aria-hidden"="true" />,
+        ~tone=amber,
+        ~textClass="text-amber-700 dark:text-amber-400",
+        ~body={details->Option.getOr(ts`Event updated`)->React.string},
+      )
+    | "rsvp_created" =>
+      actorRow(
+        ~icon=<Lucide.UserPlus size=13 \"aria-hidden"="true" />,
+        ~tone=emerald,
+        ~text=ts`joined the event`,
+      )
+    | "rsvp_added" =>
+      actorRow(
+        ~icon=<Lucide.UserPlus size=13 \"aria-hidden"="true" />,
+        ~tone=emerald,
+        ~text=ts`was added to the event by admin`,
+      )
+    // The actor is the invitee, not the inviter — the invite still needs
+    // them to join before it counts toward the event.
+    | "rsvp_invited" =>
+      actorRow(
+        ~icon=<Lucide.Mail size=13 \"aria-hidden"="true" />,
+        ~tone=violet,
+        ~text=ts`was invited to the event`,
+      )
+    | "rsvp_promoted" =>
+      actorRow(
+        ~icon=<Lucide.ArrowUpCircle size=13 \"aria-hidden"="true" />,
+        ~tone=blue,
+        ~text=ts`joined from waitlist`,
+      )
+    | "rsvp_deleted" | "rsvp_removed" =>
+      actorRow(
+        ~icon=<Lucide.UserMinus size=13 \"aria-hidden"="true" />,
+        ~tone=red,
+        ~text=ts`left the event`,
+      )
+    | _ =>
+      actorRow(
+        ~icon=<Lucide.AlertCircle size=13 \"aria-hidden"="true" />,
+        ~tone=amber,
+        ~text=details->Option.getOr(""),
+      )
+    }
+  }
+}
+
+// The activity feed. `prominent` is the sticky-footer variant: a tinted
+// full-bleed panel titled "Event chat" rather than a card in the page flow.
+module Section = {
+  @react.component
+  let make = (
+    ~queryRef: RescriptRelay.fragmentRefs<[> #PkEventMessages_query]>,
+    ~eventId: string,
+    ~canPost: bool,
+    ~prominent: bool=false,
+  ) => {
+    let ts = Lingui.UtilString.t
+    let data = Fragment.use(queryRef)
+    let (showAll, setShowAll) = React.useState(() => false)
+    let (messageInput, setMessageInput) = React.useState(() => "")
+    let (sendMessage, sendingMessage) = SendMessageMutation.use()
+
+    let allMessages = messagesOf(data)
+    let totalCount = allMessages->Array.length
+    let totalCountStr = Int.toString(totalCount)
+    let messageCountStr =
+      allMessages->Array.filter(m => isChatMessage(m.activityType))->Array.length->Int.toString
+    let visible = showAll ? allMessages : allMessages->Array.slice(~start=0, ~end=5)
+    let hasText = messageInput->String.trim != ""
+
+    let onSendMessage = () => {
+      let trimmed = messageInput->String.trim
+      if trimmed != "" && !sendingMessage {
+        let messagesConnectionId =
+          data.__id->Fragment.Operation.makeConnectionId(~topic=eventId ++ ".updated")
+        sendMessage(
+          ~variables={
+            connections: [messagesConnectionId],
+            input: {eventId, message: trimmed},
+          },
+        )->ignore
+        setMessageInput(_ => "")
+      }
+    }
+
+    <section
+      className={Util.cx([
+        "px-5 py-5",
+        prominent
+          ? "border-b border-gray-100 bg-[#fbfdf7] dark:border-[#2a2b30] dark:bg-[#20231d]"
+          : "mx-3 mt-3 rounded-xl border border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]",
+      ])}
+      ariaLabelledby="event-chat-title">
+      <div className={prominent ? "mx-auto w-full max-w-2xl" : ""}>
+        <div className="mb-4 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-[#bdf25d]/25 text-[#547817] dark:bg-[#bdf25d]/15 dark:text-[#bdf25d]">
+              <Lucide.MessageCircle size=18 \"aria-hidden"="true" />
+            </span>
+            <div>
+              <h2
+                id="event-chat-title"
+                className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                {prominent ? t`Event chat` : t`Activity`}
+              </h2>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                {canPost
+                  ? t`${messageCountStr} messages · ${totalCountStr} updates`
+                  : t`Join this event to take part in the chat`}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-3.5">
+          {visible->Array.map(message => <ActivityRow key=message.id message />)->React.array}
+        </div>
+        {totalCount > 5
+          ? <button
+              type_="button"
+              onClick={_ => setShowAll(v => !v)}
+              className="mt-3 text-xs font-semibold text-[#5f8618] underline-offset-2 transition-colors hover:text-[#476412] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d] dark:hover:text-[#d3ff85]">
+              {showAll ? t`Show less` : t`View all ${totalCountStr} updates`}
+            </button>
+          : React.null}
+        {canPost
+          ? <div
+              className="mt-4 flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2.5 shadow-sm transition-colors focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/30 dark:border-[#3a3b40] dark:bg-[#222326]">
+              <input
+                type_="text"
+                value=messageInput
+                onChange={e => setMessageInput(_ => ReactEvent.Form.target(e)["value"])}
+                onKeyDown={e =>
+                  if ReactEvent.Keyboard.key(e) == "Enter" {
+                    onSendMessage()
+                  }}
+                placeholder={ts`Message everyone in this event…`}
+                ariaLabel={ts`Message everyone in this event`}
+                className="min-w-0 flex-1 border-0 bg-transparent p-0 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:outline-none focus:ring-0 dark:text-gray-100 dark:placeholder:text-gray-500"
+              />
+              <button
+                type_="button"
+                disabled={!hasText || sendingMessage}
+                onClick={_ => onSendMessage()}
+                ariaLabel={ts`Send message`}
+                className={Util.cx([
+                  "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",
+                  hasText
+                    ? "bg-[#bdf25d] text-black hover:bg-[#aee050]"
+                    : "bg-gray-100 text-gray-300 dark:bg-[#2a2b30] dark:text-gray-600",
+                ])}>
+                <Lucide.Send size=15 \"aria-hidden"="true" />
+              </button>
+            </div>
+          : React.null}
+      </div>
+    </section>
+  }
+}
+
+// Joined viewers get the chat in the sticky footer: a one-line preview of the
+// newest message that expands into the full activity section above it.
+module FooterChat = {
+  @react.component
+  let make = (
+    ~queryRef: RescriptRelay.fragmentRefs<[> #PkEventMessages_query]>,
+    ~eventId: string,
+  ) => {
+    let data = Fragment.use(queryRef)
+    let (expanded, setExpanded) = React.useState(() => false)
+    let latest = messagesOf(data)->Array.find(m => isChatMessage(m.activityType))
+
+    <>
+      {expanded
+        ? <div
+            className="max-h-[46vh] overflow-y-auto border-b border-gray-200 dark:border-[#2a2b30]">
+            <Section queryRef eventId canPost=true prominent=true />
+          </div>
+        : React.null}
+      <button
+        type_="button"
+        onClick={_ => setExpanded(v => !v)}
+        ariaExpanded=expanded
+        className="block w-full border-b border-gray-200 bg-[#fbfdf7] text-left transition-colors hover:bg-[#f5f9ed] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:border-[#2a2b30] dark:bg-[#20231d] dark:hover:bg-[#25291f]">
+        <span className="mx-auto flex w-full max-w-2xl items-center gap-2.5 px-5 py-2.5">
+          <span
+            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#bdf25d]/25 text-[#547817] dark:bg-[#bdf25d]/15 dark:text-[#bdf25d]">
+            <Lucide.MessageCircle size=14 \"aria-hidden"="true" />
+          </span>
+          <span className="min-w-0 flex-1">
+            {switch latest {
+            | Some(m) =>
+              <>
+                <span className="block text-xs font-semibold text-gray-900 dark:text-gray-100">
+                  {m.actor->React.string}
+                  <span className="ml-1.5 font-normal text-gray-400 dark:text-gray-500">
+                    {m.timeStr->React.string}
+                  </span>
+                </span>
+                <span className="block truncate text-xs text-gray-600 dark:text-gray-300">
+                  {m.details->Option.getOr("")->React.string}
+                </span>
+              </>
+            | None =>
+              <>
+                <span className="block text-xs font-semibold text-gray-900 dark:text-gray-100">
+                  {t`Event chat`}
+                </span>
+                <span className="block truncate text-xs text-gray-600 dark:text-gray-300">
+                  {t`No messages yet`}
+                </span>
+              </>
+            }}
+          </span>
+          <Lucide.ChevronRight
+            size=14
+            className={"flex-shrink-0 text-gray-400 transition-transform duration-200 " ++ (
+              expanded ? "rotate-90" : "-rotate-90"
+            )}
+            \"aria-hidden"="true"
+          />
+        </span>
+      </button>
+    </>
+  }
+}
+
+// The in-page activity card. Only viewers who haven't joined see it here;
+// joined viewers get FooterChat instead.
 @react.component
 let make = (
   ~queryRef: RescriptRelay.fragmentRefs<[> #PkEventMessages_query]>,
   ~eventId: string,
   ~isJoined: bool,
-) => {
-  let ts = Lingui.UtilString.t
-  let data = Fragment.use(queryRef)
-  let (showAllActivity, setShowAllActivity) = React.useState(() => false)
-  let (messageInput, setMessageInput) = React.useState(() => "")
-  let (sendMessage, sendingMessage) = SendMessageMutation.use()
-
-  let allMessages = data.messagesByTopic->Fragment.getConnectionNodes
-
-  let displayedMessages = showAllActivity ? allMessages : allMessages->Array.slice(~start=0, ~end=5)
-
-  let onSendMessage = () => {
-    let trimmed = messageInput->String.trim
-    if trimmed != "" && !sendingMessage {
-      let messagesConnectionId =
-        data.__id->Fragment.Operation.makeConnectionId(~topic=eventId ++ ".updated")
-      sendMessage(
-        ~variables={
-          connections: [messagesConnectionId],
-          input: {eventId, message: trimmed},
-        },
-      )->ignore
-      setMessageInput(_ => "")
-    }
-  }
-
-  <div className="px-5 py-4">
-    <div className="flex items-center justify-between mb-3">
-      <h2
-        className="font-mono text-[10px] tracking-wider text-gray-400 dark:text-gray-500 uppercase">
-        {(ts`Activity`)->React.string}
-      </h2>
-      <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-        {(Int.toString(allMessages->Array.length) ++ " items")->React.string}
-      </span>
-    </div>
-    <div className="space-y-3">
-      {displayedMessages
-      ->Array.map(msg => {
-        let payload = msg.payload->Option.flatMap(decodePayload)
-        let activityType = payload->Option.flatMap(p => p.activityType)->Option.getOr("")
-        let actor = payload->Option.flatMap(p => p.actorUserName)->Option.getOr("?")
-        let details = payload->Option.flatMap(p => p.details)
-        let timeStr = relativeTimeStr(msg.createdAt)
-        switch activityType {
-        | "host_message" | "comment_added" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full bg-gray-100 dark:bg-[#2a2b30] flex items-center justify-center text-[9px] font-medium text-gray-600 dark:text-gray-300 flex-shrink-0 mt-0.5">
-              {makeInitials(actor)->React.string}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs font-medium text-gray-900 dark:text-gray-100">
-                  {actor->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-              {details
-              ->Option.map(d =>
-                <p className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 leading-relaxed">
-                  {d->React.string}
-                </p>
-              )
-              ->Option.getOr(React.null)}
-            </div>
-          </div>
-        | "update" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400">
-              <Lucide.Pencil className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-amber-700 dark:text-amber-400">
-                  {details->Option.getOr(ts`Event updated`)->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        | "rsvp_created" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400">
-              <Lucide.UserPlus className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium"> {actor->React.string} </span>
-                  {" joined the event"->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        | "rsvp_added" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400">
-              <Lucide.UserPlus className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium"> {actor->React.string} </span>
-                  {" was added to the event by admin"->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        // The actor is the invitee, not the inviter — the invite still needs
-        // them to join before it counts toward the event.
-        | "rsvp_invited" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-violet-50 dark:bg-violet-900/20 text-violet-600 dark:text-violet-400">
-              <Lucide.Mail className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium"> {actor->React.string} </span>
-                  {(" " ++ ts`was invited to the event`)->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        | "rsvp_promoted" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400">
-              <Lucide.ArrowUpCircle className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium"> {actor->React.string} </span>
-                  {" joined from waitlist"->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        | "rsvp_deleted" | "rsvp_removed" =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-red-50 dark:bg-red-900/20 text-red-500 dark:text-red-400">
-              <Lucide.UserX className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium"> {actor->React.string} </span>
-                  {" left the event"->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        | _ =>
-          <div key=msg.id className="flex gap-2.5">
-            <div
-              className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400">
-              <Lucide.AlertCircle className="w-3 h-3" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-xs text-gray-700 dark:text-gray-300">
-                  <span className="font-medium"> {actor->React.string} </span>
-                  {details->Option.map(d => " " ++ d)->Option.getOr("")->React.string}
-                </span>
-                <span className="font-mono text-[10px] text-gray-400 dark:text-gray-500">
-                  {timeStr->React.string}
-                </span>
-              </div>
-            </div>
-          </div>
-        }
-      })
-      ->React.array}
-    </div>
-    {allMessages->Array.length > 5
-      ? <button
-          className="mt-3 font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-          onClick={_ => setShowAllActivity(v => !v)}>
-          {(
-            showAllActivity
-              ? ts`Show less`
-              : ts`Show all ${Int.toString(allMessages->Array.length)} items`
-          )->React.string}
-        </button>
-      : React.null}
-    /* Message input */
-    <div
-      className="mt-4 flex items-center gap-2 border border-gray-200 dark:border-[#3a3b40] rounded-lg px-2.5 py-1.5 focus-within:border-gray-400 dark:focus-within:border-gray-500 transition-colors">
-      <input
-        className="flex-1 bg-transparent text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 border-0 outline-none focus:outline-none focus:ring-0"
-        placeholder={ts`Add a message...`}
-        value=messageInput
-        onChange={e => setMessageInput(_ => ReactEvent.Form.target(e)["value"])}
-        onKeyDown={e => {
-          if ReactEvent.Keyboard.key(e) == "Enter" && isJoined {
-            onSendMessage()
-          }
-        }}
-      />
-      <button
-        className={Util.cx([
-          "flex-shrink-0 transition-colors",
-          isJoined && messageInput->String.trim != ""
-            ? "text-[#65a30d] dark:text-[#bdf25d] hover:text-[#4d7c0f]"
-            : "text-gray-300 dark:text-gray-600",
-        ])}
-        disabled={!isJoined || sendingMessage || messageInput->String.trim == ""}
-        onClick={_ => onSendMessage()}>
-        <Lucide.Send className="w-3.5 h-3.5" />
-      </button>
-    </div>
-  </div>
-}
+) => <Section queryRef eventId canPost=isJoined />

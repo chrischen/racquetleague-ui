@@ -358,7 +358,7 @@ let make = (~debug: bool=false) => {
       // Build a map of original mu values for all players
       let originalMuMap =
         checkedInPlayers
-        ->Array.map(p => (p.id, p.rating.mu))
+        ->Array.map(p => (p.id, (p.rating.mu, p.rating.sigma)))
         ->Js.Dict.fromArray
 
       let targetRound = currentRoundInt - 1 // Convert to 0-indexed roundIndex (-1 when on round 0)
@@ -372,7 +372,7 @@ let make = (~debug: bool=false) => {
         originalMuMap
         ->Js.Dict.get(playerId)
         ->Option.forEach(
-          originalMu => {
+          ((originalMu, originalSigma)) => {
             let differential = adjustedMu -. originalMu
             if differential != 0.0 {
               adjustedPlayerIds->Set.add(playerId)->ignore
@@ -380,6 +380,9 @@ let make = (~debug: bool=false) => {
               ->Array.push({
                 RatingAdjustment.playerId,
                 differential,
+                // A hand-set seed is knowledge: tighten sigma so the next
+                // result refines it rather than replacing it.
+                sigmaDifferential: RatingAdjustment.sigmaDifferentialFor(originalSigma),
                 appliedAtRound: targetRound,
                 timestamp,
               })

@@ -345,9 +345,6 @@ function MatchHistoryList$Match(props) {
       ]);
   var losersScore = match$1[1];
   var winnersScore = match$1[0];
-  var isDraw = winnersScore === losersScore;
-  var isWin = userInWinners && !isDraw;
-  var isLoss = !userInWinners && !isDraw;
   var match$2 = userInWinners ? [
       winnersScore,
       losersScore
@@ -357,6 +354,8 @@ function MatchHistoryList$Match(props) {
     ];
   var rightScore = match$2[1];
   var leftScore = match$2[0];
+  var isWin = leftScore > rightScore;
+  var isLoss = leftScore < rightScore;
   var allPlayerIds = Core__Option.getOr(Core__Option.map(winners, (function (w) {
                 return w.map(function (p) {
                             return p.id;

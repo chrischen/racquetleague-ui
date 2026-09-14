@@ -574,6 +574,8 @@ let clampProb = clampProb
 let trueWinProbability = trueWinProbability
 let drawSigma = drawSigma
 let drawProbability = drawProbability
+let evenGameDraw = evenGameDraw
+let evenness = evenness
 
 // What the RATINGS expected, through the same model the app uses everywhere:
 // openskill's own predictWin over the ratings embedded at match time. This is

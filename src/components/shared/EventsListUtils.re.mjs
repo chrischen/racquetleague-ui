@@ -202,7 +202,21 @@ var scrollToGroup = (function(key) {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+function dateOnly(d) {
+  return d.toISOString().slice(0, 10);
+}
+
+function availabilityFromDate() {
+  return dateOnly(new Date());
+}
+
+function availabilityToDate() {
+  return dateOnly(new Date(Date.now() + 14 * 86400000));
+}
+
 var dayMs = 86400000;
+
+var availabilityWindowDays = 14;
 
 export {
   dayMs ,
@@ -216,5 +230,9 @@ export {
   Filter ,
   bucketEvents ,
   scrollToGroup ,
+  availabilityWindowDays ,
+  dateOnly ,
+  availabilityFromDate ,
+  availabilityToDate ,
 }
 /* No side effect */

@@ -59,6 +59,8 @@ var Query = {
 };
 
 function RoundRobinDrawsPreview(props) {
+  var __className = props.className;
+  var className = __className !== undefined ? __className : "mt-6";
   var data = use({
         eventId: props.eventId
       }, undefined, undefined, undefined);
@@ -317,7 +319,7 @@ function RoundRobinDrawsPreview(props) {
                       ],
                       className: "bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
                     }),
-                className: "mt-6"
+                className: className
               });
   } else {
     return null;

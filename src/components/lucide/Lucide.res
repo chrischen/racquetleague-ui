@@ -206,7 +206,7 @@ module Check = {
 
 module ArrowUpCircle = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element =
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "ArrowUpCircle"
 }
 
@@ -223,7 +223,7 @@ module Share = {
 
 module Send = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Send"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element = "Send"
 }
 
 module Mail = {
@@ -253,7 +253,7 @@ module Pencil = {
 
 module MessageCircle = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden\": string=?) => React.element =
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "MessageCircle"
 }
 
@@ -404,7 +404,7 @@ module UserCheck = {
 
 module UserX = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "UserX"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element = "UserX"
 }
 
 module ArrowDown = {
@@ -732,4 +732,10 @@ module Youtube = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "Youtube"
+}
+
+module UserMinus = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "UserMinus"
 }

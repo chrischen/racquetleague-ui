@@ -67,7 +67,7 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Advance to Next Round"
 msgstr "Tiến lên vòng tiếp theo"
 
-#: src/components/organisms/RoundRobin.re.mjs:840
+#: src/components/organisms/RoundRobin.re.mjs:844
 msgid "Advance to Round {0}"
 msgstr "Tiến lên vòng {0}"
 
@@ -87,7 +87,7 @@ msgstr "Tất cả người chơi đã check-in đều ở trong vòng này"
 msgid "Alternate favourite/underdog roles"
 msgstr "Xen kẽ vai trò ưa thích/yếu thế"
 
-#: src/components/organisms/RoundRobin.re.mjs:940
+#: src/components/organisms/RoundRobin.re.mjs:944
 msgid "Anti-Team {0}"
 msgstr "Đội phản {0}"
 
@@ -213,11 +213,11 @@ msgstr "Tùy chỉnh"
 msgid "Customize from here"
 msgstr "Tùy chỉnh từ đây"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: OFF"
 msgstr "Gỡ lỗi: TẮT"
 
-#: src/components/organisms/RoundRobin.re.mjs:1091
+#: src/components/organisms/RoundRobin.re.mjs:1095
 msgid "Debug: ON"
 msgstr "Gỡ lỗi: BẬT"
 
@@ -370,7 +370,7 @@ msgstr "Tên khách (mỗi tên một dòng)"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
 
-#: src/components/organisms/RoundRobin.re.mjs:1079
+#: src/components/organisms/RoundRobin.re.mjs:1083
 msgid "Help"
 msgstr "Trợ giúp"
 
@@ -529,7 +529,7 @@ msgstr ""
 "Người chơi sẽ được chia thành các nhóm trình độ tương tự theo hình thức "
 "round-robin với các đội cân bằng theo kỹ năng."
 
-#: src/components/organisms/RoundRobin.re.mjs:693
+#: src/components/organisms/RoundRobin.re.mjs:697
 msgid "Please update to a recent version of Chrome, Firefox, or Safari."
 msgstr "Vui lòng cập nhật phiên bản mới nhất của Chrome, Firefox hoặc Safari."
 
@@ -611,7 +611,7 @@ msgstr "Vòng {0}"
 msgid "Round Robin"
 msgstr "Vòng tròn"
 
-#: src/components/organisms/RoundRobin.re.mjs:1067
+#: src/components/organisms/RoundRobin.re.mjs:1071
 msgid "Round Robin Tournament"
 msgstr "Giải đấu vòng tròn"
 
@@ -688,7 +688,7 @@ msgid "Strategy:"
 msgstr "Chiến lược:"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/RoundRobin.re.mjs:679
+#: src/components/organisms/RoundRobin.re.mjs:683
 msgid "Team {0}"
 msgstr "Đội {0}"
 
@@ -779,7 +779,7 @@ msgstr "VS"
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
 
-#: src/components/organisms/RoundRobin.re.mjs:689
+#: src/components/organisms/RoundRobin.re.mjs:693
 msgid "Your browser is too old to use this feature."
 msgstr "Trình duyệt của bạn quá cũ để sử dụng tính năng này."
 

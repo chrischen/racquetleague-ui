@@ -87,7 +87,7 @@ msgstr "调整球员种子"
 msgid "Advance to Next Round"
 msgstr "前进至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:2513
+#: src/components/organisms/EventManager.re.mjs:2612
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 轮"
 
@@ -103,7 +103,7 @@ msgstr "亚历克斯·约翰逊"
 msgid "All checked-in players are already in this round"
 msgstr "所有已报到的球员都已在这个回合中"
 
-#: src/components/organisms/EventManager.re.mjs:2344
+#: src/components/organisms/EventManager.re.mjs:2443
 msgid "all up to date"
 msgstr "全部已更新"
 
@@ -111,7 +111,7 @@ msgstr "全部已更新"
 msgid "Alternate favourite/underdog roles"
 msgstr "交替强弱角色"
 
-#: src/components/organisms/EventManager.re.mjs:2622
+#: src/components/organisms/EventManager.re.mjs:2721
 msgid "Anti-Team {0}"
 msgstr "反对队 {0}"
 
@@ -157,11 +157,11 @@ msgstr "校准中"
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
 #: src/components/organisms/EventStateImportModal.re.mjs:135
-#: src/components/organisms/EventManager.re.mjs:458
+#: src/components/organisms/EventManager.re.mjs:459
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/EventManager.re.mjs:512
+#: src/components/organisms/EventManager.re.mjs:513
 msgid "Changes aren't being saved"
 msgstr "更改未保存"
 
@@ -198,7 +198,7 @@ msgstr "竞技+"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/components/organisms/EventManager.re.mjs:338
+#: src/components/organisms/EventManager.re.mjs:339
 msgid "Connecting…"
 msgstr "连接中…"
 
@@ -259,19 +259,19 @@ msgstr "自定义"
 msgid "Customize from here"
 msgstr "从此处自定义"
 
-#: src/components/organisms/EventManager.re.mjs:2872
+#: src/components/organisms/EventManager.re.mjs:2971
 msgid "Debug: OFF"
 msgstr "调试：关闭"
 
-#: src/components/organisms/EventManager.re.mjs:2872
+#: src/components/organisms/EventManager.re.mjs:2971
 msgid "Debug: ON"
 msgstr "调试：开启"
 
-#: src/components/organisms/EventManager.re.mjs:465
+#: src/components/organisms/EventManager.re.mjs:466
 msgid "Delete all data"
 msgstr "删除所有数据"
 
-#: src/components/organisms/EventManager.re.mjs:394
+#: src/components/organisms/EventManager.re.mjs:395
 msgid "Delete all saved event data?"
 msgstr "删除所有已保存的赛事数据？"
 
@@ -297,9 +297,9 @@ msgstr "删除这场比赛？"
 msgid "Deterministic"
 msgstr "确定性"
 
-#: src/components/organisms/EventManager.re.mjs:277
-#: src/components/organisms/EventManager.re.mjs:550
-#: src/components/organisms/EventManager.re.mjs:2416
+#: src/components/organisms/EventManager.re.mjs:278
+#: src/components/organisms/EventManager.re.mjs:551
+#: src/components/organisms/EventManager.re.mjs:2515
 msgid "Dismiss"
 msgstr "关闭"
 
@@ -364,12 +364,12 @@ msgstr ""
 "全员轮换：每轮更换新搭档和对手，优先安排最具竞争性的对阵，直至多样性需求促使"
 "混搭。"
 
-#: src/components/organisms/EventManager.re.mjs:452
+#: src/components/organisms/EventManager.re.mjs:453
 msgid "Everything stored on this device is already synced to the server."
 msgstr "此设备上存储的所有内容已同步到服务器。"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2824
+#: src/components/organisms/EventManager.re.mjs:2923
 msgid "Export History"
 msgstr "导出历史记录"
 
@@ -393,11 +393,11 @@ msgstr "女性"
 msgid "Free"
 msgstr "免费"
 
-#: src/components/organisms/EventManager.re.mjs:530
+#: src/components/organisms/EventManager.re.mjs:531
 msgid "Free up space"
 msgstr "释放空间"
 
-#: src/components/organisms/EventManager.re.mjs:286
+#: src/components/organisms/EventManager.re.mjs:287
 msgid "Free Up Space"
 msgstr "释放空间"
 
@@ -434,7 +434,7 @@ msgid "Generate Draws"
 msgstr "生成对战表"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1850
+#: src/components/organisms/EventManager.re.mjs:1928
 msgid "Generating…"
 msgstr "生成中……"
 
@@ -454,7 +454,7 @@ msgstr "访客姓名（每行一个）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "扫描遇到问题？请尝试从俱乐部页面查找活动。"
 
-#: src/components/organisms/EventManager.re.mjs:2860
+#: src/components/organisms/EventManager.re.mjs:2959
 msgid "Help"
 msgstr "帮助"
 
@@ -463,7 +463,7 @@ msgid "Import"
 msgstr "导入"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2834
+#: src/components/organisms/EventManager.re.mjs:2933
 msgid "Import History"
 msgstr "导入历史记录"
 
@@ -584,7 +584,7 @@ msgstr "还没有队伍"
 msgid "Not paid"
 msgstr "未支付"
 
-#: src/components/organisms/EventManager.re.mjs:317
+#: src/components/organisms/EventManager.re.mjs:318
 msgid "Not saved"
 msgstr "未保存"
 
@@ -600,11 +600,11 @@ msgstr "打开手机摄像头，扫描此二维码，加入活动。"
 msgid "Opponent variety"
 msgstr "对手多样性"
 
-#: src/components/organisms/EventManager.re.mjs:2412
+#: src/components/organisms/EventManager.re.mjs:2511
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "优化器不可用——本次排列已使用标准配对方式。"
 
-#: src/components/organisms/EventManager.re.mjs:422
+#: src/components/organisms/EventManager.re.mjs:423
 msgid "Other events on this device"
 msgstr "此设备上的其他赛事"
 
@@ -655,7 +655,7 @@ msgstr "球员将被分为技能水平相似的组别，以技能平衡的队伍
 msgid "please login before managing the session"
 msgstr "管理会话前请登录"
 
-#: src/components/organisms/EventManager.re.mjs:1850
+#: src/components/organisms/EventManager.re.mjs:1928
 msgid "Preparing optimizer…"
 msgstr "正在准备优化器……"
 
@@ -671,7 +671,7 @@ msgstr "上一回合"
 msgid "Print"
 msgstr "打印"
 
-#: src/components/organisms/EventManager.re.mjs:2311
+#: src/components/organisms/EventManager.re.mjs:2410
 msgid "Print Draws"
 msgstr "打印对阵表"
 
@@ -721,7 +721,7 @@ msgstr "替换球员"
 msgid "Replacing:"
 msgstr "替换："
 
-#: src/components/organisms/EventManager.re.mjs:2843
+#: src/components/organisms/EventManager.re.mjs:2942
 msgid "Reset Storage"
 msgstr "重置存储"
 
@@ -737,7 +737,7 @@ msgstr "使用混合性别配对重置此轮"
 msgid "Reset to preset"
 msgstr "重置为预设"
 
-#: src/components/organisms/EventManager.re.mjs:542
+#: src/components/organisms/EventManager.re.mjs:543
 msgid "Retry"
 msgstr "重试"
 
@@ -798,11 +798,11 @@ msgstr "保存种子调整"
 msgid "Save Team"
 msgstr "保存队伍"
 
-#: src/components/organisms/EventManager.re.mjs:331
+#: src/components/organisms/EventManager.re.mjs:332
 msgid "Saved"
 msgstr "已保存"
 
-#: src/components/organisms/EventManager.re.mjs:325
+#: src/components/organisms/EventManager.re.mjs:326
 msgid "Saving…"
 msgstr "保存中…"
 
@@ -816,7 +816,7 @@ msgid ""
 "on another device."
 msgstr "仅含已计分的比赛和评分调整。将其粘贴到其他设备的“导入历史记录”中。"
 
-#: src/components/organisms/EventManager.re.mjs:2266
+#: src/components/organisms/EventManager.re.mjs:2365
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -864,11 +864,11 @@ msgstr "已跳过，球员不在本赛事中"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "为填满场地，部分规则已作灵活处理"
 
-#: src/components/organisms/EventManager.re.mjs:2807
+#: src/components/organisms/EventManager.re.mjs:2906
 msgid "Sports Event Draws"
 msgstr "体育赛事签表"
 
-#: src/components/organisms/EventManager.re.mjs:255
+#: src/components/organisms/EventManager.re.mjs:256
 msgid "Storage Almost Full"
 msgstr "存储空间即将满"
 
@@ -880,24 +880,24 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:2278
+#: src/components/organisms/EventManager.re.mjs:2377
 msgid "Sync Failed"
 msgstr "同步失败"
 
-#: src/components/organisms/EventManager.re.mjs:2242
+#: src/components/organisms/EventManager.re.mjs:2341
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:2338
+#: src/components/organisms/EventManager.re.mjs:2437
 msgid "synced"
 msgstr "已同步"
 
-#: src/components/organisms/EventManager.re.mjs:2254
+#: src/components/organisms/EventManager.re.mjs:2353
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2173
+#: src/components/organisms/EventManager.re.mjs:2272
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -952,11 +952,11 @@ msgstr ""
 "这些数值正在自动跟随评分调整。冻结当前配置以手动调整——冻结后将停止对本赛事的"
 "自适应。"
 
-#: src/components/organisms/EventManager.re.mjs:748
+#: src/components/organisms/EventManager.re.mjs:749
 msgid "this club"
 msgstr "本俱乐部"
 
-#: src/components/organisms/EventManager.re.mjs:401
+#: src/components/organisms/EventManager.re.mjs:402
 msgid ""
 "This deletes the saved data for every event on this device, including this "
 "one. Events already synced to the server can be reopened; anything unsynced "
@@ -969,13 +969,13 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "这将删除所有未来回合并生成新比赛"
 
-#: src/components/organisms/EventManager.re.mjs:449
+#: src/components/organisms/EventManager.re.mjs:450
 msgid ""
 "Those scores have not reached the server. Sync this event before deleting, "
 "or they will be lost."
 msgstr "这些比分尚未上传到服务器。请在删除前同步此赛事，否则数据将丢失。"
 
-#: src/components/organisms/EventManager.re.mjs:449
+#: src/components/organisms/EventManager.re.mjs:450
 msgid ""
 "Those scores have not reached the server. Sync this event, and open each "
 "other event and sync it, before deleting — otherwise they are lost."
@@ -987,7 +987,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "紧密分组"
 
-#: src/components/organisms/EventManager.re.mjs:2340
+#: src/components/organisms/EventManager.re.mjs:2439
 msgid "to sync"
 msgstr "待同步"
 
@@ -995,11 +995,11 @@ msgstr "待同步"
 msgid "Tournament Draws"
 msgstr "赛事对阵表"
 
-#: src/components/organisms/EventManager.re.mjs:409
+#: src/components/organisms/EventManager.re.mjs:410
 msgid "Unsynced scores in this event"
 msgstr "此赛事中未同步的比分"
 
-#: src/components/organisms/EventManager.re.mjs:435
+#: src/components/organisms/EventManager.re.mjs:436
 msgid "Unsynced scores in those events"
 msgstr "这些赛事中未同步的比分"
 
@@ -1033,7 +1033,7 @@ msgstr "请等待正在生成的对阵表完成。"
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
-#: src/components/organisms/EventManager.re.mjs:494
+#: src/components/organisms/EventManager.re.mjs:495
 msgid ""
 "Your browser is blocking storage for this site. If you're in a private "
 "window, switch to a normal one; otherwise allow site data and reload."
@@ -1041,13 +1041,13 @@ msgstr ""
 "您的浏览器阻止了此网站的存储访问。如果您处于隐私窗口，请切换到普通窗口；否则"
 "请允许网站数据并重新加载。"
 
-#: src/components/organisms/EventManager.re.mjs:497
+#: src/components/organisms/EventManager.re.mjs:498
 msgid ""
 "Your browser is out of storage space. Clear old event data to free up space, "
 "then retry."
 msgstr "您的浏览器存储空间不足。请清除旧赛事数据以释放空间，然后重试。"
 
-#: src/components/organisms/EventManager.re.mjs:500
+#: src/components/organisms/EventManager.re.mjs:501
 msgid ""
 "Your browser refused to save this event. Reload the page or retry — if it "
 "keeps failing, avoid refreshing until scores are synced."
@@ -1055,7 +1055,7 @@ msgstr ""
 "您的浏览器拒绝保存此赛事。请重新加载页面或重试——如果持续失败，请避免刷新页"
 "面，直到比分同步完成。"
 
-#: src/components/organisms/EventManager.re.mjs:262
+#: src/components/organisms/EventManager.re.mjs:263
 msgid ""
 "Your browser storage is {0}% full. The app may lose data if storage runs "
 "out. Freeing space clears saved data for every event on this device — you'll "

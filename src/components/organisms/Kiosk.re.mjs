@@ -3,14 +3,15 @@
 import * as React from "react";
 import * as Capture from "../../lib/capture/Capture.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as DinkHunt from "../../lib/DinkHunt.re.mjs";
 import * as UserMedia from "../../lib/UserMedia.re.mjs";
-import * as Caml_int32 from "rescript/lib/es6/caml_int32.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import ReactQrCode from "react-qr-code";
 import * as CaptureSession from "../../lib/capture/CaptureSession.re.mjs";
+import * as KioskCourtCalib from "./KioskCourtCalib.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
@@ -33,11 +34,13 @@ var liveStreamUrl = "https://youtube.com/live/courtside-court04";
 
 var cameraStorageKey = "kiosk.cameraDeviceId";
 
+var testModeStorageKey = "kiosk.testMode";
+
 function liveActionKey(action) {
   if (action === "RallyClip") {
     return "rally-clip";
   } else {
-    return "line-check";
+    return "challenge";
   }
 }
 
@@ -45,7 +48,7 @@ function liveActionName(action) {
   if (action === "RallyClip") {
     return t`Clip last rally`;
   } else {
-    return t`Check in or out`;
+    return t`Challenge`;
   }
 }
 
@@ -53,7 +56,7 @@ function liveActionDescription(action) {
   if (action === "RallyClip") {
     return t`Create a clean, shareable clip from the rolling video buffer.`;
   } else {
-    return t`Review the latest bounce from multiple close-up moments.`;
+    return t`Overlay detected bounces on the buffered footage and replay any of them.`;
   }
 }
 
@@ -318,6 +321,515 @@ var ClipPlayer = {
   make: Kiosk$ClipPlayer
 };
 
+function zoomTransformFor(rect, frameW, frameH, param) {
+  var scale = Math.min(rect.width / frameW, rect.height / frameH);
+  var ox = (rect.width - frameW * scale) / 2;
+  var oy = (rect.height - frameH * scale) / 2;
+  var dx = ox + param[0] * scale;
+  var dy = oy + param[1] * scale;
+  var tx = rect.width / 2 - dx * 2.6;
+  var ty = rect.height / 2 - dy * 2.6;
+  return "translate(" + tx.toFixed(1) + "px, " + ty.toFixed(1) + "px) scale(" + (2.6).toString() + ")";
+}
+
+function ballAt(paths, t) {
+  return Core__Option.flatMap(paths.find(function (path) {
+                  var match = path[0];
+                  var match$1 = path[path.length - 1 | 0];
+                  if (match !== undefined && match$1 !== undefined && match.t <= t) {
+                    return t <= match$1.t;
+                  } else {
+                    return false;
+                  }
+                }), (function (path) {
+                var index = 0;
+                while(index < (path.length - 2 | 0) && path[index + 1 | 0].t < t) {
+                  index = index + 1 | 0;
+                };
+                var match = path[index];
+                var match$1 = path[index + 1 | 0];
+                if (match === undefined) {
+                  return ;
+                }
+                if (match$1 === undefined) {
+                  return ;
+                }
+                var span = match$1.t - match.t;
+                var f = span <= 0 ? 0 : (t - match.t) / span;
+                return [
+                        match.x + (match$1.x - match.x) * f,
+                        match.y + (match$1.y - match.y) * f
+                      ];
+              }));
+}
+
+function Kiosk$ChallengePlayer(props) {
+  var challenge = props.challenge;
+  var videoRef = React.useRef(null);
+  var match = React.useState(function () {
+        
+      });
+  var setSelected = match[1];
+  var selected = match[0];
+  var match$1 = React.useState(function () {
+        return true;
+      });
+  var setSlow = match$1[1];
+  var slow = match$1[0];
+  var match$2 = React.useState(function () {
+        return true;
+      });
+  var setOverlayOn = match$2[1];
+  var overlayOn = match$2[0];
+  var match$3 = React.useState(function () {
+        return 0;
+      });
+  var setNow = match$3[1];
+  var now = match$3[0];
+  var match$4 = React.useState(function () {
+        return false;
+      });
+  var setLooping = match$4[1];
+  var looping = match$4[0];
+  var match$5 = React.useState(function () {
+        return false;
+      });
+  var setZoomed = match$5[1];
+  var zoomed = match$5[0];
+  var match$6 = React.useState(function () {
+        return false;
+      });
+  var setPlaying = match$6[1];
+  var playing = match$6[0];
+  var match$7 = React.useState(function () {
+        
+      });
+  var setZoomTransform = match$7[1];
+  var zoomTransform = match$7[0];
+  var playerRef = React.useRef(null);
+  var loopWindow = React.useRef(undefined);
+  var duration = Math.max(challenge.clip.durationSeconds, 0.1);
+  var loopHalf = 6 / Math.max(challenge.fps, 1);
+  React.useEffect((function () {
+          var handle = {
+            contents: undefined
+          };
+          var tick = function (param) {
+            var el = videoRef.current;
+            if (!(el == null)) {
+              var t = el.currentTime;
+              var match = loopWindow.current;
+              if (match !== undefined && t > match[1] && !el.paused) {
+                el.currentTime = match[0];
+              }
+              setNow(function (previous) {
+                    if (Math.abs(previous - t) > 0.005) {
+                      return t;
+                    } else {
+                      return previous;
+                    }
+                  });
+            }
+            handle.contents = requestAnimationFrame(tick);
+          };
+          handle.contents = requestAnimationFrame(tick);
+          return (function () {
+                    var id = handle.contents;
+                    if (id !== undefined) {
+                      cancelAnimationFrame(id);
+                      return ;
+                    }
+                    
+                  });
+        }), []);
+  var retargetZoom = function (bounce) {
+    var el = playerRef.current;
+    if (el == null) {
+      return ;
+    }
+    var x = Core__Option.getOr(bounce.pixel[0], 0);
+    var y = Core__Option.getOr(bounce.pixel[1], 0);
+    setZoomTransform(function (param) {
+          return zoomTransformFor(el.getBoundingClientRect(), challenge.frameW, challenge.frameH, [
+                      x,
+                      y
+                    ]);
+        });
+  };
+  var startLoop = function (bounce) {
+    var start = Math.max(0, bounce.t - loopHalf);
+    loopWindow.current = [
+      start,
+      Math.min(duration, bounce.t + loopHalf)
+    ];
+    setLooping(function (param) {
+          return true;
+        });
+    if (zoomed) {
+      retargetZoom(bounce);
+    }
+    var element = videoRef.current;
+    if (!(element == null)) {
+      element.playbackRate = slow ? 0.5 : 1.0;
+      element.currentTime = start;
+      element.play();
+      return ;
+    }
+    
+  };
+  var stopLoop = function () {
+    loopWindow.current = undefined;
+    setLooping(function (param) {
+          return false;
+        });
+    setZoomTransform(function (param) {
+          
+        });
+  };
+  var toggleZoom = function () {
+    var next = !zoomed;
+    setZoomed(function (param) {
+          return next;
+        });
+    if (!next) {
+      return setZoomTransform(function (param) {
+                  
+                });
+    }
+    var bounce = Core__Option.flatMap(selected, (function (i) {
+            return challenge.bounces[i];
+          }));
+    if (bounce !== undefined && looping) {
+      return retargetZoom(bounce);
+    }
+    
+  };
+  var replayBounce = function (index, bounce) {
+    setSelected(function (param) {
+          return index;
+        });
+    if (looping) {
+      return startLoop(bounce);
+    }
+    var element = videoRef.current;
+    if (!(element == null)) {
+      element.playbackRate = slow ? 0.5 : 1.0;
+      element.currentTime = Math.max(0, bounce.t - 0.75);
+      element.play();
+      return ;
+    }
+    
+  };
+  var frameStep = 1 / Math.max(challenge.fps, 1);
+  var stepBy = function (frames) {
+    var el = videoRef.current;
+    if (!(el == null)) {
+      el.pause();
+      el.currentTime = Math.max(0, Math.min(duration, el.currentTime + frames * frameStep));
+      return ;
+    }
+    
+  };
+  var togglePlay = function () {
+    var el = videoRef.current;
+    if (!(el == null)) {
+      if (el.paused) {
+        el.playbackRate = slow ? 0.5 : 1.0;
+        el.play();
+      } else {
+        el.pause();
+      }
+      return ;
+    }
+    
+  };
+  var tmp;
+  if (overlayOn && challenge.paths.length > 0) {
+    var match$8 = ballAt(challenge.paths, now);
+    tmp = JsxRuntime.jsxs("svg", {
+          children: [
+            challenge.paths.map(function (path, index) {
+                  return JsxRuntime.jsx("polyline", {
+                              fill: "none",
+                              points: path.map(function (pt) {
+                                      return pt.x.toString() + "," + pt.y.toString();
+                                    }).join(" "),
+                              stroke: "#bef264",
+                              strokeOpacity: "0.55",
+                              strokeWidth: "3"
+                            }, index.toString());
+                }),
+            challenge.bounces.map(function (bounce, index) {
+                  if (bounce.t > now) {
+                    return null;
+                  }
+                  var x = Core__Option.getOr(bounce.pixel[0], 0);
+                  var y = Core__Option.getOr(bounce.pixel[1], 0);
+                  return JsxRuntime.jsxs("g", {
+                              children: [
+                                bounce.footprint.length >= 3 ? JsxRuntime.jsx("polygon", {
+                                        fill: "none",
+                                        points: bounce.footprint.map(function (p) {
+                                                return Core__Option.getOr(p[0], x).toString() + "," + Core__Option.getOr(p[1], y).toString();
+                                              }).join(" "),
+                                        stroke: Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80",
+                                        strokeLinejoin: "round",
+                                        strokeWidth: "4"
+                                      }) : JsxRuntime.jsx("ellipse", {
+                                        cx: x.toString(),
+                                        cy: y.toString(),
+                                        fill: "none",
+                                        rx: "26",
+                                        ry: "10",
+                                        stroke: Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80",
+                                        strokeWidth: "4"
+                                      }),
+                                JsxRuntime.jsx("text", {
+                                      children: "bounce " + (index + 1 | 0).toString(),
+                                      fill: Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80",
+                                      fontFamily: "monospace",
+                                      fontSize: "24",
+                                      fontWeight: "800",
+                                      textAnchor: "middle",
+                                      x: x.toString(),
+                                      y: (y - 16).toString()
+                                    })
+                              ]
+                            }, index.toString());
+                }),
+            match$8 !== undefined ? JsxRuntime.jsx("circle", {
+                    cx: match$8[0].toString(),
+                    cy: match$8[1].toString(),
+                    fill: "#ef4444",
+                    r: "11",
+                    stroke: "#ffffff",
+                    strokeWidth: "3"
+                  }) : null
+          ],
+          className: "pointer-events-none absolute inset-0 h-full w-full",
+          preserveAspectRatio: "xMidYMid meet",
+          viewBox: "0 0 " + challenge.frameW.toString() + " " + challenge.frameH.toString()
+        });
+  } else {
+    tmp = null;
+  }
+  var message = challenge.error;
+  return JsxRuntime.jsxs("div", {
+              children: [
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsx("video", {
+                                    ref: Caml_option.some(videoRef),
+                                    className: "absolute inset-0 h-full w-full object-contain",
+                                    controls: zoomTransform === undefined,
+                                    muted: true,
+                                    playsInline: true,
+                                    src: challenge.clip.url,
+                                    onPause: (function (param) {
+                                        setPlaying(function (param) {
+                                              return false;
+                                            });
+                                      }),
+                                    onPlay: (function (param) {
+                                        setPlaying(function (param) {
+                                              return true;
+                                            });
+                                      })
+                                  }),
+                              tmp
+                            ],
+                            className: "absolute inset-0 origin-top-left will-change-transform",
+                            style: zoomTransform !== undefined ? ({
+                                  transform: zoomTransform
+                                }) : ({})
+                          }),
+                      ref: Caml_option.some(playerRef),
+                      className: "relative aspect-video overflow-hidden border-2 border-kiosk-border bg-black"
+                    }),
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsxs("button", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.ChevronLeft, {
+                                              size: 20,
+                                              "aria-hidden": "true"
+                                            }),
+                                        "1f"
+                                      ],
+                                      "aria-label": "back one frame",
+                                      className: "flex min-h-12 min-w-14 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised font-extrabold text-white active:bg-kiosk-border",
+                                      type: "button",
+                                      onClick: (function (param) {
+                                          stepBy(-1);
+                                        })
+                                    }),
+                                JsxRuntime.jsx("button", {
+                                      children: playing ? JsxRuntime.jsx(LucideReact.Square, {
+                                              size: 16,
+                                              className: "fill-current",
+                                              "aria-hidden": "true"
+                                            }) : JsxRuntime.jsx(LucideReact.Play, {
+                                              size: 16,
+                                              className: "fill-current",
+                                              "aria-hidden": "true"
+                                            }),
+                                      "aria-label": playing ? "pause" : "play",
+                                      className: "flex min-h-12 min-w-16 items-center justify-center border-2 border-kiosk-accent bg-kiosk-accent px-4 font-extrabold text-kiosk-bg active:bg-kiosk-accentDark",
+                                      type: "button",
+                                      onClick: (function (param) {
+                                          togglePlay();
+                                        })
+                                    }),
+                                JsxRuntime.jsxs("button", {
+                                      children: [
+                                        "1f",
+                                        JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                              size: 20,
+                                              "aria-hidden": "true"
+                                            })
+                                      ],
+                                      "aria-label": "forward one frame",
+                                      className: "flex min-h-12 min-w-14 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised font-extrabold text-white active:bg-kiosk-border",
+                                      type: "button",
+                                      onClick: (function (param) {
+                                          stepBy(1);
+                                        })
+                                    })
+                              ],
+                              className: "flex items-center gap-2"
+                            }),
+                        JsxRuntime.jsx("p", {
+                              children: "f " + Math.floor(now * challenge.fps).toFixed(0) + " · " + now.toFixed(2) + "s",
+                              className: "font-mono text-xs font-semibold text-kiosk-muted"
+                            })
+                      ],
+                      className: "mt-3 flex items-center justify-between gap-3"
+                    }),
+                message !== undefined ? JsxRuntime.jsx("p", {
+                        children: message,
+                        className: "mt-3 border-2 border-red-400/40 bg-red-500/10 px-4 py-3 text-sm font-semibold text-red-300"
+                      }) : null,
+                challenge.bounces.length === 0 && challenge.error === undefined ? JsxRuntime.jsx("p", {
+                        children: t`No ground bounces were detected in the buffered footage.`,
+                        className: "mt-3 text-sm text-kiosk-muted"
+                      }) : null,
+                challenge.bounces.length > 0 ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                        children: [
+                          JsxRuntime.jsx("div", {
+                                children: challenge.bounces.map(function (bounce, index) {
+                                      return JsxRuntime.jsx("button", {
+                                                  children: (index + 1 | 0).toString(),
+                                                  "aria-label": "bounce " + (index + 1 | 0).toString(),
+                                                  className: Core.cx("absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 text-xs font-extrabold transition-transform active:scale-90", Caml_obj.equal(selected, index) ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-white/60 bg-kiosk-bg text-white"),
+                                                  style: {
+                                                    left: (bounce.t / duration * 100).toFixed(1) + "%"
+                                                  },
+                                                  type: "button",
+                                                  onClick: (function (param) {
+                                                      replayBounce(index, bounce);
+                                                    })
+                                                }, index.toString());
+                                    }),
+                                className: "relative mt-4 h-14 border-2 border-kiosk-border bg-kiosk-raised"
+                              }),
+                          JsxRuntime.jsx("div", {
+                                children: challenge.bounces.map(function (bounce, index) {
+                                      return JsxRuntime.jsxs("button", {
+                                                  children: [
+                                                    JsxRuntime.jsx("span", {
+                                                          children: "#" + (index + 1 | 0).toString()
+                                                        }),
+                                                    JsxRuntime.jsx("span", {
+                                                          children: bounce.t.toFixed(1) + "s",
+                                                          className: "opacity-70"
+                                                        })
+                                                  ],
+                                                  className: Core.cx("flex min-h-12 shrink-0 items-center gap-2 whitespace-nowrap border-2 px-4 font-mono text-sm font-extrabold transition-[background-color,transform] duration-150 ease-out active:translate-y-1", Caml_obj.equal(selected, index) ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-kiosk-border bg-kiosk-raised text-white active:bg-kiosk-border"),
+                                                  type: "button",
+                                                  onClick: (function (param) {
+                                                      replayBounce(index, bounce);
+                                                    })
+                                                }, index.toString());
+                                    }),
+                                className: "mt-3 flex items-center gap-2 overflow-x-auto pb-1"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("p", {
+                                        children: t`${challenge.bounces.length.toString()} bounces detected · tap one to replay`,
+                                        className: "text-sm text-kiosk-muted"
+                                      }),
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsx("button", {
+                                                children: looping ? "Looping" : "Loop ±6f",
+                                                className: Core.cx("border-2 px-4 py-2 text-sm font-extrabold disabled:opacity-40", looping ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-kiosk-border bg-kiosk-raised text-white"),
+                                                disabled: selected === undefined,
+                                                type: "button",
+                                                onClick: (function (param) {
+                                                    if (looping) {
+                                                      return stopLoop();
+                                                    }
+                                                    var bounce = Core__Option.flatMap(selected, (function (i) {
+                                                            return challenge.bounces[i];
+                                                          }));
+                                                    if (bounce !== undefined) {
+                                                      return startLoop(bounce);
+                                                    }
+                                                    
+                                                  })
+                                              }),
+                                          JsxRuntime.jsx("button", {
+                                                children: t`Zoom`,
+                                                className: Core.cx("border-2 px-4 py-2 text-sm font-extrabold disabled:opacity-40", zoomed && looping ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-kiosk-border bg-kiosk-raised text-white"),
+                                                disabled: !looping,
+                                                type: "button",
+                                                onClick: (function (param) {
+                                                    toggleZoom();
+                                                  })
+                                              }),
+                                          JsxRuntime.jsx("button", {
+                                                children: t`Overlay`,
+                                                className: Core.cx("border-2 px-4 py-2 text-sm font-extrabold", overlayOn ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-kiosk-border bg-kiosk-raised text-white"),
+                                                type: "button",
+                                                onClick: (function (param) {
+                                                    setOverlayOn(function (value) {
+                                                          return !value;
+                                                        });
+                                                  })
+                                              }),
+                                          JsxRuntime.jsx("button", {
+                                                children: slow ? "0.5x" : "1x",
+                                                className: Core.cx("border-2 px-4 py-2 text-sm font-extrabold", slow ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-kiosk-border bg-kiosk-raised text-white"),
+                                                type: "button",
+                                                onClick: (function (param) {
+                                                    setSlow(function (value) {
+                                                          return !value;
+                                                        });
+                                                  })
+                                              })
+                                        ],
+                                        className: "flex items-center gap-2"
+                                      })
+                                ],
+                                className: "mt-2 flex items-center justify-between gap-3"
+                              })
+                        ]
+                      }) : null
+              ]
+            });
+}
+
+var ChallengePlayer = {
+  zoomFactor: 2.6,
+  zoomTransformFor: zoomTransformFor,
+  ballAt: ballAt,
+  make: Kiosk$ChallengePlayer
+};
+
 function Kiosk$DoneButton(props) {
   var onClick = props.onClick;
   return JsxRuntime.jsxs("button", {
@@ -509,6 +1021,8 @@ var LiveStreamShare = {
 
 function Kiosk$SettingsPanel(props) {
   var onClose = props.onClose;
+  var onToggleTestMode = props.onToggleTestMode;
+  var testMode = props.testMode;
   var onSelectMode = props.onSelectMode;
   var captureMode = props.captureMode;
   var onSelect = props.onSelect;
@@ -704,6 +1218,36 @@ function Kiosk$SettingsPanel(props) {
                                             className: Core.cx(optionClass(false), "cursor-not-allowed opacity-40 active:translate-y-0"),
                                             disabled: true,
                                             type: "button"
+                                          }),
+                                      JsxRuntime.jsxs("button", {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    children: JsxRuntime.jsx(LucideReact.Dices, {
+                                                          size: 22,
+                                                          "aria-hidden": "true"
+                                                        }),
+                                                    className: Core.cx("flex h-12 w-12 shrink-0 items-center justify-center border-2", testMode ? "border-kiosk-bg/30" : "border-kiosk-border")
+                                                  }),
+                                              JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Test mode`,
+                                                            className: "block font-extrabold leading-tight"
+                                                          }),
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`No camera: Challenge runs on the server's fixed test clip.`,
+                                                            className: Core.cx("mt-1 block text-sm", testMode ? "text-kiosk-bg/70" : "text-kiosk-muted")
+                                                          })
+                                                    ],
+                                                    className: "min-w-0 flex-1"
+                                                  })
+                                            ],
+                                            "aria-pressed": testMode ? "true" : "false",
+                                            className: optionClass(testMode),
+                                            type: "button",
+                                            onClick: (function (param) {
+                                                onToggleTestMode();
+                                              })
                                           })
                                     ],
                                     className: "mt-3 grid gap-3"
@@ -732,6 +1276,7 @@ var SettingsPanel = {
 function Kiosk$LiveActionControls(props) {
   var onReview = props.onReview;
   var clips = props.clips;
+  var testMode = props.testMode;
   var clipping = props.clipping;
   var clipEnabled = props.clipEnabled;
   var bufferStatus = props.bufferStatus;
@@ -740,17 +1285,11 @@ function Kiosk$LiveActionControls(props) {
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("h2", {
-                                      children: t`Choose an action`,
-                                      className: "text-xl font-extrabold text-white"
-                                    }),
-                                JsxRuntime.jsx("p", {
-                                      children: t`The rolling buffer continues while you review.`,
-                                      className: "mt-1 text-sm text-kiosk-muted"
-                                    })
-                              ]
+                        JsxRuntime.jsx("div", {
+                              children: JsxRuntime.jsx("h2", {
+                                    children: t`Choose an action`,
+                                    className: "text-lg font-extrabold text-white"
+                                  })
                             }),
                         JsxRuntime.jsx("p", {
                               children: bufferStatus !== undefined ? (
@@ -764,39 +1303,40 @@ function Kiosk$LiveActionControls(props) {
                 JsxRuntime.jsx("div", {
                       children: [
                           "RallyClip",
-                          "LineCheck"
+                          "Challenge"
                         ].map(function (action) {
                             var icon;
                             icon = action === "RallyClip" ? JsxRuntime.jsx(LucideReact.Scissors, {
                                     size: 31,
                                     strokeWidth: 2.4,
                                     "aria-hidden": "true"
-                                  }) : JsxRuntime.jsx(LucideReact.ScanLine, {
+                                  }) : JsxRuntime.jsx(LucideReact.Target, {
                                     size: 31,
                                     strokeWidth: 2.4,
                                     "aria-hidden": "true"
                                   });
-                            var disabled = action === "RallyClip" && (!clipEnabled || clipping);
+                            var disabled;
+                            disabled = action === "RallyClip" ? !clipEnabled || clipping : !clipEnabled && !testMode || clipping;
                             return JsxRuntime.jsxs("button", {
                                         children: [
                                           JsxRuntime.jsx("span", {
                                                 children: icon,
-                                                className: "flex h-16 w-16 shrink-0 items-center justify-center border-2 border-kiosk-bg/30"
+                                                className: "flex h-12 w-12 shrink-0 items-center justify-center border-2 border-kiosk-bg/30"
                                               }),
                                           JsxRuntime.jsxs("span", {
                                                 children: [
                                                   JsxRuntime.jsx("span", {
                                                         children: liveActionName(action),
-                                                        className: "block text-xl font-extrabold leading-tight"
+                                                        className: "block text-lg font-extrabold leading-tight"
                                                       }),
                                                   JsxRuntime.jsx("span", {
                                                         children: action === "RallyClip" && clipping ? t`Clipping…` : t`Use latest buffered footage`,
-                                                        className: "mt-2 block text-sm font-medium leading-5 opacity-70"
+                                                        className: "mt-1 block text-xs font-medium leading-4 opacity-70"
                                                       })
                                                 ]
                                               })
                                         ],
-                                        className: Core.cx("flex min-h-32 items-center gap-5 border-2 px-5 text-left transition-[background-color,transform] duration-150 ease-out active:translate-y-1", action === "RallyClip" ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg active:bg-kiosk-accentDark" : "border-white bg-white text-kiosk-bg active:bg-white/80", disabled ? "cursor-not-allowed opacity-40 active:translate-y-0" : ""),
+                                        className: Core.cx("flex min-h-20 items-center gap-4 border-2 px-4 text-left transition-[background-color,transform] duration-150 ease-out active:translate-y-1", action === "RallyClip" ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg active:bg-kiosk-accentDark" : "border-white bg-white text-kiosk-bg active:bg-white/80", disabled ? "cursor-not-allowed opacity-40 active:translate-y-0" : ""),
                                         disabled: disabled,
                                         type: "button",
                                         onClick: (function (param) {
@@ -804,7 +1344,7 @@ function Kiosk$LiveActionControls(props) {
                                           })
                                       }, liveActionKey(action));
                           }),
-                      className: "mt-5 grid gap-3 sm:grid-cols-2"
+                      className: "mt-3 grid gap-3 sm:grid-cols-2"
                     }),
                 clips.length === 0 ? null : JsxRuntime.jsxs("div", {
                         children: [
@@ -830,10 +1370,9 @@ function Kiosk$LiveActionControls(props) {
                                           }, clip.url);
                               })
                         ],
-                        className: "mt-4 flex items-center gap-3 overflow-x-auto"
+                        className: "mt-3 flex items-center gap-3 overflow-x-auto"
                       })
-              ],
-              className: "mt-4 shrink-0 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:p-6"
+              ]
             });
 }
 
@@ -845,318 +1384,224 @@ function Kiosk$ResultPanel(props) {
   var onDelete = props.onDelete;
   var onSaved = props.onSaved;
   var onDone = props.onDone;
+  var challenge = props.challenge;
   var clip = props.clip;
   var modeId = props.modeId;
-  var match = React.useState(function () {
-        return 1;
-      });
-  var setBounceIndex = match[1];
-  var bounceIndex = match[0];
   var eyebrow = props.isLiveSession ? Caml_option.some(t`ROLLING BUFFER CAPTURE`) : undefined;
-  if (modeId.TAG !== "LiveResult") {
-    if (modeId._0 === "DropShot") {
-      return JsxRuntime.jsxs(Kiosk$ResultShell, {
-                  title: t`Drop shot placement`,
-                  subtitle: t`24 shots analyzed · Game session`,
-                  children: [
-                    JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute inset-y-0 left-1/2 w-0.5 bg-white/60"
-                                }),
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute inset-x-0 top-1/2 h-0.5 bg-white/60"
-                                }),
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute left-[18%] top-[62%] h-20 w-20 rounded-full border-[12px] border-red-400/35 bg-red-400/30"
-                                }),
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute left-[26%] top-[68%] h-11 w-11 rounded-full bg-red-400/75"
-                                }),
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute right-[20%] top-[56%] h-24 w-24 rounded-full border-[14px] border-amber-300/30 bg-amber-300/25"
-                                }),
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute right-[28%] top-[65%] h-12 w-12 rounded-full bg-amber-300/70"
-                                }),
-                            JsxRuntime.jsx("span", {
-                                  className: "absolute left-[45%] top-[71%] h-7 w-7 rounded-full bg-kiosk-accent/70"
-                                }),
-                            JsxRuntime.jsx("div", {
-                                  children: t`LANDING HEATMAP`,
-                                  className: "absolute left-3 top-3 rounded-lg bg-kiosk-bg/85 px-3 py-2 text-xs font-semibold text-white"
-                                })
-                          ],
-                          className: "relative aspect-[1.45] overflow-hidden border-2 border-white/60 bg-kiosk-court"
-                        }),
-                    JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsx("p", {
-                                          children: t`Kitchen accuracy`,
-                                          className: "text-sm text-kiosk-muted"
-                                        }),
-                                    JsxRuntime.jsx("p", {
-                                          children: "79%",
-                                          className: "mt-1 text-3xl font-extrabold text-white"
-                                        })
-                                  ],
-                                  className: "p-5"
-                                }),
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsx("p", {
-                                          children: t`Best target`,
-                                          className: "text-sm text-kiosk-muted"
-                                        }),
-                                    JsxRuntime.jsx("p", {
-                                          children: t`Backhand`,
-                                          className: "mt-1 text-3xl font-extrabold text-white"
-                                        })
-                                  ],
-                                  className: "p-5"
-                                })
-                          ],
-                          className: "mt-4 grid grid-cols-2 divide-x-2 divide-kiosk-border border-2 border-kiosk-border bg-kiosk-raised"
-                        }),
-                    JsxRuntime.jsx(Kiosk$DoneButton, {
-                          onClick: onDone
-                        })
-                  ]
-                });
-    } else {
-      return JsxRuntime.jsxs(Kiosk$ResultShell, {
-                  title: t`Serve detected`,
-                  subtitle: t`Serve 04 · Clean read`,
-                  children: [
-                    JsxRuntime.jsx(Kiosk$VideoMock, {
-                          label: t`Serve replay`,
-                          playLabel: t`Play serve replay`
-                        }),
-                    JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsxs("div", {
-                                  children: [
-                                    JsxRuntime.jsx("p", {
-                                          children: t`Peak ball speed`,
-                                          className: "text-sm font-medium text-kiosk-muted"
-                                        }),
-                                    JsxRuntime.jsx("p", {
-                                          children: "42.8",
-                                          className: "mt-1 font-mono text-6xl font-semibold text-white"
-                                        })
-                                  ]
-                                }),
-                            JsxRuntime.jsx("p", {
-                                  children: "MPH",
-                                  className: "pb-1 font-mono text-xl font-semibold text-kiosk-accent"
-                                })
-                          ],
-                          className: "mt-4 flex items-end justify-between border-2 border-kiosk-accent/40 bg-kiosk-accent/10 p-6"
-                        }),
-                    JsxRuntime.jsx(Kiosk$DoneButton, {
-                          onClick: onDone
-                        })
-                  ]
-                });
-    }
-  }
-  if (modeId._0 === "RallyClip") {
-    if (clip !== undefined) {
-      return JsxRuntime.jsxs(Kiosk$ResultShell, {
-                  title: t`Rally clip`,
-                  subtitle: t`${clip.durationSeconds.toFixed(0)}-second clip · ${clip.capturedAt}`,
-                  eyebrow: eyebrow,
-                  children: [
-                    JsxRuntime.jsx(Kiosk$ClipPlayer, {
-                          clip: clip
-                        }),
-                    JsxRuntime.jsxs("div", {
-                          children: [
-                            JsxRuntime.jsxs("button", {
-                                  children: [
-                                    JsxRuntime.jsx(LucideReact.Trash2, {
-                                          size: 23,
-                                          "aria-hidden": "true"
-                                        }),
-                                    t`Delete clip`
-                                  ],
-                                  className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-border bg-kiosk-raised px-5 text-lg font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/15",
-                                  type: "button",
-                                  onClick: (function (param) {
-                                      onDelete();
-                                    })
-                                }),
-                            JsxRuntime.jsxs("a", {
-                                  children: [
-                                    JsxRuntime.jsx(LucideReact.Download, {
-                                          size: 23,
-                                          "aria-hidden": "true"
-                                        }),
-                                    t`Save clip`
-                                  ],
-                                  className: "flex min-h-20 items-center justify-center gap-3 border-2 border-white bg-white px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-white/80",
-                                  download: "courtside-rally-" + Date.now().toString() + ".mp4",
-                                  href: clip.url,
-                                  onClick: (function (param) {
-                                      onSaved();
-                                    })
-                                }),
-                            JsxRuntime.jsxs("button", {
-                                  children: [
-                                    JsxRuntime.jsx(LucideReact.Check, {
-                                          size: 23,
-                                          "aria-hidden": "true"
-                                        }),
-                                    t`Done`
-                                  ],
-                                  className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark",
-                                  type: "button",
-                                  onClick: (function (param) {
-                                      onDone();
-                                    })
-                                })
-                          ],
-                          className: "mt-5 grid gap-3 sm:grid-cols-3"
-                        })
-                  ]
-                });
-    } else {
-      return JsxRuntime.jsxs(Kiosk$ResultShell, {
-                  title: t`Rally clip`,
-                  subtitle: t`No clip selected`,
-                  eyebrow: eyebrow,
-                  children: [
-                    JsxRuntime.jsx(Kiosk$VideoMock, {
-                          label: t`Last rally`,
-                          playLabel: t`Play last rally`
-                        }),
-                    JsxRuntime.jsx(Kiosk$DoneButton, {
-                          onClick: onDone
-                        })
-                  ]
-                });
-    }
-  }
-  var bounceFrames = [
-    [
-      t`Approach`,
-      "-0.18 s",
-      "left-[56%] top-[39%]"
-    ],
-    [
-      t`Contact`,
-      "0.00 s",
-      "left-[66%] top-[66%]"
-    ],
-    [
-      t`Exit`,
-      "+0.14 s",
-      "left-[77%] top-[47%]"
-    ]
-  ];
-  var frameCount = bounceFrames.length;
-  var match$1 = bounceFrames[Caml_int32.mod_(bounceIndex, frameCount)];
-  return JsxRuntime.jsxs(Kiosk$ResultShell, {
-              title: t`Bounce review`,
-              subtitle: t`Angle ${(bounceIndex + 1 | 0).toString()} of ${frameCount.toString()}`,
-              eyebrow: eyebrow,
-              children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsx("span", {
-                              className: "absolute inset-y-0 left-[68%] w-1 bg-white/80"
-                            }),
-                        JsxRuntime.jsx("span", {
-                              className: "absolute inset-x-0 top-[72%] h-1 bg-white/80"
-                            }),
-                        JsxRuntime.jsx("span", {
-                              className: Core.cx("absolute h-5 w-5 rounded-full border-4 border-kiosk-accent bg-white shadow-[0_0_0_6px_rgba(198,255,61,0.22)]", match$1[2])
-                            }),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                match$1[0],
-                                " · " + match$1[1]
-                              ],
-                              className: "absolute bottom-3 left-3 rounded-lg bg-kiosk-bg/85 px-3 py-2 font-mono text-xs font-semibold text-white"
-                            }),
-                        bounceIndex === 1 ? JsxRuntime.jsx("div", {
-                                children: t`OUT`,
-                                className: "absolute right-3 top-3 rounded-lg bg-red-500 px-4 py-2 text-lg font-extrabold text-white"
-                              }) : null
-                      ],
-                      className: "relative aspect-video overflow-hidden border-2 border-kiosk-border bg-kiosk-court"
-                    }),
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("button", {
-                              children: [
-                                JsxRuntime.jsx(LucideReact.ChevronLeft, {
-                                      size: 25,
-                                      "aria-hidden": "true"
-                                    }),
-                                JsxRuntime.jsx("span", {
-                                      children: t`Previous`,
-                                      className: "hidden sm:inline"
-                                    })
-                              ],
-                              "aria-label": t`Previous bounce clip`,
-                              className: "flex min-h-20 items-center justify-center gap-2 border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border",
-                              type: "button",
-                              onClick: (function (param) {
-                                  setBounceIndex(function (i) {
-                                        return Caml_int32.mod_((i + frameCount | 0) - 1 | 0, frameCount);
-                                      });
-                                })
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: bounceFrames.map(function (param, index) {
-                                    return JsxRuntime.jsx("span", {
-                                                className: Core.cx("h-3 w-3", index === bounceIndex ? "bg-kiosk-accent" : "bg-kiosk-border")
-                                              }, index.toString());
+  if (modeId.TAG === "LiveResult") {
+    if (modeId._0 === "RallyClip") {
+      if (clip !== undefined) {
+        return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                    title: t`Rally clip`,
+                    subtitle: t`${clip.durationSeconds.toFixed(0)}-second clip · ${clip.capturedAt}`,
+                    eyebrow: eyebrow,
+                    children: [
+                      JsxRuntime.jsx(Kiosk$ClipPlayer, {
+                            clip: clip
+                          }),
+                      JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("button", {
+                                    children: [
+                                      JsxRuntime.jsx(LucideReact.Trash2, {
+                                            size: 23,
+                                            "aria-hidden": "true"
+                                          }),
+                                      t`Delete clip`
+                                    ],
+                                    className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-border bg-kiosk-raised px-5 text-lg font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/15",
+                                    type: "button",
+                                    onClick: (function (param) {
+                                        onDelete();
+                                      })
                                   }),
-                              className: "flex gap-2"
-                            }),
-                        JsxRuntime.jsxs("button", {
-                              children: [
-                                JsxRuntime.jsx("span", {
-                                      children: t`Next`,
-                                      className: "hidden sm:inline"
-                                    }),
-                                JsxRuntime.jsx(LucideReact.ChevronRight, {
-                                      size: 25,
-                                      "aria-hidden": "true"
-                                    })
-                              ],
-                              "aria-label": t`Next bounce clip`,
-                              className: "flex min-h-20 items-center justify-center gap-2 border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border",
-                              type: "button",
-                              onClick: (function (param) {
-                                  setBounceIndex(function (i) {
-                                        return Caml_int32.mod_(i + 1 | 0, frameCount);
-                                      });
-                                })
-                            })
-                      ],
-                      className: "mt-4 grid grid-cols-[minmax(64px,1fr)_auto_minmax(64px,1fr)] items-center gap-3"
-                    }),
-                JsxRuntime.jsxs("button", {
-                      children: [
-                        JsxRuntime.jsx(LucideReact.Check, {
-                              size: 23,
-                              "aria-hidden": "true"
-                            }),
-                        t`Done reviewing`
-                      ],
-                      className: "mt-4 flex min-h-20 w-full items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark",
-                      type: "button",
-                      onClick: (function (param) {
-                          onDone();
+                              JsxRuntime.jsxs("a", {
+                                    children: [
+                                      JsxRuntime.jsx(LucideReact.Download, {
+                                            size: 23,
+                                            "aria-hidden": "true"
+                                          }),
+                                      t`Save clip`
+                                    ],
+                                    className: "flex min-h-20 items-center justify-center gap-3 border-2 border-white bg-white px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-white/80",
+                                    download: "courtside-rally-" + Date.now().toString() + ".mp4",
+                                    href: clip.url,
+                                    onClick: (function (param) {
+                                        onSaved();
+                                      })
+                                  }),
+                              JsxRuntime.jsxs("button", {
+                                    children: [
+                                      JsxRuntime.jsx(LucideReact.Check, {
+                                            size: 23,
+                                            "aria-hidden": "true"
+                                          }),
+                                      t`Done`
+                                    ],
+                                    className: "flex min-h-20 items-center justify-center gap-3 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark",
+                                    type: "button",
+                                    onClick: (function (param) {
+                                        onDone();
+                                      })
+                                  })
+                            ],
+                            className: "mt-5 grid gap-3 sm:grid-cols-3"
+                          })
+                    ]
+                  });
+      } else {
+        return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                    title: t`Rally clip`,
+                    subtitle: t`No clip selected`,
+                    eyebrow: eyebrow,
+                    children: [
+                      JsxRuntime.jsx(Kiosk$VideoMock, {
+                            label: t`Last rally`,
+                            playLabel: t`Play last rally`
+                          }),
+                      JsxRuntime.jsx(Kiosk$DoneButton, {
+                            onClick: onDone
+                          })
+                    ]
+                  });
+      }
+    } else if (challenge !== undefined) {
+      return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                  title: t`Challenge`,
+                  subtitle: t`${challenge.clip.durationSeconds.toFixed(0)}-second buffer · ${challenge.clip.capturedAt}`,
+                  eyebrow: eyebrow,
+                  children: [
+                    JsxRuntime.jsx(Kiosk$ChallengePlayer, {
+                          challenge: challenge
+                        }),
+                    JsxRuntime.jsx(Kiosk$DoneButton, {
+                          onClick: onDone
                         })
-                    })
-              ]
-            });
+                  ]
+                });
+    } else {
+      return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                  title: t`Challenge`,
+                  subtitle: t`No footage analyzed`,
+                  eyebrow: eyebrow,
+                  children: [
+                    JsxRuntime.jsx(Kiosk$VideoMock, {
+                          label: t`Challenge`,
+                          playLabel: t`Play challenge`
+                        }),
+                    JsxRuntime.jsx(Kiosk$DoneButton, {
+                          onClick: onDone
+                        })
+                  ]
+                });
+    }
+  } else if (modeId._0 === "DropShot") {
+    return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                title: t`Drop shot placement`,
+                subtitle: t`24 shots analyzed · Game session`,
+                children: [
+                  JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsx("span", {
+                                className: "absolute inset-y-0 left-1/2 w-0.5 bg-white/60"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                className: "absolute inset-x-0 top-1/2 h-0.5 bg-white/60"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                className: "absolute left-[18%] top-[62%] h-20 w-20 rounded-full border-[12px] border-red-400/35 bg-red-400/30"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                className: "absolute left-[26%] top-[68%] h-11 w-11 rounded-full bg-red-400/75"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                className: "absolute right-[20%] top-[56%] h-24 w-24 rounded-full border-[14px] border-amber-300/30 bg-amber-300/25"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                className: "absolute right-[28%] top-[65%] h-12 w-12 rounded-full bg-amber-300/70"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                className: "absolute left-[45%] top-[71%] h-7 w-7 rounded-full bg-kiosk-accent/70"
+                              }),
+                          JsxRuntime.jsx("div", {
+                                children: t`LANDING HEATMAP`,
+                                className: "absolute left-3 top-3 rounded-lg bg-kiosk-bg/85 px-3 py-2 text-xs font-semibold text-white"
+                              })
+                        ],
+                        className: "relative aspect-[1.45] overflow-hidden border-2 border-white/60 bg-kiosk-court"
+                      }),
+                  JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("p", {
+                                        children: t`Kitchen accuracy`,
+                                        className: "text-sm text-kiosk-muted"
+                                      }),
+                                  JsxRuntime.jsx("p", {
+                                        children: "79%",
+                                        className: "mt-1 text-3xl font-extrabold text-white"
+                                      })
+                                ],
+                                className: "p-5"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("p", {
+                                        children: t`Best target`,
+                                        className: "text-sm text-kiosk-muted"
+                                      }),
+                                  JsxRuntime.jsx("p", {
+                                        children: t`Backhand`,
+                                        className: "mt-1 text-3xl font-extrabold text-white"
+                                      })
+                                ],
+                                className: "p-5"
+                              })
+                        ],
+                        className: "mt-4 grid grid-cols-2 divide-x-2 divide-kiosk-border border-2 border-kiosk-border bg-kiosk-raised"
+                      }),
+                  JsxRuntime.jsx(Kiosk$DoneButton, {
+                        onClick: onDone
+                      })
+                ]
+              });
+  } else {
+    return JsxRuntime.jsxs(Kiosk$ResultShell, {
+                title: t`Serve detected`,
+                subtitle: t`Serve 04 · Clean read`,
+                children: [
+                  JsxRuntime.jsx(Kiosk$VideoMock, {
+                        label: t`Serve replay`,
+                        playLabel: t`Play serve replay`
+                      }),
+                  JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("p", {
+                                        children: t`Peak ball speed`,
+                                        className: "text-sm font-medium text-kiosk-muted"
+                                      }),
+                                  JsxRuntime.jsx("p", {
+                                        children: "42.8",
+                                        className: "mt-1 font-mono text-6xl font-semibold text-white"
+                                      })
+                                ]
+                              }),
+                          JsxRuntime.jsx("p", {
+                                children: "MPH",
+                                className: "pb-1 font-mono text-xl font-semibold text-kiosk-accent"
+                              })
+                        ],
+                        className: "mt-4 flex items-end justify-between border-2 border-kiosk-accent/40 bg-kiosk-accent/10 p-6"
+                      }),
+                  JsxRuntime.jsx(Kiosk$DoneButton, {
+                        onClick: onDone
+                      })
+                ]
+              });
+  }
 }
 
 var ResultPanel = {
@@ -1166,6 +1611,9 @@ var ResultPanel = {
 function Kiosk$SessionWorkspace(props) {
   var onEndLive = props.onEndLive;
   var onFinishAnalysis = props.onFinishAnalysis;
+  var onCalibOpen = props.onCalibOpen;
+  var onCalibDone = props.onCalibDone;
+  var stream = props.stream;
   var streamingEnabled = props.streamingEnabled;
   var analysisMode = props.analysisMode;
   var isLiveSession = props.category === "Live";
@@ -1178,71 +1626,88 @@ function Kiosk$SessionWorkspace(props) {
                     children: [
                       JsxRuntime.jsxs("div", {
                             children: [
-                              JsxRuntime.jsx(Kiosk$CameraView, {
-                                    sessionLabel: sessionLabel,
-                                    streamingEnabled: isLiveSession && streamingEnabled,
-                                    elapsed: props.elapsed,
-                                    stream: props.stream
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsx(Kiosk$CameraView, {
+                                            sessionLabel: sessionLabel,
+                                            streamingEnabled: isLiveSession && streamingEnabled,
+                                            elapsed: props.elapsed,
+                                            stream: stream
+                                          }),
+                                      isLiveSession && props.calibOpen ? JsxRuntime.jsx(KioskCourtCalib.make, {
+                                              stream: stream,
+                                              onDone: (function () {
+                                                  onCalibDone();
+                                                })
+                                            }) : null,
+                                      isLiveSession ? JsxRuntime.jsx("div", {
+                                              children: JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx(Kiosk$LiveActionControls, {
+                                                            onAction: props.onLiveAction,
+                                                            bufferStatus: props.bufferStatus,
+                                                            clipEnabled: props.clipEnabled,
+                                                            clipping: props.clipping,
+                                                            testMode: props.testMode,
+                                                            clips: props.clips,
+                                                            onReview: props.onReviewClip
+                                                          }),
+                                                      JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsxs("div", {
+                                                                    children: [
+                                                                      JsxRuntime.jsx("span", {
+                                                                            children: JsxRuntime.jsx("span", {
+                                                                                  className: "h-2.5 w-2.5 bg-red-500"
+                                                                                }),
+                                                                            className: "flex h-9 w-9 items-center justify-center border-2 border-red-400/40 bg-red-500/15"
+                                                                          }),
+                                                                      JsxRuntime.jsx("p", {
+                                                                            children: t`Rolling buffer active`,
+                                                                            className: "text-sm font-extrabold text-white"
+                                                                          })
+                                                                    ],
+                                                                    className: "flex items-center gap-3"
+                                                                  }),
+                                                              JsxRuntime.jsx("button", {
+                                                                    children: t`Court setup`,
+                                                                    className: "mr-2 flex min-h-12 shrink-0 items-center justify-center gap-2 border-2 border-white/30 bg-black/40 px-4 text-sm font-extrabold text-white active:bg-white/10",
+                                                                    type: "button",
+                                                                    onClick: (function (param) {
+                                                                        onCalibOpen();
+                                                                      })
+                                                                  }),
+                                                              JsxRuntime.jsxs("button", {
+                                                                    children: [
+                                                                      JsxRuntime.jsx(LucideReact.Square, {
+                                                                            size: 16,
+                                                                            className: "fill-current",
+                                                                            "aria-hidden": "true"
+                                                                          }),
+                                                                      t`End session`
+                                                                    ],
+                                                                    className: "flex min-h-12 shrink-0 items-center justify-center gap-2 border-2 border-red-400/50 bg-red-500/20 px-5 text-sm font-extrabold text-red-200 transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/30",
+                                                                    type: "button",
+                                                                    onClick: (function (param) {
+                                                                        onEndLive();
+                                                                      })
+                                                                  })
+                                                            ],
+                                                            className: "mt-3 flex items-center justify-between gap-3"
+                                                          })
+                                                    ],
+                                                    className: "pointer-events-auto"
+                                                  }),
+                                              className: "pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 pt-16 sm:p-4 sm:pt-20"
+                                            }) : null
+                                    ],
+                                    className: "relative h-full min-h-0"
                                   }),
                               isLiveSession && streamingEnabled ? JsxRuntime.jsx(Kiosk$LiveStreamShare, {}) : null
                             ],
                             className: Core.cx("min-h-0 flex-1", isLiveSession && streamingEnabled ? "grid grid-rows-[minmax(0,1fr)_auto] gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:grid-rows-1" : "")
                           }),
-                      isLiveSession ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                              children: [
-                                JsxRuntime.jsx(Kiosk$LiveActionControls, {
-                                      onAction: props.onLiveAction,
-                                      bufferStatus: props.bufferStatus,
-                                      clipEnabled: props.clipEnabled,
-                                      clipping: props.clipping,
-                                      clips: props.clips,
-                                      onReview: props.onReviewClip
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("span", {
-                                                      children: JsxRuntime.jsx("span", {
-                                                            className: "h-3 w-3 bg-red-500"
-                                                          }),
-                                                      className: "relative flex h-14 w-14 items-center justify-center border-2 border-red-400/40 bg-red-500/15"
-                                                    }),
-                                                JsxRuntime.jsxs("div", {
-                                                      children: [
-                                                        JsxRuntime.jsx("p", {
-                                                              children: t`Rolling buffer active`,
-                                                              className: "text-lg font-extrabold text-white"
-                                                            }),
-                                                        JsxRuntime.jsx("p", {
-                                                              children: t`Clip and line-check actions are ready at any time.`,
-                                                              className: "text-sm text-kiosk-muted"
-                                                            })
-                                                      ]
-                                                    })
-                                              ],
-                                              className: "flex min-h-20 items-center gap-4"
-                                            }),
-                                        JsxRuntime.jsxs("button", {
-                                              children: [
-                                                JsxRuntime.jsx(LucideReact.Square, {
-                                                      size: 20,
-                                                      className: "fill-current",
-                                                      "aria-hidden": "true"
-                                                    }),
-                                                t`End session`
-                                              ],
-                                              className: "flex min-h-20 shrink-0 items-center justify-center gap-3 border-2 border-red-400/50 bg-red-500/10 px-7 text-lg font-extrabold text-red-200 transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-red-500/25",
-                                              type: "button",
-                                              onClick: (function (param) {
-                                                  onEndLive();
-                                                })
-                                            })
-                                      ],
-                                      className: "mt-4 flex shrink-0 flex-col gap-4 border-2 border-kiosk-border bg-kiosk-surface p-4 sm:flex-row sm:items-stretch sm:justify-between sm:p-5"
-                                    })
-                              ]
-                            }) : JsxRuntime.jsxs("div", {
+                      isLiveSession ? null : JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsxs("div", {
                                       children: [
@@ -1335,6 +1800,7 @@ function Kiosk$SessionWorkspace(props) {
                       JsxRuntime.jsx(Kiosk$ResultPanel, {
                             modeId: props.resultMode,
                             clip: props.reviewClip,
+                            challenge: props.challenge,
                             onDone: props.onResultDone,
                             onSaved: props.onSaved,
                             onDelete: props.onDeleteClip,
@@ -1412,37 +1878,57 @@ function Kiosk(props) {
       });
   var setCaptureMode = match$11[1];
   var captureMode = match$11[0];
-  var sessionRef = React.useRef(undefined);
   var match$12 = React.useState(function () {
-        
-      });
-  var setCaptureStatus = match$12[1];
-  var captureStatus = match$12[0];
-  var match$13 = React.useState(function () {
         return false;
       });
-  var setClippingReady = match$13[1];
+  var setTestMode = match$12[1];
+  var testMode = match$12[0];
+  var sessionRef = React.useRef(undefined);
+  var match$13 = React.useState(function () {
+        
+      });
+  var setCaptureStatus = match$13[1];
+  var captureStatus = match$13[0];
   var match$14 = React.useState(function () {
+        return false;
+      });
+  var setClippingReady = match$14[1];
+  var match$15 = React.useState(function () {
         return [];
       });
-  var setClips = match$14[1];
-  var clips = match$14[0];
-  var match$15 = React.useState(function () {
+  var setClips = match$15[1];
+  var clips = match$15[0];
+  var match$16 = React.useState(function () {
         
       });
-  var setReviewClip = match$15[1];
-  var reviewClip = match$15[0];
-  var match$16 = React.useState(function () {
+  var setReviewClip = match$16[1];
+  var reviewClip = match$16[0];
+  var match$17 = React.useState(function () {
+        
+      });
+  var setChallenge = match$17[1];
+  var challenge = match$17[0];
+  var match$18 = React.useState(function () {
         return false;
       });
-  var setClipping = match$16[1];
-  var clipping = match$16[0];
+  var setCalibOpen = match$18[1];
+  var match$19 = React.useState(function () {
+        return false;
+      });
+  var setClipping = match$19[1];
+  var clipping = match$19[0];
   var clipsRef = React.useRef([]);
   React.useEffect((function () {
           var id = localStorage.getItem(cameraStorageKey);
           if (!(id == null) && id !== "") {
             setSelectedCameraId(function (param) {
                   return id;
+                });
+          }
+          var match = localStorage.getItem(testModeStorageKey);
+          if (!(match == null) && match === "1") {
+            setTestMode(function (param) {
+                  return true;
                 });
           }
           var mode = Core__Option.flatMap(Caml_option.nullable_to_opt(localStorage.getItem(CaptureSession.modeStorageKey)), CaptureSession.modeFromString);
@@ -1474,6 +1960,9 @@ function Kiosk(props) {
           if (!(stage === "Processing" && Caml_obj.notequal(resultMode, {
                     TAG: "LiveResult",
                     _0: "RallyClip"
+                  }) && Caml_obj.notequal(resultMode, {
+                    TAG: "LiveResult",
+                    _0: "Challenge"
                   }))) {
             return ;
           }
@@ -1621,7 +2110,7 @@ function Kiosk(props) {
       }
       var acquired;
       try {
-        acquired = Caml_option.some(await devices.getUserMedia(UserMedia.constraintsFor(match[0], match[1])));
+        acquired = Caml_option.some(await devices.getUserMedia(UserMedia.constraintsFor(match[0], match[1], undefined)));
       }
       catch (exn){
         acquired = undefined;
@@ -1652,7 +2141,7 @@ function Kiosk(props) {
       var videoInputs$1;
       if (needsPriming) {
         try {
-          var primed = await devices.getUserMedia(UserMedia.constraintsFor(undefined, undefined));
+          var primed = await devices.getUserMedia(UserMedia.constraintsFor(undefined, undefined, "BrowserDefault"));
           UserMedia.stopAll(primed);
           var all$1 = await devices.enumerateDevices();
           videoInputs$1 = all$1.filter(function (d) {
@@ -1731,6 +2220,17 @@ function Kiosk(props) {
     localStorage.setItem(CaptureSession.modeStorageKey, CaptureSession.modeToString(mode));
   };
   var startSession = async function () {
+    if (testMode && category === "Live") {
+      setStream(function (param) {
+            
+          });
+      setElapsed(function (param) {
+            return 0;
+          });
+      return setStage(function (param) {
+                  return "Active";
+                });
+    }
     var devices = navigator.mediaDevices;
     if (devices == null) {
       return setNotice(function (param) {
@@ -1750,9 +2250,15 @@ function Kiosk(props) {
     setElapsed(function (param) {
           return 0;
         });
-    return setStage(function (param) {
-                return "Active";
-              });
+    setStage(function (param) {
+          return "Active";
+        });
+    if (category === "Live") {
+      return setCalibOpen(function (param) {
+                  return true;
+                });
+    }
+    
   };
   var handleLiveAction = function (action) {
     if (action === "RallyClip") {
@@ -1765,7 +2271,7 @@ function Kiosk(props) {
       var run = async function () {
         var session = sessionRef.current;
         if (session !== undefined) {
-          var result = await session.takeClip();
+          var result = await session.takeClip(undefined);
           if (result.TAG === "Ok") {
             var result$1 = result._0;
             var clip_url = URL.createObjectURL(result$1.blob);
@@ -1808,15 +2314,168 @@ function Kiosk(props) {
       run();
       return ;
     }
+    if (clipping) {
+      return ;
+    }
+    setClipping(function (param) {
+          return true;
+        });
     setResultMode(function (param) {
           return {
                   TAG: "LiveResult",
-                  _0: "LineCheck"
+                  _0: "Challenge"
                 };
         });
     setStage(function (param) {
           return "Processing";
         });
+    var run$1 = async function () {
+      if (testMode) {
+        var blobData = await DinkHunt.fetchTestClip();
+        if (blobData.TAG === "Ok") {
+          var url = URL.createObjectURL(blobData._0);
+          var duration = await DinkHunt.urlDuration(url);
+          var clip_capturedAt = timeLabel();
+          var clip = {
+            url: url,
+            durationSeconds: duration,
+            hasAudio: false,
+            capturedAt: clip_capturedAt
+          };
+          var a = await DinkHunt.testChallengeAnalysis();
+          var match;
+          if (a.TAG === "Ok") {
+            var a$1 = a._0;
+            match = [
+              a$1.bounces,
+              a$1.paths,
+              a$1.width,
+              a$1.height,
+              a$1.fps,
+              undefined
+            ];
+          } else {
+            match = [
+              [],
+              [],
+              1920,
+              1080,
+              30,
+              a._0
+            ];
+          }
+          var error = match[5];
+          var fps = match[4];
+          var frameH = match[3];
+          var frameW = match[2];
+          var paths = match[1];
+          var bounces = match[0];
+          setChallenge(function (param) {
+                return {
+                        clip: clip,
+                        bounces: bounces,
+                        paths: paths,
+                        frameW: frameW,
+                        frameH: frameH,
+                        fps: fps,
+                        error: error
+                      };
+              });
+          setStage(function (param) {
+                return "Result";
+              });
+        } else {
+          console.error("[kiosk] test clip fetch failed:", blobData._0);
+          setNotice(function (param) {
+                return "TestClipMissing";
+              });
+          setStage(function (param) {
+                return "Active";
+              });
+        }
+        return setClipping(function (param) {
+                    return false;
+                  });
+      }
+      var session = sessionRef.current;
+      if (session !== undefined) {
+        var result = await session.takeClip(8);
+        if (result.TAG === "Ok") {
+          var result$1 = result._0;
+          var clip_url = URL.createObjectURL(result$1.blob);
+          var clip_durationSeconds = result$1.durationSeconds;
+          var clip_hasAudio = result$1.hasAudio;
+          var clip_capturedAt$1 = timeLabel();
+          var clip$1 = {
+            url: clip_url,
+            durationSeconds: clip_durationSeconds,
+            hasAudio: clip_hasAudio,
+            capturedAt: clip_capturedAt$1
+          };
+          var message = await DinkHunt.challengeBounces(result$1.blob);
+          var match$1;
+          if (message.TAG === "Ok") {
+            var a$2 = message._0[1];
+            match$1 = [
+              a$2.bounces,
+              a$2.paths,
+              a$2.width,
+              a$2.height,
+              a$2.fps,
+              undefined
+            ];
+          } else {
+            match$1 = [
+              [],
+              [],
+              1920,
+              1080,
+              30,
+              message._0
+            ];
+          }
+          var error$1 = match$1[5];
+          var fps$1 = match$1[4];
+          var frameH$1 = match$1[3];
+          var frameW$1 = match$1[2];
+          var paths$1 = match$1[1];
+          var bounces$1 = match$1[0];
+          setChallenge(function (param) {
+                return {
+                        clip: clip$1,
+                        bounces: bounces$1,
+                        paths: paths$1,
+                        frameW: frameW$1,
+                        frameH: frameH$1,
+                        fps: fps$1,
+                        error: error$1
+                      };
+              });
+          setStage(function (param) {
+                return "Result";
+              });
+        } else {
+          console.error("[kiosk] challenge takeClip failed:", result._0);
+          setNotice(function (param) {
+                return "ClipFailed";
+              });
+          setStage(function (param) {
+                return "Active";
+              });
+        }
+      } else {
+        setNotice(function (param) {
+              return "ClipFailed";
+            });
+        setStage(function (param) {
+              return "Active";
+            });
+      }
+      return setClipping(function (param) {
+                  return false;
+                });
+    };
+    run$1();
   };
   var handleReviewClip = function (clip) {
     setReviewClip(function (param) {
@@ -1863,6 +2522,12 @@ function Kiosk(props) {
     setReviewClip(function (param) {
           
         });
+    if (challenge !== undefined) {
+      releaseClip(challenge.clip);
+    }
+    setChallenge(function (param) {
+          
+        });
     if (category === "Live") {
       return setStage(function (param) {
                   return "Active";
@@ -1884,7 +2549,7 @@ function Kiosk(props) {
   };
   var inSession = stage !== "Ready";
   var activeTitle = category === "Live" ? t`Live rolling session` : analysisModeName(selectedAnalysisMode);
-  var clipEnabled = match$13[0] && Core__Option.mapOr(captureStatus, false, (function (status) {
+  var clipEnabled = match$14[0] && Core__Option.mapOr(captureStatus, false, (function (status) {
           return status.bufferedSeconds >= 2;
         }));
   var fullScreenSession = stage === "Active";
@@ -1906,6 +2571,9 @@ function Kiosk(props) {
           break;
       case "ClipDownloaded" :
           tmp$1 = t`Clip downloaded`;
+          break;
+      case "TestClipMissing" :
+          tmp$1 = t`Test clip not found — put test_challenge.mov in the dinkhunt folder (and restart nothing; it is picked up live)`;
           break;
       
     }
@@ -2023,6 +2691,19 @@ function Kiosk(props) {
                                       streamingEnabled: streamingEnabled,
                                       stream: stream,
                                       reviewClip: reviewClip,
+                                      challenge: challenge,
+                                      calibOpen: match$18[0],
+                                      onCalibDone: (function () {
+                                          setCalibOpen(function (param) {
+                                                return false;
+                                              });
+                                        }),
+                                      onCalibOpen: (function () {
+                                          setCalibOpen(function (param) {
+                                                return true;
+                                              });
+                                        }),
+                                      testMode: testMode,
                                       clips: clips,
                                       clipping: clipping,
                                       bufferStatus: captureStatus,
@@ -2185,13 +2866,13 @@ function Kiosk(props) {
                                                   JsxRuntime.jsx("div", {
                                                         children: [
                                                             "RallyClip",
-                                                            "LineCheck"
+                                                            "Challenge"
                                                           ].map(function (action, index) {
                                                               var icon;
                                                               icon = action === "RallyClip" ? JsxRuntime.jsx(LucideReact.Scissors, {
                                                                       size: 28,
                                                                       "aria-hidden": "true"
-                                                                    }) : JsxRuntime.jsx(LucideReact.ScanLine, {
+                                                                    }) : JsxRuntime.jsx(LucideReact.Target, {
                                                                       size: 28,
                                                                       "aria-hidden": "true"
                                                                     });
@@ -2280,6 +2961,14 @@ function Kiosk(props) {
                           }),
                         captureMode: captureMode,
                         onSelectMode: selectCaptureMode,
+                        testMode: testMode,
+                        onToggleTestMode: (function () {
+                            var next = !testMode;
+                            setTestMode(function (param) {
+                                  return next;
+                                });
+                            localStorage.setItem(testModeStorageKey, next ? "1" : "0");
+                          }),
                         onClose: (function () {
                             setSettingsOpen(function (param) {
                                   return false;
@@ -2292,16 +2981,20 @@ function Kiosk(props) {
             });
 }
 
+var challengeSeconds = 8;
+
 var maxClipHistory = 5;
 
 var make = Kiosk;
 
 export {
+  challengeSeconds ,
   maxClipHistory ,
   releaseClip ,
   timeLabel ,
   liveStreamUrl ,
   cameraStorageKey ,
+  testModeStorageKey ,
   liveActionKey ,
   liveActionName ,
   liveActionDescription ,
@@ -2313,6 +3006,7 @@ export {
   CameraView ,
   VideoMock ,
   ClipPlayer ,
+  ChallengePlayer ,
   DoneButton ,
   ResultShell ,
   LiveStreamShare ,

@@ -299,11 +299,16 @@ let seriesValue = (
     let from = Js.Math.max_int(1, round - window + 1)
     let pick = (f: SimLab.frame) =>
       switch metric {
-      | Quality => f.trueDrawProb
-      | QualityMedian => f.medianDrawProb
+      // Draw likelihoods leave the frame as raw openskill numbers and are
+      // shown as evenness — 100% is a perfectly even game (see
+      // `SimLab.evenness`). The one place the scaling happens for charts,
+      // the leader badge and the summary table alike.
+      | Quality => f.trueDrawProb->Option.map(SimLab.evenness)
+      | QualityMedian => f.medianDrawProb->Option.map(SimLab.evenness)
       | Blowouts => f.blowoutRate
       | ForecastError => f.forecastError
-      | QualityBand(band) => f.qualityByBand->Array.get(band)->Option.flatMap(v => v)
+      | QualityBand(band) =>
+        f.qualityByBand->Array.get(band)->Option.flatMap(v => v)->Option.map(SimLab.evenness)
       | LadderError => None
       }
     let vals =
@@ -510,7 +515,9 @@ let bandStandings = (
         runsFor(results, ~idx)->Array.filterMap(r => {
           let played = r.frames->Array.slice(~start=summaryFrom(~round), ~end=round + 1)
           meanOf(
-            played->Array.filterMap(f => f.qualityByBand->Array.get(band)->Option.flatMap(v => v)),
+            played->Array.filterMap(f =>
+              f.qualityByBand->Array.get(band)->Option.flatMap(v => v)->Option.map(SimLab.evenness)
+            ),
           )
         }),
       )->Option.map(v => (run, v *. 100.))
@@ -1077,7 +1084,7 @@ let make = () => {
           ~title=qualityMedianView ? ts`Match quality · typical game` : ts`Match quality`,
           ~unit=qualityMedianView
             ? ts`· median game's % chance of ending level · immune to blowout drag`
-            : ts`· % chance the game ends level, by true skill · higher is better`,
+            : ts`· match evenness by true skill · 100% = a perfectly even game · higher is better`,
           ~domain=Some([0.0, 100.0]),
           ~extra={
             <span className="ml-auto flex items-center gap-1 shrink-0">
@@ -1286,7 +1293,7 @@ let make = () => {
               idx,
               other,
               statFor(idx, f => Some(f.rankError)),
-              statFor(idx, f => f.trueDrawProb),
+              statFor(idx, f => f.trueDrawProb->Option.map(SimLab.evenness)),
               statFor(idx, f => f.blowoutRate),
             )
             let indexed =
@@ -1529,7 +1536,7 @@ let make = () => {
                     )} seeds. Bold marks a value nothing else is within error of.`)->React.string}
                 {ts` Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Int.toString(
                     Js.Math.min_int(round, summaryWindow(~round)),
-                  )} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better).`->React.string}
+                  )} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better).`->React.string}
               </div>
             </>
           }

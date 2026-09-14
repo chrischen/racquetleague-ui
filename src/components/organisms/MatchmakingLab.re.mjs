@@ -285,21 +285,21 @@ function seriesValue(run, metric, round, $$window) {
             })), (function (f) {
           if (f !== undefined) {
             if (typeof metric === "object") {
-              return Core__Option.flatMap(f.qualityByBand[metric._0], (function (v) {
-                            return v;
-                          }));
+              return Core__Option.map(Core__Option.flatMap(f.qualityByBand[metric._0], (function (v) {
+                                return v;
+                              })), SimLab.evenness);
             }
             switch (metric) {
               case "LadderError" :
                   return ;
               case "Quality" :
-                  return f.trueDrawProb;
+                  return Core__Option.map(f.trueDrawProb, SimLab.evenness);
               case "Blowouts" :
                   return f.blowoutRate;
               case "ForecastError" :
                   return f.forecastError;
               case "QualityMedian" :
-                  return f.medianDrawProb;
+                  return Core__Option.map(f.medianDrawProb, SimLab.evenness);
               
             }
           }
@@ -493,9 +493,9 @@ function bandStandings(results, band, round) {
                     return Core__Option.map(meanOf(Core__Array.filterMap(runsFor(results, param[1]), (function (r) {
                                           var played = r.frames.slice(summaryFrom(round), round + 1 | 0);
                                           return meanOf(Core__Array.filterMap(played, (function (f) {
-                                                            return Core__Option.flatMap(f.qualityByBand[band], (function (v) {
-                                                                          return v;
-                                                                        }));
+                                                            return Core__Option.map(Core__Option.flatMap(f.qualityByBand[band], (function (v) {
+                                                                              return v;
+                                                                            })), SimLab.evenness);
                                                           })));
                                         }))), (function (v) {
                                   return [
@@ -1049,7 +1049,7 @@ function MatchmakingLab(props) {
                       return f.rankError;
                     })),
               statFor(idx, (function (f) {
-                      return f.trueDrawProb;
+                      return Core__Option.map(f.trueDrawProb, SimLab.evenness);
                     })),
               statFor(idx, (function (f) {
                       return f.blowoutRate;
@@ -1338,7 +1338,7 @@ function MatchmakingLab(props) {
                           0.0,
                           100.0
                         ], undefined),
-                    chartBox(qualityMedianView ? "QualityMedian" : "Quality", qualityMedianView ? t`Match quality · typical game` : t`Match quality`, qualityMedianView ? t`· median game's % chance of ending level · immune to blowout drag` : t`· % chance the game ends level, by true skill · higher is better`, [
+                    chartBox(qualityMedianView ? "QualityMedian" : "Quality", qualityMedianView ? t`Match quality · typical game` : t`Match quality`, qualityMedianView ? t`· median game's % chance of ending level · immune to blowout drag` : t`· match evenness by true skill · 100% = a perfectly even game · higher is better`, [
                           0.0,
                           100.0
                         ], Caml_option.some(JsxRuntime.jsx("span", {
@@ -1658,7 +1658,7 @@ function MatchmakingLab(props) {
                                             seedCount < 2 ? t`Single seed — no error bars, so treat any ordering here as provisional. Raise the seed count to tell real differences from noise.` : (
                                                 coLeaders > 1 ? t`± is the standard error over ${seedCount.toString()} seeds. ${coLeaders.toString()} strategies are tied for best on ladder error — their gaps are inside the error bars, so the ordering between them is not a result.` : t`± is the standard error over ${seedCount.toString()} seeds. Bold marks a value nothing else is within error of.`
                                               ),
-                                            t` Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Math.min(round, summaryWindow(round)).toString()} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = chance a game ends level, by true skill (higher better) · blowouts = share of games decided by 9+ (lower better).`
+                                            t` Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Math.min(round, summaryWindow(round)).toString()} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better).`
                                           ],
                                           className: "mt-2 pt-2",
                                           style: {

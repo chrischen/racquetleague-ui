@@ -1089,10 +1089,17 @@ var CompletedMatchEntity = {
   loadFromDb: loadFromDb$1
 };
 
+var seededSigma = Openskill.rating(undefined).sigma / 2;
+
+function sigmaDifferentialFor(currentSigma) {
+  return Math.min(0, seededSigma - currentSigma);
+}
+
 function toJson$1(adj) {
   var dict = {};
   dict["playerId"] = adj.playerId;
   dict["differential"] = adj.differential;
+  dict["sigmaDifferential"] = adj.sigmaDifferential;
   dict["appliedAtRound"] = adj.appliedAtRound;
   dict["timestamp"] = adj.timestamp;
   return dict;
@@ -1108,6 +1115,7 @@ function fromJson$1(json) {
                   return {
                           playerId: match,
                           differential: match$1,
+                          sigmaDifferential: Core__Option.getOr(Core__Option.flatMap(Js_dict.get(dict, "sigmaDifferential"), Js_json.decodeNumber), 0),
                           appliedAtRound: match$2 | 0,
                           timestamp: match$3
                         };
@@ -1117,6 +1125,9 @@ function fromJson$1(json) {
 }
 
 var RatingAdjustment = {
+  seededSigma: seededSigma,
+  minSigma: 1,
+  sigmaDifferentialFor: sigmaDifferentialFor,
   toJson: toJson$1,
   fromJson: fromJson$1
 };
@@ -2768,13 +2779,23 @@ function getDeprioritizedPlayers(rounds, players, $$break, strategy) {
   }
 }
 
-function processTimelineEvent(players, $$event) {
+function processTimelineEvent(players, $$event, baseIncludesSyncedOpt) {
+  var baseIncludesSynced = baseIncludesSyncedOpt !== undefined ? baseIncludesSyncedOpt : (function (param) {
+        return false;
+      });
   if ($$event.TAG === "Round") {
+    var running = new Map(players.map(function (p) {
+              return [
+                      p.id,
+                      p
+                    ];
+            }));
     var match = Core__Array.reduce($$event._0, [
           new Map(),
           new Map()
         ], (function (param, param$1) {
             var m = param$1.match;
+            var synced = param$1.synced;
             var ratings = param[1];
             var allPlayers = m[0].concat(m[1]);
             var newCounts = Core__Array.reduce(allPlayers, param[0], (function (map, player) {
@@ -2782,13 +2803,20 @@ function processTimelineEvent(players, $$event) {
                     map.set(player.id, current + 1 | 0);
                     return map;
                   }));
+            var current = mapPlayers(m, (function (p) {
+                    return Core__Option.getOr(running.get(p.id), p);
+                  }));
             var updatedTeams = rate$1([
-                  m,
+                  current,
                   param$1.score
                 ]);
             var newRatings = updatedTeams !== undefined ? Core__Array.reduce(updatedTeams.flat(), ratings, (function (map, player) {
-                      map.set(player.id, player.rating);
-                      return map;
+                      if (synced && baseIncludesSynced(player.id)) {
+                        return map;
+                      } else {
+                        map.set(player.id, player.rating);
+                        return map;
+                      }
                     })) : ratings;
             return [
                     newCounts,
@@ -2830,17 +2858,21 @@ function processTimelineEvent(players, $$event) {
   }
   var adjustments = $$event._0;
   return players.map(function (player) {
-              var totalAdjustment = Core__Array.reduce(adjustments.filter(function (adj) {
-                        return adj.playerId === player.id;
-                      }), 0.0, (function (sum, adj) {
+              var mine = adjustments.filter(function (adj) {
+                    return adj.playerId === player.id;
+                  });
+              var totalAdjustment = Core__Array.reduce(mine, 0.0, (function (sum, adj) {
                       return sum + adj.differential;
                     }));
-              if (totalAdjustment === 0.0) {
+              var totalSigmaAdjustment = Core__Array.reduce(mine, 0.0, (function (sum, adj) {
+                      return sum + adj.sigmaDifferential;
+                    }));
+              if (!(totalAdjustment !== 0.0 || totalSigmaAdjustment !== 0.0)) {
                 return player;
               }
               var currentMu = player.rating.mu;
               var currentSigma = player.rating.sigma;
-              var adjustedRating = make(currentMu + totalAdjustment, currentSigma);
+              var adjustedRating = make(currentMu + totalAdjustment, Math.max(1, currentSigma + totalSigmaAdjustment));
               return {
                       data: player.data,
                       id: player.id,
@@ -2855,15 +2887,21 @@ function processTimelineEvent(players, $$event) {
             });
 }
 
-function updatePlayerState(players, timeline) {
+function updatePlayerState(players, timeline, baseIncludesSyncedOpt) {
+  var baseIncludesSynced = baseIncludesSyncedOpt !== undefined ? baseIncludesSyncedOpt : (function (param) {
+        return false;
+      });
   return Core__Array.reduce(timeline, players, (function (currentPlayers, $$event) {
-                return processTimelineEvent(currentPlayers, $$event);
+                return processTimelineEvent(currentPlayers, $$event, baseIncludesSynced);
               }));
 }
 
-function toPlayerStateWithAdjustments(rounds, players, adjustments) {
+function toPlayerStateWithAdjustments(rounds, players, adjustments, baseIncludesSyncedOpt) {
+  var baseIncludesSynced = baseIncludesSyncedOpt !== undefined ? baseIncludesSyncedOpt : (function (param) {
+        return false;
+      });
   var timeline = fromRoundsAndAdjustments(rounds, adjustments);
-  return updatePlayerState(players, timeline);
+  return updatePlayerState(players, timeline, baseIncludesSynced);
 }
 
 function generateRoundsRec(_roundNumber, _roundsToGenerate, _availablePlayers, completedRounds, strategy, courtCount, teamConstraints, _avoidAllPlayersOpt, _accumulatedRoundsOpt, _genderMixedOpt, startTime, _currentRoundIndexOpt, _param) {
@@ -2916,7 +2954,7 @@ function generateRoundsRec(_roundNumber, _roundsToGenerate, _availablePlayers, c
         TAG: "Round",
         _0: roundMatches
       }];
-    var updatedPlayers = updatePlayerState(availablePlayers, timeline);
+    var updatedPlayers = updatePlayerState(availablePlayers, timeline, undefined);
     _param = undefined;
     _currentRoundIndexOpt = currentRoundIndex + 1 | 0;
     _genderMixedOpt = genderMixed;
@@ -2995,6 +3033,23 @@ function drawProbability(match, truth) {
                     ])));
 }
 
+var even = make(25.0, defaultBeta);
+
+var evenGameDraw = Rating_predictDraw([
+      [
+        even,
+        even
+      ],
+      [
+        even,
+        even
+      ]
+    ]);
+
+function evenness(drawProb) {
+  return Math.min(1.0, drawProb / evenGameDraw);
+}
+
 function freshEventPlayers(players) {
   return players.map(function (p, i) {
               return {
@@ -3034,7 +3089,7 @@ function eventQualityWithTruth(initialPlayers, truth, strategy, numRounds, seedS
   };
   var round = 0;
   while(round < numRounds) {
-    var state = toPlayerStateWithAdjustments(scoredRounds, initialPlayers, []);
+    var state = toPlayerStateWithAdjustments(scoredRounds, initialPlayers, [], undefined);
     var generated = Core__Option.getOr(generateRounds(round + 1 | 0, 1, state, scoredRounds, strategy, courtsInUse(courts$1, state.length), undefined, undefined, undefined, startTime, undefined)[0], []);
     if (generated.length === 0) {
       round = numRounds;
@@ -3234,6 +3289,8 @@ export {
   trueWinProbability ,
   drawSigma ,
   drawProbability ,
+  evenGameDraw ,
+  evenness ,
   freshEventPlayers ,
   leadSlot ,
   eventQualityWithTruth ,

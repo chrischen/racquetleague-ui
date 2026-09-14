@@ -7,6 +7,7 @@
 // already exist on disk, and this is exactly the kind of question that needs
 // that much data to answer.
 import { describe, expect, it } from "vitest";
+import * as SimLab from "../../src/lib/rating/SimLab.re.mjs";
 import { gunzipSync } from "node:zlib";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -68,7 +69,8 @@ describe("summary window", () => {
         return mean(
           r.frames.slice(76, round + 1)
             .map((f: any) => f.qualityByBand[band])
-            .filter((v: unknown) => v !== undefined),
+            .filter((v: unknown) => v !== undefined)
+            .map(SimLab.evenness),
         );
       });
       expect(value).toBeCloseTo(mean(perSeed) * 100, 6);
@@ -82,13 +84,15 @@ describe("summary window", () => {
       .map((r: any) =>
         mean(r.frames.slice(1, round + 1)
           .map((f: any) => f.qualityByBand[band])
-          .filter((v: unknown) => v !== undefined)));
+          .filter((v: unknown) => v !== undefined)
+          .map(SimLab.evenness)));
     const rolling = seeds[0].runs
       .filter((x: any) => !x.entry.usesTruth)
       .map((r: any) =>
         mean(r.frames.slice(76, round + 1)
           .map((f: any) => f.qualityByBand[band])
-          .filter((v: unknown) => v !== undefined)));
+          .filter((v: unknown) => v !== undefined)
+          .map(SimLab.evenness)));
     expect(rolling.some((v: number, i: number) => Math.abs(v - cumulative[i]) > 0.01)).toBe(true);
   });
 

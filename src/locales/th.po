@@ -7567,6 +7567,298 @@ msgstr "คลิปแรลลี่"
 msgid "RECENT CLIPS"
 msgstr "คลิปล่าสุด"
 
+#: src/components/organisms/PkEventMessages.re.mjs:332
+msgid "{messageCountStr} messages · {totalCountStr} updates"
+msgstr "{messageCountStr} ข้อความ · {totalCountStr} อัปเดต"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:188
+msgid "DUPR level key"
+msgstr "คำอธิบายระดับ DUPR"
+
+#: src/components/organisms/PkEventMessages.re.mjs:327
+#: src/components/organisms/PkEventMessages.re.mjs:458
+msgid "Event chat"
+msgstr "แชทของอีเวนต์"
+
+#: src/components/pages/PkEventPage.re.mjs:376
+msgid "Hide location details"
+msgstr "ซ่อนรายละเอียดสถานที่"
+
+#: src/components/pages/PkEventPage.re.mjs:239
+msgid "Hosted by"
+msgstr "จัดโดย"
+
+#: src/components/organisms/PkEventMessages.re.mjs:332
+msgid "Join this event to take part in the chat"
+msgstr "เข้าร่วมอีเวนต์นี้เพื่อร่วมแชท"
+
+#: src/components/organisms/PkEventMessages.re.mjs:363
+msgid "Message everyone in this event"
+msgstr "ส่งข้อความถึงทุกคนในอีเวนต์นี้"
+
+#: src/components/organisms/PkEventMessages.re.mjs:365
+msgid "Message everyone in this event…"
+msgstr "ส่งข้อความถึงทุกคนในอีเวนต์นี้…"
+
+#: src/components/pages/PkEventPage.re.mjs:374
+msgid "No courts available"
+msgstr "ไม่มีคอร์ทว่าง"
+
+#: src/components/organisms/PkEventMessages.re.mjs:462
+msgid "No messages yet"
+msgstr "ยังไม่มีข้อความ"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:153
+msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {topSkill}."
+msgstr "การกระจายระดับผู้เล่นจาก DUPR 2.0 ถึง 8.0 คอร์ทระดับสูงสุดมี DUPR {topSkill}"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:32
+msgid "Semi-Pro"
+msgstr "กึ่งอาชีพ"
+
+#: src/components/organisms/PkEventMessages.re.mjs:385
+msgid "Send message"
+msgstr "ส่งข้อความ"
+
+#: src/components/pages/PkEventPage.re.mjs:376
+msgid "Show location details"
+msgstr "แสดงรายละเอียดสถานที่"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:615
+msgid "Top court DUPR"
+msgstr "DUPR คอร์ทสูงสุด"
+
+#: src/components/organisms/PkEventMessages.re.mjs:351
+msgid "View all {totalCountStr} updates"
+msgstr "ดูอัปเดตทั้งหมด {totalCountStr} รายการ"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:626
+msgid "View less"
+msgstr "ดูน้อยลง"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:626
+msgid "View more"
+msgstr "ดูเพิ่มเติม"
+
+#: src/components/pages/PkEventPage.re.mjs:480
+msgid "View venue"
+msgstr "ดูสถานที่"
+
+#: src/components/pages/PkEventPage.re.mjs:581
+msgid "Add details participants should know before arriving"
+msgstr "เพิ่มรายละเอียดที่ผู้เข้าร่วมควรรู้ก่อนมาถึง"
+
+#: src/components/molecules/EditableSection.re.mjs:51
+msgid "Click to edit"
+msgstr "คลิกเพื่อแก้ไข"
+
+#: src/components/pages/PkEventPage.re.mjs:857
+msgid "Done editing"
+msgstr "แก้ไขเสร็จแล้ว"
+
+#: src/components/pages/PkEventPage.re.mjs:857
+msgid "Edit in place"
+msgstr "แก้ไขในหน้านี้"
+
+#: src/components/pages/PkEventPage.re.mjs:585
+msgid "Edit notes from the host"
+msgstr "แก้ไขหมายเหตุจากผู้จัด"
+
+#: src/components/pages/PkEventPage.re.mjs:870
+msgid "Editable fields are highlighted below. Click one to edit it."
+msgstr "ช่องที่แก้ไขได้จะไฮไลต์ไว้ด้านล่าง คลิกเพื่อแก้ไข"
+
+#: src/components/molecules/EditableSection.re.mjs:73
+msgid "Editing"
+msgstr "กำลังแก้ไข"
+
+#: src/components/molecules/SkillDistributionChart.re.mjs:150
+msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {0}."
+msgstr "การกระจายระดับผู้เล่นตั้งแต่ DUPR 2.0 ถึง 8.0 DUPR สูงสุดของคอร์ตคือ {0}"
+
+#: src/components/pages/PkEventPage.re.mjs:586
+msgid "Save notes"
+msgstr "บันทึกหมายเหตุ"
+
+#: src/components/pages/PkEventPage.re.mjs:503
+msgid "View all events at this location"
+msgstr "ดูอีเวนต์ทั้งหมดที่สถานที่นี้"
+
+#: src/components/organisms/Kiosk.re.mjs:403
+msgid "{0} bounces detected · tap one to replay"
+msgstr "ตรวจพบการเด้ง {0} ครั้ง · แตะเพื่อเล่นซ้ำ"
+
+#: src/components/organisms/Kiosk.re.mjs:1164
+msgid "{0}-second buffer · {1}"
+msgstr "บัฟเฟอร์ {0} วินาที · {1}"
+
+#: src/components/organisms/Kiosk.re.mjs:55
+#: src/components/organisms/Kiosk.re.mjs:1163
+#: src/components/organisms/Kiosk.re.mjs:1177
+#: src/components/organisms/Kiosk.re.mjs:1182
+msgid "Challenge"
+msgstr "ท้าชิง"
+
+#: src/components/organisms/Kiosk.re.mjs:1379
+msgid "Court setup"
+msgstr "การตั้งค่าคอร์ต"
+
+#: src/components/organisms/Kiosk.re.mjs:1178
+msgid "No footage analyzed"
+msgstr "ยังไม่มีการวิเคราะห์ภาพ"
+
+#: src/components/organisms/Kiosk.re.mjs:368
+msgid "No ground bounces were detected in the buffered footage."
+msgstr "ไม่พบการเด้งลงพื้นในภาพที่บัฟเฟอร์ไว้"
+
+#: src/components/organisms/Kiosk.re.mjs:67
+msgid "Overlay detected bounces on the buffered footage and replay any of them."
+msgstr "ซ้อนทับจุดที่ตรวจพบการเด้งบนภาพที่บัฟเฟอร์ไว้ และเล่นซ้ำได้ทุกจุด"
+
+#: src/components/organisms/Kiosk.re.mjs:1183
+msgid "Play challenge"
+msgstr "เล่นการท้าชิง"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1040
+msgid "Clear preview"
+msgstr "ล้างตัวอย่าง"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1007
+msgid "Preview Smart RSVP"
+msgstr "ดูตัวอย่าง Smart RSVP"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1007
+msgid "Previewing…"
+msgstr "กำลังแสดงตัวอย่าง…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1038
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
+msgstr "Smart RSVP จะรับ {0} จาก {1} คำขอที่รอดำเนินการ โดยทำเครื่องหมายไว้ด้านล่าง"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1080
+msgid "Would be admitted"
+msgstr "จะได้รับการตอบรับ"
+
+#: src/components/organisms/Kiosk.re.mjs:1230
+msgid "No camera: Challenge runs on the server's fixed test clip."
+msgstr "ไม่มีกล้อง: Challenge จะใช้คลิปทดสอบที่กำหนดไว้บนเซิร์ฟเวอร์"
+
+#: src/components/organisms/Kiosk.re.mjs:787
+msgid "Overlay"
+msgstr "โอเวอร์เลย์"
+
+#: src/components/organisms/Kiosk.re.mjs:2568
+msgid "Test clip not found — put test_challenge.mov in the dinkhunt folder (and restart nothing; it is picked up live)"
+msgstr "ไม่พบคลิปทดสอบ — วางไฟล์ test_challenge.mov ในโฟลเดอร์ dinkhunt (ไม่ต้องรีสตาร์ทอะไร ระบบจะตรวจพบทันที)"
+
+#: src/components/organisms/Kiosk.re.mjs:1226
+msgid "Test mode"
+msgstr "โหมดทดสอบ"
+
+#: src/components/organisms/Kiosk.re.mjs:778
+msgid "Zoom"
+msgstr "ซูม"
+
+#: src/components/organisms/RSVPSection.re.mjs:283
+msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
+msgstr "Smart RSVP จะรับ {0} จาก {1} คำขอที่รอดำเนินการ โดยทำเครื่องหมายไว้ด้านบน"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1058
+msgid "Placing on the waitlist…"
+msgstr "กำลังเพิ่มในรายชื่อรอ…"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1058
+msgid "Smart Waitlist"
+msgstr "รายชื่อรอแบบสมาร์ท"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid "· match evenness by true skill · 100% = a perfectly even game · higher is better"
+msgstr "· ความสูสีของแมตช์ตามทักษะจริง · 100% = เกมที่สูสีอย่างสมบูรณ์ · ยิ่งสูงยิ่งดี"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+msgid "Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last {0} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better)."
+msgstr "จัดอันดับจากสามคอลัมน์รวมกัน โดยถ่วงน้ำหนักเท่ากัน แถวที่อยู่ใต้เส้นประจับคู่จากทักษะจริงที่ซ่อนอยู่ — ถือเป็นเพดานสูงสุดและไม่ถูกนำมาจัดอันดับ ทั้งสามค่าเป็นค่าเฉลี่ยเคลื่อนที่ของ {0} รอบล่าสุด จึงบอกว่าแต่ละกลยุทธ์ทำได้ดีแค่ไหน ณ ตอนนี้ มากกว่าผลรวมทั้งหมด — ลองเลื่อนแถบรอบเพื่อดูการเปลี่ยนแปลง อันดับคลาดเคลื่อน = ผู้เล่นโดยเฉลี่ยอยู่ห่างจากอันดับจริงเท่าใด (ยิ่งต่ำยิ่งดี) · คุณภาพ = เกมสูสีแค่ไหนเมื่อวัดจากทักษะจริง 100% = สูสีสมบูรณ์ (ยิ่งสูงยิ่งดี) · เกมขาดลอย = สัดส่วนเกมที่ตัดสินด้วยแต้มห่าง 9 ขึ้นไป (ยิ่งต่ำยิ่งดี)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:427
+msgid "· match evenness · 100% = a perfectly even game · solid: Competitive+ · dashed: random, avoid repeats"
+msgstr "· ความสูสีของแมตช์ · 100% = เกมที่สูสีอย่างสมบูรณ์ · เส้นทึบ: Competitive+ · เส้นประ: สุ่ม เลี่ยงคู่ซ้ำ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1191
+msgid "A tight club gives the best floor — random dealing manages 78% evenness there against 57% in a varied club — at some cost in ranking accuracy, since players who are genuinely close are hard to order. But controlling the roster does not control the matchups: dealt randomly, more than half of that club's games still start with a heavy favourite; Competitive+ cuts those suboptimal matches to little more than a third, holds 93% evenness, and blows out just 4% of games to random dealing's 14%. The gap exists because skill is not a fixed number. Even hand-picked members fluctuate wildly day to day — improving in bursts, slumping, showing up tired — and a rating system accounts for that in real time, adjusting after every game, so each sessions' matches are built on current form rather than on the level everyone was admitted at. Pkuru keeps hidden ratings even for “unrated” events, so no one's public rating is at stake, and the same ratings pair you with the right drilling partner — even for drills, evenly matched partners matter. (I often prefer a wall: it beats most human drilling partners.)"
+msgstr "คลับที่ระดับฝีมือใกล้กันให้พื้นฐานที่ดีที่สุด — การจัดคู่แบบสุ่มยังได้ความสูสี 78% เทียบกับ 57% ในคลับที่ฝีมือหลากหลาย — แลกมาด้วยความแม่นยำของอันดับที่ลดลงบ้าง เพราะผู้เล่นที่เก่งพอ ๆ กันจริง ๆ จัดลำดับได้ยาก แต่การคุมรายชื่อสมาชิกไม่ได้แปลว่าคุมการจับคู่ได้: เมื่อสุ่มจัด กว่าครึ่งของเกมในคลับนั้นยังเริ่มต้นด้วยฝ่ายที่ได้เปรียบชัดเจน ส่วน Competitive+ ลดแมตช์ที่ไม่เหมาะสมเหลือเพียงราวหนึ่งในสามเศษ รักษาความสูสีไว้ที่ 93% และมีเกมขาดลอยเพียง 4% เทียบกับ 14% ของการสุ่ม ช่องว่างนี้เกิดขึ้นเพราะฝีมือไม่ใช่ตัวเลขตายตัว แม้สมาชิกที่คัดมาอย่างดีก็ยังขึ้นลงมากในแต่ละวัน — พัฒนาเป็นช่วง ๆ ตกฟอร์ม หรือมาเล่นทั้งที่เหนื่อย — และระบบเรตติ้งคำนวณสิ่งเหล่านี้แบบเรียลไทม์ ปรับหลังจบทุกเกม ทำให้แมตช์ในแต่ละเซสชันสร้างจากฟอร์มปัจจุบัน ไม่ใช่ระดับตอนที่ถูกรับเข้าคลับ Pkuru เก็บเรตติ้งที่ซ่อนไว้แม้ในอีเวนต์ที่ “ไม่นับเรต” จึงไม่มีใครต้องเสี่ยงกับเรตสาธารณะ และเรตชุดเดียวกันนี้ยังช่วยจับคู่ซ้อมให้เหมาะสม — แม้แต่การซ้อม คู่ซ้อมที่ฝีมือใกล้กันก็สำคัญ (ผมมักชอบซ้อมกับกำแพงมากกว่า: มันดีกว่าคู่ซ้อมมนุษย์ส่วนใหญ่)"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:880
+msgid "A tight club here means everyone within about 0.68 DUPR points, most of the pack inside 0.4 — and it is where matchmaking should matter least. For the first session or so it is: with everyone close, drubbings are rare however you deal — one session in, Competitive+ and the avoid-repeats baseline are within a couple of points of each other on blowouts, around 10%, though evenness already leads 87% to 81%. Then the ratings sort the pack out: the evenness lead is there from the first handful of rounds and never closes, the blowout gap opens in the second session, and with mature ratings blowouts fall to 4% against the baseline's 14% — with Balanced Round Robin at 8%:"
+msgstr "คลับที่ฝีมือใกล้กันในที่นี้หมายถึงทุกคนอยู่ในช่วงราว 0.68 คะแนน DUPR และส่วนใหญ่อยู่ในช่วง 0.4 — เป็นกรณีที่การจับคู่ควรมีผลน้อยที่สุด ในเซสชันแรก ๆ ก็เป็นเช่นนั้นจริง: เมื่อทุกคนใกล้เคียงกัน เกมขาดลอยก็เกิดยากไม่ว่าจะจัดอย่างไร — หลังผ่านไปหนึ่งเซสชัน Competitive+ กับเกณฑ์พื้นฐานแบบเลี่ยงคู่ซ้ำต่างกันเพียงไม่กี่จุดเรื่องเกมขาดลอย ราว 10% แม้ความสูสีจะนำอยู่แล้วที่ 87% ต่อ 81% จากนั้นเรตติ้งจึงเริ่มจัดระเบียบกลุ่ม: ความสูสีนำตั้งแต่ไม่กี่รอบแรกและไม่เคยถูกไล่ทัน ช่องว่างเรื่องเกมขาดลอยเปิดขึ้นในเซสชันที่สอง และเมื่อเรตติ้งนิ่งแล้ว เกมขาดลอยลดเหลือ 4% เทียบกับ 14% ของเกณฑ์พื้นฐาน — โดย Balanced Round Robin อยู่ที่ 8%:"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1125
+msgid "Balanced Round Robin has no early lead here at all: the static Competitive+ profile is ahead of it on ladder accuracy from the first rounds and ahead on match evenness from about round 8 — with day-to-day form in the world, exact numeric balancing is partly chasing noise, while bands are robust to it. The evenness chart above shows the two lines separating within the first session and never rejoining. Once ratings are mature, every strategy a club could run lands within a sliver of the same ladder — 1.6 to 1.8 places off, tied inside the error bars — and the difference that remains is the quality of the games played along the way."
+msgstr "Balanced Round Robin ไม่ได้นำในช่วงแรกเลยในกรณีนี้: โปรไฟล์ Competitive+ แบบคงที่นำหน้าเรื่องความแม่นยำของอันดับตั้งแต่รอบแรก ๆ และนำเรื่องความสูสีของแมตช์ตั้งแต่ราวรอบที่ 8 — เมื่อฟอร์มรายวันมีอยู่จริง การถ่วงดุลเชิงตัวเลขแบบเป๊ะ ๆ ก็เป็นการไล่ตามสัญญาณรบกวนอยู่บ้าง ขณะที่การแบ่งกลุ่มระดับทนต่อสิ่งนั้นได้ดีกว่า กราฟความสูสีด้านบนแสดงให้เห็นสองเส้นแยกจากกันภายในเซสชันแรกและไม่กลับมาบรรจบกันอีก เมื่อเรตติ้งนิ่งแล้ว ทุกกลยุทธ์ที่คลับใช้ได้ล้วนให้อันดับใกล้เคียงกันมาก — คลาดเคลื่อน 1.6 ถึง 1.8 อันดับ เสมอกันภายในช่วงความคลาดเคลื่อน — สิ่งที่ต่างกันคือคุณภาพของเกมที่ได้เล่นระหว่างทาง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1040
+msgid "Every rated strategy ends within a sliver of the same ladder here — Round Robin's forced breadth edges it, 1.6 places off to adaptive Competitive+'s 1.7 — and with mature ratings Balanced Round Robin's games are as good as Competitive+'s in this club: 79% evenness and 14% blowouts against 80% and 15%. Once its splits are balanced, rotation costs nothing here. Where the two part company is the typical club below."
+msgstr "ทุกกลยุทธ์ที่ใช้เรตติ้งจบลงด้วยอันดับที่ใกล้เคียงกันมากในกรณีนี้ — Round Robin ที่บังคับให้เจอคู่หลากหลายนำอยู่เล็กน้อย คลาดเคลื่อน 1.6 อันดับ เทียบกับ 1.7 ของ Competitive+ แบบปรับตัว — และเมื่อเรตติ้งนิ่งแล้ว เกมของ Balanced Round Robin ก็ดีพอ ๆ กับ Competitive+ ในคลับนี้: ความสูสี 79% และเกมขาดลอย 14% เทียบกับ 80% และ 15% เมื่อแบ่งกลุ่มได้สมดุลแล้ว การหมุนเวียนไม่มีต้นทุนอะไรเลยที่นี่ จุดที่ทั้งสองแยกทางกันคือคลับทั่วไปด้านล่าง"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:860
+msgid "How the numbers were made: one simulation — 24 players, 4 courts, 100 rounds — replayed across 7 seeds in three synthetic clubs: varied (skills spread across the range, plus a ringer and a beginner), typical (about a 1.0 DUPR spread), and tight (a bunched pack). True skills are not frozen: as in a real club, about 20% of players improve gradually, one improves quickly — up to half a DUPR point, with gains tapering as they settle — and one slowly slips, the same players in every strategy's run so the comparison stays fair. Sessions are modelled too: every 13 rounds is one session, each player carries a day-to-day form swing of up to ±0.15 DUPR that changes between sessions, and two drop-ins — one from the ladder's 70th percentile, one from its 30th — arrive unrated and attend only some sessions, sometimes never returning. Games are decided by form-adjusted skill; the ladder is graded against underlying skill, so the test is whether ratings see through the noise rather than chase it. Every round is a real solve through the same optimiser the app uses. Charts are 5-round rolling averages across all seeds; headline numbers summarise the last 25 rounds. Timescales: a real session is 12–14 rounds, so round 13 stands in for “one session” below, while the 100-round horizon — seven or eight sessions of persisted ratings — shows the system once everyone's rating is mature. Human units: a game is counted as ten minutes flat — open plays typically run timed rounds. A three-hour event loses about 30 minutes to setup and warm-up, leaving 150 minutes for 13 rounds once a minute or two of changeover between rounds is counted; on court for about a third of those rounds, a player gets four to five games — call it 45 minutes of actual pickleball in a three-hour evening. The minute figures below are minutes of that; a “suboptimal match” is a game one side starts with at least an 80% chance of winning. “Match evenness” is the rating model's likelihood that a game ends level, scaled so a perfectly even matchup reads 100% — the model's own draw number is only meaningful relative to other games, so it is never shown raw. (The simulation's own roster is kinder — 16 of 24 seated per round — so if anything these figures are generous to the formats.) Charts are interactive — hover for values, click a strategy to isolate its line."
+msgstr "ตัวเลขเหล่านี้มาจากไหน: การจำลองหนึ่งชุด — ผู้เล่น 24 คน 4 คอร์ต 100 รอบ — เล่นซ้ำด้วย 7 ซีดใน 3 คลับจำลอง: หลากหลาย (ฝีมือกระจายทั้งช่วง พร้อมมือฉกาจหนึ่งคนและมือใหม่หนึ่งคน) ทั่วไป (ช่วงกว้างราว 1.0 DUPR) และใกล้กัน (กลุ่มที่เกาะกันแน่น) ทักษะจริงไม่ได้ถูกตรึงไว้: เช่นเดียวกับคลับจริง ผู้เล่นราว 20% ค่อย ๆ พัฒนา หนึ่งคนพัฒนาเร็ว — มากถึงครึ่งคะแนน DUPR โดยการพัฒนาจะช้าลงเมื่อเข้าที่ — และหนึ่งคนค่อย ๆ ถดถอย โดยเป็นคนกลุ่มเดียวกันในทุกกลยุทธ์เพื่อให้เปรียบเทียบได้อย่างเป็นธรรม เซสชันก็ถูกจำลองด้วย: ทุก 13 รอบคือหนึ่งเซสชัน ผู้เล่นแต่ละคนมีฟอร์มรายวันแกว่งได้ถึง ±0.15 DUPR ซึ่งเปลี่ยนไปในแต่ละเซสชัน และมีผู้เล่นแวะมาสองคน — คนหนึ่งจากเปอร์เซ็นไทล์ที่ 70 ของอันดับ อีกคนจากเปอร์เซ็นไทล์ที่ 30 — เข้ามาโดยยังไม่มีเรต และมาเพียงบางเซสชัน บางครั้งก็ไม่กลับมาอีกเลย ผลเกมตัดสินจากทักษะที่ปรับด้วยฟอร์ม ส่วนอันดับวัดเทียบกับทักษะพื้นฐาน การทดสอบจึงดูว่าเรตติ้งมองทะลุสัญญาณรบกวนได้หรือไม่ มากกว่าจะไล่ตามมัน ทุกรอบเป็นการคำนวณจริงผ่านตัวหาค่าเหมาะสมตัวเดียวกับที่แอปใช้ กราฟเป็นค่าเฉลี่ยเคลื่อนที่ 5 รอบจากทุกซีด ตัวเลขพาดหัวสรุปจาก 25 รอบสุดท้าย ช่วงเวลา: เซสชันจริงคือ 12–14 รอบ ดังนั้นรอบที่ 13 จึงแทน “หนึ่งเซสชัน” ด้านล่าง ขณะที่ขอบเขต 100 รอบ — เจ็ดถึงแปดเซสชันของเรตติ้งที่บันทึกต่อเนื่อง — แสดงระบบเมื่อเรตของทุกคนนิ่งแล้ว หน่วยเชิงมนุษย์: หนึ่งเกมนับเป็นสิบนาทีถ้วน — open play มักเล่นแบบจับเวลาเป็นรอบ อีเวนต์สามชั่วโมงเสียเวลาราว 30 นาทีกับการจัดเตรียมและวอร์มอัป เหลือ 150 นาทีสำหรับ 13 รอบเมื่อรวมเวลาสับเปลี่ยนหนึ่งถึงสองนาทีระหว่างรอบ ผู้เล่นได้ลงคอร์ตราวหนึ่งในสามของรอบเหล่านั้น จึงได้เล่นสี่ถึงห้าเกม — พูดได้ว่าเป็นพิกเคิลบอลจริง ๆ ราว 45 นาทีในค่ำคืนสามชั่วโมง ตัวเลขนาทีด้านล่างคือนาทีจากส่วนนั้น ส่วน “แมตช์ที่ไม่เหมาะสม” คือเกมที่ฝ่ายหนึ่งเริ่มต้นด้วยโอกาสชนะอย่างน้อย 80% “ความสูสีของแมตช์” คือความน่าจะเป็นตามโมเดลเรตติ้งที่เกมจะจบแบบเสมอกัน ปรับสเกลให้การจับคู่ที่สูสีสมบูรณ์อ่านค่าได้ 100% — ตัวเลขเสมอดิบของโมเดลมีความหมายเฉพาะเมื่อเทียบกับเกมอื่น จึงไม่เคยแสดงแบบดิบ (รายชื่อในการจำลองใจดีกว่าความจริง — นั่งพัก 16 จาก 24 คนต่อรอบ — ดังนั้นตัวเลขเหล่านี้ออกจะเข้าข้างรูปแบบต่าง ๆ อยู่บ้าง) กราฟโต้ตอบได้ — ชี้เพื่อดูค่า คลิกที่กลยุทธ์เพื่อแยกดูเส้นของมัน"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:943
+msgid "In a tight club the static Competitive+ profile is ahead of Balanced Round Robin on ladder accuracy from the first session: when everyone is close, a band drawn from noisy ratings is barely different from one drawn from true skill, so banding costs nothing here. The adaptive Competitive+ opens in its calibration profile by construction and holds it until the ratings have visibly separated, which in a pack this tight takes most of two sessions — so it trails the static profile through the first session and catches it by the third. With day-to-day form in the world the wider clubs tell a similar story — banding on noisy ratings costs far less than exact numeric balancing gains — so the calibration phase is insurance against the one thing this club cannot show: a strong player banded early on a wrong rating and held there by games against the wrong opponents."
+msgstr "ในคลับที่ฝีมือใกล้กัน โปรไฟล์ Competitive+ แบบคงที่นำหน้า Balanced Round Robin เรื่องความแม่นยำของอันดับตั้งแต่เซสชันแรก: เมื่อทุกคนใกล้เคียงกัน กลุ่มระดับที่แบ่งจากเรตติ้งที่ยังมีสัญญาณรบกวนแทบไม่ต่างจากที่แบ่งจากทักษะจริง การแบ่งกลุ่มจึงไม่มีต้นทุนเลยที่นี่ ส่วน Competitive+ แบบปรับตัวเริ่มต้นด้วยโปรไฟล์ปรับเทียบตามการออกแบบและคงไว้จนกว่าเรตติ้งจะแยกจากกันอย่างชัดเจน ซึ่งในกลุ่มที่แน่นขนาดนี้ต้องใช้เวลาเกือบสองเซสชัน — จึงตามหลังโปรไฟล์แบบคงที่ตลอดเซสชันแรกและไล่ทันในเซสชันที่สาม เมื่อฟอร์มรายวันมีอยู่จริง คลับที่ฝีมือกว้างกว่าก็เล่าเรื่องคล้ายกัน — การแบ่งกลุ่มบนเรตติ้งที่มีสัญญาณรบกวนเสียต้นทุนน้อยกว่าที่การถ่วงดุลเชิงตัวเลขแบบเป๊ะได้มามาก — ช่วงปรับเทียบจึงเป็นประกันต่อสิ่งเดียวที่คลับนี้แสดงให้เห็นไม่ได้: ผู้เล่นเก่งที่ถูกจัดกลุ่มเร็วเกินไปบนเรตที่ผิด แล้วติดอยู่ตรงนั้นเพราะเจอแต่คู่แข่งที่ไม่เหมาะสม"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1034
+msgid "King of the court — winners move up a court and split, losers slide down, the bottom court rotates out — is the most interesting of the rating-free formats. It genuinely sorts: 72% evenness in a typical club, five points over shuffling, and its constant mixing keeps the ladder honest where US-style starves it. But moving one court per round is simply too slow a matchmaker: day-to-day form reshuffles the courts faster than the ladder can sort them, and 72% of its games still start suboptimal. The court ladder is a rating system with one bit of memory — it rediscovers each player's level every night, from scratch."
+msgstr "King of the court — ผู้ชนะเลื่อนขึ้นคอร์ตและแยกคู่ ผู้แพ้เลื่อนลง คอร์ตล่างสุดหมุนออก — เป็นรูปแบบที่ไม่ใช้เรตติ้งที่น่าสนใจที่สุด มันจัดลำดับได้จริง: ความสูสี 72% ในคลับทั่วไป สูงกว่าการสับเปลี่ยนอยู่ห้าจุด และการผสมคู่อยู่ตลอดช่วยให้อันดับสะท้อนความจริง ต่างจากแบบสไตล์อเมริกันที่ทำให้ข้อมูลขาดแคลน แต่การขยับทีละคอร์ตต่อรอบนั้นเป็นตัวจับคู่ที่ช้าเกินไป: ฟอร์มรายวันสลับคอร์ตเร็วกว่าที่ระบบจะจัดลำดับได้ทัน และ 72% ของเกมก็ยังเริ่มต้นแบบไม่เหมาะสม บันไดคอร์ตก็คือระบบเรตติ้งที่มีหน่วยความจำเพียงบิตเดียว — ต้องค้นหาระดับของผู้เล่นแต่ละคนใหม่ทุกคืน ตั้งแต่ศูนย์"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:896
+#: src/components/organisms/MatchmakingReport.re.mjs:984
+#: src/components/organisms/MatchmakingReport.re.mjs:1078
+msgid "match evenness · Competitive+"
+msgstr "ความสูสีของแมตช์ · Competitive+"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:901
+#: src/components/organisms/MatchmakingReport.re.mjs:989
+#: src/components/organisms/MatchmakingReport.re.mjs:1083
+msgid "match evenness · random, avoid repeats"
+msgstr "ความสูสีของแมตช์ · สุ่ม เลี่ยงคู่ซ้ำ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1184
+msgid "Scored rally by rally, true drubbings are rarer than the raw matchup numbers suggest — and matchmaking removes most of the ones that remain. In a typical club Competitive+ has blowouts down to 16% within a session and about 6% within two, settling at 6% against the Oracle's 4% floor. A varied club keeps a hard residue: Competitive+ bottoms out near 15% while the baseline sits at 34%, and even the Oracle blows out 9% — a ringer, a beginner and an off night make some drubbings unavoidable."
+msgstr "เมื่อนับคะแนนทีละแต้ม เกมขาดลอยจริง ๆ เกิดน้อยกว่าที่ตัวเลขการจับคู่ดิบบ่งชี้ — และการจับคู่ก็ตัดส่วนที่เหลือออกไปได้เกือบหมด ในคลับทั่วไป Competitive+ ลดเกมขาดลอยเหลือ 16% ภายในหนึ่งเซสชัน และราว 6% ภายในสองเซสชัน แล้วนิ่งอยู่ที่ 6% เทียบกับพื้นขั้นต่ำ 4% ของ Oracle ส่วนคลับที่หลากหลายยังมีส่วนตกค้างที่แก้ยาก: Competitive+ ลดต่ำสุดได้ราว 15% ขณะที่เกณฑ์พื้นฐานอยู่ที่ 34% และแม้แต่ Oracle ก็ยังมีเกมขาดลอย 9% — มือฉกาจ มือใหม่ และวันฟอร์มตก ทำให้เกมขาดลอยบางส่วนเลี่ยงไม่ได้"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:968
+msgid "The baseline here is what open play actually deals: random courts that avoid repeating partners and opponents. (Measured against pure random, avoiding repeats changes match quality not at all — novelty buys variety and a slightly faster ladder, nothing else.) From a cold start, Competitive+ pulls away from it within the first handful of rounds — by round 6 its games are already measurably better, because every result moves a cold rating a long way. Even a club of all-unrated players gets value inside their first session. With mature ratings the gap is decisive:"
+msgstr "เกณฑ์พื้นฐานในที่นี้คือสิ่งที่ open play ทำกันจริง: จัดคอร์ตแบบสุ่มโดยเลี่ยงคู่หูและคู่แข่งซ้ำ (เมื่อวัดเทียบกับการสุ่มล้วน การเลี่ยงคู่ซ้ำไม่ได้เปลี่ยนคุณภาพแมตช์เลย — ความแปลกใหม่ให้ความหลากหลายและอันดับที่ลู่เข้าเร็วขึ้นเล็กน้อยเท่านั้น) จากจุดเริ่มต้นที่ยังไม่มีข้อมูล Competitive+ ทิ้งห่างได้ภายในไม่กี่รอบแรก — พอถึงรอบที่ 6 เกมก็ดีขึ้นอย่างวัดผลได้ เพราะทุกผลการแข่งขันขยับเรตที่ยังใหม่ได้มาก แม้แต่คลับที่ทุกคนยังไม่มีเรตก็ได้ประโยชน์ภายในเซสชันแรก และเมื่อเรตติ้งนิ่งแล้ว ช่องว่างก็ชัดเจนเด็ดขาด:"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1031
+msgid "US-style open play — courts labelled by level, players choosing their own — does somewhat better: matches only form within the stronger or the weaker half of the club, so the skill gaps inside a match shrink. The simulation also models the format's social habits — about half of badly beaten teams run one revenge match, and close foursomes often stay on for another game; both mean replaying a match, and the games people choose to replay are usually the wrong ones. It nets out at 66% evenness and 26% blowouts here, against the baseline's 57% and 34% — real, but a long way from matchmaking by rating, where Competitive+ reaches 80% and 15% in the same club. One caution for anyone submitting rated DUPR matches from such sessions: repeats and self-sorted courts carry little rating information, so they converge ratings poorly — the simulated ladder ends up more than half a place worse than any strategy that mixes the club."
+msgstr "Open play สไตล์อเมริกัน — คอร์ตติดป้ายระดับ ผู้เล่นเลือกเอง — ทำได้ดีกว่าอยู่บ้าง: แมตช์เกิดขึ้นเฉพาะภายในครึ่งที่เก่งกว่าหรือครึ่งที่อ่อนกว่าของคลับ ช่องว่างฝีมือภายในแมตช์จึงแคบลง การจำลองยังจำลองพฤติกรรมทางสังคมของรูปแบบนี้ด้วย — ราวครึ่งหนึ่งของทีมที่แพ้ยับจะขอแก้มืออีกหนึ่งแมตช์ และกลุ่มสี่คนที่เล่นสูสีก็มักเล่นต่ออีกเกม ทั้งสองอย่างหมายถึงการเล่นแมตช์ซ้ำ และเกมที่คนเลือกเล่นซ้ำมักเป็นเกมที่ไม่ควรซ้ำ ผลลัพธ์สุทธิคือความสูสี 66% และเกมขาดลอย 26% เทียบกับ 57% และ 34% ของเกณฑ์พื้นฐาน — ดีขึ้นจริง แต่ยังห่างไกลจากการจับคู่ด้วยเรตติ้ง ซึ่ง Competitive+ ทำได้ 80% และ 15% ในคลับเดียวกัน ข้อควรระวังสำหรับผู้ที่จะส่งผลแมตช์ DUPR แบบนับเรตจากเซสชันเช่นนี้: แมตช์ซ้ำและคอร์ตที่ผู้เล่นเลือกกันเองให้ข้อมูลเรตติ้งน้อยมาก เรตจึงลู่เข้าได้แย่ — อันดับในการจำลองจบลงแย่กว่ากลยุทธ์ใด ๆ ที่ผสมคลับเกินครึ่งอันดับ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1160
+msgid "Use Competitive+. The adaptive version opens with Balanced Round Robin while ratings are unknown, then switches to banded play as they settle — the fastest convergence available, with the best match quality in the field. Three-quarters of the gain arrives in the first session and most of the rest by the end of the second (from 53% evenness on a cold first round to 83% by the end of the first session and 89% by the second, settling at 92% in a typical club), and because ratings persist, each session starts where the last one left off."
+msgstr "ใช้ Competitive+ เวอร์ชันปรับตัวจะเริ่มด้วย Balanced Round Robin ขณะที่ยังไม่รู้เรตติ้ง แล้วเปลี่ยนไปเล่นแบบแบ่งกลุ่มระดับเมื่อเรตเริ่มนิ่ง — ลู่เข้าเร็วที่สุดเท่าที่มี พร้อมคุณภาพแมตช์ดีที่สุดในกลุ่ม สามในสี่ของประโยชน์เกิดขึ้นในเซสชันแรก และส่วนที่เหลือเกือบทั้งหมดภายในสิ้นเซสชันที่สอง (จากความสูสี 53% ในรอบแรกที่ยังไม่มีข้อมูล เป็น 83% เมื่อจบเซสชันแรก และ 89% ในเซสชันที่สอง แล้วนิ่งที่ 92% ในคลับทั่วไป) และเพราะเรตติ้งถูกบันทึกต่อเนื่อง แต่ละเซสชันจึงเริ่มจากจุดที่ครั้งก่อนจบไว้"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1163
+msgid "What switching is worth, with mature ratings in a typical club: 24 points of evenness and blowouts cut from 22% to 6% against JP-style open play (which plays like dealing at random); 8 points of evenness and blowouts from 10% to 6% against a plain round-robin table; 15 points and blowouts from 14% to 4% against a curated private session run as open play. In human terms: of the roughly 45 minutes of play a three-hour evening actually contains, a typical club's switch turns nearly twenty minutes of suboptimal matches into genuinely contested pickleball."
+msgstr "การเปลี่ยนมาใช้วิธีนี้คุ้มแค่ไหน เมื่อเรตติ้งนิ่งในคลับทั่วไป: ความสูสีเพิ่ม 24 จุด และเกมขาดลอยลดจาก 22% เหลือ 6% เทียบกับ open play สไตล์ญี่ปุ่น (ซึ่งเล่นเหมือนจัดแบบสุ่ม) ความสูสีเพิ่ม 8 จุด และเกมขาดลอยจาก 10% เหลือ 6% เทียบกับตาราง round-robin ธรรมดา และเพิ่ม 15 จุด กับเกมขาดลอยจาก 14% เหลือ 4% เทียบกับเซสชันส่วนตัวที่คัดคนแล้วเล่นแบบ open play ในเชิงเวลาจริง: จากเวลาเล่นจริงราว 45 นาทีที่ค่ำคืนสามชั่วโมงมีให้ การเปลี่ยนวิธีในคลับทั่วไปเปลี่ยนแมตช์ที่ไม่เหมาะสมเกือบยี่สิบนาทีให้กลายเป็นพิกเคิลบอลที่สูสีจริง ๆ"
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1062
+msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines within the first handful of rounds, and one session in it already leads the avoid-repeats baseline by 15 points of evenness and 3 of blowouts. The full benefit arrives with mature ratings: 6% blowouts against the baseline's 25%, and 92% evenness against 66%. Those mature numbers match a hand-picked tight-skill club (93% and 4%) — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster:"
+msgstr "เมื่อช่วงฝีมือกว้าง 1.0 DUPR ตามความเป็นจริง Competitive+ ทิ้งห่างเกณฑ์พื้นฐานภายในไม่กี่รอบแรก และเมื่อผ่านไปหนึ่งเซสชันก็นำเกณฑ์พื้นฐานแบบเลี่ยงคู่ซ้ำอยู่ 15 จุดด้านความสูสี และ 3 จุดด้านเกมขาดลอย ประโยชน์เต็มที่มาพร้อมเรตติ้งที่นิ่งแล้ว: เกมขาดลอย 6% เทียบกับ 25% ของเกณฑ์พื้นฐาน และความสูสี 92% เทียบกับ 66% ตัวเลขที่นิ่งแล้วเหล่านี้เทียบเท่ากับคลับที่คัดคนให้ฝีมือใกล้กัน (93% และ 4%) — อัลกอริทึมใช้การจับคู่กู้คืนสิ่งที่คุณต้องได้มาด้วยการคัดกรองสมาชิก:"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:1126
+msgid "Gym"
+msgstr "โรงยิม"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:425
+msgid "Performs better in gyms"
+msgstr "เล่นได้ดีกว่าในโรงยิม"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:422
+msgid "Performs better on hard courts"
+msgstr "เล่นได้ดีกว่าบนคอร์ตพื้นแข็ง"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -119,28 +119,128 @@ module RSVPSectionEvaluateSmartRsvpsMutation = %relay(`
   }
 `)
 
+// Smart Waitlist: on a full event, every eligible pending player is placed on
+// the ordinary waitlist in the search's order.
+module RSVPSectionSmartWaitlistMutation = %relay(`
+  mutation RSVPSectionSmartWaitlistMutation($eventId: ID!) {
+    smartWaitlist(eventId: $eventId) {
+      rsvps {
+        id
+        listType
+        joinTime
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+// What Smart RSVP would admit right now, without admitting anyone. Fetched
+// fresh on every click, since the pending list changes under it.
+module PreviewSmartRsvpsQuery = %relay(`
+  query RSVPSectionPreviewSmartRsvpsQuery($eventId: ID!) {
+    previewSmartRsvps(eventId: $eventId) {
+      rsvps {
+        id
+      }
+      errors {
+        message
+      }
+    }
+  }
+`)
+
+// The organizer's Smart RSVP controls: a preview that marks the pending RSVPs
+// the next run would admit, and the run itself. `preview` is the ids the last
+// preview named; `onPreview` replaces it (None clears it, which the run does
+// once it commits, since the list it previewed no longer exists).
 module SmartRsvpEvaluateButton = {
   @react.component
-  let make = (~eventId: string) => {
+  let make = (
+    ~eventId: string,
+    ~pendingCount: int,
+    ~eventIsFull: bool,
+    ~preview: option<array<string>>,
+    ~onPreview: option<array<string>> => unit,
+  ) => {
     let ts = Lingui.UtilString.t
+    let environment = RescriptRelay.useEnvironmentFromContext()
     let (commit, inFlight) = RSVPSectionEvaluateSmartRsvpsMutation.use()
-    <div className="mb-5 flex flex-wrap gap-2">
-      <button
-        type_="button"
-        disabled={inFlight}
-        onClick={_ => commit(~variables={eventId: eventId})->RescriptRelay.Disposable.ignore}
-        className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60">
-        {(inFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`)->React.string}
-      </button>
-      // Temporary, for comparing the two admission searches side by side.
-      <button
-        type_="button"
-        disabled={inFlight}
-        onClick={_ =>
-          commit(~variables={eventId: eventId, algorithm: RelaySchemaAssets_graphql.BestFit})->RescriptRelay.Disposable.ignore}
-        className="inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
-        {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
-      </button>
+    let (commitWaitlist, waitlisting) = RSVPSectionSmartWaitlistMutation.use()
+    let (previewing, setPreviewing) = React.useState(() => false)
+
+    let fetchPreview = () => {
+      setPreviewing(_ => true)
+      let _ = PreviewSmartRsvpsQuery.fetch(~environment, ~variables={eventId: eventId}, ~onResult=result => {
+        setPreviewing(_ => false)
+        switch result {
+        | Ok(data) =>
+          onPreview(Some(data.previewSmartRsvps.rsvps->Option.getOr([])->Array.map(r => r.id)))
+        | Error(_) => onPreview(None)
+        }
+      })
+    }
+    let run = (~algorithm=?) =>
+      commit(
+        ~variables={eventId, algorithm: ?algorithm},
+        ~onCompleted=(_, _) => onPreview(None),
+      )->RescriptRelay.Disposable.ignore
+
+    // On a full event: the pending list, ranked by the search, onto the waitlist.
+    let smartWaitlist = () =>
+      commitWaitlist(
+        ~variables={eventId: eventId},
+        ~onCompleted=(_, _) => onPreview(None),
+      )->RescriptRelay.Disposable.ignore
+    let busy = inFlight || previewing || waitlisting
+    <div className="mb-5">
+      <div className="flex flex-wrap gap-2">
+        <button
+          type_="button"
+          disabled={busy}
+          onClick={_ => fetchPreview()}
+          className="inline-flex items-center gap-1 rounded-md border border-emerald-600 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 dark:text-emerald-300 dark:hover:bg-emerald-900/30">
+          {(previewing ? ts`Previewing…` : ts`Preview Smart RSVP`)->React.string}
+        </button>
+        <button
+          type_="button"
+          disabled={busy}
+          onClick={_ => run()}
+          className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60">
+          {(inFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`)->React.string}
+        </button>
+        {eventIsFull
+          ? <button
+              type_="button"
+              disabled={busy}
+              onClick={_ => smartWaitlist()}
+              className="inline-flex items-center gap-1 rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-amber-600 disabled:cursor-wait disabled:opacity-60">
+              {(waitlisting ? ts`Placing on the waitlist…` : ts`Smart Waitlist`)->React.string}
+            </button>
+          : React.null}
+        // Temporary, for comparing the two admission searches side by side.
+        <button
+          type_="button"
+          disabled={busy}
+          onClick={_ => run(~algorithm=RelaySchemaAssets_graphql.BestFit)}
+          className="inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
+          {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
+        </button>
+      </div>
+      {switch preview {
+      | Some(ids) =>
+        <p className="mt-2 text-xs text-gray-600 dark:text-gray-300">
+          {t`Smart RSVP would admit ${ids->Array.length->Int.toString} of ${pendingCount->Int.toString} pending requests: they are marked above.`}
+          <button
+            type_="button"
+            onClick={_ => onPreview(None)}
+            className="ml-2 font-semibold text-emerald-700 underline dark:text-emerald-300">
+            {t`Clear preview`}
+          </button>
+        </p>
+      | None => React.null
+      }}
     </div>
   }
 }
@@ -270,6 +370,9 @@ module ViewerStatusMessage = {
 @react.component
 let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
   let (_isPending, startTransition) = ReactExperimental.useTransition()
+  // The pending RSVP ids the last Smart RSVP preview would admit, if any.
+  let (smartRsvpPreview, setSmartRsvpPreview) = React.useState(() => None)
+  let onSmartRsvpPreview = ids => setSmartRsvpPreview(_ => ids)
   let {data, loadNext, isLoadingNext, hasNext} = Fragment.usePagination(event)
   let {
     __id,
@@ -341,6 +444,13 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
     )
 
   let viewerHasRsvp = viewerRsvp->Option.isSome
+
+  // How many requests the Smart RSVP preview is choosing among.
+  let pendingCount =
+    data.rsvps
+    ->Fragment.getConnectionNodes
+    ->Array.filter(edge => isRestrictedRsvp(edge.listType))
+    ->Array.length
 
   // Determine if viewer is in waitlist, confirmed, or pending list
   let (viewerInWaitlist, viewerInPending) =
@@ -631,9 +741,16 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
                   ?viewer
                   activitySlug=?{activity->Option.flatMap(a => a.slug)}
                   maxRating
+                  previewAdmittedIds=?smartRsvpPreview
                 />
                 {viewerIsAdmin && smartRsvpEnabled
-                  ? <SmartRsvpEvaluateButton eventId={id} />
+                  ? <SmartRsvpEvaluateButton
+                      eventId={id}
+                      pendingCount
+                      eventIsFull
+                      preview=smartRsvpPreview
+                      onPreview=onSmartRsvpPreview
+                    />
                   : React.null}
                 {viewerIsAdmin
                   ? club
@@ -694,9 +811,16 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
           activitySlug=?{activity->Option.flatMap(a => a.slug)}
           maxRating
           className=?Some("mb-5")
+          previewAdmittedIds=?smartRsvpPreview
         />
         {viewerIsAdmin && smartRsvpEnabled
-          ? <SmartRsvpEvaluateButton eventId={id} />
+          ? <SmartRsvpEvaluateButton
+              eventId={id}
+              pendingCount
+              eventIsFull
+              preview=smartRsvpPreview
+              onPreview=onSmartRsvpPreview
+            />
           : React.null}
         {viewerIsAdmin
           ? club

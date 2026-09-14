@@ -2,19 +2,61 @@
 
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 
-function constraintsFor(deviceId, audioOpt) {
+function videoSettings(stream) {
+  return Core__Option.map(stream.getVideoTracks()[0], (function (prim) {
+                return prim.getSettings();
+              }));
+}
+
+function videoSize(stream) {
+  return Core__Option.flatMap(videoSettings(stream), (function (settings) {
+                var match = settings.width;
+                var match$1 = settings.height;
+                if (match !== undefined && match$1 !== undefined) {
+                  return [
+                          match,
+                          match$1
+                        ];
+                }
+                
+              }));
+}
+
+function videoFrameRate(stream) {
+  return Core__Option.flatMap(videoSettings(stream), (function (settings) {
+                return settings.frameRate;
+              }));
+}
+
+function constraintsFor(deviceId, audioOpt, modeOpt) {
   var audio = audioOpt !== undefined ? audioOpt : false;
+  var mode = modeOpt !== undefined ? modeOpt : "Native";
   var deviceId$1 = Core__Option.map(deviceId, (function (id) {
           return {
                   exact: id
                 };
         }));
-  return {
-          video: {
-            deviceId: deviceId$1
-          },
-          audio: audio
-        };
+  if (mode === "Native") {
+    return {
+            video: {
+              deviceId: deviceId$1,
+              width: {
+                ideal: 1920
+              },
+              height: {
+                ideal: 1080
+              }
+            },
+            audio: audio
+          };
+  } else {
+    return {
+            video: {
+              deviceId: deviceId$1
+            },
+            audio: audio
+          };
+  }
 }
 
 function stopAll(stream) {
@@ -23,7 +65,16 @@ function stopAll(stream) {
       });
 }
 
+var nativeVideo = [
+  1920,
+  1080
+];
+
 export {
+  videoSettings ,
+  videoSize ,
+  videoFrameRate ,
+  nativeVideo ,
   constraintsFor ,
   stopAll ,
 }

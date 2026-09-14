@@ -1088,7 +1088,13 @@ function PkuruLayout(props) {
                       queryRefs: match.fragmentRefs,
                       children: [
                         JsxRuntime.jsx(GlobalQuery.DetectedLang.make, {}),
-                        JsxRuntime.jsx(ReactRouterDom.Outlet, {})
+                        JsxRuntime.jsx(React.Suspense, {
+                              children: Caml_option.some(JsxRuntime.jsx(ReactRouterDom.Outlet, {})),
+                              fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                        children: t`Loading...`,
+                                        className: "p-6 text-sm text-gray-500"
+                                      }))
+                            })
                       ]
                     })
               ]

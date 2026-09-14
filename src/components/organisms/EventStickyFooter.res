@@ -50,6 +50,17 @@ type viewerUserShape = {
   email: option<string>,
 }
 
+// Footer rows span the bar's full width (tint, borders) while their content
+// stays aligned with the page's card column. Inside the events drawer, which
+// is narrower than the column, this is a no-op.
+module Row = {
+  @react.component
+  let make = (~className: string="", ~inner: string, ~children: React.element) =>
+    <div className>
+      <div className={"mx-auto w-full max-w-2xl " ++ inner}> children </div>
+    </div>
+}
+
 @react.component
 let make = (
   ~event: eventShape,
@@ -70,6 +81,12 @@ let make = (
   ~hasComputedRating: bool,
   ~charging: bool,
   ~onPayClick: unit => unit,
+  // Chat preview + expandable activity feed for joined viewers, rendered at
+  // the top of the footer.
+  ~chat: React.element=React.null,
+  // Rendered as a page rather than in the drawer: no rounded top, since the
+  // bar meets the edges of the viewport.
+  ~fullWidth: bool=false,
 ) => {
   let ts = Lingui.UtilString.t
   let {pathname} = Router.useLocation()
@@ -139,12 +156,17 @@ let make = (
 
         <>
           <div
-            className="sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0">
+            className={Util.cx([
+              "sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0",
+              fullWidth ? "" : "rounded-t-xl",
+            ])}>
+            chat
             {if isUnpaid {
               // State 2: Unpaid — payment required to confirm spot
               <>
-                <div
-                  className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2">
+                <Row
+                  className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30"
+                  inner="px-5 py-2.5 flex items-center gap-2">
                   <Lucide.CreditCard
                     className="w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                   />
@@ -154,18 +176,20 @@ let make = (
                       ? t`Deposit required to confirm your spot`
                       : t`Payment required to confirm your spot`}
                   </span>
-                </div>
+                </Row>
                 {isAuthorization
-                  ? <div
-                      className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-2">
+                  ? <Row
+                      className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20"
+                      inner="px-5 py-2">
                       <span
                         className="font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight">
                         {t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`}
                       </span>
-                    </div>
+                    </Row>
                   : React.null}
-                <div
-                  className="bg-white dark:bg-[#1e1f23] px-5 py-3 flex items-center justify-between gap-2">
+                <Row
+                  className="bg-white dark:bg-[#1e1f23]"
+                  inner="px-5 py-3 flex items-center justify-between gap-2">
                   <button
                     disabled={leaving}
                     onClick={_ => doLeave()}
@@ -193,11 +217,11 @@ let make = (
                       (ts`Pay ${priceStr}`)->React.string
                     }}
                   </button>
-                </div>
+                </Row>
               </>
             } else if isPending {
               // State: Pending admin approval
-              <div className="px-5 py-3 flex items-center justify-between">
+              <Row inner="px-5 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-2 min-w-0">
                   <div
                     className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 bg-orange-100 dark:bg-orange-900/30 border border-orange-400 dark:border-orange-500 border-dashed">
@@ -223,13 +247,14 @@ let make = (
                   onClick={_ => doLeave()}>
                   {(leaving ? ts`Withdrawing...` : ts`Withdraw RSVP`)->React.string}
                 </button>
-              </div>
+              </Row>
             } else if isJoined {
               // State 3: Joined or Waitlisted — show cancellation notice + leave button
               <>
                 {cancelDeadlineDate->Option.isSome && !isWaitlisted
-                  ? <div
-                      className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2">
+                  ? <Row
+                      className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30"
+                      inner="px-5 py-2.5 flex items-center gap-2">
                       <Lucide.AlertCircle
                         className="w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                       />
@@ -250,9 +275,9 @@ let make = (
                           )->React.string
                         }}
                       </span>
-                    </div>
+                    </Row>
                   : React.null}
-                <div className="px-5 py-3 flex items-center justify-between">
+                <Row inner="px-5 py-3 flex items-center justify-between">
                   <div className="flex items-center gap-2 min-w-0">
                     <div
                       className={Util.cx([
@@ -316,14 +341,15 @@ let make = (
                       leaving ? ts`Leaving...` : isWaitlisted ? ts`Leave waitlist` : ts`Leave event`
                     )->React.string}
                   </button>
-                </div>
+                </Row>
               </>
             } else {
               // State 1: Unjoined — claim spot
               <>
                 {cancelDeadlineDate->Option.isSome
-                  ? <div
-                      className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2">
+                  ? <Row
+                      className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30"
+                      inner="px-5 py-2.5 flex items-center gap-2">
                       <Lucide.AlertCircle
                         className="w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                       />
@@ -341,11 +367,11 @@ let make = (
                         | None => (ts`Cancellation deadline passed.`)->React.string
                         }}
                       </span>
-                    </div>
+                    </Row>
                   : React.null}
-                <div className="px-5 py-3 flex items-center justify-between">
+                <Row inner="px-5 py-3 flex items-center justify-between">
                   <div
-                    className="font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
+                    className="font-mono text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
                     {event.startDate
                     ->Option.map(sd =>
                       <ReactIntl.FormattedDate
@@ -395,7 +421,7 @@ let make = (
                         : ts`Claim spot`
                     )->React.string}
                   </button>
-                </div>
+                </Row>
               </>
             }}
           </div>
@@ -414,10 +440,14 @@ let make = (
     switch event.shadow {
     | Some(true) => React.null
     | _ =>
-      <div
-        className="sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0">
+      <Row
+        className={Util.cx([
+          "sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex-shrink-0",
+          fullWidth ? "" : "rounded-t-xl",
+        ])}
+        inner="px-5 py-3 flex items-center justify-between">
         <div
-          className="font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
+          className="font-mono text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1">
           {event.startDate
           ->Option.map(sd =>
             <ReactIntl.FormattedDate
@@ -453,7 +483,7 @@ let make = (
             {(isFull ? ts`Join waitlist` : ts`Claim spot`)->React.string}
           </Router.Link>
         </div>
-      </div>
+      </Row>
     }
   | _ => React.null
   }

@@ -241,7 +241,7 @@ function RoundRobin(props) {
           var adjustmentsUpToCurrent = ratingAdjustmentHistory.filter(function (adj) {
                 return adj.appliedAtRound < currentRoundInt;
               });
-          return Rating.toPlayerStateWithAdjustments(rounds.slice(0, currentRoundInt), players, adjustmentsUpToCurrent);
+          return Rating.toPlayerStateWithAdjustments(rounds.slice(0, currentRoundInt), players, adjustmentsUpToCurrent, undefined);
         }), [
         rounds,
         currentRoundInt,
@@ -299,7 +299,7 @@ function RoundRobin(props) {
     var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound <= roundIndex;
         });
-    var playersForReset = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound).filter(function (p) {
+    var playersForReset = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound, undefined).filter(function (p) {
           return checkedInPlayerIds.has(p.id);
         });
     Core__Option.forEach(Rating.generateSingleRound(roundIndex, rounds, playersForReset, strategy, courtCount, teamConstraints, avoidAllPlayers, genderMixed, eventStartTime), (function (newRound) {
@@ -319,7 +319,10 @@ function RoundRobin(props) {
           var originalMuMap = Js_dict.fromArray(checkedInPlayers.map(function (p) {
                     return [
                             p.id,
-                            p.rating.mu
+                            [
+                              p.rating.mu,
+                              p.rating.sigma
+                            ]
                           ];
                   }));
           var targetRound = currentRoundInt - 1 | 0;
@@ -329,13 +332,14 @@ function RoundRobin(props) {
           sortedPlayers.forEach(function (param) {
                 var adjustedMu = param[1];
                 var playerId = param[0];
-                Core__Option.forEach(Js_dict.get(originalMuMap, playerId), (function (originalMu) {
-                        var differential = adjustedMu - originalMu;
+                Core__Option.forEach(Js_dict.get(originalMuMap, playerId), (function (param) {
+                        var differential = adjustedMu - param[0];
                         if (differential !== 0.0) {
                           adjustedPlayerIds.add(playerId);
                           newAdjustments.push({
                                 playerId: playerId,
                                 differential: differential,
+                                sigmaDifferential: Rating.RatingAdjustment.sigmaDifferentialFor(param[1]),
                                 appliedAtRound: targetRound,
                                 timestamp: timestamp
                               });
@@ -445,7 +449,7 @@ function RoundRobin(props) {
     var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
           return adj.appliedAtRound <= roundIndex;
         });
-    var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound);
+    var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound, undefined);
     var currentRoundPlayers = playersBeforeRound.filter(function (p) {
           return currentRoundPlayerIds.has(p.id);
         });
@@ -474,7 +478,7 @@ function RoundRobin(props) {
             var adjustmentsUpToCurrentRound = ratingAdjustmentHistory.filter(function (adj) {
                   return adj.appliedAtRound <= roundIndex;
                 });
-            var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound);
+            var playersBeforeRound = Rating.toPlayerStateWithAdjustments(rounds.slice(0, roundIndex), players, adjustmentsUpToCurrentRound, undefined);
             var matchPlayersWithState = playersBeforeRound.filter(function (p) {
                   return matchPlayerIds.has(p.id);
                 });

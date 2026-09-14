@@ -949,6 +949,38 @@ let saveRatingAdjustmentHistory = (eventId: string, history: array<RatingAdjustm
   eventStore->TinyBase.setRow("eventState", eventId, existingRow)
 }
 
+// The rating each player started the session on, per pool. What separates a
+// base that the server has already moved from one that has not — see
+// `RatingBaseline` for why the replay needs to know.
+let loadRatingBaseline = (eventId: string): RatingBaseline.store => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  eventsTable
+  ->Js.Dict.get(eventId)
+  ->Option.flatMap(row => row->Js.Dict.get("ratingBaseline"))
+  ->Option.flatMap(v => v->Js.Json.decodeString)
+  ->Option.flatMap(str =>
+    try {
+      Some(str->Js.Json.parseExn)
+    } catch {
+    | _ => {
+        Js.log2("[EventManagerPersistence] Failed to parse ratingBaseline JSON for event:", eventId)
+        None
+      }
+    }
+  )
+  ->Option.mapOr(Js.Dict.empty(), RatingBaseline.fromJson)
+}
+
+let saveRatingBaseline = (eventId: string, store: RatingBaseline.store) => {
+  let eventsTable = eventStore->TinyBase.getTable("eventState")
+  let existingRow = eventsTable->Js.Dict.get(eventId)->Option.getOr(Js.Dict.empty())
+  existingRow->Js.Dict.set(
+    "ratingBaseline",
+    store->RatingBaseline.toJson->Js.Json.stringify->Js.Json.string,
+  )
+  eventStore->TinyBase.setRow("eventState", eventId, existingRow)
+}
+
 // Load teams for an event from TinyBase
 let loadTeams = (eventId: string): array<array<Player.t<'a>>> => {
   let eventsTable = eventStore->TinyBase.getTable("eventState")

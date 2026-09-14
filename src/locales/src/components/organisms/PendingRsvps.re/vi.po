@@ -46,7 +46,7 @@ msgstr "Chưa thanh toán"
 msgid "Paid"
 msgstr "Đã thanh toán"
 
-#: src/components/organisms/PendingRsvps.re.mjs:58
+#: src/components/organisms/PendingRsvps.re.mjs:60
 msgid "Pending"
 msgstr "Đang chờ"
 
@@ -77,3 +77,7 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "Xem hồ sơ"
+
+#: src/components/organisms/PendingRsvps.re.mjs:82
+msgid "Would be admitted"
+msgstr "Sẽ được chấp nhận"

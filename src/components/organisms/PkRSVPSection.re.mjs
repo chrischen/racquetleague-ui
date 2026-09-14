@@ -11,16 +11,21 @@ import * as PkEventRsvp from "./PkEventRsvp.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as EventInvites from "./EventInvites.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
 import * as PlayerInviteSwipeDeck from "./PlayerInviteSwipeDeck.re.mjs";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
+import * as SkillDistributionChart from "../molecules/SkillDistributionChart.re.mjs";
 import * as PkRSVPSection_user_graphql from "../../__generated__/PkRSVPSection_user_graphql.re.mjs";
 import * as PkRSVPSection_event_graphql from "../../__generated__/PkRSVPSection_event_graphql.re.mjs";
 import * as PkRSVPSectionAddUserMutation_graphql from "../../__generated__/PkRSVPSectionAddUserMutation_graphql.re.mjs";
+import * as PkRSVPSectionSmartWaitlistMutation_graphql from "../../__generated__/PkRSVPSectionSmartWaitlistMutation_graphql.re.mjs";
+import * as PkRSVPSectionPreviewSmartRsvpsQuery_graphql from "../../__generated__/PkRSVPSectionPreviewSmartRsvpsQuery_graphql.re.mjs";
 import * as PkRSVPSectionUpdateListTypeMutation_graphql from "../../__generated__/PkRSVPSectionUpdateListTypeMutation_graphql.re.mjs";
 import * as PkRSVPSectionCaptureAllPaymentsMutation_graphql from "../../__generated__/PkRSVPSectionCaptureAllPaymentsMutation_graphql.re.mjs";
 import * as PkRSVPSectionEvaluateSmartRsvpsMutation_graphql from "../../__generated__/PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.re.mjs";
@@ -101,15 +106,71 @@ var EvaluateSmartRsvpsMutation = {
   use: use$2
 };
 
-var convertVariables$2 = PkRSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+var convertVariables$2 = PkRSVPSectionSmartWaitlistMutation_graphql.Internal.convertVariables;
 
-var convertResponse$2 = PkRSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+var convertResponse$2 = PkRSVPSectionSmartWaitlistMutation_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse$2 = PkRSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse$2 = PkRSVPSectionSmartWaitlistMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2, PkRSVPSectionSmartWaitlistMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
 
-var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$2, PkRSVPSectionSmartWaitlistMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
+
+var SmartWaitlistMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$2,
+  convertResponse: convertResponse$2,
+  convertWrapRawResponse: convertWrapRawResponse$2,
+  commitMutation: commitMutation$2,
+  use: use$3
+};
+
+var convertVariables$3 = PkRSVPSectionPreviewSmartRsvpsQuery_graphql.Internal.convertVariables;
+
+var convertResponse$3 = PkRSVPSectionPreviewSmartRsvpsQuery_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$3 = PkRSVPSectionPreviewSmartRsvpsQuery_graphql.Internal.convertWrapRawResponse;
+
+var use$4 = RescriptRelay_Query.useQuery(convertVariables$3, PkRSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$3);
+
+var useLoader = RescriptRelay_Query.useLoader(convertVariables$3, PkRSVPSectionPreviewSmartRsvpsQuery_graphql.node, (function (prim) {
+        return prim;
+      }));
+
+var usePreloaded = RescriptRelay_Query.usePreloaded(PkRSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$3, (function (prim) {
+        return prim;
+      }));
+
+var $$fetch = RescriptRelay_Query.$$fetch(PkRSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$3, convertVariables$3);
+
+var fetchPromised = RescriptRelay_Query.fetchPromised(PkRSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertResponse$3, convertVariables$3);
+
+var retain = RescriptRelay_Query.retain(PkRSVPSectionPreviewSmartRsvpsQuery_graphql.node, convertVariables$3);
+
+var PreviewSmartRsvpsQuery = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$3,
+  convertResponse: convertResponse$3,
+  convertWrapRawResponse: convertWrapRawResponse$3,
+  use: use$4,
+  useLoader: useLoader,
+  usePreloaded: usePreloaded,
+  $$fetch: $$fetch,
+  fetchPromised: fetchPromised,
+  retain: retain
+};
+
+var convertVariables$4 = PkRSVPSectionAddUserMutation_graphql.Internal.convertVariables;
+
+var convertResponse$4 = PkRSVPSectionAddUserMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$4 = PkRSVPSectionAddUserMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$4, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+
+var use$5 = RescriptRelay_Mutation.useMutation(convertVariables$4, PkRSVPSectionAddUserMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
 
 var PkRSVPSectionAddUserMutation_gender_decode = PkRSVPSectionAddUserMutation_graphql.Utils.gender_decode;
 
@@ -120,36 +181,36 @@ var PkRSVPSectionAddUserMutation = {
   gender_fromString: PkRSVPSectionAddUserMutation_gender_fromString,
   Operation: undefined,
   Types: undefined,
-  convertVariables: convertVariables$2,
-  convertResponse: convertResponse$2,
-  convertWrapRawResponse: convertWrapRawResponse$2,
-  commitMutation: commitMutation$2,
-  use: use$3
+  convertVariables: convertVariables$4,
+  convertResponse: convertResponse$4,
+  convertWrapRawResponse: convertWrapRawResponse$4,
+  commitMutation: commitMutation$3,
+  use: use$5
 };
 
-var convertVariables$3 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
+var convertVariables$5 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertVariables;
 
-var convertResponse$3 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
+var convertResponse$5 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertResponse;
 
-var convertWrapRawResponse$3 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
+var convertWrapRawResponse$5 = PkRSVPSectionCaptureAllPaymentsMutation_graphql.Internal.convertWrapRawResponse;
 
-var commitMutation$3 = RescriptRelay_Mutation.commitMutation(convertVariables$3, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+var commitMutation$4 = RescriptRelay_Mutation.commitMutation(convertVariables$5, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
 
-var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$3, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$3, convertWrapRawResponse$3);
+var use$6 = RescriptRelay_Mutation.useMutation(convertVariables$5, PkRSVPSectionCaptureAllPaymentsMutation_graphql.node, convertResponse$5, convertWrapRawResponse$5);
 
 var PkRSVPSectionCaptureAllPaymentsMutation = {
   Operation: undefined,
   Types: undefined,
-  convertVariables: convertVariables$3,
-  convertResponse: convertResponse$3,
-  convertWrapRawResponse: convertWrapRawResponse$3,
-  commitMutation: commitMutation$3,
-  use: use$4
+  convertVariables: convertVariables$5,
+  convertResponse: convertResponse$5,
+  convertWrapRawResponse: convertWrapRawResponse$5,
+  commitMutation: commitMutation$4,
+  use: use$6
 };
 
 var convertFragment$1 = PkRSVPSection_user_graphql.Internal.convertFragment;
 
-function use$5(fRef) {
+function use$7(fRef) {
   return RescriptRelay_Fragment.useFragment(PkRSVPSection_user_graphql.node, convertFragment$1, fRef);
 }
 
@@ -161,14 +222,14 @@ var UserFragment = {
   Types: undefined,
   Operation: undefined,
   convertFragment: convertFragment$1,
-  use: use$5,
+  use: use$7,
   useOpt: useOpt$1
 };
 
 function PkRSVPSection(props) {
   var eventData = use(props.event);
   var viewerUser = Core__Option.map(props.user, (function (u) {
-          return use$5(u);
+          return use$7(u);
         }));
   var match = React.useState(function () {
         return false;
@@ -178,15 +239,34 @@ function PkRSVPSection(props) {
         return false;
       });
   var setPendingSwipeOpen = match$1[1];
-  var match$2 = use$1();
-  var commitUpdateListType = match$2[0];
-  var match$3 = use$2();
-  var isEvaluateSmartRsvpsInFlight = match$3[1];
-  var commitEvaluateSmartRsvps = match$3[0];
-  var match$4 = use$3();
-  var commitMutationAddUser = match$4[0];
-  var match$5 = use$4();
-  var commitCaptureAll = match$5[0];
+  var match$2 = React.useState(function () {
+        return false;
+      });
+  var setShowSkillDetail = match$2[1];
+  var showSkillDetail = match$2[0];
+  var match$3 = use$1();
+  var commitUpdateListType = match$3[0];
+  var match$4 = use$2();
+  var isEvaluateSmartRsvpsInFlight = match$4[1];
+  var commitEvaluateSmartRsvps = match$4[0];
+  var match$5 = use$3();
+  var isSmartWaitlistInFlight = match$5[1];
+  var commitSmartWaitlist = match$5[0];
+  var environment = RescriptRelay.useEnvironmentFromContext();
+  var match$6 = React.useState(function () {
+        
+      });
+  var setSmartRsvpPreview = match$6[1];
+  var smartRsvpPreview = match$6[0];
+  var match$7 = React.useState(function () {
+        return false;
+      });
+  var setIsPreviewingSmartRsvps = match$7[1];
+  var isPreviewingSmartRsvps = match$7[0];
+  var match$8 = use$5();
+  var commitMutationAddUser = match$8[0];
+  var match$9 = use$6();
+  var commitCaptureAll = match$9[0];
   var handleAddUser = function (user) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventData.id, "PkRSVPSection_event_rsvps", undefined);
     commitMutationAddUser({
@@ -268,17 +348,46 @@ function PkRSVPSection(props) {
                               };
                       }));
         }));
-  var handleEvaluateSmartRsvps = function () {
-    commitEvaluateSmartRsvps({
+  var handlePreviewSmartRsvps = function () {
+    setIsPreviewingSmartRsvps(function (param) {
+          return true;
+        });
+    $$fetch(environment, {
           eventId: eventData.id
-        }, undefined, undefined, undefined, undefined, undefined, undefined);
+        }, (function (result) {
+            setIsPreviewingSmartRsvps(function (param) {
+                  return false;
+                });
+            setSmartRsvpPreview(function (param) {
+                  if (result.TAG === "Ok") {
+                    return Core__Option.getOr(result._0.previewSmartRsvps.rsvps, []).map(function (r) {
+                                return r.id;
+                              });
+                  }
+                  
+                });
+          }), undefined, undefined);
   };
-  var handleEvaluateSmartRsvpsBestFit = function () {
+  var handleEvaluateSmartRsvps = function (algorithm) {
     commitEvaluateSmartRsvps({
-          algorithm: "BestFit",
+          algorithm: algorithm,
           eventId: eventData.id
-        }, undefined, undefined, undefined, undefined, undefined, undefined);
+        }, undefined, undefined, undefined, (function (param, param$1) {
+            setSmartRsvpPreview(function (param) {
+                  
+                });
+          }), undefined, undefined);
   };
+  var handleSmartWaitlist = function () {
+    commitSmartWaitlist({
+          eventId: eventData.id
+        }, undefined, undefined, undefined, (function (param, param$1) {
+            setSmartRsvpPreview(function (param) {
+                  
+                });
+          }), undefined, undefined);
+  };
+  var smartRsvpBusy = isEvaluateSmartRsvpsInFlight || isPreviewingSmartRsvps || isSmartWaitlistInFlight;
   var handleApprove = function (rsvpId) {
     commitUpdateListType({
           input: {
@@ -300,7 +409,7 @@ function PkRSVPSection(props) {
           }
         }));
   var maxRating$1 = maxRating === 0 ? 1 : maxRating;
-  var match$6;
+  var match$10;
   if (mus.length >= 2) {
     var duprVals = mus.map(Rating.guessDupr);
     var n = duprVals.length;
@@ -311,7 +420,7 @@ function PkRSVPSection(props) {
             return acc + (v - mean) * (v - mean);
           })) / n;
     var stdDev = Math.sqrt(variance);
-    var match$7 = stdDev < 0.3 ? [
+    var match$11 = stdDev < 0.3 ? [
         t`even`,
         "text-emerald-500 dark:text-emerald-400"
       ] : (
@@ -323,13 +432,13 @@ function PkRSVPSection(props) {
             "text-amber-500 dark:text-amber-400"
           ]
       );
-    match$6 = [
+    match$10 = [
       "±" + stdDev.toFixed(2),
-      match$7[0],
-      match$7[1]
+      match$11[0],
+      match$11[1]
     ];
   } else {
-    match$6 = [
+    match$10 = [
       "—",
       "",
       "text-gray-400 dark:text-gray-500"
@@ -428,10 +537,10 @@ function PkRSVPSection(props) {
                                           })), false);
                         });
             })), false);
-  var match$8 = eventData.smartRsvpThreshold;
+  var match$12 = eventData.smartRsvpThreshold;
   var ratingWarning;
   var exit = 0;
-  if (match$8 !== undefined && viewerUser !== undefined) {
+  if (match$12 !== undefined && viewerUser !== undefined) {
     ratingWarning = viewerHasRsvp ? null : JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
@@ -558,7 +667,7 @@ function PkRSVPSection(props) {
                                             }),
                                         className: "p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40",
                                         title: "Capture all payments",
-                                        disabled: match$5[1],
+                                        disabled: match$9[1],
                                         onClick: (function (param) {
                                             commitCaptureAll({
                                                   eventId: eventData.id
@@ -566,7 +675,7 @@ function PkRSVPSection(props) {
                                           })
                                       }) : null
                               ],
-                              className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase flex items-center gap-2"
+                              className: "flex items-center gap-2 text-base font-semibold text-gray-900 dark:text-gray-100"
                             }),
                         JsxRuntime.jsx("span", {
                               children: t`${confirmedRsvps.length.toString() + (
@@ -596,106 +705,151 @@ function PkRSVPSection(props) {
                           }),
                       className: "mb-1"
                     }),
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("div", {
-                                      children: t`TOP 6 AVG`,
-                                      className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
-                                    }),
-                                JsxRuntime.jsx("div", {
-                                      children: top6AvgDuprStr,
-                                      className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
-                                    }),
-                                JsxRuntime.jsx("div", {
-                                      children: t`DUPR`,
-                                      className: "font-mono text-[11px] text-gray-400 mt-0.5"
-                                    })
-                              ],
-                              className: "px-3 py-2.5 border-r border-b sm:border-b-0 border-gray-200 dark:border-[#3a3b40]"
-                            }),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("div", {
-                                      children: t`MEDIAN`,
-                                      className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
-                                    }),
-                                JsxRuntime.jsx("div", {
-                                      children: overallMedianDuprStr,
-                                      className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
-                                    }),
-                                JsxRuntime.jsx("div", {
-                                      children: t`DUPR`,
-                                      className: "font-mono text-[11px] text-gray-400 mt-0.5"
-                                    })
-                              ],
-                              className: "px-3 py-2.5 border-b sm:border-r sm:border-b-0 border-gray-200 dark:border-[#3a3b40]"
-                            }),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("div", {
-                                      children: t`♂/♀ SKILL`,
-                                      className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              children: maleMedianDuprStr,
-                                              className: "text-blue-400"
-                                            }),
-                                        JsxRuntime.jsx("span", {
-                                              children: "/",
-                                              className: "text-gray-300 dark:text-gray-600 text-sm"
-                                            }),
-                                        JsxRuntime.jsx("span", {
-                                              children: femaleMedianDuprStr,
-                                              className: "text-pink-400"
-                                            })
-                                      ],
-                                      className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5 flex items-baseline gap-0.5"
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("div", {
-                                              children: JsxRuntime.jsx("div", {
-                                                    className: "h-full rounded-full bg-blue-400",
-                                                    style: {
-                                                      width: malePct.toString() + "%"
-                                                    }
-                                                  }),
-                                              className: "flex-1 h-1 rounded-full bg-pink-300/40 dark:bg-pink-400/20 overflow-hidden"
-                                            }),
-                                        JsxRuntime.jsx("span", {
-                                              children: genderGapStr,
-                                              className: "font-mono text-[9px] text-gray-400"
-                                            })
-                                      ],
-                                      className: "flex items-center gap-1.5 mt-1"
-                                    })
-                              ],
-                              className: "px-3 py-2.5 border-r border-gray-200 dark:border-[#3a3b40]"
-                            }),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("div", {
-                                      children: t`SPREAD`,
-                                      className: "font-mono text-[11px] tracking-wider text-gray-400 dark:text-gray-500"
-                                    }),
-                                JsxRuntime.jsx("div", {
-                                      children: match$6[0],
-                                      className: "font-mono text-xl text-gray-900 dark:text-gray-100 mt-0.5"
-                                    }),
-                                JsxRuntime.jsx("div", {
-                                      children: match$6[1],
-                                      className: "font-mono text-[11px] mt-0.5 " + match$6[2]
-                                    })
-                              ],
-                              className: "px-3 py-2.5"
-                            })
-                      ],
-                      className: "grid grid-cols-2 sm:grid-cols-4 border border-gray-200 dark:border-[#3a3b40] rounded-lg overflow-hidden mb-4"
-                    }),
+                mus.length > 0 ? JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsx(SkillDistributionChart.make, {
+                                duprs: mus.map(Rating.guessDupr),
+                                topCourtDupr: top6AvgDuprStr
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsxs("p", {
+                                        children: [
+                                          t`Top court DUPR`,
+                                          " ",
+                                          JsxRuntime.jsx("span", {
+                                                children: top6AvgDuprStr,
+                                                className: "font-semibold text-gray-900 dark:text-gray-100"
+                                              })
+                                        ],
+                                        className: "text-sm text-gray-600 dark:text-gray-300"
+                                      }),
+                                  JsxRuntime.jsxs("button", {
+                                        children: [
+                                          showSkillDetail ? t`View less` : t`View more`,
+                                          JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                                size: 13,
+                                                className: "transition-transform duration-200 " + (
+                                                  showSkillDetail ? "rotate-90" : ""
+                                                ),
+                                                "aria-hidden": "true"
+                                              })
+                                        ],
+                                        "aria-expanded": showSkillDetail,
+                                        className: "flex flex-shrink-0 items-center gap-1 text-xs font-semibold text-[#5f8618] underline-offset-2 transition-colors hover:text-[#476412] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d] dark:hover:text-[#d3ff85]",
+                                        type: "button",
+                                        onClick: (function (param) {
+                                            setShowSkillDetail(function (v) {
+                                                  return !v;
+                                                });
+                                          })
+                                      })
+                                ],
+                                className: "mt-2 flex items-center justify-between gap-3"
+                              }),
+                          showSkillDetail ? JsxRuntime.jsxs("div", {
+                                  children: [
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`TOP 6 AVG`,
+                                                  className: "text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: top6AvgDuprStr,
+                                                  className: "mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`DUPR`,
+                                                  className: "text-[11px] text-gray-400"
+                                                })
+                                          ],
+                                          className: "border-r border-b sm:border-b-0 border-gray-200 px-3 py-2.5 dark:border-[#3a3b40]"
+                                        }),
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`MEDIAN`,
+                                                  className: "text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: overallMedianDuprStr,
+                                                  className: "mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`DUPR`,
+                                                  className: "text-[11px] text-gray-400"
+                                                })
+                                          ],
+                                          className: "border-b sm:border-r sm:border-b-0 border-gray-200 px-3 py-2.5 dark:border-[#3a3b40]"
+                                        }),
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`♂/♀ SKILL`,
+                                                  className: "text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                                                }),
+                                            JsxRuntime.jsxs("p", {
+                                                  children: [
+                                                    JsxRuntime.jsx("span", {
+                                                          children: maleMedianDuprStr,
+                                                          className: "text-blue-500 dark:text-blue-400"
+                                                        }),
+                                                    JsxRuntime.jsx("span", {
+                                                          children: "/",
+                                                          className: "text-sm text-gray-300 dark:text-gray-600"
+                                                        }),
+                                                    JsxRuntime.jsx("span", {
+                                                          children: femaleMedianDuprStr,
+                                                          className: "text-pink-500 dark:text-pink-400"
+                                                        })
+                                                  ],
+                                                  className: "mt-0.5 flex items-baseline gap-1 text-lg font-semibold"
+                                                }),
+                                            JsxRuntime.jsxs("div", {
+                                                  children: [
+                                                    JsxRuntime.jsx("div", {
+                                                          children: JsxRuntime.jsx("div", {
+                                                                className: "h-full rounded-full bg-blue-400",
+                                                                style: {
+                                                                  width: malePct.toString() + "%"
+                                                                }
+                                                              }),
+                                                          className: "h-1 flex-1 overflow-hidden rounded-full bg-pink-300/40 dark:bg-pink-400/20"
+                                                        }),
+                                                    JsxRuntime.jsx("span", {
+                                                          children: genderGapStr,
+                                                          className: "text-[10px] text-gray-400"
+                                                        })
+                                                  ],
+                                                  className: "mt-1 flex items-center gap-1.5"
+                                                })
+                                          ],
+                                          className: "border-r border-gray-200 px-3 py-2.5 dark:border-[#3a3b40]"
+                                        }),
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("p", {
+                                                  children: t`SPREAD`,
+                                                  className: "text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: match$10[0],
+                                                  className: "mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: match$10[1],
+                                                  className: "text-[11px] " + match$10[2]
+                                                })
+                                          ],
+                                          className: "px-3 py-2.5"
+                                        })
+                                  ],
+                                  className: "mt-2 grid grid-cols-2 sm:grid-cols-4 overflow-hidden rounded-md border border-gray-200 dark:border-[#3a3b40]"
+                                }) : null
+                        ],
+                        className: "mb-4 mt-3"
+                      }) : null,
                 confirmedRsvps.length > 0 ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                         children: [
                           JsxRuntime.jsxs("div", {
@@ -878,36 +1032,98 @@ function PkRSVPSection(props) {
                                 ],
                                 className: "relative flex items-center gap-2 mb-2"
                               }),
-                          eventData.viewerIsAdmin && Core__Option.isSome(eventData.smartRsvpThreshold) ? JsxRuntime.jsx("button", {
-                                  children: isEvaluateSmartRsvpsInFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
-                                  className: "mb-2 inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-                                  disabled: isEvaluateSmartRsvpsInFlight,
-                                  type: "button",
-                                  onClick: (function (param) {
-                                      handleEvaluateSmartRsvps();
-                                    })
-                                }) : null,
-                          eventData.viewerIsAdmin && Core__Option.isSome(eventData.smartRsvpThreshold) ? JsxRuntime.jsx("button", {
-                                  children: t`Run Smart RSVP (best-fit, test)`,
-                                  className: "mb-2 ml-2 inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
-                                  disabled: isEvaluateSmartRsvpsInFlight,
-                                  type: "button",
-                                  onClick: (function (param) {
-                                      handleEvaluateSmartRsvpsBestFit();
-                                    })
+                          eventData.viewerIsAdmin && Core__Option.isSome(eventData.smartRsvpThreshold) ? JsxRuntime.jsxs("div", {
+                                  children: [
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx("button", {
+                                                  children: isPreviewingSmartRsvps ? t`Previewing…` : t`Preview Smart RSVP`,
+                                                  className: "inline-flex items-center gap-1 rounded-md border border-emerald-600 px-2 py-1 text-[10px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-emerald-300 dark:hover:bg-emerald-900/30",
+                                                  disabled: smartRsvpBusy,
+                                                  type: "button",
+                                                  onClick: (function (param) {
+                                                      handlePreviewSmartRsvps();
+                                                    })
+                                                }),
+                                            JsxRuntime.jsx("button", {
+                                                  children: isEvaluateSmartRsvpsInFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
+                                                  className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                  disabled: smartRsvpBusy,
+                                                  type: "button",
+                                                  onClick: (function (param) {
+                                                      handleEvaluateSmartRsvps(undefined);
+                                                    })
+                                                }),
+                                            isFull ? JsxRuntime.jsx("button", {
+                                                    children: isSmartWaitlistInFlight ? t`Placing on the waitlist…` : t`Smart Waitlist`,
+                                                    className: "inline-flex items-center gap-1 rounded-md bg-amber-500 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-amber-600 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:hover:bg-amber-400 dark:hover:text-amber-950",
+                                                    disabled: smartRsvpBusy,
+                                                    type: "button",
+                                                    onClick: (function (param) {
+                                                        handleSmartWaitlist();
+                                                      })
+                                                  }) : null,
+                                            JsxRuntime.jsx("button", {
+                                                  children: t`Run Smart RSVP (best-fit, test)`,
+                                                  className: "inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
+                                                  disabled: smartRsvpBusy,
+                                                  type: "button",
+                                                  onClick: (function (param) {
+                                                      handleEvaluateSmartRsvps("BestFit");
+                                                    })
+                                                })
+                                          ],
+                                          className: "flex flex-wrap gap-2"
+                                        }),
+                                    smartRsvpPreview !== undefined ? JsxRuntime.jsxs("p", {
+                                            children: [
+                                              t`Smart RSVP would admit ${smartRsvpPreview.length.toString()} of ${pendingCount.toString()} pending requests: they are marked below.`,
+                                              JsxRuntime.jsx("button", {
+                                                    children: t`Clear preview`,
+                                                    className: "ml-1.5 font-semibold text-emerald-700 underline dark:text-emerald-300",
+                                                    type: "button",
+                                                    onClick: (function (param) {
+                                                        setSmartRsvpPreview(function (param) {
+                                                              
+                                                            });
+                                                      })
+                                                  })
+                                            ],
+                                            className: "mt-1.5 text-[11px] text-gray-600 dark:text-gray-300"
+                                          }) : null
+                                  ],
+                                  className: "mb-2"
                                 }) : null,
                           JsxRuntime.jsx("div", {
                                 children: pendingRsvps.map(function (edge) {
-                                      return JsxRuntime.jsx(PkEventRsvp.make, {
-                                                  rsvp: edge.fragmentRefs,
-                                                  activitySlug: activitySlug,
-                                                  maxRating: maxRating$1,
-                                                  eventId: eventData.id,
-                                                  isAdmin: eventData.viewerIsAdmin,
-                                                  isPending: true,
-                                                  showRating: isCompetitive,
-                                                  connectionKey: "PkRSVPSection_event_rsvps"
-                                                }, edge.id);
+                                      var chip = JsxRuntime.jsx(PkEventRsvp.make, {
+                                            rsvp: edge.fragmentRefs,
+                                            activitySlug: activitySlug,
+                                            maxRating: maxRating$1,
+                                            eventId: eventData.id,
+                                            isAdmin: eventData.viewerIsAdmin,
+                                            isPending: true,
+                                            showRating: isCompetitive,
+                                            connectionKey: "PkRSVPSection_event_rsvps"
+                                          }, edge.id);
+                                      var wouldBeAdmitted = Core__Option.getOr(Core__Option.map(smartRsvpPreview, (function (ids) {
+                                                  return ids.includes(edge.id);
+                                                })), false);
+                                      if (wouldBeAdmitted) {
+                                        return JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      chip,
+                                                      JsxRuntime.jsx("span", {
+                                                            "aria-hidden": true,
+                                                            className: "absolute -right-1 -top-1 z-10 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-[#1e1f23]"
+                                                          })
+                                                    ],
+                                                    className: "relative inline-flex rounded-full ring-2 ring-emerald-500 ring-offset-1 dark:ring-offset-[#1e1f23]",
+                                                    title: t`Would be admitted`
+                                                  }, edge.id);
+                                      } else {
+                                        return chip;
+                                      }
                                     }),
                                 className: "flex flex-wrap gap-1.5"
                               })
@@ -967,7 +1183,7 @@ function PkRSVPSection(props) {
                           })
                     })
               ],
-              className: "px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]"
+              className: "mx-3 mt-3 rounded-xl border border-gray-200 bg-white px-4 py-4 dark:border-[#2a2b30] dark:bg-[#1e1f23]"
             });
 }
 
@@ -977,6 +1193,8 @@ export {
   Fragment ,
   UpdateListTypeMutation ,
   EvaluateSmartRsvpsMutation ,
+  SmartWaitlistMutation ,
+  PreviewSmartRsvpsQuery ,
   PkRSVPSectionAddUserMutation ,
   PkRSVPSectionCaptureAllPaymentsMutation ,
   UserFragment ,

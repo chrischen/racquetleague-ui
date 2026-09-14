@@ -16,7 +16,7 @@ function make(param) {
                           _0: "NotImplemented"
                         });
             }),
-          takeClip: (function () {
+          takeClip: (function (param) {
               return Promise.resolve({
                           TAG: "Error",
                           _0: "ClipUnavailable"

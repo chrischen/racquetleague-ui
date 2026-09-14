@@ -125,14 +125,38 @@ function seedRound(candidates, order, mustPlayIds, target) {
         });
     picked.push(i);
   };
-  order.forEach(function (i) {
-        if (picked.length < target && uncovered.size > 0 && disjoint(i) && idsOf(i).some(function (id) {
-                return uncovered.has(id);
-              })) {
-          return take(i);
-        }
-        
-      });
+  var seatMustPlays = function () {
+    while(true) {
+      if (!(picked.length < target && uncovered.size > 0)) {
+        return ;
+      }
+      var best = Core__Array.reduce(order, undefined, (function (best, i) {
+              if (!disjoint(i)) {
+                return best;
+              }
+              var covers = idsOf(i).filter(function (id) {
+                    return uncovered.has(id);
+                  }).length;
+              if (best !== undefined && best[1] >= covers) {
+                return best;
+              }
+              if (covers > 0) {
+                return [
+                        i,
+                        covers
+                      ];
+              } else {
+                return best;
+              }
+            }));
+      if (best === undefined) {
+        return ;
+      }
+      take(best[0]);
+      continue ;
+    };
+  };
+  seatMustPlays();
   order.forEach(function (i) {
         if (picked.length < target && disjoint(i)) {
           return take(i);

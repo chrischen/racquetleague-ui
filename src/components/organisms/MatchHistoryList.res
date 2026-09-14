@@ -235,7 +235,9 @@ module Match = {
     let metadata = PlayerMetadata.decode(playerMetadata)
     let _isCompetitive = namespace->Option.map(ns => ns == "competitive")->Option.getOr(false)
 
-    // Determine if current user is in winners or losers
+    // Which side of the payload the current user sits on. The winners/losers
+    // split is vestigial — the score decides the result — so this only picks
+    // the team shown on the left.
     let userInWinners =
       user
       ->Option.flatMap(user => {
@@ -255,21 +257,17 @@ module Match = {
       })
       ->Option.getOr((21.0, 18.0))
 
-    // The winners/losers split is arbitrary on a draw — the server has to put
-    // each team somewhere — so the score is what decides the result. Equal
-    // scores are a draw, covering both a real scoreline like 10-10 and the
-    // (-1,-1) unscored-draw sentinel. Without this, `userInWinners` alone
-    // rendered every tie as a win for one side and a loss for the other.
-    let isDraw = winnersScore == losersScore
-    let isWin = userInWinners && !isDraw
-    let isLoss = !userInWinners && !isDraw
-
     // Reorder for display: user's team always on left
     let (leftScore, rightScore) = if userInWinners {
       (winnersScore, losersScore)
     } else {
       (losersScore, winnersScore)
     }
+
+    // The higher score wins. Equal scores are a draw, covering both a real
+    // scoreline like 10-10 and the (-1,-1) unscored-draw sentinel.
+    let isWin = leftScore > rightScore
+    let isLoss = leftScore < rightScore
 
     // Get all player IDs for normalization
     let allPlayerIds = Array.concat(

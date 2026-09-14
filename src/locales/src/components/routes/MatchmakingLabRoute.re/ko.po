@@ -21,13 +21,16 @@ msgstr "· {0} · 모든 레벨, 동등한 게임 확률 %"
 msgid "· {0} players · every strategy"
 msgstr "· {0}명 · 모든 전략"
 
-#: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid "· % chance the game ends level, by true skill · higher is better"
-msgstr "· 실력 기준으로 게임이 동점으로 끝날 확률 % · 높을수록 좋음"
-
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
 msgstr "· 9점 이상 차로 결정된 게임 비율 % · 최근 5경기 기준"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid ""
+"· match evenness by true skill · 100% = a perfectly even game · higher is "
+"better"
+msgstr ""
+"· 실제 실력 기준 경기 균형도 · 100% = 완벽하게 대등한 경기 · 높을수록 좋음"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
 msgid ""
@@ -413,16 +416,17 @@ msgid ""
 "excluded from the ranking. All three are rolling averages over the last {0} "
 "rounds, so they say how each strategy is doing now rather than how it did "
 "overall — drag the round slider to watch them move. places off = how far the "
-"average player sits from their true rank (lower better) · quality = chance a "
-"game ends level, by true skill (higher better) · blowouts = share of games "
-"decided by 9+ (lower better)."
+"average player sits from their true rank (lower better) · quality = how even "
+"the game is by true skill, 100% = perfectly even (higher better) · blowouts "
+"= share of games decided by 9+ (lower better)."
 msgstr ""
-"세 항목을 동일 가중치로 합산해 순위 매김. 점선 아래 행은 숨겨진 실제 실력으"
-"로 매치메이킹 — 상한선을 나타내며 순위에서 제외됨. 세 항목 모두 최근 {0}라운"
-"드 이동 평균으로, 전체 성과가 아닌 현재 상태를 나타냄 — 라운드 슬라이더를 드"
-"래그하면 변화를 확인할 수 있음. 순위 오차 = 평균 플레이어의 실제 순위와의 차"
-"이 (낮을수록 좋음) · 품질 = 실제 실력 기준 동점 종료 확률 (높을수록 좋음) · "
-"블로아웃 = 9점 이상 차로 결정된 게임 비율 (낮을수록 좋음)."
+"세 개 열을 동일 가중치로 합산해 순위를 매깁니다. 점선 아래 행은 숨겨진 실제 "
+"실력으로 매치를 구성한 결과로, 이론상 상한선을 나타내며 순위에서 제외됩니다. "
+"세 지표 모두 최근 {0}라운드의 이동 평균이므로, 전체 성적이 아니라 각 전략의 "
+"현재 성능을 보여줍니다 — 라운드 슬라이더를 움직여 변화를 확인해 보세요. 순위 "
+"오차 = 평균적인 플레이어가 실제 순위에서 얼마나 벗어나 있는지(낮을수록 좋음) "
+"· 품질 = 실제 실력 기준 경기 균형도, 100% = 완벽하게 대등함(높을수록 좋음) · "
+"대량 실점 = 9점 차 이상으로 갈린 경기 비율(낮을수록 좋음)."
 
 #: src/components/organisms/MatchmakingLab.re.mjs:140
 msgid ""
@@ -615,6 +619,10 @@ msgstr ""
 msgid "Within-band inversion"
 msgstr "밴드 내 역전"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr "· 실력 기준으로 게임이 동점으로 끝날 확률 % · 높을수록 좋음"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1757
 #~ msgid ""
 #~ "a bunched pack, most players hard to tell apart, nobody outside the group"
@@ -688,6 +696,24 @@ msgstr "밴드 내 역전"
 #~ "음) · 품질 = 진짜 실력 기준 경기가 균등하게 끝날 확률 (높을수록 좋음) · 블"
 #~ "로아웃 = 9점 이상 차로 결정된 경기 비율 (낮을수록 좋음). 굵은 글씨는 각 열"
 #~ "의 최고값."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. All three are rolling averages over the "
+#~ "last {0} rounds, so they say how each strategy is doing now rather than "
+#~ "how it did overall — drag the round slider to watch them move. places off "
+#~ "= how far the average player sits from their true rank (lower better) · "
+#~ "quality = chance a game ends level, by true skill (higher better) · "
+#~ "blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr ""
+#~ "세 항목을 동일 가중치로 합산해 순위 매김. 점선 아래 행은 숨겨진 실제 실력"
+#~ "으로 매치메이킹 — 상한선을 나타내며 순위에서 제외됨. 세 항목 모두 최근 {0}"
+#~ "라운드 이동 평균으로, 전체 성과가 아닌 현재 상태를 나타냄 — 라운드 슬라이"
+#~ "더를 드래그하면 변화를 확인할 수 있음. 순위 오차 = 평균 플레이어의 실제 순"
+#~ "위와의 차이 (낮을수록 좋음) · 품질 = 실제 실력 기준 동점 종료 확률 (높을수"
+#~ "록 좋음) · 블로아웃 = 9점 이상 차로 결정된 게임 비율 (낮을수록 좋음)."
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1370
 #~ msgid ""

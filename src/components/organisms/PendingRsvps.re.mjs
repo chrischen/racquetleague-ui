@@ -3,6 +3,7 @@
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as EventRsvp from "./EventRsvp.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as RsvpListTitle from "../molecules/RsvpListTitle.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -41,6 +42,7 @@ function isRestrictedRsvp(listType) {
 }
 
 function PendingRsvps(props) {
+  var previewAdmittedIds = props.previewAdmittedIds;
   var maxRating = props.maxRating;
   var activitySlug = props.activitySlug;
   var viewer = props.viewer;
@@ -61,15 +63,32 @@ function PendingRsvps(props) {
                       }),
                   JsxRuntime.jsx("div", {
                         children: restrictedRsvps.map(function (edge) {
-                              return JsxRuntime.jsx(EventRsvp.make, {
-                                          rsvp: edge.fragmentRefs,
-                                          viewer: viewer,
-                                          activitySlug: activitySlug,
-                                          maxRating: maxRating,
-                                          eventId: eventData.id,
-                                          isAdmin: eventData.viewerIsAdmin,
-                                          eventPrice: eventData.price
-                                        }, edge.id);
+                              var card = JsxRuntime.jsx(EventRsvp.make, {
+                                    rsvp: edge.fragmentRefs,
+                                    viewer: viewer,
+                                    activitySlug: activitySlug,
+                                    maxRating: maxRating,
+                                    eventId: eventData.id,
+                                    isAdmin: eventData.viewerIsAdmin,
+                                    eventPrice: eventData.price
+                                  }, edge.id);
+                              var wouldBeAdmitted = Core__Option.getOr(Core__Option.map(previewAdmittedIds, (function (ids) {
+                                          return ids.includes(edge.id);
+                                        })), false);
+                              if (wouldBeAdmitted) {
+                                return JsxRuntime.jsxs("div", {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    children: t`Would be admitted`,
+                                                    className: "absolute -top-2 left-2 z-10 rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-semibold text-white"
+                                                  }),
+                                              card
+                                            ],
+                                            className: "relative rounded-xl ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900"
+                                          }, edge.id);
+                              } else {
+                                return card;
+                              }
                             }),
                         className: "flex flex-wrap gap-3"
                       })

@@ -21,14 +21,17 @@ msgstr "· {0} · mọi cấp độ, % cơ hội trận đấu ngang tài"
 msgid "· {0} players · every strategy"
 msgstr "· {0} người chơi · mọi chiến lược"
 
-#: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid "· % chance the game ends level, by true skill · higher is better"
-msgstr ""
-"· % khả năng trận đấu kết thúc hòa, theo kỹ năng thực · càng cao càng tốt"
-
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
 msgstr "· % trận được quyết định bởi 9+ điểm · trung bình 5 vòng"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid ""
+"· match evenness by true skill · 100% = a perfectly even game · higher is "
+"better"
+msgstr ""
+"· độ cân bằng trận đấu theo trình độ thực · 100% = trận đấu hoàn toàn cân "
+"sức · càng cao càng tốt"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
 msgid ""
@@ -433,18 +436,19 @@ msgid ""
 "excluded from the ranking. All three are rolling averages over the last {0} "
 "rounds, so they say how each strategy is doing now rather than how it did "
 "overall — drag the round slider to watch them move. places off = how far the "
-"average player sits from their true rank (lower better) · quality = chance a "
-"game ends level, by true skill (higher better) · blowouts = share of games "
-"decided by 9+ (lower better)."
+"average player sits from their true rank (lower better) · quality = how even "
+"the game is by true skill, 100% = perfectly even (higher better) · blowouts "
+"= share of games decided by 9+ (lower better)."
 msgstr ""
-"Xếp hạng theo ba cột kết hợp, trọng số đều nhau. Các hàng dưới đường nét đứt "
-"ghép đấu dựa trên kỹ năng thực ẩn — chúng đánh dấu giới hạn trần và bị loại "
-"khỏi bảng xếp hạng. Cả ba là trung bình cuộn trong {0} vòng gần nhất, thể "
-"hiện hiệu suất hiện tại của mỗi chiến lược chứ không phải tổng thể — kéo "
-"thanh trượt vòng để xem chúng thay đổi. vị trí lệch = khoảng cách trung bình "
-"của người chơi so với thứ hạng thực (thấp hơn tốt hơn) · chất lượng = xác "
-"suất trận kết thúc ngang tài theo kỹ năng thực (cao hơn tốt hơn) · lệch lạc "
-"= tỷ lệ trận thắng cách 9+ điểm (thấp hơn tốt hơn)."
+"Xếp hạng theo tổng hợp ba cột, trọng số ngang nhau. Các dòng dưới đường nét "
+"đứt ghép trận dựa trên trình độ thực ẩn — chúng là giới hạn trần và bị loại "
+"khỏi bảng xếp hạng. Cả ba đều là trung bình trượt của {0} vòng gần nhất, nên "
+"chúng cho biết mỗi chiến lược đang hoạt động ra sao ở hiện tại chứ không "
+"phải tổng thể — kéo thanh trượt vòng đấu để xem chúng thay đổi. số bậc lệch "
+"= người chơi trung bình cách thứ hạng thực của họ bao xa (càng thấp càng "
+"tốt) · chất lượng = trận đấu cân sức đến đâu theo trình độ thực, 100% = hoàn "
+"toàn cân sức (càng cao càng tốt) · trận một chiều = tỉ lệ trận phân định "
+"bằng cách biệt 9+ (càng thấp càng tốt)."
 
 #: src/components/organisms/MatchmakingLab.re.mjs:140
 msgid ""
@@ -640,6 +644,11 @@ msgstr ""
 msgid "Within-band inversion"
 msgstr "Đảo ngược trong cùng nhóm"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr ""
+#~ "· % khả năng trận đấu kết thúc hòa, theo kỹ năng thực · càng cao càng tốt"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1757
 #~ msgid ""
 #~ "a bunched pack, most players hard to tell apart, nobody outside the group"
@@ -719,6 +728,26 @@ msgstr "Đảo ngược trong cùng nhóm"
 #~ "trận kết thúc cân bằng theo kỹ năng thực (cao hơn tốt hơn) · thua đậm = "
 #~ "tỷ lệ trận thắng cách biệt 9+ điểm (thấp hơn tốt hơn). In đậm đánh dấu "
 #~ "tốt nhất ở mỗi cột."
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. All three are rolling averages over the "
+#~ "last {0} rounds, so they say how each strategy is doing now rather than "
+#~ "how it did overall — drag the round slider to watch them move. places off "
+#~ "= how far the average player sits from their true rank (lower better) · "
+#~ "quality = chance a game ends level, by true skill (higher better) · "
+#~ "blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr ""
+#~ "Xếp hạng theo ba cột kết hợp, trọng số đều nhau. Các hàng dưới đường nét "
+#~ "đứt ghép đấu dựa trên kỹ năng thực ẩn — chúng đánh dấu giới hạn trần và "
+#~ "bị loại khỏi bảng xếp hạng. Cả ba là trung bình cuộn trong {0} vòng gần "
+#~ "nhất, thể hiện hiệu suất hiện tại của mỗi chiến lược chứ không phải tổng "
+#~ "thể — kéo thanh trượt vòng để xem chúng thay đổi. vị trí lệch = khoảng "
+#~ "cách trung bình của người chơi so với thứ hạng thực (thấp hơn tốt hơn) · "
+#~ "chất lượng = xác suất trận kết thúc ngang tài theo kỹ năng thực (cao hơn "
+#~ "tốt hơn) · lệch lạc = tỷ lệ trận thắng cách 9+ điểm (thấp hơn tốt hơn)."
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1370
 #~ msgid ""

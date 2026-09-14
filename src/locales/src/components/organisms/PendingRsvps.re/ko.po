@@ -46,7 +46,7 @@ msgstr "미납"
 msgid "Paid"
 msgstr "납부됨"
 
-#: src/components/organisms/PendingRsvps.re.mjs:58
+#: src/components/organisms/PendingRsvps.re.mjs:60
 msgid "Pending"
 msgstr "대기 중"
 
@@ -77,3 +77,7 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:239
 msgid "View Profile"
 msgstr "프로필 보기"
+
+#: src/components/organisms/PendingRsvps.re.mjs:82
+msgid "Would be admitted"
+msgstr "수락 예정"

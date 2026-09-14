@@ -43,7 +43,7 @@ module Query = %relay(`
 type rsvpNode = RoundRobinDrawsPreviewQuery_graphql.Types.response_event_rsvps_edges_node
 
 @react.component
-let make = (~eventId: string, ~managerHref: string) => {
+let make = (~eventId: string, ~managerHref: string, ~className: string="mt-6") => {
   let data = Query.use(~variables={eventId: eventId})
 
   switch data.event {
@@ -145,7 +145,7 @@ let make = (~eventId: string, ~managerHref: string) => {
       if !hasEnoughPlayers {
         React.null
       } else {
-        <div className="mt-6">
+        <div className>
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
             <div className="p-5 border-b border-gray-200 flex justify-between items-center">
               <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">

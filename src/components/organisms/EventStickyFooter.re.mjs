@@ -4,6 +4,7 @@ import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as DateFns from "date-fns";
 import * as ReactIntl from "react-intl";
+import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
@@ -61,7 +62,25 @@ var LeaveEventMutation = {
   use: use$1
 };
 
+function EventStickyFooter$Row(props) {
+  var __className = props.className;
+  var className = __className !== undefined ? __className : "";
+  return JsxRuntime.jsx("div", {
+              children: JsxRuntime.jsx("div", {
+                    children: props.children,
+                    className: "mx-auto w-full max-w-2xl " + props.inner
+                  }),
+              className: className
+            });
+}
+
+var Row = {
+  make: EventStickyFooter$Row
+};
+
 function EventStickyFooter(props) {
+  var __fullWidth = props.fullWidth;
+  var __chat = props.chat;
   var onPayClick = props.onPayClick;
   var charging = props.charging;
   var tz = props.tz;
@@ -72,6 +91,8 @@ function EventStickyFooter(props) {
   var isAuthorization = props.isAuthorization;
   var isWaitlisted = props.isWaitlisted;
   var $$event = props.event;
+  var chat = __chat !== undefined ? Caml_option.valFromOption(__chat) : null;
+  var fullWidth = __fullWidth !== undefined ? __fullWidth : false;
   var match = ReactRouterDom.useLocation();
   var match$1 = use();
   var joinEvent = match$1[0];
@@ -148,7 +169,9 @@ function EventStickyFooter(props) {
       }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
-              JsxRuntime.jsxs("div", {
+              JsxRuntime.jsxs(EventStickyFooter$Row, {
+                    className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30",
+                    inner: "px-5 py-2.5 flex items-center gap-2",
                     children: [
                       JsxRuntime.jsx(LucideReact.CreditCard, {
                             className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
@@ -157,17 +180,19 @@ function EventStickyFooter(props) {
                             children: isAuthorization ? t`Deposit required to confirm your spot` : t`Payment required to confirm your spot`,
                             className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight"
                           })
-                    ],
-                    className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
+                    ]
                   }),
-              isAuthorization ? JsxRuntime.jsx("div", {
+              isAuthorization ? JsxRuntime.jsx(EventStickyFooter$Row, {
+                      className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20",
+                      inner: "px-5 py-2",
                       children: JsxRuntime.jsx("span", {
                             children: t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`,
                             className: "font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight"
-                          }),
-                      className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20 px-5 py-2"
+                          })
                     }) : null,
-              JsxRuntime.jsxs("div", {
+              JsxRuntime.jsxs(EventStickyFooter$Row, {
+                    className: "bg-white dark:bg-[#1e1f23]",
+                    inner: "px-5 py-3 flex items-center justify-between gap-2",
                     children: [
                       JsxRuntime.jsx("button", {
                             children: leaving ? t`Cancelling...` : t`Cancel RSVP`,
@@ -190,13 +215,13 @@ function EventStickyFooter(props) {
                                 onPayClick();
                               })
                           })
-                    ],
-                    className: "bg-white dark:bg-[#1e1f23] px-5 py-3 flex items-center justify-between gap-2"
+                    ]
                   })
             ]
           });
     } else if (props.isPending) {
-      tmp = JsxRuntime.jsxs("div", {
+      tmp = JsxRuntime.jsxs(EventStickyFooter$Row, {
+            inner: "px-5 py-3 flex items-center justify-between",
             children: [
               JsxRuntime.jsxs("div", {
                     children: [
@@ -247,8 +272,7 @@ function EventStickyFooter(props) {
                         doLeave();
                       })
                   })
-            ],
-            className: "px-5 py-3 flex items-center justify-between"
+            ]
           });
     } else if (props.isJoined) {
       var tmp$2;
@@ -256,7 +280,9 @@ function EventStickyFooter(props) {
         var mins = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
-        tmp$2 = JsxRuntime.jsxs("div", {
+        tmp$2 = JsxRuntime.jsxs(EventStickyFooter$Row, {
+              className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30",
+              inner: "px-5 py-2.5 flex items-center gap-2",
               children: [
                 JsxRuntime.jsx(LucideReact.AlertCircle, {
                       className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
@@ -275,8 +301,7 @@ function EventStickyFooter(props) {
                             }) : t`Cancellation deadline passed. Contact the organizer on this page to cancel.`,
                       className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300"
                     })
-              ],
-              className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
+              ]
             });
       } else {
         tmp$2 = null;
@@ -284,7 +309,8 @@ function EventStickyFooter(props) {
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
               tmp$2,
-              JsxRuntime.jsxs("div", {
+              JsxRuntime.jsxs(EventStickyFooter$Row, {
+                    inner: "px-5 py-3 flex items-center justify-between",
                     children: [
                       JsxRuntime.jsxs("div", {
                             children: [
@@ -355,8 +381,7 @@ function EventStickyFooter(props) {
                                 doLeave();
                               })
                           })
-                    ],
-                    className: "px-5 py-3 flex items-center justify-between"
+                    ]
                   })
             ]
           });
@@ -366,7 +391,9 @@ function EventStickyFooter(props) {
         var mins$1 = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
-        tmp$3 = JsxRuntime.jsxs("div", {
+        tmp$3 = JsxRuntime.jsxs(EventStickyFooter$Row, {
+              className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30",
+              inner: "px-5 py-2.5 flex items-center gap-2",
               children: [
                 JsxRuntime.jsx(LucideReact.AlertCircle, {
                       className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
@@ -385,8 +412,7 @@ function EventStickyFooter(props) {
                             }) : t`Cancellation deadline passed.`,
                       className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300"
                     })
-              ],
-              className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30 px-5 py-2.5 flex items-center gap-2"
+              ]
             });
       } else {
         tmp$3 = null;
@@ -405,7 +431,8 @@ function EventStickyFooter(props) {
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
               tmp$3,
-              JsxRuntime.jsxs("div", {
+              JsxRuntime.jsxs(EventStickyFooter$Row, {
+                    inner: "px-5 py-3 flex items-center justify-between",
                     children: [
                       JsxRuntime.jsxs("div", {
                             children: [
@@ -432,7 +459,7 @@ function EventStickyFooter(props) {
                                     className: "text-gray-400 dark:text-gray-500 font-normal normal-case"
                                   })
                             ],
-                            className: "font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
+                            className: "font-mono text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
                           }),
                       JsxRuntime.jsx("button", {
                             children: tmp$4,
@@ -442,17 +469,19 @@ function EventStickyFooter(props) {
                                 doJoin();
                               })
                           })
-                    ],
-                    className: "px-5 py-3 flex items-center justify-between"
+                    ]
                   })
             ]
           });
     }
     return JsxRuntime.jsxs(JsxRuntime.Fragment, {
                 children: [
-                  JsxRuntime.jsx("div", {
-                        children: tmp,
-                        className: "sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0"
+                  JsxRuntime.jsxs("div", {
+                        children: [
+                          chat,
+                          tmp
+                        ],
+                        className: Core.cx("sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex flex-col flex-shrink-0", fullWidth ? "" : "rounded-t-xl")
                       }),
                   profileGate.modal,
                   JsxRuntime.jsx(ConfirmDialog.make, {
@@ -471,7 +500,9 @@ function EventStickyFooter(props) {
   if (match$6 !== undefined && match$6) {
     return null;
   }
-  return JsxRuntime.jsxs("div", {
+  return JsxRuntime.jsxs(EventStickyFooter$Row, {
+              className: Core.cx("sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex-shrink-0", fullWidth ? "" : "rounded-t-xl"),
+              inner: "px-5 py-3 flex items-center justify-between",
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
@@ -498,7 +529,7 @@ function EventStickyFooter(props) {
                               className: "text-gray-400 dark:text-gray-500 font-normal normal-case"
                             })
                       ],
-                      className: "font-mono text-[11px] font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
+                      className: "font-mono text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
                     }),
                 JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsx(ReactRouterDom.Link, {
@@ -508,8 +539,7 @@ function EventStickyFooter(props) {
                           }),
                       className: "flex items-center gap-2.5"
                     })
-              ],
-              className: "sticky bottom-0 bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0"
+              ]
             });
 }
 
@@ -518,6 +548,7 @@ var make = EventStickyFooter;
 export {
   JoinEventMutation ,
   LeaveEventMutation ,
+  Row ,
   make ,
 }
 /*  Not a pure module */

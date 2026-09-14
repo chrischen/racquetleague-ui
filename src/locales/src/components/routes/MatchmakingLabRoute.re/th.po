@@ -21,13 +21,15 @@ msgstr "· {0} · ทุกระดับ, % โอกาสเกมสูส�
 msgid "· {0} players · every strategy"
 msgstr "· ผู้เล่น {0} คน · ทุกกลยุทธ์"
 
-#: src/components/organisms/MatchmakingLab.re.mjs:1341
-msgid "· % chance the game ends level, by true skill · higher is better"
-msgstr "· % โอกาสที่เกมจบเสมอ โดยทักษะจริง · ยิ่งสูงยิ่งดี"
-
 #: src/components/organisms/MatchmakingLab.re.mjs:1337
 msgid "· % of games decided by 9+ · rolling 5"
 msgstr "· % ของเกมที่ตัดสินด้วย 9+ · rolling 5"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+msgid ""
+"· match evenness by true skill · 100% = a perfectly even game · higher is "
+"better"
+msgstr "· ความสูสีของแมตช์ตามทักษะจริง · 100% = เกมที่สูสีอย่างสมบูรณ์ · ยิ่งสูงยิ่งดี"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1369
 msgid ""
@@ -405,15 +407,17 @@ msgid ""
 "excluded from the ranking. All three are rolling averages over the last {0} "
 "rounds, so they say how each strategy is doing now rather than how it did "
 "overall — drag the round slider to watch them move. places off = how far the "
-"average player sits from their true rank (lower better) · quality = chance a "
-"game ends level, by true skill (higher better) · blowouts = share of games "
-"decided by 9+ (lower better)."
+"average player sits from their true rank (lower better) · quality = how even "
+"the game is by true skill, 100% = perfectly even (higher better) · blowouts "
+"= share of games decided by 9+ (lower better)."
 msgstr ""
-"จัดอันดับจากสามคอลัมน์รวมกัน น้ำหนักเท่ากัน แถวใต้เส้นประจับคู่จากทักษะจริงที่ซ่อนอยู่ — "
-"เป็นเพดานและไม่นำมาจัดอันดับ ทั้งสามเป็นค่าเฉลี่ยเคลื่อนที่ใน {0} รอบล่าสุด "
-"จึงบอกสถานะปัจจุบันของแต่ละกลยุทธ์ ลากแถบเลือกรอบเพื่อดูการเปลี่ยนแปลง places off = "
-"ระยะห่างเฉลี่ยของผู้เล่นจากอันดับจริง (ต่ำดีกว่า) · quality = โอกาสเกมจบสูสีตามทักษะจริง "
-"(สูงดีกว่า) · blowouts = สัดส่วนเกมที่ห่างกัน 9+ คะแนน (ต่ำดีกว่า)"
+"จัดอันดับจากสามคอลัมน์รวมกัน โดยถ่วงน้ำหนักเท่ากัน แถวที่อยู่ใต้เส้นประจับคู่จากทักษะจริงที่ซ่อนอยู่ — "
+"ถือเป็นเพดานสูงสุดและไม่ถูกนำมาจัดอันดับ ทั้งสามค่าเป็นค่าเฉลี่ยเคลื่อนที่ของ {0} รอบล่าสุด "
+"จึงบอกว่าแต่ละกลยุทธ์ทำได้ดีแค่ไหน ณ ตอนนี้ มากกว่าผลรวมทั้งหมด — "
+"ลองเลื่อนแถบรอบเพื่อดูการเปลี่ยนแปลง อันดับคลาดเคลื่อน = "
+"ผู้เล่นโดยเฉลี่ยอยู่ห่างจากอันดับจริงเท่าใด (ยิ่งต่ำยิ่งดี) · คุณภาพ = "
+"เกมสูสีแค่ไหนเมื่อวัดจากทักษะจริง 100% = สูสีสมบูรณ์ (ยิ่งสูงยิ่งดี) · เกมขาดลอย = "
+"สัดส่วนเกมที่ตัดสินด้วยแต้มห่าง 9 ขึ้นไป (ยิ่งต่ำยิ่งดี)"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:140
 msgid ""
@@ -599,6 +603,10 @@ msgstr ""
 msgid "Within-band inversion"
 msgstr "การสลับภายในระดับเดียวกัน"
 
+#: src/components/organisms/MatchmakingLab.re.mjs:1341
+#~ msgid "· % chance the game ends level, by true skill · higher is better"
+#~ msgstr "· % โอกาสที่เกมจบเสมอ โดยทักษะจริง · ยิ่งสูงยิ่งดี"
+
 #: src/components/organisms/MatchmakingLab.re.mjs:1757
 #~ msgid ""
 #~ "a bunched pack, most players hard to tell apart, nobody outside the group"
@@ -670,6 +678,23 @@ msgstr "การสลับภายในระดับเดียวกั
 #~ "ระยะห่างเฉลี่ยของผู้เล่นจากอันดับจริง (น้อยดีกว่า) · คุณภาพ = "
 #~ "โอกาสที่เกมจบแบบสูสีตามทักษะจริง (มากดีกว่า) · บลาวท์ = สัดส่วนเกมที่ชนะขาด 9+ แต้ม "
 #~ "(น้อยดีกว่า) ตัวหนาหมายถึงดีที่สุดในแต่ละคอลัมน์"
+
+#: src/components/organisms/MatchmakingLab.re.mjs:1661
+#~ msgid ""
+#~ "Ranked by the three columns combined, weighted equally. Rows below the "
+#~ "dashed line matchmake from hidden true skill — they mark the ceiling and "
+#~ "are excluded from the ranking. All three are rolling averages over the "
+#~ "last {0} rounds, so they say how each strategy is doing now rather than "
+#~ "how it did overall — drag the round slider to watch them move. places off "
+#~ "= how far the average player sits from their true rank (lower better) · "
+#~ "quality = chance a game ends level, by true skill (higher better) · "
+#~ "blowouts = share of games decided by 9+ (lower better)."
+#~ msgstr ""
+#~ "จัดอันดับจากสามคอลัมน์รวมกัน น้ำหนักเท่ากัน แถวใต้เส้นประจับคู่จากทักษะจริงที่ซ่อนอยู่ — "
+#~ "เป็นเพดานและไม่นำมาจัดอันดับ ทั้งสามเป็นค่าเฉลี่ยเคลื่อนที่ใน {0} รอบล่าสุด "
+#~ "จึงบอกสถานะปัจจุบันของแต่ละกลยุทธ์ ลากแถบเลือกรอบเพื่อดูการเปลี่ยนแปลง places off = "
+#~ "ระยะห่างเฉลี่ยของผู้เล่นจากอันดับจริง (ต่ำดีกว่า) · quality = โอกาสเกมจบสูสีตามทักษะจริง "
+#~ "(สูงดีกว่า) · blowouts = สัดส่วนเกมที่ห่างกัน 9+ คะแนน (ต่ำดีกว่า)"
 
 #: src/components/organisms/MatchmakingLab.re.mjs:1370
 #~ msgid ""

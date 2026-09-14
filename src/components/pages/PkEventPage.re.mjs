@@ -8,6 +8,7 @@ import * as EventTag from "../atoms/EventTag.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
+import * as UseEditable from "../../helpers/UseEditable.re.mjs";
 import * as Core from "@lingui/core";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
@@ -15,6 +16,7 @@ import * as Core$1 from "@linaria/core";
 import * as PkRSVPSection from "../organisms/PkRSVPSection.re.mjs";
 import * as PullToRefresh from "../shared/PullToRefresh.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
+import * as EditableSection from "../molecules/EditableSection.re.mjs";
 import * as PkEventMessages from "../organisms/PkEventMessages.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -27,10 +29,12 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as RoundRobinDrawsPreview from "../organisms/RoundRobinDrawsPreview.re.mjs";
 import * as PkEventPageQuery_graphql from "../../__generated__/PkEventPageQuery_graphql.re.mjs";
 import * as EventLocationAvailability from "../organisms/EventLocationAvailability.re.mjs";
+import * as IsometricPickleballCourtIcon from "../atoms/IsometricPickleballCourtIcon.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 import * as StripePaymentEmbed from "../organisms/StripePaymentEmbed";
 import * as PkEventPageCancelMutation_graphql from "../../__generated__/PkEventPageCancelMutation_graphql.re.mjs";
 import * as PkEventPageUncancelMutation_graphql from "../../__generated__/PkEventPageUncancelMutation_graphql.re.mjs";
+import * as PkEventPageUpdateEventMutation_graphql from "../../__generated__/PkEventPageUpdateEventMutation_graphql.re.mjs";
 import * as PkEventPageChargePaymentMutation_graphql from "../../__generated__/PkEventPageChargePaymentMutation_graphql.re.mjs";
 import * as PkEventPageConfirmPaymentMutation_graphql from "../../__generated__/PkEventPageConfirmPaymentMutation_graphql.re.mjs";
 import * as PkEventPageAuthorizePlatformPaymentMutation_graphql from "../../__generated__/PkEventPageAuthorizePlatformPaymentMutation_graphql.re.mjs";
@@ -207,112 +211,165 @@ var EventUncancelMutation = {
   use: use$6
 };
 
+var convertVariables$7 = PkEventPageUpdateEventMutation_graphql.Internal.convertVariables;
+
+var convertResponse$7 = PkEventPageUpdateEventMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$7 = PkEventPageUpdateEventMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$6 = RescriptRelay_Mutation.commitMutation(convertVariables$7, PkEventPageUpdateEventMutation_graphql.node, convertResponse$7, convertWrapRawResponse$7);
+
+var use$7 = RescriptRelay_Mutation.useMutation(convertVariables$7, PkEventPageUpdateEventMutation_graphql.node, convertResponse$7, convertWrapRawResponse$7);
+
+var UpdateEventMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$7,
+  convertResponse: convertResponse$7,
+  convertWrapRawResponse: convertWrapRawResponse$7,
+  commitMutation: commitMutation$6,
+  use: use$7
+};
+
+var cardClass = "mx-3 mt-3 rounded-xl border border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]";
+
 function PkEventPage$EventTitleSection(props) {
+  var __sponsor = props.sponsor;
   var $$event = props.event;
+  var sponsor = __sponsor !== undefined ? Caml_option.valFromOption(__sponsor) : null;
   var match = React.useState(function () {
         return false;
       });
   var setUrlCopied = match[1];
   return JsxRuntime.jsxs("div", {
               children: [
-                Core__Option.getOr(Core__Option.map($$event.deleted, (function (param) {
-                            return JsxRuntime.jsx("span", {
-                                        children: t`CANCELED`,
-                                        className: "inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
-                                      });
-                          })), null),
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsxs("h1", {
-                              children: [
-                                Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (a) {
-                                            return Core__Option.map(a.slug, (function (slug) {
-                                                          return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                        Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {
+                                    return Core__Option.map(club.slug, (function (slug) {
+                                                  var name = Core__Option.getOr(club.name, slug);
+                                                  return JsxRuntime.jsxs(ReactRouterDom.Link, {
+                                                              to: "/clubs/" + slug,
+                                                              children: [
+                                                                JsxRuntime.jsx("span", {
+                                                                      children: PkEventMessages.makeInitials(name),
+                                                                      "aria-hidden": true,
+                                                                      className: "flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-[#bdf25d] text-xs font-bold text-black shadow-sm"
+                                                                    }),
+                                                                JsxRuntime.jsxs("span", {
                                                                       children: [
-                                                                        JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                                              to: "/e/" + slug,
-                                                                              children: Core.i18n._(Core__Option.getOr(a.name, slug)),
-                                                                              className: "text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 font-normal"
+                                                                        JsxRuntime.jsx("span", {
+                                                                              children: t`Hosted by`,
+                                                                              className: "block font-mono text-[8px] uppercase tracking-wider text-gray-400 dark:text-gray-500"
                                                                             }),
                                                                         JsxRuntime.jsx("span", {
-                                                                              children: "/",
-                                                                              className: "text-gray-300 dark:text-gray-600 mx-1.5 font-normal"
+                                                                              children: name,
+                                                                              className: "block truncate text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                                             })
-                                                                      ]
-                                                                    });
-                                                        }));
-                                          })), null),
-                                props.secret ? "---" : Core__Option.getOr($$event.title, "Event")
-                              ],
-                              className: Core$1.cx("text-lg font-semibold leading-tight flex-1 min-w-0", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
-                            }),
-                        JsxRuntime.jsxs("button", {
-                              children: [
-                                JsxRuntime.jsx(LucideReact.Share2, {
-                                      size: 13,
-                                      strokeWidth: 2.5
-                                    }),
-                                match[0] ? t`Copied!` : t`Share`
-                              ],
-                              className: "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black border border-[#a3d949] shadow-sm transition-colors flex-shrink-0",
-                              onClick: (function (param) {
-                                  navigator.clipboard.writeText(window.location.href);
-                                  setUrlCopied(function (param) {
-                                        return true;
-                                      });
-                                  setTimeout((function () {
-                                          setUrlCopied(function (param) {
-                                                return false;
+                                                                      ],
+                                                                      className: "min-w-0 flex-1"
+                                                                    }),
+                                                                JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                                                      size: 14,
+                                                                      className: "flex-shrink-0 text-gray-400",
+                                                                      "aria-hidden": "true"
+                                                                    })
+                                                              ],
+                                                              className: "mb-3 flex w-full items-center gap-2.5 rounded-md border-b border-gray-100 pb-3 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:border-[#2a2b30]"
+                                                            });
+                                                }));
+                                  })), null),
+                        Core__Option.getOr(Core__Option.map($$event.deleted, (function (param) {
+                                    return JsxRuntime.jsx("span", {
+                                                children: t`CANCELED`,
+                                                className: "inline-flex mb-2 items-center px-2 py-0.5 rounded text-xs font-mono bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"
                                               });
-                                        }), 2000);
-                                })
+                                  })), null),
+                        Core__Option.getOr(Core__Option.flatMap($$event.activity, (function (a) {
+                                    return Core__Option.map(a.slug, (function (slug) {
+                                                  return JsxRuntime.jsx("div", {
+                                                              children: JsxRuntime.jsxs(ReactRouterDom.Link, {
+                                                                    to: "/e/" + slug,
+                                                                    children: [
+                                                                      JsxRuntime.jsx("span", {
+                                                                            className: "w-1.5 h-1.5 rounded-full bg-green-500 dark:bg-green-400"
+                                                                          }),
+                                                                      Core.i18n._(Core__Option.getOr(a.name, slug))
+                                                                    ],
+                                                                    className: "inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/40 text-[10px] font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                                                                  }),
+                                                              className: "mb-1 flex items-center gap-2"
+                                                            });
+                                                }));
+                                  })), null),
+                        JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("h1", {
+                                      children: props.secret ? "---" : Core__Option.getOr($$event.title, "Event"),
+                                      className: Core$1.cx("text-lg font-semibold leading-tight flex-1 min-w-0", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
+                                    }),
+                                JsxRuntime.jsxs("button", {
+                                      children: [
+                                        JsxRuntime.jsx(LucideReact.Share2, {
+                                              size: 13,
+                                              strokeWidth: 2.5
+                                            }),
+                                        match[0] ? t`Copied!` : t`Share`
+                                      ],
+                                      className: "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black border border-[#a3d949] shadow-sm transition-colors flex-shrink-0",
+                                      onClick: (function (param) {
+                                          navigator.clipboard.writeText(window.location.href);
+                                          setUrlCopied(function (param) {
+                                                return true;
+                                              });
+                                          setTimeout((function () {
+                                                  setUrlCopied(function (param) {
+                                                        return false;
+                                                      });
+                                                }), 2000);
+                                        })
+                                    })
+                              ],
+                              className: "flex items-start justify-between gap-3"
+                            }),
+                        JsxRuntime.jsx("p", {
+                              children: Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
+                                          if (p === 0) {
+                                            return t`Free`;
+                                          } else {
+                                            return p.toString() + "円";
+                                          }
+                                        })), "???円"),
+                              className: "mt-1 font-mono text-xs text-gray-600 dark:text-gray-300"
+                            }),
+                        JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
+                              children: JsxRuntime.jsxs("div", {
+                                    children: [
+                                      Caml_obj.equal($$event.listed, false) ? JsxRuntime.jsx(EventTag.make, {
+                                              tag: "unlisted"
+                                            }) : null,
+                                      Core__Option.getOr($$event.tags, []).some(function (t) {
+                                            return t.toLowerCase() === "comp";
+                                          }) ? JsxRuntime.jsx(EventTag.make, {
+                                              tag: "comp"
+                                            }) : null,
+                                      Core__Option.getOr($$event.tags, []).filter(function (t) {
+                                              return t.toLowerCase() !== "comp";
+                                            }).map(function (tag, i) {
+                                            return JsxRuntime.jsx(EventTag.make, {
+                                                        tag: tag
+                                                      }, i.toString());
+                                          })
+                                    ],
+                                    className: "mt-2 flex flex-wrap items-center gap-1.5"
+                                  })
                             })
                       ],
-                      className: "flex items-start justify-between gap-3"
+                      className: "px-4 py-4"
                     }),
-                Core__Option.getOr(Core__Option.flatMap($$event.club, (function (club) {
-                            return Core__Option.map(club.slug, (function (slug) {
-                                          return JsxRuntime.jsx(ReactRouterDom.Link, {
-                                                      to: "/clubs/" + slug,
-                                                      children: Core__Option.getOr(club.name, slug),
-                                                      className: "text-xs text-gray-600 dark:text-gray-300 mt-1 block hover:underline"
-                                                    });
-                                        }));
-                          })), null),
-                JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
-                      children: JsxRuntime.jsxs("div", {
-                            children: [
-                              Caml_obj.equal($$event.listed, false) ? JsxRuntime.jsx(EventTag.make, {
-                                      tag: "unlisted"
-                                    }) : null,
-                              Core__Option.getOr($$event.tags, []).some(function (t) {
-                                    return t.toLowerCase() === "comp";
-                                  }) ? JsxRuntime.jsx(EventTag.make, {
-                                      tag: "comp"
-                                    }) : null,
-                              Core__Option.getOr($$event.tags, []).filter(function (t) {
-                                      return t.toLowerCase() !== "comp";
-                                    }).map(function (tag, i) {
-                                    return JsxRuntime.jsx(EventTag.make, {
-                                                tag: tag
-                                              }, i.toString());
-                                  }),
-                              JsxRuntime.jsx("span", {
-                                    children: Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
-                                                if (p === 0) {
-                                                  return t`Free`;
-                                                } else {
-                                                  return p.toString() + "円";
-                                                }
-                                              })), "???円"),
-                                    className: "font-mono text-xs font-medium text-gray-700 dark:text-gray-300"
-                                  })
-                            ],
-                            className: "flex flex-wrap items-center gap-1.5 mt-2"
-                          })
-                    })
+                sponsor
               ],
-              className: "px-5 pt-4 pb-3 border-b border-gray-100 dark:border-[#2a2b30]"
+              className: cardClass + " overflow-hidden"
             });
 }
 
@@ -322,64 +379,141 @@ var EventTitleSection = {
 
 function PkEventPage$EventLocationSection(props) {
   var __availability = props.availability;
+  var courtStatus = props.courtStatus;
   var loc = props.loc;
   var availability = __availability !== undefined ? Caml_option.valFromOption(__availability) : null;
   var match = React.useState(function () {
         return false;
       });
-  var setShowFullDetails = match[1];
-  var showFullDetails = match[0];
+  var setExpanded = match[1];
+  var expanded = match[0];
+  var match$1 = React.useState(function () {
+        return false;
+      });
+  var setShowFullDetails = match$1[1];
+  var showFullDetails = match$1[0];
+  var name = Core__Option.getOr(loc.name, "?");
+  var courtLabel = courtStatus !== undefined ? (
+      courtStatus ? t`Courts available` + ". " : t`No courts available` + ". "
+    ) : "";
+  var toggleLabel = expanded ? t`Hide location details` : t`Show location details`;
+  var tmp;
+  if (courtStatus !== undefined) {
+    var tone = courtStatus ? "text-emerald-600 dark:text-emerald-400" : "text-red-500 dark:text-red-400";
+    tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            JsxRuntime.jsx(IsometricPickleballCourtIcon.make, {
+                  className: "h-7 w-8 " + tone
+                }),
+            JsxRuntime.jsx("span", {
+                  children: courtStatus ? JsxRuntime.jsx(LucideReact.CheckCircle2, {
+                          size: 15
+                        }) : JsxRuntime.jsx(LucideReact.XCircle, {
+                          size: 15
+                        }),
+                  "aria-hidden": true,
+                  className: "inline-flex items-center gap-1 " + tone
+                })
+          ]
+        });
+  } else {
+    tmp = null;
+  }
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx("h2", {
-                      children: t`Location`,
-                      className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3"
+                JsxRuntime.jsxs("button", {
+                      children: [
+                        JsxRuntime.jsxs("span", {
+                              children: [
+                                JsxRuntime.jsx("span", {
+                                      children: t`Location`,
+                                      className: "block text-xs font-medium text-gray-500 dark:text-gray-400"
+                                    }),
+                                JsxRuntime.jsx("span", {
+                                      children: name,
+                                      className: "block truncate text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                    })
+                              ],
+                              className: "min-w-0"
+                            }),
+                        JsxRuntime.jsxs("span", {
+                              children: [
+                                tmp,
+                                JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                      size: 15,
+                                      className: "text-gray-400 transition-transform duration-200 " + (
+                                        expanded ? "rotate-90" : ""
+                                      ),
+                                      "aria-hidden": "true"
+                                    })
+                              ],
+                              className: "flex flex-shrink-0 items-center gap-2"
+                            })
+                      ],
+                      "aria-label": name + ". " + courtLabel + toggleLabel,
+                      "aria-expanded": expanded,
+                      className: "flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:hover:bg-[#242529]",
+                      type: "button",
+                      onClick: (function (param) {
+                          setExpanded(function (v) {
+                                return !v;
+                              });
+                        })
                     }),
-                JsxRuntime.jsx("p", {
-                      children: JsxRuntime.jsx(ReactRouterDom.Link, {
-                            to: "/locations/" + loc.id,
-                            children: Core__Option.getOr(loc.name, "?"),
-                            className: "hover:underline"
-                          }),
-                      className: "font-mono text-sm font-medium text-gray-900 dark:text-gray-100"
-                    }),
-                Core__Option.getOr(Core__Option.map(loc.details, (function (d) {
-                            var isTruncatable = d.length > 100;
-                            var displayText = !showFullDetails && isTruncatable ? d.slice(0, 100) : d;
-                            return JsxRuntime.jsxs("p", {
-                                        children: [
-                                          displayText,
-                                          isTruncatable ? JsxRuntime.jsx("button", {
-                                                  children: showFullDetails ? t`less` : t`...more`,
-                                                  className: "ml-1 text-blue-500 hover:underline font-mono text-xs",
-                                                  onClick: (function (param) {
-                                                      setShowFullDetails(function (v) {
-                                                            return !v;
-                                                          });
-                                                    })
-                                                }) : null
-                                        ],
-                                        className: "font-mono text-xs text-gray-500 dark:text-gray-400 mt-1"
-                                      });
-                          })), null),
-                Core__Option.getOr(Core__Option.map(loc.address, (function (addr) {
-                            var defaultLink = Core__Option.flatMap(loc.links, (function (links) {
-                                    return links[0];
-                                  }));
-                            var mapsUrl = Core__Option.getOr(Core__Option.orElse(defaultLink, Core__Option.map(loc.coords, (function (c) {
-                                            return "https://maps.google.com/?q=" + c.lat.toString() + "," + c.lng.toString();
-                                          }))), "https://maps.google.com/?q=" + addr);
-                            return JsxRuntime.jsx("a", {
-                                        children: addr,
-                                        className: "font-mono text-xs text-gray-500 dark:text-gray-400 mt-1 block hover:underline",
-                                        href: mapsUrl,
-                                        rel: "noopener noreferrer",
-                                        target: "_blank"
-                                      });
-                          })), null),
-                availability
+                expanded ? JsxRuntime.jsxs("div", {
+                        children: [
+                          Core__Option.getOr(Core__Option.map(loc.details, (function (d) {
+                                      var isTruncatable = d.length > 100;
+                                      var displayText = !showFullDetails && isTruncatable ? d.slice(0, 100) : d;
+                                      return JsxRuntime.jsxs("p", {
+                                                  children: [
+                                                    displayText,
+                                                    isTruncatable ? JsxRuntime.jsx("button", {
+                                                            children: showFullDetails ? t`less` : t`...more`,
+                                                            className: "ml-1 text-blue-500 hover:underline font-mono text-xs",
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                setShowFullDetails(function (v) {
+                                                                      return !v;
+                                                                    });
+                                                              })
+                                                          }) : null
+                                                  ],
+                                                  className: "font-mono text-xs text-gray-500 dark:text-gray-400"
+                                                });
+                                    })), null),
+                          Core__Option.getOr(Core__Option.map(loc.address, (function (addr) {
+                                      var defaultLink = Core__Option.flatMap(loc.links, (function (links) {
+                                              return links[0];
+                                            }));
+                                      var mapsUrl = Core__Option.getOr(Core__Option.orElse(defaultLink, Core__Option.map(loc.coords, (function (c) {
+                                                      return "https://maps.google.com/?q=" + c.lat.toString() + "," + c.lng.toString();
+                                                    }))), "https://maps.google.com/?q=" + addr);
+                                      return JsxRuntime.jsx("a", {
+                                                  children: addr,
+                                                  className: "mt-0.5 block font-mono text-xs text-gray-500 dark:text-gray-400 hover:underline",
+                                                  href: mapsUrl,
+                                                  rel: "noopener noreferrer",
+                                                  target: "_blank"
+                                                });
+                                    })), null),
+                          JsxRuntime.jsxs(ReactRouterDom.Link, {
+                                to: "/locations/" + loc.id,
+                                children: [
+                                  t`View all events at this location`,
+                                  JsxRuntime.jsx(LucideReact.ChevronRight, {
+                                        size: 12,
+                                        "aria-hidden": "true"
+                                      })
+                                ],
+                                className: "mt-1.5 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#5f8618] underline-offset-2 hover:underline dark:text-[#bdf25d]"
+                              }),
+                          availability
+                        ],
+                        className: "border-t border-gray-200 px-4 pb-4 pt-3 dark:border-[#2a2b30]"
+                      }) : null
               ],
-              className: "px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]"
+              className: cardClass + " overflow-hidden"
             });
 }
 
@@ -430,7 +564,7 @@ function PkEventPage$SponsorBanner(props) {
                       className: "flex items-center gap-1.5 flex-shrink-0 px-2 py-0.5 rounded-md bg-amber-100 dark:bg-amber-900/40 border border-amber-300 dark:border-amber-700/60"
                     })
               ],
-              className: "px-5 py-3 border-b-2 border-violet-200 dark:border-violet-700/50 bg-violet-50 dark:bg-violet-900/30 hover:bg-violet-100 dark:hover:bg-violet-900/50 transition-colors flex items-center justify-between gap-3"
+              className: "flex items-center justify-between gap-3 border-t border-violet-200 bg-violet-50 px-4 py-3 transition-colors hover:bg-violet-100 dark:border-violet-700/50 dark:bg-violet-900/30 dark:hover:bg-violet-900/50"
             });
 }
 
@@ -438,10 +572,69 @@ var SponsorBanner = {
   make: PkEventPage$SponsorBanner
 };
 
+function PkEventPage$HostNotesSection(props) {
+  var onEdited = props.onEdited;
+  var notes = props.notes;
+  var field = UseEditable.use(props.editable, notes, (function (draft) {
+          onEdited(draft.trim());
+        }));
+  var placeholder = t`Add details participants should know before arriving`;
+  return JsxRuntime.jsx(EditableSection.make, {
+              state: field.state,
+              heading: t`Notes from the host`,
+              editLabel: t`Edit notes from the host`,
+              saveLabel: t`Save notes`,
+              onStartEditing: field.startEditing,
+              onCancel: field.cancel,
+              onCommit: field.commit,
+              editor: JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                    children: [
+                      JsxRuntime.jsx("label", {
+                            children: t`Notes from the host`,
+                            className: "sr-only",
+                            htmlFor: "host-notes-input"
+                          }),
+                      JsxRuntime.jsx("textarea", {
+                            className: "w-full resize-none rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm leading-relaxed text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#94c93a] focus:ring-2 focus:ring-[#bdf25d]/40 dark:border-[#3a3b40] dark:bg-[#222326] dark:text-gray-100",
+                            id: "host-notes-input",
+                            autoFocus: true,
+                            placeholder: placeholder,
+                            rows: 3,
+                            value: field.draft,
+                            onKeyDown: field.onKeyDown,
+                            onChange: (function (e) {
+                                var next = e.target.value;
+                                field.setDraft(function (param) {
+                                      return next;
+                                    });
+                              })
+                          })
+                    ]
+                  }),
+              children: notes === "" ? JsxRuntime.jsx("span", {
+                      children: placeholder,
+                      className: "block text-sm leading-relaxed text-gray-400 dark:text-gray-500"
+                    }) : notes.split("\n").map(function (line, i) {
+                      return JsxRuntime.jsx("span", {
+                                  children: line,
+                                  className: "block text-sm leading-relaxed text-gray-700 dark:text-gray-300" + (
+                                    i > 0 ? " mt-2" : ""
+                                  )
+                                }, i.toString());
+                    })
+            });
+}
+
+var HostNotesSection = {
+  make: PkEventPage$HostNotesSection
+};
+
 function PkEventPage$Inner(props) {
+  var __asPage = props.asPage;
   var onRefresh = props.onRefresh;
   var queryFragmentRefs = props.queryFragmentRefs;
   var $$event = props.event;
+  var asPage = __asPage !== undefined ? __asPage : false;
   var viewerUser = Core__Option.flatMap(props.viewer, (function (v) {
           return v.user;
         }));
@@ -478,6 +671,28 @@ function PkEventPage$Inner(props) {
       });
   var setPaymentClientSecret = match$8[1];
   var paymentClientSecret = match$8[0];
+  var match$9 = use$7();
+  var updateEvent = match$9[0];
+  var match$10 = React.useState(function () {
+        return false;
+      });
+  var setEditModeActive = match$10[1];
+  var editModeActive = match$10[0];
+  var availabilityData = EventLocationAvailability.Fragment.use($$event.fragmentRefs);
+  var genericCourtName = Core__Option.getOr(Core__Option.flatMap($$event.location, (function (l) {
+              return l.name;
+            })), t`Courts`);
+  var courtStatus = $$event.viewerIsAdmin ? EventLocationAvailability.isAvailableAtEventTime(availabilityData, genericCourtName) : undefined;
+  var canEditInPlace = $$event.viewerIsAdmin && Core__Option.isNone($$event.deleted);
+  var editable = editModeActive && canEditInPlace;
+  var saveNotes = function (notes) {
+    Core__Option.forEach(EventLocationAvailability.updateInput(availabilityData, undefined, undefined, undefined, notes), (function (input) {
+            updateEvent({
+                  eventId: $$event.id,
+                  input: input
+                }, undefined, undefined, undefined, undefined, undefined, undefined);
+          }));
+  };
   var secret = Core__Option.getOr($$event.shadow, false);
   var tz = Core__Option.getOr($$event.timezone, "Asia/Tokyo");
   var maxRsvps = Core__Option.getOr($$event.maxRsvps, 0);
@@ -523,8 +738,8 @@ function PkEventPage$Inner(props) {
             })), false);
   var isViewerInvited;
   if (viewerRsvpNode !== undefined) {
-    var match$9 = viewerRsvpNode.listType;
-    isViewerInvited = match$9 !== undefined ? match$9 === 2 : false;
+    var match$11 = viewerRsvpNode.listType;
+    isViewerInvited = match$11 !== undefined ? match$11 === 2 : false;
   } else {
     isViewerInvited = false;
   }
@@ -536,28 +751,28 @@ function PkEventPage$Inner(props) {
             })), false);
   var viewerIsInGoingList;
   if (viewerRsvpNode !== undefined) {
-    var match$10 = viewerRsvpNode.listType;
-    viewerIsInGoingList = match$10 !== undefined ? match$10 === 0 : true;
+    var match$12 = viewerRsvpNode.listType;
+    viewerIsInGoingList = match$12 !== undefined ? match$12 === 0 : true;
   } else {
     viewerIsInGoingList = false;
   }
   var viewerHasPayment;
   if (viewerRsvpNode !== undefined) {
-    var match$11 = viewerRsvpNode.payment;
-    viewerHasPayment = match$11 !== undefined ? (match$11.status >>> 0) <= 1 : false;
+    var match$13 = viewerRsvpNode.payment;
+    viewerHasPayment = match$13 !== undefined ? (match$13.status >>> 0) <= 1 : false;
   } else {
     viewerHasPayment = false;
   }
   var ownerHasConnectedAccount = Core__Option.getOr(Core__Option.flatMap($$event.owner, (function (o) {
               return o.stripeChargesEnabled;
             })), false);
-  var match$12 = Core__Option.flatMap($$event.club, (function (c) {
+  var match$14 = Core__Option.flatMap($$event.club, (function (c) {
           return c.viewerMembership;
         }));
   var viewerIsClubMember;
-  if (match$12 !== undefined) {
-    var match$13 = match$12.status;
-    viewerIsClubMember = match$13 !== undefined && (match$13 === "Pending" || match$13 === "Active" || match$13 === "Rejected") && match$13 === "Active" ? true : false;
+  if (match$14 !== undefined) {
+    var match$15 = match$14.status;
+    viewerIsClubMember = match$15 !== undefined && (match$15 === "Pending" || match$15 === "Active" || match$15 === "Rejected") && match$15 === "Active" ? true : false;
   } else {
     viewerIsClubMember = false;
   }
@@ -578,149 +793,197 @@ function PkEventPage$Inner(props) {
                         return p.currency;
                       }));
         }));
+  var footerShown = Core__Option.isNone($$event.deleted) && Core__Option.isSome(viewerUser) && Caml_obj.notequal($$event.shadow, true);
+  var chatInFooter = isJoined && footerShown;
+  var isSponsored = Caml_obj.equal(Core__Option.flatMap($$event.activity, (function (a) {
+              return a.slug;
+            })), "pickleball") && Core__Option.getOr($$event.tags, []).some(function (t) {
+        return t.toLowerCase() === "comp";
+      });
   if (Core__Option.getOr($$event.viewerIsBanned, false)) {
     return JsxRuntime.jsx("div", {
                 children: t`Cannot access variable \"title\"`,
                 className: "p-6 text-center text-gray-500"
               });
   }
-  var match$14 = $$event.viewerIsAdmin;
+  var match$16 = $$event.viewerIsAdmin;
   var tmp;
-  if (match$14 && viewerUser !== undefined) {
-    var match$15 = $$event.deleted;
-    tmp = JsxRuntime.jsx("div", {
-          children: JsxRuntime.jsxs("div", {
-                children: [
-                  JsxRuntime.jsx(Button.Button.make, {
-                        children: t`edit event`,
-                        href: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
-                                    return l.id;
-                                  })), "")
-                      }),
-                  Core__Option.getOr(Core__Option.map($$event.location, (function (loc) {
-                              return JsxRuntime.jsx(Button.Button.make, {
-                                          children: t`copy event`,
-                                          href: "/events/copy/" + $$event.id + "/" + loc.id
-                                        });
-                            })), null),
-                  match$15 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
-                          children: t`uncancel event`,
+  if (match$16 && viewerUser !== undefined) {
+    var match$17 = $$event.deleted;
+    tmp = JsxRuntime.jsxs("div", {
+          children: [
+            JsxRuntime.jsxs("div", {
+                  children: [
+                    JsxRuntime.jsx(Button.Button.make, {
+                          children: t`edit event`,
+                          href: "/events/update/" + $$event.id + "/" + Core__Option.getOr(Core__Option.map($$event.location, (function (l) {
+                                      return l.id;
+                                    })), "")
+                        }),
+                    Core__Option.getOr(Core__Option.map($$event.location, (function (loc) {
+                                return JsxRuntime.jsx(Button.Button.make, {
+                                            children: t`copy event`,
+                                            href: "/events/copy/" + $$event.id + "/" + loc.id
+                                          });
+                              })), null),
+                    match$17 !== undefined ? JsxRuntime.jsx(Button.Button.make, {
+                            children: t`uncancel event`,
+                            onClick: (function (param) {
+                                if (!uncanceling) {
+                                  uncancelEvent({
+                                        eventId: $$event.id
+                                      }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                  return ;
+                                }
+                                
+                              })
+                          }) : JsxRuntime.jsx(Button.Button.make, {
+                            children: t`cancel event`,
+                            onClick: (function (param) {
+                                if (!canceling) {
+                                  cancelEvent({
+                                        eventId: $$event.id
+                                      }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                  return ;
+                                }
+                                
+                              })
+                          }),
+                    JsxRuntime.jsxs(Button.Button.make, {
+                          className: editModeActive ? "ring-2 ring-[#94c93a]" : "",
+                          children: [
+                            JsxRuntime.jsx(LucideReact.Pencil, {
+                                  size: 13,
+                                  "aria-hidden": "true"
+                                }),
+                            editModeActive ? t`Done editing` : t`Edit in place`
+                          ],
                           onClick: (function (param) {
-                              if (!uncanceling) {
-                                uncancelEvent({
-                                      eventId: $$event.id
-                                    }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                return ;
-                              }
-                              
-                            })
-                        }) : JsxRuntime.jsx(Button.Button.make, {
-                          children: t`cancel event`,
-                          onClick: (function (param) {
-                              if (!canceling) {
-                                cancelEvent({
-                                      eventId: $$event.id
-                                    }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                return ;
-                              }
-                              
-                            })
+                              setEditModeActive(function (v) {
+                                    return !v;
+                                  });
+                            }),
+                          disabled: !canEditInPlace
                         })
-                ],
-                className: "flex flex-row gap-2"
-              }),
-          className: "px-5 py-3 border-b border-gray-100 dark:border-[#2a2b30]"
+                  ],
+                  className: "flex flex-row flex-wrap gap-2"
+                }),
+            editModeActive ? JsxRuntime.jsx("p", {
+                    children: t`Editable fields are highlighted below. Click one to edit it.`,
+                    className: "mt-2 font-mono text-[10px] text-[#547817] dark:text-[#bdf25d]"
+                  }) : null
+          ],
+          className: cardClass + " px-4 py-3"
         });
   } else {
     tmp = null;
   }
-  var match$16 = $$event.location;
-  var activity = $$event.activity;
+  var match$18 = $$event.location;
+  var match$19 = $$event.details;
   var tmp$1;
+  var exit = 0;
+  if (match$19 !== undefined || canEditInPlace) {
+    exit = 1;
+  } else {
+    tmp$1 = null;
+  }
+  if (exit === 1) {
+    tmp$1 = JsxRuntime.jsx(PkEventPage$HostNotesSection, {
+          notes: Core__Option.getOr(match$19, ""),
+          editable: editable,
+          onEdited: saveNotes
+        });
+  }
+  var activity = $$event.activity;
+  var tmp$2;
   if (activity !== undefined) {
     var slug = activity.slug;
     if (slug !== undefined) {
-      var exit = 0;
+      var exit$1 = 0;
       switch (slug) {
         case "badminton" :
         case "pickleball" :
-            exit = 1;
+            exit$1 = 1;
             break;
         default:
-          tmp$1 = null;
+          tmp$2 = null;
       }
-      if (exit === 1) {
+      if (exit$1 === 1) {
         var managerHref = "/league/events/" + $$event.id + "/" + slug + "/manager";
-        tmp$1 = match$1[0] ? JsxRuntime.jsx(React.Suspense, {
+        tmp$2 = match$1[0] ? JsxRuntime.jsx(React.Suspense, {
                 children: Caml_option.some(JsxRuntime.jsx(RoundRobinDrawsPreview.make, {
                           eventId: $$event.id,
-                          managerHref: managerHref
+                          managerHref: managerHref,
+                          className: "mx-3 mt-3"
                         })),
                 fallback: Caml_option.some(null)
               }) : null;
       }
       
     } else {
-      tmp$1 = null;
+      tmp$2 = null;
     }
   } else {
-    tmp$1 = null;
+    tmp$2 = null;
   }
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                            return JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                        value: Util.Datetime.toDate(sd),
-                                                        timeZone: tz,
-                                                        weekday: "short",
-                                                        month: "short",
-                                                        day: "2-digit"
-                                                      });
-                                          })), null),
-                                " ",
-                                Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
-                                            return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                        value: Util.Datetime.toDate(sd),
-                                                        timeZone: tz
-                                                      });
-                                          })), null),
-                                Core__Option.getOr(Core__Option.map($$event.endDate, (function (ed) {
-                                            return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                        children: [
-                                                          " - ",
-                                                          JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                value: Util.Datetime.toDate(ed),
-                                                                timeZone: tz
-                                                              })
-                                                        ]
-                                                      });
-                                          })), null),
-                                Core__Option.getOr(Core__Option.map(durationStr, (function (d) {
-                                            return " · " + d;
-                                          })), null)
-                              ],
-                              className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1"
-                            }),
-                        Core__Option.getOr(Core__Option.map(onRefresh, (function (param) {
-                                    return JsxRuntime.jsx("button", {
-                                                children: JsxRuntime.jsx(LucideReact.RefreshCw, {
-                                                      size: 13,
-                                                      className: isRefreshing ? "animate-spin" : ""
-                                                    }),
-                                                className: "text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed",
-                                                title: isRefreshing ? t`Refreshing…` : t`Refresh event details`,
-                                                disabled: isRefreshing,
-                                                onClick: (function (param) {
-                                                    triggerRefresh();
-                                                  })
-                                              });
-                                  })), null)
-                      ],
-                      className: "bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] px-5 py-3 flex items-center justify-between flex-shrink-0"
+                JsxRuntime.jsx("div", {
+                      children: JsxRuntime.jsxs("div", {
+                            children: [
+                              JsxRuntime.jsxs("div", {
+                                    children: [
+                                      Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                                  return JsxRuntime.jsx(ReactIntl.FormattedDate, {
+                                                              value: Util.Datetime.toDate(sd),
+                                                              timeZone: tz,
+                                                              weekday: "short",
+                                                              month: "short",
+                                                              day: "2-digit"
+                                                            });
+                                                })), null),
+                                      " ",
+                                      Core__Option.getOr(Core__Option.map($$event.startDate, (function (sd) {
+                                                  return JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                              value: Util.Datetime.toDate(sd),
+                                                              timeZone: tz
+                                                            });
+                                                })), null),
+                                      Core__Option.getOr(Core__Option.map($$event.endDate, (function (ed) {
+                                                  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                              children: [
+                                                                " - ",
+                                                                JsxRuntime.jsx(ReactIntl.FormattedTime, {
+                                                                      value: Util.Datetime.toDate(ed),
+                                                                      timeZone: tz
+                                                                    })
+                                                              ]
+                                                            });
+                                                })), null),
+                                      Core__Option.getOr(Core__Option.map(durationStr, (function (d) {
+                                                  return " · " + d;
+                                                })), null)
+                                    ],
+                                    className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 flex items-center gap-1"
+                                  }),
+                              Core__Option.getOr(Core__Option.map(onRefresh, (function (param) {
+                                          return JsxRuntime.jsx("button", {
+                                                      children: JsxRuntime.jsx(LucideReact.RefreshCw, {
+                                                            size: 13,
+                                                            className: isRefreshing ? "animate-spin" : ""
+                                                          }),
+                                                      className: "text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed",
+                                                      title: isRefreshing ? t`Refreshing…` : t`Refresh event details`,
+                                                      disabled: isRefreshing,
+                                                      onClick: (function (param) {
+                                                          triggerRefresh();
+                                                        })
+                                                    });
+                                        })), null)
+                            ],
+                            className: "mx-auto w-full max-w-2xl px-5 py-3 flex items-center justify-between"
+                          }),
+                      className: "bg-white dark:bg-[#1e1f23] border-b border-gray-100 dark:border-[#2a2b30] flex-shrink-0"
                     }),
                 JsxRuntime.jsx(PullToRefresh.Indicator.make, {
                       pullDistance: match.pullDistance,
@@ -730,19 +993,16 @@ function PkEventPage$Inner(props) {
                       children: [
                         JsxRuntime.jsx(PkEventPage$EventTitleSection, {
                               event: $$event,
-                              secret: secret
+                              secret: secret,
+                              sponsor: Caml_option.some(isSponsored ? JsxRuntime.jsx(PkEventPage$SponsorBanner, {}) : null)
                             }),
-                        Caml_obj.equal(Core__Option.flatMap($$event.activity, (function (a) {
-                                    return a.slug;
-                                  })), "pickleball") && Core__Option.getOr($$event.tags, []).some(function (t) {
-                              return t.toLowerCase() === "comp";
-                            }) ? JsxRuntime.jsx(PkEventPage$SponsorBanner, {}) : null,
                         tmp,
-                        match$16 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$16,
+                        match$18 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: match$18,
+                                courtStatus: courtStatus,
                                 availability: Caml_option.some($$event.viewerIsAdmin ? JsxRuntime.jsx(EventLocationAvailability.make, {
                                             event: $$event.fragmentRefs,
-                                            genericCourtName: Core__Option.getOr(match$16.name, t`Courts`)
+                                            genericCourtName: genericCourtName
                                           }) : null)
                               }) : null,
                         JsxRuntime.jsx(PkRSVPSection.make, {
@@ -751,34 +1011,15 @@ function PkEventPage$Inner(props) {
                                       return u.fragmentRefs;
                                     }))
                             }),
-                        Core__Option.getOr(Core__Option.map($$event.details, (function (details) {
-                                    return JsxRuntime.jsxs("div", {
-                                                children: [
-                                                  JsxRuntime.jsx("h2", {
-                                                        children: t`Notes from the host`,
-                                                        className: "font-mono text-xs tracking-wider text-gray-400 dark:text-gray-500 uppercase mb-3"
-                                                      }),
-                                                  JsxRuntime.jsx("div", {
-                                                        children: details.split("\n").map(function (line, i) {
-                                                              return JsxRuntime.jsx("p", {
-                                                                          children: line,
-                                                                          className: "text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
-                                                                        }, i.toString());
-                                                            }),
-                                                        className: "space-y-2"
-                                                      })
-                                                ],
-                                                className: "px-5 py-4 border-b border-gray-100 dark:border-[#2a2b30]"
-                                              });
-                                  })), null),
                         tmp$1,
-                        JsxRuntime.jsx(PkEventMessages.make, {
-                              queryRef: queryFragmentRefs,
-                              eventId: $$event.id,
-                              isJoined: isJoined
-                            })
+                        tmp$2,
+                        chatInFooter ? null : JsxRuntime.jsx(PkEventMessages.make, {
+                                queryRef: queryFragmentRefs,
+                                eventId: $$event.id,
+                                isJoined: isJoined
+                              })
                       ],
-                      className: "flex-1 overflow-y-auto pb-24"
+                      className: "mx-auto w-full max-w-2xl pb-24"
                     }),
                 JsxRuntime.jsx(EventStickyFooter.make, {
                       event: {
@@ -849,7 +1090,12 @@ function PkEventPage$Inner(props) {
                                           }), undefined, undefined);
                                   }
                                 }));
-                        })
+                        }),
+                      chat: Caml_option.some(chatInFooter ? JsxRuntime.jsx(PkEventMessages.FooterChat.make, {
+                                  queryRef: queryFragmentRefs,
+                                  eventId: $$event.id
+                                }) : null),
+                      fullWidth: asPage
                     }),
                 paymentClientSecret !== undefined ? JsxRuntime.jsx(make, {
                         clientSecret: paymentClientSecret[0],
@@ -874,7 +1120,7 @@ function PkEventPage$Inner(props) {
                       }) : null
               ],
               ref: Caml_option.some(containerRef),
-              className: "relative w-full max-w-2xl mx-auto bg-white dark:bg-[#1e1f23]"
+              className: "relative w-full min-h-full bg-gray-50 dark:bg-[#18191c]"
             });
 }
 
@@ -949,7 +1195,8 @@ function PkEventPage(props) {
                                                 event: $$event,
                                                 viewer: viewer,
                                                 queryFragmentRefs: queryFragmentRefs,
-                                                onRefresh: onRefresh
+                                                onRefresh: onRefresh,
+                                                asPage: true
                                               });
                                   })), JsxRuntime.jsx("div", {
                                   children: t`Event not found`,
@@ -970,9 +1217,12 @@ export {
   StripePaymentEmbed$1 as StripePaymentEmbed,
   EventCancelMutation ,
   EventUncancelMutation ,
+  UpdateEventMutation ,
+  cardClass ,
   EventTitleSection ,
   EventLocationSection ,
   SponsorBanner ,
+  HostNotesSection ,
   Inner ,
   Lazy ,
   make$1 as make,
