@@ -33,11 +33,11 @@ msgstr "1 · Ngày"
 msgid "2 · Time"
 msgstr "2 · Giờ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · Loại gì?"
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr "Thêm sự kiện"
 
@@ -84,7 +84,7 @@ msgstr ""
 "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
 "tổ chức."
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "Tiếp tục"
 
@@ -95,7 +95,7 @@ msgstr "Tiếp tục"
 msgid "Could not save your profile. Please try again."
 msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -143,11 +143,11 @@ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "Tổ chức sự kiện"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
@@ -175,7 +175,7 @@ msgstr "Trình độ"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
@@ -191,7 +191,7 @@ msgstr "Kế hoạch mới"
 msgid "Not now"
 msgstr "Không phải bây giờ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
@@ -199,11 +199,11 @@ msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 msgid "Pro"
 msgstr "Chuyên nghiệp"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "Xóa"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "Lưu"
 
@@ -211,7 +211,7 @@ msgstr "Lưu"
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
 
@@ -223,11 +223,11 @@ msgstr ""
 "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
 "họ nên mời bạn."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."

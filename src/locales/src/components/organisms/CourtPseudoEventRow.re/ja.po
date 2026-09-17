@@ -13,20 +13,20 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:211
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:219
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} court"
 msgstr "{0}コート"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:213
 msgid "{0} courts"
@@ -60,12 +60,12 @@ msgstr "{0}人のプレイヤー"
 msgid "{first} + {0} more"
 msgstr "{first} + {0}人"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:285
 msgid "{hs}h"
 msgstr "{hs}時間"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:287
 msgid "{hs}h {ms}m"
 msgstr "{hs}時間{ms}分"
@@ -74,17 +74,17 @@ msgstr "{hs}時間{ms}分"
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:283
 msgid "{ms}m"
 msgstr "{ms}分"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:207
 msgid "{n} indoor"
 msgstr "インドア{n}面"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:209
 msgid "{n} outdoor"
 msgstr "アウトドア{n}面"
@@ -105,7 +105,7 @@ msgstr "空き時間の編集をキャンセル"
 msgid "Courts available"
 msgstr "利用可能なコート"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr "イベントを作成"
 
@@ -129,11 +129,11 @@ msgstr "満員"
 msgid "Mark available"
 msgstr "参加可能にする"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "削除"
 
@@ -141,7 +141,7 @@ msgstr "削除"
 msgid "Remove from slot"
 msgstr "スロットから削除"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "予約する"
 
@@ -153,11 +153,11 @@ msgstr "空き時間を保存"
 msgid "Tap to add time in this slot"
 msgstr "タップしてこのスロットに時間を追加"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "オプションを使用"
 

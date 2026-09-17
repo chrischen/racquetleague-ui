@@ -26,11 +26,14 @@ var Internal = {
   convertFragment: convertFragment
 };
 
-function makeConnectionId(connectionParentDataId, afterDate, token) {
+function makeConnectionId(connectionParentDataId, afterDate, token, level) {
   var afterDate$1 = afterDate !== undefined ? Util.Datetime.serialize(Caml_option.valFromOption(afterDate)) : undefined;
   var args = {
     afterDate: afterDate$1,
-    token: token
+    token: token,
+    filters: {
+      level: level
+    }
   };
   return RelayRuntime.ConnectionHandler.getConnectionID(connectionParentDataId, "ClubEventsListFragment_events", args);
 }
@@ -93,6 +96,11 @@ return {
     {
       "defaultValue": null,
       "kind": "LocalArgument",
+      "name": "level"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
       "name": "token"
     }
   ],
@@ -127,6 +135,24 @@ return {
   },
   "name": "ClubEventsListFragment",
   "selections": [
+    (v1/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "slug",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "defaultActivity",
+      "plural": false,
+      "selections": (v2/*: any*/),
+      "storageKey": null
+    },
     {
       "alias": "events",
       "args": [
@@ -134,6 +160,17 @@ return {
           "kind": "Variable",
           "name": "afterDate",
           "variableName": "afterDate"
+        },
+        {
+          "fields": [
+            {
+              "kind": "Variable",
+              "name": "level",
+              "variableName": "level"
+            }
+          ],
+          "kind": "ObjectValue",
+          "name": "filters"
         },
         {
           "kind": "Variable",
@@ -338,8 +375,7 @@ return {
         }
       ],
       "storageKey": null
-    },
-    (v1/*: any*/)
+    }
   ],
   "type": "Club",
   "abstractKey": null

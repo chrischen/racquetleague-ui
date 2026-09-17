@@ -16,10 +16,16 @@ type prefilledValues = {
   fromExistingEvent?: bool,
 }
 
+// New events default to a 24h cancel deadline (ms); shared with callers that
+// create events without the form.
+let defaultCancelDeadline: int
+
 @react.component
 let make: (
   ~eventId: string=?,
-  ~location: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_location]>,
+  ~location: RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_location]>=?,
+  ~onLocationSelected: string => unit=?,
+  ~autoSearchAddress: string=?,
   ~stripeChargesEnabled: bool=?,
   ~prefilledValues: prefilledValues=?,
   ~selectedClub: string=?,

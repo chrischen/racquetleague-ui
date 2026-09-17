@@ -12,16 +12,8 @@ let make = (~userDay: userDay) => {
   let intl = ReactIntl.useIntl()
   let formatHour = (h: int): string =>
     intl->ReactIntl.Intl.formatTimeWithOptions(
-      Js.Date.makeWithYMDHMS(
-        ~year=2000.,
-        ~month=0.,
-        ~date=1.,
-        ~hours=h->Float.fromInt,
-        ~minutes=0.,
-        ~seconds=0.,
-        (),
-      ),
-      ReactIntl.dateTimeFormatOptions(~hour=#numeric, ()),
+      Js.Date.utcWithYMDHM(~year=2000., ~month=0., ~date=1., ~hours=h->Float.fromInt, ~minutes=0., ())->Js.Date.fromFloat,
+      ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~timeZone="UTC", ()),
     )
 
   let name = userDay.user->Option.flatMap(u => u.lineUsername)->Option.getOr("?")

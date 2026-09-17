@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:699
+#: src/components/organisms/MatchHistoryList.re.mjs:698
 msgid "...load previous matches"
 msgstr ""
 
@@ -129,8 +129,8 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:524
-#: src/components/organisms/MatchHistoryList.re.mjs:588
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "DRAW"
 msgstr ""
 
@@ -138,7 +138,7 @@ msgstr ""
 msgid "Enter Score"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:661
+#: src/components/organisms/MatchHistoryList.re.mjs:660
 msgid "Even"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgstr ""
 msgid "left team players"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:716
+#: src/components/organisms/MatchHistoryList.re.mjs:715
 msgid "Load more matches..."
 msgstr ""
 
@@ -192,8 +192,8 @@ msgstr ""
 msgid "Losers"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:524
-#: src/components/organisms/MatchHistoryList.re.mjs:588
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "LOSS"
 msgstr ""
 
@@ -374,12 +374,12 @@ msgstr ""
 msgid "Unqueue All"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:632
+#: src/components/organisms/MatchHistoryList.re.mjs:631
 msgid "Upset"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "WIN"
 msgstr ""
 

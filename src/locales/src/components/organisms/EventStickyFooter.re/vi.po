@@ -17,10 +17,6 @@ msgstr ""
 msgid "Advanced"
 msgstr "Nâng cao"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:162
-msgid "Authorize deposit"
-msgstr "Ủy quyền đặt cọc"
-
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
@@ -37,34 +33,46 @@ msgstr "Tiểu sử là bắt buộc"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:198
+#: src/components/organisms/EventStickyFooter.re.mjs:223
 msgid "Cancel RSVP"
 msgstr "Hủy đăng ký"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:293
-#: src/components/organisms/EventStickyFooter.re.mjs:404
+#: src/components/organisms/EventStickyFooter.re.mjs:343
+#: src/components/organisms/EventStickyFooter.re.mjs:454
 msgid "Cancellation deadline"
 msgstr "Hạn hủy"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:412
+#: src/components/organisms/EventStickyFooter.re.mjs:462
 msgid "Cancellation deadline passed."
 msgstr "Đã quá hạn hủy."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:301
+#: src/components/organisms/EventStickyFooter.re.mjs:351
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "Đã quá hạn hủy. Liên hệ ban tổ chức trên trang này để hủy."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:198
+#: src/components/organisms/EventStickyFooter.re.mjs:223
 msgid "Cancelling..."
 msgstr "Đang hủy..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:429
-#: src/components/organisms/EventStickyFooter.re.mjs:537
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid ""
+"Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
+"the fee after the event."
+msgstr ""
+"Thẻ đã lưu: {cardLabel}. Hiện chưa trừ tiền — người tổ chức sẽ thu phí sau "
+"sự kiện."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:212
+msgid "Card required to confirm your spot"
+msgstr "Cần có thẻ để xác nhận chỗ của bạn"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:479
+#: src/components/organisms/EventStickyFooter.re.mjs:587
 msgid "Claim spot"
 msgstr "Đặt chỗ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:425
+#: src/components/organisms/EventStickyFooter.re.mjs:475
 msgid "Claim spot · {0}"
 msgstr "Đăng ký chỗ · {0}"
 
@@ -97,10 +105,6 @@ msgstr "Xác nhận"
 #: src/components/organisms/ProfileModal.re.mjs:296
 msgid "Could not save your profile. Please try again."
 msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
-
-#: src/components/organisms/EventStickyFooter.re.mjs:180
-msgid "Deposit required to confirm your spot"
-msgstr "Yêu cầu đặt cọc để xác nhận chỗ của bạn"
 
 #: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
@@ -150,28 +154,36 @@ msgstr "Trung cấp"
 msgid "Intermediate+"
 msgstr "Trung cấp+"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:537
+#: src/components/organisms/EventStickyFooter.re.mjs:587
 msgid "Join waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:422
+#: src/components/organisms/EventStickyFooter.re.mjs:472
 msgid "Join waitlist (#{0})"
 msgstr "Vào danh sách chờ (#{0})"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Join with saved card"
+msgstr "Tham gia bằng thẻ đã lưu"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:188
+msgid "Joining..."
+msgstr "Đang tham gia..."
 
 #: src/components/organisms/ProfileModal.re.mjs:309
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:376
-#: src/components/organisms/EventStickyFooter.re.mjs:488
+#: src/components/organisms/EventStickyFooter.re.mjs:426
+#: src/components/organisms/EventStickyFooter.re.mjs:538
 msgid "Leave event"
 msgstr "Rời sự kiện"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:376
+#: src/components/organisms/EventStickyFooter.re.mjs:426
 msgid "Leave waitlist"
 msgstr "Rời danh sách chờ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:375
+#: src/components/organisms/EventStickyFooter.re.mjs:425
 msgid "Leaving..."
 msgstr "Đang rời..."
 
@@ -179,7 +191,8 @@ msgstr "Đang rời..."
 msgid "Level"
 msgstr "Trình độ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:160
+#: src/components/organisms/EventStickyFooter.re.mjs:192
+#: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -191,25 +204,29 @@ msgstr "Nam"
 msgid "Not now"
 msgstr "Không phải bây giờ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:357
+#: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "On waitlist"
 msgstr "Đang trong danh sách chờ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:168
+#: src/components/organisms/EventStickyFooter.re.mjs:200
 msgid "Pay {priceStr}"
 msgstr "Thanh toán {priceStr}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:180
+#: src/components/organisms/EventStickyFooter.re.mjs:212
 msgid "Payment required to confirm your spot"
 msgstr "Cần thanh toán để xác nhận chỗ của bạn"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:254
+#: src/components/organisms/EventStickyFooter.re.mjs:304
 msgid "Pending approval"
 msgstr "Chờ phê duyệt"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Save card"
+msgstr "Lưu thẻ"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
@@ -223,7 +240,7 @@ msgstr ""
 "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
 "họ nên mời bạn."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:489
+#: src/components/organisms/EventStickyFooter.re.mjs:539
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -231,32 +248,36 @@ msgstr ""
 "Có người trong danh sách chờ. Nếu bạn rời đi, chỗ của bạn sẽ được nhường cho "
 "người tiếp theo. Bạn có chắc không?"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:189
-msgid ""
-"This is a deposit hold only — payment is due to the organizer at the event. "
-"The hold will be released after the event."
-msgstr ""
-"Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban tổ "
-"chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
+#: src/components/organisms/EventStickyFooter.re.mjs:233
+msgid "Use a different card"
+msgstr "Dùng thẻ khác"
 
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:268
+#: src/components/organisms/EventStickyFooter.re.mjs:318
 msgid "Withdraw RSVP"
 msgstr "Hủy RSVP"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:268
+#: src/components/organisms/EventStickyFooter.re.mjs:318
 msgid "Withdrawing..."
 msgstr "Đang hủy..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:357
+#: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "You're in"
 msgstr "Bạn đã tham gia"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:258
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+msgid ""
+"Your card is saved now, not charged — the organizer charges the fee after "
+"the event."
+msgstr ""
+"Thẻ của bạn chỉ được lưu, chưa bị trừ tiền — người tổ chức sẽ thu phí sau sự "
+"kiện."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:308
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 
@@ -268,13 +289,25 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #~ "Một khoản tạm giữ nhỏ sẽ được thực hiện trên thẻ của bạn và hoàn trả đầy "
 #~ "đủ sau sự kiện."
 
+#: src/components/organisms/EventStickyFooter.re.mjs:162
+#~ msgid "Authorize deposit"
+#~ msgstr "Ủy quyền đặt cọc"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 #~ msgid "Complete your profile"
 #~ msgstr "Hoàn thiện hồ sơ của bạn"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:180
+#~ msgid "Deposit required to confirm your spot"
+#~ msgstr "Yêu cầu đặt cọc để xác nhận chỗ của bạn"
+
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "Không thể thay đổi email"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Please save your card again"
+#~ msgstr "Vui lòng lưu lại thẻ của bạn"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 #~ msgid "Prefer not to say"
@@ -283,6 +316,22 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #: src/components/organisms/ProfileModal.re.mjs:429
 #~ msgid "Save & Join Event"
 #~ msgstr "Lưu & Tham gia sự kiện"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+#~ msgid ""
+#~ "The organizer now takes card payments directly. Your card was saved "
+#~ "before that, so please save it again — your spot is kept."
+#~ msgstr ""
+#~ "Người tổ chức hiện nhận thanh toán bằng thẻ trực tiếp. Thẻ của bạn đã "
+#~ "được lưu trước đó, nên hãy lưu lại — chỗ của bạn vẫn được giữ."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:189
+#~ msgid ""
+#~ "This is a deposit hold only — payment is due to the organizer at the "
+#~ "event. The hold will be released after the event."
+#~ msgstr ""
+#~ "Đây chỉ là khoản giữ chỗ đặt cọc — thanh toán sẽ được thực hiện cho ban "
+#~ "tổ chức tại sự kiện. Khoản giữ chỗ sẽ được hoàn trả sau sự kiện."
 
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"

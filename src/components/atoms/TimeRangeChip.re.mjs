@@ -9,7 +9,8 @@ function TimeRangeChip(props) {
   var className = __className !== undefined ? __className : "";
   var intl = ReactIntl.useIntl();
   var formatHour = function (h) {
-    return intl.formatTime(new Date(2000, 0, 1, h, 0, 0), {
+    return intl.formatTime(new Date(Date.UTC(2000, 0, 1, h, 0)), {
+                timeZone: "UTC",
                 hour: "numeric"
               });
   };

@@ -5,10 +5,11 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(activityId, byLocation, fromDate, $$location, locationId, toDate) {
+function makeRefetchVariables(activityId, byLocation, clubSlug, fromDate, $$location, locationId, toDate) {
   return {
           activityId: activityId,
           byLocation: byLocation,
+          clubSlug: clubSlug,
           fromDate: fromDate,
           location: $$location,
           locationId: locationId,
@@ -83,6 +84,11 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
+    "name": "clubSlug"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
     "name": "fromDate"
   },
   {
@@ -108,39 +114,44 @@ v1 = {
 },
 v2 = {
   "kind": "Variable",
+  "name": "clubSlug",
+  "variableName": "clubSlug"
+},
+v3 = {
+  "kind": "Variable",
   "name": "fromDate",
   "variableName": "fromDate"
 },
-v3 = {
+v4 = {
   "kind": "Variable",
   "name": "location",
   "variableName": "location"
 },
-v4 = {
+v5 = {
   "kind": "Variable",
   "name": "locationId",
   "variableName": "locationId"
 },
-v5 = {
+v6 = {
   "kind": "Variable",
   "name": "toDate",
   "variableName": "toDate"
 },
-v6 = {
+v7 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v7 = {
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "localDate",
   "storageKey": null
 },
-v8 = {
+v9 = {
   "alias": null,
   "args": null,
   "concreteType": "AvailabilityInterval",
@@ -165,9 +176,9 @@ v8 = {
   ],
   "storageKey": null
 },
-v9 = [
-  (v6/*: any*/),
+v10 = [
   (v7/*: any*/),
+  (v8/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -183,7 +194,7 @@ v9 = [
     "name": "location",
     "plural": false,
     "selections": [
-      (v6/*: any*/),
+      (v7/*: any*/),
       {
         "alias": null,
         "args": null,
@@ -194,7 +205,7 @@ v9 = [
     ],
     "storageKey": null
   },
-  (v8/*: any*/),
+  (v9/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -260,7 +271,8 @@ return {
           (v2/*: any*/),
           (v3/*: any*/),
           (v4/*: any*/),
-          (v5/*: any*/)
+          (v5/*: any*/),
+          (v6/*: any*/)
         ],
         "kind": "FragmentSpread",
         "name": "PkEventsAvailabilityDay_query"
@@ -291,7 +303,7 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v6/*: any*/)
+              (v7/*: any*/)
             ],
             "storageKey": null
           },
@@ -299,17 +311,17 @@ return {
             "alias": null,
             "args": [
               (v1/*: any*/),
-              (v2/*: any*/),
-              (v5/*: any*/)
+              (v3/*: any*/),
+              (v6/*: any*/)
             ],
             "concreteType": "AvailabilityDay",
             "kind": "LinkedField",
             "name": "availability",
             "plural": true,
             "selections": [
-              (v6/*: any*/),
               (v7/*: any*/),
-              (v8/*: any*/)
+              (v8/*: any*/),
+              (v9/*: any*/)
             ],
             "storageKey": null
           },
@@ -350,7 +362,7 @@ return {
                     "name": "node",
                     "plural": false,
                     "selections": [
-                      (v6/*: any*/),
+                      (v7/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -394,24 +406,25 @@ return {
       {
         "alias": null,
         "args": [
-          (v2/*: any*/),
           (v3/*: any*/),
+          (v4/*: any*/),
           {
             "fields": [
-              (v1/*: any*/)
+              (v1/*: any*/),
+              (v2/*: any*/)
             ],
             "kind": "ObjectValue",
             "name": "scope"
           },
-          (v5/*: any*/)
+          (v6/*: any*/)
         ],
         "concreteType": "AvailabilityDay",
         "kind": "LinkedField",
         "name": "availabilityUsersForDateRange",
         "plural": true,
         "selections": [
-          (v6/*: any*/),
           (v7/*: any*/),
+          (v8/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -420,7 +433,7 @@ return {
             "name": "user",
             "plural": false,
             "selections": [
-              (v6/*: any*/),
+              (v7/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -438,7 +451,7 @@ return {
             ],
             "storageKey": null
           },
-          (v8/*: any*/)
+          (v9/*: any*/)
         ],
         "storageKey": null
       },
@@ -451,15 +464,15 @@ return {
             "alias": null,
             "args": [
               (v1/*: any*/),
-              (v2/*: any*/),
               (v3/*: any*/),
-              (v5/*: any*/)
+              (v4/*: any*/),
+              (v6/*: any*/)
             ],
             "concreteType": "LocationAvailabilityDay",
             "kind": "LinkedField",
             "name": "locationsAvailability",
             "plural": true,
-            "selections": (v9/*: any*/),
+            "selections": (v10/*: any*/),
             "storageKey": null
           }
         ]
@@ -473,15 +486,15 @@ return {
             "alias": null,
             "args": [
               (v1/*: any*/),
-              (v2/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/)
+              (v3/*: any*/),
+              (v5/*: any*/),
+              (v6/*: any*/)
             ],
             "concreteType": "LocationAvailabilityDay",
             "kind": "LinkedField",
             "name": "locationAvailability",
             "plural": true,
-            "selections": (v9/*: any*/),
+            "selections": (v10/*: any*/),
             "storageKey": null
           }
         ]
@@ -489,12 +502,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "0bb360df5633ce7dd0f517378601b5b5",
+    "cacheID": "45c585455c080a817b51bdd89bddbf06",
     "id": null,
     "metadata": {},
     "name": "PkEventsAvailabilityDayRefetchQuery",
     "operationKind": "query",
-    "text": "query PkEventsAvailabilityDayRefetchQuery(\n  $activityId: ID = \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"\n  $byLocation: Boolean = false\n  $fromDate: String!\n  $location: LocationInput\n  $locationId: ID = \"\"\n  $toDate: String!\n) {\n  ...PkEventsAvailabilityDay_query_1KaBYl\n}\n\nfragment PkEventsAvailabilityDay_query_1KaBYl on Query {\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n      ...PlayIntentRow_availabilityDay\n    }\n    events(first: 100, _filters: {viewer: true}) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: $activityId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) @skip(if: $byLocation) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  locationAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, locationId: $locationId) @include(if: $byLocation) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n"
+    "text": "query PkEventsAvailabilityDayRefetchQuery(\n  $activityId: ID = \"Activity_414afb54-03e9-11ef-bcea-2b738de6ea61\"\n  $byLocation: Boolean = false\n  $clubSlug: String\n  $fromDate: String!\n  $location: LocationInput\n  $locationId: ID = \"\"\n  $toDate: String!\n) {\n  ...PkEventsAvailabilityDay_query_12mbdw\n}\n\nfragment PkEventsAvailabilityDay_query_12mbdw on Query {\n  viewer {\n    user {\n      id\n    }\n    availability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate) {\n      id\n      localDate\n      intervals {\n        startHour\n        endHour\n      }\n      ...PlayIntentRow_availabilityDay\n    }\n    events(first: 100, _filters: {viewer: true}) {\n      edges {\n        node {\n          id\n          title\n          startDate\n          endDate\n          timezone\n        }\n      }\n    }\n  }\n  availabilityUsersForDateRange(fromDate: $fromDate, toDate: $toDate, location: $location, scope: {activityId: $activityId, clubSlug: $clubSlug}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n  locationsAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, location: $location) @skip(if: $byLocation) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n  locationAvailability(activityId: $activityId, fromDate: $fromDate, toDate: $toDate, locationId: $locationId) @include(if: $byLocation) {\n    id\n    localDate\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n  }\n}\n\nfragment PlayIntentRow_availabilityDay on AvailabilityDay {\n  id\n  localDate\n  intervals {\n    startHour\n    endHour\n  }\n}\n"
   }
 };
 })());

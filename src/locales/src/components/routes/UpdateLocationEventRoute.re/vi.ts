@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YxgkvU\":\"Không thể tải địa điểm đó\",\"ud55cp\":\"Không thể lưu vị trí đó\",\"OL5eOg\":\"Tìm kiếm vị trí hiện không khả dụng\",\"uFOTcQ\":\"Tìm sân hoặc địa chỉ\"}");

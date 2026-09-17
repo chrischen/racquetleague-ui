@@ -8,6 +8,7 @@ import * as LucideReact from "lucide-react";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
 import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
+import * as CreateEventLink from "../shared/CreateEventLink.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -39,12 +40,12 @@ var ViewerFragment = {
 var defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61";
 
 function AddEventButton(props) {
-  var createBasePath = props.createBasePath;
   var __context = props.context;
   var context = __context !== undefined ? __context : ({});
   var viewerData = use(props.viewer);
   var isLoggedIn = Core__Option.isSome(viewerData.user);
   var navigate = ReactRouterDom.useNavigate();
+  var createHref = CreateEventLink.useHref();
   var profileGate = UseProfileGate.use(props.gateQuery, "Availability", undefined);
   var match = React.useState(function () {
         return false;
@@ -54,25 +55,30 @@ function AddEventButton(props) {
   var match$1 = UseSetAvailabilityDay.use();
   var commitSetAvailability = match$1[0];
   var env = RescriptRelay.useEnvironmentFromContext();
-  var buildCreateUrl = function (localDate, startHour, _unusedOpt, param) {
-    var searchParamsObj = {};
-    Core__Option.map(context.clubId, (function (clubId) {
-            searchParamsObj["clubId"] = clubId;
+  var contextParams = function () {
+    var params = [];
+    Core__Option.forEach(context.clubId, (function (v) {
+            params.push([
+                  "clubId",
+                  v
+                ]);
           }));
-    Core__Option.map(context.locationId, (function (locationId) {
-            searchParamsObj["locationId"] = locationId;
+    Core__Option.forEach(context.locationId, (function (v) {
+            params.push([
+                  "locationId",
+                  v
+                ]);
           }));
-    Core__Option.map(context.activitySlug, (function (activitySlug) {
-            searchParamsObj["activitySlug"] = activitySlug;
+    Core__Option.forEach(context.activitySlug, (function (v) {
+            params.push([
+                  "activitySlug",
+                  v
+                ]);
           }));
-    Core__Option.map(localDate, (function (d) {
-            searchParamsObj["date"] = d;
-          }));
-    Core__Option.map(startHour, (function (h) {
-            searchParamsObj["startHour"] = h.toString();
-          }));
-    var base = Core__Option.getOr(createBasePath, "/events/create");
-    return base + "?" + ReactRouterDom.createSearchParams(searchParamsObj).toString();
+    return params;
+  };
+  var buildCreateUrl = function () {
+    return createHref(contextParams());
   };
   var handleButtonClick = function (param) {
     if (isLoggedIn) {
@@ -80,28 +86,26 @@ function AddEventButton(props) {
                   return true;
                 });
     }
-    var targetUrl = buildCreateUrl(undefined, undefined, undefined, undefined);
+    var targetUrl = buildCreateUrl();
     var loginSearchParamsObj = {};
     loginSearchParamsObj["return"] = targetUrl;
     navigate("/oauth-login?" + ReactRouterDom.createSearchParams(loginSearchParamsObj).toString(), undefined);
   };
   var handleCreateEvent = function (localDate, intent) {
-    var searchParamsObj = {};
-    Core__Option.map(context.clubId, (function (clubId) {
-            searchParamsObj["clubId"] = clubId;
-          }));
-    Core__Option.map(context.locationId, (function (locationId) {
-            searchParamsObj["locationId"] = locationId;
-          }));
-    Core__Option.map(context.activitySlug, (function (activitySlug) {
-            searchParamsObj["activitySlug"] = activitySlug;
-          }));
-    searchParamsObj["date"] = localDate;
-    searchParamsObj["startHour"] = (intent.start | 0).toString();
-    searchParamsObj["endHour"] = (intent.end | 0).toString();
-    var base = Core__Option.getOr(createBasePath, "/events/create");
-    var url = base + "?" + ReactRouterDom.createSearchParams(searchParamsObj).toString();
-    navigate(url, undefined);
+    navigate(createHref(contextParams().concat([
+                  [
+                    "date",
+                    localDate
+                  ],
+                  [
+                    "startHour",
+                    intent.start.toString()
+                  ],
+                  [
+                    "endHour",
+                    intent.end.toString()
+                  ]
+                ])), undefined);
   };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {

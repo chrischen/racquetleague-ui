@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "{0} 個賽事無法建立（可能已存在）。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "已建立 {0} 個活動！"
 
@@ -37,15 +37,25 @@ msgstr "詢問"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "下個月每週四晚上7-9點在赤羽小學打羽毛球。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "無法載入該地點"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "無法儲存該位置"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "無法建立該賽事，請重試。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "無法確定活動類型，請重試。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "找不到此地點，請選擇："
 
@@ -57,20 +67,20 @@ msgstr "建立所有活動"
 msgid "Create This Event"
 msgstr "建立此活動"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "建立中..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "描述："
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "活動詳情"
 
@@ -82,8 +92,12 @@ msgstr "我可以為您建立活動。只需告訴我您的時間安排。"
 msgid "I couldn't process that request. Please try again."
 msgstr "無法處理該請求，請重試。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "地點搜尋目前無法使用"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "地點："
 
@@ -103,7 +117,11 @@ msgstr "處理中..."
 msgid "Reply"
 msgstr "回覆"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "搜尋場地或地址"
+
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "建議的活動"
 
@@ -115,7 +133,7 @@ msgstr ""
 "告訴我您活動的時間和地點，或其他任何詳細資訊。您還可以告訴我需要包含的詳細資"
 "訊，我甚至可以新增翻譯。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "標題："
 

@@ -47,6 +47,7 @@ module Types = {
   }
   type fragment = {
     activity: option<fragment_activity>,
+    chargesEnabled: bool,
     club: option<fragment_club>,
     endDate: option<Util.Datetime.t>,
     @live id: string,
@@ -217,6 +218,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "price",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "chargesEnabled",
       "storageKey": null
     },
     {

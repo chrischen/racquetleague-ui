@@ -33,11 +33,11 @@ msgstr "1 · 날짜"
 msgid "2 · Time"
 msgstr "2 · 시간"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · 종류"
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr "이벤트 추가"
 
@@ -82,7 +82,7 @@ msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "계속"
 
@@ -93,7 +93,7 @@ msgstr "계속"
 msgid "Could not save your profile. Please try again."
 msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -141,11 +141,11 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "이벤트 주최"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
 
@@ -173,7 +173,7 @@ msgstr "레벨"
 msgid "Male"
 msgstr "남성"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "가능 표시"
 
@@ -189,7 +189,7 @@ msgstr "새 계획"
 msgid "Not now"
 msgstr "나중에"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "플레이어 가용성 히트맵"
 
@@ -197,11 +197,11 @@ msgstr "플레이어 가용성 히트맵"
 msgid "Pro"
 msgstr "프로"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "제거"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "저장"
 
@@ -209,7 +209,7 @@ msgstr "저장"
 msgid "Save profile"
 msgstr "프로필 저장"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
 
@@ -221,11 +221,11 @@ msgstr ""
 "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
 "주세요."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."

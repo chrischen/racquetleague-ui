@@ -49,7 +49,9 @@ module Query = %relay(`
       name
       description
       shareLink
-      viewerMembership { status isAdmin }
+      chargesEnabled
+      exemptMembersFromPayment
+      viewerMembership { status isAdmin isOwner }
       stats {
         totalMembers
         activeParticipants
@@ -114,6 +116,20 @@ module RemoveUserFromClubMutation = %relay(`
   }
 `)
 
+// Owner-only: the club's payment settings. Selecting the field back lets Relay
+// update the club record in place.
+module UpdateClubPaymentsMutation = %relay(`
+  mutation ClubPageUpdateClubPaymentsMutation($input: UpdateClubInput!) {
+    updateClub(input: $input) {
+      errors { message }
+      club {
+        id
+        exemptMembersFromPayment
+      }
+    }
+  }
+`)
+
 type loaderData = ClubPageQuery_graphql.queryRef
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<loaderData> = "useLoaderData"
@@ -129,6 +145,9 @@ let dangerAction = "inline-flex items-center gap-1.5 rounded-lg border border-re
 let statusChip = "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-semibold text-gray-600 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-300"
 
 let cardClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#1e1f23]"
+
+// Same control as the event form's checkboxes.
+let checkboxClass = "mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]"
 
 let sectionLink = "text-xs font-semibold text-[#4d6f12] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d]"
 
@@ -259,7 +278,9 @@ module EventRow = {
       <div className="min-w-0">
         <h4
           className={"truncate text-sm font-semibold " ++ (
-            canceled ? "text-gray-400 line-through dark:text-gray-500" : "text-gray-900 dark:text-gray-100"
+            canceled
+              ? "text-gray-400 line-through dark:text-gray-500"
+              : "text-gray-900 dark:text-gray-100"
           )}>
           {event.title->Option.getOr("")->React.string}
         </h4>
@@ -285,13 +306,12 @@ module EventRow = {
             </p>
           | None => React.null
           }}
-          <p
-            className="mt-0.5 inline-flex items-center gap-1 font-mono text-[9px] text-gray-400">
+          <p className="mt-0.5 inline-flex items-center gap-1 font-mono text-[9px] text-gray-400">
             <Lucide.Users size=10 \"aria-hidden"="true" />
             {(confirmed->Int.toString ++
-            event.maxRsvps
-            ->Option.map(max => "/" ++ max->Int.toString)
-            ->Option.getOr(""))->React.string}
+              event.maxRsvps
+              ->Option.map(max => "/" ++ max->Int.toString)
+              ->Option.getOr(""))->React.string}
           </p>
         </div>
         <span
@@ -355,21 +375,21 @@ module EventList = {
       events,
     )
 
-    let groups =
-      EventsListUtils.sortBucketKeys(bucketed->Js.Dict.keys)->Array.filterMap(key =>
-        bucketed
-        ->Js.Dict.get(key)
-        ->Option.map(bucketEvents => (
-          key,
-          bucketEvents->Array.toSorted((a, b) =>
+    let groups = EventsListUtils.sortBucketKeys(bucketed->Js.Dict.keys)->Array.filterMap(key =>
+      bucketed
+      ->Js.Dict.get(key)
+      ->Option.map(bucketEvents => (
+        key,
+        bucketEvents->Array.toSorted(
+          (a, b) =>
             switch (a.startDate, b.startDate) {
             | (Some(a), Some(b)) =>
               a->Util.Datetime.toDate->Js.Date.getTime -. b->Util.Datetime.toDate->Js.Date.getTime
             | _ => 0.
-            }
-          ),
-        ))
-      )
+            },
+        ),
+      ))
+    )
 
     if groups->Array.length == 0 {
       <div className=emptyState>
@@ -386,8 +406,7 @@ module EventList = {
         ->Array.mapWithIndex(((key, bucketEvents), index) => {
           let (label, dateDetails) = bucketMeta(key)
           <section
-            key
-            className={index > 0 ? "border-t border-gray-200 dark:border-[#3a3b40]" : ""}>
+            key className={index > 0 ? "border-t border-gray-200 dark:border-[#3a3b40]" : ""}>
             <header
               className="flex items-baseline justify-between bg-gray-50 px-4 py-2 dark:bg-[#222326]">
               <h3 className="text-xs font-semibold text-gray-900 dark:text-gray-100">
@@ -442,8 +461,7 @@ module TopPlayers = {
                 ->Option.flatMap(user => user.lineUsername)
                 ->Option.orElse(user->Option.flatMap(user => user.fullName))
                 ->Option.getOr("Unknown")
-              let initials =
-                displayName->String.slice(~start=0, ~end=2)->String.toUpperCase
+              let initials = displayName->String.slice(~start=0, ~end=2)->String.toUpperCase
               let dupr =
                 player.mu
                 ->Option.map(mu => mu->Rating.guessDupr->Float.toFixed(~digits=2))
@@ -481,7 +499,8 @@ module TopPlayers = {
                       {("DUPR " ++ dupr)->React.string}
                     </p>
                   </div>
-                  <span className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  <span
+                    className="font-mono text-sm font-semibold text-gray-900 dark:text-gray-100">
                     {ordinal->React.string}
                   </span>
                 </Link>
@@ -495,12 +514,29 @@ module TopPlayers = {
 
 @react.component
 let make = () => {
+  let createHref = CreateEventLink.useHref()
   open Lingui.Util
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
   let leaderboardData = ClubLeaderboardFragment.use(query.fragmentRefs)
   let (commitJoinClub, isJoinInFlight) = JoinClubMutation.use()
   let (commitRemoveUser, isRemoveInFlight) = RemoveUserFromClubMutation.use()
+  let (commitUpdateClubPayments, isUpdateClubPaymentsInFlight) = UpdateClubPaymentsMutation.use()
+  // The last failure from the Payments card, shown under the toggle.
+  let (paymentsError, setPaymentsError) = React.useState(() => None)
+
+  let handleToggleExemptMembers = (clubId: string, next: bool) => {
+    setPaymentsError(_ => None)
+    commitUpdateClubPayments(
+      ~variables={input: {clubId, exemptMembersFromPayment: next}},
+      ~onCompleted=({updateClub}, _errors) => {
+        switch updateClub.errors {
+        | None | Some([]) => ()
+        | Some(errors) => setPaymentsError(_ => errors->Array.get(0)->Option.map(e => e.message))
+        }
+      },
+    )->RescriptRelay.Disposable.ignore
+  }
 
   let handleJoinClub = () => {
     query.club
@@ -554,6 +590,7 @@ let make = () => {
       ->Option.map(club => {
         let clubName = club.name->Option.getOr("?")
         let slug = club.slug->Option.getOr("")
+        let clubPrefill = CreateEventLink.useClubPrefillParams(~slug=club.slug)
         let initials =
           clubName
           ->String.split(" ")
@@ -565,6 +602,8 @@ let make = () => {
         let leaguePath = "/league/pickleball/" ++ slug
         let viewerIsAdmin =
           club.viewerMembership->Option.flatMap(m => m.isAdmin)->Option.getOr(false)
+        let viewerIsOwner =
+          club.viewerMembership->Option.flatMap(m => m.isOwner)->Option.getOr(false)
         let events =
           club.events.edges
           ->Option.getOr([])
@@ -595,7 +634,8 @@ let make = () => {
                       {clubName->React.string}
                     </h1>
                   </div>
-                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                  <p
+                    className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300">
                     {club.description->Option.getOr("")->React.string}
                   </p>
                   <p className="mt-2 font-mono text-[10px] text-gray-400">
@@ -669,13 +709,71 @@ let make = () => {
             | Some(stats) => <StatsGrid stats />
             | None => React.null
             }}
+            // Payments: owner-only. Fees for this club's events always charge to
+            // the owner's connected Stripe account; the one setting is whether
+            // members are exempt. Without a connected account the club is in
+            // platform mode, where members are exempt anyway, so the toggle
+            // shows that state read-only.
+            {viewerIsOwner
+              ? <section className={cardClass ++ " p-4"}>
+                  <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                    {t`Payments`}
+                  </h2>
+                  <label
+                    className={club.chargesEnabled
+                      ? "mt-3 flex cursor-pointer items-start gap-3"
+                      : "mt-3 flex cursor-not-allowed items-start gap-3 opacity-70"}>
+                    <input
+                      id="exemptMembersFromPayment"
+                      type_="checkbox"
+                      checked={club.chargesEnabled ? club.exemptMembersFromPayment : true}
+                      disabled={!club.chargesEnabled || isUpdateClubPaymentsInFlight}
+                      onChange={_ =>
+                        handleToggleExemptMembers(club.id, !club.exemptMembersFromPayment)}
+                      className=checkboxClass
+                    />
+                    <span className="min-w-0">
+                      <span
+                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        {t`Exempt club members from event fees`}
+                      </span>
+                      <span
+                        className="mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                        {club.chargesEnabled
+                          ? t`Members join priced events without saving a card. Everyone else pays to your Stripe account as usual.`
+                          : t`Your club has no connected Stripe account, so members always join without paying and other players' cards are only kept on file. Connect Stripe in your profile settings to charge event fees.`}
+                      </span>
+                    </span>
+                  </label>
+                  {switch paymentsError {
+                  | Some(message) =>
+                    <p className="mt-2 text-xs text-red-500 dark:text-red-400">
+                      {message->React.string}
+                    </p>
+                  | None => React.null
+                  }}
+                </section>
+              : React.null}
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(280px,0.8fr)]">
               <section>
-                <div className="mb-3 flex items-center justify-between">
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                   <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
                     {t`Upcoming Events`}
                   </h2>
-                  <Link to="./events" className=sectionLink> {t`Full club schedule`} </Link>
+                  <div className="flex items-center gap-3">
+                    <Link to="./events" className=sectionLink> {t`Full club schedule`} </Link>
+                    // Only admins can create club events (the create page's club
+                    // picker offers admin clubs alone), so the button is gated
+                    // like "Manage members" and just links there with the club set.
+                    {viewerIsAdmin
+                      ? <Link
+                          to={createHref([("clubId", club.id)]->Array.concat(clubPrefill))}
+                          className=primaryAction>
+                          <Lucide.CalendarPlus size=13 \"aria-hidden"="true" />
+                          {t`Add Court`}
+                        </Link>
+                      : React.null}
+                  </div>
                 </div>
                 <EventList events />
               </section>

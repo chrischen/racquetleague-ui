@@ -20,6 +20,11 @@ module EventQuery = %relay(`
         }
         ...PkRSVPSection_user @arguments(eventId: $eventId)
       }
+      # The card on file, saved once and offered as a one-click join.
+      savedCard {
+        brand
+        last4
+      }
     }
     event(id: $eventId) {
       __id
@@ -43,10 +48,12 @@ module EventQuery = %relay(`
         name
         slug
       }
+      chargesEnabled
       club {
         id
         name
         slug
+        exemptMembersFromPayment
         viewerMembership {
           status
         }
@@ -67,7 +74,6 @@ module EventQuery = %relay(`
         id
         lineUsername
         picture
-        stripeChargesEnabled
       }
       rsvps(first: 100) @connection(key: "PkRSVPSection_event_rsvps") {
         edges {
@@ -108,32 +114,38 @@ module ChargePaymentMutation = %relay(`
   }
 `)
 
-module AuthorizePlatformPaymentMutation = %relay(`
-  mutation PkEventPageAuthorizePlatformPaymentMutation($rsvpId: ID!) {
-    authorizePlatformRsvpPayment(rsvpId: $rsvpId) {
-      clientSecret
-      errors { message }
-    }
-  }
-`)
-
-module AuthorizeConnectedPaymentMutation = %relay(`
-  mutation PkEventPageAuthorizeConnectedPaymentMutation($rsvpId: ID!) {
-    authorizeRsvpPayment(rsvpId: $rsvpId) {
+// Saved-card flow: the player puts a card on file once (a Stripe SetupIntent
+// on the platform account) and every organizer charges it after their event,
+// by cloning it onto their connected account.
+// The payment is selected too: when Stripe already completed a setup we never
+// heard about, the server records it here and answers with the saved payment
+// and no client secret.
+module SetupPaymentMethodMutation = %relay(`
+  mutation PkEventPageSetupPaymentMethodMutation($rsvpId: ID!) {
+    setupRsvpPaymentMethod(rsvpId: $rsvpId) {
       clientSecret
       connectedAccountId
+      payment {
+        id
+        status
+        chargeable
+        ...PaymentIndicator_payment
+      }
       errors { message }
     }
   }
 `)
 
-module ConfirmPaymentMutation = %relay(`
-  mutation PkEventPageConfirmPaymentMutation($rsvpId: ID!, $paymentIntentId: String!) {
-    confirmRsvpPayment(rsvpId: $rsvpId, paymentIntentId: $paymentIntentId) {
+// One click for a player whose card is already on file: no Stripe form.
+module UseSavedPaymentMethodMutation = %relay(`
+  mutation PkEventPageUseSavedPaymentMethodMutation($rsvpId: ID!) {
+    useSavedPaymentMethod(rsvpId: $rsvpId) {
       rsvp {
         id
         payment {
           id
+          status
+          chargeable
           ...PaymentIndicator_payment
         }
         listType
@@ -143,16 +155,42 @@ module ConfirmPaymentMutation = %relay(`
   }
 `)
 
-module StripePaymentEmbed = {
-  @module("../organisms/StripePaymentEmbed") @react.component
-  external make: (
-    ~clientSecret: string,
-    ~stripeAccountId: string,
-    ~onSuccess: string => unit,
-    ~onClose: unit => unit,
-    ~isAuthorization: bool=?,
-  ) => React.element = "StripePaymentEmbed"
-}
+module ConfirmPaymentMethodMutation = %relay(`
+  mutation PkEventPageConfirmPaymentMethodMutation($rsvpId: ID!, $setupIntentId: String!) {
+    confirmRsvpPaymentMethod(rsvpId: $rsvpId, setupIntentId: $setupIntentId) {
+      rsvp {
+        id
+        payment {
+          id
+          status
+          chargeable
+          ...PaymentIndicator_payment
+        }
+        listType
+      }
+      errors { message }
+    }
+  }
+`)
+
+// Immediate-charge flow (chargeRsvpPayment): pays now instead.
+module ConfirmPaymentMutation = %relay(`
+  mutation PkEventPageConfirmPaymentMutation($rsvpId: ID!, $paymentIntentId: String!) {
+    confirmRsvpPayment(rsvpId: $rsvpId, paymentIntentId: $paymentIntentId) {
+      rsvp {
+        id
+        payment {
+          id
+          status
+          chargeable
+          ...PaymentIndicator_payment
+        }
+        listType
+      }
+      errors { message }
+    }
+  }
+`)
 
 module EventCancelMutation = %relay(`
   mutation PkEventPageCancelMutation($eventId: ID!) {
@@ -560,8 +598,11 @@ module Inner = {
     let (cancelEvent, canceling) = EventCancelMutation.use()
     let (uncancelEvent, uncanceling) = EventUncancelMutation.use()
     let (chargePayment, charging) = ChargePaymentMutation.use()
-    let (authorizePlatformPayment, authorizingPlatform) = AuthorizePlatformPaymentMutation.use()
-    let (authorizeConnectedPayment, authorizingConnected) = AuthorizeConnectedPaymentMutation.use()
+    let (setupPaymentMethod, settingUp) = SetupPaymentMethodMutation.use()
+    let (useSavedPaymentMethod, usingSavedCard) = UseSavedPaymentMethodMutation.use()
+    // What the last one-click join could not do, shown under the footer button.
+    let (savedCardError, setSavedCardError) = React.useState(() => None)
+    let (confirmPaymentMethod, _confirmingMethod) = ConfirmPaymentMethodMutation.use()
     let (confirmPayment, _confirming) = ConfirmPaymentMutation.use()
     let (paymentClientSecret, setPaymentClientSecret) = React.useState(() => None)
     let (updateEvent, _updatingEvent) = UpdateEventMutation.use()
@@ -646,19 +687,27 @@ module Inner = {
     | Some({listType: None | Some(0)}) => true
     | _ => false
     }
+    // A hold (0), a charge (1) or a card on file (5) secures the spot. A
+    // declined charge (3) does not: the player is asked for a card again.
     let viewerHasPayment = switch viewerRsvpNode {
-    | Some({payment: Some({status: 0 | 1})}) => true
+    | Some({payment: Some({status: 0 | 1 | 5})}) => true
     | _ => false
     }
-    let ownerHasConnectedAccount =
-      event.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)
+    // Whether fees are charged to a connected Stripe account: the club
+    // owner's for a club event, the creator's otherwise. False = platform
+    // mode (cards are kept on file only).
+    let chargesEnabled = event.chargesEnabled
     let viewerIsClubMember = switch event.club->Option.flatMap(c => c.viewerMembership) {
     | Some({status: Some(Active)}) => true
     | _ => false
     }
-    // Platform payments (owner has no connected account) skip the deposit
-    // authorization gate for members of the event's club
-    let requiresPaymentGate = ownerHasConnectedAccount || !viewerIsClubMember
+    let clubExemptsMembers =
+      event.club->Option.map(c => c.exemptMembersFromPayment)->Option.getOr(false)
+    // Mirrors the server's exemption: an active member skips the saved-card
+    // gate in platform mode, or when the club exempts its members; everyone
+    // else saves a card.
+    let viewerIsExempt = viewerIsClubMember && (!chargesEnabled || clubExemptsMembers)
+    let requiresPaymentGate = !viewerIsExempt
     let isUnpaid =
       isJoined && isPaidEvent && !viewerIsInGoingList && !viewerHasPayment && requiresPaymentGate
     let viewerJoinTime = viewerRsvpNode->Option.flatMap(n => n.joinTime)
@@ -667,7 +716,17 @@ module Inner = {
     | None => false
     }
     let eventCurrency = allRsvpNodes->Array.findMap(n => n.payment->Option.map(p => p.currency))
-    let isAuthorization = true
+    // The saved-card flow: the player puts a card on file and the organizer
+    // charges it after the event. false would charge immediately instead
+    // (chargeRsvpPayment), for payment methods that cannot be saved.
+    let savedCardFlow = true
+    let paymentMode = savedCardFlow ? StripePaymentEmbed.Setup : StripePaymentEmbed.Payment
+    // The fee the organizer will charge, as the sticky footer formats it.
+    let amountLabel = {
+      let currencyStr =
+        eventCurrency->Option.map(PaymentIndicator.getCurrencySymbol)->Option.getOr("¥")
+      event.price->Option.map(p => currencyStr ++ Int.toString(p))
+    }
 
     // Joined viewers get the activity feed in the sticky footer. When the
     // footer isn't rendered (cancelled or shadow events, logged-out viewers)
@@ -851,6 +910,24 @@ module Inner = {
           isWaitlisted={isViewerWaitlisted}
           isPending={isViewerPending}
           isUnpaid
+          savedCard=?{viewer
+          ->Option.flatMap(v => v.savedCard)
+          ->Option.map(c => {EventStickyFooter.brand: c.brand, last4: c.last4})}
+          usingSavedCard
+          ?savedCardError
+          onUseSavedCard={() =>
+            viewerRsvpNode->Option.forEach(rsvp => {
+              setSavedCardError(_ => None)
+              useSavedPaymentMethod(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
+                switch response.useSavedPaymentMethod.errors {
+                | Some(errors) =>
+                  errors
+                  ->Array.get(0)
+                  ->Option.forEach(e => setSavedCardError(_ => Some(e.message)))
+                | None => ()
+                }
+              )->RescriptRelay.Disposable.ignore
+            })}
           viewerJoinTime
           isPaidEvent
           isFull
@@ -859,51 +936,35 @@ module Inner = {
           maxRsvps
           tz
           queryFragmentRefs
-          charging={charging || authorizingPlatform || authorizingConnected}
-          isAuthorization
+          charging={charging || settingUp}
+          savedCardFlow
           fullWidth=asPage
           chat={chatInFooter
             ? <PkEventMessages.FooterChat queryRef=queryFragmentRefs eventId=event.id />
             : React.null}
           onPayClick={() =>
             viewerRsvpNode->Option.forEach(rsvp =>
-              if isAuthorization {
-                if ownerHasConnectedAccount {
-                  authorizeConnectedPayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(
-                    response,
-                    _,
-                  ) =>
-                    switch response.authorizeRsvpPayment.clientSecret {
-                    | Some(secret) =>
-                      setPaymentClientSecret(
-                        _ => Some((
-                          secret,
-                          response.authorizeRsvpPayment.connectedAccountId->Option.getOr(""),
-                        )),
-                      )
-                    | None => ()
-                    }
-                  )->RescriptRelay.Disposable.ignore
-                } else {
-                  authorizePlatformPayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(
-                    response,
-                    _,
-                  ) =>
-                    switch response.authorizePlatformRsvpPayment.clientSecret {
-                    | Some(secret) => setPaymentClientSecret(_ => Some((secret, "")))
-                    | None => ()
-                    }
-                  )->RescriptRelay.Disposable.ignore
-                }
+              if savedCardFlow {
+                // Always on the platform account: connectedAccountId is null.
+                setupPaymentMethod(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
+                  switch response.setupRsvpPaymentMethod.clientSecret {
+                  | Some(secret) =>
+                    setPaymentClientSecret(
+                      _ => Some((secret, response.setupRsvpPaymentMethod.connectedAccountId)),
+                    )
+                  | None =>
+                    // Nothing to show: the server recorded a setup Stripe had
+                    // already completed (or the row was settled). The RSVP's
+                    // list type changed server-side, so refetch the page.
+                    onRefresh->Option.forEach(refresh => refresh()->ignore)
+                  }
+                )->RescriptRelay.Disposable.ignore
               } else {
                 chargePayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
                   switch response.chargeRsvpPayment.clientSecret {
                   | Some(secret) =>
                     setPaymentClientSecret(
-                      _ => Some((
-                        secret,
-                        response.chargeRsvpPayment.connectedAccountId->Option.getOr(""),
-                      )),
+                      _ => Some((secret, response.chargeRsvpPayment.connectedAccountId)),
                     )
                   | None => ()
                   }
@@ -915,14 +976,21 @@ module Inner = {
         | Some((secret, accountId)) =>
           <StripePaymentEmbed
             clientSecret=secret
-            stripeAccountId=accountId
-            isAuthorization={isAuthorization}
-            onSuccess={paymentIntentId => {
+            stripeAccountId=?accountId
+            mode=paymentMode
+            ?amountLabel
+            onSuccess={intentId => {
               setPaymentClientSecret(_ => None)
               viewerRsvpNode->Option.forEach(rsvp =>
-                confirmPayment(
-                  ~variables={rsvpId: rsvp.id, paymentIntentId},
-                )->RescriptRelay.Disposable.ignore
+                if savedCardFlow {
+                  confirmPaymentMethod(
+                    ~variables={rsvpId: rsvp.id, setupIntentId: intentId},
+                  )->RescriptRelay.Disposable.ignore
+                } else {
+                  confirmPayment(
+                    ~variables={rsvpId: rsvp.id, paymentIntentId: intentId},
+                  )->RescriptRelay.Disposable.ignore
+                }
               )
             }}
             onClose={() => setPaymentClientSecret(_ => None)}

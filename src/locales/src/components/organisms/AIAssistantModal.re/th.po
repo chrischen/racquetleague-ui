@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "ไม่สามารถสร้าง {0} กิจกรรมได้ (อาจมีอยู่แล้ว)"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
@@ -37,15 +37,25 @@ msgstr "ถาม"
 msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 msgstr "แบดมินตันทุกวันพฤหัสบดีเดือนหน้า ที่โรงเรียน Akabane 19:00-21:00"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "ไม่สามารถโหลดสถานที่นั้นได้"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "ไม่สามารถสร้างกิจกรรมนั้นได้ กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "ไม่สามารถระบุกิจกรรมได้ กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
 
@@ -57,20 +67,20 @@ msgstr "สร้างกิจกรรมทั้งหมด"
 msgid "Create This Event"
 msgstr "สร้างกิจกรรมนี้"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "กำลังสร้าง..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
@@ -82,8 +92,12 @@ msgstr "ฉันสามารถสร้างกิจกรรมให้
 msgid "I couldn't process that request. Please try again."
 msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "สถานที่:"
 
@@ -103,7 +117,11 @@ msgstr "กำลังประมวลผล..."
 msgid "Reply"
 msgstr "ตอบกลับ"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "ค้นหาสนามหรือที่อยู่"
+
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
@@ -115,7 +133,7 @@ msgstr ""
 "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
 "คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "ชื่อ:"
 

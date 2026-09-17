@@ -17,10 +17,6 @@ msgstr ""
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:162
-msgid "Authorize deposit"
-msgstr "デポジットを承認する"
-
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
 msgstr "初心者"
@@ -37,36 +33,48 @@ msgstr "自己紹介は必須です"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:198
+#: src/components/organisms/EventStickyFooter.re.mjs:223
 msgid "Cancel RSVP"
 msgstr "参加をキャンセルする"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:293
-#: src/components/organisms/EventStickyFooter.re.mjs:404
+#: src/components/organisms/EventStickyFooter.re.mjs:343
+#: src/components/organisms/EventStickyFooter.re.mjs:454
 msgid "Cancellation deadline"
 msgstr "キャンセル期限"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:412
+#: src/components/organisms/EventStickyFooter.re.mjs:462
 msgid "Cancellation deadline passed."
 msgstr "キャンセル期限を過ぎています。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:301
+#: src/components/organisms/EventStickyFooter.re.mjs:351
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr ""
 "キャンセル期限を過ぎています。キャンセルするには、このページで主催者に連絡し"
 "てください。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:198
+#: src/components/organisms/EventStickyFooter.re.mjs:223
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:429
-#: src/components/organisms/EventStickyFooter.re.mjs:537
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid ""
+"Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
+"the fee after the event."
+msgstr ""
+"登録済みのカード: {cardLabel}。今は請求されません。イベント後に主催者が料金を"
+"請求します。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:212
+msgid "Card required to confirm your spot"
+msgstr "参加確定にはカードの登録が必要です"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:479
+#: src/components/organisms/EventStickyFooter.re.mjs:587
 msgid "Claim spot"
 msgstr "参加する"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:425
+#: src/components/organisms/EventStickyFooter.re.mjs:475
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
@@ -99,10 +107,6 @@ msgstr "確認"
 #: src/components/organisms/ProfileModal.re.mjs:296
 msgid "Could not save your profile. Please try again."
 msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
-
-#: src/components/organisms/EventStickyFooter.re.mjs:180
-msgid "Deposit required to confirm your spot"
-msgstr "スポットを確定するにはデポジットが必要です"
 
 #: src/components/organisms/ProfileModal.re.mjs:477
 msgid "Display name"
@@ -152,28 +156,36 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:537
+#: src/components/organisms/EventStickyFooter.re.mjs:587
 msgid "Join waitlist"
 msgstr "キャンセル待ちに登録"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:422
+#: src/components/organisms/EventStickyFooter.re.mjs:472
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Join with saved card"
+msgstr "保存したカードで参加"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:188
+msgid "Joining..."
+msgstr "参加中..."
 
 #: src/components/organisms/ProfileModal.re.mjs:309
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:376
-#: src/components/organisms/EventStickyFooter.re.mjs:488
+#: src/components/organisms/EventStickyFooter.re.mjs:426
+#: src/components/organisms/EventStickyFooter.re.mjs:538
 msgid "Leave event"
 msgstr "イベントを退出"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:376
+#: src/components/organisms/EventStickyFooter.re.mjs:426
 msgid "Leave waitlist"
 msgstr "キャンセル待ちを取り消す"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:375
+#: src/components/organisms/EventStickyFooter.re.mjs:425
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
@@ -181,7 +193,8 @@ msgstr "キャンセル中..."
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:160
+#: src/components/organisms/EventStickyFooter.re.mjs:192
+#: src/components/organisms/EventStickyFooter.re.mjs:233
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -193,25 +206,29 @@ msgstr "男性"
 msgid "Not now"
 msgstr "後で"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:357
+#: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "On waitlist"
 msgstr "キャンセル待ち中"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:168
+#: src/components/organisms/EventStickyFooter.re.mjs:200
 msgid "Pay {priceStr}"
 msgstr "{priceStr} を支払う"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:180
+#: src/components/organisms/EventStickyFooter.re.mjs:212
 msgid "Payment required to confirm your spot"
 msgstr "スポットを確定するには支払いが必要です"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:254
+#: src/components/organisms/EventStickyFooter.re.mjs:304
 msgid "Pending approval"
 msgstr "承認待ち"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "プロ"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Save card"
+msgstr "カードを保存"
 
 #: src/components/organisms/ProfileModal.re.mjs:579
 msgid "Save profile"
@@ -225,7 +242,7 @@ msgstr ""
 "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
 "ください。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:489
+#: src/components/organisms/EventStickyFooter.re.mjs:539
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -233,31 +250,35 @@ msgstr ""
 "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
 "す。よろしいですか？"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:189
-msgid ""
-"This is a deposit hold only — payment is due to the organizer at the event. "
-"The hold will be released after the event."
-msgstr ""
-"これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行ってくだ"
-"さい。仮押さえはイベント終了後に解除されます。"
+#: src/components/organisms/EventStickyFooter.re.mjs:233
+msgid "Use a different card"
+msgstr "別のカードを使用"
 
 #: src/components/organisms/ProfileModal.re.mjs:303
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:268
+#: src/components/organisms/EventStickyFooter.re.mjs:318
 msgid "Withdraw RSVP"
 msgstr "参加登録を取り消す"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:268
+#: src/components/organisms/EventStickyFooter.re.mjs:318
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:357
+#: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "You're in"
 msgstr "参加済み"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:258
+#: src/components/organisms/EventStickyFooter.re.mjs:173
+msgid ""
+"Your card is saved now, not charged — the organizer charges the fee after "
+"the event."
+msgstr ""
+"カードは保存されるだけで、請求はされません。主催者がイベント後に参加費を請求"
+"します。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:308
 msgid "Your RSVP is awaiting admin approval"
 msgstr "あなたの参加登録は管理者の承認待ちです"
 
@@ -267,13 +288,25 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ "event."
 #~ msgstr "カードに少額の仮押さえが行われ、イベント後に全額返金されます。"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:162
+#~ msgid "Authorize deposit"
+#~ msgstr "デポジットを承認する"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 #~ msgid "Complete your profile"
 #~ msgstr "プロフィールを完成させる"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:180
+#~ msgid "Deposit required to confirm your spot"
+#~ msgstr "スポットを確定するにはデポジットが必要です"
+
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "メールアドレスは変更できません"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+#~ msgid "Please save your card again"
+#~ msgstr "カードをもう一度保存してください"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 #~ msgid "Prefer not to say"
@@ -282,6 +315,22 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/ProfileModal.re.mjs:429
 #~ msgid "Save & Join Event"
 #~ msgstr "保存して参加する"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+#~ msgid ""
+#~ "The organizer now takes card payments directly. Your card was saved "
+#~ "before that, so please save it again — your spot is kept."
+#~ msgstr ""
+#~ "主催者がカード決済を直接受け付けるようになりました。お使いのカードはそれ以"
+#~ "前に保存されたため、もう一度保存してください。参加枠は確保されています。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:189
+#~ msgid ""
+#~ "This is a deposit hold only — payment is due to the organizer at the "
+#~ "event. The hold will be released after the event."
+#~ msgstr ""
+#~ "これはデポジットの仮押さえのみです — 支払いはイベント当日に主催者へ行って"
+#~ "ください。仮押さえはイベント終了後に解除されます。"
 
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"

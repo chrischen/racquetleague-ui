@@ -13,6 +13,68 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1498
+#: src/components/pages/PkuruLayout.re.mjs:113
+msgid "Badminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1502
+msgid "Table Tennis"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1506
+#: src/components/pages/PkuruLayout.re.mjs:105
+msgid "Pickleball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1510
+msgid "Futsal"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1514
+msgid "Basketball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1518
+msgid "Volleyball"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1522
+msgid "Crossminton"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1526
+msgid "Padel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1530
+msgid "drill"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1534
+msgid "comp"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1538
+msgid "rec"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1542
+msgid "all level"
+msgstr ""
+
 #: src/components/shared/InstallPwa.re.mjs:413
 msgid "— add to your Home Screen for push notifications"
 msgstr ""
@@ -29,12 +91,26 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1025
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1115
+msgid "(optional)"
+msgstr ""
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:367
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:363
+msgid "{0} events created!"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
@@ -45,16 +121,77 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr ""
 
+#: src/components/organisms/ClubActivitySelector.re.mjs:191
+msgid "+ Add new club..."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "⌘+Enter to send"
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:232
 msgid "1 · Day"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+msgid "1 hour before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1169
+msgid "1 week before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1153
+msgid "12 hours before"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:271
 msgid "2 · Time"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1145
+msgid "2 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1157
+msgid "24 hours before"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1161
+msgid "48 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1149
+msgid "6 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+msgid "72 hours before"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
+#~ msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:635
+msgid "Action proposal"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:791
+#: src/components/organisms/CreateLocationEventForm.re.mjs:813
+msgid "Active"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:243
+msgid "Activity"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:71
+msgid "activity is required"
 msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:140
@@ -69,16 +206,76 @@ msgstr ""
 msgid "Afternoon"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+msgid "All levels"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:252
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "Answer the questions or add details to refine the draft."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+msgid "Answer the questions or provide more details..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+msgid "Anything players should know before joining or arriving."
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:80
 msgid "Anytime"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:251
+#: src/components/organisms/AIAssistantEmbed.re.mjs:544
+msgid "Approve"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+msgid "Approve or deny the pending action to continue"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+msgid "Approve or deny the pending action to continue."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:502
+msgid "Approved"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+msgid "Attendees cannot cancel their RSVP after this deadline."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1444
+msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:258
 msgid "Availability"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:108
-msgid "Badminton"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:496
+msgid "Awaiting approval"
+msgstr ""
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:27
@@ -93,17 +290,70 @@ msgstr ""
 msgid "Biography is required"
 msgstr ""
 
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr ""
+
 #: src/components/pages/PkuruLayout.re.mjs:103
 #~ msgid "Browse"
 #~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1132
+msgid "Cancel deadline"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Change"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:579
+msgid "Choose a location for this event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+msgid "Choose an event time"
+msgstr ""
+
+#: src/components/organisms/RouteModal.re.mjs:75
+msgid "Close"
+msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr ""
 
+#: src/components/organisms/ClubActivitySelector.re.mjs:174
+msgid "Club"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:362
+msgid "Club & Activity"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr ""
+
 #: src/components/organisms/NavViewer.re.mjs:65
-#: src/components/pages/PkuruLayout.re.mjs:297
+#: src/components/pages/PkuruLayout.re.mjs:304
 msgid "Clubs"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:671
+#: src/components/organisms/CreateLocationEventForm.re.mjs:883
+msgid "Competitive"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:22
@@ -118,8 +368,30 @@ msgstr ""
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#~ msgid "Connect a Stripe account to activate"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Connect a Stripe account to enable this"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Continue the conversation"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:257
@@ -129,12 +401,98 @@ msgstr ""
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:417
+msgid "Couldn't create that event. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:376
+msgid "Couldn't determine the activity. Please try again."
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:393
+msgid "Couldn't find this location — pick it:"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:287
-#: src/components/pages/PkuruLayout.re.mjs:651
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+msgid "Create All Events"
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1484
+#: src/components/organisms/CreateEventModal.re.mjs:79
+msgid "Create event"
+msgstr ""
+
+#: src/components/pages/CreateEventPage.re.mjs:274
+msgid "Create multiple events instead"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+msgid "Create This Event"
+msgstr ""
+
+#: src/components/organisms/CreateEventsButton.re.mjs:381
+msgid "Creating..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1304
+msgid "Date"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
+msgid "Date:"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "daytime"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:508
+msgid "Denied"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:600
+msgid "Deny"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+msgid "Describe the event"
+msgstr ""
+
+#: src/components/organisms/CreateEventModal.re.mjs:81
+msgid "Describe the event to draft it, or fill in the details."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Describe the event to generate a draft"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:117
+msgid "Description:"
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:294
+#: src/components/pages/PkuruLayout.re.mjs:659
 msgid "Discover"
 msgstr ""
 
@@ -145,6 +503,56 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:276
+msgid "Done"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "Draft filled in. Review the details before creating the event."
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
+#~ msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag end time"
+#~ msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag start time"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+msgid "Drag the window to move it, or drag either edge to resize."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:676
+#: src/components/organisms/CreateLocationEventForm.re.mjs:926
+msgid "Drill session"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:673
+#: src/components/organisms/CreateLocationEventForm.re.mjs:909
+msgid "DUPR rated"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+#~ msgid "duration"
+#~ msgstr ""
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing end"
+#~ msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing start"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
@@ -162,12 +570,56 @@ msgstr ""
 msgid "Enable now"
 msgstr ""
 
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+#~ msgid "End"
+#~ msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "end time"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:83
+msgid "end time is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:772
+msgid "Enter price"
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
 msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:80
+msgid "event date is required"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1405
+msgid "Event details"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Event Details"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:732
+msgid "Event notes"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+#~ msgid "Event time range"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:718
+msgid "Event title"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:860
+msgid "Event type"
 msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:132
@@ -183,27 +635,71 @@ msgstr ""
 #~ msgid "Events"
 #~ msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1383
+msgid "Events can be up to 12 hours long."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1383
+msgid "Events must be at least 15 minutes long."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:516
+msgid "Executed"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+msgid "Execution failed"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Fill event form from description"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
+msgid "Find players for your event?"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1463
+msgid "Format"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Format options"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:721
+msgid "Friday night pickleball"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+msgid "Help me fill this out"
 msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+msgid "Hold new joins and admit players automatically based on match quality."
+msgstr ""
+
 #: src/components/pages/PkuruLayout.re.mjs:265
 #~ msgid "Host"
 #~ msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr ""
 
@@ -211,7 +707,7 @@ msgstr ""
 msgid "Host Message"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr ""
 
@@ -225,6 +721,10 @@ msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:454
 msgid "in Safari's toolbar"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "Include whatever details you know"
 msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:494
@@ -261,11 +761,15 @@ msgstr ""
 msgid "Joined Club"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1231
+msgid "Keep current location"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:309
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:308
+#: src/components/pages/PkuruLayout.re.mjs:315
 msgid "Leaderboard"
 msgstr ""
 
@@ -277,14 +781,40 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1070
+msgid "List your event publicly to help fill open spots."
+msgstr ""
+
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr ""
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+msgid "Loading conversation history..."
+msgstr ""
+
+#: src/components/organisms/CreateEventModal.re.mjs:74
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
-#: src/components/pages/PkuruLayout.re.mjs:998
-#: src/components/pages/PkuruLayout.re.mjs:1094
+#: src/components/pages/PkuruLayout.re.mjs:1020
+#: src/components/pages/PkuruLayout.re.mjs:1117
 msgid "Loading..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1210
+msgid "Location"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1202
+msgid "Location & time"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
+msgid "Location:"
 msgstr ""
 
 #: src/components/molecules/LoginLink.re.mjs:28
@@ -300,15 +830,15 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:661
+#: src/components/pages/PkuruLayout.re.mjs:669
 msgid "Map"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:318
+#: src/components/pages/PkuruLayout.re.mjs:325
 msgid "Map view"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr ""
 
@@ -316,9 +846,25 @@ msgstr ""
 #~ msgid "Match my time"
 #~ msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+msgid "Max players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1022
+msgid "Minimum rating"
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
 msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to daytime hours"
+#~ msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to nighttime hours"
+#~ msgstr ""
 
 #: src/components/pages/PkuruSidebarClubs.re.mjs:187
 msgid "My clubs"
@@ -328,15 +874,15 @@ msgstr ""
 #~ msgid "My Clubs"
 #~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:178
+#: src/components/pages/PkuruLayout.re.mjs:185
 msgid "My events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:690
+#: src/components/pages/PkuruLayout.re.mjs:698
 msgid "My Events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:675
+#: src/components/pages/PkuruLayout.re.mjs:683
 msgid "New"
 msgstr ""
 
@@ -344,12 +890,37 @@ msgstr ""
 msgid "New Comment"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:491
+#: src/components/pages/PkuruLayout.re.mjs:499
 msgid "New event"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:203
+#: src/components/organisms/CreateEventModal.re.mjs:80
 msgid "New plan"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "nighttime"
+#~ msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:324
+msgid "No club"
+msgstr ""
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:181
+msgid "No club / Independent event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1137
+msgid "No deadline"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+msgid "No limit"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1031
+msgid "No minimum"
 msgstr ""
 
 #: src/components/molecules/NotificationsPreview.re.mjs:140
@@ -365,8 +936,8 @@ msgid "Notification"
 msgstr ""
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:189
-#: src/components/pages/PkuruLayout.re.mjs:525
+#: src/components/pages/PkuruLayout.re.mjs:196
+#: src/components/pages/PkuruLayout.re.mjs:533
 msgid "Notifications"
 msgstr ""
 
@@ -378,32 +949,65 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:167
+#: src/components/organisms/AIAssistantEmbed.re.mjs:652
+msgid "Operation:"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1440
+msgid "Paid event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:763
+msgid "Participation fee"
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:174
 msgid "Personal"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:102
-msgid "Pickleball"
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
+msgid "Player availability heatmap"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
-msgid "Player availability heatmap"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1476
+msgid "Players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:681
+msgid "Private event"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:200
-#: src/components/pages/PkuruLayout.re.mjs:700
+#: src/components/pages/PkuruLayout.re.mjs:207
+#: src/components/pages/PkuruLayout.re.mjs:708
 msgid "Profile"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:680
+msgid "Public"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:680
+msgid "Public · Up to {maxRsvpsStr} players"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:190
 #~ msgid "Rankings"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+msgid "Read more..."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:671
+#: src/components/organisms/CreateLocationEventForm.re.mjs:866
+msgid "Recreational"
+msgstr ""
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr ""
 
@@ -411,7 +1015,15 @@ msgstr ""
 msgid "Removed from Event"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#~ msgid "Require payment from attendees"
+#~ msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
+msgid "Reset"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr ""
 
@@ -427,8 +1039,16 @@ msgstr ""
 #~ msgid "Search events, venues, hosts..."
 #~ msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Send"
 msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:77
@@ -439,9 +1059,33 @@ msgstr ""
 msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:219
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+msgid "Show less"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:978
+msgid "Skill level"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Smart RSVP"
+msgstr ""
+
+#: src/components/pages/PkuruLayout.re.mjs:226
 msgid "Sports"
 msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+#~ msgid "Start"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1360
+msgid "Start and end time"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "start time"
+#~ msgstr ""
 
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"
@@ -449,6 +1093,10 @@ msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:366
 msgid "Stay in the loop"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:150
+msgid "Suggested Events"
 msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
@@ -459,12 +1107,44 @@ msgstr ""
 msgid "Tap the Share button"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid "Tell others you're down to play. Players with overlapping times can invite you."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:572
+msgid "The action completed with GraphQL errors."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
+msgid "The date and times on this form are in this zone."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#~ msgid "The participation fee is charged automatically and transferred to your Stripe account."
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:970
+msgid "This event is public"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
+msgid "Time zone"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:670
+msgid "Title and optional notes"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:68
+msgid "title is required"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:54
+msgid "Title:"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
@@ -475,6 +1155,18 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+msgid "Too many automated steps were requested. Please continue manually."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1484
+msgid "Update event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:668
+msgid "Venue, date, start and end time"
+msgstr ""
+
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
 msgstr ""
@@ -483,6 +1175,26 @@ msgstr ""
 msgid "We need a few details before you can join this event"
 msgstr ""
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr ""
+
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:809
+msgid "With a Stripe account"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+#~ msgid "With Stripe"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+msgid "Without a Stripe account"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+#~ msgid "Without Stripe"
+#~ msgstr ""

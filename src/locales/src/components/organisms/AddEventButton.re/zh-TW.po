@@ -33,11 +33,11 @@ msgstr "1 · 日期"
 msgid "2 · Time"
 msgstr "2 · 時間"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · 類型？"
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr "新增活動"
 
@@ -82,7 +82,7 @@ msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "繼續"
 
@@ -93,7 +93,7 @@ msgstr "繼續"
 msgid "Could not save your profile. Please try again."
 msgstr "無法儲存您的個人資料，請再試一次。"
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -139,11 +139,11 @@ msgstr "用於活動更新和通知"
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "主辦活動"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "主辦活動需要恰好一個時間段——請選擇一個。"
 
@@ -171,7 +171,7 @@ msgstr "等級"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "標記為有空"
 
@@ -187,7 +187,7 @@ msgstr "新計劃"
 msgid "Not now"
 msgstr "暫不設定"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
@@ -195,11 +195,11 @@ msgstr "球員可用性熱力圖"
 msgid "Pro"
 msgstr "專業"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "儲存"
 
@@ -207,7 +207,7 @@ msgstr "儲存"
 msgid "Save profile"
 msgstr "儲存個人資料"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "請選擇恰好一個時間段來主辦活動"
 
@@ -217,11 +217,11 @@ msgid ""
 "they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "點擊新增您的時間"
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."

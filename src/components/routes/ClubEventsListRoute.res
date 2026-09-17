@@ -32,6 +32,14 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
     ->Router.SearchParams.get("afterDate")
     ->Option.map(d => d->Js.Date.fromString->Util.Datetime.fromDate)
 
+  // Minimum level, DUPR-scale, matched server-side against the events' level
+  // tags (the same param the Discover feed uses).
+  let level = url.searchParams->Router.SearchParams.get("level")->Option.flatMap(Float.fromString)
+
+  // A location club's courts are its home court; other clubs keep the courts
+  // near the viewer, like the main feed.
+  let homeLocationId = LocationClub.ofSlug(Some(params.slug))->Option.map(c => c.homeLocationId)
+
   let environment = RelayEnv.getRelayEnv(context, RelaySSRUtils.ssr)
 
   let query = ClubEventsListPageQuery_graphql.load(
@@ -42,6 +50,11 @@ let loader = async ({context, params, request}: LoaderArgs.t) => {
       ?after,
       ?afterDate,
       ?token,
+      ?level,
+      availabilityFromDate: EventsListUtils.availabilityFromDate(),
+      availabilityToDate: EventsListUtils.availabilityToDate(),
+      availabilityLocationId: homeLocationId->Option.getOr(""),
+      availabilityByLocation: homeLocationId->Option.isSome,
     },
     ~fetchPolicy=RescriptRelay.StoreAndNetwork,
   )

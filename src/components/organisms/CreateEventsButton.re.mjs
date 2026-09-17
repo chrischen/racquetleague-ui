@@ -133,49 +133,26 @@ function CreateEventsButton(props) {
   var buttonText = eventCount === 1 ? t`Create This Event` : t`Create All Events`;
   var connectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "EventsListFragment_events", undefined);
   var resolveLocationId = async function (address) {
-    var place = await GooglePlaces.textSearchTop(address);
-    if (place === undefined) {
-      return {
-              TAG: "Error",
-              _0: undefined
-            };
-    }
-    var match = place.name;
-    var match$1 = place.formatted_address;
-    var match$2 = place.geometry;
-    var match$3 = place.place_id;
+    var match = await GooglePlaces.textSearchTop(address);
     if (match === undefined) {
       return {
               TAG: "Error",
               _0: undefined
             };
     }
-    if (match$1 === undefined) {
-      return {
-              TAG: "Error",
-              _0: undefined
-            };
-    }
-    if (match$2 === undefined) {
-      return {
-              TAG: "Error",
-              _0: undefined
-            };
-    }
-    if (match$3 === undefined) {
-      return {
-              TAG: "Error",
-              _0: undefined
-            };
-    }
+    var lng = match.lng;
+    var lat = match.lat;
+    var formattedAddress = match.formattedAddress;
+    var name = match.name;
+    var placeId = match.placeId;
     var resolved = await new Promise((function (resolve, _reject) {
             commitAutocomplete({
                   input: {
-                    formattedAddress: match$1,
-                    lat: match$2.location.lat(),
-                    lng: match$2.location.lng(),
-                    mapsId: match$3,
-                    name: match
+                    formattedAddress: formattedAddress,
+                    lat: lat,
+                    lng: lng,
+                    mapsId: placeId,
+                    name: name
                   }
                 }, undefined, undefined, undefined, (function (response, _errors) {
                     resolve(Core__Option.map(response.autocompleteLocation.location, (function (l) {

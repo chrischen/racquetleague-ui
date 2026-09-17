@@ -6,8 +6,20 @@ module Query = %relay(`
     $before: String
     $afterDate: Datetime
     $token: String
+    $level: Float
+    $availabilityFromDate: String!
+    $availabilityToDate: String!
+    $availabilityLocationId: ID!
+    $availabilityByLocation: Boolean!
   ) {
     ...UseProfileGate_query
+    ...PkEventsAvailabilityDay_query @arguments(
+      fromDate: $availabilityFromDate
+      toDate: $availabilityToDate
+      clubSlug: $slug
+      locationId: $availabilityLocationId
+      byLocation: $availabilityByLocation
+    )
     club(slug: $slug) {
       ...ClubEventsListFragment @arguments(
         after: $after
@@ -15,6 +27,7 @@ module Query = %relay(`
         before: $before
         afterDate: $afterDate
         token: $token
+        level: $level
       )
     }
     viewer {

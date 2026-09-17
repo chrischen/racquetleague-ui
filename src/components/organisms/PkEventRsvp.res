@@ -31,6 +31,7 @@ let make = (
   ~maxRating: float,
   ~eventId: string,
   ~isAdmin: bool=false,
+  ~chargesEnabled: bool=false,
   ~isHost: bool=false,
   ~waitlistPosition: option<int>=?,
   ~isPending: bool=false,
@@ -72,6 +73,7 @@ let make = (
         eventId
         eventActivitySlug={activitySlug->Option.getOr("badminton")}
         isAdmin
+        chargesEnabled
         connectionKey
         triggerClassName="relative flex items-center gap-2 pl-0.5 pr-2 py-1 rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-all text-left w-full">
         <span
@@ -112,6 +114,7 @@ let make = (
         eventId
         eventActivitySlug={activitySlug->Option.getOr("badminton")}
         isAdmin
+        chargesEnabled
         connectionKey
         triggerClassName={"relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer transition-colors " ++ if (
           isInvited

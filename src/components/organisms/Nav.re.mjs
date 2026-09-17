@@ -8,6 +8,7 @@ import * as LogoutLink from "../molecules/LogoutLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as CreateEventLink from "../shared/CreateEventLink.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Nav_query_graphql from "../../__generated__/Nav_query_graphql.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -86,6 +87,7 @@ var MenuInstance = {
 
 function Nav(props) {
   var query = use(props.query);
+  var createHref = CreateEventLink.useHref();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx(Layout.Container.make, {
@@ -111,7 +113,7 @@ function Nav(props) {
                                             JsxRuntime.jsx(LangSwitch.make, {}),
                                             " - ",
                                             JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                  to: "/events/create",
+                                                  to: createHref([]),
                                                   children: t`Add Event`
                                                 })
                                           ]

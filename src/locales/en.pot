@@ -9462,3 +9462,451 @@ msgstr ""
 #: src/components/pages/LeaguePlayerPage.re.mjs:422
 msgid "Performs better on hard courts"
 msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "⌘+Enter to send"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Answer the questions or add details to refine the draft."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:410
+msgid "Approve or deny the pending action to continue"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+msgid "Describe the event"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:411
+msgid "Describe the event to generate a draft"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:711
+msgid ""
+"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+"more players around 3.5, ¥800 each."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:749
+msgid "Fill event form from description"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:406
+msgid "Help me fill this out"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "Include whatever details you know"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:699
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1075
+msgid "(optional)"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:705
+msgid "Anything players should know before joining or arriving."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1134
+msgid "Attendees cannot cancel their RSVP after this deadline."
+msgstr ""
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1092
+msgid "Cancel deadline"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:543
+msgid "Choose a location for this event"
+msgstr ""
+
+#: src/components/pages/CreateEventPage.re.mjs:279
+msgid "Create multiple events instead"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1264
+msgid "Date"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "daytime"
+msgstr ""
+
+#: src/components/organisms/CreateEventModal.re.mjs:81
+msgid "Describe the event to draft it, or fill in the details."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1152
+msgid "Draft filled in. Review the details before creating the event."
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+msgid "Drag around the clock · Arrow keys move 15 minutes"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag end time"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag start time"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+msgid "duration"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing end"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing start"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "End"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1352
+msgid "Event details"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:696
+msgid "Event notes"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+msgid "Event time range"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events can be up to 12 hours long."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events must be at least 15 minutes long."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Friday night pickleball"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid "Hold new joins and admit players automatically based on match quality."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1191
+msgid "Keep current location"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+msgid "List your event publicly to help fill open spots."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1162
+msgid "Location & time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+msgid "Max players"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:982
+msgid "Minimum rating"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to daytime hours"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to nighttime hours"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "nighttime"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+msgid "Participation fee"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:644
+msgid "Public · Up to {maxRsvpsStr} players"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "Start"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1320
+msgid "Start and end time"
+msgstr ""
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+msgid "start time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
+msgid "The date and times on this form are in this zone."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
+msgid "Time zone"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:634
+msgid "Title and optional notes"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1431
+msgid "Update event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:632
+msgid "Venue, date, start and end time"
+msgstr ""
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file"
+msgstr ""
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file (platform account)"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:183
+msgid "Card required to confirm your spot"
+msgstr ""
+
+#: src/components/atoms/PaymentIndicator.re.mjs:81
+msgid "Charge failed"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:238
+msgid "Charge payment"
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:41
+msgid "Could not save your card"
+msgstr ""
+
+#: src/components/atoms/PaymentIndicator.re.mjs:75
+msgid "Payment charged"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+msgid "Please save your card again"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:225
+msgid "Retry charge"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:164
+#: src/components/organisms/StripePaymentEmbed.tsx:84
+msgid "Save card"
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:127
+msgid "Save your card"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid ""
+"The organizer now takes card payments directly. Your card was saved before "
+"that, so please save it again — your spot is kept."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid ""
+"Your card is saved now, not charged — the organizer charges the fee after "
+"the event."
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:134
+msgid ""
+"Your card is saved now, not charged. The organizer will charge {amountLabel}"
+"after the event."
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.tsx:136
+msgid ""
+"Your card is saved now, not charged. The organizer will charge the "
+"participation fee after the event."
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge the "
+"participation fee later."
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge {amountLabel} "
+"after the event."
+msgstr ""
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge {amountLabel} "
+"later."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:806
+msgid ""
+"Anyone held as pending can be moved into the event from the RSVP list, which "
+"bypasses the payment requirement for them."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+msgid ""
+"Attendees are asked to save a card when they RSVP, but nothing is authorized "
+"or charged, and you can't charge it from here. Collect the fee at the event."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+msgid ""
+"Attendees save a card when they RSVP and nothing is charged or held up "
+"front. From the RSVP list you can charge one attendee or everyone whenever "
+"you choose, and the money goes to your Stripe account."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1395
+msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+msgid "Connect a Stripe account to enable this"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+msgid "With a Stripe account"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "Without a Stripe account"
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid ""
+"Attendees of your paid events save a card when they RSVP; nothing is charged "
+"up front. From an event's RSVP list you can charge one attendee or everyone, "
+"and the money goes to this account."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid ""
+"Attendees of your paid events still save a card when they RSVP, but it can't "
+"be charged, so you collect the fee at the event. Connect a Stripe account to "
+"charge saved cards from the RSVP list and receive the money here."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid ""
+"Until onboarding is complete, your paid events run on the platform account: "
+"attendees save a card when they RSVP, but you can't charge it. Collect the "
+"fee at the event."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:821
+msgid "Exempt club members from event fees"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid ""
+"Members join priced events without saving a card. Everyone else pays to your "
+"Stripe account as usual."
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:783
+msgid "Payments"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid ""
+"Your club has no connected Stripe account, so members always join without "
+"paying and other players' cards are only kept on file. Connect Stripe in "
+"your profile settings to charge event fees."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid ""
+"Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
+"the fee after the event."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Join with saved card"
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:188
+msgid "Joining..."
+msgstr ""
+
+#: src/components/organisms/EventStickyFooter.re.mjs:233
+msgid "Use a different card"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+msgid "Choose an event time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+msgid "Drag the window to move it, or drag either edge to resize."
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:257
+msgid "Make admin"
+msgstr ""
+
+#: src/components/pages/ClubMembersPage.re.mjs:250
+msgid "Remove admin"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:868
+msgid "Add Court"
+msgstr ""

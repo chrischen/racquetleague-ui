@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:699
+#: src/components/organisms/MatchHistoryList.re.mjs:698
 msgid "...load previous matches"
 msgstr "前の試合を読み込む"
 
@@ -45,8 +45,8 @@ msgstr "現在のレーティング"
 msgid "Days at #1"
 msgstr "#1在位日数"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:524
-#: src/components/organisms/MatchHistoryList.re.mjs:588
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "DRAW"
 msgstr "引き分け"
 
@@ -62,7 +62,7 @@ msgstr "弱いパートナーを引き上げる"
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:661
+#: src/components/organisms/MatchHistoryList.re.mjs:660
 msgid "Even"
 msgstr "互角"
 
@@ -74,7 +74,7 @@ msgstr "体育館"
 msgid "Hard Court"
 msgstr "ハードコート"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:716
+#: src/components/organisms/MatchHistoryList.re.mjs:715
 msgid "Load more matches..."
 msgstr "もっと試合を読み込む..."
 
@@ -82,8 +82,8 @@ msgstr "もっと試合を読み込む..."
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:524
-#: src/components/organisms/MatchHistoryList.re.mjs:588
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "LOSS"
 msgstr "負け"
 
@@ -149,7 +149,7 @@ msgstr ""
 "網掛け部分はレーティングの不確実性を示しています。帯が狭いほど信頼性が高くな"
 "ります。"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:632
+#: src/components/organisms/MatchHistoryList.re.mjs:631
 msgid "Upset"
 msgstr "番狂わせ"
 
@@ -157,8 +157,8 @@ msgstr "番狂わせ"
 msgid "Weak Against"
 msgstr "苦手な相手"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "WIN"
 msgstr "勝ち"
 

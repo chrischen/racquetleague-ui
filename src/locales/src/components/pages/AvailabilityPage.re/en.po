@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
@@ -35,13 +35,13 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr ""
@@ -86,11 +86,11 @@ msgstr ""
 #~ msgid "{groupLocations, plural, one {{0}} other {{1}}}"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 msgid "{hs}h {ms}m"
 msgstr ""
 
@@ -98,16 +98,16 @@ msgstr ""
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{ms}m"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr ""
@@ -220,7 +220,7 @@ msgstr ""
 #~ msgid "Courts available during your time"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr ""
 
@@ -369,7 +369,7 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr ""
 
@@ -429,7 +429,7 @@ msgstr ""
 msgid "Use near me"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr ""
 

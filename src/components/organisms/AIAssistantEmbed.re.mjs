@@ -131,9 +131,10 @@ function AIAssistantEmbed(props) {
   var setIsHydrating = match$5[1];
   var isHydrating = match$5[0];
   var match$6 = React.useState(function () {
-        return false;
+        return true;
       });
   var setIsCollapsed = match$6[1];
+  var isCollapsed = match$6[0];
   var chatContainerRef = React.useRef(null);
   var stepCounterRef = React.useRef(0);
   var localIdCounterRef = React.useRef(0);
@@ -367,6 +368,14 @@ function AIAssistantEmbed(props) {
           
         }), [sessionUserId]);
   var hasHistory = turns.length > 0;
+  React.useEffect((function () {
+          if (hasHistory) {
+            setIsCollapsed(function (param) {
+                  return false;
+                });
+          }
+          
+        }), [hasHistory]);
   var hasPendingProposal = turns.some(function (turn) {
         switch (turn.TAG) {
           case "UserTurn" :
@@ -382,447 +391,408 @@ function AIAssistantEmbed(props) {
           
         }
       });
-  return JsxRuntime.jsx("div", {
-              children: match$6[0] ? JsxRuntime.jsxs("button", {
+  var canSend = prompt.trim() !== "" && !isLoading && !hasPendingProposal && !isHydrating;
+  var avatar = JsxRuntime.jsx("span", {
+        children: JsxRuntime.jsx(LucideReact.Sparkles, {
+              size: 13,
+              "aria-hidden": "true"
+            }),
+        className: "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#bdf25d] text-black"
+      });
+  return JsxRuntime.jsxs("section", {
+              children: [
+                sessionUserId !== undefined && !hasHydratedRef.current ? JsxRuntime.jsx(React.Suspense, {
+                        children: Caml_option.some(JsxRuntime.jsx(AIAssistantEmbed$ChatHistoryLoader, {
+                                  onLoaded: handleHistoryLoaded
+                                })),
+                        fallback: Caml_option.some(null)
+                      }) : null,
+                JsxRuntime.jsxs("button", {
                       children: [
-                        JsxRuntime.jsxs("div", {
+                        JsxRuntime.jsx(LucideReact.Sparkles, {
+                              size: 16,
+                              className: "flex-shrink-0 text-[#4d6f12] dark:text-[#bdf25d]",
+                              "aria-hidden": "true"
+                            }),
+                        JsxRuntime.jsxs("span", {
                               children: [
-                                JsxRuntime.jsx("div", {
-                                      children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                            className: "w-4 h-4 text-gray-900"
-                                          }),
-                                      className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
+                                JsxRuntime.jsx("span", {
+                                      children: t`Help me fill this out`,
+                                      className: "block text-sm font-semibold text-gray-900 dark:text-gray-100"
                                     }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("p", {
-                                              children: t`AI Assistant`,
-                                              className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                            }),
-                                        JsxRuntime.jsx("p", {
-                                              children: t`Form filled • Click to expand`,
-                                              className: "text-xs text-gray-600 dark:text-gray-400"
-                                            })
-                                      ],
-                                      className: "text-left"
+                                JsxRuntime.jsx("span", {
+                                      children: hasPendingProposal ? t`Approve or deny the pending action to continue` : (
+                                          hasHistory ? t`Continue the conversation` : t`Describe the event to generate a draft`
+                                        ),
+                                      className: "mt-0.5 block text-xs text-gray-600 dark:text-gray-400"
                                     })
                               ],
-                              className: "flex items-center gap-3"
+                              className: "min-w-0 flex-1"
                             }),
                         JsxRuntime.jsx(LucideReact.ChevronDown, {
-                              className: "w-5 h-5 text-gray-600"
+                              size: 16,
+                              className: "flex-shrink-0 text-gray-500 transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]" + (
+                                isCollapsed ? "" : " rotate-180"
+                              ),
+                              "aria-hidden": "true"
                             })
                       ],
-                      className: "w-full p-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
+                      "aria-expanded": !isCollapsed,
+                      "aria-controls": "event-form-helper",
+                      className: "flex w-full items-center gap-3 px-3.5 py-3 text-left transition-colors hover:bg-[#bdf25d]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:hover:bg-[#bdf25d]/10",
                       type: "button",
                       onClick: (function (param) {
-                          setIsCollapsed(function (param) {
-                                return false;
+                          setIsCollapsed(function (collapsed) {
+                                return !collapsed;
                               });
                         })
-                    }) : JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("div", {
-                                      children: JsxRuntime.jsx("div", {
-                                            children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                  className: "w-5 h-5 text-gray-900"
+                    }),
+                isCollapsed ? null : JsxRuntime.jsxs("div", {
+                        children: [
+                          hasHistory || isLoading || isHydrating ? JsxRuntime.jsxs("div", {
+                                  children: [
+                                    isHydrating ? JsxRuntime.jsx("div", {
+                                            children: JsxRuntime.jsx("span", {
+                                                  children: t`Loading conversation history...`,
+                                                  className: "text-xs text-gray-400 dark:text-gray-500"
                                                 }),
-                                            className: "w-10 h-10 rounded-full bg-[#a3e635] flex items-center justify-center"
-                                          }),
-                                      className: "flex-shrink-0"
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("h3", {
-                                              children: hasHistory ? t`AI Assistant` : t`Describe your event`,
-                                              className: "text-base font-semibold text-gray-900 dark:text-gray-100 mb-1"
-                                            }),
-                                        JsxRuntime.jsx("p", {
-                                              children: hasHistory ? t`Continue the conversation` : t`Let AI help you fill out the details below`,
-                                              className: "text-sm text-gray-600 dark:text-gray-400"
-                                            })
-                                      ],
-                                      className: "flex-1 min-w-0"
-                                    }),
-                                hasHistory ? JsxRuntime.jsx("button", {
-                                        children: JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                              className: "w-5 h-5"
-                                            }),
-                                        className: "flex-shrink-0 p-1 text-gray-400 hover:text-gray-600 transition-colors",
-                                        title: "Collapse",
-                                        type: "button",
-                                        onClick: (function (param) {
-                                            setIsCollapsed(function (param) {
-                                                  return true;
-                                                });
-                                          })
-                                      }) : null
-                              ],
-                              className: "flex items-start gap-4 mb-4"
-                            }),
-                        hasHistory || isLoading || isHydrating ? JsxRuntime.jsxs("div", {
-                                children: [
-                                  sessionUserId !== undefined && !hasHydratedRef.current ? JsxRuntime.jsx(React.Suspense, {
-                                          children: Caml_option.some(JsxRuntime.jsx(AIAssistantEmbed$ChatHistoryLoader, {
-                                                    onLoaded: handleHistoryLoaded
-                                                  })),
-                                          fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                    children: JsxRuntime.jsx("span", {
-                                                          children: t`Loading conversation history...`,
-                                                          className: "text-xs text-gray-400 dark:text-gray-500"
-                                                        }),
-                                                    className: "flex justify-center py-2"
-                                                  }))
-                                        }) : null,
-                                  turns.map(function (turn) {
-                                        switch (turn.TAG) {
-                                          case "UserTurn" :
-                                              return JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx("div", {
-                                                                children: turn.content,
-                                                                className: "max-w-[85%] bg-[#a3e635] text-gray-900 rounded-2xl px-4 py-3 text-sm leading-relaxed font-medium"
-                                                              }),
-                                                          className: "flex justify-end"
-                                                        }, turn.id);
-                                          case "AssistantTurn" :
-                                              return JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: JsxRuntime.jsx("div", {
-                                                                        children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                              className: "w-3.5 h-3.5 text-gray-900"
-                                                                            }),
-                                                                        className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
-                                                                      }),
-                                                                  className: "flex-shrink-0"
+                                            className: "flex justify-center py-2"
+                                          }) : null,
+                                    turns.map(function (turn) {
+                                          switch (turn.TAG) {
+                                            case "UserTurn" :
+                                                return JsxRuntime.jsx("div", {
+                                                            children: JsxRuntime.jsx("div", {
+                                                                  children: turn.content,
+                                                                  className: "max-w-[85%] rounded-2xl bg-[#bdf25d] px-3.5 py-2.5 text-sm font-medium leading-relaxed text-black"
                                                                 }),
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: JsxRuntime.jsx(AIResponseCard.make, {
-                                                                        response: turn.response,
-                                                                        activitySlug: Core__Option.getOr(context.activitySlug, "pickleball"),
-                                                                        clubId: context.clubId,
-                                                                        locationAddress: context.locationAddress
-                                                                      }),
-                                                                  className: "max-w-[90%]"
-                                                                })
-                                                          ],
-                                                          className: "flex justify-start gap-3"
-                                                        }, turn.id);
-                                          case "ProposalTurn" :
-                                              var status = turn.status;
-                                              var action = turn.action;
-                                              var id = turn.id;
-                                              var match;
-                                              if (typeof status !== "object") {
-                                                switch (status) {
-                                                  case "Pending" :
-                                                      match = [
-                                                        t`Awaiting approval`,
-                                                        "text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 border-amber-200 dark:border-amber-700"
-                                                      ];
-                                                      break;
-                                                  case "Approved" :
-                                                      match = [
-                                                        t`Approved`,
-                                                        "text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-700"
-                                                      ];
-                                                      break;
-                                                  case "Denied" :
-                                                      match = [
-                                                        t`Denied`,
-                                                        "text-gray-700 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-600"
-                                                      ];
-                                                      break;
-                                                  
+                                                            className: "flex justify-end"
+                                                          }, turn.id);
+                                            case "AssistantTurn" :
+                                                return JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              avatar,
+                                                              JsxRuntime.jsx("div", {
+                                                                    children: JsxRuntime.jsx(AIResponseCard.make, {
+                                                                          response: turn.response,
+                                                                          activitySlug: Core__Option.getOr(context.activitySlug, "pickleball"),
+                                                                          clubId: context.clubId,
+                                                                          locationAddress: context.locationAddress
+                                                                        }),
+                                                                    className: "min-w-0 max-w-[90%] flex-1"
+                                                                  })
+                                                            ],
+                                                            className: "flex items-start gap-2.5"
+                                                          }, turn.id);
+                                            case "ProposalTurn" :
+                                                var status = turn.status;
+                                                var action = turn.action;
+                                                var id = turn.id;
+                                                var match;
+                                                if (typeof status !== "object") {
+                                                  switch (status) {
+                                                    case "Pending" :
+                                                        match = [
+                                                          t`Awaiting approval`,
+                                                          "border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
+                                                        ];
+                                                        break;
+                                                    case "Approved" :
+                                                        match = [
+                                                          t`Approved`,
+                                                          "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
+                                                        ];
+                                                        break;
+                                                    case "Denied" :
+                                                        match = [
+                                                          t`Denied`,
+                                                          "border-gray-200 bg-gray-50 text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400"
+                                                        ];
+                                                        break;
+                                                    
+                                                  }
+                                                } else {
+                                                  match = status.wasSuccessful ? [
+                                                      t`Executed`,
+                                                      "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400"
+                                                    ] : [
+                                                      t`Execution failed`,
+                                                      "border-red-200 bg-red-50 text-red-700 dark:border-red-700 dark:bg-red-900/30 dark:text-red-400"
+                                                    ];
                                                 }
-                                              } else {
-                                                match = status.wasSuccessful ? [
-                                                    t`Executed`,
-                                                    "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 border-emerald-200 dark:border-emerald-700"
-                                                  ] : [
-                                                    t`Execution failed`,
-                                                    "text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-700"
-                                                  ];
-                                              }
-                                              var tmp;
-                                              if (typeof status !== "object") {
-                                                tmp = null;
-                                              } else {
-                                                var details = status.details;
-                                                tmp = details !== undefined ? JsxRuntime.jsx("p", {
-                                                        children: details,
-                                                        className: "text-xs text-gray-600 dark:text-gray-300"
-                                                      }) : null;
-                                              }
-                                              var tmp$1;
-                                              tmp$1 = typeof status !== "object" && status === "Pending" ? JsxRuntime.jsxs("div", {
-                                                      children: [
-                                                        JsxRuntime.jsxs("button", {
-                                                              children: [
-                                                                JsxRuntime.jsx(LucideReact.Check, {
-                                                                      className: "w-4 h-4"
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: t`Approve`
-                                                                    })
-                                                              ],
-                                                              className: "inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-[#a3e635] text-gray-900 font-medium hover:bg-[#84cc16] transition-colors",
-                                                              disabled: isLoading,
-                                                              type: "button",
-                                                              onClick: (function (param) {
-                                                                  if (isExecutingRef.current) {
-                                                                    return ;
-                                                                  }
-                                                                  isExecutingRef.current = true;
-                                                                  setOverlay(function (prev) {
-                                                                        return Belt_MapString.set(prev, id, "Approved");
-                                                                      });
-                                                                  setIsLoading(function (param) {
-                                                                        return true;
-                                                                      });
-                                                                  var runAction = async function () {
-                                                                    var actionResult = await AgentActionExecutor.execute(action.query, action.variablesJson);
-                                                                    var resultJson;
-                                                                    if (actionResult.TAG === "Ok") {
-                                                                      var json = actionResult._0;
-                                                                      var jsonBody = Core__Option.getOr(JSON.stringify(json), "{}");
-                                                                      var wasSuccessful = !hasGraphQLErrors(json);
-                                                                      setOverlay(function (prev) {
-                                                                            return Belt_MapString.set(prev, id, {
-                                                                                        TAG: "Executed",
-                                                                                        wasSuccessful: wasSuccessful,
-                                                                                        details: wasSuccessful ? undefined : t`The action completed with GraphQL errors.`
-                                                                                      });
-                                                                          });
-                                                                      resultJson = jsonBody;
-                                                                    } else {
-                                                                      var message = actionResult._0;
-                                                                      setOverlay(function (prev) {
-                                                                            return Belt_MapString.set(prev, id, {
-                                                                                        TAG: "Executed",
-                                                                                        wasSuccessful: false,
-                                                                                        details: message
-                                                                                      });
-                                                                          });
-                                                                      resultJson = serializeError(message);
-                                                                    }
-                                                                    return sendActionResult(id, action.operationName, resultJson);
-                                                                  };
-                                                                  runAction();
-                                                                })
-                                                            }),
-                                                        JsxRuntime.jsxs("button", {
-                                                              children: [
-                                                                JsxRuntime.jsx(LucideReact.X, {
-                                                                      className: "w-4 h-4"
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: t`Deny`
-                                                                    })
-                                                              ],
-                                                              className: "inline-flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors",
-                                                              disabled: isLoading,
-                                                              type: "button",
-                                                              onClick: (function (param) {
-                                                                  if (isExecutingRef.current) {
-                                                                    return ;
-                                                                  }
-                                                                  isExecutingRef.current = true;
-                                                                  setOverlay(function (prev) {
-                                                                        return Belt_MapString.set(prev, id, "Denied");
-                                                                      });
-                                                                  setIsLoading(function (param) {
-                                                                        return true;
-                                                                      });
-                                                                  var resultJson = Core__Option.getOr(JSON.stringify(Js_dict.fromArray([[
-                                                                                  "cancelled",
-                                                                                  true
-                                                                                ]])), "{\"cancelled\":true}");
-                                                                  sendActionResult(id, action.operationName, resultJson);
-                                                                })
-                                                            })
-                                                      ],
-                                                      className: "flex items-center gap-2"
-                                                    }) : null;
-                                              return JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsx("div", {
-                                                                  children: JsxRuntime.jsx("div", {
-                                                                        children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                              className: "w-3.5 h-3.5 text-gray-900"
-                                                                            }),
-                                                                        className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
-                                                                      }),
-                                                                  className: "flex-shrink-0"
-                                                                }),
-                                                            JsxRuntime.jsxs("div", {
-                                                                  children: [
-                                                                    JsxRuntime.jsxs("div", {
-                                                                          children: [
-                                                                            JsxRuntime.jsx("p", {
-                                                                                  children: t`Action proposal`,
-                                                                                  className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                                                                }),
-                                                                            JsxRuntime.jsx("span", {
-                                                                                  children: match[0],
-                                                                                  className: "text-xs font-medium px-2 py-1 rounded-full border " + match[1]
-                                                                                })
-                                                                          ],
-                                                                          className: "flex items-center justify-between gap-2"
-                                                                        }),
-                                                                    JsxRuntime.jsx("p", {
-                                                                          children: action.summary,
-                                                                          className: "text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
-                                                                        }),
-                                                                    JsxRuntime.jsx("p", {
-                                                                          children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                                children: [
-                                                                                  t`Operation:`,
-                                                                                  " ",
-                                                                                  action.operationName
-                                                                                ]
-                                                                              }),
-                                                                          className: "text-xs text-gray-500 dark:text-gray-400"
-                                                                        }),
-                                                                    tmp,
-                                                                    tmp$1
-                                                                  ],
-                                                                  className: "w-full max-w-[90%] rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-[#222222] p-4 space-y-3"
-                                                                })
-                                                          ],
-                                                          className: "flex justify-start gap-3"
-                                                        }, id);
-                                          
-                                        }
-                                      }),
-                                  isLoading ? JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsx("div", {
-                                                  children: JsxRuntime.jsx("div", {
-                                                        children: JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                              className: "w-3.5 h-3.5 text-gray-900"
-                                                            }),
-                                                        className: "w-8 h-8 rounded-full bg-[#a3e635] flex items-center justify-center"
-                                                      }),
-                                                  className: "flex-shrink-0 mr-3"
-                                                }),
-                                            JsxRuntime.jsx("div", {
-                                                  children: JsxRuntime.jsxs("div", {
+                                                var tmp;
+                                                if (typeof status !== "object") {
+                                                  tmp = null;
+                                                } else {
+                                                  var details = status.details;
+                                                  tmp = details !== undefined ? JsxRuntime.jsx("p", {
+                                                          children: details,
+                                                          className: "text-xs text-gray-600 dark:text-gray-300"
+                                                        }) : null;
+                                                }
+                                                var tmp$1;
+                                                tmp$1 = typeof status !== "object" && status === "Pending" ? JsxRuntime.jsxs("div", {
                                                         children: [
-                                                          JsxRuntime.jsx("div", {
-                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
-                                                                style: {
-                                                                  animationDelay: "0ms"
-                                                                }
+                                                          JsxRuntime.jsxs("button", {
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.Check, {
+                                                                        size: 13,
+                                                                        strokeWidth: 2.5,
+                                                                        "aria-hidden": "true"
+                                                                      }),
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: t`Approve`
+                                                                      })
+                                                                ],
+                                                                className: "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-50",
+                                                                disabled: isLoading,
+                                                                type: "button",
+                                                                onClick: (function (param) {
+                                                                    if (isExecutingRef.current) {
+                                                                      return ;
+                                                                    }
+                                                                    isExecutingRef.current = true;
+                                                                    setOverlay(function (prev) {
+                                                                          return Belt_MapString.set(prev, id, "Approved");
+                                                                        });
+                                                                    setIsLoading(function (param) {
+                                                                          return true;
+                                                                        });
+                                                                    var runAction = async function () {
+                                                                      var actionResult = await AgentActionExecutor.execute(action.query, action.variablesJson);
+                                                                      var resultJson;
+                                                                      if (actionResult.TAG === "Ok") {
+                                                                        var json = actionResult._0;
+                                                                        var jsonBody = Core__Option.getOr(JSON.stringify(json), "{}");
+                                                                        var wasSuccessful = !hasGraphQLErrors(json);
+                                                                        setOverlay(function (prev) {
+                                                                              return Belt_MapString.set(prev, id, {
+                                                                                          TAG: "Executed",
+                                                                                          wasSuccessful: wasSuccessful,
+                                                                                          details: wasSuccessful ? undefined : t`The action completed with GraphQL errors.`
+                                                                                        });
+                                                                            });
+                                                                        resultJson = jsonBody;
+                                                                      } else {
+                                                                        var message = actionResult._0;
+                                                                        setOverlay(function (prev) {
+                                                                              return Belt_MapString.set(prev, id, {
+                                                                                          TAG: "Executed",
+                                                                                          wasSuccessful: false,
+                                                                                          details: message
+                                                                                        });
+                                                                            });
+                                                                        resultJson = serializeError(message);
+                                                                      }
+                                                                      return sendActionResult(id, action.operationName, resultJson);
+                                                                    };
+                                                                    runAction();
+                                                                  })
                                                               }),
-                                                          JsxRuntime.jsx("div", {
-                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
-                                                                style: {
-                                                                  animationDelay: "150ms"
-                                                                }
-                                                              }),
-                                                          JsxRuntime.jsx("div", {
-                                                                className: "w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce",
-                                                                style: {
-                                                                  animationDelay: "300ms"
-                                                                }
+                                                          JsxRuntime.jsxs("button", {
+                                                                children: [
+                                                                  JsxRuntime.jsx(LucideReact.X, {
+                                                                        size: 13,
+                                                                        strokeWidth: 2.5,
+                                                                        "aria-hidden": "true"
+                                                                      }),
+                                                                  JsxRuntime.jsx("span", {
+                                                                        children: t`Deny`
+                                                                      })
+                                                                ],
+                                                                className: "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-50 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30]",
+                                                                disabled: isLoading,
+                                                                type: "button",
+                                                                onClick: (function (param) {
+                                                                    if (isExecutingRef.current) {
+                                                                      return ;
+                                                                    }
+                                                                    isExecutingRef.current = true;
+                                                                    setOverlay(function (prev) {
+                                                                          return Belt_MapString.set(prev, id, "Denied");
+                                                                        });
+                                                                    setIsLoading(function (param) {
+                                                                          return true;
+                                                                        });
+                                                                    var resultJson = Core__Option.getOr(JSON.stringify(Js_dict.fromArray([[
+                                                                                    "cancelled",
+                                                                                    true
+                                                                                  ]])), "{\"cancelled\":true}");
+                                                                    sendActionResult(id, action.operationName, resultJson);
+                                                                  })
                                                               })
                                                         ],
                                                         className: "flex items-center gap-2"
+                                                      }) : null;
+                                                return JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              avatar,
+                                                              JsxRuntime.jsxs("div", {
+                                                                    children: [
+                                                                      JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx("p", {
+                                                                                    children: t`Action proposal`,
+                                                                                    className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                                                                  }),
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: match[0],
+                                                                                    className: "rounded-full border px-2 py-0.5 text-[10px] font-semibold " + match[1]
+                                                                                  })
+                                                                            ],
+                                                                            className: "flex items-center justify-between gap-2"
+                                                                          }),
+                                                                      JsxRuntime.jsx("p", {
+                                                                            children: action.summary,
+                                                                            className: "text-sm leading-relaxed text-gray-700 dark:text-gray-300"
+                                                                          }),
+                                                                      JsxRuntime.jsx("p", {
+                                                                            children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                                  children: [
+                                                                                    t`Operation:`,
+                                                                                    " ",
+                                                                                    action.operationName
+                                                                                  ]
+                                                                                }),
+                                                                            className: "font-mono text-[10px] text-gray-500 dark:text-gray-400"
+                                                                          }),
+                                                                      tmp,
+                                                                      tmp$1
+                                                                    ],
+                                                                    className: "min-w-0 max-w-[90%] flex-1 space-y-2.5 rounded-xl border border-gray-200 bg-white p-3.5 dark:border-[#3a3b40] dark:bg-[#222326]"
+                                                                  })
+                                                            ],
+                                                            className: "flex items-start gap-2.5"
+                                                          }, id);
+                                            
+                                          }
+                                        }),
+                                    isLoading ? JsxRuntime.jsxs("div", {
+                                            children: [
+                                              avatar,
+                                              JsxRuntime.jsx("div", {
+                                                    children: JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  className: "h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500",
+                                                                  style: {
+                                                                    animationDelay: "0ms"
+                                                                  }
+                                                                }),
+                                                            JsxRuntime.jsx("div", {
+                                                                  className: "h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500",
+                                                                  style: {
+                                                                    animationDelay: "150ms"
+                                                                  }
+                                                                }),
+                                                            JsxRuntime.jsx("div", {
+                                                                  className: "h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500",
+                                                                  style: {
+                                                                    animationDelay: "300ms"
+                                                                  }
+                                                                })
+                                                          ],
+                                                          className: "flex items-center gap-1.5"
+                                                        }),
+                                                    className: "rounded-xl border border-gray-200 bg-white px-3.5 py-3 dark:border-[#3a3b40] dark:bg-[#222326]"
+                                                  })
+                                            ],
+                                            className: "flex items-start gap-2.5"
+                                          }) : null
+                                  ],
+                                  ref: Caml_option.some(chatContainerRef),
+                                  className: "max-h-96 space-y-3 overflow-y-auto pr-1"
+                                }) : null,
+                          JsxRuntime.jsxs("label", {
+                                children: [
+                                  JsxRuntime.jsx("span", {
+                                        children: t`Describe the event`,
+                                        className: "sr-only"
+                                      }),
+                                  JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsx("textarea", {
+                                                className: "block w-full resize-none border-0 bg-transparent px-3.5 pb-12 pt-3 text-sm leading-relaxed text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 dark:text-gray-100",
+                                                id: "event-ai-prompt",
+                                                disabled: isLoading || hasPendingProposal || isHydrating,
+                                                placeholder: hasHistory ? (
+                                                    hasPendingProposal ? t`Approve or deny the pending action to continue.` : t`Answer the questions or provide more details...`
+                                                  ) : t`Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each.`,
+                                                rows: hasHistory ? 3 : 4,
+                                                value: prompt,
+                                                onKeyDown: (function (e) {
+                                                    var key = e.key;
+                                                    var metaKey = e.metaKey;
+                                                    var ctrlKey = e.ctrlKey;
+                                                    if (key === "Enter" && (metaKey || ctrlKey)) {
+                                                      e.preventDefault();
+                                                      return handleAsk();
+                                                    }
+                                                    
+                                                  }),
+                                                onChange: (function (e) {
+                                                    var value = e.target.value;
+                                                    setPrompt(function (param) {
+                                                          return value;
+                                                        });
+                                                  })
+                                              }),
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx(LucideReact.Sparkles, {
+                                                        size: 12,
+                                                        "aria-hidden": "true"
                                                       }),
-                                                  className: "bg-white dark:bg-[#222222] border border-gray-200 dark:border-gray-700 rounded-lg p-4"
-                                                })
-                                          ],
-                                          className: "flex justify-start"
+                                                  hasHistory ? t`⌘+Enter to send` : t`Include whatever details you know`
+                                                ],
+                                                className: "pointer-events-none absolute bottom-2.5 left-3 flex items-center gap-1.5 text-[10px] text-gray-400"
+                                              }),
+                                          JsxRuntime.jsx("button", {
+                                                children: isLoading ? JsxRuntime.jsx("span", {
+                                                        className: "h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"
+                                                      }) : JsxRuntime.jsx(LucideReact.ArrowUp, {
+                                                        size: 15,
+                                                        strokeWidth: 2.5,
+                                                        "aria-hidden": "true"
+                                                      }),
+                                                "aria-label": hasHistory ? t`Send` : t`Fill event form from description`,
+                                                className: "absolute bottom-2 right-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#bdf25d] text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 dark:disabled:bg-[#34353a]",
+                                                disabled: !canSend,
+                                                type: "button",
+                                                onClick: (function (param) {
+                                                    handleAsk();
+                                                  })
+                                              })
+                                        ],
+                                        className: "relative overflow-hidden rounded-xl border border-gray-200 bg-white focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#3a3b40] dark:bg-[#222326]"
+                                      })
+                                ],
+                                className: "block",
+                                htmlFor: "event-ai-prompt"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("p", {
+                                        children: hasHistory ? t`Answer the questions or add details to refine the draft.` : t`We’ll turn your description into a draft you can review and edit.`,
+                                        className: "text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                      }),
+                                  hasHistory ? JsxRuntime.jsx("button", {
+                                          children: t`Reset`,
+                                          className: "flex-shrink-0 text-xs font-semibold text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100",
+                                          type: "button",
+                                          onClick: (function (param) {
+                                              handleReset();
+                                            })
                                         }) : null
                                 ],
-                                ref: Caml_option.some(chatContainerRef),
-                                className: "max-h-96 overflow-y-auto mb-4 space-y-3 pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
-                              }) : null,
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("textarea", {
-                                      className: "w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500",
-                                      disabled: isLoading || hasPendingProposal || isHydrating,
-                                      placeholder: hasHistory ? (
-                                          hasPendingProposal ? t`Approve or deny the pending action to continue.` : t`Answer the questions or provide more details...`
-                                        ) : t`e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, competitive play for 3.5+ players...`,
-                                      rows: hasHistory ? 2 : 3,
-                                      value: prompt,
-                                      onKeyDown: (function (e) {
-                                          var key = e.key;
-                                          var metaKey = e.metaKey;
-                                          var ctrlKey = e.ctrlKey;
-                                          if (key === "Enter" && (metaKey || ctrlKey)) {
-                                            e.preventDefault();
-                                            return handleAsk();
-                                          }
-                                          
-                                        }),
-                                      onChange: (function (e) {
-                                          var value = e.target.value;
-                                          setPrompt(function (param) {
-                                                return value;
-                                              });
-                                        })
-                                    }),
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              children: hasHistory ? t`Press ⌘+Enter to continue` : t`Press ⌘+Enter to generate`,
-                                              className: "text-xs text-gray-500 dark:text-gray-400"
-                                            }),
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                hasHistory ? JsxRuntime.jsx("button", {
-                                                        children: t`Reset`,
-                                                        className: "px-3 py-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 text-sm font-medium transition-colors",
-                                                        type: "button",
-                                                        onClick: (function (param) {
-                                                            handleReset();
-                                                          })
-                                                      }) : null,
-                                                JsxRuntime.jsx("button", {
-                                                      children: isLoading ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                              children: [
-                                                                JsxRuntime.jsx("div", {
-                                                                      className: "w-4 h-4 border-2 border-gray-900 border-t-transparent rounded-full animate-spin"
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: t`Generating...`
-                                                                    })
-                                                              ]
-                                                            }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                              children: [
-                                                                JsxRuntime.jsx(LucideReact.Sparkles, {
-                                                                      className: "w-4 h-4"
-                                                                    }),
-                                                                JsxRuntime.jsx("span", {
-                                                                      children: hasHistory ? t`Continue` : t`Fill with AI`
-                                                                    })
-                                                              ]
-                                                            }),
-                                                      className: "inline-flex items-center gap-2 px-4 py-2 bg-[#a3e635] text-gray-900 rounded-lg font-medium hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#1a1a1a] disabled:opacity-50 disabled:cursor-not-allowed transition-all",
-                                                      disabled: prompt.trim() === "" || isLoading || hasPendingProposal || isHydrating,
-                                                      type: "button",
-                                                      onClick: (function (param) {
-                                                          handleAsk();
-                                                        })
-                                                    })
-                                              ],
-                                              className: "flex items-center gap-2"
-                                            })
-                                      ],
-                                      className: "flex items-center justify-between mt-3"
-                                    })
-                              ]
-                            })
-                      ],
-                      className: "p-6"
-                    }),
-              className: "relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1a1a1a] transition-colors"
+                                className: "flex items-center justify-between gap-3"
+                              })
+                        ],
+                        className: "space-y-3 border-t border-[#a3d949]/40 bg-white px-3.5 py-4 dark:border-[#bdf25d]/20 dark:bg-[#1e1f23]",
+                        id: "event-form-helper"
+                      })
+              ],
+              className: "overflow-hidden rounded-xl border border-[#a3d949]/60 bg-[#bdf25d]/10 dark:border-[#bdf25d]/25 dark:bg-[#bdf25d]/5"
             });
 }
 

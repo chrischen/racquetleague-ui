@@ -45,11 +45,11 @@ msgstr "สนาม {0}"
 msgid "{0} courts"
 msgstr "{0} สนาม"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "ไม่สามารถสร้าง {0} กิจกรรมได้ (อาจมีอยู่แล้ว)"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
@@ -106,11 +106,11 @@ msgstr "1 · วัน"
 msgid "2 · Time"
 msgstr "2 · เวลา"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · ประเภทไหน?"
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr "เพิ่มกิจกรรม"
 
@@ -179,9 +179,19 @@ msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "ไม่สามารถโหลดสถานที่นั้นได้"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -190,19 +200,19 @@ msgstr "ดำเนินการต่อ"
 msgid "Could not save your profile. Please try again."
 msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "ไม่สามารถสร้างกิจกรรมนั้นได้ กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "ไม่สามารถระบุกิจกรรมได้ กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -216,16 +226,16 @@ msgstr "สร้างกิจกรรมทั้งหมด"
 msgid "Create This Event"
 msgstr "สร้างกิจกรรมนี้"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "กำลังสร้าง..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
@@ -255,7 +265,7 @@ msgstr "ต้องกรอกอีเมล"
 msgid "Evening"
 msgstr "เย็น"
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
@@ -279,11 +289,11 @@ msgstr "เพศ"
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "จัดอีเวนต์"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
 
@@ -327,8 +337,12 @@ msgstr "ออกจากกิจกรรม"
 msgid "Level"
 msgstr "ระดับ"
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "สถานที่:"
 
@@ -336,7 +350,7 @@ msgstr "สถานที่:"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
@@ -364,7 +378,7 @@ msgstr "ไม่ใช่ตอนนี้"
 msgid "pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
@@ -380,7 +394,7 @@ msgstr "โปร"
 msgid "Processing..."
 msgstr "กำลังประมวลผล..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "ลบ"
 
@@ -388,7 +402,7 @@ msgstr "ลบ"
 msgid "Reply"
 msgstr "ตอบกลับ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "บันทึก"
 
@@ -396,7 +410,11 @@ msgstr "บันทึก"
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "ค้นหาสนามหรือที่อยู่"
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
 
@@ -414,7 +432,7 @@ msgstr "แชร์เป็นข้อความ"
 msgid "show"
 msgstr "แสดง"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
@@ -422,7 +440,7 @@ msgstr "กิจกรรมที่แนะนำ"
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
@@ -434,13 +452,13 @@ msgstr ""
 "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
 "คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."
 msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "ชื่อ:"
 

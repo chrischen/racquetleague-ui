@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
@@ -26,12 +26,12 @@ msgstr "{0} 個連續空檔"
 msgid "{0} continuous openings"
 msgstr "{0} 個連續空檔"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0} 場"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} 場"
@@ -44,11 +44,11 @@ msgstr "{0} 個地點"
 msgid "{0} locations"
 msgstr "{0} 個地點"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
 msgstr "{hs}小時"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 msgid "{hs}h {ms}m"
 msgstr "{hs}小時 {ms}分"
 
@@ -56,16 +56,16 @@ msgstr "{hs}小時 {ms}分"
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{ms}m"
 msgstr "{ms}分"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "{n} 室內"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "{n} 室外"
@@ -91,7 +91,7 @@ msgstr "確認移動"
 msgid "Courts"
 msgstr "場地"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr "建立賽事"
 
@@ -119,7 +119,7 @@ msgstr "此時段的其他地點"
 msgid "Other times at {venue}"
 msgstr "{venue} 的其他時間"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "預訂"
 
@@ -139,7 +139,7 @@ msgstr "此操作將為所有已回覆出席的人重新安排時間。再次點
 msgid "Use location"
 msgstr "使用此地點"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "使用此選項"
 

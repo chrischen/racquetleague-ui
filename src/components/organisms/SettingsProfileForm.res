@@ -370,11 +370,23 @@ let make = (~query) => {
                 <div className="space-y-1">
                   <p className="text-sm text-gray-700 dark:text-gray-300">
                     {switch status {
-                    | Active => t`Your Stripe account is connected and ready to accept payments.`
+                    | Active => t`Your Stripe account is connected.`
                     | Pending =>
-                      t`Your Stripe account is connected but onboarding is not yet complete.`
+                      t`Your Stripe account is connected, but onboarding isn't complete yet.`
+                    | NotConnected => t`No Stripe account is connected.`
+                    }}
+                  </p>
+                  // What the state means for paid events. Attendees save a card at
+                  // RSVP in every case; only a connected account lets the organizer
+                  // charge it (one attendee or everyone, from the RSVP list).
+                  <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                    {switch status {
+                    | Active =>
+                      t`Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account.`
+                    | Pending =>
+                      t`Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event.`
                     | NotConnected =>
-                      t`Connect a Stripe account to receive payments from events you organize.`
+                      t`Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here.`
                     }}
                   </p>
                   {switch stripeAccountId {

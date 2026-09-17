@@ -49,11 +49,11 @@ msgstr ""
 msgid "{0} courts"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr ""
 
@@ -122,11 +122,11 @@ msgstr ""
 msgid "2 · Time"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr ""
 
@@ -198,8 +198,18 @@ msgstr ""
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:257
@@ -209,19 +219,19 @@ msgstr ""
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr ""
 
@@ -233,12 +243,12 @@ msgstr ""
 msgid "Create This Event"
 msgstr ""
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr ""
 
@@ -246,7 +256,7 @@ msgstr ""
 #~ msgid "Describe the event you want to create..."
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr ""
 
@@ -282,7 +292,7 @@ msgstr ""
 msgid "Evening"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr ""
 
@@ -306,11 +316,11 @@ msgstr ""
 msgid "Google Calendar"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr ""
 
@@ -362,8 +372,12 @@ msgstr ""
 msgid "location"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr ""
 
@@ -375,7 +389,7 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr ""
 
@@ -415,7 +429,7 @@ msgstr ""
 msgid "pending"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr ""
 
@@ -431,7 +445,7 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr ""
 
@@ -439,7 +453,7 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr ""
 
@@ -447,7 +461,11 @@ msgstr ""
 msgid "Save profile"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr ""
 
@@ -463,7 +481,7 @@ msgstr ""
 msgid "show"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr ""
 
@@ -475,7 +493,7 @@ msgstr ""
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr ""
 
@@ -483,7 +501,7 @@ msgstr ""
 msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid "Tell others you're down to play. Players with overlapping times can invite you."
 msgstr ""
 
@@ -491,7 +509,7 @@ msgstr ""
 #~ msgid "Time:"
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr ""
 

@@ -13,64 +13,77 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "ไม่สามารถสร้าง {0} กิจกรรมได้ (อาจมีอยู่แล้ว)"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:665
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter เพื่อส่ง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:635
 msgid "Action proposal"
 msgstr "ข้อเสนอการดำเนินการ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:399
-#: src/components/organisms/AIAssistantEmbed.re.mjs:439
-msgid "AI Assistant"
-msgstr "ผู้ช่วย AI"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:251
+#: src/components/organisms/AIAssistantEmbed.re.mjs:252
 msgid "An error occurred. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:750
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "Answer the questions or add details to refine the draft."
+msgstr "ตอบคำถามหรือเพิ่มรายละเอียดเพื่อปรับปรุงแบบร่าง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
 msgid "Answer the questions or provide more details..."
 msgstr "ตอบคำถามหรือให้รายละเอียดเพิ่มเติม..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:568
+#: src/components/organisms/AIAssistantEmbed.re.mjs:544
 msgid "Approve"
 msgstr "อนุมัติ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:750
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+msgid "Approve or deny the pending action to continue"
+msgstr "อนุมัติหรือปฏิเสธการดำเนินการที่รออยู่เพื่อดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
 msgid "Approve or deny the pending action to continue."
 msgstr "อนุมัติหรือปฏิเสธการดำเนินการที่รอดำเนินการเพื่อดำเนินการต่อ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:528
+#: src/components/organisms/AIAssistantEmbed.re.mjs:502
 msgid "Approved"
 msgstr "อนุมัติแล้ว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:522
+#: src/components/organisms/AIAssistantEmbed.re.mjs:496
 msgid "Awaiting approval"
 msgstr "รอการอนุมัติ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:803
-msgid "Continue"
-msgstr "ดำเนินการต่อ"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:443
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
 msgid "Continue the conversation"
 msgstr "ดำเนินการสนทนาต่อ"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "ไม่สามารถโหลดสถานที่นั้นได้"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "ไม่สามารถสร้างกิจกรรมนั้นได้ กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "ไม่สามารถระบุกิจกรรมได้ กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
 
@@ -82,112 +95,165 @@ msgstr "สร้างกิจกรรมทั้งหมด"
 msgid "Create This Event"
 msgstr "สร้างกิจกรรมนี้"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "กำลังสร้าง..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:534
+#: src/components/organisms/AIAssistantEmbed.re.mjs:508
 msgid "Denied"
 msgstr "ถูกปฏิเสธ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:622
+#: src/components/organisms/AIAssistantEmbed.re.mjs:600
 msgid "Deny"
 msgstr "ปฏิเสธ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:439
-msgid "Describe your event"
-msgstr "อธิบายกิจกรรมของคุณ"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+msgid "Describe the event"
+msgstr "อธิบายกิจกรรม"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Describe the event to generate a draft"
+msgstr "อธิบายกิจกรรมเพื่อสร้างแบบร่าง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+msgid ""
+"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+"more players around 3.5, ¥800 each."
+msgstr ""
+"อธิบายกิจกรรมของคุณ… ตัวอย่าง: พรุ่งนี้ 19:00 ที่เซ็นทรัลพาร์ค ต้องการผู้เล่นอีก 3 คน "
+"ระดับประมาณ 3.5 คนละ ¥800"
+
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:751
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. "
-"เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:542
+#: src/components/organisms/AIAssistantEmbed.re.mjs:516
 msgid "Executed"
 msgstr "ดำเนินการแล้ว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
 msgid "Execution failed"
 msgstr "การดำเนินการล้มเหลว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:803
-msgid "Fill with AI"
-msgstr "กรอกด้วย AI"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Fill event form from description"
+msgstr "กรอกแบบฟอร์มกิจกรรมจากคำอธิบาย"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:403
-msgid "Form filled • Click to expand"
-msgstr "กรอกแบบฟอร์มแล้ว • คลิกเพื่อขยาย"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+msgid "Help me fill this out"
+msgstr "ช่วยฉันกรอกข้อมูลนี้"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:794
-msgid "Generating..."
-msgstr "กำลังสร้าง..."
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "Include whatever details you know"
+msgstr "ใส่รายละเอียดเท่าที่คุณทราบ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:443
-msgid "Let AI help you fill out the details below"
-msgstr "ให้ AI ช่วยคุณกรอกรายละเอียดด้านล่าง"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:473
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "Loading conversation history..."
 msgstr "กำลังโหลดประวัติการสนทนา..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "สถานที่:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+#: src/components/organisms/AIAssistantEmbed.re.mjs:652
 msgid "Operation:"
 msgstr "การดำเนินการ:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:774
-msgid "Press ⌘+Enter to continue"
-msgstr "กด ⌘+Enter เพื่อดำเนินการต่อ"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:774
-msgid "Press ⌘+Enter to generate"
-msgstr "กด ⌘+Enter เพื่อสร้าง"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:780
 msgid "Reset"
 msgstr "รีเซ็ต"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "ค้นหาสนามหรือที่อยู่"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Send"
+msgstr "ส่ง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:596
+#: src/components/organisms/AIAssistantEmbed.re.mjs:572
 msgid "The action completed with GraphQL errors."
 msgstr "การดำเนินการเสร็จสิ้นพร้อมข้อผิดพลาด GraphQL"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "ชื่อ:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:265
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "มีการร้องขอขั้นตอนอัตโนมัติมากเกินไป กรุณาดำเนินการต่อด้วยตนเอง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr "เราจะเปลี่ยนคำอธิบายของคุณให้เป็นแบบร่างที่คุณตรวจทานและแก้ไขได้"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:399
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
+#~ msgid "AI Assistant"
+#~ msgstr "ผู้ช่วย AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
+#~ msgid "Continue"
+#~ msgstr "ดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
+#~ msgid "Describe your event"
+#~ msgstr "อธิบายกิจกรรมของคุณ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:751
+#~ msgid ""
+#~ "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+#~ "competitive play for 3.5+ players..."
+#~ msgstr ""
+#~ "เช่น การพบปะพิคเคิลบอลรายสัปดาห์ที่เซ็นทรัลพาร์ค วันพฤหัสบดีเวลา 18:00 น. "
+#~ "เล่นแบบแข่งขันสำหรับผู้เล่นระดับ 3.5+..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr "เกิดข้อผิดพลาดในการสร้างกิจกรรม กรุณาลองอีกครั้ง"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
+#~ msgid "Fill with AI"
+#~ msgstr "กรอกด้วย AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:403
+#~ msgid "Form filled • Click to expand"
+#~ msgstr "กรอกแบบฟอร์มแล้ว • คลิกเพื่อขยาย"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:794
+#~ msgid "Generating..."
+#~ msgstr "กำลังสร้าง..."
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "ไม่สามารถประมวลผลคำขอนั้นได้ โปรดลองอีกครั้ง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
+#~ msgid "Let AI help you fill out the details below"
+#~ msgstr "ให้ AI ช่วยคุณกรอกรายละเอียดด้านล่าง"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
+#~ msgid "Press ⌘+Enter to continue"
+#~ msgstr "กด ⌘+Enter เพื่อดำเนินการต่อ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
+#~ msgid "Press ⌘+Enter to generate"
+#~ msgstr "กด ⌘+Enter เพื่อสร้าง"

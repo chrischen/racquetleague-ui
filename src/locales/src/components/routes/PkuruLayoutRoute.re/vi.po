@@ -13,6 +13,68 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1498
+#: src/components/pages/PkuruLayout.re.mjs:113
+msgid "Badminton"
+msgstr "Cầu lông"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1502
+msgid "Table Tennis"
+msgstr "Bóng bàn"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1506
+#: src/components/pages/PkuruLayout.re.mjs:105
+msgid "Pickleball"
+msgstr "Pickleball"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1510
+msgid "Futsal"
+msgstr "Futsal"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1514
+msgid "Basketball"
+msgstr "Bóng rổ"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1518
+msgid "Volleyball"
+msgstr "Bóng chuyền"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1522
+msgid "Crossminton"
+msgstr "Crossminton"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1526
+msgid "Padel"
+msgstr "Padel"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1530
+msgid "drill"
+msgstr "luyện tập"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1534
+msgid "comp"
+msgstr "thi đấu"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1538
+msgid "rec"
+msgstr "giải trí"
+
+#. js-lingui-explicit-id
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1542
+msgid "all level"
+msgstr "mọi trình độ"
+
 #: src/components/shared/InstallPwa.re.mjs:413
 msgid "— add to your Home Screen for push notifications"
 msgstr "— thêm vào Màn hình chính để nhận thông báo đẩy"
@@ -29,6 +91,12 @@ msgstr "— trải nghiệm nhanh hơn, giống như ứng dụng thực thụ"
 msgid "(logout)"
 msgstr "(đăng xuất)"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:735
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1025
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1115
+msgid "(optional)"
+msgstr "(không bắt buộc)"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 msgid "{0} court"
 msgstr "{0} sân"
@@ -36,6 +104,14 @@ msgstr "{0} sân"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} sân"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:367
+msgid "{0} event(s) couldn't be created (they may already exist)."
+msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:363
+msgid "{0} events created!"
+msgstr "Đã tạo {0} sự kiện!"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
@@ -45,17 +121,74 @@ msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
 
+#: src/components/organisms/ClubActivitySelector.re.mjs:191
+msgid "+ Add new club..."
+msgstr "+ Thêm câu lạc bộ mới..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter để gửi"
+
 #: src/components/organisms/NewPlanModal.re.mjs:232
 msgid "1 · Day"
 msgstr "1 · Ngày"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+msgid "1 hour before"
+msgstr "1 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1169
+msgid "1 week before"
+msgstr "1 tuần trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1153
+msgid "12 hours before"
+msgstr "12 giờ trước"
 
 #: src/components/organisms/NewPlanModal.re.mjs:271
 msgid "2 · Time"
 msgstr "2 · Giờ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1145
+msgid "2 hours before"
+msgstr "2 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1157
+msgid "24 hours before"
+msgstr "24 giờ trước"
+
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · Loại gì?"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1161
+msgid "48 hours before"
+msgstr "48 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1149
+msgid "6 hours before"
+msgstr "6 giờ trước"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+msgid "72 hours before"
+msgstr "72 giờ trước"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:635
+msgid "Action proposal"
+msgstr "Đề xuất hành động"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:791
+#: src/components/organisms/CreateLocationEventForm.re.mjs:813
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:243
+msgid "Activity"
+msgstr "Môn thể thao"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:71
+msgid "activity is required"
+msgstr "cần có môn thể thao"
 
 #: src/components/molecules/NotificationRow.re.mjs:140
 msgid "Added to Event"
@@ -69,17 +202,92 @@ msgstr "Nâng cao"
 msgid "Afternoon"
 msgstr "Buổi chiều"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+msgid "All levels"
+msgstr "Tất cả cấp độ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:252
+msgid "An error occurred. Please try again."
+msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "Answer the questions or add details to refine the draft."
+msgstr "Trả lời các câu hỏi hoặc thêm chi tiết để hoàn thiện bản nháp."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+msgid "Answer the questions or provide more details..."
+msgstr "Trả lời câu hỏi hoặc cung cấp thêm thông tin..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid ""
+"Anyone held as pending can be moved into the event from the RSVP list, which "
+"bypasses the payment requirement for them."
+msgstr ""
+"Bất kỳ ai đang ở trạng thái chờ đều có thể được chuyển vào sự kiện từ danh "
+"sách RSVP, khi đó họ không cần đáp ứng yêu cầu thanh toán."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+msgid "Anything players should know before joining or arriving."
+msgstr "Bất cứ điều gì người chơi cần biết trước khi tham gia hoặc đến."
+
 #: src/components/organisms/NewPlanModal.re.mjs:80
 msgid "Anytime"
 msgstr "Bất kỳ lúc nào"
 
-#: src/components/pages/PkuruLayout.re.mjs:251
+#: src/components/organisms/AIAssistantEmbed.re.mjs:544
+msgid "Approve"
+msgstr "Chấp thuận"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+msgid "Approve or deny the pending action to continue"
+msgstr "Chấp thuận hoặc từ chối hành động đang chờ để tiếp tục"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+msgid "Approve or deny the pending action to continue."
+msgstr "Phê duyệt hoặc từ chối hành động đang chờ để tiếp tục."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:502
+msgid "Approved"
+msgstr "Đã phê duyệt"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+msgid ""
+"Attendees are asked to save a card when they RSVP, but nothing is authorized "
+"or charged, and you can't charge it from here. Collect the fee at the event."
+msgstr ""
+"Người tham gia được yêu cầu lưu thẻ khi RSVP, nhưng không có khoản nào bị "
+"tạm giữ hay bị trừ, và bạn không thể thu tiền từ đây. Hãy thu phí tại sự "
+"kiện."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+msgid "Attendees cannot cancel their RSVP after this deadline."
+msgstr "Người tham gia không thể hủy đăng ký sau thời hạn này."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+msgid ""
+"Attendees save a card when they RSVP and nothing is charged or held up "
+"front. From the RSVP list you can charge one attendee or everyone whenever "
+"you choose, and the money goes to your Stripe account."
+msgstr ""
+"Người tham gia lưu thẻ khi RSVP và không có khoản nào bị trừ hay tạm giữ "
+"trước. Từ danh sách RSVP, bạn có thể thu tiền một người hoặc tất cả bất cứ "
+"lúc nào, và tiền sẽ vào tài khoản Stripe của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1444
+msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
+msgstr "Người tham gia lưu thẻ khi RSVP. Không có khoản nào bị trừ tự động."
+
+#: src/components/pages/PkuruLayout.re.mjs:258
 msgid "Availability"
 msgstr "Lịch rảnh"
 
-#: src/components/pages/PkuruLayout.re.mjs:108
-msgid "Badminton"
-msgstr "Cầu lông"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:496
+msgid "Awaiting approval"
+msgstr "Đang chờ phê duyệt"
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "Quay lại"
 
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
@@ -93,14 +301,67 @@ msgstr "Tiểu sử"
 msgid "Biography is required"
 msgstr "Tiểu sử là bắt buộc"
 
+#: src/components/organisms/CreateClubForm.re.mjs:205
+msgid "Brief description of the club..."
+msgstr "Mô tả ngắn về câu lạc bộ..."
+
+#: src/components/organisms/CreateClubForm.re.mjs:314
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1132
+msgid "Cancel deadline"
+msgstr "Thời hạn hủy"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+msgid "Change"
+msgstr "Thay đổi"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:579
+msgid "Choose a location for this event"
+msgstr "Chọn vị trí cho sự kiện này"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+msgid "Choose an event time"
+msgstr "Chọn giờ cho sự kiện"
+
+#: src/components/organisms/RouteModal.re.mjs:75
+msgid "Close"
+msgstr "Đóng"
+
 #: src/components/organisms/ProfileModal.re.mjs:460
 msgid "Close profile form"
 msgstr "Đóng biểu mẫu hồ sơ"
 
+#: src/components/organisms/ClubActivitySelector.re.mjs:174
+msgid "Club"
+msgstr "Câu lạc bộ"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:362
+msgid "Club & Activity"
+msgstr "Câu lạc bộ & Môn thể thao"
+
+#: src/components/organisms/CreateClubForm.re.mjs:156
+msgid "Club Name"
+msgstr "Tên câu lạc bộ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:256
+msgid "Club URL"
+msgstr "URL câu lạc bộ"
+
+#: src/components/organisms/CreateClubForm.re.mjs:269
+msgid "club-name"
+msgstr "ten-clb"
+
 #: src/components/organisms/NavViewer.re.mjs:65
-#: src/components/pages/PkuruLayout.re.mjs:297
+#: src/components/pages/PkuruLayout.re.mjs:304
 msgid "Clubs"
 msgstr "Câu lạc bộ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:671
+#: src/components/organisms/CreateLocationEventForm.re.mjs:883
+msgid "Competitive"
+msgstr "Thi đấu"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -117,9 +378,27 @@ msgstr ""
 "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
 "tổ chức."
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Connect a Stripe account to enable this"
+msgstr "Kết nối tài khoản Stripe để bật tính năng này"
+
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "Tiếp tục"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Continue the conversation"
+msgstr "Tiếp tục cuộc hội thoại"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "Không thể tải địa điểm đó"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "Không thể lưu vị trí đó"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -128,7 +407,19 @@ msgstr "Tiếp tục"
 msgid "Could not save your profile. Please try again."
 msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:417
+msgid "Couldn't create that event. Please try again."
+msgstr "Không thể tạo sự kiện đó. Vui lòng thử lại."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:376
+msgid "Couldn't determine the activity. Please try again."
+msgstr "Không thể xác định hoạt động. Vui lòng thử lại."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:393
+msgid "Couldn't find this location — pick it:"
+msgstr "Không tìm thấy địa điểm này — hãy chọn:"
+
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -136,8 +427,82 @@ msgstr ""
 "Tạo sự kiện có chủ tổ chức vào thời điểm này. Người khác có thể tham gia, "
 "bạn chọn địa điểm và luật chơi."
 
-#: src/components/pages/PkuruLayout.re.mjs:287
-#: src/components/pages/PkuruLayout.re.mjs:651
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+msgid "Create All Events"
+msgstr "Tạo tất cả sự kiện"
+
+#: src/components/organisms/CreateClubForm.re.mjs:300
+msgid "Create Club"
+msgstr "Tạo câu lạc bộ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1484
+#: src/components/organisms/CreateEventModal.re.mjs:79
+msgid "Create event"
+msgstr "Tạo sự kiện"
+
+#: src/components/pages/CreateEventPage.re.mjs:274
+msgid "Create multiple events instead"
+msgstr "Tạo nhiều sự kiện thay vì vậy"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+msgid "Create This Event"
+msgstr "Tạo sự kiện này"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:381
+msgid "Creating..."
+msgstr "Đang tạo..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1304
+msgid "Date"
+msgstr "Ngày"
+
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
+msgid "Date:"
+msgstr "Ngày:"
+
+#: src/components/organisms/CreateClubForm.re.mjs:225
+msgid "Default club activity"
+msgstr "Môn thể thao mặc định của câu lạc bộ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:508
+msgid "Denied"
+msgstr "Đã từ chối"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:600
+msgid "Deny"
+msgstr "Từ chối"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+msgid "Describe the event"
+msgstr "Mô tả sự kiện"
+
+#: src/components/organisms/CreateEventModal.re.mjs:81
+msgid "Describe the event to draft it, or fill in the details."
+msgstr "Mô tả sự kiện để tạo bản nháp, hoặc tự điền chi tiết."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Describe the event to generate a draft"
+msgstr "Mô tả sự kiện để tạo bản nháp"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+msgid ""
+"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+"more players around 3.5, ¥800 each."
+msgstr ""
+"Mô tả sự kiện của bạn… Ví dụ: 19h ngày mai tại Công viên Trung tâm, cần thêm "
+"3 người chơi trình độ khoảng 3.5, 800¥ mỗi người."
+
+#: src/components/organisms/CreateClubForm.re.mjs:198
+msgid "Description"
+msgstr "Mô tả"
+
+#: src/components/molecules/AIResponseCard.re.mjs:117
+msgid "Description:"
+msgstr "Mô tả:"
+
+#: src/components/pages/PkuruLayout.re.mjs:294
+#: src/components/pages/PkuruLayout.re.mjs:659
 msgid "Discover"
 msgstr "Khám phá"
 
@@ -148,6 +513,33 @@ msgstr "Tên hiển thị"
 #: src/components/organisms/ProfileModal.re.mjs:109
 msgid "Display name is required"
 msgstr "Cần có tên hiển thị"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:276
+msgid "Done"
+msgstr "Xong"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+msgid "Draft filled in. Review the details before creating the event."
+msgstr "Đã điền bản nháp. Hãy xem lại chi tiết trước khi tạo sự kiện."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+msgid "Drag the window to move it, or drag either edge to resize."
+msgstr ""
+"Kéo khung để di chuyển, hoặc kéo một trong hai cạnh để thay đổi kích thước."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:676
+#: src/components/organisms/CreateLocationEventForm.re.mjs:926
+msgid "Drill session"
+msgstr "Buổi luyện tập"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:673
+#: src/components/organisms/CreateLocationEventForm.re.mjs:909
+msgid "DUPR rated"
+msgstr "Có xếp hạng DUPR"
+
+#: src/components/organisms/CreateClubForm.re.mjs:164
+msgid "e.g., City Ballers Club"
+msgstr "ví dụ: Câu lạc bộ City Ballers"
 
 #: src/components/organisms/ProfileModal.re.mjs:364
 msgid "Email address"
@@ -169,6 +561,14 @@ msgstr "Cần có email"
 msgid "Enable now"
 msgstr "Bật ngay"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:83
+msgid "end time is required"
+msgstr "cần có giờ kết thúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:772
+msgid "Enter price"
+msgstr "Nhập giá"
+
 #: src/components/organisms/NewPlanModal.re.mjs:98
 msgid "Evening"
 msgstr "Buổi tối"
@@ -177,28 +577,98 @@ msgstr "Buổi tối"
 msgid "Event Canceled"
 msgstr "Sự Kiện Đã Bị Hủy"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:80
+msgid "event date is required"
+msgstr "cần có ngày sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1405
+msgid "Event details"
+msgstr "Chi tiết sự kiện"
+
+#: src/components/molecules/AIResponseCard.re.mjs:45
+msgid "Event Details"
+msgstr "Chi tiết sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:732
+msgid "Event notes"
+msgstr "Ghi chú sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:718
+msgid "Event title"
+msgstr "Tiêu đề sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:860
+msgid "Event type"
+msgstr "Loại sự kiện"
+
 #: src/components/molecules/NotificationRow.re.mjs:132
 #: src/components/molecules/NotificationRow.re.mjs:135
 msgid "Event Uncanceled"
 msgstr "Sự Kiện Đã Được Khôi Phục"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1383
+msgid "Events can be up to 12 hours long."
+msgstr "Sự kiện có thể kéo dài tối đa 12 giờ."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1383
+msgid "Events must be at least 15 minutes long."
+msgstr "Sự kiện phải kéo dài ít nhất 15 phút."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:516
+msgid "Executed"
+msgstr "Đã thực thi"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+msgid "Execution failed"
+msgstr "Thực thi thất bại"
+
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "Nữ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Fill event form from description"
+msgstr "Điền biểu mẫu sự kiện từ mô tả"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
+msgid "Find players for your event?"
+msgstr "Tìm người chơi cho sự kiện của bạn?"
 
 #: src/components/organisms/ProfileModal.re.mjs:357
 msgid "For event updates and notifications"
 msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1463
+msgid "Format"
+msgstr "Định dạng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Format options"
+msgstr "Tùy chọn định dạng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:721
+msgid "Friday night pickleball"
+msgstr "Pickleball tối thứ Sáu"
+
 #: src/components/organisms/ProfileModal.re.mjs:491
 msgid "Gender"
 msgstr "Giới tính"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+msgid "Help me fill this out"
+msgstr "Giúp tôi điền phần này"
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "Hide"
 msgstr "Ẩn"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+msgid "Hold new joins and admit players automatically based on match quality."
+msgstr ""
+"Giữ lại người mới tham gia và tự động duyệt người chơi dựa trên chất lượng "
+"trận đấu."
+
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "Tổ chức sự kiện"
 
@@ -206,7 +676,7 @@ msgstr "Tổ chức sự kiện"
 msgid "Host Message"
 msgstr "Tin nhắn từ Chủ nhà"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
@@ -221,6 +691,10 @@ msgstr "Cách cài đặt"
 #: src/components/shared/InstallPwa.re.mjs:454
 msgid "in Safari's toolbar"
 msgstr "trong thanh công cụ Safari"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "Include whatever details you know"
+msgstr "Thêm bất kỳ chi tiết nào bạn biết"
 
 #: src/components/shared/InstallPwa.re.mjs:494
 msgid "Install"
@@ -251,11 +725,15 @@ msgstr "Đã tham gia"
 msgid "Joined Club"
 msgstr "Đã Tham Gia Câu Lạc Bộ"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1231
+msgid "Keep current location"
+msgstr "Giữ địa điểm hiện tại"
+
 #: src/components/organisms/ProfileModal.re.mjs:309
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
 
-#: src/components/pages/PkuruLayout.re.mjs:308
+#: src/components/pages/PkuruLayout.re.mjs:315
 msgid "Leaderboard"
 msgstr "Bảng xếp hạng"
 
@@ -267,15 +745,41 @@ msgstr "Đã rời Sự kiện"
 msgid "Level"
 msgstr "Trình độ"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1070
+msgid "List your event publicly to help fill open spots."
+msgstr "Đăng công khai sự kiện để lấp đầy các chỗ trống."
+
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
 msgid "Load more"
 msgstr "Tải thêm"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+msgid "Loading conversation history..."
+msgstr "Đang tải lịch sử hội thoại..."
+
+#: src/components/organisms/CreateEventModal.re.mjs:74
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
-#: src/components/pages/PkuruLayout.re.mjs:998
-#: src/components/pages/PkuruLayout.re.mjs:1094
+#: src/components/pages/PkuruLayout.re.mjs:1020
+#: src/components/pages/PkuruLayout.re.mjs:1117
 msgid "Loading..."
 msgstr "Đang tải..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1210
+msgid "Location"
+msgstr "Địa điểm"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1202
+msgid "Location & time"
+msgstr "Địa điểm & thời gian"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "Tìm kiếm vị trí hiện không khả dụng"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
+msgid "Location:"
+msgstr "Địa điểm:"
 
 #: src/components/molecules/LoginLink.re.mjs:28
 #: src/components/molecules/LoginLink.re.mjs:32
@@ -286,17 +790,25 @@ msgstr "đăng nhập bằng Line"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/pages/PkuruLayout.re.mjs:661
+#: src/components/pages/PkuruLayout.re.mjs:669
 msgid "Map"
 msgstr "Bản đồ"
 
-#: src/components/pages/PkuruLayout.re.mjs:318
+#: src/components/pages/PkuruLayout.re.mjs:325
 msgid "Map view"
 msgstr "Xem bản đồ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+msgid "Max players"
+msgstr "Số người chơi tối đa"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1022
+msgid "Minimum rating"
+msgstr "Trình độ tối thiểu"
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
 msgid "Morning"
@@ -306,15 +818,15 @@ msgstr "Buổi sáng"
 msgid "My clubs"
 msgstr "Câu lạc bộ của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:178
+#: src/components/pages/PkuruLayout.re.mjs:185
 msgid "My events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:690
+#: src/components/pages/PkuruLayout.re.mjs:698
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/pages/PkuruLayout.re.mjs:675
+#: src/components/pages/PkuruLayout.re.mjs:683
 msgid "New"
 msgstr "Mới"
 
@@ -322,13 +834,34 @@ msgstr "Mới"
 msgid "New Comment"
 msgstr "Bình luận mới"
 
-#: src/components/pages/PkuruLayout.re.mjs:491
+#: src/components/pages/PkuruLayout.re.mjs:499
 msgid "New event"
 msgstr "Sự kiện mới"
 
 #: src/components/organisms/NewPlanModal.re.mjs:203
+#: src/components/organisms/CreateEventModal.re.mjs:80
 msgid "New plan"
 msgstr "Kế hoạch mới"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:324
+msgid "No club"
+msgstr "Không có câu lạc bộ"
+
+#: src/components/organisms/ClubActivitySelector.re.mjs:181
+msgid "No club / Independent event"
+msgstr "Không có câu lạc bộ / Sự kiện độc lập"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1137
+msgid "No deadline"
+msgstr "Không có hạn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+msgid "No limit"
+msgstr "Không giới hạn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1031
+msgid "No minimum"
+msgstr "Không có tối thiểu"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:140
 msgid "No notifications"
@@ -343,8 +876,8 @@ msgid "Notification"
 msgstr "Thông báo"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:189
-#: src/components/pages/PkuruLayout.re.mjs:525
+#: src/components/pages/PkuruLayout.re.mjs:196
+#: src/components/pages/PkuruLayout.re.mjs:533
 msgid "Notifications"
 msgstr "Thông báo"
 
@@ -352,28 +885,61 @@ msgstr "Thông báo"
 msgid "Off Waitlist"
 msgstr "Ra khỏi Danh sách chờ"
 
-#: src/components/pages/PkuruLayout.re.mjs:167
+#: src/components/organisms/AIAssistantEmbed.re.mjs:652
+msgid "Operation:"
+msgstr "Thao tác:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1440
+msgid "Paid event"
+msgstr "Sự kiện có phí"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:763
+msgid "Participation fee"
+msgstr "Phí tham gia"
+
+#: src/components/pages/PkuruLayout.re.mjs:174
 msgid "Personal"
 msgstr "Cá nhân"
 
-#: src/components/pages/PkuruLayout.re.mjs:102
-msgid "Pickleball"
-msgstr "Pickleball"
-
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1476
+msgid "Players"
+msgstr "Người chơi"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:681
+msgid "Private event"
+msgstr "Sự kiện riêng tư"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
 
-#: src/components/pages/PkuruLayout.re.mjs:200
-#: src/components/pages/PkuruLayout.re.mjs:700
+#: src/components/pages/PkuruLayout.re.mjs:207
+#: src/components/pages/PkuruLayout.re.mjs:708
 msgid "Profile"
 msgstr "Hồ sơ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/organisms/CreateLocationEventForm.re.mjs:680
+msgid "Public"
+msgstr "Công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:680
+msgid "Public · Up to {maxRsvpsStr} players"
+msgstr "Công khai · Tối đa {maxRsvpsStr} người chơi"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+msgid "Read more..."
+msgstr "Đọc thêm..."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:671
+#: src/components/organisms/CreateLocationEventForm.re.mjs:866
+msgid "Recreational"
+msgstr "Giải trí"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "Xóa"
 
@@ -381,7 +947,11 @@ msgstr "Xóa"
 msgid "Removed from Event"
 msgstr "Đã xóa khỏi Sự kiện"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
+msgid "Reset"
+msgstr "Đặt lại"
+
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "Lưu"
 
@@ -393,9 +963,17 @@ msgstr "Lưu hồ sơ"
 msgid "Scroll down and tap"
 msgstr "Cuộn xuống và nhấn"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "Tìm sân hoặc địa chỉ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Send"
+msgstr "Gửi"
 
 #: src/components/organisms/ProfileModal.re.mjs:530
 msgid ""
@@ -405,28 +983,76 @@ msgstr ""
 "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
 "họ nên mời bạn."
 
-#: src/components/pages/PkuruLayout.re.mjs:219
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+msgid "Show less"
+msgstr "Thu gọn"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:978
+msgid "Skill level"
+msgstr "Trình độ kỹ năng"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Smart RSVP"
+msgstr "RSVP thông minh"
+
+#: src/components/pages/PkuruLayout.re.mjs:226
 msgid "Sports"
 msgstr "Thể thao"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1360
+msgid "Start and end time"
+msgstr "Giờ bắt đầu và kết thúc"
 
 #: src/components/shared/InstallPwa.re.mjs:366
 msgid "Stay in the loop"
 msgstr "Luôn cập nhật tin tức"
 
+#: src/components/molecules/AIResponseCard.re.mjs:150
+msgid "Suggested Events"
+msgstr "Sự kiện được đề xuất"
+
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."
 msgstr ""
 "Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:572
+msgid "The action completed with GraphQL errors."
+msgstr "Hành động đã hoàn thành nhưng có lỗi GraphQL."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
+msgid "The date and times on this form are in this zone."
+msgstr "Ngày và giờ trong biểu mẫu này theo múi giờ này."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:970
+msgid "This event is public"
+msgstr "Sự kiện này ở chế độ công khai"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
+msgid "Time zone"
+msgstr "Múi giờ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:670
+msgid "Title and optional notes"
+msgstr "Tiêu đề và ghi chú (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:68
+msgid "title is required"
+msgstr "cần có tiêu đề"
+
+#: src/components/molecules/AIResponseCard.re.mjs:54
+msgid "Title:"
+msgstr "Tiêu đề:"
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
 msgid "Today"
@@ -435,6 +1061,18 @@ msgstr "Hôm nay"
 #: src/components/organisms/NewPlanModal.re.mjs:51
 msgid "Tomorrow"
 msgstr "Ngày mai"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+msgid "Too many automated steps were requested. Please continue manually."
+msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tục thủ công."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1484
+msgid "Update event"
+msgstr "Cập nhật sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:668
+msgid "Venue, date, start and end time"
+msgstr "Địa điểm, ngày, giờ bắt đầu và kết thúc"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:166
 msgid "View all notifications"
@@ -445,13 +1083,82 @@ msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr ""
+"Chúng tôi sẽ chuyển mô tả của bạn thành bản nháp để bạn xem lại và chỉnh sửa."
+
 #: src/components/organisms/NewPlanModal.re.mjs:207
 msgid "When do you want to play?"
 msgstr "Bạn muốn chơi lúc nào?"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:809
+msgid "With a Stripe account"
+msgstr "Có tài khoản Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+msgid "Without a Stripe account"
+msgstr "Không có tài khoản Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+#~ msgid ""
+#~ "A deposit authorization is made. This is not a charge and it "
+#~ "automatically disappears from the person's account. You can manually "
+#~ "approve attendees who do not authorize payment by clicking their name in "
+#~ "the RSVP list."
+#~ msgstr ""
+#~ "Một khoản ủy quyền đặt cọc được thực hiện. Đây không phải là khoản thu "
+#~ "phí và sẽ tự động biến mất khỏi tài khoản của người đó. Bạn có thể duyệt "
+#~ "thủ công những người tham dự không ủy quyền thanh toán bằng cách nhấp vào "
+#~ "tên của họ trong danh sách RSVP."
+
 #: src/components/pages/PkuruLayout.re.mjs:103
 #~ msgid "Browse"
 #~ msgstr "Duyệt"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+#~ msgid "Connect a Stripe account to activate"
+#~ msgstr "Kết nối tài khoản Stripe để kích hoạt"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "daytime"
+#~ msgstr "ban ngày"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+#~ msgid "Drag around the clock · Arrow keys move 15 minutes"
+#~ msgstr "Kéo quanh mặt đồng hồ · Phím mũi tên dịch 15 phút"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag end time"
+#~ msgstr "Kéo giờ kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+#~ msgid "Drag start time"
+#~ msgstr "Kéo giờ bắt đầu"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+#~ msgid "duration"
+#~ msgstr "thời lượng"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing end"
+#~ msgstr "Đang chỉnh giờ kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+#~ msgid "Editing start"
+#~ msgstr "Đang chỉnh giờ bắt đầu"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+#~ msgid "End"
+#~ msgstr "Kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "end time"
+#~ msgstr "giờ kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+#~ msgid "Event time range"
+#~ msgstr "Khoảng thời gian sự kiện"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
@@ -470,9 +1177,21 @@ msgstr "Bạn muốn chơi lúc nào?"
 #~ msgid "Match my time"
 #~ msgstr "Khớp giờ của tôi"
 
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to daytime hours"
+#~ msgstr "Chuyển giờ bắt đầu và kết thúc sang ban ngày"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+#~ msgid "Move start and end to nighttime hours"
+#~ msgstr "Chuyển giờ bắt đầu và kết thúc sang ban đêm"
+
 #: src/components/organisms/NavViewer.re.mjs:65
 #~ msgid "My Clubs"
 #~ msgstr "Câu lạc bộ của tôi"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+#~ msgid "nighttime"
+#~ msgstr "ban đêm"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
@@ -482,6 +1201,18 @@ msgstr "Bạn muốn chơi lúc nào?"
 #~ msgid "Rankings"
 #~ msgstr "Bảng xếp hạng"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1391
+#~ msgid "Require payment from attendees"
+#~ msgstr "Yêu cầu thanh toán từ người tham dự"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+#~ msgid "Start"
+#~ msgstr "Bắt đầu"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+#~ msgid "start time"
+#~ msgstr "giờ bắt đầu"
+
 #: src/components/molecules/NotificationsPreview.re.mjs:332
 #~ msgid "Status Update"
 #~ msgstr "Cập nhật Trạng thái"
@@ -489,3 +1220,18 @@ msgstr "Bạn muốn chơi lúc nào?"
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr "Nhấn bất kỳ đâu để thêm khung giờ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+#~ msgid ""
+#~ "The participation fee is charged automatically and transferred to your "
+#~ "Stripe account."
+#~ msgstr ""
+#~ "Phí tham gia được tính tự động và chuyển vào tài khoản Stripe của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+#~ msgid "With Stripe"
+#~ msgstr "Với Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+#~ msgid "Without Stripe"
+#~ msgstr "Không có Stripe"

@@ -121,10 +121,12 @@ var RsvpOptionsRefundPaymentMutation = {
 function RsvpOptions(props) {
   var __triggerClassName = props.triggerClassName;
   var __connectionKey = props.connectionKey;
+  var __chargesEnabled = props.chargesEnabled;
   var __isAdmin = props.isAdmin;
   var eventActivitySlug = props.eventActivitySlug;
   var eventId = props.eventId;
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
+  var chargesEnabled = __chargesEnabled !== undefined ? __chargesEnabled : false;
   var connectionKey = __connectionKey !== undefined ? __connectionKey : "RSVPSection_event_rsvps";
   var triggerClassName = __triggerClassName !== undefined ? __triggerClassName : "w-full text-left";
   var match = use$1();
@@ -154,13 +156,34 @@ function RsvpOptions(props) {
         return false;
       });
   var setIsUpdateDialogOpen = match$5[1];
+  var match$6 = React.useState(function () {
+        
+      });
+  var setPaymentError = match$6[1];
+  var paymentError = match$6[0];
+  var onChargePayment = function (paymentId) {
+    setPaymentError(function (param) {
+          
+        });
+    commitCapturePayment({
+          paymentId: paymentId
+        }, undefined, undefined, undefined, (function (response, param) {
+            setPaymentError(function (param) {
+                  return Core__Option.map(Core__Option.flatMap(response.captureRsvpPayment.errors, (function (errors) {
+                                    return errors[0];
+                                  })), (function (e) {
+                                return e.message;
+                              }));
+                });
+          }), undefined, undefined);
+  };
   var tmp;
   if (isAdmin) {
-    var match$6 = rsvp.listType;
+    var match$7 = rsvp.listType;
     var tmp$1;
     var exit = 0;
-    if (match$6 !== undefined && match$6 !== 0) {
-      tmp$1 = match$6 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+    if (match$7 !== undefined && match$7 !== 0) {
+      tmp$1 = match$7 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
               children: t`Approve RSVP`,
               onClick: (function (param) {
                   onUpdateListType(rsvp.id, 0);
@@ -180,28 +203,79 @@ function RsvpOptions(props) {
               })
           });
     }
-    var match$7 = rsvp.payment;
+    var match$8 = rsvp.payment;
     var tmp$2;
-    if (match$7 !== undefined) {
-      var match$8 = match$7.status;
-      var paymentId = match$7.id;
-      tmp$2 = match$8 !== 0 ? (
-          match$8 !== 1 ? null : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                  children: t`Refund payment`,
-                  onClick: (function (param) {
-                      commitRefundPayment({
-                            paymentId: paymentId
-                          }, undefined, undefined, undefined, undefined, undefined, undefined);
-                    })
-                })
-        ) : JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-              children: t`Capture payment`,
-              onClick: (function (param) {
-                  commitCapturePayment({
-                        paymentId: paymentId
-                      }, undefined, undefined, undefined, undefined, undefined, undefined);
-                })
-            });
+    if (match$8 !== undefined) {
+      var exit$1 = 0;
+      if (match$8.chargeable) {
+        var match$9 = match$8.status;
+        if (match$9 > 5 || match$9 < 0) {
+          exit$1 = 1;
+        } else {
+          var paymentId = match$8.id;
+          switch (match$9) {
+            case 0 :
+                tmp$2 = chargesEnabled ? JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                        children: t`Capture payment`,
+                        onClick: (function (param) {
+                            onChargePayment(paymentId);
+                          })
+                      }) : null;
+                break;
+            case 3 :
+                tmp$2 = chargesEnabled ? JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                        children: t`Retry charge`,
+                        onClick: (function (param) {
+                            onChargePayment(paymentId);
+                          })
+                      }) : null;
+                break;
+            case 1 :
+            case 2 :
+            case 4 :
+                exit$1 = 1;
+                break;
+            case 5 :
+                tmp$2 = chargesEnabled ? JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                        children: t`Charge payment`,
+                        onClick: (function (param) {
+                            onChargePayment(paymentId);
+                          })
+                      }) : null;
+                break;
+            
+          }
+        }
+      } else {
+        exit$1 = 1;
+      }
+      if (exit$1 === 1) {
+        if (match$8.status !== 1) {
+          tmp$2 = null;
+        } else {
+          var paymentId$1 = match$8.id;
+          tmp$2 = JsxRuntime.jsx(Dropdown.DropdownItem.make, {
+                children: t`Refund payment`,
+                onClick: (function (param) {
+                    setPaymentError(function (param) {
+                          
+                        });
+                    commitRefundPayment({
+                          paymentId: paymentId$1
+                        }, undefined, undefined, undefined, (function (response, param) {
+                            setPaymentError(function (param) {
+                                  return Core__Option.map(Core__Option.flatMap(response.refundRsvpPayment.errors, (function (errors) {
+                                                    return errors[0];
+                                                  })), (function (e) {
+                                                return e.message;
+                                              }));
+                                });
+                          }), undefined, undefined);
+                  })
+              });
+        }
+      }
+      
     } else {
       tmp$2 = null;
     }
@@ -247,6 +321,10 @@ function RsvpOptions(props) {
                             })
                       ]
                     }),
+                paymentError !== undefined ? JsxRuntime.jsx("span", {
+                        children: paymentError,
+                        className: "block font-mono text-[10px] text-red-500 dark:text-red-400 leading-tight"
+                      }) : null,
                 Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
                             return JsxRuntime.jsx(ConfirmDialog.make, {
                                         title: t`Remove this RSVP`,

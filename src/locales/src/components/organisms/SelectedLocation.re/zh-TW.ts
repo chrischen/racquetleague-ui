@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"更改地點\",\"Vveohd\":\"選擇舉辦此活動的地點。\",\"xl+An2\":\"活動地點\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"更改地點\",\"Vveohd\":\"選擇舉辦此活動的地點。\",\"YxgkvU\":\"無法載入該地點\",\"ud55cp\":\"無法儲存該位置\",\"xl+An2\":\"活動地點\",\"OL5eOg\":\"地點搜尋目前無法使用\",\"uFOTcQ\":\"搜尋場地或地址\"}");

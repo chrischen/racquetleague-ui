@@ -3,16 +3,8 @@ let make = (~startHour: float, ~endHour: float, ~className: string="") => {
   let intl = ReactIntl.useIntl()
   let formatHour = (h: float): string =>
     intl->ReactIntl.Intl.formatTimeWithOptions(
-      Js.Date.makeWithYMDHMS(
-        ~year=2000.,
-        ~month=0.,
-        ~date=1.,
-        ~hours=h,
-        ~minutes=0.,
-        ~seconds=0.,
-        (),
-      ),
-      ReactIntl.dateTimeFormatOptions(~hour=#numeric, ()),
+      Js.Date.utcWithYMDHM(~year=2000., ~month=0., ~date=1., ~hours=h, ~minutes=0., ())->Js.Date.fromFloat,
+      ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~timeZone="UTC", ()),
     )
   <span
     className={Util.cx([

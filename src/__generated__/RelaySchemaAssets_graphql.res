@@ -463,6 +463,7 @@ and input_LocationInput_nullable = {
 and input_OverlapScopeInput = {
   activityId: string,
   clubId?: string,
+  clubSlug?: string,
   userIds?: array<string>,
 }
 
@@ -470,6 +471,7 @@ and input_OverlapScopeInput = {
 and input_OverlapScopeInput_nullable = {
   activityId: string,
   clubId?: Js.Null.t<string>,
+  clubSlug?: Js.Null.t<string>,
   userIds?: Js.Null.t<array<string>>,
 }
 
@@ -572,6 +574,7 @@ and input_UpdateClubInput = {
   activity?: string,
   clubId: string,
   description?: string,
+  exemptMembersFromPayment?: bool,
   listed?: bool,
   name?: string,
   slug?: string,
@@ -582,6 +585,7 @@ and input_UpdateClubInput_nullable = {
   activity?: Js.Null.t<string>,
   clubId: string,
   description?: Js.Null.t<string>,
+  exemptMembersFromPayment?: Js.Null.t<bool>,
   listed?: Js.Null.t<bool>,
   name?: Js.Null.t<string>,
   slug?: Js.Null.t<string>,

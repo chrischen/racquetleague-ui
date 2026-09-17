@@ -21,6 +21,24 @@ msgstr "thay đổi địa điểm"
 msgid "choose the location where this event will be held."
 msgstr "chọn địa điểm nơi sự kiện này sẽ được tổ chức."
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "Không thể tải địa điểm đó"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "Không thể lưu vị trí đó"
+
 #: src/components/organisms/SelectedLocation.re.mjs:52
 msgid "event location"
 msgstr "địa điểm sự kiện"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "Tìm kiếm vị trí hiện không khả dụng"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "Tìm sân hoặc địa chỉ"

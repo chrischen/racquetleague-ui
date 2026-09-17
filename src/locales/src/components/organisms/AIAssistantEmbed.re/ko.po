@@ -13,64 +13,77 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "{0}개 이벤트를 생성할 수 없습니다 (이미 존재할 수 있습니다)."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "{0}개 이벤트가 생성되었습니다!"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:665
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter로 보내기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:635
 msgid "Action proposal"
 msgstr "액션 제안"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:399
-#: src/components/organisms/AIAssistantEmbed.re.mjs:439
-msgid "AI Assistant"
-msgstr "AI 어시스턴트"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:251
+#: src/components/organisms/AIAssistantEmbed.re.mjs:252
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:750
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "Answer the questions or add details to refine the draft."
+msgstr "질문에 답하거나 세부 정보를 추가해 초안을 다듬으세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
 msgid "Answer the questions or provide more details..."
 msgstr "질문에 답하거나 세부 정보를 제공하세요..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:568
+#: src/components/organisms/AIAssistantEmbed.re.mjs:544
 msgid "Approve"
 msgstr "승인"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:750
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+msgid "Approve or deny the pending action to continue"
+msgstr "계속하려면 대기 중인 작업을 승인하거나 거부하세요"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
 msgid "Approve or deny the pending action to continue."
 msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:528
+#: src/components/organisms/AIAssistantEmbed.re.mjs:502
 msgid "Approved"
 msgstr "승인됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:522
+#: src/components/organisms/AIAssistantEmbed.re.mjs:496
 msgid "Awaiting approval"
 msgstr "승인 대기 중"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:803
-msgid "Continue"
-msgstr "계속"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:443
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
 msgid "Continue the conversation"
 msgstr "대화 계속하기"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "해당 장소를 불러올 수 없습니다"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "해당 위치를 저장할 수 없습니다"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "이벤트를 생성할 수 없습니다. 다시 시도해 주세요."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "활동을 확인할 수 없습니다. 다시 시도해 주세요."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "이 위치를 찾을 수 없습니다 — 직접 선택하세요:"
 
@@ -82,111 +95,164 @@ msgstr "모든 이벤트 만들기"
 msgid "Create This Event"
 msgstr "이 이벤트 만들기"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "생성 중..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "날짜:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:534
+#: src/components/organisms/AIAssistantEmbed.re.mjs:508
 msgid "Denied"
 msgstr "거부됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:622
+#: src/components/organisms/AIAssistantEmbed.re.mjs:600
 msgid "Deny"
 msgstr "거부"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:439
-msgid "Describe your event"
-msgstr "이벤트를 설명하세요"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+msgid "Describe the event"
+msgstr "이벤트 설명"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Describe the event to generate a draft"
+msgstr "초안을 만들려면 이벤트를 설명하세요"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+msgid ""
+"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+"more players around 3.5, ¥800 each."
+msgstr ""
+"이벤트를 설명해 주세요… 예: 내일 저녁 7시 센트럴 파크, 3.5 수준 3명 더 필요, "
+"1인당 ¥800."
+
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "설명:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:751
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:542
+#: src/components/organisms/AIAssistantEmbed.re.mjs:516
 msgid "Executed"
 msgstr "실행됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
 msgid "Execution failed"
 msgstr "실행 실패"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:803
-msgid "Fill with AI"
-msgstr "AI로 채우기"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Fill event form from description"
+msgstr "설명으로 이벤트 양식 채우기"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:403
-msgid "Form filled • Click to expand"
-msgstr "양식 완성 • 클릭하여 펼치기"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+msgid "Help me fill this out"
+msgstr "작성 도와주기"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:794
-msgid "Generating..."
-msgstr "생성 중..."
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "Include whatever details you know"
+msgstr "아는 정보는 모두 적어 주세요"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:443
-msgid "Let AI help you fill out the details below"
-msgstr "AI가 아래 세부 정보를 채우도록 도와드립니다"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:473
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "Loading conversation history..."
 msgstr "대화 기록 불러오는 중..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "현재 위치 검색을 사용할 수 없습니다"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "장소:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+#: src/components/organisms/AIAssistantEmbed.re.mjs:652
 msgid "Operation:"
 msgstr "작업:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:774
-msgid "Press ⌘+Enter to continue"
-msgstr "⌘+Enter를 눌러 계속"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:774
-msgid "Press ⌘+Enter to generate"
-msgstr "⌘+Enter를 눌러 생성"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:780
 msgid "Reset"
 msgstr "초기화"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "장소 또는 주소 검색"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Send"
+msgstr "전송"
+
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:596
+#: src/components/organisms/AIAssistantEmbed.re.mjs:572
 msgid "The action completed with GraphQL errors."
 msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "제목:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:265
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr "설명을 검토·수정할 수 있는 초안으로 만들어 드립니다."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:399
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
+#~ msgid "AI Assistant"
+#~ msgstr "AI 어시스턴트"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
+#~ msgid "Continue"
+#~ msgstr "계속"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
+#~ msgid "Describe your event"
+#~ msgstr "이벤트를 설명하세요"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:751
+#~ msgid ""
+#~ "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+#~ "competitive play for 3.5+ players..."
+#~ msgstr ""
+#~ "예: 센트럴파크에서 매주 목요일 오후 6시 피클볼 모임, 3.5+ 플레이어 대상..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr "이벤트 생성 오류. 다시 시도하세요."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
+#~ msgid "Fill with AI"
+#~ msgstr "AI로 채우기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:403
+#~ msgid "Form filled • Click to expand"
+#~ msgstr "양식 완성 • 클릭하여 펼치기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:794
+#~ msgid "Generating..."
+#~ msgstr "생성 중..."
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
+#~ msgid "Let AI help you fill out the details below"
+#~ msgstr "AI가 아래 세부 정보를 채우도록 도와드립니다"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
+#~ msgid "Press ⌘+Enter to continue"
+#~ msgstr "⌘+Enter를 눌러 계속"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
+#~ msgid "Press ⌘+Enter to generate"
+#~ msgstr "⌘+Enter를 눌러 생성"

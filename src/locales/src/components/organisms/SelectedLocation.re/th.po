@@ -21,6 +21,24 @@ msgstr "เปลี่ยนสถานที่"
 msgid "choose the location where this event will be held."
 msgstr "เลือกสถานที่ที่จะจัดกิจกรรมนี้"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "ไม่สามารถโหลดสถานที่นั้นได้"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
+
 #: src/components/organisms/SelectedLocation.re.mjs:52
 msgid "event location"
 msgstr "สถานที่จัดกิจกรรม"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "ค้นหาสนามหรือที่อยู่"

@@ -21,6 +21,24 @@ msgstr "장소 변경"
 msgid "choose the location where this event will be held."
 msgstr "이 이벤트가 열릴 장소를 선택하세요."
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "해당 장소를 불러올 수 없습니다"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "해당 위치를 저장할 수 없습니다"
+
 #: src/components/organisms/SelectedLocation.re.mjs:52
 msgid "event location"
 msgstr "이벤트 장소"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "현재 위치 검색을 사용할 수 없습니다"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "장소 또는 주소 검색"

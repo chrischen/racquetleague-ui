@@ -6,13 +6,14 @@ import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as ReactRelay from "react-relay";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 
-function makeRefetchVariables(after, afterDate, before, first, id, token) {
+function makeRefetchVariables(after, afterDate, before, first, id, level, token) {
   return {
           after: after,
           afterDate: afterDate,
           before: before,
           first: first,
           id: id,
+          level: level,
           token: token
         };
 }
@@ -88,58 +89,83 @@ v4 = {
 v5 = {
   "defaultValue": null,
   "kind": "LocalArgument",
+  "name": "level"
+},
+v6 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
   "name": "token"
 },
-v6 = [
+v7 = [
   {
     "kind": "Variable",
     "name": "id",
     "variableName": "id"
   }
 ],
-v7 = {
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v8 = [
-  {
-    "kind": "Variable",
-    "name": "after",
-    "variableName": "after"
-  },
-  {
-    "kind": "Variable",
-    "name": "afterDate",
-    "variableName": "afterDate"
-  },
-  {
-    "kind": "Variable",
-    "name": "before",
-    "variableName": "before"
-  },
-  {
-    "kind": "Variable",
-    "name": "first",
-    "variableName": "first"
-  },
-  {
-    "kind": "Variable",
-    "name": "token",
-    "variableName": "token"
-  }
-],
 v9 = {
+  "kind": "Variable",
+  "name": "after",
+  "variableName": "after"
+},
+v10 = {
+  "kind": "Variable",
+  "name": "afterDate",
+  "variableName": "afterDate"
+},
+v11 = {
+  "kind": "Variable",
+  "name": "before",
+  "variableName": "before"
+},
+v12 = {
+  "kind": "Variable",
+  "name": "first",
+  "variableName": "first"
+},
+v13 = {
+  "kind": "Variable",
+  "name": "level",
+  "variableName": "level"
+},
+v14 = {
+  "kind": "Variable",
+  "name": "token",
+  "variableName": "token"
+},
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v10 = [
+v16 = [
+  (v15/*: any*/)
+],
+v17 = [
   (v9/*: any*/),
+  (v10/*: any*/),
+  (v11/*: any*/),
+  {
+    "fields": [
+      (v13/*: any*/)
+    ],
+    "kind": "ObjectValue",
+    "name": "filters"
+  },
+  (v12/*: any*/),
+  (v14/*: any*/)
+],
+v18 = [
+  (v15/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -148,28 +174,28 @@ v10 = [
     "storageKey": null
   }
 ],
-v11 = [
+v19 = [
   {
     "kind": "Literal",
     "name": "first",
     "value": 100
   }
 ],
-v12 = {
+v20 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "cursor",
   "storageKey": null
 },
-v13 = {
+v21 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "endCursor",
   "storageKey": null
 },
-v14 = {
+v22 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -184,7 +210,8 @@ return {
       (v2/*: any*/),
       (v3/*: any*/),
       (v4/*: any*/),
-      (v5/*: any*/)
+      (v5/*: any*/),
+      (v6/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
@@ -192,15 +219,22 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v6/*: any*/),
+        "args": (v7/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
         "plural": false,
         "selections": [
-          (v7/*: any*/),
+          (v8/*: any*/),
           {
-            "args": (v8/*: any*/),
+            "args": [
+              (v9/*: any*/),
+              (v10/*: any*/),
+              (v11/*: any*/),
+              (v12/*: any*/),
+              (v13/*: any*/),
+              (v14/*: any*/)
+            ],
             "kind": "FragmentSpread",
             "name": "ClubEventsListFragment"
           }
@@ -219,6 +253,7 @@ return {
       (v2/*: any*/),
       (v3/*: any*/),
       (v5/*: any*/),
+      (v6/*: any*/),
       (v4/*: any*/)
     ],
     "kind": "Operation",
@@ -226,20 +261,37 @@ return {
     "selections": [
       {
         "alias": null,
-        "args": (v6/*: any*/),
+        "args": (v7/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "node",
         "plural": false,
         "selections": [
-          (v7/*: any*/),
-          (v9/*: any*/),
+          (v8/*: any*/),
+          (v15/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
               {
                 "alias": null,
-                "args": (v8/*: any*/),
+                "args": null,
+                "kind": "ScalarField",
+                "name": "slug",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "Activity",
+                "kind": "LinkedField",
+                "name": "defaultActivity",
+                "plural": false,
+                "selections": (v16/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": (v17/*: any*/),
                 "concreteType": "EventConnection",
                 "kind": "LinkedField",
                 "name": "events",
@@ -261,7 +313,7 @@ return {
                         "name": "node",
                         "plural": false,
                         "selections": [
-                          (v9/*: any*/),
+                          (v15/*: any*/),
                           {
                             "alias": null,
                             "args": null,
@@ -311,7 +363,7 @@ return {
                             "kind": "LinkedField",
                             "name": "club",
                             "plural": false,
-                            "selections": (v10/*: any*/),
+                            "selections": (v18/*: any*/),
                             "storageKey": null
                           },
                           {
@@ -321,12 +373,12 @@ return {
                             "kind": "LinkedField",
                             "name": "location",
                             "plural": false,
-                            "selections": (v10/*: any*/),
+                            "selections": (v18/*: any*/),
                             "storageKey": null
                           },
                           {
                             "alias": null,
-                            "args": (v11/*: any*/),
+                            "args": (v19/*: any*/),
                             "concreteType": "EventRsvpConnection",
                             "kind": "LinkedField",
                             "name": "rsvps",
@@ -348,7 +400,7 @@ return {
                                     "name": "node",
                                     "plural": false,
                                     "selections": [
-                                      (v9/*: any*/),
+                                      (v15/*: any*/),
                                       {
                                         "alias": null,
                                         "args": null,
@@ -363,9 +415,7 @@ return {
                                         "kind": "LinkedField",
                                         "name": "user",
                                         "plural": false,
-                                        "selections": [
-                                          (v9/*: any*/)
-                                        ],
+                                        "selections": (v16/*: any*/),
                                         "storageKey": null
                                       },
                                       {
@@ -383,15 +433,15 @@ return {
                                             "name": "mu",
                                             "storageKey": null
                                           },
-                                          (v9/*: any*/)
+                                          (v15/*: any*/)
                                         ],
                                         "storageKey": null
                                       },
-                                      (v7/*: any*/)
+                                      (v8/*: any*/)
                                     ],
                                     "storageKey": null
                                   },
-                                  (v12/*: any*/)
+                                  (v20/*: any*/)
                                 ],
                                 "storageKey": null
                               },
@@ -403,8 +453,8 @@ return {
                                 "name": "pageInfo",
                                 "plural": false,
                                 "selections": [
-                                  (v13/*: any*/),
-                                  (v14/*: any*/)
+                                  (v21/*: any*/),
+                                  (v22/*: any*/)
                                 ],
                                 "storageKey": null
                               }
@@ -413,7 +463,7 @@ return {
                           },
                           {
                             "alias": null,
-                            "args": (v11/*: any*/),
+                            "args": (v19/*: any*/),
                             "filters": null,
                             "handle": "connection",
                             "key": "PkEventRow_event_rsvps",
@@ -460,11 +510,11 @@ return {
                               }
                             ]
                           },
-                          (v7/*: any*/)
+                          (v8/*: any*/)
                         ],
                         "storageKey": null
                       },
-                      (v12/*: any*/)
+                      (v20/*: any*/)
                     ],
                     "storageKey": null
                   },
@@ -476,7 +526,7 @@ return {
                     "name": "pageInfo",
                     "plural": false,
                     "selections": [
-                      (v14/*: any*/),
+                      (v22/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -484,7 +534,7 @@ return {
                         "name": "hasPreviousPage",
                         "storageKey": null
                       },
-                      (v13/*: any*/),
+                      (v21/*: any*/),
                       {
                         "alias": null,
                         "args": null,
@@ -500,10 +550,11 @@ return {
               },
               {
                 "alias": null,
-                "args": (v8/*: any*/),
+                "args": (v17/*: any*/),
                 "filters": [
                   "afterDate",
-                  "token"
+                  "token",
+                  "filters"
                 ],
                 "handle": "connection",
                 "key": "ClubEventsListFragment_events",
@@ -520,12 +571,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "abdc5543b12852523edea91aeb424b6e",
+    "cacheID": "5808b9afc62a8eff306b5217fb2fb8ee",
     "id": null,
     "metadata": {},
     "name": "ClubEventsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_1IpZ7U\n    id\n  }\n}\n\nfragment ClubEventsListFragment_1IpZ7U on Club {\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        maxRsvps\n        listed\n        shadow\n        deleted\n        club {\n          id\n        }\n        location {\n          id\n        }\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n  id\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n"
+    "text": "query ClubEventsListRefetchQuery(\n  $after: String\n  $afterDate: Datetime\n  $before: String\n  $first: Int = 20\n  $level: Float\n  $token: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...ClubEventsListFragment_22cWgY\n    id\n  }\n}\n\nfragment ClubEventsListFragment_22cWgY on Club {\n  id\n  slug\n  defaultActivity {\n    id\n  }\n  events(after: $after, first: $first, before: $before, afterDate: $afterDate, token: $token, filters: {level: $level}) {\n    edges {\n      node {\n        id\n        startDate\n        timezone\n        maxRsvps\n        listed\n        shadow\n        deleted\n        club {\n          id\n        }\n        location {\n          id\n        }\n        rsvps(first: 100) {\n          edges {\n            node {\n              id\n              listType\n            }\n          }\n        }\n        ...PkEventRow_event\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n      endCursor\n      startCursor\n    }\n  }\n}\n\nfragment PkEventRow_event on Event {\n  id\n  title\n  location {\n    id\n    name\n  }\n  club {\n    name\n    id\n  }\n  maxRsvps\n  rsvps(first: 100) {\n    edges {\n      node {\n        id\n        user {\n          id\n        }\n        listType\n        rating {\n          mu\n          id\n        }\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  startDate\n  endDate\n  timezone\n  shadow\n  listed\n  deleted\n  tags\n  cancelDeadline\n}\n"
   }
 };
 })());

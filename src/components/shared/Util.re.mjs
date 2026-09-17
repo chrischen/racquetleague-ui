@@ -34,6 +34,95 @@ var Datetime = {
   toDate: toDate
 };
 
+var browser = (function () {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Tokyo"
+    } catch (e) {
+      return "Asia/Tokyo"
+    }
+  });
+
+var list = (function () {
+    try {
+      return Intl.supportedValuesOf("timeZone")
+    } catch (e) {
+      return ["Asia/Tokyo", "UTC"]
+    }
+  });
+
+var normalize = (function (tz) {
+    try {
+      new Intl.DateTimeFormat("en-US", { timeZone: tz })
+      return tz
+    } catch (e) {
+      try {
+        return Intl.DateTimeFormat().resolvedOptions().timeZone || "Asia/Tokyo"
+      } catch (e2) {
+        return "Asia/Tokyo"
+      }
+    }
+  });
+
+var toWallClock = (function (date, tz) {
+    var parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: normalize(tz), hourCycle: "h23",
+      year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"
+    }).formatToParts(date)
+    var p = {}
+    parts.forEach(function (x) { p[x.type] = x.value })
+    var hour = p.hour === "24" ? "00" : p.hour
+    return p.year + "-" + p.month + "-" + p.day + "T" + hour + ":" + p.minute
+  });
+
+var fromWallClock = (function (wallClock, tz) {
+    var f = wallClock.split(/[-T:]/)
+    if (f.length < 5) return new Date(NaN)
+    tz = normalize(tz)
+    var asUtc = Date.UTC(+f[0], +f[1] - 1, +f[2], +f[3], +f[4])
+    var offsetAt = function (ts) {
+      var parts = new Intl.DateTimeFormat("en-US", {
+        timeZone: tz, hourCycle: "h23",
+        year: "numeric", month: "2-digit", day: "2-digit",
+        hour: "2-digit", minute: "2-digit", second: "2-digit"
+      }).formatToParts(new Date(ts))
+      var p = {}
+      parts.forEach(function (x) { p[x.type] = x.value })
+      var hour = p.hour === "24" ? 0 : +p.hour
+      return Date.UTC(+p.year, +p.month - 1, +p.day, hour, +p.minute, +p.second) - ts
+    }
+    var offset = offsetAt(asUtc)
+    var ts = asUtc - offset
+    var offset2 = offsetAt(ts)
+    if (offset2 !== offset) {
+      var corrected = asUtc - offset2
+      // Spring-forward always raises the offset, so the smaller of the two
+      // offsets is the pre-change one and gives the instant just past the gap.
+      ts = offsetAt(corrected) === offset2 ? corrected : asUtc - Math.min(offset, offset2)
+    }
+    return new Date(ts)
+  });
+
+var shortName = (function (tz, date) {
+    try {
+      var parts = new Intl.DateTimeFormat("en-US", { timeZone: tz, timeZoneName: "short" })
+        .formatToParts(date)
+      var part = parts.find(function (x) { return x.type === "timeZoneName" })
+      return part ? part.value : tz
+    } catch (e) {
+      return tz
+    }
+  });
+
+var Timezone = {
+  fallback: "Asia/Tokyo",
+  browser: browser,
+  list: list,
+  normalize: normalize,
+  toWallClock: toWallClock,
+  fromWallClock: fromWallClock,
+  shortName: shortName
+};
+
 function map(arr, f) {
   return Core__Option.map(arr, (function (__x) {
                 return __x.map(f);
@@ -176,6 +265,7 @@ var NonZeroInt = {
 export {
   Helmet ,
   Datetime ,
+  Timezone ,
   NonEmptyArray ,
   JsSet ,
   ClubDot ,

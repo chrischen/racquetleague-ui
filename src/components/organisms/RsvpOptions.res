@@ -10,8 +10,12 @@ module Fragment = %relay(`
     }
     payment {
       id
-      # Status values: 0 = Authorized, 1 = Captured, 2 = Refunded, 3 = Failed
+      # Status values: 0 = Authorized (legacy hold), 1 = Charged, 2 = Refunded,
+      # 3 = Charge failed (card still on file), 4 = Pending, 5 = Card on file
       status
+      # Whether the row is in a state the server would charge (or capture);
+      # whether the event can collect at all is Event.chargesEnabled.
+      chargeable
     }
   }
 `)
@@ -41,12 +45,15 @@ module RsvpOptionsUpdateListTypeMutation = %relay(`
  }
 `)
 
+// Charges the card the player saved (or captures a legacy hold). A declined
+// charge returns the payment too, now status 3, together with the error.
 module RsvpOptionsCapturePaymentMutation = %relay(`
   mutation RsvpOptionsCapturePaymentMutation($paymentId: ID!) {
     captureRsvpPayment(paymentId: $paymentId) {
       payment {
         id
         status
+        chargeable
       }
       errors {
         message
@@ -70,7 +77,19 @@ module RsvpOptionsRefundPaymentMutation = %relay(`
 `)
 
 @react.component
-let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey="RSVPSection_event_rsvps", ~triggerClassName="w-full text-left", ~children) => {
+// chargesEnabled: the event's payment account can collect (Event.chargesEnabled).
+// Without it the charge actions are hidden: a platform-mode event has nothing
+// to charge to.
+let make = (
+  ~rsvp,
+  ~eventId,
+  ~eventActivitySlug,
+  ~isAdmin=false,
+  ~chargesEnabled=false,
+  ~connectionKey="RSVPSection_event_rsvps",
+  ~triggerClassName="w-full text-left",
+  ~children,
+) => {
   let (commitMutationDeleteRsvp, _isMutationInFlight) = RsvpOptionsDeleteMutation.use()
   let (
     commitMutationUpdateListType,
@@ -109,6 +128,34 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey=
 
   let (isOpen, setIsOpen) = React.useState(() => false)
   let (isUpdateDialogOpen, setIsUpdateDialogOpen) = React.useState(() => false)
+  // The last charge/refund failure for this RSVP, shown under the trigger.
+  let (paymentError, setPaymentError) = React.useState(() => None)
+
+  let onChargePayment = paymentId => {
+    setPaymentError(_ => None)
+    commitCapturePayment(
+      ~variables={paymentId: paymentId},
+      ~onCompleted=(response, _) =>
+        setPaymentError(_ =>
+          response.captureRsvpPayment.errors
+          ->Option.flatMap(errors => errors->Array.get(0))
+          ->Option.map(e => e.message)
+        ),
+    )->RescriptRelay.Disposable.ignore
+  }
+
+  let onRefundPayment = paymentId => {
+    setPaymentError(_ => None)
+    commitRefundPayment(
+      ~variables={paymentId: paymentId},
+      ~onCompleted=(response, _) =>
+        setPaymentError(_ =>
+          response.refundRsvpPayment.errors
+          ->Option.flatMap(errors => errors->Array.get(0))
+          ->Option.map(e => e.message)
+        ),
+    )->RescriptRelay.Disposable.ignore
+  }
 
   open Dropdown
   <>
@@ -153,20 +200,20 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey=
                 {t`Remove from event`}
               </DropdownItem>
               {switch rsvp.payment {
-              | Some({id: paymentId, status: 0}) =>
-                <DropdownItem
-                  onClick={_ =>
-                    commitCapturePayment(
-                      ~variables={paymentId: paymentId},
-                    )->RescriptRelay.Disposable.ignore}>
+              | Some({id: paymentId, status: 5, chargeable: true}) if chargesEnabled =>
+                <DropdownItem onClick={_ => onChargePayment(paymentId)}>
+                  {t`Charge payment`}
+                </DropdownItem>
+              | Some({id: paymentId, status: 3, chargeable: true}) if chargesEnabled =>
+                <DropdownItem onClick={_ => onChargePayment(paymentId)}>
+                  {t`Retry charge`}
+                </DropdownItem>
+              | Some({id: paymentId, status: 0, chargeable: true}) if chargesEnabled =>
+                <DropdownItem onClick={_ => onChargePayment(paymentId)}>
                   {t`Capture payment`}
                 </DropdownItem>
               | Some({id: paymentId, status: 1}) =>
-                <DropdownItem
-                  onClick={_ =>
-                    commitRefundPayment(
-                      ~variables={paymentId: paymentId},
-                    )->RescriptRelay.Disposable.ignore}>
+                <DropdownItem onClick={_ => onRefundPayment(paymentId)}>
                   {t`Refund payment`}
                 </DropdownItem>
               | _ => React.null
@@ -175,6 +222,13 @@ let make = (~rsvp, ~eventId, ~eventActivitySlug, ~isAdmin=false, ~connectionKey=
           : React.null}
       </DropdownMenu>
     </Dropdown>
+    {switch paymentError {
+    | Some(message) =>
+      <span className="block font-mono text-[10px] text-red-500 dark:text-red-400 leading-tight">
+        {message->React.string}
+      </span>
+    | None => React.null
+    }}
     {rsvp.user
     ->Option.map(user =>
       <ConfirmDialog

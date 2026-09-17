@@ -13,14 +13,14 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchList.re.mjs:501
+#: src/components/organisms/MatchList.re.mjs:517
 msgid "...load previous matches"
 msgstr "...tải trận đấu trước"
 
-#: src/components/organisms/MatchList.re.mjs:524
+#: src/components/organisms/MatchList.re.mjs:540
 msgid "Load more matches..."
 msgstr "Tải thêm trận đấu..."
 
-#: src/components/organisms/MatchList.re.mjs:421
+#: src/components/organisms/MatchList.re.mjs:437
 msgid "Score:"
 msgstr "Điểm số:"

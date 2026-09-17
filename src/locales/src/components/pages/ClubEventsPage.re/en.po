@@ -30,12 +30,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-msgid "{0} court"
-msgstr ""
+#~ msgid "{0} court"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-msgid "{0} courts"
-msgstr ""
+#~ msgid "{0} courts"
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:113
 #~ msgid "{0} events created!"
@@ -75,36 +75,36 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
-msgid "{slotCount, plural, one {{0}} other {{1}}}"
-msgstr ""
+#~ msgid "{slotCount, plural, one {{0}} other {{1}}}"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:186
 #~ msgid "🚫 CANCELED"
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:232
-msgid "1 · Day"
-msgstr ""
+#~ msgid "1 · Day"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:271
-msgid "2 · Time"
-msgstr ""
+#~ msgid "2 · Time"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:334
-msgid "3 · What kind?"
-msgstr ""
+#~ msgid "3 · What kind?"
+#~ msgstr ""
 
 #: src/components/organisms/AddEventButton.re.mjs:115
-msgid "Add an Event"
-msgstr ""
+#~ msgid "Add an Event"
+#~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:42
-msgid "Advanced"
-msgstr ""
+#~ msgid "Advanced"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:92
-msgid "Afternoon"
-msgstr ""
+#~ msgid "Afternoon"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:175
 #~ msgid "AI Assistant"
@@ -115,8 +115,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:80
-msgid "Anytime"
-msgstr ""
+#~ msgid "Anytime"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:269
 #~ msgid "Ask"
@@ -127,16 +127,16 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:27
-msgid "Beginner"
-msgstr ""
+#~ msgid "Beginner"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:527
-msgid "Biography"
-msgstr ""
+#~ msgid "Biography"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:117
-msgid "Biography is required"
-msgstr ""
+#~ msgid "Biography is required"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:443
 #~ msgid "clear filter"
@@ -147,8 +147,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:460
-msgid "Close profile form"
-msgstr ""
+#~ msgid "Close profile form"
+#~ msgstr ""
 
 #: src/components/pages/ClubEventsPage.re.mjs:128
 #~ msgid "club"
@@ -158,27 +158,27 @@ msgstr ""
 #~ msgid "club not found"
 #~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:129
+#: src/components/pages/ClubEventsPage.re.mjs:137
 msgid "Club not found"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:22
-msgid "Complete Beginner"
-msgstr ""
+#~ msgid "Complete Beginner"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:444
-msgid "Complete your player profile"
-msgstr ""
+#~ msgid "Complete your player profile"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:306
-msgid "Complete your profile before sharing availability with players and hosts."
-msgstr ""
+#~ msgid "Complete your profile before sharing availability with players and hosts."
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:404
-msgid "Continue"
-msgstr ""
+#~ msgid "Continue"
+#~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:88
+#: src/components/pages/ClubEventsPage.re.mjs:92
 msgid "Copied!"
 msgstr ""
 
@@ -186,16 +186,20 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:266
 #: src/components/organisms/ProfileModal.re.mjs:286
 #: src/components/organisms/ProfileModal.re.mjs:296
-msgid "Could not save your profile. Please try again."
-msgstr ""
+#~ msgid "Could not save your profile. Please try again."
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:399
-msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
-msgstr ""
+#~ msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
 #~ msgid "Create All Events"
 #~ msgstr ""
+
+#: src/components/pages/ClubEventsPage.re.mjs:117
+msgid "Create event"
+msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:42
 #~ msgid "Create This Event"
@@ -211,64 +215,64 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:477
-msgid "Display name"
-msgstr ""
+#~ msgid "Display name"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:109
-msgid "Display name is required"
-msgstr ""
+#~ msgid "Display name is required"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:364
-msgid "Email address"
-msgstr ""
+#~ msgid "Email address"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:281
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr ""
+#~ msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:112
-msgid "Email is required"
-msgstr ""
+#~ msgid "Email is required"
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:98
-msgid "Evening"
-msgstr ""
+#~ msgid "Evening"
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:36
 #~ msgid "Event Details"
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:501
-msgid "Female"
-msgstr ""
+#~ msgid "Female"
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:441
 #~ msgid "filtering by date"
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:357
-msgid "For event updates and notifications"
-msgstr ""
+#~ msgid "For event updates and notifications"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:491
-msgid "Gender"
-msgstr ""
+#~ msgid "Gender"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:392
-msgid "Host an event"
-msgstr ""
+#~ msgid "Host an event"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:422
-msgid "Hosting an event needs exactly one time window — pick one."
-msgstr ""
+#~ msgid "Hosting an event needs exactly one time window — pick one."
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:480
-msgid "How other players will see you"
-msgstr ""
+#~ msgid "How other players will see you"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:180
 #~ msgid "I can create events for you. Just give me your schedule."
@@ -279,12 +283,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:32
-msgid "Intermediate"
-msgstr ""
+#~ msgid "Intermediate"
+#~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:37
-msgid "Intermediate+"
-msgstr ""
+#~ msgid "Intermediate+"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:313
 #~ msgid "join event"
@@ -295,18 +299,18 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:309
-msgid "Keep your player profile accurate and useful to the community."
-msgstr ""
+#~ msgid "Keep your player profile accurate and useful to the community."
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:307
 #~ msgid "leave event"
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:542
-msgid "Level"
-msgstr ""
+#~ msgid "Level"
+#~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:122
+#: src/components/pages/ClubEventsPage.re.mjs:130
 msgid "Loading events..."
 msgstr ""
 
@@ -320,20 +324,20 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:497
-msgid "Male"
-msgstr ""
+#~ msgid "Male"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:354
-msgid "Mark available"
-msgstr ""
+#~ msgid "Mark available"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 #~ msgid "Match my time"
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
-msgid "Morning"
-msgstr ""
+#~ msgid "Morning"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:149
 #~ msgid "Need 5 players for KPI Park tomorrow 6-9pm. Split the cost."
@@ -344,66 +348,70 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:203
-msgid "New plan"
-msgstr ""
+#~ msgid "New plan"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:565
-msgid "Not now"
-msgstr ""
+#~ msgid "Not now"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr ""
+
+#: src/components/shared/CreateEventLink.re.mjs:56
+msgid "Open Play"
+msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:272
 #~ msgid "pending"
 #~ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:388
-msgid "Player availability heatmap"
-msgstr ""
+#~ msgid "Player availability heatmap"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:292
 #~ msgid "players"
 #~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:47
-msgid "Pro"
-msgstr ""
+#~ msgid "Pro"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:265
 #~ msgid "Processing..."
 #~ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:225
-msgid "Remove"
-msgstr ""
+#~ msgid "Remove"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:269
 #~ msgid "Reply"
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:370
-msgid "Save"
-msgstr ""
+#~ msgid "Save"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:579
-msgid "Save profile"
-msgstr ""
+#~ msgid "Save profile"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:414
-msgid "Select exactly one time window to host an event"
-msgstr ""
+#~ msgid "Select exactly one time window to host an event"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:530
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
-msgstr ""
+#~ msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+#~ msgstr ""
 
 #: src/components/organisms/ClubEventsList.re.mjs:399
 #~ msgid "share as text"
 #~ msgstr ""
 
-#: src/components/pages/ClubEventsPage.re.mjs:88
+#: src/components/pages/ClubEventsPage.re.mjs:92
 msgid "Share link"
 msgstr ""
 
@@ -424,37 +432,37 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:463
-msgid "Tap to add your time"
-msgstr ""
+#~ msgid "Tap to add your time"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:230
 #~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:361
-msgid "Tell others you're down to play. Players with overlapping times can invite you."
-msgstr ""
+#~ msgid "Tell others you're down to play. Players with overlapping times can invite you."
+#~ msgstr ""
 
 #: src/components/molecules/AIResponseCard.re.mjs:45
 #~ msgid "Title:"
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
-msgid "Today"
-msgstr ""
+#~ msgid "Today"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:51
-msgid "Tomorrow"
-msgstr ""
+#~ msgid "Tomorrow"
+#~ msgstr ""
 
 #: src/components/organisms/EventItem.re.mjs:266
 #~ msgid "waitlist"
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:303
-msgid "We need a few details before you can join this event"
-msgstr ""
+#~ msgid "We need a few details before you can join this event"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
-msgid "When do you want to play?"
-msgstr ""
+#~ msgid "When do you want to play?"
+#~ msgstr ""

@@ -29,7 +29,27 @@ msgstr "알림을 받으려면 홈 화면에 추가하세요"
 msgid "Advanced"
 msgstr "고급"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid ""
+"Attendees of your paid events save a card when they RSVP; nothing is charged "
+"up front. From an event's RSVP list you can charge one attendee or everyone, "
+"and the money goes to this account."
+msgstr ""
+"유료 행사 참가자는 RSVP 시 카드를 저장하며, 사전에 청구되지 않습니다. 행사의 "
+"RSVP 목록에서 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 이 계정으로 "
+"입금됩니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid ""
+"Attendees of your paid events still save a card when they RSVP, but it can't "
+"be charged, so you collect the fee at the event. Connect a Stripe account to "
+"charge saved cards from the RSVP list and receive the money here."
+msgstr ""
+"유료 행사 참가자는 RSVP 시 카드를 저장하지만 청구할 수 없으므로, 참가비는 행"
+"사 현장에서 받아야 합니다. RSVP 목록에서 저장된 카드에 청구하고 여기로 금액"
+"을 받으려면 Stripe 계정을 연결하세요."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Australia"
 msgstr "호주"
 
@@ -37,11 +57,11 @@ msgstr "호주"
 msgid "Beginner"
 msgstr "초급"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:558
 msgid "Biography"
 msgstr "자기소개"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "Canada"
 msgstr "캐나다"
 
@@ -49,19 +69,15 @@ msgstr "캐나다"
 msgid "Complete Beginner"
 msgstr "완전 초급"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-msgid "Connect a Stripe account to receive payments from events you organize."
-msgstr "주최하는 이벤트의 결제를 받으려면 Stripe 계정을 연결하세요."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:376
+#: src/components/organisms/SettingsProfileForm.re.mjs:389
 msgid "Connect Stripe account"
 msgstr "Stripe 계정 연결"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:372
+#: src/components/organisms/SettingsProfileForm.re.mjs:385
 msgid "Connecting..."
 msgstr "연결 중..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:405
 msgid "Country"
 msgstr "국가"
 
@@ -69,11 +85,11 @@ msgstr "국가"
 msgid "Disable notifications"
 msgstr "알림 비활성화"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Display Name"
 msgstr "표시 이름"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Doe John"
 msgstr "Doe John"
 
@@ -81,27 +97,27 @@ msgstr "Doe John"
 msgid "Enable notifications"
 msgstr "알림 활성화"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Estimated DUPR"
 msgstr "예상 DUPR"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:519
+#: src/components/organisms/SettingsProfileForm.re.mjs:532
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Full name"
 msgstr "본명"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:508
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "Hong Kong"
 msgstr "홍콩"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "How you appear to other players"
 msgstr "다른 플레이어에게 보이는 이름"
 
@@ -117,11 +133,11 @@ msgstr "중급"
 msgid "Intermediate+"
 msgstr "중급+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/organisms/SettingsProfileForm.re.mjs:412
 msgid "Japan"
 msgstr "일본"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:560
+#: src/components/organisms/SettingsProfileForm.re.mjs:573
 msgid "Level"
 msgstr "레벨"
 
@@ -129,15 +145,19 @@ msgstr "레벨"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:528
 msgid "Male"
 msgstr "남성"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "연결된 Stripe 계정이 없습니다."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "연결 안 됨"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:606
+#: src/components/organisms/SettingsProfileForm.re.mjs:619
 msgid "Notifications"
 msgstr "알림"
 
@@ -169,15 +189,15 @@ msgstr ""
 "푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확"
 "인한 후 다시 시도해 주세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:614
+#: src/components/organisms/SettingsProfileForm.re.mjs:627
 msgid "Receive push notifications for event reminders and updates."
 msgstr "이벤트 알림 및 업데이트를 푸시 알림으로 받아보세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Resume onboarding"
 msgstr "등록 재개"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:592
+#: src/components/organisms/SettingsProfileForm.re.mjs:605
 msgid "Save profile"
 msgstr "프로필 저장"
 
@@ -195,23 +215,23 @@ msgid ""
 "for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Singapore"
 msgstr "싱가포르"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:513
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:431
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "South Korea"
 msgstr "한국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:628
+#: src/components/organisms/SettingsProfileForm.re.mjs:641
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:427
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Taiwan"
 msgstr "대만"
 
@@ -219,33 +239,42 @@ msgstr "대만"
 msgid "Tap the Share button"
 msgstr "공유 버튼을 탭하세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:551
+#: src/components/organisms/SettingsProfileForm.re.mjs:564
 msgid "tell us a little about yourself"
 msgstr "자신에 대해 간단히 알려주세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/organisms/SettingsProfileForm.re.mjs:562
 msgid "Tell us a little about yourself..."
 msgstr "자신을 간략히 소개해 주세요..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "United Kingdom"
 msgstr "영국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:416
 msgid "United States"
 msgstr "미국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid ""
+"Until onboarding is complete, your paid events run on the platform account: "
+"attendees save a card when they RSVP, but you can't charge it. Collect the "
+"fee at the event."
+msgstr ""
+"온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP "
+"시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Your self-reported skill level"
 msgstr "자가 신고 실력 수준"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
-msgid "Your Stripe account is connected and ready to accept payments."
-msgstr "Stripe 계정이 연결되어 결제를 받을 준비가 완료되었습니다."
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
-msgid "Your Stripe account is connected but onboarding is not yet complete."
-msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았습니다."
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "Stripe 계정이 연결되었지만 온보딩이 아직 완료되지 않았습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "Stripe 계정이 연결되었습니다."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 #~ msgid "biography"
@@ -254,6 +283,11 @@ msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"
 #~ msgstr "취소"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid ""
+#~ "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr "주최하는 이벤트의 결제를 받으려면 Stripe 계정을 연결하세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:214
 #~ msgid "details about yourself"
@@ -285,3 +319,11 @@ msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았
 #~ "Some events require your legal name as shown on an ID "
 #~ "card.omeventsequoegashownour passporta"
 #~ msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#~ msgid "Your Stripe account is connected and ready to accept payments."
+#~ msgstr "Stripe 계정이 연결되어 결제를 받을 준비가 완료되었습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#~ msgid "Your Stripe account is connected but onboarding is not yet complete."
+#~ msgstr "Stripe 계정이 연결되었지만 등록이 아직 완료되지 않았습니다."

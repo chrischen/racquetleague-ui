@@ -13,20 +13,20 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:211
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:219
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} court"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:213
 msgid "{0} courts"
@@ -72,12 +72,12 @@ msgstr ""
 msgid "{first} + {0} more"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:285
 msgid "{hs}h"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:287
 msgid "{hs}h {ms}m"
 msgstr ""
@@ -90,17 +90,17 @@ msgstr ""
 #~ msgid "{minCourts, plural, one {{0}} other {{1}}}"
 #~ msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:283
 msgid "{ms}m"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:207
 msgid "{n} indoor"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:209
 msgid "{n} outdoor"
 msgstr ""
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Courts available"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr ""
 
@@ -165,11 +165,11 @@ msgstr ""
 #~ msgid "Plan this time"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr ""
 
@@ -177,7 +177,7 @@ msgstr ""
 msgid "Remove from slot"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr ""
 
@@ -189,11 +189,11 @@ msgstr ""
 msgid "Tap to add time in this slot"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr ""
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr ""
 

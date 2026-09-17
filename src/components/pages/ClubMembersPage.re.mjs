@@ -17,6 +17,7 @@ import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutati
 import * as ClubMembersPageQuery_graphql from "../../__generated__/ClubMembersPageQuery_graphql.re.mjs";
 import * as ClubMembersPageMembersQuery_graphql from "../../__generated__/ClubMembersPageMembersQuery_graphql.re.mjs";
 import * as ClubMembersPageRemoveUserFromClubMutation_graphql from "../../__generated__/ClubMembersPageRemoveUserFromClubMutation_graphql.re.mjs";
+import * as ClubMembersPageSetMembershipAdminMutation_graphql from "../../__generated__/ClubMembersPageSetMembershipAdminMutation_graphql.re.mjs";
 import * as ClubMembersPageUpdateMembershipStatusMutation_graphql from "../../__generated__/ClubMembersPageUpdateMembershipStatusMutation_graphql.re.mjs";
 
 import { t } from '@lingui/macro'
@@ -146,9 +147,32 @@ var UpdateMembershipStatusMutation = {
   use: use$3
 };
 
+var convertVariables$4 = ClubMembersPageSetMembershipAdminMutation_graphql.Internal.convertVariables;
+
+var convertResponse$4 = ClubMembersPageSetMembershipAdminMutation_graphql.Internal.convertResponse;
+
+var convertWrapRawResponse$4 = ClubMembersPageSetMembershipAdminMutation_graphql.Internal.convertWrapRawResponse;
+
+var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$4, ClubMembersPageSetMembershipAdminMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+
+var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$4, ClubMembersPageSetMembershipAdminMutation_graphql.node, convertResponse$4, convertWrapRawResponse$4);
+
+var SetMembershipAdminMutation = {
+  Operation: undefined,
+  Types: undefined,
+  convertVariables: convertVariables$4,
+  convertResponse: convertResponse$4,
+  convertWrapRawResponse: convertWrapRawResponse$4,
+  commitMutation: commitMutation$2,
+  use: use$4
+};
+
 function ClubMembersPage$MemberItem(props) {
+  var isSettingAdmin = props.isSettingAdmin;
+  var onSetAdmin = props.onSetAdmin;
   var onApprove = props.onApprove;
   var onRemove = props.onRemove;
+  var viewerIsOwner = props.viewerIsOwner;
   var viewerIsAdmin = props.viewerIsAdmin;
   var membership = props.membership;
   var isAdmin = Core__Option.getOr(membership.isAdmin, false);
@@ -220,20 +244,42 @@ function ClubMembersPage$MemberItem(props) {
                 className: "flex items-center justify-between py-4 px-6"
               });
   }
+  var adminToggle = viewerIsOwner && !isOwner ? (
+      isAdmin ? JsxRuntime.jsx(Button.Button.make, {
+              outline: true,
+              children: t`Remove admin`,
+              onClick: (function (param) {
+                  onSetAdmin(false);
+                }),
+              disabled: isSettingAdmin
+            }) : JsxRuntime.jsx(Button.Button.make, {
+              color: "indigo",
+              children: t`Make admin`,
+              onClick: (function (param) {
+                  onSetAdmin(true);
+                }),
+              disabled: isSettingAdmin
+            })
+    ) : null;
+  var removeButton = viewerIsAdmin && !isOwner ? JsxRuntime.jsx(ConfirmButton.make, {
+          button: JsxRuntime.jsx(Button.Button.make, {
+                color: "red",
+                children: t`Remove`
+              }),
+          title: t`Remove member?`,
+          description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
+          onConfirmed: (function () {
+              onRemove();
+            })
+        }) : null;
+  var hasActions = (viewerIsOwner || viewerIsAdmin) && !isOwner;
   var username$1 = member.lineUsername;
   return JsxRuntime.jsx(SwipeAction.make, {
-              rightActions: Caml_option.some(viewerIsAdmin && !isOwner ? JsxRuntime.jsx("div", {
-                          children: JsxRuntime.jsx(ConfirmButton.make, {
-                                button: JsxRuntime.jsx(Button.Button.make, {
-                                      color: "red",
-                                      children: t`Remove`
-                                    }),
-                                title: t`Remove member?`,
-                                description: t`Are you sure you want to remove ${Core__Option.getOr(member.fullName, "this member")} from the club?`,
-                                onConfirmed: (function () {
-                                    onRemove();
-                                  })
-                              }),
+              rightActions: Caml_option.some(hasActions ? JsxRuntime.jsxs("div", {
+                          children: [
+                            adminToggle,
+                            removeButton
+                          ],
                           className: "flex gap-2"
                         }) : null),
               partialThreshold: 120,
@@ -288,6 +334,7 @@ var MemberItem = {
 };
 
 function ClubMembersPage$ClubMembersData(props) {
+  var viewerIsOwner = props.viewerIsOwner;
   var viewerIsAdmin = props.viewerIsAdmin;
   var clubId = props.clubId;
   var data = use$1({
@@ -298,6 +345,9 @@ function ClubMembersPage$ClubMembersData(props) {
   var removeMutation = match[0];
   var match$1 = use$3();
   var updateStatusMutation = match$1[0];
+  var match$2 = use$4();
+  var isSetAdminInFlight = match$2[1];
+  var setAdminMutation = match$2[0];
   var edges = data.clubMembers.edges;
   var tmp;
   var exit = 0;
@@ -328,6 +378,7 @@ function ClubMembersPage$ClubMembersData(props) {
                   return JsxRuntime.jsx(ClubMembersPage$MemberItem, {
                               membership: membership,
                               viewerIsAdmin: viewerIsAdmin,
+                              viewerIsOwner: viewerIsOwner,
                               onRemove: (function () {
                                   var user = membership.user;
                                   if (user !== undefined) {
@@ -370,7 +421,26 @@ function ClubMembersPage$ClubMembersData(props) {
                                           }
                                           
                                         }), undefined, undefined);
-                                })
+                                }),
+                              onSetAdmin: (function (isAdmin) {
+                                  var membershipId = membership.id;
+                                  setAdminMutation({
+                                        input: {
+                                          isAdmin: isAdmin,
+                                          membershipId: membershipId
+                                        }
+                                      }, undefined, undefined, undefined, (function (param, _errors) {
+                                          var errors = param.setMembershipAdmin.errors;
+                                          if (errors !== undefined && errors.length !== 0) {
+                                            errors.forEach(function (e) {
+                                                  console.error("Failed to update admin status: " + e.message);
+                                                });
+                                            return ;
+                                          }
+                                          
+                                        }), undefined, undefined);
+                                }),
+                              isSettingAdmin: isSetAdminInFlight
                             }, membership.id);
                 });
     };
@@ -443,6 +513,9 @@ function ClubMembersPage(props) {
                                                             return adminClub.id === club.id;
                                                           });
                                               })), false);
+                                    var viewerIsOwner = Core__Option.getOr(Core__Option.flatMap(club.viewerMembership, (function (m) {
+                                                return m.isOwner;
+                                              })), false);
                                     return JsxRuntime.jsxs(Layout.Container.make, {
                                                 children: [
                                                   JsxRuntime.jsxs("h1", {
@@ -464,7 +537,8 @@ function ClubMembersPage(props) {
                                                         children: JsxRuntime.jsx(React.Suspense, {
                                                               children: Caml_option.some(JsxRuntime.jsx(ClubMembersPage$ClubMembersData, {
                                                                         clubId: club.id,
-                                                                        viewerIsAdmin: viewerIsAdmin
+                                                                        viewerIsAdmin: viewerIsAdmin,
+                                                                        viewerIsOwner: viewerIsOwner
                                                                       })),
                                                               fallback: Caml_option.some(JsxRuntime.jsx("div", {
                                                                         children: t`Loading members...`
@@ -488,6 +562,7 @@ export {
   MembersQuery ,
   RemoveUserFromClubMutation ,
   UpdateMembershipStatusMutation ,
+  SetMembershipAdminMutation ,
   MemberItem ,
   ClubMembersData ,
   make ,

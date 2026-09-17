@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:501
+#: src/components/organisms/MatchList.re.mjs:517
 msgid "...load previous matches"
 msgstr "前の試合を読み込む"
 
-#: src/components/organisms/MatchList.re.mjs:524
+#: src/components/organisms/MatchList.re.mjs:540
 msgid "Load more matches..."
 msgstr "もっと試合を読み込む..."
 
-#: src/components/organisms/MatchList.re.mjs:421
+#: src/components/organisms/MatchList.re.mjs:437
 msgid "Score:"
 msgstr "スコア:"
 

@@ -45,12 +45,12 @@ msgstr "{0}コート"
 msgid "{0} courts"
 msgstr "{0}コート"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr ""
 "{0}件のイベントを作成できませんでした（既に存在する可能性があります）。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "{0} イベントが作成されました！"
 
@@ -107,11 +107,11 @@ msgstr "1 · 日付"
 msgid "2 · Time"
 msgstr "2 · 時間"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · 種類は？"
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr "イベントを追加"
 
@@ -182,9 +182,19 @@ msgstr ""
 "プレイヤーやホストと空き時間を共有する前に、プロフィールを完成させてくださ"
 "い。"
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "続ける"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "その場所を読み込めませんでした"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "その場所を保存できませんでした"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -193,19 +203,19 @@ msgstr "続ける"
 msgid "Could not save your profile. Please try again."
 msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "イベントを作成できませんでした。もう一度お試しください。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "アクティビティを特定できませんでした。もう一度お試しください。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "この場所が見つかりませんでした — こちらから選択してください："
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -221,16 +231,16 @@ msgstr "すべてのイベントを作成"
 msgid "Create This Event"
 msgstr "このイベントを作成"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "作成中..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "説明:"
 
@@ -262,7 +272,7 @@ msgstr "メールアドレスは必須です"
 msgid "Evening"
 msgstr "夜"
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "イベント詳細"
 
@@ -286,11 +296,11 @@ msgstr "性別"
 msgid "Google Calendar"
 msgstr "Google カレンダー"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "イベントをホストする"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "イベントのホストには時間枠をひとつだけ選択してください。"
 
@@ -334,8 +344,12 @@ msgstr "参加取り消し"
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "現在、場所の検索は利用できません"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "場所:"
 
@@ -343,7 +357,7 @@ msgstr "場所:"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "参加可能にする"
 
@@ -371,7 +385,7 @@ msgstr "後で"
 msgid "pending"
 msgstr "保留中"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
@@ -387,7 +401,7 @@ msgstr "プロ"
 msgid "Processing..."
 msgstr "処理中..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "削除"
 
@@ -395,7 +409,7 @@ msgstr "削除"
 msgid "Reply"
 msgstr "返信"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "保存"
 
@@ -403,7 +417,11 @@ msgstr "保存"
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "会場または住所を検索"
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "イベントをホストするには時間枠をひとつ選択してください"
 
@@ -423,7 +441,7 @@ msgstr "テキストとして共有"
 msgid "show"
 msgstr "表示"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "提案されたイベント"
 
@@ -431,7 +449,7 @@ msgstr "提案されたイベント"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
@@ -443,13 +461,13 @@ msgstr ""
 "イベントの時間と場所、またはその他の詳細を教えてください。含めたい詳細を教え"
 "ていただければ、翻訳も追加できます。"
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."
 msgstr "プレー希望を伝えましょう。時間が重なるプレーヤーからお誘いが届きます。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "タイトル:"
 

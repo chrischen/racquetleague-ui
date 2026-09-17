@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"Vveohd\":\"このイベントが開催される場所を選択してください。\",\"xl+An2\":\"イベント場所\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YxgkvU\":\"その場所を読み込めませんでした\",\"ud55cp\":\"その場所を保存できませんでした\",\"OL5eOg\":\"現在、場所の検索は利用できません\",\"uFOTcQ\":\"会場または住所を検索\",\"Vveohd\":\"このイベントが開催される場所を選択してください。\",\"xl+An2\":\"イベント場所\"}");

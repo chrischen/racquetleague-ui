@@ -4,7 +4,10 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_events_edges_node_club = {
+  type rec fragment_defaultActivity = {
+    @live id: string,
+  }
+  and fragment_events_edges_node_club = {
     @live id: string,
   }
   and fragment_events_edges_node_location = {
@@ -47,8 +50,10 @@ module Types = {
     pageInfo: fragment_events_pageInfo,
   }
   type fragment = {
+    defaultActivity: option<fragment_defaultActivity>,
     events: fragment_events,
     @live id: string,
+    slug: option<string>,
   }
 }
 
@@ -86,9 +91,9 @@ let connectionKey = "ClubEventsListFragment_events"
 )
 
 @live
-let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~afterDate: option<Util.Datetime.t>=?, ~token: option<string>=?) => {
+let makeConnectionId = (connectionParentDataId: RescriptRelay.dataId, ~afterDate: option<Util.Datetime.t>=?, ~token: option<string>=?, ~level: option<float>=?) => {
   let afterDate = switch afterDate { | None => None | Some(v) => Some(Util.Datetime.serialize(v)) }
-  let args = {"afterDate": afterDate, "token": token}
+  let args = {"afterDate": afterDate, "token": token, "filters": {"level": level}}
   internal_makeConnectionId(connectionParentDataId, args)
 }
 module Utils = {
@@ -154,6 +159,11 @@ return {
     {
       "defaultValue": null,
       "kind": "LocalArgument",
+      "name": "level"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
       "name": "token"
     }
   ],
@@ -188,6 +198,24 @@ return {
   },
   "name": "ClubEventsListFragment",
   "selections": [
+    (v1/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "slug",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Activity",
+      "kind": "LinkedField",
+      "name": "defaultActivity",
+      "plural": false,
+      "selections": (v2/*: any*/),
+      "storageKey": null
+    },
     {
       "alias": "events",
       "args": [
@@ -195,6 +223,17 @@ return {
           "kind": "Variable",
           "name": "afterDate",
           "variableName": "afterDate"
+        },
+        {
+          "fields": [
+            {
+              "kind": "Variable",
+              "name": "level",
+              "variableName": "level"
+            }
+          ],
+          "kind": "ObjectValue",
+          "name": "filters"
         },
         {
           "kind": "Variable",
@@ -399,8 +438,7 @@ return {
         }
       ],
       "storageKey": null
-    },
-    (v1/*: any*/)
+    }
   ],
   "type": "Club",
   "abstractKey": null

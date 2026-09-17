@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YxgkvU\":\"ไม่สามารถโหลดสถานที่นั้นได้\",\"ud55cp\":\"ไม่สามารถบันทึกตำแหน่งนั้นได้\",\"OL5eOg\":\"การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้\",\"uFOTcQ\":\"ค้นหาสนามหรือที่อยู่\"}");

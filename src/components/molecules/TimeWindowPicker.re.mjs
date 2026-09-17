@@ -69,12 +69,26 @@ function clamp(v, mn, mx) {
   return Math.max(mn, Math.min(mx, v));
 }
 
+function hourPeriodLabelClass(h) {
+  if (h < 12.0) {
+    return "text-amber-600 dark:text-amber-300";
+  } else {
+    return "text-sky-600 dark:text-sky-300";
+  }
+}
+
+function isNoon(h) {
+  return Math.abs(h - 12.0) < 0.001;
+}
+
 function TimeWindowPicker$WindowChip(props) {
+  var __allowDelete = props.allowDelete;
   var config = props.config;
   var onDelete = props.onDelete;
   var onChange = props.onChange;
   var trackRef = props.trackRef;
   var intent = props.intent;
+  var allowDelete = __allowDelete !== undefined ? __allowDelete : true;
   var hourMinVal = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
               return c.hourMin;
             })), 6);
@@ -216,21 +230,21 @@ function TimeWindowPicker$WindowChip(props) {
                         }),
                       onPointerDown: begin_("ResizeRight")
                     }),
-                JsxRuntime.jsx("button", {
-                      children: JsxRuntime.jsx(LucideReact.X, {
-                            size: 10,
-                            className: "text-gray-600 dark:text-gray-300"
+                allowDelete ? JsxRuntime.jsx("button", {
+                        children: JsxRuntime.jsx(LucideReact.X, {
+                              size: 10,
+                              className: "text-gray-600 dark:text-gray-300"
+                            }),
+                        className: "absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#1e1f23] border border-gray-300 dark:border-[#3a3b40] flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity shadow-sm",
+                        title: t`Remove`,
+                        onClick: (function (e) {
+                            e.stopPropagation();
+                            onDelete();
                           }),
-                      className: "absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#1e1f23] border border-gray-300 dark:border-[#3a3b40] flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity shadow-sm",
-                      title: t`Remove`,
-                      onClick: (function (e) {
-                          e.stopPropagation();
-                          onDelete();
-                        }),
-                      onPointerDown: (function (e) {
-                          e.stopPropagation();
-                        })
-                    })
+                        onPointerDown: (function (e) {
+                            e.stopPropagation();
+                          })
+                      }) : null
               ],
               className: "absolute top-2 bottom-2 select-none touch-none group rounded border shadow-sm flex items-center justify-between gap-1 " + (
                 Core__Option.isSome(drag) ? "bg-[#aee050] border-[#94c93a] z-30" : "bg-[#bdf25d] border-[#a3d949] z-20 hover:bg-[#aee050]"
@@ -252,6 +266,8 @@ var WindowChip = {
 };
 
 function TimeWindowPicker(props) {
+  var __allowDelete = props.allowDelete;
+  var maxIntents = props.maxIntents;
   var __courtAvailability = props.courtAvailability;
   var __existingEvents = props.existingEvents;
   var demandIntents = props.demandIntents;
@@ -265,6 +281,7 @@ function TimeWindowPicker(props) {
   var maxDemand = __maxDemand !== undefined ? __maxDemand : 0;
   var existingEvents = __existingEvents !== undefined ? __existingEvents : [];
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
+  var allowDelete = __allowDelete !== undefined ? __allowDelete : true;
   var trackRef = React.useRef(null);
   var intl = ReactIntl.useIntl();
   var hourMinVal = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
@@ -283,13 +300,20 @@ function TimeWindowPicker(props) {
   var defaultDur = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
               return c.defaultDuration;
             })), 3.0);
+  var gridStep = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
+              return c.gridStep;
+            })), snapStep);
   var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability);
+  var canAdd = maxIntents !== undefined ? intents.length < maxIntents : true;
   var addAtClick = function (e) {
-    var el = trackRef.current;
-    if (el == null) {
+    var match = trackRef.current;
+    if (!canAdd) {
       return ;
     }
-    var rect = el.getBoundingClientRect();
+    if (match == null) {
+      return ;
+    }
+    var rect = match.getBoundingClientRect();
     if (rect.width === 0.0) {
       return ;
     }
@@ -392,7 +416,7 @@ function TimeWindowPicker(props) {
   } else {
     tmp = null;
   }
-  var gridLineCount = Math.max(1, Math.round(hourRangeVal / snapStep) | 0);
+  var gridLineCount = Math.max(1, Math.round(hourRangeVal / gridStep) | 0);
   return JsxRuntime.jsxs("div", {
               children: [
                 showAxis ? JsxRuntime.jsx("div", {
@@ -401,7 +425,7 @@ function TimeWindowPicker(props) {
                               return JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx("span", {
                                                 children: TimeWindow.hourLabelIntl(intl, h),
-                                                className: "font-mono text-[9px] text-gray-400 dark:text-gray-500"
+                                                className: "font-mono text-[9px] " + hourPeriodLabelClass(h)
                                               }),
                                           className: "absolute top-0 bottom-0 flex items-center",
                                           style: {
@@ -419,12 +443,14 @@ function TimeWindowPicker(props) {
                         tmp,
                         JsxRuntime.jsx("div", {
                               children: Belt_Array.makeBy(gridLineCount + 1 | 0, (function (i) {
-                                      var hour = hourMinVal + i * snapStep;
+                                      var hour = hourMinVal + i * gridStep;
                                       var lp = i / gridLineCount * 100.0;
                                       var major = Math.floor(hour) === hour;
                                       return JsxRuntime.jsx("div", {
                                                   className: "absolute top-0 bottom-0 border-l " + (
-                                                    major ? "border-gray-200 dark:border-[#34353a]" : "border-gray-100/70 dark:border-[#292a2e]"
+                                                    isNoon(hour) ? "border-l-2 border-sky-300 dark:border-sky-700" : (
+                                                        major ? "border-gray-200 dark:border-[#34353a]" : "border-gray-100/70 dark:border-[#292a2e]"
+                                                      )
                                                   ),
                                                   style: {
                                                     left: lp.toString() + "%"
@@ -485,12 +511,15 @@ function TimeWindowPicker(props) {
                                                         return i.id !== id;
                                                       }));
                                             }),
-                                          config: config
+                                          config: config,
+                                          allowDelete: allowDelete
                                         }, w.id.toString());
                             })
                       ],
                       ref: Caml_option.some(trackRef),
-                      className: Core__Option.getOr(props.trackClassName, "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden cursor-copy"),
+                      className: Core__Option.getOr(props.trackClassName, "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden " + (
+                            canAdd ? "cursor-copy" : "cursor-default"
+                          )),
                       onClick: addAtClick
                     })
               ],
@@ -561,6 +590,8 @@ export {
   wid ,
   snapTo ,
   clamp ,
+  hourPeriodLabelClass ,
+  isNoon ,
   WindowChip ,
   make ,
   matchPreset ,

@@ -62,6 +62,7 @@ function TimePickerWithHeatmap(props) {
   var queryData = use({
         activityId: resolvedActivityId,
         clubId: props.clubId,
+        clubSlug: props.clubSlug,
         localDate: props.localDate,
         location: $$location
       }, undefined, undefined, undefined);

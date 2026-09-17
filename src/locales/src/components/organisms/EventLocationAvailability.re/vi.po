@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
@@ -26,12 +26,12 @@ msgstr "{0} khoảng trống liên tiếp"
 msgid "{0} continuous openings"
 msgstr "{0} khoảng trống liên tiếp"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} sân"
@@ -44,11 +44,11 @@ msgstr "{0} địa điểm"
 msgid "{0} locations"
 msgstr "{0} địa điểm"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
 msgstr "{hs}g"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 msgid "{hs}h {ms}m"
 msgstr "{hs}g {ms}p"
 
@@ -56,16 +56,16 @@ msgstr "{hs}g {ms}p"
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{ms}m"
 msgstr "{ms}p"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "{n} trong nhà"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "{n} ngoài trời"
@@ -91,7 +91,7 @@ msgstr "Xác nhận di chuyển"
 msgid "Courts"
 msgstr "Sân"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr "Tạo sự kiện"
 
@@ -122,7 +122,7 @@ msgstr "Địa điểm khác vào thời gian này"
 msgid "Other times at {venue}"
 msgstr "Thời gian khác tại {venue}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "Đặt sân"
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Use location"
 msgstr "Dùng địa điểm này"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 

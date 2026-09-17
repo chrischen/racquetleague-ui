@@ -13,64 +13,77 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "{0} 個賽事無法建立（可能已存在）。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "已建立 {0} 個活動！"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:665
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter 傳送"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:635
 msgid "Action proposal"
 msgstr "動作提案"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:399
-#: src/components/organisms/AIAssistantEmbed.re.mjs:439
-msgid "AI Assistant"
-msgstr "AI助手"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:251
+#: src/components/organisms/AIAssistantEmbed.re.mjs:252
 msgid "An error occurred. Please try again."
 msgstr "發生錯誤，請重試。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:750
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "Answer the questions or add details to refine the draft."
+msgstr "回答問題或補充細節，以完善草稿。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
 msgid "Answer the questions or provide more details..."
 msgstr "回答問題或提供更多詳細資料..."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:568
+#: src/components/organisms/AIAssistantEmbed.re.mjs:544
 msgid "Approve"
 msgstr "批准"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:750
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+msgid "Approve or deny the pending action to continue"
+msgstr "請核准或拒絕待處理的動作以繼續"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
 msgid "Approve or deny the pending action to continue."
 msgstr "請批准或拒絕待處理的動作以繼續。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:528
+#: src/components/organisms/AIAssistantEmbed.re.mjs:502
 msgid "Approved"
 msgstr "已批准"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:522
+#: src/components/organisms/AIAssistantEmbed.re.mjs:496
 msgid "Awaiting approval"
 msgstr "等待批准"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:803
-msgid "Continue"
-msgstr "繼續"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:443
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
 msgid "Continue the conversation"
 msgstr "繼續對話"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "無法載入該地點"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "無法儲存該位置"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "無法建立該賽事，請重試。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "無法確定活動類型，請重試。"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "找不到此地點，請選擇："
 
@@ -82,111 +95,164 @@ msgstr "建立所有活動"
 msgid "Create This Event"
 msgstr "建立此活動"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "建立中..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:534
+#: src/components/organisms/AIAssistantEmbed.re.mjs:508
 msgid "Denied"
 msgstr "已拒絕"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:622
+#: src/components/organisms/AIAssistantEmbed.re.mjs:600
 msgid "Deny"
 msgstr "拒絕"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:439
-msgid "Describe your event"
-msgstr "描述您的活動"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+msgid "Describe the event"
+msgstr "描述活動"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+msgid "Describe the event to generate a draft"
+msgstr "描述活動以產生草稿"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+msgid ""
+"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+"more players around 3.5, ¥800 each."
+msgstr ""
+"描述你的活動……例如：明天晚上 7 點在中央公園，還需要 3 位 3.5 左右的球友，每"
+"人 800 元。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "描述："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:751
-msgid ""
-"e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
-"competitive play for 3.5+ players..."
-msgstr ""
-"例如：每週四下午6點在中央公園舉行的匹克球聚會，適合3.5+級別的競技球員..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "活動詳情"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:542
+#: src/components/organisms/AIAssistantEmbed.re.mjs:516
 msgid "Executed"
 msgstr "已執行"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:545
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
 msgid "Execution failed"
 msgstr "執行失敗"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:803
-msgid "Fill with AI"
-msgstr "使用 AI 填入"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Fill event form from description"
+msgstr "依描述填寫活動表單"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:403
-msgid "Form filled • Click to expand"
-msgstr "表單已填寫 • 點擊展開"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+msgid "Help me fill this out"
+msgstr "幫我填寫"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:794
-msgid "Generating..."
-msgstr "生成中..."
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+msgid "Include whatever details you know"
+msgstr "知道多少就填多少"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:443
-msgid "Let AI help you fill out the details below"
-msgstr "讓 AI 幫助您填寫以下詳細資料"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:473
+#: src/components/organisms/AIAssistantEmbed.re.mjs:456
 msgid "Loading conversation history..."
 msgstr "正在載入對話記錄..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "地點搜尋目前無法使用"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "地點："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:682
+#: src/components/organisms/AIAssistantEmbed.re.mjs:652
 msgid "Operation:"
 msgstr "操作："
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:774
-msgid "Press ⌘+Enter to continue"
-msgstr "按 ⌘+Enter 繼續"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:774
-msgid "Press ⌘+Enter to generate"
-msgstr "按 ⌘+Enter 生成"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:780
 msgid "Reset"
 msgstr "重置"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "搜尋場地或地址"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+msgid "Send"
+msgstr "傳送"
+
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "建議的活動"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:596
+#: src/components/organisms/AIAssistantEmbed.re.mjs:572
 msgid "The action completed with GraphQL errors."
 msgstr "該動作已完成，但包含 GraphQL 錯誤。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "標題："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:265
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動步驟請求過多，請手動繼續。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr "我們會將你的描述轉為草稿，方便你檢視與編輯。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:399
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
+#~ msgid "AI Assistant"
+#~ msgstr "AI助手"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
+#~ msgid "Continue"
+#~ msgstr "繼續"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:439
+#~ msgid "Describe your event"
+#~ msgstr "描述您的活動"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:751
+#~ msgid ""
+#~ "e.g., Weekly pickleball meetup at Central Park, Thursdays at 6pm, "
+#~ "competitive play for 3.5+ players..."
+#~ msgstr ""
+#~ "例如：每週四下午6點在中央公園舉行的匹克球聚會，適合3.5+級別的競技球員..."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:117
 #~ msgid "Error creating events. Please try again."
 #~ msgstr "建立活動時發生錯誤。請重試。"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:803
+#~ msgid "Fill with AI"
+#~ msgstr "使用 AI 填入"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:403
+#~ msgid "Form filled • Click to expand"
+#~ msgstr "表單已填寫 • 點擊展開"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:794
+#~ msgid "Generating..."
+#~ msgstr "生成中..."
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "無法處理該請求，請重試。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:443
+#~ msgid "Let AI help you fill out the details below"
+#~ msgstr "讓 AI 幫助您填寫以下詳細資料"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
+#~ msgid "Press ⌘+Enter to continue"
+#~ msgstr "按 ⌘+Enter 繼續"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:774
+#~ msgid "Press ⌘+Enter to generate"
+#~ msgstr "按 ⌘+Enter 生成"

@@ -182,7 +182,8 @@ function PlayIntentRow(props) {
   var pathname = match$4.pathname;
   var navigate = LangProvider.Router.useNavigate();
   var formatHour = function (h) {
-    return intl.formatTime(new Date(2000, 0, 1, h, 0, 0), {
+    return intl.formatTime(new Date(Date.UTC(2000, 0, 1, h, 0)), {
+                timeZone: "UTC",
                 hour: "numeric"
               });
   };
@@ -270,11 +271,11 @@ function PlayIntentRow(props) {
   ];
   var compactTrigger = JsxRuntime.jsxs("button", {
         children: [
-          JsxRuntime.jsx(LucideReact.CalendarClock, {
-                className: "w-[11px] h-[11px]"
-              }),
+          Core__Option.getOr(props.triggerIcon, JsxRuntime.jsx(LucideReact.CalendarClock, {
+                    className: "w-[11px] h-[11px]"
+                  })),
           JsxRuntime.jsx("span", {
-                children: t`Play today`
+                children: Core__Option.getOr(props.triggerLabel, t`Play today`)
               })
         ],
         className: "flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors",
@@ -438,6 +439,7 @@ function PlayIntentRow(props) {
                                       }),
                                     activityId: resolvedActivityId,
                                     clubId: props.clubId,
+                                    clubSlug: props.clubSlug,
                                     courtAvailability: courtAvailability,
                                     existingEvents: events
                                   })),
@@ -519,6 +521,12 @@ function PlayIntentRow(props) {
                             ],
                             className: "mt-2"
                           }) : null,
+                    Core__Option.getOr(Core__Option.map(props.hostOptions, (function (options) {
+                                return JsxRuntime.jsx("div", {
+                                            children: options,
+                                            className: "mt-3"
+                                          });
+                              })), null),
                     JsxRuntime.jsx("div", {
                           children: JsxRuntime.jsxs("div", {
                                 children: [
@@ -550,10 +558,14 @@ function PlayIntentRow(props) {
                                                                   title: draft.length !== 1 ? t`Pick one time window to host an event` : t`Host an event at this time`,
                                                                   disabled: draft.length !== 1,
                                                                   onClick: (function (param) {
+                                                                      if (draft.length !== 1) {
+                                                                        return ;
+                                                                      }
+                                                                      var $$window = draft[0];
                                                                       setEditing(function (param) {
                                                                             return false;
                                                                           });
-                                                                      cb();
+                                                                      cb($$window);
                                                                     })
                                                                 });
                                                     })), null),

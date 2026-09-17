@@ -92,11 +92,6 @@ const mainRoutes: RouteObject[] =
               lazy: () => import("./components/routes/ClubEventsListRoute.gen"),
               handle: "src/components/routes/ClubEventsListRoute.gen.tsx",
             },
-            {
-              path: "create",
-              lazy: () => import("./components/routes/ClubCreateEventRoute.gen"),
-              handle: "src/components/routes/ClubCreateEventRoute.gen.tsx",
-            },
           ],
         },
         {
@@ -166,6 +161,9 @@ const mainRoutes: RouteObject[] =
         },
       ]
     },
+    // The create routes render as a modal over the page they were opened from
+    // (ModalRouteOutlet keeps that page mounted), so they sit at this level
+    // rather than under the feed or a club: nothing but the modal renders here.
     {
       path: "events/create",
       lazy: () => import("./components/routes/CreateEventRoute.gen"),
@@ -177,6 +175,11 @@ const mainRoutes: RouteObject[] =
           handle: "src/components/routes/CreateLocationEventRoute.gen.tsx",
         },
       ]
+    },
+    {
+      path: "clubs/:slug/events/create",
+      lazy: () => import("./components/routes/ClubCreateEventRoute.gen"),
+      handle: "src/components/routes/ClubCreateEventRoute.gen.tsx",
     },
     {
       path: "events/copy/:eventId/:locationId",

@@ -133,7 +133,8 @@ let schema = Zod.z->Zod.object(
   ),
 )
 
-type expandedSection = EventDetailsSection | ActivityFormatSection | FindPlayersSection | None
+// Accordion sections, in page order. Only one is open at a time.
+type expandedSection = ScheduleSection | DetailsSection | FormatSection | PlayersSection | None
 
 type prefilledValues = {
   title?: string,
@@ -167,17 +168,146 @@ let defaultCancelDeadline = 24 * 60 * 60 * 1000
 // itself lives in the database and can be tuned there.
 let defaultSmartRsvpThreshold = 0.005
 
-// Calculate duration in hours between start date and end time
-let calculateDurationHours = (startDateTime: Js.Date.t, endDateTime: Js.Date.t): option<float> => {
-  let diffInMillis = endDateTime->DateFns.getTime -. startDateTime->DateFns.getTime
-  let durationHours = diffInMillis /. (1000.0 *. 60.0 *. 60.0)
-  durationHours > 0.0 ? Some(durationHours) : None
+// ─── Design tokens (Magic Patterns "ManualEventForm") ────────────────────────
+let labelClass = "mb-1.5 block text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400"
+let legendClass = "text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400"
+let fieldBaseClass = "box-border h-11 min-w-0 w-full max-w-full rounded-lg border bg-white px-3 text-sm text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#94c93a] focus:ring-2 focus:ring-[#bdf25d]/40 dark:bg-[#1e1f23] dark:text-gray-100"
+let fieldBorderClass = "border-gray-200 dark:border-[#3a3b40]"
+let fieldErrorBorderClass = "border-red-300 dark:border-red-700"
+let fieldClass = Util.cx([fieldBaseClass, fieldBorderClass])
+let fieldClassWithError = hasError =>
+  Util.cx([fieldBaseClass, hasError ? fieldErrorBorderClass : fieldBorderClass])
+let hintClass = "mt-1.5 block text-xs text-gray-500 dark:text-gray-400"
+let sectionClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]"
+let sectionBodyClass = "space-y-5 border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]"
+let sectionIconClass = "flex-shrink-0 text-gray-400"
+let checkboxClass = "mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]"
+let subsectionClass = "border-t border-gray-100 pt-4 dark:border-[#34353a]"
+let toggleClass = active =>
+  Util.cx([
+    "h-11 rounded-lg border px-3 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",
+    active
+      ? "border-[#94c93a] bg-[#bdf25d] text-black"
+      : "border-gray-200 bg-white text-gray-600 hover:border-gray-400 dark:border-[#45464d] dark:bg-[#1e1f23] dark:text-gray-300",
+  ])
+let pressed = active => active ? #"true" : #"false"
+
+let sectionHeader = (
+  ~icon: React.element,
+  ~title: React.element,
+  ~summary: string,
+  ~expanded: bool,
+  ~controls: string,
+  ~onToggle: unit => unit,
+) =>
+  <h3>
+    <button
+      type_="button"
+      onClick={_ => onToggle()}
+      ariaExpanded=expanded
+      ariaControls=controls
+      className="flex w-full items-center gap-3 rounded-xl px-4 py-3.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a]">
+      icon
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+          title
+        </span>
+        <span className="mt-0.5 block truncate text-xs text-gray-500 dark:text-gray-400">
+          {summary->React.string}
+        </span>
+      </span>
+      <Lucide.ChevronDown
+        size=17
+        className={Util.cx([
+          "flex-shrink-0 text-gray-400 transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]",
+          expanded ? "rotate-180" : "",
+        ])}
+        \"aria-hidden"="true"
+      />
+    </button>
+  </h3>
+
+let errorText = (message: option<string>) =>
+  switch message {
+  | Some(message) =>
+    <p className="mt-1.5 text-xs text-red-600 dark:text-red-400"> {message->React.string} </p>
+  | None => React.null
+  }
+
+// `startDate` keeps the "yyyy-MM-dd'T'HH:mm" shape the old datetime-local
+// input produced, so the schema, prefill and submit paths are unchanged; the
+// date input and the clock picker each read and write one half of it.
+let splitStartDate = (value: string) => {
+  let date = value->String.slice(~start=0, ~end=10)
+  let time = value->String.slice(~start=11, ~end=16)
+  (date->String.length == 10 ? date : "", time->String.length == 5 ? time : "")
+}
+let joinStartDate = (date, time) => date ++ "T" ++ time
+let fallbackStartTime = "18:00"
+let fallbackEndTime = "20:00"
+
+// The clock lets the end wrap past midnight (22:00 → 01:00), which the old
+// time input never allowed, so an end at or before the start is the next day.
+// Works on wall-clock strings: the zone is only applied when converting.
+let endWallClockFor = (startWallClock: string, endTime: string): string => {
+  let (date, startTime) = splitStartDate(startWallClock)
+  let endDate = if (
+    ClockRangePicker.timeToMinutes(endTime) <= ClockRangePicker.timeToMinutes(startTime)
+  ) {
+    date->DateFns.parseISO->DateFns.addDays(1)->DateFns.formatWithPattern("yyyy-MM-dd")
+  } else {
+    date
+  }
+  joinStartDate(endDate, endTime)
+}
+
+// "HH:mm" → "h:mm AM", without going through a Date so the browser's own zone
+// never leaks into text describing the event's zone.
+let formatWallTime = (time: string) => {
+  let minutes = ClockRangePicker.timeToMinutes(time)
+  let hour = minutes / 60
+  let hour12 = switch mod(hour, 12) {
+  | 0 => 12
+  | h => h
+  }
+  let minute = mod(minutes, 60)->Int.toString->String.padStart(2, "0")
+  `${hour12->Int.toString}:${minute} ${hour < 12 ? "AM" : "PM"}`
+}
+
+// The schedule picker is the shared time-window track (6:00–24:00, snapping to
+// 15 minutes on an hourly grid) holding exactly one window. The form keeps its "HH:mm" strings and
+// converts at the edge; an end at or before the start is the next day (see
+// endWallClockFor), which the track shows as hours past 24, capped at midnight.
+let eventTrackHourMin = 6
+let eventTrackHourMax = 24
+// A window that starts before the track's usual floor (an existing early
+// event, a prefill) widens the track to include it, so the window is shown and
+// draggable rather than clipped off the left edge.
+let eventWindowConfigFor = (window: TimeWindow.playIntent): TimeWindowPicker.windowConfig => {
+  hourMin: Js.Math.min_int(eventTrackHourMin, Js.Math.floor_int(window.start)),
+  hourMax: eventTrackHourMax,
+  snap: 0.25,
+  gridStep: 1.0,
+  minDuration: 0.25,
+  defaultDuration: 2.0,
+}
+let hoursOfTime = (time: string): float =>
+  ClockRangePicker.timeToMinutes(time)->Int.toFloat /. 60.0
+let eventWindowOf = (startTime: string, endTime: string): TimeWindow.playIntent => {
+  let start = hoursOfTime(startTime)
+  let end = hoursOfTime(endTime)
+  {id: 0, start, end: Js.Math.min_float(end <= start ? end +. 24.0 : end, 24.0)}
 }
 
 @react.component
 let make = (
   ~eventId: option<string>=?,
-  ~location,
+  ~location: option<RescriptRelay.fragmentRefs<[> #CreateLocationEventForm_location]>>=?,
+  // When given, the Location & time section hosts the venue picker and reports
+  // the chosen Location id here; the caller re-renders with that location.
+  ~onLocationSelected: option<string => unit>=?,
+  // An address (from the AI assistant) for the picker to resolve headlessly.
+  ~autoSearchAddress: option<string>=?,
   ~stripeChargesEnabled: bool=false,
   ~prefilledValues: option<prefilledValues>=?,
   ~selectedClub: option<string>=?,
@@ -187,9 +317,8 @@ let make = (
 ) => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
-  let td = Lingui.UtilString.dynamic
 
-  let location = Fragment.use(location)
+  let locationData = Fragment.useOpt(location)
   let (commitMutationCreate, _) = Mutation.use()
   let (commitMutationUpdate, _) = UpdateMutation.use()
   let navigate = Router.useNavigate()
@@ -200,8 +329,7 @@ let make = (
   // and copying both carry the source event's values, where a missing field
   // means the event has none.
   let useNewEventDefaults =
-    !isUpdate &&
-    !(prefilledValues->Option.flatMap(pf => pf.fromExistingEvent)->Option.getOr(false))
+    !isUpdate && !(prefilledValues->Option.flatMap(pf => pf.fromExistingEvent)->Option.getOr(false))
   let newEventCancelDeadline = useNewEventDefaults ? Some(defaultCancelDeadline) : None
 
   // Determine default values from prefilledValues or use defaults
@@ -213,6 +341,7 @@ let make = (
       minRating: ?pf.minRating,
       startDate: pf.startDate->Option.getOr(""),
       endTime: pf.endDate->Option.getOr(""),
+      timezone: ?pf.timezone->Option.map(tz => Some(tz)),
       listed: pf.listed->Option.getOr(false),
       price: ?pf.price,
       cancelDeadline: ?pf.cancelDeadline->Option.orElse(newEventCancelDeadline),
@@ -253,33 +382,78 @@ let make = (
   let startDate = watch(StartDate)
   let endTime = watch(EndTime)
   let title = watch(Title)
+  let maxRsvps = watch(MaxRsvps)
 
-  // Collapsible sections state - accordion behavior (only one section open at a time)
-  // Collapsed if editing existing event or has prefilled values, expanded if creating new
+  let startDateStr = switch startDate {
+  | Some(String(s)) => s
+  | _ => ""
+  }
+  let endTimeStr = switch endTime {
+  | Some(String(s)) => s
+  | _ => ""
+  }
+  let titleStr = switch title {
+  | Some(String(s)) => s
+  | _ => ""
+  }
+  // Typed values arrive as strings; a prefilled max arrives as the int itself.
+  let maxRsvpsStr = switch maxRsvps {
+  | Some(String(s)) => s
+  | _ => prefilledValues->Option.flatMap(pf => pf.maxRsvps)->Option.mapOr("", n => n->Int.toString)
+  }
+
+  let (datePart, startTimePart) = splitStartDate(startDateStr)
+  let clockStart = startTimePart != "" ? startTimePart : fallbackStartTime
+  let clockEnd = endTimeStr != "" ? endTimeStr : fallbackEndTime
+  // The wall-clock values above are in this zone. Until the mount effect picks
+  // the browser's zone (or prefill supplies the event's) it is the app default.
+  let tz = switch watch(Timezone) {
+  | Some(String(s)) if s != "" => s
+  | _ => Util.Timezone.fallback
+  }
+  let startWallClock = joinStartDate(datePart, clockStart)
+  // The zone list differs between Node and browsers, so it is only rendered
+  // after mount; until then the select holds just the current zone.
+  let (zonesReady, setZonesReady) = React.useState(() => false)
+  let timezoneOptions = React.useMemo2(() => {
+    let zones = zonesReady ? Util.Timezone.list() : []
+    zones->Array.includes(tz) ? zones : Array.concat([tz], zones)
+  }, (zonesReady, tz))
+  let durationMinutes = ClockRangePicker.forwardDuration(
+    ClockRangePicker.timeToMinutes(clockStart),
+    ClockRangePicker.timeToMinutes(clockEnd),
+  )
+  let hasValidTimeRange = durationMinutes >= 15 && durationMinutes <= 12 * 60
+  let eventWindow = eventWindowOf(clockStart, clockEnd)
+
+  // Collapsed if editing an existing event or arriving with prefilled values,
+  // otherwise the schedule section opens first.
   let hasPreloadedValues = eventId->Option.isSome || prefilledValues->Option.isSome
   let (expandedSection, setExpandedSection) = React.useState(() =>
-    hasPreloadedValues ? None : EventDetailsSection
+    hasPreloadedValues ? None : ScheduleSection
   )
-
-  let eventDetailsExpanded = expandedSection == EventDetailsSection
-  let activityFormatExpanded = expandedSection == ActivityFormatSection
-  let findPlayersExpanded = expandedSection == FindPlayersSection
-
-  let setEventDetailsExpanded = (expanded: bool) =>
-    setExpandedSection(_ => expanded ? EventDetailsSection : None)
-  let setActivityFormatExpanded = (expanded: bool) =>
-    setExpandedSection(_ => expanded ? ActivityFormatSection : None)
-  let setFindPlayersExpanded = (expanded: bool) =>
-    setExpandedSection(_ => expanded ? FindPlayersSection : None)
-
-  // Track if start date changes are user-initiated
-  let (isUserInitiatedChange, setIsUserInitiatedChange) = React.useState(() => false)
-
-  // Track event duration in hours to preserve it when start time changes
-  let (eventDurationHours, setEventDurationHours) = React.useState(() => 2.0)
+  let toggleSection = section => setExpandedSection(current => current == section ? None : section)
 
   // Location details expansion state
   let (isLocationDetailsExpanded, setIsLocationDetailsExpanded) = React.useState(() => false)
+
+  // Venue picker state: a set venue can be swapped out, and an address handed
+  // in for auto-search always goes through the picker.
+  let (changingLocation, setChangingLocation) = React.useState(() => false)
+  let (locationError, setLocationError) = React.useState((): option<string> => None)
+  let showLocationPicker = switch (locationData, onLocationSelected) {
+  | (_, None) => false
+  | (None, Some(_)) => true
+  | (Some(_), Some(_)) => changingLocation || autoSearchAddress->Option.isSome
+  }
+
+  // Auto-search runs inside the picker, so make sure it is on screen.
+  React.useEffect(() => {
+    if autoSearchAddress->Option.isSome {
+      setExpandedSection(_ => ScheduleSection)
+    }
+    None
+  }, [autoSearchAddress])
 
   let (selectedTags, setSelectedTags) = React.useState(() =>
     prefilledValues
@@ -292,31 +466,18 @@ let make = (
   let isDrill = selectedTags->Array.includes("drill")
   let isDupr = selectedTags->Array.includes("dupr")
 
-  // Auto-expand sections when they contain validation errors
+  // Open the first section that has a validation error.
   React.useEffect(() => {
     let errors = formState.errors
-
-    // Check if Event Details section has errors
-    let hasEventDetailsErrors =
-      errors.title->Option.isSome ||
-      errors.startDate->Option.isSome ||
-      errors.endTime->Option.isSome ||
-      errors.details->Option.isSome ||
-      errors.maxRsvps->Option.isSome
-
-    // Check if Format section has errors
-    let hasFormatErrors = errors.activity->Option.isSome
-
-    // Check if Find Players section has errors
-    let hasFindPlayersErrors = errors.minRating->Option.isSome || errors.listed->Option.isSome
-
-    // Expand the first section with errors
-    if hasEventDetailsErrors {
-      setExpandedSection(_ => EventDetailsSection)
-    } else if hasFormatErrors {
-      setExpandedSection(_ => ActivityFormatSection)
-    } else if hasFindPlayersErrors {
-      setExpandedSection(_ => FindPlayersSection)
+    let has = err => err->Option.isSome
+    if has(errors.startDate) || has(errors.endTime) || has(errors.timezone) {
+      setExpandedSection(_ => ScheduleSection)
+    } else if has(errors.title) || has(errors.details) {
+      setExpandedSection(_ => DetailsSection)
+    } else if has(errors.activity) {
+      setExpandedSection(_ => FormatSection)
+    } else if has(errors.minRating) || has(errors.listed) || has(errors.maxRsvps) {
+      setExpandedSection(_ => PlayersSection)
     }
     None
   }, [formState.errors])
@@ -342,22 +503,28 @@ let make = (
         ->String.slice(~start=0, ~end=16)
 
       let currentDate = DateFns.parseISO(currentISODate)
-      let defaultStartDate = currentDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:00")
-
-      let defaultStartDateTime = defaultStartDate->DateFns.parseISO
-      let defaultEndTime =
-        defaultStartDateTime
-        ->DateFns.addHours(2.0)
-        ->DateFns.formatWithPattern("HH:mm")
+      // Today at the current hour, two hours long, clamped so the whole window
+      // sits on the 6:00–24:00 track: in the small hours it opens at 6:00, late
+      // at night at 22:00.
+      let seededHour = Js.Math.min_int(
+        Js.Math.max_int(currentDate->Js.Date.getHours->Float.toInt, eventTrackHourMin),
+        eventTrackHourMax - 2,
+      )
+      let defaultStartDate =
+        currentDate->DateFns.formatWithPattern("yyyy-MM-dd") ++
+        "T" ++
+        TimeWindow.hourToTime(seededHour->Float.fromInt)
+      let defaultEndTime = TimeWindow.hourToTime((seededHour + 2)->Float.fromInt)
       setValue(StartDate, Value(defaultStartDate))
       setValue(EndTime, Value(defaultEndTime))
-
-      // Calculate and store the duration from the default values
-      let defaultEndDateTime = DateFns2.parse(defaultEndTime, "HH:mm", defaultStartDateTime)
-      calculateDurationHours(defaultStartDateTime, defaultEndDateTime)
-      ->Option.map(duration => setEventDurationHours(_ => duration))
-      ->ignore
     }
+
+    // The browser's zone is only known on the client; applying it here keeps
+    // the server render deterministic. Edits and copies carry the event's zone.
+    if !isUpdate && prefilledValues->Option.flatMap(pf => pf.timezone)->Option.isNone {
+      setValue(Timezone, Value(Util.Timezone.browser()))
+    }
+    setZonesReady(_ => true)
 
     None
   }, [])
@@ -391,80 +558,21 @@ let make = (
         ->Option.map(v => setValue(CancelDeadline, Value(v->Int.toString)))
         ->ignore
         pf.timezone->Option.map(v => setValue(Timezone, Value(v)))->ignore
-
-        // Calculate and store the duration from prefilled values
-        switch (pf.startDate, pf.endDate) {
-        | (Some(startDateStr), Some(endTimeStr)) if startDateStr != "" && endTimeStr != "" => {
-            let startDateTime = startDateStr->DateFns.parseISO
-            let endDateTime = DateFns2.parse(endTimeStr, "HH:mm", startDateTime)
-            calculateDurationHours(startDateTime, endDateTime)
-            ->Option.map(duration => setEventDurationHours(_ => duration))
-            ->ignore
-          }
-        | _ => ()
-        }
       }
     | None => ()
     }
     None
   }, [prefilledValues])
 
-  // Track duration when user manually changes end time
-  React.useEffect(() => {
-    switch (startDate, endTime) {
-    | (Some(String(startDateStr)), Some(String(endTimeStr)))
-      if startDateStr != "" && endTimeStr != "" => {
-        let startDateTime = startDateStr->DateFns.parseISO
-        let endDateTime = DateFns2.parse(endTimeStr, "HH:mm", startDateTime)
-        calculateDurationHours(startDateTime, endDateTime)
-        ->Option.map(duration => setEventDurationHours(_ => duration))
-        ->ignore
-      }
-    | _ => ()
-    }
-    None
-  }, [endTime])
-
-  // Update end time when start date changes, preserving the event duration
-  React.useEffect(() => {
-    if isUserInitiatedChange {
-      switch startDate {
-      | Some(String(startDateStr)) if startDateStr != "" => {
-          let newEndTime =
-            startDateStr
-            ->DateFns.parseISO
-            ->DateFns.addHours(eventDurationHours)
-            ->DateFns.formatWithPattern("HH:mm")
-          setValue(EndTime, Value(newEndTime))
-        }
-      | _ => ()
-      }
-      setIsUserInitiatedChange(_ => false)
-    }
-    None
-  }, [startDate])
-
   // Autofill minRating based on selected level tags
   React.useEffect(() => {
-    // Map of level tags to mu values via inverse DUPR estimation
-    let levelToRating = tag =>
-      switch tag {
-      | "2.5+" => Some(Rating.duprToMu(2.5))
-      | "3.0+" => Some(Rating.duprToMu(3.0))
-      | "3.5+" => Some(Rating.duprToMu(3.5))
-      | "4.0+" => Some(Rating.duprToMu(4.0))
-      | "4.5+" => Some(Rating.duprToMu(4.5))
-      | "5.0+" => Some(Rating.duprToMu(5.0))
-      | _ => None
-      }
+    let levelToRating = EventTags.levelToRating
+    let specificLevels = EventTags.specificLevels
 
-    // Check if "all level" is selected
     if selectedTags->Array.includes("all level") {
       // Clear the minRating value
       setValue(MinRating, Value(""))
     } else {
-      // Get all specific level tags that have rating mappings
-      let specificLevels = ["2.5+", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
       let selectedSpecificLevels =
         selectedTags->Array.filter(tag => specificLevels->Array.includes(tag))
 
@@ -491,16 +599,56 @@ let make = (
     None
   }, [selectedActivity])
 
+  // Date and clock handlers. Changing the date leaves both times alone, so the
+  // duration is preserved for free; the clock owns start/end interplay.
+  let setStartDateTime = (date, time) => setValue(StartDate, Value(joinStartDate(date, time)))
+  let onDateChange = date =>
+    if date != "" {
+      setStartDateTime(date, clockStart)
+    }
+  let onStartTimeChange = time => {
+    let date = datePart != "" ? datePart : Js.Date.make()->DateFns.formatWithPattern("yyyy-MM-dd")
+    setStartDateTime(date, time)
+  }
+  let onEndTimeChange = time => setValue(EndTime, Value(time))
+  // The picker holds one window; it reports the whole array on every drag step.
+  let onWindowChange = (windows: array<TimeWindow.playIntent>) =>
+    switch windows {
+    | [window] =>
+      onStartTimeChange(TimeWindow.hourToTime(window.start))
+      onEndTimeChange(TimeWindow.hourToTime(window.end))
+    | _ => ()
+    }
+
+  // The venue is not a react-hook-form field, so it is checked with the other
+  // non-field guards in onSubmit; "" is unreachable past that guard.
+  let locationId = locationData->Option.map(l => l.id)->Option.getOr("")
+
   let onSubmit = (data: inputs) => {
-    // Block submission if the new club form is open (unsaved club)
-    if isClubFormOpen {
+    if locationData->Option.isNone {
+      setLocationError(_ => Some(ts`Choose a location for this event`))
+      setExpandedSection(_ => ScheduleSection)
+    } else if isClubFormOpen {
+      // Block submission if the new club form is open (unsaved club)
       onClubFormSubmitBlocked->Option.forEach(cb => cb())
+    } else if durationMinutes < 15 {
+      // The clock never produces this, but prefilled times can: with the
+      // wrap-past-midnight rule a zero-length range would become a 24-hour
+      // event. Longer-than-12h ranges are left alone — they still submit as
+      // a same-day span and blocking them would trap edits of legit events.
+      // Open the section so the message under the picker shows.
+      setExpandedSection(_ => ScheduleSection)
     } else {
       // Filter out "rec" since it's the default (represented by absence of type tags)
       let tagsToSubmit = selectedTags->Array.filter(tag => tag !== "rec")
 
-      let startDate = data.startDate->DateFns.parseISO
-      let endDate = DateFns2.parse(data.endTime, "HH:mm", startDate)
+      // The form's wall-clock values are in the event's zone; convert there.
+      let eventTz = data.timezone->Option.getOr(Util.Timezone.fallback)
+      let startDate = Util.Timezone.fromWallClock(data.startDate, eventTz)
+      let endDate = Util.Timezone.fromWallClock(
+        endWallClockFor(data.startDate, data.endTime),
+        eventTz,
+      )
 
       let priceValue = isPaidEvent ? data.price : None
       // Sending no threshold is what turns Smart RSVP off; the UI only offers
@@ -520,12 +668,12 @@ let make = (
                 maxRsvps: ?data.maxRsvps,
                 minRating: ?data.minRating,
                 details: data.details->Option.getOr(""),
-                locationId: location.id,
+                locationId,
                 clubId: selectedClub->Option.getOr(""),
                 startDate: startDate->Util.Datetime.fromDate,
                 endDate: endDate->Util.Datetime.fromDate,
                 listed: data.listed,
-                timezone: ?data.timezone,
+                timezone: eventTz,
                 tags: tagsToSubmit,
                 price: ?priceValue,
                 cancelDeadline: ?data.cancelDeadline,
@@ -554,12 +702,12 @@ let make = (
               maxRsvps: ?data.maxRsvps,
               minRating: ?data.minRating,
               details: data.details->Option.getOr(""),
-              locationId: location.id,
+              locationId,
               clubId: selectedClub->Option.getOr(""),
               startDate: startDate->Util.Datetime.fromDate,
               endDate: endDate->Util.Datetime.fromDate,
               listed: data.listed,
-              timezone: ?data.timezone,
+              timezone: eventTz,
               tags: tagsToSubmit,
               price: ?priceValue,
               cancelDeadline: ?data.cancelDeadline,
@@ -576,92 +724,43 @@ let make = (
       }
     } // end isClubFormOpen guard
   }
-  // Helper functions for summaries
-  let getEventDetailsSummary = () => {
-    let parts = []
-    switch title {
-    | Some(String(t)) if t != "" => parts->Array.push(t)->ignore
-    | _ => ()
-    }
-    switch (startDate, endTime) {
-    | (Some(String(sd)), Some(String(et))) if sd != "" && et != "" => {
-        let startDateParsed = sd->DateFns.parseISO
-        let dateFormatted = startDateParsed->DateFns.formatWithPattern("EEEE, MMMM d, yyyy")
-        let startTimeFormatted = startDateParsed->DateFns.formatWithPattern("h:mm a")
-        parts->Array.push(`${dateFormatted} ${ts`at`} ${startTimeFormatted}`)->ignore
-      }
-    | _ => ()
-    }
-    parts->Array.length > 0 ? parts->Array.join(" • ") : ts`Not set`
+
+  // ─── Section summaries (shown under each header) ──────────────────────────
+  let locationName = locationData->Option.flatMap(l => l.name)->Option.getOr("")
+  let tzShortName = Util.Timezone.shortName(tz, Util.Timezone.fromWallClock(startWallClock, tz))
+  let scheduleSummary = if datePart != "" {
+    let (_, endTime) = splitStartDate(endWallClockFor(startWallClock, clockEnd))
+    let day = datePart->DateFns.parseISO->DateFns.formatWithPattern("EEE, MMM d")
+    `${locationName} · ${day}, ${formatWallTime(clockStart)}–${formatWallTime(
+        endTime,
+      )} ${tzShortName}`
+  } else if locationName != "" {
+    locationName
+  } else {
+    ts`Venue, date, start and end time`
   }
 
-  let getFormatSummary = () => {
-    let parts = []
-    if eventType == "competitive" {
-      parts->Array.push(ts`Competitive`)->ignore
-    } else {
-      parts->Array.push(ts`Recreational`)->ignore
-    }
+  let detailsSummary = titleStr != "" ? titleStr : ts`Title and optional notes`
+
+  let formatSummary = {
+    let parts = [eventType == "competitive" ? ts`Competitive` : ts`Recreational`]
     if isDupr {
       parts->Array.push(ts`DUPR rated`)->ignore
     }
     if isDrill {
       parts->Array.push(ts`Drill session`)->ignore
     }
-    parts->Array.length > 0 ? parts->Array.join(" • ") : ts`Not set`
+    parts->Array.join(" · ")
   }
 
-  let getFindPlayersSummary = () => {
-    if listed {
-      let levelTags =
-        selectedTags->Array.filter(tag =>
-          ["all level", "2.5+", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]->Array.includes(tag)
-        )
-      if levelTags->Array.length > 0 {
-        (ts`Public`) ++ " • " ++ levelTags->Array.join(", ")
-      } else {
-        ts`Public event`
-      }
-    } else {
-      ts`Private event`
-    }
+  let playersSummary = if listed {
+    maxRsvpsStr != "" ? ts`Public · Up to ${maxRsvpsStr} players` : ts`Public`
+  } else {
+    ts`Private event`
   }
 
-  let formatEventDateTime = () => {
-    switch (startDate, endTime) {
-    | (Some(String(sd)), Some(String(et))) if sd != "" && et != "" => {
-        let startDateParsed = sd->DateFns.parseISO
-        let endDateParsed = DateFns2.parse(et, "HH:mm", startDateParsed)
-
-        let durationMs = endDateParsed->DateFns.getTime -. startDateParsed->DateFns.getTime
-        let durationHours = Float.toInt(durationMs /. (1000.0 *. 60.0 *. 60.0))
-        let durationMinutes = Float.toInt(
-          mod_float(durationMs, 1000.0 *. 60.0 *. 60.0) /. (1000.0 *. 60.0),
-        )
-
-        let durationText = if durationHours > 0 {
-          if durationMinutes > 0 {
-            ts`${durationHours->Int.toString} hours and ${durationMinutes->Int.toString} minutes`
-          } else {
-            ts`${durationHours->Int.toString} hours`
-          }
-        } else if durationMinutes > 0 {
-          ts`${durationMinutes->Int.toString} minutes`
-        } else {
-          ""
-        }
-
-        Some({
-          "startDate": startDateParsed,
-          "endDate": endDateParsed,
-          "duration": durationText,
-        })
-      }
-    | _ => None
-    }
-  }
-
-  let formattedEventDateTime = formatEventDateTime()
+  let showAssistedBanner =
+    !isUpdate && prefilledValues->Option.flatMap(pf => pf.title)->Option.isSome
 
   <FramerMotion.Div
     style={opacity: 0., y: -50.}
@@ -670,243 +769,506 @@ let make = (
     exit={opacity: 0., scale: 1., y: -50.}>
     <WaitForMessages>
       {() => <>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          // Location display
-          <div
-            className="px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-[#222222]">
-            <p
-              className="text-gray-900 dark:text-gray-100 font-medium break-words overflow-wrap-anywhere">
-              {location.name->Option.getOr("")->React.string}
-            </p>
-            {location.details
-            ->Option.map(details => {
-              let maxLength = 100
-              let shouldTruncate = details->String.length > maxLength
-              let displayText = if shouldTruncate && !isLocationDetailsExpanded {
-                details->String.substring(~start=0, ~end=maxLength) ++ "..."
-              } else {
-                details
-              }
-              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                <p className="inline break-words overflow-wrap-anywhere">
-                  {displayText->React.string}
-                </p>
-                {shouldTruncate
-                  ? <button
-                      type_="button"
-                      onClick={_ => setIsLocationDetailsExpanded(prev => !prev)}
-                      className="ml-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium inline whitespace-nowrap">
-                      {(isLocationDetailsExpanded ? ts`Show less` : ts`Read more...`)->React.string}
-                    </button>
-                  : React.null}
+        <form onSubmit={handleSubmit(onSubmit)} className="min-w-0 space-y-3 overflow-x-hidden">
+          {showAssistedBanner
+            ? <div
+                role="status"
+                className="rounded-lg border border-[#a3d949]/50 bg-[#bdf25d]/10 px-3 py-2.5 text-xs text-[#4d6f12] dark:border-[#bdf25d]/25 dark:text-[#bdf25d]">
+                {t`Draft filled in. Review the details before creating the event.`}
               </div>
-            })
-            ->Option.getOr(React.null)}
-          </div>
-          // Event Details Section - Collapsible (merged with Date & Time)
-          <div
-            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
-            <button
-              type_="button"
-              onClick={_ => setEventDetailsExpanded(!eventDetailsExpanded)}
-              className="w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Lucide.FileText
-                  className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
-                />
-                <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {t`Event Details`}
-                  </div>
-                  {!eventDetailsExpanded
-                    ? <div
-                        className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words"
-                        style={ReactDOM.Style.make(~overflowWrap="anywhere", ())}>
-                        {getEventDetailsSummary()->React.string}
-                      </div>
-                    : React.null}
-                </div>
-              </div>
-              <Lucide.ChevronDown
-                className={Util.cx([
-                  "w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0",
-                  eventDetailsExpanded ? "rotate-180" : "",
-                ])}
-              />
-            </button>
-            {eventDetailsExpanded
-              ? <div
-                  className="px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800">
-                  // Date & Time
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="startDate"
-                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                        {t`Start date and time`}
-                      </label>
-                      <input
-                        {...register(StartDate)}
-                        id="startDate"
-                        type_="datetime-local"
-                        onChange={e => {
-                          setIsUserInitiatedChange(_ => true)
-                          let target = ReactEvent.Form.target(e)
-                          setValue(StartDate, Value(target["value"]))
-                        }}
-                        className={Util.cx([
-                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono",
-                          formState.errors.startDate->Option.isSome
-                            ? "border-red-300 dark:border-red-700"
-                            : "border-gray-300 dark:border-gray-700",
-                        ])}
-                      />
-                      {switch formState.errors.startDate {
-                      | Some({message: ?Some(message)}) =>
-                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">
-                          {message->React.string}
-                        </p>
-                      | _ => React.null
-                      }}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="endTime"
-                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                        {t`End time`}
-                      </label>
-                      <input
-                        {...register(EndTime)}
-                        id="endTime"
-                        type_="time"
-                        className={Util.cx([
-                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono",
-                          formState.errors.endTime->Option.isSome
-                            ? "border-red-300 dark:border-red-700"
-                            : "border-gray-300 dark:border-gray-700",
-                        ])}
-                      />
-                      {switch formState.errors.endTime {
-                      | Some({message: ?Some(message)}) =>
-                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">
-                          {message->React.string}
-                        </p>
-                      | _ => React.null
-                      }}
-                    </div>
-                  </div>
-                  {switch formattedEventDateTime {
-                  | Some(dateTime) =>
-                    <div
-                      className="p-4 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700">
-                      <div className="flex items-start gap-3">
-                        <Lucide.Calendar
-                          className="w-5 h-5 text-gray-400 dark:text-gray-500 mt-1 flex-shrink-0"
+            : React.null}
+          // ─── Location & time ──────────────────────────────────────────────
+          <section className=sectionClass>
+            {sectionHeader(
+              ~icon=<Lucide.CalendarDays
+                size=19 className=sectionIconClass \"aria-hidden"="true"
+              />,
+              ~title=t`Location & time`,
+              ~summary=scheduleSummary,
+              ~expanded={expandedSection == ScheduleSection},
+              ~controls="event-form-schedule",
+              ~onToggle=() => toggleSection(ScheduleSection),
+            )}
+            {expandedSection == ScheduleSection
+              ? <div id="event-form-schedule" className=sectionBodyClass>
+                  <div className="min-w-0">
+                    <span className=labelClass> {t`Location`} </span>
+                    {switch (showLocationPicker, locationData) {
+                    | (true, _) =>
+                      <div className="min-w-0">
+                        <AutocompleteLocation
+                          onSelected={id => {
+                            setChangingLocation(_ => false)
+                            setLocationError(_ => None)
+                            onLocationSelected->Option.forEach(cb => cb(id))
+                          }}
+                          error=?locationError
+                          ?autoSearchAddress
                         />
-                        <div className="flex-1 min-w-0">
-                          <p
-                            className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">
-                            {t`Event schedule`}
-                          </p>
-                          <p
-                            className="text-base font-medium text-gray-900 dark:text-gray-100 mb-2 break-words">
-                            <ReactIntl.FormattedDate
-                              weekday=#long
-                              month=#long
-                              day=#numeric
-                              year=#numeric
-                              value={dateTime["startDate"]}
-                              timeZone="Asia/Tokyo"
-                            />
-                          </p>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <div className="flex items-center gap-1.5">
-                              <Lucide.Clock
-                                className="w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0"
-                              />
-                              <span
-                                className="text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap">
-                                <ReactIntl.FormattedTime
-                                  value={dateTime["startDate"]} timeZone="Asia/Tokyo"
-                                />
-                              </span>
-                            </div>
-                            <span className="text-gray-400"> {"→"->React.string} </span>
-                            <span
-                              className="text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap">
-                              <ReactIntl.FormattedTime
-                                value={dateTime["endDate"]} timeZone="Asia/Tokyo"
-                              />
-                            </span>
-                            {dateTime["duration"] != ""
-                              ? <>
-                                  <span className="text-gray-400"> {"•"->React.string} </span>
-                                  <span
-                                    className="text-gray-600 dark:text-gray-400 whitespace-nowrap">
-                                    {dateTime["duration"]->React.string}
-                                  </span>
-                                </>
+                        {changingLocation
+                          ? <button
+                              type_="button"
+                              onClick={_ => setChangingLocation(_ => false)}
+                              className="mt-1.5 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                              {t`Keep current location`}
+                            </button>
+                          : React.null}
+                      </div>
+                    | (false, Some(chosen)) =>
+                      <div
+                        className="flex items-start gap-2.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#1e1f23]">
+                        <Lucide.MapPin
+                          size=14
+                          className="mt-0.5 flex-shrink-0 text-gray-400"
+                          \"aria-hidden"="true"
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <p
+                              className="break-words text-sm font-medium text-gray-900 dark:text-gray-100">
+                              {locationName->React.string}
+                            </p>
+                            {onLocationSelected->Option.isSome
+                              ? <button
+                                  type_="button"
+                                  onClick={_ => setChangingLocation(_ => true)}
+                                  className="flex-shrink-0 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                                  {t`Change`}
+                                </button>
                               : React.null}
                           </div>
+                          {chosen.details
+                          ->Option.map(details => {
+                            let maxLength = 100
+                            let shouldTruncate = details->String.length > maxLength
+                            let displayText = if shouldTruncate && !isLocationDetailsExpanded {
+                              details->String.substring(~start=0, ~end=maxLength) ++ "..."
+                            } else {
+                              details
+                            }
+                            <p
+                              className="mt-0.5 break-words text-xs text-gray-500 dark:text-gray-400">
+                              {displayText->React.string}
+                              {shouldTruncate
+                                ? <button
+                                    type_="button"
+                                    onClick={_ => setIsLocationDetailsExpanded(prev => !prev)}
+                                    className="ml-1 whitespace-nowrap font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                                    {(
+                                      isLocationDetailsExpanded ? ts`Show less` : ts`Read more...`
+                                    )->React.string}
+                                  </button>
+                                : React.null}
+                            </p>
+                          })
+                          ->Option.getOr(React.null)}
                         </div>
                       </div>
-                    </div>
-                  | None => React.null
-                  }}
-                  // Title and Max Attendees
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="md:col-span-2">
-                      <label
-                        htmlFor="title"
-                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                        {t`Event title`}
-                      </label>
+                    | (false, None) => React.null
+                    }}
+                  </div>
+                  <label className="block min-w-0 max-w-full overflow-hidden">
+                    <span className=labelClass> {t`Date`} </span>
+                    <div
+                      className={Util.cx([
+                        "box-border h-11 w-full min-w-0 max-w-full overflow-hidden rounded-lg border bg-white transition-colors focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:bg-[#1e1f23]",
+                        formState.errors.startDate->Option.isSome
+                          ? fieldErrorBorderClass
+                          : fieldBorderClass,
+                      ])}>
                       <input
-                        {...register(Title)}
-                        id="title"
-                        type_="text"
-                        placeholder={ts`Friday Night Pickleball`}
-                        className={Util.cx([
-                          "block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100",
-                          formState.errors.title->Option.isSome
-                            ? "border-red-300 dark:border-red-700"
-                            : "border-gray-300 dark:border-gray-700",
-                        ])}
+                        id="startDate"
+                        type_="date"
+                        value=datePart
+                        onChange={e => onDateChange(ReactEvent.Form.target(e)["value"])}
+                        className="native-date-input block h-full w-full min-w-0 max-w-full border-0 bg-transparent text-gray-900 outline-none dark:text-gray-100"
                       />
-                      {switch formState.errors.title {
-                      | Some({message: ?Some(message)}) =>
-                        <p className="mt-1 text-sm text-red-600 dark:text-red-400">
-                          {message->React.string}
+                    </div>
+                    {errorText(formState.errors.startDate->Option.flatMap(e => e.message))}
+                  </label>
+                  <label className="block min-w-0" htmlFor="timezone">
+                    <span className=labelClass> {t`Time zone`} </span>
+                    // Controlled, not registered: the option list only fills in
+                    // after mount, and an uncontrolled select loses its selection
+                    // when set to a zone it has no option for yet.
+                    <select
+                      id="timezone"
+                      value=tz
+                      onChange={e => setValue(Timezone, Value(ReactEvent.Form.target(e)["value"]))}
+                      className=fieldClass>
+                      {timezoneOptions
+                      ->Array.map(zone =>
+                        <option key=zone value=zone> {zone->React.string} </option>
+                      )
+                      ->React.array}
+                    </select>
+                    <span className=hintClass>
+                      {t`The date and times on this form are in this zone.`}
+                    </span>
+                  </label>
+                  <div className="min-w-0 max-w-full">
+                    <span className=labelClass> {t`Start and end time`} </span>
+                    <TimeWindowPicker
+                      intents=[eventWindow]
+                      onChange=onWindowChange
+                      config={eventWindowConfigFor(eventWindow)}
+                      maxIntents=1
+                      allowDelete=false
+                      emptyLabel={ts`Choose an event time`}
+                    />
+                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                      <span
+                        className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 font-mono text-[10px] font-semibold text-gray-600 dark:bg-[#1e1f23] dark:text-gray-300">
+                        {(TimeWindow.hourToTime(eventWindow.start) ++
+                        "–" ++
+                        TimeWindow.hourToTime(eventWindow.end) ++
+                        " · " ++
+                        ClockRangePicker.formatDuration(durationMinutes))->React.string}
+                      </span>
+                    </div>
+                    <span className=hintClass>
+                      {t`Drag the window to move it, or drag either edge to resize.`}
+                    </span>
+                    {!hasValidTimeRange
+                      ? <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+                          {durationMinutes < 15
+                            ? t`Events must be at least 15 minutes long.`
+                            : t`Events can be up to 12 hours long.`}
                         </p>
-                      | _ => React.null
-                      }}
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="maxRsvps"
-                        className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                        {t`Max RSVPs (optional)`}
-                      </label>
+                      : React.null}
+                    {errorText(formState.errors.endTime->Option.flatMap(e => e.message))}
+                  </div>
+                </div>
+              : React.null}
+          </section>
+          // ─── Event details ────────────────────────────────────────────────
+          <section className=sectionClass>
+            {sectionHeader(
+              ~icon=<Lucide.FileText size=19 className=sectionIconClass \"aria-hidden"="true" />,
+              ~title=t`Event details`,
+              ~summary=detailsSummary,
+              ~expanded={expandedSection == DetailsSection},
+              ~controls="event-form-details",
+              ~onToggle=() => toggleSection(DetailsSection),
+            )}
+            {expandedSection == DetailsSection
+              ? <div id="event-form-details" className=sectionBodyClass>
+                  <label className="block min-w-0">
+                    <span className=labelClass> {t`Event title`} </span>
+                    <input
+                      {...register(Title)}
+                      id="title"
+                      type_="text"
+                      placeholder={ts`Friday night pickleball`}
+                      className={fieldClassWithError(formState.errors.title->Option.isSome)}
+                    />
+                    {errorText(formState.errors.title->Option.flatMap(e => e.message))}
+                  </label>
+                  <label className="block" htmlFor="details">
+                    <span className=labelClass>
+                      {t`Event notes`}
+                      {" "->React.string}
+                      <span className="font-normal normal-case"> {t`(optional)`} </span>
+                    </span>
+                    <textarea
+                      {...register(Details, ~options={required: false})}
+                      id="details"
+                      rows=3
+                      defaultValue=""
+                      placeholder={ts`Anything players should know before joining or arriving.`}
+                      className="w-full resize-y rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm leading-relaxed text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#94c93a] focus:ring-2 focus:ring-[#bdf25d]/40 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-100"
+                    />
+                  </label>
+                </div>
+              : React.null}
+          </section>
+          // ─── Paid event ───────────────────────────────────────────────────
+          <section className=sectionClass>
+            <label className="flex cursor-pointer items-center gap-3 px-4 py-4">
+              <input
+                id="paidEvent"
+                type_="checkbox"
+                checked={isPaidEvent}
+                onChange={_ => {
+                  let newValue = !isPaidEvent
+                  setIsPaidEvent(_ => newValue)
+                  if !newValue {
+                    setValue(Price, Value(""))
+                  }
+                }}
+                className="h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]"
+              />
+              <Lucide.CircleDollarSign size=19 className=sectionIconClass \"aria-hidden"="true" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                  {t`Paid event`}
+                </span>
+                <span className="mt-0.5 block text-xs text-gray-500 dark:text-gray-400">
+                  {t`Attendees save a card when they RSVP. Nothing is charged automatically.`}
+                </span>
+              </span>
+            </label>
+            {isPaidEvent
+              ? <div className="border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]">
+                  <label className="block min-w-0" htmlFor="price">
+                    <span className=labelClass> {t`Participation fee`} </span>
+                    <div className="relative">
+                      <span
+                        className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm text-gray-500">
+                        {"¥"->React.string}
+                      </span>
                       <input
-                        {...register(MaxRsvps, ~options={required: false})}
-                        id="maxRsvps"
+                        {...register(Price, ~options={required: false})}
+                        id="price"
                         type_="number"
-                        placeholder={ts`No limit`}
-                        className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
+                        min="1"
+                        placeholder={ts`Enter price`}
+                        className={Util.cx([fieldClass, "pl-8"])}
                       />
+                    </div>
+                  </label>
+                  <div className="mt-3 space-y-2 text-sm">
+                    <div
+                      className={!stripeChargesEnabled
+                        ? "rounded-lg border border-[#a3d949]/60 bg-[#bdf25d]/10 p-3 dark:border-[#bdf25d]/25 dark:bg-[#bdf25d]/5"
+                        : "rounded-lg border border-gray-200 p-3 dark:border-[#3a3b40]"}>
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-semibold text-gray-700 dark:text-gray-300">
+                          {t`Without a Stripe account`}
+                        </span>
+                        {!stripeChargesEnabled
+                          ? <span
+                              className="rounded bg-[#bdf25d]/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#547817] dark:text-[#bdf25d]">
+                              {t`Active`}
+                            </span>
+                          : React.null}
+                      </div>
+                      <p
+                        className="mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
+                        {t`Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event.`}
+                      </p>
+                    </div>
+                    <div
+                      className={stripeChargesEnabled
+                        ? "rounded-lg border border-[#a3d949]/60 bg-[#bdf25d]/10 p-3 dark:border-[#bdf25d]/25 dark:bg-[#bdf25d]/5"
+                        : "rounded-lg border border-gray-200 p-3 dark:border-[#3a3b40]"}>
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-semibold text-gray-700 dark:text-gray-300">
+                          {t`With a Stripe account`}
+                        </span>
+                        {stripeChargesEnabled
+                          ? <span
+                              className="rounded bg-[#bdf25d]/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#547817] dark:text-[#bdf25d]">
+                              {t`Active`}
+                            </span>
+                          : React.null}
+                      </div>
+                      <p
+                        className="mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
+                        {t`Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account.`}
+                        {!stripeChargesEnabled
+                          ? <>
+                              {" "->React.string}
+                              <a
+                                href="/settings/profile"
+                                className="font-semibold text-[#4d6f12] underline hover:opacity-80 dark:text-[#bdf25d]">
+                                {t`Connect a Stripe account to enable this`}
+                              </a>
+                            </>
+                          : React.null}
+                      </p>
                     </div>
                   </div>
-                  // Cancel Deadline
-                  <div>
-                    <label
-                      htmlFor="cancelDeadline"
-                      className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                      {t`Cancel deadline (optional)`}
-                    </label>
+                  // Applies in both modes: the organizer can always let someone in
+                  // without a card.
+                  <p className="mt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                    {t`Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them.`}
+                  </p>
+                </div>
+              : React.null}
+          </section>
+          // ─── Format ───────────────────────────────────────────────────────
+          <section className=sectionClass>
+            {sectionHeader(
+              ~icon=<Lucide.Dumbbell size=19 className=sectionIconClass \"aria-hidden"="true" />,
+              ~title=t`Format`,
+              ~summary=formatSummary,
+              ~expanded={expandedSection == FormatSection},
+              ~controls="event-form-format",
+              ~onToggle=() => toggleSection(FormatSection),
+            )}
+            {expandedSection == FormatSection
+              ? <div id="event-form-format" className=sectionBodyClass>
+                  <fieldset>
+                    <legend className=legendClass> {t`Event type`} </legend>
+                    <div className="mt-2 grid grid-cols-2 gap-2">
+                      <button
+                        type_="button"
+                        ariaPressed={pressed(eventType == "recreational")}
+                        onClick={_ =>
+                          setSelectedTags(tags =>
+                            tags
+                            ->Array.filter(t => t != "comp" && t != "dupr")
+                            ->Array.concat(["rec"])
+                          )}
+                        className={toggleClass(eventType == "recreational")}>
+                        {t`Recreational`}
+                      </button>
+                      <button
+                        type_="button"
+                        ariaPressed={pressed(eventType == "competitive")}
+                        onClick={_ =>
+                          setSelectedTags(tags =>
+                            tags
+                            ->Array.filter(t => t != "rec")
+                            ->Array.concat(["comp"])
+                          )}
+                        className={toggleClass(eventType == "competitive")}>
+                        {t`Competitive`}
+                      </button>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <legend className=legendClass> {t`Format options`} </legend>
+                    <div className="mt-2 grid grid-cols-2 gap-2">
+                      {eventType == "competitive"
+                        ? <button
+                            type_="button"
+                            ariaPressed={pressed(isDupr)}
+                            onClick={_ =>
+                              setSelectedTags(tags =>
+                                isDupr
+                                  ? tags->Array.filter(t => t != "dupr")
+                                  : tags->Array.concat(["dupr"])
+                              )}
+                            className={toggleClass(isDupr)}>
+                            {t`DUPR rated`}
+                          </button>
+                        : React.null}
+                      <button
+                        type_="button"
+                        ariaPressed={pressed(isDrill)}
+                        onClick={_ =>
+                          setSelectedTags(tags =>
+                            isDrill
+                              ? tags->Array.filter(t => t != "drill")
+                              : tags->Array.concat(["drill"])
+                          )}
+                        className={toggleClass(isDrill)}>
+                        {t`Drill session`}
+                      </button>
+                    </div>
+                  </fieldset>
+                </div>
+              : React.null}
+          </section>
+          // ─── Find players ─────────────────────────────────────────────────
+          <section className=sectionClass>
+            {sectionHeader(
+              ~icon=<Lucide.Users size=19 className=sectionIconClass \"aria-hidden"="true" />,
+              ~title=t`Players`,
+              ~summary=playersSummary,
+              ~expanded={expandedSection == PlayersSection},
+              ~controls="event-form-players",
+              ~onToggle=() => toggleSection(PlayersSection),
+            )}
+            {expandedSection == PlayersSection
+              ? <div id="event-form-players" className=sectionBodyClass>
+                  <label className="flex cursor-pointer items-start gap-3">
+                    <input
+                      id="findPlayers"
+                      type_="checkbox"
+                      checked={listed}
+                      onChange={_ => setValue(Listed, Value(!listed))}
+                      className=checkboxClass
+                    />
+                    <span className="min-w-0">
+                      <span
+                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        {t`Find players for your event?`}
+                      </span>
+                      <span
+                        className="mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                        {t`List your event publicly to help fill open spots.`}
+                      </span>
+                    </span>
+                  </label>
+                  {listed
+                    ? <div
+                        role="status"
+                        className="inline-flex items-center gap-1.5 rounded-md bg-emerald-50 px-2.5 py-1.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+                        <Lucide.Check size=13 strokeWidth=2.5 \"aria-hidden"="true" />
+                        {t`This event is public`}
+                      </div>
+                    : React.null}
+                  // The level applies to private events too (it drives the
+                  // minimum rating and the row's level tag), so it is not
+                  // gated on the listing toggle.
+                  <LevelTagPills
+                    selected=selectedTags
+                    onChange={tags => setSelectedTags(_ => tags)}
+                    legend={t`Skill level`}
+                  />
+                  <label className="block min-w-0" htmlFor="minRating">
+                    <span className=labelClass>
+                      {t`Minimum rating`}
+                      {" "->React.string}
+                      <span className="font-normal normal-case"> {t`(optional)`} </span>
+                    </span>
+                    <input
+                      {...register(MinRating, ~options={required: false})}
+                      id="minRating"
+                      type_="number"
+                      step=0.01
+                      placeholder={ts`No minimum`}
+                      className={fieldClassWithError(formState.errors.minRating->Option.isSome)}
+                    />
+                    {errorText(formState.errors.minRating->Option.flatMap(e => e.message))}
+                  </label>
+                  <label
+                    className={Util.cx(["flex cursor-pointer items-start gap-3", subsectionClass])}>
+                    <input
+                      id="smartRsvp"
+                      type_="checkbox"
+                      checked={isSmartRsvpOn}
+                      onChange={_ => setIsSmartRsvpOn(on => !on)}
+                      className=checkboxClass
+                    />
+                    <span>
+                      <span
+                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        {t`Smart RSVP`}
+                      </span>
+                      <span
+                        className="mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                        {t`Hold new joins and admit players automatically based on match quality.`}
+                      </span>
+                    </span>
+                  </label>
+                  <label className={Util.cx(["block min-w-0", subsectionClass])} htmlFor="maxRsvps">
+                    <span className=labelClass>
+                      {t`Max players`}
+                      {" "->React.string}
+                      <span className="font-normal normal-case"> {t`(optional)`} </span>
+                    </span>
+                    <input
+                      {...register(MaxRsvps, ~options={required: false})}
+                      id="maxRsvps"
+                      type_="number"
+                      min="1"
+                      placeholder={ts`No limit`}
+                      className={fieldClassWithError(formState.errors.maxRsvps->Option.isSome)}
+                    />
+                    {errorText(formState.errors.maxRsvps->Option.flatMap(e => e.message))}
+                  </label>
+                  <label
+                    className={Util.cx(["block min-w-0", subsectionClass])}
+                    htmlFor="cancelDeadline">
+                    <span className=labelClass> {t`Cancel deadline`} </span>
                     <select
                       {...register(CancelDeadline, ~options={required: false})}
                       id="cancelDeadline"
-                      className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100">
+                      className=fieldClass>
                       <option value=""> {(ts`No deadline`)->React.string} </option>
                       <option value="3600000"> {(ts`1 hour before`)->React.string} </option>
                       <option value="7200000"> {(ts`2 hours before`)->React.string} </option>
@@ -917,474 +1279,18 @@ let make = (
                       <option value="259200000"> {(ts`72 hours before`)->React.string} </option>
                       <option value="604800000"> {(ts`1 week before`)->React.string} </option>
                     </select>
-                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                      {t`Attendees cannot cancel their RSVP after this deadline`}
-                    </p>
-                  </div>
-                  // Event Details
-                  <div>
-                    <label
-                      htmlFor="details"
-                      className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                      {t`Event details (optional)`}
-                    </label>
-                    <textarea
-                      {...register(Details, ~options={required: false})}
-                      id="details"
-                      rows=3
-                      defaultValue=""
-                      placeholder={ts`Add any additional information about the event...`}
-                      className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100"
-                    />
-                  </div>
-                </div>
-              : React.null}
-          </div>
-          // Paid Event Section
-          <div
-            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
-            <div className="px-4 py-4">
-              <div className="flex items-start gap-3">
-                <input
-                  id="paidEvent"
-                  type_="checkbox"
-                  checked={isPaidEvent}
-                  onChange={_ => {
-                    let newValue = !isPaidEvent
-                    setIsPaidEvent(_ => newValue)
-                    if !newValue {
-                      setValue(Price, Value(""))
-                    }
-                  }}
-                  className="h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5"
-                />
-                <div className="flex-1">
-                  <label
-                    htmlFor="paidEvent"
-                    className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {t`Paid event`}
+                    <span className=hintClass>
+                      {t`Attendees cannot cancel their RSVP after this deadline.`}
+                    </span>
                   </label>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {t`Require payment from attendees`}
-                  </p>
-                </div>
-              </div>
-              {isPaidEvent
-                ? <div className="mt-4 ml-8">
-                    <label
-                      htmlFor="price" className="block text-sm font-semibold text-gray-900 mb-2">
-                      {t`Price`}
-                    </label>
-                    <div className="relative">
-                      <span
-                        className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm">
-                        {"¥"->React.string}
-                      </span>
-                      <input
-                        {...register(Price, ~options={required: false})}
-                        id="price"
-                        type_="number"
-                        min="1"
-                        placeholder={ts`Enter price`}
-                        className="block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
-                      />
-                    </div>
-                    <div className="mt-3 space-y-2 text-sm">
-                      <div
-                        className={!stripeChargesEnabled
-                          ? "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3"
-                          : "rounded-lg border border-gray-200 dark:border-gray-700 p-3"}>
-                        <div className="flex items-center gap-1.5">
-                          <span className="font-semibold text-gray-700 dark:text-gray-300">
-                            {t`Without Stripe`}
-                          </span>
-                          {!stripeChargesEnabled
-                            ? <span
-                                className="text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded">
-                                {t`Active`}
-                              </span>
-                            : React.null}
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-400 mt-0.5">
-                          {t`A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list.`}
-                        </p>
-                      </div>
-                      <div
-                        className={stripeChargesEnabled
-                          ? "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3"
-                          : "rounded-lg border border-gray-200 dark:border-gray-700 p-3"}>
-                        <div className="flex items-center gap-1.5">
-                          <span className="font-semibold text-gray-700 dark:text-gray-300">
-                            {t`With Stripe`}
-                          </span>
-                          {stripeChargesEnabled
-                            ? <span
-                                className="text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded">
-                                {t`Active`}
-                              </span>
-                            : React.null}
-                        </div>
-                        <p className="text-gray-600 dark:text-gray-400 mt-0.5">
-                          {t`The participation fee is charged automatically and transferred to your Stripe account.`}
-                          {!stripeChargesEnabled
-                            ? <>
-                                {" "->React.string}
-                                <a
-                                  href="/settings/profile"
-                                  className="text-blue-600 dark:text-blue-400 underline hover:opacity-80">
-                                  {t`Connect a Stripe account to activate`}
-                                </a>
-                              </>
-                            : React.null}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                : React.null}
-            </div>
-          </div>
-          // Activity & Format Section - Collapsible
-          <div
-            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
-            <button
-              type_="button"
-              onClick={_ => setActivityFormatExpanded(!activityFormatExpanded)}
-              className="w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Lucide.Dumbbell
-                  className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
-                />
-                <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {t`Format`}
-                  </div>
-                  {!activityFormatExpanded
-                    ? <div
-                        className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words"
-                        style={ReactDOM.Style.make(~overflowWrap="anywhere", ())}>
-                        {getFormatSummary()->React.string}
-                      </div>
-                    : React.null}
-                </div>
-              </div>
-              <Lucide.ChevronDown
-                className={Util.cx([
-                  "w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0",
-                  activityFormatExpanded ? "rotate-180" : "",
-                ])}
-              />
-            </button>
-            {activityFormatExpanded
-              ? <div
-                  className="px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800">
-                  // Event type
-                  <div>
-                    <label
-                      className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
-                      {t`Event type`}
-                    </label>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[("recreational", t`Recreational`), ("competitive", t`Competitive`)]
-                      ->Array.map(((value, label)) =>
-                        <label
-                          key={value}
-                          className={Util.cx([
-                            "relative flex items-center justify-center px-4 py-3 border-2 rounded-lg cursor-pointer transition-all",
-                            eventType == value
-                              ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
-                              : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
-                          ])}>
-                          <input
-                            type_="radio"
-                            checked={eventType == value}
-                            onChange={_ => {
-                              if value == "competitive" {
-                                setSelectedTags(tags =>
-                                  tags
-                                  ->Array.filter(t => t != "rec")
-                                  ->Array.concat(["comp"])
-                                )
-                              } else {
-                                setSelectedTags(tags =>
-                                  tags
-                                  ->Array.filter(t => t != "comp" && t != "dupr")
-                                  ->Array.concat(["rec"])
-                                )
-                              }
-                            }}
-                            className="sr-only"
-                          />
-                          <span
-                            className={Util.cx([
-                              "text-sm font-medium",
-                              eventType == value
-                                ? "text-[#4d7c0f] dark:text-[#a3e635]"
-                                : "text-gray-700 dark:text-gray-300",
-                            ])}>
-                            {label}
-                          </span>
-                        </label>
-                      )
-                      ->React.array}
-                    </div>
-                    <div
-                      className="mt-3 flex items-start gap-2 p-3 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700">
-                      <Lucide.Info
-                        className="w-4 h-4 text-gray-500 dark:text-gray-400 mt-0.5 flex-shrink-0"
-                      />
-                      <p className="text-sm text-gray-700 dark:text-gray-300">
-                        {eventType == "competitive"
-                          ? t`Serious play with rankings and ratings. Games may affect your player rating.`
-                          : t`Casual play focused on fun and social interaction. Perfect for all skill levels.`}
-                      </p>
-                    </div>
-                  </div>
-                  {eventType == "competitive"
-                    ? <div
-                        className="pl-4 border-l-2 border-gray-200 dark:border-gray-700 space-y-3">
-                        <label
-                          className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
-                          {t`Format options`}
-                        </label>
-                        <div className="grid grid-cols-2 gap-3">
-                          <button
-                            type_="button"
-                            onClick={_ =>
-                              setSelectedTags(tags =>
-                                isDupr
-                                  ? tags->Array.filter(t => t != "dupr")
-                                  : tags->Array.concat(["dupr"])
-                              )}
-                            className={Util.cx([
-                              "relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all",
-                              isDupr
-                                ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
-                                : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
-                            ])}>
-                            <span
-                              className={Util.cx([
-                                "text-sm font-medium",
-                                isDupr
-                                  ? "text-[#4d7c0f] dark:text-[#a3e635]"
-                                  : "text-gray-700 dark:text-gray-300",
-                              ])}>
-                              {t`DUPR rated`}
-                            </span>
-                          </button>
-                          <button
-                            type_="button"
-                            onClick={_ =>
-                              setSelectedTags(tags =>
-                                isDrill
-                                  ? tags->Array.filter(t => t != "drill")
-                                  : tags->Array.concat(["drill"])
-                              )}
-                            className={Util.cx([
-                              "relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all",
-                              isDrill
-                                ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
-                                : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
-                            ])}>
-                            <span
-                              className={Util.cx([
-                                "text-sm font-medium",
-                                isDrill
-                                  ? "text-[#4d7c0f] dark:text-[#a3e635]"
-                                  : "text-gray-700 dark:text-gray-300",
-                              ])}>
-                              {t`Drill session`}
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    : <div className="pl-4 border-l-2 border-gray-200 dark:border-gray-700">
-                        <label
-                          className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3">
-                          {t`Format options`}
-                        </label>
-                        <button
-                          type_="button"
-                          onClick={_ =>
-                            setSelectedTags(tags =>
-                              isDrill
-                                ? tags->Array.filter(t => t != "drill")
-                                : tags->Array.concat(["drill"])
-                            )}
-                          className={Util.cx([
-                            "relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all",
-                            isDrill
-                              ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20"
-                              : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]",
-                          ])}>
-                          <span
-                            className={Util.cx([
-                              "text-sm font-medium",
-                              isDrill
-                                ? "text-[#4d7c0f] dark:text-[#a3e635]"
-                                : "text-gray-700 dark:text-gray-300",
-                            ])}>
-                            {t`Drill session`}
-                          </span>
-                        </button>
-                      </div>}
                 </div>
               : React.null}
-          </div>
-          // Find Players Section - Collapsible
-          <div
-            className="border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors">
-            <button
-              type_="button"
-              onClick={_ => setFindPlayersExpanded(!findPlayersExpanded)}
-              className="w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Lucide.Users className="w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0" />
-                <div className="text-left flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                    {t`Find Players`}
-                  </div>
-                  {!findPlayersExpanded
-                    ? <div
-                        className="text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words"
-                        style={ReactDOM.Style.make(~overflowWrap="anywhere", ())}>
-                        {getFindPlayersSummary()->React.string}
-                      </div>
-                    : React.null}
-                </div>
-              </div>
-              <Lucide.ChevronDown
-                className={Util.cx([
-                  "w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0",
-                  findPlayersExpanded ? "rotate-180" : "",
-                ])}
-              />
-            </button>
-            {findPlayersExpanded
-              ? <div className="px-4 pb-4 pt-6 border-t border-gray-100 dark:border-gray-800">
-                  <div className="flex items-start gap-3 mb-4">
-                    <input
-                      id="findPlayers"
-                      type_="checkbox"
-                      checked={listed}
-                      onChange={_ => setValue(Listed, Value(!listed))}
-                      className="h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]"
-                    />
-                    <div>
-                      <label
-                        htmlFor="findPlayers"
-                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-                        {t`Find players for your event?`}
-                      </label>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        {t`List your event publicly to help fill open spots`}
-                      </p>
-                      <p
-                        className={Util.cx([
-                          "text-xs font-medium mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded",
-                          listed
-                            ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
-                            : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400",
-                        ])}>
-                        {listed ? t`This event is public` : t`This event is private`}
-                      </p>
-                    </div>
-                  </div>
-                  {listed
-                    ? <div className="ml-8 space-y-3">
-                        <label
-                          className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                          {t`Skill level`}
-                        </label>
-                        <div className="flex flex-wrap gap-2">
-                          {["all level", "2.5+", "3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
-                          ->Array.map(tag =>
-                            <button
-                              key={tag}
-                              type_="button"
-                              onClick={_ =>
-                                setSelectedTags(tags => {
-                                  let isCurrentlySelected = tags->Array.includes(tag)
-
-                                  if isCurrentlySelected {
-                                    // Deselect the tag
-                                    let newTags = tags->Array.filter(t => t != tag)
-                                    // If no tags are selected, default to "all level"
-                                    newTags->Array.length == 0 ? ["all level"] : newTags
-                                  } else if tag == "all level" {
-                                    // Select "all level" and remove all specific level tags
-                                    let specificLevels = ["3.0+", "3.5+", "4.0+", "4.5+", "5.0+"]
-                                    tags
-                                    ->Array.filter(t => !(specificLevels->Array.includes(t)))
-                                    ->Array.concat([tag])
-                                  } else {
-                                    // Select a specific level tag and remove "all level"
-                                    tags->Array.filter(t => t != "all level")->Array.concat([tag])
-                                  }
-                                })}
-                              className={Util.cx([
-                                "px-3 py-1.5 rounded-full text-xs font-medium transition-all border",
-                                selectedTags->Array.includes(tag)
-                                  ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 border-gray-900 dark:border-gray-100"
-                                  : "bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600",
-                              ])}>
-                              {tag->React.string}
-                            </button>
-                          )
-                          ->React.array}
-                        </div>
-                        <div className="mt-4">
-                          <label
-                            htmlFor="minRating"
-                            className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                            {t`Minimum rating (optional)`}
-                          </label>
-                          <input
-                            {...register(MinRating, ~options={required: false})}
-                            id="minRating"
-                            type_="number"
-                            step=0.01
-                            placeholder={ts`No minimum`}
-                            className="block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono"
-                          />
-                          {switch formState.errors.minRating {
-                          | Some({message: ?Some(message)}) =>
-                            <p className="mt-1 text-sm text-red-600 dark:text-red-400">
-                              {message->React.string}
-                            </p>
-                          | _ => React.null
-                          }}
-                        </div>
-                      </div>
-                    : React.null}
-                  <div className="flex items-start gap-3 mt-6">
-                    <input
-                      id="smartRsvp"
-                      type_="checkbox"
-                      checked={isSmartRsvpOn}
-                      onChange={_ => setIsSmartRsvpOn(on => !on)}
-                      className="h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]"
-                    />
-                    <div>
-                      <label
-                        htmlFor="smartRsvp"
-                        className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-                        {t`Smart RSVP`}
-                      </label>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                        {t`New joins are held and admitted automatically based on match quality`}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              : React.null}
-          </div>
-          <div className="pt-6">
-            <button
-              type_="submit"
-              className="w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm">
-              {isUpdate ? t`Update Event` : t`Create Event`}
-            </button>
-          </div>
+          </section>
+          <button
+            type_="submit"
+            className="w-full rounded-lg bg-[#bdf25d] px-4 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#111111]">
+            {isUpdate ? t`Update event` : t`Create event`}
+          </button>
         </form>
       </>}
     </WaitForMessages>

@@ -21,6 +21,24 @@ msgstr "更改地点"
 msgid "choose the location where this event will be held."
 msgstr "选择举办此活动的地点。"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "无法加载该地点"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "无法保存该位置"
+
 #: src/components/organisms/SelectedLocation.re.mjs:52
 msgid "event location"
 msgstr "活动地点"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "位置搜索暂时不可用"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "搜索场馆或地址"

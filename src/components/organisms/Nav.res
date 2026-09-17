@@ -51,6 +51,7 @@ module MenuInstance = {
 @genType @react.component
 let make = (~query) => {
   let query = Fragment.use(query)
+  let createHref = CreateEventLink.useHref()
   <WaitForMessages>
     {() =>
       <Layout.Container className="mt-4">
@@ -70,7 +71,7 @@ let make = (~query) => {
             {React.string(" - ")}
             <LangSwitch />
             {React.string(" - ")}
-            <Link to="/events/create"> {t`Add Event`} </Link>
+            <Link to={createHref([])}> {t`Add Event`} </Link>
           </nav>
         </header>
       </Layout.Container>}

@@ -178,6 +178,11 @@ return {
     {
       "defaultValue": null,
       "kind": "LocalArgument",
+      "name": "clubSlug"
+    },
+    {
+      "defaultValue": null,
+      "kind": "LocalArgument",
       "name": "fromDate"
     },
     {
@@ -334,7 +339,12 @@ return {
         (v6/*: any*/),
         {
           "fields": [
-            (v1/*: any*/)
+            (v1/*: any*/),
+            {
+              "kind": "Variable",
+              "name": "clubSlug",
+              "variableName": "clubSlug"
+            }
           ],
           "kind": "ObjectValue",
           "name": "scope"

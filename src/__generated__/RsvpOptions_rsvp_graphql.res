@@ -5,6 +5,7 @@ module Types = {
   @@warning("-30")
 
   type rec fragment_payment = {
+    chargeable: bool,
     @live id: string,
     status: int,
   }
@@ -98,6 +99,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "status",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "chargeable",
           "storageKey": null
         }
       ],

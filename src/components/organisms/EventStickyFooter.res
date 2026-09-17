@@ -50,6 +50,12 @@ type viewerUserShape = {
   email: option<string>,
 }
 
+// The viewer's card on file (Viewer.savedCard), as shown in the footer.
+type savedCardShape = {
+  brand: string,
+  last4: string,
+}
+
 // Footer rows span the bar's full width (tint, borders) while their content
 // stays aligned with the page's card column. Inside the events drawer, which
 // is narrower than the column, this is a no-op.
@@ -69,9 +75,17 @@ let make = (
   ~isWaitlisted: bool,
   ~isPending: bool,
   ~isUnpaid: bool,
+  // The viewer's card on file, if any: offered as a one-click join in place
+  // of the Stripe form. The form stays reachable as "use a different card".
+  ~savedCard: option<savedCardShape>=?,
+  ~usingSavedCard: bool=false,
+  ~savedCardError: option<string>=?,
+  ~onUseSavedCard: unit => unit=() => (),
   ~viewerJoinTime: option<float>,
   ~isPaidEvent: bool,
-  ~isAuthorization: bool,
+  // The saved-card flow: the player puts a card on file now and the organizer
+  // charges it after the event. Otherwise the button charges immediately.
+  ~savedCardFlow: bool,
   ~isFull: bool,
   ~confirmedCount: int,
   ~waitlistCount: int,
@@ -162,7 +176,10 @@ let make = (
             ])}>
             chat
             {if isUnpaid {
-              // State 2: Unpaid — payment required to confirm spot
+              // State 2: Unpaid — a card (or payment) is required to confirm
+              // the spot. A player with a card on file joins with one click;
+              // anyone else is sent to the Stripe form.
+              let cardOnFile = savedCardFlow ? savedCard : None
               <>
                 <Row
                   className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30"
@@ -172,18 +189,28 @@ let make = (
                   />
                   <span
                     className="font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight">
-                    {isAuthorization
-                      ? t`Deposit required to confirm your spot`
-                      : t`Payment required to confirm your spot`}
+                    {if savedCardFlow {
+                      t`Card required to confirm your spot`
+                    } else {
+                      t`Payment required to confirm your spot`
+                    }}
                   </span>
                 </Row>
-                {isAuthorization
+                {savedCardFlow
                   ? <Row
                       className="bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20"
                       inner="px-5 py-2">
                       <span
                         className="font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight">
-                        {t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`}
+                        {switch cardOnFile {
+                        | Some(card) =>
+                          let cardLabel = card.brand->String.toUpperCase ++ " •••• " ++ card.last4
+                          (
+                            ts`Card on file: ${cardLabel}. Nothing is charged now — the organizer charges the fee after the event.`
+                          )->React.string
+                        | None =>
+                          t`Your card is saved now, not charged — the organizer charges the fee after the event.`
+                        }}
                       </span>
                     </Row>
                   : React.null}
@@ -196,28 +223,58 @@ let make = (
                     className="font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed">
                     {(leaving ? ts`Cancelling...` : ts`Cancel RSVP`)->React.string}
                   </button>
-                  <button
-                    disabled={charging}
-                    onClick={_ => onPayClick()}
-                    className="px-4 py-2 text-sm font-semibold rounded-md transition-colors flex-shrink-0 bg-amber-500 text-white hover:bg-amber-600 inline-flex items-center justify-center gap-1.5 disabled:opacity-60">
-                    <Lucide.CreditCard className="w-3 h-3" />
-                    {if charging {
-                      (ts`Loading...`)->React.string
-                    } else if isAuthorization {
-                      t`Authorize deposit`
-                    } else {
-                      let currencyStr =
-                        event.currency
-                        ->Option.map(PaymentIndicator.getCurrencySymbol)
-                        ->Option.getOr("¥")
-                      let priceStr =
-                        event.price
-                        ->Option.map(p => currencyStr ++ Int.toString(p))
-                        ->Option.getOr("")
-                      (ts`Pay ${priceStr}`)->React.string
+                  <div className="flex items-center gap-3 flex-shrink-0">
+                    {switch cardOnFile {
+                    | Some(_) =>
+                      <button
+                        disabled={charging || usingSavedCard}
+                        onClick={_ => onPayClick()}
+                        className="font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed">
+                        {(charging ? ts`Loading...` : ts`Use a different card`)->React.string}
+                      </button>
+                    | None => React.null
                     }}
-                  </button>
+                    <button
+                      disabled={charging || usingSavedCard}
+                      onClick={_ =>
+                        switch cardOnFile {
+                        | Some(_) => onUseSavedCard()
+                        | None => onPayClick()
+                        }}
+                      className="px-4 py-2 text-sm font-semibold rounded-md transition-colors flex-shrink-0 bg-amber-500 text-white hover:bg-amber-600 inline-flex items-center justify-center gap-1.5 disabled:opacity-60">
+                      <Lucide.CreditCard className="w-3 h-3" />
+                      {if usingSavedCard {
+                        (ts`Joining...`)->React.string
+                      } else if cardOnFile->Option.isSome {
+                        t`Join with saved card`
+                      } else if charging {
+                        (ts`Loading...`)->React.string
+                      } else if savedCardFlow {
+                        t`Save card`
+                      } else {
+                        let currencyStr =
+                          event.currency
+                          ->Option.map(PaymentIndicator.getCurrencySymbol)
+                          ->Option.getOr("¥")
+                        let priceStr =
+                          event.price
+                          ->Option.map(p => currencyStr ++ Int.toString(p))
+                          ->Option.getOr("")
+                        (ts`Pay ${priceStr}`)->React.string
+                      }}
+                    </button>
+                  </div>
                 </Row>
+                {switch savedCardError {
+                | Some(message) =>
+                  <Row className="bg-white dark:bg-[#1e1f23]" inner="px-5 pb-2">
+                    <span
+                      className="font-mono text-[10px] text-red-500 dark:text-red-400 leading-tight">
+                      {message->React.string}
+                    </span>
+                  </Row>
+                | None => React.null
+                }}
               </>
             } else if isPending {
               // State: Pending admin approval

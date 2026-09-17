@@ -74,6 +74,13 @@ external useSearchParams: unit => (SearchParams.t, SearchParams.t => unit) = "us
 @module("react-router-dom")
 external useSearchParamsFunc: unit => (SearchParams.t, (SearchParams.t => SearchParams.t) => unit) =
   "useSearchParams"
+// Same, with navigate options on the setter - {replace: true} for URL updates
+// that must not add history entries.
+@module("react-router-dom")
+external useSearchParamsFuncWith: unit => (
+  SearchParams.t,
+  (SearchParams.t => SearchParams.t, navOpts) => unit,
+) = "useSearchParams"
 module URL = {
   type t = {
     searchParams: SearchParams.t,

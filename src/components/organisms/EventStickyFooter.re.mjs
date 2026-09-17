@@ -88,9 +88,16 @@ function EventStickyFooter(props) {
   var waitlistCount = props.waitlistCount;
   var confirmedCount = props.confirmedCount;
   var isFull = props.isFull;
-  var isAuthorization = props.isAuthorization;
+  var savedCardFlow = props.savedCardFlow;
+  var __onUseSavedCard = props.onUseSavedCard;
+  var savedCardError = props.savedCardError;
+  var __usingSavedCard = props.usingSavedCard;
   var isWaitlisted = props.isWaitlisted;
   var $$event = props.event;
+  var usingSavedCard = __usingSavedCard !== undefined ? __usingSavedCard : false;
+  var onUseSavedCard = __onUseSavedCard !== undefined ? __onUseSavedCard : (function () {
+        
+      });
   var chat = __chat !== undefined ? Caml_option.valFromOption(__chat) : null;
   var fullWidth = __fullWidth !== undefined ? __fullWidth : false;
   var match = ReactRouterDom.useLocation();
@@ -155,17 +162,42 @@ function EventStickyFooter(props) {
               })), false);
     var tmp;
     if (props.isUnpaid) {
+      var cardOnFile = savedCardFlow ? props.savedCard : undefined;
       var tmp$1;
-      if (charging) {
-        tmp$1 = t`Loading...`;
-      } else if (isAuthorization) {
-        tmp$1 = t`Authorize deposit`;
+      if (savedCardFlow) {
+        var tmp$2;
+        if (cardOnFile !== undefined) {
+          var cardLabel = cardOnFile.brand.toUpperCase() + " •••• " + cardOnFile.last4;
+          tmp$2 = t`Card on file: ${cardLabel}. Nothing is charged now — the organizer charges the fee after the event.`;
+        } else {
+          tmp$2 = t`Your card is saved now, not charged — the organizer charges the fee after the event.`;
+        }
+        tmp$1 = JsxRuntime.jsx(EventStickyFooter$Row, {
+              className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20",
+              inner: "px-5 py-2",
+              children: JsxRuntime.jsx("span", {
+                    children: tmp$2,
+                    className: "font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight"
+                  })
+            });
+      } else {
+        tmp$1 = null;
+      }
+      var tmp$3;
+      if (usingSavedCard) {
+        tmp$3 = t`Joining...`;
+      } else if (Core__Option.isSome(cardOnFile)) {
+        tmp$3 = t`Join with saved card`;
+      } else if (charging) {
+        tmp$3 = t`Loading...`;
+      } else if (savedCardFlow) {
+        tmp$3 = t`Save card`;
       } else {
         var currencyStr = Core__Option.getOr(Core__Option.map($$event.currency, PaymentIndicator.getCurrencySymbol), "¥");
         var priceStr = Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
                     return currencyStr + p.toString();
                   })), "");
-        tmp$1 = t`Pay ${priceStr}`;
+        tmp$3 = t`Pay ${priceStr}`;
       }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
@@ -177,19 +209,12 @@ function EventStickyFooter(props) {
                             className: "w-3 h-3 text-amber-600 dark:text-amber-400 flex-shrink-0"
                           }),
                       JsxRuntime.jsx("span", {
-                            children: isAuthorization ? t`Deposit required to confirm your spot` : t`Payment required to confirm your spot`,
+                            children: savedCardFlow ? t`Card required to confirm your spot` : t`Payment required to confirm your spot`,
                             className: "font-mono text-[11px] font-medium text-amber-700 dark:text-amber-300 leading-tight"
                           })
                     ]
                   }),
-              isAuthorization ? JsxRuntime.jsx(EventStickyFooter$Row, {
-                      className: "bg-amber-50/50 dark:bg-amber-900/10 border-b border-amber-200/40 dark:border-amber-800/20",
-                      inner: "px-5 py-2",
-                      children: JsxRuntime.jsx("span", {
-                            children: t`This is a deposit hold only — payment is due to the organizer at the event. The hold will be released after the event.`,
-                            className: "font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight"
-                          })
-                    }) : null,
+              tmp$1,
               JsxRuntime.jsxs(EventStickyFooter$Row, {
                     className: "bg-white dark:bg-[#1e1f23]",
                     inner: "px-5 py-3 flex items-center justify-between gap-2",
@@ -202,21 +227,46 @@ function EventStickyFooter(props) {
                                 doLeave();
                               })
                           }),
-                      JsxRuntime.jsxs("button", {
+                      JsxRuntime.jsxs("div", {
                             children: [
-                              JsxRuntime.jsx(LucideReact.CreditCard, {
-                                    className: "w-3 h-3"
-                                  }),
-                              tmp$1
+                              cardOnFile !== undefined ? JsxRuntime.jsx("button", {
+                                      children: charging ? t`Loading...` : t`Use a different card`,
+                                      className: "font-mono text-[11px] text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors uppercase tracking-wider disabled:opacity-50 disabled:cursor-not-allowed",
+                                      disabled: charging || usingSavedCard,
+                                      onClick: (function (param) {
+                                          onPayClick();
+                                        })
+                                    }) : null,
+                              JsxRuntime.jsxs("button", {
+                                    children: [
+                                      JsxRuntime.jsx(LucideReact.CreditCard, {
+                                            className: "w-3 h-3"
+                                          }),
+                                      tmp$3
+                                    ],
+                                    className: "px-4 py-2 text-sm font-semibold rounded-md transition-colors flex-shrink-0 bg-amber-500 text-white hover:bg-amber-600 inline-flex items-center justify-center gap-1.5 disabled:opacity-60",
+                                    disabled: charging || usingSavedCard,
+                                    onClick: (function (param) {
+                                        if (cardOnFile !== undefined) {
+                                          return onUseSavedCard();
+                                        } else {
+                                          return onPayClick();
+                                        }
+                                      })
+                                  })
                             ],
-                            className: "px-4 py-2 text-sm font-semibold rounded-md transition-colors flex-shrink-0 bg-amber-500 text-white hover:bg-amber-600 inline-flex items-center justify-center gap-1.5 disabled:opacity-60",
-                            disabled: charging,
-                            onClick: (function (param) {
-                                onPayClick();
-                              })
+                            className: "flex items-center gap-3 flex-shrink-0"
                           })
                     ]
-                  })
+                  }),
+              savedCardError !== undefined ? JsxRuntime.jsx(EventStickyFooter$Row, {
+                      className: "bg-white dark:bg-[#1e1f23]",
+                      inner: "px-5 pb-2",
+                      children: JsxRuntime.jsx("span", {
+                            children: savedCardError,
+                            className: "font-mono text-[10px] text-red-500 dark:text-red-400 leading-tight"
+                          })
+                    }) : null
             ]
           });
     } else if (props.isPending) {
@@ -275,12 +325,12 @@ function EventStickyFooter(props) {
             ]
           });
     } else if (props.isJoined) {
-      var tmp$2;
+      var tmp$4;
       if (Core__Option.isSome(cancelDeadlineDate) && !isWaitlisted) {
         var mins = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
-        tmp$2 = JsxRuntime.jsxs(EventStickyFooter$Row, {
+        tmp$4 = JsxRuntime.jsxs(EventStickyFooter$Row, {
               className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30",
               inner: "px-5 py-2.5 flex items-center gap-2",
               children: [
@@ -304,11 +354,11 @@ function EventStickyFooter(props) {
               ]
             });
       } else {
-        tmp$2 = null;
+        tmp$4 = null;
       }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
-              tmp$2,
+              tmp$4,
               JsxRuntime.jsxs(EventStickyFooter$Row, {
                     inner: "px-5 py-3 flex items-center justify-between",
                     children: [
@@ -386,12 +436,12 @@ function EventStickyFooter(props) {
             ]
           });
     } else {
-      var tmp$3;
+      var tmp$5;
       if (Core__Option.isSome(cancelDeadlineDate)) {
         var mins$1 = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
-        tmp$3 = JsxRuntime.jsxs(EventStickyFooter$Row, {
+        tmp$5 = JsxRuntime.jsxs(EventStickyFooter$Row, {
               className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30",
               inner: "px-5 py-2.5 flex items-center gap-2",
               children: [
@@ -415,22 +465,22 @@ function EventStickyFooter(props) {
               ]
             });
       } else {
-        tmp$3 = null;
+        tmp$5 = null;
       }
-      var tmp$4;
+      var tmp$6;
       if (isFull) {
-        tmp$4 = t`Join waitlist (#${(waitlistCount + 1 | 0).toString()})`;
+        tmp$6 = t`Join waitlist (#${(waitlistCount + 1 | 0).toString()})`;
       } else if (props.isPaidEvent) {
         var currencyStr$1 = Core__Option.getOr(Core__Option.map($$event.currency, PaymentIndicator.getCurrencySymbol), "¥");
-        tmp$4 = t`Claim spot · ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
+        tmp$6 = t`Claim spot · ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
                     return currencyStr$1 + p.toString();
                   })), "")}`;
       } else {
-        tmp$4 = t`Claim spot`;
+        tmp$6 = t`Claim spot`;
       }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
-              tmp$3,
+              tmp$5,
               JsxRuntime.jsxs(EventStickyFooter$Row, {
                     inner: "px-5 py-3 flex items-center justify-between",
                     children: [
@@ -462,7 +512,7 @@ function EventStickyFooter(props) {
                             className: "font-mono text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
                           }),
                       JsxRuntime.jsx("button", {
-                            children: tmp$4,
+                            children: tmp$6,
                             className: Core.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
                             disabled: match$1[1],
                             onClick: (function (param) {

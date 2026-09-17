@@ -29,7 +29,28 @@ msgstr "Thêm vào Màn hình chính để bật thông báo"
 msgid "Advanced"
 msgstr "Nâng cao"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid ""
+"Attendees of your paid events save a card when they RSVP; nothing is charged "
+"up front. From an event's RSVP list you can charge one attendee or everyone, "
+"and the money goes to this account."
+msgstr ""
+"Người tham gia các sự kiện có phí của bạn sẽ lưu thẻ khi RSVP; không có "
+"khoản nào bị trừ trước. Từ danh sách RSVP của sự kiện, bạn có thể thu tiền "
+"một người hoặc tất cả, và tiền sẽ vào tài khoản này."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid ""
+"Attendees of your paid events still save a card when they RSVP, but it can't "
+"be charged, so you collect the fee at the event. Connect a Stripe account to "
+"charge saved cards from the RSVP list and receive the money here."
+msgstr ""
+"Người tham gia các sự kiện có phí của bạn vẫn lưu thẻ khi RSVP, nhưng thẻ "
+"không thể bị trừ tiền, nên bạn phải thu phí tại sự kiện. Hãy kết nối tài "
+"khoản Stripe để thu tiền từ thẻ đã lưu trong danh sách RSVP và nhận tiền tại "
+"đây."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Australia"
 msgstr "Úc"
 
@@ -37,11 +58,11 @@ msgstr "Úc"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:558
 msgid "Biography"
 msgstr "Tiểu sử"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "Canada"
 msgstr "Canada"
 
@@ -49,20 +70,15 @@ msgstr "Canada"
 msgid "Complete Beginner"
 msgstr "Hoàn toàn mới bắt đầu"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-msgid "Connect a Stripe account to receive payments from events you organize."
-msgstr ""
-"Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:376
+#: src/components/organisms/SettingsProfileForm.re.mjs:389
 msgid "Connect Stripe account"
 msgstr "Kết nối tài khoản Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:372
+#: src/components/organisms/SettingsProfileForm.re.mjs:385
 msgid "Connecting..."
 msgstr "Đang kết nối..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:405
 msgid "Country"
 msgstr "Quốc gia"
 
@@ -70,11 +86,11 @@ msgstr "Quốc gia"
 msgid "Disable notifications"
 msgstr "Tắt thông báo"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Doe John"
 msgstr "Doe John"
 
@@ -82,27 +98,27 @@ msgstr "Doe John"
 msgid "Enable notifications"
 msgstr "Bật thông báo"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Estimated DUPR"
 msgstr "DUPR ước tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:519
+#: src/components/organisms/SettingsProfileForm.re.mjs:532
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Full name"
 msgstr "Họ và tên"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:508
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "Hong Kong"
 msgstr "Hồng Kông"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "How you appear to other players"
 msgstr "Tên hiển thị với người chơi khác"
 
@@ -118,11 +134,11 @@ msgstr "Trung cấp"
 msgid "Intermediate+"
 msgstr "Trung cấp+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/organisms/SettingsProfileForm.re.mjs:412
 msgid "Japan"
 msgstr "Nhật Bản"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:560
+#: src/components/organisms/SettingsProfileForm.re.mjs:573
 msgid "Level"
 msgstr "Trình độ"
 
@@ -130,15 +146,19 @@ msgstr "Trình độ"
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:528
 msgid "Male"
 msgstr "Nam"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "Chưa có tài khoản Stripe nào được kết nối."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "Chưa kết nối"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:606
+#: src/components/organisms/SettingsProfileForm.re.mjs:619
 msgid "Notifications"
 msgstr "Thông báo"
 
@@ -170,15 +190,15 @@ msgstr ""
 "Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc "
 "thiết bị cho trang này, rồi thử lại."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:614
+#: src/components/organisms/SettingsProfileForm.re.mjs:627
 msgid "Receive push notifications for event reminders and updates."
 msgstr "Nhận thông báo đẩy về nhắc nhở và cập nhật sự kiện."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Resume onboarding"
 msgstr "Tiếp tục đăng ký"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:592
+#: src/components/organisms/SettingsProfileForm.re.mjs:605
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
@@ -198,23 +218,23 @@ msgstr ""
 "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
 "biết bạn đang tìm đối tác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Singapore"
 msgstr "Singapore"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:513
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:431
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "South Korea"
 msgstr "Hàn Quốc"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:628
+#: src/components/organisms/SettingsProfileForm.re.mjs:641
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:427
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Taiwan"
 msgstr "Đài Loan"
 
@@ -222,33 +242,44 @@ msgstr "Đài Loan"
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:551
+#: src/components/organisms/SettingsProfileForm.re.mjs:564
 msgid "tell us a little about yourself"
 msgstr "hãy cho chúng tôi biết một chút về bản thân bạn"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/organisms/SettingsProfileForm.re.mjs:562
 msgid "Tell us a little about yourself..."
 msgstr "Hãy cho chúng tôi biết một chút về bạn..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "United Kingdom"
 msgstr "Anh"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:416
 msgid "United States"
 msgstr "Mỹ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid ""
+"Until onboarding is complete, your paid events run on the platform account: "
+"attendees save a card when they RSVP, but you can't charge it. Collect the "
+"fee at the event."
+msgstr ""
+"Cho đến khi hoàn tất thiết lập, các sự kiện có phí của bạn sẽ chạy trên tài "
+"khoản nền tảng: người tham gia lưu thẻ khi RSVP, nhưng bạn không thể thu "
+"tiền. Hãy thu phí tại sự kiện."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Your self-reported skill level"
 msgstr "Trình độ kỹ năng tự đánh giá của bạn"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
-msgid "Your Stripe account is connected and ready to accept payments."
-msgstr "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
-msgid "Your Stripe account is connected but onboarding is not yet complete."
-msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr ""
+"Tài khoản Stripe của bạn đã được kết nối, nhưng chưa hoàn tất thiết lập."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "Tài khoản Stripe của bạn đã được kết nối."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 #~ msgid "biography"
@@ -257,6 +288,12 @@ msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa h
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"
 #~ msgstr "hủy"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid ""
+#~ "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr ""
+#~ "Kết nối tài khoản Stripe để nhận thanh toán từ các sự kiện bạn tổ chức."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:214
 #~ msgid "details about yourself"
@@ -288,3 +325,13 @@ msgstr "Tài khoản Stripe của bạn đã được kết nối nhưng chưa h
 #~ "Some events require your legal name as shown on an ID "
 #~ "card.omeventsequoegashownour passporta"
 #~ msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#~ msgid "Your Stripe account is connected and ready to accept payments."
+#~ msgstr ""
+#~ "Tài khoản Stripe của bạn đã được kết nối và sẵn sàng nhận thanh toán."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#~ msgid "Your Stripe account is connected but onboarding is not yet complete."
+#~ msgstr ""
+#~ "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."

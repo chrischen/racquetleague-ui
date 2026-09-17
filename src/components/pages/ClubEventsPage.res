@@ -16,10 +16,6 @@ module Query = %relay(`
       ...ClubDetails_club
       ...ClubEventsListFragment @arguments(afterDate: $afterDate)
     }
-    ...UseProfileGate_query
-    viewer {
-      ...AddEventButton_viewer
-    }
   }
 `)
 
@@ -34,14 +30,17 @@ let make = () => {
   let ts = Lingui.UtilString.t
   let data = useLoaderData()
   let query = Query.usePreloaded(~queryRef=data.data)
-  let {club, viewer} = query
+  let {club} = query
   let (shareCopied, setShareCopied) = React.useState(() => false)
   let urlParams: urlParams = Router.useParams()
+  let clubPrefill = CreateEventLink.useClubPrefillParams(~slug=Some(urlParams.slug))
+  let createHref = CreateEventLink.useHref()
 
   <WaitForMessages>
     {() =>
       club
-      ->Option.map(c =>
+      ->Option.map(c => {
+        let viewerIsAdmin = c.viewerMembership->Option.flatMap(m => m.isAdmin)->Option.getOr(false)
         <div>
           <div
             className="px-4 py-3 border-b border-gray-200 dark:border-[#2a2b30] bg-gray-50 dark:bg-[#1e1f23] flex items-center gap-3">
@@ -54,9 +53,7 @@ let make = () => {
               {c.name->Option.getOr("?")->React.string}
             </h2>
             <div className="flex items-center gap-2 flex-shrink-0">
-              {c.viewerMembership
-              ->Option.flatMap(m => m.isAdmin)
-              ->Option.getOr(false)
+              {viewerIsAdmin
                 ? c.shareLink
                   ->Option.map(link =>
                     <button
@@ -71,16 +68,16 @@ let make = () => {
                   )
                   ->Option.getOr(React.null)
                 : React.null}
-              {viewer
-              ->Option.map(v =>
-                <AddEventButton
-                  context={clubId: ?Some(c.id)}
-                  createBasePath={"/clubs/" ++ urlParams.slug ++ "/events/create"}
-                  viewer={v.fragmentRefs}
-                  gateQuery={query.fragmentRefs}
-                />
-              )
-              ->Option.getOr(React.null)}
+              // Same button and behavior as the club home page: admins only,
+              // a plain link to the create page with the club preselected.
+              {viewerIsAdmin
+                ? <LangProvider.Router.Link
+                    to={createHref([("clubId", c.id)]->Array.concat(clubPrefill))}
+                    className=ClubPage.primaryAction>
+                    <Lucide.CalendarPlus size=13 \"aria-hidden"="true" />
+                    {t`Create event`}
+                  </LangProvider.Router.Link>
+                : React.null}
             </div>
           </div>
           <React.Suspense
@@ -88,7 +85,7 @@ let make = () => {
             <Router.Outlet />
           </React.Suspense>
         </div>
-      )
+      })
       ->Option.getOr(<div className="p-6 text-gray-500"> {t`Club not found`} </div>)}
   </WaitForMessages>
 }

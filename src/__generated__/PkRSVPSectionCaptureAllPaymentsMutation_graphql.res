@@ -10,6 +10,7 @@ module Types = {
   }
   @live
   and response_captureEventRsvpPayments_payments = {
+    chargeable: bool,
     @live id: string,
     status: int,
   }
@@ -131,6 +132,13 @@ v1 = [
             "kind": "ScalarField",
             "name": "status",
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "chargeable",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -175,12 +183,12 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "97133439c6aaa8a896bf28b98256e8b5",
+    "cacheID": "6c901780d3be7ad2d8fac6f30aac930a",
     "id": null,
     "metadata": {},
     "name": "PkRSVPSectionCaptureAllPaymentsMutation",
     "operationKind": "mutation",
-    "text": "mutation PkRSVPSectionCaptureAllPaymentsMutation(\n  $eventId: ID!\n) {\n  captureEventRsvpPayments(eventId: $eventId) {\n    payments {\n      id\n      status\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation PkRSVPSectionCaptureAllPaymentsMutation(\n  $eventId: ID!\n) {\n  captureEventRsvpPayments(eventId: $eventId) {\n    payments {\n      id\n      status\n      chargeable\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

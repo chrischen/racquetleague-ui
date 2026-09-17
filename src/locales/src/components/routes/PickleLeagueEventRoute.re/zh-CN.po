@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:699
+#: src/components/organisms/MatchHistoryList.re.mjs:698
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
@@ -125,8 +125,8 @@ msgstr "创建队伍"
 msgid "Done"
 msgstr "完成"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:524
-#: src/components/organisms/MatchHistoryList.re.mjs:588
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "DRAW"
 msgstr "平局"
 
@@ -134,7 +134,7 @@ msgstr "平局"
 msgid "Enter Score"
 msgstr "输入分数"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:661
+#: src/components/organisms/MatchHistoryList.re.mjs:660
 msgid "Even"
 msgstr "势均力敌"
 
@@ -166,7 +166,7 @@ msgstr "排行榜"
 msgid "left team players"
 msgstr "左队球员"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:716
+#: src/components/organisms/MatchHistoryList.re.mjs:715
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
@@ -188,8 +188,8 @@ msgstr "加载中..."
 msgid "Losers"
 msgstr "败者组"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:524
-#: src/components/organisms/MatchHistoryList.re.mjs:588
+#: src/components/organisms/MatchHistoryList.re.mjs:523
+#: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "LOSS"
 msgstr "负"
 
@@ -378,12 +378,12 @@ msgstr "完全随机的队伍。"
 msgid "Unqueue All"
 msgstr "全部移出队列"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:632
+#: src/components/organisms/MatchHistoryList.re.mjs:631
 msgid "Upset"
 msgstr "爆冷"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:522
+#: src/components/organisms/MatchHistoryList.re.mjs:586
 msgid "WIN"
 msgstr "胜"
 

@@ -7859,6 +7859,415 @@ msgstr "在體育館表現更佳"
 msgid "Performs better on hard courts"
 msgstr "在硬地球場表現更佳"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter 傳送"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Answer the questions or add details to refine the draft."
+msgstr "回答問題或補充細節，以完善草稿。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:410
+msgid "Approve or deny the pending action to continue"
+msgstr "請核准或拒絕待處理的動作以繼續"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "無法載入該地點"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "無法儲存該位置"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+msgid "Describe the event"
+msgstr "描述活動"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:411
+msgid "Describe the event to generate a draft"
+msgstr "描述活動以產生草稿"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:711
+msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+msgstr "描述你的活動……例如：明天晚上 7 點在中央公園，還需要 3 位 3.5 左右的球友，每人 800 元。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:749
+msgid "Fill event form from description"
+msgstr "依描述填寫活動表單"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:406
+msgid "Help me fill this out"
+msgstr "幫我填寫"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "Include whatever details you know"
+msgstr "知道多少就填多少"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "地點搜尋目前無法使用"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "搜尋場地或地址"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr "我們會將你的描述轉為草稿，方便你檢視與編輯。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:699
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1075
+msgid "(optional)"
+msgstr "（選填）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:705
+msgid "Anything players should know before joining or arriving."
+msgstr "球友報名或到場前需要知道的事項。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1134
+msgid "Attendees cannot cancel their RSVP after this deadline."
+msgstr "此期限後參加者將無法取消報名。"
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "返回"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1092
+msgid "Cancel deadline"
+msgstr "取消期限"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:543
+msgid "Choose a location for this event"
+msgstr "為此活動選擇地點"
+
+#: src/components/pages/CreateEventPage.re.mjs:279
+msgid "Create multiple events instead"
+msgstr "改為建立多場活動"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1264
+msgid "Date"
+msgstr "日期"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "daytime"
+msgstr "日間"
+
+#: src/components/organisms/CreateEventModal.re.mjs:81
+msgid "Describe the event to draft it, or fill in the details."
+msgstr "描述活動以產生草稿，或自行填寫細節。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1152
+msgid "Draft filled in. Review the details before creating the event."
+msgstr "草稿已填好。建立活動前請先確認細節。"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+msgid "Drag around the clock · Arrow keys move 15 minutes"
+msgstr "沿時鐘拖曳．方向鍵每次調整 15 分鐘"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag end time"
+msgstr "拖曳結束時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag start time"
+msgstr "拖曳開始時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+msgid "duration"
+msgstr "時長"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing end"
+msgstr "編輯結束時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing start"
+msgstr "編輯開始時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "End"
+msgstr "結束"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1352
+msgid "Event details"
+msgstr "活動詳情"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:696
+msgid "Event notes"
+msgstr "活動備註"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+msgid "Event time range"
+msgstr "活動時間範圍"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events can be up to 12 hours long."
+msgstr "活動時間最長為 12 小時。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events must be at least 15 minutes long."
+msgstr "活動時間至少需 15 分鐘。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Friday night pickleball"
+msgstr "週五夜間匹克球"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid "Hold new joins and admit players automatically based on match quality."
+msgstr "暫緩新加入者，並依據比賽實力自動接受球員。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1191
+msgid "Keep current location"
+msgstr "保留目前地點"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+msgid "List your event publicly to help fill open spots."
+msgstr "公開刊登你的活動，以便補滿空位。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1162
+msgid "Location & time"
+msgstr "地點與時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+msgid "Max players"
+msgstr "人數上限"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:982
+msgid "Minimum rating"
+msgstr "最低評級"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to daytime hours"
+msgstr "將開始與結束時間移至日間時段"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to nighttime hours"
+msgstr "將開始與結束時間移至夜間時段"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "nighttime"
+msgstr "夜間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+msgid "Participation fee"
+msgstr "參加費用"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:644
+msgid "Public · Up to {maxRsvpsStr} players"
+msgstr "公開 · 最多 {maxRsvpsStr} 位球員"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "Start"
+msgstr "開始"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1320
+msgid "Start and end time"
+msgstr "開始與結束時間"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+msgid "start time"
+msgstr "開始時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
+msgid "The date and times on this form are in this zone."
+msgstr "此表單上的日期與時間皆以此時區為準。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
+msgid "Time zone"
+msgstr "時區"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:634
+msgid "Title and optional notes"
+msgstr "標題與備註（選填）"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1431
+msgid "Update event"
+msgstr "更新活動"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:632
+msgid "Venue, date, start and end time"
+msgstr "場地、日期、開始與結束時間"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file"
+msgstr "已存卡片"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file (platform account)"
+msgstr "已存卡片（平台帳戶）"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:183
+msgid "Card required to confirm your spot"
+msgstr "需綁定卡片以確認名額"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:81
+msgid "Charge failed"
+msgstr "扣款失敗"
+
+#: src/components/organisms/RsvpOptions.re.mjs:238
+msgid "Charge payment"
+msgstr "收取款項"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:41
+msgid "Could not save your card"
+msgstr "無法儲存你的卡片"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:75
+msgid "Payment charged"
+msgstr "已完成扣款"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+msgid "Please save your card again"
+msgstr "請重新儲存你的卡片"
+
+#: src/components/organisms/RsvpOptions.re.mjs:225
+msgid "Retry charge"
+msgstr "重試扣款"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:164
+#: src/components/organisms/StripePaymentEmbed.tsx:84
+msgid "Save card"
+msgstr "儲存卡片"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:127
+msgid "Save your card"
+msgstr "儲存你的卡片"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid "The organizer now takes card payments directly. Your card was saved before that, so please save it again — your spot is kept."
+msgstr "主辦人現在可直接收取卡片付款。你的卡片是在此之前儲存的，請重新儲存一次——你的名額仍保留。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid "Your card is saved now, not charged — the organizer charges the fee after the event."
+msgstr "目前只是儲存卡片，尚未扣款——主辦人會在活動結束後收費。"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:134
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel}after the event."
+msgstr "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取 {amountLabel}。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} after the event."
+msgstr "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取 {amountLabel}。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} later."
+msgstr "您的卡片現已儲存，尚未扣款。主辦人稍後將收取 {amountLabel}。"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:136
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee after the event."
+msgstr "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取參加費。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
+msgstr "您的卡片現已儲存，尚未扣款。主辦人稍後將收取參加費用。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:806
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
+msgstr "任何處於待處理狀態的人，都可從報名名單移入活動，這樣就不需要付款。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+msgstr "參加者報名時會被要求儲存卡片，但不會預先授權或扣款，你也無法在此扣款。請於活動現場收費。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+msgstr "參加者報名時會儲存卡片，事前不會扣款或預授權。你可以隨時從報名名單向單一參加者或所有人收費，款項會進入你的 Stripe 帳戶。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1395
+msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
+msgstr "參加者報名時會儲存卡片，不會自動扣款。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+msgid "Connect a Stripe account to enable this"
+msgstr "連結 Stripe 帳戶以啟用此功能"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+msgid "With a Stripe account"
+msgstr "有 Stripe 帳戶"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "Without a Stripe account"
+msgstr "沒有 Stripe 帳戶"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid "Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account."
+msgstr "你的付費活動參加者報名時會儲存卡片，事前不會扣款。你可從活動的報名名單向單一參加者或所有人收費，款項會進入此帳戶。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid "Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here."
+msgstr "你的付費活動參加者報名時仍會儲存卡片，但無法扣款，因此需於活動現場收費。連結 Stripe 帳戶即可從報名名單向已儲存的卡片收費，並在此收款。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "尚未連結 Stripe 帳戶。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
+msgstr "在完成設定之前，你的付費活動會使用平台帳戶：參加者報名時會儲存卡片，但你無法扣款。請於活動現場收費。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "你的 Stripe 帳戶已連結，但尚未完成設定。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "你的 Stripe 帳戶已連結。"
+
+#: src/components/pages/ClubPage.re.mjs:821
+msgid "Exempt club members from event fees"
+msgstr "免除俱樂部會員的活動費用"
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid "Members join priced events without saving a card. Everyone else pays to your Stripe account as usual."
+msgstr "會員無需綁定信用卡即可報名收費活動。其他人則照常付款至您的 Stripe 帳戶。"
+
+#: src/components/pages/ClubPage.re.mjs:783
+msgid "Payments"
+msgstr "付款"
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid "Your club has no connected Stripe account, so members always join without paying and other players' cards are only kept on file. Connect Stripe in your profile settings to charge event fees."
+msgstr "您的俱樂部尚未連結 Stripe 帳戶，因此會員一律可免付款報名，其他球友的信用卡僅會建檔保存。請在個人設定中連結 Stripe 以收取活動費用。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Card on file: {cardLabel}. Nothing is charged now — the organizer charges the fee after the event."
+msgstr "已儲存的卡片：{cardLabel}。現在不會收取費用——主辦人會在活動結束後收費。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Join with saved card"
+msgstr "以已儲存卡片加入"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:188
+msgid "Joining..."
+msgstr "加入中…"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:233
+msgid "Use a different card"
+msgstr "使用其他卡片"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+msgid "Choose an event time"
+msgstr "選擇活動時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+msgid "Drag the window to move it, or drag either edge to resize."
+msgstr "拖曳時間段可移動，拖曳任一邊緣可調整長度。"
+
+#: src/components/pages/ClubMembersPage.re.mjs:257
+msgid "Make admin"
+msgstr "設為管理員"
+
+#: src/components/pages/ClubMembersPage.re.mjs:250
+msgid "Remove admin"
+msgstr "取消管理員"
+
+#: src/components/pages/ClubPage.re.mjs:868
+msgid "Add Court"
+msgstr "新增球場"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -8073,3 +8482,6 @@ msgstr "在硬地球場表現更佳"
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "在實際的 1.0 DUPR 分布下，Competitive+ 在最初幾輪內就拉開與各基準的差距，一場活動下來已比「避免重複」基準高出 9 分品質與 10 分一面倒比賽表現。完整效益在評分成熟後顯現：一面倒比賽僅 10%，基準則為 62%；勢均力敵比賽的機率達 78%，基準為 53%。這些成熟數據可媲美精挑細選、程度集中的球會（79% 與 8%）——演算法透過配對，達成你原本得靠篩選名單才能得到的結果："
+
+msgid "Open Play"
+msgstr "自由對打"

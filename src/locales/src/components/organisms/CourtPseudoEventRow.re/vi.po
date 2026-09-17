@@ -13,20 +13,20 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:211
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:219
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:212
 msgid "{0} court"
 msgstr "{0} sân"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:213
 msgid "{0} courts"
@@ -60,12 +60,12 @@ msgstr "{0} người chơi"
 msgid "{first} + {0} more"
 msgstr "{first} + {0} người khác"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:285
 msgid "{hs}h"
 msgstr "{hs}g"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:287
 msgid "{hs}h {ms}m"
 msgstr "{hs}g {ms}p"
@@ -74,17 +74,17 @@ msgstr "{hs}g {ms}p"
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:283
 msgid "{ms}m"
 msgstr "{ms}p"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:207
 msgid "{n} indoor"
 msgstr "{n} trong nhà"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:209
 msgid "{n} outdoor"
 msgstr "{n} ngoài trời"
@@ -105,7 +105,7 @@ msgstr "Hủy chỉnh sửa lịch rảnh"
 msgid "Courts available"
 msgstr "Sân còn trống"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr "Tạo sự kiện"
 
@@ -129,11 +129,11 @@ msgstr "Khung giờ đầy"
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "Xóa"
 
@@ -141,7 +141,7 @@ msgstr "Xóa"
 msgid "Remove from slot"
 msgstr "Xóa khỏi khung giờ"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "Đặt sân"
 
@@ -153,11 +153,11 @@ msgstr "Lưu lịch rảnh"
 msgid "Tap to add time in this slot"
 msgstr "Nhấn để thêm thời gian trong khung giờ này"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 

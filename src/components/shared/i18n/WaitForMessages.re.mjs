@@ -2,6 +2,7 @@
 
 import * as Layout from "../Layout.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 
@@ -11,7 +12,9 @@ import { t } from '@lingui/macro'
 function WaitForMessages(props) {
   var children = props.children;
   var query = ReactRouterDom.useLoaderData();
-  var loaders = query.i18nLoaders;
+  var loaders = Core__Option.flatMap((query == null) ? undefined : Caml_option.some(query), (function (q) {
+          return q.i18nLoaders;
+        }));
   if (loaders !== undefined) {
     return JsxRuntime.jsx(ReactRouterDom.Await, {
                 children: (function (param) {

@@ -29,7 +29,27 @@ msgstr "通知を有効にするにはホーム画面に追加してください
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid ""
+"Attendees of your paid events save a card when they RSVP; nothing is charged "
+"up front. From an event's RSVP list you can charge one attendee or everyone, "
+"and the money goes to this account."
+msgstr ""
+"有料イベントの参加者はRSVP時にカードを保存します。事前の請求はありません。イ"
+"ベントのRSVPリストから個別または全員に請求でき、売上はこのアカウントに入金さ"
+"れます。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid ""
+"Attendees of your paid events still save a card when they RSVP, but it can't "
+"be charged, so you collect the fee at the event. Connect a Stripe account to "
+"charge saved cards from the RSVP list and receive the money here."
+msgstr ""
+"有料イベントの参加者はRSVP時にカードを保存しますが、請求はできないため、参加"
+"費はイベント当日に集金することになります。RSVPリストから保存済みカードに請求"
+"し、売上をここで受け取るにはStripeアカウントを接続してください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Australia"
 msgstr "オーストラリア"
 
@@ -37,11 +57,11 @@ msgstr "オーストラリア"
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:558
 msgid "Biography"
 msgstr "自己紹介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "Canada"
 msgstr "カナダ"
 
@@ -49,20 +69,15 @@ msgstr "カナダ"
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-msgid "Connect a Stripe account to receive payments from events you organize."
-msgstr ""
-"主催するイベントの支払いを受け取るには、Stripeアカウントを接続してください。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:376
+#: src/components/organisms/SettingsProfileForm.re.mjs:389
 msgid "Connect Stripe account"
 msgstr "Stripeアカウントを接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:372
+#: src/components/organisms/SettingsProfileForm.re.mjs:385
 msgid "Connecting..."
 msgstr "接続中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:405
 msgid "Country"
 msgstr "国"
 
@@ -70,11 +85,11 @@ msgstr "国"
 msgid "Disable notifications"
 msgstr "通知を無効にする"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Display Name"
 msgstr "表示名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Doe John"
 msgstr "ジョン・ドウ"
 
@@ -82,27 +97,27 @@ msgstr "ジョン・ドウ"
 msgid "Enable notifications"
 msgstr "通知を有効にする"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:519
+#: src/components/organisms/SettingsProfileForm.re.mjs:532
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Full name"
 msgstr "フルネーム"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:508
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "How you appear to other players"
 msgstr "他のプレイヤーへの表示方法"
 
@@ -118,11 +133,11 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/organisms/SettingsProfileForm.re.mjs:412
 msgid "Japan"
 msgstr "日本"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:560
+#: src/components/organisms/SettingsProfileForm.re.mjs:573
 msgid "Level"
 msgstr "レベル"
 
@@ -130,15 +145,19 @@ msgstr "レベル"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:528
 msgid "Male"
 msgstr "男性"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "Stripeアカウントが接続されていません。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "未接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:606
+#: src/components/organisms/SettingsProfileForm.re.mjs:619
 msgid "Notifications"
 msgstr "通知"
 
@@ -170,15 +189,15 @@ msgstr ""
 "プッシュ通知がブロックされています。このサイトのブラウザまたはデバイスの通知"
 "設定を確認して、もう一度お試しください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:614
+#: src/components/organisms/SettingsProfileForm.re.mjs:627
 msgid "Receive push notifications for event reminders and updates."
 msgstr "イベントのリマインダーや更新情報をプッシュ通知で受け取る。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Resume onboarding"
 msgstr "登録を再開"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:592
+#: src/components/organisms/SettingsProfileForm.re.mjs:605
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
@@ -198,23 +217,23 @@ msgstr ""
 "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
 "す。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Singapore"
 msgstr "シンガポール"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:513
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:431
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "South Korea"
 msgstr "韓国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:628
+#: src/components/organisms/SettingsProfileForm.re.mjs:641
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:427
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Taiwan"
 msgstr "台湾"
 
@@ -222,33 +241,44 @@ msgstr "台湾"
 msgid "Tap the Share button"
 msgstr "共有ボタンをタップ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:551
+#: src/components/organisms/SettingsProfileForm.re.mjs:564
 msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/organisms/SettingsProfileForm.re.mjs:562
 msgid "Tell us a little about yourself..."
 msgstr "自己紹介を入力してください..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "United Kingdom"
 msgstr "イギリス"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:416
 msgid "United States"
 msgstr "アメリカ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid ""
+"Until onboarding is complete, your paid events run on the platform account: "
+"attendees save a card when they RSVP, but you can't charge it. Collect the "
+"fee at the event."
+msgstr ""
+"オンボーディングが完了するまで、有料イベントはプラットフォームアカウントで運"
+"用されます。参加者はRSVP時にカードを保存しますが、請求はできません。参加費は"
+"イベント当日に集金してください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Your self-reported skill level"
 msgstr "自己申告のスキルレベル"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
-msgid "Your Stripe account is connected and ready to accept payments."
-msgstr "Stripeアカウントが接続され、支払いを受け取る準備が整いました。"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
-msgid "Your Stripe account is connected but onboarding is not yet complete."
-msgstr "Stripeアカウントは接続されていますが、登録がまだ完了していません。"
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr ""
+"Stripeアカウントは接続済みですが、オンボーディングがまだ完了していません。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "Stripeアカウントが接続されています。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 #~ msgid "biography"
@@ -257,6 +287,13 @@ msgstr "Stripeアカウントは接続されていますが、登録がまだ完
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"
 #~ msgstr "キャンセル"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid ""
+#~ "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr ""
+#~ "主催するイベントの支払いを受け取るには、Stripeアカウントを接続してくださ"
+#~ "い。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:214
 #~ msgid "details about yourself"
@@ -289,3 +326,11 @@ msgstr "Stripeアカウントは接続されていますが、登録がまだ完
 #~ "card.omeventsequoegashownour passporta"
 #~ msgstr ""
 #~ "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#~ msgid "Your Stripe account is connected and ready to accept payments."
+#~ msgstr "Stripeアカウントが接続され、支払いを受け取る準備が整いました。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#~ msgid "Your Stripe account is connected but onboarding is not yet complete."
+#~ msgstr "Stripeアカウントは接続されていますが、登録がまだ完了していません。"

@@ -4,6 +4,7 @@
 let make = () => {
   open Lingui.Util
   open LangProvider.Router
+  let createHref = CreateEventLink.useHref()
 
   <WaitForMessages>
     {_ =>
@@ -36,7 +37,7 @@ let make = () => {
                   {t`The courts require reservations but there are 10 courts and it's generally available last minute. Therefore you can book the courts just-in-time once you've already gathered the players.`}
                 </p>
                 <div className="mt-4">
-                  <Link to={"/events/create/Location_504589b2-9827-11ef-ac7c-43e61917aa71"}>
+                  <Link to={createHref([("locationId", "Location_504589b2-9827-11ef-ac7c-43e61917aa71")])}>
                     <Button.Button target="_blank" rel="noopener noreferrer">
                       {t`Create an Event at KPI Park`}
                     </Button.Button>
@@ -56,7 +57,7 @@ let make = () => {
                   {t`The courts require reservations but there are only 2 courts so you will need to book in advance. They also hold open play sessions but the level may be low to complete beginner.`}
                 </p>
                 <div className="mt-4">
-                  <Link to={"/events/create/Location_a5fdf9fc-8152-11ef-8bf7-fb8fc45779c3"}>
+                  <Link to={createHref([("locationId", "Location_a5fdf9fc-8152-11ef-8bf7-fb8fc45779c3")])}>
                     <Button.Button target="_blank" rel="noopener noreferrer">
                       {t`Create an Event at Pacific Pickle Club`}
                     </Button.Button>
@@ -76,7 +77,7 @@ let make = () => {
                   {t`Two courts are available. Conditions may be windy.`}
                 </p>
                 <div className="mt-4">
-                  <Link to={"/events/create/Location_c90c6b20-5ae8-11f0-932c-f75ab31d2681"}>
+                  <Link to={createHref([("locationId", "Location_c90c6b20-5ae8-11f0-932c-f75ab31d2681")])}>
                     <Button.Button target="_blank" rel="noopener noreferrer">
                       {t`Create an Event at Tokyo Tower Pickleball`}
                     </Button.Button>
@@ -96,7 +97,7 @@ let make = () => {
                   {t`One full court is available and one "fun" court (half-sized). The full court has narrow space on the sides.`}
                 </p>
                 <div className="mt-4">
-                  <Link to={"/events/create/Location_efd6b790-c62e-11f0-8e63-731899f4b3a8"}>
+                  <Link to={createHref([("locationId", "Location_efd6b790-c62e-11f0-8e63-731899f4b3a8")])}>
                     <Button.Button target="_blank" rel="noopener noreferrer">
                       {t`Create an Event at Pickleball One`}
                     </Button.Button>
@@ -116,7 +117,7 @@ let make = () => {
                   {t`Two courts are available. More expensive than other courts and the conditions can be windy.`}
                 </p>
                 <div className="mt-4">
-                  <Link to={"/events/create/Location_721dd0be-e90b-11ef-94f2-b7fe1b506e52"}>
+                  <Link to={createHref([("locationId", "Location_721dd0be-e90b-11ef-94f2-b7fe1b506e52")])}>
                     <Button.Button target="_blank" rel="noopener noreferrer">
                       {t`Create an Event at Hilton Tokyo Tennis Courts`}
                     </Button.Button>

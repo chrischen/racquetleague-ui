@@ -68,6 +68,13 @@ return {
           "kind": "ScalarField",
           "name": "status",
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "chargeable",
+          "storageKey": null
         }
       ],
       "storageKey": null

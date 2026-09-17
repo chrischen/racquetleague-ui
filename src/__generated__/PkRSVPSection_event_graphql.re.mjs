@@ -141,6 +141,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "chargesEnabled",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "minRating",
       "storageKey": null
     },

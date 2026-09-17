@@ -29,7 +29,25 @@ msgstr "添加到主屏幕以启用通知"
 msgid "Advanced"
 msgstr "高级"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:407
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid ""
+"Attendees of your paid events save a card when they RSVP; nothing is charged "
+"up front. From an event's RSVP list you can charge one attendee or everyone, "
+"and the money goes to this account."
+msgstr ""
+"参加您付费活动的人在报名时会保存银行卡；事先不会扣款。您可以在活动的报名名单"
+"中向某位参与者或全部参与者收款，款项将进入此账户。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid ""
+"Attendees of your paid events still save a card when they RSVP, but it can't "
+"be charged, so you collect the fee at the event. Connect a Stripe account to "
+"charge saved cards from the RSVP list and receive the money here."
+msgstr ""
+"参加您付费活动的人在报名时仍会保存银行卡，但无法扣款，因此需要您在活动现场收"
+"费。关联 Stripe 账户即可从报名名单中对已保存的银行卡收款，并在此接收款项。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Australia"
 msgstr "澳大利亚"
 
@@ -37,11 +55,11 @@ msgstr "澳大利亚"
 msgid "Beginner"
 msgstr "初级"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:545
+#: src/components/organisms/SettingsProfileForm.re.mjs:558
 msgid "Biography"
 msgstr "个人简介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:411
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "Canada"
 msgstr "加拿大"
 
@@ -49,19 +67,15 @@ msgstr "加拿大"
 msgid "Complete Beginner"
 msgstr "完全初学者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
-msgid "Connect a Stripe account to receive payments from events you organize."
-msgstr "连接 Stripe 账户以接收您组织的活动付款。"
-
-#: src/components/organisms/SettingsProfileForm.re.mjs:376
+#: src/components/organisms/SettingsProfileForm.re.mjs:389
 msgid "Connect Stripe account"
 msgstr "连接 Stripe 账户"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:372
+#: src/components/organisms/SettingsProfileForm.re.mjs:385
 msgid "Connecting..."
 msgstr "连接中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:405
 msgid "Country"
 msgstr "国家"
 
@@ -69,11 +83,11 @@ msgstr "国家"
 msgid "Disable notifications"
 msgstr "关闭通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:480
+#: src/components/organisms/SettingsProfileForm.re.mjs:493
 msgid "Display Name"
 msgstr "显示名称"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:510
 msgid "Doe John"
 msgstr "张三"
 
@@ -81,27 +95,27 @@ msgstr "张三"
 msgid "Enable notifications"
 msgstr "启用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Estimated DUPR"
 msgstr "预估 DUPR"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:519
+#: src/components/organisms/SettingsProfileForm.re.mjs:532
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "Full name"
 msgstr "全名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:508
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Gender"
 msgstr "性别"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:423
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:484
+#: src/components/organisms/SettingsProfileForm.re.mjs:497
 msgid "How you appear to other players"
 msgstr "您在其他球员面前的显示名称"
 
@@ -117,11 +131,11 @@ msgstr "中级"
 msgid "Intermediate+"
 msgstr "中级+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:399
+#: src/components/organisms/SettingsProfileForm.re.mjs:412
 msgid "Japan"
 msgstr "日本"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:560
+#: src/components/organisms/SettingsProfileForm.re.mjs:573
 msgid "Level"
 msgstr "级别"
 
@@ -129,15 +143,19 @@ msgstr "级别"
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:528
 msgid "Male"
 msgstr "男性"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "尚未关联 Stripe 账户。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:321
 msgid "Not connected"
 msgstr "未连接"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:606
+#: src/components/organisms/SettingsProfileForm.re.mjs:619
 msgid "Notifications"
 msgstr "通知"
 
@@ -165,15 +183,15 @@ msgid ""
 "settings for this site, then try again."
 msgstr "推送通知已被屏蔽。请检查该网站的浏览器或设备通知设置，然后重试。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:614
+#: src/components/organisms/SettingsProfileForm.re.mjs:627
 msgid "Receive push notifications for event reminders and updates."
 msgstr "接收赛事提醒和更新的推送通知。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:379
+#: src/components/organisms/SettingsProfileForm.re.mjs:392
 msgid "Resume onboarding"
 msgstr "继续注册"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:592
+#: src/components/organisms/SettingsProfileForm.re.mjs:605
 msgid "Save profile"
 msgstr "保存个人资料"
 
@@ -191,23 +209,23 @@ msgid ""
 "for a partner"
 msgstr "在 RSVP 列表中您的名字旁显示一个徽章，告诉别人您正在寻找搭档"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:419
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Singapore"
 msgstr "新加坡"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:500
+#: src/components/organisms/SettingsProfileForm.re.mjs:513
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活动需要您的真实姓名，如身份证上所示。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:431
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "South Korea"
 msgstr "韩国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:628
+#: src/components/organisms/SettingsProfileForm.re.mjs:641
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:427
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Taiwan"
 msgstr "台湾"
 
@@ -215,33 +233,42 @@ msgstr "台湾"
 msgid "Tap the Share button"
 msgstr "点击分享按钮"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:551
+#: src/components/organisms/SettingsProfileForm.re.mjs:564
 msgid "tell us a little about yourself"
 msgstr "简单介绍一下您自己"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:549
+#: src/components/organisms/SettingsProfileForm.re.mjs:562
 msgid "Tell us a little about yourself..."
 msgstr "告诉我们一些关于您自己的信息..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:415
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "United Kingdom"
 msgstr "英国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:403
+#: src/components/organisms/SettingsProfileForm.re.mjs:416
 msgid "United States"
 msgstr "美国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid ""
+"Until onboarding is complete, your paid events run on the platform account: "
+"attendees save a card when they RSVP, but you can't charge it. Collect the "
+"fee at the event."
+msgstr ""
+"在完成入驻流程之前，您的付费活动将使用平台账户运行：参与者报名时会保存银行"
+"卡，但您无法扣款。请在活动现场收取费用。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:585
 msgid "Your self-reported skill level"
 msgstr "您自我评定的技术水平"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
-msgid "Your Stripe account is connected and ready to accept payments."
-msgstr "您的 Stripe 账户已连接并可以接收付款。"
-
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
-msgid "Your Stripe account is connected but onboarding is not yet complete."
-msgstr "您的 Stripe 账户已连接但注册尚未完成。"
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "您的 Stripe 账户已关联，但入驻流程尚未完成。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "您的 Stripe 账户已关联。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:289
 #~ msgid "biography"
@@ -250,6 +277,11 @@ msgstr "您的 Stripe 账户已连接但注册尚未完成。"
 #: src/components/molecules/forms/Form.re.mjs:304
 #~ msgid "cancel"
 #~ msgstr "取消"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#~ msgid ""
+#~ "Connect a Stripe account to receive payments from events you organize."
+#~ msgstr "连接 Stripe 账户以接收您组织的活动付款。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:214
 #~ msgid "details about yourself"
@@ -281,3 +313,11 @@ msgstr "您的 Stripe 账户已连接但注册尚未完成。"
 #~ "Some events require your legal name as shown on an ID "
 #~ "card.omeventsequoegashownour passporta"
 #~ msgstr "某些活动需要您的真实姓名，如身份证上所示。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#~ msgid "Your Stripe account is connected and ready to accept payments."
+#~ msgstr "您的 Stripe 账户已连接并可以接收付款。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#~ msgid "Your Stripe account is connected but onboarding is not yet complete."
+#~ msgstr "您的 Stripe 账户已连接但注册尚未完成。"

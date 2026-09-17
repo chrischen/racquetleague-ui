@@ -86,11 +86,11 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:164
+#: src/components/organisms/RsvpOptions.re.mjs:187
 msgid "Approve RSVP"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:253
+#: src/components/organisms/RsvpOptions.re.mjs:331
 msgid "Are you sure you want to remove this person from the event?"
 msgstr ""
 
@@ -122,8 +122,12 @@ msgstr ""
 msgid "Cannot access variable \\\"title\\\""
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:219
 msgid "Capture payment"
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:240
+msgid "Charge payment"
 msgstr ""
 
 #: src/components/organisms/RSVPSection.re.mjs:325
@@ -367,8 +371,8 @@ msgstr ""
 #~ msgid "more"
 #~ msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:174
-#: src/components/organisms/RsvpOptions.re.mjs:268
+#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:346
 msgid "Move to Pending List"
 msgstr ""
 
@@ -464,15 +468,15 @@ msgstr ""
 msgid "Recreational play that will not be submitted to competitive ratings nor DUPR."
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:190
+#: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:212
+#: src/components/organisms/RsvpOptions.re.mjs:286
 msgid "Remove from event"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:252
+#: src/components/organisms/RsvpOptions.re.mjs:330
 msgid "Remove this RSVP"
 msgstr ""
 
@@ -486,6 +490,10 @@ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:46
 msgid "Results will be submitted to competitive ratings."
+msgstr ""
+
+#: src/components/organisms/RsvpOptions.re.mjs:227
+msgid "Retry charge"
 msgstr ""
 
 #: src/components/organisms/RoundRobinDrawsPreview.re.mjs:270
@@ -618,7 +626,7 @@ msgstr ""
 #~ msgid "This is how others will see you"
 #~ msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:269
+#: src/components/organisms/RsvpOptions.re.mjs:347
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
@@ -656,7 +664,7 @@ msgstr ""
 msgid "View Full Draws"
 msgstr ""
 
-#: src/components/organisms/RsvpOptions.re.mjs:239
+#: src/components/organisms/RsvpOptions.re.mjs:313
 msgid "View Profile"
 msgstr ""
 

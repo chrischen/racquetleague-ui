@@ -2,7 +2,6 @@
 
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
-import * as DateFns from "date-fns";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -52,31 +51,17 @@ function UpdateLocationEventForm(props) {
         return 0;
       });
   var setShakeCounter = match$1[1];
+  var tz = Core__Option.getOr(eventData.timezone, Util.Timezone.fallback);
+  var wallClock = function (d) {
+    return Util.Timezone.toWallClock(Util.Datetime.toDate(d), tz);
+  };
   var startDate = isCopy ? Core__Option.map(eventData.startDate, (function (sd) {
-            var sourceStart = Util.Datetime.toDate(sd);
-            var timeStr = DateFns.format(sourceStart, "HH:mm");
-            var todayStr = DateFns.format(new Date(), "yyyy-MM-dd");
-            return todayStr + "T" + timeStr;
-          })) : Core__Option.map(eventData.startDate, (function (d) {
-            return DateFns.format(Util.Datetime.toDate(d), "yyyy-MM-dd'T'HH:mm");
-          }));
-  var endDate;
-  if (isCopy) {
-    var match$2 = eventData.startDate;
-    var match$3 = eventData.endDate;
-    if (match$2 !== undefined && match$3 !== undefined && startDate !== undefined) {
-      var sourceStart = Util.Datetime.toDate(Caml_option.valFromOption(match$2));
-      var sourceEnd = Util.Datetime.toDate(Caml_option.valFromOption(match$3));
-      var durationHours = (DateFns.getTime(sourceEnd) - DateFns.getTime(sourceStart)) / (1000.0 * 60.0 * 60.0);
-      endDate = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), durationHours), "HH:mm");
-    } else {
-      endDate = undefined;
-    }
-  } else {
-    endDate = Core__Option.map(eventData.endDate, (function (d) {
-            return DateFns.format(Util.Datetime.toDate(d), "HH:mm");
-          }));
-  }
+            var today = Util.Timezone.toWallClock(new Date(), tz).slice(0, 10);
+            return today + "T" + wallClock(sd).slice(11, 16);
+          })) : Core__Option.map(eventData.startDate, wallClock);
+  var endDate = Core__Option.map(eventData.endDate, (function (d) {
+          return wallClock(d).slice(11, 16);
+        }));
   var prefilledValues_title = eventData.title;
   var prefilledValues_activitySlug = Core__Option.flatMap(eventData.activity, (function (a) {
           return a.slug;
@@ -130,10 +115,8 @@ function UpdateLocationEventForm(props) {
                     }),
                 JsxRuntime.jsx(CreateLocationEventForm.make, {
                       eventId: isCopy ? undefined : eventData.id,
-                      location: props.location,
-                      stripeChargesEnabled: isCopy ? viewerStripeChargesEnabled : Core__Option.getOr(Core__Option.flatMap(eventData.owner, (function (o) {
-                                    return o.stripeChargesEnabled;
-                                  })), false),
+                      location: Caml_option.some(props.location),
+                      stripeChargesEnabled: isCopy ? viewerStripeChargesEnabled : eventData.chargesEnabled,
                       prefilledValues: prefilledValues,
                       selectedClub: clubSelection.clubId,
                       selectedActivity: clubSelection.activityId,

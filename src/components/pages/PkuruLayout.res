@@ -70,10 +70,14 @@ let iconClass = active => active ? "text-black" : "text-gray-500 dark:text-gray-
 module SidebarItem = PkuruSidebarClubs.SidebarItem
 
 let sportsList = () => {
-  let ts = Lingui.UtilString.t
+  // Explicit ids, matching how activity names are registered elsewhere
+  // (EventTag, EventPage, CreateLocationEventForm). Mixing an auto-id
+  // t`Badminton` with an explicit-id td({id: "Badminton"}) in the same
+  // bundle produces two PO entries with the same msgid, which msgcat rejects.
+  let td = Lingui.UtilString.td
   [
-    {slug: "pickleball", label: ts`Pickleball`, dotColor: "bg-green-600", hasAvailability: true},
-    {slug: "badminton", label: ts`Badminton`, dotColor: "bg-blue-400", hasAvailability: false},
+    {slug: "pickleball", label: td({id: "Pickleball"}), dotColor: "bg-green-600", hasAvailability: true},
+    {slug: "badminton", label: td({id: "Badminton"}), dotColor: "bg-blue-400", hasAvailability: false},
   ]
 }
 
@@ -340,7 +344,7 @@ module Topbar = {
     let navigate = LangProvider.Router.useNavigate()
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
     let (showBell, setShowBell) = React.useState(() => false)
-    let loginHref = "/oauth-login?return=/events/create"
+    let loginHref = "/oauth-login?return=" ++ Util.encodeURIComponent("/?create=1")
 
     <div
       className="h-14 border-b border-gray-200 dark:border-[#2a2b30] flex items-center justify-between px-4 bg-white dark:bg-[#1e1f23] flex-shrink-0 touch-none">
@@ -556,30 +560,26 @@ module Layout = {
       )
     }
 
-    let handleCreateEvent = (localDate: string, intent: TimeWindow.playIntent) => {
-      let startHour = intent.start->Float.toInt
-      let endHour = intent.end->Float.toInt
+    let createHref = CreateEventLink.useHref()
+    let handleCreateEvent = (localDate: string, intent: TimeWindow.playIntent) =>
       navigate(
-        "/events/create?date=" ++
-        localDate ++
-        "&startHour=" ++
-        startHour->Int.toString ++
-        "&endHour=" ++
-        endHour->Int.toString,
+        createHref([
+          ("date", localDate),
+          ("startHour", intent.start->Float.toString),
+          ("endHour", intent.end->Float.toString),
+        ]),
         None,
       )
-    }
 
-    let handleNewPlan = () => {
+    let handleNewPlan = () =>
       navigate(
         if isLoggedIn {
-          "/events/create"
+          createHref([])
         } else {
-          "/oauth-login?return=/events/create"
+          "/oauth-login?return=" ++ Util.encodeURIComponent("/?create=1")
         },
         None,
       )
-    }
     let localePath = LangProvider.Router.useLocalePath()
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
 
@@ -636,6 +636,9 @@ module Layout = {
 
     let ctx: DrawerContext.contextValue = {openDrawer, closeDrawer}
 
+    // Dialogs portal outside the dark-mode wrappers below; this lets them
+    // mirror the theme on their own root.
+    <DarkMode.Provider value=darkMode>
     <GlobalQuery.Provider value={gviewer}>
       <DrawerContext.Provider value=ctx>
         <WaitForMessages>
@@ -751,6 +754,7 @@ module Layout = {
         </WaitForMessages>
       </DrawerContext.Provider>
     </GlobalQuery.Provider>
+    </DarkMode.Provider>
   }
 }
 
@@ -797,6 +801,8 @@ let make = () => {
       <React.Suspense fallback={<div className="p-6 text-sm text-gray-500"> {t`Loading...`} </div>}>
         <Router.Outlet />
       </React.Suspense>
+      // The create-event form, as a modal over the current page when the URL asks.
+      <CreateEventModal />
     </Layout>
   </>
 }

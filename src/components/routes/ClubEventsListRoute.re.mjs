@@ -6,7 +6,10 @@ import * as Router from "../shared/Router.re.mjs";
 import * as RelayEnv from "../../entry/RelayEnv.re.mjs";
 import * as Localized from "../shared/i18n/Localized.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as LocationClub from "../shared/LocationClub.re.mjs";
+import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as ClubEventsListPage from "../pages/ClubEventsListPage.re.mjs";
 import * as ClubEventsListPageQuery_graphql from "../../__generated__/ClubEventsListPageQuery_graphql.re.mjs";
@@ -32,11 +35,20 @@ async function loader(param) {
   var afterDate = Core__Option.map(Router.SearchParams.get(url.searchParams, "afterDate"), (function (d) {
           return Util.Datetime.fromDate(new Date(d));
         }));
+  var level = Core__Option.flatMap(Router.SearchParams.get(url.searchParams, "level"), Core__Float.fromString);
+  var homeLocationId = Core__Option.map(LocationClub.ofSlug(params.slug), (function (c) {
+          return c.homeLocationId;
+        }));
   var environment = RelayEnv.getRelayEnv(param.context, import.meta.env.SSR);
   var query = ClubEventsListPageQuery_graphql.load(environment, {
         after: after,
         afterDate: afterDate,
+        availabilityByLocation: Core__Option.isSome(homeLocationId),
+        availabilityFromDate: EventsListUtils.availabilityFromDate(),
+        availabilityLocationId: Core__Option.getOr(homeLocationId, ""),
+        availabilityToDate: EventsListUtils.availabilityToDate(),
         before: before,
+        level: level,
         slug: params.slug,
         token: token
       }, "store-and-network", undefined, undefined);

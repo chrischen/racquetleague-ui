@@ -9,6 +9,9 @@ module Query = %relay(`
       id
       name
       slug
+      viewerMembership {
+        isOwner
+      }
     }
     viewer {
       user {
@@ -85,13 +88,27 @@ module UpdateMembershipStatusMutation = %relay(`
   }
 `)
 
+module SetMembershipAdminMutation = %relay(`
+  mutation ClubMembersPageSetMembershipAdminMutation(
+    $input: SetMembershipAdminInput!
+  ) {
+    setMembershipAdmin(input: $input) {
+      errors { message }
+      membership { id isAdmin }
+    }
+  }
+`)
+
 module MemberItem = {
   @react.component
   let make = (
     ~membership: MembersQuery.Types.response_clubMembers_edges_node,
     ~viewerIsAdmin: bool,
+    ~viewerIsOwner: bool,
     ~onRemove: unit => unit,
     ~onApprove: unit => unit,
+    ~onSetAdmin: bool => unit,
+    ~isSettingAdmin: bool,
   ) => {
     open Lingui.Util
     let ts = Lingui.UtilString.t
@@ -150,21 +167,42 @@ module MemberItem = {
           </div>
         </div>
       } else {
+        // Promoting and demoting is owner-only on the server (setMembershipAdmin),
+        // and an owner's own row can never be changed, so the toggle only renders
+        // for the owner looking at a non-owner member.
+        let adminToggle = if viewerIsOwner && !isOwner {
+          if isAdmin {
+            <Button.Button outline=true disabled=isSettingAdmin onClick={_ => onSetAdmin(false)}>
+              {t`Remove admin`}
+            </Button.Button>
+          } else {
+            <Button.Button color=#indigo disabled=isSettingAdmin onClick={_ => onSetAdmin(true)}>
+              {t`Make admin`}
+            </Button.Button>
+          }
+        } else {
+          React.null
+        }
+        let removeButton = if viewerIsAdmin && !isOwner {
+          <ConfirmButton
+            button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
+            title={t`Remove member?`}
+            description={(
+              ts`Are you sure you want to remove ${member.fullName->Option.getOr(
+                "this member",
+              )} from the club?`
+            )->React.string}
+            onConfirmed={_ => onRemove()}
+          />
+        } else {
+          React.null
+        }
+        let hasActions = (viewerIsOwner || viewerIsAdmin) && !isOwner
+
         <SwipeAction
           className="border-b border-gray-200 dark:border-[#2a2b30]"
-          rightActions={viewerIsAdmin && !isOwner
-            ? <div className="flex gap-2">
-                <ConfirmButton
-                  button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
-                  title={t`Remove member?`}
-                  description={(
-                    ts`Are you sure you want to remove ${member.fullName->Option.getOr(
-                      "this member",
-                    )} from the club?`
-                  )->React.string}
-                  onConfirmed={_ => onRemove()}
-                />
-              </div>
+          rightActions={hasActions
+            ? <div className="flex gap-2"> {adminToggle} {removeButton} </div>
             : React.null}
           partialThreshold=120
           fullThreshold=260
@@ -213,7 +251,7 @@ module MemberItem = {
 
 module ClubMembersData = {
   @react.component
-  let make = (~clubId, ~viewerIsAdmin: bool) => {
+  let make = (~clubId, ~viewerIsAdmin: bool, ~viewerIsOwner: bool) => {
     open Lingui.Util
     let data = MembersQuery.use(
       ~variables={
@@ -224,6 +262,7 @@ module ClubMembersData = {
 
     let (removeMutation, _isRemoveInFlight) = RemoveUserFromClubMutation.use()
     let (updateStatusMutation, _isUpdateInFlight) = UpdateMembershipStatusMutation.use()
+    let (setAdminMutation, isSetAdminInFlight) = SetMembershipAdminMutation.use()
 
     let handleRemoveUser = (userId: string) => {
       // Get the connection ID for the club members list
@@ -270,6 +309,28 @@ module ClubMembersData = {
       )->RescriptRelay.Disposable.ignore
     }
 
+    // The payload carries the membership id and its new isAdmin, so Relay
+    // updates the badge and the toggle label from the store without a refetch.
+    let handleSetAdmin = (membershipId: string, isAdmin: bool) => {
+      setAdminMutation(
+        ~variables={
+          input: {
+            membershipId,
+            isAdmin,
+          },
+        },
+        ~onCompleted=({setMembershipAdmin}, _errors) => {
+          switch setMembershipAdmin.errors {
+          | None | Some([]) => ()
+          | Some(errors) =>
+            errors->Array.forEach(e =>
+              Js.Console.error("Failed to update admin status: " ++ e.message)
+            )
+          }
+        },
+      )->RescriptRelay.Disposable.ignore
+    }
+
     <div className="bg-white dark:bg-[#1e1f23] shadow overflow-hidden sm:rounded-md">
       <div className="px-4 py-5 sm:p-6">
         <div className="">
@@ -306,6 +367,7 @@ module ClubMembersData = {
                     key={membership.id}
                     membership={membership}
                     viewerIsAdmin={viewerIsAdmin}
+                    viewerIsOwner={viewerIsOwner}
                     onRemove={() => {
                       switch membership.user {
                       | Some(user) => handleRemoveUser(user.id)
@@ -313,6 +375,8 @@ module ClubMembersData = {
                       }
                     }}
                     onApprove={() => handleApproveUser(membership.id)}
+                    onSetAdmin={isAdmin => handleSetAdmin(membership.id, isAdmin)}
+                    isSettingAdmin={isSetAdminInFlight}
                   />
                 })
                 ->React.array
@@ -373,6 +437,8 @@ let make = () => {
             ->Array.some(adminClub => adminClub.id == club.id)
           )
           ->Option.getOr(false)
+        let viewerIsOwner =
+          club.viewerMembership->Option.flatMap(m => m.isOwner)->Option.getOr(false)
 
         <Layout.Container>
           <h1>
@@ -387,7 +453,11 @@ let make = () => {
           </h1>
           <div className="mt-8">
             <React.Suspense fallback={<div> {t`Loading members...`} </div>}>
-              <ClubMembersData clubId={club.id} viewerIsAdmin={viewerIsAdmin} />
+              <ClubMembersData
+                clubId={club.id}
+                viewerIsAdmin={viewerIsAdmin}
+                viewerIsOwner={viewerIsOwner}
+              />
             </React.Suspense>
           </div>
         </Layout.Container>

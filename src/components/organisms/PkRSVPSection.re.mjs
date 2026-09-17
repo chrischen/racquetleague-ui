@@ -267,6 +267,25 @@ function PkRSVPSection(props) {
   var commitMutationAddUser = match$8[0];
   var match$9 = use$6();
   var commitCaptureAll = match$9[0];
+  var match$10 = React.useState(function () {
+        return [];
+      });
+  var setChargeErrors = match$10[1];
+  var chargeErrors = match$10[0];
+  var onChargeAll = function () {
+    setChargeErrors(function (param) {
+          return [];
+        });
+    commitCaptureAll({
+          eventId: eventData.id
+        }, undefined, undefined, undefined, (function (response, param) {
+            setChargeErrors(function (param) {
+                  return Core__Option.getOr(response.captureEventRsvpPayments.errors, []).map(function (e) {
+                              return e.message;
+                            });
+                });
+          }), undefined, undefined);
+  };
   var handleAddUser = function (user) {
     var connectionId = RelayRuntime.ConnectionHandler.getConnectionID(eventData.id, "PkRSVPSection_event_rsvps", undefined);
     commitMutationAddUser({
@@ -409,7 +428,7 @@ function PkRSVPSection(props) {
           }
         }));
   var maxRating$1 = maxRating === 0 ? 1 : maxRating;
-  var match$10;
+  var match$11;
   if (mus.length >= 2) {
     var duprVals = mus.map(Rating.guessDupr);
     var n = duprVals.length;
@@ -420,7 +439,7 @@ function PkRSVPSection(props) {
             return acc + (v - mean) * (v - mean);
           })) / n;
     var stdDev = Math.sqrt(variance);
-    var match$11 = stdDev < 0.3 ? [
+    var match$12 = stdDev < 0.3 ? [
         t`even`,
         "text-emerald-500 dark:text-emerald-400"
       ] : (
@@ -432,13 +451,13 @@ function PkRSVPSection(props) {
             "text-amber-500 dark:text-amber-400"
           ]
       );
-    match$10 = [
+    match$11 = [
       "±" + stdDev.toFixed(2),
-      match$11[0],
-      match$11[1]
+      match$12[0],
+      match$12[1]
     ];
   } else {
-    match$10 = [
+    match$11 = [
       "—",
       "",
       "text-gray-400 dark:text-gray-500"
@@ -537,10 +556,10 @@ function PkRSVPSection(props) {
                                           })), false);
                         });
             })), false);
-  var match$12 = eventData.smartRsvpThreshold;
+  var match$13 = eventData.smartRsvpThreshold;
   var ratingWarning;
   var exit = 0;
-  if (match$12 !== undefined && viewerUser !== undefined) {
+  if (match$13 !== undefined && viewerUser !== undefined) {
     ratingWarning = viewerHasRsvp ? null : JsxRuntime.jsxs("div", {
             children: [
               JsxRuntime.jsx("div", {
@@ -661,17 +680,15 @@ function PkRSVPSection(props) {
                                                 });
                                           })
                                       }) : null,
-                                eventData.viewerIsAdmin ? JsxRuntime.jsx("button", {
+                                eventData.viewerIsAdmin && eventData.chargesEnabled ? JsxRuntime.jsx("button", {
                                         children: JsxRuntime.jsx(LucideReact.CreditCard, {
                                               className: "w-3 h-3"
                                             }),
                                         className: "p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40",
-                                        title: "Capture all payments",
+                                        title: "Charge all payments",
                                         disabled: match$9[1],
                                         onClick: (function (param) {
-                                            commitCaptureAll({
-                                                  eventId: eventData.id
-                                                }, undefined, undefined, undefined, undefined, undefined, undefined);
+                                            onChargeAll();
                                           })
                                       }) : null
                               ],
@@ -690,6 +707,15 @@ function PkRSVPSection(props) {
                       ],
                       className: "flex items-center justify-between mb-3"
                     }),
+                chargeErrors.length > 0 ? JsxRuntime.jsx("div", {
+                        children: chargeErrors.map(function (message, i) {
+                              return JsxRuntime.jsx("p", {
+                                          children: message,
+                                          className: "font-mono text-[11px] text-red-500 dark:text-red-400 leading-tight"
+                                        }, i.toString());
+                            }),
+                        className: "mb-3 space-y-0.5"
+                      }) : null,
                 JsxRuntime.jsx(FramerMotion.AnimatePresence, {
                       children: tmp
                     }),
@@ -834,12 +860,12 @@ function PkRSVPSection(props) {
                                                   className: "text-[11px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400"
                                                 }),
                                             JsxRuntime.jsx("p", {
-                                                  children: match$10[0],
+                                                  children: match$11[0],
                                                   className: "mt-0.5 text-lg font-semibold text-gray-900 dark:text-gray-100"
                                                 }),
                                             JsxRuntime.jsx("p", {
-                                                  children: match$10[1],
-                                                  className: "text-[11px] " + match$10[2]
+                                                  children: match$11[1],
+                                                  className: "text-[11px] " + match$11[2]
                                                 })
                                           ],
                                           className: "px-3 py-2.5"
@@ -898,6 +924,7 @@ function PkRSVPSection(props) {
                                                   maxRating: maxRating$1,
                                                   eventId: eventData.id,
                                                   isAdmin: eventData.viewerIsAdmin,
+                                                  chargesEnabled: eventData.chargesEnabled,
                                                   isHost: isHost,
                                                   showRating: isCompetitive,
                                                   connectionKey: "PkRSVPSection_event_rsvps"
@@ -957,6 +984,7 @@ function PkRSVPSection(props) {
                                                   maxRating: maxRating$1,
                                                   eventId: eventData.id,
                                                   isAdmin: eventData.viewerIsAdmin,
+                                                  chargesEnabled: eventData.chargesEnabled,
                                                   waitlistPosition: i + 1 | 0,
                                                   showRating: isCompetitive,
                                                   connectionKey: "PkRSVPSection_event_rsvps"
@@ -1102,6 +1130,7 @@ function PkRSVPSection(props) {
                                             maxRating: maxRating$1,
                                             eventId: eventData.id,
                                             isAdmin: eventData.viewerIsAdmin,
+                                            chargesEnabled: eventData.chargesEnabled,
                                             isPending: true,
                                             showRating: isCompetitive,
                                             connectionKey: "PkRSVPSection_event_rsvps"
@@ -1174,6 +1203,7 @@ function PkRSVPSection(props) {
                                               maxRating: maxRating$1,
                                               eventId: eventData.id,
                                               isAdmin: eventData.viewerIsAdmin,
+                                              chargesEnabled: eventData.chargesEnabled,
                                               isInvited: true,
                                               showRating: isCompetitive,
                                               connectionKey: "PkRSVPSection_event_rsvps"

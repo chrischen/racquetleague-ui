@@ -20,6 +20,9 @@ module Fragment = %relay(`
     location: { type: "LocationInput" }
     locationId: { type: "ID", defaultValue: "" }
     byLocation: { type: "Boolean", defaultValue: false }
+    # A club's schedule scopes the player list to the club's active members
+    # (answered only for members); absent, the list is location-scoped.
+    clubSlug: { type: "String" }
   )
   {
     viewer {
@@ -51,7 +54,7 @@ module Fragment = %relay(`
       fromDate: $fromDate
       toDate: $toDate
       location: $location
-      scope: {activityId: $activityId}
+      scope: {activityId: $activityId, clubSlug: $clubSlug}
     ) {
       id
       localDate
@@ -217,9 +220,13 @@ let make = (
   ~activityId: string,
   ~onRefetchNeeded: unit => unit,
   ~isLoggedIn: bool,
-  ~onCreateEvent: unit => unit,
+  ~onCreateEvent: TimeWindow.playIntent => unit,
   ~renderHeader: React.element => React.element,
   ~requireProfile: (unit => unit) => unit=action => action(),
+  ~triggerLabel: option<string>=?,
+  ~triggerIcon: option<React.element>=?,
+  ~clubSlug: option<string>=?,
+  ~hostOptions: option<React.element>=?,
 ) => {
   let viewerUserId = data.viewer->Option.flatMap(v => v.user)->Option.map(u => u.id)
 
@@ -307,5 +314,9 @@ let make = (
     onCreateEvent
     renderHeader
     requireProfile
+    ?triggerLabel
+    ?triggerIcon
+    ?clubSlug
+    ?hostOptions
   />
 }

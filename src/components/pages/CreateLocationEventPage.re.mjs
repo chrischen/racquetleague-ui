@@ -56,7 +56,7 @@ function CreateLocationEventPage(props) {
                   return Core__Option.getOr(Core__Option.map(query.location, (function ($$location) {
                                     return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                                 children: Caml_option.some(JsxRuntime.jsx(CreateLocationEventForm.make, {
-                                                          location: $$location.fragmentRefs
+                                                          location: Caml_option.some($$location.fragmentRefs)
                                                         }))
                                               });
                                   })), t`location doesn't exist.`);

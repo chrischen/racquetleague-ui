@@ -220,6 +220,10 @@ function PkEventsAvailabilityDay(props) {
                 }),
               onCreateEvent: props.onCreateEvent,
               renderHeader: props.renderHeader,
+              triggerLabel: props.triggerLabel,
+              triggerIcon: props.triggerIcon,
+              clubSlug: props.clubSlug,
+              hostOptions: props.hostOptions,
               isLoggedIn: props.isLoggedIn,
               requireProfile: requireProfile
             });

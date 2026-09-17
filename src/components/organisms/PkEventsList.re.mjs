@@ -18,6 +18,7 @@ import * as DrawerContext from "../shared/DrawerContext.re.mjs";
 import * as PkEventDrawer from "./PkEventDrawer.re.mjs";
 import * as EventsListView from "../shared/EventsListView.re.mjs";
 import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
+import * as CreateEventLink from "../shared/CreateEventLink.re.mjs";
 import * as EventsListUtils from "../shared/EventsListUtils.re.mjs";
 import * as PkEventsDayFeed from "./PkEventsDayFeed.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -138,6 +139,7 @@ function PkEventsList$Day(props) {
   var d = (date.getDate() | 0).toString().padStart(2, "0");
   var isoDate = y + "-" + m + "-" + d;
   var navigate = LangProvider.Router.useNavigate();
+  var createHref = CreateEventLink.useHref();
   var match = React.useState(function () {
         return false;
       });
@@ -260,8 +262,21 @@ function PkEventsList$Day(props) {
                                       activityId: Core__Option.getOr(activityId, defaultActivityId),
                                       onRefetchNeeded: onAvailabilityRefetchNeeded,
                                       isLoggedIn: isLoggedIn,
-                                      onCreateEvent: (function () {
-                                          navigate("/events/create?date=" + isoDate, undefined);
+                                      onCreateEvent: (function (intent) {
+                                          navigate(createHref([
+                                                    [
+                                                      "date",
+                                                      isoDate
+                                                    ],
+                                                    [
+                                                      "startHour",
+                                                      intent.start.toString()
+                                                    ],
+                                                    [
+                                                      "endHour",
+                                                      intent.end.toString()
+                                                    ]
+                                                  ]), undefined);
                                         }),
                                       renderHeader: renderHeader,
                                       requireProfile: requireProfile
@@ -395,7 +410,7 @@ function PkEventsList(props) {
   var bucketSetup = EventsListUtils.makeBucketSetup();
   var intl = ReactIntl.useIntl();
   var onAvailabilityRefetchNeeded = function () {
-    availabilityRefetch(PkEventsAvailabilityDay.Fragment.makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined), "store-and-network", undefined);
+    availabilityRefetch(PkEventsAvailabilityDay.Fragment.makeRefetchVariables(undefined, undefined, undefined, undefined, undefined, undefined, undefined), "store-and-network", undefined);
   };
   var formatDate = function (date) {
     return intl.formatDate(date, {

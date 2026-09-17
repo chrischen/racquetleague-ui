@@ -13,16 +13,16 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/ClubMembersPage.re.mjs:274
+#: src/components/pages/ClubMembersPage.re.mjs:320
 msgid "Admin"
 msgstr "Quản trị viên"
 
-#: src/components/pages/ClubMembersPage.re.mjs:198
+#: src/components/pages/ClubMembersPage.re.mjs:222
 msgid "Approve"
 msgstr "Chấp thuận"
 
-#: src/components/pages/ClubMembersPage.re.mjs:209
-#: src/components/pages/ClubMembersPage.re.mjs:232
+#: src/components/pages/ClubMembersPage.re.mjs:233
+#: src/components/pages/ClubMembersPage.re.mjs:270
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "Bạn có chắc muốn xóa {0} khỏi câu lạc bộ không?"
 
@@ -30,7 +30,7 @@ msgstr "Bạn có chắc muốn xóa {0} khỏi câu lạc bộ không?"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/pages/ClubMembersPage.re.mjs:478
+#: src/components/pages/ClubMembersPage.re.mjs:552
 msgid "club not found"
 msgstr "không tìm thấy câu lạc bộ"
 
@@ -38,33 +38,41 @@ msgstr "không tìm thấy câu lạc bộ"
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: src/components/pages/ClubMembersPage.re.mjs:470
+#: src/components/pages/ClubMembersPage.re.mjs:544
 msgid "Loading members..."
 msgstr "Đang tải thành viên..."
 
-#: src/components/pages/ClubMembersPage.re.mjs:458
+#: src/components/pages/ClubMembersPage.re.mjs:257
+msgid "Make admin"
+msgstr "Đặt làm quản trị viên"
+
+#: src/components/pages/ClubMembersPage.re.mjs:531
 msgid "Members"
 msgstr "Thành viên"
 
-#: src/components/pages/ClubMembersPage.re.mjs:407
+#: src/components/pages/ClubMembersPage.re.mjs:477
 msgid "No members found"
 msgstr "Không tìm thấy thành viên"
 
-#: src/components/pages/ClubMembersPage.re.mjs:270
+#: src/components/pages/ClubMembersPage.re.mjs:316
 msgid "Owner"
 msgstr "Chủ sở hữu"
 
-#: src/components/pages/ClubMembersPage.re.mjs:191
-#: src/components/pages/ClubMembersPage.re.mjs:382
+#: src/components/pages/ClubMembersPage.re.mjs:215
+#: src/components/pages/ClubMembersPage.re.mjs:452
 msgid "Pending"
 msgstr "Đang chờ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:206
-#: src/components/pages/ClubMembersPage.re.mjs:229
+#: src/components/pages/ClubMembersPage.re.mjs:230
+#: src/components/pages/ClubMembersPage.re.mjs:267
 msgid "Remove"
 msgstr "Xóa"
 
-#: src/components/pages/ClubMembersPage.re.mjs:208
-#: src/components/pages/ClubMembersPage.re.mjs:231
+#: src/components/pages/ClubMembersPage.re.mjs:250
+msgid "Remove admin"
+msgstr "Gỡ quyền quản trị viên"
+
+#: src/components/pages/ClubMembersPage.re.mjs:232
+#: src/components/pages/ClubMembersPage.re.mjs:269
 msgid "Remove member?"
 msgstr "Xóa thành viên?"

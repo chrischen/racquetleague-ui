@@ -13,7 +13,6 @@ let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
 @react.component
 let make = (
   ~context: AIAssistantModal.context={},
-  ~createBasePath: option<string>=?,
   ~viewer: RescriptRelay.fragmentRefs<[> #AddEventButton_viewer]>,
   ~gateQuery: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
 ) => {
@@ -21,35 +20,22 @@ let make = (
   let viewerData = ViewerFragment.use(viewer)
   let isLoggedIn = viewerData.user->Option.isSome
   let navigate = Router.useNavigate()
+  let createHref = CreateEventLink.useHref()
   let profileGate = UseProfileGate.use(~query=gateQuery, ~context=ProfileModal.Availability)
 
   let (showModal, setShowModal) = React.useState(() => false)
   let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
   let env = RescriptRelay.useEnvironmentFromContext()
 
-  let buildCreateUrl = (
-    ~localDate: option<string>=?,
-    ~startHour: option<int>=?,
-    ~_unused: unit=(),
-    (),
-  ) => {
-    let searchParamsObj = Js.Dict.empty()
-    context.clubId
-    ->Option.map(clubId => searchParamsObj->Js.Dict.set("clubId", clubId))
-    ->ignore
-    context.locationId
-    ->Option.map(locationId => searchParamsObj->Js.Dict.set("locationId", locationId))
-    ->ignore
-    context.activitySlug
-    ->Option.map(activitySlug => searchParamsObj->Js.Dict.set("activitySlug", activitySlug))
-    ->ignore
-    localDate->Option.map(d => searchParamsObj->Js.Dict.set("date", d))->ignore
-    startHour
-    ->Option.map(h => searchParamsObj->Js.Dict.set("startHour", h->Int.toString))
-    ->ignore
-    let base = createBasePath->Option.getOr("/events/create")
-    base ++ "?" ++ Router.createSearchParams(searchParamsObj)->Router.SearchParams.toString
+  // The context (club, venue, activity) rides along as the form's prefill.
+  let contextParams = () => {
+    let params = []
+    context.clubId->Option.forEach(v => params->Array.push(("clubId", v)))
+    context.locationId->Option.forEach(v => params->Array.push(("locationId", v)))
+    context.activitySlug->Option.forEach(v => params->Array.push(("activitySlug", v)))
+    params
   }
+  let buildCreateUrl = () => createHref(contextParams())
 
   let handleButtonClick = _ => {
     if isLoggedIn {
@@ -88,23 +74,17 @@ let make = (
     )
   }
 
-  let handleCreateEvent = (localDate: string, intent: TimeWindow.playIntent) => {
-    let searchParamsObj = Js.Dict.empty()
-    context.clubId->Option.map(clubId => searchParamsObj->Js.Dict.set("clubId", clubId))->ignore
-    context.locationId
-    ->Option.map(locationId => searchParamsObj->Js.Dict.set("locationId", locationId))
-    ->ignore
-    context.activitySlug
-    ->Option.map(activitySlug => searchParamsObj->Js.Dict.set("activitySlug", activitySlug))
-    ->ignore
-    searchParamsObj->Js.Dict.set("date", localDate)
-    searchParamsObj->Js.Dict.set("startHour", intent.start->Float.toInt->Int.toString)
-    searchParamsObj->Js.Dict.set("endHour", intent.end->Float.toInt->Int.toString)
-    let base = createBasePath->Option.getOr("/events/create")
-    let url =
-      base ++ "?" ++ Router.createSearchParams(searchParamsObj)->Router.SearchParams.toString
-    navigate(url, None)
-  }
+  let handleCreateEvent = (localDate: string, intent: TimeWindow.playIntent) =>
+    navigate(
+      createHref(
+        contextParams()->Array.concat([
+          ("date", localDate),
+          ("startHour", intent.start->Float.toString),
+          ("endHour", intent.end->Float.toString),
+        ]),
+      ),
+      None,
+    )
 
   <WaitForMessages>
     {_ => <>

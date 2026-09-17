@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "（退出登录）"
 
-#: src/components/organisms/Nav.re.mjs:115
+#: src/components/organisms/Nav.re.mjs:117
 msgid "Add Event"
 msgstr "添加赛事"
 
@@ -30,6 +30,6 @@ msgstr "版权所有 网球联盟贡献者"
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/organisms/Nav.re.mjs:98
+#: src/components/organisms/Nav.re.mjs:100
 msgid "racquet league"
 msgstr "网球联盟"

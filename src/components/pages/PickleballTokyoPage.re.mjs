@@ -2,6 +2,7 @@
 
 import * as Button from "../catalyst/Button.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as CreateEventLink from "../shared/CreateEventLink.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
@@ -9,6 +10,7 @@ import { t } from '@lingui/macro'
 ;
 
 function PickleballTokyoPage(props) {
+  var createHref = CreateEventLink.useHref();
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return JsxRuntime.jsx("div", {
@@ -57,7 +59,10 @@ function PickleballTokyoPage(props) {
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
                                                                     JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                          to: "/events/create/Location_504589b2-9827-11ef-ac7c-43e61917aa71",
+                                                                          to: createHref([[
+                                                                                  "locationId",
+                                                                                  "Location_504589b2-9827-11ef-ac7c-43e61917aa71"
+                                                                                ]]),
                                                                           children: JsxRuntime.jsx(Button.Button.make, {
                                                                                 children: t`Create an Event at KPI Park`,
                                                                                 target: "_blank",
@@ -86,7 +91,10 @@ function PickleballTokyoPage(props) {
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
                                                                     JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                          to: "/events/create/Location_a5fdf9fc-8152-11ef-8bf7-fb8fc45779c3",
+                                                                          to: createHref([[
+                                                                                  "locationId",
+                                                                                  "Location_a5fdf9fc-8152-11ef-8bf7-fb8fc45779c3"
+                                                                                ]]),
                                                                           children: JsxRuntime.jsx(Button.Button.make, {
                                                                                 children: t`Create an Event at Pacific Pickle Club`,
                                                                                 target: "_blank",
@@ -115,7 +123,10 @@ function PickleballTokyoPage(props) {
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
                                                                     JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                          to: "/events/create/Location_c90c6b20-5ae8-11f0-932c-f75ab31d2681",
+                                                                          to: createHref([[
+                                                                                  "locationId",
+                                                                                  "Location_c90c6b20-5ae8-11f0-932c-f75ab31d2681"
+                                                                                ]]),
                                                                           children: JsxRuntime.jsx(Button.Button.make, {
                                                                                 children: t`Create an Event at Tokyo Tower Pickleball`,
                                                                                 target: "_blank",
@@ -144,7 +155,10 @@ function PickleballTokyoPage(props) {
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
                                                                     JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                          to: "/events/create/Location_efd6b790-c62e-11f0-8e63-731899f4b3a8",
+                                                                          to: createHref([[
+                                                                                  "locationId",
+                                                                                  "Location_efd6b790-c62e-11f0-8e63-731899f4b3a8"
+                                                                                ]]),
                                                                           children: JsxRuntime.jsx(Button.Button.make, {
                                                                                 children: t`Create an Event at Pickleball One`,
                                                                                 target: "_blank",
@@ -173,7 +187,10 @@ function PickleballTokyoPage(props) {
                                                             JsxRuntime.jsxs("div", {
                                                                   children: [
                                                                     JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                          to: "/events/create/Location_721dd0be-e90b-11ef-94f2-b7fe1b506e52",
+                                                                          to: createHref([[
+                                                                                  "locationId",
+                                                                                  "Location_721dd0be-e90b-11ef-94f2-b7fe1b506e52"
+                                                                                ]]),
                                                                           children: JsxRuntime.jsx(Button.Button.make, {
                                                                                 children: t`Create an Event at Hilton Tokyo Tennis Courts`,
                                                                                 target: "_blank",

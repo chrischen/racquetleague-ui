@@ -32,11 +32,27 @@ let make = (~payment) => {
   let {status, currency} = Fragment.use(payment)
   <WaitForMessages>
     {() =>
+      // The currency symbol says the spot is secured; its colour says whether
+      // money has moved. Neutral: 0 = legacy hold, 5 = card on file (nothing
+      // collected yet). Green: 1 = charged. Red: 3 = the organizer's charge
+      // was declined (the card is still on file).
       switch status {
-      | 0 | 1 =>
+      | 1 =>
         <span
-          title={status == 1 ? t`Payment captured` : t`Payment authorized`}
+          title={t`Payment charged`}
           className="text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none">
+          {getCurrencySymbol(currency)->React.string}
+        </span>
+      | 0 | 5 =>
+        <span
+          title={status == 5 ? t`Card on file` : t`Payment authorized`}
+          className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 leading-none">
+          {getCurrencySymbol(currency)->React.string}
+        </span>
+      | 3 =>
+        <span
+          title={t`Charge failed`}
+          className="text-[10px] font-semibold text-red-500 dark:text-red-400 leading-none">
           {getCurrencySymbol(currency)->React.string}
         </span>
       | _ => React.null

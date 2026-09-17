@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YxgkvU\":\"無法載入該地點\",\"ud55cp\":\"無法儲存該位置\",\"OL5eOg\":\"地點搜尋目前無法使用\",\"uFOTcQ\":\"搜尋場地或地址\"}");

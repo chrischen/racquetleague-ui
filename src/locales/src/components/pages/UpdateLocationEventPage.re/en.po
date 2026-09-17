@@ -91,6 +91,16 @@ msgstr ""
 #~ msgid "club"
 #~ msgstr ""
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr ""
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:325
 #~ msgid "date and start time"
 #~ msgstr ""
@@ -135,6 +145,10 @@ msgstr ""
 #~ msgid "location details"
 #~ msgstr ""
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr ""
+
 #: src/components/organisms/CreateClubForm.re.mjs:194
 #~ msgid "main activity"
 #~ msgstr ""
@@ -158,6 +172,10 @@ msgstr ""
 #: src/components/molecules/forms/Form.re.mjs:301
 #~ msgid "save"
 #~ msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr ""
 
 #: src/components/organisms/SelectClubStateful.re.mjs:83
 #~ msgid "select club"

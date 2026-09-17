@@ -12,12 +12,10 @@ module Types = {
   and fragment_club = {
     @live id: string,
   }
-  and fragment_owner = {
-    stripeChargesEnabled: option<bool>,
-  }
   type fragment = {
     activity: option<fragment_activity>,
     cancelDeadline: option<int>,
+    chargesEnabled: bool,
     club: option<fragment_club>,
     details: option<string>,
     endDate: option<Util.Datetime.t>,
@@ -25,7 +23,6 @@ module Types = {
     listed: option<bool>,
     maxRsvps: option<int>,
     minRating: option<float>,
-    owner: option<fragment_owner>,
     price: option<int>,
     smartRsvpThreshold: option<float>,
     startDate: option<Util.Datetime.t>,
@@ -208,19 +205,8 @@ return {
     {
       "alias": null,
       "args": null,
-      "concreteType": "User",
-      "kind": "LinkedField",
-      "name": "owner",
-      "plural": false,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "stripeChargesEnabled",
-          "storageKey": null
-        }
-      ],
+      "kind": "ScalarField",
+      "name": "chargesEnabled",
       "storageKey": null
     }
   ],

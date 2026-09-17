@@ -292,16 +292,28 @@ let hourLabel = (h: float): string => {
   hh->Int.toString->String.padStart(2, "0") ++ ":" ++ mm->Int.toString->String.padStart(2, "0")
 }
 
+// "HH:mm" wall-clock time for an hour value, wrapping 24 to "00:00" so the end
+// of a window that runs to midnight is still a valid time-of-day string.
+let hourToTime = (h: float): string => {
+  let minutes = mod(Js.Math.round(h *. 60.0)->Float.toInt, 24 * 60)
+  (minutes / 60)->Int.toString->String.padStart(2, "0") ++
+  ":" ++
+  mod(minutes, 60)->Int.toString->String.padStart(2, "0")
+}
+
+// Hour values are wall-clock hours of the day, not instants: they are built as
+// UTC and formatted in UTC so the label reads the same hour on every machine,
+// whatever zone the IntlProvider (data.timezone) or the browser is in.
 // Locale-aware time-of-day label, mirroring TimeRangeChip so court times read
 // the same as the user's own availability chips (e.g. "7 PM" / "19:00" / "19時"
 // per locale). Minutes are shown only when the value isn't a whole hour.
 let hourLabelIntl = (intl: ReactIntl.Intl.t, h: float): string => {
   let minutes = (h -. Js.Math.floor_float(h)) *. 60.0
   intl->ReactIntl.Intl.formatTimeWithOptions(
-    Js.Date.makeWithYMDHMS(~year=2000., ~month=0., ~date=1., ~hours=h, ~minutes, ~seconds=0., ()),
+    Js.Date.utcWithYMDHM(~year=2000., ~month=0., ~date=1., ~hours=h, ~minutes=minutes, ())->Js.Date.fromFloat,
     minutes == 0.0
-      ? ReactIntl.dateTimeFormatOptions(~hour=#numeric, ())
-      : ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~minute=#"2-digit", ()),
+      ? ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~timeZone="UTC", ())
+      : ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~minute=#"2-digit", ~timeZone="UTC", ()),
   )
 }
 

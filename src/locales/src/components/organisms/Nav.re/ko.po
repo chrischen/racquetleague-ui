@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(로그아웃)"
 
-#: src/components/organisms/Nav.re.mjs:115
+#: src/components/organisms/Nav.re.mjs:117
 msgid "Add Event"
 msgstr "이벤트 추가"
 
@@ -26,6 +26,6 @@ msgstr "이벤트 추가"
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
-#: src/components/organisms/Nav.re.mjs:98
+#: src/components/organisms/Nav.re.mjs:100
 msgid "racquet league"
 msgstr "라켓 리그"

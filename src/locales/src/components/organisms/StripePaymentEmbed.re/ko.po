@@ -1,0 +1,77 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-16 23:42+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:99
+msgid "Cancel"
+msgstr "취소"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+msgid "Complete payment"
+msgstr "결제 완료"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+msgid "Could not save your card"
+msgstr "카드를 저장하지 못했습니다"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+msgid "Pay now"
+msgstr "지금 결제"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+msgid "Payment failed"
+msgstr "결제 실패"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:86
+msgid "Processing…"
+msgstr "처리 중…"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+msgid "Save card"
+msgstr "카드 저장"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+msgid "Save your card"
+msgstr "카드 저장하기"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge {amountLabel} "
+"later."
+msgstr ""
+"카드는 지금 저장되며, 결제되지 않습니다. 주최자가 나중에 {amountLabel}을 청구"
+"합니다."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge the "
+"participation fee later."
+msgstr ""
+"카드는 지금 저장되며, 결제되지 않습니다. 주최자가 나중에 참가비를 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid ""
+#~ "Your card is saved now, not charged. The organizer will charge "
+#~ "{amountLabel} after the event."
+#~ msgstr ""
+#~ "카드는 지금 저장만 되고 결제되지 않습니다. 주최자가 행사 후에 "
+#~ "{amountLabel}을(를) 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid ""
+#~ "Your card is saved now, not charged. The organizer will charge the "
+#~ "participation fee after the event."
+#~ msgstr ""
+#~ "카드는 지금 저장만 되고 결제되지 않습니다. 주최자가 행사 후에 참가비를 청"
+#~ "구합니다."

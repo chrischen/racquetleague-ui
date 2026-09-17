@@ -22,11 +22,11 @@ msgstr "+{0} 人"
 msgid "Add Member"
 msgstr "添加成员"
 
-#: src/components/organisms/RsvpOptions.re.mjs:164
+#: src/components/organisms/RsvpOptions.re.mjs:187
 msgid "Approve RSVP"
 msgstr "批准报名"
 
-#: src/components/organisms/RsvpOptions.re.mjs:253
+#: src/components/organisms/RsvpOptions.re.mjs:331
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
@@ -34,9 +34,13 @@ msgstr "您确定要将这个人从活动中移除吗？"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/RsvpOptions.re.mjs:198
+#: src/components/organisms/RsvpOptions.re.mjs:219
 msgid "Capture payment"
 msgstr "收取付款"
+
+#: src/components/organisms/RsvpOptions.re.mjs:240
+msgid "Charge payment"
+msgstr "收取款项"
 
 #: src/components/organisms/RSVPSection.re.mjs:325
 msgid "Clear preview"
@@ -78,8 +82,8 @@ msgstr "加载中..."
 msgid "Login to Join"
 msgstr "登录加入"
 
-#: src/components/organisms/RsvpOptions.re.mjs:174
-#: src/components/organisms/RsvpOptions.re.mjs:268
+#: src/components/organisms/RsvpOptions.re.mjs:197
+#: src/components/organisms/RsvpOptions.re.mjs:346
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
@@ -116,21 +120,25 @@ msgstr "预览智能报名"
 msgid "Previewing…"
 msgstr "预览中…"
 
-#: src/components/organisms/RsvpOptions.re.mjs:190
+#: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr "退款"
 
-#: src/components/organisms/RsvpOptions.re.mjs:212
+#: src/components/organisms/RsvpOptions.re.mjs:286
 msgid "Remove from event"
 msgstr "从活动中移除"
 
-#: src/components/organisms/RsvpOptions.re.mjs:252
+#: src/components/organisms/RsvpOptions.re.mjs:330
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
 #: src/components/organisms/RSVPSection.re.mjs:664
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "最低评分要求：{0}（DUPR {1}）"
+
+#: src/components/organisms/RsvpOptions.re.mjs:227
+msgid "Retry charge"
+msgstr "重试扣款"
 
 #: src/components/organisms/RSVPSection.re.mjs:787
 #: src/components/organisms/RSVPSection.re.mjs:826
@@ -186,7 +194,7 @@ msgstr ""
 "这个活动已满，所以退出活动将把您的位置给等待列表中的人。如果您再次加入，您将"
 "加入等待列表。您确定要退出这个活动吗？"
 
-#: src/components/organisms/RsvpOptions.re.mjs:269
+#: src/components/organisms/RsvpOptions.re.mjs:347
 msgid ""
 "This user will be removed from the Going/Waitlist. Their position will be "
 "lost if you move them back in. Are you sure you want to restrict their RSVP?"
@@ -200,7 +208,7 @@ msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 
-#: src/components/organisms/RsvpOptions.re.mjs:239
+#: src/components/organisms/RsvpOptions.re.mjs:313
 msgid "View Profile"
 msgstr "查看资料"
 

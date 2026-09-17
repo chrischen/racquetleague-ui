@@ -127,6 +127,7 @@ module Day = {
       y ++ "-" ++ m ++ "-" ++ d
     }
     let navigate = LangProvider.Router.useNavigate()
+    let createHref = CreateEventLink.useHref()
     let (showShadow, setShowShadow) = React.useState(() => false)
     let {pathname} = Router.useLocation()
     let intl = ReactIntl.useIntl()
@@ -244,7 +245,15 @@ module Day = {
             activityId={activityId->Option.getOr(defaultActivityId)}
             onRefetchNeeded=onAvailabilityRefetchNeeded
             isLoggedIn
-            onCreateEvent={() => navigate("/events/create?date=" ++ isoDate, None)}
+            onCreateEvent={intent =>
+              navigate(
+                createHref([
+                  ("date", isoDate),
+                  ("startHour", intent.start->Float.toString),
+                  ("endHour", intent.end->Float.toString),
+                ]),
+                None,
+              )}
             renderHeader
             requireProfile
           />
@@ -568,7 +577,7 @@ let make = (
             resolvedCoords
             resolvedRegion=resolved.region
             eventFilters={
-              LocationFilter.showOpenOnly,
+              EventFiltersToolbar.showOpenOnly,
               onShowOpenOnlyChange,
               minimumLevel,
               onMinimumLevelChange,

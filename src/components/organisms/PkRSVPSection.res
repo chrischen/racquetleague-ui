@@ -10,6 +10,8 @@ module Fragment = %relay(`
     timezone
     maxRsvps
     price
+    # Whether the event's payment account can collect: gates the charge actions.
+    chargesEnabled
     minRating
     smartRsvpThreshold
     viewerIsAdmin
@@ -151,12 +153,16 @@ module PkRSVPSectionAddUserMutation = %relay(`
   }
 `)
 
+// Charges every card saved for a going-list RSVP. Returns every payment it
+// touched — charged, or declined and now status 3 — with one error per
+// declined charge.
 module PkRSVPSectionCaptureAllPaymentsMutation = %relay(`
   mutation PkRSVPSectionCaptureAllPaymentsMutation($eventId: ID!) {
     captureEventRsvpPayments(eventId: $eventId) {
       payments {
         id
         status
+        chargeable
       }
       errors {
         message
@@ -201,6 +207,20 @@ let make = (
   let (isPreviewingSmartRsvps, setIsPreviewingSmartRsvps) = React.useState(() => false)
   let (commitMutationAddUser, _addUserInFlight) = PkRSVPSectionAddUserMutation.use()
   let (commitCaptureAll, isCaptureAllInFlight) = PkRSVPSectionCaptureAllPaymentsMutation.use()
+  // What the last "charge all" could not collect, one line per declined card.
+  let (chargeErrors, setChargeErrors) = React.useState(() => [])
+  let onChargeAll = () => {
+    setChargeErrors(_ => [])
+    commitCaptureAll(
+      ~variables={eventId: eventData.id},
+      ~onCompleted=(response, _) =>
+        setChargeErrors(_ =>
+          response.captureEventRsvpPayments.errors
+          ->Option.getOr([])
+          ->Array.map(e => e.message)
+        ),
+    )->RescriptRelay.Disposable.ignore
+  }
 
   let handleAddUser = (user: AutocompleteUser.user) => {
     let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
@@ -502,15 +522,12 @@ let make = (
               <Lucide.UserPlus className="w-3 h-3" />
             </button>
           : React.null}
-        {eventData.viewerIsAdmin
+        {eventData.viewerIsAdmin && eventData.chargesEnabled
           ? <button
-              onClick={_ =>
-                commitCaptureAll(
-                  ~variables={eventId: eventData.id},
-                )->RescriptRelay.Disposable.ignore}
+              onClick={_ => onChargeAll()}
               disabled={isCaptureAllInFlight}
               className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-[#3a3b40] text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors disabled:opacity-40"
-              title="Capture all payments">
+              title="Charge all payments">
               <Lucide.CreditCard className="w-3 h-3" />
             </button>
           : React.null}
@@ -526,6 +543,19 @@ let make = (
         ))->React.string}
       </span>
     </div>
+    {chargeErrors->Array.length > 0
+      ? <div className="mb-3 space-y-0.5">
+          {chargeErrors
+          ->Array.mapWithIndex((message, i) =>
+            <p
+              key={Int.toString(i)}
+              className="font-mono text-[11px] text-red-500 dark:text-red-400 leading-tight">
+              {message->React.string}
+            </p>
+          )
+          ->React.array}
+        </div>
+      : React.null}
     /* Add player autocomplete */
     <FramerMotion.AnimatePresence>
       {isAddingPlayer
@@ -697,6 +727,7 @@ let make = (
                 ?activitySlug
                 maxRating
                 isAdmin=eventData.viewerIsAdmin
+                chargesEnabled=eventData.chargesEnabled
                 isHost
                 showRating=isCompetitive
                 connectionKey="PkRSVPSection_event_rsvps"
@@ -742,6 +773,7 @@ let make = (
                 ?activitySlug
                 maxRating
                 isAdmin=eventData.viewerIsAdmin
+                chargesEnabled=eventData.chargesEnabled
                 waitlistPosition={i + 1}
                 showRating=isCompetitive
                 connectionKey="PkRSVPSection_event_rsvps"
@@ -849,6 +881,7 @@ let make = (
                   ?activitySlug
                   maxRating
                   isAdmin=eventData.viewerIsAdmin
+                chargesEnabled=eventData.chargesEnabled
                   isPending=true
                   showRating=isCompetitive
                   connectionKey="PkRSVPSection_event_rsvps"
@@ -912,6 +945,7 @@ let make = (
             ?activitySlug
             maxRating
             isAdmin=eventData.viewerIsAdmin
+                chargesEnabled=eventData.chargesEnabled
             isInvited=true
             showRating=isCompetitive
             connectionKey="PkRSVPSection_event_rsvps"

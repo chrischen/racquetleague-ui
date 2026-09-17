@@ -37,6 +37,7 @@ let make = (
   // stands for a bookable window ("how many courts can take the whole slot").
   ~countBasis: TimeWindow.courtCountBasis=#peak,
 ) => {
+  let createHref = CreateEventLink.useHref()
   let intl = ReactIntl.useIntl()
   let fmt = h => TimeWindow.hourLabelIntl(intl, h)
 
@@ -100,7 +101,7 @@ let make = (
       ctx.activityId->Option.forEach(id => params->Js.Dict.set("activityId", id))
       params->Js.Dict.set("startDateTime", ctx.localDate ++ "T" ++ TimeWindow.hourLabel(span.start))
       params->Js.Dict.set("endTime", TimeWindow.hourLabel(span.end))
-      "/events/create?" ++ Router.createSearchParams(params)->Router.SearchParams.toString
+      createHref(params->Js.Dict.entries)
     })
   )
 

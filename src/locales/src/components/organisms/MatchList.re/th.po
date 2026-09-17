@@ -13,14 +13,14 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchList.re.mjs:501
+#: src/components/organisms/MatchList.re.mjs:517
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
-#: src/components/organisms/MatchList.re.mjs:524
+#: src/components/organisms/MatchList.re.mjs:540
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
-#: src/components/organisms/MatchList.re.mjs:421
+#: src/components/organisms/MatchList.re.mjs:437
 msgid "Score:"
 msgstr "คะแนน:"

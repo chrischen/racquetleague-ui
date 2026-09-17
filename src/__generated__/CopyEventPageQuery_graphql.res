@@ -177,10 +177,6 @@ v8 = [
   (v3/*: any*/)
 ],
 v9 = [
-  (v4/*: any*/),
-  (v3/*: any*/)
-],
-v10 = [
   {
     "kind": "Literal",
     "name": "first",
@@ -389,11 +385,8 @@ return {
           {
             "alias": null,
             "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
-            "name": "owner",
-            "plural": false,
-            "selections": (v9/*: any*/),
+            "kind": "ScalarField",
+            "name": "chargesEnabled",
             "storageKey": null
           }
         ],
@@ -414,12 +407,15 @@ return {
             "kind": "LinkedField",
             "name": "user",
             "plural": false,
-            "selections": (v9/*: any*/),
+            "selections": [
+              (v4/*: any*/),
+              (v3/*: any*/)
+            ],
             "storageKey": null
           },
           {
             "alias": null,
-            "args": (v10/*: any*/),
+            "args": (v9/*: any*/),
             "concreteType": "ClubConnection",
             "kind": "LinkedField",
             "name": "adminClubs",
@@ -503,7 +499,7 @@ return {
           },
           {
             "alias": null,
-            "args": (v10/*: any*/),
+            "args": (v9/*: any*/),
             "filters": null,
             "handle": "connection",
             "key": "viewer_adminClubs",
@@ -538,12 +534,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "0a47c213079d6f49e4e80e50d1c1f939",
+    "cacheID": "e425a7b5d66507a0ea20acb1f9662ab5",
     "id": null,
     "metadata": {},
     "name": "CopyEventPageQuery",
     "operationKind": "query",
-    "text": "query CopyEventPageQuery(\n  $copyEventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $copyEventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  viewer {\n    user {\n      stripeChargesEnabled\n      id\n    }\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n  smartRsvpThreshold\n  owner {\n    stripeChargesEnabled\n    id\n  }\n}\n"
+    "text": "query CopyEventPageQuery(\n  $copyEventId: ID!\n  $locationId: ID!\n) {\n  location(id: $locationId) {\n    ...CreateLocationEventForm_location\n    id\n  }\n  event(id: $copyEventId) {\n    id\n    ...UpdateLocationEventForm_event\n  }\n  viewer {\n    user {\n      stripeChargesEnabled\n      id\n    }\n  }\n  ...ClubActivitySelector_query\n}\n\nfragment ClubActivitySelector_query on Query {\n  activities {\n    id\n    name\n    slug\n  }\n  ...CreateClubForm_activities\n  viewer {\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n          name\n          defaultActivity {\n            id\n          }\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment CreateClubForm_activities on Query {\n  activities {\n    id\n    name\n    slug\n  }\n}\n\nfragment CreateLocationEventForm_location on Location {\n  id\n  name\n  details\n}\n\nfragment UpdateLocationEventForm_event on Event {\n  id\n  title\n  details\n  maxRsvps\n  minRating\n  activity {\n    id\n    name\n    slug\n  }\n  club {\n    id\n  }\n  startDate\n  endDate\n  listed\n  timezone\n  tags\n  price\n  cancelDeadline\n  smartRsvpThreshold\n  chargesEnabled\n}\n"
   }
 };
 })() `)

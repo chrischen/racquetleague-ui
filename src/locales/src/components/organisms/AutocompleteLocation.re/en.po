@@ -17,6 +17,24 @@ msgstr ""
 #~ msgid "choose the location where this event will be held."
 #~ msgstr ""
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr ""
+
 #: src/components/organisms/AutocompleteLocation.re.mjs:75
 #~ msgid "event location"
 #~ msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr ""
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr ""

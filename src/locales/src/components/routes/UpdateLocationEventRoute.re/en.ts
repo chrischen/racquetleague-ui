@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YxgkvU\":\"Could not load that place\",\"ud55cp\":\"Could not save that location\",\"OL5eOg\":\"Location search is unavailable right now\",\"uFOTcQ\":\"Search for a venue or address\"}");

@@ -114,6 +114,16 @@ module Trophy = {
   ) => React.element = "Trophy"
 }
 
+module Building2 = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Building2"
+}
+
 module Building = {
   @module("lucide-react") @react.component
   external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Building"
@@ -517,12 +527,12 @@ module Activity = {
 
 module FileText = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "FileText"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element = "FileText"
 }
 
 module Dumbbell = {
   @module("lucide-react") @react.component
-  external make: (~className: string=?, ~\"aria-hidden": string=?) => React.element = "Dumbbell"
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element = "Dumbbell"
 }
 
 module Swords = {
@@ -568,6 +578,16 @@ module Crosshair = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "Crosshair"
+}
+
+module ArrowUp = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "ArrowUp"
 }
 
 module ArrowLeft = {
@@ -738,4 +758,14 @@ module UserMinus = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
     "UserMinus"
+}
+
+module CircleDollarSign = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "CircleDollarSign"
 }

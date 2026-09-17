@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-16 23:42+0800\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:99
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+msgid "Complete payment"
+msgstr "Hoàn tất thanh toán"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+msgid "Could not save your card"
+msgstr "Không thể lưu thẻ của bạn"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+msgid "Pay now"
+msgstr "Thanh toán ngay"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+msgid "Payment failed"
+msgstr "Thanh toán thất bại"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:86
+msgid "Processing…"
+msgstr "Đang xử lý…"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+msgid "Save card"
+msgstr "Lưu thẻ"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+msgid "Save your card"
+msgstr "Lưu thẻ của bạn"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge {amountLabel} "
+"later."
+msgstr ""
+"Thẻ của bạn được lưu ngay bây giờ, chưa bị trừ tiền. Người tổ chức sẽ thu "
+"{amountLabel} sau."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid ""
+"Your card is saved now, not charged. The organizer will charge the "
+"participation fee later."
+msgstr ""
+"Thẻ của bạn được lưu ngay bây giờ, chưa bị trừ tiền. Người tổ chức sẽ thu "
+"phí tham gia sau."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid ""
+#~ "Your card is saved now, not charged. The organizer will charge "
+#~ "{amountLabel} after the event."
+#~ msgstr ""
+#~ "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền. Người tổ chức sẽ thu "
+#~ "{amountLabel}sau sự kiện."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#~ msgid ""
+#~ "Your card is saved now, not charged. The organizer will charge the "
+#~ "participation fee after the event."
+#~ msgstr ""
+#~ "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền. Người tổ chức sẽ thu phí tham "
+#~ "gia sau sự kiện."

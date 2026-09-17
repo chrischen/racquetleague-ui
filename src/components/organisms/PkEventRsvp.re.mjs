@@ -44,11 +44,13 @@ function PkEventRsvp(props) {
   var __isPending = props.isPending;
   var waitlistPosition = props.waitlistPosition;
   var __isHost = props.isHost;
+  var __chargesEnabled = props.chargesEnabled;
   var __isAdmin = props.isAdmin;
   var eventId = props.eventId;
   var maxRating = props.maxRating;
   var activitySlug = props.activitySlug;
   var isAdmin = __isAdmin !== undefined ? __isAdmin : false;
+  var chargesEnabled = __chargesEnabled !== undefined ? __chargesEnabled : false;
   var isHost = __isHost !== undefined ? __isHost : false;
   var isPending = __isPending !== undefined ? __isPending : false;
   var isInvited = __isInvited !== undefined ? __isInvited : false;
@@ -94,6 +96,7 @@ function PkEventRsvp(props) {
                                   eventId: eventId,
                                   eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
                                   isAdmin: isAdmin,
+                                  chargesEnabled: chargesEnabled,
                                   connectionKey: connectionKey,
                                   triggerClassName: "relative flex items-center gap-2 pl-0.5 pr-2 py-1 rounded-md cursor-pointer hover:bg-gray-50 dark:hover:bg-[#26272b] transition-all text-left w-full",
                                   children: [
@@ -137,6 +140,7 @@ function PkEventRsvp(props) {
                                 eventId: eventId,
                                 eventActivitySlug: Core__Option.getOr(activitySlug, "badminton"),
                                 isAdmin: isAdmin,
+                                chargesEnabled: chargesEnabled,
                                 connectionKey: connectionKey,
                                 triggerClassName: "relative inline-flex items-center gap-1.5 pl-0.5 pr-2 py-0.5 rounded-full cursor-pointer transition-colors " + (
                                   isInvited ? "border border-violet-200 dark:border-violet-800/60 bg-violet-50 dark:bg-violet-950/20 hover:bg-violet-100 dark:hover:bg-violet-900/30" : (

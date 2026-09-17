@@ -33,11 +33,11 @@ msgstr ""
 msgid "2 · Time"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr ""
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgstr ""
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr ""
 
@@ -132,11 +132,11 @@ msgstr ""
 msgid "Gender"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Male"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr ""
 
@@ -200,11 +200,11 @@ msgstr ""
 msgid "Pro"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr ""
 msgid "Save profile"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr ""
 
@@ -224,11 +224,11 @@ msgstr ""
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid "Tell others you're down to play. Players with overlapping times can invite you."
 msgstr ""
 

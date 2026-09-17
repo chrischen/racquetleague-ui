@@ -31,6 +31,8 @@ var Lock = {};
 
 var Trophy = {};
 
+var Building2 = {};
+
 var Building = {};
 
 var Settings = {};
@@ -171,6 +173,8 @@ var CalendarDays = {};
 
 var Crosshair = {};
 
+var ArrowUp = {};
+
 var ArrowLeft = {};
 
 var ArrowRight = {};
@@ -219,6 +223,8 @@ var Youtube = {};
 
 var UserMinus = {};
 
+var CircleDollarSign = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -235,6 +241,7 @@ export {
   QrCode ,
   Lock ,
   Trophy ,
+  Building2 ,
   Building ,
   Settings ,
   UserPlus ,
@@ -305,6 +312,7 @@ export {
   Globe ,
   CalendarDays ,
   Crosshair ,
+  ArrowUp ,
   ArrowLeft ,
   ArrowRight ,
   ArrowUpRight ,
@@ -329,5 +337,6 @@ export {
   Upload ,
   Youtube ,
   UserMinus ,
+  CircleDollarSign ,
 }
 /* No side effect */

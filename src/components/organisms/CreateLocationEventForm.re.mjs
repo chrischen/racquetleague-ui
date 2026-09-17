@@ -3,22 +3,27 @@
 import * as Zod from "zod";
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
-import * as Rating from "../../lib/Rating.re.mjs";
+import * as Js_math from "rescript/lib/es6/js_math.js";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as DateFns from "date-fns";
 import * as Core__Int from "@rescript/core/src/Core__Int.re.mjs";
-import * as ReactIntl from "react-intl";
+import * as EventTags from "../shared/EventTags.re.mjs";
+import * as TimeWindow from "../molecules/TimeWindow.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
+import * as LevelTagPills from "../atoms/LevelTagPills.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
+import * as ClockRangePicker from "../molecules/ClockRangePicker.re.mjs";
+import * as TimeWindowPicker from "../molecules/TimeWindowPicker.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as AutocompleteLocation from "./AutocompleteLocation.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -55,8 +60,8 @@ var use$1 = RescriptRelay_Mutation.useMutation(convertVariables$1, CreateLocatio
 
 var convertFragment = CreateLocationEventForm_location_graphql.Internal.convertFragment;
 
-function use$2(fRef) {
-  return RescriptRelay_Fragment.useFragment(CreateLocationEventForm_location_graphql.node, convertFragment, fRef);
+function useOpt(fRef) {
+  return RescriptRelay_Fragment.useFragmentOpt(fRef !== undefined ? Caml_option.some(Caml_option.valFromOption(fRef)) : undefined, CreateLocationEventForm_location_graphql.node, convertFragment);
 }
 
 var schema = Zod.z.object({
@@ -89,13 +94,138 @@ var schema = Zod.z.object({
             }), Zod.z.number({}).optional())
     });
 
-function calculateDurationHours(startDateTime, endDateTime) {
-  var diffInMillis = DateFns.getTime(endDateTime) - DateFns.getTime(startDateTime);
-  var durationHours = diffInMillis / (1000.0 * 60.0 * 60.0);
-  if (durationHours > 0.0) {
-    return durationHours;
+var labelClass = "mb-1.5 block text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400";
+
+var legendClass = "text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400";
+
+var fieldBaseClass = "box-border h-11 min-w-0 w-full max-w-full rounded-lg border bg-white px-3 text-sm text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#94c93a] focus:ring-2 focus:ring-[#bdf25d]/40 dark:bg-[#1e1f23] dark:text-gray-100";
+
+var fieldBorderClass = "border-gray-200 dark:border-[#3a3b40]";
+
+var fieldErrorBorderClass = "border-red-300 dark:border-red-700";
+
+var fieldClass = Core.cx(fieldBaseClass, fieldBorderClass);
+
+function fieldClassWithError(hasError) {
+  return Core.cx(fieldBaseClass, hasError ? fieldErrorBorderClass : fieldBorderClass);
+}
+
+var hintClass = "mt-1.5 block text-xs text-gray-500 dark:text-gray-400";
+
+var sectionClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]";
+
+var sectionBodyClass = "space-y-5 border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]";
+
+var sectionIconClass = "flex-shrink-0 text-gray-400";
+
+var checkboxClass = "mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]";
+
+var subsectionClass = "border-t border-gray-100 pt-4 dark:border-[#34353a]";
+
+function toggleClass(active) {
+  return Core.cx("h-11 rounded-lg border px-3 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]", active ? "border-[#94c93a] bg-[#bdf25d] text-black" : "border-gray-200 bg-white text-gray-600 hover:border-gray-400 dark:border-[#45464d] dark:bg-[#1e1f23] dark:text-gray-300");
+}
+
+function sectionHeader(icon, title, summary, expanded, controls, onToggle) {
+  return JsxRuntime.jsx("h3", {
+              children: JsxRuntime.jsxs("button", {
+                    children: [
+                      icon,
+                      JsxRuntime.jsxs("span", {
+                            children: [
+                              JsxRuntime.jsx("span", {
+                                    children: title,
+                                    className: "block text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                  }),
+                              JsxRuntime.jsx("span", {
+                                    children: summary,
+                                    className: "mt-0.5 block truncate text-xs text-gray-500 dark:text-gray-400"
+                                  })
+                            ],
+                            className: "min-w-0 flex-1"
+                          }),
+                      JsxRuntime.jsx(LucideReact.ChevronDown, {
+                            size: 17,
+                            className: Core.cx("flex-shrink-0 text-gray-400 transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]", expanded ? "rotate-180" : ""),
+                            "aria-hidden": "true"
+                          })
+                    ],
+                    "aria-expanded": expanded,
+                    "aria-controls": controls,
+                    className: "flex w-full items-center gap-3 rounded-xl px-4 py-3.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a]",
+                    type: "button",
+                    onClick: (function (param) {
+                        onToggle();
+                      })
+                  })
+            });
+}
+
+function errorText(message) {
+  if (message !== undefined) {
+    return JsxRuntime.jsx("p", {
+                children: message,
+                className: "mt-1.5 text-xs text-red-600 dark:text-red-400"
+              });
+  } else {
+    return null;
   }
-  
+}
+
+function splitStartDate(value) {
+  var date = value.slice(0, 10);
+  var time = value.slice(11, 16);
+  return [
+          date.length === 10 ? date : "",
+          time.length === 5 ? time : ""
+        ];
+}
+
+function joinStartDate(date, time) {
+  return date + "T" + time;
+}
+
+function endWallClockFor(startWallClock, endTime) {
+  var match = splitStartDate(startWallClock);
+  var date = match[0];
+  var endDate = ClockRangePicker.timeToMinutes(endTime) <= ClockRangePicker.timeToMinutes(match[1]) ? DateFns.format(DateFns.addDays(DateFns.parseISO(date), 1), "yyyy-MM-dd") : date;
+  return joinStartDate(endDate, endTime);
+}
+
+function formatWallTime(time) {
+  var minutes = ClockRangePicker.timeToMinutes(time);
+  var hour = minutes / 60 | 0;
+  var h = hour % 12;
+  var hour12 = h !== 0 ? h : 12;
+  var minute = (minutes % 60).toString().padStart(2, "0");
+  return hour12.toString() + ":" + minute + " " + (
+          hour < 12 ? "AM" : "PM"
+        );
+}
+
+function eventWindowConfigFor($$window) {
+  return {
+          hourMin: Math.min(6, Js_math.floor_int($$window.start)),
+          hourMax: 24,
+          snap: 0.25,
+          minDuration: 0.25,
+          defaultDuration: 2.0,
+          gridStep: 1.0
+        };
+}
+
+function hoursOfTime(time) {
+  return ClockRangePicker.timeToMinutes(time) / 60.0;
+}
+
+function eventWindowOf(startTime, endTime) {
+  var start = hoursOfTime(startTime);
+  var end = hoursOfTime(endTime);
+  return {
+          id: 0,
+          start: start,
+          end: Math.min(end <= start ? end + 24.0 : end, 24.0)
+        };
 }
 
 function CreateLocationEventForm(props) {
@@ -105,10 +235,12 @@ function CreateLocationEventForm(props) {
   var selectedClub = props.selectedClub;
   var prefilledValues = props.prefilledValues;
   var __stripeChargesEnabled = props.stripeChargesEnabled;
+  var autoSearchAddress = props.autoSearchAddress;
+  var onLocationSelected = props.onLocationSelected;
   var eventId = props.eventId;
   var stripeChargesEnabled = __stripeChargesEnabled !== undefined ? __stripeChargesEnabled : false;
   var isClubFormOpen = __isClubFormOpen !== undefined ? __isClubFormOpen : false;
-  var $$location = use$2(props.location);
+  var locationData = useOpt(props.location);
   var match = use();
   var commitMutationCreate = match[0];
   var match$1 = use$1();
@@ -126,6 +258,9 @@ function CreateLocationEventForm(props) {
         minRating: prefilledValues.minRating,
         startDate: Core__Option.getOr(prefilledValues.startDate, ""),
         endTime: Core__Option.getOr(prefilledValues.endDate, ""),
+        timezone: Core__Option.map(prefilledValues.timezone, (function (tz) {
+                return tz;
+              })),
         listed: Core__Option.getOr(prefilledValues.listed, false),
         price: prefilledValues.price,
         cancelDeadline: Core__Option.orElse(prefilledValues.cancelDeadline, newEventCancelDeadline)
@@ -167,60 +302,123 @@ function CreateLocationEventForm(props) {
   var startDate = watch("startDate");
   var endTime = watch("endTime");
   var title = watch("title");
+  var maxRsvps = watch("maxRsvps");
+  var startDateStr = startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean" || typeof startDate !== "string") ? startDate : "";
+  var endTimeStr = endTime !== undefined && !(!Array.isArray(endTime) && (endTime === null || typeof endTime !== "object") && typeof endTime !== "string" && typeof endTime !== "number" && typeof endTime !== "boolean" || typeof endTime !== "string") ? endTime : "";
+  var titleStr = title !== undefined && !(!Array.isArray(title) && (title === null || typeof title !== "object") && typeof title !== "string" && typeof title !== "number" && typeof title !== "boolean" || typeof title !== "string") ? title : "";
+  var maxRsvpsStr;
+  var exit = 0;
+  if (maxRsvps !== undefined && !(!Array.isArray(maxRsvps) && (maxRsvps === null || typeof maxRsvps !== "object") && typeof maxRsvps !== "string" && typeof maxRsvps !== "number" && typeof maxRsvps !== "boolean" || typeof maxRsvps !== "string")) {
+    maxRsvpsStr = maxRsvps;
+  } else {
+    exit = 1;
+  }
+  if (exit === 1) {
+    maxRsvpsStr = Core__Option.mapOr(Core__Option.flatMap(prefilledValues, (function (pf) {
+                return pf.maxRsvps;
+              })), "", (function (n) {
+            return n.toString();
+          }));
+  }
+  var match$5 = splitStartDate(startDateStr);
+  var startTimePart = match$5[1];
+  var datePart = match$5[0];
+  var clockStart = startTimePart !== "" ? startTimePart : "18:00";
+  var clockEnd = endTimeStr !== "" ? endTimeStr : "20:00";
+  var match$6 = watch("timezone");
+  var tz = match$6 !== undefined && !(!Array.isArray(match$6) && (match$6 === null || typeof match$6 !== "object") && typeof match$6 !== "string" && typeof match$6 !== "number" && typeof match$6 !== "boolean" || !(typeof match$6 === "string" && match$6 !== "")) ? match$6 : Util.Timezone.fallback;
+  var startWallClock = joinStartDate(datePart, clockStart);
+  var match$7 = React.useState(function () {
+        return false;
+      });
+  var setZonesReady = match$7[1];
+  var zonesReady = match$7[0];
+  var timezoneOptions = React.useMemo((function () {
+          var zones = zonesReady ? Util.Timezone.list() : [];
+          if (zones.includes(tz)) {
+            return zones;
+          } else {
+            return [tz].concat(zones);
+          }
+        }), [
+        zonesReady,
+        tz
+      ]);
+  var durationMinutes = ClockRangePicker.forwardDuration(ClockRangePicker.timeToMinutes(clockStart), ClockRangePicker.timeToMinutes(clockEnd));
+  var hasValidTimeRange = durationMinutes >= 15 && durationMinutes <= 720;
+  var eventWindow = eventWindowOf(clockStart, clockEnd);
   var hasPreloadedValues = Core__Option.isSome(eventId) || Core__Option.isSome(prefilledValues);
-  var match$5 = React.useState(function () {
+  var match$8 = React.useState(function () {
         if (hasPreloadedValues) {
           return "None";
         } else {
-          return "EventDetailsSection";
+          return "ScheduleSection";
         }
       });
-  var setExpandedSection = match$5[1];
-  var expandedSection = match$5[0];
-  var eventDetailsExpanded = expandedSection === "EventDetailsSection";
-  var activityFormatExpanded = expandedSection === "ActivityFormatSection";
-  var findPlayersExpanded = expandedSection === "FindPlayersSection";
-  var match$6 = React.useState(function () {
-        return false;
-      });
-  var setIsUserInitiatedChange = match$6[1];
-  var isUserInitiatedChange = match$6[0];
-  var match$7 = React.useState(function () {
-        return 2.0;
-      });
-  var setEventDurationHours = match$7[1];
-  var eventDurationHours = match$7[0];
-  var match$8 = React.useState(function () {
-        return false;
-      });
-  var setIsLocationDetailsExpanded = match$8[1];
-  var isLocationDetailsExpanded = match$8[0];
+  var setExpandedSection = match$8[1];
+  var expandedSection = match$8[0];
+  var toggleSection = function (section) {
+    setExpandedSection(function (current) {
+          if (current === section) {
+            return "None";
+          } else {
+            return section;
+          }
+        });
+  };
   var match$9 = React.useState(function () {
+        return false;
+      });
+  var setIsLocationDetailsExpanded = match$9[1];
+  var isLocationDetailsExpanded = match$9[0];
+  var match$10 = React.useState(function () {
+        return false;
+      });
+  var setChangingLocation = match$10[1];
+  var changingLocation = match$10[0];
+  var match$11 = React.useState(function () {
+        
+      });
+  var setLocationError = match$11[1];
+  var locationError = match$11[0];
+  var showLocationPicker = onLocationSelected !== undefined ? (
+      locationData !== undefined ? changingLocation || Core__Option.isSome(autoSearchAddress) : true
+    ) : false;
+  React.useEffect((function () {
+          if (Core__Option.isSome(autoSearchAddress)) {
+            setExpandedSection(function (param) {
+                  return "ScheduleSection";
+                });
+          }
+          
+        }), [autoSearchAddress]);
+  var match$12 = React.useState(function () {
         return Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.tags;
                         })), ["all level"]);
       });
-  var setSelectedTags = match$9[1];
-  var selectedTags = match$9[0];
+  var setSelectedTags = match$12[1];
+  var selectedTags = match$12[0];
   var eventType = selectedTags.includes("comp") ? "competitive" : "recreational";
   var isDrill = selectedTags.includes("drill");
   var isDupr = selectedTags.includes("dupr");
   React.useEffect((function () {
           var errors = formState.errors;
-          var hasEventDetailsErrors = Core__Option.isSome(errors.title) || Core__Option.isSome(errors.startDate) || Core__Option.isSome(errors.endTime) || Core__Option.isSome(errors.details) || Core__Option.isSome(errors.maxRsvps);
-          var hasFormatErrors = Core__Option.isSome(errors.activity);
-          var hasFindPlayersErrors = Core__Option.isSome(errors.minRating) || Core__Option.isSome(errors.listed);
-          if (hasEventDetailsErrors) {
+          if (Core__Option.isSome(errors.startDate) || Core__Option.isSome(errors.endTime) || Core__Option.isSome(errors.timezone)) {
             setExpandedSection(function (param) {
-                  return "EventDetailsSection";
+                  return "ScheduleSection";
                 });
-          } else if (hasFormatErrors) {
+          } else if (Core__Option.isSome(errors.title) || Core__Option.isSome(errors.details)) {
             setExpandedSection(function (param) {
-                  return "ActivityFormatSection";
+                  return "DetailsSection";
                 });
-          } else if (hasFindPlayersErrors) {
+          } else if (Core__Option.isSome(errors.activity)) {
             setExpandedSection(function (param) {
-                  return "FindPlayersSection";
+                  return "FormatSection";
+                });
+          } else if (Core__Option.isSome(errors.minRating) || Core__Option.isSome(errors.listed) || Core__Option.isSome(errors.maxRsvps)) {
+            setExpandedSection(function (param) {
+                  return "PlayersSection";
                 });
           }
           
@@ -238,19 +436,20 @@ function CreateLocationEventForm(props) {
             var now = new Date();
             var currentISODate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
             var currentDate = DateFns.parseISO(currentISODate);
-            var defaultStartDate = DateFns.format(currentDate, "yyyy-MM-dd'T'HH:00");
-            var defaultStartDateTime = DateFns.parseISO(defaultStartDate);
-            var defaultEndTime = DateFns.format(DateFns.addHours(defaultStartDateTime, 2.0), "HH:mm");
+            var seededHour = Math.min(Math.max(currentDate.getHours() | 0, 6), 22);
+            var defaultStartDate = DateFns.format(currentDate, "yyyy-MM-dd") + "T" + TimeWindow.hourToTime(seededHour);
+            var defaultEndTime = TimeWindow.hourToTime(seededHour + 2 | 0);
             setValue("startDate", defaultStartDate, undefined);
             setValue("endTime", defaultEndTime, undefined);
-            var defaultEndDateTime = DateFns.parse(defaultEndTime, "HH:mm", defaultStartDateTime);
-            Core__Option.map(calculateDurationHours(defaultStartDateTime, defaultEndDateTime), (function (duration) {
-                    setEventDurationHours(function (param) {
-                          return duration;
-                        });
-                  }));
           }
-          
+          if (!isUpdate && Core__Option.isNone(Core__Option.flatMap(prefilledValues, (function (pf) {
+                        return pf.timezone;
+                      })))) {
+            setValue("timezone", Util.Timezone.browser(), undefined);
+          }
+          setZonesReady(function (param) {
+                return true;
+              });
         }), []);
   React.useEffect((function () {
           if (prefilledValues !== undefined) {
@@ -289,83 +488,21 @@ function CreateLocationEventForm(props) {
             Core__Option.map(prefilledValues.timezone, (function (v) {
                     setValue("timezone", v, undefined);
                   }));
-            var match = prefilledValues.startDate;
-            var match$1 = prefilledValues.endDate;
-            if (match !== undefined && match$1 !== undefined && match !== "" && match$1 !== "") {
-              var startDateTime = DateFns.parseISO(match);
-              var endDateTime = DateFns.parse(match$1, "HH:mm", startDateTime);
-              Core__Option.map(calculateDurationHours(startDateTime, endDateTime), (function (duration) {
-                      setEventDurationHours(function (param) {
-                            return duration;
-                          });
-                    }));
-            }
-            
           }
           
         }), [prefilledValues]);
   React.useEffect((function () {
-          if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && endTime !== undefined && !(!Array.isArray(endTime) && (endTime === null || typeof endTime !== "object") && typeof endTime !== "string" && typeof endTime !== "number" && typeof endTime !== "boolean") && typeof endTime === "string" && startDate !== "" && endTime !== "") {
-            var startDateTime = DateFns.parseISO(startDate);
-            var endDateTime = DateFns.parse(endTime, "HH:mm", startDateTime);
-            Core__Option.map(calculateDurationHours(startDateTime, endDateTime), (function (duration) {
-                    setEventDurationHours(function (param) {
-                          return duration;
-                        });
-                  }));
-          }
-          
-        }), [endTime]);
-  React.useEffect((function () {
-          if (isUserInitiatedChange) {
-            if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && startDate !== "") {
-              var newEndTime = DateFns.format(DateFns.addHours(DateFns.parseISO(startDate), eventDurationHours), "HH:mm");
-              setValue("endTime", newEndTime, undefined);
-            }
-            setIsUserInitiatedChange(function (param) {
-                  return false;
-                });
-          }
-          
-        }), [startDate]);
-  React.useEffect((function () {
-          var levelToRating = function (tag) {
-            switch (tag) {
-              case "2.5+" :
-                  return Rating.duprToMu(2.5);
-              case "3.0+" :
-                  return Rating.duprToMu(3.0);
-              case "3.5+" :
-                  return Rating.duprToMu(3.5);
-              case "4.0+" :
-                  return Rating.duprToMu(4.0);
-              case "4.5+" :
-                  return Rating.duprToMu(4.5);
-              case "5.0+" :
-                  return Rating.duprToMu(5.0);
-              default:
-                return ;
-            }
-          };
           if (selectedTags.includes("all level")) {
             setValue("minRating", "", undefined);
           } else {
-            var specificLevels = [
-              "2.5+",
-              "3.0+",
-              "3.5+",
-              "4.0+",
-              "4.5+",
-              "5.0+"
-            ];
             var selectedSpecificLevels = selectedTags.filter(function (tag) {
-                  return specificLevels.includes(tag);
+                  return EventTags.specificLevels.includes(tag);
                 });
             if (selectedSpecificLevels.length > 0) {
-              var lowestLevel = specificLevels.find(function (level) {
+              var lowestLevel = EventTags.specificLevels.find(function (level) {
                     return selectedSpecificLevels.includes(level);
                   });
-              Core__Option.forEach(Core__Option.flatMap(lowestLevel, levelToRating), (function (rating) {
+              Core__Option.forEach(Core__Option.flatMap(lowestLevel, EventTags.levelToRating), (function (rating) {
                       setValue("minRating", rating.toFixed(2), undefined);
                     }));
             }
@@ -377,17 +514,50 @@ function CreateLocationEventForm(props) {
                   setValue("activity", id, undefined);
                 }));
         }), [selectedActivity]);
+  var setStartDateTime = function (date, time) {
+    setValue("startDate", joinStartDate(date, time), undefined);
+  };
+  var onStartTimeChange = function (time) {
+    var date = datePart !== "" ? datePart : DateFns.format(new Date(), "yyyy-MM-dd");
+    setStartDateTime(date, time);
+  };
+  var onWindowChange = function (windows) {
+    if (windows.length !== 1) {
+      return ;
+    }
+    var $$window = windows[0];
+    onStartTimeChange(TimeWindow.hourToTime($$window.start));
+    var time = TimeWindow.hourToTime($$window.end);
+    setValue("endTime", time, undefined);
+  };
+  var locationId = Core__Option.getOr(Core__Option.map(locationData, (function (l) {
+              return l.id;
+            })), "");
   var onSubmit = function (data) {
+    if (Core__Option.isNone(locationData)) {
+      setLocationError(function (param) {
+            return t`Choose a location for this event`;
+          });
+      return setExpandedSection(function (param) {
+                  return "ScheduleSection";
+                });
+    }
     if (isClubFormOpen) {
       return Core__Option.forEach(onClubFormSubmitBlocked, (function (cb) {
                     cb();
                   }));
     }
+    if (durationMinutes < 15) {
+      return setExpandedSection(function (param) {
+                  return "ScheduleSection";
+                });
+    }
     var tagsToSubmit = selectedTags.filter(function (tag) {
           return tag !== "rec";
         });
-    var startDate = DateFns.parseISO(data.startDate);
-    var endDate = DateFns.parse(data.endTime, "HH:mm", startDate);
+    var eventTz = Core__Option.getOr(data.timezone, Util.Timezone.fallback);
+    var startDate = Util.Timezone.fromWallClock(data.startDate, eventTz);
+    var endDate = Util.Timezone.fromWallClock(endWallClockFor(data.startDate, data.endTime), eventTz);
     var priceValue = isPaidEvent ? data.price : undefined;
     var smartRsvpThresholdValue = isSmartRsvpOn ? 0.005 : undefined;
     if (isUpdate) {
@@ -401,14 +571,14 @@ function CreateLocationEventForm(props) {
                 details: Core__Option.getOr(data.details, ""),
                 endDate: Util.Datetime.fromDate(endDate),
                 listed: data.listed,
-                locationId: $$location.id,
+                locationId: locationId,
                 maxRsvps: data.maxRsvps,
                 minRating: data.minRating,
                 price: priceValue,
                 smartRsvpThreshold: smartRsvpThresholdValue,
                 startDate: Util.Datetime.fromDate(startDate),
                 tags: tagsToSubmit,
-                timezone: data.timezone,
+                timezone: eventTz,
                 title: data.title
               }
             }, undefined, undefined, undefined, (function (_response, _errors) {
@@ -429,14 +599,14 @@ function CreateLocationEventForm(props) {
             details: Core__Option.getOr(data.details, ""),
             endDate: Util.Datetime.fromDate(endDate),
             listed: data.listed,
-            locationId: $$location.id,
+            locationId: locationId,
             maxRsvps: data.maxRsvps,
             minRating: data.minRating,
             price: priceValue,
             smartRsvpThreshold: smartRsvpThresholdValue,
             startDate: Util.Datetime.fromDate(startDate),
             tags: tagsToSubmit,
-            timezone: data.timezone,
+            timezone: eventTz,
             title: data.title
           }
         }, undefined, undefined, undefined, (function (response, _errors) {
@@ -445,105 +615,33 @@ function CreateLocationEventForm(props) {
                   }));
           }), undefined, undefined);
   };
-  var getEventDetailsSummary = function () {
-    var parts = [];
-    if (title !== undefined && !(!Array.isArray(title) && (title === null || typeof title !== "object") && typeof title !== "string" && typeof title !== "number" && typeof title !== "boolean") && typeof title === "string") {
-      if (title !== "") {
-        parts.push(title);
-      }
-      
-    }
-    if (startDate !== undefined && !(!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") && typeof startDate === "string" && endTime !== undefined && !(!Array.isArray(endTime) && (endTime === null || typeof endTime !== "object") && typeof endTime !== "string" && typeof endTime !== "number" && typeof endTime !== "boolean") && typeof endTime === "string" && startDate !== "" && endTime !== "") {
-      var startDateParsed = DateFns.parseISO(startDate);
-      var dateFormatted = DateFns.format(startDateParsed, "EEEE, MMMM d, yyyy");
-      var startTimeFormatted = DateFns.format(startDateParsed, "h:mm a");
-      parts.push(dateFormatted + " " + t`at` + " " + startTimeFormatted);
-    }
-    if (parts.length > 0) {
-      return parts.join(" • ");
-    } else {
-      return t`Not set`;
-    }
-  };
-  var getFormatSummary = function () {
-    var parts = [];
-    if (eventType === "competitive") {
-      parts.push(t`Competitive`);
-    } else {
-      parts.push(t`Recreational`);
-    }
-    if (isDupr) {
-      parts.push(t`DUPR rated`);
-    }
-    if (isDrill) {
-      parts.push(t`Drill session`);
-    }
-    if (parts.length > 0) {
-      return parts.join(" • ");
-    } else {
-      return t`Not set`;
-    }
-  };
-  var getFindPlayersSummary = function () {
-    if (!listed) {
-      return t`Private event`;
-    }
-    var levelTags = selectedTags.filter(function (tag) {
-          return [
-                    "all level",
-                    "2.5+",
-                    "3.0+",
-                    "3.5+",
-                    "4.0+",
-                    "4.5+",
-                    "5.0+"
-                  ].includes(tag);
-        });
-    if (levelTags.length > 0) {
-      return t`Public` + " • " + levelTags.join(", ");
-    } else {
-      return t`Public event`;
-    }
-  };
-  var formatEventDateTime = function () {
-    if (startDate === undefined) {
-      return ;
-    }
-    if (!Array.isArray(startDate) && (startDate === null || typeof startDate !== "object") && typeof startDate !== "string" && typeof startDate !== "number" && typeof startDate !== "boolean") {
-      return ;
-    }
-    if (typeof startDate !== "string") {
-      return ;
-    }
-    if (endTime === undefined) {
-      return ;
-    }
-    if (!Array.isArray(endTime) && (endTime === null || typeof endTime !== "object") && typeof endTime !== "string" && typeof endTime !== "number" && typeof endTime !== "boolean") {
-      return ;
-    }
-    if (typeof endTime !== "string") {
-      return ;
-    }
-    if (!(startDate !== "" && endTime !== "")) {
-      return ;
-    }
-    var startDateParsed = DateFns.parseISO(startDate);
-    var endDateParsed = DateFns.parse(endTime, "HH:mm", startDateParsed);
-    var durationMs = DateFns.getTime(endDateParsed) - DateFns.getTime(startDateParsed);
-    var durationHours = durationMs / (1000.0 * 60.0 * 60.0) | 0;
-    var durationMinutes = durationMs % (1000.0 * 60.0 * 60.0) / (1000.0 * 60.0) | 0;
-    var durationText = durationHours > 0 ? (
-        durationMinutes > 0 ? t`${durationHours.toString()} hours and ${durationMinutes.toString()} minutes` : t`${durationHours.toString()} hours`
-      ) : (
-        durationMinutes > 0 ? t`${durationMinutes.toString()} minutes` : ""
-      );
-    return {
-            startDate: startDateParsed,
-            endDate: endDateParsed,
-            duration: durationText
-          };
-  };
-  var formattedEventDateTime = formatEventDateTime();
+  var locationName = Core__Option.getOr(Core__Option.flatMap(locationData, (function (l) {
+              return l.name;
+            })), "");
+  var tzShortName = Util.Timezone.shortName(tz, Util.Timezone.fromWallClock(startWallClock, tz));
+  var scheduleSummary;
+  if (datePart !== "") {
+    var match$13 = splitStartDate(endWallClockFor(startWallClock, clockEnd));
+    var day = DateFns.format(DateFns.parseISO(datePart), "EEE, MMM d");
+    scheduleSummary = locationName + " · " + day + ", " + formatWallTime(clockStart) + "–" + formatWallTime(match$13[1]) + " " + tzShortName;
+  } else {
+    scheduleSummary = locationName !== "" ? locationName : t`Venue, date, start and end time`;
+  }
+  var detailsSummary = titleStr !== "" ? titleStr : t`Title and optional notes`;
+  var parts = [eventType === "competitive" ? t`Competitive` : t`Recreational`];
+  if (isDupr) {
+    parts.push(t`DUPR rated`);
+  }
+  if (isDrill) {
+    parts.push(t`Drill session`);
+  }
+  var formatSummary = parts.join(" · ");
+  var playersSummary = listed ? (
+      maxRsvpsStr !== "" ? t`Public · Up to ${maxRsvpsStr} players` : t`Public`
+    ) : t`Private event`;
+  var showAssistedBanner = !isUpdate && Core__Option.isSome(Core__Option.flatMap(prefilledValues, (function (pf) {
+              return pf.title;
+            })));
   return JsxRuntime.jsx(FramerMotion.motion.div, {
               style: {
                 opacity: 0,
@@ -567,203 +665,390 @@ function CreateLocationEventForm(props) {
               children: Caml_option.some(JsxRuntime.jsx(WaitForMessages.make, {
                         children: (function () {
                             var tmp;
-                            if (eventDetailsExpanded) {
-                              var newrecord = Caml_obj.obj_dup(register("startDate", undefined));
-                              var match = formState.errors.startDate;
-                              var tmp$1;
-                              if (match !== undefined) {
-                                var message = match.message;
-                                tmp$1 = message !== undefined ? JsxRuntime.jsx("p", {
-                                        children: message,
-                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
-                                      }) : null;
-                              } else {
-                                tmp$1 = null;
-                              }
-                              var newrecord$1 = Caml_obj.obj_dup(register("endTime", undefined));
-                              var match$1 = formState.errors.endTime;
-                              var tmp$2;
-                              if (match$1 !== undefined) {
-                                var message$1 = match$1.message;
-                                tmp$2 = message$1 !== undefined ? JsxRuntime.jsx("p", {
-                                        children: message$1,
-                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
-                                      }) : null;
-                              } else {
-                                tmp$2 = null;
-                              }
-                              var tmp$3;
-                              if (formattedEventDateTime !== undefined) {
-                                var dateTime = Caml_option.valFromOption(formattedEventDateTime);
-                                tmp$3 = JsxRuntime.jsx("div", {
-                                      children: JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx(LucideReact.Calendar, {
-                                                    className: "w-5 h-5 text-gray-400 dark:text-gray-500 mt-1 flex-shrink-0"
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx("p", {
-                                                            children: t`Event schedule`,
-                                                            className: "text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1"
-                                                          }),
-                                                      JsxRuntime.jsx("p", {
-                                                            children: JsxRuntime.jsx(ReactIntl.FormattedDate, {
-                                                                  value: dateTime.startDate,
-                                                                  timeZone: "Asia/Tokyo",
-                                                                  weekday: "long",
-                                                                  year: "numeric",
-                                                                  month: "long",
-                                                                  day: "numeric"
-                                                                }),
-                                                            className: "text-base font-medium text-gray-900 dark:text-gray-100 mb-2 break-words"
-                                                          }),
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsxs("div", {
-                                                                    children: [
-                                                                      JsxRuntime.jsx(LucideReact.Clock, {
-                                                                            className: "w-4 h-4 text-gray-400 dark:text-gray-500 flex-shrink-0"
-                                                                          }),
-                                                                      JsxRuntime.jsx("span", {
-                                                                            children: JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                  value: dateTime.startDate,
-                                                                                  timeZone: "Asia/Tokyo"
-                                                                                }),
-                                                                            className: "text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap"
-                                                                          })
-                                                                    ],
-                                                                    className: "flex items-center gap-1.5"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: "→",
-                                                                    className: "text-gray-400"
-                                                                  }),
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                          value: dateTime.endDate,
-                                                                          timeZone: "Asia/Tokyo"
-                                                                        }),
-                                                                    className: "text-base font-bold text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap"
-                                                                  }),
-                                                              dateTime.duration !== "" ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                      children: [
-                                                                        JsxRuntime.jsx("span", {
-                                                                              children: "•",
-                                                                              className: "text-gray-400"
-                                                                            }),
-                                                                        JsxRuntime.jsx("span", {
-                                                                              children: dateTime.duration,
-                                                                              className: "text-gray-600 dark:text-gray-400 whitespace-nowrap"
-                                                                            })
-                                                                      ]
-                                                                    }) : null
-                                                            ],
-                                                            className: "flex items-center gap-2 flex-wrap"
-                                                          })
-                                                    ],
-                                                    className: "flex-1 min-w-0"
-                                                  })
-                                            ],
-                                            className: "flex items-start gap-3"
-                                          }),
-                                      className: "p-4 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700"
-                                    });
-                              } else {
-                                tmp$3 = null;
-                              }
-                              var newrecord$2 = Caml_obj.obj_dup(register("title", undefined));
-                              var match$2 = formState.errors.title;
-                              var tmp$4;
-                              if (match$2 !== undefined) {
-                                var message$2 = match$2.message;
-                                tmp$4 = message$2 !== undefined ? JsxRuntime.jsx("p", {
-                                        children: message$2,
-                                        className: "mt-1 text-sm text-red-600 dark:text-red-400"
-                                      }) : null;
-                              } else {
-                                tmp$4 = null;
-                              }
-                              var newrecord$3 = Caml_obj.obj_dup(register("maxRsvps", {
-                                        required: false
-                                      }));
-                              var newrecord$4 = Caml_obj.obj_dup(register("cancelDeadline", {
-                                        required: false
-                                      }));
-                              var newrecord$5 = Caml_obj.obj_dup(register("details", {
+                            if (expandedSection === "DetailsSection") {
+                              var newrecord = Caml_obj.obj_dup(register("title", undefined));
+                              var newrecord$1 = Caml_obj.obj_dup(register("details", {
                                         required: false
                                       }));
                               tmp = JsxRuntime.jsxs("div", {
                                     children: [
-                                      JsxRuntime.jsxs("div", {
+                                      JsxRuntime.jsxs("label", {
                                             children: [
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx("label", {
-                                                            children: t`Start date and time`,
-                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                            htmlFor: "startDate"
-                                                          }),
-                                                      JsxRuntime.jsx("input", (newrecord.onChange = (function (e) {
-                                                                setIsUserInitiatedChange(function (param) {
-                                                                      return true;
-                                                                    });
-                                                                var target = e.target;
-                                                                setValue("startDate", target.value, undefined);
-                                                              }), newrecord.type = "datetime-local", newrecord.id = "startDate", newrecord.className = Core.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", Core__Option.isSome(formState.errors.startDate) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord)),
-                                                      tmp$1
-                                                    ]
+                                              JsxRuntime.jsx("span", {
+                                                    children: t`Event title`,
+                                                    className: labelClass
                                                   }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx("label", {
-                                                            children: t`End time`,
-                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                            htmlFor: "endTime"
-                                                          }),
-                                                      JsxRuntime.jsx("input", (newrecord$1.type = "time", newrecord$1.id = "endTime", newrecord$1.className = Core.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", Core__Option.isSome(formState.errors.endTime) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord$1)),
-                                                      tmp$2
-                                                    ]
-                                                  })
+                                              JsxRuntime.jsx("input", (newrecord.type = "text", newrecord.placeholder = t`Friday night pickleball`, newrecord.id = "title", newrecord.className = fieldClassWithError(Core__Option.isSome(formState.errors.title)), newrecord)),
+                                              errorText(Core__Option.flatMap(formState.errors.title, (function (e) {
+                                                          return e.message;
+                                                        })))
                                             ],
-                                            className: "grid grid-cols-1 md:grid-cols-2 gap-6"
+                                            className: "block min-w-0"
                                           }),
-                                      tmp$3,
-                                      JsxRuntime.jsxs("div", {
+                                      JsxRuntime.jsxs("label", {
                                             children: [
-                                              JsxRuntime.jsxs("div", {
+                                              JsxRuntime.jsxs("span", {
                                                     children: [
-                                                      JsxRuntime.jsx("label", {
-                                                            children: t`Event title`,
-                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                            htmlFor: "title"
-                                                          }),
-                                                      JsxRuntime.jsx("input", (newrecord$2.type = "text", newrecord$2.placeholder = t`Friday Night Pickleball`, newrecord$2.id = "title", newrecord$2.className = Core.cx("block w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", Core__Option.isSome(formState.errors.title) ? "border-red-300 dark:border-red-700" : "border-gray-300 dark:border-gray-700"), newrecord$2)),
-                                                      tmp$4
+                                                      t`Event notes`,
+                                                      " ",
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`(optional)`,
+                                                            className: "font-normal normal-case"
+                                                          })
                                                     ],
-                                                    className: "md:col-span-2"
+                                                    className: labelClass
+                                                  }),
+                                              JsxRuntime.jsx("textarea", (newrecord$1.rows = 3, newrecord$1.placeholder = t`Anything players should know before joining or arriving.`, newrecord$1.id = "details", newrecord$1.className = "w-full resize-y rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm leading-relaxed text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#94c93a] focus:ring-2 focus:ring-[#bdf25d]/40 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-100", newrecord$1.defaultValue = "", newrecord$1))
+                                            ],
+                                            className: "block",
+                                            htmlFor: "details"
+                                          })
+                                    ],
+                                    className: sectionBodyClass,
+                                    id: "event-form-details"
+                                  });
+                            } else {
+                              tmp = null;
+                            }
+                            var tmp$1;
+                            if (isPaidEvent) {
+                              var newrecord$2 = Caml_obj.obj_dup(register("price", {
+                                        required: false
+                                      }));
+                              tmp$1 = JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("label", {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    children: t`Participation fee`,
+                                                    className: labelClass
                                                   }),
                                               JsxRuntime.jsxs("div", {
                                                     children: [
-                                                      JsxRuntime.jsx("label", {
-                                                            children: t`Max RSVPs (optional)`,
-                                                            className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                            htmlFor: "maxRsvps"
+                                                      JsxRuntime.jsx("span", {
+                                                            children: "¥",
+                                                            className: "pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm text-gray-500"
                                                           }),
-                                                      JsxRuntime.jsx("input", (newrecord$3.type = "number", newrecord$3.placeholder = t`No limit`, newrecord$3.id = "maxRsvps", newrecord$3.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$3))
-                                                    ]
+                                                      JsxRuntime.jsx("input", (newrecord$2.type = "number", newrecord$2.placeholder = t`Enter price`, newrecord$2.min = "1", newrecord$2.id = "price", newrecord$2.className = Core.cx(fieldClass, "pl-8"), newrecord$2))
+                                                    ],
+                                                    className: "relative"
                                                   })
                                             ],
-                                            className: "grid grid-cols-1 md:grid-cols-3 gap-6"
+                                            className: "block min-w-0",
+                                            htmlFor: "price"
                                           }),
                                       JsxRuntime.jsxs("div", {
                                             children: [
-                                              JsxRuntime.jsx("label", {
-                                                    children: t`Cancel deadline (optional)`,
-                                                    className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                    htmlFor: "cancelDeadline"
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    children: t`Without a Stripe account`,
+                                                                    className: "font-semibold text-gray-700 dark:text-gray-300"
+                                                                  }),
+                                                              stripeChargesEnabled ? null : JsxRuntime.jsx("span", {
+                                                                      children: t`Active`,
+                                                                      className: "rounded bg-[#bdf25d]/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#547817] dark:text-[#bdf25d]"
+                                                                    })
+                                                            ],
+                                                            className: "flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsx("p", {
+                                                            children: t`Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event.`,
+                                                            className: "mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400"
+                                                          })
+                                                    ],
+                                                    className: stripeChargesEnabled ? "rounded-lg border border-gray-200 p-3 dark:border-[#3a3b40]" : "rounded-lg border border-[#a3d949]/60 bg-[#bdf25d]/10 p-3 dark:border-[#bdf25d]/25 dark:bg-[#bdf25d]/5"
                                                   }),
-                                              JsxRuntime.jsxs("select", (newrecord$4.id = "cancelDeadline", newrecord$4.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$4.children = [
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx("span", {
+                                                                    children: t`With a Stripe account`,
+                                                                    className: "font-semibold text-gray-700 dark:text-gray-300"
+                                                                  }),
+                                                              stripeChargesEnabled ? JsxRuntime.jsx("span", {
+                                                                      children: t`Active`,
+                                                                      className: "rounded bg-[#bdf25d]/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#547817] dark:text-[#bdf25d]"
+                                                                    }) : null
+                                                            ],
+                                                            className: "flex items-center gap-1.5"
+                                                          }),
+                                                      JsxRuntime.jsxs("p", {
+                                                            children: [
+                                                              t`Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account.`,
+                                                              stripeChargesEnabled ? null : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                                                      children: [
+                                                                        " ",
+                                                                        JsxRuntime.jsx("a", {
+                                                                              children: t`Connect a Stripe account to enable this`,
+                                                                              className: "font-semibold text-[#4d6f12] underline hover:opacity-80 dark:text-[#bdf25d]",
+                                                                              href: "/settings/profile"
+                                                                            })
+                                                                      ]
+                                                                    })
+                                                            ],
+                                                            className: "mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400"
+                                                          })
+                                                    ],
+                                                    className: stripeChargesEnabled ? "rounded-lg border border-[#a3d949]/60 bg-[#bdf25d]/10 p-3 dark:border-[#bdf25d]/25 dark:bg-[#bdf25d]/5" : "rounded-lg border border-gray-200 p-3 dark:border-[#3a3b40]"
+                                                  })
+                                            ],
+                                            className: "mt-3 space-y-2 text-sm"
+                                          }),
+                                      JsxRuntime.jsx("p", {
+                                            children: t`Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them.`,
+                                            className: "mt-3 text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                          })
+                                    ],
+                                    className: "border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]"
+                                  });
+                            } else {
+                              tmp$1 = null;
+                            }
+                            var tmp$2;
+                            if (expandedSection === "FormatSection") {
+                              var active = eventType === "recreational";
+                              var active$1 = eventType === "competitive";
+                              tmp$2 = JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("fieldset", {
+                                            children: [
+                                              JsxRuntime.jsx("legend", {
+                                                    children: t`Event type`,
+                                                    className: legendClass
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("button", {
+                                                            children: t`Recreational`,
+                                                            "aria-pressed": active ? "true" : "false",
+                                                            className: toggleClass(eventType === "recreational"),
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                setSelectedTags(function (tags) {
+                                                                      return tags.filter(function (t) {
+                                                                                    if (t !== "comp") {
+                                                                                      return t !== "dupr";
+                                                                                    } else {
+                                                                                      return false;
+                                                                                    }
+                                                                                  }).concat(["rec"]);
+                                                                    });
+                                                              })
+                                                          }),
+                                                      JsxRuntime.jsx("button", {
+                                                            children: t`Competitive`,
+                                                            "aria-pressed": active$1 ? "true" : "false",
+                                                            className: toggleClass(eventType === "competitive"),
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                setSelectedTags(function (tags) {
+                                                                      return tags.filter(function (t) {
+                                                                                    return t !== "rec";
+                                                                                  }).concat(["comp"]);
+                                                                    });
+                                                              })
+                                                          })
+                                                    ],
+                                                    className: "mt-2 grid grid-cols-2 gap-2"
+                                                  })
+                                            ]
+                                          }),
+                                      JsxRuntime.jsxs("fieldset", {
+                                            children: [
+                                              JsxRuntime.jsx("legend", {
+                                                    children: t`Format options`,
+                                                    className: legendClass
+                                                  }),
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      eventType === "competitive" ? JsxRuntime.jsx("button", {
+                                                              children: t`DUPR rated`,
+                                                              "aria-pressed": isDupr ? "true" : "false",
+                                                              className: toggleClass(isDupr),
+                                                              type: "button",
+                                                              onClick: (function (param) {
+                                                                  setSelectedTags(function (tags) {
+                                                                        if (isDupr) {
+                                                                          return tags.filter(function (t) {
+                                                                                      return t !== "dupr";
+                                                                                    });
+                                                                        } else {
+                                                                          return tags.concat(["dupr"]);
+                                                                        }
+                                                                      });
+                                                                })
+                                                            }) : null,
+                                                      JsxRuntime.jsx("button", {
+                                                            children: t`Drill session`,
+                                                            "aria-pressed": isDrill ? "true" : "false",
+                                                            className: toggleClass(isDrill),
+                                                            type: "button",
+                                                            onClick: (function (param) {
+                                                                setSelectedTags(function (tags) {
+                                                                      if (isDrill) {
+                                                                        return tags.filter(function (t) {
+                                                                                    return t !== "drill";
+                                                                                  });
+                                                                      } else {
+                                                                        return tags.concat(["drill"]);
+                                                                      }
+                                                                    });
+                                                              })
+                                                          })
+                                                    ],
+                                                    className: "mt-2 grid grid-cols-2 gap-2"
+                                                  })
+                                            ]
+                                          })
+                                    ],
+                                    className: sectionBodyClass,
+                                    id: "event-form-format"
+                                  });
+                            } else {
+                              tmp$2 = null;
+                            }
+                            var tmp$3;
+                            if (expandedSection === "PlayersSection") {
+                              var newrecord$3 = Caml_obj.obj_dup(register("minRating", {
+                                        required: false
+                                      }));
+                              var newrecord$4 = Caml_obj.obj_dup(register("maxRsvps", {
+                                        required: false
+                                      }));
+                              var newrecord$5 = Caml_obj.obj_dup(register("cancelDeadline", {
+                                        required: false
+                                      }));
+                              tmp$3 = JsxRuntime.jsxs("div", {
+                                    children: [
+                                      JsxRuntime.jsxs("label", {
+                                            children: [
+                                              JsxRuntime.jsx("input", {
+                                                    className: checkboxClass,
+                                                    id: "findPlayers",
+                                                    checked: listed,
+                                                    type: "checkbox",
+                                                    onChange: (function (param) {
+                                                        setValue("listed", !listed, undefined);
+                                                      })
+                                                  }),
+                                              JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Find players for your event?`,
+                                                            className: "block text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                                          }),
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`List your event publicly to help fill open spots.`,
+                                                            className: "mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                                          })
+                                                    ],
+                                                    className: "min-w-0"
+                                                  })
+                                            ],
+                                            className: "flex cursor-pointer items-start gap-3"
+                                          }),
+                                      listed ? JsxRuntime.jsxs("div", {
+                                              children: [
+                                                JsxRuntime.jsx(LucideReact.Check, {
+                                                      size: 13,
+                                                      strokeWidth: 2.5,
+                                                      "aria-hidden": "true"
+                                                    }),
+                                                t`This event is public`
+                                              ],
+                                              className: "inline-flex items-center gap-1.5 rounded-md bg-emerald-50 px-2.5 py-1.5 text-xs font-semibold text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300",
+                                              role: "status"
+                                            }) : null,
+                                      JsxRuntime.jsx(LevelTagPills.make, {
+                                            selected: selectedTags,
+                                            onChange: (function (tags) {
+                                                setSelectedTags(function (param) {
+                                                      return tags;
+                                                    });
+                                              }),
+                                            legend: Caml_option.some(t`Skill level`)
+                                          }),
+                                      JsxRuntime.jsxs("label", {
+                                            children: [
+                                              JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      t`Minimum rating`,
+                                                      " ",
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`(optional)`,
+                                                            className: "font-normal normal-case"
+                                                          })
+                                                    ],
+                                                    className: labelClass
+                                                  }),
+                                              JsxRuntime.jsx("input", (newrecord$3.type = "number", newrecord$3.step = 0.01, newrecord$3.placeholder = t`No minimum`, newrecord$3.id = "minRating", newrecord$3.className = fieldClassWithError(Core__Option.isSome(formState.errors.minRating)), newrecord$3)),
+                                              errorText(Core__Option.flatMap(formState.errors.minRating, (function (e) {
+                                                          return e.message;
+                                                        })))
+                                            ],
+                                            className: "block min-w-0",
+                                            htmlFor: "minRating"
+                                          }),
+                                      JsxRuntime.jsxs("label", {
+                                            children: [
+                                              JsxRuntime.jsx("input", {
+                                                    className: checkboxClass,
+                                                    id: "smartRsvp",
+                                                    checked: isSmartRsvpOn,
+                                                    type: "checkbox",
+                                                    onChange: (function (param) {
+                                                        setIsSmartRsvpOn(function (on) {
+                                                              return !on;
+                                                            });
+                                                      })
+                                                  }),
+                                              JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Smart RSVP`,
+                                                            className: "block text-sm font-semibold text-gray-900 dark:text-gray-100"
+                                                          }),
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`Hold new joins and admit players automatically based on match quality.`,
+                                                            className: "mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                                          })
+                                                    ]
+                                                  })
+                                            ],
+                                            className: Core.cx("flex cursor-pointer items-start gap-3", subsectionClass)
+                                          }),
+                                      JsxRuntime.jsxs("label", {
+                                            children: [
+                                              JsxRuntime.jsxs("span", {
+                                                    children: [
+                                                      t`Max players`,
+                                                      " ",
+                                                      JsxRuntime.jsx("span", {
+                                                            children: t`(optional)`,
+                                                            className: "font-normal normal-case"
+                                                          })
+                                                    ],
+                                                    className: labelClass
+                                                  }),
+                                              JsxRuntime.jsx("input", (newrecord$4.type = "number", newrecord$4.placeholder = t`No limit`, newrecord$4.min = "1", newrecord$4.id = "maxRsvps", newrecord$4.className = fieldClassWithError(Core__Option.isSome(formState.errors.maxRsvps)), newrecord$4)),
+                                              errorText(Core__Option.flatMap(formState.errors.maxRsvps, (function (e) {
+                                                          return e.message;
+                                                        })))
+                                            ],
+                                            className: Core.cx("block min-w-0", subsectionClass),
+                                            htmlFor: "maxRsvps"
+                                          }),
+                                      JsxRuntime.jsxs("label", {
+                                            children: [
+                                              JsxRuntime.jsx("span", {
+                                                    children: t`Cancel deadline`,
+                                                    className: labelClass
+                                                  }),
+                                              JsxRuntime.jsxs("select", (newrecord$5.id = "cancelDeadline", newrecord$5.className = fieldClass, newrecord$5.children = [
                                                       JsxRuntime.jsx("option", {
                                                             children: t`No deadline`,
                                                             value: ""
@@ -800,664 +1085,324 @@ function CreateLocationEventForm(props) {
                                                             children: t`1 week before`,
                                                             value: "604800000"
                                                           })
-                                                    ], newrecord$4)),
-                                              JsxRuntime.jsx("p", {
-                                                    children: t`Attendees cannot cancel their RSVP after this deadline`,
-                                                    className: "mt-1 text-xs text-gray-500 dark:text-gray-400"
-                                                  })
-                                            ]
-                                          }),
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("label", {
-                                                    children: t`Event details (optional)`,
-                                                    className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                    htmlFor: "details"
-                                                  }),
-                                              JsxRuntime.jsx("textarea", (newrecord$5.rows = 3, newrecord$5.placeholder = t`Add any additional information about the event...`, newrecord$5.id = "details", newrecord$5.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors resize-none bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100", newrecord$5.defaultValue = "", newrecord$5))
-                                            ]
-                                          })
-                                    ],
-                                    className: "px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800"
-                                  });
-                            } else {
-                              tmp = null;
-                            }
-                            var tmp$5;
-                            if (isPaidEvent) {
-                              var newrecord$6 = Caml_obj.obj_dup(register("price", {
-                                        required: false
-                                      }));
-                              tmp$5 = JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("label", {
-                                            children: t`Price`,
-                                            className: "block text-sm font-semibold text-gray-900 mb-2",
-                                            htmlFor: "price"
-                                          }),
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
+                                                    ], newrecord$5)),
                                               JsxRuntime.jsx("span", {
-                                                    children: "¥",
-                                                    className: "absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 text-sm"
-                                                  }),
-                                              JsxRuntime.jsx("input", (newrecord$6.type = "number", newrecord$6.placeholder = t`Enter price`, newrecord$6.min = "1", newrecord$6.id = "price", newrecord$6.className = "block w-full pl-8 pr-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$6))
-                                            ],
-                                            className: "relative"
-                                          }),
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`Without Stripe`,
-                                                                    className: "font-semibold text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              stripeChargesEnabled ? null : JsxRuntime.jsx("span", {
-                                                                      children: t`Active`,
-                                                                      className: "text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded"
-                                                                    })
-                                                            ],
-                                                            className: "flex items-center gap-1.5"
-                                                          }),
-                                                      JsxRuntime.jsx("p", {
-                                                            children: t`A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list.`,
-                                                            className: "text-gray-600 dark:text-gray-400 mt-0.5"
-                                                          })
-                                                    ],
-                                                    className: stripeChargesEnabled ? "rounded-lg border border-gray-200 dark:border-gray-700 p-3" : "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3"
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsxs("div", {
-                                                            children: [
-                                                              JsxRuntime.jsx("span", {
-                                                                    children: t`With Stripe`,
-                                                                    className: "font-semibold text-gray-700 dark:text-gray-300"
-                                                                  }),
-                                                              stripeChargesEnabled ? JsxRuntime.jsx("span", {
-                                                                      children: t`Active`,
-                                                                      className: "text-xs font-medium text-lime-700 dark:text-lime-400 bg-lime-100 dark:bg-lime-900/50 px-1.5 py-0.5 rounded"
-                                                                    }) : null
-                                                            ],
-                                                            className: "flex items-center gap-1.5"
-                                                          }),
-                                                      JsxRuntime.jsxs("p", {
-                                                            children: [
-                                                              t`The participation fee is charged automatically and transferred to your Stripe account.`,
-                                                              stripeChargesEnabled ? null : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                                      children: [
-                                                                        " ",
-                                                                        JsxRuntime.jsx("a", {
-                                                                              children: t`Connect a Stripe account to activate`,
-                                                                              className: "text-blue-600 dark:text-blue-400 underline hover:opacity-80",
-                                                                              href: "/settings/profile"
-                                                                            })
-                                                                      ]
-                                                                    })
-                                                            ],
-                                                            className: "text-gray-600 dark:text-gray-400 mt-0.5"
-                                                          })
-                                                    ],
-                                                    className: stripeChargesEnabled ? "rounded-lg border border-lime-400 dark:border-lime-500 bg-lime-50 dark:bg-lime-950/30 p-3" : "rounded-lg border border-gray-200 dark:border-gray-700 p-3"
+                                                    children: t`Attendees cannot cancel their RSVP after this deadline.`,
+                                                    className: hintClass
                                                   })
                                             ],
-                                            className: "mt-3 space-y-2 text-sm"
+                                            className: Core.cx("block min-w-0", subsectionClass),
+                                            htmlFor: "cancelDeadline"
                                           })
                                     ],
-                                    className: "mt-4 ml-8"
+                                    className: sectionBodyClass,
+                                    id: "event-form-players"
                                   });
                             } else {
-                              tmp$5 = null;
-                            }
-                            var tmp$6;
-                            if (findPlayersExpanded) {
-                              var tmp$7;
-                              if (listed) {
-                                var newrecord$7 = Caml_obj.obj_dup(register("minRating", {
-                                          required: false
-                                        }));
-                                var match$3 = formState.errors.minRating;
-                                var tmp$8;
-                                if (match$3 !== undefined) {
-                                  var message$3 = match$3.message;
-                                  tmp$8 = message$3 !== undefined ? JsxRuntime.jsx("p", {
-                                          children: message$3,
-                                          className: "mt-1 text-sm text-red-600 dark:text-red-400"
-                                        }) : null;
-                                } else {
-                                  tmp$8 = null;
-                                }
-                                tmp$7 = JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx("label", {
-                                              children: t`Skill level`,
-                                              className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400"
-                                            }),
-                                        JsxRuntime.jsx("div", {
-                                              children: [
-                                                  "all level",
-                                                  "2.5+",
-                                                  "3.0+",
-                                                  "3.5+",
-                                                  "4.0+",
-                                                  "4.5+",
-                                                  "5.0+"
-                                                ].map(function (tag) {
-                                                    return JsxRuntime.jsx("button", {
-                                                                children: tag,
-                                                                className: Core.cx("px-3 py-1.5 rounded-full text-xs font-medium transition-all border", selectedTags.includes(tag) ? "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 border-gray-900 dark:border-gray-100" : "bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"),
-                                                                type: "button",
-                                                                onClick: (function (param) {
-                                                                    setSelectedTags(function (tags) {
-                                                                          var isCurrentlySelected = tags.includes(tag);
-                                                                          if (isCurrentlySelected) {
-                                                                            var newTags = tags.filter(function (t) {
-                                                                                  return t !== tag;
-                                                                                });
-                                                                            if (newTags.length === 0) {
-                                                                              return ["all level"];
-                                                                            } else {
-                                                                              return newTags;
-                                                                            }
-                                                                          }
-                                                                          if (tag !== "all level") {
-                                                                            return tags.filter(function (t) {
-                                                                                          return t !== "all level";
-                                                                                        }).concat([tag]);
-                                                                          }
-                                                                          var specificLevels = [
-                                                                            "3.0+",
-                                                                            "3.5+",
-                                                                            "4.0+",
-                                                                            "4.5+",
-                                                                            "5.0+"
-                                                                          ];
-                                                                          return tags.filter(function (t) {
-                                                                                        return !specificLevels.includes(t);
-                                                                                      }).concat([tag]);
-                                                                        });
-                                                                  })
-                                                              }, tag);
-                                                  }),
-                                              className: "flex flex-wrap gap-2"
-                                            }),
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                JsxRuntime.jsx("label", {
-                                                      children: t`Minimum rating (optional)`,
-                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2",
-                                                      htmlFor: "minRating"
-                                                    }),
-                                                JsxRuntime.jsx("input", (newrecord$7.type = "number", newrecord$7.step = 0.01, newrecord$7.placeholder = t`No minimum`, newrecord$7.id = "minRating", newrecord$7.className = "block w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:border-[#a3e635] transition-colors bg-white dark:bg-[#222222] text-gray-900 dark:text-gray-100 font-mono", newrecord$7)),
-                                                tmp$8
-                                              ],
-                                              className: "mt-4"
-                                            })
-                                      ],
-                                      className: "ml-8 space-y-3"
-                                    });
-                              } else {
-                                tmp$7 = null;
-                              }
-                              tmp$6 = JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("input", {
-                                                    className: "h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]",
-                                                    id: "findPlayers",
-                                                    checked: listed,
-                                                    type: "checkbox",
-                                                    onChange: (function (param) {
-                                                        setValue("listed", !listed, undefined);
-                                                      })
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx("label", {
-                                                            children: t`Find players for your event?`,
-                                                            className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
-                                                            htmlFor: "findPlayers"
-                                                          }),
-                                                      JsxRuntime.jsx("p", {
-                                                            children: t`List your event publicly to help fill open spots`,
-                                                            className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
-                                                          }),
-                                                      JsxRuntime.jsx("p", {
-                                                            children: listed ? t`This event is public` : t`This event is private`,
-                                                            className: Core.cx("text-xs font-medium mt-2 inline-flex items-center gap-1 px-2 py-0.5 rounded", listed ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400" : "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400")
-                                                          })
-                                                    ]
-                                                  })
-                                            ],
-                                            className: "flex items-start gap-3 mb-4"
-                                          }),
-                                      tmp$7,
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("input", {
-                                                    className: "h-5 w-5 text-[#a3e635] focus:ring-[#a3e635] border-gray-300 dark:border-gray-600 rounded mt-0.5 bg-white dark:bg-[#222222]",
-                                                    id: "smartRsvp",
-                                                    checked: isSmartRsvpOn,
-                                                    type: "checkbox",
-                                                    onChange: (function (param) {
-                                                        setIsSmartRsvpOn(function (on) {
-                                                              return !on;
-                                                            });
-                                                      })
-                                                  }),
-                                              JsxRuntime.jsxs("div", {
-                                                    children: [
-                                                      JsxRuntime.jsx("label", {
-                                                            children: t`Smart RSVP`,
-                                                            className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
-                                                            htmlFor: "smartRsvp"
-                                                          }),
-                                                      JsxRuntime.jsx("p", {
-                                                            children: t`New joins are held and admitted automatically based on match quality`,
-                                                            className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
-                                                          })
-                                                    ]
-                                                  })
-                                            ],
-                                            className: "flex items-start gap-3 mt-6"
-                                          })
-                                    ],
-                                    className: "px-4 pb-4 pt-6 border-t border-gray-100 dark:border-gray-800"
-                                  });
-                            } else {
-                              tmp$6 = null;
+                              tmp$3 = null;
                             }
                             return JsxRuntime.jsx(JsxRuntime.Fragment, {
                                         children: Caml_option.some(JsxRuntime.jsxs("form", {
                                                   children: [
-                                                    JsxRuntime.jsxs("div", {
+                                                    showAssistedBanner ? JsxRuntime.jsx("div", {
+                                                            children: t`Draft filled in. Review the details before creating the event.`,
+                                                            className: "rounded-lg border border-[#a3d949]/50 bg-[#bdf25d]/10 px-3 py-2.5 text-xs text-[#4d6f12] dark:border-[#bdf25d]/25 dark:text-[#bdf25d]",
+                                                            role: "status"
+                                                          }) : null,
+                                                    JsxRuntime.jsxs("section", {
                                                           children: [
-                                                            JsxRuntime.jsx("p", {
-                                                                  children: Core__Option.getOr($$location.name, ""),
-                                                                  className: "text-gray-900 dark:text-gray-100 font-medium break-words overflow-wrap-anywhere"
-                                                                }),
-                                                            Core__Option.getOr(Core__Option.map($$location.details, (function (details) {
-                                                                        var shouldTruncate = details.length > 100;
-                                                                        var displayText = shouldTruncate && !isLocationDetailsExpanded ? details.substring(0, 100) + "..." : details;
-                                                                        return JsxRuntime.jsxs("div", {
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx("p", {
-                                                                                            children: displayText,
-                                                                                            className: "inline break-words overflow-wrap-anywhere"
-                                                                                          }),
-                                                                                      shouldTruncate ? JsxRuntime.jsx("button", {
-                                                                                              children: isLocationDetailsExpanded ? t`Show less` : t`Read more...`,
-                                                                                              className: "ml-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 font-medium inline whitespace-nowrap",
-                                                                                              type: "button",
-                                                                                              onClick: (function (param) {
-                                                                                                  setIsLocationDetailsExpanded(function (prev) {
-                                                                                                        return !prev;
-                                                                                                      });
-                                                                                                })
-                                                                                            }) : null
-                                                                                    ],
-                                                                                    className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
-                                                                                  });
-                                                                      })), null)
-                                                          ],
-                                                          className: "px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-[#222222]"
-                                                        }),
-                                                    JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsxs("button", {
-                                                                  children: [
-                                                                    JsxRuntime.jsxs("div", {
-                                                                          children: [
-                                                                            JsxRuntime.jsx(LucideReact.FileText, {
-                                                                                  className: "w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
-                                                                                }),
-                                                                            JsxRuntime.jsxs("div", {
-                                                                                  children: [
-                                                                                    JsxRuntime.jsx("div", {
-                                                                                          children: t`Event Details`,
-                                                                                          className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                                                                        }),
-                                                                                    eventDetailsExpanded ? null : JsxRuntime.jsx("div", {
-                                                                                            children: getEventDetailsSummary(),
-                                                                                            className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words",
-                                                                                            style: {
-                                                                                              overflowWrap: "anywhere"
-                                                                                            }
-                                                                                          })
-                                                                                  ],
-                                                                                  className: "text-left flex-1 min-w-0"
-                                                                                })
-                                                                          ],
-                                                                          className: "flex items-center gap-3"
-                                                                        }),
-                                                                    JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                                          className: Core.cx("w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0", eventDetailsExpanded ? "rotate-180" : "")
-                                                                        })
-                                                                  ],
-                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
-                                                                  type: "button",
-                                                                  onClick: (function (param) {
-                                                                      var expanded = !eventDetailsExpanded;
-                                                                      setExpandedSection(function (param) {
-                                                                            if (expanded) {
-                                                                              return "EventDetailsSection";
-                                                                            } else {
-                                                                              return "None";
-                                                                            }
-                                                                          });
-                                                                    })
-                                                                }),
-                                                            tmp
-                                                          ],
-                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
-                                                        }),
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsxs("div", {
-                                                                children: [
-                                                                  JsxRuntime.jsxs("div", {
-                                                                        children: [
-                                                                          JsxRuntime.jsx("input", {
-                                                                                className: "h-5 w-5 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-0.5",
-                                                                                id: "paidEvent",
-                                                                                checked: isPaidEvent,
-                                                                                type: "checkbox",
-                                                                                onChange: (function (param) {
-                                                                                    var newValue = !isPaidEvent;
-                                                                                    setIsPaidEvent(function (param) {
-                                                                                          return newValue;
-                                                                                        });
-                                                                                    if (!newValue) {
-                                                                                      return setValue("price", "", undefined);
-                                                                                    }
-                                                                                    
-                                                                                  })
-                                                                              }),
-                                                                          JsxRuntime.jsxs("div", {
-                                                                                children: [
-                                                                                  JsxRuntime.jsx("label", {
-                                                                                        children: t`Paid event`,
-                                                                                        className: "block text-sm font-semibold text-gray-900 dark:text-gray-100",
-                                                                                        htmlFor: "paidEvent"
-                                                                                      }),
-                                                                                  JsxRuntime.jsx("p", {
-                                                                                        children: t`Require payment from attendees`,
-                                                                                        className: "text-sm text-gray-600 dark:text-gray-400 mt-1"
-                                                                                      })
-                                                                                ],
-                                                                                className: "flex-1"
-                                                                              })
-                                                                        ],
-                                                                        className: "flex items-start gap-3"
-                                                                      }),
-                                                                  tmp$5
-                                                                ],
-                                                                className: "px-4 py-4"
-                                                              }),
-                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
-                                                        }),
-                                                    JsxRuntime.jsxs("div", {
-                                                          children: [
-                                                            JsxRuntime.jsxs("button", {
-                                                                  children: [
-                                                                    JsxRuntime.jsxs("div", {
-                                                                          children: [
-                                                                            JsxRuntime.jsx(LucideReact.Dumbbell, {
-                                                                                  className: "w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
-                                                                                }),
-                                                                            JsxRuntime.jsxs("div", {
-                                                                                  children: [
-                                                                                    JsxRuntime.jsx("div", {
-                                                                                          children: t`Format`,
-                                                                                          className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                                                                        }),
-                                                                                    activityFormatExpanded ? null : JsxRuntime.jsx("div", {
-                                                                                            children: getFormatSummary(),
-                                                                                            className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words",
-                                                                                            style: {
-                                                                                              overflowWrap: "anywhere"
-                                                                                            }
-                                                                                          })
-                                                                                  ],
-                                                                                  className: "text-left flex-1 min-w-0"
-                                                                                })
-                                                                          ],
-                                                                          className: "flex items-center gap-3"
-                                                                        }),
-                                                                    JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                                          className: Core.cx("w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0", activityFormatExpanded ? "rotate-180" : "")
-                                                                        })
-                                                                  ],
-                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
-                                                                  type: "button",
-                                                                  onClick: (function (param) {
-                                                                      var expanded = !activityFormatExpanded;
-                                                                      setExpandedSection(function (param) {
-                                                                            if (expanded) {
-                                                                              return "ActivityFormatSection";
-                                                                            } else {
-                                                                              return "None";
-                                                                            }
-                                                                          });
-                                                                    })
-                                                                }),
-                                                            activityFormatExpanded ? JsxRuntime.jsxs("div", {
+                                                            sectionHeader(JsxRuntime.jsx(LucideReact.CalendarDays, {
+                                                                      size: 19,
+                                                                      className: sectionIconClass,
+                                                                      "aria-hidden": "true"
+                                                                    }), t`Location & time`, scheduleSummary, expandedSection === "ScheduleSection", "event-form-schedule", (function () {
+                                                                    toggleSection("ScheduleSection");
+                                                                  })),
+                                                            expandedSection === "ScheduleSection" ? JsxRuntime.jsxs("div", {
                                                                     children: [
                                                                       JsxRuntime.jsxs("div", {
                                                                             children: [
-                                                                              JsxRuntime.jsx("label", {
-                                                                                    children: t`Event type`,
-                                                                                    className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: t`Location`,
+                                                                                    className: labelClass
+                                                                                  }),
+                                                                              showLocationPicker ? JsxRuntime.jsxs("div", {
+                                                                                      children: [
+                                                                                        JsxRuntime.jsx(AutocompleteLocation.make, {
+                                                                                              onSelected: (function (id) {
+                                                                                                  setChangingLocation(function (param) {
+                                                                                                        return false;
+                                                                                                      });
+                                                                                                  setLocationError(function (param) {
+                                                                                                        
+                                                                                                      });
+                                                                                                  Core__Option.forEach(onLocationSelected, (function (cb) {
+                                                                                                          cb(id);
+                                                                                                        }));
+                                                                                                }),
+                                                                                              error: locationError,
+                                                                                              autoSearchAddress: autoSearchAddress
+                                                                                            }),
+                                                                                        changingLocation ? JsxRuntime.jsx("button", {
+                                                                                                children: t`Keep current location`,
+                                                                                                className: "mt-1.5 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100",
+                                                                                                type: "button",
+                                                                                                onClick: (function (param) {
+                                                                                                    setChangingLocation(function (param) {
+                                                                                                          return false;
+                                                                                                        });
+                                                                                                  })
+                                                                                              }) : null
+                                                                                      ],
+                                                                                      className: "min-w-0"
+                                                                                    }) : (
+                                                                                  locationData !== undefined ? JsxRuntime.jsxs("div", {
+                                                                                          children: [
+                                                                                            JsxRuntime.jsx(LucideReact.MapPin, {
+                                                                                                  size: 14,
+                                                                                                  className: "mt-0.5 flex-shrink-0 text-gray-400",
+                                                                                                  "aria-hidden": "true"
+                                                                                                }),
+                                                                                            JsxRuntime.jsxs("div", {
+                                                                                                  children: [
+                                                                                                    JsxRuntime.jsxs("div", {
+                                                                                                          children: [
+                                                                                                            JsxRuntime.jsx("p", {
+                                                                                                                  children: locationName,
+                                                                                                                  className: "break-words text-sm font-medium text-gray-900 dark:text-gray-100"
+                                                                                                                }),
+                                                                                                            Core__Option.isSome(onLocationSelected) ? JsxRuntime.jsx("button", {
+                                                                                                                    children: t`Change`,
+                                                                                                                    className: "flex-shrink-0 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100",
+                                                                                                                    type: "button",
+                                                                                                                    onClick: (function (param) {
+                                                                                                                        setChangingLocation(function (param) {
+                                                                                                                              return true;
+                                                                                                                            });
+                                                                                                                      })
+                                                                                                                  }) : null
+                                                                                                          ],
+                                                                                                          className: "flex items-start justify-between gap-2"
+                                                                                                        }),
+                                                                                                    Core__Option.getOr(Core__Option.map(locationData.details, (function (details) {
+                                                                                                                var shouldTruncate = details.length > 100;
+                                                                                                                var displayText = shouldTruncate && !isLocationDetailsExpanded ? details.substring(0, 100) + "..." : details;
+                                                                                                                return JsxRuntime.jsxs("p", {
+                                                                                                                            children: [
+                                                                                                                              displayText,
+                                                                                                                              shouldTruncate ? JsxRuntime.jsx("button", {
+                                                                                                                                      children: isLocationDetailsExpanded ? t`Show less` : t`Read more...`,
+                                                                                                                                      className: "ml-1 whitespace-nowrap font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100",
+                                                                                                                                      type: "button",
+                                                                                                                                      onClick: (function (param) {
+                                                                                                                                          setIsLocationDetailsExpanded(function (prev) {
+                                                                                                                                                return !prev;
+                                                                                                                                              });
+                                                                                                                                        })
+                                                                                                                                    }) : null
+                                                                                                                            ],
+                                                                                                                            className: "mt-0.5 break-words text-xs text-gray-500 dark:text-gray-400"
+                                                                                                                          });
+                                                                                                              })), null)
+                                                                                                  ],
+                                                                                                  className: "min-w-0 flex-1"
+                                                                                                })
+                                                                                          ],
+                                                                                          className: "flex items-start gap-2.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#1e1f23]"
+                                                                                        }) : null
+                                                                                )
+                                                                            ],
+                                                                            className: "min-w-0"
+                                                                          }),
+                                                                      JsxRuntime.jsxs("label", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: t`Date`,
+                                                                                    className: labelClass
                                                                                   }),
                                                                               JsxRuntime.jsx("div", {
-                                                                                    children: [
-                                                                                        [
-                                                                                          "recreational",
-                                                                                          t`Recreational`
-                                                                                        ],
-                                                                                        [
-                                                                                          "competitive",
-                                                                                          t`Competitive`
-                                                                                        ]
-                                                                                      ].map(function (param) {
-                                                                                          var value = param[0];
-                                                                                          return JsxRuntime.jsxs("label", {
-                                                                                                      children: [
-                                                                                                        JsxRuntime.jsx("input", {
-                                                                                                              className: "sr-only",
-                                                                                                              checked: eventType === value,
-                                                                                                              type: "radio",
-                                                                                                              onChange: (function (param) {
-                                                                                                                  if (value === "competitive") {
-                                                                                                                    return setSelectedTags(function (tags) {
-                                                                                                                                return tags.filter(function (t) {
-                                                                                                                                              return t !== "rec";
-                                                                                                                                            }).concat(["comp"]);
-                                                                                                                              });
-                                                                                                                  } else {
-                                                                                                                    return setSelectedTags(function (tags) {
-                                                                                                                                return tags.filter(function (t) {
-                                                                                                                                              if (t !== "comp") {
-                                                                                                                                                return t !== "dupr";
-                                                                                                                                              } else {
-                                                                                                                                                return false;
-                                                                                                                                              }
-                                                                                                                                            }).concat(["rec"]);
-                                                                                                                              });
-                                                                                                                  }
-                                                                                                                })
-                                                                                                            }),
-                                                                                                        JsxRuntime.jsx("span", {
-                                                                                                              children: param[1],
-                                                                                                              className: Core.cx("text-sm font-medium", eventType === value ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
-                                                                                                            })
-                                                                                                      ],
-                                                                                                      className: Core.cx("relative flex items-center justify-center px-4 py-3 border-2 rounded-lg cursor-pointer transition-all", eventType === value ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]")
-                                                                                                    }, value);
-                                                                                        }),
-                                                                                    className: "grid grid-cols-2 gap-3"
-                                                                                  }),
-                                                                              JsxRuntime.jsxs("div", {
-                                                                                    children: [
-                                                                                      JsxRuntime.jsx(LucideReact.Info, {
-                                                                                            className: "w-4 h-4 text-gray-500 dark:text-gray-400 mt-0.5 flex-shrink-0"
-                                                                                          }),
-                                                                                      JsxRuntime.jsx("p", {
-                                                                                            children: eventType === "competitive" ? t`Serious play with rankings and ratings. Games may affect your player rating.` : t`Casual play focused on fun and social interaction. Perfect for all skill levels.`,
-                                                                                            className: "text-sm text-gray-700 dark:text-gray-300"
-                                                                                          })
-                                                                                    ],
-                                                                                    className: "mt-3 flex items-start gap-2 p-3 bg-gray-50 dark:bg-[#222222] rounded-lg border border-gray-200 dark:border-gray-700"
-                                                                                  })
-                                                                            ]
-                                                                          }),
-                                                                      eventType === "competitive" ? JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx("label", {
-                                                                                      children: t`Format options`,
-                                                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
-                                                                                    }),
-                                                                                JsxRuntime.jsxs("div", {
-                                                                                      children: [
-                                                                                        JsxRuntime.jsx("button", {
-                                                                                              children: JsxRuntime.jsx("span", {
-                                                                                                    children: t`DUPR rated`,
-                                                                                                    className: Core.cx("text-sm font-medium", isDupr ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
-                                                                                                  }),
-                                                                                              className: Core.cx("relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all", isDupr ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]"),
-                                                                                              type: "button",
-                                                                                              onClick: (function (param) {
-                                                                                                  setSelectedTags(function (tags) {
-                                                                                                        if (isDupr) {
-                                                                                                          return tags.filter(function (t) {
-                                                                                                                      return t !== "dupr";
-                                                                                                                    });
-                                                                                                        } else {
-                                                                                                          return tags.concat(["dupr"]);
-                                                                                                        }
-                                                                                                      });
-                                                                                                })
-                                                                                            }),
-                                                                                        JsxRuntime.jsx("button", {
-                                                                                              children: JsxRuntime.jsx("span", {
-                                                                                                    children: t`Drill session`,
-                                                                                                    className: Core.cx("text-sm font-medium", isDrill ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
-                                                                                                  }),
-                                                                                              className: Core.cx("relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all", isDrill ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]"),
-                                                                                              type: "button",
-                                                                                              onClick: (function (param) {
-                                                                                                  setSelectedTags(function (tags) {
-                                                                                                        if (isDrill) {
-                                                                                                          return tags.filter(function (t) {
-                                                                                                                      return t !== "drill";
-                                                                                                                    });
-                                                                                                        } else {
-                                                                                                          return tags.concat(["drill"]);
-                                                                                                        }
-                                                                                                      });
-                                                                                                })
+                                                                                    children: JsxRuntime.jsx("input", {
+                                                                                          className: "native-date-input block h-full w-full min-w-0 max-w-full border-0 bg-transparent text-gray-900 outline-none dark:text-gray-100",
+                                                                                          id: "startDate",
+                                                                                          type: "date",
+                                                                                          value: datePart,
+                                                                                          onChange: (function (e) {
+                                                                                              var date = e.target.value;
+                                                                                              if (date !== "") {
+                                                                                                return setStartDateTime(date, clockStart);
+                                                                                              }
+                                                                                              
                                                                                             })
-                                                                                      ],
-                                                                                      className: "grid grid-cols-2 gap-3"
-                                                                                    })
-                                                                              ],
-                                                                              className: "pl-4 border-l-2 border-gray-200 dark:border-gray-700 space-y-3"
-                                                                            }) : JsxRuntime.jsxs("div", {
-                                                                              children: [
-                                                                                JsxRuntime.jsx("label", {
-                                                                                      children: t`Format options`,
-                                                                                      className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-3"
+                                                                                        }),
+                                                                                    className: Core.cx("box-border h-11 w-full min-w-0 max-w-full overflow-hidden rounded-lg border bg-white transition-colors focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:bg-[#1e1f23]", Core__Option.isSome(formState.errors.startDate) ? fieldErrorBorderClass : fieldBorderClass)
+                                                                                  }),
+                                                                              errorText(Core__Option.flatMap(formState.errors.startDate, (function (e) {
+                                                                                          return e.message;
+                                                                                        })))
+                                                                            ],
+                                                                            className: "block min-w-0 max-w-full overflow-hidden"
+                                                                          }),
+                                                                      JsxRuntime.jsxs("label", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: t`Time zone`,
+                                                                                    className: labelClass
+                                                                                  }),
+                                                                              JsxRuntime.jsx("select", {
+                                                                                    children: timezoneOptions.map(function (zone) {
+                                                                                          return JsxRuntime.jsx("option", {
+                                                                                                      children: zone,
+                                                                                                      value: zone
+                                                                                                    }, zone);
+                                                                                        }),
+                                                                                    className: fieldClass,
+                                                                                    id: "timezone",
+                                                                                    value: tz,
+                                                                                    onChange: (function (e) {
+                                                                                        setValue("timezone", e.target.value, undefined);
+                                                                                      })
+                                                                                  }),
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: t`The date and times on this form are in this zone.`,
+                                                                                    className: hintClass
+                                                                                  })
+                                                                            ],
+                                                                            className: "block min-w-0",
+                                                                            htmlFor: "timezone"
+                                                                          }),
+                                                                      JsxRuntime.jsxs("div", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: t`Start and end time`,
+                                                                                    className: labelClass
+                                                                                  }),
+                                                                              JsxRuntime.jsx(TimeWindowPicker.make, {
+                                                                                    intents: [eventWindow],
+                                                                                    onChange: onWindowChange,
+                                                                                    config: eventWindowConfigFor(eventWindow),
+                                                                                    emptyLabel: t`Choose an event time`,
+                                                                                    maxIntents: 1,
+                                                                                    allowDelete: false
+                                                                                  }),
+                                                                              JsxRuntime.jsx("div", {
+                                                                                    children: JsxRuntime.jsx("span", {
+                                                                                          children: TimeWindow.hourToTime(eventWindow.start) + "–" + TimeWindow.hourToTime(eventWindow.end) + " · " + ClockRangePicker.formatDuration(durationMinutes),
+                                                                                          className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 font-mono text-[10px] font-semibold text-gray-600 dark:bg-[#1e1f23] dark:text-gray-300"
+                                                                                        }),
+                                                                                    className: "mt-2 flex flex-wrap items-center gap-1.5"
+                                                                                  }),
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: t`Drag the window to move it, or drag either edge to resize.`,
+                                                                                    className: hintClass
+                                                                                  }),
+                                                                              hasValidTimeRange ? null : JsxRuntime.jsx("p", {
+                                                                                      children: durationMinutes < 15 ? t`Events must be at least 15 minutes long.` : t`Events can be up to 12 hours long.`,
+                                                                                      className: "mt-2 text-xs text-red-600 dark:text-red-400"
                                                                                     }),
-                                                                                JsxRuntime.jsx("button", {
-                                                                                      children: JsxRuntime.jsx("span", {
-                                                                                            children: t`Drill session`,
-                                                                                            className: Core.cx("text-sm font-medium", isDrill ? "text-[#4d7c0f] dark:text-[#a3e635]" : "text-gray-700 dark:text-gray-300")
-                                                                                          }),
-                                                                                      className: Core.cx("relative flex items-center justify-center px-4 py-3 border rounded-lg transition-all", isDrill ? "border-[#a3e635] bg-[#f7fee7] dark:bg-[#3f6212]/20" : "border-gray-300 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 bg-white dark:bg-[#222222]"),
-                                                                                      type: "button",
-                                                                                      onClick: (function (param) {
-                                                                                          setSelectedTags(function (tags) {
-                                                                                                if (isDrill) {
-                                                                                                  return tags.filter(function (t) {
-                                                                                                              return t !== "drill";
-                                                                                                            });
-                                                                                                } else {
-                                                                                                  return tags.concat(["drill"]);
-                                                                                                }
-                                                                                              });
-                                                                                        })
-                                                                                    })
-                                                                              ],
-                                                                              className: "pl-4 border-l-2 border-gray-200 dark:border-gray-700"
-                                                                            })
+                                                                              errorText(Core__Option.flatMap(formState.errors.endTime, (function (e) {
+                                                                                          return e.message;
+                                                                                        })))
+                                                                            ],
+                                                                            className: "min-w-0 max-w-full"
+                                                                          })
                                                                     ],
-                                                                    className: "px-4 pb-4 pt-6 space-y-6 border-t border-gray-100 dark:border-gray-800"
+                                                                    className: sectionBodyClass,
+                                                                    id: "event-form-schedule"
                                                                   }) : null
                                                           ],
-                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
+                                                          className: sectionClass
                                                         }),
-                                                    JsxRuntime.jsxs("div", {
+                                                    JsxRuntime.jsxs("section", {
                                                           children: [
-                                                            JsxRuntime.jsxs("button", {
+                                                            sectionHeader(JsxRuntime.jsx(LucideReact.FileText, {
+                                                                      size: 19,
+                                                                      className: sectionIconClass,
+                                                                      "aria-hidden": "true"
+                                                                    }), t`Event details`, detailsSummary, expandedSection === "DetailsSection", "event-form-details", (function () {
+                                                                    toggleSection("DetailsSection");
+                                                                  })),
+                                                            tmp
+                                                          ],
+                                                          className: sectionClass
+                                                        }),
+                                                    JsxRuntime.jsxs("section", {
+                                                          children: [
+                                                            JsxRuntime.jsxs("label", {
                                                                   children: [
-                                                                    JsxRuntime.jsxs("div", {
+                                                                    JsxRuntime.jsx("input", {
+                                                                          className: "h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]",
+                                                                          id: "paidEvent",
+                                                                          checked: isPaidEvent,
+                                                                          type: "checkbox",
+                                                                          onChange: (function (param) {
+                                                                              var newValue = !isPaidEvent;
+                                                                              setIsPaidEvent(function (param) {
+                                                                                    return newValue;
+                                                                                  });
+                                                                              if (!newValue) {
+                                                                                return setValue("price", "", undefined);
+                                                                              }
+                                                                              
+                                                                            })
+                                                                        }),
+                                                                    JsxRuntime.jsx(LucideReact.CircleDollarSign, {
+                                                                          size: 19,
+                                                                          className: sectionIconClass,
+                                                                          "aria-hidden": "true"
+                                                                        }),
+                                                                    JsxRuntime.jsxs("span", {
                                                                           children: [
-                                                                            JsxRuntime.jsx(LucideReact.Users, {
-                                                                                  className: "w-5 h-5 text-gray-400 dark:text-gray-500 flex-shrink-0"
+                                                                            JsxRuntime.jsx("span", {
+                                                                                  children: t`Paid event`,
+                                                                                  className: "block text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                                                 }),
-                                                                            JsxRuntime.jsxs("div", {
-                                                                                  children: [
-                                                                                    JsxRuntime.jsx("div", {
-                                                                                          children: t`Find Players`,
-                                                                                          className: "text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                                                                        }),
-                                                                                    findPlayersExpanded ? null : JsxRuntime.jsx("div", {
-                                                                                            children: getFindPlayersSummary(),
-                                                                                            className: "text-xs text-gray-600 dark:text-gray-400 mt-0.5 line-clamp-2 break-words",
-                                                                                            style: {
-                                                                                              overflowWrap: "anywhere"
-                                                                                            }
-                                                                                          })
-                                                                                  ],
-                                                                                  className: "text-left flex-1 min-w-0"
+                                                                            JsxRuntime.jsx("span", {
+                                                                                  children: t`Attendees save a card when they RSVP. Nothing is charged automatically.`,
+                                                                                  className: "mt-0.5 block text-xs text-gray-500 dark:text-gray-400"
                                                                                 })
                                                                           ],
-                                                                          className: "flex items-center gap-3"
-                                                                        }),
-                                                                    JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                                          className: Core.cx("w-5 h-5 text-gray-400 dark:text-gray-500 transform transition-transform flex-shrink-0", findPlayersExpanded ? "rotate-180" : "")
+                                                                          className: "min-w-0 flex-1"
                                                                         })
                                                                   ],
-                                                                  className: "w-full px-4 py-4 hover:bg-gray-50 dark:hover:bg-[#222222] transition-colors flex items-center justify-between",
-                                                                  type: "button",
-                                                                  onClick: (function (param) {
-                                                                      var expanded = !findPlayersExpanded;
-                                                                      setExpandedSection(function (param) {
-                                                                            if (expanded) {
-                                                                              return "FindPlayersSection";
-                                                                            } else {
-                                                                              return "None";
-                                                                            }
-                                                                          });
-                                                                    })
+                                                                  className: "flex cursor-pointer items-center gap-3 px-4 py-4"
                                                                 }),
-                                                            tmp$6
+                                                            tmp$1
                                                           ],
-                                                          className: "border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
+                                                          className: sectionClass
                                                         }),
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx("button", {
-                                                                children: isUpdate ? t`Update Event` : t`Create Event`,
-                                                                className: "w-full bg-[#a3e635] text-gray-900 py-4 px-6 rounded-lg font-bold hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] transition-colors shadow-sm",
-                                                                type: "submit"
-                                                              }),
-                                                          className: "pt-6"
+                                                    JsxRuntime.jsxs("section", {
+                                                          children: [
+                                                            sectionHeader(JsxRuntime.jsx(LucideReact.Dumbbell, {
+                                                                      size: 19,
+                                                                      className: sectionIconClass,
+                                                                      "aria-hidden": "true"
+                                                                    }), t`Format`, formatSummary, expandedSection === "FormatSection", "event-form-format", (function () {
+                                                                    toggleSection("FormatSection");
+                                                                  })),
+                                                            tmp$2
+                                                          ],
+                                                          className: sectionClass
+                                                        }),
+                                                    JsxRuntime.jsxs("section", {
+                                                          children: [
+                                                            sectionHeader(JsxRuntime.jsx(LucideReact.Users, {
+                                                                      size: 19,
+                                                                      className: sectionIconClass,
+                                                                      "aria-hidden": "true"
+                                                                    }), t`Players`, playersSummary, expandedSection === "PlayersSection", "event-form-players", (function () {
+                                                                    toggleSection("PlayersSection");
+                                                                  })),
+                                                            tmp$3
+                                                          ],
+                                                          className: sectionClass
+                                                        }),
+                                                    JsxRuntime.jsx("button", {
+                                                          children: isUpdate ? t`Update event` : t`Create event`,
+                                                          className: "w-full rounded-lg bg-[#bdf25d] px-4 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#111111]",
+                                                          type: "submit"
                                                         })
                                                   ],
-                                                  className: "space-y-6",
+                                                  className: "min-w-0 space-y-3 overflow-x-hidden",
                                                   onSubmit: handleSubmit(onSubmit)
                                                 }))
                                       });
@@ -1514,9 +1459,12 @@ t({
       id: "all level"
     });
 
+var defaultCancelDeadline = 86400000;
+
 var make = CreateLocationEventForm;
 
 export {
+  defaultCancelDeadline ,
   make ,
 }
 /*  Not a pure module */

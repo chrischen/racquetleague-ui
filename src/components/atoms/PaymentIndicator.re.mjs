@@ -66,15 +66,30 @@ function PaymentIndicator(props) {
   var currency = match.currency;
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
-                  if (status === 0 || status === 1) {
-                    return JsxRuntime.jsx("span", {
-                                children: getCurrencySymbol(currency),
-                                className: "text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none",
-                                title: status === 1 ? t`Payment captured` : t`Payment authorized`
-                              });
-                  } else {
-                    return null;
+                  switch (status) {
+                    case 1 :
+                        return JsxRuntime.jsx("span", {
+                                    children: getCurrencySymbol(currency),
+                                    className: "text-[10px] font-semibold text-green-500 dark:text-green-400 leading-none",
+                                    title: t`Payment charged`
+                                  });
+                    case 3 :
+                        return JsxRuntime.jsx("span", {
+                                    children: getCurrencySymbol(currency),
+                                    className: "text-[10px] font-semibold text-red-500 dark:text-red-400 leading-none",
+                                    title: t`Charge failed`
+                                  });
+                    case 0 :
+                    case 5 :
+                        break;
+                    default:
+                      return null;
                   }
+                  return JsxRuntime.jsx("span", {
+                              children: getCurrencySymbol(currency),
+                              className: "text-[10px] font-semibold text-gray-400 dark:text-gray-500 leading-none",
+                              title: status === 5 ? t`Card on file` : t`Payment authorized`
+                            });
                 })
             });
 }

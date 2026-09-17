@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "(サインアウト)"
 
-#: src/components/organisms/Nav.re.mjs:115
+#: src/components/organisms/Nav.re.mjs:117
 msgid "Add Event"
 msgstr "イベントを追加"
 
@@ -30,7 +30,7 @@ msgstr "著作権ラケットリーグの寄稿者"
 msgid "login with Line"
 msgstr "Lineでログイン"
 
-#: src/components/organisms/Nav.re.mjs:98
+#: src/components/organisms/Nav.re.mjs:100
 msgid "racquet league"
 msgstr "ラケットリーグ"
 

@@ -19,6 +19,7 @@ module Types = {
   type variables = {
     activityId: string,
     clubId?: string,
+    clubSlug?: string,
     localDate: string,
     location?: locationInput,
   }
@@ -26,17 +27,20 @@ module Types = {
   type refetchVariables = {
     activityId: option<string>,
     clubId: option<option<string>>,
+    clubSlug: option<option<string>>,
     localDate: option<string>,
     location: option<option<locationInput>>,
   }
   @live let makeRefetchVariables = (
     ~activityId=?,
     ~clubId=?,
+    ~clubSlug=?,
     ~localDate=?,
     ~location=?,
   ): refetchVariables => {
     activityId: activityId,
     clubId: clubId,
+    clubSlug: clubSlug,
     localDate: localDate,
     location: location
   }
@@ -134,14 +138,19 @@ v1 = {
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "localDate"
+  "name": "clubSlug"
 },
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
+  "name": "localDate"
+},
+v4 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
   "name": "location"
 },
-v4 = [
+v5 = [
   {
     "alias": null,
     "args": [
@@ -154,6 +163,11 @@ v4 = [
         "kind": "Variable",
         "name": "clubId",
         "variableName": "clubId"
+      },
+      {
+        "kind": "Variable",
+        "name": "clubSlug",
+        "variableName": "clubSlug"
       },
       {
         "kind": "Variable",
@@ -195,34 +209,36 @@ return {
       (v0/*: any*/),
       (v1/*: any*/),
       (v2/*: any*/),
-      (v3/*: any*/)
+      (v3/*: any*/),
+      (v4/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
-    "selections": (v4/*: any*/),
+    "selections": (v5/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
     "argumentDefinitions": [
-      (v2/*: any*/),
+      (v3/*: any*/),
       (v0/*: any*/),
       (v1/*: any*/),
-      (v3/*: any*/)
+      (v2/*: any*/),
+      (v4/*: any*/)
     ],
     "kind": "Operation",
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
-    "selections": (v4/*: any*/)
+    "selections": (v5/*: any*/)
   },
   "params": {
-    "cacheID": "9a3d0df7d219eaedc55fe1b9330eac5b",
+    "cacheID": "1d8033ff6b64516f98d2f90faa48f1cc",
     "id": null,
     "metadata": {},
     "name": "TimePickerWithHeatmapHourlyCountsQuery",
     "operationKind": "query",
-    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $location: LocationInput\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, location: $location) {\n    hour\n    count\n  }\n}\n"
+    "text": "query TimePickerWithHeatmapHourlyCountsQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $clubSlug: String\n  $location: LocationInput\n) {\n  availabilityHourlyCounts(localDate: $localDate, activityId: $activityId, clubId: $clubId, clubSlug: $clubSlug, location: $location) {\n    hour\n    count\n  }\n}\n"
   }
 };
 })() `)

@@ -186,11 +186,18 @@ function hourLabel(h) {
   return hh.toString().padStart(2, "0") + ":" + mm.toString().padStart(2, "0");
 }
 
+function hourToTime(h) {
+  var minutes = (Math.round(h * 60.0) | 0) % 1440;
+  return (minutes / 60 | 0).toString().padStart(2, "0") + ":" + (minutes % 60).toString().padStart(2, "0");
+}
+
 function hourLabelIntl(intl, h) {
   var minutes = (h - Math.floor(h)) * 60.0;
-  return intl.formatTime(new Date(2000, 0, 1, h, minutes, 0), minutes === 0.0 ? ({
+  return intl.formatTime(new Date(Date.UTC(2000, 0, 1, h, minutes)), minutes === 0.0 ? ({
+                  timeZone: "UTC",
                   hour: "numeric"
                 }) : ({
+                  timeZone: "UTC",
                   hour: "numeric",
                   minute: "2-digit"
                 }));
@@ -511,6 +518,7 @@ export {
   summarizeCourtAvailability ,
   hourInTimeZone ,
   hourLabel ,
+  hourToTime ,
   hourLabelIntl ,
   groupCourtAvailabilityByTime ,
   groupCourtAvailabilityIntoBands ,

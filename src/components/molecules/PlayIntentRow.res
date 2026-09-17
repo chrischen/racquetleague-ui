@@ -33,9 +33,20 @@ let make = (
   ~events: array<TimeWindowPicker.existingEvent>=[],
   ~onAvailabilityCommitted: option<userDay> => unit,
   ~onChange: array<TimeWindow.playIntent> => unit,
-  ~onCreateEvent: option<unit => unit>=?,
+  // "Host event": receives the single drafted window so the caller can preset
+  // (or directly create) the event at that time.
+  ~onCreateEvent: option<TimeWindow.playIntent => unit>=?,
   ~onRegisterOpenEditor: option<(unit => unit) => unit>=?,
   ~renderHeader: option<React.element => React.element>=?,
+  // The collapsed header trigger's copy and icon; hosts such as a club's
+  // schedule name the day ("Add to wednesday") instead of "Play today".
+  ~triggerLabel: option<string>=?,
+  ~triggerIcon: option<React.element>=?,
+  // Scopes the picker's demand heatmap to a club's members.
+  ~clubSlug: option<string>=?,
+  // Extra controls a host renders above the editor's actions, e.g. a location
+  // club's level picker for the event "Host event" creates.
+  ~hostOptions: option<React.element>=?,
   ~isLoggedIn: bool=false,
   // Runs the editor-opening action once the viewer's profile is complete
   // enough to share availability. Defaults to pass-through for hosts that
@@ -149,16 +160,8 @@ let make = (
   let navigate = LangProvider.Router.useNavigate()
   let formatHour = (h: int): string =>
     intl->ReactIntl.Intl.formatTimeWithOptions(
-      Js.Date.makeWithYMDHMS(
-        ~year=2000.,
-        ~month=0.,
-        ~date=1.,
-        ~hours=h->Float.fromInt,
-        ~minutes=0.,
-        ~seconds=0.,
-        (),
-      ),
-      ReactIntl.dateTimeFormatOptions(~hour=#numeric, ()),
+      Js.Date.utcWithYMDHM(~year=2000., ~month=0., ~date=1., ~hours=h->Float.fromInt, ~minutes=0., ())->Js.Date.fromFloat,
+      ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~timeZone="UTC", ()),
     )
 
   let openEditor = () => {
@@ -238,8 +241,8 @@ let make = (
           navigate("/oauth-login?return=" ++ pathname, None)
         }}
       className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white border border-dashed border-gray-300 dark:border-[#3a3b40] hover:border-gray-400 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors">
-      <Lucide.CalendarClock className="w-[11px] h-[11px]" />
-      <span> {(ts`Play today`)->React.string} </span>
+      {triggerIcon->Option.getOr(<Lucide.CalendarClock className="w-[11px] h-[11px]" />)}
+      <span> {triggerLabel->Option.getOr(ts`Play today`)->React.string} </span>
     </button>
 
   // Keep players, the user's availability, and court inventory in one compact
@@ -388,6 +391,7 @@ let make = (
             onChange={intents => setDraft(_ => intents)}
             activityId=?resolvedActivityId
             ?clubId
+            ?clubSlug
             courtAvailability
             existingEvents=events
           />
@@ -445,6 +449,9 @@ let make = (
               <AvailabilityDemandList userDays open_=demandListOpen innerClassName="space-y-1.5 mt-2" />
             </div>
           : React.null}
+        {hostOptions
+        ->Option.map(options => <div className="mt-3"> {options} </div>)
+        ->Option.getOr(React.null)}
         <div className="mt-3">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             {isActive
@@ -462,10 +469,13 @@ let make = (
               {onCreateEvent
               ->Option.map(cb =>
                 <button
-                  onClick={_ => {
-                    setEditing(_ => false)
-                    cb()
-                  }}
+                  onClick={_ =>
+                    switch draft {
+                    | [window] =>
+                      setEditing(_ => false)
+                      cb(window)
+                    | _ => ()
+                    }}
                   disabled={draft->Array.length !== 1}
                   title={if draft->Array.length !== 1 {
                     ts`Pick one time window to host an event`

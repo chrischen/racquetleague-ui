@@ -13,16 +13,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubMembersPage.re.mjs:274
+#: src/components/pages/ClubMembersPage.re.mjs:320
 msgid "Admin"
 msgstr "管理員"
 
-#: src/components/pages/ClubMembersPage.re.mjs:198
+#: src/components/pages/ClubMembersPage.re.mjs:222
 msgid "Approve"
 msgstr "批准"
 
-#: src/components/pages/ClubMembersPage.re.mjs:209
-#: src/components/pages/ClubMembersPage.re.mjs:232
+#: src/components/pages/ClubMembersPage.re.mjs:233
+#: src/components/pages/ClubMembersPage.re.mjs:270
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "您確定要將 {0} 從俱樂部中移除嗎？"
 
@@ -30,7 +30,7 @@ msgstr "您確定要將 {0} 從俱樂部中移除嗎？"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/pages/ClubMembersPage.re.mjs:478
+#: src/components/pages/ClubMembersPage.re.mjs:552
 msgid "club not found"
 msgstr "找不到俱樂部"
 
@@ -38,33 +38,41 @@ msgstr "找不到俱樂部"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/pages/ClubMembersPage.re.mjs:470
+#: src/components/pages/ClubMembersPage.re.mjs:544
 msgid "Loading members..."
 msgstr "載入成員中..."
 
-#: src/components/pages/ClubMembersPage.re.mjs:458
+#: src/components/pages/ClubMembersPage.re.mjs:257
+msgid "Make admin"
+msgstr "設為管理員"
+
+#: src/components/pages/ClubMembersPage.re.mjs:531
 msgid "Members"
 msgstr "成員"
 
-#: src/components/pages/ClubMembersPage.re.mjs:407
+#: src/components/pages/ClubMembersPage.re.mjs:477
 msgid "No members found"
 msgstr "找不到成員"
 
-#: src/components/pages/ClubMembersPage.re.mjs:270
+#: src/components/pages/ClubMembersPage.re.mjs:316
 msgid "Owner"
 msgstr "擁有者"
 
-#: src/components/pages/ClubMembersPage.re.mjs:191
-#: src/components/pages/ClubMembersPage.re.mjs:382
+#: src/components/pages/ClubMembersPage.re.mjs:215
+#: src/components/pages/ClubMembersPage.re.mjs:452
 msgid "Pending"
 msgstr "待審核"
 
-#: src/components/pages/ClubMembersPage.re.mjs:206
-#: src/components/pages/ClubMembersPage.re.mjs:229
+#: src/components/pages/ClubMembersPage.re.mjs:230
+#: src/components/pages/ClubMembersPage.re.mjs:267
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/pages/ClubMembersPage.re.mjs:208
-#: src/components/pages/ClubMembersPage.re.mjs:231
+#: src/components/pages/ClubMembersPage.re.mjs:250
+msgid "Remove admin"
+msgstr "取消管理員"
+
+#: src/components/pages/ClubMembersPage.re.mjs:232
+#: src/components/pages/ClubMembersPage.re.mjs:269
 msgid "Remove member?"
 msgstr "移除成員？"

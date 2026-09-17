@@ -21,9 +21,7 @@ module EventFragment = %relay(`
     price
     cancelDeadline
     smartRsvpThreshold
-    owner {
-      stripeChargesEnabled
-    }
+    chargesEnabled
   }
 `)
 
@@ -38,40 +36,24 @@ let make = (~event, ~location, ~query, ~isCopy=false, ~viewerStripeChargesEnable
   })
   let (shakeCounter, setShakeCounter) = React.useState(() => 0)
 
+  // The form takes wall-clock strings in the event's zone, not the browser's.
+  let tz = eventData.timezone->Option.getOr(Util.Timezone.fallback)
+  let wallClock = d => Util.Timezone.toWallClock(d->Util.Datetime.toDate, tz)
+  let timeOfDay = wall => wall->String.slice(~start=11, ~end=16)
+
   // For copy: today's date + source time-of-day. For update: source datetime.
   let startDate = if isCopy {
     eventData.startDate->Option.map(sd => {
-      let sourceStart = sd->Util.Datetime.toDate
-      let timeStr = sourceStart->DateFns.formatWithPattern("HH:mm")
-      let todayStr = Js.Date.make()->DateFns.formatWithPattern("yyyy-MM-dd")
-      todayStr ++ "T" ++ timeStr
+      let today = Util.Timezone.toWallClock(Js.Date.make(), tz)->String.slice(~start=0, ~end=10)
+      today ++ "T" ++ timeOfDay(wallClock(sd))
     })
   } else {
-    eventData.startDate->Option.map(d =>
-      d->Util.Datetime.toDate->DateFns.formatWithPattern("yyyy-MM-dd'T'HH:mm")
-    )
+    eventData.startDate->Option.map(wallClock)
   }
 
-  // For copy: today's start + source duration. For update: source end time.
-  let endDate = if isCopy {
-    switch (eventData.startDate, eventData.endDate, startDate) {
-    | (Some(sd), Some(ed), Some(newStart)) => {
-        let sourceStart = sd->Util.Datetime.toDate
-        let sourceEnd = ed->Util.Datetime.toDate
-        let durationHours =
-          (sourceEnd->DateFns.getTime -. sourceStart->DateFns.getTime) /. (1000.0 *. 60.0 *. 60.0)
-        Some(
-          newStart
-          ->DateFns.parseISO
-          ->DateFns.addHours(durationHours)
-          ->DateFns.formatWithPattern("HH:mm"),
-        )
-      }
-    | _ => None
-    }
-  } else {
-    eventData.endDate->Option.map(d => d->Util.Datetime.toDate->DateFns.formatWithPattern("HH:mm"))
-  }
+  // Both modes keep the source end time-of-day; the form rolls an end at or
+  // before the start over to the next day, so a copy keeps its duration.
+  let endDate = eventData.endDate->Option.map(d => timeOfDay(wallClock(d)))
 
   let prefilledValues: CreateLocationEventForm.prefilledValues = {
     title: ?eventData.title,
@@ -104,9 +86,7 @@ let make = (~event, ~location, ~query, ~isCopy=false, ~viewerStripeChargesEnable
     <CreateLocationEventForm
       eventId=?{isCopy ? None : Some(eventData.id)}
       location
-      stripeChargesEnabled={isCopy
-        ? viewerStripeChargesEnabled
-        : eventData.owner->Option.flatMap(o => o.stripeChargesEnabled)->Option.getOr(false)}
+      stripeChargesEnabled={isCopy ? viewerStripeChargesEnabled : eventData.chargesEnabled}
       prefilledValues
       selectedClub=?clubSelection.clubId
       selectedActivity=?clubSelection.activityId

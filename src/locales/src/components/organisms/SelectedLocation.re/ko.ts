@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"장소 변경\",\"Vveohd\":\"이 이벤트가 열릴 장소를 선택하세요.\",\"xl+An2\":\"이벤트 장소\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"장소 변경\",\"Vveohd\":\"이 이벤트가 열릴 장소를 선택하세요.\",\"YxgkvU\":\"해당 장소를 불러올 수 없습니다\",\"ud55cp\":\"해당 위치를 저장할 수 없습니다\",\"xl+An2\":\"이벤트 장소\",\"OL5eOg\":\"현재 위치 검색을 사용할 수 없습니다\",\"uFOTcQ\":\"장소 또는 주소 검색\"}");

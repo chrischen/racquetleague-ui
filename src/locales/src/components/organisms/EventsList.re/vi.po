@@ -45,11 +45,11 @@ msgstr "{0} sân"
 msgid "{0} courts"
 msgstr "{0} sân"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:390
+#: src/components/organisms/CreateEventsButton.re.mjs:367
 msgid "{0} event(s) couldn't be created (they may already exist)."
 msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:386
+#: src/components/organisms/CreateEventsButton.re.mjs:363
 msgid "{0} events created!"
 msgstr "Đã tạo {0} sự kiện!"
 
@@ -106,11 +106,11 @@ msgstr "1 · Ngày"
 msgid "2 · Time"
 msgstr "2 · Giờ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:334
+#: src/components/organisms/NewPlanModal.re.mjs:336
 msgid "3 · What kind?"
 msgstr "3 · Loại gì?"
 
-#: src/components/organisms/AddEventButton.re.mjs:115
+#: src/components/organisms/AddEventButton.re.mjs:119
 msgid "Add an Event"
 msgstr "Thêm sự kiện"
 
@@ -181,9 +181,19 @@ msgstr ""
 "Hoàn thiện hồ sơ của bạn trước khi chia sẻ lịch rảnh với người chơi và người "
 "tổ chức."
 
-#: src/components/organisms/NewPlanModal.re.mjs:404
+#: src/components/organisms/NewPlanModal.re.mjs:406
 msgid "Continue"
 msgstr "Tiếp tục"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "Không thể tải địa điểm đó"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "Không thể lưu vị trí đó"
 
 #: src/components/organisms/ProfileModal.re.mjs:257
 #: src/components/organisms/ProfileModal.re.mjs:266
@@ -192,19 +202,19 @@ msgstr "Tiếp tục"
 msgid "Could not save your profile. Please try again."
 msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:440
+#: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
 msgstr "Không thể tạo sự kiện đó. Vui lòng thử lại."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:399
+#: src/components/organisms/CreateEventsButton.re.mjs:376
 msgid "Couldn't determine the activity. Please try again."
 msgstr "Không thể xác định hoạt động. Vui lòng thử lại."
 
-#: src/components/organisms/CreateEventsButton.re.mjs:416
+#: src/components/organisms/CreateEventsButton.re.mjs:393
 msgid "Couldn't find this location — pick it:"
 msgstr "Không tìm thấy địa điểm này — hãy chọn:"
 
-#: src/components/organisms/NewPlanModal.re.mjs:399
+#: src/components/organisms/NewPlanModal.re.mjs:401
 msgid ""
 "Create a hosted event at this time. Others can join, you pick venue and "
 "rules."
@@ -220,16 +230,16 @@ msgstr "Tạo tất cả sự kiện"
 msgid "Create This Event"
 msgstr "Tạo sự kiện này"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:404
+#: src/components/organisms/CreateEventsButton.re.mjs:381
 msgid "Creating..."
 msgstr "Đang tạo..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:58
-#: src/components/molecules/AIResponseCard.re.mjs:162
+#: src/components/molecules/AIResponseCard.re.mjs:67
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Date:"
 msgstr "Ngày:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:105
+#: src/components/molecules/AIResponseCard.re.mjs:117
 msgid "Description:"
 msgstr "Mô tả:"
 
@@ -261,7 +271,7 @@ msgstr "Cần có email"
 msgid "Evening"
 msgstr "Buổi tối"
 
-#: src/components/molecules/AIResponseCard.re.mjs:36
+#: src/components/molecules/AIResponseCard.re.mjs:45
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
@@ -285,11 +295,11 @@ msgstr "Giới tính"
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
-#: src/components/organisms/NewPlanModal.re.mjs:392
+#: src/components/organisms/NewPlanModal.re.mjs:394
 msgid "Host an event"
 msgstr "Tổ chức sự kiện"
 
-#: src/components/organisms/NewPlanModal.re.mjs:422
+#: src/components/organisms/NewPlanModal.re.mjs:424
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "Tổ chức sự kiện cần đúng một khung giờ — hãy chọn một."
 
@@ -333,8 +343,12 @@ msgstr "rời sự kiện"
 msgid "Level"
 msgstr "Trình độ"
 
-#: src/components/molecules/AIResponseCard.re.mjs:90
-#: src/components/molecules/AIResponseCard.re.mjs:194
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "Tìm kiếm vị trí hiện không khả dụng"
+
+#: src/components/molecules/AIResponseCard.re.mjs:102
+#: src/components/molecules/AIResponseCard.re.mjs:210
 msgid "Location:"
 msgstr "Địa điểm:"
 
@@ -342,7 +356,7 @@ msgstr "Địa điểm:"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/NewPlanModal.re.mjs:354
+#: src/components/organisms/NewPlanModal.re.mjs:356
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
@@ -370,7 +384,7 @@ msgstr "Không phải bây giờ"
 msgid "pending"
 msgstr "đang chờ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:388
+#: src/components/molecules/TimeWindowPicker.re.mjs:412
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
@@ -386,7 +400,7 @@ msgstr "Chuyên nghiệp"
 msgid "Processing..."
 msgstr "Đang xử lý..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:225
+#: src/components/molecules/TimeWindowPicker.re.mjs:239
 msgid "Remove"
 msgstr "Xóa"
 
@@ -394,7 +408,7 @@ msgstr "Xóa"
 msgid "Reply"
 msgstr "Trả lời"
 
-#: src/components/organisms/NewPlanModal.re.mjs:370
+#: src/components/organisms/NewPlanModal.re.mjs:372
 msgid "Save"
 msgstr "Lưu"
 
@@ -402,7 +416,11 @@ msgstr "Lưu"
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:414
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "Tìm sân hoặc địa chỉ"
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
 msgid "Select exactly one time window to host an event"
 msgstr "Chọn đúng một khung giờ để tổ chức sự kiện"
 
@@ -422,7 +440,7 @@ msgstr "chia sẻ dưới dạng văn bản"
 msgid "show"
 msgstr "hiển thị"
 
-#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:150
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
@@ -430,7 +448,7 @@ msgstr "Sự kiện được đề xuất"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:463
+#: src/components/molecules/TimeWindowPicker.re.mjs:489
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
@@ -443,14 +461,14 @@ msgstr ""
 "nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm "
 "chí có thể thêm bản dịch."
 
-#: src/components/organisms/NewPlanModal.re.mjs:361
+#: src/components/organisms/NewPlanModal.re.mjs:363
 msgid ""
 "Tell others you're down to play. Players with overlapping times can invite "
 "you."
 msgstr ""
 "Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Title:"
 msgstr "Tiêu đề:"
 

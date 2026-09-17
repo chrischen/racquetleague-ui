@@ -846,7 +846,12 @@ return {
           (v8/*: any*/),
           {
             "fields": [
-              (v16/*: any*/)
+              (v16/*: any*/),
+              {
+                "kind": "Literal",
+                "name": "clubSlug",
+                "value": null
+              }
             ],
             "kind": "ObjectValue",
             "name": "scope"

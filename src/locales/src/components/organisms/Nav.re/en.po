@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/organisms/Nav.re.mjs:115
+#: src/components/organisms/Nav.re.mjs:117
 msgid "Add Event"
 msgstr ""
 
@@ -30,6 +30,6 @@ msgstr ""
 msgid "login with Line"
 msgstr ""
 
-#: src/components/organisms/Nav.re.mjs:98
+#: src/components/organisms/Nav.re.mjs:100
 msgid "racquet league"
 msgstr ""

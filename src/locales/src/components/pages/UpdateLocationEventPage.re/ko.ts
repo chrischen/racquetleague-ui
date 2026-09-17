@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"YxgkvU\":\"해당 장소를 불러올 수 없습니다\",\"ud55cp\":\"해당 위치를 저장할 수 없습니다\",\"OL5eOg\":\"현재 위치 검색을 사용할 수 없습니다\",\"uFOTcQ\":\"장소 또는 주소 검색\"}");

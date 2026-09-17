@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"更改地点\",\"Vveohd\":\"选择举办此活动的地点。\",\"xl+An2\":\"活动地点\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"VnQOuZ\":\"更改地点\",\"Vveohd\":\"选择举办此活动的地点。\",\"YxgkvU\":\"无法加载该地点\",\"ud55cp\":\"无法保存该位置\",\"xl+An2\":\"活动地点\",\"OL5eOg\":\"位置搜索暂时不可用\",\"uFOTcQ\":\"搜索场馆或地址\"}");

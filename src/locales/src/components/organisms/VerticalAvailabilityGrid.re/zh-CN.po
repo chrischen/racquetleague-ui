@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
@@ -27,13 +27,13 @@ msgid "{0} continuous openings"
 msgstr "{0} 个连续空档"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0} 场地"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0} 场地"
@@ -46,11 +46,11 @@ msgstr "{0} 场馆"
 msgid "{0} locations"
 msgstr "{0} 场馆"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
 msgstr "{hs}小时"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 msgid "{hs}h {ms}m"
 msgstr "{hs}小时 {ms}分钟"
 
@@ -58,16 +58,16 @@ msgstr "{hs}小时 {ms}分钟"
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{ms}m"
 msgstr "{ms}分钟"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "{n}个室内场地"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "{n}个室外场地"
@@ -100,7 +100,7 @@ msgstr "涵盖您完整时间段的场地与空档"
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "场地单独列出，并显示各自最长的连续空档。"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr "创建赛事"
 
@@ -120,7 +120,7 @@ msgstr "球员可用时间热力图"
 msgid "Players"
 msgstr "寻找球员"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "预订"
 
@@ -152,7 +152,7 @@ msgstr "与你的俱乐部分享"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "点击空白时间添加 · 拖动移动 · 拖拽边缘调整大小"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "使用该选项"
 

@@ -3,12 +3,14 @@ module HourlyCountsQuery = %relay(`
     $localDate: String!
     $activityId: ID!
     $clubId: ID
+    $clubSlug: String
     $location: LocationInput
   ) {
     availabilityHourlyCounts(
       localDate: $localDate
       activityId: $activityId
       clubId: $clubId
+      clubSlug: $clubSlug
       location: $location
     ) {
       hour
@@ -26,6 +28,8 @@ let make = (
   ~onChange: array<TimeWindow.playIntent> => unit,
   ~activityId: option<string>=?,
   ~clubId: option<string>=?,
+  // Scopes the heatmap to a club's members (by slug, the club's public id).
+  ~clubSlug: option<string>=?,
   ~courtAvailability: array<TimeWindow.courtAvailability>=[],
   ~existingEvents: array<TimeWindowPicker.existingEvent>=[],
 ) => {
@@ -35,7 +39,7 @@ let make = (
   // viewer's stored coords, then the default (location-input → user.coords → ...).
   let location = UseUserLocation.useOption()->Option.map(UseUserLocation.locationInputOfCoords)
   let queryData = HourlyCountsQuery.use(
-    ~variables={localDate, activityId: resolvedActivityId, ?clubId, ?location},
+    ~variables={localDate, activityId: resolvedActivityId, ?clubId, ?clubSlug, ?location},
   )
   let hourCounts = queryData.availabilityHourlyCounts
   let maxCount = hourCounts->Array.reduce(0, (acc, hc) => Js.Math.max_int(acc, hc.count))

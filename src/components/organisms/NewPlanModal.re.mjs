@@ -282,9 +282,11 @@ function NewPlanModal(props) {
                                                                                                       children: p.label
                                                                                                     }),
                                                                                                 JsxRuntime.jsx("span", {
-                                                                                                      children: intl.formatTime(new Date(2000, 0, 1, p.start, 0, 0), {
+                                                                                                      children: intl.formatTime(new Date(Date.UTC(2000, 0, 1, p.start, 0)), {
+                                                                                                            timeZone: "UTC",
                                                                                                             hour: "numeric"
-                                                                                                          }) + "–" + intl.formatTime(new Date(2000, 0, 1, p.end, 0, 0), {
+                                                                                                          }) + "–" + intl.formatTime(new Date(Date.UTC(2000, 0, 1, p.end, 0)), {
+                                                                                                            timeZone: "UTC",
                                                                                                             hour: "numeric"
                                                                                                           }),
                                                                                                       className: "font-mono text-[10px] opacity-70"

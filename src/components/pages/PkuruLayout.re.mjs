@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as DarkMode from "../shared/DarkMode.re.mjs";
 import * as LoginLink from "../molecules/LoginLink.re.mjs";
 import * as NavViewer from "../organisms/NavViewer.re.mjs";
 import * as ReactDom from "react-dom";
@@ -19,7 +20,9 @@ import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as UseProfileGate from "../../helpers/UseProfileGate.re.mjs";
+import * as CreateEventLink from "../shared/CreateEventLink.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
+import * as CreateEventModal from "../organisms/CreateEventModal.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as PkuruSidebarClubs from "./PkuruSidebarClubs.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -99,13 +102,17 @@ function sportsList() {
   return [
           {
             slug: "pickleball",
-            label: t`Pickleball`,
+            label: t({
+                  id: "Pickleball"
+                }),
             dotColor: "bg-green-600",
             hasAvailability: true
           },
           {
             slug: "badminton",
-            label: t`Badminton`,
+            label: t({
+                  id: "Badminton"
+                }),
             dotColor: "bg-blue-400",
             hasAvailability: false
           }
@@ -463,6 +470,7 @@ function PkuruLayout$Topbar(props) {
       });
   var setShowBell = match[1];
   var showBell = match[0];
+  var loginHref = "/oauth-login?return=" + encodeURIComponent("/?create=1");
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -496,7 +504,7 @@ function PkuruLayout$Topbar(props) {
                                   if (isLoggedIn) {
                                     return onNewPlan();
                                   } else {
-                                    return navigate("/oauth-login?return=/events/create", undefined);
+                                    return navigate(loginHref, undefined);
                                   }
                                 })
                             }),
@@ -767,13 +775,25 @@ function PkuruLayout$Layout(props) {
   var darkMode = match$7[0];
   var navigate = ReactRouterDom.useNavigate();
   var $$location = ReactRouterDom.useLocation();
+  var createHref = CreateEventLink.useHref();
   var handleCreateEvent = function (localDate, intent) {
-    var startHour = intent.start | 0;
-    var endHour = intent.end | 0;
-    navigate("/events/create?date=" + localDate + "&startHour=" + startHour.toString() + "&endHour=" + endHour.toString(), undefined);
+    navigate(createHref([
+              [
+                "date",
+                localDate
+              ],
+              [
+                "startHour",
+                intent.start.toString()
+              ],
+              [
+                "endHour",
+                intent.end.toString()
+              ]
+            ]), undefined);
   };
   var handleNewPlan = function () {
-    navigate(isLoggedIn ? "/events/create" : "/oauth-login?return=/events/create", undefined);
+    navigate(isLoggedIn ? createHref([]) : "/oauth-login?return=" + encodeURIComponent("/?create=1"), undefined);
   };
   var localePath = LangProvider.Router.useLocalePath();
   var gviewer = Core__Option.map(viewer, (function (v) {
@@ -868,177 +888,180 @@ function PkuruLayout$Layout(props) {
     openDrawer: openDrawer,
     closeDrawer: closeDrawer
   };
-  return JsxRuntime.jsx(GlobalQuery.Provider.make, {
-              value: gviewer,
-              children: JsxRuntime.jsx(DrawerContext.Provider.make, {
-                    value: ctx,
-                    children: JsxRuntime.jsx(WaitForMessages.make, {
-                          children: (function () {
-                              return JsxRuntime.jsx("div", {
-                                          children: JsxRuntime.jsxs("div", {
-                                                children: [
-                                                  JsxRuntime.jsx(PkuruLayout$MobileSidebar, {
-                                                        isOpen: sidebarOpen,
-                                                        onClose: (function () {
-                                                            setSidebarOpen(function (param) {
-                                                                  return false;
-                                                                });
-                                                          }),
-                                                        isLoggedIn: isLoggedIn,
-                                                        unreadCount: unreadCount
-                                                      }),
-                                                  JsxRuntime.jsxs("div", {
-                                                        children: [
-                                                          JsxRuntime.jsx(PkuruLayout$SidebarHeader, {}),
-                                                          JsxRuntime.jsx(PkuruLayout$SidebarContent, {
-                                                                isLoggedIn: isLoggedIn,
-                                                                unreadCount: unreadCount,
-                                                                surfaceId: "desktop"
-                                                              })
-                                                        ],
-                                                        className: "hidden md:flex w-[200px] flex-shrink-0 border-r border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex-col"
-                                                      }),
-                                                  JsxRuntime.jsxs("div", {
-                                                        children: [
-                                                          JsxRuntime.jsx(PkuruLayout$Topbar, {
-                                                                onToggleSidebar: (function () {
-                                                                    setSidebarOpen(function (prev) {
-                                                                          return !prev;
-                                                                        });
-                                                                  }),
-                                                                viewer: viewer,
-                                                                onNewPlan: handleNewPlan
-                                                              }),
-                                                          JsxRuntime.jsx(InstallPwa.make, {}),
-                                                          JsxRuntime.jsx("div", {
-                                                                children: JsxRuntime.jsx(React.Suspense, {
-                                                                      children: Caml_option.some(children),
-                                                                      fallback: Caml_option.some(null)
-                                                                    }),
-                                                                className: "flex-1 overflow-y-auto overscroll-contain"
-                                                              }),
-                                                          JsxRuntime.jsx(PkuruLayout$MobileTabs, {
-                                                                onNewPlan: handleNewPlan
-                                                              })
-                                                        ],
-                                                        className: "flex-1 flex flex-col min-w-0 overflow-hidden bg-white dark:bg-[#222326]"
-                                                      }),
-                                                  mounted ? ReactDom.createPortal(JsxRuntime.jsxs("div", {
+  return JsxRuntime.jsx(DarkMode.Provider.make, {
+              value: darkMode,
+              children: JsxRuntime.jsx(GlobalQuery.Provider.make, {
+                    value: gviewer,
+                    children: JsxRuntime.jsx(DrawerContext.Provider.make, {
+                          value: ctx,
+                          children: JsxRuntime.jsx(WaitForMessages.make, {
+                                children: (function () {
+                                    return JsxRuntime.jsx("div", {
+                                                children: JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx(PkuruLayout$MobileSidebar, {
+                                                              isOpen: sidebarOpen,
+                                                              onClose: (function () {
+                                                                  setSidebarOpen(function (param) {
+                                                                        return false;
+                                                                      });
+                                                                }),
+                                                              isLoggedIn: isLoggedIn,
+                                                              unreadCount: unreadCount
+                                                            }),
+                                                        JsxRuntime.jsxs("div", {
                                                               children: [
-                                                                JsxRuntime.jsx(FramerMotion.AnimatePresence, {
-                                                                      children: Core__Option.getOr(Core__Option.map(drawerContent, (function (content) {
-                                                                                  return JsxRuntime.jsxs(React.Fragment, {
-                                                                                              children: [
-                                                                                                JsxRuntime.jsx(FramerMotion.motion.div, {
-                                                                                                      className: "fixed inset-0 bg-black/40 z-40",
-                                                                                                      animate: {
-                                                                                                        opacity: 1
-                                                                                                      },
-                                                                                                      initial: {
-                                                                                                        opacity: 0
-                                                                                                      },
-                                                                                                      exit: {
-                                                                                                        opacity: 0
-                                                                                                      },
-                                                                                                      onClick: (function (param) {
-                                                                                                          closeDrawer();
-                                                                                                        })
-                                                                                                    }, "drawer-backdrop"),
-                                                                                                JsxRuntime.jsxs(FramerMotion.motion.div, {
-                                                                                                      className: "fixed inset-y-0 right-0 w-full max-w-2xl bg-white dark:bg-[#1e1f23] shadow-2xl z-50 flex flex-col overflow-hidden",
-                                                                                                      animate: {
-                                                                                                        x: 0
-                                                                                                      },
-                                                                                                      initial: {
-                                                                                                        x: 700
-                                                                                                      },
-                                                                                                      exit: {
-                                                                                                        x: 700
-                                                                                                      },
-                                                                                                      transition: {
-                                                                                                        type: "spring",
-                                                                                                        stiffness: 900,
-                                                                                                        damping: 35,
-                                                                                                        mass: 0.4
-                                                                                                      },
-                                                                                                      children: [
-                                                                                                        JsxRuntime.jsxs("div", {
-                                                                                                              children: [
-                                                                                                                JsxRuntime.jsx("div", {
-                                                                                                                      children: Core__Option.getOr(Core__Option.map(drawerUrl, (function (url) {
-                                                                                                                                  return JsxRuntime.jsx("button", {
-                                                                                                                                              children: JsxRuntime.jsx(LucideReact.Maximize2, {
-                                                                                                                                                    className: "w-4 h-4"
-                                                                                                                                                  }),
-                                                                                                                                              className: "p-1 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors",
-                                                                                                                                              onClick: (function (param) {
-                                                                                                                                                  dismissDrawer();
-                                                                                                                                                  navigate(localePath(url), undefined);
-                                                                                                                                                })
-                                                                                                                                            });
-                                                                                                                                })), null),
-                                                                                                                      className: "flex items-center gap-2 text-gray-400 dark:text-gray-500"
-                                                                                                                    }),
-                                                                                                                JsxRuntime.jsx("button", {
-                                                                                                                      children: JsxRuntime.jsx(LucideReact.X, {
-                                                                                                                            size: 20
-                                                                                                                          }),
-                                                                                                                      className: "p-1 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors",
-                                                                                                                      onClick: (function (param) {
-                                                                                                                          closeDrawer();
-                                                                                                                        })
-                                                                                                                    })
-                                                                                                              ],
-                                                                                                              className: "flex items-center justify-between px-4 md:px-6 py-2 border-b border-gray-200 dark:border-[#3a3b40] flex-shrink-0"
-                                                                                                            }),
-                                                                                                        JsxRuntime.jsx("div", {
-                                                                                                              children: JsxRuntime.jsx(React.Suspense, {
-                                                                                                                    children: Caml_option.some(content),
-                                                                                                                    fallback: Caml_option.some(JsxRuntime.jsx("div", {
-                                                                                                                              children: t`Loading...`,
-                                                                                                                              className: "flex items-center justify-center h-32 text-gray-400 dark:text-gray-500 text-sm font-mono"
-                                                                                                                            }))
-                                                                                                                  }),
-                                                                                                              className: "flex-1 overflow-y-auto"
-                                                                                                            })
-                                                                                                      ]
-                                                                                                    }, "drawer-panel")
-                                                                                              ]
-                                                                                            }, "drawer");
-                                                                                })), null)
-                                                                    }),
-                                                                JsxRuntime.jsx(NewPlanModal.make, {
-                                                                      isOpen: showModal,
-                                                                      onClose: (function () {
-                                                                          setShowModal(function (param) {
-                                                                                return false;
-                                                                              });
-                                                                        }),
-                                                                      onMarkAvailable: (function (localDate, intents) {
-                                                                          profileGate.require(function () {
-                                                                                commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
-                                                                                        if (Core__Option.isSome(res.setAvailabilityDay.day)) {
-                                                                                          RelayRuntime.commitLocalUpdate(env, (function (store) {
-                                                                                                  store.getRoot().invalidateRecord();
-                                                                                                }));
-                                                                                          return ;
-                                                                                        }
-                                                                                        
-                                                                                      }));
-                                                                              });
-                                                                        }),
-                                                                      onCreateEvent: handleCreateEvent
-                                                                    }),
-                                                                profileGate.modal
+                                                                JsxRuntime.jsx(PkuruLayout$SidebarHeader, {}),
+                                                                JsxRuntime.jsx(PkuruLayout$SidebarContent, {
+                                                                      isLoggedIn: isLoggedIn,
+                                                                      unreadCount: unreadCount,
+                                                                      surfaceId: "desktop"
+                                                                    })
                                                               ],
-                                                              className: darkMode ? "dark" : ""
-                                                            }), window.document.body) : null
-                                                ],
-                                                className: "flex h-[100dvh] w-full bg-white dark:bg-[#1a1a1e] text-gray-900 dark:text-gray-100 font-sans overflow-hidden overscroll-none transition-colors duration-200"
-                                              }),
-                                          className: darkMode ? "dark" : ""
-                                        });
-                            })
+                                                              className: "hidden md:flex w-[200px] flex-shrink-0 border-r border-gray-200 dark:border-[#2a2b30] bg-white dark:bg-[#1e1f23] flex-col"
+                                                            }),
+                                                        JsxRuntime.jsxs("div", {
+                                                              children: [
+                                                                JsxRuntime.jsx(PkuruLayout$Topbar, {
+                                                                      onToggleSidebar: (function () {
+                                                                          setSidebarOpen(function (prev) {
+                                                                                return !prev;
+                                                                              });
+                                                                        }),
+                                                                      viewer: viewer,
+                                                                      onNewPlan: handleNewPlan
+                                                                    }),
+                                                                JsxRuntime.jsx(InstallPwa.make, {}),
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: JsxRuntime.jsx(React.Suspense, {
+                                                                            children: Caml_option.some(children),
+                                                                            fallback: Caml_option.some(null)
+                                                                          }),
+                                                                      className: "flex-1 overflow-y-auto overscroll-contain"
+                                                                    }),
+                                                                JsxRuntime.jsx(PkuruLayout$MobileTabs, {
+                                                                      onNewPlan: handleNewPlan
+                                                                    })
+                                                              ],
+                                                              className: "flex-1 flex flex-col min-w-0 overflow-hidden bg-white dark:bg-[#222326]"
+                                                            }),
+                                                        mounted ? ReactDom.createPortal(JsxRuntime.jsxs("div", {
+                                                                    children: [
+                                                                      JsxRuntime.jsx(FramerMotion.AnimatePresence, {
+                                                                            children: Core__Option.getOr(Core__Option.map(drawerContent, (function (content) {
+                                                                                        return JsxRuntime.jsxs(React.Fragment, {
+                                                                                                    children: [
+                                                                                                      JsxRuntime.jsx(FramerMotion.motion.div, {
+                                                                                                            className: "fixed inset-0 bg-black/40 z-40",
+                                                                                                            animate: {
+                                                                                                              opacity: 1
+                                                                                                            },
+                                                                                                            initial: {
+                                                                                                              opacity: 0
+                                                                                                            },
+                                                                                                            exit: {
+                                                                                                              opacity: 0
+                                                                                                            },
+                                                                                                            onClick: (function (param) {
+                                                                                                                closeDrawer();
+                                                                                                              })
+                                                                                                          }, "drawer-backdrop"),
+                                                                                                      JsxRuntime.jsxs(FramerMotion.motion.div, {
+                                                                                                            className: "fixed inset-y-0 right-0 w-full max-w-2xl bg-white dark:bg-[#1e1f23] shadow-2xl z-50 flex flex-col overflow-hidden",
+                                                                                                            animate: {
+                                                                                                              x: 0
+                                                                                                            },
+                                                                                                            initial: {
+                                                                                                              x: 700
+                                                                                                            },
+                                                                                                            exit: {
+                                                                                                              x: 700
+                                                                                                            },
+                                                                                                            transition: {
+                                                                                                              type: "spring",
+                                                                                                              stiffness: 900,
+                                                                                                              damping: 35,
+                                                                                                              mass: 0.4
+                                                                                                            },
+                                                                                                            children: [
+                                                                                                              JsxRuntime.jsxs("div", {
+                                                                                                                    children: [
+                                                                                                                      JsxRuntime.jsx("div", {
+                                                                                                                            children: Core__Option.getOr(Core__Option.map(drawerUrl, (function (url) {
+                                                                                                                                        return JsxRuntime.jsx("button", {
+                                                                                                                                                    children: JsxRuntime.jsx(LucideReact.Maximize2, {
+                                                                                                                                                          className: "w-4 h-4"
+                                                                                                                                                        }),
+                                                                                                                                                    className: "p-1 rounded-md text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors",
+                                                                                                                                                    onClick: (function (param) {
+                                                                                                                                                        dismissDrawer();
+                                                                                                                                                        navigate(localePath(url), undefined);
+                                                                                                                                                      })
+                                                                                                                                                  });
+                                                                                                                                      })), null),
+                                                                                                                            className: "flex items-center gap-2 text-gray-400 dark:text-gray-500"
+                                                                                                                          }),
+                                                                                                                      JsxRuntime.jsx("button", {
+                                                                                                                            children: JsxRuntime.jsx(LucideReact.X, {
+                                                                                                                                  size: 20
+                                                                                                                                }),
+                                                                                                                            className: "p-1 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-[#2a2b30] transition-colors",
+                                                                                                                            onClick: (function (param) {
+                                                                                                                                closeDrawer();
+                                                                                                                              })
+                                                                                                                          })
+                                                                                                                    ],
+                                                                                                                    className: "flex items-center justify-between px-4 md:px-6 py-2 border-b border-gray-200 dark:border-[#3a3b40] flex-shrink-0"
+                                                                                                                  }),
+                                                                                                              JsxRuntime.jsx("div", {
+                                                                                                                    children: JsxRuntime.jsx(React.Suspense, {
+                                                                                                                          children: Caml_option.some(content),
+                                                                                                                          fallback: Caml_option.some(JsxRuntime.jsx("div", {
+                                                                                                                                    children: t`Loading...`,
+                                                                                                                                    className: "flex items-center justify-center h-32 text-gray-400 dark:text-gray-500 text-sm font-mono"
+                                                                                                                                  }))
+                                                                                                                        }),
+                                                                                                                    className: "flex-1 overflow-y-auto"
+                                                                                                                  })
+                                                                                                            ]
+                                                                                                          }, "drawer-panel")
+                                                                                                    ]
+                                                                                                  }, "drawer");
+                                                                                      })), null)
+                                                                          }),
+                                                                      JsxRuntime.jsx(NewPlanModal.make, {
+                                                                            isOpen: showModal,
+                                                                            onClose: (function () {
+                                                                                setShowModal(function (param) {
+                                                                                      return false;
+                                                                                    });
+                                                                              }),
+                                                                            onMarkAvailable: (function (localDate, intents) {
+                                                                                profileGate.require(function () {
+                                                                                      commitSetAvailability(localDate, defaultActivityId, UseSetAvailabilityDay.intervalsOfIntents(intents), (function (res, _err) {
+                                                                                              if (Core__Option.isSome(res.setAvailabilityDay.day)) {
+                                                                                                RelayRuntime.commitLocalUpdate(env, (function (store) {
+                                                                                                        store.getRoot().invalidateRecord();
+                                                                                                      }));
+                                                                                                return ;
+                                                                                              }
+                                                                                              
+                                                                                            }));
+                                                                                    });
+                                                                              }),
+                                                                            onCreateEvent: handleCreateEvent
+                                                                          }),
+                                                                      profileGate.modal
+                                                                    ],
+                                                                    className: darkMode ? "dark" : ""
+                                                                  }), window.document.body) : null
+                                                      ],
+                                                      className: "flex h-[100dvh] w-full bg-white dark:bg-[#1a1a1e] text-gray-900 dark:text-gray-100 font-sans overflow-hidden overscroll-none transition-colors duration-200"
+                                                    }),
+                                                className: darkMode ? "dark" : ""
+                                              });
+                                  })
+                              })
                         })
                   })
             });
@@ -1094,7 +1117,8 @@ function PkuruLayout(props) {
                                         children: t`Loading...`,
                                         className: "p-6 text-sm text-gray-500"
                                       }))
-                            })
+                            }),
+                        JsxRuntime.jsx(CreateEventModal.make, {})
                       ]
                     })
               ]

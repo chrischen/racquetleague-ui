@@ -180,9 +180,22 @@ type ChatResponse {
 }
 
 type Club implements Node {
+  """
+  * Whether this club's event fees are charged to the owner's connected Stripe
+     * account. False = platform mode: players' cards are kept on file only and
+     * members are always exempt from the payment gate.
+  """
+  chargesEnabled: Boolean!
   defaultActivity: Activity
   description: String
-  events(after: String, afterDate: Datetime, before: String, first: Int, token: String): EventConnection!
+  events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int, token: String): EventConnection!
+
+  """
+  * Whether active members join this club's priced events without saving a
+     * card even though fees are charged to the owner's account. Meaningful only
+     * while `chargesEnabled` is true; in platform mode members are exempt anyway.
+  """
+  exemptMembersFromPayment: Boolean!
   id: ID!
   name: String
 
@@ -399,6 +412,14 @@ type EvaluateSmartRsvpsResult implements HasErrors {
 type Event implements Node {
   activity: Activity
   cancelDeadline: Int
+
+  """
+  * Whether payments for this event are charged to a connected Stripe account:
+   * the club owner's for a club event, the creator's otherwise. False = platform
+   * mode: cards are saved but never charged, and active club members are exempt
+   * from the payment gate.
+  """
+  chargesEnabled: Boolean!
   club: Club
 
   """
@@ -864,34 +885,24 @@ type Message {
 type Mutation {
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   addUserToClub(input: AddUserToClubInput!): AddUserToClubResult!
-
-  """
-  * Authorize a Stripe payment for an RSVP on the platform account.
-     * Use this when the event organizer does not have a connected Stripe account,
-     * or when funds should be collected by the platform directly.
-  """
-  authorizePlatformRsvpPayment(rsvpId: ID!): AuthorizePaymentResult!
-
-  """
-  * Authorize a Stripe payment for an RSVP.
-     * This creates a PaymentIntent in "manual" capture mode and records it in the DB.
-     * Returns the Stripe client secret for frontend payment confirmation.
-  """
-  authorizeRsvpPayment(rsvpId: ID!): AuthorizePaymentResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
   banUserFromClub(input: BanUserFromClubInput!): BanUserFromClubResult!
   cancelEvent(eventId: ID!): MutationResult2!
 
   """
-  * Capture all authorized payments for confirmed-list RSVPs on an event.
-     * Skips waitlisted RSVPs (listType = 1). Only the event creator or club admin can run this.
-     * Returns the count of captured and failed payments.
+  * Charge every saved card (and capture every legacy hold) for going-list
+     * RSVPs on an event. Waitlisted RSVPs are skipped. Only the event creator or
+     * club admin can run this. Returns every payment it touched — charged ones
+     * and ones whose charge was declined (now status 3) — with one entry in
+     * `errors` per declined charge.
   """
   captureEventRsvpPayments(eventId: ID!): CaptureEventPaymentsResult!
 
   """
-  * Capture a previously authorized Stripe payment.
-     * Only club admins or the event creator can capture.
+  * Charge the card a player saved for their RSVP (or capture a legacy
+     * authorized hold). Only club admins or the event creator can charge.
+     * A declined charge returns the payment (now status 3) together with the
+     * error, so the client can show both.
   """
   captureRsvpPayment(paymentId: ID!): CapturePaymentResult!
 
@@ -909,6 +920,15 @@ type Mutation {
      * Verifies the PaymentIntent succeeded server-side, then marks the payment Captured.
   """
   confirmRsvpPayment(paymentIntentId: String!, rsvpId: ID!): CreatePaymentResult!
+
+  """
+  * Confirm that a card was saved for an RSVP. Call this from the frontend
+     * after stripe.confirmSetup() succeeds. Verifies the SetupIntent succeeded
+     * server-side, records the payment method (on the RSVP's payment and as the
+     * viewer's card on file), and moves the RSVP onto the going list (subject
+     * to the rating gate).
+  """
+  confirmRsvpPaymentMethod(rsvpId: ID!, setupIntentId: String!): CreatePaymentResult!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
@@ -971,6 +991,19 @@ type Mutation {
   setMembershipAdmin(input: SetMembershipAdminInput!): SetMembershipAdminResult!
 
   """
+  * Start saving a card for an RSVP. The card is saved once, on the platform
+     * account, and reused for every later priced event (see
+     * useSavedPaymentMethod); the organizer charges it later with
+     * captureRsvpPayment. Creates (or resumes) a SetupIntent and records a
+     * pending payment. Returns the SetupIntent client secret for
+     * stripe.confirmSetup() on the frontend; connectedAccountId is always null.
+     * If Stripe already completed the setup but the confirm never arrived, the
+     * card is recorded and the RSVP confirmed here instead: the payment comes
+     * back saved (status 5) with no client secret, and the client refetches.
+  """
+  setupRsvpPaymentMethod(rsvpId: ID!): AuthorizePaymentResult!
+
+  """
   Smart Waitlist: on a full Smart RSVP event, ranks every eligible pending
      player by the same search — one seat at a time, as if seats were opening —
      and places them all on the ordinary waitlist in that order, so the seats
@@ -997,6 +1030,16 @@ type Mutation {
   """Set the current user's home coordinates."""
   updateViewerLocation(input: UpdateViewerLocationInput!): UpdateViewerLocationResult!
   updateViewerRsvpMessage(input: UpdateViewerRsvpMessageInput!): UpdateViewerRsvpMessageResult
+
+  """
+  * Join a priced event with the card the viewer already has on file (see
+     * Viewer.savedCard): attaches it to the RSVP with no Stripe form and moves
+     * the RSVP onto the going list (subject to the rating gate), exactly as
+     * confirmRsvpPaymentMethod would after a fresh save. Idempotent for an RSVP
+     * that is already secured. Errors when no card is on file, or when the RSVP
+     * is not the viewer's own.
+  """
+  useSavedPaymentMethod(rsvpId: ID!): CreatePaymentResult!
 }
 
 type MutationResult implements HasErrors {
@@ -1014,9 +1057,15 @@ interface Node {
   id: ID!
 }
 
+"""
+Who the availability is read for. `clubId` or `clubSlug` scope it to a
+ club's active members, visible only to an active member of that club; the
+ slug form is the club's public id, usable before its node id is known.
+"""
 input OverlapScopeInput {
   activityId: ID!
   clubId: ID
+  clubSlug: String
   userIds: [ID!]
 }
 
@@ -1035,12 +1084,22 @@ type PageInfo {
   startCursor: String
 }
 
+"""
+* An RSVP's payment. `status`: 0 = authorized (legacy card hold),
+ * 1 = charged, 2 = refunded, 3 = charge failed (card still on file, retryable),
+ * 4 = pending, 5 = payment method saved. `chargeable` says whether the row is
+ * in a state an event admin may charge (or capture); whether the event can
+ * take the money at all is `Event.chargesEnabled`.
+"""
 type Payment {
   amount: Int!
+  chargeable: Boolean!
   currency: String!
   id: ID!
   status: Int!
-  stripePaymentIntentId: String!
+
+  """Set once the fee has been charged (or, for a legacy hold, authorized)."""
+  stripePaymentIntentId: String
 }
 
 input PredictMatchInput {
@@ -1066,9 +1125,9 @@ type PushSubscriptionResult implements HasErrors {
 type Query {
   activities: [Activity!]!
   activity(id: ID!): Activity
-  availabilityCountForDay(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput): Int!
+  availabilityCountForDay(activityId: ID!, clubId: ID, clubSlug: String, localDate: String!, location: LocationInput): Int!
   availabilityDailyCounts(activityId: ID!, fromDate: String!, location: LocationInput, toDate: String!, userIds: [ID!]!): [AvailabilityDayCount!]!
-  availabilityHourlyCounts(activityId: ID!, clubId: ID, localDate: String!, location: LocationInput): [AvailabilityHourCount!]!
+  availabilityHourlyCounts(activityId: ID!, clubId: ID, clubSlug: String, localDate: String!, location: LocationInput): [AvailabilityHourCount!]!
   availabilityOverlap(fromDate: String!, location: LocationInput, scope: OverlapScopeInput!, toDate: String!): [AvailabilityOverlapDay!]!
   availabilityUsersForDateRange(fromDate: String!, location: LocationInput, scope: OverlapScopeInput!, toDate: String!): [AvailabilityDay!]!
   availabilityUsersForDay(localDate: String!, location: LocationInput, scope: OverlapScopeInput!): [AvailabilityDay!]!
@@ -1209,6 +1268,18 @@ type Rsvp implements Node {
   user: User
 }
 
+"""
+* The viewer's card on file: saved once, on the platform account, and offered
+ * as a one-click "join with saved card" on every priced event, whoever
+ * organizes it. Summary fields only; the card itself stays with Stripe.
+"""
+type SavedCard {
+  brand: String!
+  expMonth: Int!
+  expYear: Int!
+  last4: String!
+}
+
 input SetAvailabilityDayInput {
   activityId: ID!
   intervals: [IntervalInput!]!
@@ -1313,6 +1384,12 @@ input UpdateClubInput {
   activity: ID
   clubId: ID!
   description: String
+
+  """
+  Let active members join this club's priced events without saving a card,
+     even though fees are charged to the owner's connected Stripe account.
+  """
+  exemptMembersFromPayment: Boolean
 
   """Whether the club appears in the public club listing."""
   listed: Boolean
@@ -1446,6 +1523,12 @@ type Viewer {
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
   inbox(after: String, before: String, first: Int): EventMessageConnection
   profile: User
+
+  """
+  * The viewer's card on file, if any. Saved once (on the platform account) and
+   * offered as a one-click "join with saved card" on every priced event.
+  """
+  savedCard: SavedCard
   subscriptions: [Subscription!]!
   user: User
   viewerMetadata: ViewerMetadata

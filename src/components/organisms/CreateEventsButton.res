@@ -87,34 +87,22 @@ let make = (
     (),
   )
 
-  // address -> locationId: Google Places textSearch (top hit) then the
+  // address -> locationId: Google Places text search (top hit) then the
   // autocompleteLocation upsert (find-or-create by mapsId).
   let resolveLocationId = async (address: string): result<string, unit> =>
     switch await GooglePlaces.textSearchTop(address) {
-    | Some(place) =>
-      switch (place.name, place.formattedAddress, place.geometry, place.placeId) {
-      | (Some(name), Some(formattedAddress), Some(geometry), Some(placeId)) =>
-        let resolved = await Promise.make((resolve, _reject) =>
-          commitAutocomplete(
-            ~variables={
-              input: {
-                name,
-                formattedAddress,
-                lat: geometry.location.lat(),
-                lng: geometry.location.lng(),
-                mapsId: placeId,
-              },
-            },
-            ~onCompleted=(response, _errors) =>
-              resolve(response.autocompleteLocation.location->Option.map(l => l.id)),
-            ~onError=_ => resolve(None),
-          )->RescriptRelay.Disposable.ignore
-        )
-        switch resolved {
-        | Some(id) => Ok(id)
-        | None => Error()
-        }
-      | _ => Error()
+    | Some({name, formattedAddress, lat, lng, placeId}) =>
+      let resolved = await Promise.make((resolve, _reject) =>
+        commitAutocomplete(
+          ~variables={input: {name, formattedAddress, lat, lng, mapsId: placeId}},
+          ~onCompleted=(response, _errors) =>
+            resolve(response.autocompleteLocation.location->Option.map(l => l.id)),
+          ~onError=_ => resolve(None),
+        )->RescriptRelay.Disposable.ignore
+      )
+      switch resolved {
+      | Some(id) => Ok(id)
+      | None => Error()
       }
     | None => Error()
     }

@@ -7401,6 +7401,419 @@ msgstr "체육관에서 더 좋은 경기력을 보임"
 msgid "Performs better on hard courts"
 msgstr "하드 코트에서 더 좋은 경기력을 보임"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter로 보내기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Answer the questions or add details to refine the draft."
+msgstr "질문에 답하거나 세부 정보를 추가해 초안을 다듬으세요."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:410
+msgid "Approve or deny the pending action to continue"
+msgstr "계속하려면 대기 중인 작업을 승인하거나 거부하세요"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "해당 장소를 불러올 수 없습니다"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "해당 위치를 저장할 수 없습니다"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+msgid "Describe the event"
+msgstr "이벤트 설명"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:411
+msgid "Describe the event to generate a draft"
+msgstr "초안을 만들려면 이벤트를 설명하세요"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:711
+msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+msgstr "이벤트를 설명해 주세요… 예: 내일 저녁 7시 센트럴 파크, 3.5 수준 3명 더 필요, 1인당 ¥800."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:749
+msgid "Fill event form from description"
+msgstr "설명으로 이벤트 양식 채우기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:406
+msgid "Help me fill this out"
+msgstr "작성 도와주기"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "Include whatever details you know"
+msgstr "아는 정보는 모두 적어 주세요"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "현재 위치 검색을 사용할 수 없습니다"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "장소 또는 주소 검색"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr "설명을 검토·수정할 수 있는 초안으로 만들어 드립니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:699
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1075
+msgid "(optional)"
+msgstr "(선택)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:705
+msgid "Anything players should know before joining or arriving."
+msgstr "참가 또는 도착 전에 알아야 할 사항."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1134
+msgid "Attendees cannot cancel their RSVP after this deadline."
+msgstr "이 기한 이후에는 참가자가 참가 신청을 취소할 수 없습니다."
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "뒤로"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1092
+msgid "Cancel deadline"
+msgstr "취소 기한"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:543
+msgid "Choose a location for this event"
+msgstr "이 이벤트의 장소를 선택하세요"
+
+#: src/components/pages/CreateEventPage.re.mjs:279
+msgid "Create multiple events instead"
+msgstr "대신 여러 이벤트 만들기"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1264
+msgid "Date"
+msgstr "날짜"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "daytime"
+msgstr "낮 시간"
+
+#: src/components/organisms/CreateEventModal.re.mjs:81
+msgid "Describe the event to draft it, or fill in the details."
+msgstr "이벤트를 설명해 초안을 만들거나 직접 세부 정보를 입력하세요."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1152
+msgid "Draft filled in. Review the details before creating the event."
+msgstr "초안이 작성되었습니다. 이벤트를 만들기 전에 세부 정보를 확인하세요."
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+msgid "Drag around the clock · Arrow keys move 15 minutes"
+msgstr "시계를 드래그하세요 · 방향키로 15분 단위 이동"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag end time"
+msgstr "종료 시간 드래그"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag start time"
+msgstr "시작 시간 드래그"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+msgid "duration"
+msgstr "소요 시간"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing end"
+msgstr "종료 시간 편집 중"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing start"
+msgstr "시작 시간 편집 중"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "End"
+msgstr "종료"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+msgid "end time"
+msgstr "종료 시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1352
+msgid "Event details"
+msgstr "이벤트 상세"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:696
+msgid "Event notes"
+msgstr "이벤트 메모"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+msgid "Event time range"
+msgstr "이벤트 시간 범위"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events can be up to 12 hours long."
+msgstr "이벤트는 최대 12시간까지 가능합니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events must be at least 15 minutes long."
+msgstr "이벤트는 최소 15분 이상이어야 합니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Friday night pickleball"
+msgstr "금요일 밤 피클볼"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid "Hold new joins and admit players automatically based on match quality."
+msgstr "새 참가 신청을 보류하고 경기 수준에 따라 자동으로 승인합니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1191
+msgid "Keep current location"
+msgstr "현재 위치 유지"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+msgid "List your event publicly to help fill open spots."
+msgstr "이벤트를 공개로 등록해 남은 자리를 채워보세요."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1162
+msgid "Location & time"
+msgstr "장소 및 시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+msgid "Max players"
+msgstr "최대 인원"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:982
+msgid "Minimum rating"
+msgstr "최소 레이팅"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to daytime hours"
+msgstr "시작·종료 시간을 주간으로 변경"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to nighttime hours"
+msgstr "시작·종료 시간을 야간으로 변경"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "nighttime"
+msgstr "야간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+msgid "Participation fee"
+msgstr "참가비"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:644
+msgid "Public · Up to {maxRsvpsStr} players"
+msgstr "공개 · 최대 {maxRsvpsStr}명"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "Start"
+msgstr "시작"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1320
+msgid "Start and end time"
+msgstr "시작 및 종료 시간"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+msgid "start time"
+msgstr "시작 시간"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
+msgid "The date and times on this form are in this zone."
+msgstr "이 양식의 날짜와 시간은 해당 시간대를 기준으로 합니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
+msgid "Time zone"
+msgstr "시간대"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:634
+msgid "Title and optional notes"
+msgstr "제목 및 메모(선택)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1431
+msgid "Update event"
+msgstr "이벤트 업데이트"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:632
+msgid "Venue, date, start and end time"
+msgstr "장소, 날짜, 시작 및 종료 시간"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file"
+msgstr "등록된 카드"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file (platform account)"
+msgstr "등록된 카드 (플랫폼 계정)"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:183
+msgid "Card required to confirm your spot"
+msgstr "자리 확정을 위해 카드 등록 필요"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:81
+msgid "Charge failed"
+msgstr "결제 실패"
+
+#: src/components/organisms/RsvpOptions.re.mjs:238
+msgid "Charge payment"
+msgstr "결제 청구"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:41
+msgid "Could not save your card"
+msgstr "카드를 저장하지 못했습니다"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:75
+msgid "Payment charged"
+msgstr "결제 완료"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+msgid "Please save your card again"
+msgstr "카드를 다시 저장해 주세요"
+
+#: src/components/organisms/RsvpOptions.re.mjs:225
+msgid "Retry charge"
+msgstr "결제 재시도"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:164
+#: src/components/organisms/StripePaymentEmbed.tsx:84
+msgid "Save card"
+msgstr "카드 저장"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:127
+msgid "Save your card"
+msgstr "카드 저장하기"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid "The organizer now takes card payments directly. Your card was saved before that, so please save it again — your spot is kept."
+msgstr "이제 주최자가 카드 결제를 직접 받습니다. 이전에 저장한 카드이므로 다시 저장해 주세요 — 자리는 유지됩니다."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid "Your card is saved now, not charged — the organizer charges the fee after the event."
+msgstr "카드는 지금 저장만 되고 결제되지 않습니다 — 주최자가 행사 후에 참가비를 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:134
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel}after the event."
+msgstr "카드는 지금 저장만 되고 결제되지 않습니다. 주최자가 행사 후에 {amountLabel}을(를) 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} after the event."
+msgstr "카드는 지금 저장만 되고 결제되지 않습니다. 주최자가 행사 후에 {amountLabel}을(를) 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} later."
+msgstr "카드는 지금 저장되며, 결제되지 않습니다. 주최자가 나중에 {amountLabel}을 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:136
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee after the event."
+msgstr "카드는 지금 저장만 되고 결제되지 않습니다. 주최자가 행사 후에 참가비를 청구합니다."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
+msgstr "카드는 지금 저장되며, 결제되지 않습니다. 주최자가 나중에 참가비를 청구합니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:806
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
+msgstr "대기 상태인 참가자는 RSVP 목록에서 행사로 이동시킬 수 있으며, 이 경우 결제 요건이 면제됩니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+msgstr "참가자는 RSVP 시 카드 저장을 요청받지만, 승인이나 청구는 이루어지지 않으며 여기서 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+msgstr "참가자는 RSVP 시 카드를 저장하며, 사전에 청구되거나 보류되는 금액은 없습니다. RSVP 목록에서 원하는 때에 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 Stripe 계정으로 입금됩니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1395
+msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
+msgstr "참가자는 RSVP 시 카드를 저장합니다. 자동으로 청구되지 않습니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+msgid "Connect a Stripe account to enable this"
+msgstr "이 기능을 사용하려면 Stripe 계정을 연결하세요"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+msgid "With a Stripe account"
+msgstr "Stripe 계정이 있는 경우"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "Without a Stripe account"
+msgstr "Stripe 계정이 없는 경우"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid "Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account."
+msgstr "유료 행사 참가자는 RSVP 시 카드를 저장하며, 사전에 청구되지 않습니다. 행사의 RSVP 목록에서 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 이 계정으로 입금됩니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid "Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here."
+msgstr "유료 행사 참가자는 RSVP 시 카드를 저장하지만 청구할 수 없으므로, 참가비는 행사 현장에서 받아야 합니다. RSVP 목록에서 저장된 카드에 청구하고 여기로 금액을 받으려면 Stripe 계정을 연결하세요."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "연결된 Stripe 계정이 없습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
+msgstr "온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP 시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "Stripe 계정이 연결되었지만 온보딩이 아직 완료되지 않았습니다."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "Stripe 계정이 연결되었습니다."
+
+#: src/components/pages/ClubPage.re.mjs:821
+msgid "Exempt club members from event fees"
+msgstr "클럽 회원 이벤트 참가비 면제"
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid "Members join priced events without saving a card. Everyone else pays to your Stripe account as usual."
+msgstr "회원은 카드를 등록하지 않고 유료 이벤트에 참가할 수 있습니다. 그 외 참가자는 평소처럼 Stripe 계정으로 결제합니다."
+
+#: src/components/pages/ClubPage.re.mjs:783
+msgid "Payments"
+msgstr "결제"
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid "Your club has no connected Stripe account, so members always join without paying and other players' cards are only kept on file. Connect Stripe in your profile settings to charge event fees."
+msgstr "클럽에 연결된 Stripe 계정이 없어 회원은 항상 결제 없이 참가하며, 다른 플레이어의 카드는 등록만 됩니다. 이벤트 참가비를 청구하려면 프로필 설정에서 Stripe를 연결하세요."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Card on file: {cardLabel}. Nothing is charged now — the organizer charges the fee after the event."
+msgstr "등록된 카드: {cardLabel}. 지금은 결제되지 않으며, 주최자가 이벤트 종료 후 참가비를 청구합니다."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Join with saved card"
+msgstr "저장된 카드로 참가"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:188
+msgid "Joining..."
+msgstr "참가 중..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:233
+msgid "Use a different card"
+msgstr "다른 카드 사용"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+msgid "Choose an event time"
+msgstr "이벤트 시간 선택"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+msgid "Drag the window to move it, or drag either edge to resize."
+msgstr "창을 드래그하여 이동하거나 양쪽 가장자리를 드래그하여 크기를 조절하세요."
+
+#: src/components/pages/ClubMembersPage.re.mjs:257
+msgid "Make admin"
+msgstr "관리자로 지정"
+
+#: src/components/pages/ClubMembersPage.re.mjs:250
+msgid "Remove admin"
+msgstr "관리자 해제"
+
+#: src/components/pages/ClubPage.re.mjs:868
+msgid "Add Court"
+msgstr "코트 추가"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
@@ -7575,3 +7988,6 @@ msgstr "하드 코트에서 더 좋은 경기력을 보임"
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "현실적인 1.0 DUPR 편차에서 Competitive+는 처음 몇 라운드 만에 기준선들을 앞서고, 한 세션이 지나면 이미 반복 방지 기준선보다 품질 9포인트, 일방적 경기 10포인트 앞섭니다. 온전한 효과는 레이팅이 성숙했을 때 나타납니다. 기준선의 62%에 대해 일방적 경기 10%, 53%에 대해 접전 확률 78%입니다. 이 수치는 실력을 직접 선별한 좁은 편차의 클럽(79%, 8%)과 맞먹습니다 — 알고리즘이 매치메이킹으로, 회원 자격을 제한해야만 얻을 수 있던 결과를 되살려 냅니다:"
+
+msgid "Open Play"
+msgstr "오픈 플레이"

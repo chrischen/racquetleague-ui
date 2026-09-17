@@ -7401,6 +7401,419 @@ msgstr "Chơi tốt hơn trong nhà thi đấu"
 msgid "Performs better on hard courts"
 msgstr "Chơi tốt hơn trên sân cứng"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "⌘+Enter to send"
+msgstr "⌘+Enter để gửi"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "Answer the questions or add details to refine the draft."
+msgstr "Trả lời các câu hỏi hoặc thêm chi tiết để hoàn thiện bản nháp."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:410
+msgid "Approve or deny the pending action to continue"
+msgstr "Chấp thuận hoặc từ chối hành động đang chờ để tiếp tục"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+msgid "Could not load that place"
+msgstr "Không thể tải địa điểm đó"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+msgid "Could not save that location"
+msgstr "Không thể lưu vị trí đó"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+msgid "Describe the event"
+msgstr "Mô tả sự kiện"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:411
+msgid "Describe the event to generate a draft"
+msgstr "Mô tả sự kiện để tạo bản nháp"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:711
+msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+msgstr "Mô tả sự kiện của bạn… Ví dụ: 19h ngày mai tại Công viên Trung tâm, cần thêm 3 người chơi trình độ khoảng 3.5, 800¥ mỗi người."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:749
+msgid "Fill event form from description"
+msgstr "Điền biểu mẫu sự kiện từ mô tả"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:406
+msgid "Help me fill this out"
+msgstr "Giúp tôi điền phần này"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:737
+msgid "Include whatever details you know"
+msgstr "Thêm bất kỳ chi tiết nào bạn biết"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+msgid "Location search is unavailable right now"
+msgstr "Tìm kiếm vị trí hiện không khả dụng"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+msgid "Search for a venue or address"
+msgstr "Tìm sân hoặc địa chỉ"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:767
+msgid "We’ll turn your description into a draft you can review and edit."
+msgstr "Chúng tôi sẽ chuyển mô tả của bạn thành bản nháp để bạn xem lại và chỉnh sửa."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:699
+#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1075
+msgid "(optional)"
+msgstr "(không bắt buộc)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:705
+msgid "Anything players should know before joining or arriving."
+msgstr "Bất cứ điều gì người chơi cần biết trước khi tham gia hoặc đến."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1134
+msgid "Attendees cannot cancel their RSVP after this deadline."
+msgstr "Người tham gia không thể hủy đăng ký sau thời hạn này."
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "Quay lại"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1092
+msgid "Cancel deadline"
+msgstr "Thời hạn hủy"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:543
+msgid "Choose a location for this event"
+msgstr "Chọn vị trí cho sự kiện này"
+
+#: src/components/pages/CreateEventPage.re.mjs:279
+msgid "Create multiple events instead"
+msgstr "Tạo nhiều sự kiện thay vì vậy"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1264
+msgid "Date"
+msgstr "Ngày"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "daytime"
+msgstr "ban ngày"
+
+#: src/components/organisms/CreateEventModal.re.mjs:81
+msgid "Describe the event to draft it, or fill in the details."
+msgstr "Mô tả sự kiện để tạo bản nháp, hoặc tự điền chi tiết."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1152
+msgid "Draft filled in. Review the details before creating the event."
+msgstr "Đã điền bản nháp. Hãy xem lại chi tiết trước khi tạo sự kiện."
+
+#: src/components/molecules/ClockRangePicker.re.mjs:524
+msgid "Drag around the clock · Arrow keys move 15 minutes"
+msgstr "Kéo quanh mặt đồng hồ · Phím mũi tên dịch 15 phút"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag end time"
+msgstr "Kéo giờ kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:130
+msgid "Drag start time"
+msgstr "Kéo giờ bắt đầu"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:397
+msgid "duration"
+msgstr "thời lượng"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing end"
+msgstr "Đang chỉnh giờ kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:486
+msgid "Editing start"
+msgstr "Đang chỉnh giờ bắt đầu"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "End"
+msgstr "Kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+msgid "end time"
+msgstr "giờ kết thúc"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1352
+msgid "Event details"
+msgstr "Chi tiết sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:696
+msgid "Event notes"
+msgstr "Ghi chú sự kiện"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:299
+msgid "Event time range"
+msgstr "Khoảng thời gian sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events can be up to 12 hours long."
+msgstr "Sự kiện có thể kéo dài tối đa 12 giờ."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1330
+msgid "Events must be at least 15 minutes long."
+msgstr "Sự kiện phải kéo dài ít nhất 15 phút."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:685
+msgid "Friday night pickleball"
+msgstr "Pickleball tối thứ Sáu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1060
+msgid "Hold new joins and admit players automatically based on match quality."
+msgstr "Giữ lại người mới tham gia và tự động duyệt người chơi dựa trên chất lượng trận đấu."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1191
+msgid "Keep current location"
+msgstr "Giữ địa điểm hiện tại"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+msgid "List your event publicly to help fill open spots."
+msgstr "Đăng công khai sự kiện để lấp đầy các chỗ trống."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1162
+msgid "Location & time"
+msgstr "Địa điểm & thời gian"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+msgid "Max players"
+msgstr "Số người chơi tối đa"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:982
+msgid "Minimum rating"
+msgstr "Trình độ tối thiểu"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to daytime hours"
+msgstr "Chuyển giờ bắt đầu và kết thúc sang ban ngày"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:503
+msgid "Move start and end to nighttime hours"
+msgstr "Chuyển giờ bắt đầu và kết thúc sang ban đêm"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:452
+msgid "nighttime"
+msgstr "ban đêm"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:727
+msgid "Participation fee"
+msgstr "Phí tham gia"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:644
+msgid "Public · Up to {maxRsvpsStr} players"
+msgstr "Công khai · Tối đa {maxRsvpsStr} người chơi"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:260
+msgid "Start"
+msgstr "Bắt đầu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1320
+msgid "Start and end time"
+msgstr "Giờ bắt đầu và kết thúc"
+
+#: src/components/molecules/ClockRangePicker.re.mjs:447
+msgid "start time"
+msgstr "giờ bắt đầu"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1310
+msgid "The date and times on this form are in this zone."
+msgstr "Ngày và giờ trong biểu mẫu này theo múi giờ này."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
+msgid "Time zone"
+msgstr "Múi giờ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:634
+msgid "Title and optional notes"
+msgstr "Tiêu đề và ghi chú (tùy chọn)"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1431
+msgid "Update event"
+msgstr "Cập nhật sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:632
+msgid "Venue, date, start and end time"
+msgstr "Địa điểm, ngày, giờ bắt đầu và kết thúc"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file"
+msgstr "Thẻ đã lưu"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:93
+msgid "Card on file (platform account)"
+msgstr "Thẻ đã lưu (tài khoản nền tảng)"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:183
+msgid "Card required to confirm your spot"
+msgstr "Cần có thẻ để xác nhận chỗ của bạn"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:81
+msgid "Charge failed"
+msgstr "Thu tiền thất bại"
+
+#: src/components/organisms/RsvpOptions.re.mjs:238
+msgid "Charge payment"
+msgstr "Thu tiền thanh toán"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:41
+msgid "Could not save your card"
+msgstr "Không thể lưu thẻ của bạn"
+
+#: src/components/atoms/PaymentIndicator.re.mjs:75
+msgid "Payment charged"
+msgstr "Đã thu tiền"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:182
+msgid "Please save your card again"
+msgstr "Vui lòng lưu lại thẻ của bạn"
+
+#: src/components/organisms/RsvpOptions.re.mjs:225
+msgid "Retry charge"
+msgstr "Thử thu tiền lại"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:164
+#: src/components/organisms/StripePaymentEmbed.tsx:84
+msgid "Save card"
+msgstr "Lưu thẻ"
+
+#: src/components/organisms/StripePaymentEmbed.tsx:127
+msgid "Save your card"
+msgstr "Lưu thẻ của bạn"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid "The organizer now takes card payments directly. Your card was saved before that, so please save it again — your spot is kept."
+msgstr "Người tổ chức hiện nhận thanh toán bằng thẻ trực tiếp. Thẻ của bạn đã được lưu trước đó, nên hãy lưu lại — chỗ của bạn vẫn được giữ."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:193
+msgid "Your card is saved now, not charged — the organizer charges the fee after the event."
+msgstr "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền — người tổ chức sẽ thu phí sau sự kiện."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:134
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel}after the event."
+msgstr "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền. Người tổ chức sẽ thu {amountLabel}sau sự kiện."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} after the event."
+msgstr "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền. Người tổ chức sẽ thu {amountLabel}sau sự kiện."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge {amountLabel} later."
+msgstr "Thẻ của bạn được lưu ngay bây giờ, chưa bị trừ tiền. Người tổ chức sẽ thu {amountLabel} sau."
+
+#: src/components/organisms/StripePaymentEmbed.tsx:136
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee after the event."
+msgstr "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền. Người tổ chức sẽ thu phí tham gia sau sự kiện."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
+msgstr "Thẻ của bạn được lưu ngay bây giờ, chưa bị trừ tiền. Người tổ chức sẽ thu phí tham gia sau."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:806
+msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
+msgstr "Bất kỳ ai đang ở trạng thái chờ đều có thể được chuyển vào sự kiện từ danh sách RSVP, khi đó họ không cần đáp ứng yêu cầu thanh toán."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:762
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
+msgstr "Người tham gia được yêu cầu lưu thẻ khi RSVP, nhưng không có khoản nào bị tạm giữ hay bị trừ, và bạn không thể thu tiền từ đây. Hãy thu phí tại sự kiện."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
+msgstr "Người tham gia lưu thẻ khi RSVP và không có khoản nào bị trừ hay tạm giữ trước. Từ danh sách RSVP, bạn có thể thu tiền một người hoặc tất cả bất cứ lúc nào, và tiền sẽ vào tài khoản Stripe của bạn."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1395
+msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
+msgstr "Người tham gia lưu thẻ khi RSVP. Không có khoản nào bị trừ tự động."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:790
+msgid "Connect a Stripe account to enable this"
+msgstr "Kết nối tài khoản Stripe để bật tính năng này"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:773
+msgid "With a Stripe account"
+msgstr "Có tài khoản Stripe"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:751
+msgid "Without a Stripe account"
+msgstr "Không có tài khoản Stripe"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:366
+msgid "Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account."
+msgstr "Người tham gia các sự kiện có phí của bạn sẽ lưu thẻ khi RSVP; không có khoản nào bị trừ trước. Từ danh sách RSVP của sự kiện, bạn có thể thu tiền một người hoặc tất cả, và tiền sẽ vào tài khoản này."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
+msgid "Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here."
+msgstr "Người tham gia các sự kiện có phí của bạn vẫn lưu thẻ khi RSVP, nhưng thẻ không thể bị trừ tiền, nên bạn phải thu phí tại sự kiện. Hãy kết nối tài khoản Stripe để thu tiền từ thẻ đã lưu trong danh sách RSVP và nhận tiền tại đây."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:347
+msgid "No Stripe account is connected."
+msgstr "Chưa có tài khoản Stripe nào được kết nối."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
+msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
+msgstr "Cho đến khi hoàn tất thiết lập, các sự kiện có phí của bạn sẽ chạy trên tài khoản nền tảng: người tham gia lưu thẻ khi RSVP, nhưng bạn không thể thu tiền. Hãy thu phí tại sự kiện."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:350
+msgid "Your Stripe account is connected, but onboarding isn't complete yet."
+msgstr "Tài khoản Stripe của bạn đã được kết nối, nhưng chưa hoàn tất thiết lập."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:353
+msgid "Your Stripe account is connected."
+msgstr "Tài khoản Stripe của bạn đã được kết nối."
+
+#: src/components/pages/ClubPage.re.mjs:821
+msgid "Exempt club members from event fees"
+msgstr "Miễn phí sự kiện cho thành viên câu lạc bộ"
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid "Members join priced events without saving a card. Everyone else pays to your Stripe account as usual."
+msgstr "Thành viên tham gia các sự kiện có phí mà không cần lưu thẻ. Những người khác vẫn thanh toán vào tài khoản Stripe của bạn như bình thường."
+
+#: src/components/pages/ClubPage.re.mjs:783
+msgid "Payments"
+msgstr "Thanh toán"
+
+#: src/components/pages/ClubPage.re.mjs:825
+msgid "Your club has no connected Stripe account, so members always join without paying and other players' cards are only kept on file. Connect Stripe in your profile settings to charge event fees."
+msgstr "Câu lạc bộ của bạn chưa liên kết tài khoản Stripe, nên thành viên luôn tham gia mà không phải trả phí và thẻ của những người chơi khác chỉ được lưu lại. Hãy liên kết Stripe trong cài đặt trang cá nhân để thu phí sự kiện."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:171
+msgid "Card on file: {cardLabel}. Nothing is charged now — the organizer charges the fee after the event."
+msgstr "Thẻ đã lưu: {cardLabel}. Hiện chưa trừ tiền — người tổ chức sẽ thu phí sau sự kiện."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "Join with saved card"
+msgstr "Tham gia bằng thẻ đã lưu"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:188
+msgid "Joining..."
+msgstr "Đang tham gia..."
+
+#: src/components/organisms/EventStickyFooter.re.mjs:233
+msgid "Use a different card"
+msgstr "Dùng thẻ khác"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+msgid "Choose an event time"
+msgstr "Chọn giờ cho sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+msgid "Drag the window to move it, or drag either edge to resize."
+msgstr "Kéo khung để di chuyển, hoặc kéo một trong hai cạnh để thay đổi kích thước."
+
+#: src/components/pages/ClubMembersPage.re.mjs:257
+msgid "Make admin"
+msgstr "Đặt làm quản trị viên"
+
+#: src/components/pages/ClubMembersPage.re.mjs:250
+msgid "Remove admin"
+msgstr "Gỡ quyền quản trị viên"
+
+#: src/components/pages/ClubPage.re.mjs:868
+msgid "Add Court"
+msgstr "Thêm sân"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
@@ -7575,3 +7988,6 @@ msgstr "Chơi tốt hơn trên sân cứng"
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "Với mức chênh lệch thực tế 1.0 DUPR, Competitive+ bứt phá khỏi các mức nền chỉ sau vài vòng đầu, và sau một buổi chơi nó đã dẫn trước mức nền tránh lặp trận 9 điểm chất lượng và 10 điểm về trận một chiều. Lợi ích đầy đủ đến khi điểm số ổn định: 10% trận một chiều so với 62% của mức nền, và 78% khả năng có trận cân bằng so với 53%. Những con số đó ngang với một câu lạc bộ được tuyển chọn kỹ có trình độ đồng đều (79% và 8%) — thuật toán đạt được bằng ghép trận điều mà bạn nếu không thì phải đạt bằng cách sàng lọc thành viên:"
+
+msgid "Open Play"
+msgstr "Open Play"

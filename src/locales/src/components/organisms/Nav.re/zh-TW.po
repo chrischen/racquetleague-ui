@@ -17,7 +17,7 @@ msgstr ""
 msgid "(logout)"
 msgstr "（登出）"
 
-#: src/components/organisms/Nav.re.mjs:115
+#: src/components/organisms/Nav.re.mjs:117
 msgid "Add Event"
 msgstr "新增活動"
 
@@ -26,6 +26,6 @@ msgstr "新增活動"
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/organisms/Nav.re.mjs:98
+#: src/components/organisms/Nav.re.mjs:100
 msgid "racquet league"
 msgstr "球拍聯盟"

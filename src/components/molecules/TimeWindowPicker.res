@@ -29,6 +29,10 @@ type windowConfig = {
   snap?: float,
   minDuration?: float,
   defaultDuration?: float,
+  // Grid line spacing in hours; defaults to the snap step. A picker snapping
+  // finer than its grid (15-minute events on a half-hour grid) sets this so
+  // the track doesn't fill with lines.
+  gridStep?: float,
 }
 
 type hourCount = {
@@ -96,6 +100,13 @@ let snapTo = (h: float, step: float): float => Js.Math.round(h /. step) *. step
 let clamp = (v: float, mn: float, mx: float): float =>
   Js.Math.max_float(mn, Js.Math.min_float(mx, v))
 
+// Axis labels are tinted by half of the day (amber before noon, sky from noon
+// on) so the AM/PM split reads at a glance; noon itself gets a heavier grid
+// line to match.
+let hourPeriodLabelClass = (h: float): string =>
+  h < 12.0 ? "text-amber-600 dark:text-amber-300" : "text-sky-600 dark:text-sky-300"
+let isNoon = (h: float): bool => Js.Math.abs_float(h -. 12.0) < 0.001
+
 // ─── WindowChip ──────────────────────────────────────────────────────────────
 
 type dragMode = Move | ResizeLeft | ResizeRight
@@ -114,6 +125,7 @@ module WindowChip = {
     ~onChange: playIntent => unit,
     ~onDelete: unit => unit,
     ~config: windowConfig=?,
+    ~allowDelete: bool=true,
   ) => {
     let hourMinVal = config->Option.flatMap(c => c.hourMin)->Option.getOr(hourMin)->Float.fromInt
     let hourMaxVal = config->Option.flatMap(c => c.hourMax)->Option.getOr(hourMax)->Float.fromInt
@@ -228,16 +240,18 @@ module WindowChip = {
         className="absolute right-0 top-0 bottom-0 w-2.5 cursor-ew-resize flex items-center justify-center touch-none">
         <div className="w-0.5 h-4 bg-black/40 rounded-full" />
       </div>
-      <button
-        onPointerDown={e => e->ReactEvent.Pointer.stopPropagation}
-        onClick={e => {
-          e->ReactEvent.Mouse.stopPropagation
-          onDelete()
-        }}
-        className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#1e1f23] border border-gray-300 dark:border-[#3a3b40] flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity shadow-sm"
-        title={Lingui.UtilString.t`Remove`}>
-        <Lucide.X size=10 className="text-gray-600 dark:text-gray-300" />
-      </button>
+      {allowDelete
+        ? <button
+            onPointerDown={e => e->ReactEvent.Pointer.stopPropagation}
+            onClick={e => {
+              e->ReactEvent.Mouse.stopPropagation
+              onDelete()
+            }}
+            className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-white dark:bg-[#1e1f23] border border-gray-300 dark:border-[#3a3b40] flex items-center justify-center opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity shadow-sm"
+            title={Lingui.UtilString.t`Remove`}>
+            <Lucide.X size=10 className="text-gray-600 dark:text-gray-300" />
+          </button>
+        : React.null}
     </div>
   }
 }
@@ -258,6 +272,10 @@ let make = (
   ~existingEvents: array<existingEvent>=[],
   ~courtAvailability: array<courtAvailability>=[],
   ~emptyLabel: string=?,
+  // Caps how many windows a tap can add (a single-window form picker passes 1);
+  // dragging existing windows is unaffected.
+  ~maxIntents: int=?,
+  ~allowDelete: bool=true,
 ) => {
   let trackRef = React.useRef(Js.Nullable.null)
   let intl = ReactIntl.useIntl()
@@ -268,6 +286,7 @@ let make = (
   let snapStep = config->Option.flatMap(c => c.snap)->Option.getOr(1.0)
   let minDur = config->Option.flatMap(c => c.minDuration)->Option.getOr(minDuration)
   let defaultDur = config->Option.flatMap(c => c.defaultDuration)->Option.getOr(defaultDuration)
+  let gridStep = config->Option.flatMap(c => c.gridStep)->Option.getOr(snapStep)
 
   let updateOne = (id: int, next: playIntent) =>
     onChange(
@@ -284,10 +303,16 @@ let make = (
 
   let courtBands = groupCourtAvailabilityIntoBands(courtAvailability)
 
+  let canAdd = switch maxIntents {
+  | None => true
+  | Some(max) => intents->Array.length < max
+  }
+
   let addAtClick = (e: ReactEvent.Mouse.t) => {
-    switch trackRef.current->Js.Nullable.toOption {
-    | None => ()
-    | Some(el) =>
+    switch (canAdd, trackRef.current->Js.Nullable.toOption) {
+    | (false, _)
+    | (_, None) => ()
+    | (true, Some(el)) =>
       let rect = el->getBoundingClientRect
       if rect.width !== 0.0 {
         let x = e->mouseClientX->Float.fromInt -. rect.left
@@ -385,7 +410,7 @@ let make = (
                 },
                 (),
               )}>
-              <span className="font-mono text-[9px] text-gray-400 dark:text-gray-500">
+              <span className={`font-mono text-[9px] ${hourPeriodLabelClass(h)}`}>
                 {React.string(hourLabelIntl(intl, h))}
               </span>
             </div>
@@ -397,7 +422,9 @@ let make = (
       ref={ReactDOM.Ref.domRef(trackRef)}
       onClick=addAtClick
       className={trackClassName->Option.getOr(
-        "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden cursor-copy",
+        "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden " ++ (
+          canAdd ? "cursor-copy" : "cursor-default"
+        ),
       )}>
       {switch heatmap {
       | Some((counts, maxD)) =>
@@ -431,19 +458,23 @@ let make = (
       | None => React.null
       }}
       {
-        // One gridline per snap step; whole hours read as the major lines.
+        // One gridline per grid step; whole hours read as the major lines.
         let gridLineCount =
-          Js.Math.max_int(1, Js.Math.round(Float.fromInt(hourRangeVal) /. snapStep)->Float.toInt)
+          Js.Math.max_int(1, Js.Math.round(Float.fromInt(hourRangeVal) /. gridStep)->Float.toInt)
         <div className="absolute inset-0 z-[1] pointer-events-none">
           {Belt.Array.makeBy(gridLineCount + 1, i => {
-            let hour = Float.fromInt(hourMinVal) +. Float.fromInt(i) *. snapStep
+            let hour = Float.fromInt(hourMinVal) +. Float.fromInt(i) *. gridStep
             let lp = Float.fromInt(i) /. Float.fromInt(gridLineCount) *. 100.0
             let major = Js.Math.floor_float(hour) == hour
             <div
               key={i->Int.toString}
-              className={`absolute top-0 bottom-0 border-l ${major
-                  ? "border-gray-200 dark:border-[#34353a]"
-                  : "border-gray-100/70 dark:border-[#292a2e]"}`}
+              className={`absolute top-0 bottom-0 border-l ${if isNoon(hour) {
+                  "border-l-2 border-sky-300 dark:border-sky-700"
+                } else if major {
+                  "border-gray-200 dark:border-[#34353a]"
+                } else {
+                  "border-gray-100/70 dark:border-[#292a2e]"
+                }}`}
               style={ReactDOM.Style.make(~left=lp->Float.toString ++ "%", ())}
             />
           })->React.array}
@@ -506,6 +537,7 @@ let make = (
           onChange={next => updateOne(w.id, next)}
           onDelete={() => removeOne(w.id)}
           ?config
+          allowDelete
         />
       )
       ->React.array}

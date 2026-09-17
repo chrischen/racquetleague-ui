@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:55
+#: src/components/molecules/CourtOpeningCard.re.mjs:57
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:97
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{0, plural, one {{1}} other {{2}}}"
@@ -27,13 +27,13 @@ msgid "{0} continuous openings"
 msgstr "연속 {0}개 공석"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:164
-#: src/components/molecules/CourtOpeningCard.re.mjs:56
+#: src/components/molecules/CourtOpeningCard.re.mjs:58
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:98
 msgid "{0} court"
 msgstr "{0}코트"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
-#: src/components/molecules/CourtOpeningCard.re.mjs:57
+#: src/components/molecules/CourtOpeningCard.re.mjs:59
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:99
 msgid "{0} courts"
 msgstr "{0}코트"
@@ -46,11 +46,11 @@ msgstr "{0}장소"
 msgid "{0} locations"
 msgstr "{0}장소"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:50
+#: src/components/molecules/CourtOpeningCard.re.mjs:52
 msgid "{hs}h"
 msgstr "{hs}시간"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:52
+#: src/components/molecules/CourtOpeningCard.re.mjs:54
 msgid "{hs}h {ms}m"
 msgstr "{hs}시간 {ms}분"
 
@@ -58,16 +58,16 @@ msgstr "{hs}시간 {ms}분"
 msgid "{locationCount, plural, one {{0}} other {{1}}}"
 msgstr "{locationCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:48
+#: src/components/molecules/CourtOpeningCard.re.mjs:50
 msgid "{ms}m"
 msgstr "{ms}분"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:42
+#: src/components/molecules/CourtOpeningCard.re.mjs:44
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:92
 msgid "{n} indoor"
 msgstr "실내 {n}개"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:44
+#: src/components/molecules/CourtOpeningCard.re.mjs:46
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:94
 msgid "{n} outdoor"
 msgstr "실외 {n}개"
@@ -100,7 +100,7 @@ msgstr "전체 시간대를 포함하는 코트 및 빈 시간"
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "코트별로 가장 긴 연속 빈 시간이 표시됩니다."
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:139
+#: src/components/molecules/CourtOpeningCard.re.mjs:141
 msgid "Create event"
 msgstr "이벤트 만들기"
 
@@ -120,7 +120,7 @@ msgstr "플레이어 가용성 히트맵"
 msgid "Players"
 msgstr "플레이어"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:153
+#: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "예약"
 
@@ -152,7 +152,7 @@ msgstr "클럽과 공유"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "빈 시간 탭하여 추가 · 드래그하여 이동 · 가장자리를 잡아 크기 조절"
 
-#: src/components/molecules/CourtOpeningCard.re.mjs:144
+#: src/components/molecules/CourtOpeningCard.re.mjs:146
 msgid "Use option"
 msgstr "옵션 사용"
 

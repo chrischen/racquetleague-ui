@@ -218,29 +218,13 @@ let make = (
                             <span> {React.string(p.label)} </span>
                             <span className="font-mono text-[10px] opacity-70">
                               {(intl->ReactIntl.Intl.formatTimeWithOptions(
-                                Js.Date.makeWithYMDHMS(
-                                  ~year=2000.,
-                                  ~month=0.,
-                                  ~date=1.,
-                                  ~hours=p.start,
-                                  ~minutes=0.,
-                                  ~seconds=0.,
-                                  (),
-                                ),
-                                ReactIntl.dateTimeFormatOptions(~hour=#numeric, ()),
+                                Js.Date.utcWithYMDHM(~year=2000., ~month=0., ~date=1., ~hours=p.start, ~minutes=0., ())->Js.Date.fromFloat,
+                                ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~timeZone="UTC", ()),
                               ) ++
                               "–" ++
                               intl->ReactIntl.Intl.formatTimeWithOptions(
-                                Js.Date.makeWithYMDHMS(
-                                  ~year=2000.,
-                                  ~month=0.,
-                                  ~date=1.,
-                                  ~hours=p.end,
-                                  ~minutes=0.,
-                                  ~seconds=0.,
-                                  (),
-                                ),
-                                ReactIntl.dateTimeFormatOptions(~hour=#numeric, ()),
+                                Js.Date.utcWithYMDHM(~year=2000., ~month=0., ~date=1., ~hours=p.end, ~minutes=0., ())->Js.Date.fromFloat,
+                                ReactIntl.dateTimeFormatOptions(~hour=#numeric, ~timeZone="UTC", ()),
                               ))->React.string}
                             </span>
                           </button>

@@ -344,17 +344,30 @@ function SettingsProfileForm(props) {
                             var tmp$6;
                             switch (status) {
                               case "NotConnected" :
-                                  tmp$6 = t`Connect a Stripe account to receive payments from events you organize.`;
+                                  tmp$6 = t`No Stripe account is connected.`;
                                   break;
                               case "Pending" :
-                                  tmp$6 = t`Your Stripe account is connected but onboarding is not yet complete.`;
+                                  tmp$6 = t`Your Stripe account is connected, but onboarding isn't complete yet.`;
                                   break;
                               case "Active" :
-                                  tmp$6 = t`Your Stripe account is connected and ready to accept payments.`;
+                                  tmp$6 = t`Your Stripe account is connected.`;
                                   break;
                               
                             }
                             var tmp$7;
+                            switch (status) {
+                              case "NotConnected" :
+                                  tmp$7 = t`Attendees of your paid events still save a card when they RSVP, but it can't be charged, so you collect the fee at the event. Connect a Stripe account to charge saved cards from the RSVP list and receive the money here.`;
+                                  break;
+                              case "Pending" :
+                                  tmp$7 = t`Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event.`;
+                                  break;
+                              case "Active" :
+                                  tmp$7 = t`Attendees of your paid events save a card when they RSVP; nothing is charged up front. From an event's RSVP list you can charge one attendee or everyone, and the money goes to this account.`;
+                                  break;
+                              
+                            }
+                            var tmp$8;
                             var exit = 0;
                             switch (status) {
                               case "NotConnected" :
@@ -362,29 +375,29 @@ function SettingsProfileForm(props) {
                                   exit = 1;
                                   break;
                               case "Active" :
-                                  tmp$7 = null;
+                                  tmp$8 = null;
                                   break;
                               
                             }
                             if (exit === 1) {
-                              var tmp$8;
+                              var tmp$9;
                               if (isStripePending) {
-                                tmp$8 = t`Connecting...`;
+                                tmp$9 = t`Connecting...`;
                               } else {
                                 switch (status) {
                                   case "NotConnected" :
-                                      tmp$8 = t`Connect Stripe account`;
+                                      tmp$9 = t`Connect Stripe account`;
                                       break;
                                   case "Pending" :
-                                      tmp$8 = t`Resume onboarding`;
+                                      tmp$9 = t`Resume onboarding`;
                                       break;
                                   case "Active" :
-                                      tmp$8 = "";
+                                      tmp$9 = "";
                                       break;
                                   
                                 }
                               }
-                              tmp$7 = JsxRuntime.jsxs("div", {
+                              tmp$8 = JsxRuntime.jsxs("div", {
                                     children: [
                                       JsxRuntime.jsxs("div", {
                                             children: [
@@ -445,7 +458,7 @@ function SettingsProfileForm(props) {
                                             ]
                                           }),
                                       JsxRuntime.jsx("button", {
-                                            children: tmp$8,
+                                            children: tmp$9,
                                             className: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-gray-900 bg-[#a3e635] hover:bg-[#84cc16] focus:outline-none focus:ring-2 focus:ring-[#a3e635] focus:ring-offset-2 dark:focus:ring-offset-[#111111] disabled:opacity-50 transition-colors",
                                             disabled: isStripePending,
                                             type: "button",
@@ -644,6 +657,10 @@ function SettingsProfileForm(props) {
                                                                                 children: tmp$6,
                                                                                 className: "text-sm text-gray-700 dark:text-gray-300"
                                                                               }),
+                                                                          JsxRuntime.jsx("p", {
+                                                                                children: tmp$7,
+                                                                                className: "text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                                                              }),
                                                                           stripeAccountId !== undefined ? JsxRuntime.jsx("p", {
                                                                                   children: stripeAccountId,
                                                                                   className: "text-xs text-gray-400 dark:text-gray-600 font-mono"
@@ -654,7 +671,7 @@ function SettingsProfileForm(props) {
                                                                 ],
                                                                 className: "flex items-start gap-3"
                                                               }),
-                                                          tmp$7,
+                                                          tmp$8,
                                                           stripeClientSecret !== undefined ? JsxRuntime.jsx("div", {
                                                                   children: JsxRuntime.jsx(make, {
                                                                         clientSecret: stripeClientSecret,

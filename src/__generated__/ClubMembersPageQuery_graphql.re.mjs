@@ -57,116 +57,138 @@ var v0 = [
     "name": "slug"
   }
 ],
-v1 = {
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "slug",
+    "variableName": "slug"
+  }
+],
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v2 = [
-  (v1/*: any*/)
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "slug",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "isOwner",
+  "storageKey": null
+},
+v6 = [
+  (v2/*: any*/)
 ],
-v3 = [
-  {
-    "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "slug",
-        "variableName": "slug"
-      }
-    ],
-    "concreteType": "Club",
-    "kind": "LinkedField",
-    "name": "club",
-    "plural": false,
-    "selections": [
-      (v1/*: any*/),
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "name",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "slug",
-        "storageKey": null
-      }
-    ],
-    "storageKey": null
-  },
-  {
-    "alias": null,
-    "args": null,
-    "concreteType": "Viewer",
-    "kind": "LinkedField",
-    "name": "viewer",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "User",
-        "kind": "LinkedField",
-        "name": "user",
-        "plural": false,
-        "selections": (v2/*: any*/),
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": [
-          {
-            "kind": "Literal",
-            "name": "first",
-            "value": 100
-          }
-        ],
-        "concreteType": "ClubConnection",
-        "kind": "LinkedField",
-        "name": "adminClubs",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "ClubEdge",
-            "kind": "LinkedField",
-            "name": "edges",
-            "plural": true,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Club",
-                "kind": "LinkedField",
-                "name": "node",
-                "plural": false,
-                "selections": (v2/*: any*/),
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
-        ],
-        "storageKey": "adminClubs(first:100)"
-      }
-    ],
-    "storageKey": null
-  }
-];
+v7 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Viewer",
+  "kind": "LinkedField",
+  "name": "viewer",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "User",
+      "kind": "LinkedField",
+      "name": "user",
+      "plural": false,
+      "selections": (v6/*: any*/),
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": [
+        {
+          "kind": "Literal",
+          "name": "first",
+          "value": 100
+        }
+      ],
+      "concreteType": "ClubConnection",
+      "kind": "LinkedField",
+      "name": "adminClubs",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "ClubEdge",
+          "kind": "LinkedField",
+          "name": "edges",
+          "plural": true,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "Club",
+              "kind": "LinkedField",
+              "name": "node",
+              "plural": false,
+              "selections": (v6/*: any*/),
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        }
+      ],
+      "storageKey": "adminClubs(first:100)"
+    }
+  ],
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "ClubMembersPageQuery",
-    "selections": (v3/*: any*/),
+    "selections": [
+      {
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": "Club",
+        "kind": "LinkedField",
+        "name": "club",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/),
+          (v4/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Membership",
+            "kind": "LinkedField",
+            "name": "viewerMembership",
+            "plural": false,
+            "selections": [
+              (v5/*: any*/)
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      (v7/*: any*/)
+    ],
     "type": "Query",
     "abstractKey": null
   },
@@ -175,15 +197,44 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "ClubMembersPageQuery",
-    "selections": (v3/*: any*/)
+    "selections": [
+      {
+        "alias": null,
+        "args": (v1/*: any*/),
+        "concreteType": "Club",
+        "kind": "LinkedField",
+        "name": "club",
+        "plural": false,
+        "selections": [
+          (v2/*: any*/),
+          (v3/*: any*/),
+          (v4/*: any*/),
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Membership",
+            "kind": "LinkedField",
+            "name": "viewerMembership",
+            "plural": false,
+            "selections": [
+              (v5/*: any*/),
+              (v2/*: any*/)
+            ],
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      (v7/*: any*/)
+    ]
   },
   "params": {
-    "cacheID": "3452d75cbaad38c5efe69c60f07537cc",
+    "cacheID": "07b07eb7d139eadd338525bbf9c995ec",
     "id": null,
     "metadata": {},
     "name": "ClubMembersPageQuery",
     "operationKind": "query",
-    "text": "query ClubMembersPageQuery(\n  $slug: String!\n) {\n  club(slug: $slug) {\n    id\n    name\n    slug\n  }\n  viewer {\n    user {\n      id\n    }\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query ClubMembersPageQuery(\n  $slug: String!\n) {\n  club(slug: $slug) {\n    id\n    name\n    slug\n    viewerMembership {\n      isOwner\n      id\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n}\n"
   }
 };
 })());
