@@ -112,6 +112,13 @@ return {
       {
         "alias": null,
         "args": null,
+        "kind": "ScalarField",
+        "name": "duprSsoUrl",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
         "concreteType": "Viewer",
         "kind": "LinkedField",
         "name": "viewer",
@@ -122,36 +129,63 @@ return {
             "args": null,
             "concreteType": "User",
             "kind": "LinkedField",
-            "name": "user",
-            "plural": false,
-            "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "stripeAccountId",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "stripeChargesEnabled",
-                "storageKey": null
-              },
-              (v0/*: any*/)
-            ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "kind": "LinkedField",
             "name": "profile",
             "plural": false,
             "selections": [
               (v0/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "DuprLink",
+                "kind": "LinkedField",
+                "name": "dupr",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "duprId",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doubles",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "singles",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doublesReliable",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "singlesReliable",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "syncedAt",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
               {
                 "alias": null,
                 "args": null,
@@ -196,6 +230,32 @@ return {
               }
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "User",
+            "kind": "LinkedField",
+            "name": "user",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "stripeAccountId",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "stripeChargesEnabled",
+                "storageKey": null
+              },
+              (v0/*: any*/)
+            ],
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -203,12 +263,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "702321a0fce7eb32cd06207113341e61",
+    "cacheID": "5b0ad4532f5962c9e751e91870f101a1",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormRefetchQuery",
     "operationKind": "query",
-    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment SettingsProfileForm_query on Query {\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n    }\n  }\n}\n"
+    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

@@ -6,7 +6,7 @@ import * as SettingsProfileFormRefetchQuery_graphql from "./SettingsProfileFormR
 
 var Types = {};
 
-var fragmentConverter = {};
+var fragmentConverter = {"__root":{"":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -47,6 +47,11 @@ function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
   },
   "name": "SettingsProfileForm_query",
   "selections": [
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "DuprConnectCard_query"
+    },
     {
       "alias": null,
       "args": null,
@@ -135,6 +140,52 @@ function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
               "args": null,
               "kind": "ScalarField",
               "name": "selfRating",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "DuprLink",
+              "kind": "LinkedField",
+              "name": "dupr",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "duprId",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doubles",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "singles",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doublesReliable",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "singlesReliable",
+                  "storageKey": null
+                }
+              ],
               "storageKey": null
             }
           ],

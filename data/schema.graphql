@@ -239,6 +239,17 @@ input ClubMembersInput {
   clubId: ID!
 }
 
+input ConnectDuprInput {
+  """The `userToken` DUPR's SSO iframe posted to the page."""
+  accessToken: String!
+
+  """
+  The matching `refreshToken`. Stored so ratings and entitlements can be
+     refreshed without making the player log in again.
+  """
+  refreshToken: String!
+}
+
 type Coords {
   lat: Float!
   lng: Float!
@@ -393,6 +404,54 @@ input DoublesMatchInput {
   losers: [String!]!
   score: [Float!]
   winners: [String!]!
+}
+
+"""
+A player's linked DUPR account. Ratings are on the DUPR scale, as DUPR
+ reports them.
+"""
+type DuprLink {
+  """Doubles rating, absent when DUPR has not rated this player in doubles."""
+  doubles: Float
+
+  """
+  DUPR's own confidence in the doubles rating. An unreliable rating is
+     shown as provisional but still counts for level gating.
+  """
+  doublesReliable: Boolean!
+  duprId: String!
+
+  """Singles rating, absent when DUPR has not rated this player in singles."""
+  singles: Float
+  singlesReliable: Boolean!
+
+  """When we last read these ratings from DUPR."""
+  syncedAt: Datetime
+}
+
+type DuprResult implements HasErrors {
+  errors: [Error!]
+  viewer: User
+}
+
+"""
+The one rating the platform acts on for this player, and where it came
+ from. Resolved by `League.Domain.EffectiveRating`, which prefers a pkuru
+ league rating, then DUPR, then the player's self-report.
+"""
+type EffectiveRating {
+  """The same rating on the DUPR scale, for display."""
+  dupr: Float!
+
+  """On the internal mu scale, the same scale as an event's min/max rating."""
+  mu: Float!
+
+  """
+  Present only for a pkuru league rating; the other sources carry no
+     uncertainty of their own.
+  """
+  sigma: Float
+  source: RatingSource!
 }
 
 type Error {
@@ -934,6 +993,15 @@ type Mutation {
      * to the rating gate).
   """
   confirmRsvpPaymentMethod(rsvpId: ID!, setupIntentId: String!): CreatePaymentResult!
+
+  """
+  Link the signed-in player's DUPR account.
+  
+   Only the two tokens are taken from the request. The DUPR id and ratings the
+   iframe also posts are ignored: DUPR is asked who the access token belongs
+   to, and the ratings are read server-side.
+  """
+  connectDupr(input: ConnectDuprInput!): DuprResult!
   createActivitySubscription(input: CreateActivitySubscriptionInput!): ActivitySubscriptionMutationResult!
   createClub(input: CreateClubInput!): CreateClubResult!
   createEvent(input: CreateEventInput!): MutationResult2!
@@ -959,6 +1027,12 @@ type Mutation {
   deleteAvailabilityForTimeWindow(input: DeleteAvailabilityForTimeWindowInput!): DeleteAvailabilityForTimeWindowResult!
   deleteClub(input: DeleteClubInput!): DeleteClubResult!
   deleteRsvpFromEvent(eventId: ID!, userId: ID!): LeaveEventResult!
+
+  """
+  Unlink the signed-in player's DUPR account: the ratings go, the tokens
+   are deleted, and their self-rating becomes editable again.
+  """
+  disconnectDupr: DuprResult!
 
   """
   Runs Smart RSVP's admission pass for one event right now — the way
@@ -1148,6 +1222,14 @@ type Query {
 
   """Delayed current time to test @defer and streaming."""
   currentTime2: Float
+
+  """
+  The URL of DUPR's SSO page, for the browser to embed. DUPR wants the
+   *client key* base64'd into the path — not our partner token, and never the
+   secret. `None` when DUPR is not configured, which tells the client to hide
+   the connect button rather than show one that cannot work.
+  """
+  duprSsoUrl: String
   event(id: ID!): Event
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   getUserClubMembership(input: GetUserClubMembershipInput!): GetUserClubMembershipResult!
@@ -1221,6 +1303,12 @@ type RatingEdge {
 
   """The item at the end of the edge."""
   node: Rating
+}
+
+enum RatingSource {
+  dupr
+  pkuru
+  self
 }
 
 type RefundPaymentResult implements HasErrors {
@@ -1491,6 +1579,8 @@ type User implements Node {
 
   """The user's home coordinates (lng/lat)."""
   coords: Coords
+  dupr: DuprLink
+  effectiveRating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): EffectiveRating
   email: String
   eventRating(eventId: ID!): Rating
   fullName: String

@@ -37,6 +37,7 @@ module StripeMutation = %relay(`
 module QueryFragment = %relay(`
   fragment SettingsProfileForm_query on Query
   @refetchable(queryName: "SettingsProfileFormRefetchQuery") {
+    ...DuprConnectCard_query
     viewer {
       user {
         stripeAccountId
@@ -50,6 +51,13 @@ module QueryFragment = %relay(`
         gender
         email
         selfRating
+        dupr {
+          duprId
+          doubles
+          singles
+          doublesReliable
+          singlesReliable
+        }
       }
     }
   }
@@ -113,6 +121,12 @@ let make = (~query) => {
     }
   )
 
+  // A linked DUPR account outranks the self-report everywhere, so while one
+  // is connected the picker is replaced by the DUPR rating rather than
+  // offering a second, contradictory number to edit.
+  let duprLink =
+    query.viewer->Option.flatMap(v => v.profile)->Option.flatMap(p => p.dupr)
+
   // selfRating is stored on the internal scale; the picker speaks DUPR.
   let (level, setLevel) = React.useState(() =>
     query.viewer
@@ -160,7 +174,10 @@ let make = (~query) => {
       biography: data.biography,
       username: data.username,
       gender,
-      selfRating: ?level->Option.map(Rating.duprToMu),
+      // Omitted while DUPR is linked: the field is optional, so the stored
+      // self-report is left untouched rather than overwritten, and comes
+      // back intact if the player disconnects.
+      selfRating: ?(duprLink->Option.isSome ? None : level->Option.map(Rating.duprToMu)),
     }
     commitMutation(
       ~variables={
@@ -292,14 +309,35 @@ let make = (~query) => {
                   className="block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
                   {t`Level`}
                 </label>
-                <LevelPicker value=level onChange={v => setLevel(_ => Some(v))} />
-                <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-                  {switch level {
-                  | Some(v) =>
-                    (ts`Estimated DUPR` ++ ": " ++ v->Float.toFixed(~digits=2))->React.string
-                  | None => (ts`Your self-reported skill level`)->React.string
-                  }}
-                </p>
+                {switch duprLink {
+                | Some(link) =>
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <DuprRatingBadge
+                        doubles={link.doubles}
+                        singles=?link.singles
+                        doublesReliable={link.doublesReliable}
+                        singlesReliable={link.singlesReliable}
+                        compact=true
+                      />
+                      <RatingSourceChip source=Dupr reliable={link.doublesReliable} />
+                    </div>
+                    <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                      {t`Your rating comes from DUPR. Disconnect DUPR below to set your own level again.`}
+                    </p>
+                  </div>
+                | None =>
+                  <div>
+                    <LevelPicker value=level onChange={v => setLevel(_ => Some(v))} />
+                    <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                      {switch level {
+                      | Some(v) =>
+                        (ts`Estimated DUPR` ++ ": " ++ v->Float.toFixed(~digits=2))->React.string
+                      | None => (ts`Your self-reported skill level`)->React.string
+                      }}
+                    </p>
+                  </div>
+                }}
               </div>
               <div>
                 <SeekingPartnerInput seekingPartner={None} onChange={_ => ()} />
@@ -329,6 +367,11 @@ let make = (~query) => {
             <PushNotifications />
           </div>
         </div>
+        <DuprConnectCard
+          query={query.fragmentRefs}
+          onChanged={() =>
+            refetchQuery(~variables=QueryFragment.makeRefetchVariables())->RescriptRelay.Disposable.ignore}
+        />
         {
           let stripeAccountId = query.viewer->Option.flatMap(v => v.user)->Option.flatMap(u => u.stripeAccountId)
           let chargesEnabled =

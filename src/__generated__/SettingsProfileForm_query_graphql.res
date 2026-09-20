@@ -4,8 +4,16 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_viewer_profile = {
+  type rec fragment_viewer_profile_dupr = {
+    doubles: option<float>,
+    doublesReliable: bool,
+    duprId: string,
+    singles: option<float>,
+    singlesReliable: bool,
+  }
+  and fragment_viewer_profile = {
     biography: option<string>,
+    dupr: option<fragment_viewer_profile_dupr>,
     email: option<string>,
     fullName: option<string>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
@@ -23,6 +31,7 @@ module Types = {
   }
   type fragment = {
     viewer: option<fragment_viewer>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #DuprConnectCard_query]>,
   }
 }
 
@@ -31,7 +40,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{}`
+    json`{"__root":{"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -86,6 +95,11 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
   },
   "name": "SettingsProfileForm_query",
   "selections": [
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "DuprConnectCard_query"
+    },
     {
       "alias": null,
       "args": null,
@@ -174,6 +188,52 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
               "args": null,
               "kind": "ScalarField",
               "name": "selfRating",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "DuprLink",
+              "kind": "LinkedField",
+              "name": "dupr",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "duprId",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doubles",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "singles",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doublesReliable",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "singlesReliable",
+                  "storageKey": null
+                }
+              ],
               "storageKey": null
             }
           ],

@@ -9,9 +9,12 @@ import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as DuprConnectCard from "./DuprConnectCard.re.mjs";
+import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as RatingSourceChip from "../molecules/RatingSourceChip.re.mjs";
 import * as PushNotifications from "../shared/PushNotifications.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as SeekingPartnerInput from "./SeekingPartnerInput.re.mjs";
@@ -169,6 +172,11 @@ function SettingsProfileForm(props) {
       });
   var setGender = match$5[1];
   var gender = match$5[0];
+  var duprLink = Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (v) {
+              return v.profile;
+            })), (function (p) {
+          return p.dupr;
+        }));
   var match$6 = React.useState(function () {
         return Core__Option.map(Core__Option.flatMap(Core__Option.flatMap(query.viewer, (function (viewer) {
                               return viewer.profile;
@@ -228,7 +236,7 @@ function SettingsProfileForm(props) {
     var input_biography = data.biography;
     var input_fullName = data.fullName;
     var input_gender = gender;
-    var input_selfRating = Core__Option.map(level, Rating.duprToMu);
+    var input_selfRating = Core__Option.isSome(duprLink) ? undefined : Core__Option.map(level, Rating.duprToMu);
     var input_username = data.username;
     var input = {
       biography: input_biography,
@@ -573,18 +581,45 @@ function SettingsProfileForm(props) {
                                                                               children: t`Level`,
                                                                               className: "block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2"
                                                                             }),
-                                                                        JsxRuntime.jsx(LevelPicker.make, {
-                                                                              value: level,
-                                                                              onChange: (function (v) {
-                                                                                  setLevel(function (param) {
-                                                                                        return v;
-                                                                                      });
-                                                                                })
-                                                                            }),
-                                                                        JsxRuntime.jsx("p", {
-                                                                              children: level !== undefined ? t`Estimated DUPR` + ": " + level.toFixed(2) : t`Your self-reported skill level`,
-                                                                              className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
-                                                                            })
+                                                                        duprLink !== undefined ? JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsxs("div", {
+                                                                                        children: [
+                                                                                          JsxRuntime.jsx(DuprRatingBadge.make, {
+                                                                                                doubles: duprLink.doubles,
+                                                                                                singles: duprLink.singles,
+                                                                                                doublesReliable: duprLink.doublesReliable,
+                                                                                                singlesReliable: duprLink.singlesReliable,
+                                                                                                compact: true
+                                                                                              }),
+                                                                                          JsxRuntime.jsx(RatingSourceChip.make, {
+                                                                                                source: "Dupr",
+                                                                                                reliable: duprLink.doublesReliable
+                                                                                              })
+                                                                                        ],
+                                                                                        className: "flex items-center gap-3"
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("p", {
+                                                                                        children: t`Your rating comes from DUPR. Disconnect DUPR below to set your own level again.`,
+                                                                                        className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
+                                                                                      })
+                                                                                ]
+                                                                              }) : JsxRuntime.jsxs("div", {
+                                                                                children: [
+                                                                                  JsxRuntime.jsx(LevelPicker.make, {
+                                                                                        value: level,
+                                                                                        onChange: (function (v) {
+                                                                                            setLevel(function (param) {
+                                                                                                  return v;
+                                                                                                });
+                                                                                          })
+                                                                                      }),
+                                                                                  JsxRuntime.jsx("p", {
+                                                                                        children: level !== undefined ? t`Estimated DUPR` + ": " + level.toFixed(2) : t`Your self-reported skill level`,
+                                                                                        className: "mt-2 text-xs text-gray-500 dark:text-gray-400"
+                                                                                      })
+                                                                                ]
+                                                                              })
                                                                       ]
                                                                     }),
                                                                 JsxRuntime.jsx("div", {
@@ -633,6 +668,12 @@ function SettingsProfileForm(props) {
                                                       })
                                                 ],
                                                 className: "mt-8 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
+                                              }),
+                                          JsxRuntime.jsx(DuprConnectCard.make, {
+                                                query: query.fragmentRefs,
+                                                onChanged: (function () {
+                                                    refetchQuery(makeRefetchVariables(), undefined, undefined);
+                                                  })
                                               }),
                                           JsxRuntime.jsxs("div", {
                                                 children: [

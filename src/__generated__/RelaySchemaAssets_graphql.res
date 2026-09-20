@@ -28,6 +28,21 @@ type enum_Gender_input =
 
 
 @live @unboxed
+type enum_RatingSource = 
+  | @as("dupr") Dupr
+  | @as("pkuru") Pkuru
+  | @as("self") Self
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_RatingSource_input = 
+  | @as("dupr") Dupr
+  | @as("pkuru") Pkuru
+  | @as("self") Self
+
+
+@live @unboxed
 type enum_Region = 
   | @as("tokyo") Tokyo
   | FutureAddedValue(string)
@@ -175,6 +190,18 @@ and input_ClubMembersInput = {
 @live
 and input_ClubMembersInput_nullable = {
   clubId: string,
+}
+
+@live
+and input_ConnectDuprInput = {
+  accessToken: string,
+  refreshToken: string,
+}
+
+@live
+and input_ConnectDuprInput_nullable = {
+  accessToken: string,
+  refreshToken: string,
 }
 
 @live
