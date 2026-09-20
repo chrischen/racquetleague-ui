@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:696
+#: src/components/organisms/PkRSVPSection.re.mjs:702
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:694
+#: src/components/organisms/PkRSVPSection.re.mjs:700
 msgid "· +{0} waitlist"
 msgstr ""
 
@@ -111,7 +111,7 @@ msgstr ""
 #~ msgid "{0} exact options"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:691
+#: src/components/organisms/PkRSVPSection.re.mjs:697
 msgid "{0} joined"
 msgstr ""
 
@@ -304,7 +304,7 @@ msgstr ""
 msgid "← previous"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:808
+#: src/components/organisms/PkRSVPSection.re.mjs:814
 msgid "♂/♀ SKILL"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 #~ msgid "A small hold will be placed on your card and fully refunded after the event."
 #~ msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:348
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:370
 msgid "About"
 msgstr ""
 
@@ -361,15 +361,15 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "APPROVE"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Approve {0}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Approve for {eventTitle}"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Approve RSVP"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Approved players have moved into the confirmed list."
 msgstr ""
 
@@ -399,19 +399,19 @@ msgstr ""
 msgid "Available"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:170
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:206
 msgid "Available for the full event"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Back to event"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:440
+#: src/components/organisms/PkRSVPSection.re.mjs:446
 msgid "balanced"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:331
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:353
 msgid "Based on recorded play"
 msgstr ""
 
@@ -420,11 +420,11 @@ msgstr ""
 msgid "Beginner"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:527
+#: src/components/organisms/ProfileModal.re.mjs:532
 msgid "Biography"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:117
+#: src/components/organisms/ProfileModal.re.mjs:119
 msgid "Biography is required"
 msgstr ""
 
@@ -533,7 +533,7 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1093
+#: src/components/organisms/PkRSVPSection.re.mjs:1099
 msgid "Clear preview"
 msgstr ""
 
@@ -541,15 +541,15 @@ msgstr ""
 msgid "Click to edit"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:460
+#: src/components/organisms/ProfileModal.re.mjs:465
 msgid "Close profile form"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close request review"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close swipe invitations"
 msgstr ""
 
@@ -561,7 +561,7 @@ msgstr ""
 msgid "Complete payment"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:444
+#: src/components/organisms/ProfileModal.re.mjs:449
 msgid "Complete your player profile"
 msgstr ""
 
@@ -569,11 +569,11 @@ msgstr ""
 #~ msgid "Complete your profile"
 #~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:306
+#: src/components/organisms/ProfileModal.re.mjs:311
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:321
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:343
 msgid "Computed rating"
 msgstr ""
 
@@ -586,7 +586,7 @@ msgstr ""
 msgid "Confirm move"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:895
+#: src/components/organisms/PkRSVPSection.re.mjs:901
 msgid "Confirmed · {0}"
 msgstr ""
 
@@ -610,14 +610,14 @@ msgstr ""
 msgid "Could not save your card"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:257
-#: src/components/organisms/ProfileModal.re.mjs:266
-#: src/components/organisms/ProfileModal.re.mjs:286
-#: src/components/organisms/ProfileModal.re.mjs:296
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1169
+#: src/components/organisms/PkRSVPSection.re.mjs:1175
 #: src/components/organisms/PkEventsAvailabilityDay.re.mjs:181
 #: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
@@ -669,6 +669,10 @@ msgstr ""
 #~ msgid "Dallas Flash Swag"
 #~ msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Declared rating"
+msgstr ""
+
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -683,11 +687,11 @@ msgstr ""
 #~ msgid "Deposit required to confirm your spot"
 #~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:477
+#: src/components/organisms/ProfileModal.re.mjs:482
 msgid "Display name"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:111
 msgid "Display name is required"
 msgstr ""
 
@@ -699,12 +703,16 @@ msgstr ""
 msgid "Done editing"
 msgstr ""
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr ""
+
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:425
 msgid "Drag or resize within"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:782
-#: src/components/organisms/PkRSVPSection.re.mjs:799
+#: src/components/organisms/PkRSVPSection.re.mjs:788
+#: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
 msgstr ""
 
@@ -745,11 +753,11 @@ msgstr ""
 msgid "Editing"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:364
+#: src/components/organisms/ProfileModal.re.mjs:369
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:281
+#: src/components/organisms/ProfileModal.re.mjs:286
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
@@ -757,7 +765,7 @@ msgstr ""
 #~ msgid "Email cannot be changed"
 #~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:112
+#: src/components/organisms/ProfileModal.re.mjs:114
 msgid "Email is required"
 msgstr ""
 
@@ -769,11 +777,11 @@ msgstr ""
 msgid "Equal scores — this will be recorded as a draw"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Evaluating pending requests…"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:436
+#: src/components/organisms/PkRSVPSection.re.mjs:442
 msgid "even"
 msgstr ""
 
@@ -812,12 +820,12 @@ msgstr ""
 msgid "events"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:525
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:501
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/ProfileModal.re.mjs:506
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Female"
 msgstr ""
 
@@ -829,7 +837,7 @@ msgstr ""
 msgid "Filtered by date"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:357
+#: src/components/organisms/ProfileModal.re.mjs:362
 msgid "For event updates and notifications"
 msgstr ""
 
@@ -845,12 +853,12 @@ msgstr ""
 msgid "Full slot"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:491
+#: src/components/organisms/ProfileModal.re.mjs:496
 msgid "Gender"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:133
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:137
 msgid "Gender not provided"
 msgstr ""
 
@@ -882,7 +890,7 @@ msgstr ""
 msgid "Hosted by"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:480
+#: src/components/organisms/ProfileModal.re.mjs:485
 msgid "How other players will see you"
 msgstr ""
 
@@ -904,15 +912,15 @@ msgstr ""
 msgid "invite"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "INVITE"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Invite {0}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Invite players"
 msgstr ""
 
@@ -920,7 +928,7 @@ msgstr ""
 #~ msgid "Invite to {0}"
 #~ msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Invite to {eventTitle}"
 msgstr ""
 
@@ -928,7 +936,7 @@ msgstr ""
 msgid "Invited and potential players"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Invited players have moved into the event's invited list."
 msgstr ""
 
@@ -976,15 +984,15 @@ msgstr ""
 msgid "Joining..."
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "KEEP"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Keep {0} pending"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:314
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
@@ -1018,12 +1026,12 @@ msgstr ""
 msgid "less"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:542
+#: src/components/organisms/ProfileModal.re.mjs:547
 msgid "Level"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:584
-#: src/components/organisms/PkRSVPSection.re.mjs:605
+#: src/components/organisms/PkRSVPSection.re.mjs:590
+#: src/components/organisms/PkRSVPSection.re.mjs:611
 msgid "LEVEL RESTRICTION"
 msgstr ""
 
@@ -1062,8 +1070,8 @@ msgstr ""
 msgid "Lower intermediate and above"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:497
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/ProfileModal.re.mjs:502
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Male"
 msgstr ""
 
@@ -1084,7 +1092,7 @@ msgstr ""
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:791
+#: src/components/organisms/PkRSVPSection.re.mjs:797
 msgid "MEDIAN"
 msgstr ""
 
@@ -1105,7 +1113,7 @@ msgstr ""
 msgid "Minimum event level"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:449
 msgid "mixed"
 msgstr ""
 
@@ -1150,7 +1158,7 @@ msgstr ""
 msgid "No courts available"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:230
 msgid "No message left with the request"
 msgstr ""
 
@@ -1182,21 +1190,25 @@ msgstr ""
 msgid "Not available"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:565
+#: src/components/organisms/ProfileModal.re.mjs:583
 msgid "Not now"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:312
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:196
 msgid "Not provided"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:336
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:358
 msgid "Not yet rated"
 msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:600
 #: src/components/pages/PkEventPage.re.mjs:609
 msgid "Notes from the host"
+msgstr ""
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
 msgstr ""
 
 #: src/components/pages/TopPlayerAwardsBanner.re.mjs:194
@@ -1243,7 +1255,7 @@ msgstr ""
 #~ msgid "others"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:663
+#: src/components/organisms/PkRSVPSection.re.mjs:669
 msgid "Participants"
 msgstr ""
 
@@ -1283,7 +1295,7 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1028
+#: src/components/organisms/PkRSVPSection.re.mjs:1034
 msgid "Pending · {0}"
 msgstr ""
 
@@ -1303,7 +1315,11 @@ msgstr ""
 #~ msgid "Pick time →"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Placing on the waitlist…"
 msgstr ""
 
@@ -1357,11 +1373,11 @@ msgstr ""
 msgid "Presented by"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Preview Smart RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Previewing…"
 msgstr ""
 
@@ -1381,6 +1397,11 @@ msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:42
 msgid "Professional players"
+msgstr ""
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
 msgstr ""
 
 #: src/components/shared/PullToRefresh.re.mjs:244
@@ -1455,11 +1476,11 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:588
+#: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:609
+#: src/components/organisms/PkRSVPSection.re.mjs:615
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
@@ -1475,7 +1496,7 @@ msgstr ""
 msgid "Retry charge"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1044
+#: src/components/organisms/PkRSVPSection.re.mjs:1050
 msgid "Review {0} pending requests with swipe cards"
 msgstr ""
 
@@ -1483,7 +1504,7 @@ msgstr ""
 msgid "Review {0} potential players with swipe cards"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr ""
 
@@ -1504,7 +1525,7 @@ msgstr ""
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Run Smart RSVP now"
 msgstr ""
 
@@ -1533,7 +1554,7 @@ msgstr ""
 msgid "Save notes"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:579
+#: src/components/organisms/ProfileModal.re.mjs:597
 msgid "Save profile"
 msgstr ""
 
@@ -1550,9 +1571,13 @@ msgstr ""
 #~ msgid "Score"
 #~ msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
-msgid "Self-rating"
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
 msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
+#~ msgid "Self-rating"
+#~ msgstr ""
 
 #: src/components/molecules/SkillDistributionChart.re.mjs:47
 msgid "Semi-Pro"
@@ -1578,7 +1603,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:530
+#: src/components/organisms/ProfileModal.re.mjs:535
 msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
@@ -1598,27 +1623,31 @@ msgstr ""
 msgid "Show location details"
 msgstr ""
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr ""
+
 #: src/components/atoms/EventTag.re.mjs:48
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "SKIP"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Skip {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:559
+#: src/components/organisms/PkRSVPSection.re.mjs:565
 msgid "SMART RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1091
+#: src/components/organisms/PkRSVPSection.re.mjs:1097
 msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Smart Waitlist"
 msgstr ""
 
@@ -1634,7 +1663,7 @@ msgstr ""
 #~ msgid "Spot held — pay to confirm"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:852
+#: src/components/organisms/PkRSVPSection.re.mjs:858
 msgid "SPREAD"
 msgstr ""
 
@@ -1646,15 +1675,15 @@ msgstr ""
 msgid "Swipe invites"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to keep pending · right to approve"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to skip · right to invite"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1042
+#: src/components/organisms/PkRSVPSection.re.mjs:1048
 msgid "Swipe review"
 msgstr ""
 
@@ -1704,7 +1733,7 @@ msgstr ""
 #~ msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:563
+#: src/components/organisms/PkRSVPSection.re.mjs:569
 msgid "This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr ""
 
@@ -1758,11 +1787,11 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:774
+#: src/components/organisms/PkRSVPSection.re.mjs:780
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:737
+#: src/components/organisms/PkRSVPSection.re.mjs:743
 msgid "Top court DUPR"
 msgstr ""
 
@@ -1826,11 +1855,11 @@ msgstr ""
 msgid "View Full Draws"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View less"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View more"
 msgstr ""
 
@@ -1853,7 +1882,7 @@ msgstr ""
 msgid "VS"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr ""
 
@@ -1861,7 +1890,7 @@ msgstr ""
 msgid "Waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:962
+#: src/components/organisms/PkRSVPSection.re.mjs:968
 msgid "Waitlist · {0}"
 msgstr ""
 
@@ -1881,7 +1910,7 @@ msgstr ""
 msgid "was invited to the event"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:308
 msgid "We need a few details before you can join this event"
 msgstr ""
 
@@ -1917,7 +1946,7 @@ msgstr ""
 #~ msgid "Within {0} km · {1}, {2}"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1134
+#: src/components/organisms/PkRSVPSection.re.mjs:1140
 msgid "Would be admitted"
 msgstr ""
 
@@ -1981,7 +2010,7 @@ msgstr ""
 msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:592
+#: src/components/organisms/PkRSVPSection.re.mjs:598
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
 

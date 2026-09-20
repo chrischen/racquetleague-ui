@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:696
+#: src/components/organisms/PkRSVPSection.re.mjs:702
 msgid "· {0} pending"
 msgstr "· {0} 待处理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:694
+#: src/components/organisms/PkRSVPSection.re.mjs:700
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候补"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:691
+#: src/components/organisms/PkRSVPSection.re.mjs:697
 msgid "{0} joined"
 msgstr "{0} 已参加"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:808
+#: src/components/organisms/PkRSVPSection.re.mjs:814
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技术"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:348
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:370
 msgid "About"
 msgstr "关于"
 
@@ -38,15 +38,15 @@ msgstr "关于"
 msgid "Advanced"
 msgstr "高级"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "APPROVE"
 msgstr "批准"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Approve {0}"
 msgstr "批准 {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Approve for {eventTitle}"
 msgstr "为 {eventTitle} 批准"
 
@@ -54,7 +54,7 @@ msgstr "为 {eventTitle} 批准"
 msgid "Approve RSVP"
 msgstr "批准报名"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Approved players have moved into the confirmed list."
 msgstr "已批准的选手已移至确认列表。"
 
@@ -62,19 +62,19 @@ msgstr "已批准的选手已移至确认列表。"
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "您确定要将这个人从活动中移除吗？"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:170
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:206
 msgid "Available for the full event"
 msgstr "全程可参加"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Back to event"
 msgstr "返回活动"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:440
+#: src/components/organisms/PkRSVPSection.re.mjs:446
 msgid "balanced"
 msgstr "平衡"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:331
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:353
 msgid "Based on recorded play"
 msgstr "基于记录的比赛"
 
@@ -103,15 +103,15 @@ msgstr "扣款失败"
 msgid "Charge payment"
 msgstr "收取款项"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1093
+#: src/components/organisms/PkRSVPSection.re.mjs:1099
 msgid "Clear preview"
 msgstr "清除预览"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close request review"
 msgstr "关闭请求审核"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close swipe invitations"
 msgstr "关闭滑动邀请"
 
@@ -119,7 +119,7 @@ msgstr "关闭滑动邀请"
 msgid "Complete Beginner"
 msgstr "完全初学者"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:321
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:343
 msgid "Computed rating"
 msgstr "计算评级"
 
@@ -127,16 +127,20 @@ msgstr "计算评级"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:895
+#: src/components/organisms/PkRSVPSection.re.mjs:901
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1169
+#: src/components/organisms/PkRSVPSection.re.mjs:1175
 msgid "Court"
 msgstr "场地"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:782
-#: src/components/organisms/PkRSVPSection.re.mjs:799
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Declared rating"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:788
+#: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -144,24 +148,24 @@ msgstr "DUPR"
 msgid "DUPR level key"
 msgstr "DUPR 等级说明"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Evaluating pending requests…"
 msgstr "正在评估待处理请求…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:436
+#: src/components/organisms/PkRSVPSection.re.mjs:442
 msgid "even"
 msgstr "均衡"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:525
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "已全部查看"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:133
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:137
 msgid "Gender not provided"
 msgstr "未提供性别"
 
@@ -178,19 +182,19 @@ msgstr "中级+"
 msgid "invite"
 msgstr "邀请"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "INVITE"
 msgstr "邀请"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Invite {0}"
 msgstr "邀请 {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Invite players"
 msgstr "邀请球员"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Invite to {eventTitle}"
 msgstr "邀请至 {eventTitle}"
 
@@ -198,7 +202,7 @@ msgstr "邀请至 {eventTitle}"
 msgid "Invited and potential players"
 msgstr "已邀请及潜在球员"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Invited players have moved into the event's invited list."
 msgstr "受邀玩家已移至活动的邀请列表。"
 
@@ -206,28 +210,28 @@ msgstr "受邀玩家已移至活动的邀请列表。"
 msgid "Invites · {0}"
 msgstr "邀请 · {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "KEEP"
 msgstr "保留"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Keep {0} pending"
 msgstr "将 {0} 保留为待定"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:584
-#: src/components/organisms/PkRSVPSection.re.mjs:605
+#: src/components/organisms/PkRSVPSection.re.mjs:590
+#: src/components/organisms/PkRSVPSection.re.mjs:611
 msgid "LEVEL RESTRICTION"
 msgstr "级别限制"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:791
+#: src/components/organisms/PkRSVPSection.re.mjs:797
 msgid "MEDIAN"
 msgstr "中位数"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:449
 msgid "mixed"
 msgstr "混合"
 
@@ -236,7 +240,7 @@ msgstr "混合"
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:230
 msgid "No message left with the request"
 msgstr "请求未附留言"
 
@@ -244,11 +248,11 @@ msgstr "请求未附留言"
 msgid "No players found"
 msgstr "未找到球员"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:312
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:196
 msgid "Not provided"
 msgstr "未提供"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:336
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:358
 msgid "Not yet rated"
 msgstr "尚未评级"
 
@@ -256,7 +260,7 @@ msgstr "尚未评级"
 msgid "Open invite actions for {0}"
 msgstr "打开 {0} 的邀请操作"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:663
+#: src/components/organisms/PkRSVPSection.re.mjs:669
 msgid "Participants"
 msgstr "参与者"
 
@@ -268,11 +272,15 @@ msgstr "付款已授权"
 msgid "Payment charged"
 msgstr "款项已扣取"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1028
+#: src/components/organisms/PkRSVPSection.re.mjs:1034
 msgid "Pending · {0}"
 msgstr "待处理 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Placing on the waitlist…"
 msgstr "正在加入候补名单…"
 
@@ -280,11 +288,11 @@ msgstr "正在加入候补名单…"
 msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {0}."
 msgstr "球员水平分布：DUPR 2.0 至 8.0。本场最高 DUPR 为 {0}。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Preview Smart RSVP"
 msgstr "预览智能报名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Previewing…"
 msgstr "预览中…"
 
@@ -292,6 +300,10 @@ msgstr "预览中…"
 #: src/components/molecules/SkillDistributionChart.re.mjs:53
 msgid "Pro"
 msgstr "专业"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "临时"
 
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
@@ -305,11 +317,11 @@ msgstr "从活动中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:588
+#: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:609
+#: src/components/organisms/PkRSVPSection.re.mjs:615
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加需要 DUPR {minDuprStr}以上"
 
@@ -317,7 +329,7 @@ msgstr "参加需要 DUPR {minDuprStr}以上"
 msgid "Retry charge"
 msgstr "重试扣款"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1044
+#: src/components/organisms/PkRSVPSection.re.mjs:1050
 msgid "Review {0} pending requests with swipe cards"
 msgstr "通过滑动卡片审核 {0} 条待定请求"
 
@@ -325,17 +337,17 @@ msgstr "通过滑动卡片审核 {0} 条待定请求"
 msgid "Review {0} potential players with swipe cards"
 msgstr "通过滑动卡片查看 {0} 位潜在球员"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "审核请求"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Run Smart RSVP now"
 msgstr "立即运行智能报名"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
-msgid "Self-rating"
-msgstr "自我评级"
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "自评"
 
 #: src/components/molecules/SkillDistributionChart.re.mjs:47
 msgid "Semi-Pro"
@@ -349,28 +361,28 @@ msgstr "发送邀请"
 msgid "sent"
 msgstr "已发送"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "SKIP"
 msgstr "跳过"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Skip {0}"
 msgstr "跳过 {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:559
+#: src/components/organisms/PkRSVPSection.re.mjs:565
 msgid "SMART RSVP"
 msgstr "智能报名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1091
+#: src/components/organisms/PkRSVPSection.re.mjs:1097
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr "智能报名将从 {1} 个待处理请求中通过 {0} 个：已在下方标记。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Smart Waitlist"
 msgstr "智能候补名单"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:852
+#: src/components/organisms/PkRSVPSection.re.mjs:858
 msgid "SPREAD"
 msgstr "分布"
 
@@ -378,19 +390,19 @@ msgstr "分布"
 msgid "Swipe invites"
 msgstr "滑动邀请"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to keep pending · right to approve"
 msgstr "左滑保留待定 · 右滑批准"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to skip · right to invite"
 msgstr "左滑跳过 · 右滑邀请"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1042
+#: src/components/organisms/PkRSVPSection.re.mjs:1048
 msgid "Swipe review"
 msgstr "滑动审核"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:563
+#: src/components/organisms/PkRSVPSection.re.mjs:569
 msgid ""
 "This event admits players by level rather than by the time of RSVP. Your "
 "request will be reviewed and you will be notified once a spot is confirmed."
@@ -405,19 +417,19 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:774
+#: src/components/organisms/PkRSVPSection.re.mjs:780
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:737
+#: src/components/organisms/PkRSVPSection.re.mjs:743
 msgid "Top court DUPR"
 msgstr "最高球场 DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View less"
 msgstr "收起"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View more"
 msgstr "查看更多"
 
@@ -426,19 +438,19 @@ msgstr "查看更多"
 msgid "View Profile"
 msgstr "查看资料"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "等待加入审批"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:962
+#: src/components/organisms/PkRSVPSection.re.mjs:968
 msgid "Waitlist · {0}"
 msgstr "候补名单 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1134
+#: src/components/organisms/PkRSVPSection.re.mjs:1140
 msgid "Would be admitted"
 msgstr "将被通过"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:592
+#: src/components/organisms/PkRSVPSection.re.mjs:598
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -482,6 +494,10 @@ msgstr ""
 #: src/components/organisms/PkRSVPSection.re.mjs:1095
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "运行智能报名（最佳匹配，测试）"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
+#~ msgid "Self-rating"
+#~ msgstr "自我评级"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:570
 #~ msgid ""

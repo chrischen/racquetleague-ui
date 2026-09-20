@@ -17,49 +17,57 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:159
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:802
+#: src/components/pages/LeaguePlayerPage.re.mjs:804
 msgid "All Clubs"
 msgstr "ทุกสโมสร"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:782
+#: src/components/pages/LeaguePlayerPage.re.mjs:784
 msgid "Back to league"
 msgstr "กลับไปที่ลีก"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:407
+#: src/components/pages/LeaguePlayerPage.re.mjs:409
 msgid "Balanced partner tendency"
 msgstr "แนวโน้มความสมดุลกับคู่เล่น"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:479
+#: src/components/pages/LeaguePlayerPage.re.mjs:481
 msgid "Best Doubles Partners"
 msgstr "คู่ดับเบิลที่ดีที่สุด"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:894
+#: src/components/pages/LeaguePlayerPage.re.mjs:896
 msgid "Current Rating"
 msgstr "เรตติ้งปัจจุบัน"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:917
+#: src/components/pages/LeaguePlayerPage.re.mjs:933
 msgid "Days at #1"
 msgstr "วันที่อันดับ 1"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "คู่"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:523
 #: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "DRAW"
 msgstr "เสมอ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:404
+#: src/components/pages/LeaguePlayerPage.re.mjs:913
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:406
 msgid "Elevates weaker partners"
 msgstr "ยกระดับคู่เล่นที่อ่อนแอกว่า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:383
-#: src/components/pages/LeaguePlayerPage.re.mjs:946
-#: src/components/pages/LeaguePlayerPage.re.mjs:992
-#: src/components/pages/LeaguePlayerPage.re.mjs:1045
-#: src/components/pages/LeaguePlayerPage.re.mjs:1098
-#: src/components/pages/LeaguePlayerPage.re.mjs:1192
+#: src/components/pages/LeaguePlayerPage.re.mjs:384
+#: src/components/pages/LeaguePlayerPage.re.mjs:962
+#: src/components/pages/LeaguePlayerPage.re.mjs:1008
+#: src/components/pages/LeaguePlayerPage.re.mjs:1061
+#: src/components/pages/LeaguePlayerPage.re.mjs:1114
+#: src/components/pages/LeaguePlayerPage.re.mjs:1208
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
@@ -67,11 +75,11 @@ msgstr "DUPR ที่คาดการณ์"
 msgid "Even"
 msgstr "สมดุล"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1172
+#: src/components/pages/LeaguePlayerPage.re.mjs:1188
 msgid "Gym"
 msgstr "โรงยิม"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1157
+#: src/components/pages/LeaguePlayerPage.re.mjs:1173
 msgid "Hard Court"
 msgstr "คอร์ตแข็ง"
 
@@ -79,7 +87,7 @@ msgstr "คอร์ตแข็ง"
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1267
+#: src/components/pages/LeaguePlayerPage.re.mjs:1283
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -88,39 +96,47 @@ msgstr "กำลังโหลด..."
 msgid "LOSS"
 msgstr "แพ้"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1007
+#: src/components/pages/LeaguePlayerPage.re.mjs:1023
 msgid "Men's Doubles"
 msgstr "ดับเบิลชาย"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1060
+#: src/components/pages/LeaguePlayerPage.re.mjs:1076
 msgid "Mixed Doubles"
 msgstr "ดับเบิลผสม"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:499
-#: src/components/pages/LeaguePlayerPage.re.mjs:573
-#: src/components/pages/LeaguePlayerPage.re.mjs:647
-#: src/components/pages/LeaguePlayerPage.re.mjs:721
+#: src/components/pages/LeaguePlayerPage.re.mjs:501
+#: src/components/pages/LeaguePlayerPage.re.mjs:575
+#: src/components/pages/LeaguePlayerPage.re.mjs:649
+#: src/components/pages/LeaguePlayerPage.re.mjs:723
 msgid "No data for this category"
 msgstr "ไม่มีข้อมูลสำหรับหมวดหมู่นี้"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:425
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:427
 msgid "Performs better in gyms"
 msgstr "เล่นได้ดีกว่าในโรงยิม"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:422
+#: src/components/pages/LeaguePlayerPage.re.mjs:424
 msgid "Performs better on hard courts"
 msgstr "เล่นได้ดีกว่าบนคอร์ตพื้นแข็ง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:400
+#: src/components/pages/LeaguePlayerPage.re.mjs:402
 msgid "Performs better with stronger partners"
 msgstr "เล่นได้ดีขึ้นเมื่อคู่เล่นเก่งกว่า"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:512
-#: src/components/pages/LeaguePlayerPage.re.mjs:586
-#: src/components/pages/LeaguePlayerPage.re.mjs:660
-#: src/components/pages/LeaguePlayerPage.re.mjs:734
+#: src/components/pages/LeaguePlayerPage.re.mjs:514
+#: src/components/pages/LeaguePlayerPage.re.mjs:588
+#: src/components/pages/LeaguePlayerPage.re.mjs:662
+#: src/components/pages/LeaguePlayerPage.re.mjs:736
 msgid "Predicted"
 msgstr "คาดการณ์"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+msgid "provisional"
+msgstr "ชั่วคราว"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:176
 msgid "Rating History"
@@ -130,15 +146,19 @@ msgstr "ประวัติเรตติ้ง"
 msgid "Rating:"
 msgstr "คะแนน:"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1258
+#: src/components/pages/LeaguePlayerPage.re.mjs:1274
 msgid "Recent Matches"
 msgstr "การแข่งขันล่าสุด"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:846
+#: src/components/pages/LeaguePlayerPage.re.mjs:848
 msgid "Showing stats from {selectedClubName} only"
 msgstr "แสดงสถิติจาก {selectedClubName} เท่านั้น"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:627
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "เดี่ยว"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:629
 msgid "Strong Against"
 msgstr "ได้เปรียบ"
 
@@ -152,7 +172,7 @@ msgstr "พื้นที่แรเงาแสดงถึงความไ
 msgid "Upset"
 msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:701
+#: src/components/pages/LeaguePlayerPage.re.mjs:703
 msgid "Weak Against"
 msgstr "เสียเปรียบ"
 
@@ -161,15 +181,15 @@ msgstr "เสียเปรียบ"
 msgid "WIN"
 msgstr "ชนะ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1113
+#: src/components/pages/LeaguePlayerPage.re.mjs:1129
 msgid "Women's Doubles"
 msgstr "ดับเบิลหญิง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:960
+#: src/components/pages/LeaguePlayerPage.re.mjs:976
 msgid "Women's Rating"
 msgstr "เรตติ้งหญิง"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:553
+#: src/components/pages/LeaguePlayerPage.re.mjs:555
 msgid "Worst Doubles Partners"
 msgstr "คู่ดับเบิลที่แย่ที่สุด"
 

@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:696
+#: src/components/organisms/PkRSVPSection.re.mjs:702
 msgid "· {0} pending"
 msgstr "· {0} 保留中"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:694
+#: src/components/organisms/PkRSVPSection.re.mjs:700
 msgid "· +{0} waitlist"
 msgstr "· +{0} 補欠"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:691
+#: src/components/organisms/PkRSVPSection.re.mjs:697
 msgid "{0} joined"
 msgstr "{0} 参加済み"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:808
+#: src/components/organisms/PkRSVPSection.re.mjs:814
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ スキル"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:348
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:370
 msgid "About"
 msgstr "について"
 
@@ -38,15 +38,15 @@ msgstr "について"
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "APPROVE"
 msgstr "承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Approve {0}"
 msgstr "{0}を承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Approve for {eventTitle}"
 msgstr "{eventTitle}への参加を承認"
 
@@ -54,7 +54,7 @@ msgstr "{eventTitle}への参加を承認"
 msgid "Approve RSVP"
 msgstr "参加申込を承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Approved players have moved into the confirmed list."
 msgstr "承認済みのプレイヤーが確定リストに移動しました。"
 
@@ -62,19 +62,19 @@ msgstr "承認済みのプレイヤーが確定リストに移動しました。
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "この人をイベントから削除してもよろしいですか？"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:170
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:206
 msgid "Available for the full event"
 msgstr "イベント全体に参加可能"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Back to event"
 msgstr "イベントに戻る"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:440
+#: src/components/organisms/PkRSVPSection.re.mjs:446
 msgid "balanced"
 msgstr "バランス"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:331
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:353
 msgid "Based on recorded play"
 msgstr "記録されたプレイに基づく"
 
@@ -103,15 +103,15 @@ msgstr "請求に失敗しました"
 msgid "Charge payment"
 msgstr "支払いを請求"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1093
+#: src/components/organisms/PkRSVPSection.re.mjs:1099
 msgid "Clear preview"
 msgstr "プレビューをクリア"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close request review"
 msgstr "リクエスト審査を閉じる"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close swipe invitations"
 msgstr "スワイプ招待を閉じる"
 
@@ -119,7 +119,7 @@ msgstr "スワイプ招待を閉じる"
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:321
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:343
 msgid "Computed rating"
 msgstr "算出されたレーティング"
 
@@ -127,16 +127,20 @@ msgstr "算出されたレーティング"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:895
+#: src/components/organisms/PkRSVPSection.re.mjs:901
 msgid "Confirmed · {0}"
 msgstr "確定 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1169
+#: src/components/organisms/PkRSVPSection.re.mjs:1175
 msgid "Court"
 msgstr "コート"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:782
-#: src/components/organisms/PkRSVPSection.re.mjs:799
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Declared rating"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:788
+#: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -144,24 +148,24 @@ msgstr "DUPR"
 msgid "DUPR level key"
 msgstr "DUPRレベルの凡例"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Evaluating pending requests…"
 msgstr "保留中のリクエストを評価しています…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:436
+#: src/components/organisms/PkRSVPSection.re.mjs:442
 msgid "even"
 msgstr "均等"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:525
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "全員確認済み"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:133
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:137
 msgid "Gender not provided"
 msgstr "性別未提供"
 
@@ -178,19 +182,19 @@ msgstr "中級者+"
 msgid "invite"
 msgstr "招待する"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "INVITE"
 msgstr "招待する"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Invite {0}"
 msgstr "{0}を招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Invite players"
 msgstr "プレイヤーを招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Invite to {eventTitle}"
 msgstr "{eventTitle}に招待"
 
@@ -198,7 +202,7 @@ msgstr "{eventTitle}に招待"
 msgid "Invited and potential players"
 msgstr "招待済みおよび候補プレイヤー"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Invited players have moved into the event's invited list."
 msgstr "招待されたプレイヤーがイベントの招待リストに移動しました。"
 
@@ -206,28 +210,28 @@ msgstr "招待されたプレイヤーがイベントの招待リストに移動
 msgid "Invites · {0}"
 msgstr "招待 · {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "KEEP"
 msgstr "保留"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Keep {0} pending"
 msgstr "{0}を保留のままにする"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:584
-#: src/components/organisms/PkRSVPSection.re.mjs:605
+#: src/components/organisms/PkRSVPSection.re.mjs:590
+#: src/components/organisms/PkRSVPSection.re.mjs:611
 msgid "LEVEL RESTRICTION"
 msgstr "レベル制限"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:791
+#: src/components/organisms/PkRSVPSection.re.mjs:797
 msgid "MEDIAN"
 msgstr "中央値"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:449
 msgid "mixed"
 msgstr "混合"
 
@@ -236,7 +240,7 @@ msgstr "混合"
 msgid "Move to Pending List"
 msgstr "保留リストに移動"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:230
 msgid "No message left with the request"
 msgstr "リクエストにメッセージはありません"
 
@@ -244,11 +248,11 @@ msgstr "リクエストにメッセージはありません"
 msgid "No players found"
 msgstr "プレイヤーが見つかりません"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:312
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:196
 msgid "Not provided"
 msgstr "未提供"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:336
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:358
 msgid "Not yet rated"
 msgstr "未評価"
 
@@ -256,7 +260,7 @@ msgstr "未評価"
 msgid "Open invite actions for {0}"
 msgstr "{0}の招待アクションを開く"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:663
+#: src/components/organisms/PkRSVPSection.re.mjs:669
 msgid "Participants"
 msgstr "参加者"
 
@@ -268,11 +272,15 @@ msgstr "支払い承認済み"
 msgid "Payment charged"
 msgstr "支払いを請求しました"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1028
+#: src/components/organisms/PkRSVPSection.re.mjs:1034
 msgid "Pending · {0}"
 msgstr "保留中 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "ピックル"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Placing on the waitlist…"
 msgstr "キャンセル待ちに登録中…"
 
@@ -280,11 +288,11 @@ msgstr "キャンセル待ちに登録中…"
 msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {0}."
 msgstr "DUPR 2.0〜8.0のプレーヤーレベル分布。最上位コートのDUPRは{0}です。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Preview Smart RSVP"
 msgstr "スマートRSVPをプレビュー"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Previewing…"
 msgstr "プレビュー中…"
 
@@ -292,6 +300,10 @@ msgstr "プレビュー中…"
 #: src/components/molecules/SkillDistributionChart.re.mjs:53
 msgid "Pro"
 msgstr "プロ"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "暫定"
 
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
@@ -305,11 +317,11 @@ msgstr "イベントから削除"
 msgid "Remove this RSVP"
 msgstr "このRSVPを削除"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:588
+#: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "必要なDUPR: {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:609
+#: src/components/organisms/PkRSVPSection.re.mjs:615
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 
@@ -317,7 +329,7 @@ msgstr "参加にはDUPR {minDuprStr}以上が必要です"
 msgid "Retry charge"
 msgstr "請求を再試行"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1044
+#: src/components/organisms/PkRSVPSection.re.mjs:1050
 msgid "Review {0} pending requests with swipe cards"
 msgstr "スワイプカードで{0}件の保留中リクエストを審査"
 
@@ -325,16 +337,16 @@ msgstr "スワイプカードで{0}件の保留中リクエストを審査"
 msgid "Review {0} potential players with swipe cards"
 msgstr "スワイプカードで{0}人の候補プレイヤーを確認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "リクエストを審査"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Run Smart RSVP now"
 msgstr "今すぐスマートRSVPを実行"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
-msgid "Self-rating"
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
 msgstr "自己評価"
 
 #: src/components/molecules/SkillDistributionChart.re.mjs:47
@@ -349,30 +361,30 @@ msgstr "招待を送る"
 msgid "sent"
 msgstr "送信済み"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "SKIP"
 msgstr "スキップ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Skip {0}"
 msgstr "{0}をスキップ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:559
+#: src/components/organisms/PkRSVPSection.re.mjs:565
 msgid "SMART RSVP"
 msgstr "スマートRSVP"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1091
+#: src/components/organisms/PkRSVPSection.re.mjs:1097
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr ""
 "スマートRSVPは保留中のリクエスト{1}件のうち{0}件を承認します（以下にマーク表"
 "示）。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Smart Waitlist"
 msgstr "スマートキャンセル待ち"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:852
+#: src/components/organisms/PkRSVPSection.re.mjs:858
 msgid "SPREAD"
 msgstr "ばらつき"
 
@@ -380,19 +392,19 @@ msgstr "ばらつき"
 msgid "Swipe invites"
 msgstr "スワイプ招待"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to keep pending · right to approve"
 msgstr "左スワイプで保留 · 右スワイプで承認"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to skip · right to invite"
 msgstr "左にスワイプでスキップ・右にスワイプで招待"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1042
+#: src/components/organisms/PkRSVPSection.re.mjs:1048
 msgid "Swipe review"
 msgstr "スワイプ審査"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:563
+#: src/components/organisms/PkRSVPSection.re.mjs:569
 msgid ""
 "This event admits players by level rather than by the time of RSVP. Your "
 "request will be reviewed and you will be notified once a spot is confirmed."
@@ -408,19 +420,19 @@ msgstr ""
 "このユーザーは参加中/キャンセル待ちから削除されます。再度戻す場合、元の位置は"
 "失われます。本当にこのユーザーの参加申込を制限しますか？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:774
+#: src/components/organisms/PkRSVPSection.re.mjs:780
 msgid "TOP 6 AVG"
 msgstr "上位6平均"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:737
+#: src/components/organisms/PkRSVPSection.re.mjs:743
 msgid "Top court DUPR"
 msgstr "トップコートのDUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View less"
 msgstr "表示を減らす"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View more"
 msgstr "もっと見る"
 
@@ -429,19 +441,19 @@ msgstr "もっと見る"
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "参加承認待ち"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:962
+#: src/components/organisms/PkRSVPSection.re.mjs:968
 msgid "Waitlist · {0}"
 msgstr "キャンセル待ち · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1134
+#: src/components/organisms/PkRSVPSection.re.mjs:1140
 msgid "Would be admitted"
 msgstr "承認されます"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:592
+#: src/components/organisms/PkRSVPSection.re.mjs:598
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -488,6 +500,10 @@ msgstr ""
 #: src/components/organisms/PkRSVPSection.re.mjs:1095
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "スマートRSVPを実行（最適マッチ、テスト）"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
+#~ msgid "Self-rating"
+#~ msgstr "自己評価"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:570
 #~ msgid ""

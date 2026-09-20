@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:327
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
 msgid "Active"
 msgstr "Đang hoạt động"
 
@@ -29,7 +29,7 @@ msgstr "Thêm vào Màn hình chính để bật thông báo"
 msgid "Advanced"
 msgstr "Nâng cao"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:366
+#: src/components/organisms/SettingsProfileForm.re.mjs:374
 msgid ""
 "Attendees of your paid events save a card when they RSVP; nothing is charged "
 "up front. From an event's RSVP list you can charge one attendee or everyone, "
@@ -39,7 +39,7 @@ msgstr ""
 "khoản nào bị trừ trước. Từ danh sách RSVP của sự kiện, bạn có thể thu tiền "
 "một người hoặc tất cả, và tiền sẽ vào tài khoản này."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:360
+#: src/components/organisms/SettingsProfileForm.re.mjs:368
 msgid ""
 "Attendees of your paid events still save a card when they RSVP, but it can't "
 "be charged, so you collect the fee at the event. Connect a Stripe account to "
@@ -50,7 +50,7 @@ msgstr ""
 "khoản Stripe để thu tiền từ thẻ đã lưu trong danh sách RSVP và nhận tiền tại "
 "đây."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:420
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "Australia"
 msgstr "Úc"
 
@@ -58,67 +58,123 @@ msgstr "Úc"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:558
+#: src/components/organisms/SettingsProfileForm.re.mjs:566
 msgid "Biography"
 msgstr "Tiểu sử"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:424
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Canada"
 msgstr "Canada"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+#: src/components/organisms/DuprConnectCard.re.mjs:407
+msgid "Cancel"
+msgstr "Hủy"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "Hoàn toàn mới bắt đầu"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:389
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:397
 msgid "Connect Stripe account"
 msgstr "Kết nối tài khoản Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:385
+#: src/components/organisms/SettingsProfileForm.re.mjs:393
 msgid "Connecting..."
 msgstr "Đang kết nối..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:405
+#: src/components/organisms/DuprConnectCard.re.mjs:156
+#: src/components/organisms/DuprConnectCard.re.mjs:226
+#: src/components/organisms/DuprConnectCard.re.mjs:260
+msgid "Couldn't reach DUPR. Please try again in a moment."
+msgstr "Không kết nối được DUPR. Vui lòng thử lại sau giây lát."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:413
 msgid "Country"
 msgstr "Quốc gia"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:474
+msgid "Create one at mydupr.com or in the DUPR app"
+msgstr "Tạo tài khoản tại mydupr.com hoặc trong ứng dụng DUPR"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
 msgstr "Tắt thông báo"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/DuprConnectCard.re.mjs:443
+msgid "Disconnect DUPR"
+msgstr "Ngắt liên kết DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:494
+msgid "Disconnect DUPR?"
+msgstr "Ngắt liên kết DUPR?"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:501
 msgid "Display Name"
 msgstr "Tên hiển thị"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/organisms/SettingsProfileForm.re.mjs:518
 msgid "Doe John"
 msgstr "Doe John"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:471
+msgid "Don't have a DUPR account?"
+msgstr "Chưa có tài khoản DUPR?"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "đôi"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:423
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:318
+msgid "DUPR ID"
+msgstr "DUPR ID"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:152
+#: src/components/organisms/DuprConnectCard.re.mjs:486
+msgid "DUPR linking isn't available right now."
+msgstr "Hiện chưa thể liên kết DUPR."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:389
+msgid "DUPR login"
+msgstr "Đăng nhập DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+msgid "DUPR sent something we couldn't read. Please try again."
+msgstr "DUPR gửi dữ liệu không đọc được. Vui lòng thử lại."
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
 msgstr "Bật thông báo"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Estimated DUPR"
 msgstr "DUPR ước tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:532
+#: src/components/organisms/SettingsProfileForm.re.mjs:540
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:514
 msgid "Full name"
 msgstr "Họ và tên"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:521
+#: src/components/organisms/SettingsProfileForm.re.mjs:529
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:436
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "Hong Kong"
 msgstr "Hồng Kông"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:505
 msgid "How you appear to other players"
 msgstr "Tên hiển thị với người chơi khác"
 
@@ -134,31 +190,69 @@ msgstr "Trung cấp"
 msgid "Intermediate+"
 msgstr "Trung cấp+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:412
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Japan"
 msgstr "Nhật Bản"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:573
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+msgid "Last synced"
+msgstr "Đồng bộ lần cuối"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:581
 msgid "Level"
 msgstr "Trình độ"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:331
+msgid ""
+"Link your DUPR account to use your verified DUPR rating here. While it's "
+"linked, it replaces your self-rating."
+msgstr ""
+"Liên kết tài khoản DUPR để dùng điểm DUPR đã xác minh tại đây. Khi đã liên "
+"kết, điểm này sẽ thay cho điểm tự đánh giá của bạn."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:266
+msgid "Linked"
+msgstr "Đã liên kết"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:271
+msgid "Linking"
+msgstr "Đang liên kết"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:360
+msgid "Linking your account…"
+msgstr "Đang liên kết tài khoản của bạn…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:384
+msgid "Loading DUPR…"
+msgstr "Đang tải DUPR…"
 
 #: src/components/shared/PushNotifications.re.mjs:395
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:528
+#: src/components/organisms/DuprConnectCard.re.mjs:375
+#: src/components/organisms/DuprConnectCard.re.mjs:457
+msgid "Log in with DUPR"
+msgstr "Đăng nhập bằng DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:536
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#: src/components/organisms/SettingsProfileForm.re.mjs:355
 msgid "No Stripe account is connected."
 msgstr "Chưa có tài khoản Stripe nào được kết nối."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:321
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
 msgid "Not connected"
 msgstr "Chưa kết nối"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:619
+#: src/components/organisms/DuprConnectCard.re.mjs:274
+#: src/components/organisms/DuprConnectCard.re.mjs:278
+msgid "Not linked"
+msgstr "Chưa liên kết"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:654
 msgid "Notifications"
 msgstr "Thông báo"
 
@@ -170,17 +264,30 @@ msgstr ""
 "Thông báo đã bị chặn. Để bật, hãy vào cài đặt thiết bị hoặc trình duyệt và "
 "cho phép thông báo cho trang này."
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "Mở ứng dụng từ Màn hình chính và bật thông báo"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:324
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
 msgid "Pending"
 msgstr "Đang chờ"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "Chuyên nghiệp"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "tạm thời"
 
 #: src/components/shared/PushNotifications.re.mjs:302
 msgid ""
@@ -190,15 +297,15 @@ msgstr ""
 "Thông báo đẩy đã bị chặn. Kiểm tra cài đặt thông báo trên trình duyệt hoặc "
 "thiết bị cho trang này, rồi thử lại."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:627
+#: src/components/organisms/SettingsProfileForm.re.mjs:662
 msgid "Receive push notifications for event reminders and updates."
 msgstr "Nhận thông báo đẩy về nhắc nhở và cập nhật sự kiện."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:400
 msgid "Resume onboarding"
 msgstr "Tiếp tục đăng ký"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:605
+#: src/components/organisms/SettingsProfileForm.re.mjs:640
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
@@ -210,6 +317,10 @@ msgstr "Cuộn xuống và nhấn"
 msgid "seeking a doubles partner"
 msgstr "đang tìm đối tác đánh đôi"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "Tự đánh giá"
+
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
 "shows a badge next to your name in RSVP lists to tell people you are looking "
@@ -218,23 +329,35 @@ msgstr ""
 "hiển thị huy hiệu bên cạnh tên bạn trong danh sách RSVP để cho mọi người "
 "biết bạn đang tìm đối tác"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:432
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+msgid ""
+"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
+"never your DUPR password."
+msgstr ""
+"Đăng nhập DUPR để liên kết tài khoản. Chúng tôi chỉ lưu DUPR ID và điểm của "
+"bạn — không bao giờ lưu mật khẩu DUPR."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Singapore"
 msgstr "Singapore"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:513
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "đơn"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:444
+#: src/components/organisms/SettingsProfileForm.re.mjs:452
 msgid "South Korea"
 msgstr "Hàn Quốc"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:641
+#: src/components/organisms/SettingsProfileForm.re.mjs:682
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:440
+#: src/components/organisms/SettingsProfileForm.re.mjs:448
 msgid "Taiwan"
 msgstr "Đài Loan"
 
@@ -242,23 +365,31 @@ msgstr "Đài Loan"
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:564
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
 msgid "tell us a little about yourself"
 msgstr "hãy cho chúng tôi biết một chút về bản thân bạn"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:562
+#: src/components/organisms/SettingsProfileForm.re.mjs:570
 msgid "Tell us a little about yourself..."
 msgstr "Hãy cho chúng tôi biết một chút về bạn..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:428
+#: src/components/organisms/DuprConnectCard.re.mjs:150
+msgid "That DUPR account is already linked to another player."
+msgstr "Tài khoản DUPR đó đã được liên kết với người chơi khác."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:154
+msgid "That DUPR sign-in has expired. Please try again."
+msgstr "Phiên đăng nhập DUPR đã hết hạn. Vui lòng thử lại."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "United Kingdom"
 msgstr "Anh"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:416
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "United States"
 msgstr "Mỹ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:371
 msgid ""
 "Until onboarding is complete, your paid events run on the platform account: "
 "attendees save a card when they RSVP, but you can't charge it. Collect the "
@@ -268,16 +399,30 @@ msgstr ""
 "khoản nền tảng: người tham gia lưu thẻ khi RSVP, nhưng bạn không thể thu "
 "tiền. Hãy thu phí tại sự kiện."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/DuprConnectCard.re.mjs:495
+msgid ""
+"Your DUPR rating will stop being used here and your self-rating picker comes "
+"back."
+msgstr ""
+"Điểm DUPR của bạn sẽ không còn được dùng tại đây và mục tự đánh giá sẽ trở "
+"lại."
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:603
+msgid ""
+"Your rating comes from DUPR. Disconnect DUPR below to set your own level "
+"again."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"
 msgstr "Trình độ kỹ năng tự đánh giá của bạn"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
 msgid "Your Stripe account is connected, but onboarding isn't complete yet."
 msgstr ""
 "Tài khoản Stripe của bạn đã được kết nối, nhưng chưa hoàn tất thiết lập."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
 msgid "Your Stripe account is connected."
 msgstr "Tài khoản Stripe của bạn đã được kết nối."
 

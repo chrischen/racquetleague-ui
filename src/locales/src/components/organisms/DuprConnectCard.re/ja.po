@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-21 02:45+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+#: src/components/organisms/DuprConnectCard.re.mjs:407
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:156
+#: src/components/organisms/DuprConnectCard.re.mjs:226
+#: src/components/organisms/DuprConnectCard.re.mjs:260
+msgid "Couldn't reach DUPR. Please try again in a moment."
+msgstr "DUPRに接続できませんでした。しばらくしてからもう一度お試しください。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:474
+msgid "Create one at mydupr.com or in the DUPR app"
+msgstr "mydupr.com またはDUPRアプリで作成できます"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:443
+msgid "Disconnect DUPR"
+msgstr "DUPRの連携を解除"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:494
+msgid "Disconnect DUPR?"
+msgstr "DUPRの連携を解除しますか？"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:471
+msgid "Don't have a DUPR account?"
+msgstr "DUPRアカウントをお持ちではありませんか？"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "ダブルス"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:423
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:318
+msgid "DUPR ID"
+msgstr "DUPR ID"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:152
+#: src/components/organisms/DuprConnectCard.re.mjs:486
+msgid "DUPR linking isn't available right now."
+msgstr "現在DUPRの連携はご利用いただけません。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:389
+msgid "DUPR login"
+msgstr "DUPRログイン"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+msgid "DUPR sent something we couldn't read. Please try again."
+msgstr "DUPRから読み取れないデータが返されました。もう一度お試しください。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+msgid "Last synced"
+msgstr "最終同期"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:331
+msgid ""
+"Link your DUPR account to use your verified DUPR rating here. While it's "
+"linked, it replaces your self-rating."
+msgstr ""
+"DUPRアカウントを連携すると、認証済みのDUPRレーティングをここで使用できます。"
+"連携中は自己評価の代わりに適用されます。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:266
+msgid "Linked"
+msgstr "連携済み"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:271
+msgid "Linking"
+msgstr "連携中"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:360
+msgid "Linking your account…"
+msgstr "アカウントを連携しています…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:384
+msgid "Loading DUPR…"
+msgstr "DUPRを読み込み中…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:375
+#: src/components/organisms/DuprConnectCard.re.mjs:457
+msgid "Log in with DUPR"
+msgstr "DUPRでログイン"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:274
+#: src/components/organisms/DuprConnectCard.re.mjs:278
+msgid "Not linked"
+msgstr "未連携"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+msgid "provisional"
+msgstr "暫定"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+msgid ""
+"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
+"never your DUPR password."
+msgstr ""
+"DUPRにサインインしてアカウントを連携してください。保存されるのはDUPR IDとレー"
+"ティングのみで、DUPRのパスワードは保存されません。"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "シングルス"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:150
+msgid "That DUPR account is already linked to another player."
+msgstr "そのDUPRアカウントは既に別のプレーヤーと連携されています。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:154
+msgid "That DUPR sign-in has expired. Please try again."
+msgstr "DUPRのサインインの有効期限が切れました。もう一度お試しください。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:495
+msgid ""
+"Your DUPR rating will stop being used here and your self-rating picker comes "
+"back."
+msgstr "DUPRレーティングはここで使用されなくなり、自己評価の選択に戻ります。"

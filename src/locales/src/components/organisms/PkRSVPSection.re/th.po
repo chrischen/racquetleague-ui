@@ -13,23 +13,23 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:696
+#: src/components/organisms/PkRSVPSection.re.mjs:702
 msgid "· {0} pending"
 msgstr "· {0} รอดำเนินการ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:694
+#: src/components/organisms/PkRSVPSection.re.mjs:700
 msgid "· +{0} waitlist"
 msgstr "· +{0} รายชื่อคอย"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:691
+#: src/components/organisms/PkRSVPSection.re.mjs:697
 msgid "{0} joined"
 msgstr "{0} เข้าร่วมแล้ว"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:808
+#: src/components/organisms/PkRSVPSection.re.mjs:814
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ ทักษะ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:348
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:370
 msgid "About"
 msgstr "เกี่ยวกับ"
 
@@ -38,15 +38,15 @@ msgstr "เกี่ยวกับ"
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "APPROVE"
 msgstr "อนุมัติ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Approve {0}"
 msgstr "อนุมัติ {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Approve for {eventTitle}"
 msgstr "อนุมัติสำหรับ {eventTitle}"
 
@@ -54,7 +54,7 @@ msgstr "อนุมัติสำหรับ {eventTitle}"
 msgid "Approve RSVP"
 msgstr "อนุมัติ RSVP"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Approved players have moved into the confirmed list."
 msgstr "ผู้เล่นที่ได้รับการอนุมัติถูกย้ายไปยังรายการที่ยืนยันแล้ว"
 
@@ -62,19 +62,19 @@ msgstr "ผู้เล่นที่ได้รับการอนุมั
 msgid "Are you sure you want to remove this person from the event?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบบุคคลนี้ออกจากกิจกรรม?"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:170
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:206
 msgid "Available for the full event"
 msgstr "ว่างตลอดกิจกรรม"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:533
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Back to event"
 msgstr "กลับสู่กิจกรรม"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:440
+#: src/components/organisms/PkRSVPSection.re.mjs:446
 msgid "balanced"
 msgstr "สมดุล"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:331
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:353
 msgid "Based on recorded play"
 msgstr "อ้างอิงจากการเล่นที่บันทึกไว้"
 
@@ -103,15 +103,15 @@ msgstr "เรียกเก็บเงินไม่สำเร็จ"
 msgid "Charge payment"
 msgstr "เรียกเก็บเงิน"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1093
+#: src/components/organisms/PkRSVPSection.re.mjs:1099
 msgid "Clear preview"
 msgstr "ล้างตัวอย่าง"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close request review"
 msgstr "ปิดการตรวจสอบคำขอ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:478
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
 msgid "Close swipe invitations"
 msgstr "ปิดการเชิญแบบสไลด์"
 
@@ -119,7 +119,7 @@ msgstr "ปิดการเชิญแบบสไลด์"
 msgid "Complete Beginner"
 msgstr "ผู้เริ่มต้นสมบูรณ์"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:321
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:343
 msgid "Computed rating"
 msgstr "เรตติ้งที่คำนวณแล้ว"
 
@@ -127,16 +127,20 @@ msgstr "เรตติ้งที่คำนวณแล้ว"
 msgid "Confirm"
 msgstr "ยืนยัน"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:895
+#: src/components/organisms/PkRSVPSection.re.mjs:901
 msgid "Confirmed · {0}"
 msgstr "⊡ยืนยันแล้ว · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1169
+#: src/components/organisms/PkRSVPSection.re.mjs:1175
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:782
-#: src/components/organisms/PkRSVPSection.re.mjs:799
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Declared rating"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:788
+#: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -144,24 +148,24 @@ msgstr "DUPR"
 msgid "DUPR level key"
 msgstr "คำอธิบายระดับ DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Evaluating pending requests…"
 msgstr "กำลังประเมินคำขอที่รอดำเนินการ…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:436
+#: src/components/organisms/PkRSVPSection.re.mjs:442
 msgid "even"
 msgstr "เท่าเทียม"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:525
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "ตรวจสอบครบทุกคนแล้ว"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:132
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:133
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:136
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:137
 msgid "Gender not provided"
 msgstr "ไม่ได้ระบุเพศ"
 
@@ -178,19 +182,19 @@ msgstr "ระดับกลาง+"
 msgid "invite"
 msgstr "เชิญ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:144
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:148
 msgid "INVITE"
 msgstr "เชิญ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:558
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
 msgid "Invite {0}"
 msgstr "เชิญ {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Invite players"
 msgstr "เชิญผู้เล่น"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:202
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:238
 msgid "Invite to {eventTitle}"
 msgstr "เชิญเข้า {eventTitle}"
 
@@ -198,7 +202,7 @@ msgstr "เชิญเข้า {eventTitle}"
 msgid "Invited and potential players"
 msgstr "ผู้เล่นที่ได้รับเชิญและผู้เล่นที่อาจเข้าร่วม"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:505
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
 msgid "Invited players have moved into the event's invited list."
 msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายชื่อผู้รับเชิญของกิจกรรมแล้ว"
 
@@ -206,28 +210,28 @@ msgstr "ผู้เล่นที่ได้รับเชิญถูกย
 msgid "Invites · {0}"
 msgstr "คำเชิญ · {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "KEEP"
 msgstr "เก็บไว้"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Keep {0} pending"
 msgstr "เก็บ {0} ไว้ในรายการรอ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:584
-#: src/components/organisms/PkRSVPSection.re.mjs:605
+#: src/components/organisms/PkRSVPSection.re.mjs:590
+#: src/components/organisms/PkRSVPSection.re.mjs:611
 msgid "LEVEL RESTRICTION"
 msgstr "ข้อจำกัดระดับ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:131
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:791
+#: src/components/organisms/PkRSVPSection.re.mjs:797
 msgid "MEDIAN"
 msgstr "มัธยฐาน"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:449
 msgid "mixed"
 msgstr "หลากหลาย"
 
@@ -236,7 +240,7 @@ msgstr "หลากหลาย"
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:194
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:230
 msgid "No message left with the request"
 msgstr "ไม่มีข้อความแนบมากับคำขอ"
 
@@ -244,11 +248,11 @@ msgstr "ไม่มีข้อความแนบมากับคำขอ
 msgid "No players found"
 msgstr "ไม่พบผู้เล่น"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:312
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:196
 msgid "Not provided"
 msgstr "ไม่ได้ระบุ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:336
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:358
 msgid "Not yet rated"
 msgstr "ยังไม่มีเรตติ้ง"
 
@@ -256,7 +260,7 @@ msgstr "ยังไม่มีเรตติ้ง"
 msgid "Open invite actions for {0}"
 msgstr "เปิดการดำเนินการเชิญสำหรับ {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:663
+#: src/components/organisms/PkRSVPSection.re.mjs:669
 msgid "Participants"
 msgstr "ผู้เข้าร่วม"
 
@@ -268,11 +272,15 @@ msgstr "ชำระเงินได้รับอนุมัติแล้
 msgid "Payment charged"
 msgstr "เรียกเก็บเงินแล้ว"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1028
+#: src/components/organisms/PkRSVPSection.re.mjs:1034
 msgid "Pending · {0}"
 msgstr "รอดำเนินการ · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Placing on the waitlist…"
 msgstr "กำลังเพิ่มในรายชื่อรอ…"
 
@@ -280,11 +288,11 @@ msgstr "กำลังเพิ่มในรายชื่อรอ…"
 msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {0}."
 msgstr "การกระจายระดับผู้เล่นตั้งแต่ DUPR 2.0 ถึง 8.0 DUPR สูงสุดของคอร์ตคือ {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Preview Smart RSVP"
 msgstr "ดูตัวอย่าง Smart RSVP"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1069
+#: src/components/organisms/PkRSVPSection.re.mjs:1075
 msgid "Previewing…"
 msgstr "กำลังแสดงตัวอย่าง…"
 
@@ -292,6 +300,10 @@ msgstr "กำลังแสดงตัวอย่าง…"
 #: src/components/molecules/SkillDistributionChart.re.mjs:53
 msgid "Pro"
 msgstr "โปร"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "ชั่วคราว"
 
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
@@ -305,11 +317,11 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:588
+#: src/components/organisms/PkRSVPSection.re.mjs:594
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "ต้องการ: DUPR {minDuprStr} ขึ้นไป"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:609
+#: src/components/organisms/PkRSVPSection.re.mjs:615
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "ต้องมี DUPR {minDuprStr} ขึ้นไปจึงเข้าร่วมได้"
 
@@ -317,7 +329,7 @@ msgstr "ต้องมี DUPR {minDuprStr} ขึ้นไปจึงเข�
 msgid "Retry charge"
 msgstr "ลองเรียกเก็บเงินอีกครั้ง"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1044
+#: src/components/organisms/PkRSVPSection.re.mjs:1050
 msgid "Review {0} pending requests with swipe cards"
 msgstr "ตรวจสอบ {0} คำขอที่รอดำเนินการด้วยการสไวป์การ์ด"
 
@@ -325,17 +337,17 @@ msgstr "ตรวจสอบ {0} คำขอที่รอดำเนิน�
 msgid "Review {0} potential players with swipe cards"
 msgstr "ตรวจสอบผู้เล่นที่อาจเข้าร่วม {0} คนด้วยการ์ดสไลด์"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:480
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "ตรวจสอบคำขอ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1061
+#: src/components/organisms/PkRSVPSection.re.mjs:1067
 msgid "Run Smart RSVP now"
 msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
-msgid "Self-rating"
-msgstr "ให้คะแนนตัวเอง"
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "ประเมินตนเอง"
 
 #: src/components/molecules/SkillDistributionChart.re.mjs:47
 msgid "Semi-Pro"
@@ -349,28 +361,28 @@ msgstr "ส่งคำเชิญ"
 msgid "sent"
 msgstr "ส่งแล้ว"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:146
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:150
 msgid "SKIP"
 msgstr "ข้าม"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:546
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
 msgid "Skip {0}"
 msgstr "ข้าม {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:559
+#: src/components/organisms/PkRSVPSection.re.mjs:565
 msgid "SMART RSVP"
 msgstr "SMART RSVP"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1091
+#: src/components/organisms/PkRSVPSection.re.mjs:1097
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr "Smart RSVP จะรับ {0} จาก {1} คำขอที่รอดำเนินการ โดยทำเครื่องหมายไว้ด้านล่าง"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1078
+#: src/components/organisms/PkRSVPSection.re.mjs:1084
 msgid "Smart Waitlist"
 msgstr "รายชื่อรอแบบสมาร์ท"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:852
+#: src/components/organisms/PkRSVPSection.re.mjs:858
 msgid "SPREAD"
 msgstr "การกระจาย"
 
@@ -378,19 +390,19 @@ msgstr "การกระจาย"
 msgid "Swipe invites"
 msgstr "เชิญแบบสไลด์"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to keep pending · right to approve"
 msgstr "สไวป์ซ้ายเพื่อเก็บไว้ · ขวาเพื่ออนุมัติ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:560
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
 msgid "Swipe left to skip · right to invite"
 msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเพื่อเชิญ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1042
+#: src/components/organisms/PkRSVPSection.re.mjs:1048
 msgid "Swipe review"
 msgstr "ตรวจสอบด้วยการสไวป์"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:563
+#: src/components/organisms/PkRSVPSection.re.mjs:569
 msgid ""
 "This event admits players by level rather than by the time of RSVP. Your "
 "request will be reviewed and you will be notified once a spot is confirmed."
@@ -406,19 +418,19 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:774
+#: src/components/organisms/PkRSVPSection.re.mjs:780
 msgid "TOP 6 AVG"
 msgstr "ค่าเฉลี่ย 6 อันดับ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:737
+#: src/components/organisms/PkRSVPSection.re.mjs:743
 msgid "Top court DUPR"
 msgstr "DUPR คอร์ทสูงสุด"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View less"
 msgstr "ดูน้อยลง"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:748
+#: src/components/organisms/PkRSVPSection.re.mjs:754
 msgid "View more"
 msgstr "ดูเพิ่มเติม"
 
@@ -427,19 +439,19 @@ msgstr "ดูเพิ่มเติม"
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:187
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "รอการอนุมัติเพื่อเข้าร่วม"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:962
+#: src/components/organisms/PkRSVPSection.re.mjs:968
 msgid "Waitlist · {0}"
 msgstr "รายชื่อคอย · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1134
+#: src/components/organisms/PkRSVPSection.re.mjs:1140
 msgid "Would be admitted"
 msgstr "จะได้รับการตอบรับ"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:592
+#: src/components/organisms/PkRSVPSection.re.mjs:598
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -482,6 +494,10 @@ msgstr ""
 #: src/components/organisms/PkRSVPSection.re.mjs:1095
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "เรียกใช้ Smart RSVP (จับคู่ดีที่สุด, ทดสอบ)"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:297
+#~ msgid "Self-rating"
+#~ msgstr "ให้คะแนนตัวเอง"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:570
 #~ msgid ""

@@ -151,11 +151,11 @@ msgstr "来月の毎週木曜日、赤羽小学校で19時から21時までバ�
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/ProfileModal.re.mjs:527
+#: src/components/organisms/ProfileModal.re.mjs:532
 msgid "Biography"
 msgstr "自己紹介"
 
-#: src/components/organisms/ProfileModal.re.mjs:117
+#: src/components/organisms/ProfileModal.re.mjs:119
 msgid "Biography is required"
 msgstr "自己紹介は必須です"
 
@@ -163,7 +163,7 @@ msgstr "自己紹介は必須です"
 msgid "clear filter"
 msgstr "フィルターをクリア"
 
-#: src/components/organisms/ProfileModal.re.mjs:460
+#: src/components/organisms/ProfileModal.re.mjs:465
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
 
@@ -171,11 +171,11 @@ msgstr "プロフィールフォームを閉じる"
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
-#: src/components/organisms/ProfileModal.re.mjs:444
+#: src/components/organisms/ProfileModal.re.mjs:449
 msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
-#: src/components/organisms/ProfileModal.re.mjs:306
+#: src/components/organisms/ProfileModal.re.mjs:311
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr ""
@@ -196,10 +196,10 @@ msgstr "その場所を読み込めませんでした"
 msgid "Could not save that location"
 msgstr "その場所を保存できませんでした"
 
-#: src/components/organisms/ProfileModal.re.mjs:257
-#: src/components/organisms/ProfileModal.re.mjs:266
-#: src/components/organisms/ProfileModal.re.mjs:286
-#: src/components/organisms/ProfileModal.re.mjs:296
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
 msgid "Could not save your profile. Please try again."
 msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
@@ -244,19 +244,23 @@ msgstr "日付:"
 msgid "Description:"
 msgstr "説明:"
 
-#: src/components/organisms/ProfileModal.re.mjs:477
+#: src/components/organisms/ProfileModal.re.mjs:482
 msgid "Display name"
 msgstr "表示名"
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:111
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/organisms/ProfileModal.re.mjs:364
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "ダブルス"
+
+#: src/components/organisms/ProfileModal.re.mjs:369
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: src/components/organisms/ProfileModal.re.mjs:281
+#: src/components/organisms/ProfileModal.re.mjs:286
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -264,7 +268,7 @@ msgstr ""
 "このメールアドレスは使用できません。別のメールアドレスを使用するか、ここで使"
 "用しようとしているメールアドレスでログインしてください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:112
+#: src/components/organisms/ProfileModal.re.mjs:114
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
@@ -276,7 +280,7 @@ msgstr "夜"
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/ProfileModal.re.mjs:501
+#: src/components/organisms/ProfileModal.re.mjs:506
 msgid "Female"
 msgstr "女性"
 
@@ -288,11 +292,11 @@ msgstr "フォームを入力"
 msgid "filtering by date"
 msgstr "日付でフィルタリング"
 
-#: src/components/organisms/ProfileModal.re.mjs:357
+#: src/components/organisms/ProfileModal.re.mjs:362
 msgid "For event updates and notifications"
 msgstr "イベントの更新と通知用"
 
-#: src/components/organisms/ProfileModal.re.mjs:491
+#: src/components/organisms/ProfileModal.re.mjs:496
 msgid "Gender"
 msgstr "性別"
 
@@ -308,7 +312,7 @@ msgstr "イベントをホストする"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "イベントのホストには時間枠をひとつだけ選択してください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:480
+#: src/components/organisms/ProfileModal.re.mjs:485
 msgid "How other players will see you"
 msgstr "他のプレイヤーへの表示"
 
@@ -336,7 +340,7 @@ msgstr "参加する"
 msgid "joined"
 msgstr "参加"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:314
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
@@ -344,7 +348,7 @@ msgstr "プレイヤープロフィールをコミュニティに役立つ正確
 msgid "leave event"
 msgstr "参加取り消し"
 
-#: src/components/organisms/ProfileModal.re.mjs:542
+#: src/components/organisms/ProfileModal.re.mjs:547
 msgid "Level"
 msgstr "レベル"
 
@@ -361,7 +365,7 @@ msgstr "現在、場所の検索は利用できません"
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:502
 msgid "Male"
 msgstr "男性"
 
@@ -385,9 +389,13 @@ msgstr "新規"
 msgid "New plan"
 msgstr "新しいプラン"
 
-#: src/components/organisms/ProfileModal.re.mjs:565
+#: src/components/organisms/ProfileModal.re.mjs:583
 msgid "Not now"
 msgstr "後で"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
 
 #: src/components/pages/LocationPage.re.mjs:68
 msgid "page not found"
@@ -396,6 +404,10 @@ msgstr "ページが見つかりません"
 #: src/components/organisms/EventItem.re.mjs:272
 msgid "pending"
 msgstr "保留中"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "ピックル"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
@@ -413,6 +425,11 @@ msgstr "プロ"
 msgid "Processing..."
 msgstr "処理中..."
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "暫定"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "削除"
@@ -425,7 +442,7 @@ msgstr "返信"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:579
+#: src/components/organisms/ProfileModal.re.mjs:597
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
@@ -437,7 +454,11 @@ msgstr "会場または住所を検索"
 msgid "Select exactly one time window to host an event"
 msgstr "イベントをホストするには時間枠をひとつ選択してください"
 
-#: src/components/organisms/ProfileModal.re.mjs:530
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "自己評価"
+
+#: src/components/organisms/ProfileModal.re.mjs:535
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -452,6 +473,10 @@ msgstr "テキストとして共有"
 #: src/components/organisms/EventsList.re.mjs:271
 msgid "show"
 msgstr "表示"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "シングルス"
 
 #: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
@@ -499,7 +524,7 @@ msgstr "例を試してみる："
 msgid "waitlist"
 msgstr "ウェイトリスト"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:308
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 

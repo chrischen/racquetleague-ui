@@ -306,11 +306,11 @@ msgstr "返回"
 msgid "Beginner"
 msgstr "初级"
 
-#: src/components/organisms/ProfileModal.re.mjs:527
+#: src/components/organisms/ProfileModal.re.mjs:532
 msgid "Biography"
 msgstr "个人简介"
 
-#: src/components/organisms/ProfileModal.re.mjs:117
+#: src/components/organisms/ProfileModal.re.mjs:119
 msgid "Biography is required"
 msgstr "简介为必填项"
 
@@ -358,7 +358,7 @@ msgstr "选择活动时间"
 msgid "Close"
 msgstr "关闭"
 
-#: src/components/organisms/ProfileModal.re.mjs:460
+#: src/components/organisms/ProfileModal.re.mjs:465
 msgid "Close profile form"
 msgstr "关闭个人资料表单"
 
@@ -396,11 +396,11 @@ msgstr "竞技模式"
 msgid "Complete Beginner"
 msgstr "完全初学者"
 
-#: src/components/organisms/ProfileModal.re.mjs:444
+#: src/components/organisms/ProfileModal.re.mjs:449
 msgid "Complete your player profile"
 msgstr "完善您的球员档案"
 
-#: src/components/organisms/ProfileModal.re.mjs:306
+#: src/components/organisms/ProfileModal.re.mjs:311
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
@@ -427,10 +427,10 @@ msgstr "无法加载该地点"
 msgid "Could not save that location"
 msgstr "无法保存该位置"
 
-#: src/components/organisms/ProfileModal.re.mjs:257
-#: src/components/organisms/ProfileModal.re.mjs:266
-#: src/components/organisms/ProfileModal.re.mjs:286
-#: src/components/organisms/ProfileModal.re.mjs:296
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
 msgid "Could not save your profile. Please try again."
 msgstr "无法保存您的个人资料，请重试。"
 
@@ -523,11 +523,11 @@ msgstr "描述："
 msgid "Discover"
 msgstr "发现"
 
-#: src/components/organisms/ProfileModal.re.mjs:477
+#: src/components/organisms/ProfileModal.re.mjs:482
 msgid "Display name"
 msgstr "显示名称"
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:111
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
@@ -535,6 +535,10 @@ msgstr "请输入显示名称"
 #: src/components/molecules/TimeZoneField.re.mjs:203
 msgid "Done"
 msgstr "完成"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "双打"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Draft filled in. Review the details before creating the event."
@@ -574,11 +578,11 @@ msgstr "东部时间"
 msgid "Edit"
 msgstr "编辑"
 
-#: src/components/organisms/ProfileModal.re.mjs:364
+#: src/components/organisms/ProfileModal.re.mjs:369
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:281
+#: src/components/organisms/ProfileModal.re.mjs:286
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -586,7 +590,7 @@ msgstr ""
 "此电子邮件地址不可用。请使用其他电子邮件地址，或使用您在此处尝试使用的电子邮"
 "件地址登录。"
 
-#: src/components/organisms/ProfileModal.re.mjs:112
+#: src/components/organisms/ProfileModal.re.mjs:114
 msgid "Email is required"
 msgstr "请输入电子邮件"
 
@@ -663,7 +667,7 @@ msgstr "已执行"
 msgid "Execution failed"
 msgstr "执行失败"
 
-#: src/components/organisms/ProfileModal.re.mjs:501
+#: src/components/organisms/ProfileModal.re.mjs:506
 msgid "Female"
 msgstr "女性"
 
@@ -679,7 +683,7 @@ msgstr "填写表单"
 msgid "Find players for your event?"
 msgstr "为您的活动寻找球员？"
 
-#: src/components/organisms/ProfileModal.re.mjs:357
+#: src/components/organisms/ProfileModal.re.mjs:362
 msgid "For event updates and notifications"
 msgstr "用于活动更新和通知"
 
@@ -695,7 +699,7 @@ msgstr "格式选项"
 msgid "Friday night pickleball"
 msgstr "周五晚匹克球"
 
-#: src/components/organisms/ProfileModal.re.mjs:491
+#: src/components/organisms/ProfileModal.re.mjs:496
 msgid "Gender"
 msgstr "性别"
 
@@ -736,7 +740,7 @@ msgstr "主办方消息"
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr "发起活动需要恰好选择一个时间段——请选择一个。"
 
-#: src/components/organisms/ProfileModal.re.mjs:480
+#: src/components/organisms/ProfileModal.re.mjs:485
 msgid "How other players will see you"
 msgstr "其他球员看到您的方式"
 
@@ -789,7 +793,7 @@ msgstr "已加入俱乐部"
 msgid "Keep current location"
 msgstr "保留当前地点"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:314
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球员档案准确，为社区提供有用信息。"
 
@@ -805,7 +809,7 @@ msgstr "排行榜"
 msgid "Left Event"
 msgstr "已退出活动"
 
-#: src/components/organisms/ProfileModal.re.mjs:542
+#: src/components/organisms/ProfileModal.re.mjs:547
 msgid "Level"
 msgstr "级别"
 
@@ -859,7 +863,7 @@ msgstr "地点："
 msgid "login with Line"
 msgstr "使用 Line 登录"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:502
 msgid "Male"
 msgstr "男性"
 
@@ -952,7 +956,7 @@ msgstr "无最低限制"
 msgid "No notifications"
 msgstr "暂无通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:565
+#: src/components/organisms/ProfileModal.re.mjs:583
 msgid "Not now"
 msgstr "暂不"
 
@@ -965,6 +969,10 @@ msgstr "通知"
 #: src/components/pages/PkuruLayout.re.mjs:533
 msgid "Notifications"
 msgstr "通知"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "无评级"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
@@ -990,6 +998,10 @@ msgstr "参与费用"
 msgid "Personal"
 msgstr "个人"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球员可用时间热力图"
@@ -1010,6 +1022,11 @@ msgstr "专业"
 #: src/components/pages/PkuruLayout.re.mjs:708
 msgid "Profile"
 msgstr "个人资料"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "临时"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:719
 msgid "Public"
@@ -1048,7 +1065,7 @@ msgstr "萨摩亚时间"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:579
+#: src/components/organisms/ProfileModal.re.mjs:597
 msgid "Save profile"
 msgstr "保存个人资料"
 
@@ -1064,7 +1081,11 @@ msgstr "搜索场馆或地址"
 msgid "Select exactly one time window to host an event"
 msgstr "请选择恰好一个时间段来发起活动"
 
-#: src/components/organisms/ProfileModal.re.mjs:530
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "自评"
+
+#: src/components/organisms/ProfileModal.re.mjs:535
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -1081,6 +1102,10 @@ msgstr "收起"
 #: src/components/molecules/TimeZoneField.re.mjs:92
 msgid "Singapore Time"
 msgstr "新加坡时间"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "单打"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1057
 msgid "Skill level"
@@ -1185,7 +1210,7 @@ msgstr "场地、日期、开始和结束时间"
 msgid "View all notifications"
 msgstr "查看所有通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:308
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 

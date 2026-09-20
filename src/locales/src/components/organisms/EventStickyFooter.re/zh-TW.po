@@ -21,11 +21,11 @@ msgstr "進階"
 msgid "Beginner"
 msgstr "初學者"
 
-#: src/components/organisms/ProfileModal.re.mjs:527
+#: src/components/organisms/ProfileModal.re.mjs:532
 msgid "Biography"
 msgstr "個人簡介"
 
-#: src/components/organisms/ProfileModal.re.mjs:117
+#: src/components/organisms/ProfileModal.re.mjs:119
 msgid "Biography is required"
 msgstr "簡介為必填項目"
 
@@ -75,7 +75,7 @@ msgstr "報名參加"
 msgid "Claim spot · {0}"
 msgstr "預約名額 · {0}"
 
-#: src/components/organisms/ProfileModal.re.mjs:460
+#: src/components/organisms/ProfileModal.re.mjs:465
 msgid "Close profile form"
 msgstr "關閉個人資料表單"
 
@@ -83,11 +83,11 @@ msgstr "關閉個人資料表單"
 msgid "Complete Beginner"
 msgstr "完全初學者"
 
-#: src/components/organisms/ProfileModal.re.mjs:444
+#: src/components/organisms/ProfileModal.re.mjs:449
 msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
-#: src/components/organisms/ProfileModal.re.mjs:306
+#: src/components/organisms/ProfileModal.re.mjs:311
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
@@ -96,26 +96,30 @@ msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/ProfileModal.re.mjs:257
-#: src/components/organisms/ProfileModal.re.mjs:266
-#: src/components/organisms/ProfileModal.re.mjs:286
-#: src/components/organisms/ProfileModal.re.mjs:296
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
 msgid "Could not save your profile. Please try again."
 msgstr "無法儲存您的個人資料，請再試一次。"
 
-#: src/components/organisms/ProfileModal.re.mjs:477
+#: src/components/organisms/ProfileModal.re.mjs:482
 msgid "Display name"
 msgstr "顯示名稱"
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:111
 msgid "Display name is required"
 msgstr "請輸入顯示名稱"
 
-#: src/components/organisms/ProfileModal.re.mjs:364
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "雙打"
+
+#: src/components/organisms/ProfileModal.re.mjs:369
 msgid "Email address"
 msgstr "電子郵件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:281
+#: src/components/organisms/ProfileModal.re.mjs:286
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -123,23 +127,23 @@ msgstr ""
 "此電子郵件地址不可用。請使用其他電子郵件地址，或使用您在此處嘗試使用的電子郵"
 "件地址登入。"
 
-#: src/components/organisms/ProfileModal.re.mjs:112
+#: src/components/organisms/ProfileModal.re.mjs:114
 msgid "Email is required"
 msgstr "請輸入電子郵件"
 
-#: src/components/organisms/ProfileModal.re.mjs:501
+#: src/components/organisms/ProfileModal.re.mjs:506
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:357
+#: src/components/organisms/ProfileModal.re.mjs:362
 msgid "For event updates and notifications"
 msgstr "用於活動更新和通知"
 
-#: src/components/organisms/ProfileModal.re.mjs:491
+#: src/components/organisms/ProfileModal.re.mjs:496
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/ProfileModal.re.mjs:480
+#: src/components/organisms/ProfileModal.re.mjs:485
 msgid "How other players will see you"
 msgstr "其他球員看到您的方式"
 
@@ -167,7 +171,7 @@ msgstr "以已儲存卡片加入"
 msgid "Joining..."
 msgstr "加入中…"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:314
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球員個人資料準確且對社群有用。"
 
@@ -184,7 +188,7 @@ msgstr "離開候補名單"
 msgid "Leaving..."
 msgstr "離開中..."
 
-#: src/components/organisms/ProfileModal.re.mjs:542
+#: src/components/organisms/ProfileModal.re.mjs:547
 msgid "Level"
 msgstr "等級"
 
@@ -193,13 +197,17 @@ msgstr "等級"
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:502
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/ProfileModal.re.mjs:565
+#: src/components/organisms/ProfileModal.re.mjs:583
 msgid "Not now"
 msgstr "暫不設定"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:407
 msgid "On waitlist"
@@ -217,23 +225,40 @@ msgstr "需完成付款以確認您的名額"
 msgid "Pending approval"
 msgstr "待審核"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
+
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "專業"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "暫定"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:194
 msgid "Save card"
 msgstr "儲存卡片"
 
-#: src/components/organisms/ProfileModal.re.mjs:579
+#: src/components/organisms/ProfileModal.re.mjs:597
 msgid "Save profile"
 msgstr "儲存個人資料"
 
-#: src/components/organisms/ProfileModal.re.mjs:530
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "自評"
+
+#: src/components/organisms/ProfileModal.re.mjs:535
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "單打"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:539
 msgid ""
@@ -245,7 +270,7 @@ msgstr "候補名單中有球員。如果您退出，您的位置將會給下一
 msgid "Use a different card"
 msgstr "使用其他卡片"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:308
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 

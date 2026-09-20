@@ -96,11 +96,11 @@ msgstr "ทุกระดับ"
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
-#: src/components/organisms/ProfileModal.re.mjs:527
+#: src/components/organisms/ProfileModal.re.mjs:532
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/organisms/ProfileModal.re.mjs:117
+#: src/components/organisms/ProfileModal.re.mjs:119
 msgid "Biography is required"
 msgstr "กรุณากรอกประวัติย่อ"
 
@@ -113,7 +113,7 @@ msgstr "เปลี่ยน"
 msgid "Clear"
 msgstr "ล้าง"
 
-#: src/components/organisms/ProfileModal.re.mjs:460
+#: src/components/organisms/ProfileModal.re.mjs:465
 msgid "Close profile form"
 msgstr "ปิดฟอร์มโปรไฟล์"
 
@@ -121,19 +121,19 @@ msgstr "ปิดฟอร์มโปรไฟล์"
 msgid "Complete Beginner"
 msgstr "ผู้เริ่มต้นสมบูรณ์"
 
-#: src/components/organisms/ProfileModal.re.mjs:444
+#: src/components/organisms/ProfileModal.re.mjs:449
 msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
-#: src/components/organisms/ProfileModal.re.mjs:306
+#: src/components/organisms/ProfileModal.re.mjs:311
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
-#: src/components/organisms/ProfileModal.re.mjs:257
-#: src/components/organisms/ProfileModal.re.mjs:266
-#: src/components/organisms/ProfileModal.re.mjs:286
-#: src/components/organisms/ProfileModal.re.mjs:296
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
 msgid "Could not save your profile. Please try again."
 msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
@@ -161,11 +161,11 @@ msgstr "สร้างอีเวนต์"
 msgid "Current location is not supported by this browser."
 msgstr "เบราว์เซอร์นี้ไม่รองรับตำแหน่งที่ตั้งปัจจุบัน"
 
-#: src/components/organisms/ProfileModal.re.mjs:477
+#: src/components/organisms/ProfileModal.re.mjs:482
 msgid "Display name"
 msgstr "ชื่อที่แสดง"
 
-#: src/components/organisms/ProfileModal.re.mjs:109
+#: src/components/organisms/ProfileModal.re.mjs:111
 msgid "Display name is required"
 msgstr "ต้องกรอกชื่อที่แสดง"
 
@@ -173,17 +173,21 @@ msgstr "ต้องกรอกชื่อที่แสดง"
 msgid "Done"
 msgstr "เสร็จ"
 
-#: src/components/organisms/ProfileModal.re.mjs:364
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "คู่"
+
+#: src/components/organisms/ProfileModal.re.mjs:369
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:281
+#: src/components/organisms/ProfileModal.re.mjs:286
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
 msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
 
-#: src/components/organisms/ProfileModal.re.mjs:112
+#: src/components/organisms/ProfileModal.re.mjs:114
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
 
@@ -195,19 +199,19 @@ msgstr "ตัวกรองกิจกรรม"
 msgid "Events"
 msgstr "กิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:501
+#: src/components/organisms/ProfileModal.re.mjs:506
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/ProfileModal.re.mjs:357
+#: src/components/organisms/ProfileModal.re.mjs:362
 msgid "For event updates and notifications"
 msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:491
+#: src/components/organisms/ProfileModal.re.mjs:496
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/ProfileModal.re.mjs:480
+#: src/components/organisms/ProfileModal.re.mjs:485
 msgid "How other players will see you"
 msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
 
@@ -219,7 +223,7 @@ msgstr "ระดับกลาง"
 msgid "Intermediate+"
 msgstr "ระดับกลาง+"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:314
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
@@ -227,7 +231,7 @@ msgstr "รักษาโปรไฟล์นักกีฬาของคุ
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
 
-#: src/components/organisms/ProfileModal.re.mjs:542
+#: src/components/organisms/ProfileModal.re.mjs:547
 msgid "Level"
 msgstr "ระดับ"
 
@@ -247,7 +251,7 @@ msgstr "การเข้าถึงตำแหน่งที่ตั้ง
 msgid "Location:"
 msgstr "สถานที่:"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:502
 msgid "Male"
 msgstr "ชาย"
 
@@ -263,13 +267,21 @@ msgstr "ใกล้ฉัน"
 msgid "Near me · {radius} km"
 msgstr "ใกล้ฉัน · {radius} กม."
 
-#: src/components/organisms/ProfileModal.re.mjs:565
+#: src/components/organisms/ProfileModal.re.mjs:583
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
 
 #: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "ที่นั่งว่าง"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
@@ -283,6 +295,11 @@ msgstr "หาผู้เล่น"
 msgid "Pro"
 msgstr "โปร"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "ชั่วคราว"
+
 #: src/components/molecules/CourtOpeningCard.re.mjs:155
 msgid "Reserve"
 msgstr "จอง"
@@ -291,7 +308,7 @@ msgstr "จอง"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/ProfileModal.re.mjs:579
+#: src/components/organisms/ProfileModal.re.mjs:597
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
@@ -303,6 +320,10 @@ msgstr "กำลังบันทึก…"
 msgid "Schedule"
 msgstr "ตารางเวลา"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "ประเมินตนเอง"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
@@ -311,7 +332,7 @@ msgstr ""
 "ตั้งค่าความพร้อมของคุณสำหรับ 2 สัปดาห์ข้างหน้า กิจกรรมและช่วงเวลาว่างของคุณแสดงร่วมกัน "
 "เส้นสีฟ้าที่หนากว่าหมายถึงจำนวนคอร์ทที่มากกว่า"
 
-#: src/components/organisms/ProfileModal.re.mjs:530
+#: src/components/organisms/ProfileModal.re.mjs:535
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -320,6 +341,10 @@ msgstr "แนะนำตัวเองเล็กน้อยเพื่อ
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "เดี่ยว"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
@@ -337,7 +362,7 @@ msgstr "ใช้ตำแหน่งใกล้ฉัน"
 msgid "Use option"
 msgstr "ใช้ตัวเลือกนี้"
 
-#: src/components/organisms/ProfileModal.re.mjs:303
+#: src/components/organisms/ProfileModal.re.mjs:308
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 

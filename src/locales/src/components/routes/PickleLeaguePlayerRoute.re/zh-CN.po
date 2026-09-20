@@ -17,49 +17,57 @@ msgstr ""
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:159
+#: src/components/pages/LeaguePlayerPage.re.mjs:160
 msgid "All"
 msgstr "全部"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:802
+#: src/components/pages/LeaguePlayerPage.re.mjs:804
 msgid "All Clubs"
 msgstr "所有俱乐部"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:782
+#: src/components/pages/LeaguePlayerPage.re.mjs:784
 msgid "Back to league"
 msgstr "返回联赛"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:407
+#: src/components/pages/LeaguePlayerPage.re.mjs:409
 msgid "Balanced partner tendency"
 msgstr "搭档倾向均衡"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:479
+#: src/components/pages/LeaguePlayerPage.re.mjs:481
 msgid "Best Doubles Partners"
 msgstr "最佳双打搭档"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:894
+#: src/components/pages/LeaguePlayerPage.re.mjs:896
 msgid "Current Rating"
 msgstr "当前评分"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:917
+#: src/components/pages/LeaguePlayerPage.re.mjs:933
 msgid "Days at #1"
 msgstr "位居第一的天数"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "双打"
 
 #: src/components/organisms/MatchHistoryList.re.mjs:523
 #: src/components/organisms/MatchHistoryList.re.mjs:587
 msgid "DRAW"
 msgstr "平局"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:404
+#: src/components/pages/LeaguePlayerPage.re.mjs:913
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:406
 msgid "Elevates weaker partners"
 msgstr "能提升较弱搭档的水平"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:383
-#: src/components/pages/LeaguePlayerPage.re.mjs:946
-#: src/components/pages/LeaguePlayerPage.re.mjs:992
-#: src/components/pages/LeaguePlayerPage.re.mjs:1045
-#: src/components/pages/LeaguePlayerPage.re.mjs:1098
-#: src/components/pages/LeaguePlayerPage.re.mjs:1192
+#: src/components/pages/LeaguePlayerPage.re.mjs:384
+#: src/components/pages/LeaguePlayerPage.re.mjs:962
+#: src/components/pages/LeaguePlayerPage.re.mjs:1008
+#: src/components/pages/LeaguePlayerPage.re.mjs:1061
+#: src/components/pages/LeaguePlayerPage.re.mjs:1114
+#: src/components/pages/LeaguePlayerPage.re.mjs:1208
 msgid "Estimated DUPR"
 msgstr "预估 DUPR"
 
@@ -67,11 +75,11 @@ msgstr "预估 DUPR"
 msgid "Even"
 msgstr "势均力敌"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1172
+#: src/components/pages/LeaguePlayerPage.re.mjs:1188
 msgid "Gym"
 msgstr "室内球馆"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1157
+#: src/components/pages/LeaguePlayerPage.re.mjs:1173
 msgid "Hard Court"
 msgstr "硬地球场"
 
@@ -79,7 +87,7 @@ msgstr "硬地球场"
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1267
+#: src/components/pages/LeaguePlayerPage.re.mjs:1283
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -88,39 +96,47 @@ msgstr "加载中..."
 msgid "LOSS"
 msgstr "负"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1007
+#: src/components/pages/LeaguePlayerPage.re.mjs:1023
 msgid "Men's Doubles"
 msgstr "男子双打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1060
+#: src/components/pages/LeaguePlayerPage.re.mjs:1076
 msgid "Mixed Doubles"
 msgstr "混合双打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:499
-#: src/components/pages/LeaguePlayerPage.re.mjs:573
-#: src/components/pages/LeaguePlayerPage.re.mjs:647
-#: src/components/pages/LeaguePlayerPage.re.mjs:721
+#: src/components/pages/LeaguePlayerPage.re.mjs:501
+#: src/components/pages/LeaguePlayerPage.re.mjs:575
+#: src/components/pages/LeaguePlayerPage.re.mjs:649
+#: src/components/pages/LeaguePlayerPage.re.mjs:723
 msgid "No data for this category"
 msgstr "此类别没有数据"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:425
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "无评级"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:427
 msgid "Performs better in gyms"
 msgstr "在室内球馆表现更佳"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:422
+#: src/components/pages/LeaguePlayerPage.re.mjs:424
 msgid "Performs better on hard courts"
 msgstr "在硬地球场表现更佳"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:400
+#: src/components/pages/LeaguePlayerPage.re.mjs:402
 msgid "Performs better with stronger partners"
 msgstr "与较强搭档配合时表现更佳"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:512
-#: src/components/pages/LeaguePlayerPage.re.mjs:586
-#: src/components/pages/LeaguePlayerPage.re.mjs:660
-#: src/components/pages/LeaguePlayerPage.re.mjs:734
+#: src/components/pages/LeaguePlayerPage.re.mjs:514
+#: src/components/pages/LeaguePlayerPage.re.mjs:588
+#: src/components/pages/LeaguePlayerPage.re.mjs:662
+#: src/components/pages/LeaguePlayerPage.re.mjs:736
 msgid "Predicted"
 msgstr "预测"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+msgid "provisional"
+msgstr "临时"
 
 #: src/components/organisms/RatingGraphWrapper.re.mjs:176
 msgid "Rating History"
@@ -130,15 +146,19 @@ msgstr "评分历史"
 msgid "Rating:"
 msgstr "评分："
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1258
+#: src/components/pages/LeaguePlayerPage.re.mjs:1274
 msgid "Recent Matches"
 msgstr "最近比赛"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:846
+#: src/components/pages/LeaguePlayerPage.re.mjs:848
 msgid "Showing stats from {selectedClubName} only"
 msgstr "仅显示来自 {selectedClubName} 的统计数据"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:627
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "单打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:629
 msgid "Strong Against"
 msgstr "强势对阵"
 
@@ -152,7 +172,7 @@ msgstr "阴影区域表示评分的不确定性。较窄的带表示更高的置
 msgid "Upset"
 msgstr "爆冷"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:701
+#: src/components/pages/LeaguePlayerPage.re.mjs:703
 msgid "Weak Against"
 msgstr "弱势对阵"
 
@@ -161,15 +181,15 @@ msgstr "弱势对阵"
 msgid "WIN"
 msgstr "胜"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1113
+#: src/components/pages/LeaguePlayerPage.re.mjs:1129
 msgid "Women's Doubles"
 msgstr "女子双打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:960
+#: src/components/pages/LeaguePlayerPage.re.mjs:976
 msgid "Women's Rating"
 msgstr "女子评分"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:553
+#: src/components/pages/LeaguePlayerPage.re.mjs:555
 msgid "Worst Doubles Partners"
 msgstr "最差双打搭档"
 

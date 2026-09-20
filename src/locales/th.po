@@ -8444,6 +8444,124 @@ msgstr "เวลาออสเตรเลียตะวันตก"
 msgid "Women's Rating"
 msgstr "เรตติ้งหญิง"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "คู่"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "ชั่วคราว"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "ประเมินตนเอง"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "เดี่ยว"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Declared rating"
+msgstr ""
+
+#: src/components/organisms/DuprConnectCard.re.mjs:156
+#: src/components/organisms/DuprConnectCard.re.mjs:226
+#: src/components/organisms/DuprConnectCard.re.mjs:260
+msgid "Couldn't reach DUPR. Please try again in a moment."
+msgstr "เชื่อมต่อ DUPR ไม่ได้ กรุณาลองใหม่อีกครั้งในอีกสักครู่"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:474
+msgid "Create one at mydupr.com or in the DUPR app"
+msgstr "สร้างบัญชีได้ที่ mydupr.com หรือในแอป DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:443
+msgid "Disconnect DUPR"
+msgstr "ยกเลิกเชื่อมต่อ DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:494
+msgid "Disconnect DUPR?"
+msgstr "ยกเลิกเชื่อมต่อ DUPR?"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:471
+msgid "Don't have a DUPR account?"
+msgstr "ยังไม่มีบัญชี DUPR?"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:318
+msgid "DUPR ID"
+msgstr "DUPR ID"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:152
+#: src/components/organisms/DuprConnectCard.re.mjs:486
+msgid "DUPR linking isn't available right now."
+msgstr "ขณะนี้ยังไม่สามารถเชื่อมต่อ DUPR ได้"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:389
+msgid "DUPR login"
+msgstr "เข้าสู่ระบบ DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+msgid "DUPR sent something we couldn't read. Please try again."
+msgstr "DUPR ส่งข้อมูลที่เราอ่านไม่ได้ กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+msgid "Last synced"
+msgstr "ซิงค์ล่าสุด"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:331
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "เชื่อมต่อบัญชี DUPR เพื่อใช้เรตติ้ง DUPR ที่ยืนยันแล้วที่นี่ ระหว่างที่เชื่อมต่ออยู่ ระบบจะใช้แทนเรตติ้งที่คุณประเมินเอง"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:266
+msgid "Linked"
+msgstr "เชื่อมต่อแล้ว"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:271
+msgid "Linking"
+msgstr "กำลังเชื่อมต่อ"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:360
+msgid "Linking your account…"
+msgstr "กำลังเชื่อมต่อบัญชีของคุณ…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:384
+msgid "Loading DUPR…"
+msgstr "กำลังโหลด DUPR…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:375
+#: src/components/organisms/DuprConnectCard.re.mjs:457
+msgid "Log in with DUPR"
+msgstr "เข้าสู่ระบบด้วย DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:274
+#: src/components/organisms/DuprConnectCard.re.mjs:278
+msgid "Not linked"
+msgstr "ยังไม่ได้เชื่อมต่อ"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "ลงชื่อเข้าใช้ DUPR เพื่อเชื่อมต่อบัญชีของคุณ เราจัดเก็บเฉพาะ DUPR ID และเรตติ้งของคุณ — ไม่เก็บรหัสผ่าน DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:150
+msgid "That DUPR account is already linked to another player."
+msgstr "บัญชี DUPR นี้เชื่อมต่อกับผู้เล่นคนอื่นแล้ว"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:154
+msgid "That DUPR sign-in has expired. Please try again."
+msgstr "การลงชื่อเข้าใช้ DUPR หมดอายุแล้ว กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:495
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
+msgstr "ระบบจะหยุดใช้เรตติ้ง DUPR ของคุณที่นี่ และตัวเลือกประเมินเรตติ้งด้วยตนเองจะกลับมา"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:603
+msgid "Your rating comes from DUPR. Disconnect DUPR below to set your own level again."
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

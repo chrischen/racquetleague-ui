@@ -8444,6 +8444,124 @@ msgstr "西澳時間"
 msgid "Women's Rating"
 msgstr "女子評分"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "雙打"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "暫定"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "自評"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "單打"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Declared rating"
+msgstr ""
+
+#: src/components/organisms/DuprConnectCard.re.mjs:156
+#: src/components/organisms/DuprConnectCard.re.mjs:226
+#: src/components/organisms/DuprConnectCard.re.mjs:260
+msgid "Couldn't reach DUPR. Please try again in a moment."
+msgstr "無法連線至 DUPR，請稍後再試。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:474
+msgid "Create one at mydupr.com or in the DUPR app"
+msgstr "可至 mydupr.com 或 DUPR App 建立帳號"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:443
+msgid "Disconnect DUPR"
+msgstr "解除連結 DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:494
+msgid "Disconnect DUPR?"
+msgstr "要解除連結 DUPR 嗎？"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:471
+msgid "Don't have a DUPR account?"
+msgstr "還沒有 DUPR 帳號？"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:318
+msgid "DUPR ID"
+msgstr "DUPR ID"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:152
+#: src/components/organisms/DuprConnectCard.re.mjs:486
+msgid "DUPR linking isn't available right now."
+msgstr "目前無法連結 DUPR。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:389
+msgid "DUPR login"
+msgstr "DUPR 登入"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+msgid "DUPR sent something we couldn't read. Please try again."
+msgstr "DUPR 回傳的資料無法解讀，請再試一次。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+msgid "Last synced"
+msgstr "上次同步"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:331
+msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
+msgstr "連結你的 DUPR 帳號，即可在此使用已驗證的 DUPR 評分。連結期間將取代你的自評分數。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:266
+msgid "Linked"
+msgstr "已連結"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:271
+msgid "Linking"
+msgstr "連結中"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:360
+msgid "Linking your account…"
+msgstr "正在連結你的帳號…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:384
+msgid "Loading DUPR…"
+msgstr "正在載入 DUPR…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:375
+#: src/components/organisms/DuprConnectCard.re.mjs:457
+msgid "Log in with DUPR"
+msgstr "使用 DUPR 登入"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:274
+#: src/components/organisms/DuprConnectCard.re.mjs:278
+msgid "Not linked"
+msgstr "未連結"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
+msgstr "登入 DUPR 以連結帳號。我們只會儲存你的 DUPR ID 與評分，絕不會儲存你的 DUPR 密碼。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:150
+msgid "That DUPR account is already linked to another player."
+msgstr "該 DUPR 帳號已連結至其他球員。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:154
+msgid "That DUPR sign-in has expired. Please try again."
+msgstr "此 DUPR 登入已逾期，請再試一次。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:495
+msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
+msgstr "此處將不再使用你的 DUPR 評分，並恢復自評分數選擇。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:603
+msgid "Your rating comes from DUPR. Disconnect DUPR below to set your own level again."
+msgstr ""
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"

@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:327
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
 msgid "Active"
 msgstr "ใช้งานอยู่"
 
@@ -29,7 +29,7 @@ msgstr "เพิ่มไปยังหน้าจอหลักเพื่
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:366
+#: src/components/organisms/SettingsProfileForm.re.mjs:374
 msgid ""
 "Attendees of your paid events save a card when they RSVP; nothing is charged "
 "up front. From an event's RSVP list you can charge one attendee or everyone, "
@@ -39,7 +39,7 @@ msgstr ""
 "จากรายการตอบรับของกิจกรรม คุณสามารถเรียกเก็บเงินจากผู้เข้าร่วมรายเดียวหรือทุกคนได้ "
 "และเงินจะเข้าบัญชีนี้"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:360
+#: src/components/organisms/SettingsProfileForm.re.mjs:368
 msgid ""
 "Attendees of your paid events still save a card when they RSVP, but it can't "
 "be charged, so you collect the fee at the event. Connect a Stripe account to "
@@ -49,7 +49,7 @@ msgstr ""
 "คุณจึงต้องเก็บค่าธรรมเนียมที่หน้างาน เชื่อมต่อบัญชี Stripe "
 "เพื่อเรียกเก็บเงินจากบัตรที่บันทึกไว้ผ่านรายการตอบรับ และรับเงินที่นี่"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:420
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "Australia"
 msgstr "ออสเตรเลีย"
 
@@ -57,67 +57,123 @@ msgstr "ออสเตรเลีย"
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:558
+#: src/components/organisms/SettingsProfileForm.re.mjs:566
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:424
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Canada"
 msgstr "แคนาดา"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+#: src/components/organisms/DuprConnectCard.re.mjs:407
+msgid "Cancel"
+msgstr "ยกเลิก"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "ผู้เริ่มต้นสมบูรณ์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:389
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "ยืนยัน"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:397
 msgid "Connect Stripe account"
 msgstr "เชื่อมต่อบัญชี Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:385
+#: src/components/organisms/SettingsProfileForm.re.mjs:393
 msgid "Connecting..."
 msgstr "กำลังเชื่อมต่อ..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:405
+#: src/components/organisms/DuprConnectCard.re.mjs:156
+#: src/components/organisms/DuprConnectCard.re.mjs:226
+#: src/components/organisms/DuprConnectCard.re.mjs:260
+msgid "Couldn't reach DUPR. Please try again in a moment."
+msgstr "เชื่อมต่อ DUPR ไม่ได้ กรุณาลองใหม่อีกครั้งในอีกสักครู่"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:413
 msgid "Country"
 msgstr "ประเทศ"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:474
+msgid "Create one at mydupr.com or in the DUPR app"
+msgstr "สร้างบัญชีได้ที่ mydupr.com หรือในแอป DUPR"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
 msgstr "ปิดการแจ้งเตือน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/DuprConnectCard.re.mjs:443
+msgid "Disconnect DUPR"
+msgstr "ยกเลิกเชื่อมต่อ DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:494
+msgid "Disconnect DUPR?"
+msgstr "ยกเลิกเชื่อมต่อ DUPR?"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:501
 msgid "Display Name"
 msgstr "ชื่อที่แสดง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/organisms/SettingsProfileForm.re.mjs:518
 msgid "Doe John"
 msgstr "Doe John"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:471
+msgid "Don't have a DUPR account?"
+msgstr "ยังไม่มีบัญชี DUPR?"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "คู่"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:423
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:318
+msgid "DUPR ID"
+msgstr "DUPR ID"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:152
+#: src/components/organisms/DuprConnectCard.re.mjs:486
+msgid "DUPR linking isn't available right now."
+msgstr "ขณะนี้ยังไม่สามารถเชื่อมต่อ DUPR ได้"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:389
+msgid "DUPR login"
+msgstr "เข้าสู่ระบบ DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+msgid "DUPR sent something we couldn't read. Please try again."
+msgstr "DUPR ส่งข้อมูลที่เราอ่านไม่ได้ กรุณาลองใหม่อีกครั้ง"
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
 msgstr "เปิดการแจ้งเตือน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:532
+#: src/components/organisms/SettingsProfileForm.re.mjs:540
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:514
 msgid "Full name"
 msgstr "ชื่อเต็ม"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:521
+#: src/components/organisms/SettingsProfileForm.re.mjs:529
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:436
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "Hong Kong"
 msgstr "ฮ่องกง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:505
 msgid "How you appear to other players"
 msgstr "ชื่อที่ผู้เล่นคนอื่นจะเห็น"
 
@@ -133,31 +189,69 @@ msgstr "ระดับกลาง"
 msgid "Intermediate+"
 msgstr "ระดับกลาง+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:412
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Japan"
 msgstr "ญี่ปุ่น"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:573
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+msgid "Last synced"
+msgstr "ซิงค์ล่าสุด"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:581
 msgid "Level"
 msgstr "ระดับ"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:331
+msgid ""
+"Link your DUPR account to use your verified DUPR rating here. While it's "
+"linked, it replaces your self-rating."
+msgstr ""
+"เชื่อมต่อบัญชี DUPR เพื่อใช้เรตติ้ง DUPR ที่ยืนยันแล้วที่นี่ ระหว่างที่เชื่อมต่ออยู่ "
+"ระบบจะใช้แทนเรตติ้งที่คุณประเมินเอง"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:266
+msgid "Linked"
+msgstr "เชื่อมต่อแล้ว"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:271
+msgid "Linking"
+msgstr "กำลังเชื่อมต่อ"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:360
+msgid "Linking your account…"
+msgstr "กำลังเชื่อมต่อบัญชีของคุณ…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:384
+msgid "Loading DUPR…"
+msgstr "กำลังโหลด DUPR…"
 
 #: src/components/shared/PushNotifications.re.mjs:395
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:528
+#: src/components/organisms/DuprConnectCard.re.mjs:375
+#: src/components/organisms/DuprConnectCard.re.mjs:457
+msgid "Log in with DUPR"
+msgstr "เข้าสู่ระบบด้วย DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:536
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#: src/components/organisms/SettingsProfileForm.re.mjs:355
 msgid "No Stripe account is connected."
 msgstr "ยังไม่ได้เชื่อมต่อบัญชี Stripe"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:321
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
 msgid "Not connected"
 msgstr "ยังไม่ได้เชื่อมต่อ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:619
+#: src/components/organisms/DuprConnectCard.re.mjs:274
+#: src/components/organisms/DuprConnectCard.re.mjs:278
+msgid "Not linked"
+msgstr "ยังไม่ได้เชื่อมต่อ"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:654
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
 
@@ -169,17 +263,30 @@ msgstr ""
 "การแจ้งเตือนถูกบล็อก หากต้องการเปิดใช้งาน "
 "ให้ไปที่การตั้งค่าอุปกรณ์หรือเบราว์เซอร์และอนุญาตการแจ้งเตือนสำหรับเว็บไซต์นี้"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "เปิดแอปจากหน้าจอหลักและเปิดใช้การแจ้งเตือน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:324
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
 msgid "Pending"
 msgstr "รอการอนุมัติ"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "โปร"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "ชั่วคราว"
 
 #: src/components/shared/PushNotifications.re.mjs:302
 msgid ""
@@ -189,15 +296,15 @@ msgstr ""
 "การแจ้งเตือนแบบพุชถูกบล็อก "
 "ตรวจสอบการตั้งค่าการแจ้งเตือนของเบราว์เซอร์หรืออุปกรณ์สำหรับเว็บไซต์นี้ แล้วลองอีกครั้ง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:627
+#: src/components/organisms/SettingsProfileForm.re.mjs:662
 msgid "Receive push notifications for event reminders and updates."
 msgstr "รับการแจ้งเตือนแบบพุชสำหรับการเตือนและอัปเดตกิจกรรม"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:400
 msgid "Resume onboarding"
 msgstr "ดำเนินการต่อ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:605
+#: src/components/organisms/SettingsProfileForm.re.mjs:640
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
@@ -209,29 +316,45 @@ msgstr "เลื่อนลงและแตะ"
 msgid "seeking a doubles partner"
 msgstr "กำลังมองหาคู่คู่"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "ประเมินตนเอง"
+
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
 "shows a badge next to your name in RSVP lists to tell people you are looking "
 "for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:432
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+msgid ""
+"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
+"never your DUPR password."
+msgstr ""
+"ลงชื่อเข้าใช้ DUPR เพื่อเชื่อมต่อบัญชีของคุณ เราจัดเก็บเฉพาะ DUPR ID และเรตติ้งของคุณ — "
+"ไม่เก็บรหัสผ่าน DUPR"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Singapore"
 msgstr "สิงคโปร์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:513
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "เดี่ยว"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:444
+#: src/components/organisms/SettingsProfileForm.re.mjs:452
 msgid "South Korea"
 msgstr "เกาหลีใต้"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:641
+#: src/components/organisms/SettingsProfileForm.re.mjs:682
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:440
+#: src/components/organisms/SettingsProfileForm.re.mjs:448
 msgid "Taiwan"
 msgstr "ไต้หวัน"
 
@@ -239,23 +362,31 @@ msgstr "ไต้หวัน"
 msgid "Tap the Share button"
 msgstr "แตะปุ่มแชร์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:564
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
 msgid "tell us a little about yourself"
 msgstr "เล่าให้ฟังเกี่ยวกับตัวคุณสักนิด"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:562
+#: src/components/organisms/SettingsProfileForm.re.mjs:570
 msgid "Tell us a little about yourself..."
 msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:428
+#: src/components/organisms/DuprConnectCard.re.mjs:150
+msgid "That DUPR account is already linked to another player."
+msgstr "บัญชี DUPR นี้เชื่อมต่อกับผู้เล่นคนอื่นแล้ว"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:154
+msgid "That DUPR sign-in has expired. Please try again."
+msgstr "การลงชื่อเข้าใช้ DUPR หมดอายุแล้ว กรุณาลองใหม่อีกครั้ง"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "United Kingdom"
 msgstr "สหราชอาณาจักร"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:416
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "United States"
 msgstr "สหรัฐอเมริกา"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:371
 msgid ""
 "Until onboarding is complete, your paid events run on the platform account: "
 "attendees save a card when they RSVP, but you can't charge it. Collect the "
@@ -264,15 +395,27 @@ msgstr ""
 "จนกว่าการตั้งค่าบัญชีจะเสร็จสมบูรณ์ กิจกรรมแบบมีค่าใช้จ่ายของคุณจะใช้บัญชีแพลตฟอร์ม "
 "โดยผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ แต่คุณไม่สามารถเรียกเก็บเงินได้ ให้เก็บค่าธรรมเนียมที่หน้างาน"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/DuprConnectCard.re.mjs:495
+msgid ""
+"Your DUPR rating will stop being used here and your self-rating picker comes "
+"back."
+msgstr "ระบบจะหยุดใช้เรตติ้ง DUPR ของคุณที่นี่ และตัวเลือกประเมินเรตติ้งด้วยตนเองจะกลับมา"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:603
+msgid ""
+"Your rating comes from DUPR. Disconnect DUPR below to set your own level "
+"again."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"
 msgstr "ระดับทักษะที่คุณประเมินเอง"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
 msgid "Your Stripe account is connected, but onboarding isn't complete yet."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่การตั้งค่าบัญชียังไม่เสร็จสมบูรณ์"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
 msgid "Your Stripe account is connected."
 msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว"
 

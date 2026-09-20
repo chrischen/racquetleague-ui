@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"加入主畫面\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:327
+#: src/components/organisms/SettingsProfileForm.re.mjs:335
 msgid "Active"
 msgstr "進行中"
 
@@ -29,7 +29,7 @@ msgstr "加入主畫面以啟用通知"
 msgid "Advanced"
 msgstr "進階"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:366
+#: src/components/organisms/SettingsProfileForm.re.mjs:374
 msgid ""
 "Attendees of your paid events save a card when they RSVP; nothing is charged "
 "up front. From an event's RSVP list you can charge one attendee or everyone, "
@@ -38,7 +38,7 @@ msgstr ""
 "你的付費活動參加者報名時會儲存卡片，事前不會扣款。你可從活動的報名名單向單一"
 "參加者或所有人收費，款項會進入此帳戶。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:360
+#: src/components/organisms/SettingsProfileForm.re.mjs:368
 msgid ""
 "Attendees of your paid events still save a card when they RSVP, but it can't "
 "be charged, so you collect the fee at the event. Connect a Stripe account to "
@@ -47,7 +47,7 @@ msgstr ""
 "你的付費活動參加者報名時仍會儲存卡片，但無法扣款，因此需於活動現場收費。連結 "
 "Stripe 帳戶即可從報名名單向已儲存的卡片收費，並在此收款。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:420
+#: src/components/organisms/SettingsProfileForm.re.mjs:428
 msgid "Australia"
 msgstr "澳洲"
 
@@ -55,67 +55,123 @@ msgstr "澳洲"
 msgid "Beginner"
 msgstr "初學者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:558
+#: src/components/organisms/SettingsProfileForm.re.mjs:566
 msgid "Biography"
 msgstr "個人簡介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:424
+#: src/components/organisms/SettingsProfileForm.re.mjs:432
 msgid "Canada"
 msgstr "加拿大"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+#: src/components/organisms/DuprConnectCard.re.mjs:407
+msgid "Cancel"
+msgstr "取消"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
 msgstr "完全初學者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:389
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:397
 msgid "Connect Stripe account"
 msgstr "連接 Stripe 帳戶"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:385
+#: src/components/organisms/SettingsProfileForm.re.mjs:393
 msgid "Connecting..."
 msgstr "連接中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:405
+#: src/components/organisms/DuprConnectCard.re.mjs:156
+#: src/components/organisms/DuprConnectCard.re.mjs:226
+#: src/components/organisms/DuprConnectCard.re.mjs:260
+msgid "Couldn't reach DUPR. Please try again in a moment."
+msgstr "無法連線至 DUPR，請稍後再試。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:413
 msgid "Country"
 msgstr "國家"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:474
+msgid "Create one at mydupr.com or in the DUPR app"
+msgstr "可至 mydupr.com 或 DUPR App 建立帳號"
 
 #: src/components/shared/PushNotifications.re.mjs:402
 msgid "Disable notifications"
 msgstr "停用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:493
+#: src/components/organisms/DuprConnectCard.re.mjs:443
+msgid "Disconnect DUPR"
+msgstr "解除連結 DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:494
+msgid "Disconnect DUPR?"
+msgstr "要解除連結 DUPR 嗎？"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:501
 msgid "Display Name"
 msgstr "顯示名稱"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:510
+#: src/components/organisms/SettingsProfileForm.re.mjs:518
 msgid "Doe John"
 msgstr "李大明"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:471
+msgid "Don't have a DUPR account?"
+msgstr "還沒有 DUPR 帳號？"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+msgid "doubles"
+msgstr "雙打"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:423
+msgid "DUPR"
+msgstr "DUPR"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:318
+msgid "DUPR ID"
+msgstr "DUPR ID"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:152
+#: src/components/organisms/DuprConnectCard.re.mjs:486
+msgid "DUPR linking isn't available right now."
+msgstr "目前無法連結 DUPR。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:389
+msgid "DUPR login"
+msgstr "DUPR 登入"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+msgid "DUPR sent something we couldn't read. Please try again."
+msgstr "DUPR 回傳的資料無法解讀，請再試一次。"
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
 msgstr "啟用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Estimated DUPR"
 msgstr "預估 DUPR"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:532
+#: src/components/organisms/SettingsProfileForm.re.mjs:540
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:514
 msgid "Full name"
 msgstr "全名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:521
+#: src/components/organisms/SettingsProfileForm.re.mjs:529
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:436
+#: src/components/organisms/SettingsProfileForm.re.mjs:444
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:497
+#: src/components/organisms/SettingsProfileForm.re.mjs:505
 msgid "How you appear to other players"
 msgstr "您在其他球員面前的顯示名稱"
 
@@ -131,31 +187,69 @@ msgstr "中級"
 msgid "Intermediate+"
 msgstr "中級+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:412
+#: src/components/organisms/SettingsProfileForm.re.mjs:420
 msgid "Japan"
 msgstr "日本"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:573
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+msgid "Last synced"
+msgstr "上次同步"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:581
 msgid "Level"
 msgstr "等級"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:331
+msgid ""
+"Link your DUPR account to use your verified DUPR rating here. While it's "
+"linked, it replaces your self-rating."
+msgstr ""
+"連結你的 DUPR 帳號，即可在此使用已驗證的 DUPR 評分。連結期間將取代你的自評分"
+"數。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:266
+msgid "Linked"
+msgstr "已連結"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:271
+msgid "Linking"
+msgstr "連結中"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:360
+msgid "Linking your account…"
+msgstr "正在連結你的帳號…"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:384
+msgid "Loading DUPR…"
+msgstr "正在載入 DUPR…"
 
 #: src/components/shared/PushNotifications.re.mjs:395
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:528
+#: src/components/organisms/DuprConnectCard.re.mjs:375
+#: src/components/organisms/DuprConnectCard.re.mjs:457
+msgid "Log in with DUPR"
+msgstr "使用 DUPR 登入"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:536
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:347
+#: src/components/organisms/SettingsProfileForm.re.mjs:355
 msgid "No Stripe account is connected."
 msgstr "尚未連結 Stripe 帳戶。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:321
+#: src/components/organisms/SettingsProfileForm.re.mjs:329
 msgid "Not connected"
 msgstr "未連接"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:619
+#: src/components/organisms/DuprConnectCard.re.mjs:274
+#: src/components/organisms/DuprConnectCard.re.mjs:278
+msgid "Not linked"
+msgstr "未連結"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:654
 msgid "Notifications"
 msgstr "通知"
 
@@ -165,17 +259,30 @@ msgid ""
 "settings and allow notifications for this site."
 msgstr "通知已被封鎖。如需啟用，請前往裝置或瀏覽器設定，並允許此網站發送通知。"
 
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+msgid "NR"
+msgstr "NR"
+
 #: src/components/shared/InstallPwa.re.mjs:289
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "從主畫面開啟應用程式並啟用通知"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:324
+#: src/components/organisms/SettingsProfileForm.re.mjs:332
 msgid "Pending"
 msgstr "待審核"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+msgid "pkuru"
+msgstr "pkuru"
 
 #: src/components/molecules/LevelPicker.re.mjs:47
 msgid "Pro"
 msgstr "專業"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+msgid "provisional"
+msgstr "暫定"
 
 #: src/components/shared/PushNotifications.re.mjs:302
 msgid ""
@@ -183,15 +290,15 @@ msgid ""
 "settings for this site, then try again."
 msgstr "推播通知已被封鎖。請檢查此網站的瀏覽器或裝置通知設定，然後再試一次。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:627
+#: src/components/organisms/SettingsProfileForm.re.mjs:662
 msgid "Receive push notifications for event reminders and updates."
 msgstr "接收賽事提醒與更新的推播通知。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:392
+#: src/components/organisms/SettingsProfileForm.re.mjs:400
 msgid "Resume onboarding"
 msgstr "繼續設定"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:605
+#: src/components/organisms/SettingsProfileForm.re.mjs:640
 msgid "Save profile"
 msgstr "儲存個人資料"
 
@@ -203,29 +310,45 @@ msgstr "向下捲動並點按"
 msgid "seeking a doubles partner"
 msgstr "尋找雙打搭檔"
 
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+msgid "Self-rated"
+msgstr "自評"
+
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
 "shows a badge next to your name in RSVP lists to tell people you are looking "
 "for a partner"
 msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:432
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+msgid ""
+"Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
+"never your DUPR password."
+msgstr ""
+"登入 DUPR 以連結帳號。我們只會儲存你的 DUPR ID 與評分，絕不會儲存你的 DUPR 密"
+"碼。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:440
 msgid "Singapore"
 msgstr "新加坡"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:513
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+msgid "singles"
+msgstr "單打"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:521
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活動需要您在證件上顯示的法定姓名。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:444
+#: src/components/organisms/SettingsProfileForm.re.mjs:452
 msgid "South Korea"
 msgstr "南韓"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:641
+#: src/components/organisms/SettingsProfileForm.re.mjs:682
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:440
+#: src/components/organisms/SettingsProfileForm.re.mjs:448
 msgid "Taiwan"
 msgstr "台灣"
 
@@ -233,23 +356,31 @@ msgstr "台灣"
 msgid "Tap the Share button"
 msgstr "點按分享按鈕"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:564
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
 msgid "tell us a little about yourself"
 msgstr "告訴我們一些關於您自己的事"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:562
+#: src/components/organisms/SettingsProfileForm.re.mjs:570
 msgid "Tell us a little about yourself..."
 msgstr "請告訴我們一些關於您自己的事..."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:428
+#: src/components/organisms/DuprConnectCard.re.mjs:150
+msgid "That DUPR account is already linked to another player."
+msgstr "該 DUPR 帳號已連結至其他球員。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:154
+msgid "That DUPR sign-in has expired. Please try again."
+msgstr "此 DUPR 登入已逾期，請再試一次。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:436
 msgid "United Kingdom"
 msgstr "英國"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:416
+#: src/components/organisms/SettingsProfileForm.re.mjs:424
 msgid "United States"
 msgstr "美國"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:363
+#: src/components/organisms/SettingsProfileForm.re.mjs:371
 msgid ""
 "Until onboarding is complete, your paid events run on the platform account: "
 "attendees save a card when they RSVP, but you can't charge it. Collect the "
@@ -258,15 +389,27 @@ msgstr ""
 "在完成設定之前，你的付費活動會使用平台帳戶：參加者報名時會儲存卡片，但你無法"
 "扣款。請於活動現場收費。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:585
+#: src/components/organisms/DuprConnectCard.re.mjs:495
+msgid ""
+"Your DUPR rating will stop being used here and your self-rating picker comes "
+"back."
+msgstr "此處將不再使用你的 DUPR 評分，並恢復自評分數選擇。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:603
+msgid ""
+"Your rating comes from DUPR. Disconnect DUPR below to set your own level "
+"again."
+msgstr ""
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"
 msgstr "您自行申報的技術等級"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:350
+#: src/components/organisms/SettingsProfileForm.re.mjs:358
 msgid "Your Stripe account is connected, but onboarding isn't complete yet."
 msgstr "你的 Stripe 帳戶已連結，但尚未完成設定。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:353
+#: src/components/organisms/SettingsProfileForm.re.mjs:361
 msgid "Your Stripe account is connected."
 msgstr "你的 Stripe 帳戶已連結。"
 
