@@ -9,7 +9,9 @@ import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as FramerMotion from "framer-motion";
+import * as EffectiveRating from "../../lib/EffectiveRating.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as RatingSourceChip from "../molecules/RatingSourceChip.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as PlayerInviteSwipeDeck_user_graphql from "../../__generated__/PlayerInviteSwipeDeck_user_graphql.re.mjs";
@@ -113,13 +115,15 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
       ]);
   var displayName = profile.displayName;
   var selfDupr = profile.selfDupr;
-  var selfLevel = Core__Option.flatMap(Core__Option.map(selfDupr, LevelPicker.nearest), (function (v) {
+  var computedDupr = profile.computedDupr;
+  var declared = EffectiveRating.resolve(undefined, profile.duprDoubles, profile.duprReliable, Core__Option.map(selfDupr, Rating.duprToMu));
+  var declaredDupr = Core__Option.map(declared, EffectiveRating.dupr);
+  var selfLevel = Core__Option.flatMap(Core__Option.map(declaredDupr, LevelPicker.nearest), (function (v) {
           return LevelPicker.options().find(function (o) {
                       return LevelPicker.isSelected(v, o.value);
                     });
         }));
-  var computedDupr = profile.computedDupr;
-  var visualRating = Core__Option.getOr(Core__Option.orElse(computedDupr, selfDupr), 0);
+  var visualRating = Core__Option.getOr(Core__Option.orElse(computedDupr, declaredDupr), 0);
   var ringProgress = Math.min(visualRating / 5, 1);
   var circumference = 2 * Math.PI * 37;
   var ringColor = visualRating >= 4 ? "#7c3aed" : (
@@ -161,10 +165,42 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
     var initials = initialsOf(displayName);
     tmp$2 = initials === "" ? "?" : initials;
   }
-  var bio = profile.biography;
   var tmp$3;
+  if (selfLevel !== undefined) {
+    var tmp$4;
+    if (declared !== undefined) {
+      var r = Caml_option.valFromOption(declared);
+      tmp$4 = JsxRuntime.jsx(RatingSourceChip.make, {
+            source: EffectiveRating.source(r),
+            reliable: EffectiveRating.reliable(r),
+            className: "mt-1"
+          });
+    } else {
+      tmp$4 = null;
+    }
+    tmp$3 = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+          children: [
+            JsxRuntime.jsx("p", {
+                  children: selfLevel.label,
+                  className: "mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100"
+                }),
+            JsxRuntime.jsx("p", {
+                  children: selfLevel.range,
+                  className: "mt-0.5 font-mono text-[10px] text-gray-500 dark:text-gray-400"
+                }),
+            tmp$4
+          ]
+        });
+  } else {
+    tmp$3 = JsxRuntime.jsx("p", {
+          children: t`Not provided`,
+          className: "mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100"
+        });
+  }
+  var bio = profile.biography;
+  var tmp$5;
   if (mode === "Invite") {
-    tmp$3 = JsxRuntime.jsxs("div", {
+    tmp$5 = JsxRuntime.jsxs("div", {
           children: [
             JsxRuntime.jsx("p", {
                   children: t`Available for the full event`,
@@ -181,7 +217,7 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
     var note = Core__Option.filter(profile.note, (function (n) {
             return n.trim() !== "";
           }));
-    tmp$3 = JsxRuntime.jsxs("div", {
+    tmp$5 = JsxRuntime.jsxs("div", {
           children: [
             JsxRuntime.jsx("p", {
                   children: t`Waiting for approval to join`,
@@ -198,8 +234,8 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
           className: "mt-4 w-full rounded-xl border border-amber-100 bg-amber-50/70 p-3 dark:border-amber-900/50 dark:bg-amber-950/20"
         });
   }
-  var tmp$4;
-  tmp$4 = mode === "Invite" ? t`Invite to ${eventTitle}` : t`Approve for ${eventTitle}`;
+  var tmp$6;
+  tmp$6 = mode === "Invite" ? t`Invite to ${eventTitle}` : t`Approve for ${eventTitle}`;
   return JsxRuntime.jsxs(FramerMotion.motion.article, {
               custom: directionToString(props.exitDirection),
               style: {
@@ -294,24 +330,10 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("p", {
-                                              children: t`Self-rating`,
+                                              children: t`Declared rating`,
                                               className: "font-mono text-[9px] uppercase tracking-wider text-gray-400 dark:text-gray-500"
                                             }),
-                                        selfLevel !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                                                children: [
-                                                  JsxRuntime.jsx("p", {
-                                                        children: selfLevel.label,
-                                                        className: "mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                                      }),
-                                                  JsxRuntime.jsx("p", {
-                                                        children: selfLevel.range,
-                                                        className: "mt-0.5 font-mono text-[10px] text-gray-500 dark:text-gray-400"
-                                                      })
-                                                ]
-                                              }) : JsxRuntime.jsx("p", {
-                                                children: t`Not provided`,
-                                                className: "mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100"
-                                              })
+                                        tmp$3
                                       ],
                                       className: "rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#222326]"
                                     }),
@@ -355,12 +377,12 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
                                 ],
                                 className: "mt-4 w-full"
                               }) : null,
-                        tmp$3
+                        tmp$5
                       ],
                       className: "flex flex-1 flex-col items-center overflow-y-auto p-7"
                     }),
                 JsxRuntime.jsx("footer", {
-                      children: tmp$4,
+                      children: tmp$6,
                       className: "flex-shrink-0 border-t border-gray-100 bg-gray-50 p-4 text-center text-xs font-medium text-gray-500 dark:border-[#3a3b40] dark:bg-[#2a2b30] dark:text-gray-400"
                     })
               ]
@@ -378,6 +400,12 @@ function PlayerInviteSwipeDeck$FragmentCard(props) {
   var profile_gender = user.gender;
   var profile_biography = user.biography;
   var profile_selfDupr = Core__Option.map(user.selfRating, Rating.guessDupr);
+  var profile_duprDoubles = Core__Option.flatMap(user.dupr, (function (d) {
+          return d.doubles;
+        }));
+  var profile_duprReliable = Core__Option.getOr(Core__Option.map(user.dupr, (function (d) {
+              return d.doublesReliable;
+            })), false);
   var profile_computedDupr = Core__Option.map(Core__Option.flatMap(user.rating, (function (r) {
               return r.mu;
             })), Rating.guessDupr);
@@ -387,6 +415,8 @@ function PlayerInviteSwipeDeck$FragmentCard(props) {
     gender: profile_gender,
     biography: profile_biography,
     selfDupr: profile_selfDupr,
+    duprDoubles: profile_duprDoubles,
+    duprReliable: profile_duprReliable,
     computedDupr: profile_computedDupr,
     note: undefined
   };

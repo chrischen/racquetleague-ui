@@ -4,6 +4,7 @@ import * as React from "react";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as ProfileModal from "../components/organisms/ProfileModal.re.mjs";
+import * as EffectiveRating from "../lib/EffectiveRating.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as UseProfileGate_query_graphql from "../__generated__/UseProfileGate_query_graphql.re.mjs";
@@ -48,9 +49,13 @@ function use$1(query, context, hasComputedRating) {
         }));
   var ratingOk = Core__Option.getOr(hasComputedRating, Core__Option.isSome(Core__Option.flatMap(profile, (function (u) {
                   return u.rating;
-                })))) || Core__Option.isSome(Core__Option.flatMap(profile, (function (u) {
-              return u.selfRating;
-            })));
+                })))) || Core__Option.isSome(EffectiveRating.resolve(undefined, Core__Option.flatMap(Core__Option.flatMap(profile, (function (u) {
+                      return u.dupr;
+                    })), (function (d) {
+                  return d.doubles;
+                })), false, Core__Option.flatMap(profile, (function (u) {
+                  return u.selfRating;
+                }))));
   var isComplete;
   if (profile !== undefined) {
     var base = nonEmpty(profile.lineUsername) && nonEmpty(profile.email) && ratingOk;

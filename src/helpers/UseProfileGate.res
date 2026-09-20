@@ -7,8 +7,8 @@
 //   Join         — display name, email
 //   Availability — display name, email, biography
 // Both additionally want a skill rating, but only from players we can't already
-// rate: a computed Rating (from played matches) satisfies it, so selfRating is
-// asked for only when there is none.
+// rate: a computed Rating (from played matches) satisfies it, as does a linked
+// DUPR rating, so the self-report is asked for only when there is neither.
 //
 // Callers keep owning their login redirects; `require` assumes a logged-in
 // viewer.
@@ -29,6 +29,9 @@ module Fragment = %relay(`
         email
         biography
         selfRating
+        dupr {
+          doubles
+        }
         rating(activitySlug: $activitySlug) {
           id
         }
@@ -58,10 +61,16 @@ let use = (
 
   let profile = data.viewer->Option.flatMap(v => v.profile)
 
+  // Any of the three signals clears the bar; which one would actually be
+  // used is EffectiveRating's call, not this gate's.
   let ratingOk =
-    hasComputedRating->Option.getOr(
-      profile->Option.flatMap(u => u.rating)->Option.isSome,
-    ) || profile->Option.flatMap(u => u.selfRating)->Option.isSome
+    hasComputedRating->Option.getOr(profile->Option.flatMap(u => u.rating)->Option.isSome) ||
+    EffectiveRating.resolve(
+      ~pkuruMu=None,
+      ~duprDoubles=profile->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
+      ~duprReliable=false,
+      ~selfMu=profile->Option.flatMap(u => u.selfRating),
+    )->Option.isSome
 
   let isComplete = switch profile {
   | None => false

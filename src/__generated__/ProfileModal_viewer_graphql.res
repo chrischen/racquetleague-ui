@@ -4,8 +4,13 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_viewer_profile = {
+  type rec fragment_viewer_profile_dupr = {
+    doubles: option<float>,
+    doublesReliable: bool,
+  }
+  and fragment_viewer_profile = {
     biography: option<string>,
+    dupr: option<fragment_viewer_profile_dupr>,
     email: option<string>,
     fullName: option<string>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
@@ -136,6 +141,31 @@ let node: operationType = %raw(json` {
               "args": null,
               "kind": "ScalarField",
               "name": "selfRating",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "DuprLink",
+              "kind": "LinkedField",
+              "name": "dupr",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doubles",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doublesReliable",
+                  "storageKey": null
+                }
+              ],
               "storageKey": null
             }
           ],

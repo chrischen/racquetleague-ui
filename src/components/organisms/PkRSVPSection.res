@@ -49,6 +49,10 @@ module Fragment = %relay(`
             picture
             biography
             selfRating
+            dupr {
+              doubles
+              doublesReliable
+            }
           }
           rating {
             ordinal
@@ -282,6 +286,8 @@ let make = (
           gender: u.gender,
           biography: u.biography,
           selfDupr: u.selfRating->Option.map(Rating.guessDupr),
+          duprDoubles: u.dupr->Option.flatMap(d => d.doubles),
+          duprReliable: u.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
           computedDupr: n.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
           note: n.message,
         }),

@@ -97,6 +97,10 @@ module UserFragment = %relay(`
     gender
     biography
     selfRating
+    dupr {
+      doubles
+      doublesReliable
+    }
     rating(activitySlug: $activitySlug) {
       id
       mu
@@ -115,6 +119,9 @@ type profile = {
   gender: option<RelaySchemaAssets_graphql.enum_Gender>,
   biography: option<string>,
   selfDupr: option<float>,
+  // A linked DUPR rating, which outranks the self-report wherever both exist.
+  duprDoubles: option<float>,
+  duprReliable: bool,
   computedDupr: option<float>,
   // Approve mode: the note the requester left on their RSVP.
   note: option<string>,
@@ -170,16 +177,27 @@ module ProfileCard = {
     let displayName = profile.displayName
 
     let selfDupr = profile.selfDupr
+    let computedDupr = profile.computedDupr
+
+    // The left tile shows what the player declares, which is their DUPR
+    // rating when they have linked one and their own estimate otherwise.
+    // EffectiveRating decides; the chip says which it picked.
+    let declared = EffectiveRating.resolve(
+      ~pkuruMu=None,
+      ~duprDoubles=profile.duprDoubles,
+      ~duprReliable=profile.duprReliable,
+      ~selfMu=selfDupr->Option.map(Rating.duprToMu),
+    )
+    let declaredDupr = declared->Option.map(EffectiveRating.dupr)
     let selfLevel =
-      selfDupr
+      declaredDupr
       ->Option.map(LevelPicker.nearest)
       ->Option.flatMap(v =>
         LevelPicker.options()->Array.find(o => LevelPicker.isSelected(Some(v), o.value))
       )
-    let computedDupr = profile.computedDupr
 
     // Ring around the avatar: strongest signal available, on a 0–5 DUPR axis.
-    let visualRating = computedDupr->Option.orElse(selfDupr)->Option.getOr(0.)
+    let visualRating = computedDupr->Option.orElse(declaredDupr)->Option.getOr(0.)
     let ringProgress = Js.Math.min_float(visualRating /. 5., 1.)
     let circumference = 2. *. Js.Math._PI *. 37.
     let ringColor = visualRating >= 4. ? "#7c3aed" : visualRating >= 3. ? "#ffb042" : "#94a3b8"
@@ -283,7 +301,7 @@ module ProfileCard = {
             className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#222326]">
             <p
               className="font-mono text-[9px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
-              {(ts`Self-rating`)->React.string}
+              {(ts`Declared rating`)->React.string}
             </p>
             {switch selfLevel {
             | Some(level) =>
@@ -294,6 +312,15 @@ module ProfileCard = {
                 <p className="mt-0.5 font-mono text-[10px] text-gray-500 dark:text-gray-400">
                   {level.range->React.string}
                 </p>
+                {switch declared {
+                | Some(r) =>
+                  <RatingSourceChip
+                    className="mt-1"
+                    source={EffectiveRating.source(r)}
+                    reliable={EffectiveRating.reliable(r)}
+                  />
+                | None => React.null
+                }}
               </>
             | None =>
               <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-gray-100">
@@ -409,6 +436,8 @@ module FragmentCard = {
       gender: user.gender,
       biography: user.biography,
       selfDupr: user.selfRating->Option.map(Rating.guessDupr),
+      duprDoubles: user.dupr->Option.flatMap(d => d.doubles),
+      duprReliable: user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
       computedDupr: user.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
       note: None,
     }

@@ -4,11 +4,15 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_viewer_profile_rating = {
+  type rec fragment_viewer_profile_dupr = {
+    doubles: option<float>,
+  }
+  and fragment_viewer_profile_rating = {
     @live id: string,
   }
   and fragment_viewer_profile = {
     biography: option<string>,
+    dupr: option<fragment_viewer_profile_dupr>,
     email: option<string>,
     @live id: string,
     lineUsername: option<string>,
@@ -123,6 +127,24 @@ return {
               "args": null,
               "kind": "ScalarField",
               "name": "selfRating",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "concreteType": "DuprLink",
+              "kind": "LinkedField",
+              "name": "dupr",
+              "plural": false,
+              "selections": [
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doubles",
+                  "storageKey": null
+                }
+              ],
               "storageKey": null
             },
             {

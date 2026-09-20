@@ -60,6 +60,10 @@ module Fragment = %relay(`
         biography
         gender
         selfRating
+        dupr {
+          doubles
+          doublesReliable
+        }
       }
     }
   }
@@ -130,6 +134,10 @@ let make = (
     ->Option.flatMap(u => u.selfRating)
     ->Option.map(mu => mu->Rating.guessDupr->LevelPicker.nearest)
 
+  // A linked DUPR rating already answers "how good are you?", so the picker
+  // steps aside rather than asking the same question a second way.
+  let duprLink = profile->Option.flatMap(u => u.dupr)
+
   let (gender, setGender) = React.useState(() => storedGender)
   let (level, setLevel) = React.useState(() => storedLevel)
 
@@ -186,7 +194,7 @@ let make = (
     watchedString(LineUsername)->String.trim != "" &&
     (emailExists || watchedString(Email)->String.trim != "") &&
     bio->String.trim != "" &&
-    level->Option.isSome &&
+    (duprLink->Option.isSome || level->Option.isSome) &&
     !isMutationInFlight
 
   let onSubmit = (data: inputs) => {
@@ -203,7 +211,9 @@ let make = (
             biography: data.biography,
             username: data.lineUsername,
             gender,
-            selfRating: ?level->Option.map(Rating.duprToMu),
+            // Omitted while DUPR is linked, so the stored self-report is
+            // left as it was rather than overwritten.
+            selfRating: ?(duprLink->Option.isSome ? None : level->Option.map(Rating.duprToMu)),
           },
         },
         ~onCompleted=(response, _) => {
@@ -415,7 +425,18 @@ let make = (
                       // Level
                       <div>
                         <span className={labelClass}> {(ts`Level`)->React.string} </span>
-                        <LevelPicker value=level onChange={v => setLevel(_ => Some(v))} />
+                        {switch duprLink {
+                        | Some(link) =>
+                          <div className="flex items-center gap-2">
+                            <DuprRatingBadge
+                              doubles={link.doubles}
+                              doublesReliable={link.doublesReliable}
+                              compact=true
+                            />
+                            <RatingSourceChip source=Dupr reliable={link.doublesReliable} />
+                          </div>
+                        | None => <LevelPicker value=level onChange={v => setLevel(_ => Some(v))} />
+                        }}
                       </div>
                       {switch saveError {
                       | Some(msg) => <p className="text-xs text-red-500"> {msg->React.string} </p>

@@ -242,6 +242,31 @@ return {
               },
               {
                 "alias": null,
+                "args": null,
+                "concreteType": "DuprLink",
+                "kind": "LinkedField",
+                "name": "dupr",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doubles",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doublesReliable",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
                 "args": [
                   {
                     "kind": "Literal",
@@ -361,12 +386,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e138abe0128a2eecea24bee9b8c42cc0",
+    "cacheID": "b9e825c34fc286241974ba28fd05391e",
     "id": null,
     "metadata": {},
     "name": "PkuruLayoutQuery",
     "operationKind": "query",
-    "text": "query PkuruLayoutQuery {\n  ...UseProfileGate_query\n  viewer {\n    user {\n      id\n    }\n    viewerMetadata {\n      id\n      unreadInboxCount\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n      selfRating\n    }\n  }\n}\n\nfragment UseProfileGate_query on Query {\n  ...ProfileModal_viewer\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      biography\n      selfRating\n      rating(activitySlug: \"pickleball\") {\n        id\n      }\n    }\n  }\n}\n"
+    "text": "query PkuruLayoutQuery {\n  ...UseProfileGate_query\n  viewer {\n    user {\n      id\n    }\n    viewerMetadata {\n      id\n      unreadInboxCount\n    }\n    ...GlobalQueryProvider_viewer\n    ...NavViewer_viewer\n    ...NotificationsPreview_viewer\n  }\n}\n\nfragment GlobalQueryProvider_viewer on Viewer {\n  user {\n    id\n    lineUsername\n    locale\n  }\n}\n\nfragment NavViewer_viewer on Viewer {\n  user {\n    lineUsername\n    picture\n    id\n  }\n}\n\nfragment NotificationsPreview_viewer on Viewer {\n  inbox(first: 5) {\n    edges {\n      node {\n        id\n        topic\n        payload\n        createdAt\n        isRead\n      }\n    }\n  }\n}\n\nfragment ProfileModal_viewer on Query {\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      fullName\n      biography\n      gender\n      selfRating\n      dupr {\n        doubles\n        doublesReliable\n      }\n    }\n  }\n}\n\nfragment UseProfileGate_query on Query {\n  ...ProfileModal_viewer\n  viewer {\n    profile {\n      id\n      lineUsername\n      email\n      biography\n      selfRating\n      dupr {\n        doubles\n      }\n      rating(activitySlug: \"pickleball\") {\n        id\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

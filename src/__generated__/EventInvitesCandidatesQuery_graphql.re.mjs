@@ -260,6 +260,31 @@ return {
               },
               {
                 "alias": null,
+                "args": null,
+                "concreteType": "DuprLink",
+                "kind": "LinkedField",
+                "name": "dupr",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doubles",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doublesReliable",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
                 "args": (v9/*: any*/),
                 "concreteType": "Rating",
                 "kind": "LinkedField",
@@ -287,12 +312,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1f04d1ba409c2afdea92ed98154f6a88",
+    "cacheID": "3667ecab54704154d4e01c4017543b3f",
     "id": null,
     "metadata": {},
     "name": "EventInvitesCandidatesQuery",
     "operationKind": "query",
-    "text": "query EventInvitesCandidatesQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $activitySlug: String!\n) {\n  availabilityUsersForDay(localDate: $localDate, scope: {activityId: $activityId, clubId: $clubId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n      ...PlayerInviteSwipeDeck_user_36AXNO\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayerInviteSwipeDeck_user_36AXNO on User {\n  id\n  lineUsername\n  picture\n  gender\n  biography\n  selfRating\n  rating(activitySlug: $activitySlug) {\n    id\n    mu\n  }\n}\n"
+    "text": "query EventInvitesCandidatesQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $activitySlug: String!\n) {\n  availabilityUsersForDay(localDate: $localDate, scope: {activityId: $activityId, clubId: $clubId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n      ...PlayerInviteSwipeDeck_user_36AXNO\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayerInviteSwipeDeck_user_36AXNO on User {\n  id\n  lineUsername\n  picture\n  gender\n  biography\n  selfRating\n  dupr {\n    doubles\n    doublesReliable\n  }\n  rating(activitySlug: $activitySlug) {\n    id\n    mu\n  }\n}\n"
   }
 };
 })());

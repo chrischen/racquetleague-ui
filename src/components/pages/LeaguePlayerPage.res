@@ -14,6 +14,13 @@ module UserStatsFragment = %relay(`
       ordinal
       mu
     }
+    dupr {
+      duprId
+      doubles
+      singles
+      doublesReliable
+      singlesReliable
+    }
     leagueUserStats(activity: $activitySlug, namespace: "doubles:comp", clubSlug: $clubSlug) {
       daysNumberOne
       mdRating {
@@ -629,6 +636,22 @@ module PlayerContent = {
                   })
                   ->Option.getOr(React.null)
                 | _ => React.null
+                }}
+                // The player's own DUPR rating, when they have linked their
+                // account. Distinct from the estimate above, which is this
+                // platform's rating expressed on the DUPR scale.
+                {switch statsData.dupr {
+                | Some(link) =>
+                  <div>
+                    <div className="text-sm text-gray-500 mb-1"> {t`DUPR`} </div>
+                    <DuprRatingBadge
+                      doubles={link.doubles}
+                      singles=?link.singles
+                      doublesReliable={link.doublesReliable}
+                      singlesReliable={link.singlesReliable}
+                    />
+                  </div>
+                | None => React.null
                 }}
                 // Days spent as the #1 rated player of their gender pool
                 {statsData.leagueUserStats

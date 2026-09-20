@@ -9,9 +9,11 @@ import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as FramerMotion from "framer-motion";
+import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
+import * as RatingSourceChip from "../molecules/RatingSourceChip.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -164,6 +166,9 @@ function ProfileModal(props) {
             })), (function (mu) {
           return LevelPicker.nearest(Rating.guessDupr(mu));
         }));
+  var duprLink = Core__Option.flatMap(profile, (function (u) {
+          return u.dupr;
+        }));
   var match$5 = React.useState(function () {
         return storedGender;
       });
@@ -228,7 +233,7 @@ function ProfileModal(props) {
     }
   };
   var bio = watchedString("biography");
-  var canSave = watchedString("lineUsername").trim() !== "" && (emailExists || watchedString("email").trim() !== "") && bio.trim() !== "" && Core__Option.isSome(level) && !isMutationInFlight;
+  var canSave = watchedString("lineUsername").trim() !== "" && (emailExists || watchedString("email").trim() !== "") && bio.trim() !== "" && (Core__Option.isSome(duprLink) || Core__Option.isSome(level)) && !isMutationInFlight;
   var onSubmit = function (data) {
     setEmailError(function (param) {
           
@@ -244,7 +249,7 @@ function ProfileModal(props) {
                           return u.fullName;
                         })), ""),
               gender: gender,
-              selfRating: Core__Option.map(level, Rating.duprToMu),
+              selfRating: Core__Option.isSome(duprLink) ? undefined : Core__Option.map(level, Rating.duprToMu),
               username: data.lineUsername
             }
           }, undefined, undefined, undefined, (function (response, param) {
@@ -542,14 +547,27 @@ function ProfileModal(props) {
                                                                         children: t`Level`,
                                                                         className: labelClass
                                                                       }),
-                                                                  JsxRuntime.jsx(LevelPicker.make, {
-                                                                        value: level,
-                                                                        onChange: (function (v) {
-                                                                            setLevel(function (param) {
-                                                                                  return v;
-                                                                                });
-                                                                          })
-                                                                      })
+                                                                  duprLink !== undefined ? JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx(DuprRatingBadge.make, {
+                                                                                  doubles: duprLink.doubles,
+                                                                                  doublesReliable: duprLink.doublesReliable,
+                                                                                  compact: true
+                                                                                }),
+                                                                            JsxRuntime.jsx(RatingSourceChip.make, {
+                                                                                  source: "Dupr",
+                                                                                  reliable: duprLink.doublesReliable
+                                                                                })
+                                                                          ],
+                                                                          className: "flex items-center gap-2"
+                                                                        }) : JsxRuntime.jsx(LevelPicker.make, {
+                                                                          value: level,
+                                                                          onChange: (function (v) {
+                                                                              setLevel(function (param) {
+                                                                                    return v;
+                                                                                  });
+                                                                            })
+                                                                        })
                                                                 ]
                                                               }),
                                                           saveError !== undefined ? JsxRuntime.jsx("p", {

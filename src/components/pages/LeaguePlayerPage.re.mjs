@@ -8,6 +8,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as MatchHistoryList from "../organisms/MatchHistoryList.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -390,6 +391,7 @@ function LeaguePlayerPage$PlayerContent(props) {
                             ]
                           });
               })), null) : null;
+  var link = statsData.dupr;
   var stats = statsData.leagueUserStats;
   var tmp$1;
   if (stats !== undefined) {
@@ -905,6 +907,20 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                             ]
                                                           }),
                                                       tmp,
+                                                      link !== undefined ? JsxRuntime.jsxs("div", {
+                                                              children: [
+                                                                JsxRuntime.jsx("div", {
+                                                                      children: t`DUPR`,
+                                                                      className: "text-sm text-gray-500 mb-1"
+                                                                    }),
+                                                                JsxRuntime.jsx(DuprRatingBadge.make, {
+                                                                      doubles: link.doubles,
+                                                                      singles: link.singles,
+                                                                      doublesReliable: link.doublesReliable,
+                                                                      singlesReliable: link.singlesReliable
+                                                                    })
+                                                              ]
+                                                            }) : null,
                                                       Core__Option.getOr(Core__Option.map(Core__Option.flatMap(statsData.leagueUserStats, (function (stats) {
                                                                       if (stats.daysNumberOne > 0.0) {
                                                                         return stats.daysNumberOne;

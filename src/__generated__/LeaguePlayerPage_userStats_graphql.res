@@ -4,7 +4,14 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_leagueUserStats_bestOpponents_user = {
+  type rec fragment_dupr = {
+    doubles: option<float>,
+    doublesReliable: bool,
+    duprId: string,
+    singles: option<float>,
+    singlesReliable: bool,
+  }
+  and fragment_leagueUserStats_bestOpponents_user = {
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
@@ -275,6 +282,7 @@ module Types = {
     ordinal: option<float>,
   }
   type fragment = {
+    dupr: option<fragment_dupr>,
     @live id: string,
     leagueUserStats: option<fragment_leagueUserStats>,
     rating: option<fragment_rating>,
@@ -463,6 +471,52 @@ return {
           "storageKey": null
         },
         (v1/*: any*/)
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "DuprLink",
+      "kind": "LinkedField",
+      "name": "dupr",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "duprId",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doubles",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "singles",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doublesReliable",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "singlesReliable",
+          "storageKey": null
+        }
       ],
       "storageKey": null
     },
