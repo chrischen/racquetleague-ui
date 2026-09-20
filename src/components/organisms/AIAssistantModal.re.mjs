@@ -67,7 +67,7 @@ function AIAssistantModal(props) {
           });
       chatMutate({
             input: {
-              message: prompt
+              message: AIChatMessage.LocalTime.prepend(prompt)
             }
           }, undefined, undefined, undefined, (function (result, _errors) {
               var chatResponse = result.chat;

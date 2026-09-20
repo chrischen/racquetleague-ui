@@ -81,11 +81,11 @@ msgstr "오전"
 msgid "New plan"
 msgstr "새 계획"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "플레이어 가용성 히트맵"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "제거"
 
@@ -97,7 +97,7 @@ msgstr "저장"
 msgid "Select exactly one time window to host an event"
 msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 

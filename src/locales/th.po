@@ -8268,6 +8268,182 @@ msgstr "ถอดจากผู้ดูแล"
 msgid "Add Court"
 msgstr "เพิ่มสนาม"
 
+msgid "Open Play"
+msgstr "โอเพ่นเพลย์"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
+msgstr "ขอให้ผู้ช่วยกรอกรายละเอียดอีเวนต์ บทสนทนาของคุณจะแสดงที่นี่"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "อธิบายอีเวนต์ของคุณ แล้วฉันจะกรอกแบบฟอร์มให้…"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "กรอกแบบฟอร์ม"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
+msgstr "ซ่อนประวัติแชท AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
+msgstr "แสดงประวัติแชท AI"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:563
+msgid "This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "อีเวนต์นี้รับผู้เล่นตามระดับฝีมือ ไม่ใช่ตามลำดับการตอบรับ คำขอของคุณจะได้รับการพิจารณา และคุณจะได้รับแจ้งเมื่อยืนยันที่นั่งแล้ว"
+
+#: src/components/molecules/TimeZoneField.re.mjs:132
+msgid "{place} Time"
+msgstr "เวลา{place}"
+
+#: src/components/pages/CreateEventPage.re.mjs:289
+msgid "AI-assisted event form"
+msgstr "แบบฟอร์มอีเวนต์ที่มี AI ช่วย"
+
+#: src/components/molecules/TimeZoneField.re.mjs:70
+msgid "Alaska Time"
+msgstr "เวลาอะแลสกา"
+
+#: src/components/molecules/TimeZoneField.re.mjs:120
+msgid "American Samoa Time"
+msgstr "เวลาอเมริกันซามัว"
+
+#: src/components/molecules/TimeZoneField.re.mjs:82
+msgid "Arizona Time"
+msgstr "เวลาแอริโซนา"
+
+#: src/components/molecules/TimeZoneField.re.mjs:76
+msgid "Atlantic Time"
+msgstr "เวลาแอตแลนติก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "ผู้เข้าร่วมจะถูกขอให้บันทึกบัตรเมื่อตอบรับ แต่จะไม่มีการอนุมัติหรือเรียกเก็บเงิน และคุณไม่สามารถเรียกเก็บจากที่นี่ได้ กรุณาเก็บค่าธรรมเนียมที่งาน สมาชิกคลับได้รับการยกเว้น"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:865
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "ผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ โดยไม่มีการเรียกเก็บหรือกันวงเงินล่วงหน้า จากรายชื่อผู้ตอบรับ คุณสามารถเรียกเก็บเงินจากผู้เข้าร่วมรายใดรายหนึ่งหรือทุกคนเมื่อใดก็ได้ และเงินจะเข้าบัญชี Stripe ของคุณ สมาชิกคลับจะได้รับการยกเว้นหรือไม่ก็ได้ ซึ่งคุณสามารถเปิด/ปิดได้ที่หน้าแรกของคลับ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:96
+msgid "Central Australia Time"
+msgstr "เวลาออสเตรเลียกลาง"
+
+#: src/components/molecules/TimeZoneField.re.mjs:104
+msgid "Central European Time"
+msgstr "เวลายุโรปกลาง"
+
+#: src/components/molecules/TimeZoneField.re.mjs:72
+msgid "Central Time"
+msgstr "เวลากลาง"
+
+#: src/components/molecules/TimeZoneField.re.mjs:90
+msgid "China Time"
+msgstr "เวลาจีน"
+
+#: src/components/molecules/TimeZoneField.re.mjs:122
+msgid "Coordinated Universal Time"
+msgstr "เวลามาตรฐานสากล (UTC)"
+
+#: src/components/molecules/TimeZoneField.re.mjs:102
+msgid "Eastern Australia Time"
+msgstr "เวลาออสเตรเลียตะวันออก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:106
+msgid "Eastern European Time"
+msgstr "เวลายุโรปตะวันออก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:80
+msgid "Eastern Time"
+msgstr "เวลาตะวันออก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:116
+msgid "Hawaii Time"
+msgstr "เวลาฮาวาย"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "พักผู้เข้าร่วมใหม่ไว้ในรายการรออนุมัติ และรับผู้เล่นด้วยตนเองหรือโดยอัตโนมัติด้วยอัลกอริทึม Smart RSVPs ที่ช่วยเพิ่มระดับฝีมือและคุณภาพของการเล่นให้สูงสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Hold RSVPs"
+msgstr "พักการตอบรับ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:86
+msgid "India Time"
+msgstr "เวลาอินเดีย"
+
+#: src/components/molecules/TimeZoneField.re.mjs:94
+msgid "Japan Time"
+msgstr "เวลาญี่ปุ่น"
+
+#: src/components/molecules/TimeZoneField.re.mjs:88
+msgid "Korea Time"
+msgstr "เวลาเกาหลี"
+
+#: src/components/molecules/TimeZoneField.re.mjs:118
+msgid "Line Islands Time"
+msgstr "เวลาหมู่เกาะไลน์"
+
+#: src/components/molecules/TimeZoneField.re.mjs:126
+#: src/components/molecules/TimeZoneField.re.mjs:129
+msgid "Local time"
+msgstr "เวลาท้องถิ่น"
+
+#: src/components/molecules/TimeZoneField.re.mjs:74
+msgid "Mountain Time"
+msgstr "เวลาเขตเมาน์เทน"
+
+#: src/components/molecules/TimeZoneField.re.mjs:112
+msgid "New Zealand Time"
+msgstr "เวลานิวซีแลนด์"
+
+#: src/components/molecules/TimeZoneField.re.mjs:84
+msgid "Newfoundland Time"
+msgstr "เวลานิวฟันด์แลนด์"
+
+#: src/components/molecules/TimeZoneField.re.mjs:78
+msgid "Pacific Time"
+msgstr "เวลาแปซิฟิก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:98
+msgid "Queensland Time"
+msgstr "เวลาควีนส์แลนด์"
+
+#: src/components/molecules/TimeZoneField.re.mjs:110
+msgid "Samoa Time"
+msgstr "เวลาซามัว"
+
+#: src/components/molecules/TimeZoneField.re.mjs:92
+msgid "Singapore Time"
+msgstr "เวลาสิงคโปร์"
+
+#: src/components/molecules/TimeZoneField.re.mjs:114
+msgid "Solomon Islands Time"
+msgstr "เวลาหมู่เกาะโซโลมอน"
+
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:123
+msgid "Start time"
+msgstr "เวลาเริ่ม"
+
+#: src/components/molecules/TimeZoneField.re.mjs:108
+msgid "United Kingdom Time"
+msgstr "เวลาสหราชอาณาจักร"
+
+#: src/components/molecules/TimeZoneField.re.mjs:68
+msgid "West Africa Time"
+msgstr "เวลาแอฟริกาตะวันตก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:100
+msgid "Western Australia Time"
+msgstr "เวลาออสเตรเลียตะวันตก"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:960
+msgid "Women's Rating"
+msgstr "เรตติ้งหญิง"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -8477,6 +8653,3 @@ msgstr "เพิ่มสนาม"
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "ด้วยช่วงความต่างที่สมจริงราว 1.0 DUPR Competitive+ ทิ้งเส้นฐานตั้งแต่ไม่กี่รอบแรก และเมื่อจบหนึ่งเซสชันก็นำเส้นฐานแบบเลี่ยงเล่นซ้ำอยู่ 9 จุดในด้านคุณภาพ และ 10 จุดในด้านการชนะขาด ประโยชน์เต็มที่มาถึงเมื่อเรตติ้งนิ่ง: ชนะขาด 10% เทียบกับ 62% ของเส้นฐาน และโอกาส 78% ที่จะได้เกมสูสี เทียบกับ 53% ตัวเลขเมื่อเรตติ้งนิ่งเหล่านี้เทียบเท่าคลับที่คัดผู้เล่นระดับใกล้เคียงมาด้วยมือ (79% และ 8%) — อัลกอริทึมชดเชยด้วยการจับคู่ สิ่งที่ปกติคุณต้องได้จากการคัดกรองสมาชิก:"
-
-msgid "Open Play"
-msgstr "โอเพ่นเพลย์"

@@ -79,11 +79,11 @@ msgstr "上午"
 msgid "New plan"
 msgstr "新计划"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球员可用时间热力图"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
@@ -95,7 +95,7 @@ msgstr "保存"
 msgid "Select exactly one time window to host an event"
 msgstr "请选择恰好一个时间段来发起活动"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 

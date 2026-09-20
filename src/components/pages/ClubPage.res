@@ -58,7 +58,7 @@ module Query = %relay(`
         topPlayersMedianSkill
         retentionRate
       }
-      events(first: 5) {
+      events(first: 3) {
         edges {
           node {
             id
@@ -150,6 +150,10 @@ let cardClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark
 let checkboxClass = "mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]"
 
 let sectionLink = "text-xs font-semibold text-[#4d6f12] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d]"
+
+// The card's footer action. The home page only lists the next few events, so
+// this is the way through to the rest of them.
+let cardFooterAction = "flex items-center justify-center gap-1.5 border-t border-gray-200 px-4 py-3.5 text-sm font-semibold text-[#4d6f12] transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:border-[#3a3b40] dark:text-[#bdf25d] dark:hover:bg-[#222326]"
 
 let emptyState = "rounded-xl border border-dashed border-gray-300 bg-gray-50 px-5 py-10 text-center dark:border-[#3a3b40] dark:bg-[#1e1f23]"
 
@@ -327,7 +331,10 @@ module EventRow = {
 // "Today"/"Tomorrow" mean the same thing on both screens.
 module EventList = {
   @react.component
-  let make = (~events: array<ClubPageQuery_graphql.Types.response_club_events_edges_node>) => {
+  let make = (
+    ~events: array<ClubPageQuery_graphql.Types.response_club_events_edges_node>,
+    ~schedulePath: string,
+  ) => {
     open Lingui.Util
     let ts = Lingui.UtilString.t
     let intl = ReactIntl.useIntl()
@@ -399,6 +406,10 @@ module EventList = {
         <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">
           {t`Check back when the club publishes its next schedule.`}
         </p>
+        <Link to=schedulePath className={"mt-4 " ++ secondaryAction}>
+          <Lucide.CalendarDays size=13 \"aria-hidden"="true" />
+          {t`Full club schedule`}
+        </Link>
       </div>
     } else {
       <div className=cardClass>
@@ -424,6 +435,10 @@ module EventList = {
           </section>
         })
         ->React.array}
+        <Link to=schedulePath className=cardFooterAction>
+          {t`Full club schedule`}
+          <Lucide.ArrowRight size=16 \"aria-hidden"="true" />
+        </Link>
       </div>
     }
   }
@@ -760,22 +775,19 @@ let make = () => {
                   <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
                     {t`Upcoming Events`}
                   </h2>
-                  <div className="flex items-center gap-3">
-                    <Link to="./events" className=sectionLink> {t`Full club schedule`} </Link>
-                    // Only admins can create club events (the create page's club
-                    // picker offers admin clubs alone), so the button is gated
-                    // like "Manage members" and just links there with the club set.
-                    {viewerIsAdmin
-                      ? <Link
-                          to={createHref([("clubId", club.id)]->Array.concat(clubPrefill))}
-                          className=primaryAction>
-                          <Lucide.CalendarPlus size=13 \"aria-hidden"="true" />
-                          {t`Add Court`}
-                        </Link>
-                      : React.null}
-                  </div>
+                  // Only admins can create club events (the create page's club
+                  // picker offers admin clubs alone), so the button is gated
+                  // like "Manage members" and just links there with the club set.
+                  {viewerIsAdmin
+                    ? <Link
+                        to={createHref([("clubId", club.id)]->Array.concat(clubPrefill))}
+                        className=primaryAction>
+                        <Lucide.CalendarPlus size=13 \"aria-hidden"="true" />
+                        {t`Add Court`}
+                      </Link>
+                    : React.null}
                 </div>
-                <EventList events />
+                <EventList events schedulePath="./events" />
               </section>
               <section>
                 <TopPlayers players leaguePath />

@@ -218,7 +218,7 @@ function CreateEventPage$Body(props) {
                 });
           }));
   };
-  return JsxRuntime.jsxs("div", {
+  return JsxRuntime.jsxs("section", {
               children: [
                 JsxRuntime.jsx(AIAssistantEmbed.make, {
                       context: {
@@ -227,61 +227,67 @@ function CreateEventPage$Body(props) {
                       },
                       onSingleEventSuggested: handleSingleEventSuggested
                     }),
-                JsxRuntime.jsx(ClubActivitySelector.make, {
-                      query: queryData.fragmentRefs,
-                      initialClubId: clubIdParam,
-                      initialActivitySlug: activitySlugParam,
-                      initialActivityId: activityIdParam,
-                      onChange: (function (sel) {
-                          setClubSelection(function (param) {
-                                return sel;
-                              });
-                        }),
-                      triggerShake: match$4[0]
-                    }),
-                JsxRuntime.jsx(CreateLocationEventForm.make, {
-                      location: Core__Option.map(queryData.location, (function ($$location) {
-                              return $$location.fragmentRefs;
-                            })),
-                      onLocationSelected: (function (locationId) {
-                          React.startTransition(function () {
-                                setParams((function (prevParams) {
-                                        prevParams.set("locationId", locationId);
-                                        return prevParams;
-                                      }), {
-                                      replace: true
-                                    });
-                              });
-                          setAiLocationAddress(function (param) {
-                                
-                              });
-                        }),
-                      autoSearchAddress: match$2[0],
-                      stripeChargesEnabled: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(queryData.viewer, (function (v) {
-                                      return v.user;
-                                    })), (function (u) {
-                                  return u.stripeChargesEnabled;
-                                })), false),
-                      prefilledValues: Core__Option.orElse(Core__Option.orElse(match$1[0], copyPrefilledValues), initialPrefilledValues),
-                      selectedClub: clubSelection.clubId,
-                      selectedActivity: clubSelection.activityId,
-                      isClubFormOpen: clubSelection.isAddingClub,
-                      onClubFormSubmitBlocked: (function () {
-                          setShakeCounter(function (n) {
-                                return n + 1 | 0;
-                              });
-                        })
-                    }),
-                JsxRuntime.jsx("p", {
-                      children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                            to: "/events/create-bulk",
-                            children: t`Create multiple events instead`,
-                            className: "font-semibold text-[#4d6f12] hover:underline dark:text-[#bdf25d]"
-                          }),
-                      className: "text-center text-xs text-gray-500 dark:text-gray-400"
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx(ClubActivitySelector.make, {
+                              query: queryData.fragmentRefs,
+                              initialClubId: clubIdParam,
+                              initialActivitySlug: activitySlugParam,
+                              initialActivityId: activityIdParam,
+                              onChange: (function (sel) {
+                                  setClubSelection(function (param) {
+                                        return sel;
+                                      });
+                                }),
+                              triggerShake: match$4[0]
+                            }),
+                        JsxRuntime.jsx(CreateLocationEventForm.make, {
+                              location: Core__Option.map(queryData.location, (function ($$location) {
+                                      return $$location.fragmentRefs;
+                                    })),
+                              onLocationSelected: (function (locationId) {
+                                  React.startTransition(function () {
+                                        setParams((function (prevParams) {
+                                                prevParams.set("locationId", locationId);
+                                                return prevParams;
+                                              }), {
+                                              replace: true
+                                            });
+                                      });
+                                  setAiLocationAddress(function (param) {
+                                        
+                                      });
+                                }),
+                              autoSearchAddress: match$2[0],
+                              stripeChargesEnabled: Core__Option.getOr(Core__Option.flatMap(Core__Option.flatMap(queryData.viewer, (function (v) {
+                                              return v.user;
+                                            })), (function (u) {
+                                          return u.stripeChargesEnabled;
+                                        })), false),
+                              prefilledValues: Core__Option.orElse(Core__Option.orElse(match$1[0], copyPrefilledValues), initialPrefilledValues),
+                              selectedClub: clubSelection.clubId,
+                              selectedActivity: clubSelection.activityId,
+                              isClubFormOpen: clubSelection.isAddingClub,
+                              onClubFormSubmitBlocked: (function () {
+                                  setShakeCounter(function (n) {
+                                        return n + 1 | 0;
+                                      });
+                                })
+                            }),
+                        JsxRuntime.jsx("p", {
+                              children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                    to: "/events/create-bulk",
+                                    children: t`Create multiple events instead`,
+                                    className: "font-semibold text-[#4d6f12] hover:underline dark:text-[#bdf25d]"
+                                  }),
+                              className: "text-center text-xs text-gray-500 dark:text-gray-400"
+                            })
+                      ],
+                      className: "relative z-10 -mt-3 min-w-0 space-y-4 rounded-t-2xl bg-white px-4 pt-4 dark:bg-[#1e1f23]"
                     })
               ],
-              className: "space-y-4"
+              "aria-label": t`AI-assisted event form`,
+              className: "-mx-4 -mt-4 overflow-x-clip"
             });
 }
 
@@ -335,10 +341,10 @@ function CreateEventPage(props) {
                                 return JsxRuntime.jsx(CreateEventPage$Body, {});
                               })
                           }),
-                      className: "mx-auto max-w-2xl px-4 py-6"
+                      className: "mx-auto max-w-2xl px-4 py-4"
                     })
               ],
-              className: "min-h-screen w-full bg-gray-50 text-gray-900 transition-colors dark:bg-[#111111] dark:text-gray-100"
+              className: "min-h-screen w-full bg-white text-gray-900 transition-colors dark:bg-[#1e1f23] dark:text-gray-100"
             });
 }
 

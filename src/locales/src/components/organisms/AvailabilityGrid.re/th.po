@@ -51,11 +51,11 @@ msgstr "ให้เจ้าภาพจัดตารางอีเวนต
 msgid "One-off"
 msgstr "ครั้งเดียว"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "ลบ"
 
@@ -75,7 +75,7 @@ msgstr "ตารางเวลา"
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 

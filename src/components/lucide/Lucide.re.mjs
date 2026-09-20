@@ -73,6 +73,8 @@ var Layers = {};
 
 var Pencil = {};
 
+var MessageSquare = {};
+
 var MessageCircle = {};
 
 var Bell = {};
@@ -262,6 +264,7 @@ export {
   Mail ,
   Layers ,
   Pencil ,
+  MessageSquare ,
   MessageCircle ,
   Bell ,
   ChevronUp ,

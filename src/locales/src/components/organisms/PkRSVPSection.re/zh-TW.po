@@ -13,19 +13,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:703
+#: src/components/organisms/PkRSVPSection.re.mjs:696
 msgid "· {0} pending"
 msgstr "· {0} 待處理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:701
+#: src/components/organisms/PkRSVPSection.re.mjs:694
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候補"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:698
+#: src/components/organisms/PkRSVPSection.re.mjs:691
 msgid "{0} joined"
 msgstr "{0} 已參加"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:815
+#: src/components/organisms/PkRSVPSection.re.mjs:808
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技術"
 
@@ -70,7 +70,7 @@ msgstr "全程皆可參加"
 msgid "Back to event"
 msgstr "返回活動"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:447
+#: src/components/organisms/PkRSVPSection.re.mjs:440
 msgid "balanced"
 msgstr "平衡"
 
@@ -103,7 +103,7 @@ msgstr "扣款失敗"
 msgid "Charge payment"
 msgstr "收取款項"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1110
+#: src/components/organisms/PkRSVPSection.re.mjs:1093
 msgid "Clear preview"
 msgstr "清除預覽"
 
@@ -127,16 +127,16 @@ msgstr "計算評級"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:902
+#: src/components/organisms/PkRSVPSection.re.mjs:895
 msgid "Confirmed · {0}"
 msgstr "已確認 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1186
+#: src/components/organisms/PkRSVPSection.re.mjs:1169
 msgid "Court"
 msgstr "場地"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:789
-#: src/components/organisms/PkRSVPSection.re.mjs:806
+#: src/components/organisms/PkRSVPSection.re.mjs:782
+#: src/components/organisms/PkRSVPSection.re.mjs:799
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -144,11 +144,11 @@ msgstr "DUPR"
 msgid "DUPR level key"
 msgstr "DUPR 等級說明"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Evaluating pending requests…"
 msgstr "正在評估待處理的請求…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "even"
 msgstr "均衡"
 
@@ -214,8 +214,8 @@ msgstr "保留"
 msgid "Keep {0} pending"
 msgstr "保留 {0} 待審"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:591
-#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:584
+#: src/components/organisms/PkRSVPSection.re.mjs:605
 msgid "LEVEL RESTRICTION"
 msgstr "等級限制"
 
@@ -223,11 +223,11 @@ msgstr "等級限制"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:791
 msgid "MEDIAN"
 msgstr "中位數"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:443
 msgid "mixed"
 msgstr "混合"
 
@@ -256,7 +256,7 @@ msgstr "尚未評級"
 msgid "Open invite actions for {0}"
 msgstr "開啟 {0} 的邀請操作"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:670
+#: src/components/organisms/PkRSVPSection.re.mjs:663
 msgid "Participants"
 msgstr "參與者"
 
@@ -268,11 +268,11 @@ msgstr "付款已授權"
 msgid "Payment charged"
 msgstr "已完成扣款"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1035
+#: src/components/organisms/PkRSVPSection.re.mjs:1028
 msgid "Pending · {0}"
 msgstr "待處理 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Placing on the waitlist…"
 msgstr "正在加入候補名單…"
 
@@ -280,11 +280,11 @@ msgstr "正在加入候補名單…"
 msgid "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is {0}."
 msgstr "球員程度分佈為 DUPR 2.0 至 8.0。本場地最高 DUPR 為 {0}。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Preview Smart RSVP"
 msgstr "預覽智慧報名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Previewing…"
 msgstr "預覽中…"
 
@@ -305,11 +305,11 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:595
+#: src/components/organisms/PkRSVPSection.re.mjs:588
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:616
+#: src/components/organisms/PkRSVPSection.re.mjs:609
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "參加需要 DUPR {minDuprStr}以上"
 
@@ -317,7 +317,7 @@ msgstr "參加需要 DUPR {minDuprStr}以上"
 msgid "Retry charge"
 msgstr "重試扣款"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1051
+#: src/components/organisms/PkRSVPSection.re.mjs:1044
 msgid "Review {0} pending requests with swipe cards"
 msgstr "以滑動卡片審核 {0} 筆待審請求"
 
@@ -329,11 +329,7 @@ msgstr "以滑動卡片審閱 {0} 位潛在球員"
 msgid "Review requests"
 msgstr "審核請求"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1095
-msgid "Run Smart RSVP (best-fit, test)"
-msgstr "執行智慧 RSVP（最佳配對，測試）"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Run Smart RSVP now"
 msgstr "立即執行智慧 RSVP"
 
@@ -361,20 +357,20 @@ msgstr "跳過"
 msgid "Skip {0}"
 msgstr "跳過 {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:566
+#: src/components/organisms/PkRSVPSection.re.mjs:559
 msgid "SMART RSVP"
 msgstr "智慧報名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1108
+#: src/components/organisms/PkRSVPSection.re.mjs:1091
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr "智慧報名將從 {1} 筆待處理申請中錄取 {0} 筆：已於下方標示。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Smart Waitlist"
 msgstr "智慧候補名單"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:859
+#: src/components/organisms/PkRSVPSection.re.mjs:852
 msgid "SPREAD"
 msgstr "分布"
 
@@ -390,15 +386,16 @@ msgstr "向左滑動保留待審・向右滑動批准"
 msgid "Swipe left to skip · right to invite"
 msgstr "左滑跳過 · 右滑邀請"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1049
+#: src/components/organisms/PkRSVPSection.re.mjs:1042
 msgid "Swipe review"
 msgstr "滑動審核"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:570
+#: src/components/organisms/PkRSVPSection.re.mjs:563
 msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
-msgstr "本活動將自動錄取球友。您的申請將經過審核，確認名額後會通知您。"
+"This event admits players by level rather than by the time of RSVP. Your "
+"request will be reviewed and you will be notified once a spot is confirmed."
+msgstr ""
+"本活動依程度而非報名時間錄取球員。你的申請將經過審核，確認名額後會通知你。"
 
 #: src/components/organisms/RsvpOptions.re.mjs:347
 msgid ""
@@ -408,19 +405,19 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:781
+#: src/components/organisms/PkRSVPSection.re.mjs:774
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:744
+#: src/components/organisms/PkRSVPSection.re.mjs:737
 msgid "Top court DUPR"
 msgstr "最高球場 DUPR"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View less"
 msgstr "收合"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View more"
 msgstr "顯示更多"
 
@@ -433,15 +430,15 @@ msgstr "查看個人資料"
 msgid "Waiting for approval to join"
 msgstr "等待批准加入"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:969
+#: src/components/organisms/PkRSVPSection.re.mjs:962
 msgid "Waitlist · {0}"
 msgstr "候補名單 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1151
+#: src/components/organisms/PkRSVPSection.re.mjs:1134
 msgid "Would be admitted"
 msgstr "將被錄取"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:599
+#: src/components/organisms/PkRSVPSection.re.mjs:592
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -480,6 +477,16 @@ msgstr ""
 #~ "Player level distribution from DUPR 2.0 to 8.0. Top court DUPR is "
 #~ "{topSkill}."
 #~ msgstr "球員等級分布從 DUPR 2.0 到 8.0。最高球場 DUPR 為 {topSkill}。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:1095
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "執行智慧 RSVP（最佳配對，測試）"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:570
+#~ msgid ""
+#~ "This event admits players automatically. Your request will be reviewed "
+#~ "and you will be notified once a spot is confirmed."
+#~ msgstr "本活動將自動錄取球友。您的申請將經過審核，確認名額後會通知您。"
 
 #: src/components/organisms/PkRSVPSection.re.mjs:315
 #~ msgid ""

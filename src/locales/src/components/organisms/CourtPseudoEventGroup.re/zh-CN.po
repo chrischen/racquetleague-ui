@@ -147,11 +147,11 @@ msgstr "隐藏时段"
 msgid "Mark available"
 msgstr "标记为空闲"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球员可用时间热力图"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
@@ -171,7 +171,7 @@ msgstr "保存可用时间"
 msgid "Tap to add time in this slot"
 msgstr "点击在此时段添加时间"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 

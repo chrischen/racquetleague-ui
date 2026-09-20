@@ -69,8 +69,8 @@ msgstr "+{0}人他"
 msgid "Activity"
 msgstr "アクティビティ"
 
-#: src/components/organisms/RSVPSection.re.mjs:916
-#: src/components/organisms/RSVPSection.re.mjs:1016
+#: src/components/organisms/RSVPSection.re.mjs:899
+#: src/components/organisms/RSVPSection.re.mjs:999
 msgid "Add Member"
 msgstr "メンバーを追加"
 
@@ -130,7 +130,7 @@ msgstr "支払いを確定"
 msgid "Charge payment"
 msgstr "支払いを請求"
 
-#: src/components/organisms/RSVPSection.re.mjs:325
+#: src/components/organisms/RSVPSection.re.mjs:308
 msgid "Clear preview"
 msgstr "プレビューをクリア"
 
@@ -138,7 +138,7 @@ msgstr "プレビューをクリア"
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
 
-#: src/components/organisms/RSVPSection.re.mjs:933
+#: src/components/organisms/RSVPSection.re.mjs:916
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -234,7 +234,7 @@ msgstr "試合のスコアを入力"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "同点 — 引き分けとして記録されます"
 
-#: src/components/organisms/RSVPSection.re.mjs:292
+#: src/components/organisms/RSVPSection.re.mjs:276
 msgid "Evaluating pending requests…"
 msgstr "保留中のリクエストを評価しています…"
 
@@ -318,11 +318,11 @@ msgstr "離れました"
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/organisms/RSVPSection.re.mjs:1032
+#: src/components/organisms/RSVPSection.re.mjs:1015
 msgid "Load more"
 msgstr "もっと読み込む"
 
-#: src/components/organisms/RSVPSection.re.mjs:1029
+#: src/components/organisms/RSVPSection.re.mjs:1012
 msgid "Loading..."
 msgstr "読み込み中..."
 
@@ -387,7 +387,7 @@ msgstr "支払い済み"
 msgid "Pending"
 msgstr "保留中"
 
-#: src/components/organisms/RSVPSection.re.mjs:301
+#: src/components/organisms/RSVPSection.re.mjs:293
 msgid "Placing on the waitlist…"
 msgstr "キャンセル待ちに登録中…"
 
@@ -396,11 +396,11 @@ msgstr "キャンセル待ちに登録中…"
 msgid "Player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/RSVPSection.re.mjs:283
+#: src/components/organisms/RSVPSection.re.mjs:284
 msgid "Preview Smart RSVP"
 msgstr "スマートRSVPをプレビュー"
 
-#: src/components/organisms/RSVPSection.re.mjs:283
+#: src/components/organisms/RSVPSection.re.mjs:284
 msgid "Previewing…"
 msgstr "プレビュー中…"
 
@@ -452,7 +452,7 @@ msgstr "このRSVPを削除"
 msgid "Repeat"
 msgstr "繰り返し"
 
-#: src/components/organisms/RSVPSection.re.mjs:664
+#: src/components/organisms/RSVPSection.re.mjs:647
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "必要レーティング: {0} (DUPR {1})"
 
@@ -472,9 +472,9 @@ msgstr "ラウンド{0}"
 msgid "Round Robin Draws"
 msgstr "ラウンドロビン組み合わせ"
 
-#: src/components/organisms/RSVPSection.re.mjs:787
-#: src/components/organisms/RSVPSection.re.mjs:826
-#: src/components/organisms/RSVPSection.re.mjs:955
+#: src/components/organisms/RSVPSection.re.mjs:770
+#: src/components/organisms/RSVPSection.re.mjs:809
+#: src/components/organisms/RSVPSection.re.mjs:938
 msgid "RSVP"
 msgstr "参加申込"
 
@@ -482,15 +482,11 @@ msgstr "参加申込"
 msgid "RSVP Pending..."
 msgstr "参加申込 保留中..."
 
-#: src/components/organisms/RSVPSection.re.mjs:310
-msgid "Run Smart RSVP (best-fit, test)"
-msgstr "スマートRSVPを実行（最適マッチ、テスト）"
-
-#: src/components/organisms/RSVPSection.re.mjs:292
+#: src/components/organisms/RSVPSection.re.mjs:276
 msgid "Run Smart RSVP now"
 msgstr "今すぐスマートRSVPを実行"
 
-#: src/components/organisms/RSVPSection.re.mjs:465
+#: src/components/organisms/RSVPSection.re.mjs:448
 #: src/components/organisms/MatchCardEdit.re.mjs:76
 msgid "Save"
 msgstr "保存"
@@ -527,14 +523,14 @@ msgstr "折りたたむ"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/organisms/RSVPSection.re.mjs:323
+#: src/components/organisms/RSVPSection.re.mjs:306
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr ""
 "スマートRSVPは保留中のリクエスト{1}件のうち{0}件を承認します（上にマーク表"
 "示）。"
 
-#: src/components/organisms/RSVPSection.re.mjs:301
+#: src/components/organisms/RSVPSection.re.mjs:293
 msgid "Smart Waitlist"
 msgstr "スマートキャンセル待ち"
 
@@ -567,7 +563,7 @@ msgstr ""
 "この試合はこのラウンドから削除されます。ラウンドリセットアイコンを使用して、"
 "元々予定されていた試合を復元できます。"
 
-#: src/components/organisms/RSVPSection.re.mjs:652
+#: src/components/organisms/RSVPSection.re.mjs:635
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -612,8 +608,8 @@ msgstr ""
 msgid "Time TBD"
 msgstr "時間未定"
 
-#: src/components/organisms/RSVPSection.re.mjs:449
-#: src/components/organisms/RSVPSection.re.mjs:450
+#: src/components/organisms/RSVPSection.re.mjs:432
+#: src/components/organisms/RSVPSection.re.mjs:433
 #: src/components/organisms/EventMessages.re.mjs:125
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -691,7 +687,7 @@ msgstr "参加中"
 msgid "You're Waitlisted"
 msgstr "キャンセル待ち中です"
 
-#: src/components/organisms/RSVPSection.re.mjs:666
+#: src/components/organisms/RSVPSection.re.mjs:649
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "
@@ -732,6 +728,10 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:397
 #~ msgid "Prefer not to say"
 #~ msgstr "回答しない"
+
+#: src/components/organisms/RSVPSection.re.mjs:310
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "スマートRSVPを実行（最適マッチ、テスト）"
 
 #: src/components/organisms/ProfileModal.re.mjs:429
 #~ msgid "Save & Join Event"

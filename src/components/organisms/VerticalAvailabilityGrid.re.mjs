@@ -28,6 +28,8 @@ function ts(prim0, prim1) {
 }
 
 function VerticalAvailabilityGrid$VerticalWindowChip(props) {
+  var __onDragEnd = props.onDragEnd;
+  var __onDragStart = props.onDragStart;
   var getColTranslateX = props.getColTranslateX;
   var getTargetDayArrayIdx = props.getTargetDayArrayIdx;
   var onMoveDay = props.onMoveDay;
@@ -36,6 +38,12 @@ function VerticalAvailabilityGrid$VerticalWindowChip(props) {
   var trackRef = props.trackRef;
   var intent = props.intent;
   var dayArrayIdx = props.dayArrayIdx;
+  var onDragStart = __onDragStart !== undefined ? __onDragStart : (function () {
+        
+      });
+  var onDragEnd = __onDragEnd !== undefined ? __onDragEnd : (function () {
+        
+      });
   var intl = ReactIntl.useIntl();
   var match = React.useState(function () {
         
@@ -108,6 +116,7 @@ function VerticalAvailabilityGrid$VerticalWindowChip(props) {
                 });
           };
           var handleEnd = function (param) {
+            onDragEnd();
             setDrag(function (prev) {
                   if (prev !== undefined) {
                     if (prev.targetDayIdx !== dayArrayIdx) {
@@ -132,6 +141,7 @@ function VerticalAvailabilityGrid$VerticalWindowChip(props) {
     return function (e) {
       e.preventDefault();
       e.stopPropagation();
+      onDragStart();
       var y = e.clientY;
       setDrag(function (param) {
             return {
@@ -267,12 +277,21 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
   var demand = __demand !== undefined ? __demand : [];
   var courtAvailability = __courtAvailability !== undefined ? __courtAvailability : [];
   var intl = ReactIntl.useIntl();
+  var suppressNextClickRef = React.useRef(false);
+  var match = React.useState(function () {
+        return false;
+      });
+  var setIsChipDragging = match[1];
   var handleTrackClick = function (e) {
-    var el = colRef.current;
-    if (el == null) {
+    var match = suppressNextClickRef.current;
+    var match$1 = colRef.current;
+    if (match) {
       return ;
     }
-    var rect = el.getBoundingClientRect();
+    if (match$1 == null) {
+      return ;
+    }
+    var rect = match$1.getBoundingClientRect();
     if (rect.height === 0.0) {
       return ;
     }
@@ -299,11 +318,11 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
   var demandIntents = demand.flatMap(function (d) {
         return d.intents;
       });
-  var match = demand.length > 0 ? TimeWindowPicker.computeDensity(undefined, undefined, demandIntents) : [
+  var match$1 = demand.length > 0 ? TimeWindowPicker.computeDensity(undefined, undefined, demandIntents) : [
       [],
       0
     ];
-  var densityMax = match[1];
+  var densityMax = match$1[1];
   var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability);
   return JsxRuntime.jsxs("div", {
               children: [
@@ -336,7 +355,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                 JsxRuntime.jsxs("div", {
                       children: [
                         densityMax > 0 ? JsxRuntime.jsx("div", {
-                                children: match[0].map(function (count, i) {
+                                children: match$1[0].map(function (count, i) {
                                       var intensity = densityMax > 0 ? count / densityMax : 0.0;
                                       var opacity = count === 0 ? "0" : (0.08 + intensity * 0.2).toFixed(2);
                                       return JsxRuntime.jsx("div", {
@@ -421,13 +440,29 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                                               onMoveDay(w.id, targetDayArrayIdx, nw);
                                             }),
                                           getTargetDayArrayIdx: getTargetDayArrayIdx,
-                                          getColTranslateX: getColTranslateX
+                                          getColTranslateX: getColTranslateX,
+                                          onDragStart: (function () {
+                                              suppressNextClickRef.current = true;
+                                              setIsChipDragging(function (param) {
+                                                    return true;
+                                                  });
+                                            }),
+                                          onDragEnd: (function () {
+                                              setIsChipDragging(function (param) {
+                                                    return false;
+                                                  });
+                                            })
                                         }, w.id.toString());
                             })
                       ],
                       ref: Caml_option.some(colRef),
-                      className: "relative h-[600px] cursor-copy",
-                      onClick: handleTrackClick
+                      className: "relative h-[600px] " + (
+                        match[0] ? "cursor-default" : "cursor-copy"
+                      ),
+                      onClick: handleTrackClick,
+                      onPointerDown: (function (param) {
+                          suppressNextClickRef.current = false;
+                        })
                     })
               ],
               className: "flex-1 min-w-[60px] md:min-w-[80px] flex flex-col border-r last:border-r-0 border-gray-200 dark:border-[#2a2b30] " + (

@@ -71,18 +71,22 @@ msgstr "สร้างกิจกรรมนี้"
 msgid "Creating..."
 msgstr "กำลังสร้าง..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "กรอกแบบฟอร์ม"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
@@ -96,8 +100,8 @@ msgstr "ไม่สามารถประมวลผลคำขอนั้
 msgid "Location search is unavailable right now"
 msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "สถานที่:"
 
@@ -121,7 +125,7 @@ msgstr "ตอบกลับ"
 msgid "Search for a venue or address"
 msgstr "ค้นหาสนามหรือที่อยู่"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
@@ -133,7 +137,7 @@ msgstr ""
 "บอกเราเวลาและสถานที่ของกิจกรรม หรือรายละเอียดอื่นๆ "
 "คุณยังสามารถแจ้งรายละเอียดที่ต้องการให้รวมไว้ได้ และฉันยังสามารถเพิ่มการแปลได้อีกด้วย"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "ชื่อ:"
 

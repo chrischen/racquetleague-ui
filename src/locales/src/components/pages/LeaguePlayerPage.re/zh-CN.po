@@ -56,9 +56,10 @@ msgstr "能提升较弱搭档的水平"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:383
 #: src/components/pages/LeaguePlayerPage.re.mjs:946
-#: src/components/pages/LeaguePlayerPage.re.mjs:999
-#: src/components/pages/LeaguePlayerPage.re.mjs:1052
-#: src/components/pages/LeaguePlayerPage.re.mjs:1146
+#: src/components/pages/LeaguePlayerPage.re.mjs:992
+#: src/components/pages/LeaguePlayerPage.re.mjs:1045
+#: src/components/pages/LeaguePlayerPage.re.mjs:1098
+#: src/components/pages/LeaguePlayerPage.re.mjs:1192
 msgid "Estimated DUPR"
 msgstr "预估 DUPR"
 
@@ -66,11 +67,11 @@ msgstr "预估 DUPR"
 msgid "Even"
 msgstr "势均力敌"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1126
+#: src/components/pages/LeaguePlayerPage.re.mjs:1172
 msgid "Gym"
 msgstr "室内球馆"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1111
+#: src/components/pages/LeaguePlayerPage.re.mjs:1157
 msgid "Hard Court"
 msgstr "硬地球场"
 
@@ -78,7 +79,7 @@ msgstr "硬地球场"
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1221
+#: src/components/pages/LeaguePlayerPage.re.mjs:1267
 msgid "Loading..."
 msgstr "加载中..."
 
@@ -87,11 +88,11 @@ msgstr "加载中..."
 msgid "LOSS"
 msgstr "负"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:961
+#: src/components/pages/LeaguePlayerPage.re.mjs:1007
 msgid "Men's Doubles"
 msgstr "男子双打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1014
+#: src/components/pages/LeaguePlayerPage.re.mjs:1060
 msgid "Mixed Doubles"
 msgstr "混合双打"
 
@@ -129,7 +130,7 @@ msgstr "评分历史"
 msgid "Rating:"
 msgstr "评分："
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1212
+#: src/components/pages/LeaguePlayerPage.re.mjs:1258
 msgid "Recent Matches"
 msgstr "最近比赛"
 
@@ -160,9 +161,13 @@ msgstr "弱势对阵"
 msgid "WIN"
 msgstr "胜"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1067
+#: src/components/pages/LeaguePlayerPage.re.mjs:1113
 msgid "Women's Doubles"
 msgstr "女子双打"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:960
+msgid "Women's Rating"
+msgstr "女子评分"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:553
 msgid "Worst Doubles Partners"

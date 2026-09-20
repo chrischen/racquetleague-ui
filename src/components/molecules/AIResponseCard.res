@@ -15,16 +15,28 @@ let make = (
   ~clubId: option<string>=?,
   ~locationAddress: option<string>=?,
   ~onEventsCreated: option<unit => unit>=?,
+  ~onFillForm: option<AITypes.eventDetails => unit>=?,
+  ~summaryClassName="rounded-xl border border-gray-200 bg-white px-3.5 py-3 text-sm leading-relaxed text-gray-700 dark:border-[#3a3b40] dark:bg-[#222326] dark:text-gray-300",
 ) => {
   open Lingui.Util
+  // Beside a create form, a single draft only ever goes through that form, so
+  // its fields are reviewed before anything is created. Several drafts can't
+  // share one form, so those are still created straight from the card.
+  let createAction = (events: array<AITypes.eventDetails>) =>
+    switch (events, onFillForm) {
+    | ([event], Some(fillForm)) =>
+      <button
+        type_="button"
+        onClick={_ => fillForm(event)}
+        className="inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]">
+        <Lucide.Pencil size=13 \"aria-hidden"="true" />
+        <span> {t`Fill form`} </span>
+      </button>
+    | _ => <CreateEventsButton events activitySlug ?clubId ?onEventsCreated />
+    }
   <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
     // AI Summary
-    <div
-      className="rounded-xl border border-gray-200 bg-white px-3.5 py-3 dark:border-[#3a3b40] dark:bg-[#222326]">
-      <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-        {response.summary->React.string}
-      </p>
-    </div>
+    <p className=summaryClassName> {response.summary->React.string} </p>
     // Event Details Card
     {response.eventDetails
     ->Option.map(details => {
@@ -86,7 +98,7 @@ let make = (
           })
           ->Option.getOr(React.null)}
         </div>
-        <CreateEventsButton events=[details] activitySlug ?clubId ?onEventsCreated />
+        {createAction([details])}
       </div>
     })
     ->Option.getOr(React.null)}
@@ -99,7 +111,7 @@ let make = (
               <Lucide.Calendar className="w-4 h-4" />
               {t`Suggested Events`}
             </h3>
-            <CreateEventsButton events activitySlug ?clubId ?onEventsCreated />
+            {createAction(events)}
             {events
             ->Array.mapWithIndex((event, index) => {
               <div

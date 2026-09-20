@@ -189,7 +189,7 @@ msgstr "새 계획"
 msgid "Not now"
 msgstr "나중에"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "플레이어 가용성 히트맵"
 
@@ -197,7 +197,7 @@ msgstr "플레이어 가용성 히트맵"
 msgid "Pro"
 msgstr "프로"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "제거"
 
@@ -221,7 +221,7 @@ msgstr ""
 "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
 "주세요."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 

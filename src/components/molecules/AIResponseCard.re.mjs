@@ -18,18 +18,48 @@ function draftTimezone(rawFields) {
 }
 
 function AIResponseCard(props) {
+  var __summaryClassName = props.summaryClassName;
+  var onFillForm = props.onFillForm;
   var onEventsCreated = props.onEventsCreated;
   var clubId = props.clubId;
   var activitySlug = props.activitySlug;
   var response = props.response;
+  var summaryClassName = __summaryClassName !== undefined ? __summaryClassName : "rounded-xl border border-gray-200 bg-white px-3.5 py-3 text-sm leading-relaxed text-gray-700 dark:border-[#3a3b40] dark:bg-[#222326] dark:text-gray-300";
+  var createAction = function (events) {
+    if (events.length === 1) {
+      var $$event = events[0];
+      if (onFillForm !== undefined) {
+        return JsxRuntime.jsxs("button", {
+                    children: [
+                      JsxRuntime.jsx(LucideReact.Pencil, {
+                            size: 13,
+                            "aria-hidden": "true"
+                          }),
+                      JsxRuntime.jsx("span", {
+                            children: t`Fill form`
+                          })
+                    ],
+                    className: "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",
+                    type: "button",
+                    onClick: (function (param) {
+                        onFillForm($$event);
+                      })
+                  });
+      }
+      
+    }
+    return JsxRuntime.jsx(CreateEventsButton.make, {
+                events: events,
+                activitySlug: activitySlug,
+                clubId: clubId,
+                onEventsCreated: onEventsCreated
+              });
+  };
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsx("p", {
-                            children: response.summary,
-                            className: "text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-                          }),
-                      className: "rounded-xl border border-gray-200 bg-white px-3.5 py-3 dark:border-[#3a3b40] dark:bg-[#222326]"
+                JsxRuntime.jsx("p", {
+                      children: response.summary,
+                      className: summaryClassName
                     }),
                 Core__Option.getOr(Core__Option.map(response.eventDetails, (function (details) {
                             var startDate = new Date(details.date);
@@ -128,12 +158,7 @@ function AIResponseCard(props) {
                                                 ],
                                                 className: "space-y-2 text-sm"
                                               }),
-                                          JsxRuntime.jsx(CreateEventsButton.make, {
-                                                events: [details],
-                                                activitySlug: activitySlug,
-                                                clubId: clubId,
-                                                onEventsCreated: onEventsCreated
-                                              })
+                                          createAction([details])
                                         ],
                                         className: "space-y-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-[#3a3b40] dark:bg-[#222326]"
                                       });
@@ -151,12 +176,7 @@ function AIResponseCard(props) {
                                                   ],
                                                   className: "flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                 }),
-                                            JsxRuntime.jsx(CreateEventsButton.make, {
-                                                  events: events,
-                                                  activitySlug: activitySlug,
-                                                  clubId: clubId,
-                                                  onEventsCreated: onEventsCreated
-                                                }),
+                                            createAction(events),
                                             events.map(function ($$event, index) {
                                                   var startDate = new Date($$event.date);
                                                   var endDate = new Date($$event.time);

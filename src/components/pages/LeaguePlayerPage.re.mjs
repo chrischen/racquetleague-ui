@@ -938,6 +938,52 @@ function LeaguePlayerPage$PlayerContent(props) {
                         tmp$1,
                         stats$1 !== undefined ? JsxRuntime.jsxs("div", {
                                 children: [
+                                  Core__Option.getOr(Core__Option.map(stats$1.genderNormalizedRating, (function (r) {
+                                              var ord = ordinal(r.mu, r.sigma);
+                                              var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {
+                                                      children: [
+                                                        JsxRuntime.jsx("div", {
+                                                              children: t`Estimated DUPR`,
+                                                              className: "text-sm text-gray-500 mb-1"
+                                                            }),
+                                                        JsxRuntime.jsx("div", {
+                                                              children: Rating.guessDupr(r.mu).toFixed(2),
+                                                              className: "text-2xl font-semibold text-gray-900"
+                                                            })
+                                                      ],
+                                                      className: "text-right self-start"
+                                                    }) : null;
+                                              return JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx("div", {
+                                                                  children: JsxRuntime.jsx("div", {
+                                                                        children: t`Women's Rating`,
+                                                                        className: "text-sm font-medium text-gray-600"
+                                                                      }),
+                                                                  className: "flex items-center justify-between mb-2"
+                                                                }),
+                                                            JsxRuntime.jsxs("div", {
+                                                                  children: [
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: ord.toFixed(0),
+                                                                                  className: "text-3xl font-bold text-rose-600"
+                                                                                }),
+                                                                            JsxRuntime.jsx("div", {
+                                                                                  children: "±" + r.sigma.toFixed(0),
+                                                                                  className: "text-xs text-gray-500 mt-1"
+                                                                                })
+                                                                          ]
+                                                                        }),
+                                                                    tmp
+                                                                  ],
+                                                                  className: "flex items-start justify-between"
+                                                                })
+                                                          ],
+                                                          className: "rounded-xl p-5 border bg-rose-50 border-rose-100"
+                                                        }, "gender-normalized");
+                                            })), null),
                                   Core__Option.getOr(Core__Option.map(stats$1.mdRating, (function (r) {
                                               var ord = ordinal(r.mu, r.sigma);
                                               var tmp = activitySlug === "pickleball" ? JsxRuntime.jsxs("div", {

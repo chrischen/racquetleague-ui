@@ -261,6 +261,12 @@ module Pencil = {
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element = "Pencil"
 }
 
+module MessageSquare = {
+  @module("lucide-react") @react.component
+  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
+    "MessageSquare"
+}
+
 module MessageCircle = {
   @module("lucide-react") @react.component
   external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =

@@ -56,9 +56,10 @@ msgstr "약한 파트너를 끌어올림"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:383
 #: src/components/pages/LeaguePlayerPage.re.mjs:946
-#: src/components/pages/LeaguePlayerPage.re.mjs:999
-#: src/components/pages/LeaguePlayerPage.re.mjs:1052
-#: src/components/pages/LeaguePlayerPage.re.mjs:1146
+#: src/components/pages/LeaguePlayerPage.re.mjs:992
+#: src/components/pages/LeaguePlayerPage.re.mjs:1045
+#: src/components/pages/LeaguePlayerPage.re.mjs:1098
+#: src/components/pages/LeaguePlayerPage.re.mjs:1192
 msgid "Estimated DUPR"
 msgstr "예상 DUPR"
 
@@ -66,11 +67,11 @@ msgstr "예상 DUPR"
 msgid "Even"
 msgstr "균등"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1126
+#: src/components/pages/LeaguePlayerPage.re.mjs:1172
 msgid "Gym"
 msgstr "체육관"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1111
+#: src/components/pages/LeaguePlayerPage.re.mjs:1157
 msgid "Hard Court"
 msgstr "하드 코트"
 
@@ -78,7 +79,7 @@ msgstr "하드 코트"
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1221
+#: src/components/pages/LeaguePlayerPage.re.mjs:1267
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -87,11 +88,11 @@ msgstr "로딩 중..."
 msgid "LOSS"
 msgstr "패"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:961
+#: src/components/pages/LeaguePlayerPage.re.mjs:1007
 msgid "Men's Doubles"
 msgstr "남자 복식"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1014
+#: src/components/pages/LeaguePlayerPage.re.mjs:1060
 msgid "Mixed Doubles"
 msgstr "혼합 복식"
 
@@ -129,7 +130,7 @@ msgstr "레이팅 기록"
 msgid "Rating:"
 msgstr "평점:"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1212
+#: src/components/pages/LeaguePlayerPage.re.mjs:1258
 msgid "Recent Matches"
 msgstr "최근 경기"
 
@@ -161,9 +162,13 @@ msgstr "약점 상대"
 msgid "WIN"
 msgstr "승"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1067
+#: src/components/pages/LeaguePlayerPage.re.mjs:1113
 msgid "Women's Doubles"
 msgstr "여자 복식"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:960
+msgid "Women's Rating"
+msgstr "여자 등급"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:553
 msgid "Worst Doubles Partners"

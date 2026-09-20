@@ -359,7 +359,7 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr ""
 

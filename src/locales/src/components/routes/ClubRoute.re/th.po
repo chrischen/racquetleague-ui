@@ -21,11 +21,11 @@ msgstr "{0} เปิด"
 msgid "Active players"
 msgstr "ผู้เล่นที่ใช้งานอยู่"
 
-#: src/components/pages/ClubPage.re.mjs:869
+#: src/components/pages/ClubPage.re.mjs:887
 msgid "Add Court"
 msgstr "เพิ่มสนาม"
 
-#: src/components/pages/ClubPage.re.mjs:719
+#: src/components/pages/ClubPage.re.mjs:744
 msgid "All clubs"
 msgstr "สโมสรทั้งหมด"
 
@@ -33,11 +33,11 @@ msgstr "สโมสรทั้งหมด"
 msgid "All levels"
 msgstr "ทุกระดับ"
 
-#: src/components/pages/ClubPage.re.mjs:654
+#: src/components/pages/ClubPage.re.mjs:679
 msgid "Cancel Request"
 msgstr "ยกเลิกคำขอ"
 
-#: src/components/pages/ClubPage.re.mjs:374
+#: src/components/pages/ClubPage.re.mjs:375
 msgid "Check back when the club publishes its next schedule."
 msgstr "กลับมาตรวจสอบเมื่อสโมสรเผยแพร่ตารางเวลาถัดไป"
 
@@ -45,11 +45,11 @@ msgstr "กลับมาตรวจสอบเมื่อสโมสรเ
 msgid "Club level"
 msgstr "ระดับสโมสร"
 
-#: src/components/pages/ClubPage.re.mjs:900
+#: src/components/pages/ClubPage.re.mjs:916
 msgid "club not found"
 msgstr "ไม่พบคลับ"
 
-#: src/components/pages/ClubPage.re.mjs:822
+#: src/components/pages/ClubPage.re.mjs:847
 msgid "Exempt club members from event fees"
 msgstr "ยกเว้นค่าธรรมเนียมกิจกรรมสำหรับสมาชิกคลับ"
 
@@ -58,7 +58,7 @@ msgstr "ยกเว้นค่าธรรมเนียมกิจกรร
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/pages/ClubPage.re.mjs:325
+#: src/components/pages/ClubPage.re.mjs:326
 msgid "Friday"
 msgstr "วันศุกร์"
 
@@ -66,31 +66,32 @@ msgstr "วันศุกร์"
 msgid "Full"
 msgstr "เต็ม"
 
-#: src/components/pages/ClubPage.re.mjs:856
+#: src/components/pages/ClubPage.re.mjs:385
+#: src/components/pages/ClubPage.re.mjs:428
 msgid "Full club schedule"
 msgstr "ตารางสโมสรทั้งหมด"
 
-#: src/components/pages/ClubPage.re.mjs:701
+#: src/components/pages/ClubPage.re.mjs:726
 msgid "Join Club"
 msgstr "เข้าร่วมคลับ"
 
-#: src/components/pages/ClubPage.re.mjs:425
+#: src/components/pages/ClubPage.re.mjs:450
 msgid "Leaderboard"
 msgstr "กระดานผู้นำ"
 
-#: src/components/pages/ClubPage.re.mjs:629
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Leave club"
 msgstr "ออกจากคลับ"
 
-#: src/components/pages/ClubPage.re.mjs:761
+#: src/components/pages/ClubPage.re.mjs:786
 msgid "Manage Members"
 msgstr "จัดการสมาชิก"
 
-#: src/components/pages/ClubPage.re.mjs:624
+#: src/components/pages/ClubPage.re.mjs:649
 msgid "Member"
 msgstr "สมาชิก"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Members join priced events without saving a card. Everyone else pays to your "
 "Stripe account as usual."
@@ -98,35 +99,35 @@ msgstr ""
 "สมาชิกสามารถเข้าร่วมกิจกรรมที่มีค่าธรรมเนียมได้โดยไม่ต้องบันทึกบัตร ผู้เล่นอื่นๆ จะชำระเงินเข้าบัญชี "
 "Stripe ของคุณตามปกติ"
 
-#: src/components/pages/ClubPage.re.mjs:313
+#: src/components/pages/ClubPage.re.mjs:314
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: src/components/pages/ClubPage.re.mjs:335
+#: src/components/pages/ClubPage.re.mjs:336
 msgid "Next {dayName}"
 msgstr "สัปดาห์หน้า{dayName}"
 
-#: src/components/pages/ClubPage.re.mjs:443
+#: src/components/pages/ClubPage.re.mjs:468
 msgid "No ratings yet"
 msgstr "ยังไม่มีเรตติ้ง"
 
-#: src/components/pages/ClubPage.re.mjs:370
+#: src/components/pages/ClubPage.re.mjs:371
 msgid "No upcoming events"
 msgstr "ไม่มีกิจกรรมที่กำลังจะมาถึง"
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr "โอเพ่นเพลย์"
 
-#: src/components/pages/ClubPage.re.mjs:784
+#: src/components/pages/ClubPage.re.mjs:809
 msgid "Payments"
 msgstr "การชำระเงิน"
 
-#: src/components/pages/ClubPage.re.mjs:649
+#: src/components/pages/ClubPage.re.mjs:674
 msgid "Request pending"
 msgstr "คำขอรอดำเนินการ"
 
-#: src/components/pages/ClubPage.re.mjs:680
+#: src/components/pages/ClubPage.re.mjs:705
 msgid "Request to join"
 msgstr "ขอเข้าร่วม"
 
@@ -134,23 +135,23 @@ msgstr "ขอเข้าร่วม"
 msgid "Retention"
 msgstr "การรักษาสมาชิก"
 
-#: src/components/pages/ClubPage.re.mjs:328
+#: src/components/pages/ClubPage.re.mjs:329
 msgid "Saturday"
 msgstr "วันเสาร์"
 
-#: src/components/pages/ClubPage.re.mjs:310
+#: src/components/pages/ClubPage.re.mjs:311
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 
-#: src/components/pages/ClubPage.re.mjs:322
+#: src/components/pages/ClubPage.re.mjs:323
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
-#: src/components/pages/ClubPage.re.mjs:297
+#: src/components/pages/ClubPage.re.mjs:298
 msgid "Today"
 msgstr "วันนี้"
 
-#: src/components/pages/ClubPage.re.mjs:302
+#: src/components/pages/ClubPage.re.mjs:303
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
@@ -158,27 +159,27 @@ msgstr "พรุ่งนี้"
 msgid "Total members"
 msgstr "สมาชิกทั้งหมด"
 
-#: src/components/pages/ClubPage.re.mjs:316
+#: src/components/pages/ClubPage.re.mjs:317
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
-#: src/components/pages/ClubPage.re.mjs:849
+#: src/components/pages/ClubPage.re.mjs:874
 msgid "Upcoming Events"
 msgstr "กิจกรรมที่กำลังจะมาถึง"
 
-#: src/components/pages/ClubPage.re.mjs:435
+#: src/components/pages/ClubPage.re.mjs:460
 msgid "View All"
 msgstr "ดูทั้งหมด"
 
-#: src/components/pages/ClubPage.re.mjs:319
+#: src/components/pages/ClubPage.re.mjs:320
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: src/components/pages/ClubPage.re.mjs:334
+#: src/components/pages/ClubPage.re.mjs:335
 msgid "Yesterday"
 msgstr "เมื่อวาน"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Your club has no connected Stripe account, so members always join without "
 "paying and other players' cards are only kept on file. Connect Stripe in "

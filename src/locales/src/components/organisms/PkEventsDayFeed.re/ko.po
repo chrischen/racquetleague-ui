@@ -151,11 +151,11 @@ msgstr "슬롯 숨기기"
 msgid "Mark available"
 msgstr "가능 표시"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "플레이어 가용성 히트맵"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "제거"
 
@@ -175,7 +175,7 @@ msgstr "가용성 저장"
 msgid "Tap to add time in this slot"
 msgstr "이 슬롯에 시간을 추가하려면 탭하세요"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 

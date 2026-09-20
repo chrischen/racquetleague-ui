@@ -102,7 +102,7 @@ msgstr ""
 #~ msgid "Add an Event"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:869
+#: src/components/pages/ClubPage.re.mjs:887
 msgid "Add Court"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 #~ msgid "AI Assistant"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:719
+#: src/components/pages/ClubPage.re.mjs:744
 msgid "All clubs"
 msgstr ""
 
@@ -130,11 +130,11 @@ msgstr ""
 #~ msgid "Badminton every thursday next month at Akabane Elementary 7-9pm."
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:654
+#: src/components/pages/ClubPage.re.mjs:679
 msgid "Cancel Request"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:374
+#: src/components/pages/ClubPage.re.mjs:375
 msgid "Check back when the club publishes its next schedule."
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Club level"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:900
+#: src/components/pages/ClubPage.re.mjs:916
 msgid "club not found"
 msgstr ""
 
@@ -199,7 +199,7 @@ msgstr ""
 #~ msgid "Event Details"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:822
+#: src/components/pages/ClubPage.re.mjs:847
 msgid "Exempt club members from event fees"
 msgstr ""
 
@@ -212,7 +212,7 @@ msgstr ""
 msgid "Free"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:325
+#: src/components/pages/ClubPage.re.mjs:326
 msgid "Friday"
 msgstr ""
 
@@ -220,7 +220,8 @@ msgstr ""
 msgid "Full"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:856
+#: src/components/pages/ClubPage.re.mjs:385
+#: src/components/pages/ClubPage.re.mjs:428
 msgid "Full club schedule"
 msgstr ""
 
@@ -232,7 +233,7 @@ msgstr ""
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:701
+#: src/components/pages/ClubPage.re.mjs:726
 msgid "Join Club"
 msgstr ""
 
@@ -244,11 +245,11 @@ msgstr ""
 #~ msgid "joined"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:425
+#: src/components/pages/ClubPage.re.mjs:450
 msgid "Leaderboard"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:629
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Leave club"
 msgstr ""
 
@@ -265,19 +266,19 @@ msgstr ""
 #~ msgid "Location:"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:761
+#: src/components/pages/ClubPage.re.mjs:786
 msgid "Manage Members"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:624
+#: src/components/pages/ClubPage.re.mjs:649
 msgid "Member"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid "Members join priced events without saving a card. Everyone else pays to your Stripe account as usual."
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:313
+#: src/components/pages/ClubPage.re.mjs:314
 msgid "Monday"
 msgstr ""
 
@@ -289,23 +290,23 @@ msgstr ""
 #~ msgid "New"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:335
+#: src/components/pages/ClubPage.re.mjs:336
 msgid "Next {dayName}"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:443
+#: src/components/pages/ClubPage.re.mjs:468
 msgid "No ratings yet"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:370
+#: src/components/pages/ClubPage.re.mjs:371
 msgid "No upcoming events"
 msgstr ""
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:784
+#: src/components/pages/ClubPage.re.mjs:809
 msgid "Payments"
 msgstr ""
 
@@ -325,11 +326,11 @@ msgstr ""
 #~ msgid "Reply"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:649
+#: src/components/pages/ClubPage.re.mjs:674
 msgid "Request pending"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:680
+#: src/components/pages/ClubPage.re.mjs:705
 msgid "Request to join"
 msgstr ""
 
@@ -337,7 +338,7 @@ msgstr ""
 msgid "Retention"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:328
+#: src/components/pages/ClubPage.re.mjs:329
 msgid "Saturday"
 msgstr ""
 
@@ -357,7 +358,7 @@ msgstr ""
 #~ msgid "Suggested Events"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:310
+#: src/components/pages/ClubPage.re.mjs:311
 msgid "Sunday"
 msgstr ""
 
@@ -365,7 +366,7 @@ msgstr ""
 #~ msgid "Tell me the time and place of your event, or any other details. You can also let me know the details to include and I can even add the translations."
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:322
+#: src/components/pages/ClubPage.re.mjs:323
 msgid "Thursday"
 msgstr ""
 
@@ -377,11 +378,11 @@ msgstr ""
 #~ msgid "Title:"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:297
+#: src/components/pages/ClubPage.re.mjs:298
 msgid "Today"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:302
+#: src/components/pages/ClubPage.re.mjs:303
 msgid "Tomorrow"
 msgstr ""
 
@@ -389,15 +390,15 @@ msgstr ""
 msgid "Total members"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:316
+#: src/components/pages/ClubPage.re.mjs:317
 msgid "Tuesday"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:849
+#: src/components/pages/ClubPage.re.mjs:874
 msgid "Upcoming Events"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:435
+#: src/components/pages/ClubPage.re.mjs:460
 msgid "View All"
 msgstr ""
 
@@ -405,14 +406,14 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:319
+#: src/components/pages/ClubPage.re.mjs:320
 msgid "Wednesday"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:334
+#: src/components/pages/ClubPage.re.mjs:335
 msgid "Yesterday"
 msgstr ""
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid "Your club has no connected Stripe account, so members always join without paying and other players' cards are only kept on file. Connect Stripe in your profile settings to charge event fees."
 msgstr ""

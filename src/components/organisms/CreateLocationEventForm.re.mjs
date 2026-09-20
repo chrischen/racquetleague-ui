@@ -15,6 +15,7 @@ import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as LevelTagPills from "../atoms/LevelTagPills.re.mjs";
+import * as TimeZoneField from "../molecules/TimeZoneField.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -24,6 +25,7 @@ import * as TimeWindowPicker from "../molecules/TimeWindowPicker.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as AutocompleteLocation from "./AutocompleteLocation.re.mjs";
+import * as EventTimeRangeInputs from "../molecules/EventTimeRangeInputs.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as RescriptRelay_Mutation from "rescript-relay/src/RescriptRelay_Mutation.re.mjs";
@@ -112,11 +114,19 @@ function fieldClassWithError(hasError) {
 
 var hintClass = "mt-1.5 block text-xs text-gray-500 dark:text-gray-400";
 
-var sectionClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]";
+function sectionClassFor(prefilled) {
+  return Core.cx("overflow-hidden rounded-xl border bg-white dark:bg-[#222326]", prefilled ? "border-[#a3d949] dark:border-[#bdf25d]/50" : "border-gray-200 dark:border-[#3a3b40]");
+}
 
 var sectionBodyClass = "space-y-5 border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]";
 
 var sectionIconClass = "flex-shrink-0 text-gray-400";
+
+var prefilledIcon = JsxRuntime.jsx(LucideReact.CheckCircle2, {
+      size: 19,
+      className: "flex-shrink-0 text-[#4d6f12] dark:text-[#bdf25d]",
+      "aria-hidden": "true"
+    });
 
 var checkboxClass = "mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]";
 
@@ -126,11 +136,11 @@ function toggleClass(active) {
   return Core.cx("h-11 rounded-lg border px-3 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]", active ? "border-[#94c93a] bg-[#bdf25d] text-black" : "border-gray-200 bg-white text-gray-600 hover:border-gray-400 dark:border-[#45464d] dark:bg-[#1e1f23] dark:text-gray-300");
 }
 
-function sectionHeader(icon, title, summary, expanded, controls, onToggle) {
+function sectionHeader(icon, prefilled, title, summary, expanded, controls, onToggle) {
   return JsxRuntime.jsx("h3", {
               children: JsxRuntime.jsxs("button", {
                     children: [
-                      icon,
+                      prefilled ? prefilledIcon : icon,
                       JsxRuntime.jsxs("span", {
                             children: [
                               JsxRuntime.jsx("span", {
@@ -228,6 +238,66 @@ function eventWindowOf(startTime, endTime) {
         };
 }
 
+function hasText(v) {
+  return Core__Option.mapOr(v, false, (function (text) {
+                return text !== "";
+              }));
+}
+
+var formatTags = [
+  "rec",
+  "comp",
+  "dupr",
+  "drill"
+];
+
+var levelTags = ["all level"].concat(EventTags.specificLevels);
+
+function sectionsOf(prefilled, hasVenue) {
+  if (prefilled === undefined) {
+    return {
+            schedule: hasVenue,
+            details: false,
+            paid: false,
+            format: false,
+            players: false
+          };
+  }
+  var match = prefilled.fromExistingEvent;
+  if (match !== undefined && match) {
+    return {
+            schedule: false,
+            details: false,
+            paid: false,
+            format: false,
+            players: false
+          };
+  }
+  var tags = Core__Option.getOr(prefilled.tags, []);
+  var hasAnyTag = function (candidates) {
+    return tags.some(function (tag) {
+                return candidates.includes(tag);
+              });
+  };
+  return {
+          schedule: hasVenue || hasText(prefilled.startDate) || hasText(prefilled.endDate) || hasText(prefilled.timezone),
+          details: hasText(prefilled.title) || hasText(prefilled.details),
+          paid: Core__Option.isSome(prefilled.price),
+          format: hasAnyTag(formatTags),
+          players: Core__Option.isSome(prefilled.listed) || Core__Option.isSome(prefilled.minRating) || Core__Option.isSome(prefilled.maxRsvps) || Core__Option.isSome(prefilled.smartRsvpThreshold) || Core__Option.isSome(prefilled.cancelDeadline) || hasAnyTag(levelTags)
+        };
+}
+
+function unionSections(a, b) {
+  return {
+          schedule: a.schedule || b.schedule,
+          details: a.details || b.details,
+          paid: a.paid || b.paid,
+          format: a.format || b.format,
+          players: a.players || b.players
+        };
+}
+
 function CreateLocationEventForm(props) {
   var onClubFormSubmitBlocked = props.onClubFormSubmitBlocked;
   var __isClubFormOpen = props.isClubFormOpen;
@@ -237,16 +307,43 @@ function CreateLocationEventForm(props) {
   var __stripeChargesEnabled = props.stripeChargesEnabled;
   var autoSearchAddress = props.autoSearchAddress;
   var onLocationSelected = props.onLocationSelected;
+  var $$location = props.location;
   var eventId = props.eventId;
   var stripeChargesEnabled = __stripeChargesEnabled !== undefined ? __stripeChargesEnabled : false;
   var isClubFormOpen = __isClubFormOpen !== undefined ? __isClubFormOpen : false;
-  var locationData = useOpt(props.location);
+  var locationData = useOpt($$location);
   var match = use();
   var commitMutationCreate = match[0];
   var match$1 = use$1();
   var commitMutationUpdate = match$1[0];
   var navigate = ReactRouterDom.useNavigate();
   var isUpdate = Core__Option.isSome(eventId);
+  var venueArrivedWithForm = React.useRef(Core__Option.isSome($$location));
+  var venuePrefilled = function () {
+    if (venueArrivedWithForm.current) {
+      return true;
+    } else {
+      return Core__Option.isSome(autoSearchAddress);
+    }
+  };
+  var match$2 = React.useState(function () {
+        return sectionsOf(prefilledValues, venuePrefilled());
+      });
+  var setPrefilledSections = match$2[1];
+  var prefilledSections = match$2[0];
+  React.useEffect((function () {
+          setPrefilledSections(function (prev) {
+                var next = unionSections(prev, sectionsOf(prefilledValues, venuePrefilled()));
+                if (Caml_obj.equal(next, prev)) {
+                  return prev;
+                } else {
+                  return next;
+                }
+              });
+        }), [
+        prefilledValues,
+        autoSearchAddress
+      ]);
   var useNewEventDefaults = !isUpdate && !Core__Option.getOr(Core__Option.flatMap(prefilledValues, (function (pf) {
               return pf.fromExistingEvent;
             })), false);
@@ -269,15 +366,15 @@ function CreateLocationEventForm(props) {
         listed: false,
         cancelDeadline: newEventCancelDeadline
       });
-  var match$2 = ReactHookForm.useForm({
+  var match$3 = ReactHookForm.useForm({
         resolver: Caml_option.some(Zod$1.zodResolver(schema)),
         defaultValues: defaultFormValues
       });
-  var setValue = match$2.setValue;
-  var formState = match$2.formState;
-  var watch = match$2.watch;
-  var handleSubmit = match$2.handleSubmit;
-  var register = match$2.register;
+  var setValue = match$3.setValue;
+  var formState = match$3.formState;
+  var watch = match$3.watch;
+  var handleSubmit = match$3.handleSubmit;
+  var register = match$3.register;
   var listed = Core__Option.getOr(Core__Option.map(watch("listed"), (function (listed) {
               if (!Array.isArray(listed) && (listed === null || typeof listed !== "object") && typeof listed !== "string" && typeof listed !== "number" && typeof listed !== "boolean" || typeof listed !== "boolean") {
                 return false;
@@ -285,20 +382,20 @@ function CreateLocationEventForm(props) {
                 return listed;
               }
             })), false);
-  var match$3 = React.useState(function () {
+  var match$4 = React.useState(function () {
         return Core__Option.isSome(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.price;
                         })));
       });
-  var setIsPaidEvent = match$3[1];
-  var isPaidEvent = match$3[0];
-  var match$4 = React.useState(function () {
+  var setIsPaidEvent = match$4[1];
+  var isPaidEvent = match$4[0];
+  var match$5 = React.useState(function () {
         return Core__Option.isSome(Core__Option.flatMap(prefilledValues, (function (pf) {
                           return pf.smartRsvpThreshold;
                         })));
       });
-  var setIsSmartRsvpOn = match$4[1];
-  var isSmartRsvpOn = match$4[0];
+  var setIsSmartRsvpOn = match$5[1];
+  var isSmartRsvpOn = match$5[0];
   var startDate = watch("startDate");
   var endTime = watch("endTime");
   var title = watch("title");
@@ -320,33 +417,18 @@ function CreateLocationEventForm(props) {
             return n.toString();
           }));
   }
-  var match$5 = splitStartDate(startDateStr);
-  var startTimePart = match$5[1];
-  var datePart = match$5[0];
+  var match$6 = splitStartDate(startDateStr);
+  var startTimePart = match$6[1];
+  var datePart = match$6[0];
   var clockStart = startTimePart !== "" ? startTimePart : "18:00";
   var clockEnd = endTimeStr !== "" ? endTimeStr : "20:00";
-  var match$6 = watch("timezone");
-  var tz = match$6 !== undefined && !(!Array.isArray(match$6) && (match$6 === null || typeof match$6 !== "object") && typeof match$6 !== "string" && typeof match$6 !== "number" && typeof match$6 !== "boolean" || !(typeof match$6 === "string" && match$6 !== "")) ? match$6 : Util.Timezone.fallback;
+  var match$7 = watch("timezone");
+  var tz = match$7 !== undefined && !(!Array.isArray(match$7) && (match$7 === null || typeof match$7 !== "object") && typeof match$7 !== "string" && typeof match$7 !== "number" && typeof match$7 !== "boolean" || !(typeof match$7 === "string" && match$7 !== "")) ? match$7 : Util.Timezone.fallback;
   var startWallClock = joinStartDate(datePart, clockStart);
-  var match$7 = React.useState(function () {
-        return false;
-      });
-  var setZonesReady = match$7[1];
-  var zonesReady = match$7[0];
-  var timezoneOptions = React.useMemo((function () {
-          var zones = zonesReady ? Util.Timezone.list() : [];
-          if (zones.includes(tz)) {
-            return zones;
-          } else {
-            return [tz].concat(zones);
-          }
-        }), [
-        zonesReady,
-        tz
-      ]);
   var durationMinutes = ClockRangePicker.forwardDuration(ClockRangePicker.timeToMinutes(clockStart), ClockRangePicker.timeToMinutes(clockEnd));
   var hasValidTimeRange = durationMinutes >= 15 && durationMinutes <= 720;
   var eventWindow = eventWindowOf(clockStart, clockEnd);
+  var eventWindowConfig = eventWindowConfigFor(eventWindow);
   var hasPreloadedValues = Core__Option.isSome(eventId) || Core__Option.isSome(prefilledValues);
   var match$8 = React.useState(function () {
         if (hasPreloadedValues) {
@@ -447,9 +529,7 @@ function CreateLocationEventForm(props) {
                       })))) {
             setValue("timezone", Util.Timezone.browser(), undefined);
           }
-          setZonesReady(function (param) {
-                return true;
-              });
+          
         }), []);
   React.useEffect((function () {
           if (prefilledValues !== undefined) {
@@ -618,12 +698,11 @@ function CreateLocationEventForm(props) {
   var locationName = Core__Option.getOr(Core__Option.flatMap(locationData, (function (l) {
               return l.name;
             })), "");
-  var tzShortName = Util.Timezone.shortName(tz, Util.Timezone.fromWallClock(startWallClock, tz));
   var scheduleSummary;
   if (datePart !== "") {
     var match$13 = splitStartDate(endWallClockFor(startWallClock, clockEnd));
     var day = DateFns.format(DateFns.parseISO(datePart), "EEE, MMM d");
-    scheduleSummary = locationName + " · " + day + ", " + formatWallTime(clockStart) + "–" + formatWallTime(match$13[1]) + " " + tzShortName;
+    scheduleSummary = locationName + " · " + day + ", " + formatWallTime(clockStart) + "–" + formatWallTime(match$13[1]) + " · " + ClockRangePicker.formatDuration(durationMinutes);
   } else {
     scheduleSummary = locationName !== "" ? locationName : t`Venue, date, start and end time`;
   }
@@ -710,6 +789,11 @@ function CreateLocationEventForm(props) {
                             } else {
                               tmp = null;
                             }
+                            var icon = JsxRuntime.jsx(LucideReact.CircleDollarSign, {
+                                  size: 19,
+                                  className: sectionIconClass,
+                                  "aria-hidden": "true"
+                                });
                             var tmp$1;
                             if (isPaidEvent) {
                               var newrecord$2 = Caml_obj.obj_dup(register("price", {
@@ -755,7 +839,7 @@ function CreateLocationEventForm(props) {
                                                             className: "flex items-center gap-1.5"
                                                           }),
                                                       JsxRuntime.jsx("p", {
-                                                            children: t`Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event.`,
+                                                            children: t`Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this.`,
                                                             className: "mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400"
                                                           })
                                                     ],
@@ -778,7 +862,7 @@ function CreateLocationEventForm(props) {
                                                           }),
                                                       JsxRuntime.jsxs("p", {
                                                             children: [
-                                                              t`Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account.`,
+                                                              t`Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page.`,
                                                               stripeChargesEnabled ? null : JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                                                       children: [
                                                                         " ",
@@ -1009,11 +1093,11 @@ function CreateLocationEventForm(props) {
                                               JsxRuntime.jsxs("span", {
                                                     children: [
                                                       JsxRuntime.jsx("span", {
-                                                            children: t`Smart RSVP`,
+                                                            children: t`Hold RSVPs`,
                                                             className: "block text-sm font-semibold text-gray-900 dark:text-gray-100"
                                                           }),
                                                       JsxRuntime.jsx("span", {
-                                                            children: t`Hold new joins and admit players automatically based on match quality.`,
+                                                            children: t`Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality.`,
                                                             className: "mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400"
                                                           })
                                                     ]
@@ -1115,7 +1199,7 @@ function CreateLocationEventForm(props) {
                                                                       size: 19,
                                                                       className: sectionIconClass,
                                                                       "aria-hidden": "true"
-                                                                    }), t`Location & time`, scheduleSummary, expandedSection === "ScheduleSection", "event-form-schedule", (function () {
+                                                                    }), prefilledSections.schedule, t`Location & time`, scheduleSummary, expandedSection === "ScheduleSection", "event-form-schedule", (function () {
                                                                     toggleSection("ScheduleSection");
                                                                   })),
                                                             expandedSection === "ScheduleSection" ? JsxRuntime.jsxs("div", {
@@ -1242,24 +1326,12 @@ function CreateLocationEventForm(props) {
                                                                             ],
                                                                             className: "block min-w-0 max-w-full overflow-hidden"
                                                                           }),
-                                                                      JsxRuntime.jsxs("label", {
+                                                                      JsxRuntime.jsxs("div", {
                                                                             children: [
-                                                                              JsxRuntime.jsx("span", {
-                                                                                    children: t`Time zone`,
-                                                                                    className: labelClass
-                                                                                  }),
-                                                                              JsxRuntime.jsx("select", {
-                                                                                    children: timezoneOptions.map(function (zone) {
-                                                                                          return JsxRuntime.jsx("option", {
-                                                                                                      children: zone,
-                                                                                                      value: zone
-                                                                                                    }, zone);
-                                                                                        }),
-                                                                                    className: fieldClass,
-                                                                                    id: "timezone",
+                                                                              JsxRuntime.jsx(TimeZoneField.make, {
                                                                                     value: tz,
-                                                                                    onChange: (function (e) {
-                                                                                        setValue("timezone", e.target.value, undefined);
+                                                                                    onChange: (function (zone) {
+                                                                                        setValue("timezone", zone, undefined);
                                                                                       })
                                                                                   }),
                                                                               JsxRuntime.jsx("span", {
@@ -1267,8 +1339,7 @@ function CreateLocationEventForm(props) {
                                                                                     className: hintClass
                                                                                   })
                                                                             ],
-                                                                            className: "block min-w-0",
-                                                                            htmlFor: "timezone"
+                                                                            className: "min-w-0"
                                                                           }),
                                                                       JsxRuntime.jsxs("div", {
                                                                             children: [
@@ -1279,21 +1350,21 @@ function CreateLocationEventForm(props) {
                                                                               JsxRuntime.jsx(TimeWindowPicker.make, {
                                                                                     intents: [eventWindow],
                                                                                     onChange: onWindowChange,
-                                                                                    config: eventWindowConfigFor(eventWindow),
+                                                                                    config: eventWindowConfig,
                                                                                     emptyLabel: t`Choose an event time`,
                                                                                     maxIntents: 1,
                                                                                     allowDelete: false
                                                                                   }),
-                                                                              JsxRuntime.jsx("div", {
-                                                                                    children: JsxRuntime.jsx("span", {
-                                                                                          children: TimeWindow.hourToTime(eventWindow.start) + "–" + TimeWindow.hourToTime(eventWindow.end) + " · " + ClockRangePicker.formatDuration(durationMinutes),
-                                                                                          className: "inline-flex items-center rounded-md bg-gray-50 px-2 py-1 font-mono text-[10px] font-semibold text-gray-600 dark:bg-[#1e1f23] dark:text-gray-300"
-                                                                                        }),
-                                                                                    className: "mt-2 flex flex-wrap items-center gap-1.5"
-                                                                                  }),
                                                                               JsxRuntime.jsx("span", {
                                                                                     children: t`Drag the window to move it, or drag either edge to resize.`,
                                                                                     className: hintClass
+                                                                                  }),
+                                                                              JsxRuntime.jsx(EventTimeRangeInputs.make, {
+                                                                                    value: eventWindow,
+                                                                                    onChange: (function ($$window) {
+                                                                                        onWindowChange([$$window]);
+                                                                                      }),
+                                                                                    config: eventWindowConfig
                                                                                   }),
                                                                               hasValidTimeRange ? null : JsxRuntime.jsx("p", {
                                                                                       children: durationMinutes < 15 ? t`Events must be at least 15 minutes long.` : t`Events can be up to 12 hours long.`,
@@ -1310,7 +1381,7 @@ function CreateLocationEventForm(props) {
                                                                     id: "event-form-schedule"
                                                                   }) : null
                                                           ],
-                                                          className: sectionClass
+                                                          className: sectionClassFor(prefilledSections.schedule)
                                                         }),
                                                     JsxRuntime.jsxs("section", {
                                                           children: [
@@ -1318,12 +1389,12 @@ function CreateLocationEventForm(props) {
                                                                       size: 19,
                                                                       className: sectionIconClass,
                                                                       "aria-hidden": "true"
-                                                                    }), t`Event details`, detailsSummary, expandedSection === "DetailsSection", "event-form-details", (function () {
+                                                                    }), prefilledSections.details, t`Event details`, detailsSummary, expandedSection === "DetailsSection", "event-form-details", (function () {
                                                                     toggleSection("DetailsSection");
                                                                   })),
                                                             tmp
                                                           ],
-                                                          className: sectionClass
+                                                          className: sectionClassFor(prefilledSections.details)
                                                         }),
                                                     JsxRuntime.jsxs("section", {
                                                           children: [
@@ -1345,11 +1416,7 @@ function CreateLocationEventForm(props) {
                                                                               
                                                                             })
                                                                         }),
-                                                                    JsxRuntime.jsx(LucideReact.CircleDollarSign, {
-                                                                          size: 19,
-                                                                          className: sectionIconClass,
-                                                                          "aria-hidden": "true"
-                                                                        }),
+                                                                    prefilledSections.paid ? prefilledIcon : icon,
                                                                     JsxRuntime.jsxs("span", {
                                                                           children: [
                                                                             JsxRuntime.jsx("span", {
@@ -1368,7 +1435,7 @@ function CreateLocationEventForm(props) {
                                                                 }),
                                                             tmp$1
                                                           ],
-                                                          className: sectionClass
+                                                          className: sectionClassFor(prefilledSections.paid)
                                                         }),
                                                     JsxRuntime.jsxs("section", {
                                                           children: [
@@ -1376,12 +1443,12 @@ function CreateLocationEventForm(props) {
                                                                       size: 19,
                                                                       className: sectionIconClass,
                                                                       "aria-hidden": "true"
-                                                                    }), t`Format`, formatSummary, expandedSection === "FormatSection", "event-form-format", (function () {
+                                                                    }), prefilledSections.format, t`Format`, formatSummary, expandedSection === "FormatSection", "event-form-format", (function () {
                                                                     toggleSection("FormatSection");
                                                                   })),
                                                             tmp$2
                                                           ],
-                                                          className: sectionClass
+                                                          className: sectionClassFor(prefilledSections.format)
                                                         }),
                                                     JsxRuntime.jsxs("section", {
                                                           children: [
@@ -1389,12 +1456,12 @@ function CreateLocationEventForm(props) {
                                                                       size: 19,
                                                                       className: sectionIconClass,
                                                                       "aria-hidden": "true"
-                                                                    }), t`Players`, playersSummary, expandedSection === "PlayersSection", "event-form-players", (function () {
+                                                                    }), prefilledSections.players, t`Players`, playersSummary, expandedSection === "PlayersSection", "event-form-players", (function () {
                                                                     toggleSection("PlayersSection");
                                                                   })),
                                                             tmp$3
                                                           ],
-                                                          className: sectionClass
+                                                          className: sectionClassFor(prefilledSections.players)
                                                         }),
                                                     JsxRuntime.jsx("button", {
                                                           children: isUpdate ? t`Update event` : t`Create event`,

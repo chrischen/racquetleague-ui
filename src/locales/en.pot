@@ -9910,3 +9910,195 @@ msgstr ""
 #: src/components/pages/ClubPage.re.mjs:868
 msgid "Add Court"
 msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid ""
+"Ask the assistant to fill in event details. Your conversation will appear "
+"here."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
+msgstr ""
+
+#: src/components/shared/LocationClub.re.mjs:23
+#: src/components/shared/LocationClub.re.mjs:27
+msgid "Open Play"
+msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:563
+msgid ""
+"This event admits players by level rather than by the time of RSVP. Your "
+"request will be reviewed and you will be notified once a spot is confirmed."
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:132
+msgid "{place} Time"
+msgstr ""
+
+#: src/components/pages/CreateEventPage.re.mjs:289
+msgid "AI-assisted event form"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:70
+msgid "Alaska Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:120
+msgid "American Samoa Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:82
+msgid "Arizona Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:76
+msgid "Atlantic Time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid ""
+"Attendees are asked to save a card when they RSVP, but nothing is authorized "
+"or charged, and you can't charge it from here. Collect the fee at the event. "
+"Club members are exempted from this."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:865
+msgid ""
+"Attendees save a card when they RSVP and nothing is charged or held up "
+"front. From the RSVP list you can charge one attendee or everyone whenever "
+"you choose, and the money goes to your Stripe account. Club members can be "
+"exempted or not, which you can toggle from the Club home page."
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:96
+msgid "Central Australia Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:104
+msgid "Central European Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:72
+msgid "Central Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:90
+msgid "China Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:122
+msgid "Coordinated Universal Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:102
+msgid "Eastern Australia Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:106
+msgid "Eastern European Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:80
+msgid "Eastern Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:116
+msgid "Hawaii Time"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+msgid ""
+"Hold new joins  in the pending list and admit players either manually or "
+"automatically with the Smart RSVPs algorithm that maximizes skill level and "
+"session quality."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Hold RSVPs"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:86
+msgid "India Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:94
+msgid "Japan Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:88
+msgid "Korea Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:118
+msgid "Line Islands Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:126
+#: src/components/molecules/TimeZoneField.re.mjs:129
+msgid "Local time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:74
+msgid "Mountain Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:112
+msgid "New Zealand Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:84
+msgid "Newfoundland Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:78
+msgid "Pacific Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:98
+msgid "Queensland Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:110
+msgid "Samoa Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:92
+msgid "Singapore Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:114
+msgid "Solomon Islands Time"
+msgstr ""
+
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:123
+msgid "Start time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:108
+msgid "United Kingdom Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:68
+msgid "West Africa Time"
+msgstr ""
+
+#: src/components/molecules/TimeZoneField.re.mjs:100
+msgid "Western Australia Time"
+msgstr ""
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:960
+msgid "Women's Rating"
+msgstr ""

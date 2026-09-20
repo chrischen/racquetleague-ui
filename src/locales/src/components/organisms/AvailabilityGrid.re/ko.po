@@ -53,11 +53,11 @@ msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 
 msgid "One-off"
 msgstr "일회성"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "플레이어 가용성 히트맵"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "제거"
 
@@ -77,7 +77,7 @@ msgstr "일정"
 msgid "Share with your club"
 msgstr "클럽과 공유"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 

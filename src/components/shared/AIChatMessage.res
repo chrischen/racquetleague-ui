@@ -55,6 +55,38 @@ let fromFragmentRef = (fragmentRef): option<AITypes.chatMessage> => {
   }
 }
 
+// The server's system prompt only knows its own date, so a typed prompt carries
+// the browser's local time ahead of it: "tomorrow at 7pm" then resolves against
+// the user's own clock. It is wall-clock only; the create form attaches the
+// zone. The tag is persisted with the message (so the model keeps it in
+// history) and stripped again wherever the message is displayed.
+module LocalTime = {
+  let openTag = "<local_time>"
+  let closeTag = "</local_time>"
+
+  // "Friday, 2026-09-18T19:42": the runtime's local wall clock.
+  let describe: Date.t => string = %raw(`function (d) {
+    var pad = function (n) { return String(n).padStart(2, "0") }
+    var weekday = d.toLocaleDateString("en-US", { weekday: "long" })
+    return weekday + ", " + d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
+      "T" + pad(d.getHours()) + ":" + pad(d.getMinutes())
+  }`)
+
+  let prepend = (message: string): string =>
+    `${openTag}User's current local time: ${describe(Date.make())}${closeTag}\n\n${message}`
+
+  let strip = (content: string): string =>
+    if content->String.startsWith(openTag) {
+      switch content->String.indexOf(closeTag) {
+      | -1 => content
+      | closeIdx =>
+        content->String.sliceToEnd(~start=closeIdx + String.length(closeTag))->String.trimStart
+      }
+    } else {
+      content
+    }
+}
+
 // Classify an executed proposal's result JSON into a terminal status. Mirrors
 // the semantics the approve/deny flow produces: `{"cancelled":true}` → Denied,
 // a non-empty GraphQL `errors` array → failed execution, otherwise success.
@@ -89,7 +121,8 @@ let classifyResult = (resultJson: string): AITypes.proposalStatus => {
 //   the transient `overlay` (in-flight Approve/Deny) if present, else from a
 //   matching action-result message, else Pending (still actionable — the real
 //   query/variables are on the message).
-// - Plain UserMessage/AgentMessage become User/Assistant turns. `enrichments`
+// - Plain UserMessage/AgentMessage become User/Assistant turns (a user turn
+//   without its `<local_time>` prefix). `enrichments`
 //   attaches a live turn's suggestedEvents (never persisted) to its agent bubble.
 let deriveTurns = (
   messages: array<AITypes.chatMessage>,
@@ -109,7 +142,8 @@ let deriveTurns = (
   messages->Belt.Array.keepMap(message =>
     switch message {
     | AITypes.UserMessage({actionResult: Some(_)}) => None // status carrier, hidden
-    | AITypes.UserMessage({id, content}) => Some(AITypes.UserTurn({id, content}))
+    | AITypes.UserMessage({id, content}) =>
+      Some(AITypes.UserTurn({id, content: LocalTime.strip(content)}))
     | AITypes.AgentMessage({id, action: Some(action)}) =>
       let status = switch overlay->Belt.Map.String.get(id) {
       | Some(s) => s

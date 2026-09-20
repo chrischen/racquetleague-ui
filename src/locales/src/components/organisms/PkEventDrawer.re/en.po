@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:703
+#: src/components/organisms/PkRSVPSection.re.mjs:696
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:701
+#: src/components/organisms/PkRSVPSection.re.mjs:694
 msgid "· +{0} waitlist"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "{0} courts"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:698
+#: src/components/organisms/PkRSVPSection.re.mjs:691
 msgid "{0} joined"
 msgstr ""
 
@@ -94,7 +94,7 @@ msgstr ""
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:815
+#: src/components/organisms/PkRSVPSection.re.mjs:808
 msgid "♂/♀ SKILL"
 msgstr ""
 
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Back to event"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:447
+#: src/components/organisms/PkRSVPSection.re.mjs:440
 msgid "balanced"
 msgstr ""
 
@@ -269,7 +269,7 @@ msgstr ""
 msgid "Claim spot · {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1110
+#: src/components/organisms/PkRSVPSection.re.mjs:1093
 msgid "Clear preview"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Confirm move"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:902
+#: src/components/organisms/PkRSVPSection.re.mjs:895
 msgid "Confirmed · {0}"
 msgstr ""
 
@@ -345,7 +345,7 @@ msgstr ""
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1186
+#: src/components/organisms/PkRSVPSection.re.mjs:1169
 msgid "Court"
 msgstr ""
 
@@ -408,8 +408,8 @@ msgstr ""
 msgid "Done editing"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:789
-#: src/components/organisms/PkRSVPSection.re.mjs:806
+#: src/components/organisms/PkRSVPSection.re.mjs:782
+#: src/components/organisms/PkRSVPSection.re.mjs:799
 msgid "DUPR"
 msgstr ""
 
@@ -469,11 +469,11 @@ msgstr ""
 msgid "Equal scores — this will be recorded as a draw"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Evaluating pending requests…"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "even"
 msgstr ""
 
@@ -654,8 +654,8 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:591
-#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:584
+#: src/components/organisms/PkRSVPSection.re.mjs:605
 msgid "LEVEL RESTRICTION"
 msgstr ""
 
@@ -685,7 +685,7 @@ msgstr ""
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:791
 msgid "MEDIAN"
 msgstr ""
 
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Message everyone in this event…"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:443
 msgid "mixed"
 msgstr ""
 
@@ -783,7 +783,7 @@ msgstr ""
 msgid "Other times at {venue}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:670
+#: src/components/organisms/PkRSVPSection.re.mjs:663
 msgid "Participants"
 msgstr ""
 
@@ -815,7 +815,7 @@ msgstr ""
 msgid "Payment required to confirm your spot"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1035
+#: src/components/organisms/PkRSVPSection.re.mjs:1028
 msgid "Pending · {0}"
 msgstr ""
 
@@ -823,7 +823,7 @@ msgstr ""
 msgid "Pending approval"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Placing on the waitlist…"
 msgstr ""
 
@@ -851,11 +851,11 @@ msgstr ""
 msgid "Presented by"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Preview Smart RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Previewing…"
 msgstr ""
 
@@ -923,11 +923,11 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:595
+#: src/components/organisms/PkRSVPSection.re.mjs:588
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:616
+#: src/components/organisms/PkRSVPSection.re.mjs:609
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
@@ -943,7 +943,7 @@ msgstr ""
 msgid "Retry charge"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1051
+#: src/components/organisms/PkRSVPSection.re.mjs:1044
 msgid "Review {0} pending requests with swipe cards"
 msgstr ""
 
@@ -969,10 +969,10 @@ msgid "RPM"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:1095
-msgid "Run Smart RSVP (best-fit, test)"
-msgstr ""
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Run Smart RSVP now"
 msgstr ""
 
@@ -1062,15 +1062,15 @@ msgstr ""
 msgid "Skip {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:566
+#: src/components/organisms/PkRSVPSection.re.mjs:559
 msgid "SMART RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1108
+#: src/components/organisms/PkRSVPSection.re.mjs:1091
 msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Smart Waitlist"
 msgstr ""
 
@@ -1078,7 +1078,7 @@ msgstr ""
 #~ msgid "Sponsor logo"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:859
+#: src/components/organisms/PkRSVPSection.re.mjs:852
 msgid "SPREAD"
 msgstr ""
 
@@ -1094,7 +1094,7 @@ msgstr ""
 msgid "Swipe left to skip · right to invite"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1049
+#: src/components/organisms/PkRSVPSection.re.mjs:1042
 msgid "Swipe review"
 msgstr ""
 
@@ -1124,7 +1124,11 @@ msgid "There are players on the waitlist. If you leave, your spot will be given 
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:570
-msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+#~ msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+#~ msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:563
+msgid "This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:54
@@ -1155,11 +1159,11 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:781
+#: src/components/organisms/PkRSVPSection.re.mjs:774
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:744
+#: src/components/organisms/PkRSVPSection.re.mjs:737
 msgid "Top court DUPR"
 msgstr ""
 
@@ -1203,11 +1207,11 @@ msgstr ""
 msgid "View Full Draws"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View less"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View more"
 msgstr ""
 
@@ -1230,7 +1234,7 @@ msgstr ""
 msgid "Waiting for approval to join"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:969
+#: src/components/organisms/PkRSVPSection.re.mjs:962
 msgid "Waitlist · {0}"
 msgstr ""
 
@@ -1258,7 +1262,7 @@ msgstr ""
 msgid "Withdrawing..."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1151
+#: src/components/organisms/PkRSVPSection.re.mjs:1134
 msgid "Would be admitted"
 msgstr ""
 
@@ -1286,7 +1290,7 @@ msgstr ""
 msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:599
+#: src/components/organisms/PkRSVPSection.re.mjs:592
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
 

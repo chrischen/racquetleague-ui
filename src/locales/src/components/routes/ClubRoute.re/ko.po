@@ -21,11 +21,11 @@ msgstr "{0} 열림"
 msgid "Active players"
 msgstr "활동 중인 플레이어"
 
-#: src/components/pages/ClubPage.re.mjs:869
+#: src/components/pages/ClubPage.re.mjs:887
 msgid "Add Court"
 msgstr "코트 추가"
 
-#: src/components/pages/ClubPage.re.mjs:719
+#: src/components/pages/ClubPage.re.mjs:744
 msgid "All clubs"
 msgstr "모든 클럽"
 
@@ -33,11 +33,11 @@ msgstr "모든 클럽"
 msgid "All levels"
 msgstr "모든 레벨"
 
-#: src/components/pages/ClubPage.re.mjs:654
+#: src/components/pages/ClubPage.re.mjs:679
 msgid "Cancel Request"
 msgstr "요청 취소"
 
-#: src/components/pages/ClubPage.re.mjs:374
+#: src/components/pages/ClubPage.re.mjs:375
 msgid "Check back when the club publishes its next schedule."
 msgstr "클럽이 다음 일정을 게시하면 다시 확인하세요."
 
@@ -45,11 +45,11 @@ msgstr "클럽이 다음 일정을 게시하면 다시 확인하세요."
 msgid "Club level"
 msgstr "클럽 레벨"
 
-#: src/components/pages/ClubPage.re.mjs:900
+#: src/components/pages/ClubPage.re.mjs:916
 msgid "club not found"
 msgstr "클럽을 찾을 수 없습니다"
 
-#: src/components/pages/ClubPage.re.mjs:822
+#: src/components/pages/ClubPage.re.mjs:847
 msgid "Exempt club members from event fees"
 msgstr "클럽 회원 이벤트 참가비 면제"
 
@@ -58,7 +58,7 @@ msgstr "클럽 회원 이벤트 참가비 면제"
 msgid "Free"
 msgstr "무료"
 
-#: src/components/pages/ClubPage.re.mjs:325
+#: src/components/pages/ClubPage.re.mjs:326
 msgid "Friday"
 msgstr "금요일"
 
@@ -66,31 +66,32 @@ msgstr "금요일"
 msgid "Full"
 msgstr "마감"
 
-#: src/components/pages/ClubPage.re.mjs:856
+#: src/components/pages/ClubPage.re.mjs:385
+#: src/components/pages/ClubPage.re.mjs:428
 msgid "Full club schedule"
 msgstr "전체 클럽 일정"
 
-#: src/components/pages/ClubPage.re.mjs:701
+#: src/components/pages/ClubPage.re.mjs:726
 msgid "Join Club"
 msgstr "클럽 가입"
 
-#: src/components/pages/ClubPage.re.mjs:425
+#: src/components/pages/ClubPage.re.mjs:450
 msgid "Leaderboard"
 msgstr "리더보드"
 
-#: src/components/pages/ClubPage.re.mjs:629
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Leave club"
 msgstr "클럽 나가기"
 
-#: src/components/pages/ClubPage.re.mjs:761
+#: src/components/pages/ClubPage.re.mjs:786
 msgid "Manage Members"
 msgstr "멤버 관리"
 
-#: src/components/pages/ClubPage.re.mjs:624
+#: src/components/pages/ClubPage.re.mjs:649
 msgid "Member"
 msgstr "회원"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Members join priced events without saving a card. Everyone else pays to your "
 "Stripe account as usual."
@@ -98,35 +99,35 @@ msgstr ""
 "회원은 카드를 등록하지 않고 유료 이벤트에 참가할 수 있습니다. 그 외 참가자는 "
 "평소처럼 Stripe 계정으로 결제합니다."
 
-#: src/components/pages/ClubPage.re.mjs:313
+#: src/components/pages/ClubPage.re.mjs:314
 msgid "Monday"
 msgstr "월요일"
 
-#: src/components/pages/ClubPage.re.mjs:335
+#: src/components/pages/ClubPage.re.mjs:336
 msgid "Next {dayName}"
 msgstr "다음 {dayName}"
 
-#: src/components/pages/ClubPage.re.mjs:443
+#: src/components/pages/ClubPage.re.mjs:468
 msgid "No ratings yet"
 msgstr "아직 레이팅이 없습니다"
 
-#: src/components/pages/ClubPage.re.mjs:370
+#: src/components/pages/ClubPage.re.mjs:371
 msgid "No upcoming events"
 msgstr "예정된 이벤트 없음"
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr "오픈 플레이"
 
-#: src/components/pages/ClubPage.re.mjs:784
+#: src/components/pages/ClubPage.re.mjs:809
 msgid "Payments"
 msgstr "결제"
 
-#: src/components/pages/ClubPage.re.mjs:649
+#: src/components/pages/ClubPage.re.mjs:674
 msgid "Request pending"
 msgstr "요청 대기 중"
 
-#: src/components/pages/ClubPage.re.mjs:680
+#: src/components/pages/ClubPage.re.mjs:705
 msgid "Request to join"
 msgstr "가입 요청"
 
@@ -134,23 +135,23 @@ msgstr "가입 요청"
 msgid "Retention"
 msgstr "유지율"
 
-#: src/components/pages/ClubPage.re.mjs:328
+#: src/components/pages/ClubPage.re.mjs:329
 msgid "Saturday"
 msgstr "토요일"
 
-#: src/components/pages/ClubPage.re.mjs:310
+#: src/components/pages/ClubPage.re.mjs:311
 msgid "Sunday"
 msgstr "일요일"
 
-#: src/components/pages/ClubPage.re.mjs:322
+#: src/components/pages/ClubPage.re.mjs:323
 msgid "Thursday"
 msgstr "목요일"
 
-#: src/components/pages/ClubPage.re.mjs:297
+#: src/components/pages/ClubPage.re.mjs:298
 msgid "Today"
 msgstr "오늘"
 
-#: src/components/pages/ClubPage.re.mjs:302
+#: src/components/pages/ClubPage.re.mjs:303
 msgid "Tomorrow"
 msgstr "내일"
 
@@ -158,27 +159,27 @@ msgstr "내일"
 msgid "Total members"
 msgstr "총 회원 수"
 
-#: src/components/pages/ClubPage.re.mjs:316
+#: src/components/pages/ClubPage.re.mjs:317
 msgid "Tuesday"
 msgstr "화요일"
 
-#: src/components/pages/ClubPage.re.mjs:849
+#: src/components/pages/ClubPage.re.mjs:874
 msgid "Upcoming Events"
 msgstr "예정된 이벤트"
 
-#: src/components/pages/ClubPage.re.mjs:435
+#: src/components/pages/ClubPage.re.mjs:460
 msgid "View All"
 msgstr "전체 보기"
 
-#: src/components/pages/ClubPage.re.mjs:319
+#: src/components/pages/ClubPage.re.mjs:320
 msgid "Wednesday"
 msgstr "수요일"
 
-#: src/components/pages/ClubPage.re.mjs:334
+#: src/components/pages/ClubPage.re.mjs:335
 msgid "Yesterday"
 msgstr "어제"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Your club has no connected Stripe account, so members always join without "
 "paying and other players' cards are only kept on file. Connect Stripe in "

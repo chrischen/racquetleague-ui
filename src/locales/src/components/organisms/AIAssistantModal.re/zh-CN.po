@@ -71,18 +71,22 @@ msgstr "创建此活动"
 msgid "Creating..."
 msgstr "创建中……"
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "描述："
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "活动详情"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "填写表单"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
@@ -96,8 +100,8 @@ msgstr "无法处理该请求，请重试。"
 msgid "Location search is unavailable right now"
 msgstr "位置搜索暂时不可用"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "地点："
 
@@ -121,7 +125,7 @@ msgstr "回复"
 msgid "Search for a venue or address"
 msgstr "搜索场馆或地址"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "建议的活动"
 
@@ -133,7 +137,7 @@ msgstr ""
 "告诉我您活动的时间和地点，或其他任何详细信息。您还可以告诉我需要包含的详细信"
 "息，我甚至可以添加翻译。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "标题："
 

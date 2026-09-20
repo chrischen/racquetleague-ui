@@ -80,7 +80,7 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
 msgstr "在上方新增時間段"
 
@@ -88,7 +88,7 @@ msgstr "在上方新增時間段"
 msgid "Advanced"
 msgstr "進階"
 
-#: src/components/molecules/LocationFilter.re.mjs:68
+#: src/components/molecules/EventFiltersToolbar.re.mjs:42
 msgid "All levels"
 msgstr "所有級別"
 
@@ -104,12 +104,12 @@ msgstr "個人簡介"
 msgid "Biography is required"
 msgstr "簡介為必填項目"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Change"
 msgstr "變更"
 
-#: src/components/molecules/LocationFilter.re.mjs:102
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
+#: src/components/molecules/EventFiltersToolbar.re.mjs:76
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
 msgid "Clear"
 msgstr "清除"
 
@@ -141,15 +141,15 @@ msgstr "無法儲存您的個人資料，請再試一次。"
 msgid "Court"
 msgstr "場地"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts Â· thickness = count"
 msgstr "場地 · 粗細 = 數量"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:850
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
 msgstr "涵蓋您完整時段的場地與空檔"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "各場地分別列出，並顯示其最大連續空檔。"
 
@@ -169,7 +169,7 @@ msgstr "顯示名稱"
 msgid "Display name is required"
 msgstr "請輸入顯示名稱"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Done"
 msgstr "完成"
 
@@ -189,11 +189,11 @@ msgstr ""
 msgid "Email is required"
 msgstr "請輸入電子郵件"
 
-#: src/components/molecules/LocationFilter.re.mjs:245
+#: src/components/molecules/LocationFilter.re.mjs:174
 msgid "Event filters"
 msgstr "活動篩選"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:650
 msgid "Events"
 msgstr "活動"
 
@@ -225,7 +225,7 @@ msgstr "中級+"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球員個人資料準確且對社群有用。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
 
@@ -233,11 +233,11 @@ msgstr "讓主辦人在大多數人有空時安排活動"
 msgid "Level"
 msgstr "等級"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Locating…"
 msgstr "定位中…"
 
-#: src/components/molecules/LocationFilter.re.mjs:161
+#: src/components/molecules/LocationFilter.re.mjs:80
 msgid "Location"
 msgstr "地點"
 
@@ -245,7 +245,7 @@ msgstr "地點"
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "位置存取遭拒。請允許存取或選擇場地。"
 
-#: src/components/molecules/LocationFilter.re.mjs:127
+#: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr "地點："
 
@@ -253,15 +253,15 @@ msgstr "地點："
 msgid "Male"
 msgstr "男性"
 
-#: src/components/molecules/LocationFilter.re.mjs:62
+#: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
 msgstr "最低活動級別"
 
-#: src/components/molecules/LocationFilter.re.mjs:171
+#: src/components/molecules/LocationFilter.re.mjs:90
 msgid "Near me"
 msgstr "附近"
 
-#: src/components/molecules/LocationFilter.re.mjs:31
+#: src/components/molecules/LocationFilter.re.mjs:29
 msgid "Near me · {radius} km"
 msgstr "附近 · {radius} 公里"
 
@@ -269,15 +269,15 @@ msgstr "附近 · {radius} 公里"
 msgid "Not now"
 msgstr "暫不設定"
 
-#: src/components/molecules/LocationFilter.re.mjs:50
+#: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "開放名額"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:605
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Players"
 msgstr "尋找球員"
 
@@ -289,7 +289,7 @@ msgstr "專業"
 msgid "Reserve"
 msgstr "預訂"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Save"
 msgstr "儲存"
 
@@ -297,15 +297,15 @@ msgstr "儲存"
 msgid "Save profile"
 msgstr "儲存個人資料"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Savingâ¦"
 msgstr "儲存中…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:581
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "排程"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
@@ -319,11 +319,11 @@ msgid ""
 "they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大小"
 
@@ -331,7 +331,7 @@ msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大
 msgid "Tokyo"
 msgstr "東京"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Use near me"
 msgstr "使用附近位置"
 
@@ -343,23 +343,23 @@ msgstr "使用此選項"
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
 msgstr "平日傍晚"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:666
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:701
 msgid "Weekend morns"
 msgstr "週末上午"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:620
 msgid "When can you play?"
 msgstr "你什麼時候可以打球？"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "你的空閒時間"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "您的時間"
 

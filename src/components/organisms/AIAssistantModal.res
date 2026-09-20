@@ -43,7 +43,7 @@ let make = (~open_: bool=false, ~onOpenChange: option<bool => unit>=?, ~context:
       chatMutate(
         ~variables={
           input: {
-            message: prompt,
+            message: AIChatMessage.LocalTime.prepend(prompt),
           },
         },
         ~onCompleted=(result, _errors) => {

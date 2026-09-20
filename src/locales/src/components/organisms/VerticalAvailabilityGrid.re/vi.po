@@ -80,23 +80,23 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
 msgstr "Thêm khung giờ ở trên"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
 msgid "Clear"
 msgstr "Xóa"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts Â· thickness = count"
 msgstr "Sân · độ dày = số lượng"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:850
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
 msgstr "Sân và khung giờ trống trong toàn bộ khoảng thời gian của bạn"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr ""
 "Các sân được liệt kê riêng lẻ cùng với khung giờ trống liên tục dài nhất."
@@ -105,19 +105,19 @@ msgstr ""
 msgid "Create event"
 msgstr "Tạo sự kiện"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:650
 msgid "Events"
 msgstr "Các sự kiện"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:605
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Players"
 msgstr "Người chơi"
 
@@ -125,19 +125,19 @@ msgstr "Người chơi"
 msgid "Reserve"
 msgstr "Đặt sân"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Savingâ¦"
 msgstr "Đang lưu…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:581
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "Lịch"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
@@ -145,11 +145,11 @@ msgstr ""
 "Đặt lịch rảnh của bạn cho 2 tuần tới. Sự kiện và khung giờ rảnh được hiển "
 "thị chung; đường cyan càng dày nghĩa là càng nhiều sân."
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "Chia sẻ với câu lạc bộ của bạn"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr ""
 "Nhấn vào ô trống để thêm · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
@@ -158,23 +158,23 @@ msgstr ""
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
 msgstr "Tối các ngày trong tuần"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:666
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:701
 msgid "Weekend morns"
 msgstr "Sáng cuối tuần"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:620
 msgid "When can you play?"
 msgstr "Bạn có thể chơi lúc nào?"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "Lịch rảnh của bạn"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "Giờ của bạn"
 

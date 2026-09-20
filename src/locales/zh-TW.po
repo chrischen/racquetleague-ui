@@ -8268,6 +8268,182 @@ msgstr "取消管理員"
 msgid "Add Court"
 msgstr "新增球場"
 
+msgid "Open Play"
+msgstr "自由對打"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
+msgstr "請助理協助填寫活動細節，你們的對話將顯示在此。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "描述你的活動，我會幫你填寫表單…"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "填寫表單"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
+msgstr "隱藏 AI 對話記錄"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
+msgstr "顯示 AI 對話記錄"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:563
+msgid "This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "本活動依程度而非報名時間錄取球員。你的申請將經過審核，確認名額後會通知你。"
+
+#: src/components/molecules/TimeZoneField.re.mjs:132
+msgid "{place} Time"
+msgstr "{place}時間"
+
+#: src/components/pages/CreateEventPage.re.mjs:289
+msgid "AI-assisted event form"
+msgstr "AI 輔助活動表單"
+
+#: src/components/molecules/TimeZoneField.re.mjs:70
+msgid "Alaska Time"
+msgstr "阿拉斯加時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:120
+msgid "American Samoa Time"
+msgstr "美屬薩摩亞時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:82
+msgid "Arizona Time"
+msgstr "亞利桑那時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:76
+msgid "Atlantic Time"
+msgstr "大西洋時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "參加者報名時需儲存信用卡，但不會授權或扣款，你也無法從這裡扣款。請於活動現場收費。俱樂部會員不受此限。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:865
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "參加者報名時會儲存信用卡，事前不會扣款或預授權。你可以隨時從報名名單向單一參加者或所有人收費，款項將匯入你的 Stripe 帳戶。俱樂部會員可設定是否豁免，可於俱樂部首頁切換。"
+
+#: src/components/molecules/TimeZoneField.re.mjs:96
+msgid "Central Australia Time"
+msgstr "澳洲中部時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:104
+msgid "Central European Time"
+msgstr "中歐時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:72
+msgid "Central Time"
+msgstr "中部時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:90
+msgid "China Time"
+msgstr "中國時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:122
+msgid "Coordinated Universal Time"
+msgstr "世界協調時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:102
+msgid "Eastern Australia Time"
+msgstr "澳洲東部時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:106
+msgid "Eastern European Time"
+msgstr "東歐時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:80
+msgid "Eastern Time"
+msgstr "東部時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:116
+msgid "Hawaii Time"
+msgstr "夏威夷時間"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "將新報名者保留在待審名單中，並可手動錄取，或使用 Smart RSVPs 演算法自動錄取，以提升程度均衡與場次品質。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Hold RSVPs"
+msgstr "保留報名"
+
+#: src/components/molecules/TimeZoneField.re.mjs:86
+msgid "India Time"
+msgstr "印度時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:94
+msgid "Japan Time"
+msgstr "日本時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:88
+msgid "Korea Time"
+msgstr "韓國時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:118
+msgid "Line Islands Time"
+msgstr "萊恩群島時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:126
+#: src/components/molecules/TimeZoneField.re.mjs:129
+msgid "Local time"
+msgstr "當地時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:74
+msgid "Mountain Time"
+msgstr "山區時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:112
+msgid "New Zealand Time"
+msgstr "紐西蘭時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:84
+msgid "Newfoundland Time"
+msgstr "紐芬蘭時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:78
+msgid "Pacific Time"
+msgstr "太平洋時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:98
+msgid "Queensland Time"
+msgstr "昆士蘭時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:110
+msgid "Samoa Time"
+msgstr "薩摩亞時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:92
+msgid "Singapore Time"
+msgstr "新加坡時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:114
+msgid "Solomon Islands Time"
+msgstr "索羅門群島時間"
+
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:123
+msgid "Start time"
+msgstr "開始時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:108
+msgid "United Kingdom Time"
+msgstr "英國時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:68
+msgid "West Africa Time"
+msgstr "西非時間"
+
+#: src/components/molecules/TimeZoneField.re.mjs:100
+msgid "Western Australia Time"
+msgstr "西澳時間"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:960
+msgid "Women's Rating"
+msgstr "女子評分"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -8482,6 +8658,3 @@ msgstr "新增球場"
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "在實際的 1.0 DUPR 分布下，Competitive+ 在最初幾輪內就拉開與各基準的差距，一場活動下來已比「避免重複」基準高出 9 分品質與 10 分一面倒比賽表現。完整效益在評分成熟後顯現：一面倒比賽僅 10%，基準則為 62%；勢均力敵比賽的機率達 78%，基準為 53%。這些成熟數據可媲美精挑細選、程度集中的球會（79% 與 8%）——演算法透過配對，達成你原本得靠篩選名單才能得到的結果："
-
-msgid "Open Play"
-msgstr "自由對打"

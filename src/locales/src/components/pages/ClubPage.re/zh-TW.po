@@ -21,11 +21,11 @@ msgstr "{0} 開放"
 msgid "Active players"
 msgstr "活躍球員"
 
-#: src/components/pages/ClubPage.re.mjs:869
+#: src/components/pages/ClubPage.re.mjs:887
 msgid "Add Court"
 msgstr "新增球場"
 
-#: src/components/pages/ClubPage.re.mjs:719
+#: src/components/pages/ClubPage.re.mjs:744
 msgid "All clubs"
 msgstr "所有俱樂部"
 
@@ -33,11 +33,11 @@ msgstr "所有俱樂部"
 msgid "All levels"
 msgstr "所有級別"
 
-#: src/components/pages/ClubPage.re.mjs:654
+#: src/components/pages/ClubPage.re.mjs:679
 msgid "Cancel Request"
 msgstr "取消申請"
 
-#: src/components/pages/ClubPage.re.mjs:374
+#: src/components/pages/ClubPage.re.mjs:375
 msgid "Check back when the club publishes its next schedule."
 msgstr "請在俱樂部發布下一個時間表時再回來查看。"
 
@@ -45,11 +45,11 @@ msgstr "請在俱樂部發布下一個時間表時再回來查看。"
 msgid "Club level"
 msgstr "俱樂部等級"
 
-#: src/components/pages/ClubPage.re.mjs:900
+#: src/components/pages/ClubPage.re.mjs:916
 msgid "club not found"
 msgstr "找不到俱樂部"
 
-#: src/components/pages/ClubPage.re.mjs:822
+#: src/components/pages/ClubPage.re.mjs:847
 msgid "Exempt club members from event fees"
 msgstr "免除俱樂部會員的活動費用"
 
@@ -58,7 +58,7 @@ msgstr "免除俱樂部會員的活動費用"
 msgid "Free"
 msgstr "免費"
 
-#: src/components/pages/ClubPage.re.mjs:325
+#: src/components/pages/ClubPage.re.mjs:326
 msgid "Friday"
 msgstr "星期五"
 
@@ -66,66 +66,67 @@ msgstr "星期五"
 msgid "Full"
 msgstr "已額滿"
 
-#: src/components/pages/ClubPage.re.mjs:856
+#: src/components/pages/ClubPage.re.mjs:385
+#: src/components/pages/ClubPage.re.mjs:428
 msgid "Full club schedule"
 msgstr "完整俱樂部時間表"
 
-#: src/components/pages/ClubPage.re.mjs:701
+#: src/components/pages/ClubPage.re.mjs:726
 msgid "Join Club"
 msgstr "加入俱樂部"
 
-#: src/components/pages/ClubPage.re.mjs:425
+#: src/components/pages/ClubPage.re.mjs:450
 msgid "Leaderboard"
 msgstr "排行榜"
 
-#: src/components/pages/ClubPage.re.mjs:629
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Leave club"
 msgstr "退出俱樂部"
 
-#: src/components/pages/ClubPage.re.mjs:761
+#: src/components/pages/ClubPage.re.mjs:786
 msgid "Manage Members"
 msgstr "管理成員"
 
-#: src/components/pages/ClubPage.re.mjs:624
+#: src/components/pages/ClubPage.re.mjs:649
 msgid "Member"
 msgstr "會員"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Members join priced events without saving a card. Everyone else pays to your "
 "Stripe account as usual."
 msgstr ""
 "會員無需綁定信用卡即可報名收費活動。其他人則照常付款至您的 Stripe 帳戶。"
 
-#: src/components/pages/ClubPage.re.mjs:313
+#: src/components/pages/ClubPage.re.mjs:314
 msgid "Monday"
 msgstr "星期一"
 
-#: src/components/pages/ClubPage.re.mjs:335
+#: src/components/pages/ClubPage.re.mjs:336
 msgid "Next {dayName}"
 msgstr "下週{dayName}"
 
-#: src/components/pages/ClubPage.re.mjs:443
+#: src/components/pages/ClubPage.re.mjs:468
 msgid "No ratings yet"
 msgstr "尚無評分"
 
-#: src/components/pages/ClubPage.re.mjs:370
+#: src/components/pages/ClubPage.re.mjs:371
 msgid "No upcoming events"
 msgstr "沒有即將舉行的活動"
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr "自由對打"
 
-#: src/components/pages/ClubPage.re.mjs:784
+#: src/components/pages/ClubPage.re.mjs:809
 msgid "Payments"
 msgstr "付款"
 
-#: src/components/pages/ClubPage.re.mjs:649
+#: src/components/pages/ClubPage.re.mjs:674
 msgid "Request pending"
 msgstr "申請待審中"
 
-#: src/components/pages/ClubPage.re.mjs:680
+#: src/components/pages/ClubPage.re.mjs:705
 msgid "Request to join"
 msgstr "申請加入"
 
@@ -133,23 +134,23 @@ msgstr "申請加入"
 msgid "Retention"
 msgstr "留存率"
 
-#: src/components/pages/ClubPage.re.mjs:328
+#: src/components/pages/ClubPage.re.mjs:329
 msgid "Saturday"
 msgstr "星期六"
 
-#: src/components/pages/ClubPage.re.mjs:310
+#: src/components/pages/ClubPage.re.mjs:311
 msgid "Sunday"
 msgstr "星期日"
 
-#: src/components/pages/ClubPage.re.mjs:322
+#: src/components/pages/ClubPage.re.mjs:323
 msgid "Thursday"
 msgstr "星期四"
 
-#: src/components/pages/ClubPage.re.mjs:297
+#: src/components/pages/ClubPage.re.mjs:298
 msgid "Today"
 msgstr "今天"
 
-#: src/components/pages/ClubPage.re.mjs:302
+#: src/components/pages/ClubPage.re.mjs:303
 msgid "Tomorrow"
 msgstr "明天"
 
@@ -157,27 +158,27 @@ msgstr "明天"
 msgid "Total members"
 msgstr "會員總數"
 
-#: src/components/pages/ClubPage.re.mjs:316
+#: src/components/pages/ClubPage.re.mjs:317
 msgid "Tuesday"
 msgstr "星期二"
 
-#: src/components/pages/ClubPage.re.mjs:849
+#: src/components/pages/ClubPage.re.mjs:874
 msgid "Upcoming Events"
 msgstr "即將舉行的活動"
 
-#: src/components/pages/ClubPage.re.mjs:435
+#: src/components/pages/ClubPage.re.mjs:460
 msgid "View All"
 msgstr "查看全部"
 
-#: src/components/pages/ClubPage.re.mjs:319
+#: src/components/pages/ClubPage.re.mjs:320
 msgid "Wednesday"
 msgstr "星期三"
 
-#: src/components/pages/ClubPage.re.mjs:334
+#: src/components/pages/ClubPage.re.mjs:335
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Your club has no connected Stripe account, so members always join without "
 "paying and other players' cards are only kept on file. Connect Stripe in "

@@ -80,7 +80,7 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
 msgstr "เพิ่มช่วงเวลาด้านบน"
 
@@ -88,7 +88,7 @@ msgstr "เพิ่มช่วงเวลาด้านบน"
 msgid "Advanced"
 msgstr "ขั้นสูง"
 
-#: src/components/molecules/LocationFilter.re.mjs:68
+#: src/components/molecules/EventFiltersToolbar.re.mjs:42
 msgid "All levels"
 msgstr "ทุกระดับ"
 
@@ -104,12 +104,12 @@ msgstr "ประวัติส่วนตัว"
 msgid "Biography is required"
 msgstr "กรุณากรอกประวัติย่อ"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Change"
 msgstr "เปลี่ยน"
 
-#: src/components/molecules/LocationFilter.re.mjs:102
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
+#: src/components/molecules/EventFiltersToolbar.re.mjs:76
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
 msgid "Clear"
 msgstr "ล้าง"
 
@@ -141,15 +141,15 @@ msgstr "ไม่สามารถบันทึกโปรไฟล์ได
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts Â· thickness = count"
 msgstr "คอร์ท · ความหนา = จำนวน"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:850
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
 msgstr "คอร์ตและช่วงเวลาว่างที่ครอบคลุมช่วงเวลาทั้งหมดของคุณ"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "คอร์ตแต่ละแห่งแสดงพร้อมช่วงเวลาว่างต่อเนื่องที่ยาวที่สุด"
 
@@ -169,7 +169,7 @@ msgstr "ชื่อที่แสดง"
 msgid "Display name is required"
 msgstr "ต้องกรอกชื่อที่แสดง"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Done"
 msgstr "เสร็จ"
 
@@ -187,11 +187,11 @@ msgstr "ที่อยู่อีเมลนี้ไม่ว่าง ก�
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
 
-#: src/components/molecules/LocationFilter.re.mjs:245
+#: src/components/molecules/LocationFilter.re.mjs:174
 msgid "Event filters"
 msgstr "ตัวกรองกิจกรรม"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:650
 msgid "Events"
 msgstr "กิจกรรม"
 
@@ -223,7 +223,7 @@ msgstr "ระดับกลาง+"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "ให้เจ้าภาพจัดตารางอีเวนต์เมื่อส่วนใหญ่ว่าง"
 
@@ -231,11 +231,11 @@ msgstr "ให้เจ้าภาพจัดตารางอีเวนต
 msgid "Level"
 msgstr "ระดับ"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Locating…"
 msgstr "กำลังระบุตำแหน่ง…"
 
-#: src/components/molecules/LocationFilter.re.mjs:161
+#: src/components/molecules/LocationFilter.re.mjs:80
 msgid "Location"
 msgstr "สถานที่"
 
@@ -243,7 +243,7 @@ msgstr "สถานที่"
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "การเข้าถึงตำแหน่งที่ตั้งถูกปฏิเสธ กรุณาอนุญาตการเข้าถึงหรือเลือกสถานที่"
 
-#: src/components/molecules/LocationFilter.re.mjs:127
+#: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr "สถานที่:"
 
@@ -251,15 +251,15 @@ msgstr "สถานที่:"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/molecules/LocationFilter.re.mjs:62
+#: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
 msgstr "ระดับกิจกรรมขั้นต่ำ"
 
-#: src/components/molecules/LocationFilter.re.mjs:171
+#: src/components/molecules/LocationFilter.re.mjs:90
 msgid "Near me"
 msgstr "ใกล้ฉัน"
 
-#: src/components/molecules/LocationFilter.re.mjs:31
+#: src/components/molecules/LocationFilter.re.mjs:29
 msgid "Near me · {radius} km"
 msgstr "ใกล้ฉัน · {radius} กม."
 
@@ -267,15 +267,15 @@ msgstr "ใกล้ฉัน · {radius} กม."
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
 
-#: src/components/molecules/LocationFilter.re.mjs:50
+#: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "ที่นั่งว่าง"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:605
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Players"
 msgstr "หาผู้เล่น"
 
@@ -287,7 +287,7 @@ msgstr "โปร"
 msgid "Reserve"
 msgstr "จอง"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Save"
 msgstr "บันทึก"
 
@@ -295,15 +295,15 @@ msgstr "บันทึก"
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Savingâ¦"
 msgstr "กำลังบันทึก…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:581
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "ตารางเวลา"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
@@ -317,11 +317,11 @@ msgid ""
 "they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "แชร์กับชมรมของคุณ"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "แตะช่องว่างเพื่อเพิ่ม · ลากเพื่อย้าย · จับขอบเพื่อปรับขนาด"
 
@@ -329,7 +329,7 @@ msgstr "แตะช่องว่างเพื่อเพิ่ม · ล�
 msgid "Tokyo"
 msgstr "โตเกียว"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Use near me"
 msgstr "ใช้ตำแหน่งใกล้ฉัน"
 
@@ -341,23 +341,23 @@ msgstr "ใช้ตัวเลือกนี้"
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
 msgstr "เย็นวันธรรมดา"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:666
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:701
 msgid "Weekend morns"
 msgstr "เช้าวันหยุด"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:620
 msgid "When can you play?"
 msgstr "คุณเล่นได้เมื่อไหร่?"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "เวลาว่างของคุณ"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "เวลาของคุณ"
 

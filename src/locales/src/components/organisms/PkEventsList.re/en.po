@@ -17,16 +17,16 @@ msgstr ""
 msgid "...more"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:703
+#: src/components/organisms/PkRSVPSection.re.mjs:696
 msgid "· {0} pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:701
+#: src/components/organisms/PkRSVPSection.re.mjs:694
 msgid "· +{0} waitlist"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:496
-#: src/components/molecules/PlayIntentRow.re.mjs:628
+#: src/components/molecules/PlayIntentRow.re.mjs:497
+#: src/components/molecules/PlayIntentRow.re.mjs:635
 msgid "· peak {0}–{1}"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
 #: src/components/molecules/PlayIntentRow.re.mjs:320
-#: src/components/molecules/PlayIntentRow.re.mjs:492
+#: src/components/molecules/PlayIntentRow.re.mjs:493
 #: src/components/organisms/PkEventsList.re.mjs:240
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr ""
@@ -107,7 +107,7 @@ msgstr ""
 #~ msgid "{0} exact options"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:698
+#: src/components/organisms/PkRSVPSection.re.mjs:691
 msgid "{0} joined"
 msgstr ""
 
@@ -139,7 +139,7 @@ msgstr ""
 #~ msgid "{0} others want to play {dayWord}"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:494
+#: src/components/molecules/PlayIntentRow.re.mjs:495
 msgid "{0} people"
 msgstr ""
 
@@ -147,11 +147,11 @@ msgstr ""
 #~ msgid "{0} people looking to play"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:626
+#: src/components/molecules/PlayIntentRow.re.mjs:633
 msgid "{0} people want to play"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:493
+#: src/components/molecules/PlayIntentRow.re.mjs:494
 msgid "{0} person"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 #~ msgid "{0} person looking to play"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:625
+#: src/components/molecules/PlayIntentRow.re.mjs:632
 msgid "{0} person wants to play"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
 #: src/components/molecules/PlayIntentRow.re.mjs:332
-#: src/components/molecules/PlayIntentRow.re.mjs:624
+#: src/components/molecules/PlayIntentRow.re.mjs:631
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -292,7 +292,7 @@ msgstr ""
 msgid "← previous"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:815
+#: src/components/organisms/PkRSVPSection.re.mjs:808
 msgid "♂/♀ SKILL"
 msgstr ""
 
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Afternoon"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:68
+#: src/components/molecules/EventFiltersToolbar.re.mjs:42
 msgid "All levels"
 msgstr ""
 
@@ -391,7 +391,7 @@ msgstr ""
 msgid "Back to event"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:447
+#: src/components/organisms/PkRSVPSection.re.mjs:440
 msgid "balanced"
 msgstr ""
 
@@ -480,11 +480,11 @@ msgstr ""
 msgid "Card required to confirm your spot"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Change"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:652
+#: src/components/molecules/PlayIntentRow.re.mjs:659
 msgid "Change times"
 msgstr ""
 
@@ -509,11 +509,11 @@ msgstr ""
 msgid "Claim spot · {0}"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:102
+#: src/components/molecules/EventFiltersToolbar.re.mjs:76
 msgid "Clear"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1110
+#: src/components/organisms/PkRSVPSection.re.mjs:1093
 msgid "Clear preview"
 msgstr ""
 
@@ -566,7 +566,7 @@ msgstr ""
 msgid "Confirm move"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:902
+#: src/components/organisms/PkRSVPSection.re.mjs:895
 msgid "Confirmed · {0}"
 msgstr ""
 
@@ -597,7 +597,7 @@ msgstr ""
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1186
+#: src/components/organisms/PkRSVPSection.re.mjs:1169
 #: src/components/organisms/PkEventsAvailabilityDay.re.mjs:181
 #: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
@@ -625,7 +625,7 @@ msgstr ""
 #~ msgid "Courts available during your time"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:471
+#: src/components/molecules/PlayIntentRow.re.mjs:472
 msgid "Courts covering your complete time"
 msgstr ""
 
@@ -671,7 +671,7 @@ msgstr ""
 msgid "Display name is required"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Done"
 msgstr ""
 
@@ -683,8 +683,8 @@ msgstr ""
 msgid "Drag or resize within"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:789
-#: src/components/organisms/PkRSVPSection.re.mjs:806
+#: src/components/organisms/PkRSVPSection.re.mjs:782
+#: src/components/organisms/PkRSVPSection.re.mjs:799
 msgid "DUPR"
 msgstr ""
 
@@ -749,11 +749,11 @@ msgstr ""
 msgid "Equal scores — this will be recorded as a draw"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Evaluating pending requests…"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "even"
 msgstr ""
 
@@ -771,7 +771,7 @@ msgstr ""
 msgid "Event chat"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:245
+#: src/components/molecules/LocationFilter.re.mjs:174
 msgid "Event filters"
 msgstr ""
 
@@ -850,11 +850,11 @@ msgstr ""
 msgid "Highly skilled players"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:551
+#: src/components/molecules/PlayIntentRow.re.mjs:558
 msgid "Host an event at this time"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:548
+#: src/components/molecules/PlayIntentRow.re.mjs:555
 msgid "Host event"
 msgstr ""
 
@@ -997,8 +997,8 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:591
-#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:584
+#: src/components/organisms/PkRSVPSection.re.mjs:605
 msgid "LEVEL RESTRICTION"
 msgstr ""
 
@@ -1007,12 +1007,12 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Locating…"
 msgstr ""
 
 #: src/components/pages/PkEventPage.re.mjs:445
-#: src/components/molecules/LocationFilter.re.mjs:161
+#: src/components/molecules/LocationFilter.re.mjs:80
 msgid "Location"
 msgstr ""
 
@@ -1020,7 +1020,7 @@ msgstr ""
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:127
+#: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr ""
 
@@ -1043,7 +1043,7 @@ msgid "Male"
 msgstr ""
 
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:376
-#: src/components/molecules/PlayIntentRow.re.mjs:571
+#: src/components/molecules/PlayIntentRow.re.mjs:578
 msgid "Mark available"
 msgstr ""
 
@@ -1059,7 +1059,7 @@ msgstr ""
 msgid "Matches will be submitted to DUPR."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:791
 msgid "MEDIAN"
 msgstr ""
 
@@ -1071,11 +1071,11 @@ msgstr ""
 msgid "Message everyone in this event…"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:62
+#: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:443
 msgid "mixed"
 msgstr ""
 
@@ -1096,11 +1096,11 @@ msgstr ""
 msgid "Move to Pending List"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:171
+#: src/components/molecules/LocationFilter.re.mjs:90
 msgid "Near me"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:31
+#: src/components/molecules/LocationFilter.re.mjs:29
 msgid "Near me · {radius} km"
 msgstr ""
 
@@ -1112,7 +1112,7 @@ msgstr ""
 msgid "No court at {venue} covers the full event window."
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:479
+#: src/components/molecules/PlayIntentRow.re.mjs:480
 msgid "No court is currently available for an entire selected window."
 msgstr ""
 
@@ -1189,7 +1189,7 @@ msgstr ""
 #~ msgid "Open span"
 #~ msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:50
+#: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr ""
 
@@ -1213,7 +1213,7 @@ msgstr ""
 #~ msgid "others"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:670
+#: src/components/organisms/PkRSVPSection.re.mjs:663
 msgid "Participants"
 msgstr ""
 
@@ -1249,7 +1249,7 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1035
+#: src/components/organisms/PkRSVPSection.re.mjs:1028
 msgid "Pending · {0}"
 msgstr ""
 
@@ -1261,7 +1261,7 @@ msgstr ""
 #~ msgid "Pick a location or use your current location."
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:551
+#: src/components/molecules/PlayIntentRow.re.mjs:558
 msgid "Pick one time window to host an event"
 msgstr ""
 
@@ -1269,7 +1269,7 @@ msgstr ""
 #~ msgid "Pick time →"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Placing on the waitlist…"
 msgstr ""
 
@@ -1286,7 +1286,7 @@ msgstr ""
 msgid "player"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr ""
 
@@ -1323,11 +1323,11 @@ msgstr ""
 msgid "Presented by"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Preview Smart RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Previewing…"
 msgstr ""
 
@@ -1388,12 +1388,12 @@ msgstr ""
 msgid "Release to refresh"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:527
-#: src/components/molecules/PlayIntentRow.re.mjs:662
+#: src/components/molecules/PlayIntentRow.re.mjs:534
+#: src/components/molecules/PlayIntentRow.re.mjs:669
 msgid "Remove all"
 msgstr ""
 
@@ -1413,11 +1413,11 @@ msgstr ""
 msgid "Repeat"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:595
+#: src/components/organisms/PkRSVPSection.re.mjs:588
 msgid "Required: DUPR {minDuprStr}+"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:616
+#: src/components/organisms/PkRSVPSection.re.mjs:609
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr ""
 
@@ -1433,7 +1433,7 @@ msgstr ""
 msgid "Retry charge"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1051
+#: src/components/organisms/PkRSVPSection.re.mjs:1044
 msgid "Review {0} pending requests with swipe cards"
 msgstr ""
 
@@ -1459,10 +1459,10 @@ msgid "RPM"
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:1095
-msgid "Run Smart RSVP (best-fit, test)"
-msgstr ""
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Run Smart RSVP now"
 msgstr ""
 
@@ -1568,15 +1568,15 @@ msgstr ""
 msgid "Skip {0}"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:566
+#: src/components/organisms/PkRSVPSection.re.mjs:559
 msgid "SMART RSVP"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1108
+#: src/components/organisms/PkRSVPSection.re.mjs:1091
 msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Smart Waitlist"
 msgstr ""
 
@@ -1588,7 +1588,7 @@ msgstr ""
 #~ msgid "Sponsor logo"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:859
+#: src/components/organisms/PkRSVPSection.re.mjs:852
 msgid "SPREAD"
 msgstr ""
 
@@ -1608,7 +1608,7 @@ msgstr ""
 msgid "Swipe left to skip · right to invite"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1049
+#: src/components/organisms/PkRSVPSection.re.mjs:1042
 msgid "Swipe review"
 msgstr ""
 
@@ -1624,7 +1624,7 @@ msgstr ""
 msgid "Tap to add time in this slot"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr ""
 
@@ -1655,7 +1655,11 @@ msgid "There are players on the waitlist. If you leave, your spot will be given 
 msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:570
-msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+#~ msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
+#~ msgstr ""
+
+#: src/components/organisms/PkRSVPSection.re.mjs:563
+msgid "This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:54
@@ -1708,11 +1712,11 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:781
+#: src/components/organisms/PkRSVPSection.re.mjs:774
 msgid "TOP 6 AVG"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:744
+#: src/components/organisms/PkRSVPSection.re.mjs:737
 msgid "Top court DUPR"
 msgstr ""
 
@@ -1740,7 +1744,7 @@ msgstr ""
 msgid "Use location"
 msgstr ""
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Use near me"
 msgstr ""
 
@@ -1776,11 +1780,11 @@ msgstr ""
 msgid "View Full Draws"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View less"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View more"
 msgstr ""
 
@@ -1811,7 +1815,7 @@ msgstr ""
 msgid "Waitlist"
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:969
+#: src/components/organisms/PkRSVPSection.re.mjs:962
 msgid "Waitlist · {0}"
 msgstr ""
 
@@ -1867,7 +1871,7 @@ msgstr ""
 #~ msgid "Within {0} km · {1}, {2}"
 #~ msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1151
+#: src/components/organisms/PkRSVPSection.re.mjs:1134
 msgid "Would be admitted"
 msgstr ""
 
@@ -1883,7 +1887,7 @@ msgstr ""
 #~ msgid "You + {0} {othersWord} looking to play"
 #~ msgstr ""
 
-#: src/components/molecules/PlayIntentRow.re.mjs:606
+#: src/components/molecules/PlayIntentRow.re.mjs:613
 msgid "You want to play {dayWord}"
 msgstr ""
 
@@ -1931,7 +1935,7 @@ msgstr ""
 msgid "Your card is saved now, not charged. The organizer will charge the participation fee later."
 msgstr ""
 
-#: src/components/organisms/PkRSVPSection.re.mjs:599
+#: src/components/organisms/PkRSVPSection.re.mjs:592
 msgid "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ {viewerDuprHi}) is below the minimum. You will be placed in the pending list."
 msgstr ""
 

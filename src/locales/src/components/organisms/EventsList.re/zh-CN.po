@@ -230,12 +230,12 @@ msgstr "创建此活动"
 msgid "Creating..."
 msgstr "创建中……"
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "描述："
 
@@ -267,13 +267,17 @@ msgstr "请输入电子邮件"
 msgid "Evening"
 msgstr "晚上"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "活动详情"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "填写表单"
 
 #: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
@@ -343,8 +347,8 @@ msgstr "级别"
 msgid "Location search is unavailable right now"
 msgstr "位置搜索暂时不可用"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "地点："
 
@@ -380,7 +384,7 @@ msgstr "暂不"
 msgid "pending"
 msgstr "待审核"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球员可用时间热力图"
 
@@ -396,7 +400,7 @@ msgstr "专业"
 msgid "Processing..."
 msgstr "处理中..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
@@ -434,7 +438,7 @@ msgstr "分享为文本"
 msgid "show"
 msgstr "显示"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "建议的活动"
 
@@ -442,7 +446,7 @@ msgstr "建议的活动"
 msgid "sync calendar"
 msgstr "同步日历"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
@@ -460,7 +464,7 @@ msgid ""
 "you."
 msgstr "告诉其他人你有空打球，时间重叠的玩家可以邀请你。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "标题："
 

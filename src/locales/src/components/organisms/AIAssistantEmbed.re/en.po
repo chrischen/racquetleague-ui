@@ -22,10 +22,10 @@ msgid "{0} events created!"
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
-msgid "⌘+Enter to send"
-msgstr ""
+#~ msgid "⌘+Enter to send"
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:635
+#: src/components/organisms/AIAssistantEmbed.re.mjs:594
 msgid "Action proposal"
 msgstr ""
 
@@ -34,35 +34,39 @@ msgstr ""
 #~ msgid "AI Assistant"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:252
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
 msgid "An error occurred. Please try again."
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
-msgid "Answer the questions or add details to refine the draft."
-msgstr ""
+#~ msgid "Answer the questions or add details to refine the draft."
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:719
-msgid "Answer the questions or provide more details..."
-msgstr ""
+#~ msgid "Answer the questions or provide more details..."
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:544
+#: src/components/organisms/AIAssistantEmbed.re.mjs:503
 msgid "Approve"
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:424
-msgid "Approve or deny the pending action to continue"
-msgstr ""
+#~ msgid "Approve or deny the pending action to continue"
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
 msgid "Approve or deny the pending action to continue."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:502
+#: src/components/organisms/AIAssistantEmbed.re.mjs:461
 msgid "Approved"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:496
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:455
 msgid "Awaiting approval"
 msgstr ""
 
@@ -71,8 +75,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
-msgid "Continue the conversation"
-msgstr ""
+#~ msgid "Continue the conversation"
+#~ msgstr ""
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
 #: src/components/organisms/AutocompleteLocation.re.mjs:239
@@ -108,36 +112,40 @@ msgstr ""
 msgid "Creating..."
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:508
+#: src/components/organisms/AIAssistantEmbed.re.mjs:467
 msgid "Denied"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:600
+#: src/components/organisms/AIAssistantEmbed.re.mjs:559
 msgid "Deny"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+#: src/components/organisms/AIAssistantEmbed.re.mjs:680
 msgid "Describe the event"
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
-msgid "Describe the event to generate a draft"
-msgstr ""
+#~ msgid "Describe the event to generate a draft"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "Describe your event"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:720
-msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+#~ msgid "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each."
+#~ msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr ""
 
@@ -149,20 +157,24 @@ msgstr ""
 #~ msgid "Error creating events. Please try again."
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:516
+#: src/components/organisms/AIAssistantEmbed.re.mjs:475
 msgid "Executed"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+#: src/components/organisms/AIAssistantEmbed.re.mjs:478
 msgid "Execution failed"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+#: src/components/organisms/AIAssistantEmbed.re.mjs:707
 msgid "Fill event form from description"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
@@ -178,7 +190,11 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:420
-msgid "Help me fill this out"
+#~ msgid "Help me fill this out"
+#~ msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
@@ -186,14 +202,14 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
-msgid "Include whatever details you know"
-msgstr ""
+#~ msgid "Include whatever details you know"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:443
 #~ msgid "Let AI help you fill out the details below"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:413
 msgid "Loading conversation history..."
 msgstr ""
 
@@ -201,12 +217,12 @@ msgstr ""
 msgid "Location search is unavailable right now"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:652
+#: src/components/organisms/AIAssistantEmbed.re.mjs:611
 msgid "Operation:"
 msgstr ""
 
@@ -219,33 +235,37 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:780
-msgid "Reset"
-msgstr ""
+#~ msgid "Reset"
+#~ msgstr ""
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:354
 msgid "Search for a venue or address"
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
-msgid "Send"
+#~ msgid "Send"
+#~ msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:572
+#: src/components/organisms/AIAssistantEmbed.re.mjs:531
 msgid "The action completed with GraphQL errors."
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:283
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
-msgid "We’ll turn your description into a draft you can review and edit."
-msgstr ""
+#~ msgid "We’ll turn your description into a draft you can review and edit."
+#~ msgstr ""

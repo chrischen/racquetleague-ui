@@ -29,7 +29,7 @@ msgstr "建立賽事"
 msgid "Loading events..."
 msgstr "載入活動中..."
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr "自由對打"
 

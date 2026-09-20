@@ -483,6 +483,16 @@ return {
           "args": null,
           "concreteType": "DisciplineRating",
           "kind": "LinkedField",
+          "name": "genderNormalizedRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
           "name": "hardcourtRating",
           "plural": false,
           "selections": (v2/*: any*/),

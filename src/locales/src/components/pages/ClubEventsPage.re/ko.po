@@ -29,7 +29,7 @@ msgstr "이벤트 만들기"
 msgid "Loading events..."
 msgstr "이벤트 로딩 중..."
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr "오픈 플레이"
 

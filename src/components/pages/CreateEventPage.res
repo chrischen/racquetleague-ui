@@ -216,7 +216,11 @@ module Body = {
     }
 
     open LangProvider.Router
-    <div className="space-y-4">
+    // The design's AI-assisted form: the assistant band runs to the edges of the
+    // host's px-4 py-4 body, and the form panel's rounded top overlaps its foot.
+    <section
+      ariaLabel={Lingui.UtilString.t`AI-assisted event form`}
+      className="-mx-4 -mt-4 overflow-x-clip">
       <AIAssistantEmbed
         context={{
           activitySlug: ?Some("pickleball"),
@@ -225,47 +229,50 @@ module Body = {
         }}
         onSingleEventSuggested=handleSingleEventSuggested
       />
-      <ClubActivitySelector
-        query=queryData.fragmentRefs
-        initialClubId=?clubIdParam
-        initialActivitySlug=?activitySlugParam
-        initialActivityId=?activityIdParam
-        onChange={sel => setClubSelection(_ => sel)}
-        triggerShake=shakeCounter
-      />
-      <CreateLocationEventForm
-        location=?{queryData.location->Option.map(location => location.fragmentRefs)}
-        onLocationSelected={locationId => {
-          // The chosen venue lives in the URL so the page query picks it up;
-          // the transition keeps the form, and what is typed in it, mounted
-          // while that refetch is in flight.
-          startTransition(() => setParams(prevParams => {
-              prevParams->Router.SearchParams.set("locationId", locationId)
-              prevParams
-            }, {Router.replace: true}))
-          setAiLocationAddress(_ => None)
-        }}
-        autoSearchAddress=?aiLocationAddress
-        stripeChargesEnabled={queryData.viewer
-        ->Option.flatMap(v => v.user)
-        ->Option.flatMap(u => u.stripeChargesEnabled)
-        ->Option.getOr(false)}
-        prefilledValues=?{prefilledValues
-        ->Option.orElse(copyPrefilledValues)
-        ->Option.orElse(initialPrefilledValues)}
-        selectedClub=?clubSelection.clubId
-        selectedActivity=?clubSelection.activityId
-        isClubFormOpen=clubSelection.isAddingClub
-        onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
-      />
-      <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-        <Link
-          to="/events/create-bulk"
-          className="font-semibold text-[#4d6f12] hover:underline dark:text-[#bdf25d]">
-          {t`Create multiple events instead`}
-        </Link>
-      </p>
-    </div>
+      <div
+        className="relative z-10 -mt-3 min-w-0 space-y-4 rounded-t-2xl bg-white px-4 pt-4 dark:bg-[#1e1f23]">
+        <ClubActivitySelector
+          query=queryData.fragmentRefs
+          initialClubId=?clubIdParam
+          initialActivitySlug=?activitySlugParam
+          initialActivityId=?activityIdParam
+          onChange={sel => setClubSelection(_ => sel)}
+          triggerShake=shakeCounter
+        />
+        <CreateLocationEventForm
+          location=?{queryData.location->Option.map(location => location.fragmentRefs)}
+          onLocationSelected={locationId => {
+            // The chosen venue lives in the URL so the page query picks it up;
+            // the transition keeps the form, and what is typed in it, mounted
+            // while that refetch is in flight.
+            startTransition(() => setParams(prevParams => {
+                prevParams->Router.SearchParams.set("locationId", locationId)
+                prevParams
+              }, {Router.replace: true}))
+            setAiLocationAddress(_ => None)
+          }}
+          autoSearchAddress=?aiLocationAddress
+          stripeChargesEnabled={queryData.viewer
+          ->Option.flatMap(v => v.user)
+          ->Option.flatMap(u => u.stripeChargesEnabled)
+          ->Option.getOr(false)}
+          prefilledValues=?{prefilledValues
+          ->Option.orElse(copyPrefilledValues)
+          ->Option.orElse(initialPrefilledValues)}
+          selectedClub=?clubSelection.clubId
+          selectedActivity=?clubSelection.activityId
+          isClubFormOpen=clubSelection.isAddingClub
+          onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
+        />
+        <p className="text-center text-xs text-gray-500 dark:text-gray-400">
+          <Link
+            to="/events/create-bulk"
+            className="font-semibold text-[#4d6f12] hover:underline dark:text-[#bdf25d]">
+            {t`Create multiple events instead`}
+          </Link>
+        </p>
+      </div>
+    </section>
   }
 }
 
@@ -275,7 +282,7 @@ let make = () => {
   open Lingui.Util
   open LangProvider.Router
   <div
-    className="min-h-screen w-full bg-gray-50 text-gray-900 transition-colors dark:bg-[#111111] dark:text-gray-100">
+    className="min-h-screen w-full bg-white text-gray-900 transition-colors dark:bg-[#1e1f23] dark:text-gray-100">
     <div className="border-b border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]">
       <div className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-4 py-3">
         <Link
@@ -295,7 +302,8 @@ let make = () => {
         <span className="w-16" ariaHidden=true />
       </div>
     </div>
-    <div className="mx-auto max-w-2xl px-4 py-6">
+    // Same px-4 py-4 body as RouteModal, which Body's assistant band bleeds into.
+    <div className="mx-auto max-w-2xl px-4 py-4">
       <WaitForMessages> {() => <Body />} </WaitForMessages>
     </div>
   </div>

@@ -37,42 +37,20 @@ var Internal = {
   convertRawResponse: convertResponse
 };
 
-function smartRsvpAlgorithm_decode($$enum) {
-  if ($$enum === "BestFit" || $$enum === "Ilp") {
-    return $$enum;
-  }
-  
-}
-
-function smartRsvpAlgorithm_fromString(str) {
-  return smartRsvpAlgorithm_decode(str);
-}
-
-var Utils = {
-  smartRsvpAlgorithm_decode: smartRsvpAlgorithm_decode,
-  smartRsvpAlgorithm_fromString: smartRsvpAlgorithm_fromString
-};
+var Utils = {};
 
 var node = ((function(){
-var v0 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "algorithm"
-},
-v1 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "eventId"
-},
-v2 = [
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "eventId"
+  }
+],
+v1 = [
   {
     "alias": null,
     "args": [
-      {
-        "kind": "Variable",
-        "name": "algorithm",
-        "variableName": "algorithm"
-      },
       {
         "kind": "Variable",
         "name": "eventId",
@@ -140,34 +118,28 @@ v2 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [
-      (v0/*: any*/),
-      (v1/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "PkRSVPSectionEvaluateSmartRsvpsMutation",
-    "selections": (v2/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [
-      (v1/*: any*/),
-      (v0/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "PkRSVPSectionEvaluateSmartRsvpsMutation",
-    "selections": (v2/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "fc60e5acabb715e670ad073843f68e3a",
+    "cacheID": "2212d4d27fd449e9b6fec4d763e5ffd6",
     "id": null,
     "metadata": {},
     "name": "PkRSVPSectionEvaluateSmartRsvpsMutation",
     "operationKind": "mutation",
-    "text": "mutation PkRSVPSectionEvaluateSmartRsvpsMutation(\n  $eventId: ID!\n  $algorithm: SmartRsvpAlgorithm\n) {\n  evaluateSmartRsvps(eventId: $eventId, algorithm: $algorithm) {\n    rsvps {\n      id\n      listType\n      joinTime\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation PkRSVPSectionEvaluateSmartRsvpsMutation(\n  $eventId: ID!\n) {\n  evaluateSmartRsvps(eventId: $eventId) {\n    rsvps {\n      id\n      listType\n      joinTime\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })());

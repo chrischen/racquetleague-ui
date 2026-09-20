@@ -232,12 +232,12 @@ msgstr "이 이벤트 만들기"
 msgid "Creating..."
 msgstr "생성 중..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "날짜:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "설명:"
 
@@ -269,13 +269,17 @@ msgstr "이메일이 필요합니다"
 msgid "Evening"
 msgstr "저녁"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "여성"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "양식 채우기"
 
 #: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
@@ -349,8 +353,8 @@ msgstr "장소"
 msgid "Location search is unavailable right now"
 msgstr "현재 위치 검색을 사용할 수 없습니다"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "장소:"
 
@@ -390,7 +394,7 @@ msgstr "페이지를 찾을 수 없습니다"
 msgid "pending"
 msgstr "대기 중"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "플레이어 가용성 히트맵"
 
@@ -406,7 +410,7 @@ msgstr "프로"
 msgid "Processing..."
 msgstr "처리 중..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "제거"
 
@@ -446,7 +450,7 @@ msgstr "텍스트로 공유"
 msgid "show"
 msgstr "표시"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
@@ -454,7 +458,7 @@ msgstr "추천 이벤트"
 msgid "sync calendar"
 msgstr "캘린더 동기화"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 
@@ -472,7 +476,7 @@ msgid ""
 "you."
 msgstr "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "제목:"
 

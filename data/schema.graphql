@@ -633,6 +633,11 @@ type LeagueUserStat {
   daysNumberOne: Float!
 
   """
+  The overall rating rebased so the median woman reads as the middle of the rating scale. Only present for players recorded female, and only where enough women are rated to have measured the shift.
+  """
+  genderNormalizedRating: DisciplineRating
+
+  """
   Fitted gym-floor offset from the overall rating, in mu. Positive = performs better here than overall.
   """
   gymDelta: Float

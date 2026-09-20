@@ -178,9 +178,24 @@ let fieldClass = Util.cx([fieldBaseClass, fieldBorderClass])
 let fieldClassWithError = hasError =>
   Util.cx([fieldBaseClass, hasError ? fieldErrorBorderClass : fieldBorderClass])
 let hintClass = "mt-1.5 block text-xs text-gray-500 dark:text-gray-400"
-let sectionClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]"
+let sectionBaseClass = "overflow-hidden rounded-xl border bg-white dark:bg-[#222326]"
+// A section holding values that came from outside the form wears the accent
+// border, so it is obvious at a glance what was filled in and still wants a
+// look before submitting.
+let sectionClassFor = (~prefilled: bool) =>
+  Util.cx([
+    sectionBaseClass,
+    prefilled ? "border-[#a3d949] dark:border-[#bdf25d]/50" : "border-gray-200 dark:border-[#3a3b40]",
+  ])
 let sectionBodyClass = "space-y-5 border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]"
 let sectionIconClass = "flex-shrink-0 text-gray-400"
+// A prefilled section trades its icon for a check, which gives the accent
+// border a legend: this one was filled in, give it a look.
+let prefilledIcon =
+  <Lucide.CheckCircle2
+    size=19 className="flex-shrink-0 text-[#4d6f12] dark:text-[#bdf25d]" \"aria-hidden"="true"
+  />
+let sectionIcon = (~prefilled: bool, ~icon: React.element) => prefilled ? prefilledIcon : icon
 let checkboxClass = "mt-0.5 h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]"
 let subsectionClass = "border-t border-gray-100 pt-4 dark:border-[#34353a]"
 let toggleClass = active =>
@@ -194,6 +209,7 @@ let pressed = active => active ? #"true" : #"false"
 
 let sectionHeader = (
   ~icon: React.element,
+  ~prefilled: bool,
   ~title: React.element,
   ~summary: string,
   ~expanded: bool,
@@ -207,7 +223,7 @@ let sectionHeader = (
       ariaExpanded=expanded
       ariaControls=controls
       className="flex w-full items-center gap-3 rounded-xl px-4 py-3.5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a]">
-      icon
+      {sectionIcon(~prefilled, ~icon)}
       <span className="min-w-0 flex-1">
         <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
           title
@@ -291,12 +307,76 @@ let eventWindowConfigFor = (window: TimeWindow.playIntent): TimeWindowPicker.win
   minDuration: 0.25,
   defaultDuration: 2.0,
 }
-let hoursOfTime = (time: string): float =>
-  ClockRangePicker.timeToMinutes(time)->Int.toFloat /. 60.0
+let hoursOfTime = (time: string): float => ClockRangePicker.timeToMinutes(time)->Int.toFloat /. 60.0
 let eventWindowOf = (startTime: string, endTime: string): TimeWindow.playIntent => {
   let start = hoursOfTime(startTime)
   let end = hoursOfTime(endTime)
   {id: 0, start, end: Js.Math.min_float(end <= start ? end +. 24.0 : end, 24.0)}
+}
+
+// Sections filled in on the organizer's behalf: an AI draft, or a link that
+// carried values in its query. Two things deliberately do not count, because
+// marking them would make the border meaningless: the form's own defaults (the
+// two-hour window, the 24h cancel deadline), and an existing event's own values
+// when it is being edited or copied — that is the event's data, not a draft
+// someone else filled in.
+type prefilledSections = {
+  schedule: bool,
+  details: bool,
+  paid: bool,
+  format: bool,
+  players: bool,
+}
+
+let noPrefilledSections = {
+  schedule: false,
+  details: false,
+  paid: false,
+  format: false,
+  players: false,
+}
+
+let hasText = (v: option<string>) => v->Option.mapOr(false, text => text != "")
+
+// `tags` feeds two sections: the play-format chips and the skill-level pills.
+let formatTags = ["rec", "comp", "dupr", "drill"]
+let levelTags = Array.concat(["all level"], EventTags.specificLevels)
+
+let sectionsOf = (
+  prefilled: option<prefilledValues>,
+  // A venue counts only when it arrived with the form (a ?locationId link, an
+  // event being edited) or the assistant searched one out — not when the
+  // organizer picks one by hand.
+  ~hasVenue: bool,
+): prefilledSections =>
+  switch prefilled {
+  | None => {...noPrefilledSections, schedule: hasVenue}
+  // An event being edited or copied brings its own values to every field,
+  // venue included, so nothing here was prefilled for the organizer.
+  | Some({fromExistingEvent: true}) => noPrefilledSections
+  | Some(pf) =>
+    let tags = pf.tags->Option.getOr([])
+    let hasAnyTag = candidates => tags->Array.some(tag => candidates->Array.includes(tag))
+    {
+      schedule: hasVenue || hasText(pf.startDate) || hasText(pf.endDate) || hasText(pf.timezone),
+      details: hasText(pf.title) || hasText(pf.details),
+      paid: pf.price->Option.isSome,
+      format: hasAnyTag(formatTags),
+      players: pf.listed->Option.isSome ||
+      pf.minRating->Option.isSome ||
+      pf.maxRsvps->Option.isSome ||
+      pf.smartRsvpThreshold->Option.isSome ||
+      pf.cancelDeadline->Option.isSome ||
+      hasAnyTag(levelTags),
+    }
+  }
+
+let unionSections = (a: prefilledSections, b: prefilledSections) => {
+  schedule: a.schedule || b.schedule,
+  details: a.details || b.details,
+  paid: a.paid || b.paid,
+  format: a.format || b.format,
+  players: a.players || b.players,
 }
 
 @react.component
@@ -324,6 +404,26 @@ let make = (
   let navigate = Router.useNavigate()
 
   let isUpdate = eventId->Option.isSome
+
+  // A venue present at mount came in with the form; one the organizer picks
+  // later must not light the section up, so this is captured once.
+  let venueArrivedWithForm = React.useRef(location->Option.isSome)
+  let venuePrefilled = () =>
+    venueArrivedWithForm.current || autoSearchAddress->Option.isSome
+  let (prefilledSections, setPrefilledSections) = React.useState(() =>
+    sectionsOf(prefilledValues, ~hasVenue=venuePrefilled())
+  )
+  // The assistant's draft arrives after mount, so fold later arrivals in. Marks
+  // are kept once set: editing a field doesn't change where it came from.
+  React.useEffect2(() => {
+    setPrefilledSections(prev => {
+      let next = unionSections(prev, sectionsOf(prefilledValues, ~hasVenue=venuePrefilled()))
+      // The page rebuilds its prefill record on every render, so hold on to the
+      // previous value when nothing new arrived and let React skip the update.
+      next == prev ? prev : next
+    })
+    None
+  }, (prefilledValues, autoSearchAddress))
 
   // The form only fills in its own defaults for a genuinely new event: editing
   // and copying both carry the source event's values, where a missing field
@@ -412,19 +512,15 @@ let make = (
   | _ => Util.Timezone.fallback
   }
   let startWallClock = joinStartDate(datePart, clockStart)
-  // The zone list differs between Node and browsers, so it is only rendered
-  // after mount; until then the select holds just the current zone.
-  let (zonesReady, setZonesReady) = React.useState(() => false)
-  let timezoneOptions = React.useMemo2(() => {
-    let zones = zonesReady ? Util.Timezone.list() : []
-    zones->Array.includes(tz) ? zones : Array.concat([tz], zones)
-  }, (zonesReady, tz))
   let durationMinutes = ClockRangePicker.forwardDuration(
     ClockRangePicker.timeToMinutes(clockStart),
     ClockRangePicker.timeToMinutes(clockEnd),
   )
   let hasValidTimeRange = durationMinutes >= 15 && durationMinutes <= 12 * 60
   let eventWindow = eventWindowOf(clockStart, clockEnd)
+  // Shared by the picker and the typed fields below it, so both accept exactly
+  // the same windows.
+  let eventWindowConfig = eventWindowConfigFor(eventWindow)
 
   // Collapsed if editing an existing event or arriving with prefilled values,
   // otherwise the schedule section opens first.
@@ -524,8 +620,6 @@ let make = (
     if !isUpdate && prefilledValues->Option.flatMap(pf => pf.timezone)->Option.isNone {
       setValue(Timezone, Value(Util.Timezone.browser()))
     }
-    setZonesReady(_ => true)
-
     None
   }, [])
 
@@ -727,13 +821,14 @@ let make = (
 
   // ─── Section summaries (shown under each header) ──────────────────────────
   let locationName = locationData->Option.flatMap(l => l.name)->Option.getOr("")
-  let tzShortName = Util.Timezone.shortName(tz, Util.Timezone.fromWallClock(startWallClock, tz))
   let scheduleSummary = if datePart != "" {
     let (_, endTime) = splitStartDate(endWallClockFor(startWallClock, clockEnd))
     let day = datePart->DateFns.parseISO->DateFns.formatWithPattern("EEE, MMM d")
+    // The zone is named in the field itself, so the summary spends its width on
+    // the duration instead.
     `${locationName} · ${day}, ${formatWallTime(clockStart)}–${formatWallTime(
         endTime,
-      )} ${tzShortName}`
+      )} · ${ClockRangePicker.formatDuration(durationMinutes)}`
   } else if locationName != "" {
     locationName
   } else {
@@ -778,7 +873,7 @@ let make = (
               </div>
             : React.null}
           // ─── Location & time ──────────────────────────────────────────────
-          <section className=sectionClass>
+          <section className={sectionClassFor(~prefilled=prefilledSections.schedule)}>
             {sectionHeader(
               ~icon=<Lucide.CalendarDays
                 size=19 className=sectionIconClass \"aria-hidden"="true"
@@ -786,6 +881,7 @@ let make = (
               ~title=t`Location & time`,
               ~summary=scheduleSummary,
               ~expanded={expandedSection == ScheduleSection},
+              ~prefilled=prefilledSections.schedule,
               ~controls="event-form-schedule",
               ~onToggle=() => toggleSection(ScheduleSection),
             )}
@@ -886,49 +982,31 @@ let make = (
                     </div>
                     {errorText(formState.errors.startDate->Option.flatMap(e => e.message))}
                   </label>
-                  <label className="block min-w-0" htmlFor="timezone">
-                    <span className=labelClass> {t`Time zone`} </span>
-                    // Controlled, not registered: the option list only fills in
-                    // after mount, and an uncontrolled select loses its selection
-                    // when set to a zone it has no option for yet.
-                    <select
-                      id="timezone"
-                      value=tz
-                      onChange={e => setValue(Timezone, Value(ReactEvent.Form.target(e)["value"]))}
-                      className=fieldClass>
-                      {timezoneOptions
-                      ->Array.map(zone =>
-                        <option key=zone value=zone> {zone->React.string} </option>
-                      )
-                      ->React.array}
-                    </select>
+                  <div className="min-w-0">
+                    <TimeZoneField value=tz onChange={zone => setValue(Timezone, Value(zone))} />
                     <span className=hintClass>
                       {t`The date and times on this form are in this zone.`}
                     </span>
-                  </label>
+                  </div>
                   <div className="min-w-0 max-w-full">
                     <span className=labelClass> {t`Start and end time`} </span>
                     <TimeWindowPicker
                       intents=[eventWindow]
                       onChange=onWindowChange
-                      config={eventWindowConfigFor(eventWindow)}
+                      config=eventWindowConfig
                       maxIntents=1
                       allowDelete=false
                       emptyLabel={ts`Choose an event time`}
                     />
-                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                      <span
-                        className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 font-mono text-[10px] font-semibold text-gray-600 dark:bg-[#1e1f23] dark:text-gray-300">
-                        {(TimeWindow.hourToTime(eventWindow.start) ++
-                        "–" ++
-                        TimeWindow.hourToTime(eventWindow.end) ++
-                        " · " ++
-                        ClockRangePicker.formatDuration(durationMinutes))->React.string}
-                      </span>
-                    </div>
                     <span className=hintClass>
                       {t`Drag the window to move it, or drag either edge to resize.`}
                     </span>
+                    // The same window, typed rather than dragged.
+                    <EventTimeRangeInputs
+                      value=eventWindow
+                      onChange={window => onWindowChange([window])}
+                      config=eventWindowConfig
+                    />
                     {!hasValidTimeRange
                       ? <p className="mt-2 text-xs text-red-600 dark:text-red-400">
                           {durationMinutes < 15
@@ -942,12 +1020,13 @@ let make = (
               : React.null}
           </section>
           // ─── Event details ────────────────────────────────────────────────
-          <section className=sectionClass>
+          <section className={sectionClassFor(~prefilled=prefilledSections.details)}>
             {sectionHeader(
               ~icon=<Lucide.FileText size=19 className=sectionIconClass \"aria-hidden"="true" />,
               ~title=t`Event details`,
               ~summary=detailsSummary,
               ~expanded={expandedSection == DetailsSection},
+              ~prefilled=prefilledSections.details,
               ~controls="event-form-details",
               ~onToggle=() => toggleSection(DetailsSection),
             )}
@@ -983,7 +1062,7 @@ let make = (
               : React.null}
           </section>
           // ─── Paid event ───────────────────────────────────────────────────
-          <section className=sectionClass>
+          <section className={sectionClassFor(~prefilled=prefilledSections.paid)}>
             <label className="flex cursor-pointer items-center gap-3 px-4 py-4">
               <input
                 id="paidEvent"
@@ -998,7 +1077,12 @@ let make = (
                 }}
                 className="h-5 w-5 flex-shrink-0 rounded border-gray-300 accent-[#bdf25d] focus:ring-[#94c93a] dark:border-[#3a3b40]"
               />
-              <Lucide.CircleDollarSign size=19 className=sectionIconClass \"aria-hidden"="true" />
+              {sectionIcon(
+                ~prefilled=prefilledSections.paid,
+                ~icon=<Lucide.CircleDollarSign
+                  size=19 className=sectionIconClass \"aria-hidden"="true"
+                />,
+              )}
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
                   {t`Paid event`}
@@ -1045,7 +1129,7 @@ let make = (
                       </div>
                       <p
                         className="mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
-                        {t`Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event.`}
+                        {t`Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this.`}
                       </p>
                     </div>
                     <div
@@ -1065,7 +1149,7 @@ let make = (
                       </div>
                       <p
                         className="mt-0.5 text-xs leading-relaxed text-gray-600 dark:text-gray-400">
-                        {t`Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account.`}
+                        {t`Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page.`}
                         {!stripeChargesEnabled
                           ? <>
                               {" "->React.string}
@@ -1088,12 +1172,13 @@ let make = (
               : React.null}
           </section>
           // ─── Format ───────────────────────────────────────────────────────
-          <section className=sectionClass>
+          <section className={sectionClassFor(~prefilled=prefilledSections.format)}>
             {sectionHeader(
               ~icon=<Lucide.Dumbbell size=19 className=sectionIconClass \"aria-hidden"="true" />,
               ~title=t`Format`,
               ~summary=formatSummary,
               ~expanded={expandedSection == FormatSection},
+              ~prefilled=prefilledSections.format,
               ~controls="event-form-format",
               ~onToggle=() => toggleSection(FormatSection),
             )}
@@ -1163,12 +1248,13 @@ let make = (
               : React.null}
           </section>
           // ─── Find players ─────────────────────────────────────────────────
-          <section className=sectionClass>
+          <section className={sectionClassFor(~prefilled=prefilledSections.players)}>
             {sectionHeader(
               ~icon=<Lucide.Users size=19 className=sectionIconClass \"aria-hidden"="true" />,
               ~title=t`Players`,
               ~summary=playersSummary,
               ~expanded={expandedSection == PlayersSection},
+              ~prefilled=prefilledSections.players,
               ~controls="event-form-players",
               ~onToggle=() => toggleSection(PlayersSection),
             )}
@@ -1237,11 +1323,11 @@ let make = (
                     <span>
                       <span
                         className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-                        {t`Smart RSVP`}
+                        {t`Hold RSVPs`}
                       </span>
                       <span
                         className="mt-1 block text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-                        {t`Hold new joins and admit players automatically based on match quality.`}
+                        {t`Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality.`}
                       </span>
                     </span>
                   </label>

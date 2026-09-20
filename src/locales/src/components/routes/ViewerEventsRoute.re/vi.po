@@ -234,12 +234,12 @@ msgstr "Tạo sự kiện này"
 msgid "Creating..."
 msgstr "Đang tạo..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "Ngày:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "Mô tả:"
 
@@ -271,13 +271,17 @@ msgstr "Cần có email"
 msgid "Evening"
 msgstr "Buổi tối"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "Nữ"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "Điền biểu mẫu"
 
 #: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
@@ -351,8 +355,8 @@ msgstr "Đang tải sự kiện..."
 msgid "Location search is unavailable right now"
 msgstr "Tìm kiếm vị trí hiện không khả dụng"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "Địa điểm:"
 
@@ -393,7 +397,7 @@ msgstr "Không phải bây giờ"
 msgid "pending"
 msgstr "đang chờ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
@@ -413,7 +417,7 @@ msgstr "Đang xử lý..."
 msgid "public events"
 msgstr "sự kiện công khai"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "Xóa"
 
@@ -453,7 +457,7 @@ msgstr "chia sẻ dưới dạng văn bản"
 msgid "show"
 msgstr "hiển thị"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
@@ -461,7 +465,7 @@ msgstr "Sự kiện được đề xuất"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
@@ -481,7 +485,7 @@ msgid ""
 msgstr ""
 "Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời bạn."
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "Tiêu đề:"
 

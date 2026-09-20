@@ -151,11 +151,11 @@ msgstr "ซ่อนช่วงเวลา"
 msgid "Mark available"
 msgstr "ระบุว่าว่าง"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "ลบ"
 
@@ -175,7 +175,7 @@ msgstr "บันทึกความพร้อม"
 msgid "Tap to add time in this slot"
 msgstr "แตะเพื่อเพิ่มเวลาในช่วงนี้"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 

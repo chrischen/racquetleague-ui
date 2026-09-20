@@ -191,7 +191,7 @@ msgstr "Kế hoạch mới"
 msgid "Not now"
 msgstr "Không phải bây giờ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
@@ -199,7 +199,7 @@ msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 msgid "Pro"
 msgstr "Chuyên nghiệp"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "Xóa"
 
@@ -223,7 +223,7 @@ msgstr ""
 "Chia sẻ một chút về bản thân để ban tổ chức hoặc người chơi khác biết lý do "
 "họ nên mời bạn."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 

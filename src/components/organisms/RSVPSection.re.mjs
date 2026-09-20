@@ -152,13 +152,7 @@ var commitMutation$2 = RescriptRelay_Mutation.commitMutation(convertVariables$2,
 
 var use$4 = RescriptRelay_Mutation.useMutation(convertVariables$2, RSVPSectionEvaluateSmartRsvpsMutation_graphql.node, convertResponse$2, convertWrapRawResponse$2);
 
-var RSVPSectionEvaluateSmartRsvpsMutation_smartRsvpAlgorithm_decode = RSVPSectionEvaluateSmartRsvpsMutation_graphql.Utils.smartRsvpAlgorithm_decode;
-
-var RSVPSectionEvaluateSmartRsvpsMutation_smartRsvpAlgorithm_fromString = RSVPSectionEvaluateSmartRsvpsMutation_graphql.Utils.smartRsvpAlgorithm_fromString;
-
 var RSVPSectionEvaluateSmartRsvpsMutation = {
-  smartRsvpAlgorithm_decode: RSVPSectionEvaluateSmartRsvpsMutation_smartRsvpAlgorithm_decode,
-  smartRsvpAlgorithm_fromString: RSVPSectionEvaluateSmartRsvpsMutation_smartRsvpAlgorithm_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$2,
@@ -259,9 +253,8 @@ function RSVPSection$SmartRsvpEvaluateButton(props) {
             }
           }), undefined, undefined);
   };
-  var run = function (algorithm) {
+  var run = function () {
     commit({
-          algorithm: algorithm,
           eventId: eventId
         }, undefined, undefined, undefined, (function (param, param$1) {
             onPreview(undefined);
@@ -279,24 +272,23 @@ function RSVPSection$SmartRsvpEvaluateButton(props) {
               children: [
                 JsxRuntime.jsxs("div", {
                       children: [
-                        JsxRuntime.jsx("button", {
-                              children: previewing ? t`Previewing…` : t`Preview Smart RSVP`,
-                              className: "inline-flex items-center gap-1 rounded-md border border-emerald-600 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 dark:text-emerald-300 dark:hover:bg-emerald-900/30",
-                              disabled: busy,
-                              type: "button",
-                              onClick: (function (param) {
-                                  fetchPreview();
-                                })
-                            }),
-                        JsxRuntime.jsx("button", {
-                              children: inFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
-                              className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60",
-                              disabled: busy,
-                              type: "button",
-                              onClick: (function (param) {
-                                  run(undefined);
-                                })
-                            }),
+                        preview !== undefined ? JsxRuntime.jsx("button", {
+                                children: inFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
+                                className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60",
+                                disabled: busy,
+                                type: "button",
+                                onClick: (function (param) {
+                                    run();
+                                  })
+                              }) : JsxRuntime.jsx("button", {
+                                children: previewing ? t`Previewing…` : t`Preview Smart RSVP`,
+                                className: "inline-flex items-center gap-1 rounded-md border border-emerald-600 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 dark:text-emerald-300 dark:hover:bg-emerald-900/30",
+                                disabled: busy,
+                                type: "button",
+                                onClick: (function (param) {
+                                    fetchPreview();
+                                  })
+                              }),
                         props.eventIsFull ? JsxRuntime.jsx("button", {
                                 children: waitlisting ? t`Placing on the waitlist…` : t`Smart Waitlist`,
                                 className: "inline-flex items-center gap-1 rounded-md bg-amber-500 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-amber-600 disabled:cursor-wait disabled:opacity-60",
@@ -305,16 +297,7 @@ function RSVPSection$SmartRsvpEvaluateButton(props) {
                                 onClick: (function (param) {
                                     smartWaitlist();
                                   })
-                              }) : null,
-                        JsxRuntime.jsx("button", {
-                              children: t`Run Smart RSVP (best-fit, test)`,
-                              className: "inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
-                              disabled: busy,
-                              type: "button",
-                              onClick: (function (param) {
-                                  run("BestFit");
-                                })
-                            })
+                              }) : null
                       ],
                       className: "flex flex-wrap gap-2"
                     }),

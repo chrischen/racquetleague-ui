@@ -14,67 +14,67 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1498
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1481
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1502
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1485
 msgid "Table Tennis"
 msgstr "ปิงปอง"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1506
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1489
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1510
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1493
 msgid "Futsal"
 msgstr "ฟุตซอล"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1514
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1497
 msgid "Basketball"
 msgstr "บาสเก็ตบอล"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1518
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1501
 msgid "Volleyball"
 msgstr "วอลเลย์บอล"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1522
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1505
 msgid "Crossminton"
 msgstr "ครอสมินตัน"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1526
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1509
 msgid "Padel"
 msgstr "ปาเดล"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1530
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1513
 msgid "drill"
 msgstr "ฝึกซ้อม"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1534
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1517
 msgid "comp"
 msgstr "แข่ง"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1538
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1521
 msgid "rec"
 msgstr "บันเทิง"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1542
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1525
 msgid "all level"
 msgstr "ทุกระดับ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:735
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1025
+#: src/components/organisms/CreateLocationEventForm.re.mjs:774
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1115
 msgid "(optional)"
 msgstr "(ไม่บังคับ)"
@@ -86,6 +86,10 @@ msgstr "สนาม {0}"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:165
 msgid "{0} courts"
 msgstr "{0} สนาม"
+
+#: src/components/molecules/TimeZoneField.re.mjs:132
+msgid "{place} Time"
+msgstr "เวลา{place}"
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:163
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
@@ -123,20 +127,28 @@ msgstr "6 ชั่วโมงก่อน"
 msgid "72 hours before"
 msgstr "72 ชั่วโมงก่อน"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:791
-#: src/components/organisms/CreateLocationEventForm.re.mjs:813
+#: src/components/organisms/CreateLocationEventForm.re.mjs:835
+#: src/components/organisms/CreateLocationEventForm.re.mjs:857
 msgid "Active"
 msgstr "ใช้งานอยู่"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:71
+#: src/components/organisms/CreateLocationEventForm.re.mjs:74
 msgid "activity is required"
 msgstr "ต้องระบุกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:985
+#: src/components/molecules/TimeZoneField.re.mjs:70
+msgid "Alaska Time"
+msgstr "เวลาอะแลสกา"
+
+#: src/components/atoms/LevelTagPills.re.mjs:57
 msgid "All levels"
 msgstr "ทุกระดับ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+#: src/components/molecules/TimeZoneField.re.mjs:120
+msgid "American Samoa Time"
+msgstr "เวลาอเมริกันซามัว"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:886
 msgid ""
 "Anyone held as pending can be moved into the event from the RSVP list, which "
 "bypasses the payment requirement for them."
@@ -144,33 +156,43 @@ msgstr ""
 "ผู้ที่อยู่ในสถานะรอดำเนินการสามารถย้ายเข้ากิจกรรมได้จากรายการตอบรับ "
 "ซึ่งจะข้ามข้อกำหนดการชำระเงินสำหรับคนนั้น"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:741
+#: src/components/organisms/CreateLocationEventForm.re.mjs:780
 msgid "Anything players should know before joining or arriving."
 msgstr "สิ่งที่ผู้เล่นควรทราบก่อนเข้าร่วมหรือมาถึง"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#: src/components/molecules/TimeZoneField.re.mjs:82
+msgid "Arizona Time"
+msgstr "เวลาแอริโซนา"
+
+#: src/components/molecules/TimeZoneField.re.mjs:76
+msgid "Atlantic Time"
+msgstr "เวลาแอตแลนติก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
 msgid ""
 "Attendees are asked to save a card when they RSVP, but nothing is authorized "
-"or charged, and you can't charge it from here. Collect the fee at the event."
+"or charged, and you can't charge it from here. Collect the fee at the event. "
+"Club members are exempted from this."
 msgstr ""
-"ผู้เข้าร่วมจะถูกขอให้บันทึกบัตรเมื่อตอบรับ แต่จะไม่มีการอนุมัติวงเงินหรือเรียกเก็บเงิน "
-"และคุณไม่สามารถเรียกเก็บจากที่นี่ได้ ให้เก็บค่าธรรมเนียมที่หน้างาน"
+"ผู้เข้าร่วมจะถูกขอให้บันทึกบัตรเมื่อตอบรับ แต่จะไม่มีการอนุมัติหรือเรียกเก็บเงิน "
+"และคุณไม่สามารถเรียกเก็บจากที่นี่ได้ กรุณาเก็บค่าธรรมเนียมที่งาน สมาชิกคลับได้รับการยกเว้น"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1174
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr "ผู้เข้าร่วมไม่สามารถยกเลิกการตอบรับได้หลังเลยกำหนดนี้"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+#: src/components/organisms/CreateLocationEventForm.re.mjs:865
 msgid ""
 "Attendees save a card when they RSVP and nothing is charged or held up "
 "front. From the RSVP list you can charge one attendee or everyone whenever "
-"you choose, and the money goes to your Stripe account."
+"you choose, and the money goes to your Stripe account. Club members can be "
+"exempted or not, which you can toggle from the Club home page."
 msgstr ""
-"ผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ และจะไม่มีการเรียกเก็บหรือกันวงเงินล่วงหน้า จากรายการตอบรับ "
-"คุณสามารถเรียกเก็บเงินจากผู้เข้าร่วมรายเดียวหรือทุกคนได้เมื่อต้องการ และเงินจะเข้าบัญชี Stripe "
-"ของคุณ"
+"ผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ โดยไม่มีการเรียกเก็บหรือกันวงเงินล่วงหน้า จากรายชื่อผู้ตอบรับ "
+"คุณสามารถเรียกเก็บเงินจากผู้เข้าร่วมรายใดรายหนึ่งหรือทุกคนเมื่อใดก็ได้ และเงินจะเข้าบัญชี Stripe "
+"ของคุณ สมาชิกคลับจะได้รับการยกเว้นหรือไม่ก็ได้ ซึ่งคุณสามารถเปิด/ปิดได้ที่หน้าแรกของคลับ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1444
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1427
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "ผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ ไม่มีการเรียกเก็บเงินอัตโนมัติ"
 
@@ -178,26 +200,46 @@ msgstr "ผู้เข้าร่วมจะบันทึกบัตรเ
 msgid "Cancel deadline"
 msgstr "กำหนดเวลายกเลิก"
 
+#: src/components/molecules/TimeZoneField.re.mjs:96
+msgid "Central Australia Time"
+msgstr "เวลาออสเตรเลียกลาง"
+
+#: src/components/molecules/TimeZoneField.re.mjs:104
+msgid "Central European Time"
+msgstr "เวลายุโรปกลาง"
+
+#: src/components/molecules/TimeZoneField.re.mjs:72
+msgid "Central Time"
+msgstr "เวลากลาง"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1259
 msgid "Change"
 msgstr "เปลี่ยน"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:579
+#: src/components/molecules/TimeZoneField.re.mjs:90
+msgid "China Time"
+msgstr "เวลาจีน"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:619
 msgid "Choose a location for this event"
 msgstr "เลือกสถานที่สำหรับกิจกรรมนี้"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1354
 msgid "Choose an event time"
 msgstr "เลือกเวลาของกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:671
-#: src/components/organisms/CreateLocationEventForm.re.mjs:883
+#: src/components/organisms/CreateLocationEventForm.re.mjs:710
+#: src/components/organisms/CreateLocationEventForm.re.mjs:927
 msgid "Competitive"
 msgstr "แข่งขัน"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+#: src/components/organisms/CreateLocationEventForm.re.mjs:870
 msgid "Connect a Stripe account to enable this"
 msgstr "เชื่อมต่อบัญชี Stripe เพื่อเปิดใช้งานสิ่งนี้"
+
+#: src/components/molecules/TimeZoneField.re.mjs:122
+msgid "Coordinated Universal Time"
+msgstr "เวลามาตรฐานสากล (UTC)"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
 #: src/components/organisms/AutocompleteLocation.re.mjs:239
@@ -209,7 +251,7 @@ msgstr "ไม่สามารถโหลดสถานที่นั้น
 msgid "Could not save that location"
 msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1484
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
 msgid "Create event"
 msgstr "สร้างอีเวนต์"
 
@@ -217,87 +259,149 @@ msgstr "สร้างอีเวนต์"
 msgid "Date"
 msgstr "วันที่"
 
+#: src/components/molecules/TimeZoneField.re.mjs:203
+msgid "Done"
+msgstr "เสร็จ"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Draft filled in. Review the details before creating the event."
 msgstr "กรอกแบบร่างแล้ว ตรวจทานรายละเอียดก่อนสร้างกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1359
 msgid "Drag the window to move it, or drag either edge to resize."
 msgstr "ลากช่วงเวลาเพื่อย้าย หรือลากขอบด้านใดด้านหนึ่งเพื่อปรับขนาด"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:676
-#: src/components/organisms/CreateLocationEventForm.re.mjs:926
+#: src/components/organisms/CreateLocationEventForm.re.mjs:715
+#: src/components/organisms/CreateLocationEventForm.re.mjs:970
 msgid "Drill session"
 msgstr "เซสชั่นฝึกซ้อม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:673
-#: src/components/organisms/CreateLocationEventForm.re.mjs:909
+#: src/components/organisms/CreateLocationEventForm.re.mjs:712
+#: src/components/organisms/CreateLocationEventForm.re.mjs:953
 msgid "DUPR rated"
 msgstr "ให้คะแนน DUPR"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:83
+#: src/components/molecules/TimeZoneField.re.mjs:102
+msgid "Eastern Australia Time"
+msgstr "เวลาออสเตรเลียตะวันออก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:106
+msgid "Eastern European Time"
+msgstr "เวลายุโรปตะวันออก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:80
+msgid "Eastern Time"
+msgstr "เวลาตะวันออก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:174
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:128
+msgid "End"
+msgstr "สิ้นสุด"
+
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:129
+msgid "End time"
+msgstr "เวลาสิ้นสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:86
 msgid "end time is required"
 msgstr "ต้องระบุเวลาสิ้นสุด"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:772
+#: src/components/organisms/CreateLocationEventForm.re.mjs:816
 msgid "Enter price"
 msgstr "ใส่ราคา"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:80
+#: src/components/organisms/CreateLocationEventForm.re.mjs:83
 msgid "event date is required"
 msgstr "ต้องระบุวันที่กิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1405
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1392
 msgid "Event details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:732
+#: src/components/organisms/CreateLocationEventForm.re.mjs:771
 msgid "Event notes"
 msgstr "บันทึกกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:718
+#: src/components/organisms/CreateLocationEventForm.re.mjs:757
 msgid "Event title"
 msgstr "ชื่อกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:860
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
 msgid "Event type"
 msgstr "ประเภทกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1383
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "Events can be up to 12 hours long."
 msgstr "กิจกรรมมีความยาวได้สูงสุด 12 ชั่วโมง"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1383
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "Events must be at least 15 minutes long."
 msgstr "กิจกรรมต้องมีความยาวอย่างน้อย 15 นาที"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1025
 msgid "Find players for your event?"
 msgstr "หาผู้เล่นสำหรับกิจกรรมของคุณ?"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1463
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1446
 msgid "Format"
 msgstr "รูปแบบ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+#: src/components/organisms/CreateLocationEventForm.re.mjs:947
 msgid "Format options"
 msgstr "ตัวเลือกรูปแบบ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:721
+#: src/components/organisms/CreateLocationEventForm.re.mjs:760
 msgid "Friday night pickleball"
 msgstr "พิกเคิลบอลคืนวันศุกร์"
 
+#: src/components/molecules/TimeZoneField.re.mjs:116
+msgid "Hawaii Time"
+msgstr "เวลาฮาวาย"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1100
-msgid "Hold new joins and admit players automatically based on match quality."
-msgstr "พักการเข้าร่วมใหม่ไว้ และรับผู้เล่นอัตโนมัติตามคุณภาพของแมตช์"
+msgid ""
+"Hold new joins  in the pending list and admit players either manually or "
+"automatically with the Smart RSVPs algorithm that maximizes skill level and "
+"session quality."
+msgstr ""
+"พักผู้เข้าร่วมใหม่ไว้ในรายการรออนุมัติ และรับผู้เล่นด้วยตนเองหรือโดยอัตโนมัติด้วยอัลกอริทึม Smart "
+"RSVPs ที่ช่วยเพิ่มระดับฝีมือและคุณภาพของการเล่นให้สูงสุด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Hold RSVPs"
+msgstr "พักการตอบรับ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:86
+msgid "India Time"
+msgstr "เวลาอินเดีย"
+
+#: src/components/molecules/TimeZoneField.re.mjs:94
+msgid "Japan Time"
+msgstr "เวลาญี่ปุ่น"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1231
 msgid "Keep current location"
 msgstr "ใช้สถานที่เดิม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1070
+#: src/components/molecules/TimeZoneField.re.mjs:88
+msgid "Korea Time"
+msgstr "เวลาเกาหลี"
+
+#: src/components/molecules/TimeZoneField.re.mjs:118
+msgid "Line Islands Time"
+msgstr "เวลาหมู่เกาะไลน์"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
 msgid "List your event publicly to help fill open spots."
 msgstr "ประกาศกิจกรรมของคุณแบบสาธารณะเพื่อช่วยเติมที่ว่าง"
+
+#: src/components/molecules/TimeZoneField.re.mjs:126
+#: src/components/molecules/TimeZoneField.re.mjs:129
+msgid "Local time"
+msgstr "เวลาท้องถิ่น"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1210
 msgid "Location"
@@ -315,9 +419,21 @@ msgstr "การค้นหาสถานที่ไม่พร้อมใ
 msgid "Max players"
 msgstr "ผู้เล่นสูงสุด"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1022
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1063
 msgid "Minimum rating"
 msgstr "เรตติ้งขั้นต่ำ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:74
+msgid "Mountain Time"
+msgstr "เวลาเขตเมาน์เทน"
+
+#: src/components/molecules/TimeZoneField.re.mjs:112
+msgid "New Zealand Time"
+msgstr "เวลานิวซีแลนด์"
+
+#: src/components/molecules/TimeZoneField.re.mjs:84
+msgid "Newfoundland Time"
+msgstr "เวลานิวฟันด์แลนด์"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1137
 msgid "No deadline"
@@ -327,50 +443,62 @@ msgstr "ไม่มีกำหนดเวลา"
 msgid "No limit"
 msgstr "ไม่จำกัด"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1031
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
 msgid "No minimum"
 msgstr "ไม่มีขั้นต่ำ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1440
+#: src/components/molecules/TimeZoneField.re.mjs:78
+msgid "Pacific Time"
+msgstr "เวลาแปซิฟิก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1423
 msgid "Paid event"
 msgstr "กิจกรรมมีค่าใช้จ่าย"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:763
+#: src/components/organisms/CreateLocationEventForm.re.mjs:807
 msgid "Participation fee"
 msgstr "ค่าเข้าร่วม"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1476
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1459
 msgid "Players"
 msgstr "หาผู้เล่น"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:681
+#: src/components/organisms/CreateLocationEventForm.re.mjs:720
 msgid "Private event"
 msgstr "กิจกรรมส่วนตัว"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:680
+#: src/components/organisms/CreateLocationEventForm.re.mjs:719
 msgid "Public"
 msgstr "สาธารณะ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:680
+#: src/components/organisms/CreateLocationEventForm.re.mjs:719
 msgid "Public · Up to {maxRsvpsStr} players"
 msgstr "สาธารณะ · สูงสุด {maxRsvpsStr} คน"
+
+#: src/components/molecules/TimeZoneField.re.mjs:98
+msgid "Queensland Time"
+msgstr "เวลาควีนส์แลนด์"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1278
 msgid "Read more..."
 msgstr "อ่านเพิ่มเติม..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:671
-#: src/components/organisms/CreateLocationEventForm.re.mjs:866
+#: src/components/organisms/CreateLocationEventForm.re.mjs:710
+#: src/components/organisms/CreateLocationEventForm.re.mjs:910
 msgid "Recreational"
 msgstr "นันทนาการ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "ลบ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:110
+msgid "Samoa Time"
+msgstr "เวลาซามัว"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:354
 msgid "Search for a venue or address"
@@ -380,55 +508,80 @@ msgstr "ค้นหาสนามหรือที่อยู่"
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:978
+#: src/components/molecules/TimeZoneField.re.mjs:92
+msgid "Singapore Time"
+msgstr "เวลาสิงคโปร์"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1057
 msgid "Skill level"
 msgstr "ระดับทักษะ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
-msgid "Smart RSVP"
-msgstr "Smart RSVP"
+#: src/components/molecules/TimeZoneField.re.mjs:114
+msgid "Solomon Islands Time"
+msgstr "เวลาหมู่เกาะโซโลมอน"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1360
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:122
+msgid "Start"
+msgstr "เริ่ม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1347
 msgid "Start and end time"
 msgstr "เวลาเริ่มและสิ้นสุด"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:123
+msgid "Start time"
+msgstr "เวลาเริ่ม"
+
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1350
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
 msgid "The date and times on this form are in this zone."
 msgstr "วันที่และเวลาในแบบฟอร์มนี้อยู่ในเขตเวลานี้"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:970
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1045
 msgid "This event is public"
 msgstr "กิจกรรมนี้เป็นแบบสาธารณะ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1332
+#: src/components/molecules/TimeZoneField.re.mjs:163
+#: src/components/molecules/TimeZoneField.re.mjs:195
 msgid "Time zone"
 msgstr "เขตเวลา"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:670
+#: src/components/organisms/CreateLocationEventForm.re.mjs:709
 msgid "Title and optional notes"
 msgstr "ชื่อเรื่องและบันทึกเพิ่มเติม (ไม่บังคับ)"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:68
+#: src/components/organisms/CreateLocationEventForm.re.mjs:71
 msgid "title is required"
 msgstr "ต้องระบุหัวข้อ"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1484
+#: src/components/molecules/TimeZoneField.re.mjs:108
+msgid "United Kingdom Time"
+msgstr "เวลาสหราชอาณาจักร"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
 msgid "Update event"
 msgstr "อัปเดตกิจกรรม"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:668
+#: src/components/organisms/CreateLocationEventForm.re.mjs:707
 msgid "Venue, date, start and end time"
 msgstr "สถานที่ วันที่ เวลาเริ่มและสิ้นสุด"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:809
+#: src/components/molecules/TimeZoneField.re.mjs:68
+msgid "West Africa Time"
+msgstr "เวลาแอฟริกาตะวันตก"
+
+#: src/components/molecules/TimeZoneField.re.mjs:100
+msgid "Western Australia Time"
+msgstr "เวลาออสเตรเลียตะวันตก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:853
 msgid "With a Stripe account"
 msgstr "เมื่อมีบัญชี Stripe"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:787
+#: src/components/organisms/CreateLocationEventForm.re.mjs:831
 msgid "Without a Stripe account"
 msgstr "เมื่อไม่มีบัญชี Stripe"
 
@@ -525,9 +678,28 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "at"
 #~ msgstr "เวลา"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:798
+#~ msgid ""
+#~ "Attendees are asked to save a card when they RSVP, but nothing is "
+#~ "authorized or charged, and you can't charge it from here. Collect the fee "
+#~ "at the event."
+#~ msgstr ""
+#~ "ผู้เข้าร่วมจะถูกขอให้บันทึกบัตรเมื่อตอบรับ แต่จะไม่มีการอนุมัติวงเงินหรือเรียกเก็บเงิน "
+#~ "และคุณไม่สามารถเรียกเก็บจากที่นี่ได้ ให้เก็บค่าธรรมเนียมที่หน้างาน"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:805
 #~ msgid "Attendees cannot cancel their RSVP after this deadline"
 #~ msgstr "ผู้เข้าร่วมไม่สามารถยกเลิกการตอบรับหลังจากกำหนดเวลานี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:821
+#~ msgid ""
+#~ "Attendees save a card when they RSVP and nothing is charged or held up "
+#~ "front. From the RSVP list you can charge one attendee or everyone "
+#~ "whenever you choose, and the money goes to your Stripe account."
+#~ msgstr ""
+#~ "ผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ และจะไม่มีการเรียกเก็บหรือกันวงเงินล่วงหน้า "
+#~ "จากรายการตอบรับ คุณสามารถเรียกเก็บเงินจากผู้เข้าร่วมรายเดียวหรือทุกคนได้เมื่อต้องการ "
+#~ "และเงินจะเข้าบัญชี Stripe ของคุณ"
 
 #: src/components/organisms/CreateClubForm.re.mjs:205
 #~ msgid "Brief description of the club..."
@@ -615,10 +787,6 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "details specific to this event on the specified date and time."
 #~ msgstr "รายละเอียดเฉพาะกิจกรรมนี้ในวันที่และเวลาที่กำหนด"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:691
-#~ msgid "Done"
-#~ msgstr "เสร็จ"
-
 #: src/components/molecules/ClockRangePicker.re.mjs:524
 #~ msgid "Drag around the clock · Arrow keys move 15 minutes"
 #~ msgstr "ลากรอบหน้าปัดนาฬิกา · ปุ่มลูกศรเลื่อนครั้งละ 15 นาที"
@@ -651,16 +819,8 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "Editing start"
 #~ msgstr "กำลังแก้ไขเวลาเริ่ม"
 
-#: src/components/molecules/ClockRangePicker.re.mjs:260
-#~ msgid "End"
-#~ msgstr "สิ้นสุด"
-
 #: src/components/molecules/ClockRangePicker.re.mjs:447
 #~ msgid "end time"
-#~ msgstr "เวลาสิ้นสุด"
-
-#: src/components/organisms/CreateLocationEventForm.re.mjs:720
-#~ msgid "End time"
 #~ msgstr "เวลาสิ้นสุด"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:449
@@ -698,6 +858,11 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #: src/components/atoms/EventTag.re.mjs:44
 #~ msgid "Highly skilled players"
 #~ msgstr "ผู้เล่นที่มีทักษะสูงมาก"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#~ msgid ""
+#~ "Hold new joins and admit players automatically based on match quality."
+#~ msgstr "พักการเข้าร่วมใหม่ไว้ และรับผู้เล่นอัตโนมัติตามคุณภาพของแมตช์"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:431
 #~ msgid "level of play"
@@ -852,9 +1017,9 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "slug"
 #~ msgstr "สลัก"
 
-#: src/components/molecules/ClockRangePicker.re.mjs:260
-#~ msgid "Start"
-#~ msgstr "เริ่ม"
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#~ msgid "Smart RSVP"
+#~ msgstr "Smart RSVP"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:703
 #~ msgid "Start date and time"

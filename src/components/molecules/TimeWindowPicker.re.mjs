@@ -82,6 +82,8 @@ function isNoon(h) {
 }
 
 function TimeWindowPicker$WindowChip(props) {
+  var __onDragEnd = props.onDragEnd;
+  var __onDragStart = props.onDragStart;
   var __allowDelete = props.allowDelete;
   var config = props.config;
   var onDelete = props.onDelete;
@@ -89,6 +91,12 @@ function TimeWindowPicker$WindowChip(props) {
   var trackRef = props.trackRef;
   var intent = props.intent;
   var allowDelete = __allowDelete !== undefined ? __allowDelete : true;
+  var onDragStart = __onDragStart !== undefined ? __onDragStart : (function () {
+        
+      });
+  var onDragEnd = __onDragEnd !== undefined ? __onDragEnd : (function () {
+        
+      });
   var hourMinVal = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
               return c.hourMin;
             })), 6);
@@ -159,6 +167,7 @@ function TimeWindowPicker$WindowChip(props) {
             onChangeRef.current(next);
           };
           var handleEnd = function (param) {
+            onDragEnd();
             setDrag(function (param) {
                   
                 });
@@ -176,6 +185,7 @@ function TimeWindowPicker$WindowChip(props) {
     return function (e) {
       e.preventDefault();
       e.stopPropagation();
+      onDragStart();
       var x = e.clientX;
       setDrag(function (param) {
             return {
@@ -284,6 +294,11 @@ function TimeWindowPicker(props) {
   var allowDelete = __allowDelete !== undefined ? __allowDelete : true;
   var trackRef = React.useRef(null);
   var intl = ReactIntl.useIntl();
+  var suppressNextClickRef = React.useRef(false);
+  var match = React.useState(function () {
+        return false;
+      });
+  var setIsChipDragging = match[1];
   var hourMinVal = Core__Option.getOr(Core__Option.flatMap(config, (function (c) {
               return c.hourMin;
             })), 6);
@@ -306,14 +321,18 @@ function TimeWindowPicker(props) {
   var courtBands = TimeWindow.groupCourtAvailabilityIntoBands(courtAvailability);
   var canAdd = maxIntents !== undefined ? intents.length < maxIntents : true;
   var addAtClick = function (e) {
-    var match = trackRef.current;
+    var match = suppressNextClickRef.current;
+    var match$1 = trackRef.current;
+    if (match) {
+      return ;
+    }
     if (!canAdd) {
       return ;
     }
-    if (match == null) {
+    if (match$1 == null) {
       return ;
     }
-    var rect = match.getBoundingClientRect();
+    var rect = match$1.getBoundingClientRect();
     if (rect.width === 0.0) {
       return ;
     }
@@ -448,8 +467,8 @@ function TimeWindowPicker(props) {
                                       var major = Math.floor(hour) === hour;
                                       return JsxRuntime.jsx("div", {
                                                   className: "absolute top-0 bottom-0 border-l " + (
-                                                    isNoon(hour) ? "border-l-2 border-sky-300 dark:border-sky-700" : (
-                                                        major ? "border-gray-200 dark:border-[#34353a]" : "border-gray-100/70 dark:border-[#292a2e]"
+                                                    isNoon(hour) ? "border-l-2 border-sky-400 dark:border-sky-500" : (
+                                                        major ? "border-black/20 dark:border-white/20" : "border-black/5 dark:border-white/10"
                                                       )
                                                   ),
                                                   style: {
@@ -512,15 +531,29 @@ function TimeWindowPicker(props) {
                                                       }));
                                             }),
                                           config: config,
-                                          allowDelete: allowDelete
+                                          allowDelete: allowDelete,
+                                          onDragStart: (function () {
+                                              suppressNextClickRef.current = true;
+                                              setIsChipDragging(function (param) {
+                                                    return true;
+                                                  });
+                                            }),
+                                          onDragEnd: (function () {
+                                              setIsChipDragging(function (param) {
+                                                    return false;
+                                                  });
+                                            })
                                         }, w.id.toString());
                             })
                       ],
                       ref: Caml_option.some(trackRef),
                       className: Core__Option.getOr(props.trackClassName, "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden " + (
-                            canAdd ? "cursor-copy" : "cursor-default"
+                            canAdd && !match[0] ? "cursor-copy" : "cursor-default"
                           )),
-                      onClick: addAtClick
+                      onClick: addAtClick,
+                      onPointerDown: (function (param) {
+                          suppressNextClickRef.current = false;
+                        })
                     })
               ],
               className: Core__Option.getOr(props.className, "")

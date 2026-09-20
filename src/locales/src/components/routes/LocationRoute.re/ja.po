@@ -235,12 +235,12 @@ msgstr "このイベントを作成"
 msgid "Creating..."
 msgstr "作成中..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "説明:"
 
@@ -272,13 +272,17 @@ msgstr "メールアドレスは必須です"
 msgid "Evening"
 msgstr "夜"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "イベント詳細"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "フォームを入力"
 
 #: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
@@ -352,8 +356,8 @@ msgstr "場所"
 msgid "Location search is unavailable right now"
 msgstr "現在、場所の検索は利用できません"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "場所:"
 
@@ -393,7 +397,7 @@ msgstr "ページが見つかりません"
 msgid "pending"
 msgstr "保留中"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
@@ -409,7 +413,7 @@ msgstr "プロ"
 msgid "Processing..."
 msgstr "処理中..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "削除"
 
@@ -449,7 +453,7 @@ msgstr "テキストとして共有"
 msgid "show"
 msgstr "表示"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "提案されたイベント"
 
@@ -457,7 +461,7 @@ msgstr "提案されたイベント"
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
@@ -475,7 +479,7 @@ msgid ""
 "you."
 msgstr "プレー希望を伝えましょう。時間が重なるプレーヤーからお誘いが届きます。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "タイトル:"
 

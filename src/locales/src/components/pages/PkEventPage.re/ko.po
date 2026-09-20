@@ -17,11 +17,11 @@ msgstr ""
 msgid "...more"
 msgstr "...더 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:703
+#: src/components/organisms/PkRSVPSection.re.mjs:696
 msgid "· {0} pending"
 msgstr "· {0} 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:701
+#: src/components/organisms/PkRSVPSection.re.mjs:694
 msgid "· +{0} waitlist"
 msgstr "· +{0} 대기자"
 
@@ -48,7 +48,7 @@ msgstr "{0}코트"
 msgid "{0} courts"
 msgstr "{0}코트"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:698
+#: src/components/organisms/PkRSVPSection.re.mjs:691
 msgid "{0} joined"
 msgstr "{0} 참가함"
 
@@ -94,7 +94,7 @@ msgstr "실외 {n}개"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:815
+#: src/components/organisms/PkRSVPSection.re.mjs:808
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 스킬"
 
@@ -159,7 +159,7 @@ msgstr "전체 이벤트 참가 가능"
 msgid "Back to event"
 msgstr "이벤트로 돌아가기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:447
+#: src/components/organisms/PkRSVPSection.re.mjs:440
 msgid "balanced"
 msgstr "균형"
 
@@ -258,7 +258,7 @@ msgstr "자리 확보"
 msgid "Claim spot · {0}"
 msgstr "참가 신청 · {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1110
+#: src/components/organisms/PkRSVPSection.re.mjs:1093
 msgid "Clear preview"
 msgstr "미리보기 지우기"
 
@@ -308,7 +308,7 @@ msgstr "확인"
 msgid "Confirm move"
 msgstr "이동 확인"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:902
+#: src/components/organisms/PkRSVPSection.re.mjs:895
 msgid "Confirmed · {0}"
 msgstr "확인됨 · {0}"
 
@@ -331,7 +331,7 @@ msgstr "카드를 저장하지 못했습니다"
 msgid "Could not save your profile. Please try again."
 msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1186
+#: src/components/organisms/PkRSVPSection.re.mjs:1169
 msgid "Court"
 msgstr "코트"
 
@@ -382,8 +382,8 @@ msgstr "표시 이름이 필요합니다"
 msgid "Done editing"
 msgstr "편집 완료"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:789
-#: src/components/organisms/PkRSVPSection.re.mjs:806
+#: src/components/organisms/PkRSVPSection.re.mjs:782
+#: src/components/organisms/PkRSVPSection.re.mjs:799
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -443,11 +443,11 @@ msgstr "경기 점수 입력"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "동점 — 무승부로 기록됩니다"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Evaluating pending requests…"
 msgstr "대기 중인 요청 평가 중…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "even"
 msgstr "균등"
 
@@ -621,8 +621,8 @@ msgstr "간략히"
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:591
-#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:584
+#: src/components/organisms/PkRSVPSection.re.mjs:605
 msgid "LEVEL RESTRICTION"
 msgstr "레벨 제한"
 
@@ -652,7 +652,7 @@ msgstr "남성"
 msgid "Matches will be submitted to DUPR."
 msgstr "경기 결과가 DUPR에 제출됩니다."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:791
 msgid "MEDIAN"
 msgstr "중간값"
 
@@ -664,7 +664,7 @@ msgstr "이 이벤트의 모든 참가자에게 메시지 보내기"
 msgid "Message everyone in this event…"
 msgstr "이 이벤트의 모든 참가자에게 메시지 보내기…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:443
 msgid "mixed"
 msgstr "혼합"
 
@@ -746,7 +746,7 @@ msgstr "이 시간대의 다른 장소"
 msgid "Other times at {venue}"
 msgstr "{venue}의 다른 시간대"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:670
+#: src/components/organisms/PkRSVPSection.re.mjs:663
 msgid "Participants"
 msgstr "참가자"
 
@@ -774,7 +774,7 @@ msgstr "결제 실패"
 msgid "Payment required to confirm your spot"
 msgstr "자리 확정을 위해 결제가 필요합니다"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1035
+#: src/components/organisms/PkRSVPSection.re.mjs:1028
 msgid "Pending · {0}"
 msgstr "대기 중 · {0}"
 
@@ -782,7 +782,7 @@ msgstr "대기 중 · {0}"
 msgid "Pending approval"
 msgstr "승인 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Placing on the waitlist…"
 msgstr "대기자 명단에 등록 중…"
 
@@ -799,11 +799,11 @@ msgstr "플레이오프 드래프트"
 msgid "Presented by"
 msgstr "제공"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Preview Smart RSVP"
 msgstr "스마트 RSVP 미리보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Previewing…"
 msgstr "미리보는 중…"
 
@@ -872,11 +872,11 @@ msgstr "이 RSVP 제거"
 msgid "Repeat"
 msgstr "반복"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:595
+#: src/components/organisms/PkRSVPSection.re.mjs:588
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "필수: DUPR {minDuprStr}+"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:616
+#: src/components/organisms/PkRSVPSection.re.mjs:609
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "참가하려면 DUPR {minDuprStr}+ 필요"
 
@@ -892,7 +892,7 @@ msgstr "결과가 경쟁 레이팅에 제출됩니다."
 msgid "Retry charge"
 msgstr "결제 재시도"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1051
+#: src/components/organisms/PkRSVPSection.re.mjs:1044
 msgid "Review {0} pending requests with swipe cards"
 msgstr "스와이프 카드로 대기 중인 요청 {0}건 검토"
 
@@ -917,11 +917,7 @@ msgstr "라운드 로빈 대진"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1095
-msgid "Run Smart RSVP (best-fit, test)"
-msgstr "스마트 RSVP 실행(최적 매칭, 테스트)"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Run Smart RSVP now"
 msgstr "지금 스마트 RSVP 실행"
 
@@ -1002,22 +998,22 @@ msgstr "건너뛰기"
 msgid "Skip {0}"
 msgstr "{0} 건너뛰기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:566
+#: src/components/organisms/PkRSVPSection.re.mjs:559
 msgid "SMART RSVP"
 msgstr "스마트 RSVP"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1108
+#: src/components/organisms/PkRSVPSection.re.mjs:1091
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr ""
 "스마트 RSVP가 대기 중인 요청 {1}건 중 {0}건을 수락합니다. 아래에 표시되어 있"
 "습니다."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Smart Waitlist"
 msgstr "스마트 대기자 명단"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:859
+#: src/components/organisms/PkRSVPSection.re.mjs:852
 msgid "SPREAD"
 msgstr "분산"
 
@@ -1033,7 +1029,7 @@ msgstr "왼쪽으로 스와이프하면 대기 유지 · 오른쪽으로 스와�
 msgid "Swipe left to skip · right to invite"
 msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1049
+#: src/components/organisms/PkRSVPSection.re.mjs:1042
 msgid "Swipe review"
 msgstr "스와이프 검토"
 
@@ -1066,13 +1062,13 @@ msgstr ""
 "대기자 명단에 플레이어가 있습니다. 나가면 자리가 다음 사람에게 넘어갑니다. 확"
 "실합니까?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:570
+#: src/components/organisms/PkRSVPSection.re.mjs:563
 msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
+"This event admits players by level rather than by the time of RSVP. Your "
+"request will be reviewed and you will be notified once a spot is confirmed."
 msgstr ""
-"이 이벤트는 참가자를 자동으로 승인합니다. 요청이 검토되며 자리가 확정되면 알"
-"려드립니다."
+"이 이벤트는 RSVP 시간이 아닌 실력 수준에 따라 참가자를 받습니다. 요청이 검토"
+"된 후 자리가 확정되면 알려 드립니다."
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid ""
@@ -1102,11 +1098,11 @@ msgstr ""
 "이 사용자는 참가/대기 목록에서 제거됩니다. 다시 추가하면 순서가 초기화됩니"
 "다. RSVP를 제한하시겠습니까?"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:781
+#: src/components/organisms/PkRSVPSection.re.mjs:774
 msgid "TOP 6 AVG"
 msgstr "상위6평균"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:744
+#: src/components/organisms/PkRSVPSection.re.mjs:737
 msgid "Top court DUPR"
 msgstr "최고 코트 DUPR"
 
@@ -1146,11 +1142,11 @@ msgstr "이 장소의 모든 이벤트 보기"
 msgid "View Full Draws"
 msgstr "전체 대진 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View less"
 msgstr "간략히 보기"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View more"
 msgstr "더 보기"
 
@@ -1169,7 +1165,7 @@ msgstr "VS"
 msgid "Waiting for approval to join"
 msgstr "참가 승인 대기 중"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:969
+#: src/components/organisms/PkRSVPSection.re.mjs:962
 msgid "Waitlist · {0}"
 msgstr "대기자 명단 · {0}"
 
@@ -1197,7 +1193,7 @@ msgstr "참가 취소"
 msgid "Withdrawing..."
 msgstr "취소 중..."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1151
+#: src/components/organisms/PkRSVPSection.re.mjs:1134
 msgid "Would be admitted"
 msgstr "수락 예정"
 
@@ -1228,7 +1224,7 @@ msgid ""
 msgstr ""
 "카드는 지금 저장되며, 결제되지 않습니다. 주최자가 나중에 참가비를 청구합니다."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:599
+#: src/components/organisms/PkRSVPSection.re.mjs:592
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -1398,6 +1394,10 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgid "Releasing..."
 #~ msgstr "취소하는 중..."
 
+#: src/components/organisms/PkRSVPSection.re.mjs:1095
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "스마트 RSVP 실행(최적 매칭, 테스트)"
+
 #: src/components/organisms/ProfileModal.re.mjs:429
 #~ msgid "Save & Join Event"
 #~ msgstr "저장 & 이벤트 참가"
@@ -1426,6 +1426,14 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgstr ""
 #~ "이제 주최자가 카드 결제를 직접 받습니다. 이전에 저장한 카드이므로 다시 저"
 #~ "장해 주세요 — 자리는 유지됩니다."
+
+#: src/components/organisms/PkRSVPSection.re.mjs:570
+#~ msgid ""
+#~ "This event admits players automatically. Your request will be reviewed "
+#~ "and you will be notified once a spot is confirmed."
+#~ msgstr ""
+#~ "이 이벤트는 참가자를 자동으로 승인합니다. 요청이 검토되며 자리가 확정되면 "
+#~ "알려드립니다."
 
 #: src/components/organisms/EventStickyFooter.re.mjs:189
 #~ msgid ""

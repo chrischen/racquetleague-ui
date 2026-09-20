@@ -275,8 +275,8 @@ msgstr ""
 msgid "Creating..."
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr ""
 
@@ -284,7 +284,7 @@ msgstr ""
 #~ msgid "Describe the event you want to create..."
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr ""
 
@@ -320,12 +320,16 @@ msgstr ""
 msgid "Evening"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
 msgstr ""
 
 #: src/components/organisms/EventsList.re.mjs:423
@@ -408,8 +412,8 @@ msgstr ""
 msgid "Location search is unavailable right now"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr ""
 
@@ -461,7 +465,7 @@ msgstr ""
 msgid "pending"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr ""
 
@@ -481,7 +485,7 @@ msgstr ""
 #~ msgid "public events"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr ""
 
@@ -517,7 +521,7 @@ msgstr ""
 msgid "show"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr ""
 
@@ -529,7 +533,7 @@ msgstr ""
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr ""
 
@@ -545,7 +549,7 @@ msgstr ""
 #~ msgid "Time:"
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr ""
 

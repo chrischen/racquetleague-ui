@@ -71,8 +71,8 @@ msgstr ""
 msgid "Creating..."
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 #~ msgid "Describe the event you want to create..."
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr ""
 
@@ -88,8 +88,12 @@ msgstr ""
 #~ msgid "Error creating events. Please try again."
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
+msgstr ""
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
 msgstr ""
 
 #: src/components/organisms/AIAssistantModal.re.mjs:168
@@ -108,8 +112,8 @@ msgstr ""
 msgid "Location search is unavailable right now"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr ""
 
@@ -133,7 +137,7 @@ msgstr ""
 msgid "Search for a venue or address"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr ""
 
@@ -145,7 +149,7 @@ msgstr ""
 #~ msgid "Time:"
 #~ msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr ""
 

@@ -230,12 +230,12 @@ msgstr "สร้างกิจกรรมนี้"
 msgid "Creating..."
 msgstr "กำลังสร้าง..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
@@ -265,13 +265,17 @@ msgstr "ต้องกรอกอีเมล"
 msgid "Evening"
 msgstr "เย็น"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "หญิง"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "กรอกแบบฟอร์ม"
 
 #: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
@@ -341,8 +345,8 @@ msgstr "ระดับ"
 msgid "Location search is unavailable right now"
 msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "สถานที่:"
 
@@ -378,7 +382,7 @@ msgstr "ไม่ใช่ตอนนี้"
 msgid "pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "แผนที่ความพร้อมของผู้เล่น"
 
@@ -394,7 +398,7 @@ msgstr "โปร"
 msgid "Processing..."
 msgstr "กำลังประมวลผล..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "ลบ"
 
@@ -432,7 +436,7 @@ msgstr "แชร์เป็นข้อความ"
 msgid "show"
 msgstr "แสดง"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
@@ -440,7 +444,7 @@ msgstr "กิจกรรมที่แนะนำ"
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
@@ -458,7 +462,7 @@ msgid ""
 "you."
 msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "ชื่อ:"
 

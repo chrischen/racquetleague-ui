@@ -105,8 +105,8 @@ module RSVPSectionCreateRatingMutation = %relay(`
 // admissions happen; the scheduled job is not deployed. Promoted RSVPs return
 // with their new list type.
 module RSVPSectionEvaluateSmartRsvpsMutation = %relay(`
-  mutation RSVPSectionEvaluateSmartRsvpsMutation($eventId: ID!, $algorithm: SmartRsvpAlgorithm) {
-    evaluateSmartRsvps(eventId: $eventId, algorithm: $algorithm) {
+  mutation RSVPSectionEvaluateSmartRsvpsMutation($eventId: ID!) {
+    evaluateSmartRsvps(eventId: $eventId) {
       rsvps {
         id
         listType
@@ -151,10 +151,11 @@ module PreviewSmartRsvpsQuery = %relay(`
   }
 `)
 
-// The organizer's Smart RSVP controls: a preview that marks the pending RSVPs
-// the next run would admit, and the run itself. `preview` is the ids the last
-// preview named; `onPreview` replaces it (None clears it, which the run does
-// once it commits, since the list it previewed no longer exists).
+// The organizer's Smart RSVP controls. One button, two steps: an admission is
+// always previewed first, and the button offers the step that matches what is
+// on screen. `preview` is the ids the last preview named; `onPreview` replaces
+// it (None clears it, which the run does once it commits, since the list it
+// previewed no longer exists).
 module SmartRsvpEvaluateButton = {
   @react.component
   let make = (
@@ -181,9 +182,11 @@ module SmartRsvpEvaluateButton = {
         }
       })
     }
-    let run = (~algorithm=?) =>
+    // Admits what the preview showed, then clears it: the list it described
+    // no longer exists, so the button offers a fresh preview again.
+    let run = () =>
       commit(
-        ~variables={eventId, algorithm: ?algorithm},
+        ~variables={eventId: eventId},
         ~onCompleted=(_, _) => onPreview(None),
       )->RescriptRelay.Disposable.ignore
 
@@ -196,20 +199,24 @@ module SmartRsvpEvaluateButton = {
     let busy = inFlight || previewing || waitlisting
     <div className="mb-5">
       <div className="flex flex-wrap gap-2">
-        <button
-          type_="button"
-          disabled={busy}
-          onClick={_ => fetchPreview()}
-          className="inline-flex items-center gap-1 rounded-md border border-emerald-600 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 dark:text-emerald-300 dark:hover:bg-emerald-900/30">
-          {(previewing ? ts`Previewing…` : ts`Preview Smart RSVP`)->React.string}
-        </button>
-        <button
-          type_="button"
-          disabled={busy}
-          onClick={_ => run()}
-          className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60">
-          {(inFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`)->React.string}
-        </button>
+        {switch preview {
+        | None =>
+          <button
+            type_="button"
+            disabled={busy}
+            onClick={_ => fetchPreview()}
+            className="inline-flex items-center gap-1 rounded-md border border-emerald-600 px-3 py-1.5 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 dark:text-emerald-300 dark:hover:bg-emerald-900/30">
+            {(previewing ? ts`Previewing…` : ts`Preview Smart RSVP`)->React.string}
+          </button>
+        | Some(_) =>
+          <button
+            type_="button"
+            disabled={busy}
+            onClick={_ => run()}
+            className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60">
+            {(inFlight ? ts`Evaluating pending requests…` : ts`Run Smart RSVP now`)->React.string}
+          </button>
+        }}
         {eventIsFull
           ? <button
               type_="button"
@@ -219,14 +226,6 @@ module SmartRsvpEvaluateButton = {
               {(waitlisting ? ts`Placing on the waitlist…` : ts`Smart Waitlist`)->React.string}
             </button>
           : React.null}
-        // Temporary, for comparing the two admission searches side by side.
-        <button
-          type_="button"
-          disabled={busy}
-          onClick={_ => run(~algorithm=RelaySchemaAssets_graphql.BestFit)}
-          className="inline-flex items-center gap-1 rounded-md border border-blue-600 px-3 py-1.5 text-xs font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
-          {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
-        </button>
       </div>
       {switch preview {
       | Some(ids) =>

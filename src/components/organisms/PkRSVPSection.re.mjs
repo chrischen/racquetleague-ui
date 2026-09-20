@@ -90,13 +90,7 @@ var commitMutation$1 = RescriptRelay_Mutation.commitMutation(convertVariables$1,
 
 var use$2 = RescriptRelay_Mutation.useMutation(convertVariables$1, PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.node, convertResponse$1, convertWrapRawResponse$1);
 
-var EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_decode = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Utils.smartRsvpAlgorithm_decode;
-
-var EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_fromString = PkRSVPSectionEvaluateSmartRsvpsMutation_graphql.Utils.smartRsvpAlgorithm_fromString;
-
 var EvaluateSmartRsvpsMutation = {
-  smartRsvpAlgorithm_decode: EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_decode,
-  smartRsvpAlgorithm_fromString: EvaluateSmartRsvpsMutation_smartRsvpAlgorithm_fromString,
   Operation: undefined,
   Types: undefined,
   convertVariables: convertVariables$1,
@@ -387,9 +381,8 @@ function PkRSVPSection(props) {
                 });
           }), undefined, undefined);
   };
-  var handleEvaluateSmartRsvps = function (algorithm) {
+  var handleEvaluateSmartRsvps = function () {
     commitEvaluateSmartRsvps({
-          algorithm: algorithm,
           eventId: eventData.id
         }, undefined, undefined, undefined, (function (param, param$1) {
             setSmartRsvpPreview(function (param) {
@@ -567,7 +560,7 @@ function PkRSVPSection(props) {
                     className: "font-mono text-[11px] tracking-wider text-blue-700 dark:text-blue-400 uppercase mb-1"
                   }),
               JsxRuntime.jsx("div", {
-                    children: t`This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed.`,
+                    children: t`This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed.`,
                     className: "text-xs text-blue-800 dark:text-blue-300"
                   })
             ],
@@ -1064,24 +1057,23 @@ function PkRSVPSection(props) {
                                   children: [
                                     JsxRuntime.jsxs("div", {
                                           children: [
-                                            JsxRuntime.jsx("button", {
-                                                  children: isPreviewingSmartRsvps ? t`Previewing…` : t`Preview Smart RSVP`,
-                                                  className: "inline-flex items-center gap-1 rounded-md border border-emerald-600 px-2 py-1 text-[10px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-emerald-300 dark:hover:bg-emerald-900/30",
-                                                  disabled: smartRsvpBusy,
-                                                  type: "button",
-                                                  onClick: (function (param) {
-                                                      handlePreviewSmartRsvps();
-                                                    })
-                                                }),
-                                            JsxRuntime.jsx("button", {
-                                                  children: isEvaluateSmartRsvpsInFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
-                                                  className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
-                                                  disabled: smartRsvpBusy,
-                                                  type: "button",
-                                                  onClick: (function (param) {
-                                                      handleEvaluateSmartRsvps(undefined);
-                                                    })
-                                                }),
+                                            smartRsvpPreview !== undefined ? JsxRuntime.jsx("button", {
+                                                    children: isEvaluateSmartRsvpsInFlight ? t`Evaluating pending requests…` : t`Run Smart RSVP now`,
+                                                    className: "inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                    disabled: smartRsvpBusy,
+                                                    type: "button",
+                                                    onClick: (function (param) {
+                                                        handleEvaluateSmartRsvps();
+                                                      })
+                                                  }) : JsxRuntime.jsx("button", {
+                                                    children: isPreviewingSmartRsvps ? t`Previewing…` : t`Preview Smart RSVP`,
+                                                    className: "inline-flex items-center gap-1 rounded-md border border-emerald-600 px-2 py-1 text-[10px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-emerald-300 dark:hover:bg-emerald-900/30",
+                                                    disabled: smartRsvpBusy,
+                                                    type: "button",
+                                                    onClick: (function (param) {
+                                                        handlePreviewSmartRsvps();
+                                                      })
+                                                  }),
                                             isFull ? JsxRuntime.jsx("button", {
                                                     children: isSmartWaitlistInFlight ? t`Placing on the waitlist…` : t`Smart Waitlist`,
                                                     className: "inline-flex items-center gap-1 rounded-md bg-amber-500 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-amber-600 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:hover:bg-amber-400 dark:hover:text-amber-950",
@@ -1090,16 +1082,7 @@ function PkRSVPSection(props) {
                                                     onClick: (function (param) {
                                                         handleSmartWaitlist();
                                                       })
-                                                  }) : null,
-                                            JsxRuntime.jsx("button", {
-                                                  children: t`Run Smart RSVP (best-fit, test)`,
-                                                  className: "inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30",
-                                                  disabled: smartRsvpBusy,
-                                                  type: "button",
-                                                  onClick: (function (param) {
-                                                      handleEvaluateSmartRsvps("BestFit");
-                                                    })
-                                                })
+                                                  }) : null
                                           ],
                                           className: "flex flex-wrap gap-2"
                                         }),

@@ -1,5 +1,4 @@
 %%raw("import { t } from '@lingui/macro'")
-open Lingui.Util
 
 module Query = %relay(`
   query ClubMembersPageQuery(
@@ -110,7 +109,7 @@ module MemberItem = {
     ~onSetAdmin: bool => unit,
     ~isSettingAdmin: bool,
   ) => {
-    open Lingui.Util
+    let t = Lingui.Util.t
     let ts = Lingui.UtilString.t
     let isAdmin = membership.isAdmin->Option.getOr(false)
     let isOwner = membership.isOwner->Option.getOr(false)
@@ -252,7 +251,7 @@ module MemberItem = {
 module ClubMembersData = {
   @react.component
   let make = (~clubId, ~viewerIsAdmin: bool, ~viewerIsOwner: bool) => {
-    open Lingui.Util
+    let t = Lingui.Util.t;
     let data = MembersQuery.use(
       ~variables={
         clubId,

@@ -215,6 +215,10 @@ module UserStatsFragment = %relay(`
         }
       }
       mfPartnerTendency
+      genderNormalizedRating {
+        mu
+        sigma
+      }
       hardcourtRating {
         mu
         sigma
@@ -709,6 +713,44 @@ module PlayerContent = {
         {switch statsData.leagueUserStats {
         | Some(stats) =>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            // The overall rating rebased so the median woman reads as the
+            // middle of the scale; present only for players recorded female.
+            // No offset badge: this is a re-centring of the whole women's
+            // distribution, not a measured departure from their own form.
+            {stats.genderNormalizedRating
+            ->Option.map(r => {
+              let ord = ordinal(r.mu, r.sigma)
+              <div
+                key="gender-normalized"
+                className="rounded-xl p-5 border bg-rose-50 border-rose-100">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-sm font-medium text-gray-600">
+                    {t`Women's Rating`}
+                  </div>
+                </div>
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="text-3xl font-bold text-rose-600">
+                      {ord->Float.toFixed(~digits=0)->React.string}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      {`±${r.sigma->Float.toFixed(~digits=0)}`->React.string}
+                    </div>
+                  </div>
+                  {switch activitySlug {
+                  | "pickleball" =>
+                    <div className="text-right self-start">
+                      <div className="text-sm text-gray-500 mb-1"> {t`Estimated DUPR`} </div>
+                      <div className="text-2xl font-semibold text-gray-900">
+                        {Rating.guessDupr(r.mu)->Float.toFixed(~digits=2)->React.string}
+                      </div>
+                    </div>
+                  | _ => React.null
+                  }}
+                </div>
+              </div>
+            })
+            ->Option.getOr(React.null)}
             {stats.mdRating
             ->Option.map(r => {
               let ord = ordinal(r.mu, r.sigma)

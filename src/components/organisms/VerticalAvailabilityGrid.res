@@ -54,6 +54,10 @@ module VerticalWindowChip = {
     ~onMoveDay: (int, TimeWindow.playIntent) => unit,
     ~getTargetDayArrayIdx: float => int,
     ~getColTranslateX: (int, int) => float,
+    // The column adds a window on click; it needs to know a drag is underway so
+    // the click that ends one doesn't add a window too.
+    ~onDragStart: unit => unit=() => (),
+    ~onDragEnd: unit => unit=() => (),
   ) => {
     let hourMinF = TimeWindowPicker.hourMin->Float.fromInt
     let hourMaxF = TimeWindowPicker.hourMax->Float.fromInt
@@ -118,6 +122,7 @@ module VerticalWindowChip = {
           }
         }
         let handleEnd = (_: pointerEv2) => {
+          onDragEnd()
           setDrag(prev => {
             switch prev {
             | None => ()
@@ -147,6 +152,7 @@ module VerticalWindowChip = {
     let begin_ = (mode: vertDragMode) => (e: ReactEvent.Pointer.t) => {
       e->ReactEvent.Pointer.preventDefault
       e->ReactEvent.Pointer.stopPropagation
+      onDragStart()
       let y = e->ReactEvent.Pointer.clientY->Float.fromInt
       setDrag(_ => Some({
         mode,
@@ -243,6 +249,17 @@ module VerticalDayColumn = {
     let trackRef = colRef
     let intl = ReactIntl.useIntl()
 
+    // Releasing a chip drag away from the chip makes the browser report a click
+    // on this column — the nearest common ancestor of the press and release
+    // targets — which would add a window where the drag happened to end. Chips
+    // stop pointerdown propagation, so this is only ever set by a chip drag,
+    // and the next press that does reach the column clears it. A drag released
+    // over a *different* day lands its click on the shared grid ancestor, so it
+    // never reaches either column's handler.
+    let suppressNextClickRef = React.useRef(false)
+    // The same drag, for the cursor: the column must not offer "add" mid-drag.
+    let (isChipDragging, setIsChipDragging) = React.useState(() => false)
+
     let updateWindow = (id, next) =>
       onUpdate(
         windows->Array.map(w =>
@@ -257,9 +274,10 @@ module VerticalDayColumn = {
     let deleteWindow = id => onUpdate(windows->Array.filter(w => w.id !== id))
 
     let handleTrackClick = (e: ReactEvent.Mouse.t) => {
-      switch trackRef.current->Js.Nullable.toOption {
-      | None => ()
-      | Some(el) =>
+      switch (suppressNextClickRef.current, trackRef.current->Js.Nullable.toOption) {
+      | (true, _)
+      | (_, None) => ()
+      | (false, Some(el)) =>
         let rect = el->getBoundingClientRect2
         if rect.height !== 0.0 {
           let ratio = (e->ReactEvent.Mouse.clientY->Float.fromInt -. rect.top) /. rect.height
@@ -312,9 +330,10 @@ module VerticalDayColumn = {
         ->Option.getOr(React.null)}
       </div>
       <div
-        className="relative h-[600px] cursor-copy"
+        className={"relative h-[600px] " ++ (isChipDragging ? "cursor-default" : "cursor-copy")}
         ref={ReactDOM.Ref.domRef(trackRef)}
-        onClick=handleTrackClick>
+        onClick=handleTrackClick
+        onPointerDown={_ => suppressNextClickRef.current = false}>
         {densityMax > 0
           ? <div
               className="absolute inset-0 z-0 flex flex-col pointer-events-none"
@@ -417,6 +436,11 @@ module VerticalDayColumn = {
             onMoveDay={(targetDayArrayIdx, nw) => onMoveDay(w.id, targetDayArrayIdx, nw)}
             getTargetDayArrayIdx
             getColTranslateX
+            onDragStart={() => {
+              suppressNextClickRef.current = true
+              setIsChipDragging(_ => true)
+            }}
+            onDragEnd={() => setIsChipDragging(_ => false)}
           />
         )
         ->React.array}

@@ -67,6 +67,9 @@ external unsafeSessionDataAsNullable: option<BetterAuth.sessionData> => Js.Nulla
   BetterAuth.sessionData,
 > = "%identity"
 
+@get external scrollHeight: Dom.element => float = "scrollHeight"
+@set external setScrollTop: (Dom.element, float) => unit = "scrollTop"
+
 @react.component
 let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDetails => unit>=?) => {
   open Lingui.Util
@@ -86,8 +89,10 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
   // (never persisted, so absent after reload — matching prior behavior).
   let (enrichments, setEnrichments) = React.useState(() => Belt.Map.String.empty)
   let (isHydrating, setIsHydrating) = React.useState(() => false)
-  // Collapsed until asked for, as in the design; opens itself on a clarifying
-  // turn and closes once a draft has been handed to the form.
+  // Whether the chat history is hidden. The prompt row is always shown, so the
+  // history starts hidden (even when there is some to load), opens itself on a
+  // reply that needs reading, and closes once a draft has been handed to the
+  // form.
   let (isCollapsed, setIsCollapsed) = React.useState(() => true)
   let chatContainerRef = React.useRef(Nullable.null)
   let stepCounterRef = React.useRef(0)
@@ -118,15 +123,14 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
   // echo). A no-op when there are none (e.g. an approve/deny turn).
   let keepNonLocal = msgs => msgs->Array.filter(m => !(messageId(m)->String.startsWith("local-")))
 
+  let snapToBottom = () =>
+    switch chatContainerRef.current->Nullable.toOption {
+    | Some(elem) => elem->setScrollTop(elem->scrollHeight)
+    | None => ()
+    }
+
   let scrollToBottom = () => {
-    let _ = Js.Global.setTimeout(() => {
-      chatContainerRef.current
-      ->Nullable.toOption
-      ->Option.map(_elem => {
-        %raw(`chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight`)
-      })
-      ->ignore
-    }, 60)
+    let _ = Js.Global.setTimeout(snapToBottom, 60)
   }
 
   // suggestedEvents is now a list of JSON strings (CreateEventInput-shaped
@@ -142,6 +146,13 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
       }
     | None => false
     }
+
+  // Hands a single draft to the create form and folds the helper away so the
+  // form is in view. Runs when the draft arrives and again from its card.
+  let fillForm = onSingleEventSuggested->Option.map(callback => event => {
+    callback(event)
+    setIsCollapsed(_ => true)
+  })
 
   let serializeError = message =>
     Js.Dict.fromArray([("error", Js.Json.string(message))])
@@ -192,13 +203,15 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
       | Some(id) => setEnrichments(prev => prev->Belt.Map.String.set(id, events))
       | None => ()
       }
-      switch (events, onSingleEventSuggested) {
-      | ([singleEvent], Some(callback)) =>
-        callback(singleEvent)
-        setIsCollapsed(_ => true)
-      | _ => ()
-      }
     | None => ()
+    }
+
+    // A single draft goes straight to the form, which folds the history away.
+    // Anything else (a clarifying question, a proposal, a batch of events) is
+    // read in the history, so open it.
+    switch (suggestedEvents, fillForm) {
+    | (Some([singleEvent]), Some(fill)) => fill(singleEvent)
+    | _ => setIsCollapsed(_ => false)
     }
 
     setIsLoading(_ => false)
@@ -219,6 +232,7 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
         ],
       )
     )
+    setIsCollapsed(_ => false)
     setIsLoading(_ => false)
   }
 
@@ -340,21 +354,13 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
       chatMutate(
         ~variables={
           input: {
-            message: userMessage,
+            message: AIChatMessage.LocalTime.prepend(userMessage),
           },
         },
         ~onCompleted=(response, _errors) => applyResponse(response, ~clearOverlayFor=None),
         ~onError=handleChatError,
       )->ignore
     }
-  }
-
-  let handleReset = () => {
-    setPrompt(_ => "")
-    setMessages(_ => [])
-    setOverlay(_ => Belt.Map.String.empty)
-    setEnrichments(_ => Belt.Map.String.empty)
-    stepCounterRef.current = 0
   }
 
   let handleHistoryLoaded = (historyMessages: array<AITypes.chatMessage>) => {
@@ -381,33 +387,37 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
   }, [sessionUserId])
 
   let hasHistory = turns->Array.length > 0
-  React.useEffect1(() => {
-    if hasHistory {
-      setIsCollapsed(_ => false)
+  // The history pane unmounts while collapsed, so it remounts scrolled to the
+  // top; snap it to the latest turn before the opened panel paints.
+  React.useLayoutEffect1(() => {
+    if !isCollapsed {
+      snapToBottom()
     }
     None
-  }, [hasHistory])
+  }, [isCollapsed])
   let hasPendingProposal = turns->Array.some(turn =>
     switch turn {
     | ProposalTurn({status: Pending}) => true
     | _ => false
     }
   )
-
   let canSend = String.trim(prompt) != "" && !isLoading && !hasPendingProposal && !isHydrating
 
   let avatar =
     <span
-      className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[#bdf25d] text-black">
+      className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md bg-[#bdf25d] text-[#365314]">
       <Lucide.Sparkles size=13 \"aria-hidden"="true" />
     </span>
+  // Messages sit directly on the lime band: the user's on the prompt input's
+  // own surface, the assistant's a deeper tint of the band.
+  let assistantBubbleClass = "rounded-lg bg-[#bdf25d]/30 px-3 py-2 text-sm leading-relaxed text-gray-800 dark:bg-[#bdf25d]/[0.12] dark:text-gray-100"
   let replyCardClass = "space-y-2.5 rounded-xl border border-gray-200 bg-white p-3.5 dark:border-[#3a3b40] dark:bg-[#222326]"
 
-  // The design's "Help me fill this out" helper: a lime card that expands to
-  // the prompt box. The conversation (clarifying questions, action proposals)
-  // renders above the box when there is one.
-  <section
-    className="overflow-hidden rounded-xl border border-[#a3d949]/60 bg-[#bdf25d]/10 dark:border-[#bdf25d]/25 dark:bg-[#bdf25d]/5">
+  // The design's assistant band: a prompt row that is always ready to send,
+  // with the conversation (clarifying questions, action proposals) above it,
+  // shown and hidden by the row's toggle. Its host
+  // bleeds it to the edges and overlaps its foot with the form, hence pb-5.
+  <div className="bg-[#bdf25d]/15 px-4 pb-5 pt-3 dark:bg-[#bdf25d]/[0.07]">
     // History hydrates as soon as there is a session, collapsed or not: the
     // loader renders nothing itself, and `isHydrating` gates sending until it
     // is done.
@@ -418,252 +428,214 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
       </React.Suspense>
     | _ => React.null
     }}
-    <button
-      type_="button"
-      onClick={_ => setIsCollapsed(collapsed => !collapsed)}
-      ariaExpanded={!isCollapsed}
-      ariaControls="event-form-helper"
-      className="flex w-full items-center gap-3 px-3.5 py-3 text-left transition-colors hover:bg-[#bdf25d]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:hover:bg-[#bdf25d]/10">
-      <Lucide.Sparkles
-        size=16 className="flex-shrink-0 text-[#4d6f12] dark:text-[#bdf25d]" \"aria-hidden"="true"
-      />
-      <span className="min-w-0 flex-1">
-        <span className="block text-sm font-semibold text-gray-900 dark:text-gray-100">
-          {t`Help me fill this out`}
-        </span>
-        <span className="mt-0.5 block text-xs text-gray-600 dark:text-gray-400">
-          {if hasPendingProposal {
-            t`Approve or deny the pending action to continue`
-          } else if hasHistory {
-            t`Continue the conversation`
-          } else {
-            t`Describe the event to generate a draft`
-          }}
-        </span>
-      </span>
-      <Lucide.ChevronDown
-        size=16
-        className={"flex-shrink-0 text-gray-500 transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]" ++ (
-          isCollapsed ? "" : " rotate-180"
-        )}
-        \"aria-hidden"="true"
-      />
-    </button>
     {isCollapsed
       ? React.null
       : <div
-          id="event-form-helper"
-          className="space-y-3 border-t border-[#a3d949]/40 bg-white px-3.5 py-4 dark:border-[#bdf25d]/20 dark:bg-[#1e1f23]">
-          {if hasHistory || isLoading || isHydrating {
-            <div
-              ref={ReactDOM.Ref.domRef(chatContainerRef)}
-              className="max-h-96 space-y-3 overflow-y-auto pr-1">
-              {isHydrating
-                ? <div className="flex justify-center py-2">
-                    <span className="text-xs text-gray-400 dark:text-gray-500">
-                      {t`Loading conversation history...`}
-                    </span>
-                  </div>
-                : React.null}
-              {turns
-              ->Array.map(turn =>
-                switch turn {
-                | UserTurn({id, content}) =>
-                  <div key=id className="flex justify-end">
-                    <div
-                      className="max-w-[85%] rounded-2xl bg-[#bdf25d] px-3.5 py-2.5 text-sm font-medium leading-relaxed text-black">
-                      {content->React.string}
-                    </div>
-                  </div>
-                | AssistantTurn({id, response}) =>
-                  <div key=id className="flex items-start gap-2.5">
-                    avatar
-                    <div className="min-w-0 max-w-[90%] flex-1">
-                      <AIResponseCard
-                        response
-                        activitySlug={context.activitySlug->Option.getOr("pickleball")}
-                        clubId=?context.clubId
-                        locationAddress=?context.locationAddress
-                      />
-                    </div>
-                  </div>
-                | ProposalTurn({id, action, status}) => {
-                    let (statusText, statusClasses) = switch status {
-                    | Pending => (
-                        ts`Awaiting approval`,
-                        "border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
-                      )
-                    | Approved => (
-                        ts`Approved`,
-                        "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
-                      )
-                    | Denied => (
-                        ts`Denied`,
-                        "border-gray-200 bg-gray-50 text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400",
-                      )
-                    | Executed({wasSuccessful, details: _}) =>
-                      wasSuccessful
-                        ? (
-                            ts`Executed`,
-                            "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
-                          )
-                        : (
-                            ts`Execution failed`,
-                            "border-red-200 bg-red-50 text-red-700 dark:border-red-700 dark:bg-red-900/30 dark:text-red-400",
-                          )
-                    }
-
-                    <div key=id className="flex items-start gap-2.5">
-                      avatar
-                      <div className={"min-w-0 max-w-[90%] flex-1 " ++ replyCardClass}>
-                        <div className="flex items-center justify-between gap-2">
-                          <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
-                            {t`Action proposal`}
-                          </p>
-                          <span
-                            className={"rounded-full border px-2 py-0.5 text-[10px] font-semibold " ++
-                            statusClasses}>
-                            {statusText->React.string}
-                          </span>
-                        </div>
-                        <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                          {action.summary->React.string}
-                        </p>
-                        <p className="font-mono text-[10px] text-gray-500 dark:text-gray-400">
-                          {<>
-                            {t`Operation:`}
-                            {" "->React.string}
-                            {action.operationName->React.string}
-                          </>}
-                        </p>
-                        {switch status {
-                        | Executed({wasSuccessful: _, details: Some(details)}) =>
-                          <p className="text-xs text-gray-600 dark:text-gray-300">
-                            {details->React.string}
-                          </p>
-                        | _ => React.null
-                        }}
-                        {switch status {
-                        | Pending =>
-                          <div className="flex items-center gap-2">
-                            <button
-                              type_="button"
-                              onClick={_ => handleApproveAction(~proposalId=id, ~action)}
-                              className="inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-50"
-                              disabled=isLoading>
-                              <Lucide.Check size=13 strokeWidth=2.5 \"aria-hidden"="true" />
-                              <span> {t`Approve`} </span>
-                            </button>
-                            <button
-                              type_="button"
-                              onClick={_ => handleDenyAction(~proposalId=id, ~action)}
-                              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-50 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30]"
-                              disabled=isLoading>
-                              <Lucide.X size=13 strokeWidth=2.5 \"aria-hidden"="true" />
-                              <span> {t`Deny`} </span>
-                            </button>
-                          </div>
-                        | _ => React.null
-                        }}
-                      </div>
-                    </div>
-                  }
-                }
-              )
-              ->React.array}
-              {isLoading
-                ? <div className="flex items-start gap-2.5">
-                    avatar
-                    <div
-                      className="rounded-xl border border-gray-200 bg-white px-3.5 py-3 dark:border-[#3a3b40] dark:bg-[#222326]">
-                      <div className="flex items-center gap-1.5">
-                        <div
-                          className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
-                          style={ReactDOM.Style.make(~animationDelay="0ms", ())}
-                        />
-                        <div
-                          className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
-                          style={ReactDOM.Style.make(~animationDelay="150ms", ())}
-                        />
-                        <div
-                          className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
-                          style={ReactDOM.Style.make(~animationDelay="300ms", ())}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                : React.null}
-            </div>
+          id="event-ai-history"
+          ref={ReactDOM.Ref.domRef(chatContainerRef)}
+          ariaLive=#polite
+          className="mb-3 max-h-52 space-y-3 overflow-y-auto">
+          {if isHydrating {
+            <p className="text-xs text-gray-600 dark:text-gray-400">
+              {t`Loading conversation history...`}
+            </p>
+          } else if !hasHistory && !isLoading {
+            <p className="text-xs text-gray-600 dark:text-gray-400">
+              {t`Ask the assistant to fill in event details. Your conversation will appear here.`}
+            </p>
           } else {
             React.null
           }}
-          <label className="block" htmlFor="event-ai-prompt">
-            <span className="sr-only"> {t`Describe the event`} </span>
-            <div
-              className="relative overflow-hidden rounded-xl border border-gray-200 bg-white focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#3a3b40] dark:bg-[#222326]">
-              <textarea
-                id="event-ai-prompt"
-                value=prompt
-                onChange={e => {
-                  let value = ReactEvent.Form.target(e)["value"]
-                  setPrompt(_ => value)
-                }}
-                onKeyDown={e => {
-                  let key = ReactEvent.Keyboard.key(e)
-                  let metaKey = ReactEvent.Keyboard.metaKey(e)
-                  let ctrlKey = ReactEvent.Keyboard.ctrlKey(e)
-                  if key == "Enter" && (metaKey || ctrlKey) {
-                    ReactEvent.Keyboard.preventDefault(e)
-                    handleAsk()
-                  }
-                }}
-                placeholder={if hasHistory {
-                  if hasPendingProposal {
-                    ts`Approve or deny the pending action to continue.`
-                  } else {
-                    ts`Answer the questions or provide more details...`
-                  }
-                } else {
-                  ts`Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 more players around 3.5, ¥800 each.`
-                }}
-                rows={hasHistory ? 3 : 4}
-                disabled={isLoading || hasPendingProposal || isHydrating}
-                className="block w-full resize-none border-0 bg-transparent px-3.5 pb-12 pt-3 text-sm leading-relaxed text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 dark:text-gray-100"
-              />
+          {turns
+          ->Array.map(turn =>
+            switch turn {
+            | UserTurn({id, content}) =>
               <div
-                className="pointer-events-none absolute bottom-2.5 left-3 flex items-center gap-1.5 text-[10px] text-gray-400">
-                <Lucide.Sparkles size=12 \"aria-hidden"="true" />
-                {hasHistory ? t`⌘+Enter to send` : t`Include whatever details you know`}
+                key=id
+                className="ml-8 whitespace-pre-wrap rounded-lg bg-white px-3 py-2 text-sm leading-relaxed text-gray-800 dark:bg-[#1e1f23] dark:text-gray-100">
+                {content->React.string}
               </div>
-              <button
-                type_="button"
-                onClick={_ => handleAsk()}
-                disabled={!canSend}
-                ariaLabel={hasHistory ? ts`Send` : ts`Fill event form from description`}
-                className="absolute bottom-2 right-2 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#bdf25d] text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 dark:disabled:bg-[#34353a]">
-                {isLoading
-                  ? <span
-                      className="h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"
+            | AssistantTurn({id, response}) =>
+              <div key=id className="mr-8 flex items-start gap-2">
+                avatar
+                <div className="min-w-0 flex-1">
+                  <AIResponseCard
+                    response
+                    activitySlug={context.activitySlug->Option.getOr("pickleball")}
+                    clubId=?context.clubId
+                    locationAddress=?context.locationAddress
+                    onFillForm=?fillForm
+                    summaryClassName=assistantBubbleClass
+                  />
+                </div>
+              </div>
+            | ProposalTurn({id, action, status}) => {
+                let (statusText, statusClasses) = switch status {
+                | Pending => (
+                    ts`Awaiting approval`,
+                    "border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+                  )
+                | Approved => (
+                    ts`Approved`,
+                    "border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+                  )
+                | Denied => (
+                    ts`Denied`,
+                    "border-gray-200 bg-gray-50 text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400",
+                  )
+                | Executed({wasSuccessful, details: _}) =>
+                  wasSuccessful
+                    ? (
+                        ts`Executed`,
+                        "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
+                      )
+                    : (
+                        ts`Execution failed`,
+                        "border-red-200 bg-red-50 text-red-700 dark:border-red-700 dark:bg-red-900/30 dark:text-red-400",
+                      )
+                }
+
+                <div key=id className="mr-8 flex items-start gap-2">
+                  avatar
+                  <div className={"min-w-0 flex-1 " ++ replyCardClass}>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+                        {t`Action proposal`}
+                      </p>
+                      <span
+                        className={"rounded-full border px-2 py-0.5 text-[10px] font-semibold " ++
+                        statusClasses}>
+                        {statusText->React.string}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                      {action.summary->React.string}
+                    </p>
+                    <p className="font-mono text-[10px] text-gray-500 dark:text-gray-400">
+                      {<>
+                        {t`Operation:`}
+                        {" "->React.string}
+                        {action.operationName->React.string}
+                      </>}
+                    </p>
+                    {switch status {
+                    | Executed({wasSuccessful: _, details: Some(details)}) =>
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
+                        {details->React.string}
+                      </p>
+                    | _ => React.null
+                    }}
+                    {switch status {
+                    | Pending =>
+                      <div className="flex items-center gap-2">
+                        <button
+                          type_="button"
+                          onClick={_ => handleApproveAction(~proposalId=id, ~action)}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-50"
+                          disabled=isLoading>
+                          <Lucide.Check size=13 strokeWidth=2.5 \"aria-hidden"="true" />
+                          <span> {t`Approve`} </span>
+                        </button>
+                        <button
+                          type_="button"
+                          onClick={_ => handleDenyAction(~proposalId=id, ~action)}
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-50 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30]"
+                          disabled=isLoading>
+                          <Lucide.X size=13 strokeWidth=2.5 \"aria-hidden"="true" />
+                          <span> {t`Deny`} </span>
+                        </button>
+                      </div>
+                    | _ => React.null
+                    }}
+                  </div>
+                </div>
+              }
+            }
+          )
+          ->React.array}
+          {isLoading
+            ? <div className="mr-8 flex items-start gap-2">
+                avatar
+                <div className="rounded-lg bg-[#bdf25d]/30 px-3 py-3 dark:bg-[#bdf25d]/[0.12]">
+                  <div className="flex items-center gap-1.5">
+                    <div
+                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
+                      style={ReactDOM.Style.make(~animationDelay="0ms", ())}
                     />
-                  : <Lucide.ArrowUp size=15 strokeWidth=2.5 \"aria-hidden"="true" />}
-              </button>
-            </div>
-          </label>
-          <div className="flex items-center justify-between gap-3">
-            <p className="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
-              {hasHistory
-                ? t`Answer the questions or add details to refine the draft.`
-                : t`We’ll turn your description into a draft you can review and edit.`}
-            </p>
-            {hasHistory
-              ? <button
-                  type_="button"
-                  onClick={_ => handleReset()}
-                  className="flex-shrink-0 text-xs font-semibold text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
-                  {t`Reset`}
-                </button>
-              : React.null}
-          </div>
+                    <div
+                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
+                      style={ReactDOM.Style.make(~animationDelay="150ms", ())}
+                    />
+                    <div
+                      className="h-1.5 w-1.5 animate-bounce rounded-full bg-gray-400 dark:bg-gray-500"
+                      style={ReactDOM.Style.make(~animationDelay="300ms", ())}
+                    />
+                  </div>
+                </div>
+              </div>
+            : React.null}
         </div>}
-  </section>
+    <div className="flex min-w-0 items-center gap-2.5">
+      <span
+        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#bdf25d] text-[#365314]">
+        <Lucide.Sparkles size=17 \"aria-hidden"="true" />
+      </span>
+      <form
+        className="min-w-0 flex-1"
+        onSubmit={e => {
+          ReactEvent.Form.preventDefault(e)
+          if canSend {
+            handleAsk()
+          }
+        }}>
+        <label className="block min-w-0" htmlFor="event-ai-prompt">
+          <span className="sr-only"> {t`Describe the event`} </span>
+          <div
+            className="flex min-w-0 items-center gap-2 rounded-lg border border-[#a3d949]/60 bg-white p-1.5 focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#bdf25d]/25 dark:bg-[#1e1f23]">
+            <input
+              id="event-ai-prompt"
+              type_="text"
+              value=prompt
+              onChange={e => {
+                let value = ReactEvent.Form.target(e)["value"]
+                setPrompt(_ => value)
+              }}
+              placeholder={hasPendingProposal
+                ? ts`Approve or deny the pending action to continue.`
+                : ts`Describe your event and I’ll fill out the form…`}
+              disabled={isLoading || hasPendingProposal}
+              className="h-9 min-w-0 flex-1 border-0 bg-transparent px-2 text-base text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 sm:text-sm dark:text-gray-100"
+            />
+            <button
+              type_="submit"
+              disabled={!canSend}
+              ariaLabel={ts`Fill event form from description`}
+              className="inline-flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-[#bdf25d] text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400 dark:disabled:bg-[#34353a]">
+              {isLoading
+                ? <span
+                    className="h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-t-transparent"
+                  />
+                : <Lucide.ArrowUp size=16 strokeWidth=2.5 \"aria-hidden"="true" />}
+            </button>
+          </div>
+        </label>
+      </form>
+      <button
+        type_="button"
+        onClick={_ => setIsCollapsed(collapsed => !collapsed)}
+        ariaExpanded={!isCollapsed}
+        ariaControls="event-ai-history"
+        ariaLabel={isCollapsed ? ts`Show AI chat history` : ts`Hide AI chat history`}
+        className="inline-flex h-9 flex-shrink-0 items-center gap-1 rounded-lg border border-[#94c93a]/40 bg-white/70 px-2.5 text-xs font-semibold text-gray-600 transition-colors hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:border-[#bdf25d]/20 dark:bg-[#1e1f23]/70 dark:text-gray-300 dark:hover:bg-[#1e1f23]">
+        <Lucide.MessageSquare size=14 \"aria-hidden"="true" />
+        <Lucide.ChevronDown
+          size=13
+          className={"transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]" ++ (
+            isCollapsed ? "" : " rotate-180"
+          )}
+          \"aria-hidden"="true"
+        />
+      </button>
+    </div>
+  </div>
 }

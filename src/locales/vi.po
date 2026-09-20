@@ -7814,6 +7814,182 @@ msgstr "Gỡ quyền quản trị viên"
 msgid "Add Court"
 msgstr "Thêm sân"
 
+msgid "Open Play"
+msgstr "Open Play"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid "Ask the assistant to fill in event details. Your conversation will appear here."
+msgstr "Yêu cầu trợ lý điền thông tin sự kiện. Cuộc trò chuyện của bạn sẽ xuất hiện ở đây."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "Mô tả sự kiện của bạn và tôi sẽ điền vào biểu mẫu…"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "Điền biểu mẫu"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
+msgstr "Ẩn lịch sử trò chuyện AI"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
+msgstr "Hiện lịch sử trò chuyện AI"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:563
+msgid "This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed."
+msgstr "Sự kiện này nhận người chơi theo trình độ thay vì theo thời gian xác nhận tham gia. Yêu cầu của bạn sẽ được xem xét và bạn sẽ được thông báo khi có suất được xác nhận."
+
+#: src/components/molecules/TimeZoneField.re.mjs:132
+msgid "{place} Time"
+msgstr "Giờ {place}"
+
+#: src/components/pages/CreateEventPage.re.mjs:289
+msgid "AI-assisted event form"
+msgstr "Biểu mẫu sự kiện có AI hỗ trợ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:70
+msgid "Alaska Time"
+msgstr "Giờ Alaska"
+
+#: src/components/molecules/TimeZoneField.re.mjs:120
+msgid "American Samoa Time"
+msgstr "Giờ Samoa thuộc Mỹ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:82
+msgid "Arizona Time"
+msgstr "Giờ Arizona"
+
+#: src/components/molecules/TimeZoneField.re.mjs:76
+msgid "Atlantic Time"
+msgstr "Giờ Đại Tây Dương"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
+msgstr "Người tham gia được yêu cầu lưu thẻ khi xác nhận tham gia, nhưng không có khoản nào được xác thực hay trừ tiền, và bạn cũng không thể trừ tiền từ đây. Hãy thu phí tại sự kiện. Thành viên câu lạc bộ được miễn điều này."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:865
+msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
+msgstr "Người tham gia lưu thẻ khi xác nhận tham gia và không có khoản nào bị trừ hay tạm giữ trước. Từ danh sách xác nhận tham gia, bạn có thể thu tiền một người hoặc tất cả bất cứ lúc nào bạn muốn, và tiền sẽ vào tài khoản Stripe của bạn. Thành viên câu lạc bộ có thể được miễn hoặc không, bạn có thể bật/tắt tại trang chủ Câu lạc bộ."
+
+#: src/components/molecules/TimeZoneField.re.mjs:96
+msgid "Central Australia Time"
+msgstr "Giờ Trung Úc"
+
+#: src/components/molecules/TimeZoneField.re.mjs:104
+msgid "Central European Time"
+msgstr "Giờ Trung Âu"
+
+#: src/components/molecules/TimeZoneField.re.mjs:72
+msgid "Central Time"
+msgstr "Giờ Miền Trung"
+
+#: src/components/molecules/TimeZoneField.re.mjs:90
+msgid "China Time"
+msgstr "Giờ Trung Quốc"
+
+#: src/components/molecules/TimeZoneField.re.mjs:122
+msgid "Coordinated Universal Time"
+msgstr "Giờ Phối hợp Quốc tế"
+
+#: src/components/molecules/TimeZoneField.re.mjs:102
+msgid "Eastern Australia Time"
+msgstr "Giờ Đông Úc"
+
+#: src/components/molecules/TimeZoneField.re.mjs:106
+msgid "Eastern European Time"
+msgstr "Giờ Đông Âu"
+
+#: src/components/molecules/TimeZoneField.re.mjs:80
+msgid "Eastern Time"
+msgstr "Giờ Miền Đông"
+
+#: src/components/molecules/TimeZoneField.re.mjs:116
+msgid "Hawaii Time"
+msgstr "Giờ Hawaii"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
+msgstr "Giữ người mới tham gia trong danh sách chờ và nhận người chơi thủ công hoặc tự động bằng thuật toán Smart RSVPs giúp tối ưu trình độ và chất lượng buổi chơi."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+msgid "Hold RSVPs"
+msgstr "Giữ xác nhận tham gia"
+
+#: src/components/molecules/TimeZoneField.re.mjs:86
+msgid "India Time"
+msgstr "Giờ Ấn Độ"
+
+#: src/components/molecules/TimeZoneField.re.mjs:94
+msgid "Japan Time"
+msgstr "Giờ Nhật Bản"
+
+#: src/components/molecules/TimeZoneField.re.mjs:88
+msgid "Korea Time"
+msgstr "Giờ Hàn Quốc"
+
+#: src/components/molecules/TimeZoneField.re.mjs:118
+msgid "Line Islands Time"
+msgstr "Giờ Quần đảo Line"
+
+#: src/components/molecules/TimeZoneField.re.mjs:126
+#: src/components/molecules/TimeZoneField.re.mjs:129
+msgid "Local time"
+msgstr "Giờ địa phương"
+
+#: src/components/molecules/TimeZoneField.re.mjs:74
+msgid "Mountain Time"
+msgstr "Giờ miền núi (Mountain Time)"
+
+#: src/components/molecules/TimeZoneField.re.mjs:112
+msgid "New Zealand Time"
+msgstr "Giờ New Zealand"
+
+#: src/components/molecules/TimeZoneField.re.mjs:84
+msgid "Newfoundland Time"
+msgstr "Giờ Newfoundland"
+
+#: src/components/molecules/TimeZoneField.re.mjs:78
+msgid "Pacific Time"
+msgstr "Giờ Thái Bình Dương"
+
+#: src/components/molecules/TimeZoneField.re.mjs:98
+msgid "Queensland Time"
+msgstr "Giờ Queensland"
+
+#: src/components/molecules/TimeZoneField.re.mjs:110
+msgid "Samoa Time"
+msgstr "Giờ Samoa"
+
+#: src/components/molecules/TimeZoneField.re.mjs:92
+msgid "Singapore Time"
+msgstr "Giờ Singapore"
+
+#: src/components/molecules/TimeZoneField.re.mjs:114
+msgid "Solomon Islands Time"
+msgstr "Giờ Quần đảo Solomon"
+
+#: src/components/molecules/EventTimeRangeInputs.re.mjs:123
+msgid "Start time"
+msgstr "Giờ bắt đầu"
+
+#: src/components/molecules/TimeZoneField.re.mjs:108
+msgid "United Kingdom Time"
+msgstr "Giờ Vương quốc Anh"
+
+#: src/components/molecules/TimeZoneField.re.mjs:68
+msgid "West Africa Time"
+msgstr "Giờ Tây Phi"
+
+#: src/components/molecules/TimeZoneField.re.mjs:100
+msgid "Western Australia Time"
+msgstr "Giờ Tây Úc"
+
+#: src/components/pages/LeaguePlayerPage.re.mjs:960
+msgid "Women's Rating"
+msgstr "Điểm xếp hạng nữ"
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
@@ -7988,6 +8164,3 @@ msgstr "Thêm sân"
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "Với mức chênh lệch thực tế 1.0 DUPR, Competitive+ bứt phá khỏi các mức nền chỉ sau vài vòng đầu, và sau một buổi chơi nó đã dẫn trước mức nền tránh lặp trận 9 điểm chất lượng và 10 điểm về trận một chiều. Lợi ích đầy đủ đến khi điểm số ổn định: 10% trận một chiều so với 62% của mức nền, và 78% khả năng có trận cân bằng so với 53%. Những con số đó ngang với một câu lạc bộ được tuyển chọn kỹ có trình độ đồng đều (79% và 8%) — thuật toán đạt được bằng ghép trận điều mà bạn nếu không thì phải đạt bằng cách sàng lọc thành viên:"
-
-msgid "Open Play"
-msgstr "Open Play"

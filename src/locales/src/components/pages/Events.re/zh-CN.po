@@ -17,16 +17,16 @@ msgstr ""
 msgid "...more"
 msgstr "...更多"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:703
+#: src/components/organisms/PkRSVPSection.re.mjs:696
 msgid "· {0} pending"
 msgstr "· {0} 待处理"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:701
+#: src/components/organisms/PkRSVPSection.re.mjs:694
 msgid "· +{0} waitlist"
 msgstr "· +{0} 候补"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:496
-#: src/components/molecules/PlayIntentRow.re.mjs:628
+#: src/components/molecules/PlayIntentRow.re.mjs:497
+#: src/components/molecules/PlayIntentRow.re.mjs:635
 msgid "· peak {0}–{1}"
 msgstr "· 高峰 {0}–{1}"
 
@@ -42,7 +42,7 @@ msgstr "[标题缺失]"
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:516
 #: src/components/organisms/CourtPseudoEventGroup.re.mjs:61
 #: src/components/molecules/PlayIntentRow.re.mjs:320
-#: src/components/molecules/PlayIntentRow.re.mjs:492
+#: src/components/molecules/PlayIntentRow.re.mjs:493
 #: src/components/organisms/PkEventsList.re.mjs:240
 msgid "{0, plural, one {{1}} other {{2}}}"
 msgstr "{1}"
@@ -87,7 +87,7 @@ msgstr "{0} 个活动"
 msgid "{0} events"
 msgstr "{0} 个活动"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:698
+#: src/components/organisms/PkRSVPSection.re.mjs:691
 msgid "{0} joined"
 msgstr "{0} 已参加"
 
@@ -111,19 +111,19 @@ msgstr "此时段还有 {0} 位球员可用"
 msgid "{0} other players available in this slot"
 msgstr "此时段还有 {0} 位球员可用"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:494
+#: src/components/molecules/PlayIntentRow.re.mjs:495
 msgid "{0} people"
 msgstr "{0} 人"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:626
+#: src/components/molecules/PlayIntentRow.re.mjs:633
 msgid "{0} people want to play"
 msgstr "{0} 人想打球"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:493
+#: src/components/molecules/PlayIntentRow.re.mjs:494
 msgid "{0} person"
 msgstr "{0} 人"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:625
+#: src/components/molecules/PlayIntentRow.re.mjs:632
 msgid "{0} person wants to play"
 msgstr "{0} 人想打球"
 
@@ -142,7 +142,7 @@ msgid "{availableCourtCount, plural, one {{0}} other {{1}}}"
 msgstr "{availableCourtCount, plural, one {{0}} other {{1}}}"
 
 #: src/components/molecules/PlayIntentRow.re.mjs:332
-#: src/components/molecules/PlayIntentRow.re.mjs:624
+#: src/components/molecules/PlayIntentRow.re.mjs:631
 msgid "{demandCount, plural, one {{0}} other {{1}}}"
 msgstr "{demandCount, plural, one {{0}} other {{1}}}"
 
@@ -210,7 +210,7 @@ msgstr "{totalEvents, plural, one {{0}} other {{1}}}"
 msgid "← previous"
 msgstr "← 上一页"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:815
+#: src/components/organisms/PkRSVPSection.re.mjs:808
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ 技术"
 
@@ -239,7 +239,7 @@ msgstr "高级球员"
 msgid "Afternoon"
 msgstr "下午"
 
-#: src/components/molecules/LocationFilter.re.mjs:68
+#: src/components/molecules/EventFiltersToolbar.re.mjs:42
 msgid "All levels"
 msgstr "所有级别"
 
@@ -292,7 +292,7 @@ msgstr "全程可参加"
 msgid "Back to event"
 msgstr "返回活动"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:447
+#: src/components/organisms/PkRSVPSection.re.mjs:440
 msgid "balanced"
 msgstr "平衡"
 
@@ -381,11 +381,11 @@ msgstr ""
 msgid "Card required to confirm your spot"
 msgstr "需绑定银行卡以确认您的名额"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Change"
 msgstr "更改"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:652
+#: src/components/molecules/PlayIntentRow.re.mjs:659
 msgid "Change times"
 msgstr "更改时间"
 
@@ -406,11 +406,11 @@ msgstr "报名参加"
 msgid "Claim spot · {0}"
 msgstr "占位 · {0}"
 
-#: src/components/molecules/LocationFilter.re.mjs:102
+#: src/components/molecules/EventFiltersToolbar.re.mjs:76
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1110
+#: src/components/organisms/PkRSVPSection.re.mjs:1093
 msgid "Clear preview"
 msgstr "清除预览"
 
@@ -460,7 +460,7 @@ msgstr "确认"
 msgid "Confirm move"
 msgstr "确认移动"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:902
+#: src/components/organisms/PkRSVPSection.re.mjs:895
 msgid "Confirmed · {0}"
 msgstr "已确认 · {0}"
 
@@ -483,7 +483,7 @@ msgstr "无法保存您的银行卡"
 msgid "Could not save your profile. Please try again."
 msgstr "无法保存您的个人资料，请重试。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1186
+#: src/components/organisms/PkRSVPSection.re.mjs:1169
 #: src/components/organisms/PkEventsAvailabilityDay.re.mjs:181
 #: src/components/organisms/PkEventsDayFeed.re.mjs:27
 msgid "Court"
@@ -507,7 +507,7 @@ msgstr "场地"
 msgid "Courts available"
 msgstr "可用场地"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:471
+#: src/components/molecules/PlayIntentRow.re.mjs:472
 msgid "Courts covering your complete time"
 msgstr "覆盖您完整时间段的场地"
 
@@ -541,7 +541,7 @@ msgstr "显示名称"
 msgid "Display name is required"
 msgstr "请输入显示名称"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Done"
 msgstr "完成"
 
@@ -553,8 +553,8 @@ msgstr "编辑完成"
 msgid "Drag or resize within"
 msgstr "在范围内拖动或调整大小"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:789
-#: src/components/organisms/PkRSVPSection.re.mjs:806
+#: src/components/organisms/PkRSVPSection.re.mjs:782
+#: src/components/organisms/PkRSVPSection.re.mjs:799
 msgid "DUPR"
 msgstr "DUPR"
 
@@ -619,11 +619,11 @@ msgstr "输入比赛比分"
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "比分相同 — 将记录为平局"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Evaluating pending requests…"
 msgstr "正在评估待处理请求…"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:443
+#: src/components/organisms/PkRSVPSection.re.mjs:436
 msgid "even"
 msgstr "均衡"
 
@@ -641,7 +641,7 @@ msgstr "活动"
 msgid "Event chat"
 msgstr "活动聊天"
 
-#: src/components/molecules/LocationFilter.re.mjs:245
+#: src/components/molecules/LocationFilter.re.mjs:174
 msgid "Event filters"
 msgstr "活动筛选"
 
@@ -716,11 +716,11 @@ msgstr "隐藏时段"
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:551
+#: src/components/molecules/PlayIntentRow.re.mjs:558
 msgid "Host an event at this time"
 msgstr "在此时间举办活动"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:548
+#: src/components/molecules/PlayIntentRow.re.mjs:555
 msgid "Host event"
 msgstr "举办活动"
 
@@ -855,8 +855,8 @@ msgstr "收起"
 msgid "Level"
 msgstr "级别"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:591
-#: src/components/organisms/PkRSVPSection.re.mjs:612
+#: src/components/organisms/PkRSVPSection.re.mjs:584
+#: src/components/organisms/PkRSVPSection.re.mjs:605
 msgid "LEVEL RESTRICTION"
 msgstr "级别限制"
 
@@ -865,12 +865,12 @@ msgstr "级别限制"
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Locating…"
 msgstr "定位中…"
 
 #: src/components/pages/PkEventPage.re.mjs:445
-#: src/components/molecules/LocationFilter.re.mjs:161
+#: src/components/molecules/LocationFilter.re.mjs:80
 msgid "Location"
 msgstr "地点"
 
@@ -878,7 +878,7 @@ msgstr "地点"
 msgid "Location access was denied. Allow access or choose a venue."
 msgstr "位置访问被拒绝，请允许访问或选择场馆。"
 
-#: src/components/molecules/LocationFilter.re.mjs:127
+#: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr "地点："
 
@@ -896,7 +896,7 @@ msgid "Male"
 msgstr "男性"
 
 #: src/components/organisms/CourtPseudoEventRow.re.mjs:376
-#: src/components/molecules/PlayIntentRow.re.mjs:571
+#: src/components/molecules/PlayIntentRow.re.mjs:578
 msgid "Mark available"
 msgstr "标记为空闲"
 
@@ -904,7 +904,7 @@ msgstr "标记为空闲"
 msgid "Matches will be submitted to DUPR."
 msgstr "比赛结果将提交至 DUPR。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:798
+#: src/components/organisms/PkRSVPSection.re.mjs:791
 msgid "MEDIAN"
 msgstr "中位数"
 
@@ -916,11 +916,11 @@ msgstr "向此活动的所有人发消息"
 msgid "Message everyone in this event…"
 msgstr "向此活动的所有人发消息…"
 
-#: src/components/molecules/LocationFilter.re.mjs:62
+#: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
 msgstr "最低活动级别"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:450
+#: src/components/organisms/PkRSVPSection.re.mjs:443
 msgid "mixed"
 msgstr "混合"
 
@@ -941,11 +941,11 @@ msgstr "上午"
 msgid "Move to Pending List"
 msgstr "移至待审核列表"
 
-#: src/components/molecules/LocationFilter.re.mjs:171
+#: src/components/molecules/LocationFilter.re.mjs:90
 msgid "Near me"
 msgstr "附近"
 
-#: src/components/molecules/LocationFilter.re.mjs:31
+#: src/components/molecules/LocationFilter.re.mjs:29
 msgid "Near me · {radius} km"
 msgstr "附近 · {radius} 公里"
 
@@ -957,7 +957,7 @@ msgstr "下周{dayName}"
 msgid "No court at {venue} covers the full event window."
 msgstr "{venue} 没有场地能覆盖完整的活动时间段。"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:479
+#: src/components/molecules/PlayIntentRow.re.mjs:480
 msgid "No court is currently available for an entire selected window."
 msgstr "当前没有场地在整个所选时间段内可用。"
 
@@ -1022,7 +1022,7 @@ msgstr "候补中"
 msgid "Open invite actions for {0}"
 msgstr "打开 {0} 的邀请操作"
 
-#: src/components/molecules/LocationFilter.re.mjs:50
+#: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "空余名额"
 
@@ -1038,7 +1038,7 @@ msgstr "同时段的其他地点"
 msgid "Other times at {venue}"
 msgstr "{venue} 的其他时间"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:670
+#: src/components/organisms/PkRSVPSection.re.mjs:663
 msgid "Participants"
 msgstr "参与者"
 
@@ -1070,7 +1070,7 @@ msgstr "需完成付款以确认您的名额"
 msgid "Pending"
 msgstr "待审核"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1035
+#: src/components/organisms/PkRSVPSection.re.mjs:1028
 msgid "Pending · {0}"
 msgstr "待处理 · {0}"
 
@@ -1078,11 +1078,11 @@ msgstr "待处理 · {0}"
 msgid "Pending approval"
 msgstr "待审批"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:551
+#: src/components/molecules/PlayIntentRow.re.mjs:558
 msgid "Pick one time window to host an event"
 msgstr "选择一个时间段来举办活动"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Placing on the waitlist…"
 msgstr "正在加入候补名单…"
 
@@ -1095,7 +1095,7 @@ msgstr "今天打球"
 msgid "player"
 msgstr "玩家"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球员可用时间热力图"
 
@@ -1116,11 +1116,11 @@ msgstr "季后赛选秀"
 msgid "Presented by"
 msgstr "由...呈现"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Preview Smart RSVP"
 msgstr "预览智能报名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1068
+#: src/components/organisms/PkRSVPSection.re.mjs:1069
 msgid "Previewing…"
 msgstr "预览中…"
 
@@ -1182,12 +1182,12 @@ msgstr "退款"
 msgid "Release to refresh"
 msgstr "释放即可刷新"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:527
-#: src/components/molecules/PlayIntentRow.re.mjs:662
+#: src/components/molecules/PlayIntentRow.re.mjs:534
+#: src/components/molecules/PlayIntentRow.re.mjs:669
 msgid "Remove all"
 msgstr "全部移除"
 
@@ -1207,11 +1207,11 @@ msgstr "移除此 RSVP"
 msgid "Repeat"
 msgstr "重复"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:595
+#: src/components/organisms/PkRSVPSection.re.mjs:588
 msgid "Required: DUPR {minDuprStr}+"
 msgstr "需要: DUPR {minDuprStr}以上"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:616
+#: src/components/organisms/PkRSVPSection.re.mjs:609
 msgid "Requires DUPR {minDuprStr}+ to join"
 msgstr "参加需要 DUPR {minDuprStr}以上"
 
@@ -1227,7 +1227,7 @@ msgstr "比赛结果将提交至竞技评分系统。"
 msgid "Retry charge"
 msgstr "重试扣款"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1051
+#: src/components/organisms/PkRSVPSection.re.mjs:1044
 msgid "Review {0} pending requests with swipe cards"
 msgstr "通过滑动卡片审核 {0} 条待定请求"
 
@@ -1252,11 +1252,7 @@ msgstr "循环赛抽签"
 msgid "RPM"
 msgstr "RPM"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1095
-msgid "Run Smart RSVP (best-fit, test)"
-msgstr "运行智能报名（最佳匹配，测试）"
-
-#: src/components/organisms/PkRSVPSection.re.mjs:1077
+#: src/components/organisms/PkRSVPSection.re.mjs:1061
 msgid "Run Smart RSVP now"
 msgstr "立即运行智能报名"
 
@@ -1351,16 +1347,16 @@ msgstr "跳过"
 msgid "Skip {0}"
 msgstr "跳过 {0}"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:566
+#: src/components/organisms/PkRSVPSection.re.mjs:559
 msgid "SMART RSVP"
 msgstr "智能报名"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1108
+#: src/components/organisms/PkRSVPSection.re.mjs:1091
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked below."
 msgstr "智能报名将从 {1} 个待处理请求中通过 {0} 个：已在下方标记。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1086
+#: src/components/organisms/PkRSVPSection.re.mjs:1078
 msgid "Smart Waitlist"
 msgstr "智能候补名单"
 
@@ -1368,7 +1364,7 @@ msgstr "智能候补名单"
 msgid "SORTED BY START TIME"
 msgstr "按开始时间排序"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:859
+#: src/components/organisms/PkRSVPSection.re.mjs:852
 msgid "SPREAD"
 msgstr "分布"
 
@@ -1388,7 +1384,7 @@ msgstr "左滑保留待定 · 右滑批准"
 msgid "Swipe left to skip · right to invite"
 msgstr "左滑跳过 · 右滑邀请"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1049
+#: src/components/organisms/PkRSVPSection.re.mjs:1042
 msgid "Swipe review"
 msgstr "滑动审核"
 
@@ -1400,7 +1396,7 @@ msgstr "同步日历"
 msgid "Tap to add time in this slot"
 msgstr "点击在此时段添加时间"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
@@ -1430,11 +1426,12 @@ msgid ""
 "the next person. Are you sure?"
 msgstr "候补名单中有球员。如果您退出，您的位置将会给下一位。确定吗？"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:570
+#: src/components/organisms/PkRSVPSection.re.mjs:563
 msgid ""
-"This event admits players automatically. Your request will be reviewed and "
-"you will be notified once a spot is confirmed."
-msgstr "本活动将自动录取球员。您的申请将接受审核，确认名额后会通知您。"
+"This event admits players by level rather than by the time of RSVP. Your "
+"request will be reviewed and you will be notified once a spot is confirmed."
+msgstr ""
+"本活动按水平录取球员，而非按报名时间。你的申请将被审核，名额确认后会通知你。"
 
 #: src/components/atoms/EventTag.re.mjs:54
 msgid ""
@@ -1483,11 +1480,11 @@ msgstr "东京"
 msgid "Tomorrow"
 msgstr "明天"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:781
+#: src/components/organisms/PkRSVPSection.re.mjs:774
 msgid "TOP 6 AVG"
 msgstr "前6均值"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:744
+#: src/components/organisms/PkRSVPSection.re.mjs:737
 msgid "Top court DUPR"
 msgstr "最高球场 DUPR"
 
@@ -1511,7 +1508,7 @@ msgstr "使用其他银行卡"
 msgid "Use location"
 msgstr "使用该地点"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Use near me"
 msgstr "使用附近位置"
 
@@ -1535,11 +1532,11 @@ msgstr "查看该场地的所有活动"
 msgid "View Full Draws"
 msgstr "查看完整抽签"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View less"
 msgstr "收起"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:755
+#: src/components/organisms/PkRSVPSection.re.mjs:748
 msgid "View more"
 msgstr "查看更多"
 
@@ -1566,7 +1563,7 @@ msgstr "等待加入审批"
 msgid "Waitlist"
 msgstr "等待列表"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:969
+#: src/components/organisms/PkRSVPSection.re.mjs:962
 msgid "Waitlist · {0}"
 msgstr "候补名单 · {0}"
 
@@ -1610,7 +1607,7 @@ msgstr "撤回报名"
 msgid "Withdrawing..."
 msgstr "撤回中..."
 
-#: src/components/organisms/PkRSVPSection.re.mjs:1151
+#: src/components/organisms/PkRSVPSection.re.mjs:1134
 msgid "Would be admitted"
 msgstr "将被通过"
 
@@ -1618,7 +1615,7 @@ msgstr "将被通过"
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/components/molecules/PlayIntentRow.re.mjs:606
+#: src/components/molecules/PlayIntentRow.re.mjs:613
 msgid "You want to play {dayWord}"
 msgstr "你想{dayWord}打球"
 
@@ -1652,7 +1649,7 @@ msgid ""
 "participation fee later."
 msgstr "您的银行卡现已保存，暂未扣款。主办方稍后将收取参与费用。"
 
-#: src/components/organisms/PkRSVPSection.re.mjs:599
+#: src/components/organisms/PkRSVPSection.re.mjs:592
 msgid ""
 "Your rating {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) is below the minimum. You will be placed in the pending list."
@@ -2151,6 +2148,10 @@ msgstr "您的报名正在等待管理员审批"
 #~ msgid "Reply"
 #~ msgstr "回复"
 
+#: src/components/organisms/PkRSVPSection.re.mjs:1095
+#~ msgid "Run Smart RSVP (best-fit, test)"
+#~ msgstr "运行智能报名（最佳匹配，测试）"
+
 #: src/components/organisms/ProfileModal.re.mjs:429
 #~ msgid "Save & Join Event"
 #~ msgstr "保存并参加活动"
@@ -2204,6 +2205,12 @@ msgstr "您的报名正在等待管理员审批"
 #~ msgstr ""
 #~ "组织者现在可直接收取卡付款。您的银行卡是在此之前保存的，请重新保存一次——您"
 #~ "的名额仍然保留。"
+
+#: src/components/organisms/PkRSVPSection.re.mjs:570
+#~ msgid ""
+#~ "This event admits players automatically. Your request will be reviewed "
+#~ "and you will be notified once a spot is confirmed."
+#~ msgstr "本活动将自动录取球员。您的申请将接受审核，确认名额后会通知您。"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:189
 #~ msgid ""

@@ -24,6 +24,10 @@ module Types = {
     score: float,
     user: option<fragment_leagueUserStats_bestPartners_user>,
   }
+  and fragment_leagueUserStats_genderNormalizedRating = {
+    mu: float,
+    sigma: float,
+  }
   and fragment_leagueUserStats_gymRating = {
     mu: float,
     sigma: float,
@@ -228,6 +232,7 @@ module Types = {
     bestOpponents: array<fragment_leagueUserStats_bestOpponents>,
     bestPartners: array<fragment_leagueUserStats_bestPartners>,
     daysNumberOne: float,
+    genderNormalizedRating: option<fragment_leagueUserStats_genderNormalizedRating>,
     gymDelta: option<float>,
     gymDeltaSe: option<float>,
     gymRating: option<fragment_leagueUserStats_gymRating>,
@@ -765,6 +770,16 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "mfPartnerTendency",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DisciplineRating",
+          "kind": "LinkedField",
+          "name": "genderNormalizedRating",
+          "plural": false,
+          "selections": (v2/*: any*/),
           "storageKey": null
         },
         {

@@ -90,11 +90,11 @@ var use$3 = RescriptRelay_Mutation.useMutation(convertVariables$3, ClubPageUpdat
 
 var primaryAction = "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-4 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:bg-gray-200 disabled:text-gray-500 dark:disabled:bg-[#2a2b30] dark:disabled:text-gray-500";
 
+var secondaryAction = "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-60 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30]";
+
 var statusChip = "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-semibold text-gray-600 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-300";
 
 var cardClass = "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#1e1f23]";
-
-var sectionLink = "text-xs font-semibold text-[#4d6f12] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d]";
 
 function ClubPage$StatsGrid(props) {
   var stats = props.stats;
@@ -282,6 +282,7 @@ function ClubPage$EventRow(props) {
 }
 
 function ClubPage$EventList(props) {
+  var schedulePath = props.schedulePath;
   var intl = ReactIntl.useIntl();
   var setup = EventsListUtils.makeBucketSetup();
   var formatDate = function (date) {
@@ -373,42 +374,66 @@ function ClubPage$EventList(props) {
                   JsxRuntime.jsx("p", {
                         children: t`Check back when the club publishes its next schedule.`,
                         className: "mt-1 text-xs text-gray-500 dark:text-gray-400"
+                      }),
+                  JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                        to: schedulePath,
+                        children: [
+                          JsxRuntime.jsx(LucideReact.CalendarDays, {
+                                size: 13,
+                                "aria-hidden": "true"
+                              }),
+                          t`Full club schedule`
+                        ],
+                        className: "mt-4 " + secondaryAction
                       })
                 ],
                 className: "rounded-xl border border-dashed border-gray-300 bg-gray-50 px-5 py-10 text-center dark:border-[#3a3b40] dark:bg-[#1e1f23]"
               });
   } else {
-    return JsxRuntime.jsx("div", {
-                children: groups.map(function (param, index) {
-                      var key = param[0];
-                      var match = bucketMeta(key);
-                      return JsxRuntime.jsxs("section", {
-                                  children: [
-                                    JsxRuntime.jsxs("header", {
-                                          children: [
-                                            JsxRuntime.jsx("h3", {
-                                                  children: match[0],
-                                                  className: "text-xs font-semibold text-gray-900 dark:text-gray-100"
+    return JsxRuntime.jsxs("div", {
+                children: [
+                  groups.map(function (param, index) {
+                        var key = param[0];
+                        var match = bucketMeta(key);
+                        return JsxRuntime.jsxs("section", {
+                                    children: [
+                                      JsxRuntime.jsxs("header", {
+                                            children: [
+                                              JsxRuntime.jsx("h3", {
+                                                    children: match[0],
+                                                    className: "text-xs font-semibold text-gray-900 dark:text-gray-100"
+                                                  }),
+                                              JsxRuntime.jsx("span", {
+                                                    children: match[1],
+                                                    className: "font-mono text-[9px] text-gray-400"
+                                                  })
+                                            ],
+                                            className: "flex items-baseline justify-between bg-gray-50 px-4 py-2 dark:bg-[#222326]"
+                                          }),
+                                      JsxRuntime.jsx("div", {
+                                            children: param[1].map(function ($$event) {
+                                                  return JsxRuntime.jsx(ClubPage$EventRow, {
+                                                              event: $$event
+                                                            }, $$event.id);
                                                 }),
-                                            JsxRuntime.jsx("span", {
-                                                  children: match[1],
-                                                  className: "font-mono text-[9px] text-gray-400"
-                                                })
-                                          ],
-                                          className: "flex items-baseline justify-between bg-gray-50 px-4 py-2 dark:bg-[#222326]"
-                                        }),
-                                    JsxRuntime.jsx("div", {
-                                          children: param[1].map(function ($$event) {
-                                                return JsxRuntime.jsx(ClubPage$EventRow, {
-                                                            event: $$event
-                                                          }, $$event.id);
-                                              }),
-                                          className: "divide-y divide-gray-100 dark:divide-[#2a2b30]"
-                                        })
-                                  ],
-                                  className: index > 0 ? "border-t border-gray-200 dark:border-[#3a3b40]" : ""
-                                }, key);
-                    }),
+                                            className: "divide-y divide-gray-100 dark:divide-[#2a2b30]"
+                                          })
+                                    ],
+                                    className: index > 0 ? "border-t border-gray-200 dark:border-[#3a3b40]" : ""
+                                  }, key);
+                      }),
+                  JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                        to: schedulePath,
+                        children: [
+                          t`Full club schedule`,
+                          JsxRuntime.jsx(LucideReact.ArrowRight, {
+                                size: 16,
+                                "aria-hidden": "true"
+                              })
+                        ],
+                        className: "flex items-center justify-center gap-1.5 border-t border-gray-200 px-4 py-3.5 text-sm font-semibold text-[#4d6f12] transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#94c93a] dark:border-[#3a3b40] dark:text-[#bdf25d] dark:hover:bg-[#222326]"
+                      })
+                ],
                 className: cardClass
               });
   }
@@ -434,7 +459,7 @@ function ClubPage$TopPlayers(props) {
                                     }),
                                 t`View All`
                               ],
-                              className: "inline-flex items-center gap-1 " + sectionLink
+                              className: "inline-flex items-center gap-1 text-xs font-semibold text-[#4d6f12] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d]"
                             })
                       ],
                       className: "flex items-center justify-between border-b border-gray-200 px-4 py-3 dark:border-[#3a3b40]"
@@ -652,7 +677,7 @@ function ClubPage(props) {
                                                           }),
                                                       JsxRuntime.jsx("button", {
                                                             children: t`Cancel Request`,
-                                                            className: "inline-flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] disabled:opacity-60 dark:border-[#3a3b40] dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30]",
+                                                            className: secondaryAction,
                                                             disabled: isRemoveInFlight,
                                                             type: "button",
                                                             onClick: (function (param) {
@@ -849,35 +874,26 @@ function ClubPage(props) {
                                                                                         children: t`Upcoming Events`,
                                                                                         className: "text-base font-semibold text-gray-900 dark:text-gray-100"
                                                                                       }),
-                                                                                  JsxRuntime.jsxs("div", {
-                                                                                        children: [
-                                                                                          JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                                                                                to: "./events",
-                                                                                                children: t`Full club schedule`,
-                                                                                                className: sectionLink
-                                                                                              }),
-                                                                                          viewerIsAdmin ? JsxRuntime.jsxs(LangProvider.Router.Link.make, {
-                                                                                                  to: createHref([[
-                                                                                                            "clubId",
-                                                                                                            club.id
-                                                                                                          ]].concat(clubPrefill)),
-                                                                                                  children: [
-                                                                                                    JsxRuntime.jsx(LucideReact.CalendarPlus, {
-                                                                                                          size: 13,
-                                                                                                          "aria-hidden": "true"
-                                                                                                        }),
-                                                                                                    t`Add Court`
-                                                                                                  ],
-                                                                                                  className: primaryAction
-                                                                                                }) : null
-                                                                                        ],
-                                                                                        className: "flex items-center gap-3"
-                                                                                      })
+                                                                                  viewerIsAdmin ? JsxRuntime.jsxs(LangProvider.Router.Link.make, {
+                                                                                          to: createHref([[
+                                                                                                    "clubId",
+                                                                                                    club.id
+                                                                                                  ]].concat(clubPrefill)),
+                                                                                          children: [
+                                                                                            JsxRuntime.jsx(LucideReact.CalendarPlus, {
+                                                                                                  size: 13,
+                                                                                                  "aria-hidden": "true"
+                                                                                                }),
+                                                                                            t`Add Court`
+                                                                                          ],
+                                                                                          className: primaryAction
+                                                                                        }) : null
                                                                                 ],
                                                                                 className: "mb-3 flex flex-wrap items-center justify-between gap-2"
                                                                               }),
                                                                           JsxRuntime.jsx(ClubPage$EventList, {
-                                                                                events: events
+                                                                                events: events,
+                                                                                schedulePath: "./events"
                                                                               })
                                                                         ]
                                                                       }),

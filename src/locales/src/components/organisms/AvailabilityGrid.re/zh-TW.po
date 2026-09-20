@@ -51,11 +51,11 @@ msgstr "讓主辦人在大多數人有空時安排活動"
 msgid "One-off"
 msgstr "單次"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
@@ -75,7 +75,7 @@ msgstr "排程"
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "點擊新增您的時間"
 

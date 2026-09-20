@@ -54,11 +54,11 @@ msgstr "みんなの空き時間にホストがイベントをスケジュール
 msgid "One-off"
 msgstr "単発"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "削除"
 
@@ -78,7 +78,7 @@ msgstr "スケジュール"
 msgid "Share with your club"
 msgstr "クラブと共有"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 

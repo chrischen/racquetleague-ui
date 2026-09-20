@@ -80,23 +80,23 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
 msgstr "在上方新增時間段"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts Â· thickness = count"
 msgstr "場地 · 粗細 = 數量"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:850
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
 msgstr "涵蓋您完整時段的場地與空檔"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "各場地分別列出，並顯示其最大連續空檔。"
 
@@ -104,19 +104,19 @@ msgstr "各場地分別列出，並顯示其最大連續空檔。"
 msgid "Create event"
 msgstr "建立賽事"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:650
 msgid "Events"
 msgstr "活動"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:605
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Players"
 msgstr "尋找球員"
 
@@ -124,19 +124,19 @@ msgstr "尋找球員"
 msgid "Reserve"
 msgstr "預訂"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Savingâ¦"
 msgstr "儲存中…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:581
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "排程"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
@@ -144,11 +144,11 @@ msgstr ""
 "設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示"
 "可用場地越多。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "與你的俱樂部分享"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大小"
 
@@ -156,23 +156,23 @@ msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大
 msgid "Use option"
 msgstr "使用此選項"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
 msgstr "平日傍晚"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:666
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:701
 msgid "Weekend morns"
 msgstr "週末上午"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:620
 msgid "When can you play?"
 msgstr "你什麼時候可以打球？"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "你的空閒時間"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "您的時間"
 

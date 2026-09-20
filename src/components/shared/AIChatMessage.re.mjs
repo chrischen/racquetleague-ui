@@ -71,6 +71,41 @@ function fromFragmentRef(fragmentRef) {
   }
 }
 
+var openTag = "<local_time>";
+
+var closeTag = "</local_time>";
+
+var describe = (function (d) {
+    var pad = function (n) { return String(n).padStart(2, "0") }
+    var weekday = d.toLocaleDateString("en-US", { weekday: "long" })
+    return weekday + ", " + d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()) +
+      "T" + pad(d.getHours()) + ":" + pad(d.getMinutes())
+  });
+
+function prepend(message) {
+  return openTag + "User's current local time: " + describe(new Date()) + closeTag + "\n\n" + message;
+}
+
+function strip(content) {
+  if (!content.startsWith(openTag)) {
+    return content;
+  }
+  var closeIdx = content.indexOf(closeTag);
+  if (closeIdx !== -1) {
+    return content.slice(closeIdx + closeTag.length | 0).trimStart();
+  } else {
+    return content;
+  }
+}
+
+var LocalTime = {
+  openTag: openTag,
+  closeTag: closeTag,
+  describe: describe,
+  prepend: prepend,
+  strip: strip
+};
+
 function classifyResult(resultJson) {
   var obj;
   try {
@@ -128,7 +163,7 @@ function deriveTurns(messages, overlay, enrichments) {
                     return {
                             TAG: "UserTurn",
                             id: message.id,
-                            content: message.content
+                            content: strip(message.content)
                           };
                   }
                 }
@@ -202,6 +237,7 @@ function toSuggestedEvents(suggestedEvents) {
 export {
   Fragment ,
   fromFragmentRef ,
+  LocalTime ,
   classifyResult ,
   deriveTurns ,
   parseSuggestedEvent ,

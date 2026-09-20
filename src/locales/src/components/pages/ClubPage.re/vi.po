@@ -21,11 +21,11 @@ msgstr "{0} mở"
 msgid "Active players"
 msgstr "Người chơi tích cực"
 
-#: src/components/pages/ClubPage.re.mjs:869
+#: src/components/pages/ClubPage.re.mjs:887
 msgid "Add Court"
 msgstr "Thêm sân"
 
-#: src/components/pages/ClubPage.re.mjs:719
+#: src/components/pages/ClubPage.re.mjs:744
 msgid "All clubs"
 msgstr "Tất cả câu lạc bộ"
 
@@ -33,11 +33,11 @@ msgstr "Tất cả câu lạc bộ"
 msgid "All levels"
 msgstr "Tất cả cấp độ"
 
-#: src/components/pages/ClubPage.re.mjs:654
+#: src/components/pages/ClubPage.re.mjs:679
 msgid "Cancel Request"
 msgstr "Hủy yêu cầu"
 
-#: src/components/pages/ClubPage.re.mjs:374
+#: src/components/pages/ClubPage.re.mjs:375
 msgid "Check back when the club publishes its next schedule."
 msgstr "Hãy quay lại khi câu lạc bộ công bố lịch tiếp theo."
 
@@ -45,11 +45,11 @@ msgstr "Hãy quay lại khi câu lạc bộ công bố lịch tiếp theo."
 msgid "Club level"
 msgstr "Cấp độ câu lạc bộ"
 
-#: src/components/pages/ClubPage.re.mjs:900
+#: src/components/pages/ClubPage.re.mjs:916
 msgid "club not found"
 msgstr "không tìm thấy câu lạc bộ"
 
-#: src/components/pages/ClubPage.re.mjs:822
+#: src/components/pages/ClubPage.re.mjs:847
 msgid "Exempt club members from event fees"
 msgstr "Miễn phí sự kiện cho thành viên câu lạc bộ"
 
@@ -58,7 +58,7 @@ msgstr "Miễn phí sự kiện cho thành viên câu lạc bộ"
 msgid "Free"
 msgstr "Miễn phí"
 
-#: src/components/pages/ClubPage.re.mjs:325
+#: src/components/pages/ClubPage.re.mjs:326
 msgid "Friday"
 msgstr "Thứ Sáu"
 
@@ -66,31 +66,32 @@ msgstr "Thứ Sáu"
 msgid "Full"
 msgstr "Đầy"
 
-#: src/components/pages/ClubPage.re.mjs:856
+#: src/components/pages/ClubPage.re.mjs:385
+#: src/components/pages/ClubPage.re.mjs:428
 msgid "Full club schedule"
 msgstr "Lịch đầy đủ của câu lạc bộ"
 
-#: src/components/pages/ClubPage.re.mjs:701
+#: src/components/pages/ClubPage.re.mjs:726
 msgid "Join Club"
 msgstr "Gia nhập câu lạc bộ"
 
-#: src/components/pages/ClubPage.re.mjs:425
+#: src/components/pages/ClubPage.re.mjs:450
 msgid "Leaderboard"
 msgstr "Bảng xếp hạng"
 
-#: src/components/pages/ClubPage.re.mjs:629
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Leave club"
 msgstr "Rời câu lạc bộ"
 
-#: src/components/pages/ClubPage.re.mjs:761
+#: src/components/pages/ClubPage.re.mjs:786
 msgid "Manage Members"
 msgstr "Quản lý thành viên"
 
-#: src/components/pages/ClubPage.re.mjs:624
+#: src/components/pages/ClubPage.re.mjs:649
 msgid "Member"
 msgstr "Thành viên"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Members join priced events without saving a card. Everyone else pays to your "
 "Stripe account as usual."
@@ -98,35 +99,35 @@ msgstr ""
 "Thành viên tham gia các sự kiện có phí mà không cần lưu thẻ. Những người "
 "khác vẫn thanh toán vào tài khoản Stripe của bạn như bình thường."
 
-#: src/components/pages/ClubPage.re.mjs:313
+#: src/components/pages/ClubPage.re.mjs:314
 msgid "Monday"
 msgstr "Thứ Hai"
 
-#: src/components/pages/ClubPage.re.mjs:335
+#: src/components/pages/ClubPage.re.mjs:336
 msgid "Next {dayName}"
 msgstr "{dayName} tới"
 
-#: src/components/pages/ClubPage.re.mjs:443
+#: src/components/pages/ClubPage.re.mjs:468
 msgid "No ratings yet"
 msgstr "Chưa có xếp hạng"
 
-#: src/components/pages/ClubPage.re.mjs:370
+#: src/components/pages/ClubPage.re.mjs:371
 msgid "No upcoming events"
 msgstr "Không có sự kiện sắp tới"
 
-#: src/components/shared/CreateEventLink.re.mjs:56
+#: src/components/shared/LocationClub.re.mjs:27
 msgid "Open Play"
 msgstr "Open Play"
 
-#: src/components/pages/ClubPage.re.mjs:784
+#: src/components/pages/ClubPage.re.mjs:809
 msgid "Payments"
 msgstr "Thanh toán"
 
-#: src/components/pages/ClubPage.re.mjs:649
+#: src/components/pages/ClubPage.re.mjs:674
 msgid "Request pending"
 msgstr "Yêu cầu đang chờ xử lý"
 
-#: src/components/pages/ClubPage.re.mjs:680
+#: src/components/pages/ClubPage.re.mjs:705
 msgid "Request to join"
 msgstr "Yêu cầu gia nhập"
 
@@ -134,23 +135,23 @@ msgstr "Yêu cầu gia nhập"
 msgid "Retention"
 msgstr "Tỷ lệ giữ chân"
 
-#: src/components/pages/ClubPage.re.mjs:328
+#: src/components/pages/ClubPage.re.mjs:329
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
-#: src/components/pages/ClubPage.re.mjs:310
+#: src/components/pages/ClubPage.re.mjs:311
 msgid "Sunday"
 msgstr "Chủ Nhật"
 
-#: src/components/pages/ClubPage.re.mjs:322
+#: src/components/pages/ClubPage.re.mjs:323
 msgid "Thursday"
 msgstr "Thứ Năm"
 
-#: src/components/pages/ClubPage.re.mjs:297
+#: src/components/pages/ClubPage.re.mjs:298
 msgid "Today"
 msgstr "Hôm nay"
 
-#: src/components/pages/ClubPage.re.mjs:302
+#: src/components/pages/ClubPage.re.mjs:303
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
@@ -158,27 +159,27 @@ msgstr "Ngày mai"
 msgid "Total members"
 msgstr "Tổng số thành viên"
 
-#: src/components/pages/ClubPage.re.mjs:316
+#: src/components/pages/ClubPage.re.mjs:317
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
-#: src/components/pages/ClubPage.re.mjs:849
+#: src/components/pages/ClubPage.re.mjs:874
 msgid "Upcoming Events"
 msgstr "Sự kiện sắp tới"
 
-#: src/components/pages/ClubPage.re.mjs:435
+#: src/components/pages/ClubPage.re.mjs:460
 msgid "View All"
 msgstr "Xem tất cả"
 
-#: src/components/pages/ClubPage.re.mjs:319
+#: src/components/pages/ClubPage.re.mjs:320
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
-#: src/components/pages/ClubPage.re.mjs:334
+#: src/components/pages/ClubPage.re.mjs:335
 msgid "Yesterday"
 msgstr "Hôm qua"
 
-#: src/components/pages/ClubPage.re.mjs:826
+#: src/components/pages/ClubPage.re.mjs:851
 msgid ""
 "Your club has no connected Stripe account, so members always join without "
 "paying and other players' cards are only kept on file. Connect Stripe in "

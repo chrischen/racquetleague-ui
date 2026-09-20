@@ -80,23 +80,23 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
 msgstr "上に時間枠を追加してください"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
 msgid "Clear"
 msgstr "クリア"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts Â· thickness = count"
 msgstr "コート・厚さ＝数"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:850
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
 msgstr "全時間帯をカバーするコートと空き状況"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "コートごとに、最大連続空き時間とともに表示されます。"
 
@@ -104,19 +104,19 @@ msgstr "コートごとに、最大連続空き時間とともに表示されま
 msgid "Create event"
 msgstr "イベントを作成"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:650
 msgid "Events"
 msgstr "イベント"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:605
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Players"
 msgstr " プレイヤー"
 
@@ -124,19 +124,19 @@ msgstr " プレイヤー"
 msgid "Reserve"
 msgstr "予約する"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Savingâ¦"
 msgstr "保存中…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:581
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "スケジュール"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
@@ -144,11 +144,11 @@ msgstr ""
 "今後2週間の空き状況を設定してください。イベントと空き時間帯は同じ枠を共有し、"
 "シアンの線が太いほど多くのコートが利用可能です。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "クラブと共有"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "空きコマをタップして追加・ドラッグで移動・端をつかんでリサイズ"
 
@@ -156,23 +156,23 @@ msgstr "空きコマをタップして追加・ドラッグで移動・端をつ
 msgid "Use option"
 msgstr "オプションを使用"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
 msgstr "平日の夜"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:666
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:701
 msgid "Weekend morns"
 msgstr "週末の朝"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:620
 msgid "When can you play?"
 msgstr "いつプレーできますか？"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "あなたの空き時間"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "あなたの時間"
 

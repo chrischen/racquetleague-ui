@@ -71,18 +71,22 @@ msgstr "Tạo sự kiện này"
 msgid "Creating..."
 msgstr "Đang tạo..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "Ngày:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "Mô tả:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "Điền biểu mẫu"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
@@ -96,8 +100,8 @@ msgstr "Không thể xử lý yêu cầu đó. Vui lòng thử lại."
 msgid "Location search is unavailable right now"
 msgstr "Tìm kiếm vị trí hiện không khả dụng"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "Địa điểm:"
 
@@ -121,7 +125,7 @@ msgstr "Trả lời"
 msgid "Search for a venue or address"
 msgstr "Tìm sân hoặc địa chỉ"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
@@ -134,7 +138,7 @@ msgstr ""
 "nào khác. Bạn cũng có thể cho tôi biết các chi tiết cần bao gồm và tôi thậm "
 "chí có thể thêm bản dịch."
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "Tiêu đề:"
 

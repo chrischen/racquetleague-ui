@@ -126,6 +126,10 @@ module WindowChip = {
     ~onDelete: unit => unit,
     ~config: windowConfig=?,
     ~allowDelete: bool=true,
+    // The track adds a window on click; it needs to know a drag is underway so
+    // the click that ends one doesn't add a window too.
+    ~onDragStart: unit => unit=() => (),
+    ~onDragEnd: unit => unit=() => (),
   ) => {
     let hourMinVal = config->Option.flatMap(c => c.hourMin)->Option.getOr(hourMin)->Float.fromInt
     let hourMaxVal = config->Option.flatMap(c => c.hourMax)->Option.getOr(hourMax)->Float.fromInt
@@ -180,7 +184,10 @@ module WindowChip = {
             }
           }
         }
-        let handleEnd = (_: pointerEv) => setDrag(_ => None)
+        let handleEnd = (_: pointerEv) => {
+          onDragEnd()
+          setDrag(_ => None)
+        }
         document_->addPointerListener("pointermove", handleMove)
         document_->addPointerListener("pointerup", handleEnd)
         document_->addPointerListener("pointercancel", handleEnd)
@@ -197,6 +204,7 @@ module WindowChip = {
     let begin_ = (mode: dragMode) => (e: ReactEvent.Pointer.t) => {
       e->ReactEvent.Pointer.preventDefault
       e->ReactEvent.Pointer.stopPropagation
+      onDragStart()
       let x = e->pointerClientX->Float.fromInt
       setDrag(_ => Some({mode, startX: x, initial: intent}))
     }
@@ -280,6 +288,15 @@ let make = (
   let trackRef = React.useRef(Js.Nullable.null)
   let intl = ReactIntl.useIntl()
 
+  // Releasing a chip drag away from the chip makes the browser report a click
+  // on the track — the nearest common ancestor of the press and release
+  // targets — which would add a window where the drag happened to end. Chips
+  // stop pointerdown propagation, so this is only ever set by a chip drag, and
+  // the next press that does reach the track clears it.
+  let suppressNextClickRef = React.useRef(false)
+  // The same drag, for the cursor: the track must not offer "add" mid-drag.
+  let (isChipDragging, setIsChipDragging) = React.useState(() => false)
+
   let hourMinVal = config->Option.flatMap(c => c.hourMin)->Option.getOr(hourMin)
   let hourMaxVal = config->Option.flatMap(c => c.hourMax)->Option.getOr(hourMax)
   let hourRangeVal = hourMaxVal - hourMinVal
@@ -309,10 +326,11 @@ let make = (
   }
 
   let addAtClick = (e: ReactEvent.Mouse.t) => {
-    switch (canAdd, trackRef.current->Js.Nullable.toOption) {
-    | (false, _)
-    | (_, None) => ()
-    | (true, Some(el)) =>
+    switch (suppressNextClickRef.current, canAdd, trackRef.current->Js.Nullable.toOption) {
+    | (true, _, _)
+    | (_, false, _)
+    | (_, _, None) => ()
+    | (false, true, Some(el)) =>
       let rect = el->getBoundingClientRect
       if rect.width !== 0.0 {
         let x = e->mouseClientX->Float.fromInt -. rect.left
@@ -421,9 +439,10 @@ let make = (
     <div
       ref={ReactDOM.Ref.domRef(trackRef)}
       onClick=addAtClick
+      onPointerDown={_ => suppressNextClickRef.current = false}
       className={trackClassName->Option.getOr(
         "relative h-12 rounded-lg border border-gray-200 dark:border-[#3a3b40] bg-white dark:bg-[#1e1f23] overflow-hidden " ++ (
-          canAdd ? "cursor-copy" : "cursor-default"
+          canAdd && !isChipDragging ? "cursor-copy" : "cursor-default"
         ),
       )}>
       {switch heatmap {
@@ -468,12 +487,16 @@ let make = (
             let major = Js.Math.floor_float(hour) == hour
             <div
               key={i->Int.toString}
+              // Translucent black/white rather than fixed grays: the demand
+              // heatmap washes the track violet, and a solid gray line ends up
+              // lighter than a fully-shaded cell (and a solid dark one darker),
+              // so the dividers disappear exactly where demand is highest.
               className={`absolute top-0 bottom-0 border-l ${if isNoon(hour) {
-                  "border-l-2 border-sky-300 dark:border-sky-700"
+                  "border-l-2 border-sky-400 dark:border-sky-500"
                 } else if major {
-                  "border-gray-200 dark:border-[#34353a]"
+                  "border-black/20 dark:border-white/20"
                 } else {
-                  "border-gray-100/70 dark:border-[#292a2e]"
+                  "border-black/5 dark:border-white/10"
                 }}`}
               style={ReactDOM.Style.make(~left=lp->Float.toString ++ "%", ())}
             />
@@ -538,6 +561,11 @@ let make = (
           onDelete={() => removeOne(w.id)}
           ?config
           allowDelete
+          onDragStart={() => {
+            suppressNextClickRef.current = true
+            setIsChipDragging(_ => true)
+          }}
+          onDragEnd={() => setIsChipDragging(_ => false)}
         />
       )
       ->React.array}

@@ -61,11 +61,11 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr ""
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr ""
 

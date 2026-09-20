@@ -230,12 +230,12 @@ msgstr "建立此活動"
 msgid "Creating..."
 msgstr "建立中..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "日期："
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "描述："
 
@@ -267,13 +267,17 @@ msgstr "請輸入電子郵件"
 msgid "Evening"
 msgstr "傍晚"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "活動詳情"
 
 #: src/components/organisms/ProfileModal.re.mjs:501
 msgid "Female"
 msgstr "女性"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "填寫表單"
 
 #: src/components/organisms/EventsList.re.mjs:423
 msgid "filtering by date"
@@ -347,8 +351,8 @@ msgstr "地點"
 msgid "Location search is unavailable right now"
 msgstr "地點搜尋目前無法使用"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "地點："
 
@@ -388,7 +392,7 @@ msgstr "找不到頁面"
 msgid "pending"
 msgstr "待審核"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
@@ -404,7 +408,7 @@ msgstr "專業"
 msgid "Processing..."
 msgstr "處理中..."
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
@@ -442,7 +446,7 @@ msgstr "分享為文字"
 msgid "show"
 msgstr "顯示"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "建議的活動"
 
@@ -450,7 +454,7 @@ msgstr "建議的活動"
 msgid "sync calendar"
 msgstr "同步日曆"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "點擊新增您的時間"
 
@@ -468,7 +472,7 @@ msgid ""
 "you."
 msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "標題："
 

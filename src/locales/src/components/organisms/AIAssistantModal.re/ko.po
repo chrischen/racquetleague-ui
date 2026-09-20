@@ -71,18 +71,22 @@ msgstr "이 이벤트 만들기"
 msgid "Creating..."
 msgstr "생성 중..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "날짜:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "설명:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
+
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "양식 채우기"
 
 #: src/components/organisms/AIAssistantModal.re.mjs:168
 msgid "I can create events for you. Just give me your schedule."
@@ -96,8 +100,8 @@ msgstr "해당 요청을 처리할 수 없습니다. 다시 시도하세요."
 msgid "Location search is unavailable right now"
 msgstr "현재 위치 검색을 사용할 수 없습니다"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "장소:"
 
@@ -121,7 +125,7 @@ msgstr "답장"
 msgid "Search for a venue or address"
 msgstr "장소 또는 주소 검색"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
@@ -133,7 +137,7 @@ msgstr ""
 "이벤트의 시간과 장소 또는 기타 세부 정보를 알려주세요. 포함할 세부 정보를 알"
 "려주시면 번역도 추가할 수 있습니다."
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "제목:"
 

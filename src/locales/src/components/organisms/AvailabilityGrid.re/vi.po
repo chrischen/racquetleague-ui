@@ -54,11 +54,11 @@ msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi n
 msgid "One-off"
 msgstr "Một lần"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "Xóa"
 
@@ -78,7 +78,7 @@ msgstr "Lịch"
 msgid "Share with your club"
 msgstr "Chia sẻ với câu lạc bộ của bạn"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 

@@ -191,7 +191,7 @@ msgstr "新しいプラン"
 msgid "Not now"
 msgstr "後で"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
@@ -199,7 +199,7 @@ msgstr "プレイヤーの空き時間ヒートマップ"
 msgid "Pro"
 msgstr "プロ"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "削除"
 
@@ -223,7 +223,7 @@ msgstr ""
 "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
 "ください。"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 

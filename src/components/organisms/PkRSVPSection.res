@@ -80,8 +80,8 @@ module UpdateListTypeMutation = %relay(`
 // come back with their new list type, which is enough for Relay to move them
 // out of the pending list.
 module EvaluateSmartRsvpsMutation = %relay(`
-  mutation PkRSVPSectionEvaluateSmartRsvpsMutation($eventId: ID!, $algorithm: SmartRsvpAlgorithm) {
-    evaluateSmartRsvps(eventId: $eventId, algorithm: $algorithm) {
+  mutation PkRSVPSectionEvaluateSmartRsvpsMutation($eventId: ID!) {
+    evaluateSmartRsvps(eventId: $eventId) {
       rsvps {
         id
         listType
@@ -308,10 +308,11 @@ let make = (
       },
     )
   }
-  // `algorithm` is only for the temporary best-fit comparison button.
-  let handleEvaluateSmartRsvps = (~algorithm=?) =>
+  // Admits what the preview showed, then clears it: the list it described no
+  // longer exists, so the button offers a fresh preview again.
+  let handleEvaluateSmartRsvps = () =>
     commitEvaluateSmartRsvps(
-      ~variables={eventId: eventData.id, algorithm: ?algorithm},
+      ~variables={eventId: eventData.id},
       ~onCompleted=(_, _) => setSmartRsvpPreview(_ => None),
     )->RescriptRelay.Disposable.ignore
   // On a full event: the pending list, ranked by the search, onto the waitlist.
@@ -463,7 +464,7 @@ let make = (
             {t`SMART RSVP`}
           </div>
           <div className="text-xs text-blue-800 dark:text-blue-300">
-            {t`This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed.`}
+            {t`This event admits players by level rather than by the time of RSVP. Your request will be reviewed and you will be notified once a spot is confirmed.`}
           </div>
         </div>
   | _ =>
@@ -819,24 +820,31 @@ let make = (
           {eventData.viewerIsAdmin && eventData.smartRsvpThreshold->Option.isSome
             ? <div className="mb-2">
                 <div className="flex flex-wrap gap-2">
-                  <button
-                    type_="button"
-                    disabled={smartRsvpBusy}
-                    onClick={_ => handlePreviewSmartRsvps()}
-                    className="inline-flex items-center gap-1 rounded-md border border-emerald-600 px-2 py-1 text-[10px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-emerald-300 dark:hover:bg-emerald-900/30">
-                    {(isPreviewingSmartRsvps ? ts`Previewing…` : ts`Preview Smart RSVP`)->React.string}
-                  </button>
-                  <button
-                    type_="button"
-                    disabled={smartRsvpBusy}
-                    onClick={_ => handleEvaluateSmartRsvps()}
-                    className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
-                    {(
-                      isEvaluateSmartRsvpsInFlight
-                        ? ts`Evaluating pending requests…`
-                        : ts`Run Smart RSVP now`
-                    )->React.string}
-                  </button>
+                  // One button, two steps: an admission is always previewed
+                  // first, and the button offers the step that matches what is
+                  // on screen. A run clears the preview and it starts over.
+                  {switch smartRsvpPreview {
+                  | None =>
+                    <button
+                      type_="button"
+                      disabled={smartRsvpBusy}
+                      onClick={_ => handlePreviewSmartRsvps()}
+                      className="inline-flex items-center gap-1 rounded-md border border-emerald-600 px-2 py-1 text-[10px] font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-emerald-300 dark:hover:bg-emerald-900/30">
+                      {(isPreviewingSmartRsvps ? ts`Previewing…` : ts`Preview Smart RSVP`)->React.string}
+                    </button>
+                  | Some(_) =>
+                    <button
+                      type_="button"
+                      disabled={smartRsvpBusy}
+                      onClick={_ => handleEvaluateSmartRsvps()}
+                      className="inline-flex items-center gap-1 rounded-md bg-blue-600 px-2 py-1 text-[10px] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-wait disabled:opacity-60 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                      {(
+                        isEvaluateSmartRsvpsInFlight
+                          ? ts`Evaluating pending requests…`
+                          : ts`Run Smart RSVP now`
+                      )->React.string}
+                    </button>
+                  }}
                   {isFull
                     ? <button
                         type_="button"
@@ -846,14 +854,6 @@ let make = (
                         {(isSmartWaitlistInFlight ? ts`Placing on the waitlist…` : ts`Smart Waitlist`)->React.string}
                       </button>
                     : React.null}
-                  // Temporary, for comparing the two admission searches side by side.
-                  <button
-                    type_="button"
-                    disabled={smartRsvpBusy}
-                    onClick={_ => handleEvaluateSmartRsvps(~algorithm=RelaySchemaAssets_graphql.BestFit)}
-                    className="inline-flex items-center gap-1 rounded-md border border-blue-600 px-2 py-1 text-[10px] font-semibold text-blue-700 transition-colors hover:bg-blue-50 disabled:cursor-wait disabled:opacity-60 dark:text-blue-300 dark:hover:bg-blue-900/30">
-                    {(ts`Run Smart RSVP (best-fit, test)`)->React.string}
-                  </button>
                 </div>
                 {switch smartRsvpPreview {
                 | Some(ids) =>

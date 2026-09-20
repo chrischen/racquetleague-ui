@@ -129,11 +129,11 @@ msgstr "Khung giờ đầy"
 msgid "Mark available"
 msgstr "Đánh dấu rảnh"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "Bản đồ nhiệt lịch rảnh của người chơi"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "Xóa"
 
@@ -153,7 +153,7 @@ msgstr "Lưu lịch rảnh"
 msgid "Tap to add time in this slot"
 msgstr "Nhấn để thêm thời gian trong khung giờ này"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 

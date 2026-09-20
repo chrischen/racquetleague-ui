@@ -80,7 +80,7 @@ msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:807
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:842
 msgid "Add time windows above"
 msgstr "上に時間枠を追加してください"
 
@@ -88,7 +88,7 @@ msgstr "上に時間枠を追加してください"
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: src/components/molecules/LocationFilter.re.mjs:68
+#: src/components/molecules/EventFiltersToolbar.re.mjs:42
 msgid "All levels"
 msgstr "全レベル"
 
@@ -104,12 +104,12 @@ msgstr "自己紹介"
 msgid "Biography is required"
 msgstr "自己紹介は必須です"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Change"
 msgstr "変更"
 
-#: src/components/molecules/LocationFilter.re.mjs:102
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:678
+#: src/components/molecules/EventFiltersToolbar.re.mjs:76
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:713
 msgid "Clear"
 msgstr "クリア"
 
@@ -143,15 +143,15 @@ msgstr "プロフィールを保存できませんでした。もう一度お試
 msgid "Court"
 msgstr "コート"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:630
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
 msgid "Courts Â· thickness = count"
 msgstr "コート・厚さ＝数"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:850
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
 msgstr "全時間帯をカバーするコートと空き状況"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:792
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:827
 msgid "Courts are listed individually with their largest continuous openings."
 msgstr "コートごとに、最大連続空き時間とともに表示されます。"
 
@@ -171,7 +171,7 @@ msgstr "表示名"
 msgid "Display name is required"
 msgstr "表示名は必須です"
 
-#: src/components/molecules/LocationFilter.re.mjs:137
+#: src/components/molecules/LocationFilter.re.mjs:56
 msgid "Done"
 msgstr "完了"
 
@@ -191,11 +191,11 @@ msgstr ""
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
-#: src/components/molecules/LocationFilter.re.mjs:245
+#: src/components/molecules/LocationFilter.re.mjs:174
 msgid "Event filters"
 msgstr "イベントフィルター"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:615
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:650
 msgid "Events"
 msgstr "イベント"
 
@@ -227,7 +227,7 @@ msgstr "中級者+"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:883
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:918
 msgid "Let hosts schedule events when most of you are free"
 msgstr "みんなの空き時間にホストがイベントをスケジュールできます"
 
@@ -235,11 +235,11 @@ msgstr "みんなの空き時間にホストがイベントをスケジュール
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Locating…"
 msgstr "位置情報を取得中…"
 
-#: src/components/molecules/LocationFilter.re.mjs:161
+#: src/components/molecules/LocationFilter.re.mjs:80
 msgid "Location"
 msgstr "場所"
 
@@ -249,7 +249,7 @@ msgstr ""
 "位置情報へのアクセスが拒否されました。アクセスを許可するか、会場を選択してく"
 "ださい。"
 
-#: src/components/molecules/LocationFilter.re.mjs:127
+#: src/components/molecules/LocationFilter.re.mjs:46
 msgid "Location:"
 msgstr "場所:"
 
@@ -257,15 +257,15 @@ msgstr "場所:"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/molecules/LocationFilter.re.mjs:62
+#: src/components/molecules/EventFiltersToolbar.re.mjs:36
 msgid "Minimum event level"
 msgstr "最低イベントレベル"
 
-#: src/components/molecules/LocationFilter.re.mjs:171
+#: src/components/molecules/LocationFilter.re.mjs:90
 msgid "Near me"
 msgstr "現在地付近"
 
-#: src/components/molecules/LocationFilter.re.mjs:31
+#: src/components/molecules/LocationFilter.re.mjs:29
 msgid "Near me · {radius} km"
 msgstr "現在地付近 · {radius} km"
 
@@ -273,15 +273,15 @@ msgstr "現在地付近 · {radius} km"
 msgid "Not now"
 msgstr "後で"
 
-#: src/components/molecules/LocationFilter.re.mjs:50
+#: src/components/molecules/EventFiltersToolbar.re.mjs:24
 msgid "Open spots"
 msgstr "空きスポット"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:349
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:368
 msgid "Player availability heatmap"
 msgstr "プレイヤーの空き時間ヒートマップ"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:605
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
 msgid "Players"
 msgstr " プレイヤー"
 
@@ -293,7 +293,7 @@ msgstr "プロ"
 msgid "Reserve"
 msgstr "予約する"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Save"
 msgstr "保存"
 
@@ -301,15 +301,15 @@ msgstr "保存"
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:898
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
 msgid "Savingâ¦"
 msgstr "保存中…"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:581
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
 msgstr "スケジュール"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:589
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:624
 msgid ""
 "Set your availability for the next 2 weeks. Your events and available "
 "windows share a footprint; thicker cyan lines mean more courts."
@@ -325,11 +325,11 @@ msgstr ""
 "主催者や他のプレイヤーがあなたを招待すべき理由がわかるよう、自己紹介を書いて"
 "ください。"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:879
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:914
 msgid "Share with your club"
 msgstr "クラブと共有"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:778
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "空きコマをタップして追加・ドラッグで移動・端をつかんでリサイズ"
 
@@ -337,7 +337,7 @@ msgstr "空きコマをタップして追加・ドラッグで移動・端をつ
 msgid "Tokyo"
 msgstr "東京"
 
-#: src/components/molecules/LocationFilter.re.mjs:208
+#: src/components/molecules/LocationFilter.re.mjs:127
 msgid "Use near me"
 msgstr "現在地付近を使用"
 
@@ -349,23 +349,23 @@ msgstr "オプションを使用"
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:654
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:689
 msgid "Weekday eves"
 msgstr "平日の夜"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:666
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:701
 msgid "Weekend morns"
 msgstr "週末の朝"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:585
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:620
 msgid "When can you play?"
 msgstr "いつプレーできますか？"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:788
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:823
 msgid "Your availability"
 msgstr "あなたの空き時間"
 
-#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:640
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr "あなたの時間"
 

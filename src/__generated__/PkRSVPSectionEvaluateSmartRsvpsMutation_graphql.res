@@ -27,7 +27,6 @@ module Types = {
   type rawResponse = response
   @live
   type variables = {
-    algorithm?: RelaySchemaAssets_graphql.enum_SmartRsvpAlgorithm_input,
     eventId: string,
   }
 }
@@ -83,21 +82,6 @@ module Internal = {
 module Utils = {
   @@warning("-33")
   open Types
-  @live
-  external smartRsvpAlgorithm_toString: RelaySchemaAssets_graphql.enum_SmartRsvpAlgorithm => string = "%identity"
-  @live
-  external smartRsvpAlgorithm_input_toString: RelaySchemaAssets_graphql.enum_SmartRsvpAlgorithm_input => string = "%identity"
-  @live
-  let smartRsvpAlgorithm_decode = (enum: RelaySchemaAssets_graphql.enum_SmartRsvpAlgorithm): option<RelaySchemaAssets_graphql.enum_SmartRsvpAlgorithm_input> => {
-    switch enum {
-      | FutureAddedValue(_) => None
-      | valid => Some(Obj.magic(valid))
-    }
-  }
-  @live
-  let smartRsvpAlgorithm_fromString = (str: string): option<RelaySchemaAssets_graphql.enum_SmartRsvpAlgorithm_input> => {
-    smartRsvpAlgorithm_decode(Obj.magic(str))
-  }
 }
 
 type relayOperationNode
@@ -105,25 +89,17 @@ type operationType = RescriptRelay.mutationNode<relayOperationNode>
 
 
 let node: operationType = %raw(json` (function(){
-var v0 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "algorithm"
-},
-v1 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "eventId"
-},
-v2 = [
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "eventId"
+  }
+],
+v1 = [
   {
     "alias": null,
     "args": [
-      {
-        "kind": "Variable",
-        "name": "algorithm",
-        "variableName": "algorithm"
-      },
       {
         "kind": "Variable",
         "name": "eventId",
@@ -191,34 +167,28 @@ v2 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [
-      (v0/*: any*/),
-      (v1/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "PkRSVPSectionEvaluateSmartRsvpsMutation",
-    "selections": (v2/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [
-      (v1/*: any*/),
-      (v0/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "PkRSVPSectionEvaluateSmartRsvpsMutation",
-    "selections": (v2/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "fc60e5acabb715e670ad073843f68e3a",
+    "cacheID": "2212d4d27fd449e9b6fec4d763e5ffd6",
     "id": null,
     "metadata": {},
     "name": "PkRSVPSectionEvaluateSmartRsvpsMutation",
     "operationKind": "mutation",
-    "text": "mutation PkRSVPSectionEvaluateSmartRsvpsMutation(\n  $eventId: ID!\n  $algorithm: SmartRsvpAlgorithm\n) {\n  evaluateSmartRsvps(eventId: $eventId, algorithm: $algorithm) {\n    rsvps {\n      id\n      listType\n      joinTime\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation PkRSVPSectionEvaluateSmartRsvpsMutation(\n  $eventId: ID!\n) {\n  evaluateSmartRsvps(eventId: $eventId) {\n    rsvps {\n      id\n      listType\n      joinTime\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

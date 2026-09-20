@@ -21,49 +21,37 @@ msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)
 msgid "{0} events created!"
 msgstr "Đã tạo {0} sự kiện!"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:746
-msgid "⌘+Enter to send"
-msgstr "⌘+Enter để gửi"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:635
+#: src/components/organisms/AIAssistantEmbed.re.mjs:594
 msgid "Action proposal"
 msgstr "Đề xuất hành động"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:252
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
 msgid "An error occurred. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:776
-msgid "Answer the questions or add details to refine the draft."
-msgstr "Trả lời các câu hỏi hoặc thêm chi tiết để hoàn thiện bản nháp."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:719
-msgid "Answer the questions or provide more details..."
-msgstr "Trả lời câu hỏi hoặc cung cấp thêm thông tin..."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:544
+#: src/components/organisms/AIAssistantEmbed.re.mjs:503
 msgid "Approve"
 msgstr "Chấp thuận"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:424
-msgid "Approve or deny the pending action to continue"
-msgstr "Chấp thuận hoặc từ chối hành động đang chờ để tiếp tục"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
 msgid "Approve or deny the pending action to continue."
 msgstr "Phê duyệt hoặc từ chối hành động đang chờ để tiếp tục."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:502
+#: src/components/organisms/AIAssistantEmbed.re.mjs:461
 msgid "Approved"
 msgstr "Đã phê duyệt"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:496
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid ""
+"Ask the assistant to fill in event details. Your conversation will appear "
+"here."
+msgstr ""
+"Yêu cầu trợ lý điền thông tin sự kiện. Cuộc trò chuyện của bạn sẽ xuất hiện "
+"ở đây."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:455
 msgid "Awaiting approval"
 msgstr "Đang chờ phê duyệt"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:425
-msgid "Continue the conversation"
-msgstr "Tiếp tục cuộc hội thoại"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
 #: src/components/organisms/AutocompleteLocation.re.mjs:239
@@ -99,64 +87,56 @@ msgstr "Tạo sự kiện này"
 msgid "Creating..."
 msgstr "Đang tạo..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "Ngày:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:508
+#: src/components/organisms/AIAssistantEmbed.re.mjs:467
 msgid "Denied"
 msgstr "Đã từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:600
+#: src/components/organisms/AIAssistantEmbed.re.mjs:559
 msgid "Deny"
 msgstr "Từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+#: src/components/organisms/AIAssistantEmbed.re.mjs:680
 msgid "Describe the event"
 msgstr "Mô tả sự kiện"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:425
-msgid "Describe the event to generate a draft"
-msgstr "Mô tả sự kiện để tạo bản nháp"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "Mô tả sự kiện của bạn và tôi sẽ điền vào biểu mẫu…"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:720
-msgid ""
-"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
-"more players around 3.5, ¥800 each."
-msgstr ""
-"Mô tả sự kiện của bạn… Ví dụ: 19h ngày mai tại Công viên Trung tâm, cần thêm "
-"3 người chơi trình độ khoảng 3.5, 800¥ mỗi người."
-
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "Mô tả:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:516
+#: src/components/organisms/AIAssistantEmbed.re.mjs:475
 msgid "Executed"
 msgstr "Đã thực thi"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+#: src/components/organisms/AIAssistantEmbed.re.mjs:478
 msgid "Execution failed"
 msgstr "Thực thi thất bại"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+#: src/components/organisms/AIAssistantEmbed.re.mjs:707
 msgid "Fill event form from description"
 msgstr "Điền biểu mẫu sự kiện từ mô tả"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:420
-msgid "Help me fill this out"
-msgstr "Giúp tôi điền phần này"
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "Điền biểu mẫu"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:746
-msgid "Include whatever details you know"
-msgstr "Thêm bất kỳ chi tiết nào bạn biết"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
+msgstr "Ẩn lịch sử trò chuyện AI"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:413
 msgid "Loading conversation history..."
 msgstr "Đang tải lịch sử hội thoại..."
 
@@ -164,60 +144,83 @@ msgstr "Đang tải lịch sử hội thoại..."
 msgid "Location search is unavailable right now"
 msgstr "Tìm kiếm vị trí hiện không khả dụng"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "Địa điểm:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:652
+#: src/components/organisms/AIAssistantEmbed.re.mjs:611
 msgid "Operation:"
 msgstr "Thao tác:"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:780
-msgid "Reset"
-msgstr "Đặt lại"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:354
 msgid "Search for a venue or address"
 msgstr "Tìm sân hoặc địa chỉ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:758
-msgid "Send"
-msgstr "Gửi"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
+msgstr "Hiện lịch sử trò chuyện AI"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:572
+#: src/components/organisms/AIAssistantEmbed.re.mjs:531
 msgid "The action completed with GraphQL errors."
 msgstr "Hành động đã hoàn thành nhưng có lỗi GraphQL."
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "Tiêu đề:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:283
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tục thủ công."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:776
-msgid "We’ll turn your description into a draft you can review and edit."
-msgstr ""
-"Chúng tôi sẽ chuyển mô tả của bạn thành bản nháp để bạn xem lại và chỉnh sửa."
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+#~ msgid "⌘+Enter to send"
+#~ msgstr "⌘+Enter để gửi"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:399
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "AI Assistant"
 #~ msgstr "Trợ lý AI"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+#~ msgid "Answer the questions or add details to refine the draft."
+#~ msgstr "Trả lời các câu hỏi hoặc thêm chi tiết để hoàn thiện bản nháp."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+#~ msgid "Answer the questions or provide more details..."
+#~ msgstr "Trả lời câu hỏi hoặc cung cấp thêm thông tin..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+#~ msgid "Approve or deny the pending action to continue"
+#~ msgstr "Chấp thuận hoặc từ chối hành động đang chờ để tiếp tục"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 #~ msgid "Continue"
 #~ msgstr "Tiếp tục"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+#~ msgid "Continue the conversation"
+#~ msgstr "Tiếp tục cuộc hội thoại"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+#~ msgid "Describe the event to generate a draft"
+#~ msgstr "Mô tả sự kiện để tạo bản nháp"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "Describe your event"
 #~ msgstr "Mô tả sự kiện của bạn"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+#~ msgid ""
+#~ "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+#~ "more players around 3.5, ¥800 each."
+#~ msgstr ""
+#~ "Mô tả sự kiện của bạn… Ví dụ: 19h ngày mai tại Công viên Trung tâm, cần "
+#~ "thêm 3 người chơi trình độ khoảng 3.5, 800¥ mỗi người."
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:751
 #~ msgid ""
@@ -243,9 +246,17 @@ msgstr ""
 #~ msgid "Generating..."
 #~ msgstr "Đang tạo..."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+#~ msgid "Help me fill this out"
+#~ msgstr "Giúp tôi điền phần này"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "Không thể xử lý yêu cầu đó. Vui lòng thử lại."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+#~ msgid "Include whatever details you know"
+#~ msgstr "Thêm bất kỳ chi tiết nào bạn biết"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:443
 #~ msgid "Let AI help you fill out the details below"
@@ -258,3 +269,17 @@ msgstr ""
 #: src/components/organisms/AIAssistantEmbed.re.mjs:774
 #~ msgid "Press ⌘+Enter to generate"
 #~ msgstr "Nhấn ⌘+Enter để tạo"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
+#~ msgid "Reset"
+#~ msgstr "Đặt lại"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+#~ msgid "Send"
+#~ msgstr "Gửi"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+#~ msgid "We’ll turn your description into a draft you can review and edit."
+#~ msgstr ""
+#~ "Chúng tôi sẽ chuyển mô tả của bạn thành bản nháp để bạn xem lại và chỉnh "
+#~ "sửa."

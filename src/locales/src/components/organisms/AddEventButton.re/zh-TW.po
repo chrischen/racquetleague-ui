@@ -187,7 +187,7 @@ msgstr "新計劃"
 msgid "Not now"
 msgstr "暫不設定"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:412
+#: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
 msgstr "球員可用性熱力圖"
 
@@ -195,7 +195,7 @@ msgstr "球員可用性熱力圖"
 msgid "Pro"
 msgstr "專業"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:239
+#: src/components/molecules/TimeWindowPicker.re.mjs:249
 msgid "Remove"
 msgstr "移除"
 
@@ -217,7 +217,7 @@ msgid ""
 "they should invite you."
 msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解為何應該邀請您。"
 
-#: src/components/molecules/TimeWindowPicker.re.mjs:489
+#: src/components/molecules/TimeWindowPicker.re.mjs:508
 msgid "Tap to add your time"
 msgstr "點擊新增您的時間"
 

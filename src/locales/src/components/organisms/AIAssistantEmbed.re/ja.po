@@ -22,49 +22,37 @@ msgstr ""
 msgid "{0} events created!"
 msgstr "{0} イベントが作成されました！"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:746
-msgid "⌘+Enter to send"
-msgstr "⌘+Enter で送信"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:635
+#: src/components/organisms/AIAssistantEmbed.re.mjs:594
 msgid "Action proposal"
 msgstr "アクションの提案"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:252
+#: src/components/organisms/AIAssistantEmbed.re.mjs:266
 msgid "An error occurred. Please try again."
 msgstr "エラーが発生しました。もう一度お試しください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:776
-msgid "Answer the questions or add details to refine the draft."
-msgstr "質問に答えるか、詳細を追加して下書きを調整してください。"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:719
-msgid "Answer the questions or provide more details..."
-msgstr "質問に答えるか、詳細を追加してください..."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:544
+#: src/components/organisms/AIAssistantEmbed.re.mjs:503
 msgid "Approve"
 msgstr "承認"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:424
-msgid "Approve or deny the pending action to continue"
-msgstr "続けるには保留中の操作を承認または拒否してください"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
 msgid "Approve or deny the pending action to continue."
 msgstr "続行するには、保留中のアクションを承認または拒否してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:502
+#: src/components/organisms/AIAssistantEmbed.re.mjs:461
 msgid "Approved"
 msgstr "承認済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:496
+#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+msgid ""
+"Ask the assistant to fill in event details. Your conversation will appear "
+"here."
+msgstr ""
+"アシスタントにイベント詳細の入力を依頼してください。会話はここに表示されま"
+"す。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:455
 msgid "Awaiting approval"
 msgstr "承認待ち"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:425
-msgid "Continue the conversation"
-msgstr "会話を続ける"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
 #: src/components/organisms/AutocompleteLocation.re.mjs:239
@@ -100,64 +88,56 @@ msgstr "このイベントを作成"
 msgid "Creating..."
 msgstr "作成中..."
 
-#: src/components/molecules/AIResponseCard.re.mjs:67
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:97
+#: src/components/molecules/AIResponseCard.re.mjs:195
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:508
+#: src/components/organisms/AIAssistantEmbed.re.mjs:467
 msgid "Denied"
 msgstr "拒否済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:600
+#: src/components/organisms/AIAssistantEmbed.re.mjs:559
 msgid "Deny"
 msgstr "拒否"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:709
+#: src/components/organisms/AIAssistantEmbed.re.mjs:680
 msgid "Describe the event"
 msgstr "イベントを説明"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:425
-msgid "Describe the event to generate a draft"
-msgstr "下書きを作成するにはイベントを説明してください"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+msgid "Describe your event and I’ll fill out the form…"
+msgstr "イベントの内容を教えてください。フォームを入力します…"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:720
-msgid ""
-"Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
-"more players around 3.5, ¥800 each."
-msgstr ""
-"イベントを説明してください… 例：明日19時に中央公園、3.5前後のプレーヤーをあと"
-"3人募集、1人800円。"
-
-#: src/components/molecules/AIResponseCard.re.mjs:117
+#: src/components/molecules/AIResponseCard.re.mjs:147
 msgid "Description:"
 msgstr "説明:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:45
+#: src/components/molecules/AIResponseCard.re.mjs:75
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:516
+#: src/components/organisms/AIAssistantEmbed.re.mjs:475
 msgid "Executed"
 msgstr "実行済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:519
+#: src/components/organisms/AIAssistantEmbed.re.mjs:478
 msgid "Execution failed"
 msgstr "実行失敗"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+#: src/components/organisms/AIAssistantEmbed.re.mjs:707
 msgid "Fill event form from description"
 msgstr "説明からイベントフォームを入力"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:420
-msgid "Help me fill this out"
-msgstr "入力を手伝ってもらう"
+#: src/components/molecules/AIResponseCard.re.mjs:39
+msgid "Fill form"
+msgstr "フォームを入力"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:746
-msgid "Include whatever details you know"
-msgstr "わかっている詳細を入力してください"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Hide AI chat history"
+msgstr "AIチャット履歴を非表示"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:456
+#: src/components/organisms/AIAssistantEmbed.re.mjs:413
 msgid "Loading conversation history..."
 msgstr "会話履歴を読み込み中..."
 
@@ -165,59 +145,83 @@ msgstr "会話履歴を読み込み中..."
 msgid "Location search is unavailable right now"
 msgstr "現在、場所の検索は利用できません"
 
-#: src/components/molecules/AIResponseCard.re.mjs:102
-#: src/components/molecules/AIResponseCard.re.mjs:210
+#: src/components/molecules/AIResponseCard.re.mjs:132
+#: src/components/molecules/AIResponseCard.re.mjs:230
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:652
+#: src/components/organisms/AIAssistantEmbed.re.mjs:611
 msgid "Operation:"
 msgstr "操作："
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:780
-msgid "Reset"
-msgstr "リセット"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:354
 msgid "Search for a venue or address"
 msgstr "会場または住所を検索"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:758
-msgid "Send"
-msgstr "送信"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+msgid "Show AI chat history"
+msgstr "AIチャット履歴を表示"
 
-#: src/components/molecules/AIResponseCard.re.mjs:150
+#: src/components/molecules/AIResponseCard.re.mjs:175
 msgid "Suggested Events"
 msgstr "提案されたイベント"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:572
+#: src/components/organisms/AIAssistantEmbed.re.mjs:531
 msgid "The action completed with GraphQL errors."
 msgstr "アクションはGraphQLエラーで完了しました。"
 
-#: src/components/molecules/AIResponseCard.re.mjs:54
+#: src/components/molecules/AIResponseCard.re.mjs:84
 msgid "Title:"
 msgstr "タイトル:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:283
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動ステップの要求が多すぎます。手動で続行してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:776
-msgid "We’ll turn your description into a draft you can review and edit."
-msgstr "説明から、確認・編集できる下書きを作成します。"
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+#~ msgid "⌘+Enter to send"
+#~ msgstr "⌘+Enter で送信"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:399
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "AI Assistant"
 #~ msgstr "AIアシスタント"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+#~ msgid "Answer the questions or add details to refine the draft."
+#~ msgstr "質問に答えるか、詳細を追加して下書きを調整してください。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:719
+#~ msgid "Answer the questions or provide more details..."
+#~ msgstr "質問に答えるか、詳細を追加してください..."
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+#~ msgid "Approve or deny the pending action to continue"
+#~ msgstr "続けるには保留中の操作を承認または拒否してください"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:803
 #~ msgid "Continue"
 #~ msgstr "続ける"
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+#~ msgid "Continue the conversation"
+#~ msgstr "会話を続ける"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:425
+#~ msgid "Describe the event to generate a draft"
+#~ msgstr "下書きを作成するにはイベントを説明してください"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:439
 #~ msgid "Describe your event"
 #~ msgstr "イベントを説明してください"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:720
+#~ msgid ""
+#~ "Describe your event… For example: Tomorrow at 7pm at Central Park, need 3 "
+#~ "more players around 3.5, ¥800 each."
+#~ msgstr ""
+#~ "イベントを説明してください… 例：明日19時に中央公園、3.5前後のプレーヤーを"
+#~ "あと3人募集、1人800円。"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:751
 #~ msgid ""
@@ -243,9 +247,17 @@ msgstr "説明から、確認・編集できる下書きを作成します。"
 #~ msgid "Generating..."
 #~ msgstr "生成中..."
 
+#: src/components/organisms/AIAssistantEmbed.re.mjs:420
+#~ msgid "Help me fill this out"
+#~ msgstr "入力を手伝ってもらう"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:137
 #~ msgid "I couldn't process that request. Please try again."
 #~ msgstr "そのリクエストを処理できませんでした。もう一度お試しください。"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:746
+#~ msgid "Include whatever details you know"
+#~ msgstr "わかっている詳細を入力してください"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:443
 #~ msgid "Let AI help you fill out the details below"
@@ -258,3 +270,15 @@ msgstr "説明から、確認・編集できる下書きを作成します。"
 #: src/components/organisms/AIAssistantEmbed.re.mjs:774
 #~ msgid "Press ⌘+Enter to generate"
 #~ msgstr "⌘+Enterで生成"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:780
+#~ msgid "Reset"
+#~ msgstr "リセット"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:758
+#~ msgid "Send"
+#~ msgstr "送信"
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:776
+#~ msgid "We’ll turn your description into a draft you can review and edit."
+#~ msgstr "説明から、確認・編集できる下書きを作成します。"
