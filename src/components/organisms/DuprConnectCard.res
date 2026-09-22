@@ -208,12 +208,14 @@ let make = (~query, ~onChanged: unit => unit=() => ()) => {
               {switch link {
               | Some(link) =>
                 <>
-                  <DuprRatingBadge
-                    doubles={link.doubles}
-                    singles=?link.singles
-                    doublesReliable={link.doublesReliable}
-                    singlesReliable={link.singlesReliable}
-                  />
+                  <div className="text-gray-900 dark:text-gray-100">
+                    <DuprRatingBadge
+                      doubles={link.doubles}
+                      singles=?link.singles
+                      doublesReliable={link.doublesReliable}
+                      singlesReliable={link.singlesReliable}
+                    />
+                  </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
                     {(ts`DUPR ID` ++ ": ")->React.string}
                     <span className="font-mono"> {link.duprId->React.string} </span>

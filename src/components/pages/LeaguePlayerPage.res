@@ -642,7 +642,7 @@ module PlayerContent = {
                 // platform's rating expressed on the DUPR scale.
                 {switch statsData.dupr {
                 | Some(link) =>
-                  <div>
+                  <div className="text-gray-900">
                     <div className="text-sm text-gray-500 mb-1"> {t`DUPR`} </div>
                     <DuprRatingBadge
                       doubles={link.doubles}

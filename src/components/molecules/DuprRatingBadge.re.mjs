@@ -35,7 +35,7 @@ function DuprRatingBadge(props) {
     if (shown && !reliable) {
       return JsxRuntime.jsx("span", {
                   children: t`provisional`,
-                  className: "ml-1 text-[10px] font-medium uppercase tracking-wide text-amber-600 dark:text-amber-400"
+                  className: "ml-1 text-[10px] font-medium uppercase tracking-wide text-amber-600"
                 });
     } else {
       return null;
@@ -49,11 +49,11 @@ function DuprRatingBadge(props) {
                               children: format(doubles),
                               className: (
                                 compact ? "text-lg" : "text-2xl"
-                              ) + " font-bold tabular-nums text-gray-900 dark:text-gray-100"
+                              ) + " font-bold tabular-nums"
                             }),
                         JsxRuntime.jsx("span", {
                               children: t`doubles`,
-                              className: "ml-1.5 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                              className: "ml-1.5 text-xs uppercase tracking-wide opacity-60"
                             }),
                         provisional(Core__Option.isSome(doubles), doublesReliable)
                       ],
@@ -63,11 +63,11 @@ function DuprRatingBadge(props) {
                         children: [
                           JsxRuntime.jsx("span", {
                                 children: format(singles),
-                                className: "text-sm font-semibold tabular-nums text-gray-600 dark:text-gray-300"
+                                className: "text-sm font-semibold tabular-nums opacity-80"
                               }),
                           JsxRuntime.jsx("span", {
                                 children: t`singles`,
-                                className: "ml-1.5 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400"
+                                className: "ml-1.5 text-xs uppercase tracking-wide opacity-60"
                               }),
                           provisional(Core__Option.isSome(singles), singlesReliable)
                         ],

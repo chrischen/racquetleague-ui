@@ -559,7 +559,7 @@ function ProfileModal(props) {
                                                                                   reliable: duprLink.doublesReliable
                                                                                 })
                                                                           ],
-                                                                          className: "flex items-center gap-2"
+                                                                          className: "flex items-center gap-2 text-gray-900 dark:text-gray-100"
                                                                         }) : JsxRuntime.jsx(LevelPicker.make, {
                                                                           value: level,
                                                                           onChange: (function (v) {

@@ -597,7 +597,7 @@ function SettingsProfileForm(props) {
                                                                                                 reliable: duprLink.doublesReliable
                                                                                               })
                                                                                         ],
-                                                                                        className: "flex items-center gap-3"
+                                                                                        className: "flex items-center gap-3 text-gray-900 dark:text-gray-100"
                                                                                       }),
                                                                                   JsxRuntime.jsx("p", {
                                                                                         children: t`Your rating comes from DUPR. Disconnect DUPR below to set your own level again.`,

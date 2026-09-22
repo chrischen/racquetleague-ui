@@ -312,7 +312,7 @@ let make = (~query) => {
                 {switch duprLink {
                 | Some(link) =>
                   <div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 text-gray-900 dark:text-gray-100">
                       <DuprRatingBadge
                         doubles={link.doubles}
                         singles=?link.singles

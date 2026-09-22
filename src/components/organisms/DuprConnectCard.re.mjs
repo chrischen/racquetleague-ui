@@ -307,11 +307,14 @@ function DuprConnectCard(props) {
                     }
                     tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
                           children: [
-                            JsxRuntime.jsx(DuprRatingBadge.make, {
-                                  doubles: link.doubles,
-                                  singles: link.singles,
-                                  doublesReliable: link.doublesReliable,
-                                  singlesReliable: link.singlesReliable
+                            JsxRuntime.jsx("div", {
+                                  children: JsxRuntime.jsx(DuprRatingBadge.make, {
+                                        doubles: link.doubles,
+                                        singles: link.singles,
+                                        doublesReliable: link.doublesReliable,
+                                        singlesReliable: link.singlesReliable
+                                      }),
+                                  className: "text-gray-900 dark:text-gray-100"
                                 }),
                             JsxRuntime.jsxs("p", {
                                   children: [

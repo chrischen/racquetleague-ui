@@ -919,7 +919,8 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                       doublesReliable: link.doublesReliable,
                                                                       singlesReliable: link.singlesReliable
                                                                     })
-                                                              ]
+                                                              ],
+                                                              className: "text-gray-900"
                                                             }) : null,
                                                       Core__Option.getOr(Core__Option.map(Core__Option.flatMap(statsData.leagueUserStats, (function (stats) {
                                                                       if (stats.daysNumberOne > 0.0) {
