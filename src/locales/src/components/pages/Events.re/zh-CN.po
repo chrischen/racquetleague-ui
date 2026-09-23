@@ -247,7 +247,7 @@ msgstr "所有级别"
 msgid "Anytime"
 msgstr "任意时间"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -523,10 +523,6 @@ msgstr "创建赛事"
 msgid "Current location is not supported by this browser."
 msgstr "当前浏览器不支持定位功能。"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -708,7 +704,7 @@ msgstr "性别"
 msgid "Gender not provided"
 msgstr "未提供性别"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "谷歌日历"
 
@@ -1172,6 +1168,10 @@ msgstr "下拉刷新"
 msgid "Rated"
 msgstr "计分赛"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "评分"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
@@ -1326,7 +1326,7 @@ msgstr "发送邀请"
 msgid "Send message"
 msgstr "发送消息"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "已发送"
 
@@ -1413,7 +1413,7 @@ msgstr "左滑跳过 · 右滑邀请"
 msgid "Swipe review"
 msgstr "滑动审核"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "同步日历"
 
@@ -1967,6 +1967,10 @@ msgstr "您的报名正在等待管理员审批"
 #: src/components/molecules/AIResponseCard.re.mjs:162
 #~ msgid "Date:"
 #~ msgstr "日期："
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自评等级"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

@@ -134,7 +134,7 @@ msgstr "오류가 발생했습니다. 다시 시도하세요."
 msgid "Anytime"
 msgstr "언제든지"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -297,7 +297,7 @@ msgstr "이벤트 업데이트 및 알림용"
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google 캘린더"
 
@@ -484,7 +484,7 @@ msgstr "단식"
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "캘린더 동기화"
 

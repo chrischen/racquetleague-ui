@@ -25,7 +25,7 @@ msgstr "{0} ชั่วโมง {1} นาที"
 msgid "Advanced players"
 msgstr "ผู้เล่นระดับสูง"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -41,7 +41,7 @@ msgstr "วันที่ยังไม่กำหนด"
 msgid "Event tag: {tag}"
 msgstr "แท็กกิจกรรม: {tag}"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
@@ -88,7 +88,7 @@ msgstr "ผลการแข่งขันจะถูกส่งไปยั
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 

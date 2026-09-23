@@ -25,7 +25,7 @@ msgstr ""
 msgid "Advanced players"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Event tag: {tag}"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr ""
 

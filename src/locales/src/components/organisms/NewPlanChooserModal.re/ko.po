@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 01:05+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "뒤로"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr "캘린더 동기화됨"
+
+#: src/components/organisms/RouteModal.re.mjs:75
+msgid "Close"
+msgstr "닫기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
+msgstr "{address} 복사"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr "이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
+msgstr "이벤트를 직접 만들거나 코트 예약 이메일로 만드세요."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr "직접 이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
+msgstr "이메일로 이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr ""
+"이벤트 세부 정보를 직접 입력하거나 어시스턴트에게 채워 달라고 요청하세요."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr ""
+"이벤트는 {myEvents}에 비공개로 추가됩니다. 플레이어를 모집해야 할 때 언제든"
+"지 이벤트를 공개로 전환하세요."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr ""
+"예약 확인 메일을 내 이메일 {yourEmail}에서 {forwardingAddress}(으)로 전달하세"
+"요."
+
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
+msgstr "Google 캘린더"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+msgid "My Events"
+msgstr "내 이벤트"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+msgid "New plan"
+msgstr "새 계획"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr ""
+"또는 예약할 때 이 이메일 {bookingAddress}을(를) 사용하세요. 확인 메일은 "
+"{yourEmail}(으)로 전달해 드립니다."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr "캘린더 동기화"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr "Pkuru 캘린더를 동기화하면 새 이벤트가 캘린더 앱에 자동으로 표시됩니다."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr ""
+"전달하는 이메일에 레벨, 최대 인원, 가격 등 추가 이벤트 정보를 함께 적을 수 있"
+"습니다."

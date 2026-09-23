@@ -1,0 +1,102 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 01:05+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: zh-TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "返回"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr "日曆已同步"
+
+#: src/components/organisms/RouteModal.re.mjs:75
+msgid "Close"
+msgstr "關閉"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
+msgstr "複製 {address}"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr "建立活動"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
+msgstr "自行建立活動，或透過球場預訂郵件建立。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr "手動建立活動"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
+msgstr "透過電子郵件建立活動"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr "自行填寫活動細節，或請助理協助填寫。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr "活動會以私人方式加入{myEvents}。需要找球員時，隨時可以將活動設為公開。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr "從你的電子郵件 {yourEmail} 將預訂確認信轉寄至 {forwardingAddress}。"
+
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
+msgstr "Google 日曆"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+msgid "My Events"
+msgstr "我的活動"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+msgid "New plan"
+msgstr "新計劃"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr ""
+"或在預訂時使用這個電子郵件 {bookingAddress}，我們會將確認信轉寄到 "
+"{yourEmail}。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr "同步日曆"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr "同步你的 Pkuru 日曆，新活動會自動顯示在你的日曆 App 中。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr "你可以在轉寄的郵件中附上其他活動細節，例如等級、人數上限、價格等。"

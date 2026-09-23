@@ -77,8 +77,8 @@ msgstr "活動"
 msgid "Activity"
 msgstr "活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:899
-#: src/components/organisms/RSVPSection.re.mjs:999
+#: src/components/organisms/RSVPSection.re.mjs:907
+#: src/components/organisms/RSVPSection.re.mjs:1007
 msgid "Add Member"
 msgstr "新增成員"
 
@@ -86,7 +86,7 @@ msgstr "新增成員"
 msgid "Advanced players"
 msgstr "進階球員"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -118,11 +118,11 @@ msgstr "收取款項"
 msgid "Charge payment"
 msgstr "收取款項"
 
-#: src/components/organisms/RSVPSection.re.mjs:308
+#: src/components/organisms/RSVPSection.re.mjs:309
 msgid "Clear preview"
 msgstr "清除預覽"
 
-#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:924
 msgid "Collapse"
 msgstr "收起"
 
@@ -138,7 +138,7 @@ msgstr "詳細資料"
 msgid "edit event"
 msgstr "編輯活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Evaluating pending requests…"
 msgstr "正在評估待處理的請求…"
 
@@ -162,7 +162,7 @@ msgstr "參加"
 msgid "good luck, have fun"
 msgstr "祥好運，玩得開心"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google 日曆"
 
@@ -202,11 +202,11 @@ msgstr "聯盟"
 msgid "left the event"
 msgstr "退出了活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:1015
+#: src/components/organisms/RSVPSection.re.mjs:1023
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:1012
+#: src/components/organisms/RSVPSection.re.mjs:1020
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -251,7 +251,7 @@ msgstr "還沒有球員"
 msgid "No restriction on skill level. Open to all players."
 msgstr "技能等級無限制。對所有球員開放。"
 
-#: src/components/organisms/EventRsvp.re.mjs:110
+#: src/components/organisms/EventRsvp.re.mjs:114
 msgid "Not paid"
 msgstr "未付款"
 
@@ -259,7 +259,7 @@ msgstr "未付款"
 msgid "notes"
 msgstr "備註"
 
-#: src/components/organisms/EventRsvp.re.mjs:102
+#: src/components/organisms/EventRsvp.re.mjs:106
 msgid "Paid"
 msgstr "已付款"
 
@@ -267,7 +267,7 @@ msgstr "已付款"
 msgid "Pending"
 msgstr "待審核"
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Placing on the waitlist…"
 msgstr "正在加入候補名單…"
 
@@ -276,11 +276,11 @@ msgstr "正在加入候補名單…"
 msgid "Player"
 msgstr "球員"
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Preview Smart RSVP"
 msgstr "預覽智慧報名"
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Previewing…"
 msgstr "預覽中…"
 
@@ -315,7 +315,7 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:647
+#: src/components/organisms/RSVPSection.re.mjs:655
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "所需評分：{0} (DUPR {1})"
 
@@ -327,9 +327,9 @@ msgstr "結果將提交至競技評分。"
 msgid "Retry charge"
 msgstr "重試扣款"
 
-#: src/components/organisms/RSVPSection.re.mjs:770
-#: src/components/organisms/RSVPSection.re.mjs:809
-#: src/components/organisms/RSVPSection.re.mjs:938
+#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:817
+#: src/components/organisms/RSVPSection.re.mjs:946
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -337,11 +337,11 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "RSVP 待審核..."
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "立即執行智慧 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:448
+#: src/components/organisms/RSVPSection.re.mjs:449
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr "儲存"
@@ -368,12 +368,12 @@ msgstr "未經許可而出現可能因未遵守規則而被禁止。"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能練習和訓練，專注於技術改進"
 
-#: src/components/organisms/RSVPSection.re.mjs:306
+#: src/components/organisms/RSVPSection.re.mjs:307
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr "智慧報名將從 {1} 筆待處理申請中錄取 {0} 筆：已於上方標示。"
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
 msgstr "智慧候補名單"
 
@@ -390,11 +390,11 @@ msgstr "提交比賽"
 msgid "subscribe to all {activityName} events"
 msgstr "訂閱所有 {activityName} 活動"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "同步日曆"
 
-#: src/components/organisms/RSVPSection.re.mjs:635
+#: src/components/organisms/RSVPSection.re.mjs:643
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -431,8 +431,8 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/organisms/RSVPSection.re.mjs:432
 #: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:434
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
 msgid ""
@@ -495,7 +495,7 @@ msgstr "您正在參加"
 msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
-#: src/components/organisms/RSVPSection.re.mjs:649
+#: src/components/organisms/RSVPSection.re.mjs:657
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

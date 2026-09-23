@@ -74,7 +74,7 @@ msgstr "이 RSVP 제거"
 msgid "Retry charge"
 msgstr "결제 재시도"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "전송됨"
 

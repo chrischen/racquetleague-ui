@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 01:05+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "Quay lại"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr "Đã đồng bộ lịch"
+
+#: src/components/organisms/RouteModal.re.mjs:75
+msgid "Close"
+msgstr "Đóng"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
+msgstr "Sao chép {address}"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr "Tạo sự kiện"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
+msgstr "Tự tạo sự kiện, hoặc tạo từ email đặt sân."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr "Tạo sự kiện thủ công"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
+msgstr "Tạo sự kiện qua email"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr "Tự nhập thông tin sự kiện hoặc nhờ trợ lý điền giúp."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr ""
+"Sự kiện được thêm ở chế độ riêng tư vào {myEvents}. Hãy công khai sự kiện "
+"bất cứ khi nào bạn cần tìm người chơi."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr ""
+"Chuyển tiếp email xác nhận đặt sân đến {forwardingAddress} từ email của bạn "
+"{yourEmail}."
+
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+msgid "My Events"
+msgstr "Sự kiện của tôi"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+msgid "New plan"
+msgstr "Kế hoạch mới"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr ""
+"Hoặc dùng email này {bookingAddress} khi đặt sân. Chúng tôi sẽ chuyển tiếp "
+"email xác nhận đến {yourEmail}."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr "Đồng bộ lịch"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr ""
+"Đồng bộ lịch Pkuru để sự kiện mới tự động hiện trong ứng dụng lịch của bạn."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr ""
+"Bạn có thể ghi thêm các chi tiết khác của sự kiện như trình độ, số người "
+"chơi tối đa, giá, v.v. trong email bạn chuyển tiếp."

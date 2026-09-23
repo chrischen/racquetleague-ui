@@ -69,10 +69,6 @@ msgstr "ผู้เริ่มต้นสมบูรณ์"
 msgid "Computed rating"
 msgstr "เรตติ้งที่คำนวณแล้ว"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "ตรวจสอบครบทุกคนแล้ว"
@@ -150,6 +146,10 @@ msgstr "โปร"
 msgid "provisional"
 msgstr "ชั่วคราว"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "เรตติ้ง"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "ตรวจสอบคำขอ"
@@ -177,6 +177,10 @@ msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเ�
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "รอการอนุมัติเพื่อเข้าร่วม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "เรตติ้งที่แจ้งเอง"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

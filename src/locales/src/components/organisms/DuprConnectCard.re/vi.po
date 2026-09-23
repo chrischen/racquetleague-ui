@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr "Hủy"
 
@@ -28,19 +28,19 @@ msgstr "Xác nhận"
 msgid "Couldn't reach DUPR. Please try again in a moment."
 msgstr "Không kết nối được DUPR. Vui lòng thử lại sau giây lát."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "Tạo tài khoản tại mydupr.com hoặc trong ứng dụng DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr "Ngắt liên kết DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr "Ngắt liên kết DUPR?"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr "Chưa có tài khoản DUPR?"
 
@@ -48,20 +48,20 @@ msgstr "Chưa có tài khoản DUPR?"
 msgid "doubles"
 msgstr "đôi"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr "Hiện chưa thể liên kết DUPR."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr "Đăng nhập DUPR"
 
@@ -73,7 +73,7 @@ msgstr "DUPR gửi dữ liệu không đọc được. Vui lòng thử lại."
 msgid "Last synced"
 msgstr "Đồng bộ lần cuối"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -89,16 +89,16 @@ msgstr "Đã liên kết"
 msgid "Linking"
 msgstr "Đang liên kết"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr "Đang liên kết tài khoản của bạn…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr "Đang tải DUPR…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr "Đăng nhập bằng DUPR"
 
@@ -115,7 +115,7 @@ msgstr "NR"
 msgid "provisional"
 msgstr "tạm thời"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -135,7 +135,7 @@ msgstr "Tài khoản DUPR đó đã được liên kết với người chơi kh
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "Phiên đăng nhập DUPR đã hết hạn. Vui lòng thử lại."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."

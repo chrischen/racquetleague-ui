@@ -41,7 +41,7 @@ msgstr "최고의 복식 파트너"
 msgid "Current Rating"
 msgstr "현재 레이팅"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:934
 msgid "Days at #1"
 msgstr "#1 유지 일수"
 
@@ -63,11 +63,11 @@ msgid "Elevates weaker partners"
 msgstr "약한 파트너를 끌어올림"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:384
-#: src/components/pages/LeaguePlayerPage.re.mjs:962
-#: src/components/pages/LeaguePlayerPage.re.mjs:1008
-#: src/components/pages/LeaguePlayerPage.re.mjs:1061
-#: src/components/pages/LeaguePlayerPage.re.mjs:1114
-#: src/components/pages/LeaguePlayerPage.re.mjs:1208
+#: src/components/pages/LeaguePlayerPage.re.mjs:963
+#: src/components/pages/LeaguePlayerPage.re.mjs:1009
+#: src/components/pages/LeaguePlayerPage.re.mjs:1062
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#: src/components/pages/LeaguePlayerPage.re.mjs:1209
 msgid "Estimated DUPR"
 msgstr "예상 DUPR"
 
@@ -75,11 +75,11 @@ msgstr "예상 DUPR"
 msgid "Even"
 msgstr "균등"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1188
+#: src/components/pages/LeaguePlayerPage.re.mjs:1189
 msgid "Gym"
 msgstr "체육관"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1173
+#: src/components/pages/LeaguePlayerPage.re.mjs:1174
 msgid "Hard Court"
 msgstr "하드 코트"
 
@@ -87,7 +87,7 @@ msgstr "하드 코트"
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1283
+#: src/components/pages/LeaguePlayerPage.re.mjs:1284
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -96,11 +96,11 @@ msgstr "로딩 중..."
 msgid "LOSS"
 msgstr "패"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1023
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Men's Doubles"
 msgstr "남자 복식"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1076
+#: src/components/pages/LeaguePlayerPage.re.mjs:1077
 msgid "Mixed Doubles"
 msgstr "혼합 복식"
 
@@ -146,7 +146,7 @@ msgstr "레이팅 기록"
 msgid "Rating:"
 msgstr "평점:"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1274
+#: src/components/pages/LeaguePlayerPage.re.mjs:1275
 msgid "Recent Matches"
 msgstr "최근 경기"
 
@@ -182,11 +182,11 @@ msgstr "약점 상대"
 msgid "WIN"
 msgstr "승"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1129
+#: src/components/pages/LeaguePlayerPage.re.mjs:1130
 msgid "Women's Doubles"
 msgstr "여자 복식"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:976
+#: src/components/pages/LeaguePlayerPage.re.mjs:977
 msgid "Women's Rating"
 msgstr "여자 등급"
 

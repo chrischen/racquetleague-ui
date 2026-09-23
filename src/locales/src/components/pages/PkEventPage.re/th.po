@@ -359,10 +359,6 @@ msgstr "คอร์ท:"
 msgid "Create event"
 msgstr "สร้างอีเวนต์"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -851,6 +847,10 @@ msgstr "ดึงเพื่อรีเฟรช"
 msgid "Rated"
 msgstr "มีการจัดอันดับ"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "เรตติ้ง"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
@@ -979,7 +979,7 @@ msgstr "ส่งคำเชิญ"
 msgid "Send message"
 msgstr "ส่งข้อความ"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "ส่งแล้ว"
 
@@ -1321,6 +1321,10 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "สินค้าดัลลาส แฟลช"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "เรตติ้งที่แจ้งเอง"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

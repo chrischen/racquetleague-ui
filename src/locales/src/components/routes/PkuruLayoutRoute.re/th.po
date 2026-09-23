@@ -15,7 +15,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1481
-#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:109
 msgid "Badminton"
 msgstr "แบดมินตัน"
 
@@ -26,7 +26,7 @@ msgstr "ปิงปอง"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1489
-#: src/components/pages/PkuruLayout.re.mjs:105
+#: src/components/pages/PkuruLayout.re.mjs:101
 msgid "Pickleball"
 msgstr "พิคเคิลบอล"
 
@@ -129,10 +129,6 @@ msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 msgid "+ Add new club..."
 msgstr "+ เพิ่มคลับใหม่..."
 
-#: src/components/organisms/NewPlanModal.re.mjs:232
-msgid "1 · Day"
-msgstr "1 · วัน"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1141
 msgid "1 hour before"
 msgstr "1 ชั่วโมงก่อน"
@@ -145,10 +141,6 @@ msgstr "1 สัปดาห์ก่อน"
 msgid "12 hours before"
 msgstr "12 ชั่วโมงก่อน"
 
-#: src/components/organisms/NewPlanModal.re.mjs:271
-msgid "2 · Time"
-msgstr "2 · เวลา"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1145
 msgid "2 hours before"
 msgstr "2 ชั่วโมงก่อน"
@@ -156,10 +148,6 @@ msgstr "2 ชั่วโมงก่อน"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1157
 msgid "24 hours before"
 msgstr "24 ชั่วโมงก่อน"
-
-#: src/components/organisms/NewPlanModal.re.mjs:336
-msgid "3 · What kind?"
-msgstr "3 · ประเภทไหน?"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1161
 msgid "48 hours before"
@@ -173,7 +161,7 @@ msgstr "6 ชั่วโมงก่อน"
 msgid "72 hours before"
 msgstr "72 ชั่วโมงก่อน"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "ข้อเสนอการดำเนินการ"
 
@@ -194,14 +182,6 @@ msgstr "ต้องระบุกิจกรรม"
 msgid "Added to Event"
 msgstr "เพิ่มเข้าสู่อีเวนต์"
 
-#: src/components/molecules/LevelPicker.re.mjs:42
-msgid "Advanced"
-msgstr "ขั้นสูง"
-
-#: src/components/organisms/NewPlanModal.re.mjs:92
-msgid "Afternoon"
-msgstr "บ่าย"
-
 #: src/components/pages/CreateEventPage.re.mjs:289
 msgid "AI-assisted event form"
 msgstr "แบบฟอร์มอีเวนต์ที่มี AI ช่วย"
@@ -218,7 +198,7 @@ msgstr "ทุกระดับ"
 msgid "American Samoa Time"
 msgstr "เวลาอเมริกันซามัว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
@@ -234,19 +214,19 @@ msgstr ""
 msgid "Anything players should know before joining or arriving."
 msgstr "สิ่งที่ผู้เล่นควรทราบก่อนเข้าร่วมหรือมาถึง"
 
-#: src/components/organisms/NewPlanModal.re.mjs:80
-msgid "Anytime"
-msgstr "เวลาใดก็ได้"
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
+msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "อนุมัติ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "อนุมัติหรือปฏิเสธการดำเนินการที่รอดำเนินการเพื่อดำเนินการต่อ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "อนุมัติแล้ว"
 
@@ -254,7 +234,7 @@ msgstr "อนุมัติแล้ว"
 msgid "Arizona Time"
 msgstr "เวลาแอริโซนา"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -292,11 +272,11 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "ผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ ไม่มีการเรียกเก็บเงินอัตโนมัติ"
 
-#: src/components/pages/PkuruLayout.re.mjs:258
+#: src/components/pages/PkuruLayout.re.mjs:254
 msgid "Availability"
 msgstr "ตารางเวลาว่าง"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "รอการอนุมัติ"
 
@@ -304,21 +284,13 @@ msgstr "รอการอนุมัติ"
 msgid "Back"
 msgstr "ย้อนกลับ"
 
-#: src/components/molecules/LevelPicker.re.mjs:27
-msgid "Beginner"
-msgstr "ผู้เริ่มต้น"
-
-#: src/components/organisms/ProfileModal.re.mjs:532
-msgid "Biography"
-msgstr "ประวัติส่วนตัว"
-
-#: src/components/organisms/ProfileModal.re.mjs:119
-msgid "Biography is required"
-msgstr "กรุณากรอกประวัติย่อ"
-
 #: src/components/organisms/CreateClubForm.re.mjs:205
 msgid "Brief description of the club..."
 msgstr "คำอธิบายสั้นๆ เกี่ยวกับคลับ..."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr "ซิงค์ปฏิทินแล้ว"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
 msgid "Cancel"
@@ -360,10 +332,6 @@ msgstr "เลือกเวลาของกิจกรรม"
 msgid "Close"
 msgstr "ปิด"
 
-#: src/components/organisms/ProfileModal.re.mjs:465
-msgid "Close profile form"
-msgstr "ปิดฟอร์มโปรไฟล์"
-
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
 msgstr "คลับ"
@@ -385,7 +353,7 @@ msgid "club-name"
 msgstr "ชื่อคลับ"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-#: src/components/pages/PkuruLayout.re.mjs:304
+#: src/components/pages/PkuruLayout.re.mjs:300
 msgid "Clubs"
 msgstr "สโมสร"
 
@@ -394,30 +362,17 @@ msgstr "สโมสร"
 msgid "Competitive"
 msgstr "แข่งขัน"
 
-#: src/components/molecules/LevelPicker.re.mjs:22
-msgid "Complete Beginner"
-msgstr "ผู้เริ่มต้นสมบูรณ์"
-
-#: src/components/organisms/ProfileModal.re.mjs:449
-msgid "Complete your player profile"
-msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
-
-#: src/components/organisms/ProfileModal.re.mjs:311
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:870
 msgid "Connect a Stripe account to enable this"
 msgstr "เชื่อมต่อบัญชี Stripe เพื่อเปิดใช้งานสิ่งนี้"
 
-#: src/components/organisms/NewPlanModal.re.mjs:406
-msgid "Continue"
-msgstr "ดำเนินการต่อ"
-
 #: src/components/molecules/TimeZoneField.re.mjs:122
 msgid "Coordinated Universal Time"
 msgstr "เวลามาตรฐานสากล (UTC)"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
+msgstr "คัดลอก {address}"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
 #: src/components/organisms/AutocompleteLocation.re.mjs:239
@@ -428,13 +383,6 @@ msgstr "ไม่สามารถโหลดสถานที่นั้น
 #: src/components/organisms/AutocompleteLocation.re.mjs:126
 msgid "Could not save that location"
 msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
-
-#: src/components/organisms/ProfileModal.re.mjs:262
-#: src/components/organisms/ProfileModal.re.mjs:271
-#: src/components/organisms/ProfileModal.re.mjs:291
-#: src/components/organisms/ProfileModal.re.mjs:301
-msgid "Could not save your profile. Please try again."
-msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
 #: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
@@ -448,15 +396,17 @@ msgstr "ไม่สามารถระบุกิจกรรมได้ �
 msgid "Couldn't find this location — pick it:"
 msgstr "ไม่พบสถานที่นี้ — เลือกสถานที่:"
 
-#: src/components/organisms/NewPlanModal.re.mjs:401
-msgid ""
-"Create a hosted event at this time. Others can join, you pick venue and "
-"rules."
-msgstr "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
-
 #: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "สร้างกิจกรรมทั้งหมด"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr "สร้างกิจกรรม"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
+msgstr "สร้างกิจกรรมด้วยตัวเอง หรือสร้างจากอีเมลการจองคอร์ต"
 
 #: src/components/organisms/CreateClubForm.re.mjs:300
 msgid "Create Club"
@@ -466,6 +416,14 @@ msgstr "สร้างคลับ"
 #: src/components/organisms/CreateEventModal.re.mjs:79
 msgid "Create event"
 msgstr "สร้างอีเวนต์"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr "สร้างกิจกรรมด้วยตนเอง"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
+msgstr "สร้างกิจกรรมทางอีเมล"
 
 #: src/components/pages/CreateEventPage.re.mjs:280
 msgid "Create multiple events instead"
@@ -492,15 +450,15 @@ msgstr "วันที่:"
 msgid "Default club activity"
 msgstr "กิจกรรมเริ่มต้นของคลับ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "ถูกปฏิเสธ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "ปฏิเสธ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "อธิบายกิจกรรม"
 
@@ -508,7 +466,7 @@ msgstr "อธิบายกิจกรรม"
 msgid "Describe the event to draft it, or fill in the details."
 msgstr "อธิบายกิจกรรมเพื่อสร้างแบบร่าง หรือกรอกรายละเอียดเอง"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "อธิบายอีเวนต์ของคุณ แล้วฉันจะกรอกแบบฟอร์มให้…"
 
@@ -520,27 +478,15 @@ msgstr "คำอธิบาย"
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: src/components/pages/PkuruLayout.re.mjs:294
-#: src/components/pages/PkuruLayout.re.mjs:659
+#: src/components/pages/PkuruLayout.re.mjs:290
+#: src/components/pages/PkuruLayout.re.mjs:655
 msgid "Discover"
 msgstr "ค้นพบ"
-
-#: src/components/organisms/ProfileModal.re.mjs:482
-msgid "Display name"
-msgstr "ชื่อที่แสดง"
-
-#: src/components/organisms/ProfileModal.re.mjs:111
-msgid "Display name is required"
-msgstr "ต้องกรอกชื่อที่แสดง"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:276
 #: src/components/molecules/TimeZoneField.re.mjs:203
 msgid "Done"
 msgstr "เสร็จ"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:55
-msgid "doubles"
-msgstr "คู่"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Draft filled in. Review the details before creating the event."
@@ -580,20 +526,6 @@ msgstr "เวลาตะวันออก"
 msgid "Edit"
 msgstr "แก้ไข"
 
-#: src/components/organisms/ProfileModal.re.mjs:369
-msgid "Email address"
-msgstr "ที่อยู่อีเมล"
-
-#: src/components/organisms/ProfileModal.re.mjs:286
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
-
-#: src/components/organisms/ProfileModal.re.mjs:114
-msgid "Email is required"
-msgstr "ต้องกรอกอีเมล"
-
 #: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
 msgstr "เปิดใช้งานเดี๋ยวนี้"
@@ -614,9 +546,9 @@ msgstr "ต้องระบุเวลาสิ้นสุด"
 msgid "Enter price"
 msgstr "ใส่ราคา"
 
-#: src/components/organisms/NewPlanModal.re.mjs:98
-msgid "Evening"
-msgstr "เย็น"
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr "กรอกรายละเอียดกิจกรรมเอง หรือให้ผู้ช่วยกรอกให้"
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
@@ -651,6 +583,13 @@ msgstr "ประเภทกิจกรรม"
 msgid "Event Uncanceled"
 msgstr "กิจกรรมได้รับการกู้คืน"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr ""
+"กิจกรรมจะถูกเพิ่มแบบส่วนตัวใน {myEvents} เปิดกิจกรรมเป็นสาธารณะได้ทุกเมื่อที่ต้องการหาผู้เล่น"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "Events can be up to 12 hours long."
 msgstr "กิจกรรมมีความยาวได้สูงสุด 12 ชั่วโมง"
@@ -659,19 +598,15 @@ msgstr "กิจกรรมมีความยาวได้สูงสุ
 msgid "Events must be at least 15 minutes long."
 msgstr "กิจกรรมต้องมีความยาวอย่างน้อย 15 นาที"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "ดำเนินการแล้ว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "การดำเนินการล้มเหลว"
 
-#: src/components/organisms/ProfileModal.re.mjs:506
-msgid "Female"
-msgstr "หญิง"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "กรอกแบบฟอร์มกิจกรรมจากคำอธิบาย"
 
@@ -683,10 +618,6 @@ msgstr "กรอกแบบฟอร์ม"
 msgid "Find players for your event?"
 msgstr "หาผู้เล่นสำหรับกิจกรรมของคุณ?"
 
-#: src/components/organisms/ProfileModal.re.mjs:362
-msgid "For event updates and notifications"
-msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1446
 msgid "Format"
 msgstr "รูปแบบ"
@@ -695,13 +626,19 @@ msgstr "รูปแบบ"
 msgid "Format options"
 msgstr "ตัวเลือกรูปแบบ"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr "ส่งต่ออีเมลยืนยันการจองไปที่ {forwardingAddress} จากอีเมลของคุณ {yourEmail}"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:760
 msgid "Friday night pickleball"
 msgstr "พิกเคิลบอลคืนวันศุกร์"
 
-#: src/components/organisms/ProfileModal.re.mjs:496
-msgid "Gender"
-msgstr "เพศ"
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
+msgstr "Google Calendar"
 
 #: src/components/molecules/TimeZoneField.re.mjs:116
 msgid "Hawaii Time"
@@ -711,7 +648,7 @@ msgstr "เวลาฮาวาย"
 msgid "Hide"
 msgstr "ซ่อน"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "ซ่อนประวัติแชท AI"
 
@@ -728,21 +665,9 @@ msgstr ""
 msgid "Hold RSVPs"
 msgstr "พักการตอบรับ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:394
-msgid "Host an event"
-msgstr "จัดอีเวนต์"
-
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "ข้อความจากเจ้าภาพ"
-
-#: src/components/organisms/NewPlanModal.re.mjs:424
-msgid "Hosting an event needs exactly one time window — pick one."
-msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
-
-#: src/components/organisms/ProfileModal.re.mjs:485
-msgid "How other players will see you"
-msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
@@ -765,14 +690,6 @@ msgstr "ติดตั้ง"
 msgid "Install Pkuru.com App"
 msgstr "ติดตั้งแอป Pkuru.com"
 
-#: src/components/molecules/LevelPicker.re.mjs:32
-msgid "Intermediate"
-msgstr "ระดับกลาง"
-
-#: src/components/molecules/LevelPicker.re.mjs:37
-msgid "Intermediate+"
-msgstr "ระดับกลาง+"
-
 #: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Invited to Event"
 msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
@@ -793,25 +710,17 @@ msgstr "เข้าร่วมสโมสรแล้ว"
 msgid "Keep current location"
 msgstr "ใช้สถานที่เดิม"
 
-#: src/components/organisms/ProfileModal.re.mjs:314
-msgid "Keep your player profile accurate and useful to the community."
-msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
-
 #: src/components/molecules/TimeZoneField.re.mjs:88
 msgid "Korea Time"
 msgstr "เวลาเกาหลี"
 
-#: src/components/pages/PkuruLayout.re.mjs:315
+#: src/components/pages/PkuruLayout.re.mjs:311
 msgid "Leaderboard"
 msgstr "กระดานผู้นำ"
 
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "ออกจากอีเวนต์"
-
-#: src/components/organisms/ProfileModal.re.mjs:547
-msgid "Level"
-msgstr "ระดับ"
 
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
@@ -825,14 +734,14 @@ msgstr "ประกาศกิจกรรมของคุณแบบสา
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "กำลังโหลดประวัติการสนทนา..."
 
 #: src/components/organisms/CreateEventModal.re.mjs:74
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
-#: src/components/pages/PkuruLayout.re.mjs:1020
-#: src/components/pages/PkuruLayout.re.mjs:1117
+#: src/components/pages/PkuruLayout.re.mjs:1013
+#: src/components/pages/PkuruLayout.re.mjs:1085
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -863,21 +772,13 @@ msgstr "สถานที่:"
 msgid "login with Line"
 msgstr "เข้าสู่ระบบด้วย Line"
 
-#: src/components/organisms/ProfileModal.re.mjs:502
-msgid "Male"
-msgstr "ชาย"
-
-#: src/components/pages/PkuruLayout.re.mjs:669
+#: src/components/pages/PkuruLayout.re.mjs:665
 msgid "Map"
 msgstr "แผนที่"
 
-#: src/components/pages/PkuruLayout.re.mjs:325
+#: src/components/pages/PkuruLayout.re.mjs:321
 msgid "Map view"
 msgstr "มุมมองแผนที่"
-
-#: src/components/organisms/NewPlanModal.re.mjs:356
-msgid "Mark available"
-msgstr "ระบุว่าว่าง"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1112
 msgid "Max players"
@@ -887,10 +788,6 @@ msgstr "ผู้เล่นสูงสุด"
 msgid "Minimum rating"
 msgstr "เรตติ้งขั้นต่ำ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:86
-msgid "Morning"
-msgstr "เช้า"
-
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
 msgstr "เวลาเขตเมาน์เทน"
@@ -899,15 +796,16 @@ msgstr "เวลาเขตเมาน์เทน"
 msgid "My clubs"
 msgstr "คลับของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:185
+#: src/components/pages/PkuruLayout.re.mjs:181
 msgid "My events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:698
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:694
 msgid "My Events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/pages/PkuruLayout.re.mjs:683
+#: src/components/pages/PkuruLayout.re.mjs:679
 msgid "New"
 msgstr "ใหม่"
 
@@ -915,12 +813,12 @@ msgstr "ใหม่"
 msgid "New Comment"
 msgstr "ความคิดเห็นใหม่"
 
-#: src/components/pages/PkuruLayout.re.mjs:499
+#: src/components/pages/PkuruLayout.re.mjs:495
 msgid "New event"
 msgstr "กิจกรรมใหม่"
 
-#: src/components/organisms/NewPlanModal.re.mjs:203
 #: src/components/organisms/CreateEventModal.re.mjs:80
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
 msgid "New plan"
 msgstr "แผนใหม่"
 
@@ -956,31 +854,29 @@ msgstr "ไม่มีขั้นต่ำ"
 msgid "No notifications"
 msgstr "ไม่มีการแจ้งเตือน"
 
-#: src/components/organisms/ProfileModal.re.mjs:583
-msgid "Not now"
-msgstr "ไม่ใช่ตอนนี้"
-
 #: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "การแจ้งเตือน"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:196
-#: src/components/pages/PkuruLayout.re.mjs:533
+#: src/components/pages/PkuruLayout.re.mjs:192
+#: src/components/pages/PkuruLayout.re.mjs:529
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:26
-msgid "NR"
-msgstr "NR"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "ออกจากรายการรอ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "การดำเนินการ:"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr "หรือใช้อีเมลนี้ {bookingAddress} ตอนจอง เราจะส่งต่ออีเมลยืนยันไปที่ {yourEmail}"
 
 #: src/components/molecules/TimeZoneField.re.mjs:78
 msgid "Pacific Time"
@@ -994,13 +890,9 @@ msgstr "กิจกรรมมีค่าใช้จ่าย"
 msgid "Participation fee"
 msgstr "ค่าเข้าร่วม"
 
-#: src/components/pages/PkuruLayout.re.mjs:174
+#: src/components/pages/PkuruLayout.re.mjs:170
 msgid "Personal"
 msgstr "ส่วนตัว"
-
-#: src/components/molecules/RatingSourceChip.re.mjs:25
-msgid "pkuru"
-msgstr "pkuru"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
@@ -1014,19 +906,10 @@ msgstr "หาผู้เล่น"
 msgid "Private event"
 msgstr "กิจกรรมส่วนตัว"
 
-#: src/components/molecules/LevelPicker.re.mjs:47
-msgid "Pro"
-msgstr "โปร"
-
-#: src/components/pages/PkuruLayout.re.mjs:207
-#: src/components/pages/PkuruLayout.re.mjs:708
+#: src/components/pages/PkuruLayout.re.mjs:203
+#: src/components/pages/PkuruLayout.re.mjs:704
 msgid "Profile"
 msgstr "โปรไฟล์"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:37
-#: src/components/molecules/RatingSourceChip.re.mjs:50
-msgid "provisional"
-msgstr "ชั่วคราว"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:719
 msgid "Public"
@@ -1061,14 +944,6 @@ msgstr "ถูกนำออกจากอีเวนต์"
 msgid "Samoa Time"
 msgstr "เวลาซามัว"
 
-#: src/components/organisms/NewPlanModal.re.mjs:372
-msgid "Save"
-msgstr "บันทึก"
-
-#: src/components/organisms/ProfileModal.re.mjs:597
-msgid "Save profile"
-msgstr "บันทึกโปรไฟล์"
-
 #: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "เลื่อนลงและแตะ"
@@ -1077,21 +952,7 @@ msgstr "เลื่อนลงและแตะ"
 msgid "Search for a venue or address"
 msgstr "ค้นหาสนามหรือที่อยู่"
 
-#: src/components/organisms/NewPlanModal.re.mjs:416
-msgid "Select exactly one time window to host an event"
-msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
-
-#: src/components/molecules/RatingSourceChip.re.mjs:37
-msgid "Self-rated"
-msgstr "ประเมินตนเอง"
-
-#: src/components/organisms/ProfileModal.re.mjs:535
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "แสดงประวัติแชท AI"
 
@@ -1103,10 +964,6 @@ msgstr "แสดงน้อยลง"
 msgid "Singapore Time"
 msgstr "เวลาสิงคโปร์"
 
-#: src/components/molecules/DuprRatingBadge.re.mjs:69
-msgid "singles"
-msgstr "เดี่ยว"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1057
 msgid "Skill level"
 msgstr "ระดับทักษะ"
@@ -1115,7 +972,7 @@ msgstr "ระดับทักษะ"
 msgid "Solomon Islands Time"
 msgstr "เวลาหมู่เกาะโซโลมอน"
 
-#: src/components/pages/PkuruLayout.re.mjs:226
+#: src/components/pages/PkuruLayout.re.mjs:222
 msgid "Sports"
 msgstr "กีฬา"
 
@@ -1139,6 +996,16 @@ msgstr "ติดตามทุกความเคลื่อนไหว"
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr "ซิงค์ปฏิทิน"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr "ซิงค์ปฏิทิน Pkuru เพื่อให้กิจกรรมใหม่แสดงในแอปปฏิทินของคุณโดยอัตโนมัติ"
+
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "แตะปุ่มแชร์"
@@ -1147,13 +1014,7 @@ msgstr "แตะปุ่มแชร์"
 msgid "Tap to add your time"
 msgstr "แตะเพื่อเพิ่มเวลาของคุณ"
 
-#: src/components/organisms/NewPlanModal.re.mjs:363
-msgid ""
-"Tell others you're down to play. Players with overlapping times can invite "
-"you."
-msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "การดำเนินการเสร็จสิ้นพร้อมข้อผิดพลาด GraphQL"
 
@@ -1182,15 +1043,7 @@ msgstr "ต้องระบุหัวข้อ"
 msgid "Title:"
 msgstr "ชื่อ:"
 
-#: src/components/organisms/NewPlanModal.re.mjs:55
-msgid "Today"
-msgstr "วันนี้"
-
-#: src/components/organisms/NewPlanModal.re.mjs:51
-msgid "Tomorrow"
-msgstr "พรุ่งนี้"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "มีการร้องขอขั้นตอนอัตโนมัติมากเกินไป กรุณาดำเนินการต่อด้วยตนเอง"
 
@@ -1210,10 +1063,6 @@ msgstr "สถานที่ วันที่ เวลาเริ่มแ�
 msgid "View all notifications"
 msgstr "ดูการแจ้งเตือนทั้งหมด"
 
-#: src/components/organisms/ProfileModal.re.mjs:308
-msgid "We need a few details before you can join this event"
-msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
-
 #: src/components/molecules/TimeZoneField.re.mjs:68
 msgid "West Africa Time"
 msgstr "เวลาแอฟริกาตะวันตก"
@@ -1221,10 +1070,6 @@ msgstr "เวลาแอฟริกาตะวันตก"
 #: src/components/molecules/TimeZoneField.re.mjs:100
 msgid "Western Australia Time"
 msgstr "เวลาออสเตรเลียตะวันตก"
-
-#: src/components/organisms/NewPlanModal.re.mjs:207
-msgid "When do you want to play?"
-msgstr "คุณอยากเล่นเมื่อไหร่?"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:853
 msgid "With a Stripe account"
@@ -1234,9 +1079,28 @@ msgstr "เมื่อมีบัญชี Stripe"
 msgid "Without a Stripe account"
 msgstr "เมื่อไม่มีบัญชี Stripe"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr ""
+"คุณสามารถใส่รายละเอียดกิจกรรมเพิ่มเติม เช่น ระดับ ผู้เล่นสูงสุด ราคา ฯลฯ ในอีเมลที่คุณส่งต่อได้"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
 #~ msgid "⌘+Enter to send"
 #~ msgstr "⌘+Enter เพื่อส่ง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:232
+#~ msgid "1 · Day"
+#~ msgstr "1 · วัน"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+#~ msgid "2 · Time"
+#~ msgstr "2 · เวลา"
+
+#: src/components/organisms/NewPlanModal.re.mjs:336
+#~ msgid "3 · What kind?"
+#~ msgstr "3 · ประเภทไหน?"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:762
 #~ msgid ""
@@ -1250,6 +1114,14 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ "คุณสามารถอนุมัติผู้เข้าร่วมที่ไม่ได้ยืนยันการชำระเงินด้วยตนเองโดยคลิกชื่อของพวกเขาในรายการ "
 #~ "RSVP"
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+#~ msgid "Advanced"
+#~ msgstr "ขั้นสูง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+#~ msgid "Afternoon"
+#~ msgstr "บ่าย"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "Answer the questions or add details to refine the draft."
 #~ msgstr "ตอบคำถามหรือเพิ่มรายละเอียดเพื่อปรับปรุงแบบร่าง"
@@ -1257,6 +1129,10 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #: src/components/organisms/AIAssistantEmbed.re.mjs:719
 #~ msgid "Answer the questions or provide more details..."
 #~ msgstr "ตอบคำถามหรือให้รายละเอียดเพิ่มเติม..."
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+#~ msgid "Anytime"
+#~ msgstr "เวลาใดก็ได้"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:424
 #~ msgid "Approve or deny the pending action to continue"
@@ -1281,17 +1157,64 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ "จากรายการตอบรับ คุณสามารถเรียกเก็บเงินจากผู้เข้าร่วมรายเดียวหรือทุกคนได้เมื่อต้องการ "
 #~ "และเงินจะเข้าบัญชี Stripe ของคุณ"
 
+#: src/components/molecules/LevelPicker.re.mjs:27
+#~ msgid "Beginner"
+#~ msgstr "ผู้เริ่มต้น"
+
+#: src/components/organisms/ProfileModal.re.mjs:532
+#~ msgid "Biography"
+#~ msgstr "ประวัติส่วนตัว"
+
+#: src/components/organisms/ProfileModal.re.mjs:119
+#~ msgid "Biography is required"
+#~ msgstr "กรุณากรอกประวัติย่อ"
+
 #: src/components/pages/PkuruLayout.re.mjs:103
 #~ msgid "Browse"
 #~ msgstr "เรียกดู"
+
+#: src/components/organisms/ProfileModal.re.mjs:465
+#~ msgid "Close profile form"
+#~ msgstr "ปิดฟอร์มโปรไฟล์"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+#~ msgid "Complete Beginner"
+#~ msgstr "ผู้เริ่มต้นสมบูรณ์"
+
+#: src/components/organisms/ProfileModal.re.mjs:449
+#~ msgid "Complete your player profile"
+#~ msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs:311
+#~ msgid ""
+#~ "Complete your profile before sharing availability with players and hosts."
+#~ msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:790
 #~ msgid "Connect a Stripe account to activate"
 #~ msgstr "เชื่อมต่อบัญชี Stripe เพื่อเปิดใช้งาน"
 
+#: src/components/organisms/NewPlanModal.re.mjs:406
+#~ msgid "Continue"
+#~ msgstr "ดำเนินการต่อ"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Continue the conversation"
 #~ msgstr "ดำเนินการสนทนาต่อ"
+
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
+#~ msgid "Could not save your profile. Please try again."
+#~ msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
+
+#: src/components/organisms/NewPlanModal.re.mjs:401
+#~ msgid ""
+#~ "Create a hosted event at this time. Others can join, you pick venue and "
+#~ "rules."
+#~ msgstr ""
+#~ "สร้างอีเวนต์ที่คุณเป็นเจ้าภาพในเวลานี้ ผู้อื่นสามารถเข้าร่วมได้ คุณเลือกสถานที่และกติกาเอง"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:452
 #~ msgid "daytime"
@@ -1308,6 +1231,18 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgstr ""
 #~ "อธิบายกิจกรรมของคุณ… ตัวอย่าง: พรุ่งนี้ 19:00 ที่เซ็นทรัลพาร์ค ต้องการผู้เล่นอีก 3 คน "
 #~ "ระดับประมาณ 3.5 คนละ ¥800"
+
+#: src/components/organisms/ProfileModal.re.mjs:482
+#~ msgid "Display name"
+#~ msgstr "ชื่อที่แสดง"
+
+#: src/components/organisms/ProfileModal.re.mjs:111
+#~ msgid "Display name is required"
+#~ msgstr "ต้องกรอกชื่อที่แสดง"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+#~ msgid "doubles"
+#~ msgstr "คู่"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:524
 #~ msgid "Drag around the clock · Arrow keys move 15 minutes"
@@ -1333,9 +1268,27 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "Editing start"
 #~ msgstr "กำลังแก้ไขเวลาเริ่ม"
 
+#: src/components/organisms/ProfileModal.re.mjs:369
+#~ msgid "Email address"
+#~ msgstr "ที่อยู่อีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs:286
+#~ msgid ""
+#~ "Email address is unavailable. Please use a different email or login with "
+#~ "the email you are trying to use here."
+#~ msgstr "ที่อยู่อีเมลนี้ไม่ว่าง กรุณาใช้อีเมลอื่นหรือเข้าสู่ระบบด้วยอีเมลที่คุณกำลังพยายามใช้ที่นี่"
+
+#: src/components/organisms/ProfileModal.re.mjs:114
+#~ msgid "Email is required"
+#~ msgstr "ต้องกรอกอีเมล"
+
 #: src/components/molecules/ClockRangePicker.re.mjs:447
 #~ msgid "end time"
 #~ msgstr "เวลาสิ้นสุด"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+#~ msgid "Evening"
+#~ msgstr "เย็น"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:299
 #~ msgid "Event time range"
@@ -1348,6 +1301,18 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #: src/components/pages/PkuruLayout.re.mjs:353
 #~ msgid "Events"
 #~ msgstr "กิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:506
+#~ msgid "Female"
+#~ msgstr "หญิง"
+
+#: src/components/organisms/ProfileModal.re.mjs:362
+#~ msgid "For event updates and notifications"
+#~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+
+#: src/components/organisms/ProfileModal.re.mjs:496
+#~ msgid "Gender"
+#~ msgstr "เพศ"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:420
 #~ msgid "Help me fill this out"
@@ -1362,6 +1327,18 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "Host"
 #~ msgstr "ผู้จัด"
 
+#: src/components/organisms/NewPlanModal.re.mjs:394
+#~ msgid "Host an event"
+#~ msgstr "จัดอีเวนต์"
+
+#: src/components/organisms/NewPlanModal.re.mjs:424
+#~ msgid "Hosting an event needs exactly one time window — pick one."
+#~ msgstr "การจัดอีเวนต์ต้องเลือกช่วงเวลาหนึ่งช่วงเท่านั้น — กรุณาเลือกหนึ่งช่วง"
+
+#: src/components/organisms/ProfileModal.re.mjs:485
+#~ msgid "How other players will see you"
+#~ msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
 #~ msgid "Include whatever details you know"
 #~ msgstr "ใส่รายละเอียดเท่าที่คุณทราบ"
@@ -1371,13 +1348,41 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "Install Racquet League"
 #~ msgstr "ติดตั้ง Racquet League"
 
+#: src/components/molecules/LevelPicker.re.mjs:32
+#~ msgid "Intermediate"
+#~ msgstr "ระดับกลาง"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+#~ msgid "Intermediate+"
+#~ msgstr "ระดับกลาง+"
+
+#: src/components/organisms/ProfileModal.re.mjs:314
+#~ msgid "Keep your player profile accurate and useful to the community."
+#~ msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
+
+#: src/components/organisms/ProfileModal.re.mjs:547
+#~ msgid "Level"
+#~ msgstr "ระดับ"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "ช่วงเวลาว่างยาว"
 
+#: src/components/organisms/ProfileModal.re.mjs:502
+#~ msgid "Male"
+#~ msgstr "ชาย"
+
+#: src/components/organisms/NewPlanModal.re.mjs:356
+#~ msgid "Mark available"
+#~ msgstr "ระบุว่าว่าง"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 #~ msgid "Match my time"
 #~ msgstr "ตรงกับเวลาของฉัน"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+#~ msgid "Morning"
+#~ msgstr "เช้า"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:503
 #~ msgid "Move start and end to daytime hours"
@@ -1395,9 +1400,30 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "nighttime"
 #~ msgstr "กลางคืน"
 
+#: src/components/organisms/ProfileModal.re.mjs:583
+#~ msgid "Not now"
+#~ msgstr "ไม่ใช่ตอนนี้"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+#~ msgid "NR"
+#~ msgstr "NR"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "เปิด"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+#~ msgid "pkuru"
+#~ msgstr "pkuru"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+#~ msgid "Pro"
+#~ msgstr "โปร"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+#~ msgid "provisional"
+#~ msgstr "ชั่วคราว"
 
 #: src/components/pages/PkuruLayout.re.mjs:190
 #~ msgid "Rankings"
@@ -1411,9 +1437,25 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "Reset"
 #~ msgstr "รีเซ็ต"
 
+#: src/components/organisms/NewPlanModal.re.mjs:372
+#~ msgid "Save"
+#~ msgstr "บันทึก"
+
+#: src/components/organisms/ProfileModal.re.mjs:597
+#~ msgid "Save profile"
+#~ msgstr "บันทึกโปรไฟล์"
+
 #: src/components/pages/PkuruLayout.re.mjs:250
 #~ msgid "Search events, venues, hosts..."
 #~ msgstr "ค้นหากิจกรรม สถานที่ ผู้จัด..."
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
+#~ msgid "Select exactly one time window to host an event"
+#~ msgstr "เลือกช่วงเวลาหนึ่งช่วงเพื่อจัดอีเวนต์"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+#~ msgid "Self-rated"
+#~ msgstr "ประเมินตนเอง"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
 #~ msgid "Send"
@@ -1422,6 +1464,16 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #: src/components/organisms/NavViewer.re.mjs:77
 #~ msgid "Settings"
 #~ msgstr "การตั้งค่า"
+
+#: src/components/organisms/ProfileModal.re.mjs:535
+#~ msgid ""
+#~ "Share a little about yourself so organizers or other players can see why "
+#~ "they should invite you."
+#~ msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+#~ msgid "singles"
+#~ msgstr "เดี่ยว"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1096
 #~ msgid "Smart RSVP"
@@ -1439,15 +1491,37 @@ msgstr "เมื่อไม่มีบัญชี Stripe"
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr "แตะที่ใดก็ได้เพื่อเพิ่มช่วงเวลา"
 
+#: src/components/organisms/NewPlanModal.re.mjs:363
+#~ msgid ""
+#~ "Tell others you're down to play. Players with overlapping times can "
+#~ "invite you."
+#~ msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:785
 #~ msgid ""
 #~ "The participation fee is charged automatically and transferred to your "
 #~ "Stripe account."
 #~ msgstr "ค่าธรรมเนียมการเข้าร่วมจะถูกเรียกเก็บโดยอัตโนมัติและโอนไปยังบัญชี Stripe ของคุณ"
 
+#: src/components/organisms/NewPlanModal.re.mjs:55
+#~ msgid "Today"
+#~ msgstr "วันนี้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+#~ msgid "Tomorrow"
+#~ msgstr "พรุ่งนี้"
+
+#: src/components/organisms/ProfileModal.re.mjs:308
+#~ msgid "We need a few details before you can join this event"
+#~ msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "We’ll turn your description into a draft you can review and edit."
 #~ msgstr "เราจะเปลี่ยนคำอธิบายของคุณให้เป็นแบบร่างที่คุณตรวจทานและแก้ไขได้"
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+#~ msgid "When do you want to play?"
+#~ msgstr "คุณอยากเล่นเมื่อไหร่?"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 #~ msgid "With Stripe"

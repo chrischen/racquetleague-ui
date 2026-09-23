@@ -66,7 +66,7 @@ msgid "Canada"
 msgstr "แคนาดา"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -96,7 +96,7 @@ msgstr "เชื่อมต่อ DUPR ไม่ได้ กรุณาล�
 msgid "Country"
 msgstr "ประเทศ"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "สร้างบัญชีได้ที่ mydupr.com หรือในแอป DUPR"
 
@@ -104,11 +104,11 @@ msgstr "สร้างบัญชีได้ที่ mydupr.com หรือ
 msgid "Disable notifications"
 msgstr "ปิดการแจ้งเตือน"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr "ยกเลิกเชื่อมต่อ DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr "ยกเลิกเชื่อมต่อ DUPR?"
 
@@ -120,7 +120,7 @@ msgstr "ชื่อที่แสดง"
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr "ยังไม่มีบัญชี DUPR?"
 
@@ -128,20 +128,20 @@ msgstr "ยังไม่มีบัญชี DUPR?"
 msgid "doubles"
 msgstr "คู่"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr "ขณะนี้ยังไม่สามารถเชื่อมต่อ DUPR ได้"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr "เข้าสู่ระบบ DUPR"
 
@@ -201,7 +201,7 @@ msgstr "ซิงค์ล่าสุด"
 msgid "Level"
 msgstr "ระดับ"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -217,11 +217,11 @@ msgstr "เชื่อมต่อแล้ว"
 msgid "Linking"
 msgstr "กำลังเชื่อมต่อ"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr "กำลังเชื่อมต่อบัญชีของคุณ…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr "กำลังโหลด DUPR…"
 
@@ -229,8 +229,8 @@ msgstr "กำลังโหลด DUPR…"
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr "เข้าสู่ระบบด้วย DUPR"
 
@@ -326,7 +326,7 @@ msgid ""
 "for a partner"
 msgstr "แสดงป้ายข้างชื่อของคุณในรายชื่อ RSVP เพื่อบอกคนอื่นว่าคุณกำลังมองหา คู่หู"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -395,7 +395,7 @@ msgstr ""
 "จนกว่าการตั้งค่าบัญชีจะเสร็จสมบูรณ์ กิจกรรมแบบมีค่าใช้จ่ายของคุณจะใช้บัญชีแพลตฟอร์ม "
 "โดยผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ แต่คุณไม่สามารถเรียกเก็บเงินได้ ให้เก็บค่าธรรมเนียมที่หน้างาน"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
@@ -406,6 +406,7 @@ msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
 msgstr ""
+"เรตติ้งของคุณมาจาก DUPR ยกเลิกการเชื่อมต่อ DUPR ด้านล่างเพื่อกำหนดระดับของคุณเองอีกครั้ง"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"

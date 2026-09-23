@@ -247,7 +247,7 @@ msgstr "모든 레벨"
 msgid "Anytime"
 msgstr "언제든지"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -525,10 +525,6 @@ msgstr "이벤트 만들기"
 msgid "Current location is not supported by this browser."
 msgstr "현재 위치는 이 브라우저에서 지원되지 않습니다."
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -710,7 +706,7 @@ msgstr "성별"
 msgid "Gender not provided"
 msgstr "성별 미제공"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google 캘린더"
 
@@ -1175,6 +1171,10 @@ msgstr "당겨서 새로 고침"
 msgid "Rated"
 msgstr "레이팅"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "레이팅"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "경기 재조정"
@@ -1329,7 +1329,7 @@ msgstr "초대 보내기"
 msgid "Send message"
 msgstr "메시지 보내기"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "전송됨"
 
@@ -1420,7 +1420,7 @@ msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 msgid "Swipe review"
 msgstr "스와이프 검토"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "캘린더 동기화"
 
@@ -1862,6 +1862,10 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "달라스 플래시 스웨그"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "선언한 실력 등급"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

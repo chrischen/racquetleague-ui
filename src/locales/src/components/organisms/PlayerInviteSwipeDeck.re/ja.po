@@ -69,10 +69,6 @@ msgstr "完全な初心者"
 msgid "Computed rating"
 msgstr "算出されたレーティング"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "全員確認済み"
@@ -150,6 +146,10 @@ msgstr "プロ"
 msgid "provisional"
 msgstr "暫定"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "評価"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "リクエストを審査"
@@ -177,6 +177,10 @@ msgstr "左にスワイプでスキップ・右にスワイプで招待"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "参加承認待ち"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "申告レーティング"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

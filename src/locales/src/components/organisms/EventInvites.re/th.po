@@ -69,10 +69,6 @@ msgstr "ผู้เริ่มต้นสมบูรณ์"
 msgid "Computed rating"
 msgstr "เรตติ้งที่คำนวณแล้ว"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "ตรวจสอบครบทุกคนแล้ว"
@@ -166,6 +162,10 @@ msgstr "โปร"
 msgid "provisional"
 msgstr "ชั่วคราว"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "เรตติ้ง"
+
 #: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "ตรวจสอบผู้เล่นที่อาจเข้าร่วม {0} คนด้วยการ์ดสไลด์"
@@ -215,6 +215,10 @@ msgstr "รอการอนุมัติเพื่อเข้าร่ว
 #~ "A good availability match for {eventTitle}. Invite them now to reserve a "
 #~ "place in the event conversation."
 #~ msgstr "ความพร้อมตรงกับ {eventTitle} เชิญพวกเขาเลยเพื่อจองที่ในการสนทนากิจกรรม"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "เรตติ้งที่แจ้งเอง"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

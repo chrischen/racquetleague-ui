@@ -69,10 +69,6 @@ msgstr "완전 초급"
 msgid "Computed rating"
 msgstr "산출된 레이팅"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "모두 검토 완료"
@@ -166,6 +162,10 @@ msgstr "프로"
 msgid "provisional"
 msgstr "잠정"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "레이팅"
+
 #: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "스와이프 카드로 잠재적 플레이어 {0}명 검토"
@@ -217,6 +217,10 @@ msgstr "참가 승인 대기 중"
 #~ msgstr ""
 #~ "{eventTitle}의 가용 시간이 잘 맞는 플레이어입니다. 지금 초대하여 이벤트 대"
 #~ "화에 자리를 확보하세요."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "선언한 실력 등급"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

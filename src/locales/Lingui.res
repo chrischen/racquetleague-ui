@@ -100,6 +100,31 @@ let loadMessagesForDetected = src => lang => {
   [messages]
 }
 
+// A translated sentence with an element inside it (a copyable chip, a
+// <strong>). The macro formats interpolated values as text, so an element
+// can't be passed in directly. Instead interpolate a marker bound to a let of
+// the same name, which gives the msgid a named placeholder that translators
+// can move, then swap the elements back in wherever the locale put them:
+//
+//   let email = Lingui.slot("email")
+//   Lingui.fillSlots(ts`Sent to ${email}.`, [("email", <strong> ... </strong>)])
+let slotEdge = String.fromCharCode(0xE000)
+let slot = name => slotEdge ++ name ++ slotEdge
+let fillSlots = (text: string, elements: array<(string, React.element)>) =>
+  text
+  ->String.split(slotEdge)
+  ->Array.mapWithIndex((part, i) =>
+    <React.Fragment key={Int.toString(i)}>
+      {mod(i, 2) == 1
+        ? elements
+          ->Array.find(((name, _)) => name == part)
+          ->Option.map(((_, element)) => element)
+          ->Option.getOr(React.null)
+        : part->React.string}
+    </React.Fragment>
+  )
+  ->React.array
+
 module Util = {
   @val @taggedTemplate
   external t: (array<string>, array<string>) => React.element = "t"

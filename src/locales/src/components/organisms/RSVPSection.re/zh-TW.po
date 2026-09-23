@@ -17,8 +17,8 @@ msgstr ""
 msgid "+{0} more"
 msgstr "+{0} 更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:899
-#: src/components/organisms/RSVPSection.re.mjs:999
+#: src/components/organisms/RSVPSection.re.mjs:907
+#: src/components/organisms/RSVPSection.re.mjs:1007
 msgid "Add Member"
 msgstr "新增成員"
 
@@ -42,11 +42,11 @@ msgstr "收取款項"
 msgid "Charge payment"
 msgstr "收取款項"
 
-#: src/components/organisms/RSVPSection.re.mjs:308
+#: src/components/organisms/RSVPSection.re.mjs:309
 msgid "Clear preview"
 msgstr "清除預覽"
 
-#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:924
 msgid "Collapse"
 msgstr "收起"
 
@@ -54,7 +54,7 @@ msgstr "收起"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Evaluating pending requests…"
 msgstr "正在評估待處理的請求…"
 
@@ -70,11 +70,11 @@ msgstr "加入活動"
 msgid "Join Waitlist"
 msgstr "加入等待列表"
 
-#: src/components/organisms/RSVPSection.re.mjs:1015
+#: src/components/organisms/RSVPSection.re.mjs:1023
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:1012
+#: src/components/organisms/RSVPSection.re.mjs:1020
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -91,11 +91,11 @@ msgstr "移至待審核名單"
 msgid "No players found"
 msgstr "找不到球員"
 
-#: src/components/organisms/EventRsvp.re.mjs:110
+#: src/components/organisms/EventRsvp.re.mjs:114
 msgid "Not paid"
 msgstr "未付款"
 
-#: src/components/organisms/EventRsvp.re.mjs:102
+#: src/components/organisms/EventRsvp.re.mjs:106
 msgid "Paid"
 msgstr "已付款"
 
@@ -103,7 +103,7 @@ msgstr "已付款"
 msgid "Pending"
 msgstr "待審核"
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Placing on the waitlist…"
 msgstr "正在加入候補名單…"
 
@@ -112,11 +112,11 @@ msgstr "正在加入候補名單…"
 msgid "Player"
 msgstr "球員"
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Preview Smart RSVP"
 msgstr "預覽智慧報名"
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Previewing…"
 msgstr "預覽中…"
 
@@ -132,7 +132,7 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:647
+#: src/components/organisms/RSVPSection.re.mjs:655
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "所需評分：{0} (DUPR {1})"
 
@@ -140,9 +140,9 @@ msgstr "所需評分：{0} (DUPR {1})"
 msgid "Retry charge"
 msgstr "重試扣款"
 
-#: src/components/organisms/RSVPSection.re.mjs:770
-#: src/components/organisms/RSVPSection.re.mjs:809
-#: src/components/organisms/RSVPSection.re.mjs:938
+#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:817
+#: src/components/organisms/RSVPSection.re.mjs:946
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -150,11 +150,11 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "RSVP 待審核..."
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "立即執行智慧 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:448
+#: src/components/organisms/RSVPSection.re.mjs:449
 msgid "Save"
 msgstr "儲存"
 
@@ -166,16 +166,16 @@ msgstr "查看全部"
 msgid "Show less"
 msgstr "顯示更少"
 
-#: src/components/organisms/RSVPSection.re.mjs:306
+#: src/components/organisms/RSVPSection.re.mjs:307
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr "智慧報名將從 {1} 筆待處理申請中錄取 {0} 筆：已於上方標示。"
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
 msgstr "智慧候補名單"
 
-#: src/components/organisms/RSVPSection.re.mjs:635
+#: src/components/organisms/RSVPSection.re.mjs:643
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -198,8 +198,8 @@ msgstr ""
 "此使用者將從參加/候補名單中移除。如果您將其重新加入，原有位置將會遺失。確定要"
 "限制其報名嗎？"
 
-#: src/components/organisms/RSVPSection.re.mjs:432
 #: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:434
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "輸入一個狀態訊息讓大家看到...例如「我將19:00到達」。"
@@ -228,7 +228,7 @@ msgstr "您正在參加"
 msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
-#: src/components/organisms/RSVPSection.re.mjs:649
+#: src/components/organisms/RSVPSection.re.mjs:657
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

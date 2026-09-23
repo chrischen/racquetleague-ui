@@ -25,7 +25,7 @@ msgstr "{0} 小時 {1} 分鐘"
 msgid "Advanced players"
 msgstr "進階球員"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -41,7 +41,7 @@ msgstr "日期待定"
 msgid "Event tag: {tag}"
 msgstr "活動標籤：{tag}"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google 日曆"
 
@@ -88,7 +88,7 @@ msgstr "結果將提交至競技評分。"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技能練習和訓練，專注於技術改進"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "同步日曆"
 

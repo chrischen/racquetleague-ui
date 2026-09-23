@@ -69,10 +69,6 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Computed rating"
 msgstr "Xếp hạng được tính toán"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "Đã xem tất cả"
@@ -150,6 +146,10 @@ msgstr "Chuyên nghiệp"
 msgid "provisional"
 msgstr "tạm thời"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "Xếp hạng"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "Xem xét yêu cầu"
@@ -177,6 +177,10 @@ msgstr "Vuốt trái để bỏ qua · phải để mời"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "Đang chờ duyệt để tham gia"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "Trình độ tự khai"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

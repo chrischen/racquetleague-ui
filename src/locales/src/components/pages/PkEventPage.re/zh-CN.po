@@ -358,10 +358,6 @@ msgstr "场地数："
 msgid "Create event"
 msgstr "创建赛事"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -852,6 +848,10 @@ msgstr "下拉刷新"
 msgid "Rated"
 msgstr "计分赛"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "评分"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
@@ -980,7 +980,7 @@ msgstr "发送邀请"
 msgid "Send message"
 msgstr "发送消息"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "已发送"
 
@@ -1326,6 +1326,10 @@ msgstr "您的报名正在等待管理员审批"
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "达拉斯闪电周边"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自评等级"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

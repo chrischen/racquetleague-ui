@@ -21,27 +21,27 @@ msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)
 msgid "{0} events created!"
 msgstr "Đã tạo {0} sự kiện!"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "Đề xuất hành động"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "Chấp thuận"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "Phê duyệt hoặc từ chối hành động đang chờ để tiếp tục."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "Đã phê duyệt"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -49,7 +49,7 @@ msgstr ""
 "Yêu cầu trợ lý điền thông tin sự kiện. Cuộc trò chuyện của bạn sẽ xuất hiện "
 "ở đây."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "Đang chờ phê duyệt"
 
@@ -92,19 +92,19 @@ msgstr "Đang tạo..."
 msgid "Date:"
 msgstr "Ngày:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "Đã từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "Từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "Mô tả sự kiện"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "Mô tả sự kiện của bạn và tôi sẽ điền vào biểu mẫu…"
 
@@ -116,15 +116,15 @@ msgstr "Mô tả:"
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "Đã thực thi"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "Thực thi thất bại"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "Điền biểu mẫu sự kiện từ mô tả"
 
@@ -132,11 +132,11 @@ msgstr "Điền biểu mẫu sự kiện từ mô tả"
 msgid "Fill form"
 msgstr "Điền biểu mẫu"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "Ẩn lịch sử trò chuyện AI"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "Đang tải lịch sử hội thoại..."
 
@@ -149,7 +149,7 @@ msgstr "Tìm kiếm vị trí hiện không khả dụng"
 msgid "Location:"
 msgstr "Địa điểm:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "Thao tác:"
 
@@ -157,7 +157,7 @@ msgstr "Thao tác:"
 msgid "Search for a venue or address"
 msgstr "Tìm sân hoặc địa chỉ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "Hiện lịch sử trò chuyện AI"
 
@@ -165,7 +165,7 @@ msgstr "Hiện lịch sử trò chuyện AI"
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "Hành động đã hoàn thành nhưng có lỗi GraphQL."
 
@@ -173,7 +173,7 @@ msgstr "Hành động đã hoàn thành nhưng có lỗi GraphQL."
 msgid "Title:"
 msgstr "Tiêu đề:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tục thủ công."
 

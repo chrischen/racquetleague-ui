@@ -139,7 +139,7 @@ msgstr "6小时前"
 msgid "72 hours before"
 msgstr "72小时前"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "操作提案"
 
@@ -172,7 +172,7 @@ msgstr "所有级别"
 msgid "American Samoa Time"
 msgstr "美属萨摩亚时间"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "发生错误，请重试。"
 
@@ -186,15 +186,15 @@ msgstr "处于待定状态的人可以从报名名单中直接移入活动，这
 msgid "Anything players should know before joining or arriving."
 msgstr "球友在报名或到场前需要了解的事项。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "批准"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "请批准或拒绝待处理的操作以继续。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "已批准"
 
@@ -202,7 +202,7 @@ msgstr "已批准"
 msgid "Arizona Time"
 msgstr "亚利桑那时间"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "参与者报名时会保存银行卡。不会自动扣款。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "待审批"
 
@@ -378,19 +378,19 @@ msgstr "日期："
 msgid "Default club activity"
 msgstr "默认俱乐部活动"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "已拒绝"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "拒绝"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "描述活动"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "描述你的活动，我来帮你填写表单…"
 
@@ -493,15 +493,15 @@ msgstr "活动时长最多为 12 小时。"
 msgid "Events must be at least 15 minutes long."
 msgstr "活动时长至少为 15 分钟。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "已执行"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "执行失败"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "根据描述填写活动表单"
 
@@ -529,7 +529,7 @@ msgstr "周五晚匹克球"
 msgid "Hawaii Time"
 msgstr "夏威夷时间"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "隐藏 AI 聊天记录"
 
@@ -570,7 +570,7 @@ msgstr "莱恩群岛时间"
 msgid "List your event publicly to help fill open spots."
 msgstr "公开发布你的活动，帮助填满空位。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "正在加载对话历史..."
 
@@ -640,7 +640,7 @@ msgstr "无限制"
 msgid "No minimum"
 msgstr "无最低限制"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "操作："
 
@@ -701,7 +701,7 @@ msgstr "萨摩亚时间"
 msgid "Search for a venue or address"
 msgstr "搜索场馆或地址"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "显示 AI 聊天记录"
 
@@ -741,7 +741,7 @@ msgstr "建议的活动"
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "该操作已完成，但存在 GraphQL 错误。"
 
@@ -770,7 +770,7 @@ msgstr "必须填写标题"
 msgid "Title:"
 msgstr "标题："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自动步骤请求过多，请手动继续。"
 

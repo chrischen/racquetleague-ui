@@ -178,7 +178,7 @@ msgstr ""
 msgid "Anytime"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr ""
 
@@ -348,7 +348,7 @@ msgstr ""
 msgid "Gender"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr ""
 
@@ -550,7 +550,7 @@ msgstr ""
 msgid "Suggested Events"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr ""
 

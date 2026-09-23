@@ -135,10 +135,6 @@ msgstr "⊡ยืนยันแล้ว · {0}"
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PkRSVPSection.re.mjs:788
 #: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
@@ -305,6 +301,10 @@ msgstr "โปร"
 msgid "provisional"
 msgstr "ชั่วคราว"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "เรตติ้ง"
+
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr "คืนเงิน"
@@ -357,7 +357,7 @@ msgstr "กึ่งอาชีพ"
 msgid "Send invite"
 msgstr "ส่งคำเชิญ"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "ส่งแล้ว"
 
@@ -468,6 +468,10 @@ msgstr ""
 #: src/components/atoms/PaymentIndicator.re.mjs:93
 #~ msgid "Card on file (platform account)"
 #~ msgstr "บัตรที่บันทึกไว้ (บัญชีแพลตฟอร์ม)"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "เรตติ้งที่แจ้งเอง"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

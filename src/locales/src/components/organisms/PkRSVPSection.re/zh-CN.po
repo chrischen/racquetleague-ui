@@ -135,10 +135,6 @@ msgstr "已确认 · {0}"
 msgid "Court"
 msgstr "场地"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PkRSVPSection.re.mjs:788
 #: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
@@ -305,6 +301,10 @@ msgstr "专业"
 msgid "provisional"
 msgstr "临时"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "评分"
+
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr "退款"
@@ -357,7 +357,7 @@ msgstr "半职业"
 msgid "Send invite"
 msgstr "发送邀请"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "已发送"
 
@@ -468,6 +468,10 @@ msgstr ""
 #: src/components/atoms/PaymentIndicator.re.mjs:93
 #~ msgid "Card on file (platform account)"
 #~ msgstr "已绑定银行卡（平台账户）"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自评等级"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-22 01:05+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
+msgstr "Apple iCal"
+
+#: src/components/organisms/RouteModal.re.mjs:40
+msgid "Back"
+msgstr "戻る"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr "カレンダーを同期しました"
+
+#: src/components/organisms/RouteModal.re.mjs:75
+msgid "Close"
+msgstr "閉じる"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
+msgstr "{address} をコピー"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr "イベントを作成"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
+msgstr "イベントを自分で作成するか、コート予約のメールから作成します。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr "手動でイベントを作成"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
+msgstr "メールでイベントを作成"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr "イベントの詳細を自分で入力するか、アシスタントに入力を依頼します。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr ""
+"イベントは{myEvents}に非公開で追加されます。プレイヤーを募集したいときは、い"
+"つでもイベントを公開できます。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr ""
+"予約確認メールを、お使いのメールアドレス {yourEmail} から "
+"{forwardingAddress} に転送してください。"
+
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
+msgstr "Google カレンダー"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+msgid "My Events"
+msgstr "私のイベント"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+msgid "New plan"
+msgstr "新しいプラン"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr ""
+"または、予約時にこのメールアドレス {bookingAddress} を使ってください。確認"
+"メールは {yourEmail} に転送されます。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr "カレンダーを同期"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr ""
+"Pkuru カレンダーを同期すると、新しいイベントがカレンダーアプリに自動で表示さ"
+"れます。"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr ""
+"転送するメールには、レベル、最大人数、料金など、イベントの追加情報を書き添え"
+"ることができます。"

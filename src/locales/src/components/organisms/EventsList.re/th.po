@@ -134,7 +134,7 @@ msgstr "เกิดข้อผิดพลาด โปรดลองอี�
 msgid "Anytime"
 msgstr "เวลาใดก็ได้"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -293,7 +293,7 @@ msgstr "สำหรับการอัปเดตและการแจ้
 msgid "Gender"
 msgstr "เพศ"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
@@ -465,7 +465,7 @@ msgstr "เดี่ยว"
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 

@@ -21,33 +21,33 @@ msgstr "ไม่สามารถสร้าง {0} กิจกรรมไ�
 msgid "{0} events created!"
 msgstr "สร้างกิจกรรมแล้ว {0} กิจกรรม!"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "ข้อเสนอการดำเนินการ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "อนุมัติ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "อนุมัติหรือปฏิเสธการดำเนินการที่รอดำเนินการเพื่อดำเนินการต่อ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "อนุมัติแล้ว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
 msgstr "ขอให้ผู้ช่วยกรอกรายละเอียดอีเวนต์ บทสนทนาของคุณจะแสดงที่นี่"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "รอการอนุมัติ"
 
@@ -90,19 +90,19 @@ msgstr "กำลังสร้าง..."
 msgid "Date:"
 msgstr "วันที่:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "ถูกปฏิเสธ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "ปฏิเสธ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "อธิบายกิจกรรม"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "อธิบายอีเวนต์ของคุณ แล้วฉันจะกรอกแบบฟอร์มให้…"
 
@@ -114,15 +114,15 @@ msgstr "คำอธิบาย:"
 msgid "Event Details"
 msgstr "รายละเอียดกิจกรรม"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "ดำเนินการแล้ว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "การดำเนินการล้มเหลว"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "กรอกแบบฟอร์มกิจกรรมจากคำอธิบาย"
 
@@ -130,11 +130,11 @@ msgstr "กรอกแบบฟอร์มกิจกรรมจากคำ
 msgid "Fill form"
 msgstr "กรอกแบบฟอร์ม"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "ซ่อนประวัติแชท AI"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "กำลังโหลดประวัติการสนทนา..."
 
@@ -147,7 +147,7 @@ msgstr "การค้นหาสถานที่ไม่พร้อมใ
 msgid "Location:"
 msgstr "สถานที่:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "การดำเนินการ:"
 
@@ -155,7 +155,7 @@ msgstr "การดำเนินการ:"
 msgid "Search for a venue or address"
 msgstr "ค้นหาสนามหรือที่อยู่"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "แสดงประวัติแชท AI"
 
@@ -163,7 +163,7 @@ msgstr "แสดงประวัติแชท AI"
 msgid "Suggested Events"
 msgstr "กิจกรรมที่แนะนำ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "การดำเนินการเสร็จสิ้นพร้อมข้อผิดพลาด GraphQL"
 
@@ -171,7 +171,7 @@ msgstr "การดำเนินการเสร็จสิ้นพร้
 msgid "Title:"
 msgstr "ชื่อ:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "มีการร้องขอขั้นตอนอัตโนมัติมากเกินไป กรุณาดำเนินการต่อด้วยตนเอง"
 

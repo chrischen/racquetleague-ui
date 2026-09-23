@@ -10228,3 +10228,65 @@ msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
 msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:285
+msgid "Calendar synced"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:89
+msgid "Copy {address}"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:335
+msgid "Create an event"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:337
+msgid "Create an event yourself, or from a court booking email."
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:353
+msgid "Create Event Manually"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:388
+msgid "Create events by email"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:357
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:410
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:194
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:150
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:285
+msgid "Sync calendar"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:271
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:242
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr ""

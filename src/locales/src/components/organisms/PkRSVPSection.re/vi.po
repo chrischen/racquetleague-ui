@@ -135,10 +135,6 @@ msgstr "Đã xác nhận · {0}"
 msgid "Court"
 msgstr "Sân"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PkRSVPSection.re.mjs:788
 #: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
@@ -307,6 +303,10 @@ msgstr "Chuyên nghiệp"
 msgid "provisional"
 msgstr "tạm thời"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "Xếp hạng"
+
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr "Hoàn tiền"
@@ -359,7 +359,7 @@ msgstr "Bán chuyên"
 msgid "Send invite"
 msgstr "Gửi lời mời"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "đã gửi"
 
@@ -476,6 +476,10 @@ msgstr ""
 #: src/components/atoms/PaymentIndicator.re.mjs:93
 #~ msgid "Card on file (platform account)"
 #~ msgstr "Thẻ đã lưu (tài khoản nền tảng)"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "Trình độ tự khai"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

@@ -275,7 +275,7 @@ msgstr "全レベル"
 msgid "Anytime"
 msgstr "いつでも"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -541,10 +541,6 @@ msgstr "コート数："
 msgid "Create event"
 msgstr "イベントを作成"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -719,7 +715,7 @@ msgstr "性別"
 msgid "Gender not provided"
 msgstr "性別未提供"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google カレンダー"
 
@@ -1163,6 +1159,10 @@ msgstr "引っ張って更新"
 msgid "Rated"
 msgstr "レーティング戦"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "評価"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "試合を再調整"
@@ -1309,7 +1309,7 @@ msgstr "招待を送る"
 msgid "Send message"
 msgstr "メッセージを送信"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "送信済み"
 
@@ -1400,7 +1400,7 @@ msgstr "左にスワイプでスキップ・右にスワイプで招待"
 msgid "Swipe review"
 msgstr "スワイプ審査"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "カレンダー同期"
 
@@ -1814,6 +1814,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/molecules/AIResponseCard.re.mjs:162
 #~ msgid "Date:"
 #~ msgstr "日付:"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "申告レーティング"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

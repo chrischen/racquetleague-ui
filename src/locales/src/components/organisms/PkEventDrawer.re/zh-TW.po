@@ -358,10 +358,6 @@ msgstr "場地數："
 msgid "Create event"
 msgstr "建立賽事"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -851,6 +847,10 @@ msgstr "下拉以重新整理"
 msgid "Rated"
 msgstr "計分賽"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "評分"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
@@ -979,7 +979,7 @@ msgstr "發送邀請"
 msgid "Send message"
 msgstr "傳送訊息"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "已發送"
 
@@ -1271,6 +1271,10 @@ msgstr "您的報名正在等待管理員審核"
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "達拉斯閃電周邊商品"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自我申報評分"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

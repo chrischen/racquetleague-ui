@@ -361,10 +361,6 @@ msgstr "Các sân:"
 msgid "Create event"
 msgstr "Tạo sự kiện"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -861,6 +857,10 @@ msgstr "Kéo để làm mới"
 msgid "Rated"
 msgstr "Có xếp hạng"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "Xếp hạng"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
@@ -989,7 +989,7 @@ msgstr "Gửi lời mời"
 msgid "Send message"
 msgstr "Gửi tin nhắn"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "đã gửi"
 
@@ -1320,6 +1320,10 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "Dallas Flash Swag"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "Trình độ tự khai"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

@@ -69,10 +69,6 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Computed rating"
 msgstr "Xếp hạng được tính toán"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "Đã xem tất cả"
@@ -166,6 +162,10 @@ msgstr "Chuyên nghiệp"
 msgid "provisional"
 msgstr "tạm thời"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "Xếp hạng"
+
 #: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "Xem {0} người chơi tiềm năng bằng thẻ vuốt"
@@ -217,6 +217,10 @@ msgstr "Đang chờ duyệt để tham gia"
 #~ msgstr ""
 #~ "Lịch trống phù hợp với {eventTitle}. Mời họ ngay để giữ chỗ trong cuộc "
 #~ "trò chuyện sự kiện."
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "Trình độ tự khai"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

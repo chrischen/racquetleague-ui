@@ -69,10 +69,6 @@ msgstr "完全な初心者"
 msgid "Computed rating"
 msgstr "算出されたレーティング"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "全員確認済み"
@@ -166,6 +162,10 @@ msgstr "プロ"
 msgid "provisional"
 msgstr "暫定"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "評価"
+
 #: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "スワイプカードで{0}人の候補プレイヤーを確認"
@@ -217,6 +217,10 @@ msgstr "参加承認待ち"
 #~ msgstr ""
 #~ "{eventTitle}の参加可能時間が合うプレイヤーです。今すぐ招待してイベントの会"
 #~ "話に参加させましょう。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "申告レーティング"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

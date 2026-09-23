@@ -134,7 +134,7 @@ msgstr "发生错误，请重试。"
 msgid "Anytime"
 msgstr "任意时间"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -295,7 +295,7 @@ msgstr "用于活动更新和通知"
 msgid "Gender"
 msgstr "性别"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "谷歌日历"
 
@@ -467,7 +467,7 @@ msgstr "单打"
 msgid "Suggested Events"
 msgstr "建议的活动"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "同步日历"
 

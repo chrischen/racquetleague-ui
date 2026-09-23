@@ -69,10 +69,6 @@ msgstr "完全初学者"
 msgid "Computed rating"
 msgstr "计算评级"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "已全部查看"
@@ -150,6 +146,10 @@ msgstr "专业"
 msgid "provisional"
 msgstr "临时"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "评分"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "审核请求"
@@ -177,6 +177,10 @@ msgstr "左滑跳过 · 右滑邀请"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "等待加入审批"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自评等级"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

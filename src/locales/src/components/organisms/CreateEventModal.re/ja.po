@@ -140,7 +140,7 @@ msgstr "6時間前まで"
 msgid "72 hours before"
 msgstr "72時間前"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "アクションの提案"
 
@@ -173,7 +173,7 @@ msgstr "全レベル"
 msgid "American Samoa Time"
 msgstr "米領サモア時間"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "エラーが発生しました。もう一度お試しください。"
 
@@ -189,15 +189,15 @@ msgstr ""
 msgid "Anything players should know before joining or arriving."
 msgstr "参加または来場前にプレーヤーが知っておくべきこと。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "承認"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "続行するには、保留中のアクションを承認または拒否してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "承認済み"
 
@@ -205,7 +205,7 @@ msgstr "承認済み"
 msgid "Arizona Time"
 msgstr "アリゾナ時間"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "参加者はRSVP時にカードを保存します。自動で請求されることはありません。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "承認待ち"
 
@@ -392,15 +392,15 @@ msgstr "日付:"
 msgid "Default club activity"
 msgstr "デフォルトのクラブアクティビティ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "拒否済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "拒否"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "イベントを説明"
 
@@ -408,7 +408,7 @@ msgstr "イベントを説明"
 msgid "Describe the event to draft it, or fill in the details."
 msgstr "イベントを説明して下書きを作成するか、詳細を入力してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "イベントの内容を教えてください。フォームを入力します…"
 
@@ -511,15 +511,15 @@ msgstr "イベントは最長12時間です。"
 msgid "Events must be at least 15 minutes long."
 msgstr "イベントは15分以上に設定してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "実行済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "実行失敗"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "説明からイベントフォームを入力"
 
@@ -547,7 +547,7 @@ msgstr "金曜夜のピックルボール"
 msgid "Hawaii Time"
 msgstr "ハワイ時間"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "AIチャット履歴を非表示"
 
@@ -588,7 +588,7 @@ msgstr "ライン諸島時間"
 msgid "List your event publicly to help fill open spots."
 msgstr "イベントを公開して空き枠を埋めましょう。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "会話履歴を読み込み中..."
 
@@ -662,7 +662,7 @@ msgstr "制限なし"
 msgid "No minimum"
 msgstr "制限なし"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "操作："
 
@@ -723,7 +723,7 @@ msgstr "サモア時間"
 msgid "Search for a venue or address"
 msgstr "会場または住所を検索"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "AIチャット履歴を表示"
 
@@ -763,7 +763,7 @@ msgstr "提案されたイベント"
 msgid "Tap to add your time"
 msgstr "タップして時間を追加"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "アクションはGraphQLエラーで完了しました。"
 
@@ -792,7 +792,7 @@ msgstr "タイトルが必要です"
 msgid "Title:"
 msgstr "タイトル:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動ステップの要求が多すぎます。手動で続行してください。"
 

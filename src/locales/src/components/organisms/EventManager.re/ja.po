@@ -87,7 +87,7 @@ msgstr "プレイヤーシードを調整"
 msgid "Advance to Next Round"
 msgstr "次のラウンドへ進む"
 
-#: src/components/organisms/EventManager.re.mjs:2612
+#: src/components/organisms/EventManager.re.mjs:2632
 msgid "Advance to Round {0}"
 msgstr "ラウンド{0}に進む"
 
@@ -103,7 +103,7 @@ msgstr "アレックス・ジョンソン"
 msgid "All checked-in players are already in this round"
 msgstr "チェックイン済みのプレイヤーは全員このラウンドに参加しています"
 
-#: src/components/organisms/EventManager.re.mjs:2443
+#: src/components/organisms/EventManager.re.mjs:2463
 msgid "all up to date"
 msgstr "すべて最新"
 
@@ -111,7 +111,7 @@ msgstr "すべて最新"
 msgid "Alternate favourite/underdog roles"
 msgstr "お気に入り／アンダードッグの役割を交互に"
 
-#: src/components/organisms/EventManager.re.mjs:2721
+#: src/components/organisms/EventManager.re.mjs:2741
 msgid "Anti-Team {0}"
 msgstr "アンチチーム {0}"
 
@@ -157,11 +157,11 @@ msgstr "キャリブレーション中"
 #: src/components/organisms/TeamManagementModal.re.mjs:152
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:127
 #: src/components/organisms/EventStateImportModal.re.mjs:135
-#: src/components/organisms/EventManager.re.mjs:459
+#: src/components/organisms/EventManager.re.mjs:460
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventManager.re.mjs:513
+#: src/components/organisms/EventManager.re.mjs:514
 msgid "Changes aren't being saved"
 msgstr "変更は保存されていません"
 
@@ -198,7 +198,7 @@ msgstr "競技+"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/EventManager.re.mjs:339
+#: src/components/organisms/EventManager.re.mjs:340
 msgid "Connecting…"
 msgstr "接続中…"
 
@@ -259,19 +259,19 @@ msgstr "カスタム"
 msgid "Customize from here"
 msgstr "ここからカスタマイズ"
 
-#: src/components/organisms/EventManager.re.mjs:2971
+#: src/components/organisms/EventManager.re.mjs:2991
 msgid "Debug: OFF"
 msgstr "デバッグ：オフ"
 
-#: src/components/organisms/EventManager.re.mjs:2971
+#: src/components/organisms/EventManager.re.mjs:2991
 msgid "Debug: ON"
 msgstr "デバッグ：オン"
 
-#: src/components/organisms/EventManager.re.mjs:466
+#: src/components/organisms/EventManager.re.mjs:467
 msgid "Delete all data"
 msgstr "すべてのデータを削除"
 
-#: src/components/organisms/EventManager.re.mjs:395
+#: src/components/organisms/EventManager.re.mjs:396
 msgid "Delete all saved event data?"
 msgstr "保存済みのイベントデータをすべて削除しますか？"
 
@@ -297,9 +297,9 @@ msgstr "この試合を削除しますか？"
 msgid "Deterministic"
 msgstr "決定論的"
 
-#: src/components/organisms/EventManager.re.mjs:278
-#: src/components/organisms/EventManager.re.mjs:551
-#: src/components/organisms/EventManager.re.mjs:2515
+#: src/components/organisms/EventManager.re.mjs:279
+#: src/components/organisms/EventManager.re.mjs:552
+#: src/components/organisms/EventManager.re.mjs:2535
 msgid "Dismiss"
 msgstr "閉じる"
 
@@ -365,14 +365,14 @@ msgstr ""
 "全員がローテーション：毎ラウンド新鮮なパートナーと対戦相手、多様性のための"
 "ミックスが必要になるまで最も競争力のある対戦を優先します。"
 
-#: src/components/organisms/EventManager.re.mjs:453
+#: src/components/organisms/EventManager.re.mjs:454
 msgid "Everything stored on this device is already synced to the server."
 msgstr ""
 "このデバイスに保存されているすべてのデータは、すでにサーバーと同期されていま"
 "す。"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2923
+#: src/components/organisms/EventManager.re.mjs:2943
 msgid "Export History"
 msgstr "履歴をエクスポート"
 
@@ -396,11 +396,11 @@ msgstr "女性"
 msgid "Free"
 msgstr "無料"
 
-#: src/components/organisms/EventManager.re.mjs:531
+#: src/components/organisms/EventManager.re.mjs:532
 msgid "Free up space"
 msgstr "空き容量を確保"
 
-#: src/components/organisms/EventManager.re.mjs:287
+#: src/components/organisms/EventManager.re.mjs:288
 msgid "Free Up Space"
 msgstr "空き容量を確保"
 
@@ -440,7 +440,7 @@ msgid "Generate Draws"
 msgstr "組み合わせを生成"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1928
+#: src/components/organisms/EventManager.re.mjs:1948
 msgid "Generating…"
 msgstr "生成中…"
 
@@ -460,7 +460,7 @@ msgstr "ゲスト名（1行に1名）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
 
-#: src/components/organisms/EventManager.re.mjs:2959
+#: src/components/organisms/EventManager.re.mjs:2979
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -469,7 +469,7 @@ msgid "Import"
 msgstr "インポート"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2933
+#: src/components/organisms/EventManager.re.mjs:2953
 msgid "Import History"
 msgstr "履歴をインポート"
 
@@ -593,7 +593,7 @@ msgstr "チームがまだありません"
 msgid "Not paid"
 msgstr "未払い"
 
-#: src/components/organisms/EventManager.re.mjs:318
+#: src/components/organisms/EventManager.re.mjs:319
 msgid "Not saved"
 msgstr "未保存"
 
@@ -611,12 +611,12 @@ msgstr ""
 msgid "Opponent variety"
 msgstr "対戦相手の多様性"
 
-#: src/components/organisms/EventManager.re.mjs:2511
+#: src/components/organisms/EventManager.re.mjs:2531
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 "オプティマイザー利用不可 — このドローには標準マッチメイキングを使用しました。"
 
-#: src/components/organisms/EventManager.re.mjs:423
+#: src/components/organisms/EventManager.re.mjs:424
 msgid "Other events on this device"
 msgstr "このデバイス上の他のイベント"
 
@@ -665,7 +665,7 @@ msgstr ""
 "プレイヤーは同じスキルレベルのグループに分けられ、スキルでバランスされたチー"
 "ムで総当たり戦を行います。"
 
-#: src/components/organisms/EventManager.re.mjs:1928
+#: src/components/organisms/EventManager.re.mjs:1948
 msgid "Preparing optimizer…"
 msgstr "オプティマイザーを準備中…"
 
@@ -681,7 +681,7 @@ msgstr "前のラウンド"
 msgid "Print"
 msgstr "印刷"
 
-#: src/components/organisms/EventManager.re.mjs:2410
+#: src/components/organisms/EventManager.re.mjs:2430
 msgid "Print Draws"
 msgstr "トーナメント表を印刷"
 
@@ -733,7 +733,7 @@ msgstr "プレイヤーを交代"
 msgid "Replacing:"
 msgstr "交代するプレイヤー："
 
-#: src/components/organisms/EventManager.re.mjs:2942
+#: src/components/organisms/EventManager.re.mjs:2962
 msgid "Reset Storage"
 msgstr "ストレージをリセット"
 
@@ -749,7 +749,7 @@ msgstr "混合ペアでこのラウンドをリセット"
 msgid "Reset to preset"
 msgstr "プリセットにリセット"
 
-#: src/components/organisms/EventManager.re.mjs:543
+#: src/components/organisms/EventManager.re.mjs:544
 msgid "Retry"
 msgstr "再試行"
 
@@ -812,11 +812,11 @@ msgstr "シード調整を保存"
 msgid "Save Team"
 msgstr "チームを保存"
 
-#: src/components/organisms/EventManager.re.mjs:332
+#: src/components/organisms/EventManager.re.mjs:333
 msgid "Saved"
 msgstr "保存済み"
 
-#: src/components/organisms/EventManager.re.mjs:326
+#: src/components/organisms/EventManager.re.mjs:327
 msgid "Saving…"
 msgstr "保存中…"
 
@@ -832,7 +832,7 @@ msgstr ""
 "スコア済みの試合とレーティング調整のみ。別のデバイスの「履歴をインポート」に"
 "貼り付けてください。"
 
-#: src/components/organisms/EventManager.re.mjs:2365
+#: src/components/organisms/EventManager.re.mjs:2385
 msgid "Scores Synced!"
 msgstr "スコアを同期しました！"
 
@@ -880,11 +880,11 @@ msgstr "スキップ（このイベントにいない選手）"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "コートを埋めるためにルールを一部調整しました"
 
-#: src/components/organisms/EventManager.re.mjs:2906
+#: src/components/organisms/EventManager.re.mjs:2926
 msgid "Sports Event Draws"
 msgstr "スポーツイベントのドロー"
 
-#: src/components/organisms/EventManager.re.mjs:256
+#: src/components/organisms/EventManager.re.mjs:257
 msgid "Storage Almost Full"
 msgstr "ストレージがほぼいっぱい"
 
@@ -896,24 +896,24 @@ msgstr "戦略"
 msgid "Strategy:"
 msgstr "戦略："
 
-#: src/components/organisms/EventManager.re.mjs:2377
+#: src/components/organisms/EventManager.re.mjs:2397
 msgid "Sync Failed"
 msgstr "同期に失敗しました"
 
-#: src/components/organisms/EventManager.re.mjs:2341
+#: src/components/organisms/EventManager.re.mjs:2361
 msgid "Sync Scores"
 msgstr "スコアを同期"
 
-#: src/components/organisms/EventManager.re.mjs:2437
+#: src/components/organisms/EventManager.re.mjs:2457
 msgid "synced"
 msgstr "同期済み"
 
-#: src/components/organisms/EventManager.re.mjs:2353
+#: src/components/organisms/EventManager.re.mjs:2373
 msgid "Syncing... {0}%"
 msgstr "同期中... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2272
+#: src/components/organisms/EventManager.re.mjs:2292
 msgid "Team {0}"
 msgstr "チーム {0}"
 
@@ -970,11 +970,11 @@ msgstr ""
 "これらの値はレーティングに基づいて自動的に設定されています。手動で調整するに"
 "は現在のミックスを固定してください — このイベントへの自動適応が停止されます。"
 
-#: src/components/organisms/EventManager.re.mjs:749
+#: src/components/organisms/EventManager.re.mjs:750
 msgid "this club"
 msgstr "このクラブ"
 
-#: src/components/organisms/EventManager.re.mjs:402
+#: src/components/organisms/EventManager.re.mjs:403
 msgid ""
 "This deletes the saved data for every event on this device, including this "
 "one. Events already synced to the server can be reopened; anything unsynced "
@@ -988,7 +988,7 @@ msgstr ""
 msgid "This will delete all future rounds and generate new matches"
 msgstr "すべての今後のラウンドを削除して新しい試合を生成します"
 
-#: src/components/organisms/EventManager.re.mjs:450
+#: src/components/organisms/EventManager.re.mjs:451
 msgid ""
 "Those scores have not reached the server. Sync this event before deleting, "
 "or they will be lost."
@@ -996,7 +996,7 @@ msgstr ""
 "これらのスコアはサーバーに届いていません。削除前にこのイベントを同期してくだ"
 "さい。同期しない場合、データは失われます。"
 
-#: src/components/organisms/EventManager.re.mjs:450
+#: src/components/organisms/EventManager.re.mjs:451
 msgid ""
 "Those scores have not reached the server. Sync this event, and open each "
 "other event and sync it, before deleting — otherwise they are lost."
@@ -1008,7 +1008,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "狭いバンド"
 
-#: src/components/organisms/EventManager.re.mjs:2439
+#: src/components/organisms/EventManager.re.mjs:2459
 msgid "to sync"
 msgstr "同期する"
 
@@ -1016,11 +1016,11 @@ msgstr "同期する"
 msgid "Tournament Draws"
 msgstr "トーナメント表"
 
-#: src/components/organisms/EventManager.re.mjs:410
+#: src/components/organisms/EventManager.re.mjs:411
 msgid "Unsynced scores in this event"
 msgstr "このイベントの未同期スコア"
 
-#: src/components/organisms/EventManager.re.mjs:436
+#: src/components/organisms/EventManager.re.mjs:437
 msgid "Unsynced scores in those events"
 msgstr "これらのイベントの未同期スコア"
 
@@ -1054,7 +1054,7 @@ msgstr "現在生成中のドローが完了するまでお待ちください。
 msgid "Winning Team (Team {0})"
 msgstr "勝利チーム（チーム{0}）"
 
-#: src/components/organisms/EventManager.re.mjs:495
+#: src/components/organisms/EventManager.re.mjs:496
 msgid ""
 "Your browser is blocking storage for this site. If you're in a private "
 "window, switch to a normal one; otherwise allow site data and reload."
@@ -1063,7 +1063,7 @@ msgstr ""
 "をご利用の場合は通常のウィンドウに切り替えてください。そうでない場合はサイト"
 "データを許可してページをリロードしてください。"
 
-#: src/components/organisms/EventManager.re.mjs:498
+#: src/components/organisms/EventManager.re.mjs:499
 msgid ""
 "Your browser is out of storage space. Clear old event data to free up space, "
 "then retry."
@@ -1071,7 +1071,7 @@ msgstr ""
 "ブラウザのストレージ容量が不足しています。古いイベントデータを削除して空き容"
 "量を確保してから、再試行してください。"
 
-#: src/components/organisms/EventManager.re.mjs:501
+#: src/components/organisms/EventManager.re.mjs:502
 msgid ""
 "Your browser refused to save this event. Reload the page or retry — if it "
 "keeps failing, avoid refreshing until scores are synced."
@@ -1080,7 +1080,7 @@ msgstr ""
 "ください。問題が続く場合は、スコアが同期されるまでページの更新を避けてくださ"
 "い。"
 
-#: src/components/organisms/EventManager.re.mjs:263
+#: src/components/organisms/EventManager.re.mjs:264
 msgid ""
 "Your browser storage is {0}% full. The app may lose data if storage runs "
 "out. Freeing space clears saved data for every event on this device — you'll "

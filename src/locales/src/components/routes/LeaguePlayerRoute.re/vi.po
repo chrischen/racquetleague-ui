@@ -41,7 +41,7 @@ msgstr "Đối tác đôi tốt nhất"
 msgid "Current Rating"
 msgstr "Xếp hạng hiện tại"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:934
 msgid "Days at #1"
 msgstr "Số ngày ở vị trí #1"
 
@@ -63,11 +63,11 @@ msgid "Elevates weaker partners"
 msgstr "Nâng cao đối tác yếu hơn"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:384
-#: src/components/pages/LeaguePlayerPage.re.mjs:962
-#: src/components/pages/LeaguePlayerPage.re.mjs:1008
-#: src/components/pages/LeaguePlayerPage.re.mjs:1061
-#: src/components/pages/LeaguePlayerPage.re.mjs:1114
-#: src/components/pages/LeaguePlayerPage.re.mjs:1208
+#: src/components/pages/LeaguePlayerPage.re.mjs:963
+#: src/components/pages/LeaguePlayerPage.re.mjs:1009
+#: src/components/pages/LeaguePlayerPage.re.mjs:1062
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#: src/components/pages/LeaguePlayerPage.re.mjs:1209
 msgid "Estimated DUPR"
 msgstr "DUPR ước tính"
 
@@ -75,11 +75,11 @@ msgstr "DUPR ước tính"
 msgid "Even"
 msgstr "Đều"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1188
+#: src/components/pages/LeaguePlayerPage.re.mjs:1189
 msgid "Gym"
 msgstr "Nhà thi đấu"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1173
+#: src/components/pages/LeaguePlayerPage.re.mjs:1174
 msgid "Hard Court"
 msgstr "Sân cứng"
 
@@ -87,7 +87,7 @@ msgstr "Sân cứng"
 msgid "Load more matches..."
 msgstr "Tải thêm trận đấu..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1283
+#: src/components/pages/LeaguePlayerPage.re.mjs:1284
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -96,11 +96,11 @@ msgstr "Đang tải..."
 msgid "LOSS"
 msgstr "THUA"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1023
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Men's Doubles"
 msgstr "Đôi nam"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1076
+#: src/components/pages/LeaguePlayerPage.re.mjs:1077
 msgid "Mixed Doubles"
 msgstr "Đôi hỗn hợp"
 
@@ -146,7 +146,7 @@ msgstr "Lịch sử xếp hạng"
 msgid "Rating:"
 msgstr "Đánh giá:"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1274
+#: src/components/pages/LeaguePlayerPage.re.mjs:1275
 msgid "Recent Matches"
 msgstr "Trận đấu gần đây"
 
@@ -183,11 +183,11 @@ msgstr "Yếu chống lại"
 msgid "WIN"
 msgstr "THẮNG"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1129
+#: src/components/pages/LeaguePlayerPage.re.mjs:1130
 msgid "Women's Doubles"
 msgstr "Đôi nữ"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:976
+#: src/components/pages/LeaguePlayerPage.re.mjs:977
 msgid "Women's Rating"
 msgstr "Điểm xếp hạng nữ"
 

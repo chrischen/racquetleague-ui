@@ -15,7 +15,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1481
-#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:109
 msgid "Badminton"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1489
-#: src/components/pages/PkuruLayout.re.mjs:105
+#: src/components/pages/PkuruLayout.re.mjs:101
 msgid "Pickleball"
 msgstr ""
 
@@ -134,8 +134,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:232
-msgid "1 · Day"
-msgstr ""
+#~ msgid "1 · Day"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1141
 msgid "1 hour before"
@@ -150,8 +150,8 @@ msgid "12 hours before"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:271
-msgid "2 · Time"
-msgstr ""
+#~ msgid "2 · Time"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1145
 msgid "2 hours before"
@@ -162,8 +162,8 @@ msgid "24 hours before"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:336
-msgid "3 · What kind?"
-msgstr ""
+#~ msgid "3 · What kind?"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1161
 msgid "48 hours before"
@@ -181,7 +181,7 @@ msgstr ""
 #~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr ""
 
@@ -203,12 +203,12 @@ msgid "Added to Event"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:42
-msgid "Advanced"
-msgstr ""
+#~ msgid "Advanced"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:92
-msgid "Afternoon"
-msgstr ""
+#~ msgid "Afternoon"
+#~ msgstr ""
 
 #: src/components/pages/CreateEventPage.re.mjs:289
 msgid "AI-assisted event form"
@@ -226,7 +226,7 @@ msgstr ""
 msgid "American Samoa Time"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr ""
 
@@ -247,10 +247,14 @@ msgid "Anything players should know before joining or arriving."
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:80
-msgid "Anytime"
+#~ msgid "Anytime"
+#~ msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr ""
 
@@ -258,11 +262,11 @@ msgstr ""
 #~ msgid "Approve or deny the pending action to continue"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr ""
 
@@ -270,7 +274,7 @@ msgstr ""
 msgid "Arizona Time"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid "Ask the assistant to fill in event details. Your conversation will appear here."
 msgstr ""
 
@@ -302,11 +306,11 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:258
+#: src/components/pages/PkuruLayout.re.mjs:254
 msgid "Availability"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr ""
 
@@ -315,16 +319,16 @@ msgid "Back"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:27
-msgid "Beginner"
-msgstr ""
+#~ msgid "Beginner"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:532
-msgid "Biography"
-msgstr ""
+#~ msgid "Biography"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:119
-msgid "Biography is required"
-msgstr ""
+#~ msgid "Biography is required"
+#~ msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:205
 msgid "Brief description of the club..."
@@ -333,6 +337,10 @@ msgstr ""
 #: src/components/pages/PkuruLayout.re.mjs:103
 #~ msgid "Browse"
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
 msgid "Cancel"
@@ -375,8 +383,8 @@ msgid "Close"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:465
-msgid "Close profile form"
-msgstr ""
+#~ msgid "Close profile form"
+#~ msgstr ""
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
@@ -399,7 +407,7 @@ msgid "club-name"
 msgstr ""
 
 #: src/components/organisms/NavViewer.re.mjs:65
-#: src/components/pages/PkuruLayout.re.mjs:304
+#: src/components/pages/PkuruLayout.re.mjs:300
 msgid "Clubs"
 msgstr ""
 
@@ -409,16 +417,16 @@ msgid "Competitive"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:22
-msgid "Complete Beginner"
-msgstr ""
+#~ msgid "Complete Beginner"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:449
-msgid "Complete your player profile"
-msgstr ""
+#~ msgid "Complete your player profile"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:311
-msgid "Complete your profile before sharing availability with players and hosts."
-msgstr ""
+#~ msgid "Complete your profile before sharing availability with players and hosts."
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:790
 #~ msgid "Connect a Stripe account to activate"
@@ -429,8 +437,8 @@ msgid "Connect a Stripe account to enable this"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:406
-msgid "Continue"
-msgstr ""
+#~ msgid "Continue"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Continue the conversation"
@@ -438,6 +446,10 @@ msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:122
 msgid "Coordinated Universal Time"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
 msgstr ""
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
@@ -454,8 +466,8 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:271
 #: src/components/organisms/ProfileModal.re.mjs:291
 #: src/components/organisms/ProfileModal.re.mjs:301
-msgid "Could not save your profile. Please try again."
-msgstr ""
+#~ msgid "Could not save your profile. Please try again."
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
@@ -470,11 +482,19 @@ msgid "Couldn't find this location — pick it:"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:401
-msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
-msgstr ""
+#~ msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
 msgstr ""
 
 #: src/components/organisms/CreateClubForm.re.mjs:300
@@ -484,6 +504,14 @@ msgstr ""
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1467
 #: src/components/organisms/CreateEventModal.re.mjs:79
 msgid "Create event"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
 msgstr ""
 
 #: src/components/pages/CreateEventPage.re.mjs:280
@@ -515,15 +543,15 @@ msgstr ""
 msgid "Default club activity"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr ""
 
@@ -535,7 +563,7 @@ msgstr ""
 #~ msgid "Describe the event to generate a draft"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr ""
 
@@ -551,18 +579,18 @@ msgstr ""
 msgid "Description:"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:294
-#: src/components/pages/PkuruLayout.re.mjs:659
+#: src/components/pages/PkuruLayout.re.mjs:290
+#: src/components/pages/PkuruLayout.re.mjs:655
 msgid "Discover"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:482
-msgid "Display name"
-msgstr ""
+#~ msgid "Display name"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:111
-msgid "Display name is required"
-msgstr ""
+#~ msgid "Display name is required"
+#~ msgstr ""
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:276
 #: src/components/molecules/TimeZoneField.re.mjs:203
@@ -570,8 +598,8 @@ msgid "Done"
 msgstr ""
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:55
-msgid "doubles"
-msgstr ""
+#~ msgid "doubles"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Draft filled in. Review the details before creating the event."
@@ -636,16 +664,16 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:369
-msgid "Email address"
-msgstr ""
+#~ msgid "Email address"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:286
-msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
-msgstr ""
+#~ msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:114
-msgid "Email is required"
-msgstr ""
+#~ msgid "Email is required"
+#~ msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
@@ -671,9 +699,13 @@ msgstr ""
 msgid "Enter price"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:98
-msgid "Evening"
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr ""
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+#~ msgid "Evening"
+#~ msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
@@ -720,6 +752,10 @@ msgstr ""
 #~ msgid "Events"
 #~ msgstr ""
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
+msgstr ""
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "Events can be up to 12 hours long."
 msgstr ""
@@ -728,19 +764,19 @@ msgstr ""
 msgid "Events must be at least 15 minutes long."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:506
-msgid "Female"
-msgstr ""
+#~ msgid "Female"
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr ""
 
@@ -753,8 +789,8 @@ msgid "Find players for your event?"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:362
-msgid "For event updates and notifications"
-msgstr ""
+#~ msgid "For event updates and notifications"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1446
 msgid "Format"
@@ -764,12 +800,20 @@ msgstr ""
 msgid "Format options"
 msgstr ""
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
+msgstr ""
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:760
 msgid "Friday night pickleball"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:496
-msgid "Gender"
+#~ msgid "Gender"
+#~ msgstr ""
+
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
 msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:116
@@ -784,7 +828,7 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr ""
 
@@ -805,20 +849,20 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:394
-msgid "Host an event"
-msgstr ""
+#~ msgid "Host an event"
+#~ msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:424
-msgid "Hosting an event needs exactly one time window — pick one."
-msgstr ""
+#~ msgid "Hosting an event needs exactly one time window — pick one."
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:485
-msgid "How other players will see you"
-msgstr ""
+#~ msgid "How other players will see you"
+#~ msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
@@ -851,12 +895,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:32
-msgid "Intermediate"
-msgstr ""
+#~ msgid "Intermediate"
+#~ msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:37
-msgid "Intermediate+"
-msgstr ""
+#~ msgid "Intermediate+"
+#~ msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Invited to Event"
@@ -879,14 +923,14 @@ msgid "Keep current location"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:314
-msgid "Keep your player profile accurate and useful to the community."
-msgstr ""
+#~ msgid "Keep your player profile accurate and useful to the community."
+#~ msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:88
 msgid "Korea Time"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:315
+#: src/components/pages/PkuruLayout.re.mjs:311
 msgid "Leaderboard"
 msgstr ""
 
@@ -895,8 +939,8 @@ msgid "Left Event"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:547
-msgid "Level"
-msgstr ""
+#~ msgid "Level"
+#~ msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
@@ -910,14 +954,14 @@ msgstr ""
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr ""
 
 #: src/components/organisms/CreateEventModal.re.mjs:74
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
-#: src/components/pages/PkuruLayout.re.mjs:1020
-#: src/components/pages/PkuruLayout.re.mjs:1117
+#: src/components/pages/PkuruLayout.re.mjs:1013
+#: src/components/pages/PkuruLayout.re.mjs:1085
 msgid "Loading..."
 msgstr ""
 
@@ -953,20 +997,20 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:502
-msgid "Male"
-msgstr ""
+#~ msgid "Male"
+#~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:669
+#: src/components/pages/PkuruLayout.re.mjs:665
 msgid "Map"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:325
+#: src/components/pages/PkuruLayout.re.mjs:321
 msgid "Map view"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:356
-msgid "Mark available"
-msgstr ""
+#~ msgid "Mark available"
+#~ msgstr ""
 
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 #~ msgid "Match my time"
@@ -981,8 +1025,8 @@ msgid "Minimum rating"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:86
-msgid "Morning"
-msgstr ""
+#~ msgid "Morning"
+#~ msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
@@ -1004,15 +1048,16 @@ msgstr ""
 #~ msgid "My Clubs"
 #~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:185
+#: src/components/pages/PkuruLayout.re.mjs:181
 msgid "My events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:698
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:694
 msgid "My Events"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:683
+#: src/components/pages/PkuruLayout.re.mjs:679
 msgid "New"
 msgstr ""
 
@@ -1020,12 +1065,12 @@ msgstr ""
 msgid "New Comment"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:499
+#: src/components/pages/PkuruLayout.re.mjs:495
 msgid "New event"
 msgstr ""
 
-#: src/components/organisms/NewPlanModal.re.mjs:203
 #: src/components/organisms/CreateEventModal.re.mjs:80
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
 msgid "New plan"
 msgstr ""
 
@@ -1066,22 +1111,22 @@ msgid "No notifications"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:583
-msgid "Not now"
-msgstr ""
+#~ msgid "Not now"
+#~ msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr ""
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:196
-#: src/components/pages/PkuruLayout.re.mjs:533
+#: src/components/pages/PkuruLayout.re.mjs:192
+#: src/components/pages/PkuruLayout.re.mjs:529
 msgid "Notifications"
 msgstr ""
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:26
-msgid "NR"
-msgstr ""
+#~ msgid "NR"
+#~ msgstr ""
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
@@ -1091,8 +1136,12 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid "Or use this email {bookingAddress} when booking. We’ll forward the confirmation to {yourEmail}."
 msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:78
@@ -1107,13 +1156,13 @@ msgstr ""
 msgid "Participation fee"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:174
+#: src/components/pages/PkuruLayout.re.mjs:170
 msgid "Personal"
 msgstr ""
 
 #: src/components/molecules/RatingSourceChip.re.mjs:25
-msgid "pkuru"
-msgstr ""
+#~ msgid "pkuru"
+#~ msgstr ""
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
@@ -1128,18 +1177,18 @@ msgid "Private event"
 msgstr ""
 
 #: src/components/molecules/LevelPicker.re.mjs:47
-msgid "Pro"
-msgstr ""
+#~ msgid "Pro"
+#~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:207
-#: src/components/pages/PkuruLayout.re.mjs:708
+#: src/components/pages/PkuruLayout.re.mjs:203
+#: src/components/pages/PkuruLayout.re.mjs:704
 msgid "Profile"
 msgstr ""
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:37
 #: src/components/molecules/RatingSourceChip.re.mjs:50
-msgid "provisional"
-msgstr ""
+#~ msgid "provisional"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:719
 msgid "Public"
@@ -1187,12 +1236,12 @@ msgid "Samoa Time"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:372
-msgid "Save"
-msgstr ""
+#~ msgid "Save"
+#~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:597
-msgid "Save profile"
-msgstr ""
+#~ msgid "Save profile"
+#~ msgstr ""
 
 #: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
@@ -1207,12 +1256,12 @@ msgid "Search for a venue or address"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:416
-msgid "Select exactly one time window to host an event"
-msgstr ""
+#~ msgid "Select exactly one time window to host an event"
+#~ msgstr ""
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
-msgid "Self-rated"
-msgstr ""
+#~ msgid "Self-rated"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
 #~ msgid "Send"
@@ -1223,10 +1272,10 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:535
-msgid "Share a little about yourself so organizers or other players can see why they should invite you."
-msgstr ""
+#~ msgid "Share a little about yourself so organizers or other players can see why they should invite you."
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr ""
 
@@ -1239,8 +1288,8 @@ msgid "Singapore Time"
 msgstr ""
 
 #: src/components/molecules/DuprRatingBadge.re.mjs:69
-msgid "singles"
-msgstr ""
+#~ msgid "singles"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1057
 msgid "Skill level"
@@ -1254,7 +1303,7 @@ msgstr ""
 msgid "Solomon Islands Time"
 msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:226
+#: src/components/pages/PkuruLayout.re.mjs:222
 msgid "Sports"
 msgstr ""
 
@@ -1286,6 +1335,14 @@ msgstr ""
 msgid "Suggested Events"
 msgstr ""
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid "Sync your Pkuru calendar so new events appear automatically in your calendar app."
+msgstr ""
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:411
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr ""
@@ -1299,10 +1356,10 @@ msgid "Tap to add your time"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:363
-msgid "Tell others you're down to play. Players with overlapping times can invite you."
-msgstr ""
+#~ msgid "Tell others you're down to play. Players with overlapping times can invite you."
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr ""
 
@@ -1336,14 +1393,14 @@ msgid "Title:"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:55
-msgid "Today"
-msgstr ""
+#~ msgid "Today"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:51
-msgid "Tomorrow"
-msgstr ""
+#~ msgid "Tomorrow"
+#~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr ""
 
@@ -1364,8 +1421,8 @@ msgid "View all notifications"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:308
-msgid "We need a few details before you can join this event"
-msgstr ""
+#~ msgid "We need a few details before you can join this event"
+#~ msgstr ""
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "We’ll turn your description into a draft you can review and edit."
@@ -1380,8 +1437,8 @@ msgid "Western Australia Time"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:207
-msgid "When do you want to play?"
-msgstr ""
+#~ msgid "When do you want to play?"
+#~ msgstr ""
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:853
 msgid "With a Stripe account"
@@ -1398,3 +1455,7 @@ msgstr ""
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"
 #~ msgstr ""
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
+msgstr ""

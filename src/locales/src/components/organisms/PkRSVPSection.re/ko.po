@@ -135,10 +135,6 @@ msgstr "확인됨 · {0}"
 msgid "Court"
 msgstr "코트"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PkRSVPSection.re.mjs:788
 #: src/components/organisms/PkRSVPSection.re.mjs:805
 msgid "DUPR"
@@ -306,6 +302,10 @@ msgstr "프로"
 msgid "provisional"
 msgstr "잠정"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "레이팅"
+
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr "결제 환불"
@@ -358,7 +358,7 @@ msgstr "세미프로"
 msgid "Send invite"
 msgstr "초대 보내기"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "전송됨"
 
@@ -473,6 +473,10 @@ msgstr ""
 #: src/components/atoms/PaymentIndicator.re.mjs:93
 #~ msgid "Card on file (platform account)"
 #~ msgstr "등록된 카드 (플랫폼 계정)"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "선언한 실력 등급"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

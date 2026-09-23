@@ -134,7 +134,7 @@ msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 msgid "Anytime"
 msgstr "Bất kỳ lúc nào"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -299,7 +299,7 @@ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
@@ -473,7 +473,7 @@ msgstr "đơn"
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 

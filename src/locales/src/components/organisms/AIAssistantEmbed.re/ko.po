@@ -21,27 +21,27 @@ msgstr "{0}개 이벤트를 생성할 수 없습니다 (이미 존재할 수 있
 msgid "{0} events created!"
 msgstr "{0}개 이벤트가 생성되었습니다!"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "액션 제안"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "승인"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "승인됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -49,7 +49,7 @@ msgstr ""
 "어시스턴트에게 이벤트 세부 정보를 채워 달라고 요청하세요. 대화 내용이 여기에 "
 "표시됩니다."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "승인 대기 중"
 
@@ -92,19 +92,19 @@ msgstr "생성 중..."
 msgid "Date:"
 msgstr "날짜:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "거부됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "거부"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "이벤트 설명"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "이벤트를 설명해 주시면 제가 양식을 채워 드릴게요…"
 
@@ -116,15 +116,15 @@ msgstr "설명:"
 msgid "Event Details"
 msgstr "이벤트 세부 정보"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "실행됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "실행 실패"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "설명으로 이벤트 양식 채우기"
 
@@ -132,11 +132,11 @@ msgstr "설명으로 이벤트 양식 채우기"
 msgid "Fill form"
 msgstr "양식 채우기"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "AI 대화 기록 숨기기"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "대화 기록 불러오는 중..."
 
@@ -149,7 +149,7 @@ msgstr "현재 위치 검색을 사용할 수 없습니다"
 msgid "Location:"
 msgstr "장소:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "작업:"
 
@@ -157,7 +157,7 @@ msgstr "작업:"
 msgid "Search for a venue or address"
 msgstr "장소 또는 주소 검색"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "AI 대화 기록 보기"
 
@@ -165,7 +165,7 @@ msgstr "AI 대화 기록 보기"
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
 
@@ -173,7 +173,7 @@ msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
 msgid "Title:"
 msgstr "제목:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
 

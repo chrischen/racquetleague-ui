@@ -42,11 +42,11 @@ msgstr "確認"
 msgid "Move to Pending List"
 msgstr "移至待審核名單"
 
-#: src/components/organisms/EventRsvp.re.mjs:110
+#: src/components/organisms/EventRsvp.re.mjs:114
 msgid "Not paid"
 msgstr "未付款"
 
-#: src/components/organisms/EventRsvp.re.mjs:102
+#: src/components/organisms/EventRsvp.re.mjs:106
 msgid "Paid"
 msgstr "已付款"
 

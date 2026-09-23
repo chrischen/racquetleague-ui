@@ -74,8 +74,8 @@ msgid "Computed rating"
 msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
+#~ msgid "Declared rating"
+#~ msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
@@ -176,6 +176,10 @@ msgstr ""
 
 #: src/components/molecules/RatingSourceChip.re.mjs:50
 msgid "provisional"
+msgstr ""
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
 msgstr ""
 
 #: src/components/organisms/EventInvites.re.mjs:285

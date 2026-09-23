@@ -66,7 +66,7 @@ msgid "Canada"
 msgstr "캐나다"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr "취소"
 
@@ -96,7 +96,7 @@ msgstr "DUPR에 연결할 수 없습니다. 잠시 후 다시 시도해 주세�
 msgid "Country"
 msgstr "국가"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "mydupr.com 또는 DUPR 앱에서 계정을 만드세요"
 
@@ -104,11 +104,11 @@ msgstr "mydupr.com 또는 DUPR 앱에서 계정을 만드세요"
 msgid "Disable notifications"
 msgstr "알림 비활성화"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr "DUPR 연결 해제"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr "DUPR 연결을 해제할까요?"
 
@@ -120,7 +120,7 @@ msgstr "표시 이름"
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr "DUPR 계정이 없으신가요?"
 
@@ -128,20 +128,20 @@ msgstr "DUPR 계정이 없으신가요?"
 msgid "doubles"
 msgstr "복식"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr "지금은 DUPR 연결을 사용할 수 없습니다."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr "DUPR 로그인"
 
@@ -201,7 +201,7 @@ msgstr "마지막 동기화"
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -217,11 +217,11 @@ msgstr "연결됨"
 msgid "Linking"
 msgstr "연결 중"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr "계정 연결 중…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr "DUPR 불러오는 중…"
 
@@ -229,8 +229,8 @@ msgstr "DUPR 불러오는 중…"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr "DUPR으로 로그인"
 
@@ -326,7 +326,7 @@ msgid ""
 "for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -395,7 +395,7 @@ msgstr ""
 "온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP "
 "시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
@@ -407,6 +407,8 @@ msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
 msgstr ""
+"회원님의 등급은 DUPR에서 가져옵니다. 직접 실력을 설정하려면 아래에서 DUPR 연"
+"결을 해제하세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"

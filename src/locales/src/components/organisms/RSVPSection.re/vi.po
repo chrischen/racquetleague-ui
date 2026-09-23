@@ -17,8 +17,8 @@ msgstr ""
 msgid "+{0} more"
 msgstr "+{0} nữa"
 
-#: src/components/organisms/RSVPSection.re.mjs:899
-#: src/components/organisms/RSVPSection.re.mjs:999
+#: src/components/organisms/RSVPSection.re.mjs:907
+#: src/components/organisms/RSVPSection.re.mjs:1007
 msgid "Add Member"
 msgstr "Thêm thành viên"
 
@@ -42,11 +42,11 @@ msgstr "Thu tiền thanh toán"
 msgid "Charge payment"
 msgstr "Thu tiền thanh toán"
 
-#: src/components/organisms/RSVPSection.re.mjs:308
+#: src/components/organisms/RSVPSection.re.mjs:309
 msgid "Clear preview"
 msgstr "Xóa bản xem trước"
 
-#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:924
 msgid "Collapse"
 msgstr "Thu gọn"
 
@@ -54,7 +54,7 @@ msgstr "Thu gọn"
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Evaluating pending requests…"
 msgstr "Đang xét các yêu cầu đang chờ…"
 
@@ -70,11 +70,11 @@ msgstr "Tham gia sự kiện"
 msgid "Join Waitlist"
 msgstr "Vào danh sách chờ"
 
-#: src/components/organisms/RSVPSection.re.mjs:1015
+#: src/components/organisms/RSVPSection.re.mjs:1023
 msgid "Load more"
 msgstr "Tải thêm"
 
-#: src/components/organisms/RSVPSection.re.mjs:1012
+#: src/components/organisms/RSVPSection.re.mjs:1020
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -91,11 +91,11 @@ msgstr "Chuyển vào danh sách chờ duyệt"
 msgid "No players found"
 msgstr "Không tìm thấy người chơi"
 
-#: src/components/organisms/EventRsvp.re.mjs:110
+#: src/components/organisms/EventRsvp.re.mjs:114
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
-#: src/components/organisms/EventRsvp.re.mjs:102
+#: src/components/organisms/EventRsvp.re.mjs:106
 msgid "Paid"
 msgstr "Đã thanh toán"
 
@@ -103,7 +103,7 @@ msgstr "Đã thanh toán"
 msgid "Pending"
 msgstr "Đang chờ"
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Placing on the waitlist…"
 msgstr "Đang thêm vào danh sách chờ…"
 
@@ -112,11 +112,11 @@ msgstr "Đang thêm vào danh sách chờ…"
 msgid "Player"
 msgstr "Người chơi"
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Preview Smart RSVP"
 msgstr "Xem trước Smart RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Previewing…"
 msgstr "Đang xem trước…"
 
@@ -132,7 +132,7 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/RSVPSection.re.mjs:647
+#: src/components/organisms/RSVPSection.re.mjs:655
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
 
@@ -140,9 +140,9 @@ msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
 msgid "Retry charge"
 msgstr "Thử thu tiền lại"
 
-#: src/components/organisms/RSVPSection.re.mjs:770
-#: src/components/organisms/RSVPSection.re.mjs:809
-#: src/components/organisms/RSVPSection.re.mjs:938
+#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:817
+#: src/components/organisms/RSVPSection.re.mjs:946
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -150,11 +150,11 @@ msgstr "RSVP"
 msgid "RSVP Pending..."
 msgstr "Đang xử lý RSVP..."
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr "Chạy Smart RSVP ngay"
 
-#: src/components/organisms/RSVPSection.re.mjs:448
+#: src/components/organisms/RSVPSection.re.mjs:449
 msgid "Save"
 msgstr "Lưu"
 
@@ -166,18 +166,18 @@ msgstr "Xem tất cả"
 msgid "Show less"
 msgstr "Thu gọn"
 
-#: src/components/organisms/RSVPSection.re.mjs:306
+#: src/components/organisms/RSVPSection.re.mjs:307
 msgid ""
 "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr ""
 "Smart RSVP sẽ chấp nhận {0} trong {1} yêu cầu đang chờ: các yêu cầu đó được "
 "đánh dấu bên trên."
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
 msgstr "Danh sách chờ thông minh"
 
-#: src/components/organisms/RSVPSection.re.mjs:635
+#: src/components/organisms/RSVPSection.re.mjs:643
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -203,8 +203,8 @@ msgstr ""
 "Người dùng này sẽ bị xóa khỏi danh sách Tham dự/Chờ. Vị trí của họ sẽ mất "
 "nếu thêm lại. Bạn có chắc muốn hạn chế RSVP của họ không?"
 
-#: src/components/organisms/RSVPSection.re.mjs:432
 #: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:434
 msgid ""
 "Type a status message for people to see... such as 'I will arrive at 19:00.'"
 msgstr "Nhập tin nhắn trạng thái... ví dụ: 'Tôi sẽ đến lúc 19:00.'"
@@ -233,7 +233,7 @@ msgstr "Bạn đang tham dự"
 msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 
-#: src/components/organisms/RSVPSection.re.mjs:649
+#: src/components/organisms/RSVPSection.re.mjs:657
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

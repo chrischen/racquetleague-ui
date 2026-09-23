@@ -74,7 +74,7 @@ msgstr "このRSVPを削除"
 msgid "Retry charge"
 msgstr "請求を再試行"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "送信済み"
 

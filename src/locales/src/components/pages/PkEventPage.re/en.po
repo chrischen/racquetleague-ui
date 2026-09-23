@@ -439,8 +439,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
+#~ msgid "Declared rating"
+#~ msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
@@ -990,6 +990,10 @@ msgstr ""
 msgid "Rated"
 msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr ""
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr ""
@@ -1142,7 +1146,7 @@ msgstr ""
 msgid "Send message"
 msgstr ""
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr ""
 

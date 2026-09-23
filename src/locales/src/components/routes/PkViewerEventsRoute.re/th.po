@@ -247,7 +247,7 @@ msgstr "ทุกระดับ"
 msgid "Anytime"
 msgstr "เวลาใดก็ได้"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -524,10 +524,6 @@ msgstr "สร้างอีเวนต์"
 msgid "Current location is not supported by this browser."
 msgstr "เบราว์เซอร์นี้ไม่รองรับตำแหน่งที่ตั้งปัจจุบัน"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -707,7 +703,7 @@ msgstr "เพศ"
 msgid "Gender not provided"
 msgstr "ไม่ได้ระบุเพศ"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
@@ -1171,6 +1167,10 @@ msgstr "ดึงเพื่อรีเฟรช"
 msgid "Rated"
 msgstr "มีการจัดอันดับ"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "เรตติ้ง"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
@@ -1325,7 +1325,7 @@ msgstr "ส่งคำเชิญ"
 msgid "Send message"
 msgstr "ส่งข้อความ"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "ส่งแล้ว"
 
@@ -1412,7 +1412,7 @@ msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเ�
 msgid "Swipe review"
 msgstr "ตรวจสอบด้วยการสไวป์"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
@@ -1836,6 +1836,10 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/pages/PkEventPage.re.mjs:424
 #~ msgid "Dallas Flash Swag"
 #~ msgstr "สินค้าดัลลาส แฟลช"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "เรตติ้งที่แจ้งเอง"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

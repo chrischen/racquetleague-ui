@@ -144,8 +144,8 @@ msgid "Court"
 msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
+#~ msgid "Declared rating"
+#~ msgstr ""
 
 #: src/components/organisms/PkRSVPSection.re.mjs:788
 #: src/components/organisms/PkRSVPSection.re.mjs:805
@@ -333,6 +333,10 @@ msgstr ""
 msgid "provisional"
 msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr ""
+
 #: src/components/organisms/RsvpOptions.re.mjs:258
 msgid "Refund payment"
 msgstr ""
@@ -393,7 +397,7 @@ msgstr ""
 msgid "Send invite"
 msgstr ""
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr ""
 

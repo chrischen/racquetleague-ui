@@ -64,7 +64,7 @@ msgid "Canada"
 msgstr "加拿大"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr "取消"
 
@@ -94,7 +94,7 @@ msgstr "無法連線至 DUPR，請稍後再試。"
 msgid "Country"
 msgstr "國家"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "可至 mydupr.com 或 DUPR App 建立帳號"
 
@@ -102,11 +102,11 @@ msgstr "可至 mydupr.com 或 DUPR App 建立帳號"
 msgid "Disable notifications"
 msgstr "停用通知"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr "解除連結 DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr "要解除連結 DUPR 嗎？"
 
@@ -118,7 +118,7 @@ msgstr "顯示名稱"
 msgid "Doe John"
 msgstr "李大明"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr "還沒有 DUPR 帳號？"
 
@@ -126,20 +126,20 @@ msgstr "還沒有 DUPR 帳號？"
 msgid "doubles"
 msgstr "雙打"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr "目前無法連結 DUPR。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr "DUPR 登入"
 
@@ -199,7 +199,7 @@ msgstr "上次同步"
 msgid "Level"
 msgstr "等級"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -215,11 +215,11 @@ msgstr "已連結"
 msgid "Linking"
 msgstr "連結中"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr "正在連結你的帳號…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr "正在載入 DUPR…"
 
@@ -227,8 +227,8 @@ msgstr "正在載入 DUPR…"
 msgid "Loading..."
 msgstr "載入中..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr "使用 DUPR 登入"
 
@@ -320,7 +320,7 @@ msgid ""
 "for a partner"
 msgstr "在 RSVP 名單中在您的名字旁顯示徽章，告訴大家您正在尋找搭檔"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -389,7 +389,7 @@ msgstr ""
 "在完成設定之前，你的付費活動會使用平台帳戶：參加者報名時會儲存卡片，但你無法"
 "扣款。請於活動現場收費。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
@@ -399,7 +399,7 @@ msgstr "此處將不再使用你的 DUPR 評分，並恢復自評分數選擇。
 msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
-msgstr ""
+msgstr "您的評分來自 DUPR。若要重新自訂等級，請在下方中斷 DUPR 連結。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"

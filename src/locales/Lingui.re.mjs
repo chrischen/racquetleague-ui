@@ -2,6 +2,8 @@
 
 import * as React from "react";
 import * as Core from "@lingui/core";
+import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as JsxRuntime from "react/jsx-runtime";
 import * as Json_Encode$JsonCombinators from "@glennsl/rescript-json-combinators/src/Json_Encode.re.mjs";
 
 var empty = Json_Encode$JsonCombinators.object([]);
@@ -82,6 +84,24 @@ function loadMessagesForDetected(src) {
   };
 }
 
+var slotEdge = String.fromCharCode(57344);
+
+function slot(name) {
+  return slotEdge + name + slotEdge;
+}
+
+function fillSlots(text, elements) {
+  return text.split(slotEdge).map(function (part, i) {
+              return JsxRuntime.jsx(React.Fragment, {
+                          children: i % 2 === 1 ? Core__Option.getOr(Core__Option.map(elements.find(function (param) {
+                                          return param[0] === part;
+                                        }), (function (param) {
+                                        return param[1];
+                                      })), null) : part
+                        }, i.toString());
+            });
+}
+
 var Util = {};
 
 var UtilString = {};
@@ -93,6 +113,9 @@ export {
   I18nProvider ,
   loadMessages ,
   loadMessagesForDetected ,
+  slotEdge ,
+  slot ,
+  fillSlots ,
   Util ,
   UtilString ,
 }

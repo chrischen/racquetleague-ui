@@ -369,7 +369,7 @@ msgstr ""
 msgid "Anytime"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr ""
 
@@ -685,8 +685,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
+#~ msgid "Declared rating"
+#~ msgstr ""
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
@@ -888,7 +888,7 @@ msgstr ""
 msgid "Gender not provided"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr ""
 
@@ -1426,6 +1426,10 @@ msgstr ""
 msgid "Rated"
 msgstr ""
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr ""
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr ""
@@ -1600,7 +1604,7 @@ msgstr ""
 msgid "Send message"
 msgstr ""
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr ""
 
@@ -1708,7 +1712,7 @@ msgstr ""
 msgid "Swipe review"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr ""
 

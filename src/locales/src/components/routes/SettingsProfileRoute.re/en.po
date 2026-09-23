@@ -62,7 +62,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr ""
 
@@ -108,11 +108,11 @@ msgstr ""
 msgid "Disable notifications"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Doe John"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr ""
 
@@ -132,20 +132,20 @@ msgstr ""
 msgid "doubles"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr ""
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Level"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid "Link your DUPR account to use your verified DUPR rating here. While it's linked, it replaces your self-rating."
 msgstr ""
 
@@ -225,11 +225,11 @@ msgstr ""
 msgid "Linking"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr ""
 
@@ -237,8 +237,8 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr ""
 
@@ -336,7 +336,7 @@ msgstr ""
 msgid "shows a badge next to your name in RSVP lists to tell people you are looking for a partner"
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid "Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password."
 msgstr ""
 
@@ -400,7 +400,7 @@ msgstr ""
 msgid "Until onboarding is complete, your paid events run on the platform account: attendees save a card when they RSVP, but you can't charge it. Collect the fee at the event."
 msgstr ""
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid "Your DUPR rating will stop being used here and your self-rating picker comes back."
 msgstr ""
 

@@ -41,7 +41,7 @@ msgstr "最佳雙打搭檔"
 msgid "Current Rating"
 msgstr "當前評分"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:933
+#: src/components/pages/LeaguePlayerPage.re.mjs:934
 msgid "Days at #1"
 msgstr "排名第一的天數"
 
@@ -63,11 +63,11 @@ msgid "Elevates weaker partners"
 msgstr "能提升較弱搭檔的水準"
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:384
-#: src/components/pages/LeaguePlayerPage.re.mjs:962
-#: src/components/pages/LeaguePlayerPage.re.mjs:1008
-#: src/components/pages/LeaguePlayerPage.re.mjs:1061
-#: src/components/pages/LeaguePlayerPage.re.mjs:1114
-#: src/components/pages/LeaguePlayerPage.re.mjs:1208
+#: src/components/pages/LeaguePlayerPage.re.mjs:963
+#: src/components/pages/LeaguePlayerPage.re.mjs:1009
+#: src/components/pages/LeaguePlayerPage.re.mjs:1062
+#: src/components/pages/LeaguePlayerPage.re.mjs:1115
+#: src/components/pages/LeaguePlayerPage.re.mjs:1209
 msgid "Estimated DUPR"
 msgstr "預估 DUPR"
 
@@ -75,11 +75,11 @@ msgstr "預估 DUPR"
 msgid "Even"
 msgstr "勢均力敵"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1188
+#: src/components/pages/LeaguePlayerPage.re.mjs:1189
 msgid "Gym"
 msgstr "體育館"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1173
+#: src/components/pages/LeaguePlayerPage.re.mjs:1174
 msgid "Hard Court"
 msgstr "硬地球場"
 
@@ -87,7 +87,7 @@ msgstr "硬地球場"
 msgid "Load more matches..."
 msgstr "載入更多比賽..."
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1283
+#: src/components/pages/LeaguePlayerPage.re.mjs:1284
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -96,11 +96,11 @@ msgstr "載入中..."
 msgid "LOSS"
 msgstr "負"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1023
+#: src/components/pages/LeaguePlayerPage.re.mjs:1024
 msgid "Men's Doubles"
 msgstr "男子雙打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1076
+#: src/components/pages/LeaguePlayerPage.re.mjs:1077
 msgid "Mixed Doubles"
 msgstr "混合雙打"
 
@@ -146,7 +146,7 @@ msgstr "評分歷史"
 msgid "Rating:"
 msgstr "評分："
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1274
+#: src/components/pages/LeaguePlayerPage.re.mjs:1275
 msgid "Recent Matches"
 msgstr "最近比賽"
 
@@ -181,11 +181,11 @@ msgstr "弱勢對陣"
 msgid "WIN"
 msgstr "勝"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1129
+#: src/components/pages/LeaguePlayerPage.re.mjs:1130
 msgid "Women's Doubles"
 msgstr "女子雙打"
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:976
+#: src/components/pages/LeaguePlayerPage.re.mjs:977
 msgid "Women's Rating"
 msgstr "女子評分"
 

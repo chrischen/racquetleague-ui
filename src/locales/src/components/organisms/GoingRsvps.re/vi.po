@@ -50,11 +50,11 @@ msgstr "Tham dự"
 msgid "Move to Pending List"
 msgstr "Chuyển vào danh sách chờ duyệt"
 
-#: src/components/organisms/EventRsvp.re.mjs:110
+#: src/components/organisms/EventRsvp.re.mjs:114
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
-#: src/components/organisms/EventRsvp.re.mjs:102
+#: src/components/organisms/EventRsvp.re.mjs:106
 msgid "Paid"
 msgstr "Đã thanh toán"
 

@@ -69,10 +69,6 @@ msgstr "완전 초급"
 msgid "Computed rating"
 msgstr "산출된 레이팅"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "모두 검토 완료"
@@ -150,6 +146,10 @@ msgstr "프로"
 msgid "provisional"
 msgstr "잠정"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "레이팅"
+
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
 msgid "Review requests"
 msgstr "요청 검토"
@@ -177,6 +177,10 @@ msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:223
 msgid "Waiting for approval to join"
 msgstr "참가 승인 대기 중"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "선언한 실력 등급"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

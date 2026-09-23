@@ -94,8 +94,8 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:899
-#: src/components/organisms/RSVPSection.re.mjs:999
+#: src/components/organisms/RSVPSection.re.mjs:907
+#: src/components/organisms/RSVPSection.re.mjs:1007
 msgid "Add Member"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Advanced players"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr ""
 
@@ -147,11 +147,11 @@ msgstr ""
 msgid "Charge payment"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:308
+#: src/components/organisms/RSVPSection.re.mjs:309
 msgid "Clear preview"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:916
+#: src/components/organisms/RSVPSection.re.mjs:924
 msgid "Collapse"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "edit event"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Evaluating pending requests…"
 msgstr ""
 
@@ -215,7 +215,7 @@ msgstr ""
 msgid "good luck, have fun"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr ""
 
@@ -286,11 +286,11 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:1015
+#: src/components/organisms/RSVPSection.re.mjs:1023
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:1012
+#: src/components/organisms/RSVPSection.re.mjs:1020
 msgid "Loading..."
 msgstr ""
 
@@ -357,7 +357,7 @@ msgstr ""
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:110
+#: src/components/organisms/EventRsvp.re.mjs:114
 msgid "Not paid"
 msgstr ""
 
@@ -365,7 +365,7 @@ msgstr ""
 msgid "notes"
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:102
+#: src/components/organisms/EventRsvp.re.mjs:106
 msgid "Paid"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Placing on the waitlist…"
 msgstr ""
 
@@ -386,11 +386,11 @@ msgstr ""
 msgid "Player"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Preview Smart RSVP"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:284
+#: src/components/organisms/RSVPSection.re.mjs:285
 msgid "Previewing…"
 msgstr ""
 
@@ -436,7 +436,7 @@ msgstr ""
 #~ msgid "Required rating: {0}"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:647
+#: src/components/organisms/RSVPSection.re.mjs:655
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
@@ -456,9 +456,9 @@ msgstr ""
 msgid "Retry charge"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:770
-#: src/components/organisms/RSVPSection.re.mjs:809
-#: src/components/organisms/RSVPSection.re.mjs:938
+#: src/components/organisms/RSVPSection.re.mjs:778
+#: src/components/organisms/RSVPSection.re.mjs:817
+#: src/components/organisms/RSVPSection.re.mjs:946
 msgid "RSVP"
 msgstr ""
 
@@ -470,11 +470,11 @@ msgstr ""
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:276
+#: src/components/organisms/RSVPSection.re.mjs:277
 msgid "Run Smart RSVP now"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:448
+#: src/components/organisms/RSVPSection.re.mjs:449
 #: src/components/pages/Event.re.mjs:179
 msgid "Save"
 msgstr ""
@@ -507,11 +507,11 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:306
+#: src/components/organisms/RSVPSection.re.mjs:307
 msgid "Smart RSVP would admit {0} of {1} pending requests: they are marked above."
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:293
+#: src/components/organisms/RSVPSection.re.mjs:294
 msgid "Smart Waitlist"
 msgstr ""
 
@@ -537,11 +537,11 @@ msgstr ""
 msgid "subscribe to all {activityName} events"
 msgstr ""
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:635
+#: src/components/organisms/RSVPSection.re.mjs:643
 msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr ""
 
@@ -565,8 +565,8 @@ msgstr ""
 msgid "This user will be removed from the Going/Waitlist. Their position will be lost if you move them back in. Are you sure you want to restrict their RSVP?"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:432
 #: src/components/organisms/RSVPSection.re.mjs:433
+#: src/components/organisms/RSVPSection.re.mjs:434
 #: src/components/organisms/EventMessages.re.mjs:125
 #: src/components/pages/Event.re.mjs:172
 msgid "Type a status message for people to see... such as 'I will arrive at 19:00.'"
@@ -645,7 +645,7 @@ msgstr ""
 #~ msgid "you're waitlisted :("
 #~ msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:649
+#: src/components/organisms/RSVPSection.re.mjs:657
 msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
 msgstr ""
 

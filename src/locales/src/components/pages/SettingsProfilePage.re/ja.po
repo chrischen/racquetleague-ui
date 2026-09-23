@@ -66,7 +66,7 @@ msgid "Canada"
 msgstr "カナダ"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -96,7 +96,7 @@ msgstr "DUPRに接続できませんでした。しばらくしてからもう�
 msgid "Country"
 msgstr "国"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "mydupr.com またはDUPRアプリで作成できます"
 
@@ -104,11 +104,11 @@ msgstr "mydupr.com またはDUPRアプリで作成できます"
 msgid "Disable notifications"
 msgstr "通知を無効にする"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr "DUPRの連携を解除"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr "DUPRの連携を解除しますか？"
 
@@ -120,7 +120,7 @@ msgstr "表示名"
 msgid "Doe John"
 msgstr "ジョン・ドウ"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr "DUPRアカウントをお持ちではありませんか？"
 
@@ -128,20 +128,20 @@ msgstr "DUPRアカウントをお持ちではありませんか？"
 msgid "doubles"
 msgstr "ダブルス"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr "現在DUPRの連携はご利用いただけません。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr "DUPRログイン"
 
@@ -201,7 +201,7 @@ msgstr "最終同期"
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -217,11 +217,11 @@ msgstr "連携済み"
 msgid "Linking"
 msgstr "連携中"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr "アカウントを連携しています…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr "DUPRを読み込み中…"
 
@@ -229,8 +229,8 @@ msgstr "DUPRを読み込み中…"
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr "DUPRでログイン"
 
@@ -328,7 +328,7 @@ msgstr ""
 "RSVPリストのあなたの名前の横にバッジを表示し、あなたが探していることを伝えま"
 "す。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -398,7 +398,7 @@ msgstr ""
 "用されます。参加者はRSVP時にカードを保存しますが、請求はできません。参加費は"
 "イベント当日に集金してください。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
@@ -409,6 +409,8 @@ msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
 msgstr ""
+"レーティングはDUPRから取得しています。自分でレベルを設定するには、以下から"
+"DUPRの連携を解除してください。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:618
 msgid "Your self-reported skill level"

@@ -15,7 +15,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1481
-#: src/components/pages/PkuruLayout.re.mjs:113
+#: src/components/pages/PkuruLayout.re.mjs:109
 msgid "Badminton"
 msgstr "배드민턴"
 
@@ -26,7 +26,7 @@ msgstr "탁구"
 
 #. js-lingui-explicit-id
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1489
-#: src/components/pages/PkuruLayout.re.mjs:105
+#: src/components/pages/PkuruLayout.re.mjs:101
 msgid "Pickleball"
 msgstr "피클볼"
 
@@ -129,10 +129,6 @@ msgstr "\\\"홈 화면에 추가\\\""
 msgid "+ Add new club..."
 msgstr "+ 새 클럽 추가..."
 
-#: src/components/organisms/NewPlanModal.re.mjs:232
-msgid "1 · Day"
-msgstr "1 · 날짜"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1141
 msgid "1 hour before"
 msgstr "1시간 전"
@@ -145,10 +141,6 @@ msgstr "1주일 전"
 msgid "12 hours before"
 msgstr "12시간 전"
 
-#: src/components/organisms/NewPlanModal.re.mjs:271
-msgid "2 · Time"
-msgstr "2 · 시간"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1145
 msgid "2 hours before"
 msgstr "2시간 전"
@@ -156,10 +148,6 @@ msgstr "2시간 전"
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1157
 msgid "24 hours before"
 msgstr "24시간 전"
-
-#: src/components/organisms/NewPlanModal.re.mjs:336
-msgid "3 · What kind?"
-msgstr "3 · 종류"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1161
 msgid "48 hours before"
@@ -173,7 +161,7 @@ msgstr "6시간 전"
 msgid "72 hours before"
 msgstr "72시간 전"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "액션 제안"
 
@@ -194,14 +182,6 @@ msgstr "종목이 필요합니다"
 msgid "Added to Event"
 msgstr "이벤트에 추가됨"
 
-#: src/components/molecules/LevelPicker.re.mjs:42
-msgid "Advanced"
-msgstr "고급"
-
-#: src/components/organisms/NewPlanModal.re.mjs:92
-msgid "Afternoon"
-msgstr "오후"
-
 #: src/components/pages/CreateEventPage.re.mjs:289
 msgid "AI-assisted event form"
 msgstr "AI 지원 이벤트 양식"
@@ -218,7 +198,7 @@ msgstr "모든 레벨"
 msgid "American Samoa Time"
 msgstr "아메리칸사모아 시간"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
@@ -234,19 +214,19 @@ msgstr ""
 msgid "Anything players should know before joining or arriving."
 msgstr "참가 또는 도착 전에 알아야 할 사항."
 
-#: src/components/organisms/NewPlanModal.re.mjs:80
-msgid "Anytime"
-msgstr "언제든지"
+#: src/components/molecules/AddToCalendar.re.mjs:22
+msgid "Apple iCal"
+msgstr "Apple iCal"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "승인"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "승인됨"
 
@@ -254,7 +234,7 @@ msgstr "승인됨"
 msgid "Arizona Time"
 msgstr "애리조나 시간"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -296,11 +276,11 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "참가자는 RSVP 시 카드를 저장합니다. 자동으로 청구되지 않습니다."
 
-#: src/components/pages/PkuruLayout.re.mjs:258
+#: src/components/pages/PkuruLayout.re.mjs:254
 msgid "Availability"
 msgstr "가능 시간"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "승인 대기 중"
 
@@ -308,21 +288,13 @@ msgstr "승인 대기 중"
 msgid "Back"
 msgstr "뒤로"
 
-#: src/components/molecules/LevelPicker.re.mjs:27
-msgid "Beginner"
-msgstr "초급"
-
-#: src/components/organisms/ProfileModal.re.mjs:532
-msgid "Biography"
-msgstr "자기소개"
-
-#: src/components/organisms/ProfileModal.re.mjs:119
-msgid "Biography is required"
-msgstr "자기소개를 입력해주세요"
-
 #: src/components/organisms/CreateClubForm.re.mjs:205
 msgid "Brief description of the club..."
 msgstr "클럽에 대한 간단한 설명..."
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Calendar synced"
+msgstr "캘린더 동기화됨"
 
 #: src/components/organisms/CreateClubForm.re.mjs:314
 msgid "Cancel"
@@ -364,10 +336,6 @@ msgstr "이벤트 시간 선택"
 msgid "Close"
 msgstr "닫기"
 
-#: src/components/organisms/ProfileModal.re.mjs:465
-msgid "Close profile form"
-msgstr "프로필 양식 닫기"
-
 #: src/components/organisms/ClubActivitySelector.re.mjs:174
 msgid "Club"
 msgstr "클럽"
@@ -389,7 +357,7 @@ msgid "club-name"
 msgstr "클럽명"
 
 #: src/components/organisms/NavViewer.re.mjs:65
-#: src/components/pages/PkuruLayout.re.mjs:304
+#: src/components/pages/PkuruLayout.re.mjs:300
 msgid "Clubs"
 msgstr "클럽"
 
@@ -398,30 +366,17 @@ msgstr "클럽"
 msgid "Competitive"
 msgstr "경쟁"
 
-#: src/components/molecules/LevelPicker.re.mjs:22
-msgid "Complete Beginner"
-msgstr "완전 초급"
-
-#: src/components/organisms/ProfileModal.re.mjs:449
-msgid "Complete your player profile"
-msgstr "플레이어 프로필을 완성하세요"
-
-#: src/components/organisms/ProfileModal.re.mjs:311
-msgid ""
-"Complete your profile before sharing availability with players and hosts."
-msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:870
 msgid "Connect a Stripe account to enable this"
 msgstr "이 기능을 사용하려면 Stripe 계정을 연결하세요"
 
-#: src/components/organisms/NewPlanModal.re.mjs:406
-msgid "Continue"
-msgstr "계속"
-
 #: src/components/molecules/TimeZoneField.re.mjs:122
 msgid "Coordinated Universal Time"
 msgstr "협정 세계시"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:72
+msgid "Copy {address}"
+msgstr "{address} 복사"
 
 #: src/components/organisms/AutocompleteLocation.re.mjs:227
 #: src/components/organisms/AutocompleteLocation.re.mjs:239
@@ -432,13 +387,6 @@ msgstr "해당 장소를 불러올 수 없습니다"
 #: src/components/organisms/AutocompleteLocation.re.mjs:126
 msgid "Could not save that location"
 msgstr "해당 위치를 저장할 수 없습니다"
-
-#: src/components/organisms/ProfileModal.re.mjs:262
-#: src/components/organisms/ProfileModal.re.mjs:271
-#: src/components/organisms/ProfileModal.re.mjs:291
-#: src/components/organisms/ProfileModal.re.mjs:301
-msgid "Could not save your profile. Please try again."
-msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
 #: src/components/organisms/CreateEventsButton.re.mjs:417
 msgid "Couldn't create that event. Please try again."
@@ -452,17 +400,17 @@ msgstr "활동을 확인할 수 없습니다. 다시 시도해 주세요."
 msgid "Couldn't find this location — pick it:"
 msgstr "이 위치를 찾을 수 없습니다 — 직접 선택하세요:"
 
-#: src/components/organisms/NewPlanModal.re.mjs:401
-msgid ""
-"Create a hosted event at this time. Others can join, you pick venue and "
-"rules."
-msgstr ""
-"이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규칙"
-"은 직접 정합니다."
-
 #: src/components/organisms/CreateEventsButton.re.mjs:133
 msgid "Create All Events"
 msgstr "모든 이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+msgid "Create an event"
+msgstr "이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+msgid "Create an event yourself, or from a court booking email."
+msgstr "이벤트를 직접 만들거나 코트 예약 이메일로 만드세요."
 
 #: src/components/organisms/CreateClubForm.re.mjs:300
 msgid "Create Club"
@@ -472,6 +420,14 @@ msgstr "클럽 만들기"
 #: src/components/organisms/CreateEventModal.re.mjs:79
 msgid "Create event"
 msgstr "이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+msgid "Create Event Manually"
+msgstr "직접 이벤트 만들기"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+msgid "Create events by email"
+msgstr "이메일로 이벤트 만들기"
 
 #: src/components/pages/CreateEventPage.re.mjs:280
 msgid "Create multiple events instead"
@@ -498,15 +454,15 @@ msgstr "날짜:"
 msgid "Default club activity"
 msgstr "기본 클럽 종목"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "거부됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "거부"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "이벤트 설명"
 
@@ -514,7 +470,7 @@ msgstr "이벤트 설명"
 msgid "Describe the event to draft it, or fill in the details."
 msgstr "이벤트를 설명해 초안을 만들거나 직접 세부 정보를 입력하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "이벤트를 설명해 주시면 제가 양식을 채워 드릴게요…"
 
@@ -526,27 +482,15 @@ msgstr "설명"
 msgid "Description:"
 msgstr "설명:"
 
-#: src/components/pages/PkuruLayout.re.mjs:294
-#: src/components/pages/PkuruLayout.re.mjs:659
+#: src/components/pages/PkuruLayout.re.mjs:290
+#: src/components/pages/PkuruLayout.re.mjs:655
 msgid "Discover"
 msgstr "탐색"
-
-#: src/components/organisms/ProfileModal.re.mjs:482
-msgid "Display name"
-msgstr "표시 이름"
-
-#: src/components/organisms/ProfileModal.re.mjs:111
-msgid "Display name is required"
-msgstr "표시 이름이 필요합니다"
 
 #: src/components/organisms/ClubActivitySelector.re.mjs:276
 #: src/components/molecules/TimeZoneField.re.mjs:203
 msgid "Done"
 msgstr "완료"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:55
-msgid "doubles"
-msgstr "복식"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Draft filled in. Review the details before creating the event."
@@ -587,22 +531,6 @@ msgstr "동부 시간"
 msgid "Edit"
 msgstr "편집"
 
-#: src/components/organisms/ProfileModal.re.mjs:369
-msgid "Email address"
-msgstr "이메일 주소"
-
-#: src/components/organisms/ProfileModal.re.mjs:286
-msgid ""
-"Email address is unavailable. Please use a different email or login with the "
-"email you are trying to use here."
-msgstr ""
-"이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
-"인하세요."
-
-#: src/components/organisms/ProfileModal.re.mjs:114
-msgid "Email is required"
-msgstr "이메일이 필요합니다"
-
 #: src/components/shared/InstallPwa.re.mjs:380
 msgid "Enable now"
 msgstr "지금 활성화"
@@ -623,9 +551,10 @@ msgstr "종료 시간이 필요합니다"
 msgid "Enter price"
 msgstr "가격 입력"
 
-#: src/components/organisms/NewPlanModal.re.mjs:98
-msgid "Evening"
-msgstr "저녁"
+#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+msgid "Enter the event details yourself or ask the assistant to fill them in."
+msgstr ""
+"이벤트 세부 정보를 직접 입력하거나 어시스턴트에게 채워 달라고 요청하세요."
 
 #: src/components/molecules/NotificationRow.re.mjs:130
 msgid "Event Canceled"
@@ -660,6 +589,14 @@ msgstr "이벤트 유형"
 msgid "Event Uncanceled"
 msgstr "이벤트 취소 해제됨"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+msgid ""
+"Events are added privately to {myEvents}. Make an event public whenever you "
+"need to find players."
+msgstr ""
+"이벤트는 {myEvents}에 비공개로 추가됩니다. 플레이어를 모집해야 할 때 언제든"
+"지 이벤트를 공개로 전환하세요."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1370
 msgid "Events can be up to 12 hours long."
 msgstr "이벤트는 최대 12시간까지 가능합니다."
@@ -668,19 +605,15 @@ msgstr "이벤트는 최대 12시간까지 가능합니다."
 msgid "Events must be at least 15 minutes long."
 msgstr "이벤트는 최소 15분 이상이어야 합니다."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "실행됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "실행 실패"
 
-#: src/components/organisms/ProfileModal.re.mjs:506
-msgid "Female"
-msgstr "여성"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "설명으로 이벤트 양식 채우기"
 
@@ -692,10 +625,6 @@ msgstr "양식 채우기"
 msgid "Find players for your event?"
 msgstr "이벤트를 위한 플레이어를 찾으시겠습니까?"
 
-#: src/components/organisms/ProfileModal.re.mjs:362
-msgid "For event updates and notifications"
-msgstr "이벤트 업데이트 및 알림용"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1446
 msgid "Format"
 msgstr "형식"
@@ -704,13 +633,21 @@ msgstr "형식"
 msgid "Format options"
 msgstr "형식 옵션"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:183
+msgid ""
+"Forward your booking confirmation to {forwardingAddress} from your email "
+"{yourEmail}."
+msgstr ""
+"예약 확인 메일을 내 이메일 {yourEmail}에서 {forwardingAddress}(으)로 전달하세"
+"요."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:760
 msgid "Friday night pickleball"
 msgstr "금요일 밤 피클볼"
 
-#: src/components/organisms/ProfileModal.re.mjs:496
-msgid "Gender"
-msgstr "성별"
+#: src/components/molecules/AddToCalendar.re.mjs:27
+msgid "Google Calendar"
+msgstr "Google 캘린더"
 
 #: src/components/molecules/TimeZoneField.re.mjs:116
 msgid "Hawaii Time"
@@ -720,7 +657,7 @@ msgstr "하와이 시간"
 msgid "Hide"
 msgstr "숨기기"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "AI 대화 기록 숨기기"
 
@@ -737,21 +674,9 @@ msgstr ""
 msgid "Hold RSVPs"
 msgstr "RSVP 보류"
 
-#: src/components/organisms/NewPlanModal.re.mjs:394
-msgid "Host an event"
-msgstr "이벤트 주최"
-
 #: src/components/molecules/NotificationRow.re.mjs:138
 msgid "Host Message"
 msgstr "호스트 메시지"
-
-#: src/components/organisms/NewPlanModal.re.mjs:424
-msgid "Hosting an event needs exactly one time window — pick one."
-msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
-
-#: src/components/organisms/ProfileModal.re.mjs:485
-msgid "How other players will see you"
-msgstr "다른 플레이어에게 보여지는 모습"
 
 #: src/components/shared/InstallPwa.re.mjs:422
 msgid "How to install"
@@ -774,14 +699,6 @@ msgstr "설치"
 msgid "Install Pkuru.com App"
 msgstr "Pkuru.com 앱 설치"
 
-#: src/components/molecules/LevelPicker.re.mjs:32
-msgid "Intermediate"
-msgstr "중급"
-
-#: src/components/molecules/LevelPicker.re.mjs:37
-msgid "Intermediate+"
-msgstr "중급+"
-
 #: src/components/molecules/NotificationRow.re.mjs:146
 msgid "Invited to Event"
 msgstr "이벤트 초대"
@@ -802,25 +719,17 @@ msgstr "클럽 가입됨"
 msgid "Keep current location"
 msgstr "현재 위치 유지"
 
-#: src/components/organisms/ProfileModal.re.mjs:314
-msgid "Keep your player profile accurate and useful to the community."
-msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
-
 #: src/components/molecules/TimeZoneField.re.mjs:88
 msgid "Korea Time"
 msgstr "한국 시간"
 
-#: src/components/pages/PkuruLayout.re.mjs:315
+#: src/components/pages/PkuruLayout.re.mjs:311
 msgid "Leaderboard"
 msgstr "리더보드"
 
 #: src/components/molecules/NotificationRow.re.mjs:144
 msgid "Left Event"
 msgstr "이벤트 나감"
-
-#: src/components/organisms/ProfileModal.re.mjs:547
-msgid "Level"
-msgstr "레벨"
 
 #: src/components/molecules/TimeZoneField.re.mjs:118
 msgid "Line Islands Time"
@@ -834,14 +743,14 @@ msgstr "이벤트를 공개로 등록해 남은 자리를 채워보세요."
 msgid "Load more"
 msgstr "더 불러오기"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "대화 기록 불러오는 중..."
 
 #: src/components/organisms/CreateEventModal.re.mjs:74
 #: src/components/pages/PkuruSidebarClubs.re.mjs:203
-#: src/components/pages/PkuruLayout.re.mjs:1020
-#: src/components/pages/PkuruLayout.re.mjs:1117
+#: src/components/pages/PkuruLayout.re.mjs:1013
+#: src/components/pages/PkuruLayout.re.mjs:1085
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -872,21 +781,13 @@ msgstr "장소:"
 msgid "login with Line"
 msgstr "Line으로 로그인"
 
-#: src/components/organisms/ProfileModal.re.mjs:502
-msgid "Male"
-msgstr "남성"
-
-#: src/components/pages/PkuruLayout.re.mjs:669
+#: src/components/pages/PkuruLayout.re.mjs:665
 msgid "Map"
 msgstr "지도"
 
-#: src/components/pages/PkuruLayout.re.mjs:325
+#: src/components/pages/PkuruLayout.re.mjs:321
 msgid "Map view"
 msgstr "지도 보기"
-
-#: src/components/organisms/NewPlanModal.re.mjs:356
-msgid "Mark available"
-msgstr "가능 표시"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1112
 msgid "Max players"
@@ -896,10 +797,6 @@ msgstr "최대 인원"
 msgid "Minimum rating"
 msgstr "최소 레이팅"
 
-#: src/components/organisms/NewPlanModal.re.mjs:86
-msgid "Morning"
-msgstr "오전"
-
 #: src/components/molecules/TimeZoneField.re.mjs:74
 msgid "Mountain Time"
 msgstr "산악 표준시"
@@ -908,15 +805,16 @@ msgstr "산악 표준시"
 msgid "My clubs"
 msgstr "내 클럽"
 
-#: src/components/pages/PkuruLayout.re.mjs:185
+#: src/components/pages/PkuruLayout.re.mjs:181
 msgid "My events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:698
+#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/pages/PkuruLayout.re.mjs:694
 msgid "My Events"
 msgstr "내 이벤트"
 
-#: src/components/pages/PkuruLayout.re.mjs:683
+#: src/components/pages/PkuruLayout.re.mjs:679
 msgid "New"
 msgstr "새로 만들기"
 
@@ -924,12 +822,12 @@ msgstr "새로 만들기"
 msgid "New Comment"
 msgstr "새 댓글"
 
-#: src/components/pages/PkuruLayout.re.mjs:499
+#: src/components/pages/PkuruLayout.re.mjs:495
 msgid "New event"
 msgstr "새 이벤트"
 
-#: src/components/organisms/NewPlanModal.re.mjs:203
 #: src/components/organisms/CreateEventModal.re.mjs:80
+#: src/components/organisms/NewPlanChooserModal.re.mjs:325
 msgid "New plan"
 msgstr "새 계획"
 
@@ -965,31 +863,31 @@ msgstr "최소값 없음"
 msgid "No notifications"
 msgstr "알림 없음"
 
-#: src/components/organisms/ProfileModal.re.mjs:583
-msgid "Not now"
-msgstr "나중에"
-
 #: src/components/molecules/NotificationRow.re.mjs:154
 msgid "Notification"
 msgstr "알림"
 
 #: src/components/molecules/NotificationsPreview.re.mjs:125
-#: src/components/pages/PkuruLayout.re.mjs:196
-#: src/components/pages/PkuruLayout.re.mjs:533
+#: src/components/pages/PkuruLayout.re.mjs:192
+#: src/components/pages/PkuruLayout.re.mjs:529
 msgid "Notifications"
 msgstr "알림"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:26
-msgid "NR"
-msgstr "NR"
 
 #: src/components/molecules/NotificationRow.re.mjs:148
 msgid "Off Waitlist"
 msgstr "대기열 해제"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "작업:"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:208
+msgid ""
+"Or use this email {bookingAddress} when booking. We’ll forward the "
+"confirmation to {yourEmail}."
+msgstr ""
+"또는 예약할 때 이 이메일 {bookingAddress}을(를) 사용하세요. 확인 메일은 "
+"{yourEmail}(으)로 전달해 드립니다."
 
 #: src/components/molecules/TimeZoneField.re.mjs:78
 msgid "Pacific Time"
@@ -1003,13 +901,9 @@ msgstr "유료 이벤트"
 msgid "Participation fee"
 msgstr "참가비"
 
-#: src/components/pages/PkuruLayout.re.mjs:174
+#: src/components/pages/PkuruLayout.re.mjs:170
 msgid "Personal"
 msgstr "개인"
-
-#: src/components/molecules/RatingSourceChip.re.mjs:25
-msgid "pkuru"
-msgstr "pkuru"
 
 #: src/components/molecules/TimeWindowPicker.re.mjs:431
 msgid "Player availability heatmap"
@@ -1023,19 +917,10 @@ msgstr "플레이어"
 msgid "Private event"
 msgstr "비공개 이벤트"
 
-#: src/components/molecules/LevelPicker.re.mjs:47
-msgid "Pro"
-msgstr "프로"
-
-#: src/components/pages/PkuruLayout.re.mjs:207
-#: src/components/pages/PkuruLayout.re.mjs:708
+#: src/components/pages/PkuruLayout.re.mjs:203
+#: src/components/pages/PkuruLayout.re.mjs:704
 msgid "Profile"
 msgstr "프로필"
-
-#: src/components/molecules/DuprRatingBadge.re.mjs:37
-#: src/components/molecules/RatingSourceChip.re.mjs:50
-msgid "provisional"
-msgstr "잠정"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:719
 msgid "Public"
@@ -1070,14 +955,6 @@ msgstr "이벤트에서 제거됨"
 msgid "Samoa Time"
 msgstr "사모아 시간"
 
-#: src/components/organisms/NewPlanModal.re.mjs:372
-msgid "Save"
-msgstr "저장"
-
-#: src/components/organisms/ProfileModal.re.mjs:597
-msgid "Save profile"
-msgstr "프로필 저장"
-
 #: src/components/shared/InstallPwa.re.mjs:460
 msgid "Scroll down and tap"
 msgstr "아래로 스크롤하고 탭하세요"
@@ -1086,23 +963,7 @@ msgstr "아래로 스크롤하고 탭하세요"
 msgid "Search for a venue or address"
 msgstr "장소 또는 주소 검색"
 
-#: src/components/organisms/NewPlanModal.re.mjs:416
-msgid "Select exactly one time window to host an event"
-msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
-
-#: src/components/molecules/RatingSourceChip.re.mjs:37
-msgid "Self-rated"
-msgstr "자가 평가"
-
-#: src/components/organisms/ProfileModal.re.mjs:535
-msgid ""
-"Share a little about yourself so organizers or other players can see why "
-"they should invite you."
-msgstr ""
-"주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소개해"
-"주세요."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "AI 대화 기록 보기"
 
@@ -1114,10 +975,6 @@ msgstr "간략히 보기"
 msgid "Singapore Time"
 msgstr "싱가포르 시간"
 
-#: src/components/molecules/DuprRatingBadge.re.mjs:69
-msgid "singles"
-msgstr "단식"
-
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1057
 msgid "Skill level"
 msgstr "실력 수준"
@@ -1126,7 +983,7 @@ msgstr "실력 수준"
 msgid "Solomon Islands Time"
 msgstr "솔로몬 제도 시간"
 
-#: src/components/pages/PkuruLayout.re.mjs:226
+#: src/components/pages/PkuruLayout.re.mjs:222
 msgid "Sports"
 msgstr "스포츠"
 
@@ -1150,6 +1007,16 @@ msgstr "최신 소식 받아보기"
 msgid "Suggested Events"
 msgstr "추천 이벤트"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:262
+msgid "Sync calendar"
+msgstr "캘린더 동기화"
+
+#: src/components/organisms/NewPlanChooserModal.re.mjs:250
+msgid ""
+"Sync your Pkuru calendar so new events appear automatically in your calendar "
+"app."
+msgstr "Pkuru 캘린더를 동기화하면 새 이벤트가 캘린더 앱에 자동으로 표시됩니다."
+
 #: src/components/shared/InstallPwa.re.mjs:452
 msgid "Tap the Share button"
 msgstr "공유 버튼을 탭하세요"
@@ -1158,13 +1025,7 @@ msgstr "공유 버튼을 탭하세요"
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 
-#: src/components/organisms/NewPlanModal.re.mjs:363
-msgid ""
-"Tell others you're down to play. Players with overlapping times can invite "
-"you."
-msgstr "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
 
@@ -1193,15 +1054,7 @@ msgstr "제목이 필요합니다"
 msgid "Title:"
 msgstr "제목:"
 
-#: src/components/organisms/NewPlanModal.re.mjs:55
-msgid "Today"
-msgstr "오늘"
-
-#: src/components/organisms/NewPlanModal.re.mjs:51
-msgid "Tomorrow"
-msgstr "내일"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
 
@@ -1221,10 +1074,6 @@ msgstr "장소, 날짜, 시작 및 종료 시간"
 msgid "View all notifications"
 msgstr "모든 알림 보기"
 
-#: src/components/organisms/ProfileModal.re.mjs:308
-msgid "We need a few details before you can join this event"
-msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
-
 #: src/components/molecules/TimeZoneField.re.mjs:68
 msgid "West Africa Time"
 msgstr "서아프리카 시간"
@@ -1232,10 +1081,6 @@ msgstr "서아프리카 시간"
 #: src/components/molecules/TimeZoneField.re.mjs:100
 msgid "Western Australia Time"
 msgstr "서호주 시간"
-
-#: src/components/organisms/NewPlanModal.re.mjs:207
-msgid "When do you want to play?"
-msgstr "언제 플레이하고 싶으신가요?"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:853
 msgid "With a Stripe account"
@@ -1245,9 +1090,29 @@ msgstr "Stripe 계정이 있는 경우"
 msgid "Without a Stripe account"
 msgstr "Stripe 계정이 없는 경우"
 
+#: src/components/organisms/NewPlanChooserModal.re.mjs:225
+msgid ""
+"You can include any additional event details like the level, max players, "
+"price, etc. in the email that you forward."
+msgstr ""
+"전달하는 이메일에 레벨, 최대 인원, 가격 등 추가 이벤트 정보를 함께 적을 수 있"
+"습니다."
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
 #~ msgid "⌘+Enter to send"
 #~ msgstr "⌘+Enter로 보내기"
+
+#: src/components/organisms/NewPlanModal.re.mjs:232
+#~ msgid "1 · Day"
+#~ msgstr "1 · 날짜"
+
+#: src/components/organisms/NewPlanModal.re.mjs:271
+#~ msgid "2 · Time"
+#~ msgstr "2 · 시간"
+
+#: src/components/organisms/NewPlanModal.re.mjs:336
+#~ msgid "3 · What kind?"
+#~ msgstr "3 · 종류"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:762
 #~ msgid ""
@@ -1260,6 +1125,14 @@ msgstr "Stripe 계정이 없는 경우"
 #~ "서 자동으로 사라집니다. RSVP 목록에서 이름을 클릭하여 결제 승인을 하지 않"
 #~ "은 참가자를 수동으로 승인할 수 있습니다."
 
+#: src/components/molecules/LevelPicker.re.mjs:42
+#~ msgid "Advanced"
+#~ msgstr "고급"
+
+#: src/components/organisms/NewPlanModal.re.mjs:92
+#~ msgid "Afternoon"
+#~ msgstr "오후"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "Answer the questions or add details to refine the draft."
 #~ msgstr "질문에 답하거나 세부 정보를 추가해 초안을 다듬으세요."
@@ -1267,6 +1140,10 @@ msgstr "Stripe 계정이 없는 경우"
 #: src/components/organisms/AIAssistantEmbed.re.mjs:719
 #~ msgid "Answer the questions or provide more details..."
 #~ msgstr "질문에 답하거나 세부 정보를 제공하세요..."
+
+#: src/components/organisms/NewPlanModal.re.mjs:80
+#~ msgid "Anytime"
+#~ msgstr "언제든지"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:424
 #~ msgid "Approve or deny the pending action to continue"
@@ -1291,17 +1168,65 @@ msgstr "Stripe 계정이 없는 경우"
 #~ "다. RSVP 목록에서 원하는 때에 참가자 한 명 또는 전원에게 청구할 수 있고, "
 #~ "금액은 Stripe 계정으로 입금됩니다."
 
+#: src/components/molecules/LevelPicker.re.mjs:27
+#~ msgid "Beginner"
+#~ msgstr "초급"
+
+#: src/components/organisms/ProfileModal.re.mjs:532
+#~ msgid "Biography"
+#~ msgstr "자기소개"
+
+#: src/components/organisms/ProfileModal.re.mjs:119
+#~ msgid "Biography is required"
+#~ msgstr "자기소개를 입력해주세요"
+
 #: src/components/pages/PkuruLayout.re.mjs:103
 #~ msgid "Browse"
 #~ msgstr "둘러보기"
+
+#: src/components/organisms/ProfileModal.re.mjs:465
+#~ msgid "Close profile form"
+#~ msgstr "프로필 양식 닫기"
+
+#: src/components/molecules/LevelPicker.re.mjs:22
+#~ msgid "Complete Beginner"
+#~ msgstr "완전 초급"
+
+#: src/components/organisms/ProfileModal.re.mjs:449
+#~ msgid "Complete your player profile"
+#~ msgstr "플레이어 프로필을 완성하세요"
+
+#: src/components/organisms/ProfileModal.re.mjs:311
+#~ msgid ""
+#~ "Complete your profile before sharing availability with players and hosts."
+#~ msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:790
 #~ msgid "Connect a Stripe account to activate"
 #~ msgstr "활성화하려면 Stripe 계정을 연결하세요"
 
+#: src/components/organisms/NewPlanModal.re.mjs:406
+#~ msgid "Continue"
+#~ msgstr "계속"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Continue the conversation"
 #~ msgstr "대화 계속하기"
+
+#: src/components/organisms/ProfileModal.re.mjs:262
+#: src/components/organisms/ProfileModal.re.mjs:271
+#: src/components/organisms/ProfileModal.re.mjs:291
+#: src/components/organisms/ProfileModal.re.mjs:301
+#~ msgid "Could not save your profile. Please try again."
+#~ msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
+
+#: src/components/organisms/NewPlanModal.re.mjs:401
+#~ msgid ""
+#~ "Create a hosted event at this time. Others can join, you pick venue and "
+#~ "rules."
+#~ msgstr ""
+#~ "이 시간에 주최 이벤트를 만드세요. 다른 사람들이 참가할 수 있고, 장소와 규"
+#~ "칙은 직접 정합니다."
 
 #: src/components/molecules/ClockRangePicker.re.mjs:452
 #~ msgid "daytime"
@@ -1318,6 +1243,18 @@ msgstr "Stripe 계정이 없는 경우"
 #~ msgstr ""
 #~ "이벤트를 설명해 주세요… 예: 내일 저녁 7시 센트럴 파크, 3.5 수준 3명 더 필"
 #~ "요, 1인당 ¥800."
+
+#: src/components/organisms/ProfileModal.re.mjs:482
+#~ msgid "Display name"
+#~ msgstr "표시 이름"
+
+#: src/components/organisms/ProfileModal.re.mjs:111
+#~ msgid "Display name is required"
+#~ msgstr "표시 이름이 필요합니다"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:55
+#~ msgid "doubles"
+#~ msgstr "복식"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:524
 #~ msgid "Drag around the clock · Arrow keys move 15 minutes"
@@ -1343,9 +1280,29 @@ msgstr "Stripe 계정이 없는 경우"
 #~ msgid "Editing start"
 #~ msgstr "시작 시간 편집 중"
 
+#: src/components/organisms/ProfileModal.re.mjs:369
+#~ msgid "Email address"
+#~ msgstr "이메일 주소"
+
+#: src/components/organisms/ProfileModal.re.mjs:286
+#~ msgid ""
+#~ "Email address is unavailable. Please use a different email or login with "
+#~ "the email you are trying to use here."
+#~ msgstr ""
+#~ "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 "
+#~ "로그인하세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:114
+#~ msgid "Email is required"
+#~ msgstr "이메일이 필요합니다"
+
 #: src/components/molecules/ClockRangePicker.re.mjs:447
 #~ msgid "end time"
 #~ msgstr "종료 시간"
+
+#: src/components/organisms/NewPlanModal.re.mjs:98
+#~ msgid "Evening"
+#~ msgstr "저녁"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:299
 #~ msgid "Event time range"
@@ -1354,6 +1311,18 @@ msgstr "Stripe 계정이 없는 경우"
 #: src/components/molecules/NotificationsPreview.re.mjs:329
 #~ msgid "Event Update"
 #~ msgstr "이벤트 업데이트"
+
+#: src/components/organisms/ProfileModal.re.mjs:506
+#~ msgid "Female"
+#~ msgstr "여성"
+
+#: src/components/organisms/ProfileModal.re.mjs:362
+#~ msgid "For event updates and notifications"
+#~ msgstr "이벤트 업데이트 및 알림용"
+
+#: src/components/organisms/ProfileModal.re.mjs:496
+#~ msgid "Gender"
+#~ msgstr "성별"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:420
 #~ msgid "Help me fill this out"
@@ -1364,6 +1333,18 @@ msgstr "Stripe 계정이 없는 경우"
 #~ "Hold new joins and admit players automatically based on match quality."
 #~ msgstr "새 참가 신청을 보류하고 경기 수준에 따라 자동으로 승인합니다."
 
+#: src/components/organisms/NewPlanModal.re.mjs:394
+#~ msgid "Host an event"
+#~ msgstr "이벤트 주최"
+
+#: src/components/organisms/NewPlanModal.re.mjs:424
+#~ msgid "Hosting an event needs exactly one time window — pick one."
+#~ msgstr "이벤트 주최는 시간 창이 정확히 하나여야 합니다 — 하나를 선택하세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:485
+#~ msgid "How other players will see you"
+#~ msgstr "다른 플레이어에게 보여지는 모습"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
 #~ msgid "Include whatever details you know"
 #~ msgstr "아는 정보는 모두 적어 주세요"
@@ -1373,13 +1354,41 @@ msgstr "Stripe 계정이 없는 경우"
 #~ msgid "Install Racquet League"
 #~ msgstr "Racquet League 설치"
 
+#: src/components/molecules/LevelPicker.re.mjs:32
+#~ msgid "Intermediate"
+#~ msgstr "중급"
+
+#: src/components/molecules/LevelPicker.re.mjs:37
+#~ msgid "Intermediate+"
+#~ msgstr "중급+"
+
+#: src/components/organisms/ProfileModal.re.mjs:314
+#~ msgid "Keep your player profile accurate and useful to the community."
+#~ msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
+
+#: src/components/organisms/ProfileModal.re.mjs:547
+#~ msgid "Level"
+#~ msgstr "레벨"
+
 #: src/components/molecules/TimeWindowPicker.re.mjs:491
 #~ msgid "Long opening"
 #~ msgstr "긴 공개 시간"
 
+#: src/components/organisms/ProfileModal.re.mjs:502
+#~ msgid "Male"
+#~ msgstr "남성"
+
+#: src/components/organisms/NewPlanModal.re.mjs:356
+#~ msgid "Mark available"
+#~ msgstr "가능 표시"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:81
 #~ msgid "Match my time"
 #~ msgstr "내 시간에 맞추기"
+
+#: src/components/organisms/NewPlanModal.re.mjs:86
+#~ msgid "Morning"
+#~ msgstr "오전"
 
 #: src/components/molecules/ClockRangePicker.re.mjs:503
 #~ msgid "Move start and end to daytime hours"
@@ -1397,9 +1406,30 @@ msgstr "Stripe 계정이 없는 경우"
 #~ msgid "nighttime"
 #~ msgstr "야간"
 
+#: src/components/organisms/ProfileModal.re.mjs:583
+#~ msgid "Not now"
+#~ msgstr "나중에"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:26
+#~ msgid "NR"
+#~ msgstr "NR"
+
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "열림"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:25
+#~ msgid "pkuru"
+#~ msgstr "pkuru"
+
+#: src/components/molecules/LevelPicker.re.mjs:47
+#~ msgid "Pro"
+#~ msgstr "프로"
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:37
+#: src/components/molecules/RatingSourceChip.re.mjs:50
+#~ msgid "provisional"
+#~ msgstr "잠정"
 
 #: src/components/pages/PkuruLayout.re.mjs:190
 #~ msgid "Rankings"
@@ -1413,9 +1443,37 @@ msgstr "Stripe 계정이 없는 경우"
 #~ msgid "Reset"
 #~ msgstr "초기화"
 
+#: src/components/organisms/NewPlanModal.re.mjs:372
+#~ msgid "Save"
+#~ msgstr "저장"
+
+#: src/components/organisms/ProfileModal.re.mjs:597
+#~ msgid "Save profile"
+#~ msgstr "프로필 저장"
+
+#: src/components/organisms/NewPlanModal.re.mjs:416
+#~ msgid "Select exactly one time window to host an event"
+#~ msgstr "이벤트를 주최하려면 시간 창을 정확히 하나 선택하세요"
+
+#: src/components/molecules/RatingSourceChip.re.mjs:37
+#~ msgid "Self-rated"
+#~ msgstr "자가 평가"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
 #~ msgid "Send"
 #~ msgstr "전송"
+
+#: src/components/organisms/ProfileModal.re.mjs:535
+#~ msgid ""
+#~ "Share a little about yourself so organizers or other players can see why "
+#~ "they should invite you."
+#~ msgstr ""
+#~ "주최자나 다른 플레이어들이 초대 이유를 알 수 있도록 자신에 대해 간략히 소"
+#~ "개해주세요."
+
+#: src/components/molecules/DuprRatingBadge.re.mjs:69
+#~ msgid "singles"
+#~ msgstr "단식"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:1096
 #~ msgid "Smart RSVP"
@@ -1433,15 +1491,38 @@ msgstr "Stripe 계정이 없는 경우"
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr "아무 곳이나 탭하여 시간 창 추가"
 
+#: src/components/organisms/NewPlanModal.re.mjs:363
+#~ msgid ""
+#~ "Tell others you're down to play. Players with overlapping times can "
+#~ "invite you."
+#~ msgstr ""
+#~ "플레이 의사를 알리세요. 시간이 겹치는 플레이어가 초대할 수 있습니다."
+
 #: src/components/organisms/CreateLocationEventForm.re.mjs:785
 #~ msgid ""
 #~ "The participation fee is charged automatically and transferred to your "
 #~ "Stripe account."
 #~ msgstr "참가비는 자동으로 청구되어 회원님의 Stripe 계정으로 이체됩니다."
 
+#: src/components/organisms/NewPlanModal.re.mjs:55
+#~ msgid "Today"
+#~ msgstr "오늘"
+
+#: src/components/organisms/NewPlanModal.re.mjs:51
+#~ msgid "Tomorrow"
+#~ msgstr "내일"
+
+#: src/components/organisms/ProfileModal.re.mjs:308
+#~ msgid "We need a few details before you can join this event"
+#~ msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:776
 #~ msgid "We’ll turn your description into a draft you can review and edit."
 #~ msgstr "설명을 검토·수정할 수 있는 초안으로 만들어 드립니다."
+
+#: src/components/organisms/NewPlanModal.re.mjs:207
+#~ msgid "When do you want to play?"
+#~ msgstr "언제 플레이하고 싶으신가요?"
 
 #: src/components/organisms/CreateLocationEventForm.re.mjs:773
 #~ msgid "With Stripe"

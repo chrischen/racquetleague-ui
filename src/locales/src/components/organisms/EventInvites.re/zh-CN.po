@@ -69,10 +69,6 @@ msgstr "完全初学者"
 msgid "Computed rating"
 msgstr "计算评级"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
 msgid "Everyone reviewed"
 msgstr "已全部查看"
@@ -166,6 +162,10 @@ msgstr "专业"
 msgid "provisional"
 msgstr "临时"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "评分"
+
 #: src/components/organisms/EventInvites.re.mjs:285
 msgid "Review {0} potential players with swipe cards"
 msgstr "通过滑动卡片查看 {0} 位潜在球员"
@@ -216,6 +216,10 @@ msgstr "等待加入审批"
 #~ "place in the event conversation."
 #~ msgstr ""
 #~ "{eventTitle} 的可用时间非常匹配。立即邀请他们以预留活动对话中的位置。"
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自评等级"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"

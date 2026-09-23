@@ -247,7 +247,7 @@ msgstr "所有級別"
 msgid "Anytime"
 msgstr "任何時間"
 
-#: src/components/molecules/AddToCalendar.re.mjs:30
+#: src/components/molecules/AddToCalendar.re.mjs:22
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
@@ -523,10 +523,6 @@ msgstr "建立賽事"
 msgid "Current location is not supported by this browser."
 msgstr "目前的瀏覽器不支援定位功能。"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
-msgid "Declared rating"
-msgstr ""
-
 #: src/components/organisms/MatchCardEdit.re.mjs:63
 #: src/components/organisms/MatchCard.re.mjs:437
 msgid "Delete match"
@@ -708,7 +704,7 @@ msgstr "性別"
 msgid "Gender not provided"
 msgstr "未提供性別"
 
-#: src/components/molecules/AddToCalendar.re.mjs:35
+#: src/components/molecules/AddToCalendar.re.mjs:27
 msgid "Google Calendar"
 msgstr "Google 日曆"
 
@@ -1172,6 +1168,10 @@ msgstr "下拉以重新整理"
 msgid "Rated"
 msgstr "計分賽"
 
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+msgid "Rating"
+msgstr "評分"
+
 #: src/components/organisms/MatchCard.re.mjs:404
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
@@ -1326,7 +1326,7 @@ msgstr "發送邀請"
 msgid "Send message"
 msgstr "傳送訊息"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:165
+#: src/components/organisms/PkEventRsvp.re.mjs:168
 msgid "sent"
 msgstr "已發送"
 
@@ -1413,7 +1413,7 @@ msgstr "左滑跳過 · 右滑邀請"
 msgid "Swipe review"
 msgstr "滑動審核"
 
-#: src/components/molecules/AddToCalendar.re.mjs:107
+#: src/components/molecules/AddToCalendar.re.mjs:99
 msgid "sync calendar"
 msgstr "同步日曆"
 
@@ -1967,6 +1967,10 @@ msgstr "您的報名正在等待管理員審核"
 #: src/components/molecules/AIResponseCard.re.mjs:162
 #~ msgid "Date:"
 #~ msgstr "日期："
+
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:333
+#~ msgid "Declared rating"
+#~ msgstr "自我申報評分"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:180
 #~ msgid "Deposit required to confirm your spot"

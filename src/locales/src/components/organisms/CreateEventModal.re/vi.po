@@ -139,7 +139,7 @@ msgstr "6 giờ trước"
 msgid "72 hours before"
 msgstr "72 giờ trước"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "Đề xuất hành động"
 
@@ -172,7 +172,7 @@ msgstr "Tất cả cấp độ"
 msgid "American Samoa Time"
 msgstr "Giờ Samoa thuộc Mỹ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 
@@ -188,15 +188,15 @@ msgstr ""
 msgid "Anything players should know before joining or arriving."
 msgstr "Bất cứ điều gì người chơi cần biết trước khi tham gia hoặc đến."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "Chấp thuận"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "Phê duyệt hoặc từ chối hành động đang chờ để tiếp tục."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "Đã phê duyệt"
 
@@ -204,7 +204,7 @@ msgstr "Đã phê duyệt"
 msgid "Arizona Time"
 msgstr "Giờ Arizona"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "Người tham gia lưu thẻ khi RSVP. Không có khoản nào bị trừ tự động."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "Đang chờ phê duyệt"
 
@@ -392,15 +392,15 @@ msgstr "Ngày:"
 msgid "Default club activity"
 msgstr "Môn thể thao mặc định của câu lạc bộ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "Đã từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "Từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "Mô tả sự kiện"
 
@@ -408,7 +408,7 @@ msgstr "Mô tả sự kiện"
 msgid "Describe the event to draft it, or fill in the details."
 msgstr "Mô tả sự kiện để tạo bản nháp, hoặc tự điền chi tiết."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "Mô tả sự kiện của bạn và tôi sẽ điền vào biểu mẫu…"
 
@@ -512,15 +512,15 @@ msgstr "Sự kiện có thể kéo dài tối đa 12 giờ."
 msgid "Events must be at least 15 minutes long."
 msgstr "Sự kiện phải kéo dài ít nhất 15 phút."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "Đã thực thi"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "Thực thi thất bại"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "Điền biểu mẫu sự kiện từ mô tả"
 
@@ -548,7 +548,7 @@ msgstr "Pickleball tối thứ Sáu"
 msgid "Hawaii Time"
 msgstr "Giờ Hawaii"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "Ẩn lịch sử trò chuyện AI"
 
@@ -590,7 +590,7 @@ msgstr "Giờ Quần đảo Line"
 msgid "List your event publicly to help fill open spots."
 msgstr "Đăng công khai sự kiện để lấp đầy các chỗ trống."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "Đang tải lịch sử hội thoại..."
 
@@ -664,7 +664,7 @@ msgstr "Không giới hạn"
 msgid "No minimum"
 msgstr "Không có tối thiểu"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "Thao tác:"
 
@@ -725,7 +725,7 @@ msgstr "Giờ Samoa"
 msgid "Search for a venue or address"
 msgstr "Tìm sân hoặc địa chỉ"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "Hiện lịch sử trò chuyện AI"
 
@@ -765,7 +765,7 @@ msgstr "Sự kiện được đề xuất"
 msgid "Tap to add your time"
 msgstr "Nhấn để thêm thời gian của bạn"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "Hành động đã hoàn thành nhưng có lỗi GraphQL."
 
@@ -794,7 +794,7 @@ msgstr "cần có tiêu đề"
 msgid "Title:"
 msgstr "Tiêu đề:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tục thủ công."
 

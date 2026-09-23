@@ -139,7 +139,7 @@ msgstr "6시간 전"
 msgid "72 hours before"
 msgstr "72시간 전"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:594
+#: src/components/organisms/AIAssistantEmbed.re.mjs:604
 msgid "Action proposal"
 msgstr "액션 제안"
 
@@ -172,7 +172,7 @@ msgstr "모든 레벨"
 msgid "American Samoa Time"
 msgstr "아메리칸사모아 시간"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:266
+#: src/components/organisms/AIAssistantEmbed.re.mjs:273
 msgid "An error occurred. Please try again."
 msgstr "오류가 발생했습니다. 다시 시도하세요."
 
@@ -188,15 +188,15 @@ msgstr ""
 msgid "Anything players should know before joining or arriving."
 msgstr "참가 또는 도착 전에 알아야 할 사항."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:503
+#: src/components/organisms/AIAssistantEmbed.re.mjs:513
 msgid "Approve"
 msgstr "승인"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Approve or deny the pending action to continue."
 msgstr "계속하려면 대기 중인 액션을 승인하거나 거부하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:461
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Approved"
 msgstr "승인됨"
 
@@ -204,7 +204,7 @@ msgstr "승인됨"
 msgid "Arizona Time"
 msgstr "애리조나 시간"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:417
+#: src/components/organisms/AIAssistantEmbed.re.mjs:427
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -246,7 +246,7 @@ msgstr ""
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "참가자는 RSVP 시 카드를 저장합니다. 자동으로 청구되지 않습니다."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:455
+#: src/components/organisms/AIAssistantEmbed.re.mjs:465
 msgid "Awaiting approval"
 msgstr "승인 대기 중"
 
@@ -391,15 +391,15 @@ msgstr "날짜:"
 msgid "Default club activity"
 msgstr "기본 클럽 종목"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:467
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Denied"
 msgstr "거부됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:559
+#: src/components/organisms/AIAssistantEmbed.re.mjs:569
 msgid "Deny"
 msgstr "거부"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:680
+#: src/components/organisms/AIAssistantEmbed.re.mjs:690
 msgid "Describe the event"
 msgstr "이벤트 설명"
 
@@ -407,7 +407,7 @@ msgstr "이벤트 설명"
 msgid "Describe the event to draft it, or fill in the details."
 msgstr "이벤트를 설명해 초안을 만들거나 직접 세부 정보를 입력하세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:700
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "이벤트를 설명해 주시면 제가 양식을 채워 드릴게요…"
 
@@ -511,15 +511,15 @@ msgstr "이벤트는 최대 12시간까지 가능합니다."
 msgid "Events must be at least 15 minutes long."
 msgstr "이벤트는 최소 15분 이상이어야 합니다."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:475
+#: src/components/organisms/AIAssistantEmbed.re.mjs:485
 msgid "Executed"
 msgstr "실행됨"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:478
+#: src/components/organisms/AIAssistantEmbed.re.mjs:488
 msgid "Execution failed"
 msgstr "실행 실패"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:707
+#: src/components/organisms/AIAssistantEmbed.re.mjs:736
 msgid "Fill event form from description"
 msgstr "설명으로 이벤트 양식 채우기"
 
@@ -547,7 +547,7 @@ msgstr "금요일 밤 피클볼"
 msgid "Hawaii Time"
 msgstr "하와이 시간"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Hide AI chat history"
 msgstr "AI 대화 기록 숨기기"
 
@@ -588,7 +588,7 @@ msgstr "라인 제도 시간"
 msgid "List your event publicly to help fill open spots."
 msgstr "이벤트를 공개로 등록해 남은 자리를 채워보세요."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:413
+#: src/components/organisms/AIAssistantEmbed.re.mjs:423
 msgid "Loading conversation history..."
 msgstr "대화 기록 불러오는 중..."
 
@@ -662,7 +662,7 @@ msgstr "제한 없음"
 msgid "No minimum"
 msgstr "최소값 없음"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:611
+#: src/components/organisms/AIAssistantEmbed.re.mjs:621
 msgid "Operation:"
 msgstr "작업:"
 
@@ -723,7 +723,7 @@ msgstr "사모아 시간"
 msgid "Search for a venue or address"
 msgstr "장소 또는 주소 검색"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:742
+#: src/components/organisms/AIAssistantEmbed.re.mjs:771
 msgid "Show AI chat history"
 msgstr "AI 대화 기록 보기"
 
@@ -763,7 +763,7 @@ msgstr "추천 이벤트"
 msgid "Tap to add your time"
 msgstr "탭하여 시간 추가"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:531
+#: src/components/organisms/AIAssistantEmbed.re.mjs:541
 msgid "The action completed with GraphQL errors."
 msgstr "GraphQL 오류와 함께 액션이 완료되었습니다."
 
@@ -792,7 +792,7 @@ msgstr "제목이 필요합니다"
 msgid "Title:"
 msgstr "제목:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:283
+#: src/components/organisms/AIAssistantEmbed.re.mjs:290
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "자동화된 단계가 너무 많이 요청되었습니다. 수동으로 계속 진행해 주세요."
 

@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:407
+#: src/components/organisms/DuprConnectCard.re.mjs:410
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -28,19 +28,19 @@ msgstr "ยืนยัน"
 msgid "Couldn't reach DUPR. Please try again in a moment."
 msgstr "เชื่อมต่อ DUPR ไม่ได้ กรุณาลองใหม่อีกครั้งในอีกสักครู่"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:477
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "สร้างบัญชีได้ที่ mydupr.com หรือในแอป DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:443
+#: src/components/organisms/DuprConnectCard.re.mjs:446
 msgid "Disconnect DUPR"
 msgstr "ยกเลิกเชื่อมต่อ DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:494
+#: src/components/organisms/DuprConnectCard.re.mjs:497
 msgid "Disconnect DUPR?"
 msgstr "ยกเลิกเชื่อมต่อ DUPR?"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:471
+#: src/components/organisms/DuprConnectCard.re.mjs:474
 msgid "Don't have a DUPR account?"
 msgstr "ยังไม่มีบัญชี DUPR?"
 
@@ -48,20 +48,20 @@ msgstr "ยังไม่มีบัญชี DUPR?"
 msgid "doubles"
 msgstr "คู่"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:423
+#: src/components/organisms/DuprConnectCard.re.mjs:426
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:318
+#: src/components/organisms/DuprConnectCard.re.mjs:321
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:486
+#: src/components/organisms/DuprConnectCard.re.mjs:489
 msgid "DUPR linking isn't available right now."
 msgstr "ขณะนี้ยังไม่สามารถเชื่อมต่อ DUPR ได้"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:389
+#: src/components/organisms/DuprConnectCard.re.mjs:392
 msgid "DUPR login"
 msgstr "เข้าสู่ระบบ DUPR"
 
@@ -73,7 +73,7 @@ msgstr "DUPR ส่งข้อมูลที่เราอ่านไม่�
 msgid "Last synced"
 msgstr "ซิงค์ล่าสุด"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:331
+#: src/components/organisms/DuprConnectCard.re.mjs:334
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -89,16 +89,16 @@ msgstr "เชื่อมต่อแล้ว"
 msgid "Linking"
 msgstr "กำลังเชื่อมต่อ"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:360
+#: src/components/organisms/DuprConnectCard.re.mjs:363
 msgid "Linking your account…"
 msgstr "กำลังเชื่อมต่อบัญชีของคุณ…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:384
+#: src/components/organisms/DuprConnectCard.re.mjs:387
 msgid "Loading DUPR…"
 msgstr "กำลังโหลด DUPR…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:375
-#: src/components/organisms/DuprConnectCard.re.mjs:457
+#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:460
 msgid "Log in with DUPR"
 msgstr "เข้าสู่ระบบด้วย DUPR"
 
@@ -115,7 +115,7 @@ msgstr "NR"
 msgid "provisional"
 msgstr "ชั่วคราว"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
+#: src/components/organisms/DuprConnectCard.re.mjs:381
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -135,7 +135,7 @@ msgstr "บัญชี DUPR นี้เชื่อมต่อกับผู
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "การลงชื่อเข้าใช้ DUPR หมดอายุแล้ว กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:495
+#: src/components/organisms/DuprConnectCard.re.mjs:498
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
