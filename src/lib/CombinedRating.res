@@ -1,16 +1,22 @@
-/** The one rating the UI shows for a player, and where it came from.
+/** The rating the UI shows a player at and seeds them with, and where it
+ came from.
 
  A player can carry up to three signals: the pkuru rating computed from
  matches played here, a DUPR rating synced from their linked DUPR account,
- and a self-report. Every surface that displays or falls back on a rating
- must pick the same one, so the precedence lives here and nowhere else:
+ and a self-report. The Round Robin tool seeds from this, and every RSVP
+ display shows it, so the number a player sees is the one they are seeded
+ at. The precedence lives here and nowhere else:
 
      pkuru  >  DUPR  >  self-report
 
- The server applies the same order in `League.Domain.EffectiveRating`, which
- is what actually gates event entry; this mirror exists because the pkuru
- signal is context-scoped on the client (an RSVP's rating, an event rating,
- a rating for one activity) and so is not always a field on `User`.
+ It mirrors the server's `League.Domain.CombinedRating`; the mirror exists
+ because the pkuru signal is context-scoped on the client (an RSVP's rating,
+ a club's rating pool) and so is not always a field on `User`.
+
+ This is *not* what gates event entry. The server's EffectiveRating does
+ that, and it deliberately ignores the self-report — a player must not be
+ able to talk their way past a rating gate. Nothing on the client gates, so
+ there is no client mirror of that type.
 
  `t` is abstract: the only ways to obtain one are the constructors below, so
  no component can assemble a rating that skipped the precedence order. */

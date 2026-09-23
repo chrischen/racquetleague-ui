@@ -62,10 +62,10 @@ let use = (
   let profile = data.viewer->Option.flatMap(v => v.profile)
 
   // Any of the three signals clears the bar; which one would actually be
-  // used is EffectiveRating's call, not this gate's.
+  // used is CombinedRating's call, not this gate's.
   let ratingOk =
     hasComputedRating->Option.getOr(profile->Option.flatMap(u => u.rating)->Option.isSome) ||
-    EffectiveRating.resolve(
+    CombinedRating.resolve(
       ~pkuruMu=None,
       ~duprDoubles=profile->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
       ~duprReliable=false,

@@ -90,6 +90,11 @@ module Fragment = %relay(`
             id
             lineUsername
             gender
+            selfRating
+            dupr {
+              doubles
+              doublesReliable
+            }
             ...EventRsvpUserBar_user
             ...EventMatchRsvpUser_user
             ...PlayerCheckin_user
@@ -767,7 +772,19 @@ let make = (
   // club source a player with no club rating starts from the default rather
   // than their global one: leaving the global value would silently mix two
   // scales in one list, ranking an outsider's form elsewhere against club form.
-  let baseRatingFor = (userId: string, rsvpRating: option<(float, float, float)>) => {
+  //
+  // On the global source the seed is the *combined* rating — pkuru, then a
+  // linked DUPR rating, then the player's own estimate — which is also what
+  // every RSVP display shows, so a player is seeded at the number they see.
+  // Only a pkuru rating carries a real sigma; the others seed at the default
+  // uncertainty, the same as a brand-new player.
+  let baseRatingFor = (
+    userId: string,
+    rsvpRating: option<(float, float, float)>,
+    ~duprDoubles: option<float>,
+    ~duprReliable: bool,
+    ~selfMu: option<float>,
+  ) => {
     let defaultRating = Rating.makeDefault()
     switch (seedSource, clubRatings) {
     | (EventManagerPersistence.ClubRatings, Some(byUserId)) =>
@@ -776,8 +793,17 @@ let make = (
       | None => (defaultRating.mu, defaultRating.sigma, 0.0)
       }
     | _ =>
-      switch rsvpRating {
-      | Some(rating) => rating
+      switch CombinedRating.resolve(
+        ~pkuruMu=rsvpRating->Option.map(((mu, _, _)) => mu),
+        ~duprDoubles,
+        ~duprReliable,
+        ~selfMu,
+      ) {
+      | Some(r) if CombinedRating.source(r) == Pkuru =>
+        rsvpRating->Option.getOr((defaultRating.mu, defaultRating.sigma, 0.0))
+      | Some(r) =>
+        let mu = CombinedRating.mu(r)
+        (mu, defaultRating.sigma, Rating.make(mu, defaultRating.sigma)->Rating.ordinal)
       | None => (defaultRating.mu, defaultRating.sigma, 0.0)
       }
     }
@@ -813,6 +839,9 @@ let make = (
                     rating.ordinal->Option.getOr(0.0),
                   ),
                 ),
+                ~duprDoubles=user.dupr->Option.flatMap(d => d.doubles),
+                ~duprReliable=user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
+                ~selfMu=user.selfRating,
               )
 
               Some({

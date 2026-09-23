@@ -70,6 +70,14 @@ external unsafeSessionDataAsNullable: option<BetterAuth.sessionData> => Js.Nulla
 @get external scrollHeight: Dom.element => float = "scrollHeight"
 @set external setScrollTop: (Dom.element, float) => unit = "scrollTop"
 
+// The composer opens one line tall and grows with what is typed, up to a few
+// lines, after which it scrolls. Measuring needs the real element, so it is
+// done in plain JS rather than through a height binding.
+let autoGrow: Dom.element => unit = %raw(`function (el) {
+  el.style.height = "auto"
+  el.style.height = Math.min(el.scrollHeight, 120) + "px"
+}`)
+
 @react.component
 let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDetails => unit>=?) => {
   open Lingui.Util
@@ -95,6 +103,10 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
   // form.
   let (isCollapsed, setIsCollapsed) = React.useState(() => true)
   let chatContainerRef = React.useRef(Nullable.null)
+  let promptRef = React.useRef(Nullable.null)
+  // An IME (Japanese, Chinese, Korean) confirms a candidate with Enter; that
+  // keystroke must not send the message.
+  let isComposingRef = React.useRef(false)
   let stepCounterRef = React.useRef(0)
   let localIdCounterRef = React.useRef(0)
   let isExecutingRef = React.useRef(false)
@@ -403,6 +415,11 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
   )
   let canSend = String.trim(prompt) != "" && !isLoading && !hasPendingProposal && !isHydrating
 
+  React.useEffect1(() => {
+    promptRef.current->Nullable.toOption->Option.forEach(autoGrow)
+    None
+  }, [prompt])
+
   let avatar =
     <span
       className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md bg-[#bdf25d] text-[#365314]">
@@ -575,7 +592,7 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
               </div>
             : React.null}
         </div>}
-    <div className="flex min-w-0 items-center gap-2.5">
+    <div className="flex min-w-0 items-start gap-2.5">
       <span
         className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-[#bdf25d] text-[#365314]">
         <Lucide.Sparkles size=17 \"aria-hidden"="true" />
@@ -591,20 +608,40 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
         <label className="block min-w-0" htmlFor="event-ai-prompt">
           <span className="sr-only"> {t`Describe the event`} </span>
           <div
-            className="flex min-w-0 items-center gap-2 rounded-lg border border-[#a3d949]/60 bg-white p-1.5 focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#bdf25d]/25 dark:bg-[#1e1f23]">
-            <input
+            className="flex min-w-0 items-end gap-2 rounded-lg border border-[#a3d949]/60 bg-white p-1.5 focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#bdf25d]/25 dark:bg-[#1e1f23]">
+            <textarea
               id="event-ai-prompt"
-              type_="text"
+              ref={ReactDOM.Ref.domRef(promptRef)}
+              rows=1
               value=prompt
               onChange={e => {
                 let value = ReactEvent.Form.target(e)["value"]
                 setPrompt(_ => value)
               }}
+              onCompositionStart={_ => isComposingRef.current = true}
+              onCompositionEnd={_ => isComposingRef.current = false}
+              onKeyDown={e => {
+                // Enter sends and Shift+Enter starts a line, except while an
+                // IME is mid-composition, where Enter belongs to the candidate
+                // (some browsers report it only as keyCode 229).
+                let composing =
+                  isComposingRef.current || e->ReactEvent.Keyboard.keyCode == 229
+                if (
+                  e->ReactEvent.Keyboard.key == "Enter" &&
+                  !(e->ReactEvent.Keyboard.shiftKey) &&
+                  !composing
+                ) {
+                  e->ReactEvent.Keyboard.preventDefault
+                  if canSend {
+                    handleAsk()
+                  }
+                }
+              }}
               placeholder={hasPendingProposal
                 ? ts`Approve or deny the pending action to continue.`
                 : ts`Describe your event and I’ll fill out the form…`}
               disabled={isLoading || hasPendingProposal}
-              className="h-9 min-w-0 flex-1 border-0 bg-transparent px-2 text-base text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 sm:text-sm dark:text-gray-100"
+              className="block max-h-[120px] min-h-9 w-full min-w-0 flex-1 resize-none border-0 bg-transparent px-2 py-2 text-base leading-5 text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 sm:text-sm dark:text-gray-100"
             />
             <button
               type_="submit"

@@ -5,6 +5,11 @@ module Fragment = %relay(`
   fragment EventRsvp_rsvp on Rsvp {
     user {
       id
+      selfRating
+      dupr {
+        doubles
+        doublesReliable
+      }
       ...EventRsvpUser_user
     }
     ...RsvpOptions_rsvp
@@ -67,9 +72,15 @@ let make = (
             secondaryText={switch (activitySlug, waitlistPosition) {
             | (_, Some(pos)) => "#" ++ Int.toString(pos)
             | (Some("pickleball"), None) =>
-              rsvp.rating
-              ->Option.flatMap(r => r.mu)
-              ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
+              // The same rating the Round Robin tool would seed this player
+              // at: pkuru, then a linked DUPR rating, then their own estimate.
+              CombinedRating.resolve(
+                ~pkuruMu=rsvp.rating->Option.flatMap(r => r.mu),
+                ~duprDoubles=user.dupr->Option.flatMap(d => d.doubles),
+                ~duprReliable=user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
+                ~selfMu=user.selfRating,
+              )
+              ->Option.map(r => CombinedRating.dupr(r)->Js.Float.toFixedWithPrecision(~digits=2))
               ->Option.getOr("")
             | _ => ""
             }}

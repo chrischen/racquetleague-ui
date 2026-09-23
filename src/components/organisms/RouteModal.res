@@ -22,8 +22,9 @@ let make = (
   ~children: React.element,
 ) => {
   let ts = Lingui.UtilString.t
-  // The portal renders into document.body, outside the shell's dark-mode
-  // wrappers, so the theme class is mirrored on the dialog's own root.
+  // The portal renders into document.body, outside the shell's dark-mode and
+  // font-sans wrappers, so both are mirrored on the dialog's own root (the
+  // html default font is monospace).
   let themeClass = DarkMode.rootClass(DarkMode.use())
   <Radix.Dialog.Root
     \"open"=true
@@ -32,7 +33,7 @@ let make = (
         onClose()
       }}>
     <Radix.Dialog.Portal>
-      <div className=themeClass>
+      <div className={themeClass ++ " font-sans"}>
         <Radix.Dialog.Overlay
           className="fixed inset-0 z-40 bg-black/40 animate-in fade-in duration-150"
         />

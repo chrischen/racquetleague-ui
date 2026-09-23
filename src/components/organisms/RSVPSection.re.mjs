@@ -15,6 +15,7 @@ import * as LucideReact from "lucide-react";
 import * as MiniEventRsvp from "./MiniEventRsvp.re.mjs";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as RelayRuntime from "relay-runtime";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as EventSignupButton from "../atoms/EventSignupButton.re.mjs";
 import * as ReactExperimental from "rescript-relay/src/ReactExperimental.re.mjs";
@@ -544,15 +545,22 @@ function RSVPSection(props) {
           return Caml_obj.equal(edge.listType, 0);
         }
       });
+  var seedMu = function (rsvp) {
+    return Core__Option.getOr(Core__Option.map(CombinedRating.resolve(Core__Option.flatMap(rsvp.rating, (function (r) {
+                              return r.mu;
+                            })), Core__Option.flatMap(Core__Option.flatMap(rsvp.user, (function (u) {
+                                  return u.dupr;
+                                })), (function (d) {
+                              return d.doubles;
+                            })), false, Core__Option.flatMap(rsvp.user, (function (u) {
+                              return u.selfRating;
+                            }))), CombinedRating.mu), 0);
+  };
   var confirmedRsvps = mainList.filter(function (param, i) {
           return !isWaitlist(i);
         }).toSorted(function (a, b) {
-        var userA = Core__Option.getOr(Core__Option.flatMap(a.rating, (function (rating) {
-                    return rating.mu;
-                  })), 0);
-        var userB = Core__Option.getOr(Core__Option.flatMap(b.rating, (function (rating) {
-                    return rating.mu;
-                  })), 0);
+        var userA = seedMu(a);
+        var userB = seedMu(b);
         if (userB > userA) {
           return 1;
         } else if (userB < userA) {

@@ -1,14 +1,15 @@
-// Which of a player's ratings the UI shows.
+// Which of a player's ratings the UI shows and seeds with.
 //
 // A player can carry a pkuru rating earned here, a DUPR rating synced from
-// their account, and a self-report. Every surface has to agree on which one
-// it shows, and on the server the same order decides who may join a
-// rating-gated event — so the precedence is pinned here.
+// their account, and a self-report. The Round Robin tool seeds from this and
+// every RSVP display shows it, so they have to agree — the precedence is
+// pinned here. It is not the gate: the server's EffectiveRating decides who
+// may join a rating-gated event, and that one ignores the self-report.
 import { describe, expect, it } from "vitest";
-import * as EffectiveRating from "../../src/lib/EffectiveRating.re.mjs";
+import * as CombinedRating from "../../src/lib/CombinedRating.re.mjs";
 import * as RatingMod from "../../src/lib/Rating.re.mjs";
 
-const { resolve, ofPkuru, ofDupr, ofSelf, mu, dupr, source, reliable } = EffectiveRating;
+const { resolve, ofPkuru, ofDupr, ofSelf, mu, dupr, source, reliable } = CombinedRating;
 
 const pick = (
   pkuruMu?: number,

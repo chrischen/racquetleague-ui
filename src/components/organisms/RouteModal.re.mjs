@@ -91,7 +91,7 @@ function RouteModal(props) {
                                   className: "pointer-events-none fixed inset-0 z-50 flex items-stretch justify-center px-3 pb-[calc(env(safe-area-inset-bottom)+72px)] pt-16 md:items-center md:p-4"
                                 })
                           ],
-                          className: themeClass
+                          className: themeClass + " font-sans"
                         })
                   }),
               onOpenChange: (function (isOpen) {

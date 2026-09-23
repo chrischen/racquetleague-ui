@@ -18,10 +18,16 @@ module Types = {
     ordinal: option<float>,
     sigma: option<float>,
   }
+  and fragment_rsvps_edges_node_user_dupr = {
+    doubles: option<float>,
+    doublesReliable: bool,
+  }
   and fragment_rsvps_edges_node_user = {
+    dupr: option<fragment_rsvps_edges_node_user_dupr>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
+    selfRating: option<float>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventMatchRsvpUser_user | #EventRsvpUserBar_user | #MatchCard_user | #PlayerAvatar_user | #PlayerCheckin_user | #PlayerReplaceModal_user | #PlayerRow_user | #SeedAdjustmentTimeline_user]>,
   }
   and fragment_rsvps_edges_node = {
@@ -319,6 +325,38 @@ return {
                       "args": null,
                       "kind": "ScalarField",
                       "name": "gender",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "selfRating",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "DuprLink",
+                      "kind": "LinkedField",
+                      "name": "dupr",
+                      "plural": false,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doubles",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doublesReliable",
+                          "storageKey": null
+                        }
+                      ],
                       "storageKey": null
                     },
                     {

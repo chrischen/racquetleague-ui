@@ -8,6 +8,11 @@ module Fragment = %relay(`
       picture
       lineUsername
       gender
+      selfRating
+      dupr {
+        doubles
+        doublesReliable
+      }
     }
     rating {
       ordinal
@@ -44,13 +49,20 @@ let make = (
 
   rsvp.user
   ->Option.map(user => {
-    let mu = rsvp.rating->Option.flatMap(r => r.mu)->Option.getOr(25.)
+    // The same rating the Round Robin tool would seed this player at:
+    // pkuru, then a linked DUPR rating, then their own estimate.
+    let combined = CombinedRating.resolve(
+      ~pkuruMu=rsvp.rating->Option.flatMap(r => r.mu),
+      ~duprDoubles=user.dupr->Option.flatMap(d => d.doubles),
+      ~duprReliable=user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
+      ~selfMu=user.selfRating,
+    )
+    let mu = combined->Option.map(CombinedRating.mu)->Option.getOr(25.)
     let progress = Int.fromFloat(mu /. maxRating *. 100.)
 
     let skillStr =
-      rsvp.rating
-      ->Option.flatMap(r => r.mu)
-      ->Option.map(mu => Rating.guessDupr(mu)->Js.Float.toFixedWithPrecision(~digits=2))
+      combined
+      ->Option.map(r => CombinedRating.dupr(r)->Js.Float.toFixedWithPrecision(~digits=2))
       ->Option.getOr("—")
 
     // Payment indicator

@@ -4,9 +4,9 @@ let ts = Lingui.UtilString.t
 
 /** A small label saying where a rating came from, so a number on screen is
  never ambiguous between "earned here", "verified by DUPR" and "the player
- told us". Pairs with EffectiveRating, which decides which one is shown. */
+ told us". Pairs with CombinedRating, which decides which one is shown. */
 @react.component
-let make = (~source: EffectiveRating.source, ~reliable: bool=true, ~className: string="") => {
+let make = (~source: CombinedRating.source, ~reliable: bool=true, ~className: string="") => {
   let (label, tone) = switch source {
   | Pkuru => (ts`pkuru`, "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300")
   | Dupr => ("DUPR", "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300")

@@ -9,7 +9,7 @@ import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as FramerMotion from "framer-motion";
-import * as EffectiveRating from "../../lib/EffectiveRating.re.mjs";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as RatingSourceChip from "../molecules/RatingSourceChip.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
@@ -116,14 +116,14 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
   var displayName = profile.displayName;
   var selfDupr = profile.selfDupr;
   var computedDupr = profile.computedDupr;
-  var declared = EffectiveRating.resolve(undefined, profile.duprDoubles, profile.duprReliable, Core__Option.map(selfDupr, Rating.duprToMu));
-  var declaredDupr = Core__Option.map(declared, EffectiveRating.dupr);
+  var declared = CombinedRating.resolve(Core__Option.map(computedDupr, Rating.duprToMu), profile.duprDoubles, profile.duprReliable, Core__Option.map(selfDupr, Rating.duprToMu));
+  var declaredDupr = Core__Option.map(declared, CombinedRating.dupr);
   var selfLevel = Core__Option.flatMap(Core__Option.map(declaredDupr, LevelPicker.nearest), (function (v) {
           return LevelPicker.options().find(function (o) {
                       return LevelPicker.isSelected(v, o.value);
                     });
         }));
-  var visualRating = Core__Option.getOr(Core__Option.orElse(computedDupr, declaredDupr), 0);
+  var visualRating = Core__Option.getOr(declaredDupr, 0);
   var ringProgress = Math.min(visualRating / 5, 1);
   var circumference = 2 * Math.PI * 37;
   var ringColor = visualRating >= 4 ? "#7c3aed" : (
@@ -171,8 +171,8 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
     if (declared !== undefined) {
       var r = Caml_option.valFromOption(declared);
       tmp$4 = JsxRuntime.jsx(RatingSourceChip.make, {
-            source: EffectiveRating.source(r),
-            reliable: EffectiveRating.reliable(r),
+            source: CombinedRating.source(r),
+            reliable: CombinedRating.reliable(r),
             className: "mt-1"
           });
     } else {
@@ -330,7 +330,7 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("p", {
-                                              children: t`Declared rating`,
+                                              children: t`Rating`,
                                               className: "font-mono text-[9px] uppercase tracking-wider text-gray-400 dark:text-gray-500"
                                             }),
                                         tmp$3

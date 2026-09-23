@@ -179,16 +179,16 @@ module ProfileCard = {
     let selfDupr = profile.selfDupr
     let computedDupr = profile.computedDupr
 
-    // The left tile shows what the player declares, which is their DUPR
-    // rating when they have linked one and their own estimate otherwise.
-    // EffectiveRating decides; the chip says which it picked.
-    let declared = EffectiveRating.resolve(
-      ~pkuruMu=None,
+    // The left tile is the rating this player would be seeded at — the same
+    // number the Round Robin tool uses — so it goes through CombinedRating
+    // with every signal, pkuru included. The chip says which one it picked.
+    let declared = CombinedRating.resolve(
+      ~pkuruMu=computedDupr->Option.map(Rating.duprToMu),
       ~duprDoubles=profile.duprDoubles,
       ~duprReliable=profile.duprReliable,
       ~selfMu=selfDupr->Option.map(Rating.duprToMu),
     )
-    let declaredDupr = declared->Option.map(EffectiveRating.dupr)
+    let declaredDupr = declared->Option.map(CombinedRating.dupr)
     let selfLevel =
       declaredDupr
       ->Option.map(LevelPicker.nearest)
@@ -196,8 +196,8 @@ module ProfileCard = {
         LevelPicker.options()->Array.find(o => LevelPicker.isSelected(Some(v), o.value))
       )
 
-    // Ring around the avatar: strongest signal available, on a 0–5 DUPR axis.
-    let visualRating = computedDupr->Option.orElse(declaredDupr)->Option.getOr(0.)
+    // Ring around the avatar: the seeded rating, on a 0–5 DUPR axis.
+    let visualRating = declaredDupr->Option.getOr(0.)
     let ringProgress = Js.Math.min_float(visualRating /. 5., 1.)
     let circumference = 2. *. Js.Math._PI *. 37.
     let ringColor = visualRating >= 4. ? "#7c3aed" : visualRating >= 3. ? "#ffb042" : "#94a3b8"
@@ -301,7 +301,7 @@ module ProfileCard = {
             className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#222326]">
             <p
               className="font-mono text-[9px] uppercase tracking-wider text-gray-400 dark:text-gray-500">
-              {(ts`Declared rating`)->React.string}
+              {(ts`Rating`)->React.string}
             </p>
             {switch selfLevel {
             | Some(level) =>
@@ -316,8 +316,8 @@ module ProfileCard = {
                 | Some(r) =>
                   <RatingSourceChip
                     className="mt-1"
-                    source={EffectiveRating.source(r)}
-                    reliable={EffectiveRating.reliable(r)}
+                    source={CombinedRating.source(r)}
+                    reliable={CombinedRating.reliable(r)}
                   />
                 | None => React.null
                 }}

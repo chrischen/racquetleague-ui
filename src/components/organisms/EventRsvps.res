@@ -27,6 +27,10 @@ module Fragment = %relay(`
           ...RsvpOptions_rsvp
           user {
             id
+            selfRating
+            dupr {
+              doubles
+            }
           }
           rating {
             ordinal
@@ -193,12 +197,23 @@ let make = (~event, ~user) => {
     maxRsvps->Option.flatMap(max => count >= max ? Some() : None)->Option.isSome
   }
   let mainList = rsvps->Array.filter(edge => edge.listType == None || edge.listType == Some(0))
+  let seedMu = rsvp =>
+    CombinedRating.resolve(
+      ~pkuruMu=rsvp.rating->Option.flatMap(r => r.mu),
+      ~duprDoubles=rsvp.user->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
+      ~duprReliable=false,
+      ~selfMu=rsvp.user->Option.flatMap(u => u.selfRating),
+    )
+    ->Option.map(CombinedRating.mu)
+    ->Option.getOr(0.)
   let confirmedRsvps =
     mainList
     ->Array.filterWithIndex((_, i) => !isWaitlist(i))
     ->Array.toSorted((a, b) => {
-      let userA = a.rating->Option.flatMap(rating => rating.mu)->Option.getOr(0.)
-      let userB = b.rating->Option.flatMap(rating => rating.mu)->Option.getOr(0.)
+      // Sort by the rating the rows display (pkuru, then DUPR, then the
+      // player's own estimate), so the list order matches the numbers on it.
+      let userA = seedMu(a)
+      let userB = seedMu(b)
       userA < userB ? 1. : -1.
     })
 

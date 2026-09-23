@@ -15,10 +15,15 @@ module Types = {
     ordinal: option<float>,
     sigma: option<float>,
   }
+  and fragment_rsvps_edges_node_user_dupr = {
+    doubles: option<float>,
+  }
   and fragment_rsvps_edges_node_user = {
+    dupr: option<fragment_rsvps_edges_node_user_dupr>,
     @live id: string,
     lineUsername: option<string>,
     picture: option<string>,
+    selfRating: option<float>,
   }
   and fragment_rsvps_edges_node = {
     @live id: string,
@@ -334,6 +339,31 @@ return {
                       "args": null,
                       "kind": "ScalarField",
                       "name": "lineUsername",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "kind": "ScalarField",
+                      "name": "selfRating",
+                      "storageKey": null
+                    },
+                    {
+                      "alias": null,
+                      "args": null,
+                      "concreteType": "DuprLink",
+                      "kind": "LinkedField",
+                      "name": "dupr",
+                      "plural": false,
+                      "selections": [
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doubles",
+                          "storageKey": null
+                        }
+                      ],
                       "storageKey": null
                     }
                   ],

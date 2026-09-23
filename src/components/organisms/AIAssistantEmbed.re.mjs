@@ -97,6 +97,11 @@ var ChatHistoryLoader = {
   make: AIAssistantEmbed$ChatHistoryLoader
 };
 
+var autoGrow = (function (el) {
+  el.style.height = "auto"
+  el.style.height = Math.min(el.scrollHeight, 120) + "px"
+});
+
 function AIAssistantEmbed(props) {
   var context = props.context;
   var match = React.useState(function () {
@@ -135,6 +140,8 @@ function AIAssistantEmbed(props) {
   var setIsCollapsed = match$6[1];
   var isCollapsed = match$6[0];
   var chatContainerRef = React.useRef(null);
+  var promptRef = React.useRef(null);
+  var isComposingRef = React.useRef(false);
   var stepCounterRef = React.useRef(0);
   var localIdCounterRef = React.useRef(0);
   var isExecutingRef = React.useRef(false);
@@ -392,6 +399,9 @@ function AIAssistantEmbed(props) {
         }
       });
   var canSend = prompt.trim() !== "" && !isLoading && !hasPendingProposal && !isHydrating;
+  React.useEffect((function () {
+          Core__Option.forEach(Caml_option.nullable_to_opt(promptRef.current), autoGrow);
+        }), [prompt]);
   var avatar = JsxRuntime.jsx("span", {
         children: JsxRuntime.jsx(LucideReact.Sparkles, {
               size: 13,
@@ -682,13 +692,32 @@ function AIAssistantEmbed(props) {
                                           }),
                                       JsxRuntime.jsxs("div", {
                                             children: [
-                                              JsxRuntime.jsx("input", {
-                                                    className: "h-9 min-w-0 flex-1 border-0 bg-transparent px-2 text-base text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 sm:text-sm dark:text-gray-100",
+                                              JsxRuntime.jsx("textarea", {
+                                                    ref: Caml_option.some(promptRef),
+                                                    className: "block max-h-[120px] min-h-9 w-full min-w-0 flex-1 resize-none border-0 bg-transparent px-2 py-2 text-base leading-5 text-gray-900 outline-none placeholder:text-gray-400 disabled:opacity-60 sm:text-sm dark:text-gray-100",
                                                     id: "event-ai-prompt",
                                                     disabled: isLoading || hasPendingProposal,
                                                     placeholder: hasPendingProposal ? t`Approve or deny the pending action to continue.` : t`Describe your event and I’ll fill out the form…`,
-                                                    type: "text",
+                                                    rows: 1,
                                                     value: prompt,
+                                                    onCompositionEnd: (function (param) {
+                                                        isComposingRef.current = false;
+                                                      }),
+                                                    onCompositionStart: (function (param) {
+                                                        isComposingRef.current = true;
+                                                      }),
+                                                    onKeyDown: (function (e) {
+                                                        var composing = isComposingRef.current || e.keyCode === 229;
+                                                        if (e.key === "Enter" && !e.shiftKey && !composing) {
+                                                          e.preventDefault();
+                                                          if (canSend) {
+                                                            return handleAsk();
+                                                          } else {
+                                                            return ;
+                                                          }
+                                                        }
+                                                        
+                                                      }),
                                                     onChange: (function (e) {
                                                         var value = e.target.value;
                                                         setPrompt(function (param) {
@@ -710,7 +739,7 @@ function AIAssistantEmbed(props) {
                                                     type: "submit"
                                                   })
                                             ],
-                                            className: "flex min-w-0 items-center gap-2 rounded-lg border border-[#a3d949]/60 bg-white p-1.5 focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#bdf25d]/25 dark:bg-[#1e1f23]"
+                                            className: "flex min-w-0 items-end gap-2 rounded-lg border border-[#a3d949]/60 bg-white p-1.5 focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:border-[#bdf25d]/25 dark:bg-[#1e1f23]"
                                           })
                                     ],
                                     className: "block min-w-0",
@@ -751,7 +780,7 @@ function AIAssistantEmbed(props) {
                                 })
                             })
                       ],
-                      className: "flex min-w-0 items-center gap-2.5"
+                      className: "flex min-w-0 items-start gap-2.5"
                     })
               ],
               className: "bg-[#bdf25d]/15 px-4 pb-5 pt-3 dark:bg-[#bdf25d]/[0.07]"
@@ -765,6 +794,7 @@ export {
   authClient ,
   ChatHistoryQuery ,
   ChatHistoryLoader ,
+  autoGrow ,
   make ,
 }
 /*  Not a pure module */

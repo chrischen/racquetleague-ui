@@ -54,6 +54,19 @@ type enum_Region_input =
 
 
 @live @unboxed
+type enum_ReservationKind = 
+  | @as("court") Court
+  | @as("event") Event
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_ReservationKind_input = 
+  | @as("court") Court
+  | @as("event") Event
+
+
+@live @unboxed
 type enum_SmartRsvpAlgorithm = 
   | BestFit
   | Ilp
@@ -404,6 +417,20 @@ and input_GetUserClubMembershipInput = {
 and input_GetUserClubMembershipInput_nullable = {
   clubId: string,
   userId: string,
+}
+
+@live
+and input_ImportReservationEmailInput = {
+  body: string,
+  note?: string,
+  subject?: string,
+}
+
+@live
+and input_ImportReservationEmailInput_nullable = {
+  body: string,
+  note?: Js.Null.t<string>,
+  subject?: Js.Null.t<string>,
 }
 
 @live

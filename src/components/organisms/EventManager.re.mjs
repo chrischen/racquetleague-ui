@@ -23,6 +23,7 @@ import * as DrawGenerator from "../molecules/DrawGenerator.re.mjs";
 import * as HighsBindings from "../../lib/rating/solver/HighsBindings.re.mjs";
 import * as PlayerCheckin from "./PlayerCheckin.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as PrintableDraws from "./PrintableDraws.re.mjs";
 import * as RatingBaseline from "../../lib/rating/RatingBaseline.re.mjs";
 import * as SolverWarnings from "../molecules/SolverWarnings.re.mjs";
@@ -880,7 +881,7 @@ function EventManager(props) {
       });
   var setPlayerOverrides = match$16[1];
   var playerOverrides = match$16[0];
-  var baseRatingFor = function (userId, rsvpRating) {
+  var baseRatingFor = function (userId, rsvpRating, duprDoubles, duprReliable, selfMu) {
     var defaultRating = Rating.Rating.makeDefault();
     if (seedSource !== "GlobalRatings" && clubRatings !== undefined) {
       var match = Js_dict.get(clubRatings, userId);
@@ -898,15 +899,30 @@ function EventManager(props) {
               ];
       }
     }
-    if (rsvpRating !== undefined) {
-      return rsvpRating;
-    } else {
+    var r = CombinedRating.resolve(Core__Option.map(rsvpRating, (function (param) {
+                return param[0];
+              })), duprDoubles, duprReliable, selfMu);
+    if (r === undefined) {
       return [
               defaultRating.mu,
               defaultRating.sigma,
               0.0
             ];
     }
+    var r$1 = Caml_option.valFromOption(r);
+    if (CombinedRating.source(r$1) === "Pkuru") {
+      return Core__Option.getOr(rsvpRating, [
+                  defaultRating.mu,
+                  defaultRating.sigma,
+                  0.0
+                ]);
+    }
+    var mu = CombinedRating.mu(r$1);
+    return [
+            mu,
+            defaultRating.sigma,
+            Rating.Rating.ordinal(Rating.Rating.make(mu, defaultRating.sigma))
+          ];
   };
   var players = React.useMemo((function () {
           return Core__Array.filterMap(Core__Option.getOr(Core__Option.flatMap(data.rsvps, (function (rsvps) {
@@ -935,7 +951,11 @@ function EventManager(props) {
                                                                 Core__Option.getOr(rating.sigma, 8.333),
                                                                 Core__Option.getOr(rating.ordinal, 0.0)
                                                               ];
-                                                      })));
+                                                      })), Core__Option.flatMap(user.dupr, (function (d) {
+                                                        return d.doubles;
+                                                      })), Core__Option.getOr(Core__Option.map(user.dupr, (function (d) {
+                                                            return d.doublesReliable;
+                                                          })), false), user.selfRating);
                                             var match$1 = user.gender;
                                             var tmp;
                                             tmp = match$1 !== undefined && (match$1 === "female" || match$1 === "male") && match$1 === "female" ? "Female" : "Male";

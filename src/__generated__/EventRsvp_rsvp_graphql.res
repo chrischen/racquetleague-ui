@@ -9,8 +9,14 @@ module Types = {
     ordinal: option<float>,
     sigma: option<float>,
   }
+  and fragment_user_dupr = {
+    doubles: option<float>,
+    doublesReliable: bool,
+  }
   and fragment_user = {
+    dupr: option<fragment_user_dupr>,
     @live id: string,
+    selfRating: option<float>,
     fragmentRefs: RescriptRelay.fragmentRefs<[ | #EventRsvpUser_user]>,
   }
   type fragment = {
@@ -72,6 +78,38 @@ let node: operationType = %raw(json` {
           "args": null,
           "kind": "ScalarField",
           "name": "id",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "selfRating",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "DuprLink",
+          "kind": "LinkedField",
+          "name": "dupr",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "doubles",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "doublesReliable",
+              "storageKey": null
+            }
+          ],
           "storageKey": null
         },
         {

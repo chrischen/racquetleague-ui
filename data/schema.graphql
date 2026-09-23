@@ -434,26 +434,6 @@ type DuprResult implements HasErrors {
   viewer: User
 }
 
-"""
-The one rating the platform acts on for this player, and where it came
- from. Resolved by `League.Domain.EffectiveRating`, which prefers a pkuru
- league rating, then DUPR, then the player's self-report.
-"""
-type EffectiveRating {
-  """The same rating on the DUPR scale, for display."""
-  dupr: Float!
-
-  """On the internal mu scale, the same scale as an event's min/max rating."""
-  mu: Float!
-
-  """
-  Present only for a pkuru league rating; the other sources carry no
-     uncertainty of their own.
-  """
-  sigma: Float
-  source: RatingSource!
-}
-
 type Error {
   message: String!
 }
@@ -616,6 +596,64 @@ type GetUserClubMembershipResult implements HasErrors {
 
 interface HasErrors {
   errors: [Error!]
+}
+
+input ImportReservationEmailInput {
+  """
+  The booking confirmation: the email's text or HTML, or a forward of it.
+  """
+  body: String!
+
+  """
+  Your own instructions for the event: a title, how many players, a
+     per-person price, a level, a different time. Text above a forwarded-message
+     line in `body` is read the same way.
+  """
+  note: String
+
+  """The email's subject, if you have it."""
+  subject: String
+}
+
+type ImportReservationEmailResult implements HasErrors {
+  errors: [Error!]
+
+  """Bookings that were read but could not be saved."""
+  failed: [ReservationImportFailure!]
+  imported: [ImportedReservation!]
+
+  """False when the email did not contain a court booking."""
+  isReservation: Boolean
+}
+
+type ImportedReservation {
+  """
+  True when the email cancelled the booking: the viewer's court event is
+     cancelled, or the viewer left the shared session.
+  """
+  cancelled: Boolean!
+
+  """
+  False when this booking had been imported before; the existing event is
+     returned.
+  """
+  created: Boolean!
+
+  """The event the booking became."""
+  event: Event
+
+  """
+  True when someone else had already imported this session and the viewer
+     joined their event.
+  """
+  joined: Boolean!
+  kind: ReservationKind!
+
+  """
+  True when the event had been cancelled and this booking uncancelled it:
+     the same slot was booked again.
+  """
+  restored: Boolean!
 }
 
 input IntervalInput {
@@ -1043,6 +1081,13 @@ type Mutation {
      `previewSmartRsvps` first.
   """
   evaluateSmartRsvps(algorithm: SmartRsvpAlgorithm, eventId: ID!): EvaluateSmartRsvpsResult!
+
+  """
+  Import a court booking from a pasted confirmation email, as the viewer:
+   the same importer the inbox addresses use. Creates an unlisted event per
+   booked court with the viewer RSVPed; a cancellation email cancels it.
+  """
+  importReservationEmail(input: ImportReservationEmailInput!): ImportReservationEmailResult!
   inviteToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
@@ -1337,6 +1382,23 @@ input RemoveUserFromClubInput {
   userId: ID!
 }
 
+type ReservationImportFailure {
+  """VENUE_NOT_FOUND, SAVE_FAILED or NOT_FOUND."""
+  code: String!
+  startDate: Datetime!
+  venueName: String!
+}
+
+"""
+What was booked: `court`, a court the viewer rented, which is their own
+ event; or `event`, a session the venue runs (open play, a clinic), which is
+ one event shared by everyone who imported a booking for it.
+"""
+enum ReservationKind {
+  court
+  event
+}
+
 """
 The location scoping a request's availability data. `coords` is always
    usable (e.g. map rendering). `region` is set only when the location came
@@ -1346,6 +1408,26 @@ The location scoping a request's availability data. `coords` is always
 type ResolvedLocation {
   coords: Coords!
   region: Region
+}
+
+"""
+A rating picked from a player's signals, and which signal it was. The
+ shape both `effectiveRating` and `combinedRating` answer with; they differ
+ only in which signals they are allowed to pick from.
+"""
+type ResolvedRating {
+  """The same rating on the DUPR scale, for display."""
+  dupr: Float!
+
+  """On the internal mu scale, the same scale as an event's min/max rating."""
+  mu: Float!
+
+  """
+  Present only for a pkuru league rating; the other sources carry no
+     uncertainty of their own.
+  """
+  sigma: Float
+  source: RatingSource!
 }
 
 type Rsvp implements Node {
@@ -1577,10 +1659,24 @@ type UpdateViewerRsvpMessageResult implements HasErrors {
 type User implements Node {
   biography: String
 
+  """
+  The rating this player is *shown at and seeded at* — the Round Robin
+   tool, Smart RSVP's simulated draws, and RSVP rows. Resolved by
+   `League.Domain.CombinedRating`: the same order as `effectiveRating`, then the
+   player's own estimate of their level as a last resort. Never used to gate.
+  """
+  combinedRating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): ResolvedRating
+
   """The user's home coordinates (lng/lat)."""
   coords: Coords
   dupr: DuprLink
-  effectiveRating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): EffectiveRating
+
+  """
+  The rating this player is *held to* — what a rating-gated event compares
+   against its minimum. Resolved by `League.Domain.EffectiveRating`: the pkuru
+   league rating, else the linked DUPR rating. A self-report never counts here.
+  """
+  effectiveRating(activitySlug: String!, clubId: ID, clubSlug: String, namespace: String): ResolvedRating
   email: String
   eventRating(eventId: ID!): Rating
   fullName: String
@@ -1616,6 +1712,21 @@ type Viewer {
   """Clubs the viewer is a member of, ranked by score (highest first)."""
   clubs(after: String, before: String, first: Int): ClubConnection!
   events(_filters: EventFilters, after: String, afterDate: Datetime, before: String, first: Int!): EventConnection!
+
+  """
+  Where to forward booking confirmations from your account's own email
+   address.
+  """
+  eventsForwardingAddress: String!
+
+  """
+  Your personal address for court-booking emails. Give it to a booking site
+   in place of your own email, or forward confirmations to it (with a note on
+   top for the event's title, number of players, price...). Everything sent to
+   it is also relayed to your own email, so null until you have a verified
+   email (or while the server is not configured for inbound email).
+  """
+  eventsInboxAddress: String
   inbox(after: String, before: String, first: Int): EventMessageConnection
   profile: User
 
