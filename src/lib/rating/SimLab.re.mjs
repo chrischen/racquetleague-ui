@@ -1144,7 +1144,144 @@ function makeFrame(round, state, truth, games, byes, numPlayers, numBands) {
         };
 }
 
-async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, plan, courts, numRounds, seed, numPlayers, pods, onRound) {
+function ownWinProbIn(match, intId) {
+  var p = predictedWinProbability(match);
+  if (match[0].some(function (x) {
+          return x.intId === intId;
+        })) {
+    return p;
+  } else if (match[1].some(function (x) {
+          return x.intId === intId;
+        })) {
+    return 1.0 - p;
+  } else {
+    return ;
+  }
+}
+
+function probeAchieves(probe, ownWinProb, lastOwnWinProb) {
+  var favored = ownWinProb > 0.5 + probe.margin;
+  var unfavored = ownWinProb < 0.5 - probe.margin;
+  var match = probe.target;
+  switch (match) {
+    case "ForceFavored" :
+        return favored;
+    case "ForceUnfavored" :
+        return unfavored;
+    case "ForceAlternate" :
+        if (lastOwnWinProb !== undefined) {
+          if (lastOwnWinProb > 0.5) {
+            return unfavored;
+          } else {
+            return favored;
+          }
+        } else if (favored) {
+          return true;
+        } else {
+          return unfavored;
+        }
+    
+  }
+}
+
+function applyRoleProbe(match, probe, lastOwnWinProb) {
+  var team2 = match[1];
+  var team1 = match[0];
+  var inTeam1 = team1.some(function (p) {
+        return p.intId === probe.playerIntId;
+      });
+  var inTeam2 = team2.some(function (p) {
+        return p.intId === probe.playerIntId;
+      });
+  var match$1 = inTeam1 ? [
+      team1,
+      team2
+    ] : [
+      team2,
+      team1
+    ];
+  var mine = match$1[0];
+  var me = mine.find(function (p) {
+        return p.intId === probe.playerIntId;
+      });
+  if (me === undefined) {
+    return match;
+  }
+  if (!(inTeam1 || inTeam2)) {
+    return match;
+  }
+  var others = mine.filter(function (p) {
+          return p.intId !== probe.playerIntId;
+        }).concat(match$1[1]);
+  if (others.length !== 3) {
+    return match;
+  }
+  var candidates = others.map(function (partner, i) {
+        var pair = [
+          me,
+          partner
+        ];
+        var rest = others.filter(function (param, j) {
+              return j !== i;
+            });
+        return [
+                i,
+                pair,
+                rest,
+                predictedWinProbability([
+                      pair,
+                      rest
+                    ])
+              ];
+      });
+  var achieving = candidates.filter(function (param) {
+        return probeAchieves(probe, param[3], lastOwnWinProb);
+      });
+  var match$2 = probe.pick;
+  var chosen;
+  if (match$2 === "Nearest") {
+    var own = achieving.find(function (param) {
+          return param[0] === 0;
+        });
+    chosen = own !== undefined ? own : Core__Array.reduce(achieving, undefined, (function (best, c) {
+              if (best !== undefined && Math.abs(best[3] - 0.5) <= Math.abs(c[3] - 0.5)) {
+                return best;
+              } else {
+                return c;
+              }
+            }));
+  } else {
+    chosen = Core__Array.reduce(achieving, undefined, (function (best, c) {
+            if (best !== undefined && Math.abs(best[3] - 0.5) >= Math.abs(c[3] - 0.5)) {
+              return best;
+            } else {
+              return c;
+            }
+          }));
+  }
+  if (chosen === undefined) {
+    return match;
+  }
+  if (chosen[0] === 0) {
+    return match;
+  }
+  var rest = chosen[2];
+  var pair = chosen[1];
+  if (inTeam1) {
+    return [
+            pair,
+            rest
+          ];
+  } else {
+    return [
+            rest,
+            pair
+          ];
+  }
+}
+
+async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, plan, courts, numRounds, seed, numPlayers, pods, onRound, probe, absencesOpt) {
+  var absences = absencesOpt !== undefined ? absencesOpt : [];
   var seedString = "lab:" + seed.toString() + ":" + entry.id;
   var outcomePrng = SolverPrng.fromSeedString(seedString + ":outcomes");
   var startTime = new Date(0.0);
@@ -1152,6 +1289,9 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
   var frames = [makeFrame(0, initialPlayers, truthAt(baseTruth, roles, 0), [], [], numPlayers, courts)];
   var fellBack = false;
   var round = 0;
+  var probeLast = {
+    contents: undefined
+  };
   while(round < numRounds) {
     var state = Rating.toPlayerStateWithAdjustments(scoredRounds, initialPlayers, [], undefined);
     var thisRound = round + 1 | 0;
@@ -1174,11 +1314,21 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
           }
           }(performed))) : state;
     var attending = Core__Option.getOr(plan.attends[sessionOf(thisRound)], []);
-    var isPresent = (function(attending){
+    var isPresent = (function(thisRound,attending){
     return function isPresent(p) {
-      return Core__Option.getOr(attending[p.intId], true);
+      if (Core__Option.getOr(attending[p.intId], true)) {
+        return !absences.some(function (a) {
+                    if (a.absentIntId === p.intId && thisRound >= a.fromRound) {
+                      return thisRound <= a.toRound;
+                    } else {
+                      return false;
+                    }
+                  });
+      } else {
+        return false;
+      }
     }
-    }(attending));
+    }(thisRound,attending));
     var presentPlayers = solverPlayers.filter(isPresent);
     var realById = {};
     state.forEach((function(realById){
@@ -1263,13 +1413,24 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
       var scored = matches.map((function(performed,createdAt,seatedIds){
           return function (rawMatch, courtIndex) {
             var match = entry.usesTruth ? restoreRatings(rawMatch) : rawMatch;
-            var predicted = predictedWinProbability(match);
-            var trueProb = Rating.trueWinProbability(match, performed);
-            var match$1 = simulateScore(match, performed, outcomePrng);
-            var team2 = match[1];
-            var team1 = match[0];
-            var s2 = match$1[1];
-            var s1 = match$1[0];
+            var match$1;
+            if (probe !== undefined && pods === undefined) {
+              var swapped = applyRoleProbe(match, probe, probeLast.contents);
+              var own = ownWinProbIn(swapped, probe.playerIntId);
+              if (own !== undefined && Math.abs(own - 0.5) > probe.margin) {
+                probeLast.contents = own;
+              }
+              match$1 = swapped;
+            } else {
+              match$1 = match;
+            }
+            var predicted = predictedWinProbability(match$1);
+            var trueProb = Rating.trueWinProbability(match$1, performed);
+            var match$2 = simulateScore(match$1, performed, outcomePrng);
+            var team2 = match$1[1];
+            var team1 = match$1[0];
+            var s2 = match$2[1];
+            var s1 = match$2[0];
             team1.forEach(function (p) {
                   seatedIds.add(p.id);
                 });
@@ -1282,13 +1443,13 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
             var record_team2 = team2.map(function (p) {
                   return p.name;
                 });
-            var record_playerIndices = Rating.Match.players(match).map(function (p) {
+            var record_playerIndices = Rating.Match.players(match$1).map(function (p) {
                   return p.intId;
                 });
             var record_isBlowout = Math.abs(s1 - s2) >= 9.0;
             var record_isUpset = predicted > 0.5 !== s1 > s2;
-            var record_predictedDraw = Rating.drawProbability(match, undefined);
-            var record_trueDraw = Rating.drawProbability(match, performed);
+            var record_predictedDraw = Rating.drawProbability(match$1, undefined);
+            var record_trueDraw = Rating.drawProbability(match$1, performed);
             var record = {
               courtIndex: courtIndex,
               team1: record_team1,
@@ -1304,7 +1465,7 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
               trueDraw: record_trueDraw
             };
             var entity_id = Uuid.randomUUID();
-            var entity_match = Rating.Match.incrementPlayCounts(match);
+            var entity_match = Rating.Match.incrementPlayCounts(match$1);
             var entity_score = [
               s1,
               s2
@@ -1353,9 +1514,11 @@ async function simulateStrategy(entry, initialPlayers, baseTruth, roles, form, p
         };
 }
 
-async function run(scenario, seed, numPlayers, courts, numRounds, distOpt, tournamentOpt, onRound) {
+async function run(scenario, seed, numPlayers, courts, numRounds, distOpt, tournamentOpt, onRound, entriesOpt, probe, absencesOpt) {
   var dist = distOpt !== undefined ? distOpt : variedField;
   var tournament = tournamentOpt !== undefined ? tournamentOpt : false;
+  var entries = entriesOpt !== undefined ? entriesOpt : strategies;
+  var absences = absencesOpt !== undefined ? absencesOpt : [];
   var ranks = ladderPermutation(seed, numPlayers);
   var baseTruth = Belt_Array.makeBy(numPlayers, (function (index) {
           return trueSkill(ranks[index], numPlayers, dist);
@@ -1382,9 +1545,9 @@ async function run(scenario, seed, numPlayers, courts, numRounds, distOpt, tourn
       });
   var pods = tournament ? partnerPods(initialPlayers, seed) : undefined;
   var runs = [];
-  for(var i = 0 ,i_finish = strategies.length; i < i_finish; ++i){
-    var entry = strategies[i];
-    var run$1 = await simulateStrategy(entry, initialPlayers, baseTruth, roles, form, plan, courts, numRounds, seed, numPlayers, pods, onRound);
+  for(var i = 0 ,i_finish = entries.length; i < i_finish; ++i){
+    var entry = entries[i];
+    var run$1 = await simulateStrategy(entry, initialPlayers, baseTruth, roles, form, plan, courts, numRounds, seed, numPlayers, pods, onRound, probe, absences);
     runs.push(run$1);
   }
   return {
@@ -1531,6 +1694,9 @@ export {
   dropInPercentiles ,
   dropInPlan ,
   makeFrame ,
+  ownWinProbIn ,
+  probeAchieves ,
+  applyRoleProbe ,
   simulateStrategy ,
   run ,
 }

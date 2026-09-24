@@ -1504,6 +1504,137 @@ let makeFrame = (
 }
 
 // ---------------------------------------------------------------------------
+// Role probe — an experiment, not a strategy
+// ---------------------------------------------------------------------------
+//
+// Pins one player to the favored or unfavored side of every match they play,
+// to measure what a streak of one role does to that player's rating. It only
+// re-splits the foursome the matchmaker already chose: the same four players
+// share the court, so partner and opponent rotation stay the matchmaker's.
+// Applied after the solve and before scoring, so the rating replay and the
+// next round's history both see the swapped match. Never used by the UI or
+// the saved runs (see scripts/role-probe.ts).
+
+type roleTarget =
+  | ForceFavored
+  | ForceUnfavored
+  // The control: flip side every game, with the same kind of re-split.
+  | ForceAlternate
+
+type probePick =
+  // Keep the matchmaker's own split when it already achieves the target;
+  // otherwise the achieving split closest to an even game.
+  | Nearest
+  // The most one-sided achieving split (favored: strongest partner).
+  | Farthest
+
+// Experiment only: a regular who misses a stretch of rounds — arrives late,
+// leaves early, skips a session — and comes back rated but behind on games.
+// Inclusive, 1-based rounds.
+type absence = {absentIntId: int, fromRound: int, toRound: int}
+
+type roleProbe = {
+  playerIntId: int,
+  target: roleTarget,
+  // Favored means own win probability above 0.5 + margin; unfavored, below
+  // 0.5 - margin. 0 = strictly one side; 0.05 = outside the dead zone.
+  margin: float,
+  pick: probePick,
+}
+
+// A player's own win probability in a match, as the ratings at match time
+// see it. None when they are not in it.
+let ownWinProbIn = (match: Match.t<'a>, ~intId: int): option<float> => {
+  let (team1, team2) = match
+  let p = predictedWinProbability(match)
+  if team1->Array.some(x => x.intId == intId) {
+    Some(p)
+  } else if team2->Array.some(x => x.intId == intId) {
+    Some(1.0 -. p)
+  } else {
+    None
+  }
+}
+
+// `lastOwnWinProb` is the player's most recent game that was clearly on one
+// side (outside the margin); only ForceAlternate reads it.
+let probeAchieves = (~probe: roleProbe, ~ownWinProb: float, ~lastOwnWinProb: option<float>) => {
+  let favored = ownWinProb > 0.5 +. probe.margin
+  let unfavored = ownWinProb < 0.5 -. probe.margin
+  switch probe.target {
+  | ForceFavored => favored
+  | ForceUnfavored => unfavored
+  | ForceAlternate =>
+    switch lastOwnWinProb {
+    | Some(last) if last > 0.5 => unfavored
+    | Some(_) => favored
+    | None => favored || unfavored
+    }
+  }
+}
+
+// Re-split the probed player's foursome to meet the target. Returns the match
+// unchanged when the player is not in it or no split achieves the target
+// (the ringer cannot be made an underdog by any partner choice).
+let applyRoleProbe = (
+  match: Match.t<'a>,
+  ~probe: roleProbe,
+  ~lastOwnWinProb: option<float>,
+): Match.t<'a> => {
+  let (team1, team2) = match
+  let inTeam1 = team1->Array.some(p => p.intId == probe.playerIntId)
+  let inTeam2 = team2->Array.some(p => p.intId == probe.playerIntId)
+  let (mine, theirs) = inTeam1 ? (team1, team2) : (team2, team1)
+  switch mine->Array.find(p => p.intId == probe.playerIntId) {
+  | Some(me) if inTeam1 || inTeam2 =>
+    // Index 0 is the matchmaker's own partner, so candidate 0 is its split.
+    let others = Array.concat(mine->Array.filter(p => p.intId != probe.playerIntId), theirs)
+    if others->Array.length != 3 {
+      match
+    } else {
+      let candidates = others->Array.mapWithIndex((partner, i) => {
+        let pair = [me, partner]
+        let rest = others->Array.filterWithIndex((_, j) => j != i)
+        (i, pair, rest, predictedWinProbability((pair, rest)))
+      })
+      let achieving =
+        candidates->Array.filter(((_, _, _, prob)) =>
+          probeAchieves(~probe, ~ownWinProb=prob, ~lastOwnWinProb)
+        )
+      let chosen = switch probe.pick {
+      | Nearest =>
+        switch achieving->Array.find(((i, _, _, _)) => i == 0) {
+        | Some(own) => Some(own)
+        | None =>
+          achieving->Array.reduce(None, (best, c) => {
+            let (_, _, _, prob) = c
+            switch best {
+            | Some((_, _, _, bp)) if Js.Math.abs_float(bp -. 0.5) <= Js.Math.abs_float(prob -. 0.5) =>
+              best
+            | _ => Some(c)
+            }
+          })
+        }
+      | Farthest =>
+        achieving->Array.reduce(None, (best, c) => {
+          let (_, _, _, prob) = c
+          switch best {
+          | Some((_, _, _, bp)) if Js.Math.abs_float(bp -. 0.5) >= Js.Math.abs_float(prob -. 0.5) =>
+            best
+          | _ => Some(c)
+          }
+        })
+      }
+      switch chosen {
+      | None | Some((0, _, _, _)) => match
+      | Some((_, pair, rest, _)) => inTeam1 ? (pair, rest) : (rest, pair)
+      }
+    }
+  | _ => match
+  }
+}
+
+// ---------------------------------------------------------------------------
 // The run
 // ---------------------------------------------------------------------------
 
@@ -1520,6 +1651,8 @@ let simulateStrategy = async (
   ~numPlayers: int,
   ~pods: option<array<Set.t<string>>>,
   ~onRound: option<unit => unit>=?,
+  ~probe: option<roleProbe>=?,
+  ~absences: array<absence>=[],
 ): strategyRun => {
   let seedString = "lab:" ++ Int.toString(seed) ++ ":" ++ entry.id
   let outcomePrng = SolverPrng.fromSeedString(seedString ++ ":outcomes")
@@ -1539,6 +1672,8 @@ let simulateStrategy = async (
   ]
   let fellBack = ref(false)
   let round = ref(0)
+  // The probed player's last clearly-sided game, for ForceAlternate.
+  let probeLast = ref(None)
 
   while round.contents < numRounds {
     let state = toPlayerStateWithAdjustments(
@@ -1569,7 +1704,11 @@ let simulateStrategy = async (
     // Only the players attending this session are in the pool tonight.
     let attending =
       plan.attends->Array.get(sessionOf(thisRound))->Option.getOr([])
-    let isPresent = (p: Player.t<'a>) => attending->Array.get(p.intId)->Option.getOr(true)
+    let isPresent = (p: Player.t<'a>) =>
+      attending->Array.get(p.intId)->Option.getOr(true) &&
+        !(absences->Array.some(a =>
+          a.absentIntId == p.intId && thisRound >= a.fromRound && thisRound <= a.toRound
+        ))
     let presentPlayers = solverPlayers->Array.filter(isPresent)
     let realById = Js.Dict.empty()
     state->Array.forEach(p => realById->Js.Dict.set(p.id, p))
@@ -1656,6 +1795,17 @@ let simulateStrategy = async (
         // Composition may have come from an oracle's view of the pool; every
         // number recorded from here on uses the real ratings.
         let match = entry.usesTruth ? restoreRatings(rawMatch) : rawMatch
+        // Tournament pods fix the teams, so there is nothing to re-split.
+        let match = switch probe {
+        | Some(pr) if pods == None =>
+          let swapped = applyRoleProbe(match, ~probe=pr, ~lastOwnWinProb=probeLast.contents)
+          switch ownWinProbIn(swapped, ~intId=pr.playerIntId) {
+          | Some(own) if Js.Math.abs_float(own -. 0.5) > pr.margin => probeLast := Some(own)
+          | _ => ()
+          }
+          swapped
+        | _ => match
+        }
         let predicted = predictedWinProbability(match)
         let trueProb = trueWinProbability(match, ~truth=performed)
         let (s1, s2) = simulateScore(match, ~truth=performed, ~prng=outcomePrng)
@@ -1729,6 +1879,12 @@ let run = async (
   // possible partners for the whole session.
   ~tournament: bool=false,
   ~onRound: option<unit => unit>=?,
+  // Which strategies to run; experiments pass a subset.
+  ~entries: array<labStrategy>=strategies,
+  // Experiment only — see `roleProbe`.
+  ~probe: option<roleProbe>=?,
+  // Experiment only — see `absence`.
+  ~absences: array<absence>=[],
 ): labResult => {
   let ranks = ladderPermutation(~seed, ~numPlayers)
   let baseTruth = Belt.Array.makeBy(numPlayers, index =>
@@ -1756,8 +1912,8 @@ let run = async (
   let pods = tournament ? Some(partnerPods(~players=initialPlayers, ~seed)) : None
 
   let runs = []
-  for i in 0 to strategies->Array.length - 1 {
-    let entry = strategies->Array.getUnsafe(i)
+  for i in 0 to entries->Array.length - 1 {
+    let entry = entries->Array.getUnsafe(i)
     let run = await simulateStrategy(
       ~entry,
       ~initialPlayers,
@@ -1771,6 +1927,8 @@ let run = async (
       ~numPlayers,
       ~pods,
       ~onRound?,
+      ~probe?,
+      ~absences,
     )
     runs->Array.push(run)
   }
