@@ -44,9 +44,9 @@ var v0 = {
 return {
   "argumentDefinitions": [
     {
-      "defaultValue": "pickleball",
+      "defaultValue": null,
       "kind": "LocalArgument",
-      "name": "activitySlug"
+      "name": "eventId"
     }
   ],
   "kind": "Fragment",
@@ -110,6 +110,13 @@ return {
           "kind": "ScalarField",
           "name": "doublesReliable",
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doublesReliability",
+          "storageKey": null
         }
       ],
       "storageKey": null
@@ -119,13 +126,13 @@ return {
       "args": [
         {
           "kind": "Variable",
-          "name": "activitySlug",
-          "variableName": "activitySlug"
+          "name": "eventId",
+          "variableName": "eventId"
         }
       ],
       "concreteType": "Rating",
       "kind": "LinkedField",
-      "name": "rating",
+      "name": "eventRating",
       "plural": false,
       "selections": [
         (v0/*: any*/),
@@ -134,6 +141,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "mu",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "sigma",
           "storageKey": null
         }
       ],

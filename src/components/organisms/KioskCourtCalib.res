@@ -24,6 +24,88 @@ type domRect = {left: float, top: float, width: float, height: float}
 
 let cornersStorageKey = "kiosk.courtAnchors"
 
+// ── Loupe + reticle plumbing (ported from the labeler's court annotator) ──────
+// Handles are reticles (thin ring, four ticks that stop short of the centre,
+// a 1 px dot) so the pixel being placed is never covered — and on a touch
+// kiosk the finger covers it anyway, so selecting/dragging a handle opens a
+// 240 px magnifier of the LIVE frame in a corner, with the fitted court lines,
+// the native pixel outline and a gap crosshair at the exact sub-pixel point.
+
+let loupeStorageKey = "kiosk.loupeZoom"
+let loupeCss = 240. // CSS px, square
+let zoomSteps = [4., 6., 8., 12., 16.]
+
+let loadZoom = () =>
+  getStoredItem(loupeStorageKey)
+  ->Nullable.toOption
+  ->Option.flatMap(Float.fromString)
+  ->Option.getOr(8.)
+
+// The next/previous zoom step from the nearest step to `zoom`.
+let stepZoom = (zoom: float, direction: int) => {
+  let nearest = zoomSteps->Array.reduceWithIndex(0, (best, z, i) =>
+    Math.abs(z -. zoom) < Math.abs(zoomSteps->Array.getUnsafe(best) -. zoom) ? i : best
+  )
+  let next = Math.Int.max(0, Math.Int.min(zoomSteps->Array.length - 1, nearest + direction))
+  zoomSteps->Array.getUnsafe(next)
+}
+
+@val @scope("window") external devicePixelRatio: float = "devicePixelRatio"
+@val external requestAnimationFrame: (float => unit) => int = "requestAnimationFrame"
+@val external cancelAnimationFrame: int => unit = "cancelAnimationFrame"
+
+type keyEvent = {key: string}
+@val @scope("window")
+external addKeyListener: (@as("keydown") _, keyEvent => unit) => unit = "addEventListener"
+@val @scope("window")
+external removeKeyListener: (@as("keydown") _, keyEvent => unit) => unit = "removeEventListener"
+@val @scope("window")
+external addResizeListener: (@as("resize") _, unit => unit) => unit = "addEventListener"
+@val @scope("window")
+external removeResizeListener: (@as("resize") _, unit => unit) => unit = "removeEventListener"
+
+// Canvas 2D, only what the loupe needs.
+type ctx2d
+@send external getContext2d: (Dom.element, @as("2d") _) => Nullable.t<ctx2d> = "getContext"
+@set external setCanvasWidth: (Dom.element, int) => unit = "width"
+@set external setCanvasHeight: (Dom.element, int) => unit = "height"
+@set external setImageSmoothing: (ctx2d, bool) => unit = "imageSmoothingEnabled"
+@set external setFillStyle: (ctx2d, string) => unit = "fillStyle"
+@set external setStrokeStyle: (ctx2d, string) => unit = "strokeStyle"
+@set external setLineWidth: (ctx2d, float) => unit = "lineWidth"
+@set external setFont: (ctx2d, string) => unit = "font"
+@send external setLineDash: (ctx2d, array<float>) => unit = "setLineDash"
+@send external fillRect: (ctx2d, float, float, float, float) => unit = "fillRect"
+@send
+external drawImageCrop: (
+  ctx2d,
+  Dom.element,
+  float,
+  float,
+  float,
+  float,
+  float,
+  float,
+  float,
+  float,
+) => unit = "drawImage"
+@send external beginPath: ctx2d => unit = "beginPath"
+@send external ctxMoveTo: (ctx2d, float, float) => unit = "moveTo"
+@send external ctxLineTo: (ctx2d, float, float) => unit = "lineTo"
+@send external strokePath: ctx2d => unit = "stroke"
+@send external fillPath: ctx2d => unit = "fill"
+@send external arc: (ctx2d, float, float, float, float, float) => unit = "arc"
+@send external fillText: (ctx2d, string, float, float) => unit = "fillText"
+
+// The hidden live-frame source the loupe crops from.
+@get external videoWidth: Dom.element => int = "videoWidth"
+@get external videoHeight: Dom.element => int = "videoHeight"
+@set external setMuted: (Dom.element, bool) => unit = "muted"
+@set external setPlaysInline: (Dom.element, bool) => unit = "playsInline"
+@send external playVideo: Dom.element => promise<unit> = "play"
+
+let isSelfTarget: ReactEvent.Pointer.t => bool = %raw(`e => e.target === e.currentTarget`)
+
 // ── Court model (lib/court.py constants; metres, +Y toward the near side) ────
 
 let halfWid = 3.05 // COURT_WIDTH 6.10 / 2
@@ -262,6 +344,71 @@ let storePlaced = (~width: int, ~height: int, placed: array<placedAnchor>) =>
   | None => ()
   }
 
+// ── Analysis crop ────────────────────────────────────────────────────────────
+// The part of the frame worth analysing: the fitted court plus headroom for
+// the ball in flight. Challenge clips are cropped to it before upload — the
+// server's detector resizes whatever it gets to 512x288, so the court lands on
+// ~2-3x more detector pixels while the wide-angle periphery (a source of false
+// detections) is gone. Deliberately a rectangle, not the court polygon: the
+// ball spends most of a rally ABOVE the lines. The calibration is sent to the
+// server in this rectangle's coordinates so the court pkl matches the cropped
+// clips' frame size.
+
+let headroomFrac = 0.6 // above the court's projected extent, for lobs
+let sideFrac = 0.12
+let footFrac = 0.10
+let minCropFrac = 0.15 // never crop tighter than this fraction of an axis
+
+let cropRegion = (placed: array<placedAnchor>, nativeW: int, nativeH: int): option<ClipCrop.rect> => {
+  let pairs = placed->Array.map(a => (worldOf(a.name), (a.x, a.y)))
+  switch pairs->Array.length >= 4 ? solveHomography(pairs) : None {
+  | None => None
+  | Some(h) => {
+      let fw = Int.toFloat(nativeW)
+      let fh = Int.toFloat(nativeH)
+      let clampX = v => Math.max(0., Math.min(fw, v))
+      let clampY = v => Math.max(0., Math.min(fh, v))
+      // Every court landmark the fit can place in front of the horizon,
+      // clamped into the frame (off-frame baselines just pull to the edge).
+      let points =
+        anchors
+        ->Array.filterMap(((_, w)) => projectVisible(h, w))
+        ->Array.map(((x, y)) => (clampX(x), clampY(y)))
+      if points->Array.length < 4 {
+        None
+      } else {
+        let minX = points->Array.reduce(fw, (acc, (x, _)) => Math.min(acc, x))
+        let maxX = points->Array.reduce(0., (acc, (x, _)) => Math.max(acc, x))
+        let minY = points->Array.reduce(fh, (acc, (_, y)) => Math.min(acc, y))
+        let maxY = points->Array.reduce(0., (acc, (_, y)) => Math.max(acc, y))
+        let w = maxX -. minX
+        let hgt = maxY -. minY
+        if w < 1. || hgt < 1. {
+          None
+        } else {
+          let floorEven = v => {
+            let i = Math.floor(Math.max(0., v))->Float.toInt
+            i - mod(i, 2)
+          }
+          let x0 = floorEven(clampX(minX -. sideFrac *. w))
+          let y0 = floorEven(clampY(minY -. headroomFrac *. hgt))
+          let x1 = clampX(maxX +. sideFrac *. w)
+          let y1 = clampY(maxY +. footFrac *. hgt)
+          let cw = floorEven(x1 -. Int.toFloat(x0))
+          let ch = floorEven(y1 -. Int.toFloat(y0))
+          if Int.toFloat(cw) < minCropFrac *. fw || Int.toFloat(ch) < minCropFrac *. fh {
+            None
+          } else if cw >= nativeW - 2 && ch >= nativeH - 2 {
+            None // the court fills the frame: nothing to gain
+          } else {
+            Some({ClipCrop.x: x0, y: y0, width: cw, height: ch})
+          }
+        }
+      }
+    }
+  }
+}
+
 type status = Idle | Saving | Failed(string)
 
 // The default fit: a plausible perspective trapezoid of the baseline quad.
@@ -290,6 +437,20 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
   let (dragging, setDragging) = React.useState(() => (None: option<string>))
   let (saveStatus, setSaveStatus) = React.useState(() => Idle)
   let containerRef = React.useRef(Nullable.null)
+  // The handle under inspection: set on touch, kept after release so the
+  // loupe stays up for fine adjustment; cleared by tapping empty court or ×.
+  let (selected, setSelected) = React.useState(() => (None: option<string>))
+  let (zoom, setZoomState) = React.useState(() => loadZoom())
+  let setZoom = (z: float) => {
+    let z = Math.max(4., Math.min(16., z))
+    setZoomState(_ => z)
+    setStoredItem(loupeStorageKey, Float.toString(z))
+  }
+  // Rendered px per native px: reticle geometry is specified in SCREEN px
+  // (thin ring, 3 px tick gap) and the SVG lives in a native-px viewBox.
+  let (screenScale, setScreenScale) = React.useState(() => 1.)
+  let loupeCanvasRef = React.useRef(Nullable.null)
+  let loupeVideoRef = React.useRef(Nullable.null)
 
   // The live fit, python-style: >=4 anchors -> homography from the anchors;
   // fewer -> the default quad translated by the anchors' mean offset.
@@ -332,6 +493,50 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
     (rect.left +. (rect.width -. w) /. 2., rect.top +. (rect.height -. h) /. 2., w, h)
   }
 
+  React.useEffect1(() => {
+    let measure = () =>
+      switch containerRef.current->Nullable.toOption {
+      | Some(el) => {
+          let (_, _, w, _) = contentBox(el->getBoundingClientRect)
+          if w > 0. {
+            setScreenScale(_ => w /. nativeW)
+          }
+        }
+      | None => ()
+      }
+    measure()
+    addResizeListener(measure)
+    Some(() => removeResizeListener(measure))
+  }, [nativeW])
+
+  // The loupe's own copy of the camera feed (drawing from the visible player
+  // would couple this overlay to its DOM); 1 px and transparent, but present
+  // so every engine keeps decoding it.
+  React.useEffect1(() => {
+    switch (loupeVideoRef.current->Nullable.toOption, stream) {
+    | (Some(video), Some(source)) => {
+        video->setMuted(true)
+        video->setPlaysInline(true)
+        video->UserMedia.setSrcObject(Nullable.make(source))
+        video->playVideo->Promise.catch(_ => Promise.resolve())->ignore
+      }
+    | _ => ()
+    }
+    None
+  }, [stream])
+
+  // [ and ] step the zoom (desktop); the loupe also carries ± buttons for touch.
+  React.useEffect1(() => {
+    let onKey = (event: keyEvent) =>
+      switch event.key {
+      | "[" => setZoom(stepZoom(zoom, -1))
+      | "]" => setZoom(stepZoom(zoom, 1))
+      | _ => ()
+      }
+    addKeyListener(onKey)
+    Some(() => removeKeyListener(onKey))
+  }, [zoom])
+
   let moveTo = (name: string, clientX: float, clientY: float) =>
     switch containerRef.current->Nullable.toOption {
     | Some(el) => {
@@ -352,11 +557,22 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
     setSaveStatus(_ => Saving)
     let run = async () => {
       let corners = placed->Array.map((a): DinkHunt.courtCorner => {name: a.name, x: a.x, y: a.y})
-      switch await DinkHunt.setKioskCourt(
-        ~width=nativeW->Float.toInt,
-        ~height=nativeH->Float.toInt,
-        ~corners,
+      // Challenge clips are cropped to the analysis region before upload, so
+      // the server's court pkl must live in that region's pixel space (it is
+      // matched to clips by frame size).
+      let (width, height, corners) = switch cropRegion(
+        placed,
+        nativeW->Float.toInt,
+        nativeH->Float.toInt,
       ) {
+      | Some(r) => (
+          r.width,
+          r.height,
+          corners->Array.map(c => {...c, x: c.x -. Int.toFloat(r.x), y: c.y -. Int.toFloat(r.y)}),
+        )
+      | None => (nativeW->Float.toInt, nativeH->Float.toInt, corners)
+      }
+      switch await DinkHunt.setKioskCourt(~width, ~height, ~corners) {
       | Ok(result) if result.ok => {
           storePlaced(~width=nativeW->Float.toInt, ~height=nativeH->Float.toInt, placed)
           setSaveStatus(_ => Idle)
@@ -369,8 +585,132 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
     run()->ignore
   }
 
+  // Draw one loupe frame: a pixelated crop of the live frame around (x, y),
+  // the fitted court lines dashed through it, the native pixel the point
+  // falls in, and a gap crosshair meeting at the exact sub-pixel position.
+  let drawLoupe = (name: string, x: float, y: float) =>
+    switch (loupeCanvasRef.current->Nullable.toOption, loupeVideoRef.current->Nullable.toOption) {
+    | (Some(canvas), Some(video)) if video->videoWidth > 0 => {
+        let dpr = Math.min(2., devicePixelRatio)
+        let cs = loupeCss *. dpr
+        canvas->setCanvasWidth(Float.toInt(cs))
+        canvas->setCanvasHeight(Float.toInt(cs))
+        switch canvas->getContext2d->Nullable.toOption {
+        | None => ()
+        | Some(ctx) => {
+            let z = zoom *. dpr // loupe px per native px
+            let half = cs /. 2. /. z // native px from centre to edge
+            let sx = x -. half
+            let sy = y -. half
+            // The source may report a different size than the calibration's
+            // native frame; map native → source px.
+            let kx = Int.toFloat(video->videoWidth) /. nativeW
+            let ky = Int.toFloat(video->videoHeight) /. nativeH
+            ctx->setFillStyle("#111")
+            ctx->fillRect(0., 0., cs, cs)
+            ctx->setImageSmoothing(false)
+            ctx->drawImageCrop(video, sx *. kx, sy *. ky, 2. *. half *. kx, 2. *. half *. ky, 0., 0., cs, cs)
+            let toLoupe = ((px, py): (float, float)) => ((px -. sx) *. z, (py -. sy) *. z)
+            let line = (x1, y1, x2, y2) => {
+              ctx->beginPath
+              ctx->ctxMoveTo(x1, y1)
+              ctx->ctxLineTo(x2, y2)
+              ctx->strokePath
+            }
+            // The fitted court lines through this neighbourhood.
+            ctx->setStrokeStyle("rgba(190, 242, 100, 0.7)")
+            ctx->setLineWidth(1. *. dpr)
+            ctx->setLineDash([4. *. dpr, 4. *. dpr])
+            segments->Array.forEach(((wa, wb)) =>
+              switch projectSegment(fit, wa, wb) {
+              | Some((pa, pb)) => {
+                  let (x1, y1) = toLoupe(pa)
+                  let (x2, y2) = toLoupe(pb)
+                  line(x1, y1, x2, y2)
+                }
+              | None => ()
+              }
+            )
+            ctx->setLineDash([])
+            // The native pixel the point falls in, outlined.
+            let (qx, qy) = toLoupe((Math.floor(x), Math.floor(y)))
+            ctx->setStrokeStyle("rgba(255, 255, 255, 0.55)")
+            ctx->setLineWidth(1. *. dpr)
+            ctx->beginPath
+            ctx->ctxMoveTo(qx, qy)
+            ctx->ctxLineTo(qx +. z, qy)
+            ctx->ctxLineTo(qx +. z, qy +. z)
+            ctx->ctxLineTo(qx, qy +. z)
+            ctx->ctxLineTo(qx, qy)
+            ctx->strokePath
+            // Gap crosshair (halo, then colour) and a 1 px dot at the point.
+            let c = cs /. 2.
+            let gap = 7. *. dpr
+            ctx->setStrokeStyle("rgba(0, 0, 0, 0.65)")
+            ctx->setLineWidth(3. *. dpr)
+            line(0., c, c -. gap, c)
+            line(c +. gap, c, cs, c)
+            line(c, 0., c, c -. gap)
+            line(c, c +. gap, c, cs)
+            ctx->setStrokeStyle("#bef264")
+            ctx->setLineWidth(1. *. dpr)
+            line(0., c, c -. gap, c)
+            line(c +. gap, c, cs, c)
+            line(c, 0., c, c -. gap)
+            line(c, c +. gap, c, cs)
+            ctx->setFillStyle("#bef264")
+            ctx->beginPath
+            ctx->arc(c, c, 1. *. dpr, 0., Math.Constants.pi *. 2.)
+            ctx->fillPath
+            // Caption: landmark, coordinates to a tenth of a pixel, zoom.
+            let caption =
+              anchorLabel(name) ++
+              "  " ++
+              Float.toFixed(x, ~digits=1) ++
+              ", " ++
+              Float.toFixed(y, ~digits=1) ++
+              "  ×" ++
+              Float.toString(zoom)
+            ctx->setFont(Float.toString(11. *. dpr) ++ "px ui-monospace, monospace")
+            ctx->setFillStyle("rgba(0, 0, 0, 0.75)")
+            ctx->fillRect(0., cs -. 18. *. dpr, cs, 18. *. dpr)
+            ctx->setFillStyle("#eeeeee")
+            ctx->fillText(caption, 6. *. dpr, cs -. 5. *. dpr)
+          }
+        }
+      }
+    | _ => ()
+    }
+
+  // The loupe follows the live feed: redraw every animation frame while a
+  // handle is selected (placed/zoom in the deps keep the closure current).
+  let loupeTarget = selected->Option.flatMap(name => positionOf(name)->Option.map(p => (name, p)))
+  React.useEffect3(() => {
+    switch loupeTarget {
+    | None => None
+    | Some((name, (x, y))) => {
+        let handle = ref(None)
+        let rec frame = (_: float) => {
+          drawLoupe(name, x, y)
+          handle := Some(requestAnimationFrame(frame))
+        }
+        handle := Some(requestAnimationFrame(frame))
+        Some(() => handle.contents->Option.forEach(cancelAnimationFrame))
+      }
+    }
+  }, (selected, zoom, placed))
+
   let fmt = Float.toString
   let anchored = placed->Array.length
+  // Reticle geometry in NATIVE px for a screen-constant look.
+  let sc = screenScale > 0. ? screenScale : 1.
+  let ringR = 11. /. sc
+  let strokeW = 1.5 /. sc
+  let tickGap = 3. /. sc // the centre pixel stays visible
+  let tickTip = ringR +. 4. /. sc
+  let hitR = 26. /. sc // generous touch target, invisible
+  let dotR = 0.75 /. sc
+  let crop = cropRegion(placed, nativeW->Float.toInt, nativeH->Float.toInt)
   // Baselines beyond the horizon = the fit is extrapolating wildly (typical:
   // a side-of-court camera with only the four kitchen corners anchored).
   // Measured with ±3px drag jitter: the extrapolated baseline corners move
@@ -400,10 +740,21 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
       }}
     onPointerUp={_ => setDragging(_ => None)}
     onPointerLeave={_ => setDragging(_ => None)}>
+    <video
+      ref={ReactDOM.Ref.domRef(loupeVideoRef)}
+      muted=true
+      playsInline=true
+      autoPlay=true
+      className="pointer-events-none absolute left-0 top-0 h-px w-px opacity-0"
+    />
     <svg
       className="absolute inset-0 h-full w-full"
       viewBox={"0 0 " ++ fmt(nativeW) ++ " " ++ fmt(nativeH)}
-      preserveAspectRatio="xMidYMid meet">
+      preserveAspectRatio="xMidYMid meet"
+      onPointerDown={event =>
+        if isSelfTarget(event) {
+          setSelected(_ => None)
+        }}>
       // Court wireframe, projected through the live fit.
       {segments
       ->Array.mapWithIndex((((wa, wb)), index) =>
@@ -423,45 +774,188 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
         }
       )
       ->React.array}
-      // Handles: anchored solid, un-anchored hollow (they ride the fit).
+      // The analysis region: what a Challenge clip is cropped to.
+      {switch crop {
+      | Some(r) =>
+        <g>
+          <rect
+            x={r.x->Int.toString}
+            y={r.y->Int.toString}
+            width={r.width->Int.toString}
+            height={r.height->Int.toString}
+            fill="none"
+            stroke="#ffffff"
+            strokeWidth="3"
+            strokeDasharray="16 12"
+            strokeOpacity="0.75"
+          />
+          <text
+            x={(r.x + 14)->Int.toString}
+            y={(r.y + r.height - 14)->Int.toString}
+            fill="#ffffff"
+            fillOpacity="0.85"
+            fontSize="22"
+            fontWeight="800"
+            fontFamily="monospace">
+            {React.string("ANALYSIS REGION")}
+          </text>
+        </g>
+      | None => React.null
+      }}
+      // Handles are reticles: a thin ring, four ticks that stop 3 screen px
+      // short of the centre, a black halo so they read on white paint, and a
+      // 1 px dot at the exact point. Solid = anchored, dashed = riding the fit.
       {anchors
       ->Array.map(((name, _)) =>
         switch positionOf(name) {
         | None => React.null
         | Some((x, y)) => {
-        let isPlaced = placed->Array.some(a => a.name == name)
-        <g key=name>
-          <circle
-            cx={fmt(x)}
-            cy={fmt(y)}
-            r="30"
-            fill={isPlaced ? "rgba(190, 242, 100, 0.30)" : "rgba(0, 0, 0, 0.25)"}
-            stroke="#bef264"
-            strokeWidth={isPlaced ? "5" : "2"}
-            strokeDasharray={isPlaced ? "" : "6 6"}
-            className="cursor-grab"
-            onPointerDown={event => {
-              ReactEvent.Pointer.preventDefault(event)
-              setDragging(_ => Some(name))
-            }}
-          />
-          <text
-            x={fmt(x)}
-            y={fmt(y -. 42.)}
-            textAnchor="middle"
-            fill="#bef264"
-            fillOpacity={isPlaced ? "1" : "0.6"}
-            fontSize="26"
-            fontWeight="800"
-            fontFamily="monospace">
-            {React.string(anchorLabel(name))}
-          </text>
-        </g>
-        }
+            let isPlaced = placed->Array.some(a => a.name == name)
+            let isSelected = selected == Some(name)
+            let colour = "#bef264"
+            let dash = isPlaced ? "" : fmt(5. /. sc)
+            let tick = (dx: float, dy: float, key: string, halo: bool) =>
+              <line
+                key={key ++ (halo ? "h" : "")}
+                x1={fmt(x +. dx *. tickGap)}
+                y1={fmt(y +. dy *. tickGap)}
+                x2={fmt(x +. dx *. tickTip)}
+                y2={fmt(y +. dy *. tickTip)}
+                stroke={halo ? "#000000" : colour}
+                strokeWidth={fmt(halo ? strokeW *. 2.5 : strokeW)}
+                opacity={halo ? "0.6" : "1"}
+                className="pointer-events-none"
+              />
+            <g key=name opacity={isPlaced ? "1" : "0.8"}>
+              {isSelected
+                ? <circle
+                    cx={fmt(x)}
+                    cy={fmt(y)}
+                    r={fmt(ringR +. 5. /. sc)}
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth={fmt(strokeW)}
+                    className="pointer-events-none"
+                  />
+                : React.null}
+              <circle
+                cx={fmt(x)}
+                cy={fmt(y)}
+                r={fmt(ringR)}
+                fill="none"
+                stroke="#000000"
+                strokeWidth={fmt(strokeW *. 2.5)}
+                opacity="0.5"
+                className="pointer-events-none"
+              />
+              <circle
+                cx={fmt(x)}
+                cy={fmt(y)}
+                r={fmt(ringR)}
+                fill="none"
+                stroke=colour
+                strokeWidth={fmt(strokeW)}
+                strokeDasharray=dash
+                className="pointer-events-none"
+              />
+              {tick(1., 0., "e", true)}
+              {tick(-1., 0., "w", true)}
+              {tick(0., 1., "s", true)}
+              {tick(0., -1., "n", true)}
+              {tick(1., 0., "e", false)}
+              {tick(-1., 0., "w", false)}
+              {tick(0., 1., "s", false)}
+              {tick(0., -1., "n", false)}
+              <circle
+                cx={fmt(x)} cy={fmt(y)} r={fmt(dotR)} fill=colour stroke="none" className="pointer-events-none"
+              />
+              // The touch target: invisible and generous, so a fingertip can
+              // grab the reticle without covering what it marks with ink.
+              <circle
+                cx={fmt(x)}
+                cy={fmt(y)}
+                r={fmt(hitR)}
+                fill="transparent"
+                stroke="none"
+                className="cursor-grab"
+                onPointerDown={event => {
+                  ReactEvent.Pointer.preventDefault(event)
+                  setSelected(_ => Some(name))
+                  setDragging(_ => Some(name))
+                }}
+              />
+              <text
+                x={fmt(x +. ringR +. 6. /. sc)}
+                y={fmt(y -. ringR -. 2. /. sc)}
+                fill={isPlaced ? "#ffffff" : "#d9f99d"}
+                stroke="#000000"
+                strokeWidth={fmt(3. /. sc)}
+                paintOrder="stroke"
+                fontSize={fmt(13. /. sc)}
+                fontWeight="800"
+                fontFamily="monospace"
+                className="pointer-events-none select-none">
+                {React.string(anchorLabel(name))}
+              </text>
+            </g>
+          }
         }
       )
       ->React.array}
     </svg>
+    {switch loupeTarget {
+    | Some((_, (x, y))) => {
+        // Keep the loupe out from under the handle it magnifies: top-left
+        // unless the handle is there, then top-right.
+        let (offX, offY) = switch containerRef.current->Nullable.toOption {
+        | Some(el) => {
+            let rect = el->getBoundingClientRect
+            let (left, top, _, _) = contentBox(rect)
+            (left -. rect.left, top -. rect.top)
+          }
+        | None => (0., 0.)
+        }
+        let hx = offX +. x *. sc
+        let hy = offY +. y *. sc
+        let onLeft = !(hx < loupeCss +. 24. && hy < loupeCss +. 64.)
+        <div
+          className={"pointer-events-none absolute top-2 z-30 flex flex-col border-2 border-white/70 bg-black shadow-2xl " ++ (
+            onLeft ? "left-2" : "right-2"
+          )}>
+          <canvas
+            ref={ReactDOM.Ref.domRef(loupeCanvasRef)}
+            style={ReactDOM.Style.make(~width="240px", ~height="240px", ~display="block", ())}
+          />
+          <div className="pointer-events-auto flex items-center justify-between gap-1 bg-black/90 px-1 py-1">
+            <button
+              type_="button"
+              ariaLabel="Zoom out"
+              onClick={_ => setZoom(stepZoom(zoom, -1))}
+              className="flex h-9 w-9 items-center justify-center border border-white/30 text-base font-extrabold text-white active:bg-white/10">
+              {React.string("−")}
+            </button>
+            <span className="font-mono text-xs font-semibold text-white">
+              {React.string("×" ++ Float.toString(zoom) ++ "  [ ]")}
+            </span>
+            <button
+              type_="button"
+              ariaLabel="Zoom in"
+              onClick={_ => setZoom(stepZoom(zoom, 1))}
+              className="flex h-9 w-9 items-center justify-center border border-white/30 text-base font-extrabold text-white active:bg-white/10">
+              {React.string("+")}
+            </button>
+            <button
+              type_="button"
+              ariaLabel="Close magnifier"
+              onClick={_ => setSelected(_ => None)}
+              className="flex h-9 w-9 items-center justify-center border border-white/30 text-white active:bg-white/10">
+              <Lucide.X \"aria-hidden"="true" size=16 />
+            </button>
+          </div>
+        </div>
+      }
+    | None => React.null
+    }}
     <div
       className="pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-black/85 to-transparent p-4 pb-10">
       <div className="pointer-events-auto mx-auto flex max-w-3xl flex-col gap-3">

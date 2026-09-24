@@ -28,26 +28,26 @@ module Types = {
   @live
   type variables = {
     activityId: string,
-    activitySlug: string,
     clubId?: string,
+    eventId: string,
     localDate: string,
   }
   @live
   type refetchVariables = {
     activityId: option<string>,
-    activitySlug: option<string>,
     clubId: option<option<string>>,
+    eventId: option<string>,
     localDate: option<string>,
   }
   @live let makeRefetchVariables = (
     ~activityId=?,
-    ~activitySlug=?,
     ~clubId=?,
+    ~eventId=?,
     ~localDate=?,
   ): refetchVariables => {
     activityId: activityId,
-    activitySlug: activitySlug,
     clubId: clubId,
+    eventId: eventId,
     localDate: localDate
   }
 
@@ -124,12 +124,12 @@ var v0 = {
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "activitySlug"
+  "name": "clubId"
 },
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "clubId"
+  "name": "eventId"
 },
 v3 = {
   "defaultValue": null,
@@ -190,8 +190,8 @@ v8 = {
 v9 = [
   {
     "kind": "Variable",
-    "name": "activitySlug",
-    "variableName": "activitySlug"
+    "name": "eventId",
+    "variableName": "eventId"
   }
 ],
 v10 = {
@@ -273,8 +273,8 @@ return {
     "argumentDefinitions": [
       (v3/*: any*/),
       (v0/*: any*/),
-      (v2/*: any*/),
-      (v1/*: any*/)
+      (v1/*: any*/),
+      (v2/*: any*/)
     ],
     "kind": "Operation",
     "name": "EventInvitesCandidatesQuery",
@@ -342,6 +342,13 @@ return {
                     "kind": "ScalarField",
                     "name": "doublesReliable",
                     "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "doublesReliability",
+                    "storageKey": null
                   }
                 ],
                 "storageKey": null
@@ -351,7 +358,7 @@ return {
                 "args": (v9/*: any*/),
                 "concreteType": "Rating",
                 "kind": "LinkedField",
-                "name": "rating",
+                "name": "eventRating",
                 "plural": false,
                 "selections": [
                   (v5/*: any*/),
@@ -360,6 +367,13 @@ return {
                     "args": null,
                     "kind": "ScalarField",
                     "name": "mu",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "sigma",
                     "storageKey": null
                   }
                 ],
@@ -375,12 +389,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3667ecab54704154d4e01c4017543b3f",
+    "cacheID": "47813bc039853eb2c9b6d0a1b1b2963a",
     "id": null,
     "metadata": {},
     "name": "EventInvitesCandidatesQuery",
     "operationKind": "query",
-    "text": "query EventInvitesCandidatesQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $activitySlug: String!\n) {\n  availabilityUsersForDay(localDate: $localDate, scope: {activityId: $activityId, clubId: $clubId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n      ...PlayerInviteSwipeDeck_user_36AXNO\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayerInviteSwipeDeck_user_36AXNO on User {\n  id\n  lineUsername\n  picture\n  gender\n  biography\n  selfRating\n  dupr {\n    doubles\n    doublesReliable\n  }\n  rating(activitySlug: $activitySlug) {\n    id\n    mu\n  }\n}\n"
+    "text": "query EventInvitesCandidatesQuery(\n  $localDate: String!\n  $activityId: ID!\n  $clubId: ID\n  $eventId: ID!\n) {\n  availabilityUsersForDay(localDate: $localDate, scope: {activityId: $activityId, clubId: $clubId}) {\n    id\n    localDate\n    user {\n      id\n      lineUsername\n      picture\n      ...PlayerInviteSwipeDeck_user_32qNee\n    }\n    intervals {\n      startHour\n      endHour\n    }\n  }\n}\n\nfragment PlayerInviteSwipeDeck_user_32qNee on User {\n  id\n  lineUsername\n  picture\n  gender\n  biography\n  selfRating\n  dupr {\n    doubles\n    doublesReliable\n    doublesReliability\n  }\n  eventRating(eventId: $eventId) {\n    id\n    mu\n    sigma\n  }\n}\n"
   }
 };
 })() `)

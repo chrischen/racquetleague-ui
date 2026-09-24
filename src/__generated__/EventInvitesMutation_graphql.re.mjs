@@ -314,6 +314,13 @@ return {
                             "kind": "ScalarField",
                             "name": "doublesReliable",
                             "storageKey": null
+                          },
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "doublesReliability",
+                            "storageKey": null
                           }
                         ],
                         "storageKey": null
@@ -406,12 +413,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "450edbe0f1339568361a7fbd111a223e",
+    "cacheID": "ca49acbbb4c0079878923222be84dd25",
     "id": null,
     "metadata": {},
     "name": "EventInvitesMutation",
     "operationKind": "mutation",
-    "text": "mutation EventInvitesMutation(\n  $eventId: ID!\n  $userId: ID!\n) {\n  inviteToEvent(eventId: $eventId, userId: $userId) {\n    edge {\n      node {\n        id\n        listType\n        ...PkEventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          lineUsername\n          gender\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PaymentIndicator_payment on Payment {\n  status\n  currency\n}\n\nfragment PkEventRsvp_rsvp on Rsvp {\n  id\n  user {\n    id\n    picture\n    lineUsername\n    gender\n    selfRating\n    dupr {\n      doubles\n      doublesReliable\n    }\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  paid\n  payment {\n    id\n    ...PaymentIndicator_payment\n  }\n  ...RsvpOptions_rsvp\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n  payment {\n    id\n    status\n    chargeable\n  }\n}\n"
+    "text": "mutation EventInvitesMutation(\n  $eventId: ID!\n  $userId: ID!\n) {\n  inviteToEvent(eventId: $eventId, userId: $userId) {\n    edge {\n      node {\n        id\n        listType\n        ...PkEventRsvp_rsvp\n        ...MiniEventRsvp_rsvp\n        user {\n          id\n          lineUsername\n          gender\n        }\n        rating {\n          ordinal\n          mu\n          sigma\n          id\n        }\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n\nfragment MiniEventRsvp_rsvp on Rsvp {\n  user {\n    id\n    picture\n    lineUsername\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n}\n\nfragment PaymentIndicator_payment on Payment {\n  status\n  currency\n}\n\nfragment PkEventRsvp_rsvp on Rsvp {\n  id\n  user {\n    id\n    picture\n    lineUsername\n    gender\n    selfRating\n    dupr {\n      doubles\n      doublesReliable\n      doublesReliability\n    }\n  }\n  rating {\n    ordinal\n    mu\n    sigma\n    id\n  }\n  message\n  paid\n  payment {\n    id\n    ...PaymentIndicator_payment\n  }\n  ...RsvpOptions_rsvp\n}\n\nfragment RsvpOptions_rsvp on Rsvp {\n  id\n  listType\n  user {\n    id\n  }\n  payment {\n    id\n    status\n    chargeable\n  }\n}\n"
   }
 };
 })());

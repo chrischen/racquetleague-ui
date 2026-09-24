@@ -10290,3 +10290,31 @@ msgid ""
 "You can include any additional event details like the level, max players, "
 "price, etc. in the email that you forward."
 msgstr ""
+
+#: src/components/organisms/DuprConnectCard.re.mjs:172
+msgid "DUPR couldn't complete the sign-in."
+msgstr ""
+
+#: src/components/organisms/DuprConnectCard.re.mjs:168
+msgid ""
+"DUPR needs you to finish setting up your account before it can be linked. "
+"Follow the steps in the DUPR panel, then sign in again."
+msgstr ""
+
+#: src/components/organisms/DuprConnectCard.re.mjs:170
+msgid ""
+"You declined to share your DUPR data, so nothing was linked. Sign in again "
+"and choose Authorize to link."
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:815
+msgid "Booking email"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:819
+msgid ""
+"Forward court booking confirmations to this address, or give it to a booking "
+"site in place of an email, and each booking becomes an event in this club. "
+"Members who forward from their own email are listed as the booker; anything "
+"else is credited to the club owner."
+msgstr ""

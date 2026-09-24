@@ -17,6 +17,7 @@ module CardFragment = %relay(`
           singles
           doublesReliable
           singlesReliable
+          doublesReliability
           syncedAt
         }
       }
@@ -100,6 +101,10 @@ let make = (~query, ~onChanged: unit => unit=() => ()) => {
   let (phase, setPhase) = React.useState(() => Idle)
   let (confirmOpen, setConfirmOpen) = React.useState(() => false)
   let (frameLoaded, setFrameLoaded) = React.useState(() => false)
+  /* Something DUPR's page told us while the modal is open — that the account
+     needs setup, that consent was declined. Shown under DUPR's panel rather
+     than closing it, because the panel is where DUPR says what to do next. */
+  let (notice, setNotice) = React.useState(() => None)
   /* DUPR posts its message more than once in some flows; the mutation must
      fire exactly once per login. */
   let consumed = React.useRef(false)
@@ -118,8 +123,21 @@ let make = (~query, ~onChanged: unit => unit=() => ()) => {
     | _ => ts`Couldn't reach DUPR. Please try again in a moment.`
     }
 
+  /* DUPR posts `{error: ...}` when the sign-in cannot go on. The two reasons
+     it uses today get proper copy; anything else is shown as DUPR worded it,
+     so a new reason is at least visible rather than swallowed. */
+  let rejectedCopy = (reason: string) =>
+    switch reason {
+    | "DUPR account setup required" =>
+      ts`DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again.`
+    | "consent_denied" =>
+      ts`You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link.`
+    | other => ts`DUPR couldn't complete the sign-in.` ++ " (" ++ other ++ ")"
+    }
+
   let closeModal = () => {
     setFrameLoaded(_ => false)
+    setNotice(_ => None)
     setPhase(_ => Idle)
   }
 
@@ -137,8 +155,11 @@ let make = (~query, ~onChanged: unit => unit=() => ()) => {
           ~data=event->DuprSso.data,
         ) {
         | Ignored => ()
-        | Malformed =>
-          setPhase(_ => Failed(ts`DUPR sent something we couldn't read. Please try again.`))
+        /* Not the login payload, but not a failure either: DUPR's page posts
+           other traffic to its parent. Keep waiting; note it for debugging. */
+        | Unrecognized(keys) =>
+          Console.warn2("DUPR posted a message that is not a login; ignoring. Keys:", keys)
+        | Rejected(reason) => setNotice(_ => Some(rejectedCopy(reason)))
         | Tokens({accessToken, refreshToken}) =>
           if !consumed.current {
             consumed.current = true
@@ -212,7 +233,10 @@ let make = (~query, ~onChanged: unit => unit=() => ()) => {
                     <DuprRatingBadge
                       doubles={link.doubles}
                       singles=?link.singles
-                      doublesReliable={link.doublesReliable}
+                      doublesReliable={CombinedRating.duprEstablished(
+                        ~reliability=link.doublesReliability,
+                        ~reliable=link.doublesReliable,
+                      )}
                       singlesReliable={link.singlesReliable}
                     />
                   </div>
@@ -338,6 +362,13 @@ let make = (~query, ~onChanged: unit => unit=() => ()) => {
                 | _ => React.null
                 }}
               </div>
+              {switch notice {
+              | Some(message) =>
+                <p className="mt-3 text-sm text-red-600 dark:text-red-400" role="alert">
+                  {message->React.string}
+                </p>
+              | None => React.null
+              }}
             </Dialog.DialogBody>
             <Dialog.DialogActions>
               <Button.Button plain=true onClick={_ => closeModal()}>

@@ -25,7 +25,7 @@ msgstr "Nâng cao"
 msgid "APPROVE"
 msgstr "DUYỆT"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Approve {0}"
 msgstr "Duyệt {0}"
 
@@ -33,7 +33,7 @@ msgstr "Duyệt {0}"
 msgid "Approve for {eventTitle}"
 msgstr "Duyệt cho {eventTitle}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Approved players have moved into the confirmed list."
 msgstr "Người chơi đã được duyệt đã chuyển vào danh sách xác nhận."
 
@@ -41,7 +41,7 @@ msgstr "Người chơi đã được duyệt đã chuyển vào danh sách xác 
 msgid "Available for the full event"
 msgstr "Rảnh suốt sự kiện"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
 msgid "Back to event"
 msgstr "Quay lại sự kiện"
 
@@ -53,11 +53,11 @@ msgstr "Dựa trên lượt chơi đã ghi nhận"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close request review"
 msgstr "Đóng xem xét yêu cầu"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close swipe invitations"
 msgstr "Đóng lời mời vuốt"
 
@@ -69,7 +69,7 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Computed rating"
 msgstr "Xếp hạng được tính toán"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Everyone reviewed"
 msgstr "Đã xem tất cả"
 
@@ -98,11 +98,11 @@ msgstr "mời"
 msgid "INVITE"
 msgstr "MỜI"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Invite {0}"
 msgstr "Mời {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Invite players"
 msgstr "Mời người chơi"
 
@@ -114,7 +114,7 @@ msgstr "Mời vào {eventTitle}"
 msgid "Invited and potential players"
 msgstr "Người chơi đã mời và tiềm năng"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Invited players have moved into the event's invited list."
 msgstr "Người chơi được mời đã được chuyển vào danh sách mời của sự kiện."
 
@@ -126,7 +126,7 @@ msgstr "Lời mời · {0}"
 msgid "KEEP"
 msgstr "GIỮ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Keep {0} pending"
 msgstr "Giữ {0} đang chờ"
 
@@ -170,7 +170,7 @@ msgstr "Xếp hạng"
 msgid "Review {0} potential players with swipe cards"
 msgstr "Xem {0} người chơi tiềm năng bằng thẻ vuốt"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Review requests"
 msgstr "Xem xét yêu cầu"
 
@@ -186,7 +186,7 @@ msgstr "Gửi lời mời"
 msgid "SKIP"
 msgstr "BỎ QUA"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Skip {0}"
 msgstr "Bỏ qua {0}"
 
@@ -194,11 +194,11 @@ msgstr "Bỏ qua {0}"
 msgid "Swipe invites"
 msgstr "Vuốt để mời"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to keep pending · right to approve"
 msgstr "Vuốt trái để giữ chờ · phải để duyệt"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to skip · right to invite"
 msgstr "Vuốt trái để bỏ qua · phải để mời"
 

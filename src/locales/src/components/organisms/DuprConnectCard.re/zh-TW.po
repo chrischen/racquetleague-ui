@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:410
+#: src/components/organisms/DuprConnectCard.re.mjs:440
 msgid "Cancel"
 msgstr "取消"
 
@@ -22,25 +22,25 @@ msgstr "取消"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:156
-#: src/components/organisms/DuprConnectCard.re.mjs:226
-#: src/components/organisms/DuprConnectCard.re.mjs:260
+#: src/components/organisms/DuprConnectCard.re.mjs:162
+#: src/components/organisms/DuprConnectCard.re.mjs:246
+#: src/components/organisms/DuprConnectCard.re.mjs:283
 msgid "Couldn't reach DUPR. Please try again in a moment."
 msgstr "無法連線至 DUPR，請稍後再試。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:477
+#: src/components/organisms/DuprConnectCard.re.mjs:507
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "可至 mydupr.com 或 DUPR App 建立帳號"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:446
+#: src/components/organisms/DuprConnectCard.re.mjs:476
 msgid "Disconnect DUPR"
 msgstr "解除連結 DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:497
+#: src/components/organisms/DuprConnectCard.re.mjs:527
 msgid "Disconnect DUPR?"
 msgstr "要解除連結 DUPR 嗎？"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:504
 msgid "Don't have a DUPR account?"
 msgstr "還沒有 DUPR 帳號？"
 
@@ -48,32 +48,40 @@ msgstr "還沒有 DUPR 帳號？"
 msgid "doubles"
 msgstr "雙打"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:426
+#: src/components/organisms/DuprConnectCard.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:321
+#: src/components/organisms/DuprConnectCard.re.mjs:172
+msgid "DUPR couldn't complete the sign-in."
+msgstr "DUPR 無法完成登入。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:344
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:489
+#: src/components/organisms/DuprConnectCard.re.mjs:158
+#: src/components/organisms/DuprConnectCard.re.mjs:519
 msgid "DUPR linking isn't available right now."
 msgstr "目前無法連結 DUPR。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:392
+#: src/components/organisms/DuprConnectCard.re.mjs:416
 msgid "DUPR login"
 msgstr "DUPR 登入"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-msgid "DUPR sent something we couldn't read. Please try again."
-msgstr "DUPR 回傳的資料無法解讀，請再試一次。"
+#: src/components/organisms/DuprConnectCard.re.mjs:168
+msgid ""
+"DUPR needs you to finish setting up your account before it can be linked. "
+"Follow the steps in the DUPR panel, then sign in again."
+msgstr ""
+"DUPR 需要您先完成帳號設定才能連結。請依照 DUPR 面板中的步驟操作，然後重新登"
+"入。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:297
+#: src/components/organisms/DuprConnectCard.re.mjs:320
 msgid "Last synced"
 msgstr "上次同步"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:334
+#: src/components/organisms/DuprConnectCard.re.mjs:357
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -81,29 +89,29 @@ msgstr ""
 "連結你的 DUPR 帳號，即可在此使用已驗證的 DUPR 評分。連結期間將取代你的自評分"
 "數。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:266
+#: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
 msgstr "已連結"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:271
+#: src/components/organisms/DuprConnectCard.re.mjs:294
 msgid "Linking"
 msgstr "連結中"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:363
+#: src/components/organisms/DuprConnectCard.re.mjs:386
 msgid "Linking your account…"
 msgstr "正在連結你的帳號…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:387
+#: src/components/organisms/DuprConnectCard.re.mjs:411
 msgid "Loading DUPR…"
 msgstr "正在載入 DUPR…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
-#: src/components/organisms/DuprConnectCard.re.mjs:460
+#: src/components/organisms/DuprConnectCard.re.mjs:401
+#: src/components/organisms/DuprConnectCard.re.mjs:490
 msgid "Log in with DUPR"
 msgstr "使用 DUPR 登入"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:274
-#: src/components/organisms/DuprConnectCard.re.mjs:278
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+#: src/components/organisms/DuprConnectCard.re.mjs:301
 msgid "Not linked"
 msgstr "未連結"
 
@@ -115,7 +123,7 @@ msgstr "NR"
 msgid "provisional"
 msgstr "暫定"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:381
+#: src/components/organisms/DuprConnectCard.re.mjs:404
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -127,16 +135,27 @@ msgstr ""
 msgid "singles"
 msgstr "單打"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:150
+#: src/components/organisms/DuprConnectCard.re.mjs:156
 msgid "That DUPR account is already linked to another player."
 msgstr "該 DUPR 帳號已連結至其他球員。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:154
+#: src/components/organisms/DuprConnectCard.re.mjs:160
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "此 DUPR 登入已逾期，請再試一次。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:498
+#: src/components/organisms/DuprConnectCard.re.mjs:170
+msgid ""
+"You declined to share your DUPR data, so nothing was linked. Sign in again "
+"and choose Authorize to link."
+msgstr ""
+"您拒絕分享 DUPR 資料，因此未建立連結。請重新登入並選擇「授權」以進行連結。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
 msgstr "此處將不再使用你的 DUPR 評分，並恢復自評分數選擇。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR 回傳的資料無法解讀，請再試一次。"

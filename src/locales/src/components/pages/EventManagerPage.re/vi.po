@@ -87,7 +87,7 @@ msgstr "Điều chỉnh hạt giống người chơi"
 msgid "Advance to Next Round"
 msgstr "Tiến lên vòng tiếp theo"
 
-#: src/components/organisms/EventManager.re.mjs:2632
+#: src/components/organisms/EventManager.re.mjs:2636
 msgid "Advance to Round {0}"
 msgstr "Tiến lên vòng {0}"
 
@@ -103,7 +103,7 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "Tất cả người chơi đã check-in đều ở trong vòng này"
 
-#: src/components/organisms/EventManager.re.mjs:2463
+#: src/components/organisms/EventManager.re.mjs:2467
 msgid "all up to date"
 msgstr "đã cập nhật"
 
@@ -111,7 +111,7 @@ msgstr "đã cập nhật"
 msgid "Alternate favourite/underdog roles"
 msgstr "Xen kẽ vai trò ưa thích/yếu thế"
 
-#: src/components/organisms/EventManager.re.mjs:2741
+#: src/components/organisms/EventManager.re.mjs:2745
 msgid "Anti-Team {0}"
 msgstr "Đội phản {0}"
 
@@ -259,11 +259,11 @@ msgstr "Tùy chỉnh"
 msgid "Customize from here"
 msgstr "Tùy chỉnh từ đây"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: OFF"
 msgstr "Gỡ lỗi: TẮT"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: ON"
 msgstr "Gỡ lỗi: BẬT"
 
@@ -299,7 +299,7 @@ msgstr "Xác định"
 
 #: src/components/organisms/EventManager.re.mjs:279
 #: src/components/organisms/EventManager.re.mjs:552
-#: src/components/organisms/EventManager.re.mjs:2535
+#: src/components/organisms/EventManager.re.mjs:2539
 msgid "Dismiss"
 msgstr "Bỏ qua"
 
@@ -371,7 +371,7 @@ msgid "Everything stored on this device is already synced to the server."
 msgstr "Mọi thứ được lưu trên thiết bị này đã được đồng bộ lên máy chủ."
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2943
+#: src/components/organisms/EventManager.re.mjs:2947
 msgid "Export History"
 msgstr "Xuất lịch sử"
 
@@ -440,7 +440,7 @@ msgid "Generate Draws"
 msgstr "Tạo bốc thăm"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Generating…"
 msgstr "Đang tạo…"
 
@@ -460,7 +460,7 @@ msgstr "Tên khách (mỗi tên một dòng)"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
 
-#: src/components/organisms/EventManager.re.mjs:2979
+#: src/components/organisms/EventManager.re.mjs:2983
 msgid "Help"
 msgstr "Trợ giúp"
 
@@ -469,7 +469,7 @@ msgid "Import"
 msgstr "Nhập"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2953
+#: src/components/organisms/EventManager.re.mjs:2957
 msgid "Import History"
 msgstr "Nhập lịch sử"
 
@@ -607,7 +607,7 @@ msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
 msgid "Opponent variety"
 msgstr "Đa dạng đối thủ"
 
-#: src/components/organisms/EventManager.re.mjs:2531
+#: src/components/organisms/EventManager.re.mjs:2535
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 "Trình tối ưu không khả dụng — đã dùng ghép cặp tiêu chuẩn cho lịch này."
@@ -667,7 +667,7 @@ msgstr ""
 msgid "please login before managing the session"
 msgstr "vui lòng đăng nhập trước khi quản lý phiên"
 
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Preparing optimizer…"
 msgstr "Đang chuẩn bị trình tối ưu…"
 
@@ -683,7 +683,7 @@ msgstr "Vòng trước"
 msgid "Print"
 msgstr "In"
 
-#: src/components/organisms/EventManager.re.mjs:2430
+#: src/components/organisms/EventManager.re.mjs:2434
 msgid "Print Draws"
 msgstr "In Bảng Đấu"
 
@@ -735,7 +735,7 @@ msgstr "Thay thế người chơi"
 msgid "Replacing:"
 msgstr "Đang thay thế:"
 
-#: src/components/organisms/EventManager.re.mjs:2962
+#: src/components/organisms/EventManager.re.mjs:2966
 msgid "Reset Storage"
 msgstr "Đặt lại bộ nhớ"
 
@@ -834,7 +834,7 @@ msgstr ""
 "Chỉ gồm các trận đã ghi điểm và điều chỉnh xếp hạng. Dán nội dung này vào "
 "Nhập lịch sử trên thiết bị khác."
 
-#: src/components/organisms/EventManager.re.mjs:2385
+#: src/components/organisms/EventManager.re.mjs:2389
 msgid "Scores Synced!"
 msgstr "Điểm số đã được đồng bộ!"
 
@@ -882,7 +882,7 @@ msgstr "Đã bỏ qua, người chơi không thuộc sự kiện này"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "Một số quy tắc đã phải linh hoạt để lấp đầy các sân"
 
-#: src/components/organisms/EventManager.re.mjs:2926
+#: src/components/organisms/EventManager.re.mjs:2930
 msgid "Sports Event Draws"
 msgstr "Kết Quả Sự Kiện Thể Thao"
 
@@ -898,24 +898,24 @@ msgstr "chiến lược"
 msgid "Strategy:"
 msgstr "Chiến lược:"
 
-#: src/components/organisms/EventManager.re.mjs:2397
+#: src/components/organisms/EventManager.re.mjs:2401
 msgid "Sync Failed"
 msgstr "Đồng bộ thất bại"
 
-#: src/components/organisms/EventManager.re.mjs:2361
+#: src/components/organisms/EventManager.re.mjs:2365
 msgid "Sync Scores"
 msgstr "Đồng bộ điểm số"
 
-#: src/components/organisms/EventManager.re.mjs:2457
+#: src/components/organisms/EventManager.re.mjs:2461
 msgid "synced"
 msgstr "đã đồng bộ"
 
-#: src/components/organisms/EventManager.re.mjs:2373
+#: src/components/organisms/EventManager.re.mjs:2377
 msgid "Syncing... {0}%"
 msgstr "Đang đồng bộ... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2292
+#: src/components/organisms/EventManager.re.mjs:2296
 msgid "Team {0}"
 msgstr "Đội {0}"
 
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "Dải trình độ hẹp"
 
-#: src/components/organisms/EventManager.re.mjs:2459
+#: src/components/organisms/EventManager.re.mjs:2463
 msgid "to sync"
 msgstr "cần đồng bộ"
 

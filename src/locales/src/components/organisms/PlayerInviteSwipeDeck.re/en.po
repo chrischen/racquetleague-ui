@@ -25,7 +25,7 @@ msgstr ""
 msgid "APPROVE"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Approve {0}"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Approve for {eventTitle}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Approved players have moved into the confirmed list."
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Available for the full event"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
 msgid "Back to event"
 msgstr ""
 
@@ -53,11 +53,11 @@ msgstr ""
 msgid "Beginner"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close request review"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close swipe invitations"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 #~ msgid "Declared rating"
 #~ msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Everyone reviewed"
 msgstr ""
 
@@ -98,11 +98,11 @@ msgstr ""
 msgid "INVITE"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Invite {0}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Invite players"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 msgid "Invite to {eventTitle}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Invited players have moved into the event's invited list."
 msgstr ""
 
@@ -122,7 +122,7 @@ msgstr ""
 msgid "KEEP"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Keep {0} pending"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Review requests"
 msgstr ""
 
@@ -174,15 +174,15 @@ msgstr ""
 msgid "SKIP"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Skip {0}"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to keep pending · right to approve"
 msgstr ""
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to skip · right to invite"
 msgstr ""
 

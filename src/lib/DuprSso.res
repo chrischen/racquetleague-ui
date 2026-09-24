@@ -31,12 +31,23 @@ let originOf = (ssoUrl: string): option<string> =>
 
 type tokens = {accessToken: string, refreshToken: string}
 
-/** `Ignored` is traffic from somewhere other than DUPR — the page receives
- postMessage from other sources, so this is silently dropped. `Malformed` is
- from DUPR but unusable, which is worth surfacing. */
+/** What DUPR's page can post to us, sorted by what the card should do.
+
+ `Ignored` is traffic from somewhere other than DUPR — the page receives
+ postMessage from other sources, so this is silently dropped.
+
+ `Unrecognized` is from DUPR but not the login payload. DUPR's page posts
+ other things to its parent (payment status, "started"/"aborted" events), and
+ a message we do not understand is not a failure: the login may still be in
+ progress, so the card keeps waiting. The keys are handed back for logging.
+
+ `Rejected` is DUPR saying the login cannot complete — `{error: ...}` — for
+ instance when the account still needs setup on DUPR's side. DUPR's own panel
+ explains what to do, so the card must keep it visible. */
 type parsed =
   | Ignored
-  | Malformed
+  | Unrecognized(array<string>)
+  | Rejected(string)
   | Tokens(tokens)
 
 let nonEmptyString = (obj: Dict.t<JSON.t>, key: string): option<string> =>
@@ -59,14 +70,16 @@ let parseMessage = (~ssoOrigin: string, ~origin: string, ~data: JSON.t): parsed 
     | None => Some(data)
     }
     switch decoded->Option.flatMap(JSON.Decode.object) {
-    | None => Malformed
+    | None => Unrecognized([])
     | Some(obj) =>
       switch (
         nonEmptyString(obj, "userToken")->Option.orElse(nonEmptyString(obj, "accessToken")),
         nonEmptyString(obj, "refreshToken"),
+        nonEmptyString(obj, "error"),
       ) {
-      | (Some(accessToken), Some(refreshToken)) => Tokens({accessToken, refreshToken})
-      | _ => Malformed
+      | (Some(accessToken), Some(refreshToken), _) => Tokens({accessToken, refreshToken})
+      | (_, _, Some(reason)) => Rejected(reason)
+      | _ => Unrecognized(obj->Dict.keysToArray)
       }
     }
   }

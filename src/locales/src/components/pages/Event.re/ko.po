@@ -77,8 +77,8 @@ msgstr "활동"
 msgid "Activity"
 msgstr "종목"
 
-#: src/components/organisms/RSVPSection.re.mjs:907
-#: src/components/organisms/RSVPSection.re.mjs:1007
+#: src/components/organisms/RSVPSection.re.mjs:917
+#: src/components/organisms/RSVPSection.re.mjs:1017
 msgid "Add Member"
 msgstr "멤버 추가"
 
@@ -122,7 +122,7 @@ msgstr "결제 청구"
 msgid "Clear preview"
 msgstr "미리보기 지우기"
 
-#: src/components/organisms/RSVPSection.re.mjs:924
+#: src/components/organisms/RSVPSection.re.mjs:934
 msgid "Collapse"
 msgstr "접기"
 
@@ -202,11 +202,11 @@ msgstr "리그"
 msgid "left the event"
 msgstr "이벤트에서 나갔습니다"
 
-#: src/components/organisms/RSVPSection.re.mjs:1023
+#: src/components/organisms/RSVPSection.re.mjs:1033
 msgid "Load more"
 msgstr "더 불러오기"
 
-#: src/components/organisms/RSVPSection.re.mjs:1020
+#: src/components/organisms/RSVPSection.re.mjs:1030
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -251,7 +251,7 @@ msgstr "아직 플레이어가 없습니다"
 msgid "No restriction on skill level. Open to all players."
 msgstr "실력 제한 없음. 모든 플레이어 환영."
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr "미납"
 
@@ -259,7 +259,7 @@ msgstr "미납"
 msgid "notes"
 msgstr "메모"
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr "납부됨"
 
@@ -315,7 +315,7 @@ msgstr "이벤트에서 제거"
 msgid "Remove this RSVP"
 msgstr "이 RSVP 제거"
 
-#: src/components/organisms/RSVPSection.re.mjs:655
+#: src/components/organisms/RSVPSection.re.mjs:665
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "필요 레이팅: {0} (DUPR {1})"
 
@@ -327,9 +327,9 @@ msgstr "결과가 경쟁 레이팅에 제출됩니다."
 msgid "Retry charge"
 msgstr "결제 재시도"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
-#: src/components/organisms/RSVPSection.re.mjs:817
-#: src/components/organisms/RSVPSection.re.mjs:946
+#: src/components/organisms/RSVPSection.re.mjs:788
+#: src/components/organisms/RSVPSection.re.mjs:827
+#: src/components/organisms/RSVPSection.re.mjs:956
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -396,7 +396,7 @@ msgstr "모든 {activityName} 이벤트 구독"
 msgid "sync calendar"
 msgstr "캘린더 동기화"
 
-#: src/components/organisms/RSVPSection.re.mjs:643
+#: src/components/organisms/RSVPSection.re.mjs:653
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -499,7 +499,7 @@ msgstr "참가 중"
 msgid "You're Waitlisted"
 msgstr "대기 중"
 
-#: src/components/organisms/RSVPSection.re.mjs:657
+#: src/components/organisms/RSVPSection.re.mjs:667
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

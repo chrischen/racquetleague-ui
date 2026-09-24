@@ -77,8 +77,8 @@ msgstr "活動"
 msgid "Activity"
 msgstr "活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:907
-#: src/components/organisms/RSVPSection.re.mjs:1007
+#: src/components/organisms/RSVPSection.re.mjs:917
+#: src/components/organisms/RSVPSection.re.mjs:1017
 msgid "Add Member"
 msgstr "新增成員"
 
@@ -122,7 +122,7 @@ msgstr "收取款項"
 msgid "Clear preview"
 msgstr "清除預覽"
 
-#: src/components/organisms/RSVPSection.re.mjs:924
+#: src/components/organisms/RSVPSection.re.mjs:934
 msgid "Collapse"
 msgstr "收起"
 
@@ -202,11 +202,11 @@ msgstr "聯盟"
 msgid "left the event"
 msgstr "退出了活動"
 
-#: src/components/organisms/RSVPSection.re.mjs:1023
+#: src/components/organisms/RSVPSection.re.mjs:1033
 msgid "Load more"
 msgstr "載入更多"
 
-#: src/components/organisms/RSVPSection.re.mjs:1020
+#: src/components/organisms/RSVPSection.re.mjs:1030
 msgid "Loading..."
 msgstr "載入中..."
 
@@ -251,7 +251,7 @@ msgstr "還沒有球員"
 msgid "No restriction on skill level. Open to all players."
 msgstr "技能等級無限制。對所有球員開放。"
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr "未付款"
 
@@ -259,7 +259,7 @@ msgstr "未付款"
 msgid "notes"
 msgstr "備註"
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr "已付款"
 
@@ -315,7 +315,7 @@ msgstr "從活動中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/RSVPSection.re.mjs:655
+#: src/components/organisms/RSVPSection.re.mjs:665
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "所需評分：{0} (DUPR {1})"
 
@@ -327,9 +327,9 @@ msgstr "結果將提交至競技評分。"
 msgid "Retry charge"
 msgstr "重試扣款"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
-#: src/components/organisms/RSVPSection.re.mjs:817
-#: src/components/organisms/RSVPSection.re.mjs:946
+#: src/components/organisms/RSVPSection.re.mjs:788
+#: src/components/organisms/RSVPSection.re.mjs:827
+#: src/components/organisms/RSVPSection.re.mjs:956
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -394,7 +394,7 @@ msgstr "訂閱所有 {activityName} 活動"
 msgid "sync calendar"
 msgstr "同步日曆"
 
-#: src/components/organisms/RSVPSection.re.mjs:643
+#: src/components/organisms/RSVPSection.re.mjs:653
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -495,7 +495,7 @@ msgstr "您正在參加"
 msgid "You're Waitlisted"
 msgstr "您在等待列表"
 
-#: src/components/organisms/RSVPSection.re.mjs:657
+#: src/components/organisms/RSVPSection.re.mjs:667
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

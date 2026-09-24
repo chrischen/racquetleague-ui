@@ -10,6 +10,18 @@
 // regenerate for itself from its own roster and ratings, and shipping them would
 // only plant stale ones.
 //
+// HOW PLAYERS TRAVEL (v2). The roster is listed once and matches name players
+// by id. The rating a player was drawn at is still needed on the other side —
+// the solver reads each player's favoured / underdog side from the ratings
+// stored in the match, and the import takes a player's first one as their
+// session-start rating — but nearly all of them are reproducible: replaying
+// the earlier scored matches with the same rating function lands on the same
+// numbers. So a rating is written into a match only where the replay would
+// not reach it: a first appearance, a session that re-fetched its base, a
+// score corrected after the next draw. Play counts are rebuilt the same way.
+// Measured on a 52-round, five-session export, this is a third of the v1 size.
+// v1 files are still read.
+//
 // IDS ARE THE SYNC KEY. An exported match keeps its id, and `EventManager`'s
 // `submitMatch` sends that id to the server as `syncId`. So a match that lands
 // here by import and is later synced from this device cannot create a second
@@ -23,7 +35,10 @@
 open Rating
 
 let format = "pkuru-event-history"
-let version = 1
+let version = 2
+// v1 embedded a full player snapshot in every match. Exports of it exist, so
+// it stays readable; everything written is v2.
+let readableVersions = [1, 2]
 
 // A decoded export. Rounds hold only scored matches, and their players carry
 // `data: None` until `plan` re-attaches the local RSVP node by id.
@@ -91,17 +106,41 @@ let remapRoundIndex = (k: int, ~len: int, ~newIndex: int => int, ~afterAll: int)
 // Encode
 // ---------------------------------------------------------------------------
 
-let matchToJson = (m: CompletedMatchEntity.t<'a>, score: (float, float)): Js.Json.t => {
-  let (team1, team2) = m.match
-  let (s1, s2) = score
+// Both sides run this same replay over the ratings actually written, so what
+// the importer reconstructs is what the exporter left out. The tolerance
+// absorbs float noise between the manager's own fold and this one; a rating
+// left out is reproduced to within it.
+let ratingEpsilon = 1e-9
+
+let sameRating = (a: Rating.t, b: Rating.t) =>
+  Js.Math.abs_float(a.mu -. b.mu) < ratingEpsilon &&
+    Js.Math.abs_float(a.sigma -. b.sigma) < ratingEpsilon
+
+// One round of the replay: every match rated from the pre-round state, as the
+// manager's fold does (`Rating.processTimelineEvent`).
+let advance = (
+  predicted: Map.t<string, Rating.t>,
+  round: array<(Match.t<'a>, (float, float))>,
+): unit =>
+  round->Array.forEach(((match, score)) =>
+    switch CompletedMatch.rate((match, Some(score))) {
+    | Some(teams) => teams->Array.flat->Array.forEach(p => predicted->Map.set(p.id, p.rating))
+    | None => ()
+    }
+  )
+
+let rosterEntry = (p: Player.t<'a>): Js.Json.t => {
   let d = Js.Dict.empty()
-  d->Js.Dict.set("id", m.id->Js.Json.string)
-  d->Js.Dict.set("team1", team1->Array.map(Player.toJson)->Js.Json.array)
-  d->Js.Dict.set("team2", team2->Array.map(Player.toJson)->Js.Json.array)
-  d->Js.Dict.set("score", [s1->Js.Json.number, s2->Js.Json.number]->Js.Json.array)
-  d->Js.Dict.set("createdAt", m.createdAt->Js.Date.getTime->Js.Json.number)
+  d->Js.Dict.set("id", p.id->Js.Json.string)
+  d->Js.Dict.set("intId", p.intId->Int.toFloat->Js.Json.number)
+  d->Js.Dict.set("name", p.name->Js.Json.string)
+  d->Js.Dict.set("gender", p.gender->Gender.toInt->Int.toFloat->Js.Json.number)
+  d->Js.Dict.set("paid", p.paid->Js.Json.boolean)
   d->Js.Json.object_
 }
+
+let ratingToJson = (r: Rating.t): Js.Json.t =>
+  [r.mu->Js.Json.number, r.sigma->Js.Json.number]->Js.Json.array
 
 let encode = (
   ~eventId: string,
@@ -130,16 +169,59 @@ let encode = (
       ~afterAll=keptRounds->Array.length,
     )
 
+  // Roster in order of first appearance; ratings carried only where the
+  // replay would not reproduce them (see the module comment).
+  let roster = []
+  let listed = Set.make()
+  let predicted: Map.t<string, Rating.t> = Map.make()
+
   let roundsJson =
     keptRounds
     ->Array.map(round => {
+      let written = []
+      let matches =
+        round->Array.filterMap(m =>
+          m.score->Option.map(score => {
+            let (team1, team2) = m.match
+            let (s1, s2) = score
+            let carried = Js.Dict.empty()
+            // What this player is written at: the replay's value when it
+            // already matches the snapshot, otherwise the snapshot itself,
+            // which then travels with the match.
+            let write = (team: Team.t<'a>) =>
+              team->Array.map(p => {
+                if !(listed->Set.has(p.id)) {
+                  listed->Set.add(p.id)->ignore
+                  roster->Array.push(rosterEntry(p))
+                }
+                switch predicted->Map.get(p.id) {
+                | Some(r) if sameRating(r, p.rating) => {...p, rating: r}
+                | _ => {
+                    carried->Js.Dict.set(p.id, ratingToJson(p.rating))
+                    p
+                  }
+                }
+              })
+            let written1 = write(team1)
+            let written2 = write(team2)
+            written->Array.push(((written1, written2), score))
+            let ids = (team: Team.t<'a>) =>
+              team->Array.map(p => p.id->Js.Json.string)->Js.Json.array
+            let d = Js.Dict.empty()
+            d->Js.Dict.set("id", m.id->Js.Json.string)
+            d->Js.Dict.set("team1", ids(written1))
+            d->Js.Dict.set("team2", ids(written2))
+            d->Js.Dict.set("score", [s1->Js.Json.number, s2->Js.Json.number]->Js.Json.array)
+            d->Js.Dict.set("createdAt", m.createdAt->Js.Date.getTime->Js.Json.number)
+            if carried->Js.Dict.keys->Array.length > 0 {
+              d->Js.Dict.set("ratings", carried->Js.Json.object_)
+            }
+            d->Js.Json.object_
+          })
+        )
+      advance(predicted, written)
       let d = Js.Dict.empty()
-      d->Js.Dict.set(
-        "matches",
-        round
-        ->Array.filterMap(m => m.score->Option.map(score => matchToJson(m, score)))
-        ->Js.Json.array,
-      )
+      d->Js.Dict.set("matches", matches->Js.Json.array)
       d->Js.Json.object_
     })
     ->Js.Json.array
@@ -149,6 +231,7 @@ let encode = (
   root->Js.Dict.set("version", version->Int.toFloat->Js.Json.number)
   root->Js.Dict.set("eventId", eventId->Js.Json.string)
   root->Js.Dict.set("exportedAt", exportedAt->Js.Json.number)
+  root->Js.Dict.set("players", roster->Js.Json.array)
   root->Js.Dict.set("rounds", roundsJson)
   root->Js.Dict.set(
     "adjustments",
@@ -217,21 +300,129 @@ let decodeTeam = (json: Js.Json.t): array<Player.t<'a>> => {
   players
 }
 
-let decodeMatch = (json: Js.Json.t): CompletedMatchEntity.t<'a> => {
-  let obj = json->asObject
-  let score = switch obj->required("score")->asArray {
+let decodeScore = (obj: Js.Dict.t<Js.Json.t>): (float, float) =>
+  switch obj->required("score")->asArray {
   | [a, b] => (a->asNumber, b->asNumber)
   | _ => raise(Invalid(corruptMessage))
   }
+
+// v1: every match carries full player snapshots.
+let decodeMatchV1 = (json: Js.Json.t): CompletedMatchEntity.t<'a> => {
+  let obj = json->asObject
   {
     CompletedMatchEntity.id: obj->required("id")->asString,
     match: (obj->required("team1")->decodeTeam, obj->required("team2")->decodeTeam),
-    score: Some(score),
+    score: Some(decodeScore(obj)),
     createdAt: obj->required("createdAt")->asNumber->Js.Date.fromFloat,
     // Imported history came from an instance that owns the sync for it, and the
     // preserved id makes a second submission a no-op server-side anyway.
     synced: true,
   }
+}
+
+let decodeRoundsV1 = (root: Js.Dict.t<Js.Json.t>): array<array<CompletedMatchEntity.t<'a>>> =>
+  root
+  ->required("rounds")
+  ->asArray
+  ->Array.map(r => r->asObject->required("matches")->asArray->Array.map(decodeMatchV1))
+  ->Array.filter(r => r->Array.length > 0)
+
+let asBool = (json: Js.Json.t): bool =>
+  switch json->Js.Json.decodeBoolean {
+  | Some(b) => b
+  | None => raise(Invalid(corruptMessage))
+  }
+
+// v2: who each player is, once. Ratings and counts are filled in per match.
+let decodeRoster = (json: Js.Json.t): Js.Dict.t<Player.t<'a>> => {
+  let roster = Js.Dict.empty()
+  json
+  ->asArray
+  ->Array.forEach(entry => {
+    let o = entry->asObject
+    let rating = Rating.makeDefault()
+    let p: Player.t<'a> = {
+      data: None,
+      id: o->required("id")->asString,
+      intId: o->required("intId")->asNumber->Float.toInt,
+      name: o->required("name")->asString,
+      rating,
+      ratingOrdinal: rating->Rating.ordinal,
+      paid: o->required("paid")->asBool,
+      gender: o->required("gender")->asNumber->Float.toInt->Gender.fromInt,
+      count: 0,
+    }
+    roster->Js.Dict.set(p.id, p)
+  })
+  roster
+}
+
+let decodeRatingPair = (json: Js.Json.t): Rating.t =>
+  switch json->asArray {
+  | [mu, sigma] => Rating.make(mu->asNumber, sigma->asNumber)
+  | _ => raise(Invalid(corruptMessage))
+  }
+
+// v2: matches name players by id. Each player's rating at the draw is the one
+// the file carries for that match, else what replaying the earlier rounds
+// produces — the mirror of the encoder. A player with neither is an export
+// this reader cannot trust. Counts are the scored matches so far, this one
+// included, which is what a draw stamps on its players.
+let decodeRoundsV2 = (root: Js.Dict.t<Js.Json.t>): array<array<CompletedMatchEntity.t<'a>>> => {
+  let roster = root->required("players")->decodeRoster
+  let predicted: Map.t<string, Rating.t> = Map.make()
+  let played: Map.t<string, int> = Map.make()
+  root
+  ->required("rounds")
+  ->asArray
+  ->Array.map(r => {
+    let entries =
+      r
+      ->asObject
+      ->required("matches")
+      ->asArray
+      ->Array.map(json => {
+        let obj = json->asObject
+        let carried =
+          obj->Js.Dict.get("ratings")->Option.map(asObject)->Option.getOr(Js.Dict.empty())
+        let team = key =>
+          obj
+          ->required(key)
+          ->asArray
+          ->Array.map(idJson => {
+            let id = idJson->asString
+            let base = switch roster->Js.Dict.get(id) {
+            | Some(p) => p
+            | None => raise(Invalid(corruptMessage))
+            }
+            let rating = switch (carried->Js.Dict.get(id), predicted->Map.get(id)) {
+            | (Some(r), _) => decodeRatingPair(r)
+            | (None, Some(r)) => r
+            | (None, None) => raise(Invalid(corruptMessage))
+            }
+            let count = played->Map.get(id)->Option.getOr(0) + 1
+            played->Map.set(id, count)
+            {...base, rating, ratingOrdinal: rating->Rating.ordinal, count}
+          })
+        let team1 = team("team1")
+        let team2 = team("team2")
+        if team1->Array.length == 0 || team2->Array.length == 0 {
+          raise(Invalid(corruptMessage))
+        }
+        let score = decodeScore(obj)
+        let entity: CompletedMatchEntity.t<'a> = {
+          id: obj->required("id")->asString,
+          match: (team1, team2),
+          score: Some(score),
+          createdAt: obj->required("createdAt")->asNumber->Js.Date.fromFloat,
+          synced: true,
+        }
+        (entity, score)
+      })
+    advance(predicted, entries->Array.map(((e, score)) => (e.match, score)))
+    entries->Array.map(((e, _)) => e)
+  })
+  ->Array.filter(r => r->Array.length > 0)
 }
 
 let decode = (text: string): result<payload<'a>, string> =>
@@ -249,14 +440,15 @@ let decode = (text: string): result<payload<'a>, string> =>
     | _ => raise(Invalid("That is not an event history export."))
     }
 
-    // Hard version gate, no migrations — same rule as the solver's stored weight
-    // configs. Re-export from the newer build instead.
+    // Hard version gate for anything newer than this build writes — same rule
+    // as the solver's stored weight configs. Re-export from the newer build
+    // instead. Older versions this build knows how to read are decoded as such.
     let fileVersion =
       root
       ->Js.Dict.get("version")
       ->Option.flatMap(v => v->Js.Json.decodeNumber)
       ->Option.mapOr(0, Float.toInt)
-    if fileVersion != version {
+    if !(readableVersions->Array.includes(fileVersion)) {
       raise(
         Invalid(
           "This export is format v" ++
@@ -267,12 +459,7 @@ let decode = (text: string): result<payload<'a>, string> =>
       )
     }
 
-    let rounds =
-      root
-      ->required("rounds")
-      ->asArray
-      ->Array.map(r => r->asObject->required("matches")->asArray->Array.map(decodeMatch))
-      ->Array.filter(r => r->Array.length > 0)
+    let rounds = fileVersion == 1 ? decodeRoundsV1(root) : decodeRoundsV2(root)
 
     let adjustments =
       root
@@ -301,9 +488,11 @@ let decode = (text: string): result<payload<'a>, string> =>
 // ---------------------------------------------------------------------------
 
 // Carry a decoded player's recorded snapshot — the rating, name and play count as
-// they stood when the match was played, which is what the timeline replay rates
-// from — while taking the live RSVP node from the local player of the same id.
-// Only `data` mentions the type parameter, so this is the one field that changes.
+// they stood when the match was played (rebuilt on decode for v2 files) — while
+// taking the live RSVP node from the local player of the same id. The timeline
+// replay rates from its own running state, but the solver's side history and
+// the session-start baseline read these. Only `data` mentions the type
+// parameter, so this is the one field that changes.
 let hydratePlayer = (player: Player.t<'b>, local: Player.t<'a>): Player.t<'a> => {
   Player.data: local.data,
   id: player.id,

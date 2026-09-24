@@ -881,7 +881,7 @@ function EventManager(props) {
       });
   var setPlayerOverrides = match$16[1];
   var playerOverrides = match$16[0];
-  var baseRatingFor = function (userId, rsvpRating, duprDoubles, duprReliable, selfMu) {
+  var baseRatingFor = function (userId, rsvpRating, duprDoubles, duprReliability, duprReliable, selfMu) {
     var defaultRating = Rating.Rating.makeDefault();
     if (seedSource !== "GlobalRatings" && clubRatings !== undefined) {
       var match = Js_dict.get(clubRatings, userId);
@@ -901,7 +901,9 @@ function EventManager(props) {
     }
     var r = CombinedRating.resolve(Core__Option.map(rsvpRating, (function (param) {
                 return param[0];
-              })), duprDoubles, duprReliable, selfMu);
+              })), Core__Option.map(rsvpRating, (function (param) {
+                return param[1];
+              })), duprDoubles, duprReliability, duprReliable, selfMu);
     if (r === undefined) {
       return [
               defaultRating.mu,
@@ -953,6 +955,8 @@ function EventManager(props) {
                                                               ];
                                                       })), Core__Option.flatMap(user.dupr, (function (d) {
                                                         return d.doubles;
+                                                      })), Core__Option.flatMap(user.dupr, (function (d) {
+                                                        return d.doublesReliability;
                                                       })), Core__Option.getOr(Core__Option.map(user.dupr, (function (d) {
                                                             return d.doublesReliable;
                                                           })), false), user.selfRating);

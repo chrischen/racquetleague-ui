@@ -9,6 +9,7 @@ import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as FramerMotion from "framer-motion";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactHookForm from "react-hook-form";
@@ -551,12 +552,12 @@ function ProfileModal(props) {
                                                                           children: [
                                                                             JsxRuntime.jsx(DuprRatingBadge.make, {
                                                                                   doubles: duprLink.doubles,
-                                                                                  doublesReliable: duprLink.doublesReliable,
+                                                                                  doublesReliable: CombinedRating.duprEstablished(duprLink.doublesReliability, duprLink.doublesReliable),
                                                                                   compact: true
                                                                                 }),
                                                                             JsxRuntime.jsx(RatingSourceChip.make, {
                                                                                   source: "Dupr",
-                                                                                  reliable: duprLink.doublesReliable
+                                                                                  reliable: CombinedRating.duprEstablished(duprLink.doublesReliability, duprLink.doublesReliable)
                                                                                 })
                                                                           ],
                                                                           className: "flex items-center gap-2 text-gray-900 dark:text-gray-100"

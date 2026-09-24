@@ -74,7 +74,7 @@ msgstr "移除此 RSVP"
 msgid "Retry charge"
 msgstr "重试扣款"
 
-#: src/components/organisms/PkEventRsvp.re.mjs:168
+#: src/components/organisms/PkEventRsvp.re.mjs:172
 msgid "sent"
 msgstr "已发送"
 

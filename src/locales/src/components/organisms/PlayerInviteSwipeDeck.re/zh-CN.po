@@ -25,7 +25,7 @@ msgstr "高级"
 msgid "APPROVE"
 msgstr "批准"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Approve {0}"
 msgstr "批准 {0}"
 
@@ -33,7 +33,7 @@ msgstr "批准 {0}"
 msgid "Approve for {eventTitle}"
 msgstr "为 {eventTitle} 批准"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Approved players have moved into the confirmed list."
 msgstr "已批准的选手已移至确认列表。"
 
@@ -41,7 +41,7 @@ msgstr "已批准的选手已移至确认列表。"
 msgid "Available for the full event"
 msgstr "全程可参加"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
 msgid "Back to event"
 msgstr "返回活动"
 
@@ -53,11 +53,11 @@ msgstr "基于记录的比赛"
 msgid "Beginner"
 msgstr "初级"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close request review"
 msgstr "关闭请求审核"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close swipe invitations"
 msgstr "关闭滑动邀请"
 
@@ -69,7 +69,7 @@ msgstr "完全初学者"
 msgid "Computed rating"
 msgstr "计算评级"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Everyone reviewed"
 msgstr "已全部查看"
 
@@ -94,11 +94,11 @@ msgstr "中级+"
 msgid "INVITE"
 msgstr "邀请"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Invite {0}"
 msgstr "邀请 {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Invite players"
 msgstr "邀请球员"
 
@@ -106,7 +106,7 @@ msgstr "邀请球员"
 msgid "Invite to {eventTitle}"
 msgstr "邀请至 {eventTitle}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Invited players have moved into the event's invited list."
 msgstr "受邀玩家已移至活动的邀请列表。"
 
@@ -114,7 +114,7 @@ msgstr "受邀玩家已移至活动的邀请列表。"
 msgid "KEEP"
 msgstr "保留"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Keep {0} pending"
 msgstr "将 {0} 保留为待定"
 
@@ -150,7 +150,7 @@ msgstr "临时"
 msgid "Rating"
 msgstr "评分"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Review requests"
 msgstr "审核请求"
 
@@ -162,15 +162,15 @@ msgstr "自评"
 msgid "SKIP"
 msgstr "跳过"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Skip {0}"
 msgstr "跳过 {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to keep pending · right to approve"
 msgstr "左滑保留待定 · 右滑批准"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to skip · right to invite"
 msgstr "左滑跳过 · 右滑邀请"
 

@@ -775,3 +775,33 @@ module CircleDollarSign = {
     ~\"aria-hidden": string=?,
   ) => React.element = "CircleDollarSign"
 }
+
+module Forward = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "Forward"
+}
+
+module AtSign = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "AtSign"
+}
+
+module CalendarCheck = {
+  @module("lucide-react") @react.component
+  external make: (
+    ~size: int=?,
+    ~strokeWidth: float=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+  ) => React.element = "CalendarCheck"
+}

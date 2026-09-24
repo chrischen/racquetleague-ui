@@ -548,11 +548,21 @@ function RSVPSection(props) {
   var seedMu = function (rsvp) {
     return Core__Option.getOr(Core__Option.map(CombinedRating.resolve(Core__Option.flatMap(rsvp.rating, (function (r) {
                               return r.mu;
+                            })), Core__Option.flatMap(rsvp.rating, (function (r) {
+                              return r.sigma;
                             })), Core__Option.flatMap(Core__Option.flatMap(rsvp.user, (function (u) {
                                   return u.dupr;
                                 })), (function (d) {
                               return d.doubles;
-                            })), false, Core__Option.flatMap(rsvp.user, (function (u) {
+                            })), Core__Option.flatMap(Core__Option.flatMap(rsvp.user, (function (u) {
+                                  return u.dupr;
+                                })), (function (d) {
+                              return d.doublesReliability;
+                            })), Core__Option.getOr(Core__Option.map(Core__Option.flatMap(rsvp.user, (function (u) {
+                                      return u.dupr;
+                                    })), (function (d) {
+                                  return d.doublesReliable;
+                                })), false), Core__Option.flatMap(rsvp.user, (function (u) {
                               return u.selfRating;
                             }))), CombinedRating.mu), 0);
   };

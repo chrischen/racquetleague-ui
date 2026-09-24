@@ -87,7 +87,7 @@ msgstr "플레이어 시드 조정"
 msgid "Advance to Next Round"
 msgstr "다음 라운드로 진행"
 
-#: src/components/organisms/EventManager.re.mjs:2632
+#: src/components/organisms/EventManager.re.mjs:2636
 msgid "Advance to Round {0}"
 msgstr "라운드 {0}으로 진행"
 
@@ -103,7 +103,7 @@ msgstr "Alex Johnson"
 msgid "All checked-in players are already in this round"
 msgstr "체크인한 모든 플레이어가 이미 이 라운드에 있습니다"
 
-#: src/components/organisms/EventManager.re.mjs:2463
+#: src/components/organisms/EventManager.re.mjs:2467
 msgid "all up to date"
 msgstr "모두 최신 상태"
 
@@ -111,7 +111,7 @@ msgstr "모두 최신 상태"
 msgid "Alternate favourite/underdog roles"
 msgstr "강자/약자 역할 교대"
 
-#: src/components/organisms/EventManager.re.mjs:2741
+#: src/components/organisms/EventManager.re.mjs:2745
 msgid "Anti-Team {0}"
 msgstr "안티팀 {0}"
 
@@ -259,11 +259,11 @@ msgstr "사용자 지정"
 msgid "Customize from here"
 msgstr "여기서 맞춤 설정"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: OFF"
 msgstr "디버그: 끄기"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: ON"
 msgstr "디버그: 켜기"
 
@@ -299,7 +299,7 @@ msgstr "결정적"
 
 #: src/components/organisms/EventManager.re.mjs:279
 #: src/components/organisms/EventManager.re.mjs:552
-#: src/components/organisms/EventManager.re.mjs:2535
+#: src/components/organisms/EventManager.re.mjs:2539
 msgid "Dismiss"
 msgstr "닫기"
 
@@ -369,7 +369,7 @@ msgid "Everything stored on this device is already synced to the server."
 msgstr "이 기기에 저장된 모든 항목이 이미 서버에 동기화되었습니다."
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2943
+#: src/components/organisms/EventManager.re.mjs:2947
 msgid "Export History"
 msgstr "기록 내보내기"
 
@@ -436,7 +436,7 @@ msgid "Generate Draws"
 msgstr "대진 생성"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Generating…"
 msgstr "생성 중…"
 
@@ -456,7 +456,7 @@ msgstr "게스트 이름 (줄당 하나)"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "스캔에 문제가 있으신가요? 클럽 페이지에서 이벤트를 찾아보세요."
 
-#: src/components/organisms/EventManager.re.mjs:2979
+#: src/components/organisms/EventManager.re.mjs:2983
 msgid "Help"
 msgstr "도움말"
 
@@ -465,7 +465,7 @@ msgid "Import"
 msgstr "가져오기"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2953
+#: src/components/organisms/EventManager.re.mjs:2957
 msgid "Import History"
 msgstr "기록 가져오기"
 
@@ -603,7 +603,7 @@ msgstr "휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 �
 msgid "Opponent variety"
 msgstr "상대 다양성"
 
-#: src/components/organisms/EventManager.re.mjs:2531
+#: src/components/organisms/EventManager.re.mjs:2535
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "최적화 도구를 사용할 수 없어 이 대진에 표준 매치메이킹을 사용했습니다."
 
@@ -661,7 +661,7 @@ msgstr ""
 msgid "please login before managing the session"
 msgstr "세션을 관리하기 전에 로그인하세요"
 
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Preparing optimizer…"
 msgstr "최적화 도구 준비 중…"
 
@@ -677,7 +677,7 @@ msgstr "이전 라운드"
 msgid "Print"
 msgstr "인쇄"
 
-#: src/components/organisms/EventManager.re.mjs:2430
+#: src/components/organisms/EventManager.re.mjs:2434
 msgid "Print Draws"
 msgstr "대진표 인쇄"
 
@@ -728,7 +728,7 @@ msgstr "플레이어 교체"
 msgid "Replacing:"
 msgstr "교체 중:"
 
-#: src/components/organisms/EventManager.re.mjs:2962
+#: src/components/organisms/EventManager.re.mjs:2966
 msgid "Reset Storage"
 msgstr "저장소 초기화"
 
@@ -827,7 +827,7 @@ msgstr ""
 "점수가 기록된 경기와 레이팅 조정만 포함됩니다. 다른 기기의 기록 가져오기에 붙"
 "여넣으세요."
 
-#: src/components/organisms/EventManager.re.mjs:2385
+#: src/components/organisms/EventManager.re.mjs:2389
 msgid "Scores Synced!"
 msgstr "점수 동기화됨!"
 
@@ -875,7 +875,7 @@ msgstr "건너뜀, 이 이벤트에 없는 선수"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "코트를 채우기 위해 일부 규칙을 조정해야 했습니다"
 
-#: src/components/organisms/EventManager.re.mjs:2926
+#: src/components/organisms/EventManager.re.mjs:2930
 msgid "Sports Event Draws"
 msgstr "스포츠 이벤트 대진표"
 
@@ -891,24 +891,24 @@ msgstr "전략"
 msgid "Strategy:"
 msgstr "전략:"
 
-#: src/components/organisms/EventManager.re.mjs:2397
+#: src/components/organisms/EventManager.re.mjs:2401
 msgid "Sync Failed"
 msgstr "동기화 실패"
 
-#: src/components/organisms/EventManager.re.mjs:2361
+#: src/components/organisms/EventManager.re.mjs:2365
 msgid "Sync Scores"
 msgstr "점수 동기화"
 
-#: src/components/organisms/EventManager.re.mjs:2457
+#: src/components/organisms/EventManager.re.mjs:2461
 msgid "synced"
 msgstr "동기화됨"
 
-#: src/components/organisms/EventManager.re.mjs:2373
+#: src/components/organisms/EventManager.re.mjs:2377
 msgid "Syncing... {0}%"
 msgstr "동기화 중... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2292
+#: src/components/organisms/EventManager.re.mjs:2296
 msgid "Team {0}"
 msgstr "팀 {0}"
 
@@ -1003,7 +1003,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "촘촘한 밴드"
 
-#: src/components/organisms/EventManager.re.mjs:2459
+#: src/components/organisms/EventManager.re.mjs:2463
 msgid "to sync"
 msgstr "동기화 필요"
 

@@ -57,6 +57,7 @@ module QueryFragment = %relay(`
           singles
           doublesReliable
           singlesReliable
+          doublesReliability
         }
       }
     }
@@ -316,11 +317,20 @@ let make = (~query) => {
                       <DuprRatingBadge
                         doubles={link.doubles}
                         singles=?link.singles
-                        doublesReliable={link.doublesReliable}
+                        doublesReliable={CombinedRating.duprEstablished(
+                          ~reliability=link.doublesReliability,
+                          ~reliable=link.doublesReliable,
+                        )}
                         singlesReliable={link.singlesReliable}
                         compact=true
                       />
-                      <RatingSourceChip source=Dupr reliable={link.doublesReliable} />
+                      <RatingSourceChip
+                        source=Dupr
+                        reliable={CombinedRating.duprEstablished(
+                          ~reliability=link.doublesReliability,
+                          ~reliable=link.doublesReliable,
+                        )}
+                      />
                     </div>
                     <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
                       {t`Your rating comes from DUPR. Disconnect DUPR below to set your own level again.`}

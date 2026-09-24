@@ -17,8 +17,8 @@ msgstr ""
 msgid "+{0} more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:907
-#: src/components/organisms/RSVPSection.re.mjs:1007
+#: src/components/organisms/RSVPSection.re.mjs:917
+#: src/components/organisms/RSVPSection.re.mjs:1017
 msgid "Add Member"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Clear preview"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:924
+#: src/components/organisms/RSVPSection.re.mjs:934
 msgid "Collapse"
 msgstr ""
 
@@ -74,11 +74,11 @@ msgstr ""
 msgid "Join Waitlist"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:1023
+#: src/components/organisms/RSVPSection.re.mjs:1033
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:1020
+#: src/components/organisms/RSVPSection.re.mjs:1030
 msgid "Loading..."
 msgstr ""
 
@@ -103,11 +103,11 @@ msgstr ""
 msgid "No players found"
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr ""
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Remove this RSVP"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:655
+#: src/components/organisms/RSVPSection.re.mjs:665
 msgid "Required rating: {0} (DUPR {1})"
 msgstr ""
 
@@ -152,9 +152,9 @@ msgstr ""
 msgid "Retry charge"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:778
-#: src/components/organisms/RSVPSection.re.mjs:817
-#: src/components/organisms/RSVPSection.re.mjs:946
+#: src/components/organisms/RSVPSection.re.mjs:788
+#: src/components/organisms/RSVPSection.re.mjs:827
+#: src/components/organisms/RSVPSection.re.mjs:956
 msgid "RSVP"
 msgstr ""
 
@@ -194,7 +194,7 @@ msgstr ""
 msgid "Smart Waitlist"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:643
+#: src/components/organisms/RSVPSection.re.mjs:653
 msgid "This event admits players automatically. Your request will be reviewed and you will be notified once a spot is confirmed."
 msgstr ""
 
@@ -239,6 +239,6 @@ msgstr ""
 msgid "You're Waitlisted"
 msgstr ""
 
-#: src/components/organisms/RSVPSection.re.mjs:657
+#: src/components/organisms/RSVPSection.re.mjs:667
 msgid "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the pending list until the rating limit is lowered. Please join another JPL rated event to boost your rating."
 msgstr ""

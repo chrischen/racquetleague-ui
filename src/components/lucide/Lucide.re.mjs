@@ -227,6 +227,12 @@ var UserMinus = {};
 
 var CircleDollarSign = {};
 
+var Forward = {};
+
+var AtSign = {};
+
+var CalendarCheck = {};
+
 export {
   CalendarClock ,
   CalendarPlus ,
@@ -341,5 +347,8 @@ export {
   Youtube ,
   UserMinus ,
   CircleDollarSign ,
+  Forward ,
+  AtSign ,
+  CalendarCheck ,
 }
 /* No side effect */

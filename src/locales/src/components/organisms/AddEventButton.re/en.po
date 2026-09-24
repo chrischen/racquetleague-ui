@@ -57,15 +57,15 @@ msgstr ""
 msgid "Beginner"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:532
+#: src/components/organisms/ProfileModal.re.mjs:533
 msgid "Biography"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:119
+#: src/components/organisms/ProfileModal.re.mjs:120
 msgid "Biography is required"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:465
+#: src/components/organisms/ProfileModal.re.mjs:466
 msgid "Close profile form"
 msgstr ""
 
@@ -73,11 +73,11 @@ msgstr ""
 msgid "Complete Beginner"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:449
+#: src/components/organisms/ProfileModal.re.mjs:450
 msgid "Complete your player profile"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:311
+#: src/components/organisms/ProfileModal.re.mjs:312
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
@@ -85,10 +85,10 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:262
-#: src/components/organisms/ProfileModal.re.mjs:271
-#: src/components/organisms/ProfileModal.re.mjs:291
-#: src/components/organisms/ProfileModal.re.mjs:301
+#: src/components/organisms/ProfileModal.re.mjs:263
+#: src/components/organisms/ProfileModal.re.mjs:272
+#: src/components/organisms/ProfileModal.re.mjs:292
+#: src/components/organisms/ProfileModal.re.mjs:302
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
@@ -96,11 +96,11 @@ msgstr ""
 msgid "Create a hosted event at this time. Others can join, you pick venue and rules."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:482
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Display name"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:111
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Display name is required"
 msgstr ""
 
@@ -108,15 +108,15 @@ msgstr ""
 msgid "doubles"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:369
+#: src/components/organisms/ProfileModal.re.mjs:370
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:287
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:114
+#: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
 msgstr ""
 
@@ -124,15 +124,15 @@ msgstr ""
 msgid "Evening"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:506
+#: src/components/organisms/ProfileModal.re.mjs:507
 msgid "Female"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:362
+#: src/components/organisms/ProfileModal.re.mjs:363
 msgid "For event updates and notifications"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:496
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Gender"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Hosting an event needs exactly one time window — pick one."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:485
+#: src/components/organisms/ProfileModal.re.mjs:486
 msgid "How other players will see you"
 msgstr ""
 
@@ -156,11 +156,11 @@ msgstr ""
 msgid "Intermediate+"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:314
+#: src/components/organisms/ProfileModal.re.mjs:315
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:547
+#: src/components/organisms/ProfileModal.re.mjs:548
 msgid "Level"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr ""
 #~ msgid "Long opening"
 #~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:502
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "Male"
 msgstr ""
 
@@ -188,7 +188,7 @@ msgstr ""
 msgid "New plan"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:583
+#: src/components/organisms/ProfileModal.re.mjs:584
 msgid "Not now"
 msgstr ""
 
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:597
+#: src/components/organisms/ProfileModal.re.mjs:598
 msgid "Save profile"
 msgstr ""
 
@@ -237,7 +237,7 @@ msgstr ""
 msgid "Self-rated"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:535
+#: src/components/organisms/ProfileModal.re.mjs:536
 msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "Tomorrow"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:308
+#: src/components/organisms/ProfileModal.re.mjs:309
 msgid "We need a few details before you can join this event"
 msgstr ""
 

@@ -69,8 +69,8 @@ msgstr "+{0}명 더"
 msgid "Activity"
 msgstr "종목"
 
-#: src/components/organisms/RSVPSection.re.mjs:907
-#: src/components/organisms/RSVPSection.re.mjs:1007
+#: src/components/organisms/RSVPSection.re.mjs:917
+#: src/components/organisms/RSVPSection.re.mjs:1017
 msgid "Add Member"
 msgstr "멤버 추가"
 
@@ -98,11 +98,11 @@ msgstr "이 사람을 이벤트에서 제거하시겠습니까?"
 msgid "Beginner"
 msgstr "초급"
 
-#: src/components/organisms/ProfileModal.re.mjs:532
+#: src/components/organisms/ProfileModal.re.mjs:533
 msgid "Biography"
 msgstr "자기소개"
 
-#: src/components/organisms/ProfileModal.re.mjs:119
+#: src/components/organisms/ProfileModal.re.mjs:120
 msgid "Biography is required"
 msgstr "자기소개를 입력해주세요"
 
@@ -134,11 +134,11 @@ msgstr "결제 청구"
 msgid "Clear preview"
 msgstr "미리보기 지우기"
 
-#: src/components/organisms/ProfileModal.re.mjs:465
+#: src/components/organisms/ProfileModal.re.mjs:466
 msgid "Close profile form"
 msgstr "프로필 양식 닫기"
 
-#: src/components/organisms/RSVPSection.re.mjs:924
+#: src/components/organisms/RSVPSection.re.mjs:934
 msgid "Collapse"
 msgstr "접기"
 
@@ -146,11 +146,11 @@ msgstr "접기"
 msgid "Complete Beginner"
 msgstr "완전 초급"
 
-#: src/components/organisms/ProfileModal.re.mjs:449
+#: src/components/organisms/ProfileModal.re.mjs:450
 msgid "Complete your player profile"
 msgstr "플레이어 프로필을 완성하세요"
 
-#: src/components/organisms/ProfileModal.re.mjs:311
+#: src/components/organisms/ProfileModal.re.mjs:312
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
@@ -159,10 +159,10 @@ msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을
 msgid "Confirm"
 msgstr "확인"
 
-#: src/components/organisms/ProfileModal.re.mjs:262
-#: src/components/organisms/ProfileModal.re.mjs:271
-#: src/components/organisms/ProfileModal.re.mjs:291
-#: src/components/organisms/ProfileModal.re.mjs:301
+#: src/components/organisms/ProfileModal.re.mjs:263
+#: src/components/organisms/ProfileModal.re.mjs:272
+#: src/components/organisms/ProfileModal.re.mjs:292
+#: src/components/organisms/ProfileModal.re.mjs:302
 msgid "Could not save your profile. Please try again."
 msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
@@ -192,11 +192,11 @@ msgstr "경기 삭제"
 msgid "Delete this match?"
 msgstr "이 경기를 삭제하시겠습니까?"
 
-#: src/components/organisms/ProfileModal.re.mjs:482
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Display name"
 msgstr "표시 이름"
 
-#: src/components/organisms/ProfileModal.re.mjs:111
+#: src/components/organisms/ProfileModal.re.mjs:112
 msgid "Display name is required"
 msgstr "표시 이름이 필요합니다"
 
@@ -212,11 +212,11 @@ msgstr "이벤트 편집"
 msgid "Edit match"
 msgstr "경기 편집"
 
-#: src/components/organisms/ProfileModal.re.mjs:369
+#: src/components/organisms/ProfileModal.re.mjs:370
 msgid "Email address"
 msgstr "이메일 주소"
 
-#: src/components/organisms/ProfileModal.re.mjs:286
+#: src/components/organisms/ProfileModal.re.mjs:287
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -224,7 +224,7 @@ msgstr ""
 "이메일 주소를 사용할 수 없습니다. 다른 이메일을 사용하거나 해당 이메일로 로그"
 "인하세요."
 
-#: src/components/organisms/ProfileModal.re.mjs:114
+#: src/components/organisms/ProfileModal.re.mjs:115
 msgid "Email is required"
 msgstr "이메일이 필요합니다"
 
@@ -252,15 +252,15 @@ msgstr "이벤트를 찾을 수 없습니다"
 msgid "Event tag: {tag}"
 msgstr "이벤트 태그: {tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:506
+#: src/components/organisms/ProfileModal.re.mjs:507
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/ProfileModal.re.mjs:362
+#: src/components/organisms/ProfileModal.re.mjs:363
 msgid "For event updates and notifications"
 msgstr "이벤트 업데이트 및 알림용"
 
-#: src/components/organisms/ProfileModal.re.mjs:496
+#: src/components/organisms/ProfileModal.re.mjs:497
 msgid "Gender"
 msgstr "성별"
 
@@ -276,7 +276,7 @@ msgstr "Google 캘린더"
 msgid "Highly skilled players"
 msgstr "고급 플레이어"
 
-#: src/components/organisms/ProfileModal.re.mjs:485
+#: src/components/organisms/ProfileModal.re.mjs:486
 msgid "How other players will see you"
 msgstr "다른 플레이어에게 보여지는 모습"
 
@@ -304,7 +304,7 @@ msgstr "대기자 명단에서 참가"
 msgid "joined the event"
 msgstr "이벤트에 참가했습니다"
 
-#: src/components/organisms/ProfileModal.re.mjs:314
+#: src/components/organisms/ProfileModal.re.mjs:315
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
 
@@ -316,15 +316,15 @@ msgstr "지난 라운드"
 msgid "left the event"
 msgstr "이벤트에서 나갔습니다"
 
-#: src/components/organisms/ProfileModal.re.mjs:547
+#: src/components/organisms/ProfileModal.re.mjs:548
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/organisms/RSVPSection.re.mjs:1023
+#: src/components/organisms/RSVPSection.re.mjs:1033
 msgid "Load more"
 msgstr "더 불러오기"
 
-#: src/components/organisms/RSVPSection.re.mjs:1020
+#: src/components/organisms/RSVPSection.re.mjs:1030
 msgid "Loading..."
 msgstr "로딩 중..."
 
@@ -344,7 +344,7 @@ msgstr "패배 팀 (팀 {0})"
 msgid "Lower intermediate and above"
 msgstr "중하급 이상"
 
-#: src/components/organisms/ProfileModal.re.mjs:502
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "Male"
 msgstr "남성"
 
@@ -373,11 +373,11 @@ msgstr "실력 제한 없음. 모든 플레이어 환영."
 msgid "No Score"
 msgstr "점수 없음"
 
-#: src/components/organisms/ProfileModal.re.mjs:583
+#: src/components/organisms/ProfileModal.re.mjs:584
 msgid "Not now"
 msgstr "나중에"
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr "미납"
 
@@ -385,7 +385,7 @@ msgstr "미납"
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr "납부됨"
 
@@ -467,7 +467,7 @@ msgstr "이 RSVP 제거"
 msgid "Repeat"
 msgstr "반복"
 
-#: src/components/organisms/RSVPSection.re.mjs:655
+#: src/components/organisms/RSVPSection.re.mjs:665
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "필요 레이팅: {0} (DUPR {1})"
 
@@ -487,9 +487,9 @@ msgstr "라운드 {0}"
 msgid "Round Robin Draws"
 msgstr "라운드 로빈 대진"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
-#: src/components/organisms/RSVPSection.re.mjs:817
-#: src/components/organisms/RSVPSection.re.mjs:946
+#: src/components/organisms/RSVPSection.re.mjs:788
+#: src/components/organisms/RSVPSection.re.mjs:827
+#: src/components/organisms/RSVPSection.re.mjs:956
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -506,7 +506,7 @@ msgstr "지금 스마트 RSVP 실행"
 msgid "Save"
 msgstr "저장"
 
-#: src/components/organisms/ProfileModal.re.mjs:597
+#: src/components/organisms/ProfileModal.re.mjs:598
 msgid "Save profile"
 msgstr "프로필 저장"
 
@@ -526,7 +526,7 @@ msgstr "자가 평가"
 msgid "Send"
 msgstr "전송"
 
-#: src/components/organisms/ProfileModal.re.mjs:535
+#: src/components/organisms/ProfileModal.re.mjs:536
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -586,7 +586,7 @@ msgstr ""
 "경기가 이 라운드에서 제거됩니다. 라운드 초기화 아이콘으로 원래 예정된 경기를 "
 "복원할 수 있습니다."
 
-#: src/components/organisms/RSVPSection.re.mjs:643
+#: src/components/organisms/RSVPSection.re.mjs:653
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -683,7 +683,7 @@ msgstr "이벤트에 초대되었습니다"
 msgid "was removed from the event by admin"
 msgstr "관리자에 의해 이벤트에서 제거되었습니다"
 
-#: src/components/organisms/ProfileModal.re.mjs:308
+#: src/components/organisms/ProfileModal.re.mjs:309
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
@@ -707,7 +707,7 @@ msgstr "참가 중"
 msgid "You're Waitlisted"
 msgstr "대기 중"
 
-#: src/components/organisms/RSVPSection.re.mjs:657
+#: src/components/organisms/RSVPSection.re.mjs:667
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

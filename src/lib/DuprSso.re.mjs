@@ -49,10 +49,14 @@ function parseMessage(ssoOrigin, origin, data) {
   }
   var obj = Core__Option.flatMap(decoded, Core__JSON.Decode.object);
   if (obj === undefined) {
-    return "Malformed";
+    return {
+            TAG: "Unrecognized",
+            _0: []
+          };
   }
   var match = Core__Option.orElse(nonEmptyString(obj, "userToken"), nonEmptyString(obj, "accessToken"));
   var match$1 = nonEmptyString(obj, "refreshToken");
+  var match$2 = nonEmptyString(obj, "error");
   if (match !== undefined && match$1 !== undefined) {
     return {
             TAG: "Tokens",
@@ -61,8 +65,17 @@ function parseMessage(ssoOrigin, origin, data) {
               refreshToken: match$1
             }
           };
+  }
+  if (match$2 !== undefined) {
+    return {
+            TAG: "Rejected",
+            _0: match$2
+          };
   } else {
-    return "Malformed";
+    return {
+            TAG: "Unrecognized",
+            _0: Object.keys(obj)
+          };
   }
 }
 

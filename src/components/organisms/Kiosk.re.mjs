@@ -3,12 +3,14 @@
 import * as React from "react";
 import * as Capture from "../../lib/capture/Capture.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
+import * as ClipCrop from "../../lib/capture/ClipCrop.re.mjs";
 import * as DinkHunt from "../../lib/DinkHunt.re.mjs";
 import * as UserMedia from "../../lib/UserMedia.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
+import * as FrameTimeline from "../../lib/capture/FrameTimeline.re.mjs";
 import ReactQrCode from "react-qr-code";
 import * as CaptureSession from "../../lib/capture/CaptureSession.re.mjs";
 import * as KioskCourtCalib from "./KioskCourtCalib.re.mjs";
@@ -16,6 +18,50 @@ import * as JsxRuntime from "react/jsx-runtime";
 
 import { t } from '@lingui/macro'
 ;
+
+function reprojectAnalysis(a, crop) {
+  if (crop === undefined) {
+    return a;
+  }
+  var dx = crop.x;
+  var dy = crop.y;
+  var shift = function (p) {
+    var match = p[0];
+    var match$1 = p[1];
+    if (match !== undefined && match$1 !== undefined) {
+      return [
+              match + dx,
+              match$1 + dy
+            ];
+    } else {
+      return p;
+    }
+  };
+  return {
+          width: a.width,
+          height: a.height,
+          fps: a.fps,
+          bounces: a.bounces.map(function (b) {
+                return {
+                        i: b.i,
+                        t: b.t,
+                        frame: b.frame,
+                        world: b.world,
+                        pixel: shift(b.pixel),
+                        footprint: b.footprint.map(shift)
+                      };
+              }),
+          paths: a.paths.map(function (path) {
+                return path.map(function (pt) {
+                            return {
+                                    t: pt.t,
+                                    x: pt.x + dx,
+                                    y: pt.y + dy
+                                  };
+                          });
+              })
+        };
+}
 
 function releaseClip(clip) {
   setTimeout((function () {
@@ -410,6 +456,7 @@ function Kiosk$ChallengePlayer(props) {
   var loopWindow = React.useRef(undefined);
   var duration = Math.max(challenge.clip.durationSeconds, 0.1);
   var loopHalf = 6 / Math.max(challenge.fps, 1);
+  var timeline = FrameTimeline.make(challenge.clip.frameTimes, challenge.fps);
   React.useEffect((function () {
           var handle = {
             contents: undefined
@@ -457,10 +504,10 @@ function Kiosk$ChallengePlayer(props) {
         });
   };
   var startLoop = function (bounce) {
-    var start = Math.max(0, bounce.t - loopHalf);
+    var start = Math.max(0, FrameTimeline.toVideo(timeline, bounce.t - loopHalf));
     loopWindow.current = [
       start,
-      Math.min(duration, bounce.t + loopHalf)
+      Math.min(duration, FrameTimeline.toVideo(timeline, bounce.t + loopHalf))
     ];
     setLooping(function (param) {
           return true;
@@ -514,18 +561,17 @@ function Kiosk$ChallengePlayer(props) {
     var element = videoRef.current;
     if (!(element == null)) {
       element.playbackRate = slow ? 0.5 : 1.0;
-      element.currentTime = Math.max(0, bounce.t - 0.75);
+      element.currentTime = Math.max(0, FrameTimeline.toVideo(timeline, bounce.t) - 0.75);
       element.play();
       return ;
     }
     
   };
-  var frameStep = 1 / Math.max(challenge.fps, 1);
   var stepBy = function (frames) {
     var el = videoRef.current;
     if (!(el == null)) {
       el.pause();
-      el.currentTime = Math.max(0, Math.min(duration, el.currentTime + frames * frameStep));
+      el.currentTime = Math.max(0, Math.min(duration, FrameTimeline.stepFrames(timeline, el.currentTime, frames)));
       return ;
     }
     
@@ -545,7 +591,7 @@ function Kiosk$ChallengePlayer(props) {
   };
   var tmp;
   if (overlayOn && challenge.paths.length > 0) {
-    var match$8 = ballAt(challenge.paths, now);
+    var match$8 = ballAt(challenge.paths, FrameTimeline.toAnalysis(timeline, now));
     tmp = JsxRuntime.jsxs("svg", {
           children: [
             challenge.paths.map(function (path, index) {
@@ -560,7 +606,7 @@ function Kiosk$ChallengePlayer(props) {
                             }, index.toString());
                 }),
             challenge.bounces.map(function (bounce, index) {
-                  if (bounce.t > now) {
+                  if (FrameTimeline.toVideo(timeline, bounce.t) > now) {
                     return null;
                   }
                   var x = Core__Option.getOr(bounce.pixel[0], 0);
@@ -702,7 +748,7 @@ function Kiosk$ChallengePlayer(props) {
                               className: "flex items-center gap-2"
                             }),
                         JsxRuntime.jsx("p", {
-                              children: "f " + Math.floor(now * challenge.fps).toFixed(0) + " · " + now.toFixed(2) + "s",
+                              children: "f " + FrameTimeline.frameIndexAt(timeline, now).toString() + " · " + now.toFixed(2) + "s",
                               className: "font-mono text-xs font-semibold text-kiosk-muted"
                             })
                       ],
@@ -725,7 +771,7 @@ function Kiosk$ChallengePlayer(props) {
                                                   "aria-label": "bounce " + (index + 1 | 0).toString(),
                                                   className: Core.cx("absolute top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 text-xs font-extrabold transition-transform active:scale-90", Caml_obj.equal(selected, index) ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg" : "border-white/60 bg-kiosk-bg text-white"),
                                                   style: {
-                                                    left: (bounce.t / duration * 100).toFixed(1) + "%"
+                                                    left: (FrameTimeline.toVideo(timeline, bounce.t) / duration * 100).toFixed(1) + "%"
                                                   },
                                                   type: "button",
                                                   onClick: (function (param) {
@@ -743,7 +789,7 @@ function Kiosk$ChallengePlayer(props) {
                                                           children: "#" + (index + 1 | 0).toString()
                                                         }),
                                                     JsxRuntime.jsx("span", {
-                                                          children: bounce.t.toFixed(1) + "s",
+                                                          children: FrameTimeline.toVideo(timeline, bounce.t).toFixed(1) + "s",
                                                           className: "opacity-70"
                                                         })
                                                   ],
@@ -1613,6 +1659,7 @@ function Kiosk$SessionWorkspace(props) {
   var onFinishAnalysis = props.onFinishAnalysis;
   var onCalibOpen = props.onCalibOpen;
   var onCalibDone = props.onCalibDone;
+  var calibOpen = props.calibOpen;
   var stream = props.stream;
   var streamingEnabled = props.streamingEnabled;
   var analysisMode = props.analysisMode;
@@ -1634,13 +1681,13 @@ function Kiosk$SessionWorkspace(props) {
                                             elapsed: props.elapsed,
                                             stream: stream
                                           }),
-                                      isLiveSession && props.calibOpen ? JsxRuntime.jsx(KioskCourtCalib.make, {
+                                      isLiveSession && calibOpen ? JsxRuntime.jsx(KioskCourtCalib.make, {
                                               stream: stream,
                                               onDone: (function () {
                                                   onCalibDone();
                                                 })
                                             }) : null,
-                                      isLiveSession ? JsxRuntime.jsx("div", {
+                                      isLiveSession && !calibOpen ? JsxRuntime.jsx("div", {
                                               children: JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx(Kiosk$LiveActionControls, {
@@ -2278,11 +2325,13 @@ function Kiosk(props) {
             var clip_durationSeconds = result$1.durationSeconds;
             var clip_hasAudio = result$1.hasAudio;
             var clip_capturedAt = timeLabel();
+            var clip_frameTimes = result$1.frameTimes;
             var clip = {
               url: clip_url,
               durationSeconds: clip_durationSeconds,
               hasAudio: clip_hasAudio,
-              capturedAt: clip_capturedAt
+              capturedAt: clip_capturedAt,
+              frameTimes: clip_frameTimes
             };
             setClips(function (previous) {
                   var next = [clip].concat(previous);
@@ -2336,11 +2385,13 @@ function Kiosk(props) {
           var url = URL.createObjectURL(blobData._0);
           var duration = await DinkHunt.urlDuration(url);
           var clip_capturedAt = timeLabel();
+          var clip_frameTimes = [];
           var clip = {
             url: url,
             durationSeconds: duration,
             hasAudio: false,
-            capturedAt: clip_capturedAt
+            capturedAt: clip_capturedAt,
+            frameTimes: clip_frameTimes
           };
           var a = await DinkHunt.testChallengeAnalysis();
           var match;
@@ -2406,40 +2457,73 @@ function Kiosk(props) {
           var clip_durationSeconds = result$1.durationSeconds;
           var clip_hasAudio = result$1.hasAudio;
           var clip_capturedAt$1 = timeLabel();
+          var clip_frameTimes$1 = result$1.frameTimes;
           var clip$1 = {
             url: clip_url,
             durationSeconds: clip_durationSeconds,
             hasAudio: clip_hasAudio,
-            capturedAt: clip_capturedAt$1
+            capturedAt: clip_capturedAt$1,
+            frameTimes: clip_frameTimes$1
           };
-          var message = await DinkHunt.challengeBounces(result$1.blob);
-          var match$1;
-          if (message.TAG === "Ok") {
-            var a$2 = message._0[1];
-            match$1 = [
-              a$2.bounces,
-              a$2.paths,
-              a$2.width,
-              a$2.height,
-              a$2.fps,
-              undefined
-            ];
-          } else {
-            match$1 = [
-              [],
-              [],
+          var enc = result$1.encoded;
+          var match$1 = enc !== undefined ? [
+              enc.width,
+              enc.height
+            ] : [
               1920,
-              1080,
+              1080
+            ];
+          var nativeH = match$1[1];
+          var nativeW = match$1[0];
+          var crop = Core__Option.flatMap(result$1.encoded, (function (enc) {
+                  return Core__Option.flatMap(KioskCourtCalib.loadStoredPlaced(enc.width, enc.height), (function (placed) {
+                                return KioskCourtCalib.cropRegion(placed, enc.width, enc.height);
+                              }));
+                }));
+          var match$2 = result$1.encoded;
+          var analysisBlob = crop !== undefined && match$2 !== undefined ? await ClipCrop.crop(match$2, crop) : ({
+                TAG: "Ok",
+                _0: result$1.blob
+              });
+          var match$3;
+          if (analysisBlob.TAG === "Ok") {
+            var message = await DinkHunt.challengeBounces(analysisBlob._0);
+            if (message.TAG === "Ok") {
+              var a$2 = reprojectAnalysis(message._0[1], crop);
+              match$3 = [
+                a$2.bounces,
+                a$2.paths,
+                nativeW,
+                nativeH,
+                a$2.fps,
+                undefined
+              ];
+            } else {
+              match$3 = [
+                [],
+                [],
+                nativeW,
+                nativeH,
+                30,
+                message._0
+              ];
+            }
+          } else {
+            match$3 = [
+              [],
+              [],
+              nativeW,
+              nativeH,
               30,
-              message._0
+              "crop failed: " + analysisBlob._0
             ];
           }
-          var error$1 = match$1[5];
-          var fps$1 = match$1[4];
-          var frameH$1 = match$1[3];
-          var frameW$1 = match$1[2];
-          var paths$1 = match$1[1];
-          var bounces$1 = match$1[0];
+          var error$1 = match$3[5];
+          var fps$1 = match$3[4];
+          var frameH$1 = match$3[3];
+          var frameW$1 = match$3[2];
+          var paths$1 = match$3[1];
+          var bounces$1 = match$3[0];
           setChallenge(function (param) {
                 return {
                         clip: clip$1,
@@ -2989,6 +3073,7 @@ var make = Kiosk;
 
 export {
   challengeSeconds ,
+  reprojectAnalysis ,
   maxClipHistory ,
   releaseClip ,
   timeLabel ,

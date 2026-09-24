@@ -17,6 +17,8 @@ module Types = {
   }
   and fragment_rsvps_edges_node_user_dupr = {
     doubles: option<float>,
+    doublesReliability: option<float>,
+    doublesReliable: bool,
   }
   and fragment_rsvps_edges_node_user = {
     dupr: option<fragment_rsvps_edges_node_user_dupr>,
@@ -361,6 +363,20 @@ return {
                           "args": null,
                           "kind": "ScalarField",
                           "name": "doubles",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doublesReliable",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doublesReliability",
                           "storageKey": null
                         }
                       ],

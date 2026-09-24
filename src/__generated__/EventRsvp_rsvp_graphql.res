@@ -11,6 +11,7 @@ module Types = {
   }
   and fragment_user_dupr = {
     doubles: option<float>,
+    doublesReliability: option<float>,
     doublesReliable: bool,
   }
   and fragment_user = {
@@ -107,6 +108,13 @@ let node: operationType = %raw(json` {
               "args": null,
               "kind": "ScalarField",
               "name": "doublesReliable",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "doublesReliability",
               "storageKey": null
             }
           ],

@@ -9,6 +9,7 @@ import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as ConfirmDialog from "../molecules/ConfirmDialog.re.mjs";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
@@ -134,6 +135,11 @@ function DuprConnectCard(props) {
       });
   var setFrameLoaded = match$4[1];
   var frameLoaded = match$4[0];
+  var match$5 = React.useState(function () {
+        
+      });
+  var setNotice = match$5[1];
+  var notice = match$5[0];
   var consumed = React.useRef(false);
   var link = Core__Option.flatMap(Core__Option.flatMap(data.viewer, (function (v) {
               return v.profile;
@@ -156,9 +162,22 @@ function DuprConnectCard(props) {
         return t`Couldn't reach DUPR. Please try again in a moment.`;
     }
   };
+  var rejectedCopy = function (reason) {
+    switch (reason) {
+      case "DUPR account setup required" :
+          return t`DUPR needs you to finish setting up your account before it can be linked. Follow the steps in the DUPR panel, then sign in again.`;
+      case "consent_denied" :
+          return t`You declined to share your DUPR data, so nothing was linked. Sign in again and choose Authorize to link.`;
+      default:
+        return t`DUPR couldn't complete the sign-in.` + " (" + reason + ")";
+    }
+  };
   var closeModal = function () {
     setFrameLoaded(function (param) {
           return false;
+        });
+    setNotice(function (param) {
+          
         });
     setPhase(function (param) {
           return "Idle";
@@ -176,57 +195,61 @@ function DuprConnectCard(props) {
           }
           consumed.current = false;
           var handler = function ($$event) {
-            var match = DuprSso.parseMessage(ssoOrigin, $$event.origin, $$event.data);
-            if (typeof match !== "object") {
-              if (match === "Ignored") {
-                return ;
-              } else {
-                return setPhase(function (param) {
-                            return {
-                                    TAG: "Failed",
-                                    _0: t`DUPR sent something we couldn't read. Please try again.`
-                                  };
-                          });
-              }
-            }
-            if (consumed.current) {
+            var keys = DuprSso.parseMessage(ssoOrigin, $$event.origin, $$event.data);
+            if (typeof keys !== "object") {
               return ;
             }
-            var match$1 = match._0;
-            consumed.current = true;
-            setPhase(function (param) {
-                  return "Linking";
-                });
-            commitConnect({
-                  input: {
-                    accessToken: match$1.accessToken,
-                    refreshToken: match$1.refreshToken
+            switch (keys.TAG) {
+              case "Unrecognized" :
+                  console.warn("DUPR posted a message that is not a login; ignoring. Keys:", keys._0);
+                  return ;
+              case "Rejected" :
+                  var reason = keys._0;
+                  return setNotice(function (param) {
+                              return rejectedCopy(reason);
+                            });
+              case "Tokens" :
+                  if (consumed.current) {
+                    return ;
                   }
-                }, undefined, undefined, undefined, (function (response, param) {
-                    var code = Core__Option.map(Core__Option.flatMap(response.connectDupr.errors, (function (errs) {
-                                return errs[0];
-                              })), (function (e) {
-                            return e.message;
-                          }));
-                    if (code !== undefined) {
-                      return setPhase(function (param) {
-                                  return {
-                                          TAG: "Failed",
-                                          _0: errorCopy(code)
-                                        };
-                                });
-                    } else {
-                      closeModal();
-                      return onChanged();
-                    }
-                  }), (function (param) {
-                    setPhase(function (param) {
-                          return {
-                                  TAG: "Failed",
-                                  _0: t`Couldn't reach DUPR. Please try again in a moment.`
-                                };
-                        });
-                  }), undefined);
+                  var match = keys._0;
+                  consumed.current = true;
+                  setPhase(function (param) {
+                        return "Linking";
+                      });
+                  commitConnect({
+                        input: {
+                          accessToken: match.accessToken,
+                          refreshToken: match.refreshToken
+                        }
+                      }, undefined, undefined, undefined, (function (response, param) {
+                          var code = Core__Option.map(Core__Option.flatMap(response.connectDupr.errors, (function (errs) {
+                                      return errs[0];
+                                    })), (function (e) {
+                                  return e.message;
+                                }));
+                          if (code !== undefined) {
+                            return setPhase(function (param) {
+                                        return {
+                                                TAG: "Failed",
+                                                _0: errorCopy(code)
+                                              };
+                                      });
+                          } else {
+                            closeModal();
+                            return onChanged();
+                          }
+                        }), (function (param) {
+                          setPhase(function (param) {
+                                return {
+                                        TAG: "Failed",
+                                        _0: t`Couldn't reach DUPR. Please try again in a moment.`
+                                      };
+                              });
+                        }), undefined);
+                  return ;
+              
+            }
           };
           window.addEventListener("message", handler);
           return (function () {
@@ -262,7 +285,7 @@ function DuprConnectCard(props) {
                 });
           }), undefined);
   };
-  var match$5 = link !== undefined ? [
+  var match$6 = link !== undefined ? [
       t`Linked`,
       "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
     ] : (
@@ -280,8 +303,8 @@ function DuprConnectCard(props) {
         ]
     );
   var statusPill = JsxRuntime.jsx("span", {
-        children: match$5[0],
-        className: "mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 " + match$5[1]
+        children: match$6[0],
+        className: "mt-0.5 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 " + match$6[1]
       });
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
@@ -311,7 +334,7 @@ function DuprConnectCard(props) {
                                   children: JsxRuntime.jsx(DuprRatingBadge.make, {
                                         doubles: link.doubles,
                                         singles: link.singles,
-                                        doublesReliable: link.doublesReliable,
+                                        doublesReliable: CombinedRating.duprEstablished(link.doublesReliability, link.doublesReliable),
                                         singlesReliable: link.singlesReliable
                                       }),
                                   className: "text-gray-900 dark:text-gray-100"
@@ -380,29 +403,36 @@ function DuprConnectCard(props) {
                               JsxRuntime.jsx(Dialog.DialogDescription.make, {
                                     children: t`Sign in to DUPR to link your account. We store your DUPR ID and ratings — never your DUPR password.`
                                   }),
-                              JsxRuntime.jsx(Dialog.DialogBody.make, {
-                                    children: JsxRuntime.jsxs("div", {
-                                          children: [
-                                            frameLoaded ? null : JsxRuntime.jsx("div", {
-                                                    children: t`Loading DUPR…`,
-                                                    className: "absolute inset-0 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400"
+                              JsxRuntime.jsxs(Dialog.DialogBody.make, {
+                                    children: [
+                                      JsxRuntime.jsxs("div", {
+                                            children: [
+                                              frameLoaded ? null : JsxRuntime.jsx("div", {
+                                                      children: t`Loading DUPR…`,
+                                                      className: "absolute inset-0 flex items-center justify-center text-sm text-gray-500 dark:text-gray-400"
+                                                    }),
+                                              React.cloneElement(JsxRuntime.jsx("iframe", {
+                                                        className: "h-full w-full rounded-lg border-0",
+                                                        title: t`DUPR login`,
+                                                        src: ssoUrl,
+                                                        onLoad: (function (param) {
+                                                            setFrameLoaded(function (param) {
+                                                                  return true;
+                                                                });
+                                                          })
+                                                      }), {
+                                                    allow: "payment"
                                                   }),
-                                            React.cloneElement(JsxRuntime.jsx("iframe", {
-                                                      className: "h-full w-full rounded-lg border-0",
-                                                      title: t`DUPR login`,
-                                                      src: ssoUrl,
-                                                      onLoad: (function (param) {
-                                                          setFrameLoaded(function (param) {
-                                                                return true;
-                                                              });
-                                                        })
-                                                    }), {
-                                                  allow: "payment"
-                                                }),
-                                            tmp$4
-                                          ],
-                                          className: "relative h-[70vh] min-h-[480px] w-full"
-                                        })
+                                              tmp$4
+                                            ],
+                                            className: "relative h-[70vh] min-h-[480px] w-full"
+                                          }),
+                                      notice !== undefined ? JsxRuntime.jsx("p", {
+                                              children: notice,
+                                              className: "mt-3 text-sm text-red-600 dark:text-red-400",
+                                              role: "alert"
+                                            }) : null
+                                    ]
                                   }),
                               JsxRuntime.jsx(Dialog.DialogActions.make, {
                                     children: JsxRuntime.jsx(Button.Button.make, {

@@ -87,7 +87,7 @@ msgstr "ปรับซีดผู้เล่น"
 msgid "Advance to Next Round"
 msgstr "ไปยังรอบถัดไป"
 
-#: src/components/organisms/EventManager.re.mjs:2632
+#: src/components/organisms/EventManager.re.mjs:2636
 msgid "Advance to Round {0}"
 msgstr "ไปยังรอบ {0}"
 
@@ -103,7 +103,7 @@ msgstr "อเล็กซ์ จอห์นสัน"
 msgid "All checked-in players are already in this round"
 msgstr "ผู้เล่นที่เช็คอินแล้วมีอยู่ในรอบนี้ทั้งหมดแล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:2463
+#: src/components/organisms/EventManager.re.mjs:2467
 msgid "all up to date"
 msgstr "ทุกอย่างเป็นปัจจุบัน"
 
@@ -111,7 +111,7 @@ msgstr "ทุกอย่างเป็นปัจจุบัน"
 msgid "Alternate favourite/underdog roles"
 msgstr "สลับบทบาทเต็งและรอง"
 
-#: src/components/organisms/EventManager.re.mjs:2741
+#: src/components/organisms/EventManager.re.mjs:2745
 msgid "Anti-Team {0}"
 msgstr "แอนตี้ทีม {0}"
 
@@ -259,11 +259,11 @@ msgstr "กำหนดเอง"
 msgid "Customize from here"
 msgstr "ปรับแต่งจากนี้"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: OFF"
 msgstr "ดีบัก: ปิด"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: ON"
 msgstr "ดีบัก: เปิด"
 
@@ -299,7 +299,7 @@ msgstr "กำหนดแน่นอน"
 
 #: src/components/organisms/EventManager.re.mjs:279
 #: src/components/organisms/EventManager.re.mjs:552
-#: src/components/organisms/EventManager.re.mjs:2535
+#: src/components/organisms/EventManager.re.mjs:2539
 msgid "Dismiss"
 msgstr "ปิด"
 
@@ -369,7 +369,7 @@ msgid "Everything stored on this device is already synced to the server."
 msgstr "ทุกอย่างที่จัดเก็บบนอุปกรณ์นี้ได้ซิงค์กับเซิร์ฟเวอร์แล้ว"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2943
+#: src/components/organisms/EventManager.re.mjs:2947
 msgid "Export History"
 msgstr "ส่งออกประวัติ"
 
@@ -434,7 +434,7 @@ msgid "Generate Draws"
 msgstr "สร้างคู่แข่ง"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Generating…"
 msgstr "กำลังสร้าง…"
 
@@ -454,7 +454,7 @@ msgstr "ชื่อแขก (หนึ่งชื่อต่อบรรท�
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "สแกนไม่ได้ใช่ไหม? ลองค้นหากิจกรรมจากหน้าคลับ"
 
-#: src/components/organisms/EventManager.re.mjs:2979
+#: src/components/organisms/EventManager.re.mjs:2983
 msgid "Help"
 msgstr "ช่วยเหลือ"
 
@@ -463,7 +463,7 @@ msgid "Import"
 msgstr "นำเข้า"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2953
+#: src/components/organisms/EventManager.re.mjs:2957
 msgid "Import History"
 msgstr "นำเข้าประวัติ"
 
@@ -600,7 +600,7 @@ msgstr "เปิดกล้องโทรศัพท์ สแกนโค�
 msgid "Opponent variety"
 msgstr "ความหลากหลายของคู่แข่ง"
 
-#: src/components/organisms/EventManager.re.mjs:2531
+#: src/components/organisms/EventManager.re.mjs:2535
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "ไม่สามารถใช้ตัวเพิ่มประสิทธิภาพได้ — ใช้การจับคู่มาตรฐานแทน"
 
@@ -655,7 +655,7 @@ msgstr "ผู้เล่นจะถูกแบ่งเป็นกลุ่
 msgid "please login before managing the session"
 msgstr "กรุณาล็อคอินก่อนจัดการเซสชั่น"
 
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Preparing optimizer…"
 msgstr "กำลังเตรียมตัวเพิ่มประสิทธิภาพ…"
 
@@ -671,7 +671,7 @@ msgstr "รอบก่อนหน้า"
 msgid "Print"
 msgstr "พิมพ์"
 
-#: src/components/organisms/EventManager.re.mjs:2430
+#: src/components/organisms/EventManager.re.mjs:2434
 msgid "Print Draws"
 msgstr "พิมพ์ตารางการแข่งขัน"
 
@@ -721,7 +721,7 @@ msgstr "เปลี่ยนผู้เล่น"
 msgid "Replacing:"
 msgstr "กำลังเปลี่ยน:"
 
-#: src/components/organisms/EventManager.re.mjs:2962
+#: src/components/organisms/EventManager.re.mjs:2966
 msgid "Reset Storage"
 msgstr "รีเซ็ตที่เก็บข้อมูล"
 
@@ -816,7 +816,7 @@ msgid ""
 "on another device."
 msgstr "เฉพาะแมตช์ที่บันทึกคะแนนแล้วและการปรับเรตติ้ง วางข้อมูลนี้ในเมนูนำเข้าประวัติบนอุปกรณ์อื่น"
 
-#: src/components/organisms/EventManager.re.mjs:2385
+#: src/components/organisms/EventManager.re.mjs:2389
 msgid "Scores Synced!"
 msgstr "ซิงค์คะแนนเรียบร้อยแล้ว!"
 
@@ -864,7 +864,7 @@ msgstr "ข้าม เพราะผู้เล่นไม่ได้อ�
 msgid "Some rules had to be bent to fill the courts"
 msgstr "ต้องผ่อนปรนกฎบางข้อเพื่อให้ครบสนาม"
 
-#: src/components/organisms/EventManager.re.mjs:2926
+#: src/components/organisms/EventManager.re.mjs:2930
 msgid "Sports Event Draws"
 msgstr "ตารางการแข่งขันกีฬา"
 
@@ -880,24 +880,24 @@ msgstr "กลยุทธ์"
 msgid "Strategy:"
 msgstr "กลยุทธ์:"
 
-#: src/components/organisms/EventManager.re.mjs:2397
+#: src/components/organisms/EventManager.re.mjs:2401
 msgid "Sync Failed"
 msgstr "ซิงค์ล้มเหลว"
 
-#: src/components/organisms/EventManager.re.mjs:2361
+#: src/components/organisms/EventManager.re.mjs:2365
 msgid "Sync Scores"
 msgstr "ซิงค์คะแนน"
 
-#: src/components/organisms/EventManager.re.mjs:2457
+#: src/components/organisms/EventManager.re.mjs:2461
 msgid "synced"
 msgstr "ซิงค์แล้ว"
 
-#: src/components/organisms/EventManager.re.mjs:2373
+#: src/components/organisms/EventManager.re.mjs:2377
 msgid "Syncing... {0}%"
 msgstr "กำลังซิงค์... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2292
+#: src/components/organisms/EventManager.re.mjs:2296
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
@@ -988,7 +988,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "กลุ่มระดับทักษะแคบ"
 
-#: src/components/organisms/EventManager.re.mjs:2459
+#: src/components/organisms/EventManager.re.mjs:2463
 msgid "to sync"
 msgstr "ที่จะซิงค์"
 

@@ -430,7 +430,19 @@ async function takeClip(state, seconds) {
               blob: blob._0,
               mimeType: "video/mp4",
               durationSeconds: clip.durationUs / 1000000,
-              hasAudio: Core__Option.isSome(audio)
+              hasAudio: Core__Option.isSome(audio),
+              encoded: {
+                codec: match$1,
+                width: state.width,
+                height: state.height,
+                description: Core__Option.flatMap(state.videoDecoderConfig, (function (config) {
+                        return config.description;
+                      })),
+                chunks: videoChunks
+              },
+              frameTimes: clip.chunks.map(function (chunk) {
+                    return chunk.timestampUs / 1000000;
+                  })
             }
           };
   } else {

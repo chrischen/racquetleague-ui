@@ -184,6 +184,13 @@ function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
                   "kind": "ScalarField",
                   "name": "singlesReliable",
                   "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doublesReliability",
+                  "storageKey": null
                 }
               ],
               "storageKey": null

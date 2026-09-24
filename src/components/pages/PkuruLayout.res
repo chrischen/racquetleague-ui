@@ -4,7 +4,6 @@ open Lingui.Util
 
 module Query = %relay(`
   query PkuruLayoutQuery {
-    ...UseProfileGate_query
     viewer {
       user {
         id
@@ -515,13 +514,10 @@ module MobileTabs = {
   }
 }
 
-let defaultActivityId = "Activity_414afb54-03e9-11ef-bcea-2b738de6ea61"
-
 module Layout = {
   @react.component
   let make = (
     ~viewer: option<PkuruLayoutQuery_graphql.Types.response_viewer>,
-    ~queryRefs: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
     ~children: React.element,
   ) => {
     let isLoggedIn = viewer->Option.flatMap(v => v.user)->Option.isSome
@@ -530,10 +526,7 @@ module Layout = {
       ->Option.flatMap(v => v.viewerMetadata)
       ->Option.map(m => m.unreadInboxCount)
       ->Option.getOr(0)
-    let profileGate = UseProfileGate.use(~query=queryRefs, ~context=ProfileModal.Availability)
-    let (showModal, setShowModal) = React.useState(() => false)
-    let (commitSetAvailability, _) = UseSetAvailabilityDay.use()
-    let env = RescriptRelay.useEnvironmentFromContext()
+    let (newPlanOpen, setNewPlanOpen) = React.useState(() => false)
     let (sidebarOpen, setSidebarOpen) = React.useState(() => false)
     let (drawerContent, setDrawerContent) = React.useState((): option<React.element> => None)
     let (drawerUrl, setDrawerUrl) = React.useState((): option<string> => None)
@@ -543,43 +536,20 @@ module Layout = {
     let navigate = Router.useNavigate()
     let location = Router.useLocation()
 
-    let handleMarkAvailable = (localDate: string, intents: array<TimeWindow.playIntent>) => {
-      let _ = commitSetAvailability(
-        ~localDate,
-        ~activityId=defaultActivityId,
-        ~intervals=UseSetAvailabilityDay.intervalsOfIntents(intents),
-        ~onCompleted=(res, _err) => {
-          if res.setAvailabilityDay.day->Option.isSome {
-            RescriptRelay.commitLocalUpdate(~environment=env, ~updater=store =>
-              store
-              ->RescriptRelay.RecordSourceSelectorProxy.getRoot
-              ->RescriptRelay.RecordProxy.invalidateRecord
-            )
-          }
-        },
-      )
-    }
-
+    // Signed in, New opens the "New plan" chooser, whose manual option opens
+    // the create-event form; signed out, it goes to login and then straight to
+    // the form.
     let createHref = CreateEventLink.useHref()
-    let handleCreateEvent = (localDate: string, intent: TimeWindow.playIntent) =>
-      navigate(
-        createHref([
-          ("date", localDate),
-          ("startHour", intent.start->Float.toString),
-          ("endHour", intent.end->Float.toString),
-        ]),
-        None,
-      )
-
     let handleNewPlan = () =>
-      navigate(
-        if isLoggedIn {
-          createHref([])
-        } else {
-          "/oauth-login?return=" ++ Util.encodeURIComponent("/?create=1")
-        },
-        None,
-      )
+      if isLoggedIn {
+        setNewPlanOpen(_ => true)
+      } else {
+        navigate("/oauth-login?return=" ++ Util.encodeURIComponent("/?create=1"), None)
+      }
+    let handleCreateEvent = () => {
+      setNewPlanOpen(_ => false)
+      navigate(createHref([]), None)
+    }
     let localePath = LangProvider.Router.useLocalePath()
     let gviewer = viewer->Option.map(v => v.fragmentRefs)
 
@@ -673,6 +643,11 @@ module Layout = {
                   </div>
                   <MobileTabs onNewPlan=handleNewPlan />
                 </div>
+                {newPlanOpen
+                  ? <NewPlanChooserModal
+                      onClose={() => setNewPlanOpen(_ => false)} onCreateEvent=handleCreateEvent
+                    />
+                  : React.null}
                 {mounted
                   ? ReactDOM.createPortal(
                       <div className={darkMode ? "dark" : ""}>
@@ -737,14 +712,6 @@ module Layout = {
                           )
                           ->Option.getOr(React.null)}
                         </FramerMotion.AnimatePresence>
-                        <NewPlanModal.make
-                          isOpen=showModal
-                          onClose={() => setShowModal(_ => false)}
-                          onMarkAvailable={(localDate, intents) =>
-                            profileGate.require(() => handleMarkAvailable(localDate, intents))}
-                          onCreateEvent=handleCreateEvent
-                        />
-                        {profileGate.modal}
                       </div>,
                       documentBody,
                     )
@@ -761,7 +728,7 @@ module Layout = {
 @genType @react.component
 let make = () => {
   let query = useLoaderData()
-  let {viewer, fragmentRefs} = Query.usePreloaded(~queryRef=query.data)
+  let {viewer} = Query.usePreloaded(~queryRef=query.data)
 
   <>
     <Util.Helmet>
@@ -778,7 +745,7 @@ let make = () => {
       <link rel="icon" type_="image/x-icon" href="/src/assets/favicon.ico" />
       <link rel="apple-touch-icon" href="/src/assets/apple-touch-icon.png" />
     </Util.Helmet>
-    <Layout viewer queryRefs=fragmentRefs>
+    <Layout viewer>
       <GlobalQuery.DetectedLang />
       // This boundary is what lets the server stream the frame ahead of the
       // page. Pages read their preloaded query at the top of their component

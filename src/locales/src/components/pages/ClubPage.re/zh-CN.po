@@ -21,11 +21,11 @@ msgstr "{0} 开放"
 msgid "Active players"
 msgstr "活跃球员"
 
-#: src/components/pages/ClubPage.re.mjs:887
+#: src/components/pages/ClubPage.re.mjs:937
 msgid "Add Court"
 msgstr "添加球场"
 
-#: src/components/pages/ClubPage.re.mjs:744
+#: src/components/pages/ClubPage.re.mjs:750
 msgid "All clubs"
 msgstr "所有俱乐部"
 
@@ -33,7 +33,11 @@ msgstr "所有俱乐部"
 msgid "All levels"
 msgstr "所有级别"
 
-#: src/components/pages/ClubPage.re.mjs:679
+#: src/components/pages/ClubPage.re.mjs:815
+msgid "Booking email"
+msgstr ""
+
+#: src/components/pages/ClubPage.re.mjs:684
 msgid "Cancel Request"
 msgstr "取消申请"
 
@@ -45,13 +49,29 @@ msgstr "待俱乐部发布下一期日程后再查看。"
 msgid "Club level"
 msgstr "俱乐部级别"
 
-#: src/components/pages/ClubPage.re.mjs:916
+#: src/components/pages/ClubPage.re.mjs:966
 msgid "club not found"
 msgstr "俱乐部未找到"
 
-#: src/components/pages/ClubPage.re.mjs:847
+#: src/components/pages/ClubPage.re.mjs:834
+msgid "Copied!"
+msgstr "已复制！"
+
+#: src/components/pages/ClubPage.re.mjs:834
+msgid "Copy"
+msgstr "复制"
+
+#: src/components/pages/ClubPage.re.mjs:897
 msgid "Exempt club members from event fees"
 msgstr "免除俱乐部会员的活动费用"
+
+#: src/components/pages/ClubPage.re.mjs:819
+msgid ""
+"Forward court booking confirmations to this address, or give it to a booking "
+"site in place of an email, and each booking becomes an event in this club. "
+"Members who forward from their own email are listed as the booker; anything "
+"else is credited to the club owner."
+msgstr ""
 
 #: src/components/pages/ClubPage.re.mjs:173
 #: src/components/pages/ClubPage.re.mjs:174
@@ -71,7 +91,7 @@ msgstr "已满"
 msgid "Full club schedule"
 msgstr "俱乐部完整日程"
 
-#: src/components/pages/ClubPage.re.mjs:726
+#: src/components/pages/ClubPage.re.mjs:731
 msgid "Join Club"
 msgstr "加入俱乐部"
 
@@ -79,19 +99,19 @@ msgstr "加入俱乐部"
 msgid "Leaderboard"
 msgstr "排行榜"
 
-#: src/components/pages/ClubPage.re.mjs:654
+#: src/components/pages/ClubPage.re.mjs:659
 msgid "Leave club"
 msgstr "退出俱乐部"
 
-#: src/components/pages/ClubPage.re.mjs:786
+#: src/components/pages/ClubPage.re.mjs:792
 msgid "Manage Members"
 msgstr "管理成员"
 
-#: src/components/pages/ClubPage.re.mjs:649
+#: src/components/pages/ClubPage.re.mjs:654
 msgid "Member"
 msgstr "会员"
 
-#: src/components/pages/ClubPage.re.mjs:851
+#: src/components/pages/ClubPage.re.mjs:901
 msgid ""
 "Members join priced events without saving a card. Everyone else pays to your "
 "Stripe account as usual."
@@ -117,15 +137,15 @@ msgstr "没有即将举行的活动"
 msgid "Open Play"
 msgstr "自由对打"
 
-#: src/components/pages/ClubPage.re.mjs:809
+#: src/components/pages/ClubPage.re.mjs:859
 msgid "Payments"
 msgstr "付款"
 
-#: src/components/pages/ClubPage.re.mjs:674
+#: src/components/pages/ClubPage.re.mjs:679
 msgid "Request pending"
 msgstr "申请待审核"
 
-#: src/components/pages/ClubPage.re.mjs:705
+#: src/components/pages/ClubPage.re.mjs:710
 msgid "Request to join"
 msgstr "申请加入"
 
@@ -161,7 +181,7 @@ msgstr "会员总数"
 msgid "Tuesday"
 msgstr "星期二"
 
-#: src/components/pages/ClubPage.re.mjs:874
+#: src/components/pages/ClubPage.re.mjs:924
 msgid "Upcoming Events"
 msgstr "即将举行的活动"
 
@@ -177,7 +197,7 @@ msgstr "星期三"
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/components/pages/ClubPage.re.mjs:851
+#: src/components/pages/ClubPage.re.mjs:901
 msgid ""
 "Your club has no connected Stripe account, so members always join without "
 "paying and other players' cards are only kept on file. Connect Stripe in "

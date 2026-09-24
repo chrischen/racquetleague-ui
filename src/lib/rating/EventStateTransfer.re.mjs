@@ -12,6 +12,11 @@ import * as Json_Decode$JsonCombinators from "@glennsl/rescript-json-combinators
 
 var format = "pkuru-event-history";
 
+var readableVersions = [
+  1,
+  2
+];
+
 function isScored(m) {
   return Core__Option.isSome(m.score);
 }
@@ -41,18 +46,45 @@ function remapRoundIndex(k, len, newIndex, afterAll) {
   }
 }
 
-function matchToJson(m, score) {
-  var match = m.match;
+function sameRating(a, b) {
+  if (Math.abs(a.mu - b.mu) < 1e-9) {
+    return Math.abs(a.sigma - b.sigma) < 1e-9;
+  } else {
+    return false;
+  }
+}
+
+function advance(predicted, round) {
+  round.forEach(function (param) {
+        var teams = Rating.CompletedMatch.rate([
+              param[0],
+              param[1]
+            ]);
+        if (teams !== undefined) {
+          teams.flat().forEach(function (p) {
+                predicted.set(p.id, p.rating);
+              });
+          return ;
+        }
+        
+      });
+}
+
+function rosterEntry(p) {
   var d = {};
-  d["id"] = m.id;
-  d["team1"] = match[0].map(Rating.Player.toJson);
-  d["team2"] = match[1].map(Rating.Player.toJson);
-  d["score"] = [
-    score[0],
-    score[1]
-  ];
-  d["createdAt"] = m.createdAt.getTime();
+  d["id"] = p.id;
+  d["intId"] = p.intId;
+  d["name"] = p.name;
+  d["gender"] = Rating.Gender.toInt(p.gender);
+  d["paid"] = p.paid;
   return d;
+}
+
+function ratingToJson(r) {
+  return [
+          r.mu,
+          r.sigma
+        ];
 }
 
 function encode(eventId, exportedAt, rounds, adjustments) {
@@ -74,20 +106,78 @@ function encode(eventId, exportedAt, rounds, adjustments) {
                             }).length;
                 }), keptRounds.length);
   };
+  var roster = [];
+  var listed = new Set();
+  var predicted = new Map();
   var roundsJson = keptRounds.map(function (round) {
-        var d = {};
-        d["matches"] = Core__Array.filterMap(round, (function (m) {
+        var written = [];
+        var matches = Core__Array.filterMap(round, (function (m) {
                 return Core__Option.map(m.score, (function (score) {
-                              return matchToJson(m, score);
+                              var match = m.match;
+                              var carried = {};
+                              var write = function (team) {
+                                return team.map(function (p) {
+                                            if (!listed.has(p.id)) {
+                                              listed.add(p.id);
+                                              roster.push(rosterEntry(p));
+                                            }
+                                            var r = predicted.get(p.id);
+                                            if (r !== undefined && sameRating(r, p.rating)) {
+                                              return {
+                                                      data: p.data,
+                                                      id: p.id,
+                                                      intId: p.intId,
+                                                      name: p.name,
+                                                      rating: r,
+                                                      ratingOrdinal: p.ratingOrdinal,
+                                                      paid: p.paid,
+                                                      gender: p.gender,
+                                                      count: p.count
+                                                    };
+                                            }
+                                            carried[p.id] = ratingToJson(p.rating);
+                                            return p;
+                                          });
+                              };
+                              var written1 = write(match[0]);
+                              var written2 = write(match[1]);
+                              written.push([
+                                    [
+                                      written1,
+                                      written2
+                                    ],
+                                    score
+                                  ]);
+                              var d = {};
+                              d["id"] = m.id;
+                              d["team1"] = written1.map(function (p) {
+                                    return p.id;
+                                  });
+                              d["team2"] = written2.map(function (p) {
+                                    return p.id;
+                                  });
+                              d["score"] = [
+                                score[0],
+                                score[1]
+                              ];
+                              d["createdAt"] = m.createdAt.getTime();
+                              if (Object.keys(carried).length > 0) {
+                                d["ratings"] = carried;
+                              }
+                              return d;
                             }));
               }));
+        advance(predicted, written);
+        var d = {};
+        d["matches"] = matches;
         return d;
       });
   var root = {};
   root["format"] = format;
-  root["version"] = 1;
+  root["version"] = 2;
   root["eventId"] = eventId;
   root["exportedAt"] = exportedAt;
+  root["players"] = roster;
   root["rounds"] = roundsJson;
   root["adjustments"] = adjustments.map(function (a) {
           return {
@@ -187,8 +277,7 @@ function decodeTeam(json) {
   return players;
 }
 
-function decodeMatch(json) {
-  var obj = asObject(json);
+function decodeScore(obj) {
   var match = asArray(required(obj, "score"));
   if (match.length !== 2) {
     throw {
@@ -199,22 +288,179 @@ function decodeMatch(json) {
   }
   var a = match[0];
   var b = match[1];
-  var score_0 = asNumber(a);
-  var score_1 = asNumber(b);
-  var score = [
-    score_0,
-    score_1
-  ];
+  return [
+          asNumber(a),
+          asNumber(b)
+        ];
+}
+
+function decodeMatchV1(json) {
+  var obj = asObject(json);
   return {
           id: asString(required(obj, "id")),
           match: [
             decodeTeam(required(obj, "team1")),
             decodeTeam(required(obj, "team2"))
           ],
-          score: score,
+          score: decodeScore(obj),
           createdAt: new Date(asNumber(required(obj, "createdAt"))),
           synced: true
         };
+}
+
+function decodeRoundsV1(root) {
+  return asArray(required(root, "rounds")).map(function (r) {
+                return asArray(required(asObject(r), "matches")).map(decodeMatchV1);
+              }).filter(function (r) {
+              return r.length > 0;
+            });
+}
+
+function asBool(json) {
+  var b = Js_json.decodeBoolean(json);
+  if (b !== undefined) {
+    return b;
+  }
+  throw {
+        RE_EXN_ID: Invalid,
+        _1: corruptMessage,
+        Error: new Error()
+      };
+}
+
+function decodeRoster(json) {
+  var roster = {};
+  asArray(json).forEach(function (entry) {
+        var o = asObject(entry);
+        var rating = Rating.Rating.makeDefault();
+        var p_id = asString(required(o, "id"));
+        var p_intId = asNumber(required(o, "intId")) | 0;
+        var p_name = asString(required(o, "name"));
+        var p_ratingOrdinal = Rating.Rating.ordinal(rating);
+        var p_paid = asBool(required(o, "paid"));
+        var p_gender = Rating.Gender.fromInt(asNumber(required(o, "gender")) | 0);
+        var p = {
+          data: undefined,
+          id: p_id,
+          intId: p_intId,
+          name: p_name,
+          rating: rating,
+          ratingOrdinal: p_ratingOrdinal,
+          paid: p_paid,
+          gender: p_gender,
+          count: 0
+        };
+        roster[p_id] = p;
+      });
+  return roster;
+}
+
+function decodeRatingPair(json) {
+  var match = asArray(json);
+  if (match.length !== 2) {
+    throw {
+          RE_EXN_ID: Invalid,
+          _1: corruptMessage,
+          Error: new Error()
+        };
+  }
+  var mu = match[0];
+  var sigma = match[1];
+  return Rating.Rating.make(asNumber(mu), asNumber(sigma));
+}
+
+function decodeRoundsV2(root) {
+  var roster = decodeRoster(required(root, "players"));
+  var predicted = new Map();
+  var played = new Map();
+  return asArray(required(root, "rounds")).map(function (r) {
+                var entries = asArray(required(asObject(r), "matches")).map(function (json) {
+                      var obj = asObject(json);
+                      var carried = Core__Option.getOr(Core__Option.map(Js_dict.get(obj, "ratings"), asObject), {});
+                      var team = function (key) {
+                        return asArray(required(obj, key)).map(function (idJson) {
+                                    var id = asString(idJson);
+                                    var p = Js_dict.get(roster, id);
+                                    var base;
+                                    if (p !== undefined) {
+                                      base = p;
+                                    } else {
+                                      throw {
+                                            RE_EXN_ID: Invalid,
+                                            _1: corruptMessage,
+                                            Error: new Error()
+                                          };
+                                    }
+                                    var match = Js_dict.get(carried, id);
+                                    var match$1 = predicted.get(id);
+                                    var rating;
+                                    if (match !== undefined) {
+                                      rating = decodeRatingPair(match);
+                                    } else if (match$1 !== undefined) {
+                                      rating = match$1;
+                                    } else {
+                                      throw {
+                                            RE_EXN_ID: Invalid,
+                                            _1: corruptMessage,
+                                            Error: new Error()
+                                          };
+                                    }
+                                    var count = Core__Option.getOr(played.get(id), 0) + 1 | 0;
+                                    played.set(id, count);
+                                    return {
+                                            data: base.data,
+                                            id: base.id,
+                                            intId: base.intId,
+                                            name: base.name,
+                                            rating: rating,
+                                            ratingOrdinal: Rating.Rating.ordinal(rating),
+                                            paid: base.paid,
+                                            gender: base.gender,
+                                            count: count
+                                          };
+                                  });
+                      };
+                      var team1 = team("team1");
+                      var team2 = team("team2");
+                      if (team1.length === 0 || team2.length === 0) {
+                        throw {
+                              RE_EXN_ID: Invalid,
+                              _1: corruptMessage,
+                              Error: new Error()
+                            };
+                      }
+                      var score = decodeScore(obj);
+                      var entity_id = asString(required(obj, "id"));
+                      var entity_match = [
+                        team1,
+                        team2
+                      ];
+                      var entity_score = score;
+                      var entity_createdAt = new Date(asNumber(required(obj, "createdAt")));
+                      var entity = {
+                        id: entity_id,
+                        match: entity_match,
+                        score: entity_score,
+                        createdAt: entity_createdAt,
+                        synced: true
+                      };
+                      return [
+                              entity,
+                              score
+                            ];
+                    });
+                advance(predicted, entries.map(function (param) {
+                          return [
+                                  param[0].match,
+                                  param[1]
+                                ];
+                        }));
+                return entries.map(function (param) {
+                            return param[0];
+                          });
+              }).filter(function (r) {
+              return r.length > 0;
+            });
 }
 
 function decode(text) {
@@ -261,18 +507,14 @@ function decode(text) {
     var fileVersion = Core__Option.mapOr(Core__Option.flatMap(Js_dict.get(root, "version"), Js_json.decodeNumber), 0, (function (prim) {
             return prim | 0;
           }));
-    if (fileVersion !== 1) {
+    if (!readableVersions.includes(fileVersion)) {
       throw {
             RE_EXN_ID: Invalid,
-            _1: "This export is format v" + fileVersion.toString() + ", but this version of the app reads v" + (1).toString() + ".",
+            _1: "This export is format v" + fileVersion.toString() + ", but this version of the app reads v" + (2).toString() + ".",
             Error: new Error()
           };
     }
-    var rounds = asArray(required(root, "rounds")).map(function (r) {
-            return asArray(required(asObject(r), "matches")).map(decodeMatch);
-          }).filter(function (r) {
-          return r.length > 0;
-        });
+    var rounds = fileVersion === 1 ? decodeRoundsV1(root) : decodeRoundsV2(root);
     var adjustments = asArray(required(root, "adjustments")).map(function (a) {
           var adj = Rating.RatingAdjustment.fromJson(a);
           if (adj !== undefined) {
@@ -536,15 +778,22 @@ function plan(existingRounds, existingAdjustments, existingRoundViolations, curr
         };
 }
 
-var version = 1;
+var version = 2;
+
+var ratingEpsilon = 1e-9;
 
 export {
   format ,
   version ,
+  readableVersions ,
   isScored ,
   hasExportableHistory ,
   remapRoundIndex ,
-  matchToJson ,
+  ratingEpsilon ,
+  sameRating ,
+  advance ,
+  rosterEntry ,
+  ratingToJson ,
   encode ,
   corruptMessage ,
   Invalid ,
@@ -554,7 +803,13 @@ export {
   asNumber ,
   required ,
   decodeTeam ,
-  decodeMatch ,
+  decodeScore ,
+  decodeMatchV1 ,
+  decodeRoundsV1 ,
+  asBool ,
+  decodeRoster ,
+  decodeRatingPair ,
+  decodeRoundsV2 ,
   decode ,
   hydratePlayer ,
   roundTime ,

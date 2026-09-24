@@ -15,6 +15,7 @@ module Types = {
   }
   and fragment_user_dupr = {
     doubles: option<float>,
+    doublesReliability: option<float>,
     doublesReliable: bool,
   }
   and fragment_user = {
@@ -154,6 +155,13 @@ return {
               "args": null,
               "kind": "ScalarField",
               "name": "doublesReliable",
+              "storageKey": null
+            },
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "doublesReliability",
               "storageKey": null
             }
           ],

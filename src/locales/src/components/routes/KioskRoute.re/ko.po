@@ -13,110 +13,110 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/Kiosk.re.mjs:762
+#: src/components/organisms/Kiosk.re.mjs:763
 msgid "{0} bounces detected · tap one to replay"
 msgstr "바운스 {0}회 감지 · 탭하여 다시 보기"
 
-#: src/components/organisms/Kiosk.re.mjs:1471
+#: src/components/organisms/Kiosk.re.mjs:1472
 msgid "{0}-second buffer · {1}"
 msgstr "{0}초 버퍼 · {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:1396
+#: src/components/organisms/Kiosk.re.mjs:1397
 msgid "{0}-second clip · {1}"
 msgstr "{0}초 클립 · {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:1296
+#: src/components/organisms/Kiosk.re.mjs:1297
 msgid "● BUFFER {0}s / {1}s"
 msgstr "● 버퍼 {0}s / {1}s"
 
-#: src/components/organisms/Kiosk.re.mjs:1296
+#: src/components/organisms/Kiosk.re.mjs:1297
 msgid "● BUFFER READY"
 msgstr "● 버퍼 준비 완료"
 
-#: src/components/organisms/Kiosk.re.mjs:1501
+#: src/components/organisms/Kiosk.re.mjs:1502
 msgid "24 shots analyzed · Game session"
 msgstr "24개 샷 분석 완료 · 게임 세션"
 
-#: src/components/organisms/Kiosk.re.mjs:233
+#: src/components/organisms/Kiosk.re.mjs:234
 msgid "ACTIVE SESSION"
 msgstr "진행 중인 세션"
 
-#: src/components/organisms/Kiosk.re.mjs:2841
+#: src/components/organisms/Kiosk.re.mjs:2849
 msgid "Analysis"
 msgstr "분석"
 
-#: src/components/organisms/Kiosk.re.mjs:1723
+#: src/components/organisms/Kiosk.re.mjs:1725
 msgid "Analysis capture active"
 msgstr "분석 캡처 활성화됨"
 
-#: src/components/organisms/Kiosk.re.mjs:856
+#: src/components/organisms/Kiosk.re.mjs:857
 msgid "ANALYSIS COMPLETE"
 msgstr "분석 완료"
 
-#: src/components/organisms/Kiosk.re.mjs:2921
+#: src/components/organisms/Kiosk.re.mjs:2929
 msgid "Analysis modes"
 msgstr "분석 모드"
 
-#: src/components/organisms/Kiosk.re.mjs:2727
+#: src/components/organisms/Kiosk.re.mjs:2735
 msgid "Analysis setup"
 msgstr "분석 설정"
 
-#: src/components/organisms/Kiosk.re.mjs:1768
+#: src/components/organisms/Kiosk.re.mjs:1770
 msgid "Analyzing the play"
 msgstr "플레이 분석 중"
 
-#: src/components/organisms/Kiosk.re.mjs:2859
+#: src/components/organisms/Kiosk.re.mjs:2867
 msgid "Available while playing"
 msgstr "플레이 중 사용 가능"
 
-#: src/components/organisms/Kiosk.re.mjs:2673
+#: src/components/organisms/Kiosk.re.mjs:2681
 msgid "Back to modes"
 msgstr "모드로 돌아가기"
 
-#: src/components/organisms/Kiosk.re.mjs:1555
+#: src/components/organisms/Kiosk.re.mjs:1556
 msgid "Backhand"
 msgstr "백핸드"
 
-#: src/components/organisms/Kiosk.re.mjs:1551
+#: src/components/organisms/Kiosk.re.mjs:1552
 msgid "Best target"
 msgstr "최적 타깃"
 
-#: src/components/organisms/Kiosk.re.mjs:1120
+#: src/components/organisms/Kiosk.re.mjs:1121
 msgid "Camera {0}"
 msgstr "카메라 {0}"
 
-#: src/components/organisms/Kiosk.re.mjs:2640
+#: src/components/organisms/Kiosk.re.mjs:2648
 msgid "Camera connected"
 msgstr "카메라 연결됨"
 
-#: src/components/organisms/Kiosk.re.mjs:2814
+#: src/components/organisms/Kiosk.re.mjs:2822
 msgid "Camera framing and connection look good"
 msgstr "카메라 프레이밍 및 연결 상태 양호"
 
-#: src/components/organisms/Kiosk.re.mjs:1046
+#: src/components/organisms/Kiosk.re.mjs:1047
 msgid "Camera source"
 msgstr "카메라 소스"
 
-#: src/components/organisms/Kiosk.re.mjs:2567
+#: src/components/organisms/Kiosk.re.mjs:2575
 msgid "Camera unavailable — check permissions and try again"
 msgstr "카메라를 사용할 수 없습니다 — 권한을 확인하고 다시 시도하세요"
 
-#: src/components/organisms/Kiosk.re.mjs:91
+#: src/components/organisms/Kiosk.re.mjs:92
 msgid "Capture several serves, then end to view the result."
 msgstr "서브를 여러 번 캡처한 후 종료하면 결과를 확인할 수 있습니다."
 
-#: src/components/organisms/Kiosk.re.mjs:51
-#: src/components/organisms/Kiosk.re.mjs:1470
-#: src/components/organisms/Kiosk.re.mjs:1484
-#: src/components/organisms/Kiosk.re.mjs:1489
+#: src/components/organisms/Kiosk.re.mjs:52
+#: src/components/organisms/Kiosk.re.mjs:1471
+#: src/components/organisms/Kiosk.re.mjs:1485
+#: src/components/organisms/Kiosk.re.mjs:1490
 msgid "Challenge"
 msgstr "챌린지"
 
-#: src/components/organisms/Kiosk.re.mjs:1290
+#: src/components/organisms/Kiosk.re.mjs:1291
 msgid "Choose an action"
 msgstr "동작 선택"
 
-#: src/components/organisms/Kiosk.re.mjs:1067
+#: src/components/organisms/Kiosk.re.mjs:1068
 msgid ""
 "Choose which connected camera the kiosk uses. The change applies "
 "immediately, including to a running session."
@@ -124,155 +124,155 @@ msgstr ""
 "키오스크에서 사용할 연결된 카메라를 선택하세요. 변경 사항은 진행 중인 세션을 "
 "포함하여 즉시 적용됩니다."
 
-#: src/components/organisms/Kiosk.re.mjs:2573
+#: src/components/organisms/Kiosk.re.mjs:2581
 msgid "Clip downloaded"
 msgstr "클립 다운로드됨"
 
-#: src/components/organisms/Kiosk.re.mjs:49
+#: src/components/organisms/Kiosk.re.mjs:50
 msgid "Clip last rally"
 msgstr "마지막 랠리 클립"
 
-#: src/components/organisms/Kiosk.re.mjs:2561
+#: src/components/organisms/Kiosk.re.mjs:2569
 msgid "Clip saved · live capture continues"
 msgstr "클립 저장됨 · 라이브 캡처 계속 중"
 
-#: src/components/organisms/Kiosk.re.mjs:1297
+#: src/components/organisms/Kiosk.re.mjs:1298
 msgid "CLIPPING UNAVAILABLE"
 msgstr "클리핑 사용 불가"
 
-#: src/components/organisms/Kiosk.re.mjs:1333
+#: src/components/organisms/Kiosk.re.mjs:1334
 msgid "Clipping…"
 msgstr "클립 만드는 중…"
 
-#: src/components/organisms/Kiosk.re.mjs:1056
+#: src/components/organisms/Kiosk.re.mjs:1057
 msgid "Close settings"
 msgstr "설정 닫기"
 
-#: src/components/organisms/Kiosk.re.mjs:1204
+#: src/components/organisms/Kiosk.re.mjs:1205
 msgid "COMING SOON"
 msgstr "출시 예정"
 
-#: src/components/organisms/Kiosk.re.mjs:986
+#: src/components/organisms/Kiosk.re.mjs:987
 msgid "Copied"
 msgstr "복사됨"
 
-#: src/components/organisms/Kiosk.re.mjs:986
+#: src/components/organisms/Kiosk.re.mjs:987
 msgid "Copy URL"
 msgstr "URL 복사"
 
-#: src/components/organisms/Kiosk.re.mjs:2570
+#: src/components/organisms/Kiosk.re.mjs:2578
 msgid "Could not create the clip — the buffer keeps recording"
 msgstr "클립을 생성할 수 없습니다 — 버퍼가 계속 녹화 중입니다"
 
-#: src/components/organisms/Kiosk.re.mjs:1673
+#: src/components/organisms/Kiosk.re.mjs:1675
 msgid "Court setup"
 msgstr "코트 설정"
 
-#: src/components/organisms/Kiosk.re.mjs:57
+#: src/components/organisms/Kiosk.re.mjs:58
 msgid "Create a clean, shareable clip from the rolling video buffer."
 msgstr "롤링 비디오 버퍼에서 깔끔하고 공유 가능한 클립을 만드세요."
 
-#: src/components/organisms/Kiosk.re.mjs:1410
+#: src/components/organisms/Kiosk.re.mjs:1411
 msgid "Delete clip"
 msgstr "클립 삭제"
 
-#: src/components/organisms/Kiosk.re.mjs:1439
+#: src/components/organisms/Kiosk.re.mjs:1440
 msgid "Done"
 msgstr "완료"
 
-#: src/components/organisms/Kiosk.re.mjs:73
+#: src/components/organisms/Kiosk.re.mjs:74
 msgid "Drop shot analysis"
 msgstr "드롭샷 분석"
 
-#: src/components/organisms/Kiosk.re.mjs:1500
+#: src/components/organisms/Kiosk.re.mjs:1501
 msgid "Drop shot placement"
 msgstr "드롭샷 배치"
 
-#: src/components/organisms/Kiosk.re.mjs:1741
+#: src/components/organisms/Kiosk.re.mjs:1743
 msgid "End & analyze"
 msgstr "종료 및 분석"
 
-#: src/components/organisms/Kiosk.re.mjs:1687
+#: src/components/organisms/Kiosk.re.mjs:1689
 msgid "End session"
 msgstr "세션 종료"
 
-#: src/components/organisms/Kiosk.re.mjs:2673
+#: src/components/organisms/Kiosk.re.mjs:2681
 msgid "End session and exit"
 msgstr "세션 종료 및 나가기"
 
-#: src/components/organisms/Kiosk.re.mjs:89
+#: src/components/organisms/Kiosk.re.mjs:90
 msgid "End the session when you have collected enough shots."
 msgstr "충분한 샷을 수집했으면 세션을 종료하세요."
 
-#: src/components/organisms/Kiosk.re.mjs:1772
+#: src/components/organisms/Kiosk.re.mjs:1774
 msgid "Finding the clearest camera moments and preparing your result."
 msgstr "가장 선명한 카메라 순간을 찾아 결과를 준비 중입니다."
 
-#: src/components/organisms/Kiosk.re.mjs:1042
+#: src/components/organisms/Kiosk.re.mjs:1043
 msgid "KIOSK SETTINGS"
 msgstr "키오스크 설정"
 
-#: src/components/organisms/Kiosk.re.mjs:1538
+#: src/components/organisms/Kiosk.re.mjs:1539
 msgid "Kitchen accuracy"
 msgstr "키친 정확도"
 
-#: src/components/organisms/Kiosk.re.mjs:1527
+#: src/components/organisms/Kiosk.re.mjs:1528
 msgid "LANDING HEATMAP"
 msgstr "착지 히트맵"
 
-#: src/components/organisms/Kiosk.re.mjs:1459
+#: src/components/organisms/Kiosk.re.mjs:1460
 msgid "Last rally"
 msgstr "마지막 랠리"
 
-#: src/components/organisms/Kiosk.re.mjs:1088
+#: src/components/organisms/Kiosk.re.mjs:1089
 msgid "Let the browser pick the default device"
 msgstr "브라우저가 기본 장치를 자동 선택"
 
-#: src/components/organisms/Kiosk.re.mjs:2829
+#: src/components/organisms/Kiosk.re.mjs:2837
 msgid "Live game"
 msgstr "라이브 게임"
 
-#: src/components/organisms/Kiosk.re.mjs:2551
+#: src/components/organisms/Kiosk.re.mjs:2559
 msgid "Live rolling session"
 msgstr "라이브 롤링 세션"
 
-#: src/components/organisms/Kiosk.re.mjs:2727
+#: src/components/organisms/Kiosk.re.mjs:2735
 msgid "Live session"
 msgstr "라이브 세션"
 
-#: src/components/organisms/Kiosk.re.mjs:1794
+#: src/components/organisms/Kiosk.re.mjs:1796
 msgid "Live session and rolling buffer are still active"
 msgstr "라이브 세션 및 롤링 버퍼가 아직 활성 상태입니다"
 
-#: src/components/organisms/Kiosk.re.mjs:1759
+#: src/components/organisms/Kiosk.re.mjs:1761
 msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
 msgstr "라이브 세션 계속 중 · 버퍼 녹화 중"
 
-#: src/components/organisms/Kiosk.re.mjs:2564
+#: src/components/organisms/Kiosk.re.mjs:2572
 msgid "Live session ended"
 msgstr "라이브 세션 종료됨"
 
-#: src/components/organisms/Kiosk.re.mjs:1166
+#: src/components/organisms/Kiosk.re.mjs:1167
 msgid "Local"
 msgstr "로컬"
 
-#: src/components/organisms/Kiosk.re.mjs:83
+#: src/components/organisms/Kiosk.re.mjs:84
 msgid "Measure serve speed and review the detected serve clip."
 msgstr "서브 속도를 측정하고 감지된 서브 클립을 검토합니다."
 
-#: src/components/organisms/Kiosk.re.mjs:2863
+#: src/components/organisms/Kiosk.re.mjs:2871
 msgid "No action selection is needed before starting."
 msgstr "시작 전에 동작을 선택할 필요가 없습니다."
 
-#: src/components/organisms/Kiosk.re.mjs:309
+#: src/components/organisms/Kiosk.re.mjs:310
 msgid "no audio"
 msgstr "오디오 없음"
 
-#: src/components/organisms/Kiosk.re.mjs:1238
+#: src/components/organisms/Kiosk.re.mjs:1239
 msgid "No camera: Challenge runs on the server's fixed test clip."
 msgstr "카메라 없음: 챌린지는 서버의 고정 테스트 클립으로 실행됩니다."
 
-#: src/components/organisms/Kiosk.re.mjs:1143
+#: src/components/organisms/Kiosk.re.mjs:1144
 msgid ""
 "No cameras detected. Connect a camera or allow camera access, then reopen "
 "settings."
@@ -280,169 +280,169 @@ msgstr ""
 "감지된 카메라가 없습니다. 카메라를 연결하거나 카메라 접근을 허용한 후 설정을 "
 "다시 여세요."
 
-#: src/components/organisms/Kiosk.re.mjs:1455
+#: src/components/organisms/Kiosk.re.mjs:1456
 msgid "No clip selected"
 msgstr "선택된 클립 없음"
 
-#: src/components/organisms/Kiosk.re.mjs:1485
+#: src/components/organisms/Kiosk.re.mjs:1486
 msgid "No footage analyzed"
 msgstr "분석된 영상 없음"
 
-#: src/components/organisms/Kiosk.re.mjs:716
+#: src/components/organisms/Kiosk.re.mjs:717
 msgid "No ground bounces were detected in the buffered footage."
 msgstr "버퍼된 영상에서 바닥 바운스가 감지되지 않았습니다."
 
-#: src/components/organisms/Kiosk.re.mjs:2778
+#: src/components/organisms/Kiosk.re.mjs:2786
 msgid "OFF"
 msgstr "끄기"
 
-#: src/components/organisms/Kiosk.re.mjs:2778
+#: src/components/organisms/Kiosk.re.mjs:2786
 msgid "ON"
 msgstr "켜기"
 
-#: src/components/organisms/Kiosk.re.mjs:1170
+#: src/components/organisms/Kiosk.re.mjs:1171
 msgid "On-device rolling buffer and clip processing"
 msgstr "장치 내 롤링 버퍼 및 클립 처리"
 
-#: src/components/organisms/Kiosk.re.mjs:996
+#: src/components/organisms/Kiosk.re.mjs:997
 msgid "Open"
 msgstr "열기"
 
-#: src/components/organisms/Kiosk.re.mjs:2649
+#: src/components/organisms/Kiosk.re.mjs:2657
 msgid "Open kiosk settings"
 msgstr "키오스크 설정 열기"
 
-#: src/components/organisms/Kiosk.re.mjs:795
+#: src/components/organisms/Kiosk.re.mjs:796
 msgid "Overlay"
 msgstr "오버레이"
 
-#: src/components/organisms/Kiosk.re.mjs:59
+#: src/components/organisms/Kiosk.re.mjs:60
 msgid ""
 "Overlay detected bounces on the buffered footage and replay any of them."
 msgstr "버퍼된 영상에 감지된 바운스를 표시하고 원하는 장면을 다시 재생하세요."
 
-#: src/components/organisms/Kiosk.re.mjs:1583
+#: src/components/organisms/Kiosk.re.mjs:1584
 msgid "Peak ball speed"
 msgstr "최고 볼 속도"
 
-#: src/components/organisms/Kiosk.re.mjs:2623
+#: src/components/organisms/Kiosk.re.mjs:2631
 msgid "Pickleball camera kiosk"
 msgstr "피클볼 카메라 키오스크"
 
-#: src/components/organisms/Kiosk.re.mjs:1490
+#: src/components/organisms/Kiosk.re.mjs:1491
 msgid "Play challenge"
 msgstr "챌린지 재생"
 
-#: src/components/organisms/Kiosk.re.mjs:1460
+#: src/components/organisms/Kiosk.re.mjs:1461
 msgid "Play last rally"
 msgstr "마지막 랠리 재생"
 
-#: src/components/organisms/Kiosk.re.mjs:1576
+#: src/components/organisms/Kiosk.re.mjs:1577
 msgid "Play serve replay"
 msgstr "서브 리플레이 재생"
 
-#: src/components/organisms/Kiosk.re.mjs:953
+#: src/components/organisms/Kiosk.re.mjs:954
 msgid "Point a phone camera at the code to open this court's live stream."
 msgstr "이 코트의 라이브 스트림을 열려면 카메라로 코드를 스캔하세요."
 
-#: src/components/organisms/Kiosk.re.mjs:1149
+#: src/components/organisms/Kiosk.re.mjs:1150
 msgid "PROCESSING MODE"
 msgstr "처리 모드"
 
-#: src/components/organisms/Kiosk.re.mjs:1395
-#: src/components/organisms/Kiosk.re.mjs:1454
+#: src/components/organisms/Kiosk.re.mjs:1396
+#: src/components/organisms/Kiosk.re.mjs:1455
 msgid "Rally clip"
 msgstr "랠리 클립"
 
-#: src/components/organisms/Kiosk.re.mjs:1352
+#: src/components/organisms/Kiosk.re.mjs:1353
 msgid "RECENT CLIPS"
 msgstr "최근 클립"
 
-#: src/components/organisms/Kiosk.re.mjs:1624
+#: src/components/organisms/Kiosk.re.mjs:1626
 msgid "Rolling buffer"
 msgstr "롤링 버퍼"
 
-#: src/components/organisms/Kiosk.re.mjs:1666
+#: src/components/organisms/Kiosk.re.mjs:1668
 msgid "Rolling buffer active"
 msgstr "롤링 버퍼 활성"
 
-#: src/components/organisms/Kiosk.re.mjs:1390
+#: src/components/organisms/Kiosk.re.mjs:1391
 msgid "ROLLING BUFFER CAPTURE"
 msgstr "롤링 버퍼 캡처"
 
-#: src/components/organisms/Kiosk.re.mjs:2738
+#: src/components/organisms/Kiosk.re.mjs:2746
 msgid "Rolling capture with optional YouTube streaming."
 msgstr "선택적 YouTube 스트리밍을 포함한 롤링 캡처."
 
-#: src/components/organisms/Kiosk.re.mjs:1424
+#: src/components/organisms/Kiosk.re.mjs:1425
 msgid "Save clip"
 msgstr "클립 저장"
 
-#: src/components/organisms/Kiosk.re.mjs:937
+#: src/components/organisms/Kiosk.re.mjs:938
 msgid "Scan to watch"
 msgstr "스캔하여 시청"
 
-#: src/components/organisms/Kiosk.re.mjs:2738
+#: src/components/organisms/Kiosk.re.mjs:2746
 msgid "Select a mode, then start capture."
 msgstr "모드를 선택한 후 캡처를 시작하세요."
 
-#: src/components/organisms/Kiosk.re.mjs:2925
+#: src/components/organisms/Kiosk.re.mjs:2933
 msgid "Select one before starting the camera."
 msgstr "카메라를 시작하기 전에 하나를 선택하세요."
 
-#: src/components/organisms/Kiosk.re.mjs:2744
+#: src/components/organisms/Kiosk.re.mjs:2752
 msgid "SELECTED ANALYSIS"
 msgstr "선택된 분석"
 
-#: src/components/organisms/Kiosk.re.mjs:1572
+#: src/components/organisms/Kiosk.re.mjs:1573
 msgid "Serve 04 · Clean read"
 msgstr "서브 04 · 정확한 인식"
 
-#: src/components/organisms/Kiosk.re.mjs:1571
+#: src/components/organisms/Kiosk.re.mjs:1572
 msgid "Serve detected"
 msgstr "서브 감지됨"
 
-#: src/components/organisms/Kiosk.re.mjs:1575
+#: src/components/organisms/Kiosk.re.mjs:1576
 msgid "Serve replay"
 msgstr "서브 리플레이"
 
-#: src/components/organisms/Kiosk.re.mjs:75
+#: src/components/organisms/Kiosk.re.mjs:76
 msgid "Serve speed analysis"
 msgstr "서브 속도 분석"
 
-#: src/components/organisms/Kiosk.re.mjs:2744
+#: src/components/organisms/Kiosk.re.mjs:2752
 msgid "SESSION SETUP"
 msgstr "세션 설정"
 
-#: src/components/organisms/Kiosk.re.mjs:2769
+#: src/components/organisms/Kiosk.re.mjs:2777
 msgid "Show a viewer QR code during the session"
 msgstr "세션 중 시청자 QR 코드 표시"
 
-#: src/components/organisms/Kiosk.re.mjs:2799
+#: src/components/organisms/Kiosk.re.mjs:2807
 msgid "Start analysis"
 msgstr "분석 시작"
 
-#: src/components/organisms/Kiosk.re.mjs:841
+#: src/components/organisms/Kiosk.re.mjs:842
 msgid "Start another session"
 msgstr "다른 세션 시작"
 
-#: src/components/organisms/Kiosk.re.mjs:2799
+#: src/components/organisms/Kiosk.re.mjs:2807
 msgid "Start live session"
 msgstr "라이브 세션 시작"
 
-#: src/components/organisms/Kiosk.re.mjs:2765
+#: src/components/organisms/Kiosk.re.mjs:2773
 msgid "Stream on YouTube"
 msgstr "유튜브에서 스트리밍"
 
-#: src/components/organisms/Kiosk.re.mjs:1211
+#: src/components/organisms/Kiosk.re.mjs:1212
 msgid "Stream to the server for processing"
 msgstr "처리를 위해 서버로 스트리밍"
 
-#: src/components/organisms/Kiosk.re.mjs:1084
+#: src/components/organisms/Kiosk.re.mjs:1085
 msgid "System default camera"
 msgstr "시스템 기본 카메라"
 
-#: src/components/organisms/Kiosk.re.mjs:2576
+#: src/components/organisms/Kiosk.re.mjs:2584
 msgid ""
 "Test clip not found — put test_challenge.mov in the dinkhunt folder (and "
 "restart nothing; it is picked up live)"
@@ -450,31 +450,31 @@ msgstr ""
 "테스트 클립을 찾을 수 없습니다 — test_challenge.mov 파일을 dinkhunt 폴더에 넣"
 "으세요(재시작 불필요, 실시간으로 인식됩니다)"
 
-#: src/components/organisms/Kiosk.re.mjs:1234
+#: src/components/organisms/Kiosk.re.mjs:1235
 msgid "Test mode"
 msgstr "테스트 모드"
 
-#: src/components/organisms/Kiosk.re.mjs:2911
+#: src/components/organisms/Kiosk.re.mjs:2919
 msgid "The camera continuously keeps recent play ready for either action."
 msgstr "카메라가 최근 플레이를 지속적으로 준비 상태로 유지합니다."
 
-#: src/components/organisms/Kiosk.re.mjs:1202
+#: src/components/organisms/Kiosk.re.mjs:1203
 msgid "Thin client"
 msgstr "씬 클라이언트"
 
-#: src/components/organisms/Kiosk.re.mjs:81
+#: src/components/organisms/Kiosk.re.mjs:82
 msgid "Track drop-shot placement and reveal landing patterns."
 msgstr "드롭샷 위치를 추적하고 착지 패턴을 분석합니다."
 
-#: src/components/organisms/Kiosk.re.mjs:1333
+#: src/components/organisms/Kiosk.re.mjs:1334
 msgid "Use latest buffered footage"
 msgstr "최신 버퍼 영상 사용"
 
-#: src/components/organisms/Kiosk.re.mjs:966
+#: src/components/organisms/Kiosk.re.mjs:967
 msgid "VIEWING URL"
 msgstr "시청 URL"
 
-#: src/components/organisms/Kiosk.re.mjs:786
+#: src/components/organisms/Kiosk.re.mjs:787
 msgid "Zoom"
 msgstr "확대/축소"
 

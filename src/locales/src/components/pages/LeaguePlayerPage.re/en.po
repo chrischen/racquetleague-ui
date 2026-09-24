@@ -21,27 +21,27 @@ msgstr ""
 msgid "...load previous matches"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:160
+#: src/components/pages/LeaguePlayerPage.re.mjs:161
 msgid "All"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:804
+#: src/components/pages/LeaguePlayerPage.re.mjs:805
 msgid "All Clubs"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:784
+#: src/components/pages/LeaguePlayerPage.re.mjs:785
 msgid "Back to league"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:409
+#: src/components/pages/LeaguePlayerPage.re.mjs:410
 msgid "Balanced partner tendency"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:481
+#: src/components/pages/LeaguePlayerPage.re.mjs:482
 msgid "Best Doubles Partners"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:896
+#: src/components/pages/LeaguePlayerPage.re.mjs:897
 msgid "Current Rating"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 #~ msgid "Currently the league is in testing mode. To participate, please join the Pickleball events here:"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:934
+#: src/components/pages/LeaguePlayerPage.re.mjs:935
 msgid "Days at #1"
 msgstr ""
 
@@ -62,20 +62,20 @@ msgstr ""
 msgid "DRAW"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:913
+#: src/components/pages/LeaguePlayerPage.re.mjs:914
 msgid "DUPR"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:406
+#: src/components/pages/LeaguePlayerPage.re.mjs:407
 msgid "Elevates weaker partners"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:384
-#: src/components/pages/LeaguePlayerPage.re.mjs:963
-#: src/components/pages/LeaguePlayerPage.re.mjs:1009
-#: src/components/pages/LeaguePlayerPage.re.mjs:1062
-#: src/components/pages/LeaguePlayerPage.re.mjs:1115
-#: src/components/pages/LeaguePlayerPage.re.mjs:1209
+#: src/components/pages/LeaguePlayerPage.re.mjs:385
+#: src/components/pages/LeaguePlayerPage.re.mjs:964
+#: src/components/pages/LeaguePlayerPage.re.mjs:1010
+#: src/components/pages/LeaguePlayerPage.re.mjs:1063
+#: src/components/pages/LeaguePlayerPage.re.mjs:1116
+#: src/components/pages/LeaguePlayerPage.re.mjs:1210
 msgid "Estimated DUPR"
 msgstr ""
 
@@ -87,11 +87,11 @@ msgstr ""
 #~ msgid "Female"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1189
+#: src/components/pages/LeaguePlayerPage.re.mjs:1190
 msgid "Gym"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1174
+#: src/components/pages/LeaguePlayerPage.re.mjs:1175
 msgid "Hard Court"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 #~ msgid "Loading rankings..."
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1284
+#: src/components/pages/LeaguePlayerPage.re.mjs:1285
 msgid "Loading..."
 msgstr ""
 
@@ -133,18 +133,18 @@ msgstr ""
 #~ msgid "Match History"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1024
+#: src/components/pages/LeaguePlayerPage.re.mjs:1025
 msgid "Men's Doubles"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1077
+#: src/components/pages/LeaguePlayerPage.re.mjs:1078
 msgid "Mixed Doubles"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:501
-#: src/components/pages/LeaguePlayerPage.re.mjs:575
-#: src/components/pages/LeaguePlayerPage.re.mjs:649
-#: src/components/pages/LeaguePlayerPage.re.mjs:723
+#: src/components/pages/LeaguePlayerPage.re.mjs:502
+#: src/components/pages/LeaguePlayerPage.re.mjs:576
+#: src/components/pages/LeaguePlayerPage.re.mjs:650
+#: src/components/pages/LeaguePlayerPage.re.mjs:724
 msgid "No data for this category"
 msgstr ""
 
@@ -152,15 +152,15 @@ msgstr ""
 msgid "NR"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:427
+#: src/components/pages/LeaguePlayerPage.re.mjs:428
 msgid "Performs better in gyms"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:424
+#: src/components/pages/LeaguePlayerPage.re.mjs:425
 msgid "Performs better on hard courts"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:402
+#: src/components/pages/LeaguePlayerPage.re.mjs:403
 msgid "Performs better with stronger partners"
 msgstr ""
 
@@ -173,10 +173,10 @@ msgstr ""
 #~ msgid "Player Profile Page"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:514
-#: src/components/pages/LeaguePlayerPage.re.mjs:588
-#: src/components/pages/LeaguePlayerPage.re.mjs:662
-#: src/components/pages/LeaguePlayerPage.re.mjs:736
+#: src/components/pages/LeaguePlayerPage.re.mjs:515
+#: src/components/pages/LeaguePlayerPage.re.mjs:589
+#: src/components/pages/LeaguePlayerPage.re.mjs:663
+#: src/components/pages/LeaguePlayerPage.re.mjs:737
 msgid "Predicted"
 msgstr ""
 
@@ -197,7 +197,7 @@ msgstr ""
 msgid "Rating:"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1275
+#: src/components/pages/LeaguePlayerPage.re.mjs:1276
 msgid "Recent Matches"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 #~ msgid "Score:"
 #~ msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:848
+#: src/components/pages/LeaguePlayerPage.re.mjs:849
 msgid "Showing stats from {selectedClubName} only"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "singles"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:629
+#: src/components/pages/LeaguePlayerPage.re.mjs:630
 msgid "Strong Against"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Upset"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:703
+#: src/components/pages/LeaguePlayerPage.re.mjs:704
 msgid "Weak Against"
 msgstr ""
 
@@ -238,14 +238,14 @@ msgstr ""
 msgid "WIN"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:1130
+#: src/components/pages/LeaguePlayerPage.re.mjs:1131
 msgid "Women's Doubles"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:977
+#: src/components/pages/LeaguePlayerPage.re.mjs:978
 msgid "Women's Rating"
 msgstr ""
 
-#: src/components/pages/LeaguePlayerPage.re.mjs:555
+#: src/components/pages/LeaguePlayerPage.re.mjs:556
 msgid "Worst Doubles Partners"
 msgstr ""

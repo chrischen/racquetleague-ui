@@ -52,6 +52,7 @@ module Fragment = %relay(`
             dupr {
               doubles
               doublesReliable
+              doublesReliability
             }
           }
           rating {
@@ -288,7 +289,9 @@ let make = (
           selfDupr: u.selfRating->Option.map(Rating.guessDupr),
           duprDoubles: u.dupr->Option.flatMap(d => d.doubles),
           duprReliable: u.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
+          duprReliability: u.dupr->Option.flatMap(d => d.doublesReliability),
           computedDupr: n.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
+          computedSigma: n.rating->Option.flatMap(r => r.sigma),
           note: n.message,
         }),
       }

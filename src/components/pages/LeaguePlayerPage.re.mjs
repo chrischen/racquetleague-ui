@@ -8,6 +8,7 @@ import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as MatchHistoryList from "../organisms/MatchHistoryList.re.mjs";
@@ -916,7 +917,7 @@ function LeaguePlayerPage$PlayerContent(props) {
                                                                 JsxRuntime.jsx(DuprRatingBadge.make, {
                                                                       doubles: link.doubles,
                                                                       singles: link.singles,
-                                                                      doublesReliable: link.doublesReliable,
+                                                                      doublesReliable: CombinedRating.duprEstablished(link.doublesReliability, link.doublesReliable),
                                                                       singlesReliable: link.singlesReliable
                                                                     })
                                                               ],

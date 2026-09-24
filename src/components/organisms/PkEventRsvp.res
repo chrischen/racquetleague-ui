@@ -12,6 +12,7 @@ module Fragment = %relay(`
       dupr {
         doubles
         doublesReliable
+        doublesReliability
       }
     }
     rating {
@@ -53,7 +54,9 @@ let make = (
     // pkuru, then a linked DUPR rating, then their own estimate.
     let combined = CombinedRating.resolve(
       ~pkuruMu=rsvp.rating->Option.flatMap(r => r.mu),
+      ~pkuruSigma=?rsvp.rating->Option.flatMap(r => r.sigma),
       ~duprDoubles=user.dupr->Option.flatMap(d => d.doubles),
+      ~duprReliability=?user.dupr->Option.flatMap(d => d.doublesReliability),
       ~duprReliable=user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
       ~selfMu=user.selfRating,
     )

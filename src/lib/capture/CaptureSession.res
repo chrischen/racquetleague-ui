@@ -42,11 +42,37 @@ type status = {
   droppedFrames: int, // encoder-backpressure drops, for diagnostics
 }
 
+// One encoded H.264 access unit as muxed into the clip. Shared by the muxer
+// and the crop transcoder (same runtime shape either way).
+type encodedChunk = {
+  bytes: Uint8Array.t,
+  timestampUs: float,
+  durationUs: float,
+  isKey: bool,
+}
+
+// The clip's video track BEFORE muxing: enough to feed a VideoDecoder
+// (chunks rebased so the first is a keyframe at 0, plus the avcC description).
+type encodedVideo = {
+  codec: string, // e.g. "avc1.4d001f"
+  width: int,
+  height: int,
+  description: option<Uint8Array.t>,
+  chunks: array<encodedChunk>,
+}
+
 type clip = {
   blob: blob,
   mimeType: string, // "video/mp4"
   durationSeconds: float,
   hasAudio: bool,
+  // The raw video track, for backends that re-process the clip (the court
+  // crop before analysis upload). None when a backend cannot provide it.
+  encoded: option<encodedVideo>,
+  // Every muxed frame's timestamp in seconds (frame 0 = 0), in decode order —
+  // the clip's real playback timeline, for mapping analysis time (frame/fps)
+  // onto it (see FrameTimeline). Empty when a backend cannot provide it.
+  frameTimes: array<float>,
 }
 
 type startError =

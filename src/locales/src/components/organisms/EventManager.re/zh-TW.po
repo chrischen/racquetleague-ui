@@ -87,7 +87,7 @@ msgstr "調整球員種子"
 msgid "Advance to Next Round"
 msgstr "前進至下一回合"
 
-#: src/components/organisms/EventManager.re.mjs:2632
+#: src/components/organisms/EventManager.re.mjs:2636
 msgid "Advance to Round {0}"
 msgstr "前往第 {0} 輪"
 
@@ -103,7 +103,7 @@ msgstr "亞歷克斯·約翰遜"
 msgid "All checked-in players are already in this round"
 msgstr "所有已報到的球員都已在這個回合中"
 
-#: src/components/organisms/EventManager.re.mjs:2463
+#: src/components/organisms/EventManager.re.mjs:2467
 msgid "all up to date"
 msgstr "全部已更新"
 
@@ -111,7 +111,7 @@ msgstr "全部已更新"
 msgid "Alternate favourite/underdog roles"
 msgstr "交替強弱隊角色"
 
-#: src/components/organisms/EventManager.re.mjs:2741
+#: src/components/organisms/EventManager.re.mjs:2745
 msgid "Anti-Team {0}"
 msgstr "反對隊 {0}"
 
@@ -259,11 +259,11 @@ msgstr "自訂"
 msgid "Customize from here"
 msgstr "從此處自訂"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: OFF"
 msgstr "調試：關閉"
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: ON"
 msgstr "調試：開啟"
 
@@ -299,7 +299,7 @@ msgstr "確定性"
 
 #: src/components/organisms/EventManager.re.mjs:279
 #: src/components/organisms/EventManager.re.mjs:552
-#: src/components/organisms/EventManager.re.mjs:2535
+#: src/components/organisms/EventManager.re.mjs:2539
 msgid "Dismiss"
 msgstr "關閉"
 
@@ -369,7 +369,7 @@ msgid "Everything stored on this device is already synced to the server."
 msgstr "此裝置上儲存的所有內容已同步至伺服器。"
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2943
+#: src/components/organisms/EventManager.re.mjs:2947
 msgid "Export History"
 msgstr "匯出紀錄"
 
@@ -434,7 +434,7 @@ msgid "Generate Draws"
 msgstr "生成對戰表"
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Generating…"
 msgstr "生成中…"
 
@@ -454,7 +454,7 @@ msgstr "訪客姓名（每行一個）"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "掃描有問題嗎？請嘗試從俱樂部頁面尋找活動。"
 
-#: src/components/organisms/EventManager.re.mjs:2979
+#: src/components/organisms/EventManager.re.mjs:2983
 msgid "Help"
 msgstr "說明"
 
@@ -463,7 +463,7 @@ msgid "Import"
 msgstr "匯入"
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2953
+#: src/components/organisms/EventManager.re.mjs:2957
 msgid "Import History"
 msgstr "匯入紀錄"
 
@@ -601,7 +601,7 @@ msgstr "開啟手機相機，掃描此碼並加入活動。"
 msgid "Opponent variety"
 msgstr "對手多樣性"
 
-#: src/components/organisms/EventManager.re.mjs:2531
+#: src/components/organisms/EventManager.re.mjs:2535
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr "最佳化工具無法使用——此籤表改用標準配對機制。"
 
@@ -652,7 +652,7 @@ msgid ""
 "with teams balanced by skill."
 msgstr "球員將被分為技能水平相似的組別，以技能平衡的隊伍進行循環賽。"
 
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Preparing optimizer…"
 msgstr "正在準備最佳化工具…"
 
@@ -668,7 +668,7 @@ msgstr "上一回合"
 msgid "Print"
 msgstr "列印"
 
-#: src/components/organisms/EventManager.re.mjs:2430
+#: src/components/organisms/EventManager.re.mjs:2434
 msgid "Print Draws"
 msgstr "列印賽程"
 
@@ -718,7 +718,7 @@ msgstr "替換球員"
 msgid "Replacing:"
 msgstr "替換："
 
-#: src/components/organisms/EventManager.re.mjs:2962
+#: src/components/organisms/EventManager.re.mjs:2966
 msgid "Reset Storage"
 msgstr "重置儲存空間"
 
@@ -814,7 +814,7 @@ msgid ""
 "on another device."
 msgstr "僅包含已計分的比賽與評分調整。請將此內容貼到另一部裝置的「匯入紀錄」。"
 
-#: src/components/organisms/EventManager.re.mjs:2385
+#: src/components/organisms/EventManager.re.mjs:2389
 msgid "Scores Synced!"
 msgstr "比分已同步！"
 
@@ -862,7 +862,7 @@ msgstr "已略過，球員不在此活動中"
 msgid "Some rules had to be bent to fill the courts"
 msgstr "為填滿球場，部分規則須彈性調整"
 
-#: src/components/organisms/EventManager.re.mjs:2926
+#: src/components/organisms/EventManager.re.mjs:2930
 msgid "Sports Event Draws"
 msgstr "運動賽事籤表"
 
@@ -878,24 +878,24 @@ msgstr "策略"
 msgid "Strategy:"
 msgstr "策略："
 
-#: src/components/organisms/EventManager.re.mjs:2397
+#: src/components/organisms/EventManager.re.mjs:2401
 msgid "Sync Failed"
 msgstr "同步失敗"
 
-#: src/components/organisms/EventManager.re.mjs:2361
+#: src/components/organisms/EventManager.re.mjs:2365
 msgid "Sync Scores"
 msgstr "同步比分"
 
-#: src/components/organisms/EventManager.re.mjs:2457
+#: src/components/organisms/EventManager.re.mjs:2461
 msgid "synced"
 msgstr "已同步"
 
-#: src/components/organisms/EventManager.re.mjs:2373
+#: src/components/organisms/EventManager.re.mjs:2377
 msgid "Syncing... {0}%"
 msgstr "同步中... {0}%"
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2292
+#: src/components/organisms/EventManager.re.mjs:2296
 msgid "Team {0}"
 msgstr "第 {0} 隊"
 
@@ -985,7 +985,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr "緊密分組"
 
-#: src/components/organisms/EventManager.re.mjs:2459
+#: src/components/organisms/EventManager.re.mjs:2463
 msgid "to sync"
 msgstr "待同步"
 

@@ -40,10 +40,11 @@ module InviteMutation = %relay(`
 
 // clubId is passed through when the event belongs to a club so candidates are
 // scoped to people the host can actually invite; null lets the server search
-// the activity at large. activitySlug scopes the swipe deck's computed-rating
-// lookup to the event's sport.
+// the activity at large. eventId lets the swipe deck ask for each candidate's
+// rating *for this event* — the server picks the pkuru namespace from the
+// event's tags — so the deck shows the number the player would be seeded on.
 module CandidatesQuery = %relay(`
-  query EventInvitesCandidatesQuery($localDate: String!, $activityId: ID!, $clubId: ID, $activitySlug: String!) {
+  query EventInvitesCandidatesQuery($localDate: String!, $activityId: ID!, $clubId: ID, $eventId: ID!) {
     availabilityUsersForDay(
       localDate: $localDate
       scope: { activityId: $activityId, clubId: $clubId }
@@ -54,7 +55,7 @@ module CandidatesQuery = %relay(`
         id
         lineUsername
         picture
-        ...PlayerInviteSwipeDeck_user @arguments(activitySlug: $activitySlug)
+        ...PlayerInviteSwipeDeck_user @arguments(eventId: $eventId)
       }
       intervals {
         startHour
@@ -80,13 +81,13 @@ module CandidatesLoader = {
     ~localDate: string,
     ~activityId: string,
     ~clubId: option<string>,
-    ~activitySlug: string,
+    ~eventId: string,
     ~evStart: float,
     ~evEnd: float,
     ~onLoaded: array<candidate> => unit,
   ) => {
     let data = CandidatesQuery.use(
-      ~variables={localDate, activityId, ?clubId, activitySlug},
+      ~variables={localDate, activityId, ?clubId, eventId},
       ~fetchPolicy=RescriptRelay.StoreOrNetwork,
     )
     React.useEffect1(() => {
@@ -221,7 +222,7 @@ let make = (
               localDate
               activityId
               clubId
-              activitySlug={activitySlug->Option.getOr("pickleball")}
+              eventId
               evStart
               evEnd
               onLoaded={c => setCandidates(_ => c)}

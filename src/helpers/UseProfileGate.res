@@ -31,6 +31,8 @@ module Fragment = %relay(`
         selfRating
         dupr {
           doubles
+          doublesReliable
+          doublesReliability
         }
         rating(activitySlug: $activitySlug) {
           id
@@ -68,7 +70,8 @@ let use = (
     CombinedRating.resolve(
       ~pkuruMu=None,
       ~duprDoubles=profile->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
-      ~duprReliable=false,
+      ~duprReliability=?profile->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doublesReliability),
+      ~duprReliable=profile->Option.flatMap(u => u.dupr)->Option.map(d => d.doublesReliable)->Option.getOr(false),
       ~selfMu=profile->Option.flatMap(u => u.selfRating),
     )->Option.isSome
 

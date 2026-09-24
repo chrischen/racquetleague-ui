@@ -785,7 +785,7 @@ function MatchmakingLab(props) {
                         setProgress(function (p) {
                               return p + 1 | 0;
                             });
-                      }));
+                      }), undefined, undefined, undefined);
                 var bucket = byField[f];
                 if (bucket !== undefined) {
                   bucket.push(r);

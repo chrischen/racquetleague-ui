@@ -20,6 +20,7 @@ module UserStatsFragment = %relay(`
       singles
       doublesReliable
       singlesReliable
+      doublesReliability
     }
     leagueUserStats(activity: $activitySlug, namespace: "doubles:comp", clubSlug: $clubSlug) {
       daysNumberOne
@@ -647,7 +648,10 @@ module PlayerContent = {
                     <DuprRatingBadge
                       doubles={link.doubles}
                       singles=?link.singles
-                      doublesReliable={link.doublesReliable}
+                      doublesReliable={CombinedRating.duprEstablished(
+                        ~reliability=link.doublesReliability,
+                        ~reliable=link.doublesReliable,
+                      )}
                       singlesReliable={link.singlesReliable}
                     />
                   </div>

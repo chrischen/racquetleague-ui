@@ -400,7 +400,7 @@ let takeClip = async (state, ~seconds: option<float>=?): result<
       | None => Error(CaptureSession.BufferEmpty)
       | Some(clip) => {
           let videoChunks = clip.chunks->Array.map(chunk => {
-            MuxBindings.bytes: chunk.payload,
+            CaptureSession.bytes: chunk.payload,
             timestampUs: chunk.timestampUs,
             durationUs: chunk.durationUs,
             isKey: chunk.isKey,
@@ -433,7 +433,7 @@ let takeClip = async (state, ~seconds: option<float>=?): result<
           }
           let audioChunks = audio->Option.isSome
             ? audioInRange->Array.map(chunk => {
-                MuxBindings.bytes: chunk.payload,
+                CaptureSession.bytes: chunk.payload,
                 timestampUs: chunk.timestampUs,
                 durationUs: chunk.durationUs,
                 isKey: true, // every AAC/Opus frame stands alone
@@ -446,6 +446,14 @@ let takeClip = async (state, ~seconds: option<float>=?): result<
               mimeType: "video/mp4",
               durationSeconds: clip.durationUs /. 1_000_000.,
               hasAudio: audio->Option.isSome,
+              frameTimes: clip.chunks->Array.map(chunk => chunk.timestampUs /. 1_000_000.),
+              encoded: Some({
+                CaptureSession.codec: codec,
+                width: state.width,
+                height: state.height,
+                description: state.videoDecoderConfig->Option.flatMap(config => config.description),
+                chunks: videoChunks,
+              }),
             })
           | Error(message) => Error(CaptureSession.MuxFailed(message))
           }

@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"홈 화면에 추가\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:335
+#: src/components/organisms/SettingsProfileForm.re.mjs:336
 msgid "Active"
 msgstr "활성"
 
@@ -29,7 +29,7 @@ msgstr "알림을 받으려면 홈 화면에 추가하세요"
 msgid "Advanced"
 msgstr "고급"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:374
+#: src/components/organisms/SettingsProfileForm.re.mjs:375
 msgid ""
 "Attendees of your paid events save a card when they RSVP; nothing is charged "
 "up front. From an event's RSVP list you can charge one attendee or everyone, "
@@ -39,7 +39,7 @@ msgstr ""
 "RSVP 목록에서 참가자 한 명 또는 전원에게 청구할 수 있고, 금액은 이 계정으로 "
 "입금됩니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:368
+#: src/components/organisms/SettingsProfileForm.re.mjs:369
 msgid ""
 "Attendees of your paid events still save a card when they RSVP, but it can't "
 "be charged, so you collect the fee at the event. Connect a Stripe account to "
@@ -49,7 +49,7 @@ msgstr ""
 "사 현장에서 받아야 합니다. RSVP 목록에서 저장된 카드에 청구하고 여기로 금액"
 "을 받으려면 Stripe 계정을 연결하세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:428
+#: src/components/organisms/SettingsProfileForm.re.mjs:429
 msgid "Australia"
 msgstr "호주"
 
@@ -57,16 +57,16 @@ msgstr "호주"
 msgid "Beginner"
 msgstr "초급"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:566
+#: src/components/organisms/SettingsProfileForm.re.mjs:567
 msgid "Biography"
 msgstr "자기소개"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:432
+#: src/components/organisms/SettingsProfileForm.re.mjs:433
 msgid "Canada"
 msgstr "캐나다"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:410
+#: src/components/organisms/DuprConnectCard.re.mjs:440
 msgid "Cancel"
 msgstr "취소"
 
@@ -78,25 +78,25 @@ msgstr "완전 초급"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:397
+#: src/components/organisms/SettingsProfileForm.re.mjs:398
 msgid "Connect Stripe account"
 msgstr "Stripe 계정 연결"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:393
+#: src/components/organisms/SettingsProfileForm.re.mjs:394
 msgid "Connecting..."
 msgstr "연결 중..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:156
-#: src/components/organisms/DuprConnectCard.re.mjs:226
-#: src/components/organisms/DuprConnectCard.re.mjs:260
+#: src/components/organisms/DuprConnectCard.re.mjs:162
+#: src/components/organisms/DuprConnectCard.re.mjs:246
+#: src/components/organisms/DuprConnectCard.re.mjs:283
 msgid "Couldn't reach DUPR. Please try again in a moment."
 msgstr "DUPR에 연결할 수 없습니다. 잠시 후 다시 시도해 주세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:413
+#: src/components/organisms/SettingsProfileForm.re.mjs:414
 msgid "Country"
 msgstr "국가"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:477
+#: src/components/organisms/DuprConnectCard.re.mjs:507
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "mydupr.com 또는 DUPR 앱에서 계정을 만드세요"
 
@@ -104,23 +104,23 @@ msgstr "mydupr.com 또는 DUPR 앱에서 계정을 만드세요"
 msgid "Disable notifications"
 msgstr "알림 비활성화"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:446
+#: src/components/organisms/DuprConnectCard.re.mjs:476
 msgid "Disconnect DUPR"
 msgstr "DUPR 연결 해제"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:497
+#: src/components/organisms/DuprConnectCard.re.mjs:527
 msgid "Disconnect DUPR?"
 msgstr "DUPR 연결을 해제할까요?"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:501
+#: src/components/organisms/SettingsProfileForm.re.mjs:502
 msgid "Display Name"
 msgstr "표시 이름"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:518
+#: src/components/organisms/SettingsProfileForm.re.mjs:519
 msgid "Doe John"
 msgstr "Doe John"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:504
 msgid "Don't have a DUPR account?"
 msgstr "DUPR 계정이 없으신가요?"
 
@@ -128,52 +128,60 @@ msgstr "DUPR 계정이 없으신가요?"
 msgid "doubles"
 msgstr "복식"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:426
+#: src/components/organisms/DuprConnectCard.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:321
+#: src/components/organisms/DuprConnectCard.re.mjs:172
+msgid "DUPR couldn't complete the sign-in."
+msgstr "DUPR 로그인을 완료하지 못했습니다."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:344
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:489
+#: src/components/organisms/DuprConnectCard.re.mjs:158
+#: src/components/organisms/DuprConnectCard.re.mjs:519
 msgid "DUPR linking isn't available right now."
 msgstr "지금은 DUPR 연결을 사용할 수 없습니다."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:392
+#: src/components/organisms/DuprConnectCard.re.mjs:416
 msgid "DUPR login"
 msgstr "DUPR 로그인"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-msgid "DUPR sent something we couldn't read. Please try again."
-msgstr "DUPR의 응답을 읽을 수 없습니다. 다시 시도해 주세요."
+#: src/components/organisms/DuprConnectCard.re.mjs:168
+msgid ""
+"DUPR needs you to finish setting up your account before it can be linked. "
+"Follow the steps in the DUPR panel, then sign in again."
+msgstr ""
+"계정을 연결하려면 먼저 DUPR에서 계정 설정을 완료해야 합니다. DUPR 패널의 단계"
+"를 따른 후 다시 로그인하세요."
 
 #: src/components/shared/PushNotifications.re.mjs:414
 msgid "Enable notifications"
 msgstr "알림 활성화"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:618
+#: src/components/organisms/SettingsProfileForm.re.mjs:619
 msgid "Estimated DUPR"
 msgstr "예상 DUPR"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:540
+#: src/components/organisms/SettingsProfileForm.re.mjs:541
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:514
+#: src/components/organisms/SettingsProfileForm.re.mjs:515
 msgid "Full name"
 msgstr "본명"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:529
+#: src/components/organisms/SettingsProfileForm.re.mjs:530
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:444
+#: src/components/organisms/SettingsProfileForm.re.mjs:445
 msgid "Hong Kong"
 msgstr "홍콩"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:505
+#: src/components/organisms/SettingsProfileForm.re.mjs:506
 msgid "How you appear to other players"
 msgstr "다른 플레이어에게 보이는 이름"
 
@@ -189,19 +197,19 @@ msgstr "중급"
 msgid "Intermediate+"
 msgstr "중급+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:420
+#: src/components/organisms/SettingsProfileForm.re.mjs:421
 msgid "Japan"
 msgstr "일본"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:297
+#: src/components/organisms/DuprConnectCard.re.mjs:320
 msgid "Last synced"
 msgstr "마지막 동기화"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:581
+#: src/components/organisms/SettingsProfileForm.re.mjs:582
 msgid "Level"
 msgstr "레벨"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:334
+#: src/components/organisms/DuprConnectCard.re.mjs:357
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -209,19 +217,19 @@ msgstr ""
 "DUPR 계정을 연결하면 인증된 DUPR 레이팅을 여기서 사용할 수 있습니다. 연결된 "
 "동안에는 자가 평가를 대체합니다."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:266
+#: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
 msgstr "연결됨"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:271
+#: src/components/organisms/DuprConnectCard.re.mjs:294
 msgid "Linking"
 msgstr "연결 중"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:363
+#: src/components/organisms/DuprConnectCard.re.mjs:386
 msgid "Linking your account…"
 msgstr "계정 연결 중…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:387
+#: src/components/organisms/DuprConnectCard.re.mjs:411
 msgid "Loading DUPR…"
 msgstr "DUPR 불러오는 중…"
 
@@ -229,29 +237,29 @@ msgstr "DUPR 불러오는 중…"
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
-#: src/components/organisms/DuprConnectCard.re.mjs:460
+#: src/components/organisms/DuprConnectCard.re.mjs:401
+#: src/components/organisms/DuprConnectCard.re.mjs:490
 msgid "Log in with DUPR"
 msgstr "DUPR으로 로그인"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:536
+#: src/components/organisms/SettingsProfileForm.re.mjs:537
 msgid "Male"
 msgstr "남성"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:355
+#: src/components/organisms/SettingsProfileForm.re.mjs:356
 msgid "No Stripe account is connected."
 msgstr "연결된 Stripe 계정이 없습니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:329
+#: src/components/organisms/SettingsProfileForm.re.mjs:330
 msgid "Not connected"
 msgstr "연결 안 됨"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:274
-#: src/components/organisms/DuprConnectCard.re.mjs:278
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+#: src/components/organisms/DuprConnectCard.re.mjs:301
 msgid "Not linked"
 msgstr "연결 안 됨"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:654
+#: src/components/organisms/SettingsProfileForm.re.mjs:655
 msgid "Notifications"
 msgstr "알림"
 
@@ -271,7 +279,7 @@ msgstr "NR"
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "홈 화면에서 앱을 열고 알림을 활성화하세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:332
+#: src/components/organisms/SettingsProfileForm.re.mjs:333
 msgid "Pending"
 msgstr "대기 중"
 
@@ -296,15 +304,15 @@ msgstr ""
 "푸시 알림이 차단되어 있습니다. 이 사이트의 브라우저 또는 기기 알림 설정을 확"
 "인한 후 다시 시도해 주세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:662
+#: src/components/organisms/SettingsProfileForm.re.mjs:663
 msgid "Receive push notifications for event reminders and updates."
 msgstr "이벤트 알림 및 업데이트를 푸시 알림으로 받아보세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:400
+#: src/components/organisms/SettingsProfileForm.re.mjs:401
 msgid "Resume onboarding"
 msgstr "등록 재개"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:640
+#: src/components/organisms/SettingsProfileForm.re.mjs:641
 msgid "Save profile"
 msgstr "프로필 저장"
 
@@ -326,7 +334,7 @@ msgid ""
 "for a partner"
 msgstr "RSVP 목록에서 이름 옆에 배지를 표시하여 파트너를 찾고 있음을 알립니다"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:381
+#: src/components/organisms/DuprConnectCard.re.mjs:404
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -334,7 +342,7 @@ msgstr ""
 "DUPR에 로그인하여 계정을 연결하세요. DUPR ID와 레이팅만 저장하며, DUPR 비밀번"
 "호는 저장하지 않습니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:440
+#: src/components/organisms/SettingsProfileForm.re.mjs:441
 msgid "Singapore"
 msgstr "싱가포르"
 
@@ -342,19 +350,19 @@ msgstr "싱가포르"
 msgid "singles"
 msgstr "단식"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:521
+#: src/components/organisms/SettingsProfileForm.re.mjs:522
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:452
+#: src/components/organisms/SettingsProfileForm.re.mjs:453
 msgid "South Korea"
 msgstr "한국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:682
+#: src/components/organisms/SettingsProfileForm.re.mjs:683
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:448
+#: src/components/organisms/SettingsProfileForm.re.mjs:449
 msgid "Taiwan"
 msgstr "대만"
 
@@ -362,31 +370,31 @@ msgstr "대만"
 msgid "Tap the Share button"
 msgstr "공유 버튼을 탭하세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:572
+#: src/components/organisms/SettingsProfileForm.re.mjs:573
 msgid "tell us a little about yourself"
 msgstr "자신에 대해 간단히 알려주세요"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:570
+#: src/components/organisms/SettingsProfileForm.re.mjs:571
 msgid "Tell us a little about yourself..."
 msgstr "자신을 간략히 소개해 주세요..."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:150
+#: src/components/organisms/DuprConnectCard.re.mjs:156
 msgid "That DUPR account is already linked to another player."
 msgstr "해당 DUPR 계정은 이미 다른 선수와 연결되어 있습니다."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:154
+#: src/components/organisms/DuprConnectCard.re.mjs:160
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "DUPR 로그인이 만료되었습니다. 다시 시도해 주세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:436
+#: src/components/organisms/SettingsProfileForm.re.mjs:437
 msgid "United Kingdom"
 msgstr "영국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:424
+#: src/components/organisms/SettingsProfileForm.re.mjs:425
 msgid "United States"
 msgstr "미국"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:371
+#: src/components/organisms/SettingsProfileForm.re.mjs:372
 msgid ""
 "Until onboarding is complete, your paid events run on the platform account: "
 "attendees save a card when they RSVP, but you can't charge it. Collect the "
@@ -395,14 +403,22 @@ msgstr ""
 "온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP "
 "시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
 
-#: src/components/organisms/DuprConnectCard.re.mjs:498
+#: src/components/organisms/DuprConnectCard.re.mjs:170
+msgid ""
+"You declined to share your DUPR data, so nothing was linked. Sign in again "
+"and choose Authorize to link."
+msgstr ""
+"DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았습니다. 다시 로그인한 후 "
+"'승인'을 선택하여 연결하세요."
+
+#: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
 msgstr ""
 "DUPR 레이팅이 더 이상 사용되지 않으며 자가 평가 선택이 다시 표시됩니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:603
+#: src/components/organisms/SettingsProfileForm.re.mjs:604
 msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
@@ -410,15 +426,15 @@ msgstr ""
 "회원님의 등급은 DUPR에서 가져옵니다. 직접 실력을 설정하려면 아래에서 DUPR 연"
 "결을 해제하세요."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:618
+#: src/components/organisms/SettingsProfileForm.re.mjs:619
 msgid "Your self-reported skill level"
 msgstr "자가 신고 실력 수준"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:358
+#: src/components/organisms/SettingsProfileForm.re.mjs:359
 msgid "Your Stripe account is connected, but onboarding isn't complete yet."
 msgstr "Stripe 계정이 연결되었지만 온보딩이 아직 완료되지 않았습니다."
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:361
+#: src/components/organisms/SettingsProfileForm.re.mjs:362
 msgid "Your Stripe account is connected."
 msgstr "Stripe 계정이 연결되었습니다."
 
@@ -438,6 +454,10 @@ msgstr "Stripe 계정이 연결되었습니다."
 #: src/components/organisms/SettingsProfileForm.re.mjs:214
 #~ msgid "details about yourself"
 #~ msgstr "자신에 대한 세부 정보"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPR의 응답을 읽을 수 없습니다. 다시 시도해 주세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:222
 #~ msgid "full name"

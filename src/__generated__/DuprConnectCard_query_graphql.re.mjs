@@ -107,6 +107,13 @@ var node = {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
+                  "name": "doublesReliability",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
                   "name": "syncedAt",
                   "storageKey": null
                 }

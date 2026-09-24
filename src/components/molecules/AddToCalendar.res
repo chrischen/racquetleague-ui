@@ -1,30 +1,33 @@
 %%raw("import { t } from '@lingui/macro'")
 open Lingui.Util
-module ProvidersMenu = {
-  type navItem = {label: string, url: string, initials?: string}
+
+// The viewer's events as a subscribable calendar feed: the webcal link opens
+// the device's calendar app (Apple Calendar, Outlook); Google needs its own
+// add-by-URL page. Also offered by the New plan modal (NewPlanChooserModal).
+type provider = {label: string, url: string, initials: string}
+let providers = userId => {
   let ts = Lingui.UtilString.t
+  let feedUrl = "webcal://www.pkuru.com/cal-feed/" ++ userId
+  [
+    {label: ts`Apple iCal`, url: feedUrl, initials: "I"},
+    {
+      label: ts`Google Calendar`,
+      url: "https://calendar.google.com/calendar/u/0/r?cid=" ++ Util.encodeURIComponent(feedUrl),
+      initials: "G",
+    },
+  ]
+}
+
+module ProvidersMenu = {
   @react.component
   let make = (~userId: string) => {
     open Dropdown
-    let activities = [
-      {label: ts`Apple iCal`, url: "webcal://www.pkuru.com/cal-feed/" ++ userId, initials: "I"},
-      {
-        label: ts`Google Calendar`,
-        url: "https://calendar.google.com/calendar/u/0/r?cid=" ++
-        Util.encodeURIComponent("webcal://www.pkuru.com/cal-feed/" ++ userId),
-        initials: "G",
-      },
-    ]
     <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
-      {activities
+      {providers(userId)
       ->Array.map(a =>
         <React.Fragment key={a.label}>
           <DropdownItem href=a.url>
-            {a.initials
-            ->Option.map(initials =>
-              <Avatar slot="icon" initials className="bg-purple-500 text-white" />
-            )
-            ->Option.getOr(React.null)}
+            <Avatar slot="icon" initials=a.initials className="bg-purple-500 text-white" />
             <DropdownLabel> {a.label->React.string} </DropdownLabel>
           </DropdownItem>
           <DropdownDivider />

@@ -90,7 +90,7 @@ external removeKeyListener: (string, keyboardEv => unit) => unit = "removeEventL
 
 module UserFragment = %relay(`
   fragment PlayerInviteSwipeDeck_user on User
-  @argumentDefinitions(activitySlug: {type: "String", defaultValue: "pickleball"}) {
+  @argumentDefinitions(eventId: {type: "ID!"}) {
     id
     lineUsername
     picture
@@ -100,10 +100,12 @@ module UserFragment = %relay(`
     dupr {
       doubles
       doublesReliable
+      doublesReliability
     }
-    rating(activitySlug: $activitySlug) {
+    eventRating(eventId: $eventId) {
       id
       mu
+      sigma
     }
   }
 `)
@@ -122,7 +124,11 @@ type profile = {
   // A linked DUPR rating, which outranks the self-report wherever both exist.
   duprDoubles: option<float>,
   duprReliable: bool,
+  duprReliability: option<float>,
   computedDupr: option<float>,
+  // The pkuru rating's sigma, which decides whether it is currently
+  // confident enough to outrank an established DUPR rating.
+  computedSigma: option<float>,
   // Approve mode: the note the requester left on their RSVP.
   note: option<string>,
 }
@@ -184,7 +190,9 @@ module ProfileCard = {
     // with every signal, pkuru included. The chip says which one it picked.
     let declared = CombinedRating.resolve(
       ~pkuruMu=computedDupr->Option.map(Rating.duprToMu),
+      ~pkuruSigma=?profile.computedSigma,
       ~duprDoubles=profile.duprDoubles,
+      ~duprReliability=?profile.duprReliability,
       ~duprReliable=profile.duprReliable,
       ~selfMu=selfDupr->Option.map(Rating.duprToMu),
     )
@@ -317,7 +325,7 @@ module ProfileCard = {
                   <RatingSourceChip
                     className="mt-1"
                     source={CombinedRating.source(r)}
-                    reliable={CombinedRating.reliable(r)}
+                    reliable={CombinedRating.established(r)}
                   />
                 | None => React.null
                 }}
@@ -438,7 +446,9 @@ module FragmentCard = {
       selfDupr: user.selfRating->Option.map(Rating.guessDupr),
       duprDoubles: user.dupr->Option.flatMap(d => d.doubles),
       duprReliable: user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
-      computedDupr: user.rating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
+      duprReliability: user.dupr->Option.flatMap(d => d.doublesReliability),
+      computedDupr: user.eventRating->Option.flatMap(r => r.mu)->Option.map(Rating.guessDupr),
+      computedSigma: user.eventRating->Option.flatMap(r => r.sigma),
       note: None,
     }
     <ProfileCard profile mode eventTitle eventVenue eventTimeLabel exitDirection onSwipe />

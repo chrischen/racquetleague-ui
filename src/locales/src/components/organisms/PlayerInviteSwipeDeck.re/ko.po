@@ -25,7 +25,7 @@ msgstr "고급"
 msgid "APPROVE"
 msgstr "승인"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Approve {0}"
 msgstr "{0} 승인"
 
@@ -33,7 +33,7 @@ msgstr "{0} 승인"
 msgid "Approve for {eventTitle}"
 msgstr "{eventTitle}에 대해 승인"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Approved players have moved into the confirmed list."
 msgstr "승인된 플레이어가 확정 목록으로 이동했습니다."
 
@@ -41,7 +41,7 @@ msgstr "승인된 플레이어가 확정 목록으로 이동했습니다."
 msgid "Available for the full event"
 msgstr "전체 이벤트 참가 가능"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
 msgid "Back to event"
 msgstr "이벤트로 돌아가기"
 
@@ -53,11 +53,11 @@ msgstr "기록된 경기 기반"
 msgid "Beginner"
 msgstr "초급"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close request review"
 msgstr "요청 검토 닫기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close swipe invitations"
 msgstr "스와이프 초대 닫기"
 
@@ -69,7 +69,7 @@ msgstr "완전 초급"
 msgid "Computed rating"
 msgstr "산출된 레이팅"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Everyone reviewed"
 msgstr "모두 검토 완료"
 
@@ -94,11 +94,11 @@ msgstr "중급+"
 msgid "INVITE"
 msgstr "초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Invite {0}"
 msgstr "{0} 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Invite players"
 msgstr "플레이어 초대"
 
@@ -106,7 +106,7 @@ msgstr "플레이어 초대"
 msgid "Invite to {eventTitle}"
 msgstr "{eventTitle}에 초대"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Invited players have moved into the event's invited list."
 msgstr "초대된 플레이어가 이벤트의 초대 목록으로 이동되었습니다."
 
@@ -114,7 +114,7 @@ msgstr "초대된 플레이어가 이벤트의 초대 목록으로 이동되었�
 msgid "KEEP"
 msgstr "유지"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Keep {0} pending"
 msgstr "{0} 대기 상태로 유지"
 
@@ -150,7 +150,7 @@ msgstr "잠정"
 msgid "Rating"
 msgstr "레이팅"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Review requests"
 msgstr "요청 검토"
 
@@ -162,15 +162,15 @@ msgstr "자가 평가"
 msgid "SKIP"
 msgstr "건너뛰기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Skip {0}"
 msgstr "{0} 건너뛰기"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to keep pending · right to approve"
 msgstr "왼쪽으로 스와이프하면 대기 유지 · 오른쪽으로 스와이프하면 승인"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to skip · right to invite"
 msgstr "왼쪽으로 스와이프하여 건너뛰기 · 오른쪽으로 초대"
 

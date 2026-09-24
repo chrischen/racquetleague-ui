@@ -17,8 +17,8 @@ msgstr ""
 msgid "+{0} more"
 msgstr "+{0} คน"
 
-#: src/components/organisms/RSVPSection.re.mjs:907
-#: src/components/organisms/RSVPSection.re.mjs:1007
+#: src/components/organisms/RSVPSection.re.mjs:917
+#: src/components/organisms/RSVPSection.re.mjs:1017
 msgid "Add Member"
 msgstr "เพิ่มสมาชิก"
 
@@ -46,7 +46,7 @@ msgstr "เรียกเก็บเงิน"
 msgid "Clear preview"
 msgstr "ล้างตัวอย่าง"
 
-#: src/components/organisms/RSVPSection.re.mjs:924
+#: src/components/organisms/RSVPSection.re.mjs:934
 msgid "Collapse"
 msgstr "ย่อ"
 
@@ -70,11 +70,11 @@ msgstr "เข้าร่วมกิจกรรม"
 msgid "Join Waitlist"
 msgstr "เข้าร่วมรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:1023
+#: src/components/organisms/RSVPSection.re.mjs:1033
 msgid "Load more"
 msgstr "โหลดเพิ่มเติม"
 
-#: src/components/organisms/RSVPSection.re.mjs:1020
+#: src/components/organisms/RSVPSection.re.mjs:1030
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -91,11 +91,11 @@ msgstr "ย้ายไปรายชื่อรอ"
 msgid "No players found"
 msgstr "ไม่พบผู้เล่น"
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr "ยังไม่ได้ชำระ"
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr "ชำระแล้ว"
 
@@ -132,7 +132,7 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/RSVPSection.re.mjs:655
+#: src/components/organisms/RSVPSection.re.mjs:665
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 
@@ -140,9 +140,9 @@ msgstr "เรตติ้งที่ต้องการ: {0} (DUPR {1})"
 msgid "Retry charge"
 msgstr "ลองเรียกเก็บเงินอีกครั้ง"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
-#: src/components/organisms/RSVPSection.re.mjs:817
-#: src/components/organisms/RSVPSection.re.mjs:946
+#: src/components/organisms/RSVPSection.re.mjs:788
+#: src/components/organisms/RSVPSection.re.mjs:827
+#: src/components/organisms/RSVPSection.re.mjs:956
 msgid "RSVP"
 msgstr "ยืนยันการเข้าร่วม"
 
@@ -175,7 +175,7 @@ msgstr "Smart RSVP จะรับ {0} จาก {1} คำขอที่รอ
 msgid "Smart Waitlist"
 msgstr "รายชื่อรอแบบสมาร์ท"
 
-#: src/components/organisms/RSVPSection.re.mjs:643
+#: src/components/organisms/RSVPSection.re.mjs:653
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -229,7 +229,7 @@ msgstr "คุณจะไป"
 msgid "You're Waitlisted"
 msgstr "คุณอยู่ในรายชื่อคอย"
 
-#: src/components/organisms/RSVPSection.re.mjs:657
+#: src/components/organisms/RSVPSection.re.mjs:667
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

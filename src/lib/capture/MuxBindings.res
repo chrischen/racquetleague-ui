@@ -1,12 +1,7 @@
 // ReScript face of muxLoader.ts. Same error convention as HighsBindings:
 // async boundary wrapped in try/catch, surfaced as result.
 
-type muxChunk = {
-  bytes: Uint8Array.t,
-  timestampUs: float,
-  durationUs: float,
-  isKey: bool,
-}
+type muxChunk = CaptureSession.encodedChunk
 
 type muxVideoConfig = {
   codec: string,

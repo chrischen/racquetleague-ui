@@ -6,20 +6,22 @@ module Types = {
 
   type rec fragment_dupr = {
     doubles: option<float>,
+    doublesReliability: option<float>,
     doublesReliable: bool,
   }
-  and fragment_rating = {
+  and fragment_eventRating = {
     @live id: string,
     mu: option<float>,
+    sigma: option<float>,
   }
   type fragment = {
     biography: option<string>,
     dupr: option<fragment_dupr>,
+    eventRating: option<fragment_eventRating>,
     gender: option<RelaySchemaAssets_graphql.enum_Gender>,
     @live id: string,
     lineUsername: option<string>,
     picture: option<string>,
-    rating: option<fragment_rating>,
     selfRating: option<float>,
   }
 }
@@ -81,9 +83,9 @@ var v0 = {
 return {
   "argumentDefinitions": [
     {
-      "defaultValue": "pickleball",
+      "defaultValue": null,
       "kind": "LocalArgument",
-      "name": "activitySlug"
+      "name": "eventId"
     }
   ],
   "kind": "Fragment",
@@ -147,6 +149,13 @@ return {
           "kind": "ScalarField",
           "name": "doublesReliable",
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doublesReliability",
+          "storageKey": null
         }
       ],
       "storageKey": null
@@ -156,13 +165,13 @@ return {
       "args": [
         {
           "kind": "Variable",
-          "name": "activitySlug",
-          "variableName": "activitySlug"
+          "name": "eventId",
+          "variableName": "eventId"
         }
       ],
       "concreteType": "Rating",
       "kind": "LinkedField",
-      "name": "rating",
+      "name": "eventRating",
       "plural": false,
       "selections": [
         (v0/*: any*/),
@@ -171,6 +180,13 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "mu",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "sigma",
           "storageKey": null
         }
       ],

@@ -63,6 +63,7 @@ module Fragment = %relay(`
         dupr {
           doubles
           doublesReliable
+          doublesReliability
         }
       }
     }
@@ -430,10 +431,19 @@ let make = (
                           <div className="flex items-center gap-2 text-gray-900 dark:text-gray-100">
                             <DuprRatingBadge
                               doubles={link.doubles}
-                              doublesReliable={link.doublesReliable}
+                              doublesReliable={CombinedRating.duprEstablished(
+                                ~reliability=link.doublesReliability,
+                                ~reliable=link.doublesReliable,
+                              )}
                               compact=true
                             />
-                            <RatingSourceChip source=Dupr reliable={link.doublesReliable} />
+                            <RatingSourceChip
+                              source=Dupr
+                              reliable={CombinedRating.duprEstablished(
+                                ~reliability=link.doublesReliability,
+                                ~reliable=link.doublesReliable,
+                              )}
+                            />
                           </div>
                         | None => <LevelPicker value=level onChange={v => setLevel(_ => Some(v))} />
                         }}

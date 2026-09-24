@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
-#: src/components/organisms/DuprConnectCard.re.mjs:410
+#: src/components/organisms/DuprConnectCard.re.mjs:440
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -22,25 +22,25 @@ msgstr "キャンセル"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:156
-#: src/components/organisms/DuprConnectCard.re.mjs:226
-#: src/components/organisms/DuprConnectCard.re.mjs:260
+#: src/components/organisms/DuprConnectCard.re.mjs:162
+#: src/components/organisms/DuprConnectCard.re.mjs:246
+#: src/components/organisms/DuprConnectCard.re.mjs:283
 msgid "Couldn't reach DUPR. Please try again in a moment."
 msgstr "DUPRに接続できませんでした。しばらくしてからもう一度お試しください。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:477
+#: src/components/organisms/DuprConnectCard.re.mjs:507
 msgid "Create one at mydupr.com or in the DUPR app"
 msgstr "mydupr.com またはDUPRアプリで作成できます"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:446
+#: src/components/organisms/DuprConnectCard.re.mjs:476
 msgid "Disconnect DUPR"
 msgstr "DUPRの連携を解除"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:497
+#: src/components/organisms/DuprConnectCard.re.mjs:527
 msgid "Disconnect DUPR?"
 msgstr "DUPRの連携を解除しますか？"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:474
+#: src/components/organisms/DuprConnectCard.re.mjs:504
 msgid "Don't have a DUPR account?"
 msgstr "DUPRアカウントをお持ちではありませんか？"
 
@@ -48,32 +48,40 @@ msgstr "DUPRアカウントをお持ちではありませんか？"
 msgid "doubles"
 msgstr "ダブルス"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:426
+#: src/components/organisms/DuprConnectCard.re.mjs:456
 msgid "DUPR"
 msgstr "DUPR"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:321
+#: src/components/organisms/DuprConnectCard.re.mjs:172
+msgid "DUPR couldn't complete the sign-in."
+msgstr "DUPRでサインインを完了できませんでした。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:344
 msgid "DUPR ID"
 msgstr "DUPR ID"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:152
-#: src/components/organisms/DuprConnectCard.re.mjs:489
+#: src/components/organisms/DuprConnectCard.re.mjs:158
+#: src/components/organisms/DuprConnectCard.re.mjs:519
 msgid "DUPR linking isn't available right now."
 msgstr "現在DUPRの連携はご利用いただけません。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:392
+#: src/components/organisms/DuprConnectCard.re.mjs:416
 msgid "DUPR login"
 msgstr "DUPRログイン"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:187
-msgid "DUPR sent something we couldn't read. Please try again."
-msgstr "DUPRから読み取れないデータが返されました。もう一度お試しください。"
+#: src/components/organisms/DuprConnectCard.re.mjs:168
+msgid ""
+"DUPR needs you to finish setting up your account before it can be linked. "
+"Follow the steps in the DUPR panel, then sign in again."
+msgstr ""
+"連携するには、DUPRでアカウント設定を完了する必要があります。DUPRパネルの手順"
+"に従ってから、もう一度サインインしてください。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:297
+#: src/components/organisms/DuprConnectCard.re.mjs:320
 msgid "Last synced"
 msgstr "最終同期"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:334
+#: src/components/organisms/DuprConnectCard.re.mjs:357
 msgid ""
 "Link your DUPR account to use your verified DUPR rating here. While it's "
 "linked, it replaces your self-rating."
@@ -81,29 +89,29 @@ msgstr ""
 "DUPRアカウントを連携すると、認証済みのDUPRレーティングをここで使用できます。"
 "連携中は自己評価の代わりに適用されます。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:266
+#: src/components/organisms/DuprConnectCard.re.mjs:289
 msgid "Linked"
 msgstr "連携済み"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:271
+#: src/components/organisms/DuprConnectCard.re.mjs:294
 msgid "Linking"
 msgstr "連携中"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:363
+#: src/components/organisms/DuprConnectCard.re.mjs:386
 msgid "Linking your account…"
 msgstr "アカウントを連携しています…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:387
+#: src/components/organisms/DuprConnectCard.re.mjs:411
 msgid "Loading DUPR…"
 msgstr "DUPRを読み込み中…"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:378
-#: src/components/organisms/DuprConnectCard.re.mjs:460
+#: src/components/organisms/DuprConnectCard.re.mjs:401
+#: src/components/organisms/DuprConnectCard.re.mjs:490
 msgid "Log in with DUPR"
 msgstr "DUPRでログイン"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:274
-#: src/components/organisms/DuprConnectCard.re.mjs:278
+#: src/components/organisms/DuprConnectCard.re.mjs:297
+#: src/components/organisms/DuprConnectCard.re.mjs:301
 msgid "Not linked"
 msgstr "未連携"
 
@@ -115,7 +123,7 @@ msgstr "NR"
 msgid "provisional"
 msgstr "暫定"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:381
+#: src/components/organisms/DuprConnectCard.re.mjs:404
 msgid ""
 "Sign in to DUPR to link your account. We store your DUPR ID and ratings — "
 "never your DUPR password."
@@ -127,16 +135,28 @@ msgstr ""
 msgid "singles"
 msgstr "シングルス"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:150
+#: src/components/organisms/DuprConnectCard.re.mjs:156
 msgid "That DUPR account is already linked to another player."
 msgstr "そのDUPRアカウントは既に別のプレーヤーと連携されています。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:154
+#: src/components/organisms/DuprConnectCard.re.mjs:160
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "DUPRのサインインの有効期限が切れました。もう一度お試しください。"
 
-#: src/components/organisms/DuprConnectCard.re.mjs:498
+#: src/components/organisms/DuprConnectCard.re.mjs:170
+msgid ""
+"You declined to share your DUPR data, so nothing was linked. Sign in again "
+"and choose Authorize to link."
+msgstr ""
+"DUPRデータの共有を拒否したため、連携されませんでした。もう一度サインインし、"
+"「承認」を選択して連携してください。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
 msgstr "DUPRレーティングはここで使用されなくなり、自己評価の選択に戻ります。"
+
+#: src/components/organisms/DuprConnectCard.re.mjs:187
+#~ msgid "DUPR sent something we couldn't read. Please try again."
+#~ msgstr "DUPRから読み取れないデータが返されました。もう一度お試しください。"

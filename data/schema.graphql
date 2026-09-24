@@ -190,6 +190,13 @@ type Club implements Node {
   description: String
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int, token: String): EventConnection!
 
+  """The club's own address for court-booking emails. Anything sent to it is
+ posted to the club as an event, credited to the sender when they have a
+ pkuru account under that email and to the owner otherwise. Shown to the
+ club's owners and admins (full members): null for everyone else, and while
+ the server is not configured for inbound email."""
+  eventsInboxAddress: String
+
   """
   * Whether active members join this club's priced events without saving a
      * card even though fees are charged to the owner's account. Meaningful only
@@ -415,6 +422,12 @@ type DuprLink {
   doubles: Float
 
   """
+  DUPR's 0-100 reliability score, which tracks the rated matches behind
+     the rating. Absent when DUPR did not report one.
+  """
+  doublesReliability: Float
+
+  """
   DUPR's own confidence in the doubles rating. An unreliable rating is
      shown as provisional but still counts for level gating.
   """
@@ -423,6 +436,7 @@ type DuprLink {
 
   """Singles rating, absent when DUPR has not rated this player in singles."""
   singles: Float
+  singlesReliability: Float
   singlesReliable: Boolean!
 
   """When we last read these ratings from DUPR."""
@@ -1418,6 +1432,14 @@ A rating picked from a player's signals, and which signal it was. The
 type ResolvedRating {
   """The same rating on the DUPR scale, for display."""
   dupr: Float!
+
+  """
+  Whether the rating clears its source's own confidence bar: a pkuru
+     rating whose sigma is currently low, or a DUPR rating whose reliability
+     score is high enough. A self-report never does. Show as provisional when
+     false; it is still the rating.
+  """
+  established: Boolean!
 
   """On the internal mu scale, the same scale as an event's min/max rating."""
   mu: Float!

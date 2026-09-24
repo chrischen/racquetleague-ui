@@ -77,8 +77,8 @@ msgstr "hoạt động"
 msgid "Activity"
 msgstr "Môn thể thao"
 
-#: src/components/organisms/RSVPSection.re.mjs:907
-#: src/components/organisms/RSVPSection.re.mjs:1007
+#: src/components/organisms/RSVPSection.re.mjs:917
+#: src/components/organisms/RSVPSection.re.mjs:1017
 msgid "Add Member"
 msgstr "Thêm thành viên"
 
@@ -122,7 +122,7 @@ msgstr "Thu tiền thanh toán"
 msgid "Clear preview"
 msgstr "Xóa bản xem trước"
 
-#: src/components/organisms/RSVPSection.re.mjs:924
+#: src/components/organisms/RSVPSection.re.mjs:934
 msgid "Collapse"
 msgstr "Thu gọn"
 
@@ -202,11 +202,11 @@ msgstr "giải đấu"
 msgid "left the event"
 msgstr "đã rời sự kiện"
 
-#: src/components/organisms/RSVPSection.re.mjs:1023
+#: src/components/organisms/RSVPSection.re.mjs:1033
 msgid "Load more"
 msgstr "Tải thêm"
 
-#: src/components/organisms/RSVPSection.re.mjs:1020
+#: src/components/organisms/RSVPSection.re.mjs:1030
 msgid "Loading..."
 msgstr "Đang tải..."
 
@@ -251,7 +251,7 @@ msgstr "chưa có người chơi"
 msgid "No restriction on skill level. Open to all players."
 msgstr "Không giới hạn trình độ. Mở cửa cho tất cả mọi người."
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
@@ -259,7 +259,7 @@ msgstr "Chưa thanh toán"
 msgid "notes"
 msgstr "ghi chú"
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr "Đã thanh toán"
 
@@ -315,7 +315,7 @@ msgstr "Xóa khỏi sự kiện"
 msgid "Remove this RSVP"
 msgstr "Xóa RSVP này"
 
-#: src/components/organisms/RSVPSection.re.mjs:655
+#: src/components/organisms/RSVPSection.re.mjs:665
 msgid "Required rating: {0} (DUPR {1})"
 msgstr "Xếp hạng yêu cầu: {0} (DUPR {1})"
 
@@ -327,9 +327,9 @@ msgstr "Kết quả sẽ được tính vào xếp hạng thi đấu."
 msgid "Retry charge"
 msgstr "Thử thu tiền lại"
 
-#: src/components/organisms/RSVPSection.re.mjs:778
-#: src/components/organisms/RSVPSection.re.mjs:817
-#: src/components/organisms/RSVPSection.re.mjs:946
+#: src/components/organisms/RSVPSection.re.mjs:788
+#: src/components/organisms/RSVPSection.re.mjs:827
+#: src/components/organisms/RSVPSection.re.mjs:956
 msgid "RSVP"
 msgstr "RSVP"
 
@@ -396,7 +396,7 @@ msgstr "đăng ký tất cả sự kiện {activityName}"
 msgid "sync calendar"
 msgstr "đồng bộ lịch"
 
-#: src/components/organisms/RSVPSection.re.mjs:643
+#: src/components/organisms/RSVPSection.re.mjs:653
 msgid ""
 "This event admits players automatically. Your request will be reviewed and "
 "you will be notified once a spot is confirmed."
@@ -502,7 +502,7 @@ msgstr "Bạn đang tham dự"
 msgid "You're Waitlisted"
 msgstr "Bạn đang trong danh sách chờ"
 
-#: src/components/organisms/RSVPSection.re.mjs:657
+#: src/components/organisms/RSVPSection.re.mjs:667
 msgid ""
 "Your rating {0} ~ {1} (DUPR {2} ~ {3}) is too low. You will be placed in the "
 "pending list until the rating limit is lowered. Please join another JPL "

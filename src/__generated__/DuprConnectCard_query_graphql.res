@@ -6,6 +6,7 @@ module Types = {
 
   type rec fragment_viewer_profile_dupr = {
     doubles: option<float>,
+    doublesReliability: option<float>,
     doublesReliable: bool,
     duprId: string,
     singles: option<float>,
@@ -135,6 +136,13 @@ let node: operationType = %raw(json` {
                   "args": null,
                   "kind": "ScalarField",
                   "name": "singlesReliable",
+                  "storageKey": null
+                },
+                {
+                  "alias": null,
+                  "args": null,
+                  "kind": "ScalarField",
+                  "name": "doublesReliability",
                   "storageKey": null
                 },
                 {

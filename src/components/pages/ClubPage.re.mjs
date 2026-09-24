@@ -552,6 +552,11 @@ function ClubPage(props) {
       });
   var setPaymentsError = match$3[1];
   var paymentsError = match$3[0];
+  var match$4 = React.useState(function () {
+        return false;
+      });
+  var setInboxCopied = match$4[1];
+  var inboxCopied = match$4[0];
   var handleJoinClub = function () {
     Core__Option.getOr(Core__Option.map(query.club, (function (club) {
                 var membersConnectionId = RelayRuntime.ConnectionHandler.getConnectionID("client:root", "ClubMembersPageMembersQuery_clubMembers", undefined);
@@ -729,6 +734,7 @@ function ClubPage(props) {
                                           });
                                     }
                                     var stats = club.stats;
+                                    var address = club.eventsInboxAddress;
                                     return JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx("header", {
@@ -802,6 +808,50 @@ function ClubPage(props) {
                                                         children: [
                                                           stats !== undefined ? JsxRuntime.jsx(ClubPage$StatsGrid, {
                                                                   stats: stats
+                                                                }) : null,
+                                                          address !== undefined && (viewerIsAdmin || viewerIsOwner) ? JsxRuntime.jsxs("section", {
+                                                                  children: [
+                                                                    JsxRuntime.jsx("h2", {
+                                                                          children: t`Booking email`,
+                                                                          className: "text-base font-semibold text-gray-900 dark:text-gray-100"
+                                                                        }),
+                                                                    JsxRuntime.jsx("p", {
+                                                                          children: t`Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner.`,
+                                                                          className: "mt-1 text-xs leading-relaxed text-gray-500 dark:text-gray-400"
+                                                                        }),
+                                                                    JsxRuntime.jsxs("div", {
+                                                                          children: [
+                                                                            JsxRuntime.jsx("code", {
+                                                                                  children: address,
+                                                                                  className: "select-all rounded-lg bg-gray-100 px-3 py-2 font-mono text-sm text-gray-900 dark:bg-[#2a2b30] dark:text-gray-100"
+                                                                                }),
+                                                                            JsxRuntime.jsxs("button", {
+                                                                                  children: [
+                                                                                    JsxRuntime.jsx(LucideReact.Copy, {
+                                                                                          size: 13,
+                                                                                          "aria-hidden": "true"
+                                                                                        }),
+                                                                                    inboxCopied ? t`Copied!` : t`Copy`
+                                                                                  ],
+                                                                                  className: secondaryAction,
+                                                                                  type: "button",
+                                                                                  onClick: (function (param) {
+                                                                                      navigator.clipboard.writeText(address);
+                                                                                      setInboxCopied(function (param) {
+                                                                                            return true;
+                                                                                          });
+                                                                                      setTimeout((function () {
+                                                                                              setInboxCopied(function (param) {
+                                                                                                    return false;
+                                                                                                  });
+                                                                                            }), 2000);
+                                                                                    })
+                                                                                })
+                                                                          ],
+                                                                          className: "mt-3 flex flex-wrap items-center gap-2"
+                                                                        })
+                                                                  ],
+                                                                  className: cardClass + " p-4"
                                                                 }) : null,
                                                           viewerIsOwner ? JsxRuntime.jsxs("section", {
                                                                   children: [

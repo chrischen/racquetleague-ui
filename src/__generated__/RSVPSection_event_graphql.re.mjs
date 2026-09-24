@@ -283,6 +283,20 @@ return {
                           "kind": "ScalarField",
                           "name": "doubles",
                           "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doublesReliable",
+                          "storageKey": null
+                        },
+                        {
+                          "alias": null,
+                          "args": null,
+                          "kind": "ScalarField",
+                          "name": "doublesReliability",
+                          "storageKey": null
                         }
                       ],
                       "storageKey": null

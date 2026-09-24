@@ -3,31 +3,46 @@
 import * as Rating from "./Rating.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 
-function trust(r) {
-  return r;
-}
+var standard_establishedSigma = 25.0 / 3.0 / Math.sqrt(2.0);
+
+var standard = {
+  establishedSigma: standard_establishedSigma,
+  reliableScore: 20.0
+};
+
+var Policy = {
+  standard: standard
+};
 
 var isFiniteNumber = ((x) => typeof x === "number" && Number.isFinite(x));
 
-function ofPkuru(mu) {
+function duprEstablished(reliability, reliable) {
+  if (reliability !== undefined && isFiniteNumber(reliability)) {
+    return reliability >= 20.0;
+  } else {
+    return reliable;
+  }
+}
+
+function ofPkuru(mu, sigma) {
   if (isFiniteNumber(mu)) {
     return {
             mu: mu,
             dupr: Rating.guessDupr(mu),
             source: "Pkuru",
-            reliable: true
+            established: sigma !== undefined && isFiniteNumber(sigma) ? sigma <= standard_establishedSigma : false
           };
   }
   
 }
 
-function ofDupr(doubles, reliable) {
+function ofDupr(doubles, reliability, reliable) {
   if (isFiniteNumber(doubles) && doubles > 0.0) {
     return {
             mu: Rating.duprToMu(doubles),
             dupr: doubles,
             source: "Dupr",
-            reliable: reliable
+            established: duprEstablished(reliability, reliable)
           };
   }
   
@@ -39,24 +54,34 @@ function ofSelf(mu) {
             mu: mu,
             dupr: Rating.guessDupr(mu),
             source: "Self",
-            reliable: false
+            established: false
           };
   }
   
 }
 
-function resolve(pkuruMu, duprDoubles, duprReliable, selfMu) {
-  var r = Core__Option.flatMap(pkuruMu, ofPkuru);
-  var tmp;
-  if (r !== undefined) {
-    tmp = r;
+function resolve(pkuruMu, pkuruSigma, duprDoubles, duprReliability, duprReliable, selfMu) {
+  var pkuru = Core__Option.flatMap(pkuruMu, (function (mu) {
+          return ofPkuru(mu, pkuruSigma);
+        }));
+  var dupr = Core__Option.flatMap(duprDoubles, (function (doubles) {
+          return ofDupr(doubles, duprReliability, duprReliable);
+        }));
+  if (pkuru !== undefined) {
+    if (dupr !== undefined) {
+      if (pkuru.established || !dupr.established) {
+        return pkuru;
+      } else {
+        return dupr;
+      }
+    } else {
+      return pkuru;
+    }
+  } else if (dupr !== undefined) {
+    return dupr;
   } else {
-    var r$1 = Core__Option.flatMap(duprDoubles, (function (doubles) {
-            return ofDupr(doubles, duprReliable);
-          }));
-    tmp = r$1 !== undefined ? r$1 : Core__Option.flatMap(selfMu, ofSelf);
+    return Core__Option.flatMap(selfMu, ofSelf);
   }
-  return Core__Option.map(tmp, trust);
 }
 
 function mu(r) {
@@ -71,32 +96,34 @@ function source(r) {
   return r.source;
 }
 
-function reliable(r) {
-  return r.reliable;
+function established(r) {
+  return r.established;
 }
 
 var Guarded = {
+  Policy: Policy,
   ofPkuru: ofPkuru,
   ofDupr: ofDupr,
   ofSelf: ofSelf,
+  duprEstablished: duprEstablished,
   resolve: resolve,
   mu: mu,
   dupr: dupr,
   source: source,
-  reliable: reliable,
-  trust: trust
+  established: established
 };
 
 export {
   Guarded ,
+  Policy ,
   ofPkuru ,
   ofDupr ,
   ofSelf ,
+  duprEstablished ,
   resolve ,
   mu ,
   dupr ,
   source ,
-  reliable ,
-  trust ,
+  established ,
 }
-/* Rating Not a pure module */
+/* standard Not a pure module */

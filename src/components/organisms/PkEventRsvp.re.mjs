@@ -61,8 +61,12 @@ function PkEventRsvp(props) {
   return Core__Option.getOr(Core__Option.map(rsvp.user, (function (user) {
                     var combined = CombinedRating.resolve(Core__Option.flatMap(rsvp.rating, (function (r) {
                                 return r.mu;
+                              })), Core__Option.flatMap(rsvp.rating, (function (r) {
+                                return r.sigma;
                               })), Core__Option.flatMap(user.dupr, (function (d) {
                                 return d.doubles;
+                              })), Core__Option.flatMap(user.dupr, (function (d) {
+                                return d.doublesReliability;
                               })), Core__Option.getOr(Core__Option.map(user.dupr, (function (d) {
                                     return d.doublesReliable;
                                   })), false), user.selfRating);

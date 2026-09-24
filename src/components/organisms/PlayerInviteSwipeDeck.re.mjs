@@ -116,7 +116,7 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
   var displayName = profile.displayName;
   var selfDupr = profile.selfDupr;
   var computedDupr = profile.computedDupr;
-  var declared = CombinedRating.resolve(Core__Option.map(computedDupr, Rating.duprToMu), profile.duprDoubles, profile.duprReliable, Core__Option.map(selfDupr, Rating.duprToMu));
+  var declared = CombinedRating.resolve(Core__Option.map(computedDupr, Rating.duprToMu), profile.computedSigma, profile.duprDoubles, profile.duprReliability, profile.duprReliable, Core__Option.map(selfDupr, Rating.duprToMu));
   var declaredDupr = Core__Option.map(declared, CombinedRating.dupr);
   var selfLevel = Core__Option.flatMap(Core__Option.map(declaredDupr, LevelPicker.nearest), (function (v) {
           return LevelPicker.options().find(function (o) {
@@ -172,7 +172,7 @@ function PlayerInviteSwipeDeck$ProfileCard(props) {
       var r = Caml_option.valFromOption(declared);
       tmp$4 = JsxRuntime.jsx(RatingSourceChip.make, {
             source: CombinedRating.source(r),
-            reliable: CombinedRating.reliable(r),
+            reliable: CombinedRating.established(r),
             className: "mt-1"
           });
     } else {
@@ -406,9 +406,15 @@ function PlayerInviteSwipeDeck$FragmentCard(props) {
   var profile_duprReliable = Core__Option.getOr(Core__Option.map(user.dupr, (function (d) {
               return d.doublesReliable;
             })), false);
-  var profile_computedDupr = Core__Option.map(Core__Option.flatMap(user.rating, (function (r) {
+  var profile_duprReliability = Core__Option.flatMap(user.dupr, (function (d) {
+          return d.doublesReliability;
+        }));
+  var profile_computedDupr = Core__Option.map(Core__Option.flatMap(user.eventRating, (function (r) {
               return r.mu;
             })), Rating.guessDupr);
+  var profile_computedSigma = Core__Option.flatMap(user.eventRating, (function (r) {
+          return r.sigma;
+        }));
   var profile = {
     displayName: profile_displayName,
     picture: profile_picture,
@@ -417,7 +423,9 @@ function PlayerInviteSwipeDeck$FragmentCard(props) {
     selfDupr: profile_selfDupr,
     duprDoubles: profile_duprDoubles,
     duprReliable: profile_duprReliable,
+    duprReliability: profile_duprReliability,
     computedDupr: profile_computedDupr,
+    computedSigma: profile_computedSigma,
     note: undefined
   };
   return JsxRuntime.jsx(PlayerInviteSwipeDeck$ProfileCard, {

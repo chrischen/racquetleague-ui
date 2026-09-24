@@ -30,11 +30,14 @@ module Fragment = %relay(`
             selfRating
             dupr {
               doubles
+              doublesReliable
+              doublesReliability
             }
           }
           rating {
             ordinal
             mu
+            sigma
           }
           listType
           message
@@ -200,8 +203,10 @@ let make = (~event, ~user) => {
   let seedMu = rsvp =>
     CombinedRating.resolve(
       ~pkuruMu=rsvp.rating->Option.flatMap(r => r.mu),
+      ~pkuruSigma=?rsvp.rating->Option.flatMap(r => r.sigma),
       ~duprDoubles=rsvp.user->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
-      ~duprReliable=false,
+      ~duprReliability=?rsvp.user->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doublesReliability),
+      ~duprReliable=rsvp.user->Option.flatMap(u => u.dupr)->Option.map(d => d.doublesReliable)->Option.getOr(false),
       ~selfMu=rsvp.user->Option.flatMap(u => u.selfRating),
     )
     ->Option.map(CombinedRating.mu)

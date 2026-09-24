@@ -91,8 +91,8 @@ function EventInvites$CandidatesLoader(props) {
   var evStart = props.evStart;
   var data = use$1({
         activityId: props.activityId,
-        activitySlug: props.activitySlug,
         clubId: props.clubId,
+        eventId: props.eventId,
         localDate: props.localDate
       }, "store-or-network", undefined, undefined);
   React.useEffect((function () {
@@ -241,7 +241,7 @@ function EventInvites(props) {
                                   localDate: $$window[0],
                                   activityId: activityId,
                                   clubId: props.clubId,
-                                  activitySlug: Core__Option.getOr(activitySlug, "pickleball"),
+                                  eventId: eventId,
                                   evStart: $$window[1],
                                   evEnd: $$window[2],
                                   onLoaded: (function (c) {

@@ -358,9 +358,15 @@ function PkRSVPSection(props) {
                                     duprReliable: Core__Option.getOr(Core__Option.map(u.dupr, (function (d) {
                                                 return d.doublesReliable;
                                               })), false),
+                                    duprReliability: Core__Option.flatMap(u.dupr, (function (d) {
+                                            return d.doublesReliability;
+                                          })),
                                     computedDupr: Core__Option.map(Core__Option.flatMap(n.rating, (function (r) {
                                                 return r.mu;
                                               })), Rating.guessDupr),
+                                    computedSigma: Core__Option.flatMap(n.rating, (function (r) {
+                                            return r.sigma;
+                                          })),
                                     note: n.message
                                   }
                                 }

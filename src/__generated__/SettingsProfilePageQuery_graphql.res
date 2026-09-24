@@ -179,6 +179,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "doublesReliability",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "syncedAt",
                     "storageKey": null
                   }
@@ -262,12 +269,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "89f37a40254e591e5e0385ec20d65f9f",
+    "cacheID": "08f7d8bb3ebe79c8bba1d8f3872fa0d0",
     "id": null,
     "metadata": {},
     "name": "SettingsProfilePageQuery",
     "operationKind": "query",
-    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n      }\n    }\n  }\n}\n"
+    "text": "query SettingsProfilePageQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

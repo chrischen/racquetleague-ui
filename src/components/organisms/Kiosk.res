@@ -31,6 +31,7 @@ type clipState = {
   durationSeconds: float,
   hasAudio: bool,
   capturedAt: string, // "HH:MM" label for the history strip
+  frameTimes: array<float>, // real per-frame timestamps (s); empty = unknown
 }
 
 // A Challenge run: the buffered clip plus the dinkhunt shot-finder's ground
@@ -55,6 +56,37 @@ type challengeState = {
 // full ring's ~1200. Long enough to carry the shots either side of a bounce,
 // which is what the shot-finder needs to classify it.
 let challengeSeconds = 8.
+
+// Results come back in the pixel space of the clip the server analysed. When
+// that clip was cropped to the court's analysis region, shift them back into
+// the full frame the Challenge player overlays.
+let reprojectAnalysis = (
+  a: DinkHunt.challengeAnalysis,
+  crop: option<ClipCrop.rect>,
+): DinkHunt.challengeAnalysis =>
+  switch crop {
+  | None => a
+  | Some(r) => {
+      let dx = Int.toFloat(r.x)
+      let dy = Int.toFloat(r.y)
+      let shift = (p: array<float>) =>
+        switch (p->Array.get(0), p->Array.get(1)) {
+        | (Some(x), Some(y)) => [x +. dx, y +. dy]
+        | _ => p
+        }
+      {
+        ...a,
+        bounces: a.bounces->Array.map(b => {
+          ...b,
+          pixel: shift(b.pixel),
+          footprint: b.footprint->Array.map(shift),
+        }),
+        paths: a.paths->Array.map(path =>
+          path->Array.map((pt: DinkHunt.pathPoint) => {...pt, x: pt.x +. dx, y: pt.y +. dy})
+        ),
+      }
+    }
+  }
 
 // Bounded so a long session cannot accumulate unbounded blob memory.
 let maxClipHistory = 5
@@ -405,6 +437,11 @@ module ChallengePlayer = {
     let loopWindow = React.useRef((None: option<(float, float)>))
     let duration = Math.max(challenge.clip.durationSeconds, 0.1)
     let loopHalf = 6. /. Math.max(challenge.fps, 1.)
+    // Bounces/paths are in analysis time (frame / fps); the video plays on
+    // its real capture timeline. All seeks, marker reveals and the riding
+    // ball go through this mapping so they stay on the actual frame.
+    let timeline = FrameTimeline.make(~frameTimes=challenge.clip.frameTimes, ~fps=challenge.fps)
+    let toVideo = t => timeline->FrameTimeline.toVideo(t)
 
     // Track playback time at display rate for the overlay (timeupdate fires
     // only ~4Hz — too coarse for a riding ball marker).
@@ -453,8 +490,8 @@ module ChallengePlayer = {
       }
 
     let startLoop = (bounce: DinkHunt.bounce) => {
-      let start = Math.max(0., bounce.t -. loopHalf)
-      loopWindow.current = Some((start, Math.min(duration, bounce.t +. loopHalf)))
+      let start = Math.max(0., toVideo(bounce.t -. loopHalf))
+      loopWindow.current = Some((start, Math.min(duration, toVideo(bounce.t +. loopHalf))))
       setLooping(_ => true)
       if zoomed {
         retargetZoom(bounce)
@@ -496,7 +533,7 @@ module ChallengePlayer = {
         switch videoRef.current->Nullable.toOption {
         | Some(element) => {
             element->setPlaybackRate(slow ? 0.5 : 1.0)
-            element->setCurrentTime(Math.max(0., bounce.t -. 0.75))
+            element->setCurrentTime(Math.max(0., toVideo(bounce.t) -. 0.75))
             element->play->ignore
           }
         | None => ()
@@ -504,13 +541,13 @@ module ChallengePlayer = {
       }
     }
 
-    let frameStep = 1. /. Math.max(challenge.fps, 1.)
-    let stepBy = (frames: float) =>
+    let stepBy = (frames: int) =>
       switch videoRef.current->Nullable.toOption {
       | Some(el) => {
           el->pause
+          // Lands exactly on a real frame's timestamp, not a uniform 1/fps hop.
           el->setCurrentTime(
-            Math.max(0., Math.min(duration, el->currentTime +. frames *. frameStep)),
+            Math.max(0., Math.min(duration, timeline->FrameTimeline.stepFrames(el->currentTime, frames))),
           )
         }
       | None => ()
@@ -575,7 +612,7 @@ module ChallengePlayer = {
               ->React.array}
               {challenge.bounces
               ->Array.mapWithIndex((bounce, index) =>
-                bounce.t <= now
+                toVideo(bounce.t) <= now
                   ? {
                       let x = bounce.pixel->Array.get(0)->Option.getOr(0.)
                       let y = bounce.pixel->Array.get(1)->Option.getOr(0.)
@@ -620,7 +657,7 @@ module ChallengePlayer = {
                   : React.null
               )
               ->React.array}
-              {switch ballAt(challenge.paths, now) {
+              {switch ballAt(challenge.paths, timeline->FrameTimeline.toAnalysis(now)) {
               | Some((x, y)) =>
                 <circle
                   cx={x->Float.toString}
@@ -644,7 +681,7 @@ module ChallengePlayer = {
           <button
             type_="button"
             ariaLabel="back one frame"
-            onClick={_ => stepBy(-1.)}
+            onClick={_ => stepBy(-1)}
             className="flex min-h-12 min-w-14 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised font-extrabold text-white active:bg-kiosk-border">
             <Lucide.ChevronLeft \"aria-hidden"="true" size=20 />
             {React.string("1f")}
@@ -659,7 +696,7 @@ module ChallengePlayer = {
           <button
             type_="button"
             ariaLabel="forward one frame"
-            onClick={_ => stepBy(1.)}
+            onClick={_ => stepBy(1)}
             className="flex min-h-12 min-w-14 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised font-extrabold text-white active:bg-kiosk-border">
             {React.string("1f")}
             <Lucide.ChevronRight \"aria-hidden"="true" size=20 />
@@ -668,7 +705,7 @@ module ChallengePlayer = {
         <p className="font-mono text-xs font-semibold text-kiosk-muted">
           {React.string(
             "f " ++
-            Math.floor(now *. challenge.fps)->Float.toFixed(~digits=0) ++
+            timeline->FrameTimeline.frameIndexAt(now)->Int.toString ++
             " · " ++
             now->Float.toFixed(~digits=2) ++ "s",
           )}
@@ -699,7 +736,7 @@ module ChallengePlayer = {
                   onClick={_ => replayBounce(index, bounce)}
                   ariaLabel={"bounce " ++ (index + 1)->Int.toString}
                   style={ReactDOM.Style.make(
-                    ~left=(bounce.t /. duration *. 100.)->Float.toFixed(~digits=1) ++ "%",
+                    ~left=(toVideo(bounce.t) /. duration *. 100.)->Float.toFixed(~digits=1) ++ "%",
                     (),
                   )}
                   className={cx([
@@ -730,7 +767,7 @@ module ChallengePlayer = {
                   ])}>
                   <span> {React.string("#" ++ (index + 1)->Int.toString)} </span>
                   <span className="opacity-70">
-                    {React.string(bounce.t->Float.toFixed(~digits=1) ++ "s")}
+                    {React.string(toVideo(bounce.t)->Float.toFixed(~digits=1) ++ "s")}
                   </span>
                 </button>
               )
@@ -1408,7 +1445,9 @@ module SessionWorkspace = {
               // squeezed the feed into a strip. The scrim keeps the white
               // cards readable over any footage; pointer-events split so the
               // transparent upper region still lets the video be tapped.
-              {isLiveSession
+              // Hidden while the court-setup overlay is up: the controls would
+              // sit on top of it (z-10) and cover the landmarks being placed.
+              {isLiveSession && !calibOpen
                 ? <div
                     className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 pt-16 sm:p-4 sm:pt-20">
                     <div className="pointer-events-auto">
@@ -1801,6 +1840,7 @@ let make = () => {
                   durationSeconds: result.durationSeconds,
                   hasAudio: result.hasAudio,
                   capturedAt: timeLabel(),
+                  frameTimes: result.frameTimes,
                 }
                 setClips(previous => {
                   let next = [clip]->Array.concat(previous)
@@ -1845,6 +1885,7 @@ let make = () => {
                   durationSeconds: duration,
                   hasAudio: false,
                   capturedAt: timeLabel(),
+                  frameTimes: [],
                 }
                 let (bounces, paths, frameW, frameH, fps, error) = switch await DinkHunt.testChallengeAnalysis() {
                 | Ok(a) => (a.bounces, a.paths, a.width, a.height, a.fps, None)
@@ -1870,12 +1911,34 @@ let make = () => {
                   durationSeconds: result.durationSeconds,
                   hasAudio: result.hasAudio,
                   capturedAt: timeLabel(),
+                  frameTimes: result.frameTimes,
                 }
-                let (bounces, paths, frameW, frameH, fps, error) = switch await DinkHunt.challengeBounces(
-                  result.blob,
-                ) {
-                | Ok((_upload, a)) => (a.bounces, a.paths, a.width, a.height, a.fps, None)
-                | Error(message) => ([], [], 1920, 1080, 30., Some(message))
+                // Crop to the court's analysis region (the same rectangle the
+                // calibration was sent in) before upload; the full clip stays
+                // for playback and the results are shifted back afterwards.
+                let (nativeW, nativeH) = switch result.encoded {
+                | Some(enc) => (enc.width, enc.height)
+                | None => (1920, 1080)
+                }
+                let crop = result.encoded->Option.flatMap(enc =>
+                  KioskCourtCalib.loadStoredPlaced(~width=enc.width, ~height=enc.height)->Option.flatMap(
+                    placed => KioskCourtCalib.cropRegion(placed, enc.width, enc.height),
+                  )
+                )
+                let analysisBlob = switch (crop, result.encoded) {
+                | (Some(rect), Some(enc)) => await ClipCrop.crop(enc, rect)
+                | _ => Ok(result.blob)
+                }
+                let (bounces, paths, frameW, frameH, fps, error) = switch analysisBlob {
+                | Error(message) => ([], [], nativeW, nativeH, 30., Some("crop failed: " ++ message))
+                | Ok(blob) =>
+                  switch await DinkHunt.challengeBounces(blob) {
+                  | Ok((_upload, a)) => {
+                      let a = reprojectAnalysis(a, crop)
+                      (a.bounces, a.paths, nativeW, nativeH, a.fps, None)
+                    }
+                  | Error(message) => ([], [], nativeW, nativeH, 30., Some(message))
+                  }
                 }
                 setChallenge(_ => Some({clip, bounces, paths, frameW, frameH, fps, error}))
                 setStage(_ => Result)

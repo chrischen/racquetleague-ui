@@ -94,6 +94,7 @@ module Fragment = %relay(`
             dupr {
               doubles
               doublesReliable
+              doublesReliability
             }
             ...EventRsvpUserBar_user
             ...EventMatchRsvpUser_user
@@ -782,6 +783,7 @@ let make = (
     userId: string,
     rsvpRating: option<(float, float, float)>,
     ~duprDoubles: option<float>,
+    ~duprReliability: option<float>,
     ~duprReliable: bool,
     ~selfMu: option<float>,
   ) => {
@@ -795,7 +797,9 @@ let make = (
     | _ =>
       switch CombinedRating.resolve(
         ~pkuruMu=rsvpRating->Option.map(((mu, _, _)) => mu),
+        ~pkuruSigma=?rsvpRating->Option.map(((_, sigma, _)) => sigma),
         ~duprDoubles,
+        ~duprReliability=?duprReliability,
         ~duprReliable,
         ~selfMu,
       ) {
@@ -840,6 +844,7 @@ let make = (
                   ),
                 ),
                 ~duprDoubles=user.dupr->Option.flatMap(d => d.doubles),
+                ~duprReliability=user.dupr->Option.flatMap(d => d.doublesReliability),
                 ~duprReliable=user.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
                 ~selfMu=user.selfRating,
               )

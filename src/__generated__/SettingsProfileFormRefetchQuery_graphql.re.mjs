@@ -148,6 +148,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "doublesReliability",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "syncedAt",
                     "storageKey": null
                   }
@@ -231,12 +238,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5b0ad4532f5962c9e751e91870f101a1",
+    "cacheID": "91736e2cb560b62604c63a36d3ff57a2",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormRefetchQuery",
     "operationKind": "query",
-    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n      }\n    }\n  }\n}\n"
+    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n      }\n    }\n  }\n}\n"
   }
 };
 })());

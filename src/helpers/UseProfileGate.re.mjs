@@ -49,11 +49,19 @@ function use$1(query, context, hasComputedRating) {
         }));
   var ratingOk = Core__Option.getOr(hasComputedRating, Core__Option.isSome(Core__Option.flatMap(profile, (function (u) {
                   return u.rating;
-                })))) || Core__Option.isSome(CombinedRating.resolve(undefined, Core__Option.flatMap(Core__Option.flatMap(profile, (function (u) {
+                })))) || Core__Option.isSome(CombinedRating.resolve(undefined, undefined, Core__Option.flatMap(Core__Option.flatMap(profile, (function (u) {
                       return u.dupr;
                     })), (function (d) {
                   return d.doubles;
-                })), false, Core__Option.flatMap(profile, (function (u) {
+                })), Core__Option.flatMap(Core__Option.flatMap(profile, (function (u) {
+                      return u.dupr;
+                    })), (function (d) {
+                  return d.doublesReliability;
+                })), Core__Option.getOr(Core__Option.map(Core__Option.flatMap(profile, (function (u) {
+                          return u.dupr;
+                        })), (function (d) {
+                      return d.doublesReliable;
+                    })), false), Core__Option.flatMap(profile, (function (u) {
                   return u.selfRating;
                 }))));
   var isComplete;

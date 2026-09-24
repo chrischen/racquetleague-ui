@@ -1,6 +1,9 @@
 %%raw("import { t } from '@lingui/macro'")
 open LangProvider.Router
 
+@val @scope(("navigator", "clipboard"))
+external writeText: string => Js.Promise.t<unit> = "writeText"
+
 module ClubLeaderboardFragment = %relay(`
   fragment ClubPage_leaderboard on Query
   @argumentDefinitions(
@@ -51,6 +54,7 @@ module Query = %relay(`
       shareLink
       chargesEnabled
       exemptMembersFromPayment
+      eventsInboxAddress
       viewerMembership { status isAdmin isOwner }
       stats {
         totalMembers
@@ -539,6 +543,13 @@ let make = () => {
   let (commitUpdateClubPayments, isUpdateClubPaymentsInFlight) = UpdateClubPaymentsMutation.use()
   // The last failure from the Payments card, shown under the toggle.
   let (paymentsError, setPaymentsError) = React.useState(() => None)
+  // "Copied!" on the booking-email card, for a moment after copying.
+  let (inboxCopied, setInboxCopied) = React.useState(() => false)
+  let copyInboxAddress = (address: string) => {
+    writeText(address)->ignore
+    setInboxCopied(_ => true)
+    let _ = Js.Global.setTimeout(() => setInboxCopied(_ => false), 2000)
+  }
 
   let handleToggleExemptMembers = (clubId: string, next: bool) => {
     setPaymentsError(_ => None)
@@ -723,6 +734,33 @@ let make = () => {
             {switch club.stats {
             | Some(stats) => <StatsGrid stats />
             | None => React.null
+            }}
+            // The club's booking email: the server only returns it to owners
+            // and admins, and only once inbound email is configured.
+            {switch club.eventsInboxAddress {
+            | Some(address) if viewerIsAdmin || viewerIsOwner =>
+              <section className={cardClass ++ " p-4"}>
+                <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                  {t`Booking email`}
+                </h2>
+                <p className="mt-1 text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                  {t`Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner.`}
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <code
+                    className="select-all rounded-lg bg-gray-100 px-3 py-2 font-mono text-sm text-gray-900 dark:bg-[#2a2b30] dark:text-gray-100">
+                    {address->React.string}
+                  </code>
+                  <button
+                    type_="button"
+                    className=secondaryAction
+                    onClick={_ => copyInboxAddress(address)}>
+                    <Lucide.Copy size=13 \"aria-hidden"="true" />
+                    {inboxCopied ? t`Copied!` : t`Copy`}
+                  </button>
+                </div>
+              </section>
+            | _ => React.null
             }}
             // Payments: owner-only. Fees for this club's events always charge to
             // the owner's connected Stripe account; the one setting is whether

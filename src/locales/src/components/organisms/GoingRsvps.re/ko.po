@@ -50,11 +50,11 @@ msgstr "참가"
 msgid "Move to Pending List"
 msgstr "대기 목록으로 이동"
 
-#: src/components/organisms/EventRsvp.re.mjs:114
+#: src/components/organisms/EventRsvp.re.mjs:118
 msgid "Not paid"
 msgstr "미납"
 
-#: src/components/organisms/EventRsvp.re.mjs:106
+#: src/components/organisms/EventRsvp.re.mjs:110
 msgid "Paid"
 msgstr "납부됨"
 

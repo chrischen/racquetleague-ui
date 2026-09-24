@@ -25,7 +25,7 @@ msgstr "ขั้นสูง"
 msgid "APPROVE"
 msgstr "อนุมัติ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Approve {0}"
 msgstr "อนุมัติ {0}"
 
@@ -33,7 +33,7 @@ msgstr "อนุมัติ {0}"
 msgid "Approve for {eventTitle}"
 msgstr "อนุมัติสำหรับ {eventTitle}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Approved players have moved into the confirmed list."
 msgstr "ผู้เล่นที่ได้รับการอนุมัติถูกย้ายไปยังรายการที่ยืนยันแล้ว"
 
@@ -41,7 +41,7 @@ msgstr "ผู้เล่นที่ได้รับการอนุมั
 msgid "Available for the full event"
 msgstr "ว่างตลอดกิจกรรม"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:571
 msgid "Back to event"
 msgstr "กลับสู่กิจกรรม"
 
@@ -53,11 +53,11 @@ msgstr "อ้างอิงจากการเล่นที่บันท
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close request review"
 msgstr "ปิดการตรวจสอบคำขอ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:508
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:516
 msgid "Close swipe invitations"
 msgstr "ปิดการเชิญแบบสไลด์"
 
@@ -69,7 +69,7 @@ msgstr "ผู้เริ่มต้นสมบูรณ์"
 msgid "Computed rating"
 msgstr "เรตติ้งที่คำนวณแล้ว"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:555
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:563
 msgid "Everyone reviewed"
 msgstr "ตรวจสอบครบทุกคนแล้ว"
 
@@ -94,11 +94,11 @@ msgstr "ระดับกลาง+"
 msgid "INVITE"
 msgstr "เชิญ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:588
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:596
 msgid "Invite {0}"
 msgstr "เชิญ {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Invite players"
 msgstr "เชิญผู้เล่น"
 
@@ -106,7 +106,7 @@ msgstr "เชิญผู้เล่น"
 msgid "Invite to {eventTitle}"
 msgstr "เชิญเข้า {eventTitle}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:535
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:543
 msgid "Invited players have moved into the event's invited list."
 msgstr "ผู้เล่นที่ได้รับเชิญถูกย้ายไปยังรายชื่อผู้รับเชิญของกิจกรรมแล้ว"
 
@@ -114,7 +114,7 @@ msgstr "ผู้เล่นที่ได้รับเชิญถูกย
 msgid "KEEP"
 msgstr "เก็บไว้"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Keep {0} pending"
 msgstr "เก็บ {0} ไว้ในรายการรอ"
 
@@ -150,7 +150,7 @@ msgstr "ชั่วคราว"
 msgid "Rating"
 msgstr "เรตติ้ง"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:510
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:518
 msgid "Review requests"
 msgstr "ตรวจสอบคำขอ"
 
@@ -162,15 +162,15 @@ msgstr "ประเมินตนเอง"
 msgid "SKIP"
 msgstr "ข้าม"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:576
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:584
 msgid "Skip {0}"
 msgstr "ข้าม {0}"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to keep pending · right to approve"
 msgstr "สไวป์ซ้ายเพื่อเก็บไว้ · ขวาเพื่ออนุมัติ"
 
-#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:590
+#: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:598
 msgid "Swipe left to skip · right to invite"
 msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเพื่อเชิญ"
 

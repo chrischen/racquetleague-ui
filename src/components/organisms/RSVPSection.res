@@ -42,6 +42,8 @@ module Fragment = %relay(`
             selfRating
             dupr {
               doubles
+              doublesReliable
+              doublesReliability
             }
           }
           rating {
@@ -432,8 +434,10 @@ let make = (~event, ~user, ~onBeforeJoin: option<(unit => unit) => unit>=?) => {
   let seedMu = (rsvp: RSVPSection_event_graphql.Types.fragment_rsvps_edges_node) =>
     CombinedRating.resolve(
       ~pkuruMu=rsvp.rating->Option.flatMap(r => r.mu),
+      ~pkuruSigma=?rsvp.rating->Option.flatMap(r => r.sigma),
       ~duprDoubles=rsvp.user->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
-      ~duprReliable=false,
+      ~duprReliability=?rsvp.user->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doublesReliability),
+      ~duprReliable=rsvp.user->Option.flatMap(u => u.dupr)->Option.map(d => d.doublesReliable)->Option.getOr(false),
       ~selfMu=rsvp.user->Option.flatMap(u => u.selfRating),
     )
     ->Option.map(CombinedRating.mu)

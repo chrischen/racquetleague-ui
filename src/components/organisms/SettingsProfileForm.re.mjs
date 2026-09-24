@@ -9,6 +9,7 @@ import * as LevelPicker from "../molecules/LevelPicker.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as FramerMotion from "framer-motion";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as DuprConnectCard from "./DuprConnectCard.re.mjs";
 import * as DuprRatingBadge from "../molecules/DuprRatingBadge.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
@@ -588,13 +589,13 @@ function SettingsProfileForm(props) {
                                                                                           JsxRuntime.jsx(DuprRatingBadge.make, {
                                                                                                 doubles: duprLink.doubles,
                                                                                                 singles: duprLink.singles,
-                                                                                                doublesReliable: duprLink.doublesReliable,
+                                                                                                doublesReliable: CombinedRating.duprEstablished(duprLink.doublesReliability, duprLink.doublesReliable),
                                                                                                 singlesReliable: duprLink.singlesReliable,
                                                                                                 compact: true
                                                                                               }),
                                                                                           JsxRuntime.jsx(RatingSourceChip.make, {
                                                                                                 source: "Dupr",
-                                                                                                reliable: duprLink.doublesReliable
+                                                                                                reliable: CombinedRating.duprEstablished(duprLink.doublesReliability, duprLink.doublesReliable)
                                                                                               })
                                                                                         ],
                                                                                         className: "flex items-center gap-3 text-gray-900 dark:text-gray-100"

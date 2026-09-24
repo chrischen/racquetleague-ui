@@ -146,14 +146,131 @@ describe("wire format", () => {
     );
 
     const bumped = JSON.parse(encode([round("a", 100)]));
-    bumped.version = 2;
+    bumped.version = 3;
     const refused = Transfer.decode(JSON.stringify(bumped));
     expect(refused.TAG).toBe("Error");
-    expect(refused._0).toContain("v2");
+    expect(refused._0).toContain("v3");
 
     const broken = JSON.parse(encode([round("a", 100)]));
     delete broken.rounds[0].matches[0].score;
     expect(Transfer.decode(JSON.stringify(broken)).TAG).toBe("Error");
+  });
+
+  it("still reads a v1 export, which embedded a full snapshot in every match", () => {
+    const v1 = {
+      format: "pkuru-event-history",
+      version: 1,
+      eventId: "evt",
+      exportedAt: 1,
+      rounds: [
+        {
+          matches: [
+            {
+              id: "old",
+              team1: [{ ...P[0], rating: { mu: 31, sigma: 4 }, count: 7 }, P[1]].map(Rating.Player.toJson),
+              team2: [P[2], P[3]].map(Rating.Player.toJson),
+              score: [11, 5],
+              createdAt: 100,
+            },
+          ],
+        },
+      ],
+      adjustments: [],
+    };
+    const payload = decode(JSON.stringify(v1));
+    const m = payload.rounds[0][0];
+    expect(m.id).toBe("old");
+    expect(m.synced).toBe(true);
+    expect(m.match[0][0].rating).toEqual({ mu: 31, sigma: 4 });
+    expect(m.match[0][0].count).toBe(7);
+    expect(m.match[1].map((p: Player) => p.id)).toEqual(["p2", "p3"]);
+  });
+});
+
+// Rate one scored match the way the manager's fold does, and hand back the
+// same players carrying their new ratings, keyed by id.
+const rated = (m: Entity): Record<string, Player> => {
+  const teams = Rating.CompletedMatch.rate([m.match, m.score]);
+  return Object.fromEntries(teams.flat().map((p: Player) => [p.id, p]));
+};
+
+describe("roster-once format", () => {
+  it("lists each player once and names them by id in matches", () => {
+    const doc = JSON.parse(encode([round("a", 100), round("b", 200)]));
+    expect(doc.version).toBe(2);
+    expect(doc.players.map((p: any) => p.id)).toEqual(["p0", "p1", "p2", "p3"]);
+    expect(doc.players[0]).toEqual({ id: "p0", intId: 0, name: "P0", gender: expect.anything(), paid: false });
+    expect(doc.rounds[0].matches[0].team1).toEqual(["p0", "p1"]);
+    expect(doc.rounds[0].matches[0].team2).toEqual(["p2", "p3"]);
+    expect(doc.rounds[0].matches[0]).not.toHaveProperty("rating");
+  });
+
+  it("carries a rating only where replaying the earlier rounds would not reproduce it", () => {
+    // Round 2 is drawn from exactly the ratings round 1 produced, so nothing
+    // about it needs to travel beyond the ids.
+    const r1 = match("a", 100);
+    const after1 = rated(r1);
+    const r2: Entity = {
+      ...match("b", 200),
+      match: [
+        [after1.p0, after1.p2],
+        [after1.p1, after1.p3],
+      ],
+    };
+    const doc = JSON.parse(encode([[r1], [r2]]));
+    expect(Object.keys(doc.rounds[0].matches[0].ratings).sort()).toEqual(["p0", "p1", "p2", "p3"]);
+    expect(doc.rounds[1].matches[0]).not.toHaveProperty("ratings");
+
+    // And the reader lands on the same numbers the exporter left out.
+    const payload = decode(JSON.stringify(doc));
+    const back = payload.rounds[1][0].match.flat();
+    for (const p of back) {
+      expect(p.rating.mu).toBeCloseTo(after1[p.id].rating.mu, 9);
+      expect(p.rating.sigma).toBeCloseTo(after1[p.id].rating.sigma, 9);
+      expect(p.ratingOrdinal).toBeCloseTo(Rating.Rating.ordinal(after1[p.id].rating), 9);
+    }
+  });
+
+  it("keeps a snapshot the replay would not reach, such as a re-seeded session", () => {
+    // Round 2 was drawn after the manager re-fetched its base: p0 starts the
+    // new session at 40 / 8.33, nothing like what round 1 produced.
+    const r1 = match("a", 100);
+    const after1 = rated(r1);
+    const reseeded = { ...after1.p0, rating: { mu: 40, sigma: 8.333 } };
+    const r2: Entity = {
+      ...match("b", 200),
+      match: [
+        [reseeded, after1.p2],
+        [after1.p1, after1.p3],
+      ],
+    };
+    const doc = JSON.parse(encode([[r1], [r2]]));
+    expect(Object.keys(doc.rounds[1].matches[0].ratings)).toEqual(["p0"]);
+
+    const payload = decode(JSON.stringify(doc));
+    const p0 = payload.rounds[1][0].match[0][0];
+    expect(p0.rating).toEqual({ mu: 40, sigma: 8.333 });
+    // The replay continues from the carried value, not from its own guess.
+    const p2 = payload.rounds[1][0].match[0][1];
+    expect(p2.rating.mu).toBeCloseTo(after1.p2.rating.mu, 9);
+  });
+
+  it("rebuilds play counts from the scored history", () => {
+    const payload = decode(encode([round("a", 100), round("b", 200), round("c", 300)]));
+    const countsOfP0 = payload.rounds.map((r: Entity[]) => r[0].match[0][0].count);
+    expect(countsOfP0).toEqual([1, 2, 3]);
+  });
+
+  it("refuses a match it cannot place a player in", () => {
+    const stranger = JSON.parse(encode([round("a", 100)]));
+    stranger.rounds[0].matches[0].team1[0] = "nobody";
+    expect(Transfer.decode(JSON.stringify(stranger)).TAG).toBe("Error");
+
+    // A first appearance with no rating to work from is an export this
+    // reader cannot trust, not a player to invent.
+    const unrated = JSON.parse(encode([round("a", 100)]));
+    delete unrated.rounds[0].matches[0].ratings;
+    expect(Transfer.decode(JSON.stringify(unrated)).TAG).toBe("Error");
   });
 });
 
@@ -235,8 +352,10 @@ describe("what an import refuses to take", () => {
   });
 
   it("re-attaches the local RSVP node while keeping the recorded snapshot", () => {
-    // The replay rates from the embedded players, so the exported ratings and
-    // counts must survive; only the relay fragment comes from this instance.
+    // The solver's side history and the session-start baseline read the
+    // rating a player was drawn at, so it must survive; the play count is
+    // rebuilt from the scored history, and only the relay fragment comes from
+    // this instance.
     const local = pool(4).map((p) => ({ ...p, data: { node: p.id } as any }));
     const played = [
       {
@@ -253,7 +372,7 @@ describe("what an import refuses to take", () => {
 
     const imported = result.rounds[0][0].match[0][0];
     expect(imported.rating).toEqual({ mu: 31, sigma: 4 });
-    expect(imported.count).toBe(7);
+    expect(imported.count).toBe(1);
     expect(imported.data).toEqual({ node: "p0" });
     expect(result.rounds[0][0].synced).toBe(true);
   });

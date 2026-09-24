@@ -91,7 +91,7 @@ msgstr ""
 msgid "Advance to Next Round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2632
+#: src/components/organisms/EventManager.re.mjs:2636
 msgid "Advance to Round {0}"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "All checked-in players are already in this round"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2463
+#: src/components/organisms/EventManager.re.mjs:2467
 msgid "all up to date"
 msgstr ""
 
@@ -119,7 +119,7 @@ msgstr ""
 #~ msgid "and generate new matches for {0} players"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2741
+#: src/components/organisms/EventManager.re.mjs:2745
 msgid "Anti-Team {0}"
 msgstr ""
 
@@ -300,11 +300,11 @@ msgstr ""
 msgid "Customize from here"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: OFF"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2991
+#: src/components/organisms/EventManager.re.mjs:2995
 msgid "Debug: ON"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgstr ""
 
 #: src/components/organisms/EventManager.re.mjs:279
 #: src/components/organisms/EventManager.re.mjs:552
-#: src/components/organisms/EventManager.re.mjs:2535
+#: src/components/organisms/EventManager.re.mjs:2539
 msgid "Dismiss"
 msgstr ""
 
@@ -417,7 +417,7 @@ msgid "Everything stored on this device is already synced to the server."
 msgstr ""
 
 #: src/components/organisms/EventStateExportModal.re.mjs:64
-#: src/components/organisms/EventManager.re.mjs:2943
+#: src/components/organisms/EventManager.re.mjs:2947
 msgid "Export History"
 msgstr ""
 
@@ -486,7 +486,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/molecules/DrawGenerator.re.mjs:368
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Generating…"
 msgstr ""
 
@@ -506,7 +506,7 @@ msgstr ""
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2979
+#: src/components/organisms/EventManager.re.mjs:2983
 msgid "Help"
 msgstr ""
 
@@ -515,7 +515,7 @@ msgid "Import"
 msgstr ""
 
 #: src/components/organisms/EventStateImportModal.re.mjs:82
-#: src/components/organisms/EventManager.re.mjs:2953
+#: src/components/organisms/EventManager.re.mjs:2957
 msgid "Import History"
 msgstr ""
 
@@ -661,7 +661,7 @@ msgstr ""
 #~ msgid "Optimised draws that prioritise evenly matched games within a skill band."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2531
+#: src/components/organisms/EventManager.re.mjs:2535
 msgid "Optimizer unavailable — used standard matchmaking for this draw."
 msgstr ""
 
@@ -713,7 +713,7 @@ msgstr ""
 #~ msgid "Players will be divided into similar skill level groups that round-robin."
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:1948
+#: src/components/organisms/EventManager.re.mjs:1952
 msgid "Preparing optimizer…"
 msgstr ""
 
@@ -729,7 +729,7 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2430
+#: src/components/organisms/EventManager.re.mjs:2434
 msgid "Print Draws"
 msgstr ""
 
@@ -789,7 +789,7 @@ msgstr ""
 msgid "Replacing:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2962
+#: src/components/organisms/EventManager.re.mjs:2966
 msgid "Reset Storage"
 msgstr ""
 
@@ -889,7 +889,7 @@ msgstr ""
 msgid "Scored matches and rating adjustments only. Paste this into Import History on another device."
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2385
+#: src/components/organisms/EventManager.re.mjs:2389
 msgid "Scores Synced!"
 msgstr ""
 
@@ -953,7 +953,7 @@ msgstr ""
 #~ msgid "Split each match into its most even teams"
 #~ msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2926
+#: src/components/organisms/EventManager.re.mjs:2930
 msgid "Sports Event Draws"
 msgstr ""
 
@@ -977,24 +977,24 @@ msgstr ""
 msgid "Strategy:"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2397
+#: src/components/organisms/EventManager.re.mjs:2401
 msgid "Sync Failed"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2361
+#: src/components/organisms/EventManager.re.mjs:2365
 msgid "Sync Scores"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2457
+#: src/components/organisms/EventManager.re.mjs:2461
 msgid "synced"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2373
+#: src/components/organisms/EventManager.re.mjs:2377
 msgid "Syncing... {0}%"
 msgstr ""
 
 #: src/components/organisms/ScoreModal.re.mjs:78
-#: src/components/organisms/EventManager.re.mjs:2292
+#: src/components/organisms/EventManager.re.mjs:2296
 msgid "Team {0}"
 msgstr ""
 
@@ -1079,7 +1079,7 @@ msgstr ""
 msgid "Tight bands"
 msgstr ""
 
-#: src/components/organisms/EventManager.re.mjs:2459
+#: src/components/organisms/EventManager.re.mjs:2463
 msgid "to sync"
 msgstr ""
 
