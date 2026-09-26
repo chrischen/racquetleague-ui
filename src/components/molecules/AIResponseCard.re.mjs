@@ -6,7 +6,6 @@ import * as ReactIntl from "react-intl";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as JsxRuntime from "react/jsx-runtime";
-import * as CreateEventsButton from "../organisms/CreateEventsButton.re.mjs";
 
 import { t } from '@lingui/macro'
 ;
@@ -19,40 +18,47 @@ function draftTimezone(rawFields) {
 
 function AIResponseCard(props) {
   var __summaryClassName = props.summaryClassName;
+  var onAcceptEvents = props.onAcceptEvents;
   var onFillForm = props.onFillForm;
-  var onEventsCreated = props.onEventsCreated;
-  var clubId = props.clubId;
-  var activitySlug = props.activitySlug;
   var response = props.response;
   var summaryClassName = __summaryClassName !== undefined ? __summaryClassName : "rounded-xl border border-gray-200 bg-white px-3.5 py-3 text-sm leading-relaxed text-gray-700 dark:border-[#3a3b40] dark:bg-[#222326] dark:text-gray-300";
+  var actionClass = "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]";
   var createAction = function (events) {
-    if (events.length === 1) {
-      var $$event = events[0];
-      if (onFillForm !== undefined) {
-        return JsxRuntime.jsxs("button", {
-                    children: [
-                      JsxRuntime.jsx(LucideReact.Pencil, {
-                            size: 13,
-                            "aria-hidden": "true"
-                          }),
-                      JsxRuntime.jsx("span", {
-                            children: t`Fill form`
-                          })
-                    ],
-                    className: "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]",
-                    type: "button",
-                    onClick: (function (param) {
-                        onFillForm($$event);
-                      })
-                  });
-      }
-      
+    if (events.length !== 1) {
+      return JsxRuntime.jsxs("button", {
+                  children: [
+                    JsxRuntime.jsx(LucideReact.Check, {
+                          size: 13,
+                          strokeWidth: 2.5,
+                          "aria-hidden": "true"
+                        }),
+                    JsxRuntime.jsx("span", {
+                          children: t`Accept ${events.length.toString()} events`
+                        })
+                  ],
+                  className: actionClass,
+                  type: "button",
+                  onClick: (function (param) {
+                      onAcceptEvents(events);
+                    })
+                });
     }
-    return JsxRuntime.jsx(CreateEventsButton.make, {
-                events: events,
-                activitySlug: activitySlug,
-                clubId: clubId,
-                onEventsCreated: onEventsCreated
+    var $$event = events[0];
+    return JsxRuntime.jsxs("button", {
+                children: [
+                  JsxRuntime.jsx(LucideReact.Pencil, {
+                        size: 13,
+                        "aria-hidden": "true"
+                      }),
+                  JsxRuntime.jsx("span", {
+                        children: t`Fill form`
+                      })
+                ],
+                className: actionClass,
+                type: "button",
+                onClick: (function (param) {
+                    onFillForm($$event);
+                  })
               });
   };
   return JsxRuntime.jsxs("div", {

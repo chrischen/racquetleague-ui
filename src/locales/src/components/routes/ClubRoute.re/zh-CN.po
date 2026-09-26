@@ -35,7 +35,7 @@ msgstr "所有级别"
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "预订邮箱"
 
 #: src/components/pages/ClubPage.re.mjs:684
 msgid "Cancel Request"
@@ -72,6 +72,9 @@ msgid ""
 "Members who forward from their own email are listed as the booker; anything "
 "else is credited to the club owner."
 msgstr ""
+"将场地预订确认邮件转发到此地址，或在预订网站上用它代替邮箱地址，每次预订都会"
+"成为本俱乐部的一个活动。使用自己邮箱转发的成员将被列为预订人；其他情况则归于"
+"俱乐部所有者。"
 
 #: src/components/pages/ClubPage.re.mjs:173
 #: src/components/pages/ClubPage.re.mjs:174

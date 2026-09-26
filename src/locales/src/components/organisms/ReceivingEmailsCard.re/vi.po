@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-26 23:40+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Plural-Forms: \n"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "Email tài khoản"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "Thêm"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "Thêm email nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "Đang chờ xác nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid ""
+"Bookings forwarded from it will no longer be added to your account. You can "
+"add it again later."
+msgstr ""
+"Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài "
+"khoản của bạn. Bạn có thể thêm lại sau."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid ""
+"Bookings you forward to chris@pkuru.com are added to your account when they "
+"come from one of these addresses. Add the other addresses you receive "
+"booking confirmations at."
+msgstr ""
+"Các đặt chỗ bạn chuyển tiếp đến chris@pkuru.com sẽ được thêm vào tài khoản "
+"khi chúng được gửi từ một trong các địa chỉ này. Hãy thêm các địa chỉ khác "
+"mà bạn nhận email xác nhận đặt chỗ."
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr ""
+"Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "Email nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+msgid "Remove"
+msgstr "Xóa"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "Xóa email nhận này?"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "Gửi lại"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "Địa chỉ đó không còn trong tài khoản của bạn."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "Đây có vẻ không phải là địa chỉ email."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "Đó đã là email tài khoản của bạn."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "Đã gửi quá nhiều email. Vui lòng đợi một chút rồi thử lại."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr "Chúng tôi không thể gửi email. Hãy thử \\\"Gửi lại\\\" sau giây lát."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "Chúng tôi đã gửi liên kết xác nhận đến"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr ""
+"Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "Bạn đã thêm địa chỉ này rồi."

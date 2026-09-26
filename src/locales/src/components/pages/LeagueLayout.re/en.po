@@ -13,15 +13,15 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "— add to your Home Screen for push notifications"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:370
+#: src/components/shared/InstallPwa.re.mjs:379
 msgid "— enable push notifications for event reminders"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:485
+#: src/components/shared/InstallPwa.re.mjs:494
 msgid "— for a faster, app-like experience"
 msgstr ""
 
@@ -29,7 +29,7 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:462
+#: src/components/shared/InstallPwa.re.mjs:471
 msgid "\\\"Add to Home Screen\\\""
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 msgid "copyright the racquet league contributors"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:380
+#: src/components/shared/InstallPwa.re.mjs:389
 msgid "Enable now"
 msgstr ""
 
@@ -49,24 +49,24 @@ msgstr ""
 msgid "Find Games"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:422
+#: src/components/shared/InstallPwa.re.mjs:431
 msgid "Hide"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:422
+#: src/components/shared/InstallPwa.re.mjs:431
 msgid "How to install"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:454
+#: src/components/shared/InstallPwa.re.mjs:463
 msgid "in Safari's toolbar"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:494
+#: src/components/shared/InstallPwa.re.mjs:503
 msgid "Install"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:409
-#: src/components/shared/InstallPwa.re.mjs:481
+#: src/components/shared/InstallPwa.re.mjs:418
+#: src/components/shared/InstallPwa.re.mjs:490
 msgid "Install Pkuru.com App"
 msgstr ""
 
@@ -109,15 +109,15 @@ msgstr ""
 msgid "Rankings"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:460
+#: src/components/shared/InstallPwa.re.mjs:469
 msgid "Scroll down and tap"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:366
+#: src/components/shared/InstallPwa.re.mjs:375
 msgid "Stay in the loop"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:452
+#: src/components/shared/InstallPwa.re.mjs:461
 msgid "Tap the Share button"
 msgstr ""
 

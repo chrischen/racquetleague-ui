@@ -14,68 +14,68 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1481
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1832
 msgid "Badminton"
 msgstr "羽毛球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1485
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1836
 msgid "Table Tennis"
 msgstr "乒乓球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1489
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1840
 msgid "Pickleball"
 msgstr "匹克球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1493
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1844
 msgid "Futsal"
 msgstr "五人制足球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1497
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1848
 msgid "Basketball"
 msgstr "篮球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1501
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1852
 msgid "Volleyball"
 msgstr "排球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1505
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1856
 msgid "Crossminton"
 msgstr "速羽球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1509
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1860
 msgid "Padel"
 msgstr "板式网球"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1513
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1864
 msgid "drill"
 msgstr "训练"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1517
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1868
 msgid "comp"
 msgstr "竞赛"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1521
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1872
 msgid "rec"
 msgstr "休闲"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1525
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1876
 msgid "all level"
 msgstr "所有级别"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:774
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1115
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1388
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
 msgid "(optional)"
 msgstr "（可选）"
 
@@ -87,6 +87,22 @@ msgstr "{0} 场地"
 msgid "{0} courts"
 msgstr "{0} 场地"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:982
+msgid "{0} event"
+msgstr "{0} 个活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:983
+msgid "{0} events"
+msgstr "{0} 个活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr "{0} 未设置场地"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
 #: src/components/molecules/TimeZoneField.re.mjs:132
 msgid "{place} Time"
 msgstr "{place}时间"
@@ -95,44 +111,44 @@ msgstr "{place}时间"
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr "{slotCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1463
 msgid "1 hour before"
 msgstr "1小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1169
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1491
 msgid "1 week before"
 msgstr "1周前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1153
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1475
 msgid "12 hours before"
 msgstr "12小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1145
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
 msgid "2 hours before"
 msgstr "2小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1157
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1479
 msgid "24 hours before"
 msgstr "24小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1161
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1483
 msgid "48 hours before"
 msgstr "48小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1149
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1471
 msgid "6 hours before"
 msgstr "6小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1487
 msgid "72 hours before"
 msgstr "72小时前"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:835
-#: src/components/organisms/CreateLocationEventForm.re.mjs:857
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1157
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1179
 msgid "Active"
 msgstr "进行中"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:74
+#: src/components/organisms/CreateLocationEventForm.re.mjs:75
 msgid "activity is required"
 msgstr "必须填写活动"
 
@@ -148,13 +164,13 @@ msgstr "所有级别"
 msgid "American Samoa Time"
 msgstr "美属萨摩亚时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:886
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1208
 msgid ""
 "Anyone held as pending can be moved into the event from the RSVP list, which "
 "bypasses the payment requirement for them."
 msgstr "处于待定状态的人可以从报名名单中直接移入活动，这将跳过他们的付款要求。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:780
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1102
 msgid "Anything players should know before joining or arriving."
 msgstr "球友在报名或到场前需要了解的事项。"
 
@@ -166,7 +182,7 @@ msgstr "亚利桑那时间"
 msgid "Atlantic Time"
 msgstr "大西洋时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1164
 msgid ""
 "Attendees are asked to save a card when they RSVP, but nothing is authorized "
 "or charged, and you can't charge it from here. Collect the fee at the event. "
@@ -175,11 +191,11 @@ msgstr ""
 "参与者报名时需绑定银行卡，但不会预授权或扣款，你也无法在此扣款。请在活动现场"
 "收费。俱乐部会员可免此项。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1496
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr "此截止时间后，参与者将无法取消报名。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:865
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
 msgid ""
 "Attendees save a card when they RSVP and nothing is charged or held up "
 "front. From the RSVP list you can charge one attendee or everyone whenever "
@@ -190,11 +206,11 @@ msgstr ""
 "者或所有人收费，款项将进入你的 Stripe 账户。俱乐部会员可设为豁免与否，可在俱"
 "乐部主页切换。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1427
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1772
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr "参与者报名时会保存银行卡。不会自动扣款。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1132
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1454
 msgid "Cancel deadline"
 msgstr "取消截止时间"
 
@@ -210,7 +226,8 @@ msgstr "中欧时间"
 msgid "Central Time"
 msgstr "中部时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+#: src/components/organisms/CreateLocationEventForm.re.mjs:940
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1603
 msgid "Change"
 msgstr "更改"
 
@@ -218,20 +235,28 @@ msgstr "更改"
 msgid "China Time"
 msgstr "中国时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:619
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
 msgid "Choose a location for this event"
 msgstr "为此活动选择地点"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1354
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr "为每个活动选择场地"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr "请为此活动选择场地。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1698
 msgid "Choose an event time"
 msgstr "选择活动时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:710
-#: src/components/organisms/CreateLocationEventForm.re.mjs:927
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1249
 msgid "Competitive"
 msgstr "竞技模式"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:870
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Connect a Stripe account to enable this"
 msgstr "关联 Stripe 账户以启用此功能"
 
@@ -239,43 +264,63 @@ msgstr "关联 Stripe 账户以启用此功能"
 msgid "Coordinated Universal Time"
 msgstr "协调世界时"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:227
-#: src/components/organisms/AutocompleteLocation.re.mjs:239
+#: src/components/organisms/AutocompleteLocation.re.mjs:234
+#: src/components/organisms/AutocompleteLocation.re.mjs:246
 msgid "Could not load that place"
 msgstr "无法加载该地点"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:118
-#: src/components/organisms/AutocompleteLocation.re.mjs:126
+#: src/components/organisms/AutocompleteLocation.re.mjs:125
+#: src/components/organisms/AutocompleteLocation.re.mjs:133
 msgid "Could not save that location"
 msgstr "无法保存该位置"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
+msgstr "找不到 \\\"{address}\\\"。请选择场地："
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
+msgstr "创建 {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1816
 msgid "Create event"
 msgstr "创建赛事"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1304
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr "已创建"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
+msgstr "正在创建活动…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1648
 msgid "Date"
 msgstr "日期"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1520
+msgid "Discard"
+msgstr "丢弃"
 
 #: src/components/molecules/TimeZoneField.re.mjs:203
 msgid "Done"
 msgstr "完成"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1534
 msgid "Draft filled in. Review the details before creating the event."
 msgstr "草稿已填好。创建活动前请检查详情。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1359
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1703
 msgid "Drag the window to move it, or drag either edge to resize."
 msgstr "拖动时间段可移动，拖动任一边缘可调整长度。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:715
-#: src/components/organisms/CreateLocationEventForm.re.mjs:970
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1035
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
 msgid "Drill session"
 msgstr "训练课程"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:712
-#: src/components/organisms/CreateLocationEventForm.re.mjs:953
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1032
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1275
 msgid "DUPR rated"
 msgstr "DUPR评级"
 
@@ -303,55 +348,71 @@ msgstr "结束"
 msgid "End time"
 msgstr "结束时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:86
+#: src/components/organisms/CreateLocationEventForm.re.mjs:87
 msgid "end time is required"
 msgstr "必须填写结束时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1138
 msgid "Enter price"
 msgstr "输入价格"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:83
+#: src/components/organisms/CreateLocationEventForm.re.mjs:84
 msgid "event date is required"
 msgstr "必须填写活动日期"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1392
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1737
 msgid "Event details"
 msgstr "活动详情"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:771
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1093
 msgid "Event notes"
 msgstr "活动备注"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:757
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1079
 msgid "Event title"
 msgstr "活动标题"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1226
 msgid "Event type"
 msgstr "活动类型"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "Events"
+msgstr "活动"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1714
 msgid "Events can be up to 12 hours long."
 msgstr "活动时长最多为 12 小时。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1714
 msgid "Events must be at least 15 minutes long."
 msgstr "活动时长至少为 15 分钟。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1025
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
+msgstr "失败"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1347
 msgid "Find players for your event?"
 msgstr "为您的活动寻找球员？"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1446
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr "正在查找 {address}…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
+msgstr "正在查找场地…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1791
 msgid "Format"
 msgstr "格式"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:947
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1269
 msgid "Format options"
 msgstr "格式选项"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:760
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1082
 msgid "Friday night pickleball"
 msgstr "周五晚匹克球"
 
@@ -359,7 +420,7 @@ msgstr "周五晚匹克球"
 msgid "Hawaii Time"
 msgstr "夏威夷时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1422
 msgid ""
 "Hold new joins  in the pending list and admit players either manually or "
 "automatically with the Smart RSVPs algorithm that maximizes skill level and "
@@ -368,7 +429,7 @@ msgstr ""
 "将新报名保留在待定名单中，手动录取球员，或使用 Smart RSVPs 算法自动录取，最大"
 "化水平匹配与场次质量。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1418
 msgid "Hold RSVPs"
 msgstr "暂留报名"
 
@@ -380,7 +441,7 @@ msgstr "印度时间"
 msgid "Japan Time"
 msgstr "日本时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1231
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1575
 msgid "Keep current location"
 msgstr "保留当前地点"
 
@@ -392,7 +453,7 @@ msgstr "韩国时间"
 msgid "Line Islands Time"
 msgstr "莱恩群岛时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1351
 msgid "List your event publicly to help fill open spots."
 msgstr "公开发布你的活动，帮助填满空位。"
 
@@ -401,23 +462,23 @@ msgstr "公开发布你的活动，帮助填满空位。"
 msgid "Local time"
 msgstr "当地时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1210
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1554
 msgid "Location"
 msgstr "地点"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1202
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1545
 msgid "Location & time"
 msgstr "地点与时间"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:175
+#: src/components/organisms/AutocompleteLocation.re.mjs:182
 msgid "Location search is unavailable right now"
 msgstr "位置搜索暂时不可用"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1434
 msgid "Max players"
 msgstr "最大人数"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1063
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1385
 msgid "Minimum rating"
 msgstr "最低评级"
 
@@ -433,15 +494,15 @@ msgstr "新西兰时间"
 msgid "Newfoundland Time"
 msgstr "纽芬兰时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1137
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1459
 msgid "No deadline"
 msgstr "无截止时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1443
 msgid "No limit"
 msgstr "无限制"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1394
 msgid "No minimum"
 msgstr "无最低限制"
 
@@ -449,11 +510,11 @@ msgstr "无最低限制"
 msgid "Pacific Time"
 msgstr "太平洋时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1423
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1768
 msgid "Paid event"
 msgstr "付费活动"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:807
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1129
 msgid "Participation fee"
 msgstr "参与费用"
 
@@ -461,19 +522,19 @@ msgstr "参与费用"
 msgid "Player availability heatmap"
 msgstr "球员可用时间热力图"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1459
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1804
 msgid "Players"
 msgstr "寻找球员"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:720
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1040
 msgid "Private event"
 msgstr "私人活动"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:719
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1039
 msgid "Public"
 msgstr "公开"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:719
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1039
 msgid "Public · Up to {maxRsvpsStr} players"
 msgstr "公开 · 最多 {maxRsvpsStr} 名球员"
 
@@ -481,12 +542,12 @@ msgstr "公开 · 最多 {maxRsvpsStr} 名球员"
 msgid "Queensland Time"
 msgstr "昆士兰时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1622
 msgid "Read more..."
 msgstr "阅读更多..."
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:710
-#: src/components/organisms/CreateLocationEventForm.re.mjs:910
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1232
 msgid "Recreational"
 msgstr "休闲"
 
@@ -498,11 +559,11 @@ msgstr "移除"
 msgid "Samoa Time"
 msgstr "萨摩亚时间"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:354
+#: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "搜索场馆或地址"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1622
 msgid "Show less"
 msgstr "收起"
 
@@ -510,7 +571,7 @@ msgstr "收起"
 msgid "Singapore Time"
 msgstr "新加坡时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1057
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
 msgid "Skill level"
 msgstr "技能水平"
 
@@ -518,11 +579,15 @@ msgstr "技能水平"
 msgid "Solomon Islands Time"
 msgstr "所罗门群岛时间"
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr "部分活动未能创建。请重试以创建其余活动。"
+
 #: src/components/molecules/EventTimeRangeInputs.re.mjs:122
 msgid "Start"
 msgstr "开始"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1347
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1691
 msgid "Start and end time"
 msgstr "开始和结束时间"
 
@@ -534,11 +599,24 @@ msgstr "开始时间"
 msgid "Tap to add your time"
 msgstr "点击添加您的时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid ""
+"The assistant proposed {0}. Each keeps its own venue, date and time; the "
+"rest of this form applies to all of them."
+msgstr ""
+"助手建议了 {0}。每个活动保留各自的场地、日期和时间；本表单的其余设置将应用于"
+"全部活动。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1682
 msgid "The date and times on this form are in this zone."
 msgstr "此表单中的日期和时间均使用该时区。"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1045
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid ""
+"The times below are shown in this zone, and every event is created in it."
+msgstr "以下时间以此时区显示，所有活动也均按此时区创建。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
 msgid "This event is public"
 msgstr "此活动为公开活动"
 
@@ -547,11 +625,11 @@ msgstr "此活动为公开活动"
 msgid "Time zone"
 msgstr "时区"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:709
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
 msgid "Title and optional notes"
 msgstr "标题和可选备注"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:71
+#: src/components/organisms/CreateLocationEventForm.re.mjs:72
 msgid "title is required"
 msgstr "必须填写标题"
 
@@ -559,11 +637,11 @@ msgstr "必须填写标题"
 msgid "United Kingdom Time"
 msgstr "英国时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1816
 msgid "Update event"
 msgstr "更新活动"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:707
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1027
 msgid "Venue, date, start and end time"
 msgstr "场地、日期、开始和结束时间"
 
@@ -575,11 +653,11 @@ msgstr "西非时间"
 msgid "Western Australia Time"
 msgstr "西澳大利亚时间"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:853
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1175
 msgid "With a Stripe account"
 msgstr "已有 Stripe 账户"
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:831
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1153
 msgid "Without a Stripe account"
 msgstr "没有 Stripe 账户"
 

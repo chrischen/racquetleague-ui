@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-26 23:40+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: jp\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "アカウントのメール"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "追加"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "受信用メールアドレスを追加"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "確認待ち"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid ""
+"Bookings forwarded from it will no longer be added to your account. You can "
+"add it again later."
+msgstr ""
+"このアドレスから転送された予約はアカウントに追加されなくなります。後でもう一"
+"度追加できます。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid ""
+"Bookings you forward to chris@pkuru.com are added to your account when they "
+"come from one of these addresses. Add the other addresses you receive "
+"booking confirmations at."
+msgstr ""
+"chris@pkuru.com に転送した予約は、これらのアドレスから送られた場合にアカウン"
+"トに追加されます。予約確認メールを受け取る他のアドレスを追加してください。"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:33
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/components/molecules/ConfirmDialog.re.mjs:41
+msgid "Confirm"
+msgstr "確認"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+msgid "Confirmed"
+msgstr "確認済み"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "pkuruにログインした状態でリンクを開くと、アドレスの追加が完了します。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "受信用メールアドレス"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+msgid "Remove"
+msgstr "削除"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "この受信用メールアドレスを削除しますか？"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "再送信"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "問題が発生しました。もう一度お試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "そのアドレスはもうアカウントにありません。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "それはすでにアカウントのメールアドレスです。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "送信回数が多すぎます。少し待ってからもう一度お試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr ""
+"メールを送信できませんでした。しばらくしてから「再送信」をお試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "確認リンクを送信しました:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr ""
+"受信用メールアドレスは5件まで追加できます。追加するには1件削除してください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "そのアドレスはすでに追加されています。"

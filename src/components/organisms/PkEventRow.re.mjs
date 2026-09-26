@@ -122,29 +122,51 @@ function ts(prim0, prim1) {
             ]);
 }
 
+function PkEventRow$ExternalIcon(props) {
+  return JsxRuntime.jsx(LucideReact.ExternalLink, {
+              size: 12,
+              className: "flex-shrink-0 text-gray-400",
+              "aria-label": t`External event`
+            });
+}
+
+var ExternalIcon = {
+  make: PkEventRow$ExternalIcon
+};
+
 function PkEventRow$ProgressBar(props) {
+  var __shadow = props.shadow;
   var total = props.total;
   var filled = props.filled;
+  var shadow = __shadow !== undefined ? __shadow : false;
+  var icon = shadow ? JsxRuntime.jsx(PkEventRow$ExternalIcon, {}) : null;
   if (total === undefined) {
-    return JsxRuntime.jsx("span", {
-                children: filled.toString() + " " + plural(filled, {
-                      one: t`player`,
-                      other: t`players`
-                    }),
-                className: "font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap"
+    return JsxRuntime.jsxs("span", {
+                children: [
+                  icon,
+                  filled.toString() + " " + plural(filled, {
+                        one: t`player`,
+                        other: t`players`
+                      })
+                ],
+                className: "inline-flex items-center gap-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap"
               });
   }
   var pct = Math.min(100, Math.round(filled / total * 100) | 0);
   var colorClass;
-  switch (props.status) {
-    case "orange" :
-        colorClass = "bg-[#ffb042]";
-        break;
-    case "red" :
-        colorClass = "bg-[#ef4444]";
-        break;
-    default:
-      colorClass = "bg-[#4ade80]";
+  if (shadow) {
+    colorClass = "bg-gray-400 dark:bg-gray-500";
+  } else {
+    switch (props.status) {
+      case "orange" :
+          colorClass = "bg-[#ffb042]";
+          break;
+      case "red" :
+          colorClass = "bg-[#ef4444]";
+          break;
+      default:
+        colorClass = "bg-[#4ade80]";
+    }
   }
   return JsxRuntime.jsxs("div", {
               children: [
@@ -157,9 +179,12 @@ function PkEventRow$ProgressBar(props) {
                           }),
                       className: "h-0.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
                     }),
-                JsxRuntime.jsx("span", {
-                      children: filled.toString() + "/" + total.toString(),
-                      className: "font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap"
+                JsxRuntime.jsxs("span", {
+                      children: [
+                        icon,
+                        filled.toString() + "/" + total.toString()
+                      ],
+                      className: "inline-flex items-center gap-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap"
                     })
               ],
               className: "flex items-center gap-3 w-32"
@@ -171,26 +196,35 @@ var ProgressBar = {
 };
 
 function PkEventRow$CapacityCount(props) {
+  var __shadow = props.shadow;
   var total = props.total;
   var filled = props.filled;
+  var shadow = __shadow !== undefined ? __shadow : false;
   var textColor;
-  switch (props.status) {
-    case "orange" :
-        textColor = "text-[#e09030]";
-        break;
-    case "red" :
-        textColor = "text-red-500";
-        break;
-    default:
-      textColor = "text-emerald-500 dark:text-emerald-400";
+  if (shadow) {
+    textColor = "text-gray-500 dark:text-gray-400";
+  } else {
+    switch (props.status) {
+      case "orange" :
+          textColor = "text-[#e09030]";
+          break;
+      case "red" :
+          textColor = "text-red-500";
+          break;
+      default:
+        textColor = "text-emerald-500 dark:text-emerald-400";
+    }
   }
   var label = total !== undefined ? filled.toString() + "/" + total.toString() : filled.toString() + " " + plural(filled, {
           one: t`player`,
           other: t`players`
         });
-  return JsxRuntime.jsx("span", {
-              children: label,
-              className: "font-mono text-sm font-medium whitespace-nowrap " + textColor
+  return JsxRuntime.jsxs("span", {
+              children: [
+                shadow ? JsxRuntime.jsx(PkEventRow$ExternalIcon, {}) : null,
+                label
+              ],
+              className: "inline-flex items-center gap-1 font-mono text-sm font-medium whitespace-nowrap " + textColor
             });
 }
 
@@ -337,7 +371,6 @@ function PkEventRow(props) {
   var club = match.club;
   var cancelDeadline = match.cancelDeadline;
   var __id = match.__id;
-  var secret = Core__Option.getOr(match.shadow, false);
   var isUnlisted = listed !== undefined && !listed ? true : false;
   var playersCount = Core__Option.getOr(Core__Option.flatMap(rsvps, (function (rsvps) {
               return Core__Option.map(rsvps.edges, (function (edges) {
@@ -513,6 +546,7 @@ function PkEventRow(props) {
               }
             })), false);
   var isCanceled = Core__Option.isSome(match.deleted);
+  var isShadow = Core__Option.getOr(match.shadow, false);
   var status = isFull ? "red" : (
       isAlmostFull ? "orange" : "green"
     );
@@ -556,7 +590,7 @@ function PkEventRow(props) {
   var actionLabel = isInEvent ? t`Leave` : (
       isFull ? t`Waitlist` : t`Join`
     );
-  var actionButton = isCanceled ? null : JsxRuntime.jsx("button", {
+  var actionButton = isCanceled || isShadow ? null : JsxRuntime.jsx("button", {
           children: actionLabel,
           className: "flex items-center gap-1.5 font-semibold text-sm px-4 py-2 h-full " + actionTextColor + " " + actionBg,
           onClick: handleActionClick
@@ -620,14 +654,14 @@ function PkEventRow(props) {
                                                                 ]
                                                               });
                                                   })), null),
-                                        secret ? null : JsxRuntime.jsx("span", {
-                                                children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
-                                                            return Core__Option.map(l.name, (function (name) {
-                                                                          return name;
-                                                                        }));
-                                                          })), null),
-                                                className: "truncate"
-                                              })
+                                        JsxRuntime.jsx("span", {
+                                              children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                                                          return Core__Option.map(l.name, (function (name) {
+                                                                        return name;
+                                                                      }));
+                                                        })), null),
+                                              className: "truncate"
+                                            })
                                       ],
                                       className: "flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-500 dark:text-gray-500"
                                     }),
@@ -722,7 +756,7 @@ function PkEventRow(props) {
           children: [
             JsxRuntime.jsx(SwipeAction.make, {
                   rightActions: Caml_option.some(isTouchDevice ? actionButton : null),
-                  onFullSwipeLeft: isTouchDevice ? (function () {
+                  onFullSwipeLeft: isTouchDevice && !isShadow ? (function () {
                         if (viewerRsvpStatus !== undefined) {
                           if (waitlistCount > 0) {
                             return setShowLeaveConfirm(function (param) {
@@ -740,7 +774,7 @@ function PkEventRow(props) {
                         
                       }),
                   className: "bg-white dark:bg-[#222326]",
-                  disableDrag: !isTouchDevice,
+                  disableDrag: !isTouchDevice || isShadow,
                   onTapped: (function () {
                       openEvent();
                     }),
@@ -791,14 +825,14 @@ function PkEventRow(props) {
                                                                   ]
                                                                 });
                                                     })), null),
-                                          secret ? null : JsxRuntime.jsx("span", {
-                                                  children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
-                                                              return Core__Option.map(l.name, (function (name) {
-                                                                            return name;
-                                                                          }));
-                                                            })), null),
-                                                  className: "truncate"
-                                                })
+                                          JsxRuntime.jsx("span", {
+                                                children: Core__Option.getOr(Core__Option.flatMap($$location, (function (l) {
+                                                            return Core__Option.map(l.name, (function (name) {
+                                                                          return name;
+                                                                        }));
+                                                          })), null),
+                                                className: "truncate"
+                                              })
                                         ],
                                         className: "flex items-center flex-wrap gap-x-1.5 gap-y-1 text-xs text-gray-600 dark:text-gray-400 mt-1"
                                       }),
@@ -882,7 +916,8 @@ function PkEventRow(props) {
                                           JsxRuntime.jsx(PkEventRow$CapacityCount, {
                                                 filled: playersCount,
                                                 total: maxRsvps,
-                                                status: status
+                                                status: status,
+                                                shadow: isShadow
                                               }),
                                           Core__Option.getOr(Core__Option.map(avgDupr, (function (v) {
                                                       return JsxRuntime.jsx(PkEventRow$DuprBadge, {
@@ -904,7 +939,8 @@ function PkEventRow(props) {
                                           JsxRuntime.jsx(PkEventRow$ProgressBar, {
                                                 filled: playersCount,
                                                 total: maxRsvps,
-                                                status: status
+                                                status: status,
+                                                shadow: isShadow
                                               })
                                         ],
                                         className: "hidden md:flex items-center gap-3"
@@ -916,7 +952,7 @@ function PkEventRow(props) {
                         className: "px-4 md:px-6 py-3 flex items-start gap-3 md:gap-6 cursor-pointer"
                       })
                 }),
-            isTouchDevice ? null : JsxRuntime.jsx(FramerMotion.motion.div, {
+            isTouchDevice || isShadow ? null : JsxRuntime.jsx(FramerMotion.motion.div, {
                     className: "absolute right-0 top-0 bottom-0 w-[120px] flex items-center justify-center z-20 " + actionBg,
                     animate: {
                       x: match$1[0] ? 0 : 120
@@ -1001,6 +1037,7 @@ export {
   JoinEventMutation ,
   LeaveEventMutation ,
   ts ,
+  ExternalIcon ,
   ProgressBar ,
   CapacityCount ,
   StatusBadge ,

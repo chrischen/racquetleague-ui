@@ -51,6 +51,7 @@ var AutocompleteLocationMutation = {
 function AutocompleteLocation(props) {
   var autoSearchAddress = props.autoSearchAddress;
   var error = props.error;
+  var onSelectedDetails = props.onSelectedDetails;
   var onSelected = props.onSelected;
   var match = React$1.useLingui();
   var locale = match.i18n.locale;
@@ -112,7 +113,13 @@ function AutocompleteLocation(props) {
                 });
             var $$location = response.autocompleteLocation.location;
             if ($$location !== undefined) {
-              return onSelected($$location.id);
+              onSelected($$location.id);
+              return Core__Option.forEach(onSelectedDetails, (function (cb) {
+                            cb([
+                                  $$location.id,
+                                  Core__Option.getOr($$location.name, resolved.name)
+                                ]);
+                          }));
             } else {
               return setSearchError(function (param) {
                           return Caml_option.some(t`Could not save that location`);

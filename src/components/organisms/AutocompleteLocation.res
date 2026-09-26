@@ -29,6 +29,8 @@ let debounceMs = 200
 @react.component
 let make = (
   ~onSelected: string => unit,
+  // The same pick with the venue's name, for callers that list what was chosen.
+  ~onSelectedDetails: option<((string, string)) => unit>=?,
   ~error: option<string>=?,
   ~autoSearchAddress: option<string>=?,
 ) => {
@@ -69,7 +71,11 @@ let make = (
       ~onCompleted=(response, _errors) => {
         setBusy(_ => false)
         switch response.autocompleteLocation.location {
-        | Some(location) => onSelected(location.id)
+        | Some(location) =>
+          onSelected(location.id)
+          onSelectedDetails->Option.forEach(cb =>
+            cb((location.id, location.name->Option.getOr(resolved.name)))
+          )
         | None => setSearchError(_ => Some(Lingui.Util.t`Could not save that location`))
         }
       },
@@ -135,6 +141,7 @@ let make = (
     setBusy(_ => true)
     try {
       let resolved = await GooglePlaces.fetchResolved(prediction)
+
       // The details fetch closes the billing session; the next search starts a new one.
       sessionToken.current = None
       switch resolved {
@@ -250,7 +257,10 @@ let make = (
                 ->Option.map(t => t.text)
                 ->Option.getOr(prediction.text.text)
               let secondary =
-                prediction.secondaryText->Nullable.toOption->Option.map(t => t.text)->Option.getOr("")
+                prediction.secondaryText
+                ->Nullable.toOption
+                ->Option.map(t => t.text)
+                ->Option.getOr("")
               <li
                 key=prediction.placeId
                 id={optionId(i)}

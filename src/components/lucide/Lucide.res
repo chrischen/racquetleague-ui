@@ -30,8 +30,12 @@ module MapPin = {
 
 module ExternalLink = {
   @module("lucide-react") @react.component
-  external make: (~size: int=?, ~className: string=?, ~\"aria-hidden": string=?) => React.element =
-    "ExternalLink"
+  external make: (
+    ~size: int=?,
+    ~className: string=?,
+    ~\"aria-hidden": string=?,
+    ~\"aria-label": string=?,
+  ) => React.element = "ExternalLink"
 }
 
 module CornerDownRight = {

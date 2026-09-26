@@ -13,15 +13,27 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:282
+#: src/components/shared/InstallPwa.re.mjs:291
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"ホーム画面に追加\\\""
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:336
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "アカウントのメール"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:337
 msgid "Active"
 msgstr "有効"
 
-#: src/components/shared/InstallPwa.re.mjs:264
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "追加"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "受信用メールアドレスを追加"
+
+#: src/components/shared/InstallPwa.re.mjs:273
 msgid "Add to Home Screen to enable notifications"
 msgstr "通知を有効にするにはホーム画面に追加してください"
 
@@ -29,7 +41,7 @@ msgstr "通知を有効にするにはホーム画面に追加してください
 msgid "Advanced"
 msgstr "詳細設定"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:375
+#: src/components/organisms/SettingsProfileForm.re.mjs:376
 msgid ""
 "Attendees of your paid events save a card when they RSVP; nothing is charged "
 "up front. From an event's RSVP list you can charge one attendee or everyone, "
@@ -39,7 +51,7 @@ msgstr ""
 "ベントのRSVPリストから個別または全員に請求でき、売上はこのアカウントに入金さ"
 "れます。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:369
+#: src/components/organisms/SettingsProfileForm.re.mjs:370
 msgid ""
 "Attendees of your paid events still save a card when they RSVP, but it can't "
 "be charged, so you collect the fee at the event. Connect a Stripe account to "
@@ -49,19 +61,40 @@ msgstr ""
 "費はイベント当日に集金することになります。RSVPリストから保存済みカードに請求"
 "し、売上をここで受け取るにはStripeアカウントを接続してください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:429
+#: src/components/organisms/SettingsProfileForm.re.mjs:430
 msgid "Australia"
 msgstr "オーストラリア"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "確認待ち"
 
 #: src/components/molecules/LevelPicker.re.mjs:27
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:567
+#: src/components/organisms/SettingsProfileForm.re.mjs:568
 msgid "Biography"
 msgstr "自己紹介"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:433
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid ""
+"Bookings forwarded from it will no longer be added to your account. You can "
+"add it again later."
+msgstr ""
+"このアドレスから転送された予約はアカウントに追加されなくなります。後でもう一"
+"度追加できます。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid ""
+"Bookings you forward to chris@pkuru.com are added to your account when they "
+"come from one of these addresses. Add the other addresses you receive "
+"booking confirmations at."
+msgstr ""
+"chris@pkuru.com に転送した予約は、これらのアドレスから送られた場合にアカウン"
+"トに追加されます。予約確認メールを受け取る他のアドレスを追加してください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:434
 msgid "Canada"
 msgstr "カナダ"
 
@@ -78,11 +111,15 @@ msgstr "完全な初心者"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:398
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+msgid "Confirmed"
+msgstr "確認済み"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:399
 msgid "Connect Stripe account"
 msgstr "Stripeアカウントを接続"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:394
+#: src/components/organisms/SettingsProfileForm.re.mjs:395
 msgid "Connecting..."
 msgstr "接続中..."
 
@@ -92,7 +129,7 @@ msgstr "接続中..."
 msgid "Couldn't reach DUPR. Please try again in a moment."
 msgstr "DUPRに接続できませんでした。しばらくしてからもう一度お試しください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:414
+#: src/components/organisms/SettingsProfileForm.re.mjs:415
 msgid "Country"
 msgstr "国"
 
@@ -112,11 +149,11 @@ msgstr "DUPRの連携を解除"
 msgid "Disconnect DUPR?"
 msgstr "DUPRの連携を解除しますか？"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:502
+#: src/components/organisms/SettingsProfileForm.re.mjs:503
 msgid "Display Name"
 msgstr "表示名"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:519
+#: src/components/organisms/SettingsProfileForm.re.mjs:520
 msgid "Doe John"
 msgstr "ジョン・ドウ"
 
@@ -161,31 +198,31 @@ msgstr ""
 msgid "Enable notifications"
 msgstr "通知を有効にする"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:619
+#: src/components/organisms/SettingsProfileForm.re.mjs:620
 msgid "Estimated DUPR"
 msgstr "推定DUPR"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:541
+#: src/components/organisms/SettingsProfileForm.re.mjs:542
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:515
+#: src/components/organisms/SettingsProfileForm.re.mjs:516
 msgid "Full name"
 msgstr "フルネーム"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:530
+#: src/components/organisms/SettingsProfileForm.re.mjs:531
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:445
+#: src/components/organisms/SettingsProfileForm.re.mjs:446
 msgid "Hong Kong"
 msgstr "香港"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:506
+#: src/components/organisms/SettingsProfileForm.re.mjs:507
 msgid "How you appear to other players"
 msgstr "他のプレイヤーへの表示方法"
 
-#: src/components/shared/InstallPwa.re.mjs:274
+#: src/components/shared/InstallPwa.re.mjs:283
 msgid "in Safari's toolbar"
 msgstr "Safariのツールバー内"
 
@@ -197,7 +234,7 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:421
+#: src/components/organisms/SettingsProfileForm.re.mjs:422
 msgid "Japan"
 msgstr "日本"
 
@@ -205,7 +242,7 @@ msgstr "日本"
 msgid "Last synced"
 msgstr "最終同期"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:582
+#: src/components/organisms/SettingsProfileForm.re.mjs:583
 msgid "Level"
 msgstr "レベル"
 
@@ -242,15 +279,19 @@ msgstr "読み込み中..."
 msgid "Log in with DUPR"
 msgstr "DUPRでログイン"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:537
+#: src/components/organisms/SettingsProfileForm.re.mjs:538
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:356
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:357
 msgid "No Stripe account is connected."
 msgstr "Stripeアカウントが接続されていません。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:330
+#: src/components/organisms/SettingsProfileForm.re.mjs:331
 msgid "Not connected"
 msgstr "未接続"
 
@@ -259,7 +300,7 @@ msgstr "未接続"
 msgid "Not linked"
 msgstr "未連携"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:655
+#: src/components/organisms/SettingsProfileForm.re.mjs:656
 msgid "Notifications"
 msgstr "通知"
 
@@ -275,11 +316,15 @@ msgstr ""
 msgid "NR"
 msgstr "NR"
 
-#: src/components/shared/InstallPwa.re.mjs:289
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "pkuruにログインした状態でリンクを開くと、アドレスの追加が完了します。"
+
+#: src/components/shared/InstallPwa.re.mjs:298
 msgid "Open the app from your Home Screen and enable notifications"
 msgstr "ホーム画面からアプリを開き、通知を有効にしてください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:333
+#: src/components/organisms/SettingsProfileForm.re.mjs:334
 msgid "Pending"
 msgstr "保留中"
 
@@ -304,19 +349,35 @@ msgstr ""
 "プッシュ通知がブロックされています。このサイトのブラウザまたはデバイスの通知"
 "設定を確認して、もう一度お試しください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:663
+#: src/components/organisms/SettingsProfileForm.re.mjs:664
 msgid "Receive push notifications for event reminders and updates."
 msgstr "イベントのリマインダーや更新情報をプッシュ通知で受け取る。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:401
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "受信用メールアドレス"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+msgid "Remove"
+msgstr "削除"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "この受信用メールアドレスを削除しますか？"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "再送信"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:402
 msgid "Resume onboarding"
 msgstr "登録を再開"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:641
+#: src/components/organisms/SettingsProfileForm.re.mjs:642
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
-#: src/components/shared/InstallPwa.re.mjs:280
+#: src/components/shared/InstallPwa.re.mjs:289
 msgid "Scroll down and tap"
 msgstr "下にスクロールしてタップ"
 
@@ -344,7 +405,7 @@ msgstr ""
 "DUPRにサインインしてアカウントを連携してください。保存されるのはDUPR IDとレー"
 "ティングのみで、DUPRのパスワードは保存されません。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:441
+#: src/components/organisms/SettingsProfileForm.re.mjs:442
 msgid "Singapore"
 msgstr "シンガポール"
 
@@ -352,33 +413,46 @@ msgstr "シンガポール"
 msgid "singles"
 msgstr "シングルス"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:522
+#: src/components/organisms/SettingsProfileForm.re.mjs:523
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:453
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "問題が発生しました。もう一度お試しください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:454
 msgid "South Korea"
 msgstr "韓国"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:683
+#: src/components/organisms/SettingsProfileForm.re.mjs:691
 msgid "Stripe Connect"
 msgstr "Stripe Connect"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:449
+#: src/components/organisms/SettingsProfileForm.re.mjs:450
 msgid "Taiwan"
 msgstr "台湾"
 
-#: src/components/shared/InstallPwa.re.mjs:272
+#: src/components/shared/InstallPwa.re.mjs:281
 msgid "Tap the Share button"
 msgstr "共有ボタンをタップ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:573
+#: src/components/organisms/SettingsProfileForm.re.mjs:574
 msgid "tell us a little about yourself"
 msgstr "自己紹介をしてください"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:571
+#: src/components/organisms/SettingsProfileForm.re.mjs:572
 msgid "Tell us a little about yourself..."
 msgstr "自己紹介を入力してください..."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "そのアドレスはもうアカウントにありません。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:156
 msgid "That DUPR account is already linked to another player."
@@ -388,15 +462,23 @@ msgstr "そのDUPRアカウントは既に別のプレーヤーと連携され�
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "DUPRのサインインの有効期限が切れました。もう一度お試しください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:437
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "それはすでにアカウントのメールアドレスです。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "送信回数が多すぎます。少し待ってからもう一度お試しください。"
+
+#: src/components/organisms/SettingsProfileForm.re.mjs:438
 msgid "United Kingdom"
 msgstr "イギリス"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:425
+#: src/components/organisms/SettingsProfileForm.re.mjs:426
 msgid "United States"
 msgstr "アメリカ"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:372
+#: src/components/organisms/SettingsProfileForm.re.mjs:373
 msgid ""
 "Until onboarding is complete, your paid events run on the platform account: "
 "attendees save a card when they RSVP, but you can't charge it. Collect the "
@@ -406,6 +488,20 @@ msgstr ""
 "用されます。参加者はRSVP時にカードを保存しますが、請求はできません。参加費は"
 "イベント当日に集金してください。"
 
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr ""
+"メールを送信できませんでした。しばらくしてから「再送信」をお試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "確認リンクを送信しました:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr ""
+"受信用メールアドレスは5件まで追加できます。追加するには1件削除してください。"
+
 #: src/components/organisms/DuprConnectCard.re.mjs:170
 msgid ""
 "You declined to share your DUPR data, so nothing was linked. Sign in again "
@@ -414,13 +510,17 @@ msgstr ""
 "DUPRデータの共有を拒否したため、連携されませんでした。もう一度サインインし、"
 "「承認」を選択して連携してください。"
 
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "そのアドレスはすでに追加されています。"
+
 #: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""
 "Your DUPR rating will stop being used here and your self-rating picker comes "
 "back."
 msgstr "DUPRレーティングはここで使用されなくなり、自己評価の選択に戻ります。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:604
+#: src/components/organisms/SettingsProfileForm.re.mjs:605
 msgid ""
 "Your rating comes from DUPR. Disconnect DUPR below to set your own level "
 "again."
@@ -428,16 +528,16 @@ msgstr ""
 "レーティングはDUPRから取得しています。自分でレベルを設定するには、以下から"
 "DUPRの連携を解除してください。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:619
+#: src/components/organisms/SettingsProfileForm.re.mjs:620
 msgid "Your self-reported skill level"
 msgstr "自己申告のスキルレベル"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:359
+#: src/components/organisms/SettingsProfileForm.re.mjs:360
 msgid "Your Stripe account is connected, but onboarding isn't complete yet."
 msgstr ""
 "Stripeアカウントは接続済みですが、オンボーディングがまだ完了していません。"
 
-#: src/components/organisms/SettingsProfileForm.re.mjs:362
+#: src/components/organisms/SettingsProfileForm.re.mjs:363
 msgid "Your Stripe account is connected."
 msgstr "Stripeアカウントが接続されています。"
 
@@ -499,6 +599,11 @@ msgstr "Stripeアカウントが接続されています。"
 #~ "card.omeventsequoegashownour passporta"
 #~ msgstr ""
 #~ "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr ""
+#~ "メールを送信できませんでした。しばらくしてから「再送信」をお試しください。"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:353
 #~ msgid "Your Stripe account is connected and ready to accept payments."

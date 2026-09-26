@@ -1,15 +1,12 @@
 %%raw("import { css, cx } from '@linaria/core'")
-%%raw("import { t } from '@lingui/macro'")
+%%raw("import { t, plural } from '@lingui/macro'")
 
 let ts = Lingui.UtilString.t
 
 module Mutation = %relay(`
- mutation CreateLocationEventFormMutation(
-   $connections: [ID!]!
-   $input: CreateEventInput!
- ) {
+ mutation CreateLocationEventFormMutation($input: CreateEventInput!) {
    createEvent(input: $input) {
-     event @appendNode(connections: $connections, edgeTypeName: "EventEdge") {
+     event {
        __typename
        id
        title
@@ -185,7 +182,9 @@ let sectionBaseClass = "overflow-hidden rounded-xl border bg-white dark:bg-[#222
 let sectionClassFor = (~prefilled: bool) =>
   Util.cx([
     sectionBaseClass,
-    prefilled ? "border-[#a3d949] dark:border-[#bdf25d]/50" : "border-gray-200 dark:border-[#3a3b40]",
+    prefilled
+      ? "border-[#a3d949] dark:border-[#bdf25d]/50"
+      : "border-gray-200 dark:border-[#3a3b40]",
   ])
 let sectionBodyClass = "space-y-5 border-t border-gray-200 px-4 py-4 dark:border-[#3a3b40]"
 let sectionIconClass = "flex-shrink-0 text-gray-400"
@@ -394,6 +393,14 @@ let make = (
   ~selectedActivity: option<string>=?,
   ~isClubFormOpen: bool=false,
   ~onClubFormSubmitBlocked: option<unit => unit>=?,
+  // An accepted multi-event proposal from the assistant. It supplies the
+  // schedule - each event's venue, date and time - and the rest of this form
+  // applies to every event. Venue picks and create outcomes are reported back
+  // as updates of the current list (the owner's venue lookups land at the
+  // same time); the cancel callback drops the proposal.
+  ~proposedEvents: option<array<EventProposal.t>>=?,
+  ~onProposedEventsChange: option<(array<EventProposal.t> => array<EventProposal.t>) => unit>=?,
+  ~onCancelProposal: option<unit => unit>=?,
 ) => {
   open Lingui.Util
   let ts = Lingui.UtilString.t
@@ -405,11 +412,18 @@ let make = (
 
   let isUpdate = eventId->Option.isSome
 
+  // A proposal with no events is no proposal.
+  let proposal = proposedEvents->Option.filter(events => events->Array.length > 0)
+  let isMulti = proposal->Option.isSome
+  let updateProposal = (change: array<EventProposal.t> => array<EventProposal.t>) =>
+    onProposedEventsChange->Option.forEach(onChange => onChange(change))
+  let (isSubmittingProposal, setIsSubmittingProposal) = React.useState(() => false)
+  let (proposalError, setProposalError) = React.useState((): option<string> => None)
+
   // A venue present at mount came in with the form; one the organizer picks
   // later must not light the section up, so this is captured once.
   let venueArrivedWithForm = React.useRef(location->Option.isSome)
-  let venuePrefilled = () =>
-    venueArrivedWithForm.current || autoSearchAddress->Option.isSome
+  let venuePrefilled = () => venueArrivedWithForm.current || autoSearchAddress->Option.isSome
   let (prefilledSections, setPrefilledSections) = React.useState(() =>
     sectionsOf(prefilledValues, ~hasVenue=venuePrefilled())
   )
@@ -424,6 +438,8 @@ let make = (
     })
     None
   }, (prefilledValues, autoSearchAddress))
+  // A proposal supplies the whole schedule, for as long as it is in force.
+  let prefilledSections = isMulti ? {...prefilledSections, schedule: true} : prefilledSections
 
   // The form only fills in its own defaults for a genuinely new event: editing
   // and copying both carry the source event's values, where a missing field
@@ -529,6 +545,15 @@ let make = (
     hasPreloadedValues ? None : ScheduleSection
   )
   let toggleSection = section => setExpandedSection(current => current == section ? None : section)
+
+  // A proposal's schedule, and any venue it still needs, is shown on arrival.
+  React.useEffect(() => {
+    setProposalError(_ => None)
+    if isMulti {
+      setExpandedSection(_ => ScheduleSection)
+    }
+    None
+  }, [isMulti])
 
   // Location details expansion state
   let (isLocationDetailsExpanded, setIsLocationDetailsExpanded) = React.useState(() => false)
@@ -718,110 +743,275 @@ let make = (
   // non-field guards in onSubmit; "" is unreachable past that guard.
   let locationId = locationData->Option.map(l => l.id)->Option.getOr("")
 
-  let onSubmit = (data: inputs) => {
-    if locationData->Option.isNone {
-      setLocationError(_ => Some(ts`Choose a location for this event`))
-      setExpandedSection(_ => ScheduleSection)
-    } else if isClubFormOpen {
-      // Block submission if the new club form is open (unsaved club)
-      onClubFormSubmitBlocked->Option.forEach(cb => cb())
-    } else if durationMinutes < 15 {
-      // The clock never produces this, but prefilled times can: with the
-      // wrap-past-midnight rule a zero-length range would become a 24-hour
-      // event. Longer-than-12h ranges are left alone — they still submit as
-      // a same-day span and blocking them would trap edits of legit events.
-      // Open the section so the message under the picker shows.
+  // The event this form describes, at one venue and time. Creating, updating
+  // and a proposal's events all send exactly these fields.
+  let buildInput = (
+    data: inputs,
+    ~locationId: string,
+    ~startDate: Date.t,
+    ~endDate: Date.t,
+  ): RelaySchemaAssets_graphql.input_CreateEventInput => {
+    title: data.title,
+    activity: data.activity,
+    maxRsvps: ?data.maxRsvps,
+    minRating: ?data.minRating,
+    details: data.details->Option.getOr(""),
+    locationId,
+    clubId: selectedClub->Option.getOr(""),
+    startDate: startDate->Util.Datetime.fromDate,
+    endDate: endDate->Util.Datetime.fromDate,
+    listed: data.listed,
+    timezone: data.timezone->Option.getOr(Util.Timezone.fallback),
+    // "rec" is the default, represented by the absence of type tags.
+    tags: selectedTags->Array.filter(tag => tag !== "rec"),
+    price: ?(isPaidEvent ? data.price : None),
+    cancelDeadline: ?data.cancelDeadline,
+    // Sending no threshold is what turns Smart RSVP off; the UI only offers
+    // the toggle, so the value is always the default.
+    smartRsvpThreshold: ?(isSmartRsvpOn ? Some(defaultSmartRsvpThreshold) : None),
+  }
+
+  // Creates one event and resolves to its id, or to nothing when the server
+  // refused it.
+  let createEvent = (input): promise<option<string>> =>
+    Promise.make((resolve, _reject) =>
+      commitMutationCreate(
+        ~variables={input: input},
+        ~onCompleted=(response, _errors) =>
+          resolve(response.createEvent.event->Option.map(event => event.id)),
+        ~onError=_ => resolve(None),
+      )->RescriptRelay.Disposable.ignore
+    )
+
+  // Creates the proposal's events with this form's values, each at its own
+  // venue and time. Events created by an earlier attempt are kept, so a retry
+  // after a failure only creates what is still missing.
+  let submitProposal = async (data: inputs, events: array<EventProposal.t>) =>
+    if events->Array.some(event => EventProposal.venueId(event)->Option.isNone) {
+      setProposalError(_ => Some(ts`Choose a venue for every event`))
       setExpandedSection(_ => ScheduleSection)
     } else {
-      // Filter out "rec" since it's the default (represented by absence of type tags)
-      let tagsToSubmit = selectedTags->Array.filter(tag => tag !== "rec")
-
-      // The form's wall-clock values are in the event's zone; convert there.
-      let eventTz = data.timezone->Option.getOr(Util.Timezone.fallback)
-      let startDate = Util.Timezone.fromWallClock(data.startDate, eventTz)
-      let endDate = Util.Timezone.fromWallClock(
-        endWallClockFor(data.startDate, data.endTime),
-        eventTz,
+      setProposalError(_ => None)
+      setIsSubmittingProposal(_ => true)
+      let outcome = await Promise.all(
+        events->Array.map(async event =>
+          switch (event.status, EventProposal.venueId(event)) {
+          | (Created(_), _) | (_, None) => event
+          | (Pending | Failed, Some(locationId)) =>
+            let input = buildInput(
+              data,
+              ~locationId,
+              ~startDate=event.startDate,
+              ~endDate=event.endDate,
+            )
+            switch await createEvent(input) {
+            | Some(id) => {...event, status: Created(id)}
+            | None => {...event, status: Failed}
+            }
+          }
+        ),
       )
+      setIsSubmittingProposal(_ => false)
+      // Only the outcomes are reported, so a venue changed meanwhile is kept.
+      updateProposal(current =>
+        current->Array.map(event =>
+          outcome
+          ->Array.find(o => o.key == event.key)
+          ->Option.mapOr(event, o => {...event, status: o.status})
+        )
+      )
+      if outcome->Array.every(EventProposal.isCreated) {
+        navigate("/events", None)
+      } else {
+        setProposalError(_ => Some(
+          ts`Some events could not be created. Try again to create the rest.`,
+        ))
+        setExpandedSection(_ => ScheduleSection)
+      }
+    }
 
-      let priceValue = isPaidEvent ? data.price : None
-      // Sending no threshold is what turns Smart RSVP off; the UI only offers
-      // the toggle, so the value is always the default.
-      let smartRsvpThresholdValue = isSmartRsvpOn ? Some(defaultSmartRsvpThreshold) : None
-
-      if isUpdate {
-        // Update existing event
+  let onSubmit = (data: inputs) =>
+    switch proposal {
+    | Some(events) =>
+      if isClubFormOpen {
+        // Block submission if the new club form is open (unsaved club)
+        onClubFormSubmitBlocked->Option.forEach(cb => cb())
+      } else {
+        submitProposal(data, events)->ignore
+      }
+    | None =>
+      if locationData->Option.isNone {
+        setLocationError(_ => Some(ts`Choose a location for this event`))
+        setExpandedSection(_ => ScheduleSection)
+      } else if isClubFormOpen {
+        // Block submission if the new club form is open (unsaved club)
+        onClubFormSubmitBlocked->Option.forEach(cb => cb())
+      } else if durationMinutes < 15 {
+        // The clock never produces this, but prefilled times can: with the
+        // wrap-past-midnight rule a zero-length range would become a 24-hour
+        // event. Longer-than-12h ranges are left alone — they still submit as
+        // a same-day span and blocking them would trap edits of legit events.
+        // Open the section so the message under the picker shows.
+        setExpandedSection(_ => ScheduleSection)
+      } else {
+        // The form's wall-clock values are in the event's zone; convert there.
+        let eventTz = data.timezone->Option.getOr(Util.Timezone.fallback)
+        let startDate = Util.Timezone.fromWallClock(data.startDate, eventTz)
+        let endDate = Util.Timezone.fromWallClock(
+          endWallClockFor(data.startDate, data.endTime),
+          eventTz,
+        )
+        let input = buildInput(data, ~locationId, ~startDate, ~endDate)
         switch eventId {
         | Some(id) =>
-          commitMutationUpdate(
-            ~variables={
-              eventId: id,
-              input: {
-                title: data.title,
-                activity: data.activity,
-                maxRsvps: ?data.maxRsvps,
-                minRating: ?data.minRating,
-                details: data.details->Option.getOr(""),
-                locationId,
-                clubId: selectedClub->Option.getOr(""),
-                startDate: startDate->Util.Datetime.fromDate,
-                endDate: endDate->Util.Datetime.fromDate,
-                listed: data.listed,
-                timezone: eventTz,
-                tags: tagsToSubmit,
-                price: ?priceValue,
-                cancelDeadline: ?data.cancelDeadline,
-                smartRsvpThreshold: ?smartRsvpThresholdValue,
-              },
-            },
-            ~onCompleted=(_response, _errors) => {
-              navigate("/events/" ++ id, None)
-            },
+          commitMutationUpdate(~variables={eventId: id, input}, ~onCompleted=(_response, _errors) =>
+            navigate("/events/" ++ id, None)
           )->RescriptRelay.Disposable.ignore
-        | None => () // Should never happen
+        | None =>
+          createEvent(input)
+          ->Promise.thenResolve(id => id->Option.forEach(id => navigate("/events/" ++ id, None)))
+          ->ignore
         }
-      } else {
-        // Create new event
-        let connectionId = RescriptRelay.ConnectionHandler.getConnectionID(
-          "client:root"->RescriptRelay.makeDataId,
-          "EventsListFragment_events",
-          (),
-        )
-
-        commitMutationCreate(
-          ~variables={
-            input: {
-              title: data.title,
-              activity: data.activity,
-              maxRsvps: ?data.maxRsvps,
-              minRating: ?data.minRating,
-              details: data.details->Option.getOr(""),
-              locationId,
-              clubId: selectedClub->Option.getOr(""),
-              startDate: startDate->Util.Datetime.fromDate,
-              endDate: endDate->Util.Datetime.fromDate,
-              listed: data.listed,
-              timezone: eventTz,
-              tags: tagsToSubmit,
-              price: ?priceValue,
-              cancelDeadline: ?data.cancelDeadline,
-              smartRsvpThreshold: ?smartRsvpThresholdValue,
-            },
-            connections: [connectionId],
-          },
-          ~onCompleted=(response, _errors) => {
-            response.createEvent.event
-            ->Option.map(event => navigate("/events/" ++ event.id, None))
-            ->ignore
-          },
-        )->RescriptRelay.Disposable.ignore
       }
-    } // end isClubFormOpen guard
-  }
+    }
+
+  // ─── Proposal schedule (in place of the venue, date and time fields) ──────
+  let statusChip = (status: EventProposal.status) =>
+    switch status {
+    | Pending => React.null
+    | Created(_) =>
+      <span
+        className="flex-shrink-0 rounded-full bg-[#bdf25d]/30 px-2 py-0.5 text-[11px] font-semibold text-[#4d6f12] dark:text-[#bdf25d]">
+        {t`Created`}
+      </span>
+    | Failed =>
+      <span
+        className="flex-shrink-0 rounded-full bg-red-100 px-2 py-0.5 text-[11px] font-semibold text-red-700 dark:bg-red-900/40 dark:text-red-300">
+        {t`Failed`}
+      </span>
+    }
+  let setVenue = (event: EventProposal.t, venue: EventProposal.venue) =>
+    updateProposal(events => EventProposal.update(events, event.key, e => {...e, venue}))
+  // Each event keeps its own venue, date and time, so they are listed rather
+  // than edited. Only a venue the assistant could not find is picked here.
+  let proposalSchedule = (events: array<EventProposal.t>) =>
+    <div id="event-form-schedule" className=sectionBodyClass>
+      <div className="min-w-0">
+        <TimeZoneField value=tz onChange={zone => setValue(Timezone, Value(zone))} />
+        <span className=hintClass>
+          {t`The times below are shown in this zone, and every event is created in it.`}
+        </span>
+      </div>
+      <div className="min-w-0">
+        <span className=labelClass> {t`Events`} </span>
+        <ol className="space-y-2">
+          {events
+          ->Array.map(event => {
+            let (day, startTime) = splitStartDate(Util.Timezone.toWallClock(event.startDate, tz))
+            let (_, endTime) = splitStartDate(Util.Timezone.toWallClock(event.endDate, tz))
+            let minutes =
+              (event.endDate->Js.Date.getTime -. event.startDate->Js.Date.getTime) /. 60000.
+            let timing = `${day
+              ->DateFns.parseISO
+              ->DateFns.formatWithPattern("EEE, MMM d")}, ${formatWallTime(
+                startTime,
+              )}–${formatWallTime(endTime)} · ${ClockRangePicker.formatDuration(
+                minutes->Float.toInt,
+              )}`
+            let isCreated = EventProposal.isCreated(event)
+            <li
+              key=event.key
+              className="min-w-0 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#1e1f23]">
+              <div className="flex items-start justify-between gap-2">
+                <p className="min-w-0 text-sm font-medium text-gray-900 dark:text-gray-100">
+                  {timing->React.string}
+                </p>
+                {statusChip(event.status)}
+              </div>
+              {switch event.venue {
+              | Resolved({name}) =>
+                <div className="mt-1 flex items-center justify-between gap-2">
+                  <p
+                    className="flex min-w-0 items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                    <Lucide.MapPin
+                      size=13 className="flex-shrink-0 text-gray-400" \"aria-hidden"="true"
+                    />
+                    <span className="truncate"> {name->React.string} </span>
+                  </p>
+                  {isCreated
+                    ? React.null
+                    : <button
+                        type_="button"
+                        onClick={_ => setVenue(event, Unresolved)}
+                        className="flex-shrink-0 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                        {t`Change`}
+                      </button>}
+                </div>
+              | Resolving =>
+                <p
+                  className="mt-1 flex min-w-0 items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
+                  <Lucide.Loader2
+                    size=13 className="flex-shrink-0 animate-spin" \"aria-hidden"="true"
+                  />
+                  <span className="truncate">
+                    {event.address
+                    ->Option.mapOr(ts`Finding the venue…`, address => ts`Finding ${address}…`)
+                    ->React.string}
+                  </span>
+                </p>
+              | Unresolved =>
+                <div className="mt-2 min-w-0">
+                  <p className="mb-1.5 text-xs text-gray-500 dark:text-gray-400">
+                    {event.address
+                    ->Option.mapOr(ts`Choose a venue for this event.`, address =>
+                      ts`Couldn't find "${address}". Choose the venue:`
+                    )
+                    ->React.string}
+                  </p>
+                  <AutocompleteLocation
+                    onSelected={_ => ()}
+                    onSelectedDetails={((id, name)) => setVenue(event, Resolved({id, name}))}
+                  />
+                </div>
+              }}
+            </li>
+          })
+          ->React.array}
+        </ol>
+      </div>
+    </div>
 
   // ─── Section summaries (shown under each header) ──────────────────────────
   let locationName = locationData->Option.flatMap(l => l.name)->Option.getOr("")
-  let scheduleSummary = if datePart != "" {
+  let eventCountPhrase = (count: int) =>
+    Lingui.UtilString.plural(
+      count,
+      {one: ts`${count->Int.toString} event`, other: ts`${count->Int.toString} events`},
+    )
+  let scheduleSummary = switch proposal {
+  | Some(events) =>
+    let days =
+      events->Array.map(event =>
+        Util.Timezone.toWallClock(event.startDate, tz)->String.slice(~start=0, ~end=10)
+      )
+    // (`None` here is option's; the section enum shadows the bare name.)
+    let pick = choose =>
+      days->Array.reduce((None: option<string>), (acc, day) => Some(
+        acc->Option.mapOr(day, best => choose(best, day) ? best : day),
+      ))
+    let format = day => day->DateFns.parseISO->DateFns.formatWithPattern("MMM d")
+    let span = switch (pick((a, b) => a <= b), pick((a, b) => a >= b)) {
+    | (Some(first), Some(last)) =>
+      first == last ? format(first) : `${format(first)} – ${format(last)}`
+    | _ => ""
+    }
+    let missing = events->Array.filter(event => !EventProposal.isResolved(event))->Array.length
+    let parts = [eventCountPhrase(events->Array.length), span]
+    if missing > 0 {
+      parts->Array.push(ts`${missing->Int.toString} without a venue`)->ignore
+    }
+    parts->Array.join(" · ")
+  | None if datePart != "" =>
     let (_, endTime) = splitStartDate(endWallClockFor(startWallClock, clockEnd))
     let day = datePart->DateFns.parseISO->DateFns.formatWithPattern("EEE, MMM d")
     // The zone is named in the field itself, so the summary spends its width on
@@ -829,10 +1019,7 @@ let make = (
     `${locationName} · ${day}, ${formatWallTime(clockStart)}–${formatWallTime(
         endTime,
       )} · ${ClockRangePicker.formatDuration(durationMinutes)}`
-  } else if locationName != "" {
-    locationName
-  } else {
-    ts`Venue, date, start and end time`
+  | None => locationName != "" ? locationName : ts`Venue, date, start and end time`
   }
 
   let detailsSummary = titleStr != "" ? titleStr : ts`Title and optional notes`
@@ -855,7 +1042,8 @@ let make = (
   }
 
   let showAssistedBanner =
-    !isUpdate && prefilledValues->Option.flatMap(pf => pf.title)->Option.isSome
+    !isUpdate && !isMulti && prefilledValues->Option.flatMap(pf => pf.title)->Option.isSome
+  let bannerClass = "rounded-lg border border-[#a3d949]/50 bg-[#bdf25d]/10 px-3 py-2.5 text-xs text-[#4d6f12] dark:border-[#bdf25d]/25 dark:text-[#bdf25d]"
 
   <FramerMotion.Div
     style={opacity: 0., y: -50.}
@@ -865,13 +1053,30 @@ let make = (
     <WaitForMessages>
       {() => <>
         <form onSubmit={handleSubmit(onSubmit)} className="min-w-0 space-y-3 overflow-x-hidden">
-          {showAssistedBanner
-            ? <div
-                role="status"
-                className="rounded-lg border border-[#a3d949]/50 bg-[#bdf25d]/10 px-3 py-2.5 text-xs text-[#4d6f12] dark:border-[#bdf25d]/25 dark:text-[#bdf25d]">
-                {t`Draft filled in. Review the details before creating the event.`}
-              </div>
-            : React.null}
+          {switch proposal {
+          | Some(events) =>
+            <div role="status" className={Util.cx([bannerClass, "flex items-start gap-3"])}>
+              <p className="min-w-0 flex-1">
+                {(
+                  ts`The assistant proposed ${eventCountPhrase(
+                    events->Array.length,
+                  )}. Each keeps its own venue, date and time; the rest of this form applies to all of them.`
+                )->React.string}
+              </p>
+              <button
+                type_="button"
+                onClick={_ => onCancelProposal->Option.forEach(cb => cb())}
+                className="flex-shrink-0 font-semibold underline-offset-2 hover:underline">
+                {t`Discard`}
+              </button>
+            </div>
+          | None =>
+            showAssistedBanner
+              ? <div role="status" className=bannerClass>
+                  {t`Draft filled in. Review the details before creating the event.`}
+                </div>
+              : React.null
+          }}
           // ─── Location & time ──────────────────────────────────────────────
           <section className={sectionClassFor(~prefilled=prefilledSections.schedule)}>
             {sectionHeader(
@@ -885,139 +1090,140 @@ let make = (
               ~controls="event-form-schedule",
               ~onToggle=() => toggleSection(ScheduleSection),
             )}
-            {expandedSection == ScheduleSection
-              ? <div id="event-form-schedule" className=sectionBodyClass>
-                  <div className="min-w-0">
-                    <span className=labelClass> {t`Location`} </span>
-                    {switch (showLocationPicker, locationData) {
-                    | (true, _) =>
-                      <div className="min-w-0">
-                        <AutocompleteLocation
-                          onSelected={id => {
-                            setChangingLocation(_ => false)
-                            setLocationError(_ => None)
-                            onLocationSelected->Option.forEach(cb => cb(id))
-                          }}
-                          error=?locationError
-                          ?autoSearchAddress
-                        />
-                        {changingLocation
-                          ? <button
-                              type_="button"
-                              onClick={_ => setChangingLocation(_ => false)}
-                              className="mt-1.5 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
-                              {t`Keep current location`}
-                            </button>
-                          : React.null}
-                      </div>
-                    | (false, Some(chosen)) =>
-                      <div
-                        className="flex items-start gap-2.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#1e1f23]">
-                        <Lucide.MapPin
-                          size=14
-                          className="mt-0.5 flex-shrink-0 text-gray-400"
-                          \"aria-hidden"="true"
-                        />
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-start justify-between gap-2">
-                            <p
-                              className="break-words text-sm font-medium text-gray-900 dark:text-gray-100">
-                              {locationName->React.string}
-                            </p>
-                            {onLocationSelected->Option.isSome
+            {switch (expandedSection == ScheduleSection, proposal) {
+            | (false, _) => React.null
+            | (true, Some(events)) => proposalSchedule(events)
+            | (true, None) =>
+              <div id="event-form-schedule" className=sectionBodyClass>
+                <div className="min-w-0">
+                  <span className=labelClass> {t`Location`} </span>
+                  {switch (showLocationPicker, locationData) {
+                  | (true, _) =>
+                    <div className="min-w-0">
+                      <AutocompleteLocation
+                        onSelected={id => {
+                          setChangingLocation(_ => false)
+                          setLocationError(_ => None)
+                          onLocationSelected->Option.forEach(cb => cb(id))
+                        }}
+                        error=?locationError
+                        ?autoSearchAddress
+                      />
+                      {changingLocation
+                        ? <button
+                            type_="button"
+                            onClick={_ => setChangingLocation(_ => false)}
+                            className="mt-1.5 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                            {t`Keep current location`}
+                          </button>
+                        : React.null}
+                    </div>
+                  | (false, Some(chosen)) =>
+                    <div
+                      className="flex items-start gap-2.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 dark:border-[#3a3b40] dark:bg-[#1e1f23]">
+                      <Lucide.MapPin
+                        size=14 className="mt-0.5 flex-shrink-0 text-gray-400" \"aria-hidden"="true"
+                      />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <p
+                            className="break-words text-sm font-medium text-gray-900 dark:text-gray-100">
+                            {locationName->React.string}
+                          </p>
+                          {onLocationSelected->Option.isSome
+                            ? <button
+                                type_="button"
+                                onClick={_ => setChangingLocation(_ => true)}
+                                className="flex-shrink-0 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                                {t`Change`}
+                              </button>
+                            : React.null}
+                        </div>
+                        {chosen.details
+                        ->Option.map(details => {
+                          let maxLength = 100
+                          let shouldTruncate = details->String.length > maxLength
+                          let displayText = if shouldTruncate && !isLocationDetailsExpanded {
+                            details->String.substring(~start=0, ~end=maxLength) ++ "..."
+                          } else {
+                            details
+                          }
+                          <p
+                            className="mt-0.5 break-words text-xs text-gray-500 dark:text-gray-400">
+                            {displayText->React.string}
+                            {shouldTruncate
                               ? <button
                                   type_="button"
-                                  onClick={_ => setChangingLocation(_ => true)}
-                                  className="flex-shrink-0 text-xs font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
-                                  {t`Change`}
+                                  onClick={_ => setIsLocationDetailsExpanded(prev => !prev)}
+                                  className="ml-1 whitespace-nowrap font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
+                                  {(
+                                    isLocationDetailsExpanded ? ts`Show less` : ts`Read more...`
+                                  )->React.string}
                                 </button>
                               : React.null}
-                          </div>
-                          {chosen.details
-                          ->Option.map(details => {
-                            let maxLength = 100
-                            let shouldTruncate = details->String.length > maxLength
-                            let displayText = if shouldTruncate && !isLocationDetailsExpanded {
-                              details->String.substring(~start=0, ~end=maxLength) ++ "..."
-                            } else {
-                              details
-                            }
-                            <p
-                              className="mt-0.5 break-words text-xs text-gray-500 dark:text-gray-400">
-                              {displayText->React.string}
-                              {shouldTruncate
-                                ? <button
-                                    type_="button"
-                                    onClick={_ => setIsLocationDetailsExpanded(prev => !prev)}
-                                    className="ml-1 whitespace-nowrap font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100">
-                                    {(
-                                      isLocationDetailsExpanded ? ts`Show less` : ts`Read more...`
-                                    )->React.string}
-                                  </button>
-                                : React.null}
-                            </p>
-                          })
-                          ->Option.getOr(React.null)}
-                        </div>
+                          </p>
+                        })
+                        ->Option.getOr(React.null)}
                       </div>
-                    | (false, None) => React.null
-                    }}
-                  </div>
-                  <label className="block min-w-0 max-w-full overflow-hidden">
-                    <span className=labelClass> {t`Date`} </span>
-                    <div
-                      className={Util.cx([
-                        "box-border h-11 w-full min-w-0 max-w-full overflow-hidden rounded-lg border bg-white transition-colors focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:bg-[#1e1f23]",
-                        formState.errors.startDate->Option.isSome
-                          ? fieldErrorBorderClass
-                          : fieldBorderClass,
-                      ])}>
-                      <input
-                        id="startDate"
-                        type_="date"
-                        value=datePart
-                        onChange={e => onDateChange(ReactEvent.Form.target(e)["value"])}
-                        className="native-date-input block h-full w-full min-w-0 max-w-full border-0 bg-transparent text-gray-900 outline-none dark:text-gray-100"
-                      />
                     </div>
-                    {errorText(formState.errors.startDate->Option.flatMap(e => e.message))}
-                  </label>
-                  <div className="min-w-0">
-                    <TimeZoneField value=tz onChange={zone => setValue(Timezone, Value(zone))} />
-                    <span className=hintClass>
-                      {t`The date and times on this form are in this zone.`}
-                    </span>
-                  </div>
-                  <div className="min-w-0 max-w-full">
-                    <span className=labelClass> {t`Start and end time`} </span>
-                    <TimeWindowPicker
-                      intents=[eventWindow]
-                      onChange=onWindowChange
-                      config=eventWindowConfig
-                      maxIntents=1
-                      allowDelete=false
-                      emptyLabel={ts`Choose an event time`}
-                    />
-                    <span className=hintClass>
-                      {t`Drag the window to move it, or drag either edge to resize.`}
-                    </span>
-                    // The same window, typed rather than dragged.
-                    <EventTimeRangeInputs
-                      value=eventWindow
-                      onChange={window => onWindowChange([window])}
-                      config=eventWindowConfig
-                    />
-                    {!hasValidTimeRange
-                      ? <p className="mt-2 text-xs text-red-600 dark:text-red-400">
-                          {durationMinutes < 15
-                            ? t`Events must be at least 15 minutes long.`
-                            : t`Events can be up to 12 hours long.`}
-                        </p>
-                      : React.null}
-                    {errorText(formState.errors.endTime->Option.flatMap(e => e.message))}
-                  </div>
+                  | (false, None) => React.null
+                  }}
                 </div>
-              : React.null}
+                <label className="block min-w-0 max-w-full overflow-hidden">
+                  <span className=labelClass> {t`Date`} </span>
+                  <div
+                    className={Util.cx([
+                      "box-border h-11 w-full min-w-0 max-w-full overflow-hidden rounded-lg border bg-white transition-colors focus-within:border-[#94c93a] focus-within:ring-2 focus-within:ring-[#bdf25d]/40 dark:bg-[#1e1f23]",
+                      formState.errors.startDate->Option.isSome
+                        ? fieldErrorBorderClass
+                        : fieldBorderClass,
+                    ])}>
+                    <input
+                      id="startDate"
+                      type_="date"
+                      value=datePart
+                      onChange={e => onDateChange(ReactEvent.Form.target(e)["value"])}
+                      className="native-date-input block h-full w-full min-w-0 max-w-full border-0 bg-transparent text-gray-900 outline-none dark:text-gray-100"
+                    />
+                  </div>
+                  {errorText(formState.errors.startDate->Option.flatMap(e => e.message))}
+                </label>
+                <div className="min-w-0">
+                  <TimeZoneField value=tz onChange={zone => setValue(Timezone, Value(zone))} />
+                  <span className=hintClass>
+                    {t`The date and times on this form are in this zone.`}
+                  </span>
+                </div>
+                <div className="min-w-0 max-w-full">
+                  <span className=labelClass> {t`Start and end time`} </span>
+                  <TimeWindowPicker
+                    intents=[eventWindow]
+                    onChange=onWindowChange
+                    config=eventWindowConfig
+                    maxIntents=1
+                    allowDelete=false
+                    emptyLabel={ts`Choose an event time`}
+                  />
+                  <span className=hintClass>
+                    {t`Drag the window to move it, or drag either edge to resize.`}
+                  </span>
+                  // The same window, typed rather than dragged.
+                  <EventTimeRangeInputs
+                    value=eventWindow
+                    onChange={window => onWindowChange([window])}
+                    config=eventWindowConfig
+                  />
+                  {!hasValidTimeRange
+                    ? <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+                        {durationMinutes < 15
+                          ? t`Events must be at least 15 minutes long.`
+                          : t`Events can be up to 12 hours long.`}
+                      </p>
+                    : React.null}
+                  {errorText(formState.errors.endTime->Option.flatMap(e => e.message))}
+                </div>
+              </div>
+            }}
           </section>
           // ─── Event details ────────────────────────────────────────────────
           <section className={sectionClassFor(~prefilled=prefilledSections.details)}>
@@ -1372,10 +1578,18 @@ let make = (
                 </div>
               : React.null}
           </section>
+          {errorText(proposalError)}
           <button
             type_="submit"
-            className="w-full rounded-lg bg-[#bdf25d] px-4 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#111111]">
-            {isUpdate ? t`Update event` : t`Create event`}
+            disabled=isSubmittingProposal
+            className="w-full rounded-lg bg-[#bdf25d] px-4 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60 dark:focus-visible:ring-offset-[#111111]">
+            {switch proposal {
+            | Some(events) =>
+              isSubmittingProposal
+                ? t`Creating events…`
+                : (ts`Create ${eventCountPhrase(events->Array.length)}`)->React.string
+            | None => isUpdate ? t`Update event` : t`Create event`
+            }}
           </button>
         </form>
       </>}

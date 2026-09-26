@@ -21,6 +21,7 @@ module Types = {
     @live id: string,
     lineUsername: option<string>,
     selfRating: option<float>,
+    fragmentRefs: RescriptRelay.fragmentRefs<[ | #ReceivingEmailsCard_user]>,
   }
   and fragment_viewer_user = {
     stripeAccountId: option<string>,
@@ -41,7 +42,7 @@ module Internal = {
   type fragmentRaw
   @live
   let fragmentConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"":{"f":""}}}`
+    json`{"__root":{"viewer_profile":{"f":""},"":{"f":""}}}`
   )
   @live
   let fragmentConverterMap = ()
@@ -190,6 +191,11 @@ type operationType = RescriptRelay.fragmentNode<relayOperationNode>
               "kind": "ScalarField",
               "name": "selfRating",
               "storageKey": null
+            },
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "ReceivingEmailsCard_user"
             },
             {
               "alias": null,

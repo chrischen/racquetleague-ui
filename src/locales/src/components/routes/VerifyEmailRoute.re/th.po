@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-26 23:40+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Chen <chris.chen21@gmail.com>\n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:129
+msgid "Confirming your email…"
+msgstr "กำลังยืนยันอีเมลของคุณ…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:166
+msgid "Couldn't confirm this email"
+msgstr "ไม่สามารถยืนยันอีเมลนี้ได้"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:140
+msgid "Email confirmed"
+msgstr "ยืนยันอีเมลแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:156
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Go to profile settings"
+msgstr "ไปที่การตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:150
+msgid ""
+"is now one of your receiving emails. Bookings you forward from it to "
+"chris@pkuru.com will be added to your events."
+msgstr ""
+"เป็นหนึ่งในอีเมลรับการจองของคุณแล้ว การจองที่คุณส่งต่อจากอีเมลนี้ไปยัง chris@pkuru.com "
+"จะถูกเพิ่มในกิจกรรมของคุณ"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:63
+msgid "Something went wrong. Please try again."
+msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:55
+msgid "This address is already used by another pkuru account."
+msgstr "ที่อยู่นี้ถูกใช้โดยบัญชี pkuru อื่นแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+msgid ""
+"This link doesn't work for this account. Make sure you're signed in to the "
+"account that added the address, or send a new link from your profile "
+"settings."
+msgstr ""
+"ลิงก์นี้ใช้กับบัญชีนี้ไม่ได้ โปรดตรวจสอบว่าคุณลงชื่อเข้าใช้บัญชีที่เพิ่มที่อยู่นี้ "
+"หรือส่งลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:57
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "ลิงก์นี้หมดอายุแล้ว โปรดส่งลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link is incomplete. Open it from the email again."
+msgstr "ลิงก์นี้ไม่สมบูรณ์ โปรดเปิดจากอีเมลอีกครั้ง"

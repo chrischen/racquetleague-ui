@@ -6,7 +6,7 @@ import * as SettingsProfileFormRefetchQuery_graphql from "./SettingsProfileFormR
 
 var Types = {};
 
-var fragmentConverter = {"__root":{"":{"f":""}}};
+var fragmentConverter = {"__root":{"viewer_profile":{"f":""},"":{"f":""}}};
 
 function convertFragment(v) {
   return RescriptRelay.convertObj(v, fragmentConverter, undefined, undefined);
@@ -141,6 +141,11 @@ function makeNode(rescript_graphql_node_SettingsProfileFormRefetchQuery) {
               "kind": "ScalarField",
               "name": "selfRating",
               "storageKey": null
+            },
+            {
+              "args": null,
+              "kind": "FragmentSpread",
+              "name": "ReceivingEmailsCard_user"
             },
             {
               "alias": null,

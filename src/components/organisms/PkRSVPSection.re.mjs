@@ -14,6 +14,7 @@ import * as LucideReact from "lucide-react";
 import * as RescriptRelay from "rescript-relay/src/RescriptRelay.re.mjs";
 import * as FramerMotion from "framer-motion";
 import * as RelayRuntime from "relay-runtime";
+import * as CombinedRating from "../../lib/CombinedRating.re.mjs";
 import * as AutocompleteUser from "./AutocompleteUser.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
@@ -322,15 +323,35 @@ function PkRSVPSection(props) {
           return false;
         }
       });
+  var seedRating = function (node) {
+    return CombinedRating.resolve(Core__Option.flatMap(node.rating, (function (r) {
+                      return r.mu;
+                    })), Core__Option.flatMap(node.rating, (function (r) {
+                      return r.sigma;
+                    })), Core__Option.flatMap(Core__Option.flatMap(node.user, (function (u) {
+                          return u.dupr;
+                        })), (function (d) {
+                      return d.doubles;
+                    })), Core__Option.flatMap(Core__Option.flatMap(node.user, (function (u) {
+                          return u.dupr;
+                        })), (function (d) {
+                      return d.doublesReliability;
+                    })), Core__Option.getOr(Core__Option.map(Core__Option.flatMap(node.user, (function (u) {
+                              return u.dupr;
+                            })), (function (d) {
+                          return d.doublesReliable;
+                        })), false), Core__Option.flatMap(node.user, (function (u) {
+                      return u.selfRating;
+                    })));
+  };
+  var seedMu = function (node) {
+    return Core__Option.map(seedRating(node), CombinedRating.mu);
+  };
   var confirmedRsvps = mainList.filter(function (param, i) {
           return !isWaitlist(i);
         }).toSorted(function (a, b) {
-        var muA = Core__Option.getOr(Core__Option.flatMap(a.rating, (function (r) {
-                    return r.mu;
-                  })), 25);
-        var muB = Core__Option.getOr(Core__Option.flatMap(b.rating, (function (r) {
-                    return r.mu;
-                  })), 25);
+        var muA = Core__Option.getOr(seedMu(a), -1);
+        var muB = Core__Option.getOr(seedMu(b), -1);
         return Caml.float_compare(muB, muA);
       });
   var waitlistRsvps = mainList.filter(function (param, i) {
@@ -420,11 +441,7 @@ function PkRSVPSection(props) {
           }
         }, undefined, undefined, undefined, undefined, undefined, undefined);
   };
-  var mus = confirmedRsvps.map(function (n) {
-        return Core__Option.getOr(Core__Option.flatMap(n.rating, (function (r) {
-                          return r.mu;
-                        })), 25);
-      });
+  var mus = Core__Array.filterMap(confirmedRsvps, seedMu);
   var maxRating = Core__Array.reduce(mus, 0, (function (acc, mu) {
           if (mu > acc) {
             return mu;
@@ -509,9 +526,7 @@ function PkRSVPSection(props) {
                             return u.gender;
                           })), (function (g) {
                         if (g === "male") {
-                          return Core__Option.flatMap(node.rating, (function (r) {
-                                        return r.mu;
-                                      }));
+                          return seedMu(node);
                         }
                         
                       }));
@@ -521,9 +536,7 @@ function PkRSVPSection(props) {
                             return u.gender;
                           })), (function (g) {
                         if (g === "female") {
-                          return Core__Option.flatMap(node.rating, (function (r) {
-                                        return r.mu;
-                                      }));
+                          return seedMu(node);
                         }
                         
                       }));
@@ -548,9 +561,43 @@ function PkRSVPSection(props) {
   var viewerRating = Core__Option.flatMap(viewerUser, (function (v) {
           return v.eventRating;
         }));
+  var viewerEffective = Core__Option.flatMap(viewerUser, (function (v) {
+          return CombinedRating.resolve(Core__Option.flatMap(v.eventRating, (function (r) {
+                            return r.mu;
+                          })), Core__Option.flatMap(v.eventRating, (function (r) {
+                            return r.sigma;
+                          })), Core__Option.flatMap(v.dupr, (function (d) {
+                            return d.doubles;
+                          })), Core__Option.flatMap(v.dupr, (function (d) {
+                            return d.doublesReliability;
+                          })), Core__Option.getOr(Core__Option.map(v.dupr, (function (d) {
+                                return d.doublesReliable;
+                              })), false), undefined);
+        }));
   var d = Rating.Rating.makeDefault();
-  var viewerRatingVal = viewerRating !== undefined ? Rating.Rating.make(Core__Option.getOr(viewerRating.mu, d.mu), Core__Option.getOr(viewerRating.sigma, d.sigma)) : d;
-  var viewerOrdinal2 = Rating.ordinal2(viewerRatingVal);
+  var viewerRatingVal;
+  if (viewerEffective !== undefined) {
+    var r = Caml_option.valFromOption(viewerEffective);
+    var exit = 0;
+    if (viewerRating !== undefined && CombinedRating.source(r) === "Pkuru") {
+      viewerRatingVal = Rating.Rating.make(Core__Option.getOr(viewerRating.mu, d.mu), Core__Option.getOr(viewerRating.sigma, d.sigma));
+    } else {
+      exit = 1;
+    }
+    if (exit === 1) {
+      viewerRatingVal = Rating.Rating.make(CombinedRating.mu(r), d.sigma);
+    }
+    
+  } else {
+    viewerRatingVal = d;
+  }
+  var viewerOrdinal2;
+  if (viewerEffective !== undefined) {
+    var r$1 = Caml_option.valFromOption(viewerEffective);
+    viewerOrdinal2 = CombinedRating.source(r$1) === "Dupr" ? CombinedRating.mu(r$1) : Rating.ordinal2(viewerRatingVal);
+  } else {
+    viewerOrdinal2 = Rating.ordinal2(viewerRatingVal);
+  }
   var viewerCanJoin = Core__Option.map(minRating, (function (min) {
           return viewerOrdinal2 >= min;
         }));
@@ -563,7 +610,7 @@ function PkRSVPSection(props) {
             })), false);
   var match$13 = eventData.smartRsvpThreshold;
   var ratingWarning;
-  var exit = 0;
+  var exit$1 = 0;
   if (match$13 !== undefined && viewerUser !== undefined) {
     ratingWarning = viewerHasRsvp ? null : JsxRuntime.jsxs("div", {
             children: [
@@ -579,12 +626,12 @@ function PkRSVPSection(props) {
             className: "mb-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700/40"
           });
   } else {
-    exit = 1;
+    exit$1 = 1;
   }
-  if (exit === 1) {
+  if (exit$1 === 1) {
     if (minRating !== undefined) {
       var minDuprStr = Rating.guessDupr(minRating).toFixed(2);
-      var exit$1 = 0;
+      var exit$2 = 0;
       if (viewerUser !== undefined && viewerCanJoin !== undefined && !viewerCanJoin) {
         var viewerOrdinal2Str = viewerOrdinal2.toFixed(2);
         var viewerMuStr = viewerRatingVal.mu.toFixed(2);
@@ -608,9 +655,9 @@ function PkRSVPSection(props) {
               className: "mb-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/40"
             });
       } else {
-        exit$1 = 2;
+        exit$2 = 2;
       }
-      if (exit$1 === 2) {
+      if (exit$2 === 2) {
         ratingWarning = JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("div", {
@@ -1167,7 +1214,7 @@ function PkRSVPSection(props) {
                       }) : null,
                 JsxRuntime.jsx(EventInvites.make, {
                       eventId: eventData.id,
-                      canInvite: eventData.viewerIsAdmin,
+                      canInvite: eventData.viewerIsAdmin && Caml_obj.notequal(eventData.shadow, true),
                       activityId: Core__Option.map(eventData.activity, (function (a) {
                               return a.id;
                             })),

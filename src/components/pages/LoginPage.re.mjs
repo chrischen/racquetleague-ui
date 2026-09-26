@@ -91,15 +91,6 @@ async function handleMagicLinkLogin(email, returnUrl) {
 
 var pwaClientId = "pwa";
 
-function openInSystemSafari(url) {
-  if (InstallPwa.isIosDevice() && url.startsWith("https://")) {
-    window.location.assign("x-safari-" + url);
-    return true;
-  } else {
-    return false;
-  }
-}
-
 function LoginPage(props) {
   var match = ReactRouterDom.useSearchParams();
   var params = match[0];
@@ -388,7 +379,7 @@ function LoginPage(props) {
                                                                         target: "_blank",
                                                                         onClick: (function (e) {
                                                                             var url = Core__Option.getOr(deviceCode.verification_uri_complete, deviceCode.verification_uri);
-                                                                            if (openInSystemSafari(url)) {
+                                                                            if (InstallPwa.openInSystemSafari(url)) {
                                                                               e.preventDefault();
                                                                               return ;
                                                                             }
@@ -532,7 +523,6 @@ export {
   handleSocialLogin ,
   handleMagicLinkLogin ,
   pwaClientId ,
-  openInSystemSafari ,
   make ,
 }
 /*  Not a pure module */

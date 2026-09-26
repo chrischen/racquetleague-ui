@@ -43,6 +43,15 @@ function isIosDevice() {
   }
 }
 
+function openInSystemSafari(url) {
+  if (isIosDevice() && url.startsWith("https://")) {
+    window.location.assign("x-safari-" + url);
+    return true;
+  } else {
+    return false;
+  }
+}
+
 var nudgeDismissalKey = "pwa_nudge_notifications_dismissed";
 
 function isNudgeDismissed() {
@@ -529,6 +538,7 @@ export {
   isStandalone ,
   isIosSafari ,
   isIosDevice ,
+  openInSystemSafari ,
   nudgeDismissalKey ,
   isNudgeDismissed ,
   saveNudgeDismissal ,

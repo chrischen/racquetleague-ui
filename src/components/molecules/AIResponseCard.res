@@ -11,28 +11,27 @@ let draftTimezone = (rawFields: option<Js.Dict.t<Js.Json.t>>) =>
 @react.component
 let make = (
   ~response: AITypes.aiResponse,
-  ~activitySlug: string,
-  ~clubId: option<string>=?,
-  ~locationAddress: option<string>=?,
-  ~onEventsCreated: option<unit => unit>=?,
-  ~onFillForm: option<AITypes.eventDetails => unit>=?,
+  // A single draft fills the create form; a batch is accepted as its schedule.
+  // Nothing is created until that form is submitted.
+  ~onFillForm: AITypes.eventDetails => unit,
+  ~onAcceptEvents: array<AITypes.eventDetails> => unit,
   ~summaryClassName="rounded-xl border border-gray-200 bg-white px-3.5 py-3 text-sm leading-relaxed text-gray-700 dark:border-[#3a3b40] dark:bg-[#222326] dark:text-gray-300",
 ) => {
   open Lingui.Util
-  // Beside a create form, a single draft only ever goes through that form, so
-  // its fields are reviewed before anything is created. Several drafts can't
-  // share one form, so those are still created straight from the card.
+  let ts = Lingui.UtilString.t
+  let actionClass = "inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]"
   let createAction = (events: array<AITypes.eventDetails>) =>
-    switch (events, onFillForm) {
-    | ([event], Some(fillForm)) =>
-      <button
-        type_="button"
-        onClick={_ => fillForm(event)}
-        className="inline-flex items-center gap-1.5 rounded-lg bg-[#bdf25d] px-3 py-2 text-xs font-semibold text-black transition-colors hover:bg-[#aee050] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a]">
+    switch events {
+    | [event] =>
+      <button type_="button" onClick={_ => onFillForm(event)} className=actionClass>
         <Lucide.Pencil size=13 \"aria-hidden"="true" />
         <span> {t`Fill form`} </span>
       </button>
-    | _ => <CreateEventsButton events activitySlug ?clubId ?onEventsCreated />
+    | _ =>
+      <button type_="button" onClick={_ => onAcceptEvents(events)} className=actionClass>
+        <Lucide.Check size=13 strokeWidth=2.5 \"aria-hidden"="true" />
+        <span> {(ts`Accept ${events->Array.length->Int.toString} events`)->React.string} </span>
+      </button>
     }
   <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
     // AI Summary
@@ -42,7 +41,8 @@ let make = (
     ->Option.map(details => {
       <div
         className="space-y-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-[#3a3b40] dark:bg-[#222326]">
-        <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+        <h3
+          className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
           <Lucide.Calendar className="w-4 h-4" />
           {t`Event Details`}
         </h3>
@@ -107,7 +107,8 @@ let make = (
     ->Option.map(events => {
       events->Array.length > 0
         ? <div className="space-y-3">
-            <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
+            <h3
+              className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
               <Lucide.Calendar className="w-4 h-4" />
               {t`Suggested Events`}
             </h3>

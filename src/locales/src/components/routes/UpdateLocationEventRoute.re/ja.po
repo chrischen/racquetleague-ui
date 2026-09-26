@@ -13,20 +13,20 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:227
-#: src/components/organisms/AutocompleteLocation.re.mjs:239
+#: src/components/organisms/AutocompleteLocation.re.mjs:234
+#: src/components/organisms/AutocompleteLocation.re.mjs:246
 msgid "Could not load that place"
 msgstr "その場所を読み込めませんでした"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:118
-#: src/components/organisms/AutocompleteLocation.re.mjs:126
+#: src/components/organisms/AutocompleteLocation.re.mjs:125
+#: src/components/organisms/AutocompleteLocation.re.mjs:133
 msgid "Could not save that location"
 msgstr "その場所を保存できませんでした"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:175
+#: src/components/organisms/AutocompleteLocation.re.mjs:182
 msgid "Location search is unavailable right now"
 msgstr "現在、場所の検索は利用できません"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:354
+#: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "会場または住所を検索"

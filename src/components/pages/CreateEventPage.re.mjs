@@ -10,13 +10,16 @@ import * as Belt_Array from "rescript/lib/es6/belt_Array.js";
 import * as TimeWindow from "../molecules/TimeWindow.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
+import * as GooglePlaces from "../organisms/GooglePlaces.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
+import * as EventProposal from "../shared/EventProposal.re.mjs";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as AIAssistantEmbed from "../organisms/AIAssistantEmbed.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
 import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Query from "rescript-relay/src/RescriptRelay_Query.re.mjs";
+import * as AutocompleteLocation from "../organisms/AutocompleteLocation.re.mjs";
 import * as ClubActivitySelector from "../organisms/ClubActivitySelector.re.mjs";
 import * as CreateLocationEventForm from "../organisms/CreateLocationEventForm.re.mjs";
 import * as CreateEventPageQuery_graphql from "../../__generated__/CreateEventPageQuery_graphql.re.mjs";
@@ -78,18 +81,24 @@ function CreateEventPage$Body(props) {
       });
   var setAiLocationAddress = match$2[1];
   var match$3 = React.useState(function () {
+        
+      });
+  var setProposedEvents = match$3[1];
+  var match$4 = AutocompleteLocation.AutocompleteLocationMutation.use();
+  var commitAutocomplete = match$4[0];
+  var match$5 = React.useState(function () {
         return {
                 clubId: clubIdParam,
                 activityId: undefined,
                 isAddingClub: false
               };
       });
-  var setClubSelection = match$3[1];
-  var clubSelection = match$3[0];
-  var match$4 = React.useState(function () {
+  var setClubSelection = match$5[1];
+  var clubSelection = match$5[0];
+  var match$6 = React.useState(function () {
         return 0;
       });
-  var setShakeCounter = match$4[1];
+  var setShakeCounter = match$6[1];
   var isCopy = [
       detailsParam,
       minRatingParam,
@@ -159,9 +168,7 @@ function CreateEventPage$Body(props) {
               })),
         fromExistingEvent: true
       }) : undefined;
-  var handleSingleEventSuggested = function (eventDetails) {
-    var startDate = new Date(eventDetails.date);
-    var endDate = new Date(eventDetails.time);
+  var prefilledOfDraft = function (eventDetails, withSchedule) {
     var rawFields = Core__Option.getOr(eventDetails.rawFields, {});
     var getStr = function (key) {
       return Core__Option.flatMap(Js_dict.get(rawFields, key), Js_json.decodeString);
@@ -186,46 +193,114 @@ function CreateEventPage$Body(props) {
     var cancelDeadline = getIntFromNum("cancelDeadline");
     var listed = Core__Option.getOr(getBool("listed"), true);
     var timezone = getStr("timezone");
-    var draftTz = Core__Option.getOr(timezone, Util.Timezone.browser());
-    var startDateFormatted = Util.Timezone.toWallClock(startDate, draftTz);
-    var endTimeFormatted = Util.Timezone.toWallClock(endDate, draftTz).slice(11, 16);
     var tags = getStrArray("tags");
-    var prefilledData_title = eventDetails.title;
-    var prefilledData_maxRsvps = eventDetails.maxRsvps;
-    var prefilledData_startDate = startDateFormatted;
-    var prefilledData_endDate = endTimeFormatted;
-    var prefilledData_details = eventDetails.description;
-    var prefilledData = {
-      title: prefilledData_title,
-      activitySlug: activitySlugParam,
-      clubId: clubIdParam,
-      maxRsvps: prefilledData_maxRsvps,
-      startDate: prefilledData_startDate,
-      endDate: prefilledData_endDate,
-      details: prefilledData_details,
-      listed: listed,
-      timezone: timezone,
-      tags: tags,
-      price: price,
-      cancelDeadline: cancelDeadline
+    var draftTz = Core__Option.getOr(timezone, Util.Timezone.browser());
+    var wallClockOf = function (value) {
+      if (withSchedule) {
+        return Core__Option.map(EventProposal.instantOf(value), (function (date) {
+                      return Util.Timezone.toWallClock(date, draftTz);
+                    }));
+      }
+      
     };
-    setPrefilledValues(function (param) {
-          return prefilledData;
+    var startDate = wallClockOf(eventDetails.date);
+    var endDate = Core__Option.map(wallClockOf(eventDetails.time), (function (wall) {
+            return wall.slice(11, 16);
+          }));
+    return {
+            title: eventDetails.title,
+            activitySlug: activitySlugParam,
+            clubId: clubIdParam,
+            maxRsvps: eventDetails.maxRsvps,
+            startDate: startDate,
+            endDate: endDate,
+            details: eventDetails.description,
+            listed: listed,
+            timezone: timezone,
+            tags: tags,
+            price: price,
+            cancelDeadline: cancelDeadline
+          };
+  };
+  var handleSingleEventSuggested = function (eventDetails) {
+    setProposedEvents(function (param) {
+          
         });
-    Core__Option.map(eventDetails.location, (function (address) {
+    setPrefilledValues(function (param) {
+          return prefilledOfDraft(eventDetails, true);
+        });
+    Core__Option.forEach(eventDetails.location, (function (address) {
             setAiLocationAddress(function (param) {
                   return address;
                 });
           }));
   };
+  var resolveVenue = async function (address) {
+    var resolved = await GooglePlaces.textSearchTop(address);
+    if (resolved !== undefined) {
+      return await new Promise((function (resolve, _reject) {
+                    commitAutocomplete({
+                          input: {
+                            formattedAddress: resolved.formattedAddress,
+                            lat: resolved.lat,
+                            lng: resolved.lng,
+                            mapsId: resolved.placeId,
+                            name: resolved.name
+                          }
+                        }, undefined, undefined, undefined, (function (response, _errors) {
+                            var $$location = response.autocompleteLocation.location;
+                            resolve($$location !== undefined ? ({
+                                      TAG: "Resolved",
+                                      id: $$location.id,
+                                      name: Core__Option.getOr($$location.name, resolved.name)
+                                    }) : "Unresolved");
+                          }), (function (param) {
+                            resolve("Unresolved");
+                          }), undefined);
+                  }));
+    } else {
+      return "Unresolved";
+    }
+  };
+  var handleEventsAccepted = function (events) {
+    var proposed = EventProposal.ofEventDetails(Date.now().toString(), events);
+    setProposedEvents(function (param) {
+          return proposed;
+        });
+    setAiLocationAddress(function (param) {
+          
+        });
+    Core__Option.forEach(events[0], (function (first) {
+            setPrefilledValues(function (param) {
+                  return prefilledOfDraft(first, false);
+                });
+          }));
+    proposed.forEach(function ($$event) {
+          Core__Option.forEach($$event.address, (function (address) {
+                  resolveVenue(address).then(function (venue) {
+                        setProposedEvents(function (prev) {
+                              return Core__Option.map(prev, (function (list) {
+                                            return EventProposal.update(list, $$event.key, (function (e) {
+                                                          return {
+                                                                  key: e.key,
+                                                                  address: e.address,
+                                                                  startDate: e.startDate,
+                                                                  endDate: e.endDate,
+                                                                  venue: venue,
+                                                                  status: e.status
+                                                                };
+                                                        }));
+                                          }));
+                            });
+                      });
+                }));
+        });
+  };
   return JsxRuntime.jsxs("section", {
               children: [
                 JsxRuntime.jsx(AIAssistantEmbed.make, {
-                      context: {
-                        activitySlug: "pickleball",
-                        clubId: clubIdParam
-                      },
-                      onSingleEventSuggested: handleSingleEventSuggested
+                      onSingleEventSuggested: handleSingleEventSuggested,
+                      onEventsAccepted: handleEventsAccepted
                     }),
                 JsxRuntime.jsxs("div", {
                       children: [
@@ -239,7 +314,7 @@ function CreateEventPage$Body(props) {
                                         return sel;
                                       });
                                 }),
-                              triggerShake: match$4[0]
+                              triggerShake: match$6[0]
                             }),
                         JsxRuntime.jsx(CreateLocationEventForm.make, {
                               location: Core__Option.map(queryData.location, (function ($$location) {
@@ -272,15 +347,18 @@ function CreateEventPage$Body(props) {
                                   setShakeCounter(function (n) {
                                         return n + 1 | 0;
                                       });
+                                }),
+                              proposedEvents: match$3[0],
+                              onProposedEventsChange: (function (change) {
+                                  setProposedEvents(function (prev) {
+                                        return Core__Option.map(prev, change);
+                                      });
+                                }),
+                              onCancelProposal: (function () {
+                                  setProposedEvents(function (param) {
+                                        
+                                      });
                                 })
-                            }),
-                        JsxRuntime.jsx("p", {
-                              children: JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                    to: "/events/create-bulk",
-                                    children: t`Create multiple events instead`,
-                                    className: "font-semibold text-[#4d6f12] hover:underline dark:text-[#bdf25d]"
-                                  }),
-                              className: "text-center text-xs text-gray-500 dark:text-gray-400"
                             })
                       ],
                       className: "relative z-10 -mt-3 min-w-0 space-y-4 rounded-t-2xl bg-white px-4 pt-4 dark:bg-[#1e1f23]"

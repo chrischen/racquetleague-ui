@@ -13,20 +13,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:227
-#: src/components/organisms/AutocompleteLocation.re.mjs:239
+#: src/components/organisms/AutocompleteLocation.re.mjs:234
+#: src/components/organisms/AutocompleteLocation.re.mjs:246
 msgid "Could not load that place"
 msgstr "ไม่สามารถโหลดสถานที่นั้นได้"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:118
-#: src/components/organisms/AutocompleteLocation.re.mjs:126
+#: src/components/organisms/AutocompleteLocation.re.mjs:125
+#: src/components/organisms/AutocompleteLocation.re.mjs:133
 msgid "Could not save that location"
 msgstr "ไม่สามารถบันทึกตำแหน่งนั้นได้"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:175
+#: src/components/organisms/AutocompleteLocation.re.mjs:182
 msgid "Location search is unavailable right now"
 msgstr "การค้นหาสถานที่ไม่พร้อมใช้งานในขณะนี้"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:354
+#: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr "ค้นหาสนามหรือที่อยู่"

@@ -35,7 +35,7 @@ msgstr "Tất cả cấp độ"
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "Email đặt sân"
 
 #: src/components/pages/ClubPage.re.mjs:684
 msgid "Cancel Request"
@@ -72,6 +72,10 @@ msgid ""
 "Members who forward from their own email are listed as the booker; anything "
 "else is credited to the club owner."
 msgstr ""
+"Chuyển tiếp xác nhận đặt sân đến địa chỉ này, hoặc cung cấp địa chỉ này cho "
+"trang đặt sân thay cho email, và mỗi lượt đặt sẽ trở thành một sự kiện trong "
+"câu lạc bộ này. Thành viên chuyển tiếp từ email của chính họ sẽ được ghi "
+"nhận là người đặt; các trường hợp khác được ghi cho chủ câu lạc bộ."
 
 #: src/components/pages/ClubPage.re.mjs:173
 #: src/components/pages/ClubPage.re.mjs:174

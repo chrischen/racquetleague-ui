@@ -3,6 +3,7 @@
 import * as Util from "../shared/Util.re.mjs";
 import * as React from "react";
 import * as DateFns from "date-fns";
+import * as InstallPwa from "../shared/InstallPwa.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -81,6 +82,8 @@ var Row = {
 function EventStickyFooter(props) {
   var __fullWidth = props.fullWidth;
   var __chat = props.chat;
+  var __onJoinedNeedsCard = props.onJoinedNeedsCard;
+  var __cardRequiredOnJoin = props.cardRequiredOnJoin;
   var onPayClick = props.onPayClick;
   var charging = props.charging;
   var tz = props.tz;
@@ -96,6 +99,10 @@ function EventStickyFooter(props) {
   var $$event = props.event;
   var usingSavedCard = __usingSavedCard !== undefined ? __usingSavedCard : false;
   var onUseSavedCard = __onUseSavedCard !== undefined ? __onUseSavedCard : (function () {
+        
+      });
+  var cardRequiredOnJoin = __cardRequiredOnJoin !== undefined ? __cardRequiredOnJoin : false;
+  var onJoinedNeedsCard = __onJoinedNeedsCard !== undefined ? __onJoinedNeedsCard : (function (param) {
         
       });
   var chat = __chat !== undefined ? Caml_option.valFromOption(__chat) : null;
@@ -133,18 +140,85 @@ function EventStickyFooter(props) {
       joinEvent({
             connections: [connectionId],
             eventId: $$event.id
-          }, undefined, undefined, undefined, undefined, undefined, undefined);
+          }, undefined, undefined, undefined, (function (response, param) {
+              if (cardRequiredOnJoin && Core__Option.getOr(response.joinEvent.errors, []).length === 0) {
+                return Core__Option.forEach(Core__Option.filter(Core__Option.flatMap(response.joinEvent.edge, (function (e) {
+                                      return e.node;
+                                    })), (function (node) {
+                                  var match = node.listType;
+                                  if (match !== undefined && match !== 0) {
+                                    return match !== 2;
+                                  } else {
+                                    return false;
+                                  }
+                                })), (function (node) {
+                              onJoinedNeedsCard(node.id);
+                            }));
+              }
+              
+            }), undefined, undefined);
     };
     profileGate.require(proceed);
   };
-  var match$4 = $$event.deleted;
-  if (match$4 !== undefined) {
+  var externalSource = Core__Option.map($$event.externalUrl, Util.externalSource);
+  var goingLabel = confirmedCount.toString() + (
+    maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
+  );
+  var match$4 = $$event.externalUrl;
+  var externalFooter = JsxRuntime.jsxs(EventStickyFooter$Row, {
+        className: Core.cx("sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex-shrink-0", fullWidth ? "" : "rounded-t-xl"),
+        inner: "px-5 py-3 flex items-center justify-between gap-3",
+        children: [
+          JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsxs("p", {
+                        children: [
+                          JsxRuntime.jsx(LucideReact.ExternalLink, {
+                                size: 14,
+                                className: "flex-shrink-0 text-gray-400",
+                                "aria-hidden": "true"
+                              }),
+                          t`External event`
+                        ],
+                        className: "flex items-center gap-1.5 text-sm font-semibold text-gray-900 dark:text-gray-100"
+                      }),
+                  JsxRuntime.jsx("p", {
+                        children: externalSource !== undefined ? t`Join on ${externalSource}` + " \u00B7 " + goingLabel : goingLabel,
+                        className: "mt-0.5 truncate font-mono text-[11px] text-gray-500 dark:text-gray-400"
+                      })
+                ],
+                className: "min-w-0"
+              }),
+          match$4 !== undefined && externalSource !== undefined ? JsxRuntime.jsxs("a", {
+                  children: [
+                    t`Open ${externalSource}`,
+                    JsxRuntime.jsx(LucideReact.ExternalLink, {
+                          size: 13,
+                          "aria-hidden": "true"
+                        })
+                  ],
+                  className: "inline-flex flex-shrink-0 items-center gap-1.5 rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:border-[#3a3b40] dark:bg-transparent dark:text-gray-200 dark:hover:bg-[#2a2b30]",
+                  href: match$4,
+                  rel: "noopener noreferrer",
+                  target: "_blank",
+                  onClick: (function (e) {
+                      if (InstallPwa.openInSystemSafari(match$4)) {
+                        e.preventDefault();
+                        return ;
+                      }
+                      
+                    })
+                }) : null
+        ]
+      });
+  var match$5 = $$event.deleted;
+  if (match$5 !== undefined) {
     return null;
   }
   if (props.viewerUser !== undefined) {
-    var match$5 = $$event.shadow;
-    if (match$5 !== undefined && match$5) {
-      return null;
+    var match$6 = $$event.shadow;
+    if (match$6 !== undefined && match$6) {
+      return externalFooter;
     }
     var cancelDeadlineDate = Core__Option.flatMap($$event.startDate, (function (sd) {
             return Core__Option.map($$event.cancelDeadline, (function (ms) {
@@ -546,9 +620,9 @@ function EventStickyFooter(props) {
                 ]
               });
   }
-  var match$6 = $$event.shadow;
-  if (match$6 !== undefined && match$6) {
-    return null;
+  var match$7 = $$event.shadow;
+  if (match$7 !== undefined && match$7) {
+    return externalFooter;
   }
   return JsxRuntime.jsxs(EventStickyFooter$Row, {
               className: Core.cx("sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex-shrink-0", fullWidth ? "" : "rounded-t-xl"),

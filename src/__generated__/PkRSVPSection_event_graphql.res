@@ -63,6 +63,7 @@ module Types = {
     owner: option<fragment_owner>,
     price: option<int>,
     rsvps: option<fragment_rsvps>,
+    shadow: option<bool>,
     smartRsvpThreshold: option<float>,
     startDate: option<Util.Datetime.t>,
     tags: option<array<string>>,
@@ -231,6 +232,13 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "chargesEnabled",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "shadow",
       "storageKey": null
     },
     {

@@ -13,15 +13,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "— add to your Home Screen for push notifications"
 msgstr "— เพิ่มไปยังหน้าจอหลักเพื่อรับการแจ้งเตือนแบบพุช"
 
-#: src/components/shared/InstallPwa.re.mjs:370
+#: src/components/shared/InstallPwa.re.mjs:379
 msgid "— enable push notifications for event reminders"
 msgstr "— เปิดใช้การแจ้งเตือนแบบพุชสำหรับการเตือนกิจกรรม"
 
-#: src/components/shared/InstallPwa.re.mjs:485
+#: src/components/shared/InstallPwa.re.mjs:494
 msgid "— for a faster, app-like experience"
 msgstr "— เพื่อประสบการณ์ที่รวดเร็วเหมือนแอป"
 
@@ -29,7 +29,7 @@ msgstr "— เพื่อประสบการณ์ที่รวดเ�
 msgid "(logout)"
 msgstr "(ออกจากระบบ)"
 
-#: src/components/shared/InstallPwa.re.mjs:462
+#: src/components/shared/InstallPwa.re.mjs:471
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 
@@ -41,7 +41,7 @@ msgstr "เกี่ยวกับ"
 msgid "copyright the racquet league contributors"
 msgstr "ลิขสิทธิ์โดยผู้ร่วมงาน the racquet league"
 
-#: src/components/shared/InstallPwa.re.mjs:380
+#: src/components/shared/InstallPwa.re.mjs:389
 msgid "Enable now"
 msgstr "เปิดใช้งานเดี๋ยวนี้"
 
@@ -49,24 +49,24 @@ msgstr "เปิดใช้งานเดี๋ยวนี้"
 msgid "Find Games"
 msgstr "ค้นหาเกม"
 
-#: src/components/shared/InstallPwa.re.mjs:422
+#: src/components/shared/InstallPwa.re.mjs:431
 msgid "Hide"
 msgstr "ซ่อน"
 
-#: src/components/shared/InstallPwa.re.mjs:422
+#: src/components/shared/InstallPwa.re.mjs:431
 msgid "How to install"
 msgstr "วิธีติดตั้ง"
 
-#: src/components/shared/InstallPwa.re.mjs:454
+#: src/components/shared/InstallPwa.re.mjs:463
 msgid "in Safari's toolbar"
 msgstr "ในแถบเครื่องมือของ Safari"
 
-#: src/components/shared/InstallPwa.re.mjs:494
+#: src/components/shared/InstallPwa.re.mjs:503
 msgid "Install"
 msgstr "ติดตั้ง"
 
-#: src/components/shared/InstallPwa.re.mjs:409
-#: src/components/shared/InstallPwa.re.mjs:481
+#: src/components/shared/InstallPwa.re.mjs:418
+#: src/components/shared/InstallPwa.re.mjs:490
 msgid "Install Pkuru.com App"
 msgstr "ติดตั้งแอป Pkuru.com"
 
@@ -96,15 +96,15 @@ msgstr "รูปโปรไฟล์"
 msgid "Rankings"
 msgstr "อันดับ"
 
-#: src/components/shared/InstallPwa.re.mjs:460
+#: src/components/shared/InstallPwa.re.mjs:469
 msgid "Scroll down and tap"
 msgstr "เลื่อนลงและแตะ"
 
-#: src/components/shared/InstallPwa.re.mjs:366
+#: src/components/shared/InstallPwa.re.mjs:375
 msgid "Stay in the loop"
 msgstr "ติดตามทุกความเคลื่อนไหว"
 
-#: src/components/shared/InstallPwa.re.mjs:452
+#: src/components/shared/InstallPwa.re.mjs:461
 msgid "Tap the Share button"
 msgstr "แตะปุ่มแชร์"
 

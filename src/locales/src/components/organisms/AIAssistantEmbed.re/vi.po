@@ -13,35 +13,31 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:367
-msgid "{0} event(s) couldn't be created (they may already exist)."
-msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)."
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "Chấp nhận {0} sự kiện"
 
-#: src/components/organisms/CreateEventsButton.re.mjs:363
-msgid "{0} events created!"
-msgstr "Đã tạo {0} sự kiện!"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:604
+#: src/components/organisms/AIAssistantEmbed.re.mjs:603
 msgid "Action proposal"
 msgstr "Đề xuất hành động"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:273
+#: src/components/organisms/AIAssistantEmbed.re.mjs:274
 msgid "An error occurred. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:513
+#: src/components/organisms/AIAssistantEmbed.re.mjs:512
 msgid "Approve"
 msgstr "Chấp thuận"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
 msgid "Approve or deny the pending action to continue."
 msgstr "Phê duyệt hoặc từ chối hành động đang chờ để tiếp tục."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:471
+#: src/components/organisms/AIAssistantEmbed.re.mjs:470
 msgid "Approved"
 msgstr "Đã phê duyệt"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:427
+#: src/components/organisms/AIAssistantEmbed.re.mjs:428
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -49,133 +45,99 @@ msgstr ""
 "Yêu cầu trợ lý điền thông tin sự kiện. Cuộc trò chuyện của bạn sẽ xuất hiện "
 "ở đây."
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:465
+#: src/components/organisms/AIAssistantEmbed.re.mjs:464
 msgid "Awaiting approval"
 msgstr "Đang chờ phê duyệt"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:227
-#: src/components/organisms/AutocompleteLocation.re.mjs:239
-msgid "Could not load that place"
-msgstr "Không thể tải địa điểm đó"
-
-#: src/components/organisms/AutocompleteLocation.re.mjs:118
-#: src/components/organisms/AutocompleteLocation.re.mjs:126
-msgid "Could not save that location"
-msgstr "Không thể lưu vị trí đó"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:417
-msgid "Couldn't create that event. Please try again."
-msgstr "Không thể tạo sự kiện đó. Vui lòng thử lại."
-
-#: src/components/organisms/CreateEventsButton.re.mjs:376
-msgid "Couldn't determine the activity. Please try again."
-msgstr "Không thể xác định hoạt động. Vui lòng thử lại."
-
-#: src/components/organisms/CreateEventsButton.re.mjs:393
-msgid "Couldn't find this location — pick it:"
-msgstr "Không tìm thấy địa điểm này — hãy chọn:"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:133
-msgid "Create All Events"
-msgstr "Tạo tất cả sự kiện"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:133
-msgid "Create This Event"
-msgstr "Tạo sự kiện này"
-
-#: src/components/organisms/CreateEventsButton.re.mjs:381
-msgid "Creating..."
-msgstr "Đang tạo..."
-
-#: src/components/molecules/AIResponseCard.re.mjs:97
-#: src/components/molecules/AIResponseCard.re.mjs:195
+#: src/components/molecules/AIResponseCard.re.mjs:103
+#: src/components/molecules/AIResponseCard.re.mjs:201
 msgid "Date:"
 msgstr "Ngày:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:477
+#: src/components/organisms/AIAssistantEmbed.re.mjs:476
 msgid "Denied"
 msgstr "Đã từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:569
+#: src/components/organisms/AIAssistantEmbed.re.mjs:568
 msgid "Deny"
 msgstr "Từ chối"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:690
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
 msgid "Describe the event"
 msgstr "Mô tả sự kiện"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "Mô tả sự kiện của bạn và tôi sẽ điền vào biểu mẫu…"
 
-#: src/components/molecules/AIResponseCard.re.mjs:147
+#: src/components/molecules/AIResponseCard.re.mjs:153
 msgid "Description:"
 msgstr "Mô tả:"
 
-#: src/components/molecules/AIResponseCard.re.mjs:75
+#: src/components/molecules/AIResponseCard.re.mjs:81
 msgid "Event Details"
 msgstr "Chi tiết sự kiện"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:485
+#: src/components/organisms/AIAssistantEmbed.re.mjs:484
 msgid "Executed"
 msgstr "Đã thực thi"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:488
+#: src/components/organisms/AIAssistantEmbed.re.mjs:487
 msgid "Execution failed"
 msgstr "Thực thi thất bại"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:736
+#: src/components/organisms/AIAssistantEmbed.re.mjs:735
 msgid "Fill event form from description"
 msgstr "Điền biểu mẫu sự kiện từ mô tả"
 
-#: src/components/molecules/AIResponseCard.re.mjs:39
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Fill form"
 msgstr "Điền biểu mẫu"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:771
+#: src/components/organisms/AIAssistantEmbed.re.mjs:770
 msgid "Hide AI chat history"
 msgstr "Ẩn lịch sử trò chuyện AI"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:423
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
 msgid "Loading conversation history..."
 msgstr "Đang tải lịch sử hội thoại..."
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:175
-msgid "Location search is unavailable right now"
-msgstr "Tìm kiếm vị trí hiện không khả dụng"
-
-#: src/components/molecules/AIResponseCard.re.mjs:132
-#: src/components/molecules/AIResponseCard.re.mjs:230
+#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:236
 msgid "Location:"
 msgstr "Địa điểm:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:621
+#: src/components/organisms/AIAssistantEmbed.re.mjs:620
 msgid "Operation:"
 msgstr "Thao tác:"
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:354
-msgid "Search for a venue or address"
-msgstr "Tìm sân hoặc địa chỉ"
-
-#: src/components/organisms/AIAssistantEmbed.re.mjs:771
+#: src/components/organisms/AIAssistantEmbed.re.mjs:770
 msgid "Show AI chat history"
 msgstr "Hiện lịch sử trò chuyện AI"
 
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:181
 msgid "Suggested Events"
 msgstr "Sự kiện được đề xuất"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:541
+#: src/components/organisms/AIAssistantEmbed.re.mjs:540
 msgid "The action completed with GraphQL errors."
 msgstr "Hành động đã hoàn thành nhưng có lỗi GraphQL."
 
-#: src/components/molecules/AIResponseCard.re.mjs:84
+#: src/components/molecules/AIResponseCard.re.mjs:90
 msgid "Title:"
 msgstr "Tiêu đề:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:290
+#: src/components/organisms/AIAssistantEmbed.re.mjs:291
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tục thủ công."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:367
+#~ msgid "{0} event(s) couldn't be created (they may already exist)."
+#~ msgstr "{0} sự kiện không thể được tạo (có thể đã tồn tại)."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:363
+#~ msgid "{0} events created!"
+#~ msgstr "Đã tạo {0} sự kiện!"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:746
 #~ msgid "⌘+Enter to send"
@@ -205,6 +167,40 @@ msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tụ
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Continue the conversation"
 #~ msgstr "Tiếp tục cuộc hội thoại"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:227
+#: src/components/organisms/AutocompleteLocation.re.mjs:239
+#~ msgid "Could not load that place"
+#~ msgstr "Không thể tải địa điểm đó"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:118
+#: src/components/organisms/AutocompleteLocation.re.mjs:126
+#~ msgid "Could not save that location"
+#~ msgstr "Không thể lưu vị trí đó"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:417
+#~ msgid "Couldn't create that event. Please try again."
+#~ msgstr "Không thể tạo sự kiện đó. Vui lòng thử lại."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:376
+#~ msgid "Couldn't determine the activity. Please try again."
+#~ msgstr "Không thể xác định hoạt động. Vui lòng thử lại."
+
+#: src/components/organisms/CreateEventsButton.re.mjs:393
+#~ msgid "Couldn't find this location — pick it:"
+#~ msgstr "Không tìm thấy địa điểm này — hãy chọn:"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+#~ msgid "Create All Events"
+#~ msgstr "Tạo tất cả sự kiện"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:133
+#~ msgid "Create This Event"
+#~ msgstr "Tạo sự kiện này"
+
+#: src/components/organisms/CreateEventsButton.re.mjs:381
+#~ msgid "Creating..."
+#~ msgstr "Đang tạo..."
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:425
 #~ msgid "Describe the event to generate a draft"
@@ -262,6 +258,10 @@ msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tụ
 #~ msgid "Let AI help you fill out the details below"
 #~ msgstr "Để AI giúp bạn điền các thông tin bên dưới"
 
+#: src/components/organisms/AutocompleteLocation.re.mjs:175
+#~ msgid "Location search is unavailable right now"
+#~ msgstr "Tìm kiếm vị trí hiện không khả dụng"
+
 #: src/components/organisms/AIAssistantEmbed.re.mjs:774
 #~ msgid "Press ⌘+Enter to continue"
 #~ msgstr "Nhấn ⌘+Enter để tiếp tục"
@@ -273,6 +273,10 @@ msgstr "Đã yêu cầu quá nhiều bước tự động. Vui lòng tiếp tụ
 #: src/components/organisms/AIAssistantEmbed.re.mjs:780
 #~ msgid "Reset"
 #~ msgstr "Đặt lại"
+
+#: src/components/organisms/AutocompleteLocation.re.mjs:354
+#~ msgid "Search for a venue or address"
+#~ msgstr "Tìm sân hoặc địa chỉ"
 
 #: src/components/organisms/AIAssistantEmbed.re.mjs:758
 #~ msgid "Send"

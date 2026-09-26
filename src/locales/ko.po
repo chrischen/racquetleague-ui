@@ -8174,11 +8174,218 @@ msgstr "DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았�
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "예약 이메일"
 
 #: src/components/pages/ClubPage.re.mjs:819
 msgid "Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner."
-msgstr ""
+msgstr "코트 예약 확인 메일을 이 주소로 전달하거나, 예약 사이트에 이메일 대신 이 주소를 입력하면 각 예약이 이 클럽의 이벤트로 등록됩니다. 본인 이메일에서 전달한 회원은 예약자로 표시되며, 그 외의 경우는 클럽 소유자에게 귀속됩니다."
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "{0} 수락"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr "장소가 없는 {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr "모든 이벤트의 장소를 선택하세요"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr "이 이벤트의 장소를 선택하세요."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
+msgstr "\\\"{address}\\\"을(를) 찾을 수 없습니다. 장소를 선택하세요:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
+msgstr "{0} 만들기"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr "생성됨"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
+msgstr "이벤트 생성 중…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
+msgstr "실패"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr "{address} 검색 중…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
+msgstr "장소 검색 중…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr "일부 이벤트를 생성하지 못했습니다. 다시 시도해 나머지를 생성하세요."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "어시스턴트가 {0}을(를) 제안했습니다. 각 이벤트는 고유한 장소, 날짜, 시간을 유지하며, 이 양식의 나머지 설정은 모두에게 적용됩니다."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "아래 시간은 이 시간대로 표시되며, 모든 이벤트가 이 시간대로 생성됩니다."
+
+#: src/components/organisms/PkEventRow.re.mjs:129
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "External event"
+msgstr "외부 이벤트"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "Join on {externalSource}"
+msgstr "{externalSource}에서 참가하기"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Open {externalSource}"
+msgstr "{externalSource} 열기"
+
+#: src/components/pages/PkEventPage.re.mjs:273
+msgid "Booked on {0}"
+msgstr "{0}에서 예약됨"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:186
+msgid "Join on {externalSource2}"
+msgstr "{externalSource2}에서 참가"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Open {externalSource2}"
+msgstr "{externalSource2} 열기"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "계정 이메일"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "추가"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "수신 이메일 추가"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "확인 대기 중"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "이 주소에서 전달된 예약은 더 이상 계정에 추가되지 않습니다. 나중에 다시 추가할 수 있습니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "이 주소들에서 chris@pkuru.com으로 전달한 예약은 계정에 추가됩니다. 예약 확인 메일을 받는 다른 주소를 추가하세요."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+msgid "Confirmed"
+msgstr "확인됨"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "pkuru에 로그인한 상태에서 링크를 열면 주소 추가가 완료됩니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "수신 이메일"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "이 수신 이메일을 삭제할까요?"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "다시 보내기"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "문제가 발생했습니다. 다시 시도해 주세요."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "그 주소는 더 이상 계정에 없습니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "이메일 주소 형식이 아닌 것 같습니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "이미 계정 이메일입니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "너무 많이 보냈습니다. 잠시 후 다시 시도해 주세요."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr "이메일을 보내지 못했습니다. 잠시 후 \\\\\\\"다시 보내기\\\\\\\"를 눌러 주세요."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "확인 링크를 보냈습니다:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr "수신 이메일은 최대 5개까지 추가할 수 있습니다. 추가하려면 하나를 삭제하세요."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "이미 추가한 주소입니다."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:129
+msgid "Confirming your email…"
+msgstr "이메일을 확인하는 중…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:166
+msgid "Couldn't confirm this email"
+msgstr "이 이메일을 확인할 수 없습니다"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:140
+msgid "Email confirmed"
+msgstr "이메일이 확인되었습니다"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:156
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Go to profile settings"
+msgstr "프로필 설정으로 이동"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:150
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "이(가) 이제 수신 이메일 중 하나입니다. 이 주소에서 chris@pkuru.com으로 전달한 예약은 이벤트에 추가됩니다."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:55
+msgid "This address is already used by another pkuru account."
+msgstr "이 주소는 이미 다른 pkuru 계정에서 사용 중입니다."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "이 링크는 이 계정에서 사용할 수 없습니다. 주소를 추가한 계정으로 로그인했는지 확인하거나 프로필 설정에서 새 링크를 보내세요."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:57
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "이 링크는 만료되었습니다. 프로필 설정에서 새 링크를 보내세요."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link is incomplete. Open it from the email again."
+msgstr "링크가 불완전합니다. 이메일에서 다시 열어 주세요."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
@@ -8354,3 +8561,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "현실적인 1.0 DUPR 편차에서 Competitive+는 처음 몇 라운드 만에 기준선들을 앞서고, 한 세션이 지나면 이미 반복 방지 기준선보다 품질 9포인트, 일방적 경기 10포인트 앞섭니다. 온전한 효과는 레이팅이 성숙했을 때 나타납니다. 기준선의 62%에 대해 일방적 경기 10%, 53%에 대해 접전 확률 78%입니다. 이 수치는 실력을 직접 선별한 좁은 편차의 클럽(79%, 8%)과 맞먹습니다 — 알고리즘이 매치메이킹으로, 회원 자격을 제한해야만 얻을 수 있던 결과를 되살려 냅니다:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "이메일을 보낼 수 없습니다. 잠시 후 \"다시 보내기\"를 눌러 주세요."

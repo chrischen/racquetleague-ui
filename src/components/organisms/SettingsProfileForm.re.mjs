@@ -18,6 +18,7 @@ import * as Caml_splice_call from "rescript/lib/es6/caml_splice_call.js";
 import * as RatingSourceChip from "../molecules/RatingSourceChip.re.mjs";
 import * as PushNotifications from "../shared/PushNotifications.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as ReceivingEmailsCard from "./ReceivingEmailsCard.re.mjs";
 import * as SeekingPartnerInput from "./SeekingPartnerInput.re.mjs";
 import * as AppContext from "../layouts/appContext";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
@@ -670,6 +671,13 @@ function SettingsProfileForm(props) {
                                                 ],
                                                 className: "mt-8 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden bg-white dark:bg-[#1a1a1a] transition-colors"
                                               }),
+                                          Core__Option.getOr(Core__Option.map(Core__Option.flatMap(query.viewer, (function (v) {
+                                                          return v.profile;
+                                                        })), (function (profile) {
+                                                      return JsxRuntime.jsx(ReceivingEmailsCard.make, {
+                                                                  user: profile.fragmentRefs
+                                                                });
+                                                    })), null),
                                           JsxRuntime.jsx(DuprConnectCard.make, {
                                                 query: query.fragmentRefs,
                                                 onChanged: (function () {

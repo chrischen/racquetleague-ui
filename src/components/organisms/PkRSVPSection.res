@@ -12,6 +12,9 @@ module Fragment = %relay(`
     price
     # Whether the event's payment account can collect: gates the charge actions.
     chargesEnabled
+    # A venue's session tracked from booking emails: players are added from
+    # their forwarded confirmations or by an admin, never invited.
+    shadow
     minRating
     smartRsvpThreshold
     viewerIsAdmin
@@ -186,6 +189,11 @@ module UserFragment = %relay(`
       mu
       sigma
     }
+    dupr {
+      doubles
+      doublesReliable
+      doublesReliability
+    }
   }
 `)
 
@@ -261,12 +269,35 @@ let make = (
   let invitedRsvps = rsvps->Array.filter(n => n.listType == Some(2))
   let pendingRsvps =
     rsvps->Array.filter(n => n.listType != None && n.listType != Some(0) && n.listType != Some(2))
+  // The rating this section reasons with, for the order of the list and
+  // every stat: the same CombinedRating each row displays and the Round
+  // Robin tool seeds from — pkuru or DUPR by confidence, then the player's
+  // own estimate. A player with no signal at all has no rating here, rather
+  // than a stand-in value that would pull the stats toward the default.
+  let seedRating = (node: PkRSVPSection_event_graphql.Types.fragment_rsvps_edges_node) =>
+    CombinedRating.resolve(
+      ~pkuruMu=node.rating->Option.flatMap(r => r.mu),
+      ~pkuruSigma=?node.rating->Option.flatMap(r => r.sigma),
+      ~duprDoubles=node.user->Option.flatMap(u => u.dupr)->Option.flatMap(d => d.doubles),
+      ~duprReliability=?node.user
+      ->Option.flatMap(u => u.dupr)
+      ->Option.flatMap(d => d.doublesReliability),
+      ~duprReliable=node.user
+      ->Option.flatMap(u => u.dupr)
+      ->Option.map(d => d.doublesReliable)
+      ->Option.getOr(false),
+      ~selfMu=node.user->Option.flatMap(u => u.selfRating),
+    )
+  let seedMu = node => seedRating(node)->Option.map(CombinedRating.mu)
+  /* Sorts an unrated player after everyone with a rating. */
+  let unratedSortKey = -1.
+
   let confirmedRsvps =
     mainList
     ->Array.filterWithIndex((_, i) => !isWaitlist(i))
     ->Array.toSorted((a, b) => {
-      let muA = a.rating->Option.flatMap(r => r.mu)->Option.getOr(25.)
-      let muB = b.rating->Option.flatMap(r => r.mu)->Option.getOr(25.)
+      let muA = seedMu(a)->Option.getOr(unratedSortKey)
+      let muB = seedMu(b)->Option.getOr(unratedSortKey)
       compare(muB, muA)->Int.toFloat
     })
   let waitlistRsvps = mainList->Array.filterWithIndex((_, i) => isWaitlist(i))
@@ -340,7 +371,7 @@ let make = (
       ~variables={input: {rsvpId, listType: 0}},
     )->RescriptRelay.Disposable.ignore
 
-  let mus = confirmedRsvps->Array.map(n => n.rating->Option.flatMap(r => r.mu)->Option.getOr(25.))
+  let mus = confirmedRsvps->Array.filterMap(seedMu)
   let maxRating = mus->Array.reduce(0., (acc, mu) => mu > acc ? mu : acc)
   let maxRating = maxRating == 0. ? 1. : maxRating
 
@@ -402,14 +433,10 @@ let make = (
   let colorClass = isFull ? "bg-[#ef4444]" : percentage >= 75. ? "bg-[#ffb042]" : "bg-[#4ade80]"
 
   let maleMus = confirmedRsvps->Array.filterMap(node =>
-    node.user
-    ->Option.flatMap(u => u.gender)
-    ->Option.flatMap(g => g == Male ? node.rating->Option.flatMap(r => r.mu) : None)
+    node.user->Option.flatMap(u => u.gender)->Option.flatMap(g => g == Male ? seedMu(node) : None)
   )
   let femaleMus = confirmedRsvps->Array.filterMap(node =>
-    node.user
-    ->Option.flatMap(u => u.gender)
-    ->Option.flatMap(g => g == Female ? node.rating->Option.flatMap(r => r.mu) : None)
+    node.user->Option.flatMap(u => u.gender)->Option.flatMap(g => g == Female ? seedMu(node) : None)
   )
 
   let maleMedianMu = medianMu(maleMus)
@@ -440,16 +467,34 @@ let make = (
   | _ => "—"
   }
 
-  // Viewer rating check against minRating
+  // Viewer rating check against minRating, resolved the way the server's
+  // gate resolves it: pkuru or DUPR by confidence, never the self-rating.
   let viewerRating = viewerUser->Option.flatMap(v => v.eventRating)
+  let viewerEffective = viewerUser->Option.flatMap(v =>
+    CombinedRating.resolve(
+      ~pkuruMu=v.eventRating->Option.flatMap(r => r.mu),
+      ~pkuruSigma=?v.eventRating->Option.flatMap(r => r.sigma),
+      ~duprDoubles=v.dupr->Option.flatMap(d => d.doubles),
+      ~duprReliability=?v.dupr->Option.flatMap(d => d.doublesReliability),
+      ~duprReliable=v.dupr->Option.map(d => d.doublesReliable)->Option.getOr(false),
+      ~selfMu=None,
+    )
+  )
   let viewerRatingVal = {
     let d = Rating.Rating.makeDefault()
-    switch viewerRating {
-    | Some(r) => Rating.Rating.make(r.mu->Option.getOr(d.mu), r.sigma->Option.getOr(d.sigma))
-    | None => d
+    switch (viewerEffective, viewerRating) {
+    | (Some(r), Some(pk)) if CombinedRating.source(r) == Pkuru =>
+      Rating.Rating.make(pk.mu->Option.getOr(d.mu), pk.sigma->Option.getOr(d.sigma))
+    | (Some(r), _) => Rating.Rating.make(CombinedRating.mu(r), d.sigma)
+    | (None, _) => d
     }
   }
-  let viewerOrdinal2 = Rating.ordinal2(viewerRatingVal)
+  // A pkuru rating carries its uncertainty into the comparison; a DUPR rating
+  // is compared as it stands, which is how the server gates it.
+  let viewerOrdinal2 = switch viewerEffective {
+  | Some(r) if CombinedRating.source(r) == Dupr => CombinedRating.mu(r)
+  | _ => Rating.ordinal2(viewerRatingVal)
+  }
   let viewerCanJoin = minRating->Option.map(min => viewerOrdinal2 >= min)
 
   // Smart RSVP holds every join for automatic review, so the level restriction
@@ -929,7 +974,7 @@ let make = (
     /* Sent and potential invites */
     <EventInvites
       eventId=eventData.id
-      canInvite=eventData.viewerIsAdmin
+      canInvite={eventData.viewerIsAdmin && eventData.shadow != Some(true)}
       activityId={eventData.activity->Option.map(a => a.id)}
       activitySlug
       clubId={eventData.club->Option.map(c => c.id)}

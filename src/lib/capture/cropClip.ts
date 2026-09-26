@@ -101,8 +101,8 @@ export async function cropClip(source: EncodedVideo, crop: CropRect): Promise<Bl
   let outDescription: Uint8Array | undefined;
   let failure: unknown = null;
   let lastKeyUs = -Infinity;
-  let useCanvas = false;
   let canvas: OffscreenCanvas | null = null;
+  let verified = false;
   let ctx: OffscreenCanvasRenderingContext2D | null = null;
 
   const encoder = new VideoEncoder({
@@ -121,22 +121,47 @@ export async function cropClip(source: EncodedVideo, crop: CropRect): Promise<Bl
   });
   encoder.configure(encoderConfig);
 
+  // The crop is a canvas draw of the WHOLE frame at its natural size, offset
+  // so the crop origin lands on the canvas origin; the canvas clips the rest.
+  // Every other route was measured (2026-09-25, Playwright WebKit 17.4 and the
+  // kiosk's Safari) to hand the encoder the WHOLE frame squeezed to the crop's
+  // size: `new VideoFrame(frame, { visibleRect })`, drawImage with a source
+  // rect, and createImageBitmap with a rect all ignore the rectangle for a
+  // VideoFrame source. (`frame.copyTo(buf, { rect })` also crops correctly
+  // but needs per-format layout plumbing.) The server pairs the court pkl
+  // with a clip by frame size alone, so a squeeze passed as "calibrated" and
+  // every bounce landed off the court — hence the first-frame check below.
   const cropFrame = (frame: VideoFrame): VideoFrame => {
-    if (!useCanvas) {
-      try {
-        // Zero-copy crop where the engine supports it.
-        return new VideoFrame(frame, { visibleRect: rect });
-      } catch {
-        useCanvas = true;
-      }
-    }
     if (!canvas || !ctx) {
       canvas = new OffscreenCanvas(rect.width, rect.height);
       ctx = canvas.getContext("2d");
       if (!ctx) throw new Error("OffscreenCanvas 2d context unavailable");
     }
-    ctx.drawImage(frame, rect.x, rect.y, rect.width, rect.height, 0, 0, rect.width, rect.height);
+    ctx.drawImage(frame, -rect.x, -rect.y, frame.displayWidth, frame.displayHeight);
+    if (!verified) {
+      verifyCrop(frame, ctx);
+      verified = true;
+    }
     return new VideoFrame(canvas, { timestamp: frame.timestamp, duration: frame.duration ?? undefined });
+  };
+
+  // Fail loudly rather than analyse a squeezed frame: a few pixels of the
+  // cropped canvas must equal the same pixels of the full frame.
+  const verifyCrop = (frame: VideoFrame, cropped: OffscreenCanvasRenderingContext2D): void => {
+    const full = new OffscreenCanvas(frame.displayWidth, frame.displayHeight).getContext("2d");
+    if (!full) return;
+    full.drawImage(frame, 0, 0, frame.displayWidth, frame.displayHeight);
+    let worst = 0;
+    for (const [fx, fy] of [[0.1, 0.1], [0.9, 0.1], [0.5, 0.5], [0.1, 0.9], [0.9, 0.9], [0.3, 0.7]]) {
+      const u = Math.floor(fx * (rect.width - 1));
+      const v = Math.floor(fy * (rect.height - 1));
+      const a = cropped.getImageData(u, v, 1, 1).data;
+      const b = full.getImageData(rect.x + u, rect.y + v, 1, 1).data;
+      for (let k = 0; k < 3; k++) worst = Math.max(worst, Math.abs(a[k] - b[k]));
+    }
+    if (worst > 48) {
+      throw new Error(`crop verification failed: this browser scaled the frame instead of cropping it (max channel diff ${worst})`);
+    }
   };
 
   const decoder = new VideoDecoder({

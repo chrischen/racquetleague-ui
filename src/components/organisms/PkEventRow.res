@@ -67,12 +67,31 @@ let ts = Lingui.UtilString.t
 
 type viewerRsvpStatus = Confirmed | Waitlist | Pending
 
+// Marks a shadow event's count: the players booked on the venue's own
+// system, shown for information rather than as spots to take on pkuru.
+module ExternalIcon = {
+  @react.component
+  let make = () =>
+    <Lucide.ExternalLink
+      size=12 className="flex-shrink-0 text-gray-400" \"aria-label"={ts`External event`}
+    />
+}
+
 module ProgressBar = {
   @react.component
-  let make = (~filled: int, ~total: option<int>, ~status: string, ~overflow: option<int>=?) => {
+  let make = (
+    ~filled: int,
+    ~total: option<int>,
+    ~status: string,
+    ~overflow: option<int>=?,
+    ~shadow: bool=false,
+  ) => {
+    let icon = shadow ? <ExternalIcon /> : React.null
     switch total {
     | None =>
-      <span className="font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+      <span
+        className="inline-flex items-center gap-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+        icon
         {(Int.toString(filled) ++
         " " ++
         Lingui.UtilString.plural(filled, {one: ts`player`, other: ts`players`}))->React.string}
@@ -82,10 +101,14 @@ module ProgressBar = {
         100,
         Js.Math.round(Float.fromInt(filled) /. Float.fromInt(total) *. 100.)->Float.toInt,
       )
-      let colorClass = switch status {
-      | "red" => "bg-[#ef4444]"
-      | "orange" => "bg-[#ffb042]"
-      | _ => "bg-[#4ade80]"
+      let colorClass = if shadow {
+        "bg-gray-400 dark:bg-gray-500"
+      } else {
+        switch status {
+        | "red" => "bg-[#ef4444]"
+        | "orange" => "bg-[#ffb042]"
+        | _ => "bg-[#4ade80]"
+        }
       }
       <div className="flex items-center gap-3 w-32">
         <div className="h-0.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
@@ -94,7 +117,9 @@ module ProgressBar = {
             style={ReactDOM.Style.make(~width=Int.toString(pct) ++ "%", ())}
           />
         </div>
-        <span className="font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+        <span
+          className="inline-flex items-center gap-1 font-mono text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">
+          icon
           {(Int.toString(filled) ++ "/" ++ Int.toString(total))->React.string}
         </span>
       </div>
@@ -104,11 +129,21 @@ module ProgressBar = {
 
 module CapacityCount = {
   @react.component
-  let make = (~filled: int, ~total: option<int>, ~status: string, ~overflow: option<int>=?) => {
-    let textColor = switch status {
-    | "red" => "text-red-500"
-    | "orange" => "text-[#e09030]"
-    | _ => "text-emerald-500 dark:text-emerald-400"
+  let make = (
+    ~filled: int,
+    ~total: option<int>,
+    ~status: string,
+    ~overflow: option<int>=?,
+    ~shadow: bool=false,
+  ) => {
+    let textColor = if shadow {
+      "text-gray-500 dark:text-gray-400"
+    } else {
+      switch status {
+      | "red" => "text-red-500"
+      | "orange" => "text-[#e09030]"
+      | _ => "text-emerald-500 dark:text-emerald-400"
+      }
     }
     let label = switch total {
     | None =>
@@ -117,7 +152,10 @@ module CapacityCount = {
       Lingui.UtilString.plural(filled, {one: ts`player`, other: ts`players`})
     | Some(total) => Int.toString(filled) ++ "/" ++ Int.toString(total)
     }
-    <span className={"font-mono text-sm font-medium whitespace-nowrap " ++ textColor}>
+    <span
+      className={"inline-flex items-center gap-1 font-mono text-sm font-medium whitespace-nowrap " ++
+      textColor}>
+      {shadow ? <ExternalIcon /> : React.null}
       {label->React.string}
     </span>
   }
@@ -238,7 +276,6 @@ let make = (
     cancelDeadline,
   } = ItemFragment.use(event)
 
-  let secret = shadow->Option.getOr(false)
   let isUnlisted = switch listed {
   | Some(false) => true
   | _ => false
@@ -420,6 +457,12 @@ let make = (
   let isAlmostFull =
     maxRsvps->Option.map(max => max - playersCount <= 2 && !isFull)->Option.getOr(false)
   let isCanceled = deleted->Option.isSome
+  // A shadow event (a venue's session, tracked from booking emails) is not
+  // joined or left on pkuru, so the row offers no action, as the event page.
+  let isShadow = shadow->Option.getOr(false)
+  // It still shows the viewer's status: a forwarded booking confirmation is
+  // what puts them on its roster.
+  let badgeStatus = viewerRsvpStatus
 
   let status = if isFull {
     "red"
@@ -491,7 +534,7 @@ let make = (
     ts`Join`
   }
 
-  let actionButton = isCanceled
+  let actionButton = isCanceled || isShadow
     ? React.null
     : <button
         onClick=handleActionClick
@@ -585,13 +628,11 @@ let make = (
                           <span> {"·"->React.string} </span>
                         </>)
                         ->Option.getOr(React.null)}
-                        {secret
-                          ? React.null
-                          : <span className="truncate">
-                              {location
-                              ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                              ->Option.getOr(React.null)}
-                            </span>}
+                        <span className="truncate">
+                          {location
+                          ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                          ->Option.getOr(React.null)}
+                        </span>
                       </div>
                       {
                         let tagsArr = tags->Option.getOr([])
@@ -618,8 +659,8 @@ let make = (
       : <>
           <SwipeAction
             rightActions={isTouchDevice ? actionButton : React.null}
-            disableDrag={!isTouchDevice}
-            onFullSwipeLeft={isTouchDevice
+            disableDrag={!isTouchDevice || isShadow}
+            onFullSwipeLeft={isTouchDevice && !isShadow
               ? () => {
                   switch viewerRsvpStatus {
                   | Some(Confirmed) | Some(Waitlist) | Some(Pending) =>
@@ -674,13 +715,11 @@ let make = (
                     <span> {"·"->React.string} </span>
                   </>)
                   ->Option.getOr(React.null)}
-                  {secret
-                    ? React.null
-                    : <span className="truncate">
-                        {location
-                        ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
-                        ->Option.getOr(React.null)}
-                      </span>}
+                  <span className="truncate">
+                    {location
+                    ->Option.flatMap(l => l.name->Option.map(name => name->React.string))
+                    ->Option.getOr(React.null)}
+                  </span>
                 </div>
                 {
                   let tagsArr = tags->Option.getOr([])
@@ -700,7 +739,7 @@ let make = (
                 }
               </div>
               <div className="w-20 md:w-44 flex-shrink-0 flex flex-col items-end gap-1.5 pt-1">
-                {viewerRsvpStatus
+                {badgeStatus
                 ->Option.map(s =>
                   <div className="hidden md:block">
                     <StatusBadge status=s />
@@ -708,7 +747,7 @@ let make = (
                 )
                 ->Option.getOr(React.null)}
                 <div className="md:hidden flex flex-col items-end gap-1">
-                  {viewerRsvpStatus
+                  {badgeStatus
                   ->Option.map(s => {
                     let isJoined = s == Confirmed
                     let dotBg = isJoined
@@ -739,7 +778,7 @@ let make = (
                     </div>
                   })
                   ->Option.getOr(React.null)}
-                  <CapacityCount filled=playersCount total=maxRsvps status />
+                  <CapacityCount filled=playersCount total=maxRsvps status shadow=isShadow />
                   {avgDupr
                   ->Option.map(v => <DuprBadge value=v size=#sm />)
                   ->Option.getOr(React.null)}
@@ -748,12 +787,12 @@ let make = (
                   {avgDupr
                   ->Option.map(v => <DuprBadge value=v size=#md />)
                   ->Option.getOr(React.null)}
-                  <ProgressBar filled=playersCount total=maxRsvps status />
+                  <ProgressBar filled=playersCount total=maxRsvps status shadow=isShadow />
                 </div>
               </div>
             </div>
           </SwipeAction>
-          {isTouchDevice
+          {isTouchDevice || isShadow
             ? React.null
             : <FramerMotion.Div
                 className={"absolute right-0 top-0 bottom-0 w-[120px] flex items-center justify-center z-20 " ++

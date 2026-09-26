@@ -33,29 +33,29 @@ msgstr "กรุณากรอกประวัติย่อ"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:223
+#: src/components/organisms/EventStickyFooter.re.mjs:297
 msgid "Cancel RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:343
-#: src/components/organisms/EventStickyFooter.re.mjs:454
+#: src/components/organisms/EventStickyFooter.re.mjs:417
+#: src/components/organisms/EventStickyFooter.re.mjs:528
 msgid "Cancellation deadline"
 msgstr "กำหนดเวลายกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:462
+#: src/components/organisms/EventStickyFooter.re.mjs:536
 msgid "Cancellation deadline passed."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:351
+#: src/components/organisms/EventStickyFooter.re.mjs:425
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:223
+#: src/components/organisms/EventStickyFooter.re.mjs:297
 msgid "Cancelling..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:171
+#: src/components/organisms/EventStickyFooter.re.mjs:245
 msgid ""
 "Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
 "the fee after the event."
@@ -63,16 +63,16 @@ msgstr ""
 "บัตรที่บันทึกไว้: {cardLabel} ยังไม่มีการเรียกเก็บเงินในขณะนี้ — "
 "ผู้จัดจะเรียกเก็บค่าธรรมเนียมหลังจบกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:212
+#: src/components/organisms/EventStickyFooter.re.mjs:286
 msgid "Card required to confirm your spot"
 msgstr "ต้องมีบัตรเพื่อยืนยันที่นั่งของคุณ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:479
-#: src/components/organisms/EventStickyFooter.re.mjs:587
+#: src/components/organisms/EventStickyFooter.re.mjs:553
+#: src/components/organisms/EventStickyFooter.re.mjs:661
 msgid "Claim spot"
 msgstr "จองที่"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:475
+#: src/components/organisms/EventStickyFooter.re.mjs:549
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
@@ -130,6 +130,10 @@ msgstr "ที่อยู่อีเมลนี้ไม่ว่าง ก�
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:181
+msgid "External event"
+msgstr "กิจกรรมภายนอก"
+
 #: src/components/organisms/ProfileModal.re.mjs:507
 msgid "Female"
 msgstr "หญิง"
@@ -154,19 +158,23 @@ msgstr "ระดับกลาง"
 msgid "Intermediate+"
 msgstr "ระดับกลาง+"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:587
+#: src/components/organisms/EventStickyFooter.re.mjs:186
+msgid "Join on {externalSource2}"
+msgstr "เข้าร่วมผ่าน {externalSource2}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:661
 msgid "Join waitlist"
 msgstr "เข้าร่วมรายการรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:472
+#: src/components/organisms/EventStickyFooter.re.mjs:546
 msgid "Join waitlist (#{0})"
 msgstr "เข้าร่วมรายชื่อคอย (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:190
+#: src/components/organisms/EventStickyFooter.re.mjs:264
 msgid "Join with saved card"
 msgstr "เข้าร่วมด้วยบัตรที่บันทึกไว้"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:188
+#: src/components/organisms/EventStickyFooter.re.mjs:262
 msgid "Joining..."
 msgstr "กำลังเข้าร่วม..."
 
@@ -174,16 +182,16 @@ msgstr "กำลังเข้าร่วม..."
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:426
-#: src/components/organisms/EventStickyFooter.re.mjs:538
+#: src/components/organisms/EventStickyFooter.re.mjs:500
+#: src/components/organisms/EventStickyFooter.re.mjs:612
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:426
+#: src/components/organisms/EventStickyFooter.re.mjs:500
 msgid "Leave waitlist"
 msgstr "ออกจากรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:425
+#: src/components/organisms/EventStickyFooter.re.mjs:499
 msgid "Leaving..."
 msgstr "กำลังออก..."
 
@@ -191,8 +199,8 @@ msgstr "กำลังออก..."
 msgid "Level"
 msgstr "ระดับ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:192
-#: src/components/organisms/EventStickyFooter.re.mjs:233
+#: src/components/organisms/EventStickyFooter.re.mjs:266
+#: src/components/organisms/EventStickyFooter.re.mjs:307
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -208,19 +216,23 @@ msgstr "ไม่ใช่ตอนนี้"
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:407
+#: src/components/organisms/EventStickyFooter.re.mjs:481
 msgid "On waitlist"
 msgstr "อยู่ในรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:200
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Open {externalSource2}"
+msgstr "เปิด {externalSource2}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:274
 msgid "Pay {priceStr}"
 msgstr "ชำระเงิน {priceStr}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:212
+#: src/components/organisms/EventStickyFooter.re.mjs:286
 msgid "Payment required to confirm your spot"
 msgstr "ต้องชำระเงินเพื่อยืนยันที่นั่งของคุณ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:304
+#: src/components/organisms/EventStickyFooter.re.mjs:378
 msgid "Pending approval"
 msgstr "รอการอนุมัติ"
 
@@ -237,7 +249,7 @@ msgstr "โปร"
 msgid "provisional"
 msgstr "ชั่วคราว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
+#: src/components/organisms/EventStickyFooter.re.mjs:268
 msgid "Save card"
 msgstr "บันทึกบัตร"
 
@@ -259,13 +271,13 @@ msgstr "แนะนำตัวเองเล็กน้อยเพื่อ
 msgid "singles"
 msgstr "เดี่ยว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:539
+#: src/components/organisms/EventStickyFooter.re.mjs:613
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
 msgstr "มีผู้เล่นในรายชื่อคอย ถ้าคุณออก ที่ของคุณจะถูกให้กับคนถัดไป คุณแน่ใจหรือไม่?"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:233
+#: src/components/organisms/EventStickyFooter.re.mjs:307
 msgid "Use a different card"
 msgstr "ใช้บัตรอื่น"
 
@@ -273,26 +285,26 @@ msgstr "ใช้บัตรอื่น"
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:318
+#: src/components/organisms/EventStickyFooter.re.mjs:392
 msgid "Withdraw RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:318
+#: src/components/organisms/EventStickyFooter.re.mjs:392
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:407
+#: src/components/organisms/EventStickyFooter.re.mjs:481
 msgid "You're in"
 msgstr "คุณเข้าร่วมแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:173
+#: src/components/organisms/EventStickyFooter.re.mjs:247
 msgid ""
 "Your card is saved now, not charged — the organizer charges the fee after "
 "the event."
 msgstr ""
 "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน — ผู้จัดจะเรียกเก็บค่าธรรมเนียมหลังจบกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:308
+#: src/components/organisms/EventStickyFooter.re.mjs:382
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
 
@@ -317,6 +329,14 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+#~ msgid "Join on {externalSource}"
+#~ msgstr "เข้าร่วมผ่าน {externalSource}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+#~ msgid "Open {externalSource}"
+#~ msgstr "เปิด {externalSource}"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:432
 #: src/components/organisms/EventStickyFooter.re.mjs:194

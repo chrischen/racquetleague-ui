@@ -13,13 +13,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventRow.re.mjs:686
-#: src/components/organisms/PkEventRow.re.mjs:774
+#: src/components/organisms/PkEventRow.re.mjs:720
+#: src/components/organisms/PkEventRow.re.mjs:808
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
-#: src/components/organisms/PkEventRow.re.mjs:130
-#: src/components/organisms/PkEventRow.re.mjs:187
+#: src/components/organisms/PkEventRow.re.mjs:147
+#: src/components/organisms/PkEventRow.re.mjs:218
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -47,7 +47,7 @@ msgstr "กรุณากรอกประวัติย่อ"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/PkEventRow.re.mjs:690
+#: src/components/organisms/PkEventRow.re.mjs:724
 msgid "Canceled"
 msgstr "ยกเลิกแล้ว"
 
@@ -109,6 +109,10 @@ msgstr "ต้องกรอกอีเมล"
 msgid "Event tag: {tag}"
 msgstr "แท็กกิจกรรม: {tag}"
 
+#: src/components/organisms/PkEventRow.re.mjs:129
+msgid "External event"
+msgstr "กิจกรรมภายนอก"
+
 #: src/components/organisms/ProfileModal.re.mjs:507
 msgid "Female"
 msgstr "หญิง"
@@ -137,11 +141,11 @@ msgstr "ระดับกลาง"
 msgid "Intermediate+"
 msgstr "ระดับกลาง+"
 
-#: src/components/organisms/PkEventRow.re.mjs:557
+#: src/components/organisms/PkEventRow.re.mjs:591
 msgid "Join"
 msgstr "เข้าร่วม"
 
-#: src/components/organisms/PkEventRow.re.mjs:221
+#: src/components/organisms/PkEventRow.re.mjs:255
 msgid "Joined"
 msgstr "เข้าร่วมแล้ว"
 
@@ -149,11 +153,11 @@ msgstr "เข้าร่วมแล้ว"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
-#: src/components/organisms/PkEventRow.re.mjs:556
+#: src/components/organisms/PkEventRow.re.mjs:590
 msgid "Leave"
 msgstr "ออก"
 
-#: src/components/organisms/PkEventRow.re.mjs:957
+#: src/components/organisms/PkEventRow.re.mjs:993
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
@@ -185,7 +189,7 @@ msgstr "ไม่ใช่ตอนนี้"
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/PkEventRow.re.mjs:260
+#: src/components/organisms/PkEventRow.re.mjs:294
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
@@ -193,13 +197,13 @@ msgstr "รอการอนุมัติ"
 msgid "pkuru"
 msgstr "pkuru"
 
-#: src/components/organisms/PkEventRow.re.mjs:131
-#: src/components/organisms/PkEventRow.re.mjs:188
+#: src/components/organisms/PkEventRow.re.mjs:148
+#: src/components/organisms/PkEventRow.re.mjs:219
 msgid "player"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/PkEventRow.re.mjs:132
-#: src/components/organisms/PkEventRow.re.mjs:189
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:220
 msgid "players"
 msgstr "ผู้เล่น"
 
@@ -257,7 +261,7 @@ msgstr "เดี่ยว"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
-#: src/components/organisms/PkEventRow.re.mjs:958
+#: src/components/organisms/PkEventRow.re.mjs:994
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -273,11 +277,11 @@ msgstr "กิจกรรมนี้เป็นกิจกรรมส่ว
 msgid "Upper intermediate and above"
 msgstr "ระดับกลางขั้นบนขึ้นไป"
 
-#: src/components/organisms/PkEventRow.re.mjs:557
+#: src/components/organisms/PkEventRow.re.mjs:591
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
-#: src/components/organisms/PkEventRow.re.mjs:253
+#: src/components/organisms/PkEventRow.re.mjs:287
 msgid "Waitlisted"
 msgstr "อยู่ในรายชื่อคอย"
 

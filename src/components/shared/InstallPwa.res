@@ -42,6 +42,29 @@ let isIosDevice = (): bool => {
     (Js.Re.test_(%re("/macintosh/i"), ua) && maxTouchPoints > 1)
 }
 
+// External browser navigation. On iOS standalone PWAs, neither
+// `target="_blank"`, `window.open`, nor a plain `window.location` escape the
+// PWA webview — same-origin/in-scope links stay inside the app and external
+// ones open an in-app modal web view, not the real Safari app. The only
+// reliable web technique (iOS 17+) is Apple's undocumented `x-safari-` URL
+// scheme, which forces the system Safari app. It requires an https URL.
+@val @scope(("window", "location")) external assignLocation: string => unit = "assign"
+
+// Open `url` in the real Safari app on iOS. On every other platform —
+// Android, desktop — a normal `target="_blank"` anchor already opens the
+// default browser correctly, so this returns false there and lets the
+// anchor's default behavior run.
+//
+// Returns true when it handled the navigation (caller should preventDefault).
+let openInSystemSafari = (url: string): bool => {
+  if isIosDevice() && url->String.startsWith("https://") {
+    assignLocation("x-safari-" ++ url)
+    true
+  } else {
+    false
+  }
+}
+
 // ---------------------------------------------------------------------------
 // localStorage keys
 // ---------------------------------------------------------------------------

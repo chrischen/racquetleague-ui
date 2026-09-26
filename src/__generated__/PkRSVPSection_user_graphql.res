@@ -4,13 +4,19 @@
 module Types = {
   @@warning("-30")
 
-  type rec fragment_eventRating = {
+  type rec fragment_dupr = {
+    doubles: option<float>,
+    doublesReliability: option<float>,
+    doublesReliable: bool,
+  }
+  and fragment_eventRating = {
     @live id: string,
     mu: option<float>,
     ordinal: option<float>,
     sigma: option<float>,
   }
   type fragment = {
+    dupr: option<fragment_dupr>,
     eventRating: option<fragment_eventRating>,
     @live id: string,
   }
@@ -102,6 +108,38 @@ return {
           "args": null,
           "kind": "ScalarField",
           "name": "sigma",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "DuprLink",
+      "kind": "LinkedField",
+      "name": "dupr",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doubles",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doublesReliable",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "doublesReliability",
           "storageKey": null
         }
       ],

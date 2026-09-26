@@ -32,4 +32,7 @@ let make: (
   ~selectedActivity: string=?,
   ~isClubFormOpen: bool=?,
   ~onClubFormSubmitBlocked: unit => unit=?,
+  ~proposedEvents: array<EventProposal.t>=?,
+  ~onProposedEventsChange: (array<EventProposal.t> => array<EventProposal.t>) => unit=?,
+  ~onCancelProposal: unit => unit=?,
 ) => React.element

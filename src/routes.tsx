@@ -113,6 +113,13 @@ const mainRoutes: RouteObject[] =
           handle: "src/components/routes/LoginLineErrorRoute.gen.tsx",
         },
         {
+          // Where emailed confirmation links land (receiving emails, and later
+          // other email confirmations).
+          path: "verify-email",
+          lazy: () => import("./components/routes/VerifyEmailRoute.gen"),
+          handle: "src/components/routes/VerifyEmailRoute.gen.tsx",
+        },
+        {
           path: "locations/create",
           lazy: () => import("./components/routes/CreateLocationRoute.gen"),
           handle: "src/components/routes/CreateLocationRoute.gen.tsx",
@@ -148,18 +155,6 @@ const mainRoutes: RouteObject[] =
       lazy: () => import("./components/routes/PkEventRoute.gen"),
       handle: "src/components/routes/PkEventRoute.gen.tsx",
       HydrateFallbackElement: <>Loading Fallback...</>
-    },
-    {
-      path: "events/create-bulk",
-      lazy: () => import("./components/routes/CreateEventsRoute.gen"),
-      handle: "src/components/routes/CreateEventsRoute.gen.tsx",
-      children: [
-        {
-          path: ":clubId",
-          lazy: () => import("./components/routes/CreateClubEventsRoute.gen"),
-          handle: "src/components/routes/CreateClubEventsRoute.gen.tsx",
-        },
-      ]
     },
     // The create routes render as a modal over the page they were opened from
     // (ModalRouteOutlet keeps that page mounted), so they sit at this level

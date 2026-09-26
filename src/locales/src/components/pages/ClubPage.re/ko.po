@@ -35,7 +35,7 @@ msgstr "모든 레벨"
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "예약 이메일"
 
 #: src/components/pages/ClubPage.re.mjs:684
 msgid "Cancel Request"
@@ -72,6 +72,9 @@ msgid ""
 "Members who forward from their own email are listed as the booker; anything "
 "else is credited to the club owner."
 msgstr ""
+"코트 예약 확인 메일을 이 주소로 전달하거나, 예약 사이트에 이메일 대신 이 주소"
+"를 입력하면 각 예약이 이 클럽의 이벤트로 등록됩니다. 본인 이메일에서 전달한 "
+"회원은 예약자로 표시되며, 그 외의 경우는 클럽 소유자에게 귀속됩니다."
 
 #: src/components/pages/ClubPage.re.mjs:173
 #: src/components/pages/ClubPage.re.mjs:174

@@ -8174,11 +8174,218 @@ msgstr "Bạn đã từ chối chia sẻ dữ liệu DUPR nên không có gì đ
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "Email đặt sân"
 
 #: src/components/pages/ClubPage.re.mjs:819
 msgid "Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner."
-msgstr ""
+msgstr "Chuyển tiếp xác nhận đặt sân đến địa chỉ này, hoặc cung cấp địa chỉ này cho trang đặt sân thay cho email, và mỗi lượt đặt sẽ trở thành một sự kiện trong câu lạc bộ này. Thành viên chuyển tiếp từ email của chính họ sẽ được ghi nhận là người đặt; các trường hợp khác được ghi cho chủ câu lạc bộ."
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "Chấp nhận {0} sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr "{0} chưa có địa điểm"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr "Chọn địa điểm cho từng sự kiện"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr "Chọn địa điểm cho sự kiện này."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
+msgstr "Không tìm thấy \\\"{address}\\\". Hãy chọn địa điểm:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
+msgstr "Tạo {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr "Đã tạo"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
+msgstr "Đang tạo sự kiện…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
+msgstr "Thất bại"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr "Đang tìm {address}…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
+msgstr "Đang tìm địa điểm…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr "Một số sự kiện không thể tạo được. Hãy thử lại để tạo những sự kiện còn lại."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "Trợ lý đề xuất {0}. Mỗi sự kiện giữ địa điểm, ngày và giờ riêng; phần còn lại của biểu mẫu này áp dụng cho tất cả."
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "Thời gian bên dưới hiển thị theo múi giờ này, và mọi sự kiện đều được tạo theo múi giờ đó."
+
+#: src/components/organisms/PkEventRow.re.mjs:129
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "External event"
+msgstr "Sự kiện bên ngoài"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "Join on {externalSource}"
+msgstr "Tham gia trên {externalSource}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Open {externalSource}"
+msgstr "Mở {externalSource}"
+
+#: src/components/pages/PkEventPage.re.mjs:273
+msgid "Booked on {0}"
+msgstr "Đã đặt trên {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:186
+msgid "Join on {externalSource2}"
+msgstr "Tham gia trên {externalSource2}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Open {externalSource2}"
+msgstr "Mở {externalSource2}"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "Email tài khoản"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "Thêm"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "Thêm email nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "Đang chờ xác nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài khoản của bạn. Bạn có thể thêm lại sau."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "Các đặt chỗ bạn chuyển tiếp đến chris@pkuru.com sẽ được thêm vào tài khoản khi chúng được gửi từ một trong các địa chỉ này. Hãy thêm các địa chỉ khác mà bạn nhận email xác nhận đặt chỗ."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "Email nhận"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "Xóa email nhận này?"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "Gửi lại"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "Địa chỉ đó không còn trong tài khoản của bạn."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "Đây có vẻ không phải là địa chỉ email."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "Đó đã là email tài khoản của bạn."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "Đã gửi quá nhiều email. Vui lòng đợi một chút rồi thử lại."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr "Chúng tôi không thể gửi email. Hãy thử \\\"Gửi lại\\\" sau giây lát."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "Chúng tôi đã gửi liên kết xác nhận đến"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr "Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "Bạn đã thêm địa chỉ này rồi."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:129
+msgid "Confirming your email…"
+msgstr "Đang xác nhận email của bạn…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:166
+msgid "Couldn't confirm this email"
+msgstr "Không thể xác nhận email này"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:140
+msgid "Email confirmed"
+msgstr "Đã xác nhận email"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:156
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Go to profile settings"
+msgstr "Đến cài đặt hồ sơ"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:150
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "giờ là một trong các email nhận của bạn. Các đặt chỗ bạn chuyển tiếp từ địa chỉ này đến chris@pkuru.com sẽ được thêm vào sự kiện của bạn."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:55
+msgid "This address is already used by another pkuru account."
+msgstr "Địa chỉ này đã được một tài khoản pkuru khác sử dụng."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "Liên kết này không dùng được cho tài khoản này. Hãy đảm bảo bạn đã đăng nhập vào tài khoản đã thêm địa chỉ, hoặc gửi liên kết mới từ cài đặt hồ sơ."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:57
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "Liên kết này đã hết hạn. Hãy gửi liên kết mới từ cài đặt hồ sơ."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link is incomplete. Open it from the email again."
+msgstr "Liên kết này chưa đầy đủ. Hãy mở lại từ email."
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
@@ -8354,3 +8561,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "Với mức chênh lệch thực tế 1.0 DUPR, Competitive+ bứt phá khỏi các mức nền chỉ sau vài vòng đầu, và sau một buổi chơi nó đã dẫn trước mức nền tránh lặp trận 9 điểm chất lượng và 10 điểm về trận một chiều. Lợi ích đầy đủ đến khi điểm số ổn định: 10% trận một chiều so với 62% của mức nền, và 78% khả năng có trận cân bằng so với 53%. Những con số đó ngang với một câu lạc bộ được tuyển chọn kỹ có trình độ đồng đều (79% và 8%) — thuật toán đạt được bằng ghép trận điều mà bạn nếu không thì phải đạt bằng cách sàng lọc thành viên:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "Không thể gửi email. Hãy thử \"Gửi lại\" sau giây lát."

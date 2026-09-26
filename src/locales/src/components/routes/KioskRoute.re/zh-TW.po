@@ -13,432 +13,432 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/Kiosk.re.mjs:763
+#: src/components/organisms/Kiosk.re.mjs:808
 msgid "{0} bounces detected · tap one to replay"
 msgstr "偵測到 {0} 次落地 · 點選其一重播"
 
-#: src/components/organisms/Kiosk.re.mjs:1472
+#: src/components/organisms/Kiosk.re.mjs:1517
 msgid "{0}-second buffer · {1}"
 msgstr "{0} 秒緩衝 · {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:1397
+#: src/components/organisms/Kiosk.re.mjs:1442
 msgid "{0}-second clip · {1}"
 msgstr "{0} 秒片段 · {1}"
 
-#: src/components/organisms/Kiosk.re.mjs:1297
+#: src/components/organisms/Kiosk.re.mjs:1342
 msgid "● BUFFER {0}s / {1}s"
 msgstr "● 緩衝 {0}s / {1}s"
 
-#: src/components/organisms/Kiosk.re.mjs:1297
+#: src/components/organisms/Kiosk.re.mjs:1342
 msgid "● BUFFER READY"
 msgstr "● 緩衝區就緒"
 
-#: src/components/organisms/Kiosk.re.mjs:1502
+#: src/components/organisms/Kiosk.re.mjs:1547
 msgid "24 shots analyzed · Game session"
 msgstr "已分析 24 次擊球・遊戲場次"
 
-#: src/components/organisms/Kiosk.re.mjs:234
+#: src/components/organisms/Kiosk.re.mjs:279
 msgid "ACTIVE SESSION"
 msgstr "進行中場次"
 
-#: src/components/organisms/Kiosk.re.mjs:2849
+#: src/components/organisms/Kiosk.re.mjs:2925
 msgid "Analysis"
 msgstr "分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1725
+#: src/components/organisms/Kiosk.re.mjs:1770
 msgid "Analysis capture active"
 msgstr "分析擷取中"
 
-#: src/components/organisms/Kiosk.re.mjs:857
+#: src/components/organisms/Kiosk.re.mjs:902
 msgid "ANALYSIS COMPLETE"
 msgstr "分析完成"
 
-#: src/components/organisms/Kiosk.re.mjs:2929
+#: src/components/organisms/Kiosk.re.mjs:3005
 msgid "Analysis modes"
 msgstr "分析模式"
 
-#: src/components/organisms/Kiosk.re.mjs:2735
+#: src/components/organisms/Kiosk.re.mjs:2811
 msgid "Analysis setup"
 msgstr "分析設定"
 
-#: src/components/organisms/Kiosk.re.mjs:1770
+#: src/components/organisms/Kiosk.re.mjs:1815
 msgid "Analyzing the play"
 msgstr "正在分析比賽"
 
-#: src/components/organisms/Kiosk.re.mjs:2867
+#: src/components/organisms/Kiosk.re.mjs:2943
 msgid "Available while playing"
 msgstr "比賽中可用"
 
-#: src/components/organisms/Kiosk.re.mjs:2681
+#: src/components/organisms/Kiosk.re.mjs:2757
 msgid "Back to modes"
 msgstr "返回模式"
 
-#: src/components/organisms/Kiosk.re.mjs:1556
+#: src/components/organisms/Kiosk.re.mjs:1601
 msgid "Backhand"
 msgstr "反手"
 
-#: src/components/organisms/Kiosk.re.mjs:1552
+#: src/components/organisms/Kiosk.re.mjs:1597
 msgid "Best target"
 msgstr "最佳目標"
 
-#: src/components/organisms/Kiosk.re.mjs:1121
+#: src/components/organisms/Kiosk.re.mjs:1166
 msgid "Camera {0}"
 msgstr "攝影機 {0}"
 
-#: src/components/organisms/Kiosk.re.mjs:2648
+#: src/components/organisms/Kiosk.re.mjs:2724
 msgid "Camera connected"
 msgstr "相機已連接"
 
-#: src/components/organisms/Kiosk.re.mjs:2822
+#: src/components/organisms/Kiosk.re.mjs:2898
 msgid "Camera framing and connection look good"
 msgstr "相機取景與連接狀態良好"
 
-#: src/components/organisms/Kiosk.re.mjs:1047
+#: src/components/organisms/Kiosk.re.mjs:1092
 msgid "Camera source"
 msgstr "攝影機來源"
 
-#: src/components/organisms/Kiosk.re.mjs:2575
+#: src/components/organisms/Kiosk.re.mjs:2651
 msgid "Camera unavailable — check permissions and try again"
 msgstr "相機無法使用 — 請檢查權限後重試"
 
-#: src/components/organisms/Kiosk.re.mjs:92
+#: src/components/organisms/Kiosk.re.mjs:137
 msgid "Capture several serves, then end to view the result."
 msgstr "拍攝數次發球後，結束以查看結果。"
 
-#: src/components/organisms/Kiosk.re.mjs:52
-#: src/components/organisms/Kiosk.re.mjs:1471
-#: src/components/organisms/Kiosk.re.mjs:1485
-#: src/components/organisms/Kiosk.re.mjs:1490
+#: src/components/organisms/Kiosk.re.mjs:97
+#: src/components/organisms/Kiosk.re.mjs:1516
+#: src/components/organisms/Kiosk.re.mjs:1530
+#: src/components/organisms/Kiosk.re.mjs:1535
 msgid "Challenge"
 msgstr "挑戰"
 
-#: src/components/organisms/Kiosk.re.mjs:1291
+#: src/components/organisms/Kiosk.re.mjs:1336
 msgid "Choose an action"
 msgstr "選擇操作"
 
-#: src/components/organisms/Kiosk.re.mjs:1068
+#: src/components/organisms/Kiosk.re.mjs:1113
 msgid ""
 "Choose which connected camera the kiosk uses. The change applies "
 "immediately, including to a running session."
 msgstr "選擇自助站使用的已連接攝影機。變更立即生效，包括正在進行的場次。"
 
-#: src/components/organisms/Kiosk.re.mjs:2581
+#: src/components/organisms/Kiosk.re.mjs:2657
 msgid "Clip downloaded"
 msgstr "片段已下載"
 
-#: src/components/organisms/Kiosk.re.mjs:50
+#: src/components/organisms/Kiosk.re.mjs:95
 msgid "Clip last rally"
 msgstr "剪輯上一回合"
 
-#: src/components/organisms/Kiosk.re.mjs:2569
+#: src/components/organisms/Kiosk.re.mjs:2645
 msgid "Clip saved · live capture continues"
 msgstr "剪輯已儲存・直播擷取繼續進行"
 
-#: src/components/organisms/Kiosk.re.mjs:1298
+#: src/components/organisms/Kiosk.re.mjs:1343
 msgid "CLIPPING UNAVAILABLE"
 msgstr "剪輯功能不可用"
 
-#: src/components/organisms/Kiosk.re.mjs:1334
+#: src/components/organisms/Kiosk.re.mjs:1379
 msgid "Clipping…"
 msgstr "擷取片段中…"
 
-#: src/components/organisms/Kiosk.re.mjs:1057
+#: src/components/organisms/Kiosk.re.mjs:1102
 msgid "Close settings"
 msgstr "關閉設定"
 
-#: src/components/organisms/Kiosk.re.mjs:1205
+#: src/components/organisms/Kiosk.re.mjs:1250
 msgid "COMING SOON"
 msgstr "即將推出"
 
-#: src/components/organisms/Kiosk.re.mjs:987
+#: src/components/organisms/Kiosk.re.mjs:1032
 msgid "Copied"
 msgstr "已複製"
 
-#: src/components/organisms/Kiosk.re.mjs:987
+#: src/components/organisms/Kiosk.re.mjs:1032
 msgid "Copy URL"
 msgstr "複製網址"
 
-#: src/components/organisms/Kiosk.re.mjs:2578
+#: src/components/organisms/Kiosk.re.mjs:2654
 msgid "Could not create the clip — the buffer keeps recording"
 msgstr "無法建立片段 — 緩衝區持續錄製中"
 
-#: src/components/organisms/Kiosk.re.mjs:1675
+#: src/components/organisms/Kiosk.re.mjs:1720
 msgid "Court setup"
 msgstr "球場設定"
 
-#: src/components/organisms/Kiosk.re.mjs:58
+#: src/components/organisms/Kiosk.re.mjs:103
 msgid "Create a clean, shareable clip from the rolling video buffer."
 msgstr "從滾動影片緩衝區建立乾淨且可分享的剪輯。"
 
-#: src/components/organisms/Kiosk.re.mjs:1411
+#: src/components/organisms/Kiosk.re.mjs:1456
 msgid "Delete clip"
 msgstr "刪除片段"
 
-#: src/components/organisms/Kiosk.re.mjs:1440
+#: src/components/organisms/Kiosk.re.mjs:1485
 msgid "Done"
 msgstr "完成"
 
-#: src/components/organisms/Kiosk.re.mjs:74
+#: src/components/organisms/Kiosk.re.mjs:119
 msgid "Drop shot analysis"
 msgstr "放短球分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1501
+#: src/components/organisms/Kiosk.re.mjs:1546
 msgid "Drop shot placement"
 msgstr "放短球落點"
 
-#: src/components/organisms/Kiosk.re.mjs:1743
+#: src/components/organisms/Kiosk.re.mjs:1788
 msgid "End & analyze"
 msgstr "結束並分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1689
+#: src/components/organisms/Kiosk.re.mjs:1734
 msgid "End session"
 msgstr "結束場次"
 
-#: src/components/organisms/Kiosk.re.mjs:2681
+#: src/components/organisms/Kiosk.re.mjs:2757
 msgid "End session and exit"
 msgstr "結束場次並退出"
 
-#: src/components/organisms/Kiosk.re.mjs:90
+#: src/components/organisms/Kiosk.re.mjs:135
 msgid "End the session when you have collected enough shots."
 msgstr "收集足夠的擊球後結束場次。"
 
-#: src/components/organisms/Kiosk.re.mjs:1774
+#: src/components/organisms/Kiosk.re.mjs:1819
 msgid "Finding the clearest camera moments and preparing your result."
 msgstr "正在尋找最清晰的鏡頭時刻並準備結果。"
 
-#: src/components/organisms/Kiosk.re.mjs:1043
+#: src/components/organisms/Kiosk.re.mjs:1088
 msgid "KIOSK SETTINGS"
 msgstr "資訊站設定"
 
-#: src/components/organisms/Kiosk.re.mjs:1539
+#: src/components/organisms/Kiosk.re.mjs:1584
 msgid "Kitchen accuracy"
 msgstr "廚房區準確度"
 
-#: src/components/organisms/Kiosk.re.mjs:1528
+#: src/components/organisms/Kiosk.re.mjs:1573
 msgid "LANDING HEATMAP"
 msgstr "落點熱圖"
 
-#: src/components/organisms/Kiosk.re.mjs:1460
+#: src/components/organisms/Kiosk.re.mjs:1505
 msgid "Last rally"
 msgstr "上一回合"
 
-#: src/components/organisms/Kiosk.re.mjs:1089
+#: src/components/organisms/Kiosk.re.mjs:1134
 msgid "Let the browser pick the default device"
 msgstr "讓瀏覽器選擇預設裝置"
 
-#: src/components/organisms/Kiosk.re.mjs:2837
+#: src/components/organisms/Kiosk.re.mjs:2913
 msgid "Live game"
 msgstr "即時比賽"
 
-#: src/components/organisms/Kiosk.re.mjs:2559
+#: src/components/organisms/Kiosk.re.mjs:2635
 msgid "Live rolling session"
 msgstr "即時滾動場次"
 
-#: src/components/organisms/Kiosk.re.mjs:2735
+#: src/components/organisms/Kiosk.re.mjs:2811
 msgid "Live session"
 msgstr "即時場次"
 
-#: src/components/organisms/Kiosk.re.mjs:1796
+#: src/components/organisms/Kiosk.re.mjs:1841
 msgid "Live session and rolling buffer are still active"
 msgstr "即時場次與滾動緩衝區仍在運作中"
 
-#: src/components/organisms/Kiosk.re.mjs:1761
+#: src/components/organisms/Kiosk.re.mjs:1806
 msgid "LIVE SESSION CONTINUES · BUFFER RECORDING"
 msgstr "即時場次進行中・緩衝區錄製中"
 
-#: src/components/organisms/Kiosk.re.mjs:2572
+#: src/components/organisms/Kiosk.re.mjs:2648
 msgid "Live session ended"
 msgstr "即時場次已結束"
 
-#: src/components/organisms/Kiosk.re.mjs:1167
+#: src/components/organisms/Kiosk.re.mjs:1212
 msgid "Local"
 msgstr "本機"
 
-#: src/components/organisms/Kiosk.re.mjs:84
+#: src/components/organisms/Kiosk.re.mjs:129
 msgid "Measure serve speed and review the detected serve clip."
 msgstr "測量發球速度並回顧偵測到的發球片段。"
 
-#: src/components/organisms/Kiosk.re.mjs:2871
+#: src/components/organisms/Kiosk.re.mjs:2947
 msgid "No action selection is needed before starting."
 msgstr "開始前無需選擇動作。"
 
-#: src/components/organisms/Kiosk.re.mjs:310
+#: src/components/organisms/Kiosk.re.mjs:355
 msgid "no audio"
 msgstr "無音訊"
 
-#: src/components/organisms/Kiosk.re.mjs:1239
+#: src/components/organisms/Kiosk.re.mjs:1284
 msgid "No camera: Challenge runs on the server's fixed test clip."
 msgstr "無相機：挑戰將使用伺服器上的固定測試影片執行。"
 
-#: src/components/organisms/Kiosk.re.mjs:1144
+#: src/components/organisms/Kiosk.re.mjs:1189
 msgid ""
 "No cameras detected. Connect a camera or allow camera access, then reopen "
 "settings."
 msgstr "未偵測到攝影機。請連接攝影機或允許攝影機存取，然後重新開啟設定。"
 
-#: src/components/organisms/Kiosk.re.mjs:1456
+#: src/components/organisms/Kiosk.re.mjs:1501
 msgid "No clip selected"
 msgstr "未選取片段"
 
-#: src/components/organisms/Kiosk.re.mjs:1486
+#: src/components/organisms/Kiosk.re.mjs:1531
 msgid "No footage analyzed"
 msgstr "沒有已分析的影片"
 
-#: src/components/organisms/Kiosk.re.mjs:717
+#: src/components/organisms/Kiosk.re.mjs:762
 msgid "No ground bounces were detected in the buffered footage."
 msgstr "在緩衝影片中未偵測到任何落地。"
 
-#: src/components/organisms/Kiosk.re.mjs:2786
+#: src/components/organisms/Kiosk.re.mjs:2862
 msgid "OFF"
 msgstr "關"
 
-#: src/components/organisms/Kiosk.re.mjs:2786
+#: src/components/organisms/Kiosk.re.mjs:2862
 msgid "ON"
 msgstr "開"
 
-#: src/components/organisms/Kiosk.re.mjs:1171
+#: src/components/organisms/Kiosk.re.mjs:1216
 msgid "On-device rolling buffer and clip processing"
 msgstr "裝置端滾動緩衝區與片段處理"
 
-#: src/components/organisms/Kiosk.re.mjs:997
+#: src/components/organisms/Kiosk.re.mjs:1042
 msgid "Open"
 msgstr "開啟"
 
-#: src/components/organisms/Kiosk.re.mjs:2657
+#: src/components/organisms/Kiosk.re.mjs:2733
 msgid "Open kiosk settings"
 msgstr "開啟資訊站設定"
 
-#: src/components/organisms/Kiosk.re.mjs:796
+#: src/components/organisms/Kiosk.re.mjs:841
 msgid "Overlay"
 msgstr "疊加層"
 
-#: src/components/organisms/Kiosk.re.mjs:60
+#: src/components/organisms/Kiosk.re.mjs:105
 msgid ""
 "Overlay detected bounces on the buffered footage and replay any of them."
 msgstr "在緩衝影片上疊加偵測到的落地，並可重播任一次。"
 
-#: src/components/organisms/Kiosk.re.mjs:1584
+#: src/components/organisms/Kiosk.re.mjs:1629
 msgid "Peak ball speed"
 msgstr "球速峰值"
 
-#: src/components/organisms/Kiosk.re.mjs:2631
+#: src/components/organisms/Kiosk.re.mjs:2707
 msgid "Pickleball camera kiosk"
 msgstr "匹克球攝影機資訊站"
 
-#: src/components/organisms/Kiosk.re.mjs:1491
+#: src/components/organisms/Kiosk.re.mjs:1536
 msgid "Play challenge"
 msgstr "播放挑戰"
 
-#: src/components/organisms/Kiosk.re.mjs:1461
+#: src/components/organisms/Kiosk.re.mjs:1506
 msgid "Play last rally"
 msgstr "播放最後一次對打"
 
-#: src/components/organisms/Kiosk.re.mjs:1577
+#: src/components/organisms/Kiosk.re.mjs:1622
 msgid "Play serve replay"
 msgstr "播放發球回放"
 
-#: src/components/organisms/Kiosk.re.mjs:954
+#: src/components/organisms/Kiosk.re.mjs:999
 msgid "Point a phone camera at the code to open this court's live stream."
 msgstr "將手機鏡頭對準此代碼，開啟本場地的直播串流。"
 
-#: src/components/organisms/Kiosk.re.mjs:1150
+#: src/components/organisms/Kiosk.re.mjs:1195
 msgid "PROCESSING MODE"
 msgstr "處理模式"
 
-#: src/components/organisms/Kiosk.re.mjs:1396
-#: src/components/organisms/Kiosk.re.mjs:1455
+#: src/components/organisms/Kiosk.re.mjs:1441
+#: src/components/organisms/Kiosk.re.mjs:1500
 msgid "Rally clip"
 msgstr "回合片段"
 
-#: src/components/organisms/Kiosk.re.mjs:1353
+#: src/components/organisms/Kiosk.re.mjs:1398
 msgid "RECENT CLIPS"
 msgstr "最近的片段"
 
-#: src/components/organisms/Kiosk.re.mjs:1626
+#: src/components/organisms/Kiosk.re.mjs:1671
 msgid "Rolling buffer"
 msgstr "滾動緩衝"
 
-#: src/components/organisms/Kiosk.re.mjs:1668
+#: src/components/organisms/Kiosk.re.mjs:1713
 msgid "Rolling buffer active"
 msgstr "滾動緩衝啟動中"
 
-#: src/components/organisms/Kiosk.re.mjs:1391
+#: src/components/organisms/Kiosk.re.mjs:1436
 msgid "ROLLING BUFFER CAPTURE"
 msgstr "滾動緩衝擷取"
 
-#: src/components/organisms/Kiosk.re.mjs:2746
+#: src/components/organisms/Kiosk.re.mjs:2822
 msgid "Rolling capture with optional YouTube streaming."
 msgstr "滾動擷取並可選擇 YouTube 串流。"
 
-#: src/components/organisms/Kiosk.re.mjs:1425
+#: src/components/organisms/Kiosk.re.mjs:1470
 msgid "Save clip"
 msgstr "儲存片段"
 
-#: src/components/organisms/Kiosk.re.mjs:938
+#: src/components/organisms/Kiosk.re.mjs:983
 msgid "Scan to watch"
 msgstr "掃描觀看"
 
-#: src/components/organisms/Kiosk.re.mjs:2746
+#: src/components/organisms/Kiosk.re.mjs:2822
 msgid "Select a mode, then start capture."
 msgstr "選擇模式，然後開始擷取。"
 
-#: src/components/organisms/Kiosk.re.mjs:2933
+#: src/components/organisms/Kiosk.re.mjs:3009
 msgid "Select one before starting the camera."
 msgstr "請在啟動攝影機前選擇一項。"
 
-#: src/components/organisms/Kiosk.re.mjs:2752
+#: src/components/organisms/Kiosk.re.mjs:2828
 msgid "SELECTED ANALYSIS"
 msgstr "已選擇的分析"
 
-#: src/components/organisms/Kiosk.re.mjs:1573
+#: src/components/organisms/Kiosk.re.mjs:1618
 msgid "Serve 04 · Clean read"
 msgstr "發球 04・清晰讀取"
 
-#: src/components/organisms/Kiosk.re.mjs:1572
+#: src/components/organisms/Kiosk.re.mjs:1617
 msgid "Serve detected"
 msgstr "偵測到發球"
 
-#: src/components/organisms/Kiosk.re.mjs:1576
+#: src/components/organisms/Kiosk.re.mjs:1621
 msgid "Serve replay"
 msgstr "發球回放"
 
-#: src/components/organisms/Kiosk.re.mjs:76
+#: src/components/organisms/Kiosk.re.mjs:121
 msgid "Serve speed analysis"
 msgstr "發球速度分析"
 
-#: src/components/organisms/Kiosk.re.mjs:2752
+#: src/components/organisms/Kiosk.re.mjs:2828
 msgid "SESSION SETUP"
 msgstr "課程設置"
 
-#: src/components/organisms/Kiosk.re.mjs:2777
+#: src/components/organisms/Kiosk.re.mjs:2853
 msgid "Show a viewer QR code during the session"
 msgstr "在課程中顯示觀看者 QR 碼"
 
-#: src/components/organisms/Kiosk.re.mjs:2807
+#: src/components/organisms/Kiosk.re.mjs:2883
 msgid "Start analysis"
 msgstr "開始分析"
 
-#: src/components/organisms/Kiosk.re.mjs:842
+#: src/components/organisms/Kiosk.re.mjs:887
 msgid "Start another session"
 msgstr "開始另一個課程"
 
-#: src/components/organisms/Kiosk.re.mjs:2807
+#: src/components/organisms/Kiosk.re.mjs:2883
 msgid "Start live session"
 msgstr "開始直播課程"
 
-#: src/components/organisms/Kiosk.re.mjs:2773
+#: src/components/organisms/Kiosk.re.mjs:2849
 msgid "Stream on YouTube"
 msgstr "在 YouTube 上直播"
 
-#: src/components/organisms/Kiosk.re.mjs:1212
+#: src/components/organisms/Kiosk.re.mjs:1257
 msgid "Stream to the server for processing"
 msgstr "串流至伺服器進行處理"
 
-#: src/components/organisms/Kiosk.re.mjs:1085
+#: src/components/organisms/Kiosk.re.mjs:1130
 msgid "System default camera"
 msgstr "系統預設攝影機"
 
-#: src/components/organisms/Kiosk.re.mjs:2584
+#: src/components/organisms/Kiosk.re.mjs:2660
 msgid ""
 "Test clip not found — put test_challenge.mov in the dinkhunt folder (and "
 "restart nothing; it is picked up live)"
@@ -446,31 +446,31 @@ msgstr ""
 "找不到測試影片 — 請將 test_challenge.mov 放入 dinkhunt 資料夾（無需重新啟動，"
 "系統會即時偵測）"
 
-#: src/components/organisms/Kiosk.re.mjs:1235
+#: src/components/organisms/Kiosk.re.mjs:1280
 msgid "Test mode"
 msgstr "測試模式"
 
-#: src/components/organisms/Kiosk.re.mjs:2919
+#: src/components/organisms/Kiosk.re.mjs:2995
 msgid "The camera continuously keeps recent play ready for either action."
 msgstr "攝影機持續將近期比賽畫面保留備用。"
 
-#: src/components/organisms/Kiosk.re.mjs:1203
+#: src/components/organisms/Kiosk.re.mjs:1248
 msgid "Thin client"
 msgstr "精簡型用戶端"
 
-#: src/components/organisms/Kiosk.re.mjs:82
+#: src/components/organisms/Kiosk.re.mjs:127
 msgid "Track drop-shot placement and reveal landing patterns."
 msgstr "追蹤放短球落點並揭示落球規律。"
 
-#: src/components/organisms/Kiosk.re.mjs:1334
+#: src/components/organisms/Kiosk.re.mjs:1379
 msgid "Use latest buffered footage"
 msgstr "使用最新緩衝片段"
 
-#: src/components/organisms/Kiosk.re.mjs:967
+#: src/components/organisms/Kiosk.re.mjs:1012
 msgid "VIEWING URL"
 msgstr "觀看網址"
 
-#: src/components/organisms/Kiosk.re.mjs:787
+#: src/components/organisms/Kiosk.re.mjs:832
 msgid "Zoom"
 msgstr "縮放"
 

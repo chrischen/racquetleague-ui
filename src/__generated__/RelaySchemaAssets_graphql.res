@@ -28,6 +28,36 @@ type enum_Gender_input =
 
 
 @live @unboxed
+type enum_InviteAvailability = 
+  | @as("available") Available
+  | @as("unavailable") Unavailable
+  | @as("unknown") Unknown
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_InviteAvailability_input = 
+  | @as("available") Available
+  | @as("unavailable") Unavailable
+  | @as("unknown") Unknown
+
+
+@live @unboxed
+type enum_InviteFit = 
+  | @as("balanced") Balanced
+  | @as("unbalanced") Unbalanced
+  | @as("unknown") Unknown
+  | FutureAddedValue(string)
+
+
+@live @unboxed
+type enum_InviteFit_input = 
+  | @as("balanced") Balanced
+  | @as("unbalanced") Unbalanced
+  | @as("unknown") Unknown
+
+
+@live @unboxed
 type enum_RatingSource = 
   | @as("dupr") Dupr
   | @as("pkuru") Pkuru

@@ -72,6 +72,27 @@ type AgentMessage {
   id: String!
 }
 
+"""
+An address the user receives booking emails at besides their account email.
+"""
+type AlternateEmail {
+  """Lower-cased."""
+  address: String!
+
+  """
+  Whether the link emailed to it has been used. Until then, bookings
+   forwarded from it are not credited to the account.
+  """
+  verified: Boolean!
+}
+
+type AlternateEmailResult implements HasErrors {
+  errors: [Error!]
+
+  """The viewer, whose `alternateEmails` show the change."""
+  viewer: User
+}
+
 type AuthorizePaymentResult implements HasErrors {
   clientSecret: String
   connectedAccountId: String
@@ -190,11 +211,13 @@ type Club implements Node {
   description: String
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int, token: String): EventConnection!
 
-  """The club's own address for court-booking emails. Anything sent to it is
- posted to the club as an event, credited to the sender when they have a
- pkuru account under that email and to the owner otherwise. Shown to the
- club's owners and admins (full members): null for everyone else, and while
- the server is not configured for inbound email."""
+  """
+  The club's own address for court-booking emails. Anything sent to it is
+   posted to the club as an event, credited to the sender when they have a
+   pkuru account under that email and to the owner otherwise. Shown to the
+   club's owners and admins (full members): null for everyone else, and while
+   the server is not configured for inbound email.
+  """
   eventsInboxAddress: String
 
   """
@@ -489,6 +512,17 @@ type Event implements Node {
   deleted: Datetime
   details: String
   endDate: Datetime
+
+  """
+  The event's page on another site, for an event imported from a booking
+   email. For a session the venue runs (a shadow event) it is the session's
+   public page, where it is joined, and anyone who can see the event gets it.
+   For a court it is the booking's own page, whose address carries the
+   confirmation number, so only the event's admins (the booker, club admins)
+   get it; everyone else gets null. Resolved per event, so ask for it on a
+   single event rather than a list.
+  """
+  externalUrl: String
   id: ID!
   listed: Boolean
   location: Location
@@ -673,6 +707,86 @@ type ImportedReservation {
 input IntervalInput {
   endHour: Int!
   startHour: Int!
+}
+
+"""What a player's stored availability says about the event's hours."""
+enum InviteAvailability {
+  """Their availability for the day covers the event."""
+  available
+
+  """Their availability for the day does not cover the event."""
+  unavailable
+
+  """They stored nothing for that day."""
+  unknown
+}
+
+"""How a player sits against the players already going."""
+enum InviteFit {
+  """Someone going is within the balance gap of them."""
+  balanced
+
+  """Nobody going is within the balance gap."""
+  unbalanced
+
+  """
+  Nothing to judge against: nobody is going and the event has no level bounds.
+  """
+  unknown
+}
+
+type InviteRecommendation {
+  availability: InviteAvailability!
+  fit: InviteFit!
+
+  """The going player they would pair with, on the DUPR scale."""
+  nearestGoingDupr: Float
+
+  """Unanswered invites the player holds to other upcoming events."""
+  openInvites: Int!
+
+  """
+  The rating the player is shown and seeded at: league, then DUPR, then
+     their own estimate.
+  """
+  rating: ResolvedRating!
+
+  """
+  The ranking score; higher is better within a fit and availability tier.
+  """
+  score: Float!
+
+  """
+  Rating points beyond the balance gap to the nearest going player (or to
+     the event's level bounds on an empty event); 0 when balanced.
+  """
+  shortfall: Float!
+
+  """At or above Smart RSVP's strong line. For display: it does not rank."""
+  strong: Boolean!
+  user: User!
+}
+
+type InviteRecommendations implements HasErrors {
+  errors: [Error!]
+
+  """
+  How many of the free seats Smart RSVP's share still owes female players.
+  """
+  femaleSeatsNeeded: Int!
+
+  """Seats the event still has; absent when it has no capacity."""
+  freeSeats: Int
+
+  """
+  Best first: balanced before unbalanced, then available before unknown
+     before unavailable, then score. Female players owed by Smart RSVP's seat
+     share are placed through the list in proportion.
+  """
+  recommendations: [InviteRecommendation!]
+
+  """The candidate pool hit its cap, so some players were not considered."""
+  truncated: Boolean!
 }
 
 input IsUserBannedInput {
@@ -999,6 +1113,13 @@ type Message {
 }
 
 type Mutation {
+  """
+  Add an address to receive booking emails at. A link to confirm it is
+   emailed to it; it counts once the link is used, signed in as this account.
+   Error codes: INVALID_EMAIL, SAME_AS_PRIMARY, ALREADY_ADDED, TOO_MANY,
+   RATE_LIMITED, SEND_FAILED, NOT_LOGGED_IN.
+  """
+  addAlternateEmail(email: String!): AlternateEmailResult!
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
   addUserToClub(input: AddUserToClubInput!): AddUserToClubResult!
   autocompleteLocation(input: AutocompleteLocationInput!): MutationResult!
@@ -1123,7 +1244,19 @@ type Mutation {
    * The client calls this after receiving a PushSubscription from the browser.
   """
   registerPushSubscription(input: RegisterPushSubscriptionInput!): PushSubscriptionResult!
+
+  """
+  Remove a receiving address, confirmed or pending; links already sent to
+   it stop working. Error codes: NOT_FOUND, NOT_LOGGED_IN.
+  """
+  removeAlternateEmail(email: String!): AlternateEmailResult!
   removeUserFromClub(input: RemoveUserFromClubInput!): CreateClubResult!
+
+  """
+  Email a pending address's confirmation link again; the new link replaces
+   the old. Error codes: NOT_FOUND, RATE_LIMITED, SEND_FAILED, NOT_LOGGED_IN.
+  """
+  resendAlternateEmailVerification(email: String!): AlternateEmailResult!
   setAvailabilityDay(input: SetAvailabilityDayInput!): SetAvailabilityDayResult!
   setAvailabilityDays(input: SetAvailabilityDaysInput!): SetAvailabilityDaysResult!
   setMembershipAdmin(input: SetMembershipAdminInput!): SetMembershipAdminResult!
@@ -1178,6 +1311,15 @@ type Mutation {
      * is not the viewer's own.
   """
   useSavedPaymentMethod(rsvpId: ID!): CreatePaymentResult!
+
+  """
+  Confirm a receiving address with the token from the link emailed to it,
+   signed in as the account that added it. Opening a link that already worked
+   succeeds again. Error codes: INVALID_TOKEN (unknown, replaced, or another
+   account's link), EXPIRED_TOKEN, EMAIL_UNAVAILABLE (another account has the
+   address), NOT_LOGGED_IN.
+  """
+  verifyEmail(token: String!): VerifyEmailResult!
 }
 
 type MutationResult implements HasErrors {
@@ -1292,6 +1434,21 @@ type Query {
   event(id: ID!): Event
   events(after: String, afterDate: Datetime, before: String, filters: EventFilters, first: Int): EventConnection!
   getUserClubMembership(input: GetUserClubMembershipInput!): GetUserClubMembershipResult!
+
+  """
+  Players an organizer should invite to this event, ranked against the
+   players already going by the Smart RSVP policy. Excludes anyone with an RSVP
+   of any kind, the viewer, players banned from the event's club, players below
+   the event's minRating (on a vouched rating) or above its maxRating, players
+   confirmed at an overlapping event, and players already holding three
+   unanswered invites. Only an organizer of the event may call it. Invite with
+   `inviteToEvent`.
+  
+   `radiusKm` is accepted but not applied yet: players are not stored with a
+   searchable location, so the pool is the activity's whole rated player base.
+   `first` defaults to 20 and is capped at 100.
+  """
+  inviteRecommendations(eventId: ID!, first: Int, radiusKm: Float): InviteRecommendations!
   isUserBanned(input: IsUserBannedInput!): Boolean
   location(id: ID!): Location
 
@@ -1679,6 +1836,13 @@ type UpdateViewerRsvpMessageResult implements HasErrors {
 }
 
 type User implements Node {
+  """
+  Other addresses the user receives booking emails at, confirmed ones first.
+   Bookings forwarded from a confirmed one to chris@pkuru.com (or to a club's
+   address) are credited to this account. Only the user sees their own: for
+   anyone else this is empty.
+  """
+  alternateEmails: [AlternateEmail!]!
   biography: String
 
   """
@@ -1727,6 +1891,15 @@ type UserMessage {
   id: String!
 }
 
+type VerifyEmailResult implements HasErrors {
+  """The address confirmed."""
+  address: String
+  errors: [Error!]
+
+  """The viewer, whose `alternateEmails` now include it."""
+  viewer: User
+}
+
 type Viewer {
   adminClubs(after: String, before: String, first: Int): ClubConnection!
   availability(activityId: ID!, fromDate: String!, toDate: String!): [AvailabilityDay!]!
@@ -1745,7 +1918,7 @@ type Viewer {
   Your personal address for court-booking emails. Give it to a booking site
    in place of your own email, or forward confirmations to it (with a note on
    top for the event's title, number of players, price...). Everything sent to
-   it is also relayed to your own email, so null until you have a verified
+   it is also relayed to your own email, so null until your account has an
    email (or while the server is not configured for inbound email).
   """
   eventsInboxAddress: String

@@ -8870,11 +8870,214 @@ msgstr "DUPRデータの共有を拒否したため、連携されませんで�
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "予約用メールアドレス"
 
 #: src/components/pages/ClubPage.re.mjs:819
 msgid "Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner."
-msgstr ""
+msgstr "コート予約の確認メールをこのアドレスに転送するか、予約サイトにメールアドレスの代わりに登録すると、予約ごとにこのクラブのイベントが作成されます。自分のメールから転送したメンバーが予約者として記録され、それ以外はクラブオーナーの予約として扱われます。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "{0} 件のイベントを承認"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr "会場未設定: {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr "すべてのイベントに会場を選択してください"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr "このイベントの会場を選択してください。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
+msgstr "「{address}」が見つかりませんでした。会場を選択してください:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
+msgstr "{0}を作成"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr "作成済み"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
+msgstr "イベントを作成中…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
+msgstr "失敗"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr "{address} を検索中…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
+msgstr "会場を検索中…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr "一部のイベントを作成できませんでした。もう一度試して残りを作成してください。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "アシスタントが{0}を提案しました。各イベントは独自の会場・日付・時刻を保持し、このフォームの残りの設定はすべてに適用されます。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "以下の時刻はこのタイムゾーンで表示され、すべてのイベントもこのタイムゾーンで作成されます。"
+
+#: src/components/organisms/PkEventRow.re.mjs:129
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "External event"
+msgstr "外部イベント"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "Join on {externalSource}"
+msgstr "{externalSource}で参加"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Open {externalSource}"
+msgstr "{externalSource}を開く"
+
+#: src/components/pages/PkEventPage.re.mjs:273
+msgid "Booked on {0}"
+msgstr "{0}で予約済み"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:186
+msgid "Join on {externalSource2}"
+msgstr "{externalSource2}で参加"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Open {externalSource2}"
+msgstr "{externalSource2}を開く"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "アカウントのメール"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "追加"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "受信用メールアドレスを追加"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "確認待ち"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "このアドレスから転送された予約はアカウントに追加されなくなります。後でもう一度追加できます。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "chris@pkuru.com に転送した予約は、これらのアドレスから送られた場合にアカウントに追加されます。予約確認メールを受け取る他のアドレスを追加してください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "pkuruにログインした状態でリンクを開くと、アドレスの追加が完了します。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "受信用メールアドレス"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "この受信用メールアドレスを削除しますか？"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "再送信"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "問題が発生しました。もう一度お試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "そのアドレスはもうアカウントにありません。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "それはすでにアカウントのメールアドレスです。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "送信回数が多すぎます。少し待ってからもう一度お試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr "メールを送信できませんでした。しばらくしてから「再送信」をお試しください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "確認リンクを送信しました:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr "受信用メールアドレスは5件まで追加できます。追加するには1件削除してください。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "そのアドレスはすでに追加されています。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:129
+msgid "Confirming your email…"
+msgstr "メールアドレスを確認しています…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:166
+msgid "Couldn't confirm this email"
+msgstr "このメールアドレスを確認できませんでした"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:140
+msgid "Email confirmed"
+msgstr "メールアドレスを確認しました"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:156
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Go to profile settings"
+msgstr "プロフィール設定へ"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:150
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "が受信用メールアドレスになりました。このアドレスから chris@pkuru.com に転送した予約は、あなたのイベントに追加されます。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:55
+msgid "This address is already used by another pkuru account."
+msgstr "このアドレスは別のpkuruアカウントで使われています。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "このリンクはこのアカウントでは使えません。アドレスを追加したアカウントでログインしているか確認するか、プロフィール設定から新しいリンクを送信してください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:57
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "このリンクは有効期限が切れています。プロフィール設定から新しいリンクを送信してください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link is incomplete. Open it from the email again."
+msgstr "リンクが不完全です。メールからもう一度開いてください。"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
@@ -9145,3 +9348,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "現実的な1.0 DUPRの幅では、Competitive+は最初の数ラウンドでベースラインを引き離し、1セッション終了時点で既に「再戦回避」ベースラインを品質で9ポイント、ワンサイドゲームで10ポイント上回ります。効果が最大になるのはレーティングが成熟してからです。ワンサイドゲームはベースラインの62%に対して10%、互角のゲームになる確率は53%に対して78%です。この成熟後の数値は、スキル幅を厳選したクラブ（79%・8%）に匹敵します。つまりアルゴリズムは、通常なら名簿を選別して得られる結果をマッチメイキングで取り戻すのです："
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "メールを送信できませんでした。しばらくしてから「再送信」をお試しください。"

@@ -5,6 +5,7 @@ import * as React from "react";
 import * as Button from "../catalyst/Button.re.mjs";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as EventTag from "../atoms/EventTag.re.mjs";
+import * as InstallPwa from "../shared/InstallPwa.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
@@ -257,6 +258,37 @@ function PkEventPage$EventTitleSection(props) {
         return false;
       });
   var setUrlCopied = match[1];
+  var match$1 = $$event.shadow;
+  var match$2 = $$event.externalUrl;
+  var tmp;
+  var exit = 0;
+  if (match$1 !== undefined && match$1) {
+    tmp = null;
+  } else {
+    exit = 1;
+  }
+  if (exit === 1) {
+    tmp = match$2 !== undefined ? JsxRuntime.jsxs("a", {
+            children: [
+              t`Booked on ${Util.externalSource(match$2)}`,
+              JsxRuntime.jsx(LucideReact.ExternalLink, {
+                    size: 12,
+                    "aria-hidden": "true"
+                  })
+            ],
+            className: "mt-1 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#5f8618] underline-offset-2 hover:underline dark:text-[#bdf25d]",
+            href: match$2,
+            rel: "noopener noreferrer",
+            target: "_blank",
+            onClick: (function (e) {
+                if (InstallPwa.openInSystemSafari(match$2)) {
+                  e.preventDefault();
+                  return ;
+                }
+                
+              })
+          }) : null;
+  }
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -321,7 +353,7 @@ function PkEventPage$EventTitleSection(props) {
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("h1", {
-                                      children: props.secret ? "---" : Core__Option.getOr($$event.title, "Event"),
+                                      children: Core__Option.getOr($$event.title, "Event"),
                                       className: Core$1.cx("text-lg font-semibold leading-tight flex-1 min-w-0", Core__Option.isSome($$event.deleted) ? "line-through text-gray-400 dark:text-gray-500" : "text-gray-900 dark:text-gray-100")
                                     }),
                                 JsxRuntime.jsxs("button", {
@@ -358,6 +390,7 @@ function PkEventPage$EventTitleSection(props) {
                                         })), "???円"),
                               className: "mt-1 font-mono text-xs text-gray-600 dark:text-gray-300"
                             }),
+                        tmp,
                         JsxRuntime.jsx(ResponsiveTooltip.Provider.make, {
                               children: JsxRuntime.jsxs("div", {
                                     children: [
@@ -715,7 +748,6 @@ function PkEventPage$Inner(props) {
                 }, undefined, undefined, undefined, undefined, undefined, undefined);
           }));
   };
-  var secret = Core__Option.getOr($$event.shadow, false);
   var tz = Core__Option.getOr($$event.timezone, "Asia/Tokyo");
   var maxRsvps = Core__Option.getOr($$event.maxRsvps, 0);
   var durationStr = Core__Option.flatMap($$event.startDate, (function (startDate) {
@@ -826,6 +858,30 @@ function PkEventPage$Inner(props) {
   var amountLabel = Core__Option.map($$event.price, (function (p) {
           return currencyStr + p.toString();
         }));
+  var hasCardOnFile = true && Core__Option.isSome(Core__Option.flatMap(viewer, (function (v) {
+              return v.savedCard;
+            })));
+  var cardRequiredOnJoin = isPaidEvent && requiresPaymentGate && !hasCardOnFile;
+  var startPayment = function (rsvpId) {
+    setupPaymentMethod({
+          rsvpId: rsvpId
+        }, undefined, undefined, undefined, (function (response, param) {
+            var secret = response.setupRsvpPaymentMethod.clientSecret;
+            if (secret !== undefined) {
+              return setPaymentClientSecret(function (param) {
+                          return [
+                                  secret,
+                                  response.setupRsvpPaymentMethod.connectedAccountId,
+                                  rsvpId
+                                ];
+                        });
+            } else {
+              return Core__Option.forEach(onRefresh, (function (refresh) {
+                            refresh();
+                          }));
+            }
+          }), undefined, undefined);
+  };
   var footerShown = Core__Option.isNone($$event.deleted) && Core__Option.isSome(viewerUser) && Caml_obj.notequal($$event.shadow, true);
   var chatInFooter = isJoined && footerShown;
   var isSponsored = Caml_obj.equal(Core__Option.flatMap($$event.activity, (function (a) {
@@ -911,18 +967,18 @@ function PkEventPage$Inner(props) {
   } else {
     tmp = null;
   }
-  var match$20 = $$event.location;
-  var match$21 = $$event.details;
+  var loc = $$event.location;
+  var match$20 = $$event.details;
   var tmp$1;
   var exit = 0;
-  if (match$21 !== undefined || canEditInPlace) {
+  if (match$20 !== undefined || canEditInPlace) {
     exit = 1;
   } else {
     tmp$1 = null;
   }
   if (exit === 1) {
     tmp$1 = JsxRuntime.jsx(PkEventPage$HostNotesSection, {
-          notes: Core__Option.getOr(match$21, ""),
+          notes: Core__Option.getOr(match$20, ""),
           editable: editable,
           onEdited: saveNotes
         });
@@ -958,6 +1014,32 @@ function PkEventPage$Inner(props) {
     }
   } else {
     tmp$2 = null;
+  }
+  var tmp$3;
+  if (paymentClientSecret !== undefined) {
+    var rsvpId = paymentClientSecret[2];
+    tmp$3 = JsxRuntime.jsx(StripePaymentEmbed.make, {
+          clientSecret: paymentClientSecret[0],
+          stripeAccountId: paymentClientSecret[1],
+          mode: "Setup",
+          amountLabel: amountLabel,
+          onSuccess: (function (intentId) {
+              setPaymentClientSecret(function (param) {
+                    
+                  });
+              confirmPaymentMethod({
+                    rsvpId: rsvpId,
+                    setupIntentId: intentId
+                  }, undefined, undefined, undefined, undefined, undefined, undefined);
+            }),
+          onClose: (function () {
+              setPaymentClientSecret(function (param) {
+                    
+                  });
+            })
+        });
+  } else {
+    tmp$3 = null;
   }
   return JsxRuntime.jsxs("div", {
               children: [
@@ -1026,12 +1108,11 @@ function PkEventPage$Inner(props) {
                       children: [
                         JsxRuntime.jsx(PkEventPage$EventTitleSection, {
                               event: $$event,
-                              secret: secret,
                               sponsor: Caml_option.some(isSponsored ? JsxRuntime.jsx(PkEventPage$SponsorBanner, {}) : null)
                             }),
                         tmp,
-                        match$20 !== undefined && !secret ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
-                                loc: match$20,
+                        loc !== undefined ? JsxRuntime.jsx(PkEventPage$EventLocationSection, {
+                                loc: loc,
                                 courtStatus: courtStatus,
                                 availability: Caml_option.some($$event.viewerIsAdmin ? JsxRuntime.jsx(EventLocationAvailability.make, {
                                             event: $$event.fragmentRefs,
@@ -1063,6 +1144,7 @@ function PkEventPage$Inner(props) {
                         startDate: $$event.startDate,
                         cancelDeadline: $$event.cancelDeadline,
                         shadow: $$event.shadow,
+                        externalUrl: $$event.externalUrl,
                         deleted: $$event.deleted
                       },
                       viewerUser: Core__Option.map(viewerUser, (function (u) {
@@ -1121,53 +1203,18 @@ function PkEventPage$Inner(props) {
                       charging: match$4[1] || match$5[1],
                       onPayClick: (function () {
                           Core__Option.forEach(viewerRsvpNode, (function (rsvp) {
-                                  setupPaymentMethod({
-                                        rsvpId: rsvp.id
-                                      }, undefined, undefined, undefined, (function (response, param) {
-                                          var secret = response.setupRsvpPaymentMethod.clientSecret;
-                                          if (secret !== undefined) {
-                                            return setPaymentClientSecret(function (param) {
-                                                        return [
-                                                                secret,
-                                                                response.setupRsvpPaymentMethod.connectedAccountId
-                                                              ];
-                                                      });
-                                          } else {
-                                            return Core__Option.forEach(onRefresh, (function (refresh) {
-                                                          refresh();
-                                                        }));
-                                          }
-                                        }), undefined, undefined);
+                                  startPayment(rsvp.id);
                                 }));
                         }),
+                      cardRequiredOnJoin: cardRequiredOnJoin,
+                      onJoinedNeedsCard: startPayment,
                       chat: Caml_option.some(chatInFooter ? JsxRuntime.jsx(PkEventMessages.FooterChat.make, {
                                   queryRef: queryFragmentRefs,
                                   eventId: $$event.id
                                 }) : null),
                       fullWidth: asPage
                     }),
-                paymentClientSecret !== undefined ? JsxRuntime.jsx(StripePaymentEmbed.make, {
-                        clientSecret: paymentClientSecret[0],
-                        stripeAccountId: paymentClientSecret[1],
-                        mode: "Setup",
-                        amountLabel: amountLabel,
-                        onSuccess: (function (intentId) {
-                            setPaymentClientSecret(function (param) {
-                                  
-                                });
-                            Core__Option.forEach(viewerRsvpNode, (function (rsvp) {
-                                    confirmPaymentMethod({
-                                          rsvpId: rsvp.id,
-                                          setupIntentId: intentId
-                                        }, undefined, undefined, undefined, undefined, undefined, undefined);
-                                  }));
-                          }),
-                        onClose: (function () {
-                            setPaymentClientSecret(function (param) {
-                                  
-                                });
-                          })
-                      }) : null
+                tmp$3
               ],
               ref: Caml_option.some(containerRef),
               className: "relative w-full min-h-full bg-gray-50 dark:bg-[#18191c]"

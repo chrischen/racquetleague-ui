@@ -1,11 +1,5 @@
 %%raw("import { t } from '@lingui/macro'")
 
-type context = {
-  activitySlug?: string,
-  clubId?: string,
-  locationAddress?: string,
-}
-
 // The mutation returns the rows persisted for this turn (real ids), each
 // selected through the shared `AIChatMessage_entry` inline fragment - the exact
 // same selection the history query uses, so live and reloaded turns decode
@@ -79,7 +73,11 @@ let autoGrow: Dom.element => unit = %raw(`function (el) {
 }`)
 
 @react.component
-let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDetails => unit>=?) => {
+let make = (
+  ~onSingleEventSuggested: AITypes.eventDetails => unit,
+  // A batch of drafts, accepted from its card as the form's schedule.
+  ~onEventsAccepted: array<AITypes.eventDetails> => unit,
+) => {
   open Lingui.Util
   open AITypes
   let ts = Lingui.UtilString.t
@@ -161,10 +159,16 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
 
   // Hands a single draft to the create form and folds the helper away so the
   // form is in view. Runs when the draft arrives and again from its card.
-  let fillForm = onSingleEventSuggested->Option.map(callback => event => {
-    callback(event)
+  let fillForm = event => {
+    onSingleEventSuggested(event)
     setIsCollapsed(_ => true)
-  })
+  }
+  // Hands a batch of drafts to the form the same way. Unlike a single draft it
+  // never happens on arrival: the organizer accepts it from the card.
+  let acceptEvents = events => {
+    onEventsAccepted(events)
+    setIsCollapsed(_ => true)
+  }
 
   let serializeError = message =>
     Js.Dict.fromArray([("error", Js.Json.string(message))])
@@ -221,8 +225,8 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
     // A single draft goes straight to the form, which folds the history away.
     // Anything else (a clarifying question, a proposal, a batch of events) is
     // read in the history, so open it.
-    switch (suggestedEvents, fillForm) {
-    | (Some([singleEvent]), Some(fill)) => fill(singleEvent)
+    switch suggestedEvents {
+    | Some([singleEvent]) => fillForm(singleEvent)
     | _ => setIsCollapsed(_ => false)
     }
 
@@ -478,10 +482,8 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
                 <div className="min-w-0 flex-1">
                   <AIResponseCard
                     response
-                    activitySlug={context.activitySlug->Option.getOr("pickleball")}
-                    clubId=?context.clubId
-                    locationAddress=?context.locationAddress
-                    onFillForm=?fillForm
+                    onFillForm=fillForm
+                    onAcceptEvents=acceptEvents
                     summaryClassName=assistantBubbleClass
                   />
                 </div>
@@ -624,8 +626,7 @@ let make = (~context: context, ~onSingleEventSuggested: option<AITypes.eventDeta
                 // Enter sends and Shift+Enter starts a line, except while an
                 // IME is mid-composition, where Enter belongs to the candidate
                 // (some browsers report it only as keyCode 229).
-                let composing =
-                  isComposingRef.current || e->ReactEvent.Keyboard.keyCode == 229
+                let composing = isComposingRef.current || e->ReactEvent.Keyboard.keyCode == 229
                 if (
                   e->ReactEvent.Keyboard.key == "Enter" &&
                   !(e->ReactEvent.Keyboard.shiftKey) &&

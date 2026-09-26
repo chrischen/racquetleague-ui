@@ -13,13 +13,13 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventRow.re.mjs:686
-#: src/components/organisms/PkEventRow.re.mjs:774
+#: src/components/organisms/PkEventRow.re.mjs:720
+#: src/components/organisms/PkEventRow.re.mjs:808
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
-#: src/components/organisms/PkEventRow.re.mjs:130
-#: src/components/organisms/PkEventRow.re.mjs:187
+#: src/components/organisms/PkEventRow.re.mjs:147
+#: src/components/organisms/PkEventRow.re.mjs:218
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr "{filled, plural, one {{0}} other {{1}}}"
 
@@ -47,7 +47,7 @@ msgstr "自己紹介は必須です"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/PkEventRow.re.mjs:690
+#: src/components/organisms/PkEventRow.re.mjs:724
 msgid "Canceled"
 msgstr "キャンセル済み"
 
@@ -113,6 +113,10 @@ msgstr "メールアドレスは必須です"
 msgid "Event tag: {tag}"
 msgstr "イベントタグ: {tag}"
 
+#: src/components/organisms/PkEventRow.re.mjs:129
+msgid "External event"
+msgstr "外部イベント"
+
 #: src/components/organisms/ProfileModal.re.mjs:507
 msgid "Female"
 msgstr "女性"
@@ -141,11 +145,11 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/PkEventRow.re.mjs:557
+#: src/components/organisms/PkEventRow.re.mjs:591
 msgid "Join"
 msgstr "参加"
 
-#: src/components/organisms/PkEventRow.re.mjs:221
+#: src/components/organisms/PkEventRow.re.mjs:255
 msgid "Joined"
 msgstr "参加"
 
@@ -153,11 +157,11 @@ msgstr "参加"
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
-#: src/components/organisms/PkEventRow.re.mjs:556
+#: src/components/organisms/PkEventRow.re.mjs:590
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/organisms/PkEventRow.re.mjs:957
+#: src/components/organisms/PkEventRow.re.mjs:993
 msgid "Leave event"
 msgstr "イベントを退出"
 
@@ -189,7 +193,7 @@ msgstr "後で"
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/PkEventRow.re.mjs:260
+#: src/components/organisms/PkEventRow.re.mjs:294
 msgid "Pending"
 msgstr "保留中"
 
@@ -197,13 +201,13 @@ msgstr "保留中"
 msgid "pkuru"
 msgstr "ピックル"
 
-#: src/components/organisms/PkEventRow.re.mjs:131
-#: src/components/organisms/PkEventRow.re.mjs:188
+#: src/components/organisms/PkEventRow.re.mjs:148
+#: src/components/organisms/PkEventRow.re.mjs:219
 msgid "player"
 msgstr "プレイヤー"
 
-#: src/components/organisms/PkEventRow.re.mjs:132
-#: src/components/organisms/PkEventRow.re.mjs:189
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:220
 msgid "players"
 msgstr "プレイヤー"
 
@@ -263,7 +267,7 @@ msgstr "シングルス"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/organisms/PkEventRow.re.mjs:958
+#: src/components/organisms/PkEventRow.re.mjs:994
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -281,11 +285,11 @@ msgstr "このイベントは非公開です。主催者の許可なく共有し
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
-#: src/components/organisms/PkEventRow.re.mjs:557
+#: src/components/organisms/PkEventRow.re.mjs:591
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
-#: src/components/organisms/PkEventRow.re.mjs:253
+#: src/components/organisms/PkEventRow.re.mjs:287
 msgid "Waitlisted"
 msgstr "キャンセル待ち中"
 

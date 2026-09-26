@@ -51,6 +51,7 @@ module QueryFragment = %relay(`
         gender
         email
         selfRating
+        ...ReceivingEmailsCard_user
         dupr {
           duprId
           doubles
@@ -377,6 +378,10 @@ let make = (~query) => {
             <PushNotifications />
           </div>
         </div>
+        {query.viewer
+        ->Option.flatMap(v => v.profile)
+        ->Option.map(profile => <ReceivingEmailsCard user={profile.fragmentRefs} />)
+        ->Option.getOr(React.null)}
         <DuprConnectCard
           query={query.fragmentRefs}
           onChanged={() =>

@@ -75,31 +75,9 @@ let handleMagicLinkLogin = async (email: string, returnUrl: option<string>) => {
 // Device-authorization client id used by the PWA.
 let pwaClientId = "pwa"
 
-// External browser navigation helpers. On iOS standalone PWAs, neither
-// `target="_blank"`, `window.open`, nor a plain `window.location` escape the
-// PWA webview — same-origin/in-scope links stay inside the app and external
-// ones open an in-app modal web view, not the real Safari app. The only
-// reliable web technique (iOS 17+) is Apple's undocumented `x-safari-` URL
-// scheme, which forces the system Safari app. It requires an https URL.
-// `setHref` is used for the in-PWA redirect once sign-in completes.
+// `setHref` is used for the in-PWA redirect once sign-in completes. Opening
+// the system browser from the PWA is InstallPwa.openInSystemSafari.
 @val @scope(("window", "location")) external setHref: string => unit = "assign"
-
-// Open `url` in the real Safari app from inside a standalone PWA on iOS.
-// On iOS 17+ the undocumented `x-safari-` scheme forces the system Safari
-// app (it requires an https URL). On every other platform — Android, desktop,
-// iOS Safari tabs — a normal `target="_blank"` anchor already opens the
-// default browser correctly, so this returns false there and lets the
-// anchor's default behavior run.
-//
-// Returns true when it handled the navigation (caller should preventDefault).
-let openInSystemSafari = (url: string): bool => {
-  if InstallPwa.isIosDevice() && url->String.startsWith("https://") {
-    setHref("x-safari-" ++ url)
-    true
-  } else {
-    false
-  }
-}
 
 @react.component
 let make = () => {
@@ -322,7 +300,7 @@ let make = () => {
                       onClick={e => {
                         let url =
                           code.verification_uri_complete->Option.getOr(code.verification_uri)
-                        if openInSystemSafari(url) {
+                        if InstallPwa.openInSystemSafari(url) {
                           // Handled via the iOS `x-safari-` scheme; suppress the
                           // default in-PWA navigation.
                           e->ReactEvent.Mouse.preventDefault

@@ -193,7 +193,7 @@ let parseSuggestedEvent = (jsonStr: string): option<AITypes.eventDetails> =>
   | exception _ => None
   }
 
-// Shared converter used by both AIAssistantEmbed and AIAssistantModal.
+// Converts the chat mutation's suggested events for AIAssistantEmbed.
 let toSuggestedEvents = (
   suggestedEvents: option<array<string>>,
 ): option<array<AITypes.eventDetails>> =>

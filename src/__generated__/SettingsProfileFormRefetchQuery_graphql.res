@@ -234,6 +234,31 @@ return {
                 "kind": "ScalarField",
                 "name": "selfRating",
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "AlternateEmail",
+                "kind": "LinkedField",
+                "name": "alternateEmails",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "address",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "verified",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -270,12 +295,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "91736e2cb560b62604c63a36d3ff57a2",
+    "cacheID": "96aba607edaabeb70f591a5608c7e400",
     "id": null,
     "metadata": {},
     "name": "SettingsProfileFormRefetchQuery",
     "operationKind": "query",
-    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n      }\n    }\n  }\n}\n"
+    "text": "query SettingsProfileFormRefetchQuery {\n  ...SettingsProfileForm_query\n}\n\nfragment DuprConnectCard_query on Query {\n  duprSsoUrl\n  viewer {\n    profile {\n      id\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n        syncedAt\n      }\n    }\n  }\n}\n\nfragment ReceivingEmailsCard_user on User {\n  id\n  email\n  alternateEmails {\n    address\n    verified\n  }\n}\n\nfragment SettingsProfileForm_query on Query {\n  ...DuprConnectCard_query\n  viewer {\n    user {\n      stripeAccountId\n      stripeChargesEnabled\n      id\n    }\n    profile {\n      id\n      fullName\n      biography\n      lineUsername\n      gender\n      email\n      selfRating\n      ...ReceivingEmailsCard_user\n      dupr {\n        duprId\n        doubles\n        singles\n        doublesReliable\n        singlesReliable\n        doublesReliability\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

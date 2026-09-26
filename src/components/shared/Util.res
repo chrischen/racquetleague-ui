@@ -248,3 +248,15 @@ module NonZeroInt: {
     }
     let toOption = n => (n :> option<int>)
 }
+
+// The site an external link belongs to, named from its address:
+// "toyosu.picklr.jp" -> "Picklr". The label before the public suffix,
+// capitalised; the whole host when that fails.
+let externalSource: string => string = %raw(`function (u) {
+  var host;
+  try { host = new URL(u).hostname.replace(/^www\./, ""); } catch (e) { return u; }
+  var parts = host.split(".");
+  var twoPart = /\.(co|com|ne|or|ac|go|net|org)\.[a-z]{2}$/.test(host);
+  var label = parts[parts.length - (twoPart ? 3 : 2)] || host;
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}`)

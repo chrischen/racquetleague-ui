@@ -103,7 +103,8 @@ var autoGrow = (function (el) {
 });
 
 function AIAssistantEmbed(props) {
-  var context = props.context;
+  var onEventsAccepted = props.onEventsAccepted;
+  var onSingleEventSuggested = props.onSingleEventSuggested;
   var match = React.useState(function () {
         return "";
       });
@@ -188,14 +189,18 @@ function AIAssistantEmbed(props) {
       return false;
     }
   };
-  var fillForm = Core__Option.map(props.onSingleEventSuggested, (function (callback) {
-          return function ($$event) {
-            callback($$event);
-            setIsCollapsed(function (param) {
-                  return true;
-                });
-          };
-        }));
+  var fillForm = function ($$event) {
+    onSingleEventSuggested($$event);
+    setIsCollapsed(function (param) {
+          return true;
+        });
+  };
+  var acceptEvents = function (events) {
+    onEventsAccepted(events);
+    setIsCollapsed(function (param) {
+          return true;
+        });
+  };
   var serializeError = function (message) {
     return Core__Option.getOr(JSON.stringify(Js_dict.fromArray([[
                           "error",
@@ -246,11 +251,7 @@ function AIAssistantEmbed(props) {
     var exit = 0;
     if (suggestedEvents !== undefined && suggestedEvents.length === 1) {
       var singleEvent = suggestedEvents[0];
-      if (fillForm !== undefined) {
-        fillForm(singleEvent);
-      } else {
-        exit = 1;
-      }
+      fillForm(singleEvent);
     } else {
       exit = 1;
     }
@@ -442,10 +443,8 @@ function AIAssistantEmbed(props) {
                                                     JsxRuntime.jsx("div", {
                                                           children: JsxRuntime.jsx(AIResponseCard.make, {
                                                                 response: turn.response,
-                                                                activitySlug: Core__Option.getOr(context.activitySlug, "pickleball"),
-                                                                clubId: context.clubId,
-                                                                locationAddress: context.locationAddress,
                                                                 onFillForm: fillForm,
+                                                                onAcceptEvents: acceptEvents,
                                                                 summaryClassName: "rounded-lg bg-[#bdf25d]/30 px-3 py-2 text-sm leading-relaxed text-gray-800 dark:bg-[#bdf25d]/[0.12] dark:text-gray-100"
                                                               }),
                                                           className: "min-w-0 flex-1"

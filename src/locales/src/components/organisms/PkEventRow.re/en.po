@@ -13,13 +13,13 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PkEventRow.re.mjs:686
-#: src/components/organisms/PkEventRow.re.mjs:774
+#: src/components/organisms/PkEventRow.re.mjs:720
+#: src/components/organisms/PkEventRow.re.mjs:808
 msgid "[missing title]"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:130
-#: src/components/organisms/PkEventRow.re.mjs:187
+#: src/components/organisms/PkEventRow.re.mjs:147
+#: src/components/organisms/PkEventRow.re.mjs:218
 msgid "{filled, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:690
+#: src/components/organisms/PkEventRow.re.mjs:724
 msgid "Canceled"
 msgstr ""
 
@@ -114,6 +114,10 @@ msgstr ""
 msgid "Event tag: {tag}"
 msgstr ""
 
+#: src/components/organisms/PkEventRow.re.mjs:129
+msgid "External event"
+msgstr ""
+
 #: src/components/organisms/ProfileModal.re.mjs:507
 msgid "Female"
 msgstr ""
@@ -142,11 +146,11 @@ msgstr ""
 msgid "Intermediate+"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:557
+#: src/components/organisms/PkEventRow.re.mjs:591
 msgid "Join"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:221
+#: src/components/organisms/PkEventRow.re.mjs:255
 msgid "Joined"
 msgstr ""
 
@@ -154,11 +158,11 @@ msgstr ""
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:556
+#: src/components/organisms/PkEventRow.re.mjs:590
 msgid "Leave"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:957
+#: src/components/organisms/PkEventRow.re.mjs:993
 msgid "Leave event"
 msgstr ""
 
@@ -190,7 +194,7 @@ msgstr ""
 msgid "NR"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:260
+#: src/components/organisms/PkEventRow.re.mjs:294
 msgid "Pending"
 msgstr ""
 
@@ -198,13 +202,13 @@ msgstr ""
 msgid "pkuru"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:131
-#: src/components/organisms/PkEventRow.re.mjs:188
+#: src/components/organisms/PkEventRow.re.mjs:148
+#: src/components/organisms/PkEventRow.re.mjs:219
 msgid "player"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:132
-#: src/components/organisms/PkEventRow.re.mjs:189
+#: src/components/organisms/PkEventRow.re.mjs:149
+#: src/components/organisms/PkEventRow.re.mjs:220
 msgid "players"
 msgstr ""
 
@@ -267,7 +271,7 @@ msgstr ""
 msgid "Skills practice and drills focused on technique improvement"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:958
+#: src/components/organisms/PkEventRow.re.mjs:994
 msgid "There are players on the waitlist. If you leave, your spot will be given to the next person. Are you sure?"
 msgstr ""
 
@@ -283,11 +287,11 @@ msgstr ""
 msgid "Upper intermediate and above"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:557
+#: src/components/organisms/PkEventRow.re.mjs:591
 msgid "Waitlist"
 msgstr ""
 
-#: src/components/organisms/PkEventRow.re.mjs:253
+#: src/components/organisms/PkEventRow.re.mjs:287
 msgid "Waitlisted"
 msgstr ""
 

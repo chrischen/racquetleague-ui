@@ -8624,11 +8624,214 @@ msgstr "您拒绝共享 DUPR 数据，因此未进行任何关联。请重新登
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "预订邮箱"
 
 #: src/components/pages/ClubPage.re.mjs:819
 msgid "Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner."
-msgstr ""
+msgstr "将场地预订确认邮件转发到此地址，或在预订网站上用它代替邮箱地址，每次预订都会成为本俱乐部的一个活动。使用自己邮箱转发的成员将被列为预订人；其他情况则归于俱乐部所有者。"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "接受 {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr "{0} 未设置场地"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr "为每个活动选择场地"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr "请为此活动选择场地。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
+msgstr "找不到 \\\"{address}\\\"。请选择场地："
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
+msgstr "创建 {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr "已创建"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
+msgstr "正在创建活动…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
+msgstr "失败"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr "正在查找 {address}…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
+msgstr "正在查找场地…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr "部分活动未能创建。请重试以创建其余活动。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "助手建议了 {0}。每个活动保留各自的场地、日期和时间；本表单的其余设置将应用于全部活动。"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "以下时间以此时区显示，所有活动也均按此时区创建。"
+
+#: src/components/organisms/PkEventRow.re.mjs:129
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "External event"
+msgstr "外部活动"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "Join on {externalSource}"
+msgstr "在 {externalSource} 上加入"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Open {externalSource}"
+msgstr "打开 {externalSource}"
+
+#: src/components/pages/PkEventPage.re.mjs:273
+msgid "Booked on {0}"
+msgstr "通过 {0} 预订"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:186
+msgid "Join on {externalSource2}"
+msgstr "在 {externalSource2} 上加入"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Open {externalSource2}"
+msgstr "打开 {externalSource2}"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "账户邮箱"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "添加"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "添加收件邮箱"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "等待确认"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "从此地址转发的预订将不再添加到您的账户。您可以稍后再添加。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "当您从这些地址转发预订到 chris@pkuru.com 时，预订会添加到您的账户。请添加您接收预订确认邮件的其他地址。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "请在登录 pkuru 的状态下打开链接，以完成添加地址。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "收件邮箱"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "要移除此收件邮箱吗？"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "重新发送"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "出现错误，请重试。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "此地址已不在您的账户中。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "这看起来不像邮箱地址。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "这已经是您的账户邮箱。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "发送次数过多，请稍后再试。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr "邮件发送失败。请稍后点击 \\\"重新发送\\\"。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "我们已将确认链接发送至"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr "最多可添加 5 个收件邮箱。请先移除一个再添加。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "您已添加过此地址。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:129
+msgid "Confirming your email…"
+msgstr "正在确认您的邮箱…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:166
+msgid "Couldn't confirm this email"
+msgstr "无法确认此邮箱"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:140
+msgid "Email confirmed"
+msgstr "邮箱已确认"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:156
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Go to profile settings"
+msgstr "前往个人资料设置"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:150
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "现在是您的收件邮箱之一。您从此地址转发到 chris@pkuru.com 的预订将添加到您的活动中。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:55
+msgid "This address is already used by another pkuru account."
+msgstr "此地址已被另一个 pkuru 账户使用。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "此链接不适用于此账户。请确认您已登录添加此地址的账户，或从个人资料设置发送新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:57
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "此链接已过期。请从个人资料设置发送新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link is incomplete. Open it from the email again."
+msgstr "此链接不完整。请从邮件中重新打开。"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
@@ -8844,3 +9047,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "在符合现实的 1.0 DUPR 差距下，Competitive+ 在最初几轮内就拉开与基线的距离，一次活动之后已在质量上领先“避免重复”基线 9 个百分点，在悬殊比赛上领先 10 个百分点。全部收益在评分成熟后显现：悬殊比赛 10%，而基线为 62%；打出势均力敌比赛的概率为 78%，而基线为 53%。这些成熟后的数据可与精挑细选的水平接近型俱乐部相媲美（79% 和 8%）——算法通过配对，实现了原本只能靠严格筛选名单才能获得的效果："
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "无法发送邮件。请稍后再试“重新发送”。"

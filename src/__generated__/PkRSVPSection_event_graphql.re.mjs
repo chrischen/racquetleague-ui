@@ -148,6 +148,13 @@ return {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "shadow",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "minRating",
       "storageKey": null
     },

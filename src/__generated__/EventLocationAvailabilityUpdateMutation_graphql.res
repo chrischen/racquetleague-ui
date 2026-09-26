@@ -18,7 +18,6 @@ module Types = {
     @live id: string,
     links: option<array<string>>,
     name: option<string>,
-    fragmentRefs: RescriptRelay.fragmentRefs<[ | #LocationMap_location]>,
   }
   @live
   and response_updateEvent_event = {
@@ -64,7 +63,7 @@ module Internal = {
   type wrapResponseRaw
   @live
   let wrapResponseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"updateEvent_event_startDate":{"c":"Util.Datetime"},"updateEvent_event_location":{"f":""},"updateEvent_event_endDate":{"c":"Util.Datetime"},"updateEvent_event":{"f":""}}}`
+    json`{"__root":{"updateEvent_event_startDate":{"c":"Util.Datetime"},"updateEvent_event_endDate":{"c":"Util.Datetime"},"updateEvent_event":{"f":""}}}`
   )
   @live
   let wrapResponseConverterMap = {
@@ -80,7 +79,7 @@ module Internal = {
   type responseRaw
   @live
   let responseConverter: Js.Dict.t<Js.Dict.t<Js.Dict.t<string>>> = %raw(
-    json`{"__root":{"updateEvent_event_startDate":{"c":"Util.Datetime"},"updateEvent_event_location":{"f":""},"updateEvent_event_endDate":{"c":"Util.Datetime"},"updateEvent_event":{"f":""}}}`
+    json`{"__root":{"updateEvent_event_startDate":{"c":"Util.Datetime"},"updateEvent_event_endDate":{"c":"Util.Datetime"},"updateEvent_event":{"f":""}}}`
   )
   @live
   let responseConverterMap = {
@@ -171,53 +170,67 @@ v6 = {
 v7 = {
   "alias": null,
   "args": null,
-  "kind": "ScalarField",
-  "name": "address",
-  "storageKey": null
-},
-v8 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "links",
-  "storageKey": null
-},
-v9 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "Coords",
+  "concreteType": "Location",
   "kind": "LinkedField",
-  "name": "coords",
+  "name": "location",
   "plural": false,
   "selections": [
+    (v2/*: any*/),
+    (v5/*: any*/),
+    (v6/*: any*/),
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "lat",
+      "name": "address",
       "storageKey": null
     },
     {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "lng",
+      "name": "links",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Coords",
+      "kind": "LinkedField",
+      "name": "coords",
+      "plural": false,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "lat",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "lng",
+          "storageKey": null
+        }
+      ],
       "storageKey": null
     }
   ],
   "storageKey": null
 },
-v10 = {
+v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "price",
   "storageKey": null
 },
-v11 = [
+v9 = [
   (v2/*: any*/)
 ],
-v12 = {
+v10 = {
   "alias": null,
   "args": null,
   "concreteType": "AvailabilityInterval",
@@ -268,28 +281,7 @@ return {
               (v2/*: any*/),
               (v3/*: any*/),
               (v4/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Location",
-                "kind": "LinkedField",
-                "name": "location",
-                "plural": false,
-                "selections": [
-                  (v2/*: any*/),
-                  (v5/*: any*/),
-                  (v6/*: any*/),
-                  (v7/*: any*/),
-                  (v8/*: any*/),
-                  (v9/*: any*/),
-                  {
-                    "args": null,
-                    "kind": "FragmentSpread",
-                    "name": "LocationMap_location"
-                  }
-                ],
-                "storageKey": null
-              },
+              (v7/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -330,23 +322,7 @@ return {
               (v2/*: any*/),
               (v3/*: any*/),
               (v4/*: any*/),
-              {
-                "alias": null,
-                "args": null,
-                "concreteType": "Location",
-                "kind": "LinkedField",
-                "name": "location",
-                "plural": false,
-                "selections": [
-                  (v2/*: any*/),
-                  (v5/*: any*/),
-                  (v6/*: any*/),
-                  (v7/*: any*/),
-                  (v8/*: any*/),
-                  (v9/*: any*/)
-                ],
-                "storageKey": null
-              },
+              (v7/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -397,7 +373,7 @@ return {
                 "name": "cancelDeadline",
                 "storageKey": null
               },
-              (v10/*: any*/),
+              (v8/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -412,7 +388,7 @@ return {
                 "kind": "LinkedField",
                 "name": "activity",
                 "plural": false,
-                "selections": (v11/*: any*/),
+                "selections": (v9/*: any*/),
                 "storageKey": null
               },
               {
@@ -422,7 +398,7 @@ return {
                 "kind": "LinkedField",
                 "name": "club",
                 "plural": false,
-                "selections": (v11/*: any*/),
+                "selections": (v9/*: any*/),
                 "storageKey": null
               },
               {
@@ -454,7 +430,7 @@ return {
                     ],
                     "storageKey": null
                   },
-                  (v12/*: any*/),
+                  (v10/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -517,8 +493,8 @@ return {
                         "name": "courtType",
                         "storageKey": null
                       },
-                      (v10/*: any*/),
-                      (v12/*: any*/)
+                      (v8/*: any*/),
+                      (v10/*: any*/)
                     ],
                     "storageKey": null
                   }
@@ -534,12 +510,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "090860452cabc711425043aeb88afd6c",
+    "cacheID": "63989b45a4ab5476e7603f1af33081e9",
     "id": null,
     "metadata": {},
     "name": "EventLocationAvailabilityUpdateMutation",
     "operationKind": "mutation",
-    "text": "mutation EventLocationAvailabilityUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      id\n      startDate\n      endDate\n      location {\n        id\n        name\n        details\n        address\n        links\n        coords {\n          lat\n          lng\n        }\n        ...LocationMap_location\n      }\n      ...EventLocationAvailability_event\n    }\n  }\n}\n\nfragment EventLocationAvailability_event on Event {\n  id\n  title\n  details\n  startDate\n  endDate\n  timezone\n  listed\n  tags\n  maxRsvps\n  minRating\n  cancelDeadline\n  price\n  smartRsvpThreshold\n  activity {\n    id\n  }\n  club {\n    id\n  }\n  location {\n    id\n  }\n  courtAvailability {\n    id\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n    courts {\n      name\n      courtType\n      price\n      intervals {\n        startHour\n        endHour\n      }\n    }\n  }\n}\n\nfragment LocationMap_location on Location {\n  id\n  coords {\n    lng\n    lat\n  }\n  address\n}\n"
+    "text": "mutation EventLocationAvailabilityUpdateMutation(\n  $eventId: ID!\n  $input: CreateEventInput!\n) {\n  updateEvent(eventId: $eventId, input: $input) {\n    event {\n      id\n      startDate\n      endDate\n      location {\n        id\n        name\n        details\n        address\n        links\n        coords {\n          lat\n          lng\n        }\n      }\n      ...EventLocationAvailability_event\n    }\n  }\n}\n\nfragment EventLocationAvailability_event on Event {\n  id\n  title\n  details\n  startDate\n  endDate\n  timezone\n  listed\n  tags\n  maxRsvps\n  minRating\n  cancelDeadline\n  price\n  smartRsvpThreshold\n  activity {\n    id\n  }\n  club {\n    id\n  }\n  location {\n    id\n  }\n  courtAvailability {\n    id\n    link\n    location {\n      id\n      name\n    }\n    intervals {\n      startHour\n      endHour\n    }\n    hourly {\n      hour\n      indoorCount\n      outdoorCount\n      priceMin\n      priceMax\n    }\n    courts {\n      name\n      courtType\n      price\n      intervals {\n        startHour\n        endHour\n      }\n    }\n  }\n}\n"
   }
 };
 })() `)

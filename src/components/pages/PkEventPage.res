@@ -39,6 +39,10 @@ module EventQuery = %relay(`
       viewerIsBanned
       deleted
       shadow
+      # The venue's page for an imported session (the footer links there
+      # instead of offering to join), or, for the event's admins, a court
+      # booking's own page (linked under the title).
+      externalUrl
       details
       maxRsvps
       minRating
@@ -68,7 +72,6 @@ module EventQuery = %relay(`
           lat
           lng
         }
-        ...LocationMap_location
       }
       owner {
         id
@@ -248,7 +251,6 @@ module EventTitleSection = {
   @react.component
   let make = (
     ~event: PkEventPageQuery_graphql.Types.response_event,
-    ~secret: bool,
     // Sponsor strip, rendered inside the card under the title block.
     ~sponsor: React.element=React.null,
   ) => {
@@ -318,7 +320,7 @@ module EventTitleSection = {
                 ? "line-through text-gray-400 dark:text-gray-500"
                 : "text-gray-900 dark:text-gray-100",
             ])}>
-            {(secret ? "---" : event.title->Option.getOr("Event"))->React.string}
+            {event.title->Option.getOr("Event")->React.string}
           </h1>
           <button
             onClick={_ => {
@@ -343,6 +345,25 @@ module EventTitleSection = {
           ->Option.getOr("???円")
           ->React.string}
         </p>
+        /* Where a court was booked. The API returns a court booking's own
+           page only to the event's admins; a shadow event's page is in the
+           footer instead. */
+        {switch (event.shadow, event.externalUrl) {
+        | (Some(true), _) | (_, None) => React.null
+        | (_, Some(url)) =>
+          <a
+            href=url
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e =>
+              if InstallPwa.openInSystemSafari(url) {
+                ReactEvent.Mouse.preventDefault(e)
+              }}
+            className="mt-1 inline-flex items-center gap-1 font-mono text-xs font-semibold text-[#5f8618] underline-offset-2 hover:underline dark:text-[#bdf25d]">
+            {ts`Booked on ${Util.externalSource(url)}`->React.string}
+            <Lucide.ExternalLink size=12 \"aria-hidden"="true" />
+          </a>
+        }}
         <ResponsiveTooltip.Provider>
           <div className="mt-2 flex flex-wrap items-center gap-1.5">
             {event.listed == Some(false) ? <EventTag tag="unlisted" /> : React.null}
@@ -628,7 +649,6 @@ module Inner = {
         updateEvent(~variables={eventId: event.id, input})->RescriptRelay.Disposable.ignore
       )
 
-    let secret = event.shadow->Option.getOr(false)
     let tz = event.timezone->Option.getOr("Asia/Tokyo")
     let maxRsvps = event.maxRsvps->Option.getOr(0)
 
@@ -727,6 +747,48 @@ module Inner = {
         eventCurrency->Option.map(PaymentIndicator.getCurrencySymbol)->Option.getOr("¥")
       event.price->Option.map(p => currencyStr ++ Int.toString(p))
     }
+    // A priced event with the payment gate on and no card on file: the card
+    // form opens as soon as the join lands, rather than after a second click.
+    // With a card on file the footer's unpaid state offers the one-click
+    // join instead, where the player can also switch cards.
+    let hasCardOnFile = savedCardFlow && viewer->Option.flatMap(v => v.savedCard)->Option.isSome
+    let cardRequiredOnJoin = isPaidEvent && requiresPaymentGate && !hasCardOnFile
+
+    // Starts the card setup (or the immediate charge) for an RSVP and opens
+    // the Stripe form on its client secret. The RSVP id travels with the
+    // secret so the confirm step never depends on the RSVP having reached
+    // the page's query data, which it hasn't right after a join.
+    let startPayment = (rsvpId: string) =>
+      if savedCardFlow {
+        // Always on the platform account: connectedAccountId is null.
+        setupPaymentMethod(~variables={rsvpId: rsvpId}, ~onCompleted=(response, _) =>
+          switch response.setupRsvpPaymentMethod.clientSecret {
+          | Some(secret) =>
+            setPaymentClientSecret(_ => Some((
+              secret,
+              response.setupRsvpPaymentMethod.connectedAccountId,
+              rsvpId,
+            )))
+          | None =>
+            // Nothing to show: the server recorded a setup Stripe had
+            // already completed (or the row was settled). The RSVP's
+            // list type changed server-side, so refetch the page.
+            onRefresh->Option.forEach(refresh => refresh()->ignore)
+          }
+        )->RescriptRelay.Disposable.ignore
+      } else {
+        chargePayment(~variables={rsvpId: rsvpId}, ~onCompleted=(response, _) =>
+          switch response.chargeRsvpPayment.clientSecret {
+          | Some(secret) =>
+            setPaymentClientSecret(_ => Some((
+              secret,
+              response.chargeRsvpPayment.connectedAccountId,
+              rsvpId,
+            )))
+          | None => ()
+          }
+        )->RescriptRelay.Disposable.ignore
+      }
 
     // Joined viewers get the activity feed in the sticky footer. When the
     // footer isn't rendered (cancelled or shadow events, logged-out viewers)
@@ -795,7 +857,7 @@ module Inner = {
         <div className="mx-auto w-full max-w-2xl pb-24">
           /* Title, with the sponsor + prize strip for competitive pickleball
            events (they feed the Top Player awards) */
-          <EventTitleSection event secret sponsor={isSponsored ? <SponsorBanner /> : React.null} />
+          <EventTitleSection event sponsor={isSponsored ? <SponsorBanner /> : React.null} />
           /* Admin controls */
           {switch (event.viewerIsAdmin, viewerUser) {
           | (true, Some(_)) =>
@@ -846,8 +908,8 @@ module Inner = {
           | _ => React.null
           }}
           /* Location */
-          {switch (event.location, secret) {
-          | (Some(loc), false) =>
+          {switch event.location {
+          | Some(loc) =>
             <EventLocationSection
               loc
               courtStatus
@@ -898,6 +960,7 @@ module Inner = {
             startDate: event.startDate,
             cancelDeadline: event.cancelDeadline,
             shadow: event.shadow,
+            externalUrl: event.externalUrl,
             deleted: event.deleted,
           }}
           viewerUser={viewerUser->Option.map(u => {
@@ -942,38 +1005,12 @@ module Inner = {
           chat={chatInFooter
             ? <PkEventMessages.FooterChat queryRef=queryFragmentRefs eventId=event.id />
             : React.null}
-          onPayClick={() =>
-            viewerRsvpNode->Option.forEach(rsvp =>
-              if savedCardFlow {
-                // Always on the platform account: connectedAccountId is null.
-                setupPaymentMethod(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
-                  switch response.setupRsvpPaymentMethod.clientSecret {
-                  | Some(secret) =>
-                    setPaymentClientSecret(
-                      _ => Some((secret, response.setupRsvpPaymentMethod.connectedAccountId)),
-                    )
-                  | None =>
-                    // Nothing to show: the server recorded a setup Stripe had
-                    // already completed (or the row was settled). The RSVP's
-                    // list type changed server-side, so refetch the page.
-                    onRefresh->Option.forEach(refresh => refresh()->ignore)
-                  }
-                )->RescriptRelay.Disposable.ignore
-              } else {
-                chargePayment(~variables={rsvpId: rsvp.id}, ~onCompleted=(response, _) =>
-                  switch response.chargeRsvpPayment.clientSecret {
-                  | Some(secret) =>
-                    setPaymentClientSecret(
-                      _ => Some((secret, response.chargeRsvpPayment.connectedAccountId)),
-                    )
-                  | None => ()
-                  }
-                )->RescriptRelay.Disposable.ignore
-              }
-            )}
+          cardRequiredOnJoin
+          onJoinedNeedsCard=startPayment
+          onPayClick={() => viewerRsvpNode->Option.forEach(rsvp => startPayment(rsvp.id))}
         />
         {switch paymentClientSecret {
-        | Some((secret, accountId)) =>
+        | Some((secret, accountId, rsvpId)) =>
           <StripePaymentEmbed
             clientSecret=secret
             stripeAccountId=?accountId
@@ -981,17 +1018,15 @@ module Inner = {
             ?amountLabel
             onSuccess={intentId => {
               setPaymentClientSecret(_ => None)
-              viewerRsvpNode->Option.forEach(rsvp =>
-                if savedCardFlow {
-                  confirmPaymentMethod(
-                    ~variables={rsvpId: rsvp.id, setupIntentId: intentId},
-                  )->RescriptRelay.Disposable.ignore
-                } else {
-                  confirmPayment(
-                    ~variables={rsvpId: rsvp.id, paymentIntentId: intentId},
-                  )->RescriptRelay.Disposable.ignore
-                }
-              )
+              if savedCardFlow {
+                confirmPaymentMethod(
+                  ~variables={rsvpId, setupIntentId: intentId},
+                )->RescriptRelay.Disposable.ignore
+              } else {
+                confirmPayment(
+                  ~variables={rsvpId, paymentIntentId: intentId},
+                )->RescriptRelay.Disposable.ignore
+              }
             }}
             onClose={() => setPaymentClientSecret(_ => None)}
           />

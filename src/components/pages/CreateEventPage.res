@@ -20,7 +20,6 @@ module Query = %relay(`
 module Body = {
   @react.component
   let make = () => {
-    open Lingui.Util
     let (params, setParams) = Router.useSearchParamsFuncWith()
     let locationParam = params->Router.SearchParams.get("locationId")
     let clubIdParam = params->Router.SearchParams.get("clubId")
@@ -55,6 +54,11 @@ module Body = {
     let (prefilledValues, setPrefilledValues) = React.useState(() => None)
     // State to hold AI-suggested location address for auto-search
     let (aiLocationAddress, setAiLocationAddress) = React.useState(() => None)
+    // An accepted multi-event proposal: the schedule the form creates from.
+    let (proposedEvents, setProposedEvents) = React.useState((): option<array<EventProposal.t>> =>
+      None
+    )
+    let (commitAutocomplete, _) = AutocompleteLocation.AutocompleteLocationMutation.use()
 
     let (clubSelection, setClubSelection) = React.useState((): ClubActivitySelector.selection => {
       clubId: clubIdParam,
@@ -153,11 +157,13 @@ module Body = {
         : None
     }
 
-    let handleSingleEventSuggested = (eventDetails: AITypes.eventDetails) => {
-      // Convert AITypes.eventDetails to CreateLocationEventForm.prefilledValues
-      let startDate = Js.Date.fromString(eventDetails.date)
-      let endDate = Js.Date.fromString(eventDetails.time)
-
+    // A draft's shared fields as the form's prefill. A single draft brings its
+    // date and times along; for an accepted batch those belong to each event of
+    // the schedule, so the first draft lends only what the events share.
+    let prefilledOfDraft = (
+      eventDetails: AITypes.eventDetails,
+      ~withSchedule: bool,
+    ): CreateLocationEventForm.prefilledValues => {
       // The remaining CreateEventInput fields ride in `rawFields` (keys match the
       // form's prefilledValues), so new event fields prefill with no change here.
       let rawFields = eventDetails.rawFields->Option.getOr(Js.Dict.empty())
@@ -182,18 +188,25 @@ module Body = {
       // toggle would look "not set".
       let listed = Some(getBool("listed")->Option.getOr(true))
       let timezone = getStr("timezone")
+      let tags = getStrArray("tags")
       // The draft's dates are instants; the form wants wall-clock values in the
       // event's zone - the draft's own if it names one, else the browser's.
       let draftTz = timezone->Option.getOr(Util.Timezone.browser())
-      let startDateFormatted = Util.Timezone.toWallClock(startDate, draftTz)
-      let endTimeFormatted =
-        Util.Timezone.toWallClock(endDate, draftTz)->String.slice(~start=11, ~end=16)
-      let tags = getStrArray("tags")
+      // A missing or unparseable time is left for the form's own default.
+      let wallClockOf = value =>
+        withSchedule
+          ? EventProposal.instantOf(value)->Option.map(date =>
+              Util.Timezone.toWallClock(date, draftTz)
+            )
+          : None
+      let startDate = wallClockOf(eventDetails.date)
+      let endDate =
+        wallClockOf(eventDetails.time)->Option.map(wall => wall->String.slice(~start=11, ~end=16))
 
-      let prefilledData: CreateLocationEventForm.prefilledValues = {
+      {
         title: ?Some(eventDetails.title),
-        startDate: ?Some(startDateFormatted),
-        endDate: ?Some(endTimeFormatted),
+        ?startDate,
+        ?endDate,
         details: ?eventDetails.description,
         maxRsvps: ?eventDetails.maxRsvps,
         activitySlug: ?activitySlugParam,
@@ -204,30 +217,83 @@ module Body = {
         ?timezone,
         ?tags,
       }
-
-      setPrefilledValues(_ => Some(prefilledData))
-
-      // Set the location address for auto-search if provided
-      eventDetails.location
-      ->Option.map(address => {
-        setAiLocationAddress(_ => Some(address))
-      })
-      ->ignore
     }
 
-    open LangProvider.Router
+    let handleSingleEventSuggested = (eventDetails: AITypes.eventDetails) => {
+      setProposedEvents(_ => None)
+      setPrefilledValues(_ => Some(prefilledOfDraft(eventDetails, ~withSchedule=true)))
+      // Set the location address for auto-search if provided
+      eventDetails.location->Option.forEach(address => setAiLocationAddress(_ => Some(address)))
+    }
+
+    // address -> venue: Google Places text search (top hit), then the
+    // autocompleteLocation upsert so the venue exists as a Location row.
+    let resolveVenue = async (address: string): EventProposal.venue =>
+      switch await GooglePlaces.textSearchTop(address) {
+      | None => EventProposal.Unresolved
+      | Some(resolved) =>
+        await Promise.make((resolve, _reject) =>
+          commitAutocomplete(
+            ~variables={
+              input: {
+                name: resolved.name,
+                formattedAddress: resolved.formattedAddress,
+                lat: resolved.lat,
+                lng: resolved.lng,
+                mapsId: resolved.placeId,
+              },
+            },
+            ~onCompleted=(response, _errors) =>
+              resolve(
+                switch response.autocompleteLocation.location {
+                | Some(location) =>
+                  EventProposal.Resolved({
+                    id: location.id,
+                    name: location.name->Option.getOr(resolved.name),
+                  })
+                | None => EventProposal.Unresolved
+                },
+              ),
+            ~onError=_ => resolve(EventProposal.Unresolved),
+          )->RescriptRelay.Disposable.ignore
+        )
+      }
+
+    // A batch becomes the form's schedule: its venues are looked up in the
+    // background while the first draft's shared fields prefill the form.
+    let handleEventsAccepted = (events: array<AITypes.eventDetails>) => {
+      let proposed = EventProposal.ofEventDetails(~batch=Js.Date.now()->Float.toString, events)
+      setProposedEvents(_ => Some(proposed))
+      setAiLocationAddress(_ => None)
+      events
+      ->Array.get(0)
+      ->Option.forEach(first =>
+        setPrefilledValues(_ => Some(prefilledOfDraft(first, ~withSchedule=false)))
+      )
+      proposed->Array.forEach(event =>
+        event.address->Option.forEach(address =>
+          resolveVenue(address)
+          ->Promise.thenResolve(
+            venue =>
+              setProposedEvents(
+                prev =>
+                  prev->Option.map(
+                    list => EventProposal.update(list, event.key, e => {...e, venue}),
+                  ),
+              ),
+          )
+          ->ignore
+        )
+      )
+    }
+
     // The design's AI-assisted form: the assistant band runs to the edges of the
     // host's px-4 py-4 body, and the form panel's rounded top overlaps its foot.
     <section
       ariaLabel={Lingui.UtilString.t`AI-assisted event form`}
       className="-mx-4 -mt-4 overflow-x-clip">
       <AIAssistantEmbed
-        context={{
-          activitySlug: ?Some("pickleball"),
-          clubId: ?clubIdParam,
-          locationAddress: ?None,
-        }}
-        onSingleEventSuggested=handleSingleEventSuggested
+        onSingleEventSuggested=handleSingleEventSuggested onEventsAccepted=handleEventsAccepted
       />
       <div
         className="relative z-10 -mt-3 min-w-0 space-y-4 rounded-t-2xl bg-white px-4 pt-4 dark:bg-[#1e1f23]">
@@ -263,14 +329,10 @@ module Body = {
           selectedActivity=?clubSelection.activityId
           isClubFormOpen=clubSelection.isAddingClub
           onClubFormSubmitBlocked={() => setShakeCounter(n => n + 1)}
+          ?proposedEvents
+          onProposedEventsChange={change => setProposedEvents(prev => prev->Option.map(change))}
+          onCancelProposal={() => setProposedEvents(_ => None)}
         />
-        <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-          <Link
-            to="/events/create-bulk"
-            className="font-semibold text-[#4d6f12] hover:underline dark:text-[#bdf25d]">
-            {t`Create multiple events instead`}
-          </Link>
-        </p>
       </div>
     </section>
   }

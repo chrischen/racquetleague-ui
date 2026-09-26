@@ -8628,11 +8628,214 @@ msgstr "คุณปฏิเสธการแชร์ข้อมูล DUPR 
 
 #: src/components/pages/ClubPage.re.mjs:815
 msgid "Booking email"
-msgstr ""
+msgstr "อีเมลสำหรับจอง"
 
 #: src/components/pages/ClubPage.re.mjs:819
 msgid "Forward court booking confirmations to this address, or give it to a booking site in place of an email, and each booking becomes an event in this club. Members who forward from their own email are listed as the booker; anything else is credited to the club owner."
-msgstr ""
+msgstr "ส่งต่ออีเมลยืนยันการจองคอร์ทมาที่อยู่นี้ หรือใช้ที่อยู่นี้แทนอีเมลเมื่อจองผ่านเว็บไซต์ แล้วการจองแต่ละครั้งจะกลายเป็นกิจกรรมในคลับนี้ สมาชิกที่ส่งต่อจากอีเมลของตนเองจะถูกระบุเป็นผู้จอง ส่วนกรณีอื่นจะนับให้เจ้าของคลับ"
+
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr "ยอมรับ {0} กิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr "{0} ที่ไม่มีสถานที่"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr "เลือกสถานที่ให้ทุกกิจกรรม"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr "เลือกสถานที่สำหรับกิจกรรมนี้"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
+msgstr "ไม่พบ \\\"{address}\\\" กรุณาเลือกสถานที่:"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
+msgstr "สร้าง {0}"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr "สร้างแล้ว"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
+msgstr "กำลังสร้างกิจกรรม…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
+msgstr "ล้มเหลว"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr "กำลังค้นหา {address}…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
+msgstr "กำลังค้นหาสถานที่…"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr "บางกิจกรรมสร้างไม่สำเร็จ ลองอีกครั้งเพื่อสร้างส่วนที่เหลือ"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr "ผู้ช่วยเสนอ {0} โดยแต่ละรายการมีสถานที่ วันและเวลาของตัวเอง ส่วนที่เหลือของแบบฟอร์มนี้จะใช้กับทั้งหมด"
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr "เวลาด้านล่างแสดงตามเขตเวลานี้ และทุกกิจกรรมจะถูกสร้างในเขตเวลานี้"
+
+#: src/components/organisms/PkEventRow.re.mjs:129
+#: src/components/organisms/EventStickyFooter.re.mjs:190
+msgid "External event"
+msgstr "กิจกรรมภายนอก"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:195
+msgid "Join on {externalSource}"
+msgstr "เข้าร่วมผ่าน {externalSource}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:203
+msgid "Open {externalSource}"
+msgstr "เปิด {externalSource}"
+
+#: src/components/pages/PkEventPage.re.mjs:273
+msgid "Booked on {0}"
+msgstr "จองผ่าน {0}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:186
+msgid "Join on {externalSource2}"
+msgstr "เข้าร่วมผ่าน {externalSource2}"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:194
+msgid "Open {externalSource2}"
+msgstr "เปิด {externalSource2}"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+msgid "Account email"
+msgstr "อีเมลบัญชี"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+msgid "Add"
+msgstr "เพิ่ม"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+msgid "Add a receiving email"
+msgstr "เพิ่มอีเมลรับการจอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+msgid "Awaiting confirmation"
+msgstr "รอการยืนยัน"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+msgid "Bookings forwarded from it will no longer be added to your account. You can add it again later."
+msgstr "การจองที่ส่งต่อจากที่อยู่นี้จะไม่ถูกเพิ่มในบัญชีของคุณอีก คุณสามารถเพิ่มกลับได้ภายหลัง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+msgid "Bookings you forward to chris@pkuru.com are added to your account when they come from one of these addresses. Add the other addresses you receive booking confirmations at."
+msgstr "การจองที่คุณส่งต่อไปยัง chris@pkuru.com จะถูกเพิ่มในบัญชีของคุณเมื่อส่งมาจากที่อยู่เหล่านี้ เพิ่มที่อยู่อื่นที่คุณใช้รับอีเมลยืนยันการจอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+msgid "Open it while signed in to pkuru to finish adding the address."
+msgstr "เปิดลิงก์ขณะลงชื่อเข้าใช้ pkuru เพื่อเพิ่มที่อยู่ให้เสร็จสิ้น"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+msgid "Receiving emails"
+msgstr "อีเมลรับการจอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+msgid "Remove this receiving email?"
+msgstr "ลบอีเมลรับการจองนี้หรือไม่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+msgid "Resend"
+msgstr "ส่งอีกครั้ง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+msgid "Something went wrong. Please try again."
+msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+msgid "That address isn't on your account any more."
+msgstr "ที่อยู่นี้ไม่ได้อยู่ในบัญชีของคุณแล้ว"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+msgid "That's already your account email."
+msgstr "นี่คืออีเมลบัญชีของคุณอยู่แล้ว"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+msgid "Too many emails sent. Please wait a minute and try again."
+msgstr "ส่งอีเมลมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
+msgstr "เราไม่สามารถส่งอีเมลได้ กรุณาลอง \\\\\\\"ส่งอีกครั้ง\\\\\\\" ในอีกสักครู่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+msgid "We sent a confirmation link to"
+msgstr "เราได้ส่งลิงก์ยืนยันไปที่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+msgid "You can add up to 5 receiving emails. Remove one to add another."
+msgstr "คุณเพิ่มอีเมลรับการจองได้สูงสุด 5 รายการ ลบหนึ่งรายการเพื่อเพิ่มใหม่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+msgid "You've already added that address."
+msgstr "คุณเพิ่มที่อยู่นี้แล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:129
+msgid "Confirming your email…"
+msgstr "กำลังยืนยันอีเมลของคุณ…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:166
+msgid "Couldn't confirm this email"
+msgstr "ไม่สามารถยืนยันอีเมลนี้ได้"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:140
+msgid "Email confirmed"
+msgstr "ยืนยันอีเมลแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:156
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Go to profile settings"
+msgstr "ไปที่การตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:150
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "เป็นหนึ่งในอีเมลรับการจองของคุณแล้ว การจองที่คุณส่งต่อจากอีเมลนี้ไปยัง chris@pkuru.com จะถูกเพิ่มในกิจกรรมของคุณ"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:55
+msgid "This address is already used by another pkuru account."
+msgstr "ที่อยู่นี้ถูกใช้โดยบัญชี pkuru อื่นแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "ลิงก์นี้ใช้กับบัญชีนี้ไม่ได้ โปรดตรวจสอบว่าคุณลงชื่อเข้าใช้บัญชีที่เพิ่มที่อยู่นี้ หรือส่งลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:57
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "ลิงก์นี้หมดอายุแล้ว โปรดส่งลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link is incomplete. Open it from the email again."
+msgstr "ลิงก์นี้ไม่สมบูรณ์ โปรดเปิดจากอีเมลอีกครั้ง"
 
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
@@ -8843,3 +9046,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "With a realistic 1.0-DUPR spread, Competitive+ pulls away from the baselines around round 12–15. By round 100 it blows out 11% of games against 31% for random play, and schedules a 71% chance of an even game against 49%. Those numbers match a hand-picked tight-skill session — the algorithm recovers by matchmaking what you would otherwise get by gatekeeping the roster."
 #~ msgstr "ด้วยช่วงความต่างที่สมจริงราว 1.0 DUPR Competitive+ ทิ้งเส้นฐานตั้งแต่ไม่กี่รอบแรก และเมื่อจบหนึ่งเซสชันก็นำเส้นฐานแบบเลี่ยงเล่นซ้ำอยู่ 9 จุดในด้านคุณภาพ และ 10 จุดในด้านการชนะขาด ประโยชน์เต็มที่มาถึงเมื่อเรตติ้งนิ่ง: ชนะขาด 10% เทียบกับ 62% ของเส้นฐาน และโอกาส 78% ที่จะได้เกมสูสี เทียบกับ 53% ตัวเลขเมื่อเรตติ้งนิ่งเหล่านี้เทียบเท่าคลับที่คัดผู้เล่นระดับใกล้เคียงมาด้วยมือ (79% และ 8%) — อัลกอริทึมชดเชยด้วยการจับคู่ สิ่งที่ปกติคุณต้องได้จากการคัดกรองสมาชิก:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:
+#~ msgid "We couldn't send the email. Try \"Resend\" in a moment."
+#~ msgstr "ไม่สามารถส่งอีเมลได้ โปรดลอง \"ส่งอีกครั้ง\" ในอีกสักครู่"

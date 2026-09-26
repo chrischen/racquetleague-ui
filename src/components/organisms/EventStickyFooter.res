@@ -41,8 +41,11 @@ type eventShape = {
   startDate: option<Util.Datetime.t>,
   cancelDeadline: option<int>,
   shadow: option<bool>,
+  // Where a shadow event is joined: the venue's own page for the session.
+  externalUrl: option<string>,
   deleted: option<Util.Datetime.t>,
 }
+
 
 type viewerUserShape = {
   id: string,
@@ -95,6 +98,12 @@ let make = (
   ~hasComputedRating: bool,
   ~charging: bool,
   ~onPayClick: unit => unit,
+  // On a priced event with no card on file, the card form opens as soon as
+  // the join lands: the footer calls this with the new RSVP's id. With a
+  // card on file the unpaid state's one-click join takes over instead, where
+  // the player can also switch cards.
+  ~cardRequiredOnJoin: bool=false,
+  ~onJoinedNeedsCard: string => unit=_ => (),
   // Chat preview + expandable activity feed for joined viewers, rendered at
   // the top of the footer.
   ~chat: React.element=React.null,
@@ -139,15 +148,77 @@ let make = (
         "PkRSVPSection_event_rsvps",
         (),
       )
-      joinEvent(~variables={eventId: event.id, connections: [connectionId]})->ignore
+      joinEvent(~variables={eventId: event.id, connections: [connectionId]}, ~onCompleted=(
+        response,
+        _,
+      ) =>
+        if cardRequiredOnJoin && response.joinEvent.errors->Option.getOr([])->Array.length == 0 {
+          // Only an RSVP the gate held back needs the form. One the server
+          // confirmed outright (an exemption the client didn't mirror)
+          // does not.
+          response.joinEvent.edge
+          ->Option.flatMap(e => e.node)
+          ->Option.filter(node =>
+            switch node.listType {
+            | None | Some(0) | Some(2) => false
+            | Some(_) => true
+            }
+          )
+          ->Option.forEach(node => onJoinedNeedsCard(node.id))
+        }
+      )->ignore
     }
     profileGate.require(proceed)
   }
 
+  // A shadow event is a session the venue runs: it is joined on the venue's
+  // site, not here, so the bar says so and links there - for everyone,
+  // signed in or not (Magic Patterns "External Events Display Support").
+  let externalSource = event.externalUrl->Option.map(Util.externalSource)
+  let goingLabel =
+    Int.toString(confirmedCount) ++ (maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : "")
+  let externalFooter =
+    <Row
+      className={Util.cx([
+        "sticky bottom-0 overflow-hidden bg-white dark:bg-[#1e1f23] border-t border-gray-200 dark:border-[#2a2b30] flex-shrink-0",
+        fullWidth ? "" : "rounded-t-xl",
+      ])}
+      inner="px-5 py-3 flex items-center justify-between gap-3">
+      <div className="min-w-0">
+        <p
+          className="flex items-center gap-1.5 text-sm font-semibold text-gray-900 dark:text-gray-100">
+          <Lucide.ExternalLink size=14 className="flex-shrink-0 text-gray-400" \"aria-hidden"="true" />
+          {t`External event`}
+        </p>
+        <p className="mt-0.5 truncate font-mono text-[11px] text-gray-500 dark:text-gray-400">
+          {switch externalSource {
+          | Some(source) => ts`Join on ${source}` ++ " \u00B7 " ++ goingLabel
+          | None => goingLabel
+          }->React.string}
+        </p>
+      </div>
+      {switch (event.externalUrl, externalSource) {
+      | (Some(url), Some(source)) =>
+        <a
+          href=url
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={e =>
+            if InstallPwa.openInSystemSafari(url) {
+              ReactEvent.Mouse.preventDefault(e)
+            }}
+          className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-800 transition-colors hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:border-[#3a3b40] dark:bg-transparent dark:text-gray-200 dark:hover:bg-[#2a2b30]">
+          {ts`Open ${source}`->React.string}
+          <Lucide.ExternalLink size=13 \"aria-hidden"="true" />
+        </a>
+      | _ => React.null
+      }}
+    </Row>
+
   switch (event.deleted, viewerUser) {
   | (None, Some(_)) =>
     switch event.shadow {
-    | Some(true) => React.null
+    | Some(true) => externalFooter
     | _ => {
         let cancelDeadlineDate =
           event.startDate->Option.flatMap(sd =>
@@ -178,7 +249,9 @@ let make = (
             {if isUnpaid {
               // State 2: Unpaid — a card (or payment) is required to confirm
               // the spot. A player with a card on file joins with one click;
-              // anyone else is sent to the Stripe form.
+              // anyone else is sent to the Stripe form. Those players usually
+              // get the form straight after joining (onJoinedNeedsCard) and
+              // only land here if they dismissed it.
               let cardOnFile = savedCardFlow ? savedCard : None
               <>
                 <Row
@@ -204,7 +277,9 @@ let make = (
                         className="font-mono text-[10px] text-amber-600 dark:text-amber-400 leading-tight">
                         {switch cardOnFile {
                         | Some(card) =>
-                          let cardLabel = card.brand->String.toUpperCase ++ " •••• " ++ card.last4
+                          let cardLabel =
+                            card.brand->String.toUpperCase ++ " •••• " ++ card.last4
+
                           (
                             ts`Card on file: ${cardLabel}. Nothing is charged now — the organizer charges the fee after the event.`
                           )->React.string
@@ -495,7 +570,7 @@ let make = (
     }
   | (None, None) =>
     switch event.shadow {
-    | Some(true) => React.null
+    | Some(true) => externalFooter
     | _ =>
       <Row
         className={Util.cx([

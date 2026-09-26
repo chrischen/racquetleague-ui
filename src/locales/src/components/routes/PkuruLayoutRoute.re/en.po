@@ -14,76 +14,76 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1481
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1832
 #: src/components/pages/PkuruLayout.re.mjs:109
 msgid "Badminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1485
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1836
 msgid "Table Tennis"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1489
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1840
 #: src/components/pages/PkuruLayout.re.mjs:101
 msgid "Pickleball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1493
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1844
 msgid "Futsal"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1497
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1848
 msgid "Basketball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1501
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1852
 msgid "Volleyball"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1505
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1856
 msgid "Crossminton"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1509
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1860
 msgid "Padel"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1513
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1864
 msgid "drill"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1517
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1868
 msgid "comp"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1521
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1872
 msgid "rec"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1525
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1876
 msgid "all level"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:413
+#: src/components/shared/InstallPwa.re.mjs:422
 msgid "— add to your Home Screen for push notifications"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:370
+#: src/components/shared/InstallPwa.re.mjs:379
 msgid "— enable push notifications for event reminders"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:485
+#: src/components/shared/InstallPwa.re.mjs:494
 msgid "— for a faster, app-like experience"
 msgstr ""
 
@@ -91,9 +91,9 @@ msgstr ""
 msgid "(logout)"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:774
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1066
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1115
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1388
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1437
 msgid "(optional)"
 msgstr ""
 
@@ -105,12 +105,28 @@ msgstr ""
 msgid "{0} courts"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:982
+msgid "{0} event"
+msgstr ""
+
 #: src/components/organisms/CreateEventsButton.re.mjs:367
-msgid "{0} event(s) couldn't be created (they may already exist)."
+#~ msgid "{0} event(s) couldn't be created (they may already exist)."
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:983
+msgid "{0} events"
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:363
-msgid "{0} events created!"
+#~ msgid "{0} events created!"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1019
+msgid "{0} without a venue"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:981
+msgid "{count, plural, one {{0}} other {{1}}}"
 msgstr ""
 
 #: src/components/molecules/TimeZoneField.re.mjs:132
@@ -121,7 +137,7 @@ msgstr ""
 msgid "{slotCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:462
+#: src/components/shared/InstallPwa.re.mjs:471
 msgid "\\\"Add to Home Screen\\\""
 msgstr ""
 
@@ -137,15 +153,15 @@ msgstr ""
 #~ msgid "1 · Day"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1141
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1463
 msgid "1 hour before"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1169
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1491
 msgid "1 week before"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1153
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1475
 msgid "12 hours before"
 msgstr ""
 
@@ -153,11 +169,11 @@ msgstr ""
 #~ msgid "2 · Time"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1145
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
 msgid "2 hours before"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1157
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1479
 msgid "24 hours before"
 msgstr ""
 
@@ -165,15 +181,15 @@ msgstr ""
 #~ msgid "3 · What kind?"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1161
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1483
 msgid "48 hours before"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1149
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1471
 msgid "6 hours before"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1165
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1487
 msgid "72 hours before"
 msgstr ""
 
@@ -181,12 +197,16 @@ msgstr ""
 #~ msgid "A deposit authorization is made. This is not a charge and it automatically disappears from the person's account. You can manually approve attendees who do not authorize payment by clicking their name in the RSVP list."
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:604
+#: src/components/molecules/AIResponseCard.re.mjs:36
+msgid "Accept {0} events"
+msgstr ""
+
+#: src/components/organisms/AIAssistantEmbed.re.mjs:603
 msgid "Action proposal"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:835
-#: src/components/organisms/CreateLocationEventForm.re.mjs:857
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1157
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1179
 msgid "Active"
 msgstr ""
 
@@ -194,7 +214,7 @@ msgstr ""
 msgid "Activity"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:74
+#: src/components/organisms/CreateLocationEventForm.re.mjs:75
 msgid "activity is required"
 msgstr ""
 
@@ -210,7 +230,7 @@ msgstr ""
 #~ msgid "Afternoon"
 #~ msgstr ""
 
-#: src/components/pages/CreateEventPage.re.mjs:289
+#: src/components/pages/CreateEventPage.re.mjs:367
 msgid "AI-assisted event form"
 msgstr ""
 
@@ -226,7 +246,7 @@ msgstr ""
 msgid "American Samoa Time"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:273
+#: src/components/organisms/AIAssistantEmbed.re.mjs:274
 msgid "An error occurred. Please try again."
 msgstr ""
 
@@ -238,11 +258,11 @@ msgstr ""
 #~ msgid "Answer the questions or provide more details..."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:886
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1208
 msgid "Anyone held as pending can be moved into the event from the RSVP list, which bypasses the payment requirement for them."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:780
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1102
 msgid "Anything players should know before joining or arriving."
 msgstr ""
 
@@ -254,7 +274,7 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:513
+#: src/components/organisms/AIAssistantEmbed.re.mjs:512
 msgid "Approve"
 msgstr ""
 
@@ -262,11 +282,11 @@ msgstr ""
 #~ msgid "Approve or deny the pending action to continue"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
 msgid "Approve or deny the pending action to continue."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:471
+#: src/components/organisms/AIAssistantEmbed.re.mjs:470
 msgid "Approved"
 msgstr ""
 
@@ -274,7 +294,7 @@ msgstr ""
 msgid "Arizona Time"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:427
+#: src/components/organisms/AIAssistantEmbed.re.mjs:428
 msgid "Ask the assistant to fill in event details. Your conversation will appear here."
 msgstr ""
 
@@ -286,11 +306,11 @@ msgstr ""
 #~ msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:842
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1164
 msgid "Attendees are asked to save a card when they RSVP, but nothing is authorized or charged, and you can't charge it from here. Collect the fee at the event. Club members are exempted from this."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1174
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1496
 msgid "Attendees cannot cancel their RSVP after this deadline."
 msgstr ""
 
@@ -298,11 +318,11 @@ msgstr ""
 #~ msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:865
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1187
 msgid "Attendees save a card when they RSVP and nothing is charged or held up front. From the RSVP list you can charge one attendee or everyone whenever you choose, and the money goes to your Stripe account. Club members can be exempted or not, which you can toggle from the Club home page."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1427
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1772
 msgid "Attendees save a card when they RSVP. Nothing is charged automatically."
 msgstr ""
 
@@ -310,7 +330,7 @@ msgstr ""
 msgid "Availability"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:465
+#: src/components/organisms/AIAssistantEmbed.re.mjs:464
 msgid "Awaiting approval"
 msgstr ""
 
@@ -346,7 +366,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1132
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1454
 msgid "Cancel deadline"
 msgstr ""
 
@@ -362,7 +382,8 @@ msgstr ""
 msgid "Central Time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1259
+#: src/components/organisms/CreateLocationEventForm.re.mjs:940
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1603
 msgid "Change"
 msgstr ""
 
@@ -370,11 +391,19 @@ msgstr ""
 msgid "China Time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:619
+#: src/components/organisms/CreateLocationEventForm.re.mjs:785
 msgid "Choose a location for this event"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1354
+#: src/components/organisms/CreateLocationEventForm.re.mjs:695
+msgid "Choose a venue for every event"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:903
+msgid "Choose a venue for this event."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1698
 msgid "Choose an event time"
 msgstr ""
 
@@ -411,8 +440,8 @@ msgstr ""
 msgid "Clubs"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:710
-#: src/components/organisms/CreateLocationEventForm.re.mjs:927
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1249
 msgid "Competitive"
 msgstr ""
 
@@ -432,7 +461,7 @@ msgstr ""
 #~ msgid "Connect a Stripe account to activate"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:870
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
 msgid "Connect a Stripe account to enable this"
 msgstr ""
 
@@ -452,13 +481,13 @@ msgstr ""
 msgid "Copy {address}"
 msgstr ""
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:227
-#: src/components/organisms/AutocompleteLocation.re.mjs:239
+#: src/components/organisms/AutocompleteLocation.re.mjs:234
+#: src/components/organisms/AutocompleteLocation.re.mjs:246
 msgid "Could not load that place"
 msgstr ""
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:118
-#: src/components/organisms/AutocompleteLocation.re.mjs:126
+#: src/components/organisms/AutocompleteLocation.re.mjs:125
+#: src/components/organisms/AutocompleteLocation.re.mjs:133
 msgid "Could not save that location"
 msgstr ""
 
@@ -470,15 +499,23 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:417
-msgid "Couldn't create that event. Please try again."
-msgstr ""
+#~ msgid "Couldn't create that event. Please try again."
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:376
-msgid "Couldn't determine the activity. Please try again."
+#~ msgid "Couldn't determine the activity. Please try again."
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+msgid "Couldn't find \\\"{address}\\\". Choose the venue:"
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:393
-msgid "Couldn't find this location — pick it:"
+#~ msgid "Couldn't find this location — pick it:"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Create {0}"
 msgstr ""
 
 #: src/components/organisms/NewPlanModal.re.mjs:401
@@ -486,8 +523,8 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
-msgid "Create All Events"
-msgstr ""
+#~ msgid "Create All Events"
+#~ msgstr ""
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:324
 msgid "Create an event"
@@ -501,7 +538,7 @@ msgstr ""
 msgid "Create Club"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1816
 #: src/components/organisms/CreateEventModal.re.mjs:79
 msgid "Create event"
 msgstr ""
@@ -515,23 +552,31 @@ msgid "Create events by email"
 msgstr ""
 
 #: src/components/pages/CreateEventPage.re.mjs:280
-msgid "Create multiple events instead"
-msgstr ""
+#~ msgid "Create multiple events instead"
+#~ msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:133
-msgid "Create This Event"
+#~ msgid "Create This Event"
+#~ msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:832
+msgid "Created"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1814
+msgid "Creating events…"
 msgstr ""
 
 #: src/components/organisms/CreateEventsButton.re.mjs:381
-msgid "Creating..."
-msgstr ""
+#~ msgid "Creating..."
+#~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1304
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1648
 msgid "Date"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:97
-#: src/components/molecules/AIResponseCard.re.mjs:195
+#: src/components/molecules/AIResponseCard.re.mjs:103
+#: src/components/molecules/AIResponseCard.re.mjs:201
 msgid "Date:"
 msgstr ""
 
@@ -543,15 +588,15 @@ msgstr ""
 msgid "Default club activity"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:477
+#: src/components/organisms/AIAssistantEmbed.re.mjs:476
 msgid "Denied"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:569
+#: src/components/organisms/AIAssistantEmbed.re.mjs:568
 msgid "Deny"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:690
+#: src/components/organisms/AIAssistantEmbed.re.mjs:689
 msgid "Describe the event"
 msgstr ""
 
@@ -563,7 +608,7 @@ msgstr ""
 #~ msgid "Describe the event to generate a draft"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:700
+#: src/components/organisms/AIAssistantEmbed.re.mjs:699
 msgid "Describe your event and I’ll fill out the form…"
 msgstr ""
 
@@ -575,8 +620,12 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:147
+#: src/components/molecules/AIResponseCard.re.mjs:153
 msgid "Description:"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1520
+msgid "Discard"
 msgstr ""
 
 #: src/components/pages/PkuruLayout.re.mjs:290
@@ -601,7 +650,7 @@ msgstr ""
 #~ msgid "doubles"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1192
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1534
 msgid "Draft filled in. Review the details before creating the event."
 msgstr ""
 
@@ -617,17 +666,17 @@ msgstr ""
 #~ msgid "Drag start time"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1359
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1703
 msgid "Drag the window to move it, or drag either edge to resize."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:715
-#: src/components/organisms/CreateLocationEventForm.re.mjs:970
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1035
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1292
 msgid "Drill session"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:712
-#: src/components/organisms/CreateLocationEventForm.re.mjs:953
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1032
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1275
 msgid "DUPR rated"
 msgstr ""
 
@@ -675,7 +724,7 @@ msgstr ""
 #~ msgid "Email is required"
 #~ msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:380
+#: src/components/shared/InstallPwa.re.mjs:389
 msgid "Enable now"
 msgstr ""
 
@@ -691,11 +740,11 @@ msgstr ""
 msgid "End time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:86
+#: src/components/organisms/CreateLocationEventForm.re.mjs:87
 msgid "end time is required"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:816
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1138
 msgid "Enter price"
 msgstr ""
 
@@ -711,19 +760,19 @@ msgstr ""
 msgid "Event Canceled"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:83
+#: src/components/organisms/CreateLocationEventForm.re.mjs:84
 msgid "event date is required"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1392
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1737
 msgid "Event details"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:75
+#: src/components/molecules/AIResponseCard.re.mjs:81
 msgid "Event Details"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:771
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1093
 msgid "Event notes"
 msgstr ""
 
@@ -731,11 +780,11 @@ msgstr ""
 #~ msgid "Event time range"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:757
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1079
 msgid "Event title"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:904
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1226
 msgid "Event type"
 msgstr ""
 
@@ -748,55 +797,67 @@ msgstr ""
 #~ msgid "Event Update"
 #~ msgstr ""
 
-#: src/components/pages/PkuruLayout.re.mjs:353
-#~ msgid "Events"
-#~ msgstr ""
+#: src/components/organisms/CreateLocationEventForm.re.mjs:872
+msgid "Events"
+msgstr ""
 
 #: src/components/organisms/NewPlanChooserModal.re.mjs:399
 msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1714
 msgid "Events can be up to 12 hours long."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1370
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1714
 msgid "Events must be at least 15 minutes long."
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:485
+#: src/components/organisms/AIAssistantEmbed.re.mjs:484
 msgid "Executed"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:488
+#: src/components/organisms/AIAssistantEmbed.re.mjs:487
 msgid "Execution failed"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:826
+msgid "Failed"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:506
 #~ msgid "Female"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:736
+#: src/components/organisms/AIAssistantEmbed.re.mjs:735
 msgid "Fill event form from description"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:39
+#: src/components/molecules/AIResponseCard.re.mjs:54
 msgid "Fill form"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1025
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1347
 msgid "Find players for your event?"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:894
+msgid "Finding {address}…"
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:893
+msgid "Finding the venue…"
 msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:362
 #~ msgid "For event updates and notifications"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1446
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1791
 msgid "Format"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:947
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1269
 msgid "Format options"
 msgstr ""
 
@@ -804,7 +865,7 @@ msgstr ""
 msgid "Forward your booking confirmation to {forwardingAddress} from your email {yourEmail}."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:760
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1082
 msgid "Friday night pickleball"
 msgstr ""
 
@@ -824,15 +885,15 @@ msgstr ""
 #~ msgid "Help me fill this out"
 #~ msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:422
+#: src/components/shared/InstallPwa.re.mjs:431
 msgid "Hide"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:771
+#: src/components/organisms/AIAssistantEmbed.re.mjs:770
 msgid "Hide AI chat history"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1100
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1422
 msgid "Hold new joins  in the pending list and admit players either manually or automatically with the Smart RSVPs algorithm that maximizes skill level and session quality."
 msgstr ""
 
@@ -840,7 +901,7 @@ msgstr ""
 #~ msgid "Hold new joins and admit players automatically based on match quality."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1096
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1418
 msgid "Hold RSVPs"
 msgstr ""
 
@@ -864,11 +925,11 @@ msgstr ""
 #~ msgid "How other players will see you"
 #~ msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:422
+#: src/components/shared/InstallPwa.re.mjs:431
 msgid "How to install"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:454
+#: src/components/shared/InstallPwa.re.mjs:463
 msgid "in Safari's toolbar"
 msgstr ""
 
@@ -880,12 +941,12 @@ msgstr ""
 msgid "India Time"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:494
+#: src/components/shared/InstallPwa.re.mjs:503
 msgid "Install"
 msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:409
-#: src/components/shared/InstallPwa.re.mjs:481
+#: src/components/shared/InstallPwa.re.mjs:418
+#: src/components/shared/InstallPwa.re.mjs:490
 msgid "Install Pkuru.com App"
 msgstr ""
 
@@ -918,7 +979,7 @@ msgstr ""
 msgid "Joined Club"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1231
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1575
 msgid "Keep current location"
 msgstr ""
 
@@ -946,7 +1007,7 @@ msgstr ""
 msgid "Line Islands Time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1351
 msgid "List your event publicly to help fill open spots."
 msgstr ""
 
@@ -954,7 +1015,7 @@ msgstr ""
 msgid "Load more"
 msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:423
+#: src/components/organisms/AIAssistantEmbed.re.mjs:424
 msgid "Loading conversation history..."
 msgstr ""
 
@@ -970,20 +1031,20 @@ msgstr ""
 msgid "Local time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1210
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1554
 msgid "Location"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1202
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1545
 msgid "Location & time"
 msgstr ""
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:175
+#: src/components/organisms/AutocompleteLocation.re.mjs:182
 msgid "Location search is unavailable right now"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:132
-#: src/components/molecules/AIResponseCard.re.mjs:230
+#: src/components/molecules/AIResponseCard.re.mjs:138
+#: src/components/molecules/AIResponseCard.re.mjs:236
 msgid "Location:"
 msgstr ""
 
@@ -1016,11 +1077,11 @@ msgstr ""
 #~ msgid "Match my time"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1112
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1434
 msgid "Max players"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1063
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1385
 msgid "Minimum rating"
 msgstr ""
 
@@ -1094,15 +1155,15 @@ msgstr ""
 msgid "No club / Independent event"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1137
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1459
 msgid "No deadline"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1121
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1443
 msgid "No limit"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1072
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1394
 msgid "No minimum"
 msgstr ""
 
@@ -1136,7 +1197,7 @@ msgstr ""
 #~ msgid "open"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:621
+#: src/components/organisms/AIAssistantEmbed.re.mjs:620
 msgid "Operation:"
 msgstr ""
 
@@ -1148,11 +1209,11 @@ msgstr ""
 msgid "Pacific Time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1423
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1768
 msgid "Paid event"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:807
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1129
 msgid "Participation fee"
 msgstr ""
 
@@ -1168,11 +1229,11 @@ msgstr ""
 msgid "Player availability heatmap"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1459
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1804
 msgid "Players"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:720
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1040
 msgid "Private event"
 msgstr ""
 
@@ -1190,11 +1251,11 @@ msgstr ""
 #~ msgid "provisional"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:719
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1039
 msgid "Public"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:719
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1039
 msgid "Public · Up to {maxRsvpsStr} players"
 msgstr ""
 
@@ -1206,12 +1267,12 @@ msgstr ""
 #~ msgid "Rankings"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1622
 msgid "Read more..."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:710
-#: src/components/organisms/CreateLocationEventForm.re.mjs:910
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1030
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1232
 msgid "Recreational"
 msgstr ""
 
@@ -1243,7 +1304,7 @@ msgstr ""
 #~ msgid "Save profile"
 #~ msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:460
+#: src/components/shared/InstallPwa.re.mjs:469
 msgid "Scroll down and tap"
 msgstr ""
 
@@ -1251,7 +1312,7 @@ msgstr ""
 #~ msgid "Search events, venues, hosts..."
 #~ msgstr ""
 
-#: src/components/organisms/AutocompleteLocation.re.mjs:354
+#: src/components/organisms/AutocompleteLocation.re.mjs:361
 msgid "Search for a venue or address"
 msgstr ""
 
@@ -1275,11 +1336,11 @@ msgstr ""
 #~ msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:771
+#: src/components/organisms/AIAssistantEmbed.re.mjs:770
 msgid "Show AI chat history"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1278
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1622
 msgid "Show less"
 msgstr ""
 
@@ -1291,7 +1352,7 @@ msgstr ""
 #~ msgid "singles"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1057
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1379
 msgid "Skill level"
 msgstr ""
 
@@ -1303,6 +1364,10 @@ msgstr ""
 msgid "Solomon Islands Time"
 msgstr ""
 
+#: src/components/organisms/CreateLocationEventForm.re.mjs:765
+msgid "Some events could not be created. Try again to create the rest."
+msgstr ""
+
 #: src/components/pages/PkuruLayout.re.mjs:222
 msgid "Sports"
 msgstr ""
@@ -1311,7 +1376,7 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1347
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1691
 msgid "Start and end time"
 msgstr ""
 
@@ -1327,11 +1392,11 @@ msgstr ""
 #~ msgid "Status Update"
 #~ msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:366
+#: src/components/shared/InstallPwa.re.mjs:375
 msgid "Stay in the loop"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:175
+#: src/components/molecules/AIResponseCard.re.mjs:181
 msgid "Suggested Events"
 msgstr ""
 
@@ -1347,7 +1412,7 @@ msgstr ""
 #~ msgid "Tap anywhere to add a time window"
 #~ msgstr ""
 
-#: src/components/shared/InstallPwa.re.mjs:452
+#: src/components/shared/InstallPwa.re.mjs:461
 msgid "Tap the Share button"
 msgstr ""
 
@@ -1359,11 +1424,15 @@ msgstr ""
 #~ msgid "Tell others you're down to play. Players with overlapping times can invite you."
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:541
+#: src/components/organisms/AIAssistantEmbed.re.mjs:540
 msgid "The action completed with GraphQL errors."
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1338
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1516
+msgid "The assistant proposed {0}. Each keeps its own venue, date and time; the rest of this form applies to all of them."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1682
 msgid "The date and times on this form are in this zone."
 msgstr ""
 
@@ -1371,7 +1440,11 @@ msgstr ""
 #~ msgid "The participation fee is charged automatically and transferred to your Stripe account."
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1045
+#: src/components/organisms/CreateLocationEventForm.re.mjs:863
+msgid "The times below are shown in this zone, and every event is created in it."
+msgstr ""
+
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1367
 msgid "This event is public"
 msgstr ""
 
@@ -1380,15 +1453,15 @@ msgstr ""
 msgid "Time zone"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:709
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1029
 msgid "Title and optional notes"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:71
+#: src/components/organisms/CreateLocationEventForm.re.mjs:72
 msgid "title is required"
 msgstr ""
 
-#: src/components/molecules/AIResponseCard.re.mjs:84
+#: src/components/molecules/AIResponseCard.re.mjs:90
 msgid "Title:"
 msgstr ""
 
@@ -1400,7 +1473,7 @@ msgstr ""
 #~ msgid "Tomorrow"
 #~ msgstr ""
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:290
+#: src/components/organisms/AIAssistantEmbed.re.mjs:291
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr ""
 
@@ -1408,11 +1481,11 @@ msgstr ""
 msgid "United Kingdom Time"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:1467
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1816
 msgid "Update event"
 msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:707
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1027
 msgid "Venue, date, start and end time"
 msgstr ""
 
@@ -1440,7 +1513,7 @@ msgstr ""
 #~ msgid "When do you want to play?"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:853
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1175
 msgid "With a Stripe account"
 msgstr ""
 
@@ -1448,7 +1521,7 @@ msgstr ""
 #~ msgid "With Stripe"
 #~ msgstr ""
 
-#: src/components/organisms/CreateLocationEventForm.re.mjs:831
+#: src/components/organisms/CreateLocationEventForm.re.mjs:1153
 msgid "Without a Stripe account"
 msgstr ""
 
