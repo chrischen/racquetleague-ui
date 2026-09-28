@@ -2113,3 +2113,11 @@ msgstr "RSVP của bạn đang chờ quản trị viên phê duyệt"
 #~ msgstr ""
 #~ "Thẻ của bạn chỉ được lưu, chưa bị trừ tiền. Người tổ chức sẽ thu phí tham "
 #~ "gia sau sự kiện."
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để xác nhận."
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "Đây có vẻ không phải là địa chỉ email."

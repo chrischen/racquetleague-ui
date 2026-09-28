@@ -481,3 +481,11 @@ msgstr "แชร์ลิงก์"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 #~ msgid "When do you want to play?"
 #~ msgstr "คุณอยากเล่นเมื่อไหร่?"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

@@ -5,7 +5,8 @@
 // the two agree only on a perfect grid — an overlay drawn at "analysis t =
 // video now" drifts ahead of the real ball where frames came slower than the
 // median and behind where they came faster. Everything here is pure; an empty
-// frame table (test clips) degrades to the identity mapping.
+// frame table degrades to the identity mapping. Recorded clips use the capture
+// timestamps; test clips use the server's per-frame timestamps of the file.
 
 type t = {
   frameTimes: array<float>, // seconds, ascending, frameTimes[0] == 0.

@@ -386,3 +386,11 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

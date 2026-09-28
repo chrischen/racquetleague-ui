@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import * as Router from "../shared/Router.re.mjs";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as GlobalQuery from "../shared/GlobalQuery.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
@@ -37,7 +38,10 @@ var Mutation = {
 
 function VerifyEmailPage(props) {
   var match = ReactRouterDom.useSearchParams();
-  var token = React.useRef(Router.SearchParams.get(match[0], "token"));
+  var params = match[0];
+  var token = React.useRef(Router.SearchParams.get(params, "token"));
+  var purpose = React.useRef(Router.SearchParams.get(params, "purpose"));
+  var error = React.useRef(Router.SearchParams.get(params, "error"));
   var viewer = GlobalQuery.useViewer();
   var navigate = LangProvider.Router.useNavigate();
   var match$1 = use();
@@ -63,9 +67,40 @@ function VerifyEmailPage(props) {
         return t`Something went wrong. Please try again.`;
     }
   };
+  var changeErrorCopy = function (code) {
+    switch (code) {
+      case "EMAIL_UNAVAILABLE" :
+          return t`This address is already used by another pkuru account.`;
+      case "INVALID_TOKEN" :
+          return t`This link doesn't work. Open it from the email again, or ask for a new one from your profile settings.`;
+      case "INVALID_USER" :
+          return t`You're signed in to a different account. Sign out, then open the link again.`;
+      case "TOKEN_EXPIRED" :
+          return t`This link has expired. Ask for a new one from your profile settings.`;
+      case "USER_NOT_FOUND" :
+          return t`This link has already been used, or your account email has changed since it was sent.`;
+      default:
+        return t`Something went wrong. Please try again.`;
+    }
+  };
   React.useEffect((function () {
           var match = token.current;
-          if (match !== undefined) {
+          if (Caml_obj.equal(purpose.current, "change-email")) {
+            window.history.replaceState(null, "", window.location.pathname);
+            var code = error.current;
+            if (code !== undefined) {
+              setStatus(function (param) {
+                    return {
+                            TAG: "Failed",
+                            _0: changeErrorCopy(code)
+                          };
+                  });
+            } else {
+              setStatus(function (param) {
+                    return "AccountEmailChanged";
+                  });
+            }
+          } else if (match !== undefined) {
             if (isLoggedIn) {
               if (!started.current) {
                 started.current = true;
@@ -85,14 +120,24 @@ function VerifyEmailPage(props) {
                                               _0: errorCopy(code)
                                             };
                                     });
-                        } else {
-                          return setStatus(function (param) {
-                                      return {
-                                              TAG: "Verified",
-                                              _0: Core__Option.getOr(res.verifyEmail.address, "")
-                                            };
-                                    });
                         }
+                        var address = Core__Option.getOr(res.verifyEmail.address, "");
+                        var isAccountEmail = Caml_obj.equal(Core__Option.flatMap(res.verifyEmail.viewer, (function (v) {
+                                    return v.email;
+                                  })), address);
+                        setStatus(function (param) {
+                              if (isAccountEmail) {
+                                return {
+                                        TAG: "BecameAccountEmail",
+                                        _0: address
+                                      };
+                              } else {
+                                return {
+                                        TAG: "Verified",
+                                        _0: address
+                                      };
+                              }
+                            });
                       }), (function (param) {
                         setStatus(function (param) {
                               return {
@@ -120,64 +165,122 @@ function VerifyEmailPage(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   var tmp;
-                  tmp = typeof status !== "object" ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                          children: [
-                            JsxRuntime.jsx(LucideReact.Mail, {
-                                  className: "w-10 h-10 mx-auto text-gray-400"
-                                }),
-                            JsxRuntime.jsx("p", {
-                                  children: t`Confirming your email…`,
-                                  className: "text-gray-700 dark:text-gray-300"
-                                })
-                          ]
-                        }) : (
-                      status.TAG === "Verified" ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                              children: [
-                                JsxRuntime.jsx(LucideReact.CheckCircle2, {
-                                      className: "w-10 h-10 mx-auto text-green-600 dark:text-green-400"
-                                    }),
-                                JsxRuntime.jsx("h1", {
-                                      children: t`Email confirmed`,
-                                      className: "text-xl font-bold text-gray-900 dark:text-white"
-                                    }),
-                                JsxRuntime.jsxs("p", {
-                                      children: [
-                                        JsxRuntime.jsx("span", {
-                                              children: status._0,
-                                              className: "font-medium"
-                                            }),
-                                        " ",
-                                        t`is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events.`
-                                      ],
-                                      className: "text-gray-700 dark:text-gray-300"
-                                    }),
-                                JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                      to: "/settings/profile",
-                                      children: t`Go to profile settings`,
-                                      className: "inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-[#a3e635] text-gray-900 hover:bg-[#84cc16] transition-colors"
-                                    })
-                              ]
-                            }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
-                              children: [
-                                JsxRuntime.jsx(LucideReact.XCircle, {
-                                      className: "w-10 h-10 mx-auto text-red-500"
-                                    }),
-                                JsxRuntime.jsx("h1", {
-                                      children: t`Couldn't confirm this email`,
-                                      className: "text-xl font-bold text-gray-900 dark:text-white"
-                                    }),
-                                JsxRuntime.jsx("p", {
-                                      children: status._0,
-                                      className: "text-gray-700 dark:text-gray-300"
-                                    }),
-                                JsxRuntime.jsx(LangProvider.Router.Link.make, {
-                                      to: "/settings/profile",
-                                      children: t`Go to profile settings`,
-                                      className: "inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-semibold border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
-                                    })
-                              ]
-                            })
-                    );
+                  if (typeof status !== "object") {
+                    tmp = status === "Verifying" ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                            children: [
+                              JsxRuntime.jsx(LucideReact.Mail, {
+                                    className: "w-10 h-10 mx-auto text-gray-400"
+                                  }),
+                              JsxRuntime.jsx("p", {
+                                    children: t`Confirming your email…`,
+                                    className: "text-gray-700 dark:text-gray-300"
+                                  })
+                            ]
+                          }) : JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                            children: [
+                              JsxRuntime.jsx(LucideReact.CheckCircle2, {
+                                    className: "w-10 h-10 mx-auto text-green-600 dark:text-green-400"
+                                  }),
+                              JsxRuntime.jsx("h1", {
+                                    children: t`Account email changed`,
+                                    className: "text-xl font-bold text-gray-900 dark:text-white"
+                                  }),
+                              JsxRuntime.jsx("p", {
+                                    children: t`Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings.`,
+                                    className: "text-gray-700 dark:text-gray-300"
+                                  }),
+                              JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                    to: "/settings/profile",
+                                    children: t`Go to profile settings`,
+                                    className: "inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-[#a3e635] text-gray-900 hover:bg-[#84cc16] transition-colors"
+                                  })
+                            ]
+                          });
+                  } else {
+                    switch (status.TAG) {
+                      case "Verified" :
+                          tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                children: [
+                                  JsxRuntime.jsx(LucideReact.CheckCircle2, {
+                                        className: "w-10 h-10 mx-auto text-green-600 dark:text-green-400"
+                                      }),
+                                  JsxRuntime.jsx("h1", {
+                                        children: t`Email confirmed`,
+                                        className: "text-xl font-bold text-gray-900 dark:text-white"
+                                      }),
+                                  JsxRuntime.jsxs("p", {
+                                        children: [
+                                          JsxRuntime.jsx("span", {
+                                                children: status._0,
+                                                className: "font-medium"
+                                              }),
+                                          " ",
+                                          t`is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events.`
+                                        ],
+                                        className: "text-gray-700 dark:text-gray-300"
+                                      }),
+                                  JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                        to: "/settings/profile",
+                                        children: t`Go to profile settings`,
+                                        className: "inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-[#a3e635] text-gray-900 hover:bg-[#84cc16] transition-colors"
+                                      })
+                                ]
+                              });
+                          break;
+                      case "BecameAccountEmail" :
+                          tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                children: [
+                                  JsxRuntime.jsx(LucideReact.CheckCircle2, {
+                                        className: "w-10 h-10 mx-auto text-green-600 dark:text-green-400"
+                                      }),
+                                  JsxRuntime.jsx("h1", {
+                                        children: t`Email confirmed`,
+                                        className: "text-xl font-bold text-gray-900 dark:text-white"
+                                      }),
+                                  JsxRuntime.jsxs("p", {
+                                        children: [
+                                          JsxRuntime.jsx("span", {
+                                                children: status._0,
+                                                className: "font-medium"
+                                              }),
+                                          " ",
+                                          t`is now your account email.`
+                                        ],
+                                        className: "text-gray-700 dark:text-gray-300"
+                                      }),
+                                  JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                        to: "/settings/profile",
+                                        children: t`Go to profile settings`,
+                                        className: "inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-[#a3e635] text-gray-900 hover:bg-[#84cc16] transition-colors"
+                                      })
+                                ]
+                              });
+                          break;
+                      case "Failed" :
+                          tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                                children: [
+                                  JsxRuntime.jsx(LucideReact.XCircle, {
+                                        className: "w-10 h-10 mx-auto text-red-500"
+                                      }),
+                                  JsxRuntime.jsx("h1", {
+                                        children: t`Couldn't confirm this email`,
+                                        className: "text-xl font-bold text-gray-900 dark:text-white"
+                                      }),
+                                  JsxRuntime.jsx("p", {
+                                        children: status._0,
+                                        className: "text-gray-700 dark:text-gray-300"
+                                      }),
+                                  JsxRuntime.jsx(LangProvider.Router.Link.make, {
+                                        to: "/settings/profile",
+                                        children: t`Go to profile settings`,
+                                        className: "inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-semibold border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-[#2a2b30] transition-colors"
+                                      })
+                                ]
+                              });
+                          break;
+                      
+                    }
+                  }
                   return JsxRuntime.jsx("div", {
                               children: JsxRuntime.jsx("div", {
                                     children: tmp,

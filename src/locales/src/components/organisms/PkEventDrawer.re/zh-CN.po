@@ -1420,3 +1420,11 @@ msgstr "您的报名正在等待管理员审批"
 #~ "participation fee after the event."
 #~ msgstr ""
 #~ "您的银行卡现在仅被保存，不会扣款。组织者将在活动结束后收取参与费用。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用于活动更新和通知。我们会发送确认链接给您。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "这看起来不像邮箱地址。"

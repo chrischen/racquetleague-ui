@@ -1449,3 +1449,11 @@ msgstr "참가 신청이 관리자 승인을 기다리고 있습니다"
 #~ msgstr ""
 #~ "카드는 지금 저장만 되고 결제되지 않습니다. 주최자가 행사 후에 참가비를 청"
 #~ "구합니다."
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "이벤트 업데이트 및 알림용입니다. 확인 링크를 이메일로 보내 드립니다."
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "이메일 주소 형식이 아닌 것 같습니다."

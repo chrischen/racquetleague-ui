@@ -584,3 +584,31 @@ msgstr "บัญชี Stripe ของคุณเชื่อมต่อแ�
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Change"
+msgstr "เปลี่ยน"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "New account email"
+msgstr "อีเมลบัญชีใหม่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "เปิดลิงก์เพื่อใช้เป็นอีเมลบัญชีของคุณ จนกว่าจะเปิด จะไม่มีอะไรเปลี่ยนแปลง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Send link"
+msgstr "ส่งลิงก์"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We sent a link to"
+msgstr "เราได้ส่งลิงก์ไปที่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "เราจะส่งลิงก์ไปยังที่อยู่ใหม่ ที่อยู่ปัจจุบันของคุณจะยังคงเป็นอีเมลรับการจอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "บัญชีของคุณยังไม่มีอีเมล ที่อยู่แรกที่คุณยืนยันที่นี่จะเป็นอีเมลบัญชีของคุณ"

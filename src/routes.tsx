@@ -108,13 +108,8 @@ const mainRoutes: RouteObject[] =
       handle: "src/components/routes/DefaultLayoutContentRoute.gen.tsx",
       children: [
         {
-          path: "oauth/line/error",
-          lazy: () => import("./components/routes/LoginLineErrorRoute.gen"),
-          handle: "src/components/routes/LoginLineErrorRoute.gen.tsx",
-        },
-        {
-          // Where emailed confirmation links land (receiving emails, and later
-          // other email confirmations).
+          // Where emailed confirmation links land: receiving emails, and
+          // better-auth's change of account email (?purpose=change-email).
           path: "verify-email",
           lazy: () => import("./components/routes/VerifyEmailRoute.gen"),
           handle: "src/components/routes/VerifyEmailRoute.gen.tsx",
@@ -361,11 +356,6 @@ export const routes: RouteObject[] = [
             path: "oauth-login",
             lazy: () => import("./components/routes/LoginRoute.gen"),
             handle: "src/components/routes/LoginRoute.gen.tsx",
-          },
-          {
-            path: "oauth/line/error",
-            lazy: () => import("./components/routes/LoginLineErrorRoute.gen"),
-            handle: "src/components/routes/LoginLineErrorRoute.gen.tsx",
           },
           {
             path: "*",

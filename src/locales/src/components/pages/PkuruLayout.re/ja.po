@@ -1633,3 +1633,11 @@ msgstr ""
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"
 #~ msgstr "Stripeなし"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"

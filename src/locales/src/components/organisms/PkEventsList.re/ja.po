@@ -2109,3 +2109,11 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ msgstr ""
 #~ "カードは保存されるだけで、請求はされません。主催者がイベント後に参加費を請"
 #~ "求します。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"

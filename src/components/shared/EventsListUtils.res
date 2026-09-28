@@ -118,15 +118,37 @@ let sortBucketKeys = (keys: array<string>): array<string> => {
 
 module Filter = {
   type t = ByDate(Js.Date.t) | ByAfter(string) | ByBefore(string) | ByAfterDate(Js.Date.t)
+  // The server ignores afterDate whenever a cursor is present, so the two
+  // cursors and afterDate exclude each other: setting one clears the rest.
+  // Otherwise a leftover cursor swallows a picked date, and a leftover
+  // afterDate keeps the calendar on a day the page no longer starts from.
   let updateParams = (filter, params) =>
     switch filter {
     | ByAfter(cursor) =>
-      params->Router.ImmSearchParams.set("after", cursor)->Router.ImmSearchParams.delete("before")
+      params
+      ->Router.ImmSearchParams.set("after", cursor)
+      ->Router.ImmSearchParams.delete("before")
+      ->Router.ImmSearchParams.delete("afterDate")
     | ByBefore(cursor) =>
-      params->Router.ImmSearchParams.set("before", cursor)->Router.ImmSearchParams.delete("after")
+      params
+      ->Router.ImmSearchParams.set("before", cursor)
+      ->Router.ImmSearchParams.delete("after")
+      ->Router.ImmSearchParams.delete("afterDate")
     | ByDate(date) => params->Router.ImmSearchParams.set("selectedDate", date->Js.Date.toDateString)
     | ByAfterDate(date) =>
-      params->Router.ImmSearchParams.set("afterDate", date->Js.Date.toISOString)
+      params
+      ->Router.ImmSearchParams.set("afterDate", date->Js.Date.toISOString)
+      ->Router.ImmSearchParams.delete("after")
+      ->Router.ImmSearchParams.delete("before")
+    }
+
+  // The day the calendar highlights. None under a cursor, since the list then
+  // follows the cursor rather than afterDate (older links can carry both).
+  let selectedDate = params =>
+    switch (params->Router.ImmSearchParams.get("after"), params->Router.ImmSearchParams.get("before")) {
+    | (None, None) =>
+      params->Router.ImmSearchParams.get("afterDate")->Option.map(d => Js.Date.fromString(d))
+    | _ => None
     }
 }
 

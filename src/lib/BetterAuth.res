@@ -95,6 +95,14 @@ type updateUserOptions = {
   fetchOptions?: fetchOptions<user>,
 }
 
+// Change email options: the link goes to newEmail and, once used, lands on
+// callbackURL, with ?error=CODE appended if it failed.
+type changeEmailOptions = {
+  newEmail: string,
+  callbackURL?: string,
+}
+type changeEmailData = {status: bool}
+
 // Client configuration
 type clientConfig<'plugin> = {
   baseURL?: string,
@@ -126,6 +134,10 @@ type rec authClient = {
   signUp: signUp,
   signOut: (~options: signOutOptions=?) => promise<response<unit>>,
   updateUser: (updateUserOptions, ~fetchOptions: fetchOptions<user>=?) => promise<response<user>>,
+  changeEmail: (
+    changeEmailOptions,
+    ~fetchOptions: fetchOptions<changeEmailData>=?,
+  ) => promise<response<changeEmailData>>,
   useSession: unit => useSessionReturn,
   device: device,
   @as("$ERROR_CODES")

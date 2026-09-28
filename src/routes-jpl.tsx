@@ -66,11 +66,6 @@ export const routes: RouteObject[] = [
             handle: "src/components/routes/LoginRoute.gen.tsx",
           },
           {
-            path: "oauth/line/error",
-            lazy: () => import("./components/routes/LoginLineErrorRoute.gen"),
-            handle: "src/components/routes/LoginLineErrorRoute.gen.tsx",
-          },
-          {
             path: "*",
             lazy: () => import("./components/routes/NotFoundRoute.gen"),
             handle: "src/components/routes/NotFoundRoute.gen.tsx",

@@ -240,21 +240,27 @@ let make = (
           lineUsername: data.lineUsername,
         },
       },
+      // The email isn't saved here: the server emails it a confirmation link,
+      // and it becomes the account email once that link is used.
       ~onCompleted=(response, _) => {
         switch response.updateViewerContact.errors {
         | Some([]) | None => commitProfile()
+        // A link went to that address moments ago; nothing else to do.
+        | Some([{message: "RATE_LIMITED"}]) => commitProfile()
         | Some(errors) =>
-          errors->Array.forEach(error => {
-            // Check for EMAIL_UNAVAILABLE error
-            if error.message == "EMAIL_UNAVAILABLE" {
+          errors->Array.forEach(error =>
+            switch error.message {
+            | "INVALID_EMAIL" =>
+              setEmailError(_ => Some(ts`That doesn't look like an email address.`))
+            | "EMAIL_UNAVAILABLE" =>
               setEmailError(_ => Some(
                 ts`Email address is unavailable. Please use a different email or login with the email you are trying to use here.`,
               ))
-            } else {
-              Js.Console.error2("Error:", error.message)
+            | message =>
+              Js.Console.error2("Error:", message)
               setSaveError(_ => Some(ts`Could not save your profile. Please try again.`))
             }
-          })
+          )
         }
       },
       ~onError=_ => {
@@ -376,7 +382,7 @@ let make = (
                                 </span>
                               | _ =>
                                 <span className="mt-1 block text-[9px] text-gray-400">
-                                  {(ts`For event updates and notifications`)->React.string}
+                                  {(ts`For event updates and notifications. We'll email you a link to confirm it.`)->React.string}
                                 </span>
                               }}
                             </label>}

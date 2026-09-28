@@ -29,6 +29,32 @@ function getAssetPath(publicPath) {
   return protocol && pathname ? pathname : encodeURI(publicPath);
 }
 
+// Dev only: while a dev scenario is active (dev/scenarios/README.md), pin a
+// badge to the corner so a mocked page is never mistaken for real data. It is
+// appended to <body>, outside #root, so hydration never sees it.
+const SCENARIO_BADGE = `<script>(function () {
+  var m = document.cookie.match(/(?:^|; )pkuru_scenario=([^;]+)/);
+  if (!m) return;
+  function add() {
+    var name = decodeURIComponent(m[1]).replace(/[^a-z0-9_-]/gi, "");
+    var badge = document.createElement("div");
+    badge.id = "pkuru-scenario-badge";
+    badge.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#b91c1c;color:#fff;font:12px/1 system-ui,sans-serif;padding:6px 10px;border-radius:6px;opacity:.92;box-shadow:0 1px 4px rgba(0,0,0,.3)";
+    var label = document.createElement("a");
+    label.href = "/__dev/scenario";
+    label.textContent = "Scenario: " + name;
+    label.style.cssText = "color:#fff;text-decoration:none";
+    var exit = document.createElement("a");
+    exit.href = "/__dev/scenario/off?to=" + encodeURIComponent(location.pathname + location.search);
+    exit.textContent = "exit";
+    exit.style.cssText = "color:#fff;text-decoration:underline;margin-left:8px";
+    badge.appendChild(label);
+    badge.appendChild(exit);
+    document.body.appendChild(badge);
+  }
+  if (document.body) add(); else document.addEventListener("DOMContentLoaded", add);
+})();</script>`;
+
 const requestPath = process.env.PUBLIC_PATH
   ? getAssetPath(process.env.PUBLIC_PATH)
   : "/";
@@ -104,6 +130,24 @@ export async function createServer(
       },
       appType: "custom",
     });
+
+    // Dev scenarios (dev/scenarios/README.md): a cookie or header picks a
+    // named fake backend for /graphql, so hard-to-reach UI states can be
+    // opened in the real app. SSR is pointed back at this server so the
+    // server render sees the same scenario as the browser. With no scenario
+    // selected, /graphql falls through untouched to Vite's proxy below; any
+    // middleware added here must not read the /graphql body before next(),
+    // or the proxied request hangs.
+    process.env.SSR_API_ENDPOINT ??= "http://localhost:3000/graphql";
+    const { createScenarioMiddleware } = await import("./dev/scenario/middleware.mjs");
+    const scenario = createScenarioMiddleware({
+      scenariosDir: resolve("dev/scenarios"),
+      schemaPath: resolve("data/schema.graphql"),
+      upstream: (process.env.API_PROXY_TARGET || "http://localhost:4555") + "/graphql",
+    });
+    app.use(scenario.routes);
+    app.use(scenario.graphql);
+
     // use vite's connect instance as middleware
     app.use(vite.middlewares);
   } else {
@@ -201,6 +245,7 @@ RefreshRuntime.injectIntoGlobalHook(window)
 window.$RefreshReg$ = () => {}
 window.$RefreshSig$ = () => (type) => type
 window.__vite_plugin_react_preamble_installed__ = true;</script>`;
+        head += SCENARIO_BADGE;
         // head += '<script type="module" src="/src/entry/client.tsx" async></script>';
       }
 

@@ -1604,3 +1604,11 @@ msgstr "你可以在转发的邮件中附上其他活动详情，例如级别、
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"
 #~ msgstr "不使用 Stripe"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用于活动更新和通知。我们会发送确认链接给您。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "这看起来不像邮箱地址。"

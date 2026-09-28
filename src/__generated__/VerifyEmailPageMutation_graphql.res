@@ -16,6 +16,7 @@ module Types = {
   @live
   and response_verifyEmail_viewer = {
     alternateEmails: array<response_verifyEmail_viewer_alternateEmails>,
+    email: option<string>,
     @live id: string,
   }
   @live
@@ -142,6 +143,13 @@ v2 = [
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "email",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "AlternateEmail",
             "kind": "LinkedField",
             "name": "alternateEmails",
@@ -201,12 +209,12 @@ return {
     "selections": (v2/*: any*/)
   },
   "params": {
-    "cacheID": "d20a437ae27fe6f6e56dac9e5c030906",
+    "cacheID": "4757ea9eb937edce124175bc1479d026",
     "id": null,
     "metadata": {},
     "name": "VerifyEmailPageMutation",
     "operationKind": "mutation",
-    "text": "mutation VerifyEmailPageMutation(\n  $token: String!\n) {\n  verifyEmail(token: $token) {\n    address\n    viewer {\n      id\n      alternateEmails {\n        address\n        verified\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
+    "text": "mutation VerifyEmailPageMutation(\n  $token: String!\n) {\n  verifyEmail(token: $token) {\n    address\n    viewer {\n      id\n      email\n      alternateEmails {\n        address\n        verified\n      }\n    }\n    errors {\n      message\n    }\n  }\n}\n"
   }
 };
 })() `)

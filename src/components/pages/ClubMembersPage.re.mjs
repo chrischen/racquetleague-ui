@@ -173,7 +173,6 @@ function ClubMembersPage$MemberItem(props) {
   var onApprove = props.onApprove;
   var onRemove = props.onRemove;
   var viewerIsOwner = props.viewerIsOwner;
-  var viewerIsAdmin = props.viewerIsAdmin;
   var membership = props.membership;
   var isAdmin = Core__Option.getOr(membership.isAdmin, false);
   var isOwner = Core__Option.getOr(membership.isOwner, false);
@@ -215,7 +214,7 @@ function ClubMembersPage$MemberItem(props) {
                                 children: t`Pending`,
                                 className: "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200"
                               }),
-                          viewerIsAdmin ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                          viewerIsOwner ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                   children: [
                                     JsxRuntime.jsx(Button.Button.make, {
                                           color: "indigo",
@@ -261,7 +260,7 @@ function ClubMembersPage$MemberItem(props) {
               disabled: isSettingAdmin
             })
     ) : null;
-  var removeButton = viewerIsAdmin && !isOwner ? JsxRuntime.jsx(ConfirmButton.make, {
+  var removeButton = viewerIsOwner && !isOwner ? JsxRuntime.jsx(ConfirmButton.make, {
           button: JsxRuntime.jsx(Button.Button.make, {
                 color: "red",
                 children: t`Remove`
@@ -272,7 +271,7 @@ function ClubMembersPage$MemberItem(props) {
               onRemove();
             })
         }) : null;
-  var hasActions = (viewerIsOwner || viewerIsAdmin) && !isOwner;
+  var hasActions = viewerIsOwner && !isOwner;
   var username$1 = member.lineUsername;
   return JsxRuntime.jsx(SwipeAction.make, {
               rightActions: Caml_option.some(hasActions ? JsxRuntime.jsxs("div", {
@@ -335,7 +334,6 @@ var MemberItem = {
 
 function ClubMembersPage$ClubMembersData(props) {
   var viewerIsOwner = props.viewerIsOwner;
-  var viewerIsAdmin = props.viewerIsAdmin;
   var clubId = props.clubId;
   var data = use$1({
         clubId: clubId,
@@ -377,7 +375,6 @@ function ClubMembersPage$ClubMembersData(props) {
       return members.map(function (membership) {
                   return JsxRuntime.jsx(ClubMembersPage$MemberItem, {
                               membership: membership,
-                              viewerIsAdmin: viewerIsAdmin,
                               viewerIsOwner: viewerIsOwner,
                               onRemove: (function () {
                                   var user = membership.user;
@@ -502,17 +499,6 @@ function ClubMembersPage(props) {
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
                   return Core__Option.getOr(Core__Option.map(query.club, (function (club) {
-                                    var viewerIsAdmin = Core__Option.getOr(Core__Option.map(Core__Option.flatMap(query.viewer, (function (viewer) {
-                                                    return viewer.adminClubs.edges;
-                                                  })), (function (edges) {
-                                                return Core__Array.filterMap(Core__Array.filterMap(edges, (function (edge) {
-                                                                    return edge;
-                                                                  })), (function (edge) {
-                                                                return edge.node;
-                                                              })).some(function (adminClub) {
-                                                            return adminClub.id === club.id;
-                                                          });
-                                              })), false);
                                     var viewerIsOwner = Core__Option.getOr(Core__Option.flatMap(club.viewerMembership, (function (m) {
                                                 return m.isOwner;
                                               })), false);
@@ -537,7 +523,6 @@ function ClubMembersPage(props) {
                                                         children: JsxRuntime.jsx(React.Suspense, {
                                                               children: Caml_option.some(JsxRuntime.jsx(ClubMembersPage$ClubMembersData, {
                                                                         clubId: club.id,
-                                                                        viewerIsAdmin: viewerIsAdmin,
                                                                         viewerIsOwner: viewerIsOwner
                                                                       })),
                                                               fallback: Caml_option.some(JsxRuntime.jsx("div", {

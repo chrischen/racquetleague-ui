@@ -2447,3 +2447,11 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #~ "あなたのレーティング {viewerOrdinalStr} ～ {viewerMuStr}（DUPR "
 #~ "{viewerDuprLo} ～ {viewerDuprHi}）は最低基準を下回っています。保留リストに"
 #~ "追加されます。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"

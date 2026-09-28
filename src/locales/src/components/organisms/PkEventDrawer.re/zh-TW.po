@@ -1419,3 +1419,11 @@ msgstr "您的報名正在等待管理員審核"
 #~ "Your card is saved now, not charged. The organizer will charge the "
 #~ "participation fee after the event."
 #~ msgstr "目前只是儲存卡片，尚未扣款。主辦人會在活動結束後收取參加費。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "這看起來不像電子郵件地址。"

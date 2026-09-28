@@ -596,79 +596,168 @@ module ChallengePlayer = {
               " " ++
               challenge.frameH->Int.toString}
               preserveAspectRatio="xMidYMid meet">
-              {challenge.paths
-              ->Array.mapWithIndex((path, index) =>
-                <polyline
-                  key={index->Int.toString}
-                  points={path
-                  ->Array.map(pt => pt.x->Float.toString ++ "," ++ pt.y->Float.toString)
-                  ->Array.join(" ")}
-                  fill="none"
-                  stroke="#bef264"
-                  strokeWidth="3"
-                  strokeOpacity="0.55"
-                />
-              )
-              ->React.array}
-              {challenge.bounces
-              ->Array.mapWithIndex((bounce, index) =>
-                toVideo(bounce.t) <= now
-                  ? {
-                      let x = bounce.pixel->Array.get(0)->Option.getOr(0.)
-                      let y = bounce.pixel->Array.get(1)->Option.getOr(0.)
-                      <g key={index->Int.toString}>
-                        {// The perspective-correct marker: the server projects a ground
-                        // disc at the contact, so the ring foreshortens with depth.
-                        bounce.footprint->Array.length >= 3
-                          ? <polygon
-                              points={bounce.footprint
-                              ->Array.map(p =>
-                                p->Array.get(0)->Option.getOr(x)->Float.toString ++
-                                "," ++
-                                p->Array.get(1)->Option.getOr(y)->Float.toString
-                              )
-                              ->Array.join(" ")}
-                              fill="none"
-                              stroke={selected == Some(index) ? "#ffffff" : "#4ade80"}
-                              strokeWidth="4"
-                              strokeLinejoin="round"
-                            />
-                          : <ellipse
-                              cx={x->Float.toString}
-                              cy={y->Float.toString}
-                              rx="26"
-                              ry="10"
-                              fill="none"
-                              stroke={selected == Some(index) ? "#ffffff" : "#4ade80"}
-                              strokeWidth="4"
-                            />}
-                        <text
-                          x={x->Float.toString}
-                          y={(y -. 16.)->Float.toString}
-                          textAnchor="middle"
-                          fill={selected == Some(index) ? "#ffffff" : "#4ade80"}
-                          fontSize="24"
-                          fontWeight="800"
-                          fontFamily="monospace">
-                          {React.string("bounce " ++ (index + 1)->Int.toString)}
-                        </text>
-                      </g>
-                    }
-                  : React.null
-              )
-              ->React.array}
-              {switch ballAt(challenge.paths, timeline->FrameTimeline.toAnalysis(now)) {
-              | Some((x, y)) =>
-                <circle
-                  cx={x->Float.toString}
-                  cy={y->Float.toString}
-                  r="11"
-                  fill="#ef4444"
-                  stroke="#ffffff"
-                  strokeWidth="3"
-                />
-              | None => React.null
-              }}
+              {
+                // Highlight the ball WITHOUT painting over it: the frame is
+                // dimmed slightly except for a soft spotlight on the ball, a
+                // hollow ring sits OUTSIDE it, and the trail is cut where it
+                // crosses it — the real ball pixels are never covered.
+                let fw = challenge.frameW->Int.toFloat
+                let fh = challenge.frameH->Int.toFloat
+                let unit = Math.max(1., fw /. 1280.) // stroke widths scale with the clip
+                let ringR = Math.max(12., fw *. 0.012) // clear of a ~74mm ball at any zoom
+                let spotR = ringR *. 3.
+                let ball = ballAt(challenge.paths, timeline->FrameTimeline.toAnalysis(now))
+                let fmt = Float.toString
+                let fullRect = fill => <rect x="0" y="0" width={fmt(fw)} height={fmt(fh)} fill />
+                <>
+                  <defs>
+                    <radialGradient id="kiosk-ball-spot-grad">
+                      <stop offset="0%" stopColor="#000000" />
+                      <stop offset="50%" stopColor="#000000" />
+                      <stop offset="100%" stopColor="#ffffff" />
+                    </radialGradient>
+                    <mask
+                      id="kiosk-ball-spot"
+                      maskUnits="userSpaceOnUse"
+                      x="0"
+                      y="0"
+                      width={fmt(fw)}
+                      height={fmt(fh)}>
+                      {fullRect("#ffffff")}
+                      {switch ball {
+                      | Some((x, y)) =>
+                        <circle cx={fmt(x)} cy={fmt(y)} r={fmt(spotR)} fill="url(#kiosk-ball-spot-grad)" />
+                      | None => React.null
+                      }}
+                    </mask>
+                    <mask
+                      id="kiosk-ball-clear"
+                      maskUnits="userSpaceOnUse"
+                      x="0"
+                      y="0"
+                      width={fmt(fw)}
+                      height={fmt(fh)}>
+                      {fullRect("#ffffff")}
+                      {switch ball {
+                      | Some((x, y)) => <circle cx={fmt(x)} cy={fmt(y)} r={fmt(ringR)} fill="#000000" />
+                      | None => React.null
+                      }}
+                    </mask>
+                  </defs>
+                  // Spotlight: everything but the ball's neighbourhood dims a
+                  // little while the ball is being tracked.
+                  <rect
+                    x="0"
+                    y="0"
+                    width={fmt(fw)}
+                    height={fmt(fh)}
+                    fill="#000000"
+                    opacity={ball->Option.isSome ? "0.35" : "0"}
+                    mask="url(#kiosk-ball-spot)"
+                    className="transition-opacity duration-200"
+                  />
+                  <g mask="url(#kiosk-ball-clear)">
+                    {challenge.paths
+                    ->Array.mapWithIndex((path, index) =>
+                      <polyline
+                        key={index->Int.toString}
+                        points={path
+                        ->Array.map(pt => pt.x->Float.toString ++ "," ++ pt.y->Float.toString)
+                        ->Array.join(" ")}
+                        fill="none"
+                        stroke="#bef264"
+                        strokeWidth={fmt(3. *. unit)}
+                        strokeOpacity="0.55"
+                      />
+                    )
+                    ->React.array}
+                  </g>
+                  {challenge.bounces
+                  ->Array.mapWithIndex((bounce, index) =>
+                    toVideo(bounce.t) <= now
+                      ? {
+                          let x = bounce.pixel->Array.get(0)->Option.getOr(0.)
+                          let y = bounce.pixel->Array.get(1)->Option.getOr(0.)
+                          let colour = selected == Some(index) ? "#ffffff" : "#4ade80"
+                          // Label BELOW the ground mark: at the moment of
+                          // impact the ball sits right on the contact pixel,
+                          // and a label above it would cover the ball.
+                          let footBottom =
+                            bounce.footprint->Array.reduce(y, (acc, pt) =>
+                              Math.max(acc, pt->Array.get(1)->Option.getOr(y))
+                            )
+                          let labelY = Math.max(footBottom, y +. 10. *. unit) +. 26. *. unit
+                          <g key={index->Int.toString}>
+                            {// The perspective-correct marker: the server projects a ground
+                            // disc at the contact, so the ring foreshortens with depth.
+                            bounce.footprint->Array.length >= 3
+                              ? <polygon
+                                  points={bounce.footprint
+                                  ->Array.map(p =>
+                                    p->Array.get(0)->Option.getOr(x)->Float.toString ++
+                                    "," ++
+                                    p->Array.get(1)->Option.getOr(y)->Float.toString
+                                  )
+                                  ->Array.join(" ")}
+                                  fill="none"
+                                  stroke=colour
+                                  strokeWidth={fmt(3. *. unit)}
+                                  strokeLinejoin="round"
+                                />
+                              : <ellipse
+                                  cx={fmt(x)}
+                                  cy={fmt(y)}
+                                  rx={fmt(26. *. unit)}
+                                  ry={fmt(10. *. unit)}
+                                  fill="none"
+                                  stroke=colour
+                                  strokeWidth={fmt(3. *. unit)}
+                                />}
+                            <text
+                              x={fmt(x)}
+                              y={fmt(labelY)}
+                              textAnchor="middle"
+                              fill=colour
+                              stroke="#000000"
+                              strokeWidth={fmt(4. *. unit)}
+                              paintOrder="stroke"
+                              fontSize={fmt(22. *. unit)}
+                              fontWeight="800"
+                              fontFamily="monospace">
+                              {React.string("bounce " ++ (index + 1)->Int.toString)}
+                            </text>
+                          </g>
+                        }
+                      : React.null
+                  )
+                  ->React.array}
+                  // The ball ring: hollow and wider than the ball, with a dark
+                  // halo so it reads on light court paint and bright walls.
+                  {switch ball {
+                  | Some((x, y)) =>
+                    <g>
+                      <circle
+                        cx={fmt(x)}
+                        cy={fmt(y)}
+                        r={fmt(ringR)}
+                        fill="none"
+                        stroke="#000000"
+                        strokeOpacity="0.55"
+                        strokeWidth={fmt(5. *. unit)}
+                      />
+                      <circle
+                        cx={fmt(x)}
+                        cy={fmt(y)}
+                        r={fmt(ringR)}
+                        fill="none"
+                        stroke="#fde047"
+                        strokeWidth={fmt(2.5 *. unit)}
+                      />
+                    </g>
+                  | None => React.null
+                  }}
+                </>
+              }
             </svg>
           : React.null}
         </div>
@@ -1880,14 +1969,23 @@ let make = () => {
             | Ok(blobData) => {
                 let url = CaptureSession.createObjectURL(blobData)
                 let duration = await DinkHunt.urlDuration(url)
+                let analysis = await DinkHunt.testChallengeAnalysis()
                 let clip = {
                   url,
                   durationSeconds: duration,
                   hasAudio: false,
                   capturedAt: timeLabel(),
-                  frameTimes: [],
+                  // A test clip has no capture timeline of its own: the server's
+                  // per-frame timestamps of the same file map analysis time onto
+                  // the video. Without them the overlay assumed analysis time IS
+                  // video time and trailed the ball (measured: 0.30 s by 15 s on a
+                  // 14-18 ms variable-rate export analysed at 58.84 fps).
+                  frameTimes: switch analysis {
+                  | Ok(a) => a.frameTimes
+                  | Error(_) => []
+                  },
                 }
-                let (bounces, paths, frameW, frameH, fps, error) = switch await DinkHunt.testChallengeAnalysis() {
+                let (bounces, paths, frameW, frameH, fps, error) = switch analysis {
                 | Ok(a) => (a.bounces, a.paths, a.width, a.height, a.fps, None)
                 | Error(message) => ([], [], 1920, 1080, 30., Some(message))
                 }

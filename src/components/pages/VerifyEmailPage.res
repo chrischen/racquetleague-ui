@@ -1,13 +1,17 @@
 %%raw("import { t } from '@lingui/macro'")
 
-/* Where an emailed confirmation link lands: /verify-email?token=... The link
-   only works for the account that asked for it, so a signed-out visitor is
-   sent to sign in and brought back here, token and all. The token is used
-   once per visit, then taken out of the address bar.
+/* Where emailed confirmation links land.
 
-   Today the links confirm alternate receiving emails (the settings page's
-   "Receiving emails"). The same page is meant to show the result of other
-   email confirmations, such as a change of account email, later. */
+   /verify-email?token=... confirms a receiving email (the settings page's
+   "Receiving emails"). The link only works for the account that asked for
+   it, so a signed-out visitor is sent to sign in and brought back here, token
+   and all. The token is used once per visit, then taken out of the address
+   bar.
+
+   /verify-email?purpose=change-email is where better-auth sends someone after
+   they open a change-of-account-email link: it has already made the change
+   (signing them in if needed), or appended ?error=CODE. This page only shows
+   the outcome. */
 
 type loaderData = None
 @module("react-router-dom")
@@ -23,6 +27,7 @@ module Mutation = %relay(`
       address
       viewer {
         id
+        email
         alternateEmails {
           address
           verified
@@ -38,6 +43,9 @@ module Mutation = %relay(`
 type status =
   | Verifying
   | Verified(string)
+  // An account with no email took the address as its email.
+  | BecameAccountEmail(string)
+  | AccountEmailChanged
   | Failed(string)
 
 @react.component
@@ -47,6 +55,8 @@ let make = () => {
   let (params, _) = Router.useSearchParams()
   // Read once: the token is removed from the URL after use.
   let token = React.useRef(params->Router.SearchParams.get("token"))
+  let purpose = React.useRef(params->Router.SearchParams.get("purpose"))
+  let error = React.useRef(params->Router.SearchParams.get("error"))
   let viewer = GlobalQuery.useViewer()
   let navigate = LangProvider.Router.useNavigate()
   let (commit, _) = Mutation.use()
@@ -64,8 +74,25 @@ let make = () => {
     | _ => ts`Something went wrong. Please try again.`
     }
 
+  // better-auth's codes, for a change of account email.
+  let changeErrorCopy = (code: string) =>
+    switch code {
+    | "TOKEN_EXPIRED" => ts`This link has expired. Ask for a new one from your profile settings.`
+    | "INVALID_TOKEN" => ts`This link doesn't work. Open it from the email again, or ask for a new one from your profile settings.`
+    | "USER_NOT_FOUND" => ts`This link has already been used, or your account email has changed since it was sent.`
+    | "INVALID_USER" => ts`You're signed in to a different account. Sign out, then open the link again.`
+    | "EMAIL_UNAVAILABLE" => ts`This address is already used by another pkuru account.`
+    | _ => ts`Something went wrong. Please try again.`
+    }
+
   React.useEffect1(() => {
     switch (token.current, isLoggedIn) {
+    | _ if purpose.current == Some("change-email") =>
+      replaceState(Js.Nullable.null, "", pathname)
+      switch error.current {
+      | Some(code) => setStatus(_ => Failed(changeErrorCopy(code)))
+      | None => setStatus(_ => AccountEmailChanged)
+      }
     | (None, _) => setStatus(_ => Failed(errorCopy("MISSING_TOKEN")))
     | (Some(token), false) =>
       // Back here, with the token, once signed in. `replace` keeps this
@@ -86,7 +113,10 @@ let make = () => {
           ->Option.map(e => e.message) {
           | Some(code) => setStatus(_ => Failed(errorCopy(code)))
           | None =>
-            setStatus(_ => Verified(res.verifyEmail.address->Option.getOr("")))
+            let address = res.verifyEmail.address->Option.getOr("")
+            let isAccountEmail =
+              res.verifyEmail.viewer->Option.flatMap(v => v.email) == Some(address)
+            setStatus(_ => isAccountEmail ? BecameAccountEmail(address) : Verified(address))
           }
         },
         ~onError=_ => setStatus(_ => Failed(errorCopy(""))),
@@ -117,6 +147,38 @@ let make = () => {
                 <span className="font-medium"> {address->React.string} </span>
                 {" "->React.string}
                 {t`is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events.`}
+              </p>
+              <LangProvider.Router.Link
+                to="/settings/profile"
+                className="inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-[#a3e635] text-gray-900 hover:bg-[#84cc16] transition-colors">
+                {t`Go to profile settings`}
+              </LangProvider.Router.Link>
+            </>
+          | BecameAccountEmail(address) =>
+            <>
+              <Lucide.CheckCircle2 className="w-10 h-10 mx-auto text-green-600 dark:text-green-400" />
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+                {t`Email confirmed`}
+              </h1>
+              <p className="text-gray-700 dark:text-gray-300">
+                <span className="font-medium"> {address->React.string} </span>
+                {" "->React.string}
+                {t`is now your account email.`}
+              </p>
+              <LangProvider.Router.Link
+                to="/settings/profile"
+                className="inline-flex justify-center items-center px-4 py-2.5 rounded-lg text-sm font-bold bg-[#a3e635] text-gray-900 hover:bg-[#84cc16] transition-colors">
+                {t`Go to profile settings`}
+              </LangProvider.Router.Link>
+            </>
+          | AccountEmailChanged =>
+            <>
+              <Lucide.CheckCircle2 className="w-10 h-10 mx-auto text-green-600 dark:text-green-400" />
+              <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+                {t`Account email changed`}
+              </h1>
+              <p className="text-gray-700 dark:text-gray-300">
+                {t`Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings.`}
               </p>
               <LangProvider.Router.Link
                 to="/settings/profile"

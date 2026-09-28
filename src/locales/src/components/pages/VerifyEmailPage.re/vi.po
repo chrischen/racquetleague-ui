@@ -62,3 +62,31 @@ msgstr "Liên kết này đã hết hạn. Hãy gửi liên kết mới từ cà
 #: src/components/pages/VerifyEmailPage.re.mjs:61
 msgid "This link is incomplete. Open it from the email again."
 msgstr "Liên kết này chưa đầy đủ. Hãy mở lại từ email."
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "Account email changed"
+msgstr "Đã đổi email tài khoản"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "is now your account email."
+msgstr "giờ là email tài khoản của bạn."
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "Liên kết này không dùng được. Hãy mở lại từ email hoặc yêu cầu liên kết mới từ cài đặt hồ sơ."
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "Liên kết này đã được sử dụng, hoặc email tài khoản của bạn đã thay đổi kể từ khi liên kết được gửi."
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "Liên kết này đã hết hạn. Hãy yêu cầu liên kết mới từ cài đặt hồ sơ."
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "Bạn đang đăng nhập vào một tài khoản khác. Hãy đăng xuất rồi mở lại liên kết."
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "Tài khoản của bạn giờ dùng địa chỉ mới. Địa chỉ trước đó được giữ làm email nhận, bạn có thể xóa trong cài đặt hồ sơ."

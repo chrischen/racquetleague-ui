@@ -7,6 +7,7 @@ import * as ClipCrop from "../../lib/capture/ClipCrop.re.mjs";
 import * as DinkHunt from "../../lib/DinkHunt.re.mjs";
 import * as UserMedia from "../../lib/UserMedia.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
@@ -59,7 +60,8 @@ function reprojectAnalysis(a, crop) {
                                     y: pt.y + dy
                                   };
                           });
-              })
+              }),
+          frameTimes: a.frameTimes
         };
 }
 
@@ -591,67 +593,180 @@ function Kiosk$ChallengePlayer(props) {
   };
   var tmp;
   if (overlayOn && challenge.paths.length > 0) {
-    var match$8 = ballAt(challenge.paths, FrameTimeline.toAnalysis(timeline, now));
-    tmp = JsxRuntime.jsxs("svg", {
-          children: [
-            challenge.paths.map(function (path, index) {
-                  return JsxRuntime.jsx("polyline", {
-                              fill: "none",
-                              points: path.map(function (pt) {
-                                      return pt.x.toString() + "," + pt.y.toString();
-                                    }).join(" "),
-                              stroke: "#bef264",
-                              strokeOpacity: "0.55",
-                              strokeWidth: "3"
-                            }, index.toString());
-                }),
-            challenge.bounces.map(function (bounce, index) {
-                  if (FrameTimeline.toVideo(timeline, bounce.t) > now) {
-                    return null;
-                  }
-                  var x = Core__Option.getOr(bounce.pixel[0], 0);
-                  var y = Core__Option.getOr(bounce.pixel[1], 0);
-                  return JsxRuntime.jsxs("g", {
-                              children: [
-                                bounce.footprint.length >= 3 ? JsxRuntime.jsx("polygon", {
-                                        fill: "none",
-                                        points: bounce.footprint.map(function (p) {
-                                                return Core__Option.getOr(p[0], x).toString() + "," + Core__Option.getOr(p[1], y).toString();
-                                              }).join(" "),
-                                        stroke: Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80",
-                                        strokeLinejoin: "round",
-                                        strokeWidth: "4"
-                                      }) : JsxRuntime.jsx("ellipse", {
-                                        cx: x.toString(),
-                                        cy: y.toString(),
-                                        fill: "none",
-                                        rx: "26",
-                                        ry: "10",
-                                        stroke: Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80",
-                                        strokeWidth: "4"
+    var fw = challenge.frameW;
+    var fh = challenge.frameH;
+    var unit = Math.max(1, fw / 1280);
+    var ringR = Math.max(12, fw * 0.012);
+    var spotR = ringR * 3;
+    var ball = ballAt(challenge.paths, FrameTimeline.toAnalysis(timeline, now));
+    var fullRect = function (fill) {
+      return JsxRuntime.jsx("rect", {
+                  height: fh.toString(),
+                  width: fw.toString(),
+                  fill: fill,
+                  x: "0",
+                  y: "0"
+                });
+    };
+    var tmp$1;
+    if (ball !== undefined) {
+      var y = ball[1];
+      var x = ball[0];
+      tmp$1 = JsxRuntime.jsxs("g", {
+            children: [
+              JsxRuntime.jsx("circle", {
+                    cx: x.toString(),
+                    cy: y.toString(),
+                    fill: "none",
+                    r: ringR.toString(),
+                    stroke: "#000000",
+                    strokeOpacity: "0.55",
+                    strokeWidth: (5 * unit).toString()
+                  }),
+              JsxRuntime.jsx("circle", {
+                    cx: x.toString(),
+                    cy: y.toString(),
+                    fill: "none",
+                    r: ringR.toString(),
+                    stroke: "#fde047",
+                    strokeWidth: (2.5 * unit).toString()
+                  })
+            ]
+          });
+    } else {
+      tmp$1 = null;
+    }
+    tmp = JsxRuntime.jsx("svg", {
+          children: JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                children: [
+                  JsxRuntime.jsxs("defs", {
+                        children: [
+                          JsxRuntime.jsxs("radialGradient", {
+                                children: [
+                                  JsxRuntime.jsx("stop", {
+                                        offset: "0%",
+                                        stopColor: "#000000"
                                       }),
-                                JsxRuntime.jsx("text", {
-                                      children: "bounce " + (index + 1 | 0).toString(),
-                                      fill: Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80",
-                                      fontFamily: "monospace",
-                                      fontSize: "24",
-                                      fontWeight: "800",
-                                      textAnchor: "middle",
-                                      x: x.toString(),
-                                      y: (y - 16).toString()
-                                    })
-                              ]
-                            }, index.toString());
-                }),
-            match$8 !== undefined ? JsxRuntime.jsx("circle", {
-                    cx: match$8[0].toString(),
-                    cy: match$8[1].toString(),
-                    fill: "#ef4444",
-                    r: "11",
-                    stroke: "#ffffff",
-                    strokeWidth: "3"
-                  }) : null
-          ],
+                                  JsxRuntime.jsx("stop", {
+                                        offset: "50%",
+                                        stopColor: "#000000"
+                                      }),
+                                  JsxRuntime.jsx("stop", {
+                                        offset: "100%",
+                                        stopColor: "#ffffff"
+                                      })
+                                ],
+                                id: "kiosk-ball-spot-grad"
+                              }),
+                          JsxRuntime.jsxs("mask", {
+                                children: [
+                                  fullRect("#ffffff"),
+                                  ball !== undefined ? JsxRuntime.jsx("circle", {
+                                          cx: ball[0].toString(),
+                                          cy: ball[1].toString(),
+                                          fill: "url(#kiosk-ball-spot-grad)",
+                                          r: spotR.toString()
+                                        }) : null
+                                ],
+                                id: "kiosk-ball-spot",
+                                height: fh.toString(),
+                                width: fw.toString(),
+                                maskUnits: "userSpaceOnUse",
+                                x: "0",
+                                y: "0"
+                              }),
+                          JsxRuntime.jsxs("mask", {
+                                children: [
+                                  fullRect("#ffffff"),
+                                  ball !== undefined ? JsxRuntime.jsx("circle", {
+                                          cx: ball[0].toString(),
+                                          cy: ball[1].toString(),
+                                          fill: "#000000",
+                                          r: ringR.toString()
+                                        }) : null
+                                ],
+                                id: "kiosk-ball-clear",
+                                height: fh.toString(),
+                                width: fw.toString(),
+                                maskUnits: "userSpaceOnUse",
+                                x: "0",
+                                y: "0"
+                              })
+                        ]
+                      }),
+                  JsxRuntime.jsx("rect", {
+                        className: "transition-opacity duration-200",
+                        height: fh.toString(),
+                        width: fw.toString(),
+                        fill: "#000000",
+                        mask: "url(#kiosk-ball-spot)",
+                        opacity: Core__Option.isSome(ball) ? "0.35" : "0",
+                        x: "0",
+                        y: "0"
+                      }),
+                  JsxRuntime.jsx("g", {
+                        children: challenge.paths.map(function (path, index) {
+                              return JsxRuntime.jsx("polyline", {
+                                          fill: "none",
+                                          points: path.map(function (pt) {
+                                                  return pt.x.toString() + "," + pt.y.toString();
+                                                }).join(" "),
+                                          stroke: "#bef264",
+                                          strokeOpacity: "0.55",
+                                          strokeWidth: (3 * unit).toString()
+                                        }, index.toString());
+                            }),
+                        mask: "url(#kiosk-ball-clear)"
+                      }),
+                  challenge.bounces.map(function (bounce, index) {
+                        if (FrameTimeline.toVideo(timeline, bounce.t) > now) {
+                          return null;
+                        }
+                        var x = Core__Option.getOr(bounce.pixel[0], 0);
+                        var y = Core__Option.getOr(bounce.pixel[1], 0);
+                        var colour = Caml_obj.equal(selected, index) ? "#ffffff" : "#4ade80";
+                        var footBottom = Core__Array.reduce(bounce.footprint, y, (function (acc, pt) {
+                                return Math.max(acc, Core__Option.getOr(pt[1], y));
+                              }));
+                        var labelY = Math.max(footBottom, y + 10 * unit) + 26 * unit;
+                        return JsxRuntime.jsxs("g", {
+                                    children: [
+                                      bounce.footprint.length >= 3 ? JsxRuntime.jsx("polygon", {
+                                              fill: "none",
+                                              points: bounce.footprint.map(function (p) {
+                                                      return Core__Option.getOr(p[0], x).toString() + "," + Core__Option.getOr(p[1], y).toString();
+                                                    }).join(" "),
+                                              stroke: colour,
+                                              strokeLinejoin: "round",
+                                              strokeWidth: (3 * unit).toString()
+                                            }) : JsxRuntime.jsx("ellipse", {
+                                              cx: x.toString(),
+                                              cy: y.toString(),
+                                              fill: "none",
+                                              rx: (26 * unit).toString(),
+                                              ry: (10 * unit).toString(),
+                                              stroke: colour,
+                                              strokeWidth: (3 * unit).toString()
+                                            }),
+                                      JsxRuntime.jsx("text", {
+                                            children: "bounce " + (index + 1 | 0).toString(),
+                                            fill: colour,
+                                            fontFamily: "monospace",
+                                            fontSize: (22 * unit).toString(),
+                                            fontWeight: "800",
+                                            paintOrder: "stroke",
+                                            stroke: "#000000",
+                                            strokeWidth: (4 * unit).toString(),
+                                            textAnchor: "middle",
+                                            x: x.toString(),
+                                            y: labelY.toString()
+                                          })
+                                    ]
+                                  }, index.toString());
+                      }),
+                  tmp$1
+                ]
+              }),
           className: "pointer-events-none absolute inset-0 h-full w-full",
           preserveAspectRatio: "xMidYMid meet",
           viewBox: "0 0 " + challenge.frameW.toString() + " " + challenge.frameH.toString()
@@ -2384,25 +2499,26 @@ function Kiosk(props) {
         if (blobData.TAG === "Ok") {
           var url = URL.createObjectURL(blobData._0);
           var duration = await DinkHunt.urlDuration(url);
+          var analysis = await DinkHunt.testChallengeAnalysis();
+          var tmp;
+          tmp = analysis.TAG === "Ok" ? analysis._0.frameTimes : [];
           var clip_capturedAt = timeLabel();
-          var clip_frameTimes = [];
           var clip = {
             url: url,
             durationSeconds: duration,
             hasAudio: false,
             capturedAt: clip_capturedAt,
-            frameTimes: clip_frameTimes
+            frameTimes: tmp
           };
-          var a = await DinkHunt.testChallengeAnalysis();
           var match;
-          if (a.TAG === "Ok") {
-            var a$1 = a._0;
+          if (analysis.TAG === "Ok") {
+            var a = analysis._0;
             match = [
-              a$1.bounces,
-              a$1.paths,
-              a$1.width,
-              a$1.height,
-              a$1.fps,
+              a.bounces,
+              a.paths,
+              a.width,
+              a.height,
+              a.fps,
               undefined
             ];
           } else {
@@ -2412,7 +2528,7 @@ function Kiosk(props) {
               1920,
               1080,
               30,
-              a._0
+              analysis._0
             ];
           }
           var error = match[5];
@@ -2457,13 +2573,13 @@ function Kiosk(props) {
           var clip_durationSeconds = result$1.durationSeconds;
           var clip_hasAudio = result$1.hasAudio;
           var clip_capturedAt$1 = timeLabel();
-          var clip_frameTimes$1 = result$1.frameTimes;
+          var clip_frameTimes = result$1.frameTimes;
           var clip$1 = {
             url: clip_url,
             durationSeconds: clip_durationSeconds,
             hasAudio: clip_hasAudio,
             capturedAt: clip_capturedAt$1,
-            frameTimes: clip_frameTimes$1
+            frameTimes: clip_frameTimes
           };
           var enc = result$1.encoded;
           var match$1 = enc !== undefined ? [
@@ -2489,13 +2605,13 @@ function Kiosk(props) {
           if (analysisBlob.TAG === "Ok") {
             var message = await DinkHunt.challengeBounces(analysisBlob._0);
             if (message.TAG === "Ok") {
-              var a$2 = reprojectAnalysis(message._0[1], crop);
+              var a$1 = reprojectAnalysis(message._0[1], crop);
               match$3 = [
-                a$2.bounces,
-                a$2.paths,
+                a$1.bounces,
+                a$1.paths,
                 nativeW,
                 nativeH,
-                a$2.fps,
+                a$1.fps,
                 undefined
               ];
             } else {

@@ -583,3 +583,31 @@ msgstr "你的 Stripe 帳戶已連結。"
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr "您的 Stripe 帳戶已連接，但尚未完成設定。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Change"
+msgstr "變更"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "New account email"
+msgstr "新的帳戶電子郵件"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "開啟連結即可設為您的帳戶電子郵件。在此之前不會有任何變更。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Send link"
+msgstr "傳送連結"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We sent a link to"
+msgstr "我們已將連結傳送至"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "我們會寄送連結到新地址。您目前的地址會保留為收件信箱。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "您的帳戶尚未設定電子郵件。您在此確認的第一個地址將成為帳戶電子郵件。"

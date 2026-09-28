@@ -5,10 +5,26 @@
 // When VITE_API_ENDPOINT is relative (used to let the browser go through
 // the Vite proxy for HTTPS-tunnel / CORS reasons in dev), the SSR side
 // still needs an absolute URL to reach the backend directly.
+//
+// SSR_API_ENDPOINT, read at runtime, wins over both. The dev server sets it to
+// its own /graphql so server renders pass through the dev scenario middleware
+// (dev/scenarios/README.md) just like browser requests do. The typeof guard is
+// there because this module is also bundled for the browser, where `process`
+// does not exist; the function itself only ever runs on the server.
+let ssrApiEndpointOverride: unit => option<string> = %raw(`function () {
+  return typeof process !== "undefined" && process.env && process.env.SSR_API_ENDPOINT
+    ? process.env.SSR_API_ENDPOINT
+    : undefined;
+}`)
+
 let serverApiEndpoint = () =>
-  switch apiEndpoint {
-  | Some(url) if !(url->String.startsWith("/")) => url
-  | _ => "http://localhost:4555/graphql"
+  switch ssrApiEndpointOverride() {
+  | Some(url) => url
+  | None =>
+    switch apiEndpoint {
+    | Some(url) if !(url->String.startsWith("/")) => url
+    | _ => "http://localhost:4555/graphql"
+    }
   }
 
 // This is a simple example of how one could leverage `preloadAsset` to preload

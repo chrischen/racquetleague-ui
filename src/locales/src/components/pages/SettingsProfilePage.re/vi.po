@@ -607,3 +607,31 @@ msgstr "Tài khoản Stripe của bạn đã được kết nối."
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr ""
 #~ "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Change"
+msgstr "Thay đổi"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "New account email"
+msgstr "Email tài khoản mới"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Send link"
+msgstr "Gửi liên kết"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We sent a link to"
+msgstr "Chúng tôi đã gửi liên kết đến"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm email nhận."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở thành email tài khoản."

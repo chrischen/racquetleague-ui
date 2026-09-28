@@ -540,3 +540,31 @@ msgstr ""
 #: src/components/organisms/SettingsProfileForm.re.mjs:363
 msgid "Your Stripe account is connected."
 msgstr ""
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Change"
+msgstr "Change"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "New account email"
+msgstr "New account email"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "Open it to make it your account email. Until then, nothing changes."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Send link"
+msgstr "Send link"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We sent a link to"
+msgstr "We sent a link to"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "We'll email a link to the new address. Your current address stays on as a receiving email."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "Your account has no email yet. The first address you confirm here becomes your account email."

@@ -124,7 +124,7 @@ function LeagueNav(props) {
                                     },
                                     {
                                       name: t`Logout`,
-                                      href: "/logout"
+                                      href: "/signout"
                                     }
                                   ];
                           }));

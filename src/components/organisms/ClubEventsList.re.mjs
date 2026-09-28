@@ -371,9 +371,7 @@ function ClubEventsList(props) {
           onMinimumLevelChange: onMinimumLevelChange
         }
       });
-  var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(searchParams), "afterDate"), (function (d) {
-          return new Date(d);
-        }));
+  var selectedDate = EventsListUtils.Filter.selectedDate(Router.ImmSearchParams.fromSearchParams(searchParams));
   var onSelectDate = function (date) {
     setSearchParams(function (prevParams) {
           return Router.ImmSearchParams.toSearchParams(EventsListUtils.Filter.updateParams({

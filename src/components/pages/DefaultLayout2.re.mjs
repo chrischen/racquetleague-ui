@@ -156,7 +156,7 @@ function DefaultLayout2$Layout(props) {
                                                                                       className: "min-w-64",
                                                                                       anchor: "bottom end",
                                                                                       children: JsxRuntime.jsx(Dropdown.DropdownItem.make, {
-                                                                                            href: "/logout",
+                                                                                            href: "/signout",
                                                                                             children: JsxRuntime.jsx(Dropdown.DropdownLabel.make, {
                                                                                                   children: JsxRuntime.jsx(LogoutLink.make, {})
                                                                                                 })

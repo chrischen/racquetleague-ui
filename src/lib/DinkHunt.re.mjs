@@ -92,7 +92,7 @@ async function challengeAnalysis(video) {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-                query: "query($v: String!) { challenge(video: $v) { width height fps bounces { i t frame world pixel footprint } paths { t x y } } }",
+                query: "query($v: String!) { challenge(video: $v) { width height fps bounces { i t frame world pixel footprint } paths { t x y } frameTimes } }",
                 variables: {
                   v: video
                 }

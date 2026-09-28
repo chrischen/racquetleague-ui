@@ -65,3 +65,31 @@ msgstr ""
 #: src/components/pages/VerifyEmailPage.re.mjs:61
 msgid "This link is incomplete. Open it from the email again."
 msgstr "リンクが不完全です。メールからもう一度開いてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "Account email changed"
+msgstr "アカウントのメールアドレスを変更しました"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "is now your account email."
+msgstr "がアカウントのメールアドレスになりました。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "このリンクは使えません。メールからもう一度開くか、プロフィール設定から新しいリンクをリクエストしてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "このリンクはすでに使用済みか、送信後にアカウントのメールアドレスが変更されています。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "このリンクは有効期限が切れています。プロフィール設定から新しいリンクをリクエストしてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "別のアカウントでログインしています。ログアウトしてから、もう一度リンクを開いてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "アカウントは新しいメールアドレスを使うようになりました。以前のアドレスは受信用メールアドレスとして残り、プロフィール設定から削除できます。"

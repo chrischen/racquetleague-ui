@@ -62,3 +62,31 @@ msgstr "此链接已过期。请从个人资料设置发送新链接。"
 #: src/components/pages/VerifyEmailPage.re.mjs:61
 msgid "This link is incomplete. Open it from the email again."
 msgstr "此链接不完整。请从邮件中重新打开。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "Account email changed"
+msgstr "账户邮箱已更改"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "is now your account email."
+msgstr "现在是您的账户邮箱。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "此链接无法使用。请从邮件重新打开，或从个人资料设置获取新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "此链接已被使用，或您的账户邮箱在链接发送后已更改。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "此链接已过期。请从个人资料设置获取新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "您当前登录的是其他账户。请先退出登录，再重新打开链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "您的账户现在使用新地址。之前的地址会保留为收件邮箱，您可以在个人资料设置中移除。"

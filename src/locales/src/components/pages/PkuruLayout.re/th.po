@@ -1608,3 +1608,11 @@ msgstr ""
 #: src/components/organisms/CreateLocationEventForm.re.mjs:751
 #~ msgid "Without Stripe"
 #~ msgstr "ไม่ผ่าน Stripe"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

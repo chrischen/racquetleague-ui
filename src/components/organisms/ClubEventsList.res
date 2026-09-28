@@ -353,10 +353,7 @@ let make = (
     />
 
   let selectedDate =
-    searchParams
-    ->Router.ImmSearchParams.fromSearchParams
-    ->Router.ImmSearchParams.get("afterDate")
-    ->Option.map(d => Js.Date.fromString(d))
+    searchParams->Router.ImmSearchParams.fromSearchParams->EventsListUtils.Filter.selectedDate
 
   let onSelectDate = (date: Js.Date.t) => {
     setSearchParams(prevParams => {

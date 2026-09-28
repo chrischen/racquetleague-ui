@@ -106,7 +106,7 @@ module Layout = {
                     //   <DropdownLabel> {t`Share Feedback`} </DropdownLabel>
                     // </DropdownItem>
                     // <DropdownDivider />
-                    <DropdownItem href="/logout">
+                    <DropdownItem href="/signout">
                       // <ArrowRightStartOnRectangleIcon />
                       <DropdownLabel>
                         <LogoutLink />

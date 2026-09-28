@@ -1532,3 +1532,11 @@ msgstr ""
 #: src/components/organisms/NewPlanChooserModal.re.mjs:225
 msgid "You can include any additional event details like the level, max players, price, etc. in the email that you forward."
 msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "For event updates and notifications. We'll email you a link to confirm it."
+
+#: src/components/organisms/ProfileModal.re.mjs
+msgid "That doesn't look like an email address."
+msgstr "That doesn't look like an email address."

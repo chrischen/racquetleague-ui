@@ -21,8 +21,10 @@ Current-generation enterprise-grade production ready front end stack.
 ### Testing
 - React testing library
 - Vitest + Rescript Vitest
-- Playwright for E2E tests
-- Storybook for interactive component testing
+- Dev scenarios: open hard-to-reach UI states (new user, signed out, …) in the
+  running dev server at `/__dev/scenario`. See `dev/scenarios/README.md`.
+- Storybook (`nvm use && yarn storybook`) for components in isolation, fed by
+  the same mocks as the dev scenarios. See `dev/scenarios/README.md`.
 
 ### Deployment
 - Docker, Kubernetes

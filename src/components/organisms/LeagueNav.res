@@ -98,7 +98,7 @@ let make = (~query) => {
       viewer.user->Option.map(user => [
         {name: ts`Your Profile`, href: "/league/p/" ++ user.id},
         // {name: ts`Settings`, href: "#"},
-        {name: ts`Logout`, href: "/logout"},
+        {name: ts`Logout`, href: "/signout"},
       ])
     )
     ->Option.getOr([])

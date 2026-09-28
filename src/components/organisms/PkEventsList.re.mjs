@@ -369,9 +369,7 @@ function PkEventsList(props) {
   var pageInfo = data.events.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
   var ctx = DrawerContext.use();
-  var selectedDate = Core__Option.map(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(searchParams), "afterDate"), (function (d) {
-          return new Date(d);
-        }));
+  var selectedDate = EventsListUtils.Filter.selectedDate(Router.ImmSearchParams.fromSearchParams(searchParams));
   var minimumLevel = Core__Option.flatMap(Router.ImmSearchParams.get(Router.ImmSearchParams.fromSearchParams(searchParams), "level"), Core__Float.fromString);
   var onMinimumLevelChange = function (value) {
     setSearchParams(function (prevParams) {

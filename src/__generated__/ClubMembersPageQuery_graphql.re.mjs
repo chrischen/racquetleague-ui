@@ -92,10 +92,7 @@ v5 = {
   "name": "isOwner",
   "storageKey": null
 },
-v6 = [
-  (v2/*: any*/)
-],
-v7 = {
+v6 = {
   "alias": null,
   "args": null,
   "concreteType": "Viewer",
@@ -110,46 +107,10 @@ v7 = {
       "kind": "LinkedField",
       "name": "user",
       "plural": false,
-      "selections": (v6/*: any*/),
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": [
-        {
-          "kind": "Literal",
-          "name": "first",
-          "value": 100
-        }
-      ],
-      "concreteType": "ClubConnection",
-      "kind": "LinkedField",
-      "name": "adminClubs",
-      "plural": false,
       "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "ClubEdge",
-          "kind": "LinkedField",
-          "name": "edges",
-          "plural": true,
-          "selections": [
-            {
-              "alias": null,
-              "args": null,
-              "concreteType": "Club",
-              "kind": "LinkedField",
-              "name": "node",
-              "plural": false,
-              "selections": (v6/*: any*/),
-              "storageKey": null
-            }
-          ],
-          "storageKey": null
-        }
+        (v2/*: any*/)
       ],
-      "storageKey": "adminClubs(first:100)"
+      "storageKey": null
     }
   ],
   "storageKey": null
@@ -187,7 +148,7 @@ return {
         ],
         "storageKey": null
       },
-      (v7/*: any*/)
+      (v6/*: any*/)
     ],
     "type": "Query",
     "abstractKey": null
@@ -225,16 +186,16 @@ return {
         ],
         "storageKey": null
       },
-      (v7/*: any*/)
+      (v6/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "07b07eb7d139eadd338525bbf9c995ec",
+    "cacheID": "052d601a882136d91b6efac47a967a23",
     "id": null,
     "metadata": {},
     "name": "ClubMembersPageQuery",
     "operationKind": "query",
-    "text": "query ClubMembersPageQuery(\n  $slug: String!\n) {\n  club(slug: $slug) {\n    id\n    name\n    slug\n    viewerMembership {\n      isOwner\n      id\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n    adminClubs(first: 100) {\n      edges {\n        node {\n          id\n        }\n      }\n    }\n  }\n}\n"
+    "text": "query ClubMembersPageQuery(\n  $slug: String!\n) {\n  club(slug: $slug) {\n    id\n    name\n    slug\n    viewerMembership {\n      isOwner\n      id\n    }\n  }\n  viewer {\n    user {\n      id\n    }\n  }\n}\n"
   }
 };
 })());

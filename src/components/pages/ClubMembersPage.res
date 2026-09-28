@@ -16,13 +16,6 @@ module Query = %relay(`
       user {
         id
       }
-      adminClubs(first: 100) {
-        edges {
-          node {
-            id
-          }
-        }
-      }
     }
   }
 `)
@@ -102,7 +95,6 @@ module MemberItem = {
   @react.component
   let make = (
     ~membership: MembersQuery.Types.response_clubMembers_edges_node,
-    ~viewerIsAdmin: bool,
     ~viewerIsOwner: bool,
     ~onRemove: unit => unit,
     ~onApprove: unit => unit,
@@ -146,7 +138,10 @@ module MemberItem = {
               className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200">
               {t`Pending`}
             </span>
-            {viewerIsAdmin
+            // Approving and removing are owner-only on the server
+            // (updateMembershipStatus, removeUserFromClub). Admins see the
+            // request but cannot act on it.
+            {viewerIsOwner
               ? <>
                   <Button.Button color=#indigo onClick={_ => onApprove()}>
                     {t`Approve`}
@@ -182,7 +177,7 @@ module MemberItem = {
         } else {
           React.null
         }
-        let removeButton = if viewerIsAdmin && !isOwner {
+        let removeButton = if viewerIsOwner && !isOwner {
           <ConfirmButton
             button={<Button.Button color=#red> {t`Remove`} </Button.Button>}
             title={t`Remove member?`}
@@ -196,7 +191,7 @@ module MemberItem = {
         } else {
           React.null
         }
-        let hasActions = (viewerIsOwner || viewerIsAdmin) && !isOwner
+        let hasActions = viewerIsOwner && !isOwner
 
         <SwipeAction
           className="border-b border-gray-200 dark:border-[#2a2b30]"
@@ -250,7 +245,7 @@ module MemberItem = {
 
 module ClubMembersData = {
   @react.component
-  let make = (~clubId, ~viewerIsAdmin: bool, ~viewerIsOwner: bool) => {
+  let make = (~clubId, ~viewerIsOwner: bool) => {
     let t = Lingui.Util.t;
     let data = MembersQuery.use(
       ~variables={
@@ -365,7 +360,6 @@ module ClubMembersData = {
                   <MemberItem
                     key={membership.id}
                     membership={membership}
-                    viewerIsAdmin={viewerIsAdmin}
                     viewerIsOwner={viewerIsOwner}
                     onRemove={() => {
                       switch membership.user {
@@ -425,17 +419,6 @@ let make = () => {
     {_ => {
       query.club
       ->Option.map(club => {
-        // Check if current club is in viewer's admin clubs
-        let viewerIsAdmin =
-          query.viewer
-          ->Option.flatMap(viewer => viewer.adminClubs.edges)
-          ->Option.map(edges =>
-            edges
-            ->Array.filterMap(edge => edge)
-            ->Array.filterMap(edge => edge.node)
-            ->Array.some(adminClub => adminClub.id == club.id)
-          )
-          ->Option.getOr(false)
         let viewerIsOwner =
           club.viewerMembership->Option.flatMap(m => m.isOwner)->Option.getOr(false)
 
@@ -452,11 +435,7 @@ let make = () => {
           </h1>
           <div className="mt-8">
             <React.Suspense fallback={<div> {t`Loading members...`} </div>}>
-              <ClubMembersData
-                clubId={club.id}
-                viewerIsAdmin={viewerIsAdmin}
-                viewerIsOwner={viewerIsOwner}
-              />
+              <ClubMembersData clubId={club.id} viewerIsOwner={viewerIsOwner} />
             </React.Suspense>
           </div>
         </Layout.Container>

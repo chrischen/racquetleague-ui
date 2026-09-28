@@ -370,10 +370,7 @@ let make = (
   let ctx = DrawerContext.use()
 
   let selectedDate =
-    searchParams
-    ->Router.ImmSearchParams.fromSearchParams
-    ->Router.ImmSearchParams.get("afterDate")
-    ->Option.map(d => Js.Date.fromString(d))
+    searchParams->Router.ImmSearchParams.fromSearchParams->EventsListUtils.Filter.selectedDate
 
   // Server-side level filter. The toolbar select reads/writes the `level` URL
   // param (a DUPR-scale value); the route loaders pass it as

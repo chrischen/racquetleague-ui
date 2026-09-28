@@ -11,10 +11,20 @@ import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
 import * as WebFetch from "@remix-run/web-fetch";
 import * as RelayRouter__NetworkUtils from "./RelayRouter__NetworkUtils.re.mjs";
 
+var ssrApiEndpointOverride = (function () {
+  return typeof process !== "undefined" && process.env && process.env.SSR_API_ENDPOINT
+    ? process.env.SSR_API_ENDPOINT
+    : undefined;
+});
+
 function serverApiEndpoint() {
-  var url = import.meta.env.VITE_API_ENDPOINT;
-  if (url !== undefined && !url.startsWith("/")) {
+  var url = ssrApiEndpointOverride();
+  if (url !== undefined) {
     return url;
+  }
+  var url$1 = import.meta.env.VITE_API_ENDPOINT;
+  if (url$1 !== undefined && !url$1.startsWith("/")) {
+    return url$1;
   } else {
     return "http://localhost:4555/graphql";
   }
@@ -278,6 +288,7 @@ function makeServerFetchQuery(onQuery, headers, expressResponse) {
 }
 
 export {
+  ssrApiEndpointOverride ,
   serverApiEndpoint ,
   preloadFromResponse ,
   OptionArray ,

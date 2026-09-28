@@ -280,23 +280,40 @@ function ProfileModal(props) {
           }
         }, undefined, undefined, undefined, (function (response, param) {
             var errors = response.updateViewerContact.errors;
-            if (errors !== undefined && errors.length !== 0) {
-              errors.forEach(function (error) {
-                    if (error.message === "EMAIL_UNAVAILABLE") {
-                      return setEmailError(function (param) {
-                                  return t`Email address is unavailable. Please use a different email or login with the email you are trying to use here.`;
-                                });
-                    } else {
-                      console.error("Error:", error.message);
+            if (errors === undefined) {
+              return commitProfile();
+            }
+            var len = errors.length;
+            if (len !== 1) {
+              if (len === 0) {
+                return commitProfile();
+              }
+              
+            } else {
+              var match = errors[0];
+              if (match.message === "RATE_LIMITED") {
+                return commitProfile();
+              }
+              
+            }
+            errors.forEach(function (error) {
+                  var message = error.message;
+                  switch (message) {
+                    case "EMAIL_UNAVAILABLE" :
+                        return setEmailError(function (param) {
+                                    return t`Email address is unavailable. Please use a different email or login with the email you are trying to use here.`;
+                                  });
+                    case "INVALID_EMAIL" :
+                        return setEmailError(function (param) {
+                                    return t`That doesn't look like an email address.`;
+                                  });
+                    default:
+                      console.error("Error:", message);
                       return setSaveError(function (param) {
                                   return t`Could not save your profile. Please try again.`;
                                 });
-                    }
-                  });
-              return ;
-            } else {
-              return commitProfile();
-            }
+                  }
+                });
           }), (function (param) {
             setSaveError(function (param) {
                   return t`Could not save your profile. Please try again.`;
@@ -360,7 +377,7 @@ function ProfileModal(props) {
                                 children: emailError,
                                 className: "mt-1 block text-xs text-red-500"
                               }) : JsxRuntime.jsx("span", {
-                                children: t`For event updates and notifications`,
+                                children: t`For event updates and notifications. We'll email you a link to confirm it.`,
                                 className: "mt-1 block text-[9px] text-gray-400"
                               });
                       }

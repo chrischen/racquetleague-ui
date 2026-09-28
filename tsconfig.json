@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", ".storybook/*.tsx"],
+  "include": ["src", ".storybook/*.ts", ".storybook/*.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

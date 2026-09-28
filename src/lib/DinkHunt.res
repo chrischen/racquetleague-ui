@@ -82,6 +82,10 @@ type challengeAnalysis = {
   fps: float,
   bounces: array<bounce>,
   paths: array<array<pathPoint>>, // per-shot ball paths, 30Hz, clip pixels
+  // Every frame's real presentation time (s, frame 0 = 0) of the clip the server
+  // analysed; with fps it maps analysis time (frame / fps) onto the video exactly
+  // (FrameTimeline). Empty when the server could not read the timestamps.
+  frameTimes: array<float>,
 }
 type challengeGqlData = {challenge: challengeAnalysis}
 type challengeGqlResponse = {
@@ -91,7 +95,7 @@ type challengeGqlResponse = {
 
 let challengeAnalysis = async (video: string): result<challengeAnalysis, string> =>
   try {
-    let query = "query($v: String!) { challenge(video: $v) { width height fps bounces { i t frame world pixel footprint } paths { t x y } } }"
+    let query = "query($v: String!) { challenge(video: $v) { width height fps bounces { i t frame world pixel footprint } paths { t x y } frameTimes } }"
     let response = await fetch(
       base ++ "/graphql",
       {

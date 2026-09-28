@@ -1,1 +1,0 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"lFnBmD\":\"您是否處於私人瀏覽模式？\",\"tC8E1T\":\"登入失敗\",\"GCkpYm\":\"使用 Line 登入\",\"i3R0WM\":\"請在私人瀏覽模式之外重新嘗試，因為它可能會干擾 Line 登入。如果問題仍然存在，您可以嘗試下面的安全模式登入按鈕。\",\"ZjdhXc\":\"安全模式使用 Line 登入\"}");
