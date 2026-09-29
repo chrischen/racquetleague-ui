@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventRow.re.mjs:720
-#: src/components/organisms/PkEventRow.re.mjs:808
+#: src/components/organisms/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:823
 msgid "[missing title]"
 msgstr "[ไม่มีหัวข้อ]"
 
@@ -35,7 +35,7 @@ msgstr "ผู้เล่นระดับสูง"
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
@@ -47,11 +47,11 @@ msgstr "กรุณากรอกประวัติย่อ"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/PkEventRow.re.mjs:724
+#: src/components/organisms/PkEventRow.re.mjs:746
 msgid "Canceled"
 msgstr "ยกเลิกแล้ว"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "ปิดฟอร์มโปรไฟล์"
 
@@ -59,11 +59,11 @@ msgstr "ปิดฟอร์มโปรไฟล์"
 msgid "Complete Beginner"
 msgstr "ผู้เริ่มต้นสมบูรณ์"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
@@ -74,12 +74,12 @@ msgstr "ยืนยัน"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "ชื่อที่แสดง"
 
@@ -91,11 +91,11 @@ msgstr "ต้องกรอกชื่อที่แสดง"
 msgid "doubles"
 msgstr "คู่"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -113,15 +113,16 @@ msgstr "แท็กกิจกรรม: {tag}"
 msgid "External event"
 msgstr "กิจกรรมภายนอก"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "เพศ"
 
@@ -129,7 +130,7 @@ msgstr "เพศ"
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
 
@@ -141,7 +142,7 @@ msgstr "ระดับกลาง"
 msgid "Intermediate+"
 msgstr "ระดับกลาง+"
 
-#: src/components/organisms/PkEventRow.re.mjs:591
+#: src/components/organisms/PkEventRow.re.mjs:622
 msgid "Join"
 msgstr "เข้าร่วม"
 
@@ -149,19 +150,19 @@ msgstr "เข้าร่วม"
 msgid "Joined"
 msgstr "เข้าร่วมแล้ว"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
-#: src/components/organisms/PkEventRow.re.mjs:590
+#: src/components/organisms/PkEventRow.re.mjs:621
 msgid "Leave"
 msgstr "ออก"
 
-#: src/components/organisms/PkEventRow.re.mjs:993
+#: src/components/organisms/PkEventRow.re.mjs:1008
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "ระดับ"
 
@@ -169,7 +170,7 @@ msgstr "ระดับ"
 msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "ชาย"
 
@@ -181,7 +182,7 @@ msgstr "การแข่งขันจะถูกส่งไปยัง DU
 msgid "No restriction on skill level. Open to all players."
 msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
 
@@ -207,8 +208,8 @@ msgstr "ผู้เล่น"
 msgid "players"
 msgstr "ผู้เล่น"
 
-#: src/components/atoms/EventTag.re.mjs:89
-#: src/components/atoms/EventTag.re.mjs:91
+#: src/components/atoms/EventTag.re.mjs:95
+#: src/components/atoms/EventTag.re.mjs:97
 msgid "Private"
 msgstr "ไม่เปิดเผย"
 
@@ -230,6 +231,10 @@ msgstr "ชั่วคราว"
 msgid "Rated"
 msgstr "มีการจัดอันดับ"
 
+#: src/components/atoms/EventTag.re.mjs:83
+msgid "Recreational"
+msgstr "นันทนาการ"
+
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
@@ -239,7 +244,7 @@ msgstr "การเล่นเพื่อความบันเทิงท
 msgid "Results will be submitted to competitive ratings."
 msgstr "ผลการแข่งขันจะถูกส่งไปยังเรตติ้งการแข่งขัน"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
@@ -247,7 +252,7 @@ msgstr "บันทึกโปรไฟล์"
 msgid "Self-rated"
 msgstr "ประเมินตนเอง"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -261,7 +266,11 @@ msgstr "เดี่ยว"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "การฝึกฝนทักษะและการซ้อมเพื่อพัฒนาเทคนิค"
 
-#: src/components/organisms/PkEventRow.re.mjs:994
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
+
+#: src/components/organisms/PkEventRow.re.mjs:1009
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -277,7 +286,7 @@ msgstr "กิจกรรมนี้เป็นกิจกรรมส่ว
 msgid "Upper intermediate and above"
 msgstr "ระดับกลางขั้นบนขึ้นไป"
 
-#: src/components/organisms/PkEventRow.re.mjs:591
+#: src/components/organisms/PkEventRow.re.mjs:622
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
@@ -285,7 +294,7 @@ msgstr "รายชื่อคอย"
 msgid "Waitlisted"
 msgstr "อยู่ในรายชื่อคอย"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
@@ -296,6 +305,10 @@ msgstr "เราต้องการข้อมูลบางอย่าง
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 #~ msgid "Prefer not to say"
@@ -308,11 +321,3 @@ msgstr "เราต้องการข้อมูลบางอย่าง
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

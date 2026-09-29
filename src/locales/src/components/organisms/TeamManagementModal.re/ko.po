@@ -13,6 +13,18 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:379
+msgid "{0} player"
+msgstr "{0}명"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:380
+msgid "{0} players"
+msgstr "{0}명"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:378
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:337
 msgid "Anti-Teams"
 msgstr "안티팀"
@@ -21,15 +33,20 @@ msgstr "안티팀"
 msgid "Cancel"
 msgstr "취소"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:52
+#: src/components/organisms/TeamManagementModal.re.mjs:314
+msgid "Close"
+msgstr "닫기"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:302
 msgid "Create and manage player teams"
 msgstr "플레이어 팀 만들기 및 관리"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Anti-Team"
 msgstr "안티팀 만들기"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Team"
 msgstr "팀 만들기"
 
@@ -41,11 +58,11 @@ msgstr "플레이어 페어링을 방지하기 위해 첫 번째 안티팀을 �
 msgid "Create your first team to get started"
 msgstr "시작하려면 첫 번째 팀을 만드세요"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:402
+#: src/components/organisms/TeamManagementModal.re.mjs:404
 msgid "Delete team"
 msgstr "팀 삭제"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:390
+#: src/components/organisms/TeamManagementModal.re.mjs:392
 msgid "Edit team"
 msgstr "팀 편집"
 
@@ -73,7 +90,7 @@ msgstr "아직 안티팀이 없습니다"
 msgid "No teams yet"
 msgstr "아직 팀이 없습니다"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:443
+#: src/components/organisms/TeamManagementModal.re.mjs:445
 msgid "Save & Close"
 msgstr "저장 & 닫기"
 

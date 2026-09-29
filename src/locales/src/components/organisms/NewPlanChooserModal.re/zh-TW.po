@@ -33,27 +33,27 @@ msgstr "關閉"
 msgid "Copy {address}"
 msgstr "複製 {address}"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+#: src/components/organisms/NewPlanChooserModal.re.mjs:365
 msgid "Create an event"
 msgstr "建立活動"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+#: src/components/organisms/NewPlanChooserModal.re.mjs:367
 msgid "Create an event yourself, or from a court booking email."
 msgstr "自行建立活動，或透過球場預訂郵件建立。"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+#: src/components/organisms/NewPlanChooserModal.re.mjs:383
 msgid "Create Event Manually"
 msgstr "手動建立活動"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+#: src/components/organisms/NewPlanChooserModal.re.mjs:337
 msgid "Create events by email"
 msgstr "透過電子郵件建立活動"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+#: src/components/organisms/NewPlanChooserModal.re.mjs:387
 msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "自行填寫活動細節，或請助理協助填寫。"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+#: src/components/organisms/NewPlanChooserModal.re.mjs:351
 msgid ""
 "Events are added privately to {myEvents}. Make an event public whenever you "
 "need to find players."
@@ -69,11 +69,11 @@ msgstr "從你的電子郵件 {yourEmail} 將預訂確認信轉寄至 {forwardin
 msgid "Google Calendar"
 msgstr "Google 日曆"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/organisms/NewPlanChooserModal.re.mjs:354
 msgid "My Events"
 msgstr "我的活動"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+#: src/components/organisms/NewPlanChooserModal.re.mjs:366
 msgid "New plan"
 msgstr "新計劃"
 

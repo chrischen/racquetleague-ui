@@ -243,7 +243,7 @@ msgstr "ยังไม่มีกิจกรรม"
 msgid "No players found"
 msgstr "ไม่พบผู้เล่น"
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr "ยังไม่มีผู้เล่น"
 
@@ -284,8 +284,8 @@ msgstr "ดูตัวอย่าง Smart RSVP"
 msgid "Previewing…"
 msgstr "กำลังแสดงตัวอย่าง…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "ไม่เปิดเผย"
 
@@ -293,10 +293,14 @@ msgstr "ไม่เปิดเผย"
 msgid "Professional players"
 msgstr "ผู้เล่นมืออาชีพ"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "มีการจัดอันดับ"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "นันทนาการ"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -346,15 +350,11 @@ msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "ดูทั้งหมด"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "ส่ง"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
@@ -460,7 +460,7 @@ msgstr "ดูกิจกรรม"
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
@@ -513,6 +513,10 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:310
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "เรียกใช้ Smart RSVP (จับคู่ดีที่สุด, ทดสอบ)"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "ดูทั้งหมด"
 
 #: src/components/organisms/RSVPSection.re.mjs:516
 #~ msgid "Show all"

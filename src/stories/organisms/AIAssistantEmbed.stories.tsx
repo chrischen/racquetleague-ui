@@ -269,8 +269,7 @@ export const ResolvedProposals: Story = {
 };
 
 /** The backend answered with an error instead of a reply. The prompt's own
- * bubble disappears too: the component drops its optimistic copy and nothing
- * replaces it (and the typed text was already cleared). */
+ * bubble stays, with the error below it, so what was typed isn't lost. */
 export const ServerError: Story = {
   parameters: {
     relay: {
@@ -289,5 +288,6 @@ export const ServerError: Story = {
     const canvas = within(canvasElement);
     await ask(canvasElement, "Doubles next Thursday evening");
     await settles(await canvas.findByText(/assistant is unavailable/));
+    await expect(canvas.getByText("Doubles next Thursday evening")).toBeVisible();
   },
 };

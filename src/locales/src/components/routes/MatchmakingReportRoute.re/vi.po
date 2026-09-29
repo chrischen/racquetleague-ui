@@ -55,7 +55,7 @@ msgid "18,900 rounds solved"
 msgstr "18.900 vòng đã được giải"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1385
-msgid "24 players · 4 court"
+msgid "24 players · 4 courts"
 msgstr "24 người chơi · 4 sân"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1388
@@ -1241,9 +1241,8 @@ msgstr ""
 #~ msgstr ""
 #~ "· % khả năng trận đấu kết thúc hòa, theo kỹ năng thực · càng cao càng tốt"
 
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+#~ msgid "24 players · 4 court"
 #~ msgstr "24 người chơi · 4 sân"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029

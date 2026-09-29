@@ -13,24 +13,31 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:129
+#: src/components/pages/VerifyEmailPage.re.mjs:185
+msgid "Account email changed"
+msgstr "เปลี่ยนอีเมลบัญชีแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:175
 msgid "Confirming your email…"
 msgstr "กำลังยืนยันอีเมลของคุณ…"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:166
+#: src/components/pages/VerifyEmailPage.re.mjs:266
 msgid "Couldn't confirm this email"
 msgstr "ไม่สามารถยืนยันอีเมลนี้ได้"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:140
+#: src/components/pages/VerifyEmailPage.re.mjs:208
+#: src/components/pages/VerifyEmailPage.re.mjs:237
 msgid "Email confirmed"
 msgstr "ยืนยันอีเมลแล้ว"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:156
-#: src/components/pages/VerifyEmailPage.re.mjs:175
+#: src/components/pages/VerifyEmailPage.re.mjs:194
+#: src/components/pages/VerifyEmailPage.re.mjs:224
+#: src/components/pages/VerifyEmailPage.re.mjs:253
+#: src/components/pages/VerifyEmailPage.re.mjs:275
 msgid "Go to profile settings"
 msgstr "ไปที่การตั้งค่าโปรไฟล์"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:150
+#: src/components/pages/VerifyEmailPage.re.mjs:218
 msgid ""
 "is now one of your receiving emails. Bookings you forward from it to "
 "chris@pkuru.com will be added to your events."
@@ -38,15 +45,21 @@ msgstr ""
 "เป็นหนึ่งในอีเมลรับการจองของคุณแล้ว การจองที่คุณส่งต่อจากอีเมลนี้ไปยัง chris@pkuru.com "
 "จะถูกเพิ่มในกิจกรรมของคุณ"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:63
+#: src/components/pages/VerifyEmailPage.re.mjs:247
+msgid "is now your account email."
+msgstr "เป็นอีเมลบัญชีของคุณแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:67
+#: src/components/pages/VerifyEmailPage.re.mjs:83
 msgid "Something went wrong. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:55
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+#: src/components/pages/VerifyEmailPage.re.mjs:73
 msgid "This address is already used by another pkuru account."
 msgstr "ที่อยู่นี้ถูกใช้โดยบัญชี pkuru อื่นแล้ว"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:59
+#: src/components/pages/VerifyEmailPage.re.mjs:63
 msgid ""
 "This link doesn't work for this account. Make sure you're signed in to the "
 "account that added the address, or send a new link from your profile "
@@ -55,10 +68,39 @@ msgstr ""
 "ลิงก์นี้ใช้กับบัญชีนี้ไม่ได้ โปรดตรวจสอบว่าคุณลงชื่อเข้าใช้บัญชีที่เพิ่มที่อยู่นี้ "
 "หรือส่งลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:57
+#: src/components/pages/VerifyEmailPage.re.mjs:75
+msgid ""
+"This link doesn't work. Open it from the email again, or ask for a new one "
+"from your profile settings."
+msgstr "ลิงก์นี้ใช้ไม่ได้ โปรดเปิดจากอีเมลอีกครั้ง หรือขอลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:81
+msgid ""
+"This link has already been used, or your account email has changed since it "
+"was sent."
+msgstr "ลิงก์นี้ถูกใช้ไปแล้ว หรืออีเมลบัญชีของคุณถูกเปลี่ยนหลังจากส่งลิงก์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:79
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "ลิงก์นี้หมดอายุแล้ว โปรดขอลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:61
 msgid "This link has expired. Send a new one from your profile settings."
 msgstr "ลิงก์นี้หมดอายุแล้ว โปรดส่งลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:61
+#: src/components/pages/VerifyEmailPage.re.mjs:65
 msgid "This link is incomplete. Open it from the email again."
 msgstr "ลิงก์นี้ไม่สมบูรณ์ โปรดเปิดจากอีเมลอีกครั้ง"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
+msgid ""
+"You're signed in to a different account. Sign out, then open the link again."
+msgstr "คุณลงชื่อเข้าใช้บัญชีอื่นอยู่ โปรดออกจากระบบ แล้วเปิดลิงก์อีกครั้ง"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:189
+msgid ""
+"Your account now uses the new address. Your previous address is kept as a "
+"receiving email, which you can remove in your profile settings."
+msgstr ""
+"บัญชีของคุณใช้ที่อยู่ใหม่แล้ว ที่อยู่เดิมจะถูกเก็บไว้เป็นอีเมลรับการจอง "
+"ซึ่งคุณสามารถลบได้ในการตั้งค่าโปรไฟล์"

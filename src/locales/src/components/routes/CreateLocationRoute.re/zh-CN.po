@@ -13,48 +13,50 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:158
+#: src/components/organisms/CreateLocationForm.re.mjs:152
 msgid "address"
 msgstr "地址"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:76
+#: src/components/organisms/CreateLocationForm.re.mjs:158
 msgid "address is required"
 msgstr "必须填写地址"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:147
+#: src/components/organisms/CreateLocationForm.re.mjs:139
 msgid "Akabane Elementary School"
 msgstr "Akabane Elementary School"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "取消"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:177
+#: src/components/organisms/CreateLocationForm.re.mjs:176
 msgid "details"
 msgstr "详情"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:180
+#: src/components/organisms/CreateLocationForm.re.mjs:179
 msgid ""
 "Instructions or information that will apply to all events held at this "
 "location."
 msgstr "适用于在此地点举办的所有活动的说明或信息。"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:138
+#: src/components/organisms/CreateLocationForm.re.mjs:130
 msgid "location"
 msgstr "位置"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:167
+#: src/components/organisms/CreateLocationForm.re.mjs:166
 msgid "maps link"
 msgstr "地图链接"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:144
+#: src/components/organisms/CreateLocationForm.re.mjs:136
 msgid "name"
 msgstr "名称"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:73
+#: src/components/organisms/CreateLocationForm.re.mjs:143
 msgid "name is required"
 msgstr "必须填写名称"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "保存"

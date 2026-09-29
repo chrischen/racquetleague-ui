@@ -13,6 +13,18 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:379
+msgid "{0} player"
+msgstr "{0}人のプレイヤー"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:380
+msgid "{0} players"
+msgstr "{0}人のプレイヤー"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:378
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:337
 msgid "Anti-Teams"
 msgstr "アンチチーム"
@@ -21,15 +33,20 @@ msgstr "アンチチーム"
 msgid "Cancel"
 msgstr "キャンセル"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:52
+#: src/components/organisms/TeamManagementModal.re.mjs:314
+msgid "Close"
+msgstr "閉じる"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:302
 msgid "Create and manage player teams"
 msgstr "プレイヤーチームを作成・管理"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Anti-Team"
 msgstr "アンチチームを作成"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Team"
 msgstr "チームを作成"
 
@@ -41,11 +58,11 @@ msgstr "プレイヤーがペアにならないように、最初のアンチチ
 msgid "Create your first team to get started"
 msgstr "最初のチームを作成して始めましょう"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:402
+#: src/components/organisms/TeamManagementModal.re.mjs:404
 msgid "Delete team"
 msgstr "チームを削除"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:390
+#: src/components/organisms/TeamManagementModal.re.mjs:392
 msgid "Edit team"
 msgstr "チームを編集"
 
@@ -73,7 +90,7 @@ msgstr "アンチチームはまだありません"
 msgid "No teams yet"
 msgstr "チームがまだありません"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:443
+#: src/components/organisms/TeamManagementModal.re.mjs:445
 msgid "Save & Close"
 msgstr "保存して閉じる"
 

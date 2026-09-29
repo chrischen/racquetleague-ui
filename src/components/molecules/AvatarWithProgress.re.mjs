@@ -3,10 +3,21 @@
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as JsxRuntime from "react/jsx-runtime";
 
+function initialOf(name) {
+  var m = name.match(/[\p{L}\p{N}]/u);
+  if (m == null) {
+    return "?";
+  } else {
+    return m[0].toUpperCase();
+  }
+}
+
 function AvatarWithProgress(props) {
   var __strokeWidth = props.strokeWidth;
   var __size = props.size;
   var sigmaProgress = props.sigmaProgress;
+  var alt = props.alt;
+  var src = props.src;
   var size = __size !== undefined ? __size : 32;
   var strokeWidth = __strokeWidth !== undefined ? __strokeWidth : 2;
   var progressVal = Core__Option.getOr(props.progress, 100);
@@ -64,14 +75,26 @@ function AvatarWithProgress(props) {
                       className: "absolute inset-0 w-full h-full -rotate-90",
                       viewBox: "0 0 " + size.toString() + " " + size.toString()
                     }),
-                JsxRuntime.jsx("img", {
-                      className: "rounded-full w-full h-full object-cover",
-                      style: {
-                        padding: String(strokeWidth) + "px"
-                      },
-                      alt: props.alt,
-                      src: props.src
-                    })
+                src === "" ? JsxRuntime.jsx("div", {
+                        children: initialOf(alt),
+                        "aria-label": alt,
+                        className: "absolute rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold leading-none select-none",
+                        role: "img",
+                        style: {
+                          bottom: String(strokeWidth) + "px",
+                          fontSize: String(size * 0.4) + "px",
+                          left: String(strokeWidth) + "px",
+                          right: String(strokeWidth) + "px",
+                          top: String(strokeWidth) + "px"
+                        }
+                      }) : JsxRuntime.jsx("img", {
+                        className: "rounded-full w-full h-full object-cover",
+                        style: {
+                          padding: String(strokeWidth) + "px"
+                        },
+                        alt: alt,
+                        src: src
+                      })
               ],
               className: "relative flex-shrink-0",
               style: {
@@ -84,6 +107,7 @@ function AvatarWithProgress(props) {
 var make = AvatarWithProgress;
 
 export {
+  initialOf ,
   make ,
 }
 /* react/jsx-runtime Not a pure module */

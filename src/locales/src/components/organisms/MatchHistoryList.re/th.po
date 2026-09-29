@@ -13,33 +13,34 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "ชนะ"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "เสมอ"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "สมดุล"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "แพ้"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "ชนะ"

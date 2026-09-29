@@ -127,17 +127,23 @@ let make = (~onCancel, ~onClose) => {
                   placeholder={ts`Akabane Elementary School`}
                   register={register(Name)}
                 />
-                <p>
-                  {switch errors.name {
-                  | Some({message: ?Some(message)}) => message
-                  | _ => ""
-                  }->React.string}
-                </p>
+                // The schema only rejects an empty value, so any error is a
+                // missing one; show our translated copy, not zod's English.
+                {errors.name->Option.isSome
+                  ? <p className="mt-2 text-sm text-red-600 dark:text-red-400">
+                      {t`name is required`}
+                    </p>
+                  : React.null}
               </div>
               <div className="sm:col-span-3">
                 <Input
                   label={t`address`} id="address" name="address" register={register(Address)}
                 />
+                {errors.address->Option.isSome
+                  ? <p className="mt-2 text-sm text-red-600 dark:text-red-400">
+                      {t`address is required`}
+                    </p>
+                  : React.null}
               </div>
               <div className="sm:col-span-2">
                 <Input

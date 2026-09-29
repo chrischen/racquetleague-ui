@@ -102,6 +102,29 @@ var autoGrow = (function (el) {
   el.style.height = Math.min(el.scrollHeight, 120) + "px"
 });
 
+function messageId(m) {
+  return m.id;
+}
+
+function keepNonLocal(msgs) {
+  return msgs.filter(function (m) {
+              return !messageId(m).startsWith("local-");
+            });
+}
+
+function afterChatTurn(prev, newMessages, error, errorId) {
+  if (error !== undefined && newMessages.length === 0) {
+    return prev.concat([{
+                  TAG: "AgentMessage",
+                  id: errorId(),
+                  content: error,
+                  action: undefined
+                }]);
+  } else {
+    return keepNonLocal(prev).concat(newMessages);
+  }
+}
+
 function AIAssistantEmbed(props) {
   var onEventsAccepted = props.onEventsAccepted;
   var onSingleEventSuggested = props.onSingleEventSuggested;
@@ -161,14 +184,6 @@ function AIAssistantEmbed(props) {
     localIdCounterRef.current = localIdCounterRef.current + 1 | 0;
     return "local-" + localIdCounterRef.current.toString();
   };
-  var messageId = function (m) {
-    return m.id;
-  };
-  var keepNonLocal = function (msgs) {
-    return msgs.filter(function (m) {
-                return !messageId(m).startsWith("local-");
-              });
-  };
   var snapToBottom = function () {
     var elem = chatContainerRef.current;
     if (!(elem == null)) {
@@ -223,16 +238,8 @@ function AIAssistantEmbed(props) {
             return AIChatMessage.fromFragmentRef(m.fragmentRefs);
           }));
     var suggestedEvents = AIChatMessage.toSuggestedEvents(chat.suggestedEvents);
-    var match = chat.error;
-    var match$1 = newMessages.length;
-    var finalNew = match !== undefined && match$1 === 0 ? [{
-          TAG: "AgentMessage",
-          id: nextLocalId(),
-          content: match,
-          action: undefined
-        }] : newMessages;
     setMessages(function (prev) {
-          return keepNonLocal(prev).concat(finalNew);
+          return afterChatTurn(prev, newMessages, chat.error, nextLocalId);
         });
     if (clearOverlayFor !== undefined) {
       setOverlay(function (prev) {
@@ -794,6 +801,9 @@ export {
   ChatHistoryQuery ,
   ChatHistoryLoader ,
   autoGrow ,
+  messageId ,
+  keepNonLocal ,
+  afterChatTurn ,
   make ,
 }
 /*  Not a pure module */

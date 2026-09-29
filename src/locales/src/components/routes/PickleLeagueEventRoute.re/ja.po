@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "前の試合を読み込む"
 
@@ -21,11 +21,11 @@ msgstr "前の試合を読み込む"
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr "{0} {breakPlayersDesc} はプレイしていません"
 
-#: src/components/organisms/MatchesView.re.mjs:232
+#: src/components/organisms/MatchesView.re.mjs:234
 msgid "{0} player selected"
 msgstr "{0}人のプレイヤーが選択されました"
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:235
 msgid "{0} players selected"
 msgstr "{0}人のプレイヤーが選択されました"
 
@@ -33,16 +33,16 @@ msgstr "{0}人のプレイヤーが選択されました"
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr "{breakPlayersCount, plural, one {プレイヤー} other {プレイヤー}}"
 
-#: src/components/organisms/MatchesView.re.mjs:231
+#: src/components/organisms/MatchesView.re.mjs:233
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{selectedPlayersCount, plural, one {{0} } other {{1} }}"
 
-#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/MatchesView.re.mjs:259
 #: src/components/organisms/AiTetsu.re.mjs:353
 msgid "# of courts"
 msgstr "コート数"
 
-#: src/components/organisms/MatchesView.re.mjs:656
+#: src/components/organisms/MatchesView.re.mjs:660
 msgid "Actions"
 msgstr "アクション"
 
@@ -58,7 +58,7 @@ msgstr "ゲストプレイヤーを追加"
 msgid "Add Player"
 msgstr "プレイヤーを追加"
 
-#: src/components/organisms/MatchesView.re.mjs:133
+#: src/components/organisms/MatchesView.re.mjs:135
 msgid "Add/Remove Players"
 msgstr "プレイヤーの追加/削除"
 
@@ -70,12 +70,16 @@ msgstr "詳細オプション"
 msgid "Analyzed {0} matches."
 msgstr "{0}試合を分析しました。"
 
-#: src/components/organisms/MatchesView.re.mjs:622
-#: src/components/organisms/MatchesView.re.mjs:625
+#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:629
 msgid "and"
 msgstr "と"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "勝利"
+
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "キャンセル"
 
@@ -88,11 +92,11 @@ msgstr "キャンセル"
 msgid "Checkin All Players"
 msgstr "すべてのプレイヤーをチェックイン"
 
-#: src/components/organisms/MatchesView.re.mjs:645
+#: src/components/organisms/MatchesView.re.mjs:649
 msgid "Choose Match"
 msgstr "試合を選択"
 
-#: src/components/organisms/MatchesView.re.mjs:553
+#: src/components/organisms/MatchesView.re.mjs:557
 msgid "CHOOSE MATCH"
 msgstr "試合を選択"
 
@@ -108,7 +112,7 @@ msgstr "パネルを閉じる"
 msgid "Competitive"
 msgstr "競争力"
 
-#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:630
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "コート {0}: {team1} 対 {team2}"
 
@@ -125,8 +129,7 @@ msgstr "チームを作成"
 msgid "Done"
 msgstr "完了"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "引き分け"
 
@@ -134,7 +137,7 @@ msgstr "引き分け"
 msgid "Enter Score"
 msgstr "スコアを入力"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "互角"
 
@@ -163,11 +166,11 @@ msgstr "評価を初期化"
 msgid "Leaderboard"
 msgstr "リーダーボード"
 
-#: src/components/organisms/SelectMatch.re.mjs:279
+#: src/components/organisms/SelectMatch.re.mjs:284
 msgid "left team players"
 msgstr "左チームのプレイヤー"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "もっと試合を読み込む..."
 
@@ -185,12 +188,11 @@ msgstr "試合を読み込んでいます..."
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/SelectMatch.re.mjs:298
+#: src/components/organisms/SelectMatch.re.mjs:303
 msgid "Losers"
 msgstr "敗者"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "負け"
 
@@ -202,7 +204,7 @@ msgstr "手動チーム"
 msgid "Match History"
 msgstr "対戦履歴"
 
-#: src/components/organisms/MatchesView.re.mjs:612
+#: src/components/organisms/MatchesView.re.mjs:616
 msgid "Matches"
 msgstr "試合"
 
@@ -221,7 +223,7 @@ msgstr ""
 msgid "Mixed"
 msgstr "混合"
 
-#: src/components/organisms/SelectMatch.re.mjs:136
+#: src/components/organisms/SelectMatch.re.mjs:59
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
@@ -242,7 +244,7 @@ msgstr "オフラインモード"
 msgid "Played last round"
 msgstr "前回プレイした"
 
-#: src/components/organisms/SelectMatch.re.mjs:91
+#: src/components/organisms/SelectMatch.re.mjs:95
 msgid "Player"
 msgstr "プレイヤー"
 
@@ -282,12 +284,12 @@ msgstr "ポイント"
 msgid "predicted winner"
 msgstr "予測される勝者"
 
-#: src/components/organisms/MatchesView.re.mjs:597
+#: src/components/organisms/MatchesView.re.mjs:601
 msgid "Queue"
 msgstr "キュー"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Queue All"
 msgstr "すべてキューに入れる"
 
@@ -295,7 +297,7 @@ msgstr "すべてキューに入れる"
 msgid "Queue All Players"
 msgstr "すべてのプレイヤーをキューに入れる"
 
-#: src/components/organisms/SelectMatch.re.mjs:328
+#: src/components/organisms/SelectMatch.re.mjs:333
 msgid "Queue Match"
 msgstr "試合をキューに入れる"
 
@@ -307,11 +309,11 @@ msgstr "ランダム"
 msgid "Recommended Match"
 msgstr "推奨試合"
 
-#: src/components/organisms/SelectMatch.re.mjs:303
+#: src/components/organisms/SelectMatch.re.mjs:308
 msgid "right team players"
 msgstr "右チームのプレイヤー"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "保存"
 
@@ -349,7 +351,7 @@ msgstr ""
 msgid "Start Session"
 msgstr "セッションを開始"
 
-#: src/components/organisms/MatchesView.re.mjs:500
+#: src/components/organisms/MatchesView.re.mjs:504
 msgid "START SESSION"
 msgstr "セッションを開始"
 
@@ -357,7 +359,7 @@ msgstr "セッションを開始"
 msgid "Submit Rated"
 msgstr "評価を提出"
 
-#: src/components/organisms/MatchesView.re.mjs:519
+#: src/components/organisms/MatchesView.re.mjs:523
 msgid "SUBMIT RESULTS"
 msgstr "結果を提出"
 
@@ -377,17 +379,16 @@ msgstr "このチームは以前にプレイしました"
 msgid "Totally random teams."
 msgstr "完全にランダムなチーム。"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Unqueue All"
 msgstr "すべてのキューを解除"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "番狂わせ"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "勝ち"
 
@@ -398,7 +399,7 @@ msgstr "勝ち"
 msgid "Winner"
 msgstr "勝者"
 
-#: src/components/organisms/SelectMatch.re.mjs:274
+#: src/components/organisms/SelectMatch.re.mjs:279
 msgid "Winners"
 msgstr "勝者"
 

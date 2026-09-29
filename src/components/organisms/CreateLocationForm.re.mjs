@@ -122,14 +122,6 @@ function CreateLocationForm(props) {
   };
   return JsxRuntime.jsx(WaitForMessages.make, {
               children: (function () {
-                  var match = errors.name;
-                  var tmp;
-                  if (match !== undefined) {
-                    var message = match.message;
-                    tmp = message !== undefined ? message : "";
-                  } else {
-                    tmp = "";
-                  }
                   return JsxRuntime.jsx("form", {
                               children: JsxRuntime.jsxs(Grid.make, {
                                     className: "grid-cols-1",
@@ -147,19 +139,26 @@ function CreateLocationForm(props) {
                                                                   placeholder: t`Akabane Elementary School`,
                                                                   register: register("name", undefined)
                                                                 }),
-                                                            JsxRuntime.jsx("p", {
-                                                                  children: tmp
-                                                                })
+                                                            Core__Option.isSome(errors.name) ? JsxRuntime.jsx("p", {
+                                                                    children: t`name is required`,
+                                                                    className: "mt-2 text-sm text-red-600 dark:text-red-400"
+                                                                  }) : null
                                                           ],
                                                           className: "col-span-full"
                                                         }),
-                                                    JsxRuntime.jsx("div", {
-                                                          children: JsxRuntime.jsx(Form.Input.make, {
-                                                                label: Caml_option.some(t`address`),
-                                                                name: "address",
-                                                                id: "address",
-                                                                register: register("address", undefined)
-                                                              }),
+                                                    JsxRuntime.jsxs("div", {
+                                                          children: [
+                                                            JsxRuntime.jsx(Form.Input.make, {
+                                                                  label: Caml_option.some(t`address`),
+                                                                  name: "address",
+                                                                  id: "address",
+                                                                  register: register("address", undefined)
+                                                                }),
+                                                            Core__Option.isSome(errors.address) ? JsxRuntime.jsx("p", {
+                                                                    children: t`address is required`,
+                                                                    className: "mt-2 text-sm text-red-600 dark:text-red-400"
+                                                                  }) : null
+                                                          ],
                                                           className: "sm:col-span-3"
                                                         }),
                                                     JsxRuntime.jsx("div", {

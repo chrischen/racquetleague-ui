@@ -113,7 +113,9 @@ export const EditCompetitiveSmartRsvp: Story = {
   },
 };
 
-/** An independent, free, unlisted event with no cancellation deadline. */
+/** An independent, free, unlisted event with no cancellation deadline. It
+    stays without a club: the picker does not fall back to one of the
+    organizer's clubs, which saving would move the event into. */
 export const EditIndependentFreeEvent: Story = {
   parameters: {
     relay: {
@@ -129,6 +131,11 @@ export const EditIndependentFreeEvent: Story = {
         },
       },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(await canvas.findByText("No club")).toBeVisible();
+    await expect(canvas.queryByText("Shibuya Pickleball Club")).toBeNull();
   },
 };
 

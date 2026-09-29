@@ -13,6 +13,10 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:458
+msgid "{position} in queue"
+msgstr "待ち{position}番目"
+
 #: src/components/molecules/LevelPicker.re.mjs:42
 msgid "Advanced"
 msgstr "詳細設定"
@@ -21,7 +25,7 @@ msgstr "詳細設定"
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "自己紹介"
 
@@ -33,31 +37,31 @@ msgstr "自己紹介は必須です"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:317
 msgid "Cancel RSVP"
 msgstr "参加をキャンセルする"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:417
-#: src/components/organisms/EventStickyFooter.re.mjs:528
+#: src/components/organisms/EventStickyFooter.re.mjs:437
+#: src/components/organisms/EventStickyFooter.re.mjs:560
 msgid "Cancellation deadline"
 msgstr "キャンセル期限"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:536
+#: src/components/organisms/EventStickyFooter.re.mjs:568
 msgid "Cancellation deadline passed."
 msgstr "キャンセル期限を過ぎています。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:425
+#: src/components/organisms/EventStickyFooter.re.mjs:445
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr ""
 "キャンセル期限を過ぎています。キャンセルするには、このページで主催者に連絡し"
 "てください。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:317
 msgid "Cancelling..."
 msgstr "キャンセル中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:245
+#: src/components/organisms/EventStickyFooter.re.mjs:265
 msgid ""
 "Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
 "the fee after the event."
@@ -65,20 +69,20 @@ msgstr ""
 "登録済みのカード: {cardLabel}。今は請求されません。イベント後に主催者が料金を"
 "請求します。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:306
 msgid "Card required to confirm your spot"
 msgstr "参加確定にはカードの登録が必要です"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:553
-#: src/components/organisms/EventStickyFooter.re.mjs:661
+#: src/components/organisms/EventStickyFooter.re.mjs:585
+#: src/components/organisms/EventStickyFooter.re.mjs:693
 msgid "Claim spot"
 msgstr "参加する"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:549
+#: src/components/organisms/EventStickyFooter.re.mjs:581
 msgid "Claim spot · {0}"
 msgstr "スポットを予約 · {0}"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
 
@@ -86,11 +90,11 @@ msgstr "プロフィールフォームを閉じる"
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr ""
@@ -103,12 +107,12 @@ msgstr "確認"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "表示名"
 
@@ -120,11 +124,11 @@ msgstr "表示名は必須です"
 msgid "doubles"
 msgstr "ダブルス"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -136,23 +140,24 @@ msgstr ""
 msgid "Email is required"
 msgstr "メールアドレスは必須です"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:181
+#: src/components/organisms/EventStickyFooter.re.mjs:201
 msgid "External event"
 msgstr "外部イベント"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "イベントの更新と通知用"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "他のプレイヤーへの表示"
 
@@ -164,57 +169,57 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:186
+#: src/components/organisms/EventStickyFooter.re.mjs:206
 msgid "Join on {externalSource2}"
 msgstr "{externalSource2}で参加"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:661
+#: src/components/organisms/EventStickyFooter.re.mjs:693
 msgid "Join waitlist"
 msgstr "キャンセル待ちに登録"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:546
+#: src/components/organisms/EventStickyFooter.re.mjs:578
 msgid "Join waitlist (#{0})"
 msgstr "キャンセル待ちに参加 (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:264
+#: src/components/organisms/EventStickyFooter.re.mjs:284
 msgid "Join with saved card"
 msgstr "保存したカードで参加"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:262
+#: src/components/organisms/EventStickyFooter.re.mjs:282
 msgid "Joining..."
 msgstr "参加中..."
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:500
-#: src/components/organisms/EventStickyFooter.re.mjs:612
+#: src/components/organisms/EventStickyFooter.re.mjs:532
+#: src/components/organisms/EventStickyFooter.re.mjs:644
 msgid "Leave event"
 msgstr "イベントを退出"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:500
+#: src/components/organisms/EventStickyFooter.re.mjs:532
 msgid "Leave waitlist"
 msgstr "キャンセル待ちを取り消す"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:499
+#: src/components/organisms/EventStickyFooter.re.mjs:531
 msgid "Leaving..."
 msgstr "キャンセル中..."
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "レベル"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:266
-#: src/components/organisms/EventStickyFooter.re.mjs:307
+#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:327
 msgid "Loading..."
 msgstr "読み込み中..."
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "後で"
 
@@ -222,23 +227,23 @@ msgstr "後で"
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:481
+#: src/components/organisms/EventStickyFooter.re.mjs:520
 msgid "On waitlist"
 msgstr "キャンセル待ち中"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
+#: src/components/organisms/EventStickyFooter.re.mjs:214
 msgid "Open {externalSource2}"
 msgstr "{externalSource2}を開く"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:274
+#: src/components/organisms/EventStickyFooter.re.mjs:294
 msgid "Pay {priceStr}"
 msgstr "{priceStr} を支払う"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:306
 msgid "Payment required to confirm your spot"
 msgstr "スポットを確定するには支払いが必要です"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:378
+#: src/components/organisms/EventStickyFooter.re.mjs:398
 msgid "Pending approval"
 msgstr "承認待ち"
 
@@ -255,11 +260,11 @@ msgstr "プロ"
 msgid "provisional"
 msgstr "暫定"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:268
+#: src/components/organisms/EventStickyFooter.re.mjs:288
 msgid "Save card"
 msgstr "カードを保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
@@ -267,7 +272,7 @@ msgstr "プロフィールを保存"
 msgid "Self-rated"
 msgstr "自己評価"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -279,7 +284,11 @@ msgstr ""
 msgid "singles"
 msgstr "シングルス"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:613
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:645
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -287,27 +296,27 @@ msgstr ""
 "キャンセル待ちのプレイヤーがいます。退出すると、あなたの枠は次の人に渡されま"
 "す。よろしいですか？"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:307
+#: src/components/organisms/EventStickyFooter.re.mjs:327
 msgid "Use a different card"
 msgstr "別のカードを使用"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:392
+#: src/components/organisms/EventStickyFooter.re.mjs:412
 msgid "Withdraw RSVP"
 msgstr "参加登録を取り消す"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:392
+#: src/components/organisms/EventStickyFooter.re.mjs:412
 msgid "Withdrawing..."
 msgstr "取り消し中..."
 
-#: src/components/organisms/EventStickyFooter.re.mjs:481
+#: src/components/organisms/EventStickyFooter.re.mjs:520
 msgid "You're in"
 msgstr "参加済み"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:247
+#: src/components/organisms/EventStickyFooter.re.mjs:267
 msgid ""
 "Your card is saved now, not charged — the organizer charges the fee after "
 "the event."
@@ -315,7 +324,7 @@ msgstr ""
 "カードは保存されるだけで、請求はされません。主催者がイベント後に参加費を請求"
 "します。"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:382
+#: src/components/organisms/EventStickyFooter.re.mjs:402
 msgid "Your RSVP is awaiting admin approval"
 msgstr "あなたの参加登録は管理者の承認待ちです"
 
@@ -340,6 +349,10 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "メールアドレスは変更できません"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "イベントの更新と通知用"
 
 #: src/components/organisms/EventStickyFooter.re.mjs:195
 #~ msgid "Join on {externalSource}"
@@ -380,11 +393,3 @@ msgstr "あなたの参加登録は管理者の承認待ちです"
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "他の人に表示される名前です"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "メールアドレスの形式ではないようです。"

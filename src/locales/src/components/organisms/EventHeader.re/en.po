@@ -14,11 +14,35 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hour"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours"
 msgstr ""
 
 #: src/components/organisms/EventHeader.re.mjs:56
-msgid "{0} hours and {1} minutes"
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:58
+msgid "{0} minute"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:59
+msgid "{0} minutes"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr ""
+
+#: src/components/organisms/EventHeader.re.mjs:57
+msgid "{minutes, plural, one {{0}} other {{1}}}"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:38
@@ -29,11 +53,11 @@ msgstr ""
 msgid "Apple iCal"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:79
+#: src/components/organisms/EventHeader.re.mjs:89
 msgid "CANCELED"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:175
+#: src/components/organisms/EventHeader.re.mjs:185
 msgid "Date TBD"
 msgstr ""
 
@@ -61,8 +85,8 @@ msgstr ""
 msgid "No restriction on skill level. Open to all players."
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr ""
 
@@ -70,9 +94,13 @@ msgstr ""
 msgid "Professional players"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
 msgstr ""
 
 #: src/components/atoms/EventTag.re.mjs:52
@@ -95,15 +123,15 @@ msgstr ""
 msgid "This event is private. Please do not share this event without permission from the organizer."
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:211
+#: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:117
+#: src/components/organisms/EventHeader.re.mjs:127
 msgid "Unknown club"
 msgstr ""
 
-#: src/components/organisms/EventHeader.re.mjs:247
+#: src/components/organisms/EventHeader.re.mjs:257
 msgid "Unknown location"
 msgstr ""
 

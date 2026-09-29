@@ -108,7 +108,7 @@ function EventRsvp(props) {
                       if (match === 1) {
                         tmp$1 = JsxRuntime.jsx("span", {
                               children: t`Paid`,
-                              className: "ml-2 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700"
+                              className: "ml-2 inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700"
                             });
                       } else {
                         exit = 1;
@@ -116,7 +116,7 @@ function EventRsvp(props) {
                       if (exit === 1) {
                         tmp$1 = JsxRuntime.jsx("span", {
                               children: t`Not paid`,
-                              className: "ml-2 inline-flex items-center rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800"
+                              className: "ml-2 inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800"
                             });
                       }
                       

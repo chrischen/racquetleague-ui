@@ -21,7 +21,7 @@ msgstr "進階"
 msgid "Beginner"
 msgstr "初學者"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "個人簡介"
 
@@ -29,7 +29,7 @@ msgstr "個人簡介"
 msgid "Biography is required"
 msgstr "簡介為必填項目"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "關閉個人資料表單"
 
@@ -37,23 +37,23 @@ msgstr "關閉個人資料表單"
 msgid "Complete Beginner"
 msgstr "完全初學者"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "無法儲存您的個人資料，請再試一次。"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "顯示名稱"
 
@@ -65,11 +65,11 @@ msgstr "請輸入顯示名稱"
 msgid "doubles"
 msgstr "雙打"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "電子郵件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -81,19 +81,20 @@ msgstr ""
 msgid "Email is required"
 msgstr "請輸入電子郵件"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "用於活動更新和通知"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "其他球員看到您的方式"
 
@@ -105,19 +106,19 @@ msgstr "中級"
 msgid "Intermediate+"
 msgstr "中級+"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球員個人資料準確且對社群有用。"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "等級"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "暫不設定"
 
@@ -138,7 +139,7 @@ msgstr "專業"
 msgid "provisional"
 msgstr "暫定"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "儲存個人資料"
 
@@ -146,7 +147,7 @@ msgstr "儲存個人資料"
 msgid "Self-rated"
 msgstr "自評"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -156,7 +157,11 @@ msgstr "分享一些關於您自己的資訊，讓主辦人或其他球員了解
 msgid "singles"
 msgstr "單打"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "這看起來不像電子郵件地址。"
+
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
@@ -167,6 +172,10 @@ msgstr "在您參加此活動之前，我們需要一些資訊"
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "電子郵件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用於活動更新和通知"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 #~ msgid "Prefer not to say"
@@ -179,11 +188,3 @@ msgstr "在您參加此活動之前，我們需要一些資訊"
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "這是其他人會看到的名字"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "這看起來不像電子郵件地址。"

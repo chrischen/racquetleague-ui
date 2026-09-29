@@ -21,6 +21,13 @@ open Rating
 
 type teamSide = Team1 | Team2
 
+// Dark-theme text for the PlayerRows inside a dark surface (this modal and
+// MatchCard). PlayerRow has no dark variants of its own because it is still
+// rendered on white cards elsewhere (SeedAdjustModal), so the dark surface
+// lightens its name (a span; the avatar's initial is a slate-600 div on a
+// light disc and must stay dark) and its #id/play-count line from outside.
+let playerRowDark = "dark:[&_span.text-slate-800]:text-gray-100 dark:[&_span.text-slate-600]:text-gray-300 dark:[&_span.text-pink-700]:text-pink-300 dark:[&_span.text-pink-600]:text-pink-400 dark:[&_.text-slate-500]:text-gray-400"
+
 @react.component
 let make = (
   ~match: Match.t<'a>,
@@ -97,7 +104,7 @@ let make = (
   let teamHeading = (~teamNumber: int, ~isWinningSide: bool) =>
     <div className="flex items-center gap-2">
       {if isDraw {
-        <Lucide.Equal className="w-5 h-5 text-amber-600" />
+        <Lucide.Equal className="w-5 h-5 text-amber-600 dark:text-amber-400" />
       } else if isWinningSide {
         <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
       } else {
@@ -105,10 +112,10 @@ let make = (
       }}
       <h3
         className={isDraw
-          ? "text-lg font-bold text-slate-700"
+          ? "text-lg font-bold text-slate-700 dark:text-gray-200"
           : isWinningSide
-          ? "text-lg font-bold text-green-700"
-          : "text-lg font-bold text-slate-600"}>
+          ? "text-lg font-bold text-green-700 dark:text-green-400"
+          : "text-lg font-bold text-slate-600 dark:text-gray-300"}>
         {if isDraw {
           t`Team ${teamNumber->Int.toString}`
         } else if isWinningSide {
@@ -121,29 +128,34 @@ let make = (
 
   // Green reads as "this team won", so the tapped side loses its accent too.
   let (accentBg, accentText, accentSelected) = isDraw
-    ? ("bg-slate-100", "text-slate-700", "bg-slate-600")
-    : ("bg-green-100", "text-green-700", "bg-green-600")
+    ? ("bg-slate-100 dark:bg-[#2a2b30]", "text-slate-700 dark:text-gray-200", "bg-slate-600")
+    : ("bg-green-100 dark:bg-green-900/30", "text-green-700 dark:text-green-400", "bg-green-600")
+
+  let numberButtonBase = "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 dark:border-[#2a2b30]"
+  let numberButtonIdle = `${numberButtonBase} bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200 dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30] dark:active:bg-[#3a3b40]`
 
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
     <div
-      className="select-none bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      className="select-none bg-white dark:bg-[#1e1f23] rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
       // Header
       <div
-        className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+        className="sticky top-0 bg-white dark:bg-[#1e1f23] border-b border-slate-200 dark:border-[#2a2b30] px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           {isDraw
-            ? <Lucide.Equal className="w-6 h-6 text-amber-600" />
+            ? <Lucide.Equal className="w-6 h-6 text-amber-600 dark:text-amber-400" />
             : <Lucide.Trophy className="w-6 h-6 text-yellow-500" />}
-          <h2 className="text-xl font-bold text-slate-800"> {t`Enter Match Score`} </h2>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-gray-100">
+            {t`Enter Match Score`}
+          </h2>
         </div>
         <button
           onClick={_ => onClose()}
-          className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+          className="p-2 hover:bg-slate-100 dark:hover:bg-[#2a2b30] rounded-lg transition-colors"
           ariaLabel="Close">
-          <Lucide.X className="w-5 h-5 text-slate-600" />
+          <Lucide.X className="w-5 h-5 text-slate-600 dark:text-gray-400" />
         </button>
       </div>
-      <div className="p-6 space-y-6">
+      <div className={`p-6 space-y-6 ${playerRowDark}`}>
         // Score for the team the match card was tapped on
         <div className="space-y-3">
           {teamHeading(~teamNumber=winningTeamNumber, ~isWinningSide=true)}
@@ -173,7 +185,7 @@ let make = (
             </div>
           </div>
           <div
-            className="grid grid-cols-8 gap-0 border border-slate-300 overflow-hidden rounded-lg">
+            className="grid grid-cols-8 gap-0 border border-slate-300 dark:border-[#3a3b40] overflow-hidden rounded-lg">
             {numbers
             ->Array.map(num => {
               let isSelected = winningScore->Option.map(s => s == num)->Option.getOr(false)
@@ -185,8 +197,8 @@ let make = (
                   | Team2 => setTeam2Score(_ => Some(num))
                   }}
                 className={isSelected
-                  ? `h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 ${accentSelected} text-white`
-                  : "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200"}>
+                  ? `${numberButtonBase} ${accentSelected} text-white`
+                  : numberButtonIdle}>
                 {num->Int.toString->React.string}
               </button>
             })
@@ -212,8 +224,8 @@ let make = (
             ->React.array}
           </div>
           <div className="text-center mb-2">
-            <div className="inline-block px-4 py-2 bg-slate-100 rounded-lg">
-              <span className="text-3xl font-bold text-slate-700">
+            <div className="inline-block px-4 py-2 bg-slate-100 dark:bg-[#2a2b30] rounded-lg">
+              <span className="text-3xl font-bold text-slate-700 dark:text-gray-200">
                 {losingScore
                 ->Option.map(s => s->Int.toString)
                 ->Option.getOr("—")
@@ -222,7 +234,7 @@ let make = (
             </div>
           </div>
           <div
-            className="grid grid-cols-8 gap-0 border border-slate-300 overflow-hidden rounded-lg">
+            className="grid grid-cols-8 gap-0 border border-slate-300 dark:border-[#3a3b40] overflow-hidden rounded-lg">
             {numbers
             ->Array.map(num => {
               // Equal to the other side's score is allowed — that's a draw.
@@ -242,11 +254,11 @@ let make = (
                 }}
                 disabled={isDisabled}
                 className={if isDisabled {
-                  "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-slate-50 text-slate-300 cursor-not-allowed"
+                  `${numberButtonBase} bg-slate-50 text-slate-300 dark:bg-[#1a1a1e] dark:text-gray-600 cursor-not-allowed`
                 } else if isSelected {
-                  "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-slate-600 text-white"
+                  `${numberButtonBase} bg-slate-600 text-white`
                 } else {
-                  "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200"
+                  numberButtonIdle
                 }}>
                 {num->Int.toString->React.string}
               </button>
@@ -257,16 +269,17 @@ let make = (
       </div>
       // Footer
       <div
-        className="sticky bottom-0 bg-slate-50 border-t border-slate-200 px-6 py-4 flex items-center justify-end gap-3">
+        className="sticky bottom-0 bg-slate-50 dark:bg-[#222326] border-t border-slate-200 dark:border-[#2a2b30] px-6 py-4 flex items-center justify-end gap-3">
         {isDraw
-          ? <span className="mr-auto flex items-center gap-1.5 text-sm font-medium text-amber-700">
+          ? <span
+              className="mr-auto flex items-center gap-1.5 text-sm font-medium text-amber-700 dark:text-amber-400">
               <Lucide.Equal className="w-4 h-4" />
               {t`Equal scores — this will be recorded as a draw`}
             </span>
           : React.null}
         <button
           onClick={_ => handleNoScore()}
-          className="px-4 py-2 rounded-lg font-medium bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors flex items-center gap-2">
+          className="px-4 py-2 rounded-lg font-medium bg-amber-100 text-amber-900 hover:bg-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:hover:bg-amber-900/50 transition-colors flex items-center gap-2">
           <Lucide.MinusCircle className="w-4 h-4" />
           {t`No Score`}
         </button>
@@ -275,7 +288,7 @@ let make = (
           disabled={!canSubmit}
           className={canSubmit
             ? "px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 shadow-md"
-            : "px-6 py-2 rounded-lg font-medium transition-colors bg-slate-300 text-slate-500 cursor-not-allowed"}>
+            : "px-6 py-2 rounded-lg font-medium transition-colors bg-slate-300 text-slate-500 dark:bg-[#2a2b30] dark:text-gray-500 cursor-not-allowed"}>
           {t`Save Score`}
         </button>
       </div>

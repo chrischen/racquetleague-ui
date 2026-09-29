@@ -112,16 +112,6 @@ let make = (
             <Lucide.ChevronDown size=16 className="ml-1" />
           </div>
         : React.null}
-      {!expanded &&
-      confirmedRsvps->Array.length <= initialDisplayCount &&
-      confirmedRsvps->Array.length > 0
-        ? <div
-            className="flex items-center cursor-pointer text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 rounded-full px-3 py-1"
-            onClick={_ => setExpanded(_ => true)}>
-            <span className="text-sm font-medium"> {t`See all`} </span>
-            <Lucide.ChevronDown size=16 className="ml-1" />
-          </div>
-        : React.null}
       {expanded
         ? <div className="text-center mt-3">
             <a

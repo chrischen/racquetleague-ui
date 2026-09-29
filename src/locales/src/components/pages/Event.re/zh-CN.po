@@ -243,7 +243,7 @@ msgstr "尚无活动"
 msgid "No players found"
 msgstr "未找到球员"
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr "还没有球员"
 
@@ -284,8 +284,8 @@ msgstr "预览智能报名"
 msgid "Previewing…"
 msgstr "预览中…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "非公开"
 
@@ -293,10 +293,14 @@ msgstr "非公开"
 msgid "Professional players"
 msgstr "职业球员"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "计分赛"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "休闲"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -346,15 +350,11 @@ msgstr "立即运行智能报名"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "查看全部"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "发送"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "收起"
 
@@ -459,7 +459,7 @@ msgstr "查看活动"
 msgid "View Profile"
 msgstr "查看资料"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "等待列表"
 
@@ -511,6 +511,10 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:310
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "运行智能报名（最佳匹配，测试）"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "查看全部"
 
 #: src/components/organisms/RSVPSection.re.mjs:516
 #~ msgid "Show all"

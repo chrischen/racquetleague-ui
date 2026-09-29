@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zbuZZJ\":\"シード調整済み\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"AWd12w\":[[\"0\"],\"人のプレイヤー\"],\"1IFjjP\":[[\"0\"],\"人のプレイヤー\"],\"1XIkUf\":[[\"count\",\"plural\",{\"one\":[[\"0\"]],\"other\":[[\"1\"]]}]],\"7+MzvQ\":\"シード調整を削除\",\"zbuZZJ\":\"シード調整済み\"}");

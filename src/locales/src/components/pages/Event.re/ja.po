@@ -243,7 +243,7 @@ msgstr "まだアクティビティがありません"
 msgid "No players found"
 msgstr "プレイヤーが見つかりません"
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 
@@ -284,8 +284,8 @@ msgstr "スマートRSVPをプレビュー"
 msgid "Previewing…"
 msgstr "プレビュー中…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "非公開"
 
@@ -293,10 +293,14 @@ msgstr "非公開"
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "レーティング戦"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "レクリエーション"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -346,15 +350,11 @@ msgstr "今すぐスマートRSVPを実行"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "すべて見る"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "送信"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "折りたたむ"
 
@@ -468,7 +468,7 @@ msgstr "イベントを見る"
 msgid "View Profile"
 msgstr "プロフィールを表示"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
@@ -618,6 +618,10 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:310
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "スマートRSVPを実行（最適マッチ、テスト）"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "すべて見る"
 
 #: src/components/organisms/RSVPSection.re.mjs:516
 #~ msgid "Show all"

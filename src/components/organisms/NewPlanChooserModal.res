@@ -59,10 +59,11 @@ module StepNumber = {
 let stepTextClass = "min-w-0 text-sm font-medium leading-relaxed text-gray-800 dark:text-gray-100"
 
 // The steps need the viewer's addresses, so they are fetched when the modal
-// opens rather than with every page's layout query.
+// opens rather than with every page's layout query. `frame` wraps them in the
+// guide's section; signed out there are no steps, so no section either.
 module EmailSteps = {
   @react.component
-  let make = () => {
+  let make = (~frame: React.element => React.element) => {
     let ts = Lingui.UtilString.t
     let {viewer} = Query.use(~variables=(), ~fetchPolicy=RescriptRelay.StoreOrNetwork)
     let (copiedAddress, setCopiedAddress) = React.useState((): option<string> => None)
@@ -90,7 +91,7 @@ module EmailSteps = {
 
     switch viewer {
     | Some({user: Some(user), eventsForwardingAddress, eventsInboxAddress}) =>
-      <>
+      frame(<>
         <li className="flex gap-3 p-4">
           <StepNumber> {"1"->React.string} </StepNumber>
           {
@@ -200,7 +201,7 @@ module EmailSteps = {
             </div>
           </div>
         </li>
-      </>
+      </>)
     | _ => React.null
     }
   }
@@ -209,6 +210,35 @@ module EmailSteps = {
 @react.component
 let make = (~onClose: unit => unit, ~onCreateEvent: unit => unit) => {
   let ts = Lingui.UtilString.t
+  let emailGuide = steps =>
+    <section
+      ariaLabelledby="email-event-guide-title"
+      className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]">
+      <header className="border-b border-gray-100 px-4 py-3.5 dark:border-[#34353a]">
+        <div className="flex items-center gap-2.5">
+          <span
+            className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300">
+            <Lucide.Mail size=16 \"aria-hidden"="true" />
+          </span>
+          <h3
+            id="email-event-guide-title"
+            className="text-base font-semibold text-gray-900 dark:text-gray-100">
+            {t`Create events by email`}
+          </h3>
+        </div>
+      </header>
+      <ol className="divide-y divide-gray-100 dark:divide-[#34353a]"> steps </ol>
+      <p
+        className="border-t border-[#94c93a]/25 bg-[#bdf25d]/10 px-4 py-3 text-xs leading-relaxed text-gray-700 dark:border-[#bdf25d]/15 dark:bg-[#bdf25d]/[0.06] dark:text-gray-300">
+        {
+          let myEvents = Lingui.slot("myEvents")
+          Lingui.fillSlots(
+            ts`Events are added privately to ${myEvents}. Make an event public whenever you need to find players.`,
+            [("myEvents", <strong> {t`My Events`} </strong>)],
+          )
+        }
+      </p>
+    </section>
   <RouteModal
     eyebrow={t`New plan`}
     title={t`Create an event`}
@@ -235,41 +265,14 @@ let make = (~onClose: unit => unit, ~onCreateEvent: unit => unit) => {
           \"aria-hidden"="true"
         />
       </button>
-      <section
-        ariaLabelledby="email-event-guide-title"
-        className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]">
-        <header className="border-b border-gray-100 px-4 py-3.5 dark:border-[#34353a]">
-          <div className="flex items-center gap-2.5">
-            <span
-              className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300">
-              <Lucide.Mail size=16 \"aria-hidden"="true" />
-            </span>
-            <h3
-              id="email-event-guide-title"
-              className="text-base font-semibold text-gray-900 dark:text-gray-100">
-              {t`Create events by email`}
-            </h3>
-          </div>
-        </header>
-        <ol className="divide-y divide-gray-100 dark:divide-[#34353a]">
-          <React.Suspense
-            fallback={<li className="p-4">
-              <div className="h-24 animate-pulse rounded-lg bg-gray-100 dark:bg-[#2a2b30]" />
-            </li>}>
-            <EmailSteps />
-          </React.Suspense>
-        </ol>
-        <p
-          className="border-t border-[#94c93a]/25 bg-[#bdf25d]/10 px-4 py-3 text-xs leading-relaxed text-gray-700 dark:border-[#bdf25d]/15 dark:bg-[#bdf25d]/[0.06] dark:text-gray-300">
-          {
-            let myEvents = Lingui.slot("myEvents")
-            Lingui.fillSlots(
-              ts`Events are added privately to ${myEvents}. Make an event public whenever you need to find players.`,
-              [("myEvents", <strong> {t`My Events`} </strong>)],
-            )
-          }
-        </p>
-      </section>
+      <React.Suspense
+        fallback={emailGuide(
+          <li className="p-4">
+            <div className="h-24 animate-pulse rounded-lg bg-gray-100 dark:bg-[#2a2b30]" />
+          </li>,
+        )}>
+        <EmailSteps frame=emailGuide />
+      </React.Suspense>
     </div>
   </RouteModal>
 }

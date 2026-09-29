@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"홈 화면에 추가\\\""
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:386
 msgid "Account email"
 msgstr "계정 이메일"
 
@@ -25,11 +25,11 @@ msgstr "계정 이메일"
 msgid "Active"
 msgstr "활성"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:540
 msgid "Add"
 msgstr "추가"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:522
 msgid "Add a receiving email"
 msgstr "수신 이메일 추가"
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Australia"
 msgstr "호주"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:406
 msgid "Awaiting confirmation"
 msgstr "확인 대기 중"
 
@@ -77,7 +77,7 @@ msgstr "초급"
 msgid "Biography"
 msgstr "자기소개"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:557
 msgid ""
 "Bookings forwarded from it will no longer be added to your account. You can "
 "add it again later."
@@ -85,7 +85,7 @@ msgstr ""
 "이 주소에서 전달된 예약은 더 이상 계정에 추가되지 않습니다. 나중에 다시 추가"
 "할 수 있습니다."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:376
 msgid ""
 "Bookings you forward to chris@pkuru.com are added to your account when they "
 "come from one of these addresses. Add the other addresses you receive "
@@ -100,8 +100,13 @@ msgstr "캐나다"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:496
 msgid "Cancel"
 msgstr "취소"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:389
+msgid "Change"
+msgstr "변경"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -111,7 +116,7 @@ msgstr "완전 초급"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:403
 msgid "Confirmed"
 msgstr "확인됨"
 
@@ -283,9 +288,14 @@ msgstr "DUPR으로 로그인"
 msgid "Male"
 msgstr "남성"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:479
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:529
 msgid "name@example.com"
 msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "새 계정 이메일"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:357
 msgid "No Stripe account is connected."
@@ -316,7 +326,12 @@ msgstr ""
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr ""
+"링크를 열면 계정 이메일로 설정됩니다. 그 전까지는 아무것도 바뀌지 않습니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
 msgstr "pkuru에 로그인한 상태에서 링크를 열면 주소 추가가 완료됩니다."
 
@@ -353,19 +368,19 @@ msgstr ""
 msgid "Receive push notifications for event reminders and updates."
 msgstr "이벤트 알림 및 업데이트를 푸시 알림으로 받아보세요."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
 msgstr "수신 이메일"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:447
 msgid "Remove"
 msgstr "제거"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:556
 msgid "Remove this receiving email?"
 msgstr "이 수신 이메일을 삭제할까요?"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:411
 msgid "Resend"
 msgstr "다시 보내기"
 
@@ -388,6 +403,10 @@ msgstr "복식 파트너 구함"
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "자가 평가"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "링크 보내기"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -415,8 +434,8 @@ msgstr "단식"
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "일부 이벤트에서는 신분증에 표시된 법적 이름이 필요합니다."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:164
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:171
 msgid "Something went wrong. Please try again."
 msgstr "문제가 발생했습니다. 다시 시도해 주세요."
 
@@ -444,11 +463,11 @@ msgstr "자신에 대해 간단히 알려주세요"
 msgid "Tell us a little about yourself..."
 msgstr "자신을 간략히 소개해 주세요..."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:154
 msgid "That address isn't on your account any more."
 msgstr "그 주소는 더 이상 계정에 없습니다."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:152
 msgid "That doesn't look like an email address."
 msgstr "이메일 주소 형식이 아닌 것 같습니다."
 
@@ -460,11 +479,11 @@ msgstr "해당 DUPR 계정은 이미 다른 선수와 연결되어 있습니다.
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "DUPR 로그인이 만료되었습니다. 다시 시도해 주세요."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:158
 msgid "That's already your account email."
 msgstr "이미 계정 이메일입니다."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:156
 msgid "Too many emails sent. Please wait a minute and try again."
 msgstr "너무 많이 보냈습니다. 잠시 후 다시 시도해 주세요."
 
@@ -485,17 +504,27 @@ msgstr ""
 "온보딩이 완료될 때까지 유료 행사는 플랫폼 계정으로 운영됩니다. 참가자는 RSVP "
 "시 카드를 저장하지만 청구할 수 없습니다. 참가비는 행사 현장에서 받으세요."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
 msgstr ""
 "이메일을 보내지 못했습니다. 잠시 후 \\\\\\\"다시 보내기\\\\\\\"를 눌러 주세"
 "요."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
 msgstr "확인 링크를 보냈습니다:"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "링크를 보냈습니다:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid ""
+"We'll email a link to the new address. Your current address stays on as a "
+"receiving email."
+msgstr "새 주소로 링크를 보내 드립니다. 현재 주소는 수신 이메일로 유지됩니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr ""
 "수신 이메일은 최대 5개까지 추가할 수 있습니다. 추가하려면 하나를 삭제하세요."
@@ -508,9 +537,17 @@ msgstr ""
 "DUPR 데이터 공유를 거부하여 아무것도 연결되지 않았습니다. 다시 로그인한 후 "
 "'승인'을 선택하여 연결하세요."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "이미 추가한 주소입니다."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid ""
+"Your account has no email yet. The first address you confirm here becomes "
+"your account email."
+msgstr ""
+"계정에 아직 이메일이 없습니다. 여기서 처음 확인한 주소가 계정 이메일이 됩니"
+"다."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""

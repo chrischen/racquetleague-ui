@@ -17,6 +17,10 @@ msgstr ""
 msgid "Cancel"
 msgstr "Hủy"
 
+#: src/components/organisms/PlayerSettingsModal.re.mjs:63
+msgid "Close"
+msgstr "Đóng"
+
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
 msgstr "Xóa khách"
@@ -40,6 +44,10 @@ msgstr "Tên"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:85
 msgid "Player ID"
 msgstr "ID người chơi"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "Tên người chơi"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:53
 msgid "Player Settings"

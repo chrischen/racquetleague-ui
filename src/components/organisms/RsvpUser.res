@@ -65,7 +65,17 @@ let make = (
         alt=""
       />
     )
-    ->Option.getOr(<div className="h-12 w-12 flex-none rounded-full bg-gray-50" />)}
+    ->Option.getOr(
+      // No picture: the name's initial, as AvatarWithProgressBar shows.
+      <div
+        ariaHidden=true
+        className={Util.cx([
+          highlight ? "h-14 w-14" : "h-12 w-12",
+          "flex-none rounded-full bg-slate-300 flex items-center justify-center text-lg font-semibold text-slate-600 select-none",
+        ])}>
+        {AvatarWithProgress.initialOf(user.name)->React.string}
+      </div>,
+    )}
     <div className="min-w-0 flex-auto">
       <p className="text-sm font-semibold leading-6 text-gray-900">
         {

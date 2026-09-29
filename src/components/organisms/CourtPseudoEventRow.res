@@ -317,7 +317,8 @@ let make = (
             ? <span
                 className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold text-[#4d6f12] dark:text-[#bdf25d]">
                 <Lucide.Check size=10 strokeWidth=2.5 />
-                {((ts`You: `) ++
+                {((ts`You:`) ++
+                " " ++
                 slotAvailability
                 ->Array.map(i => fmt(i.start) ++ "–" ++ fmt(i.end))
                 ->Array.join(", "))->React.string}
@@ -363,7 +364,7 @@ let make = (
                         {(ts`Your availability in this slot`)->React.string}
                       </h4>
                       <p className="font-mono text-[9px] text-gray-500 dark:text-gray-400">
-                        {((ts`Drag or resize within `) ++ fmt(band.start) ++ "–" ++ fmt(band.end))
+                        {((ts`Drag or resize within`) ++ " " ++ fmt(band.start) ++ "–" ++ fmt(band.end))
                           ->React.string}
                       </p>
                     </div>

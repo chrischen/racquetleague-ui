@@ -10,6 +10,7 @@ let make = (
   ~onClose: unit => unit,
   ~onDelete: option<unit => unit>=?,
 ) => {
+  let ts = Lingui.UtilString.t
   let (name, setName) = React.useState(() => player.name)
   let (gender, setGender) = React.useState(() => player.gender)
 
@@ -33,7 +34,7 @@ let make = (
         <button
           onClick={_ => onClose()}
           className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
-          ariaLabel="Close">
+          ariaLabel={ts`Close`}>
           <Lucide.X className="w-5 h-5 text-slate-600" />
         </button>
       </div>
@@ -61,8 +62,8 @@ let make = (
               let value = ReactEvent.Form.target(e)["value"]
               setName(_ => value)
             }}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Player name"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder={ts`Player name`}
           />
         </div>
         // Gender
@@ -96,7 +97,7 @@ let make = (
       </div>
       // Footer
       <div
-        className="bg-slate-50 border-t border-slate-200 px-6 py-4 flex items-center gap-3 rounded-b-xl"
+        className="bg-slate-50 border-t border-slate-200 px-6 py-4 flex flex-wrap items-center gap-2 rounded-b-xl"
         style={ReactDOM.Style.make(
           ~justifyContent=isGuest && onDelete->Option.isSome ? "space-between" : "flex-end",
           (),
@@ -108,22 +109,22 @@ let make = (
                 onDelete->Option.forEach(fn => fn())
                 onClose()
               }}
-              className="px-4 py-2 rounded-lg font-medium bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md flex items-center gap-2">
+              className="px-4 py-2 rounded-lg font-medium bg-red-600 text-white hover:bg-red-700 transition-colors shadow-md flex items-center gap-2 whitespace-nowrap">
               <Lucide.Trash2 className="w-4 h-4" />
               {t`Delete Guest`}
             </button>
           : React.null}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 ml-auto">
           <button
             type_="button"
             onClick={_ => onClose()}
-            className="px-4 py-2 rounded-lg font-medium bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors">
+            className="px-4 py-2 rounded-lg font-medium bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
             {t`Cancel`}
           </button>
           <button
             type_="button"
             onClick={_ => handleSave()}
-            className="px-6 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-md">
+            className="px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-md whitespace-nowrap">
             {t`Save Changes`}
           </button>
         </div>

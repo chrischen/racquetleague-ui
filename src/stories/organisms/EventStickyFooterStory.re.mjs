@@ -2,6 +2,7 @@
 
 import * as Util from "../../components/shared/Util.re.mjs";
 import * as React from "react";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as PkEventMessages from "../../components/organisms/PkEventMessages.re.mjs";
@@ -65,6 +66,7 @@ var base = {
   isFull: false,
   confirmedCount: 9,
   waitlistCount: 0,
+  waitlistPosition: undefined,
   maxRsvps: 12,
   cancelDeadlineHours: 24,
   shadow: false,
@@ -74,380 +76,119 @@ var base = {
   cardRequiredOnJoin: false
 };
 
-var joined_joinedMinutesAgo = 2 * 24 * 60;
+var newrecord = Caml_obj.obj_dup(base);
 
-var joined_cancelDeadlineHours = 24;
+newrecord.confirmedCount = 10;
 
-var joined = {
-  signedIn: true,
-  isJoined: true,
-  isWaitlisted: false,
-  isPending: false,
-  isUnpaid: false,
-  savedCard: undefined,
-  savedCardError: undefined,
-  joinedMinutesAgo: joined_joinedMinutesAgo,
-  price: undefined,
-  isFull: false,
-  confirmedCount: 10,
-  waitlistCount: 0,
-  maxRsvps: 12,
-  cancelDeadlineHours: joined_cancelDeadlineHours,
-  shadow: false,
-  externalUrl: undefined,
-  cancelled: false,
-  chat: false,
-  cardRequiredOnJoin: false
-};
+newrecord.joinedMinutesAgo = 2 * 24 * 60;
 
-var full_cancelDeadlineHours = 24;
+newrecord.isJoined = true;
 
-var full = {
-  signedIn: true,
-  isJoined: false,
-  isWaitlisted: false,
-  isPending: false,
-  isUnpaid: false,
-  savedCard: undefined,
-  savedCardError: undefined,
-  joinedMinutesAgo: undefined,
-  price: undefined,
-  isFull: true,
-  confirmedCount: 12,
-  waitlistCount: 2,
-  maxRsvps: 12,
-  cancelDeadlineHours: full_cancelDeadlineHours,
-  shadow: false,
-  externalUrl: undefined,
-  cancelled: false,
-  chat: false,
-  cardRequiredOnJoin: false
-};
+var newrecord$1 = Caml_obj.obj_dup(base);
 
-var unpaid_joinedMinutesAgo = joined_joinedMinutesAgo;
+newrecord$1.waitlistCount = 2;
 
-var unpaid_price = 1500;
+newrecord$1.confirmedCount = 12;
 
-var unpaid_cancelDeadlineHours = 24;
+newrecord$1.isFull = true;
 
-var unpaid = {
-  signedIn: true,
-  isJoined: true,
-  isWaitlisted: false,
-  isPending: false,
-  isUnpaid: true,
-  savedCard: undefined,
-  savedCardError: undefined,
-  joinedMinutesAgo: unpaid_joinedMinutesAgo,
-  price: unpaid_price,
-  isFull: false,
-  confirmedCount: 10,
-  waitlistCount: 0,
-  maxRsvps: 12,
-  cancelDeadlineHours: unpaid_cancelDeadlineHours,
-  shadow: false,
-  externalUrl: undefined,
-  cancelled: false,
-  chat: false,
-  cardRequiredOnJoin: false
-};
+var newrecord$2 = Caml_obj.obj_dup(newrecord);
+
+newrecord$2.price = 1500;
+
+newrecord$2.isUnpaid = true;
 
 function presetOf(state) {
   if (state === "chat") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: joined_joinedMinutesAgo,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 10,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: true,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "full") {
-    return full;
-  } else if (state === "leaveWithWaitlist") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: 2 * 24 * 60,
-            price: undefined,
-            isFull: true,
-            confirmedCount: 12,
-            waitlistCount: 2,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "signedOut") {
-    return {
-            signedIn: false,
-            isJoined: false,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: undefined,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 9,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "gracePeriod") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: 12,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 10,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 96,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "unpaidNoCard") {
-    return unpaid;
-  } else if (state === "unpaidSavedCard") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: true,
-            savedCard: visa,
-            savedCardError: undefined,
-            joinedMinutesAgo: unpaid_joinedMinutesAgo,
-            price: 1500,
-            isFull: false,
-            confirmedCount: 10,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "savedCardError") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: true,
-            savedCard: visa,
-            savedCardError: "Your card was declined. Use a different card to hold your spot.",
-            joinedMinutesAgo: unpaid_joinedMinutesAgo,
-            price: 1500,
-            isFull: false,
-            confirmedCount: 10,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "waitlisted") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: true,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: 90,
-            price: undefined,
-            isFull: true,
-            confirmedCount: 12,
-            waitlistCount: 3,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "notJoined") {
-    return base;
-  } else if (state === "joined") {
-    return joined;
-  } else if (state === "deadlinePassed") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: joined_joinedMinutesAgo,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 10,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 96,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "externalEvent") {
-    return {
-            signedIn: true,
-            isJoined: false,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: undefined,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 8,
-            waitlistCount: 0,
-            maxRsvps: 16,
-            cancelDeadlineHours: undefined,
-            shadow: true,
-            externalUrl: "https://labola.jp/r/event/4821/",
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "notJoinedPriced") {
-    return {
-            signedIn: true,
-            isJoined: false,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: undefined,
-            price: 1500,
-            isFull: false,
-            confirmedCount: 9,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: true
-          };
-  } else if (state === "cancelled") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: joined_joinedMinutesAgo,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 10,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: true,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else if (state === "pending") {
-    return {
-            signedIn: true,
-            isJoined: true,
-            isWaitlisted: false,
-            isPending: true,
-            isUnpaid: false,
-            savedCard: undefined,
-            savedCardError: undefined,
-            joinedMinutesAgo: 45,
-            price: undefined,
-            isFull: false,
-            confirmedCount: 9,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
-  } else {
-    return {
-            signedIn: true,
-            isJoined: false,
-            isWaitlisted: false,
-            isPending: false,
-            isUnpaid: false,
-            savedCard: visa,
-            savedCardError: undefined,
-            joinedMinutesAgo: undefined,
-            price: 1500,
-            isFull: false,
-            confirmedCount: 9,
-            waitlistCount: 0,
-            maxRsvps: 12,
-            cancelDeadlineHours: 24,
-            shadow: false,
-            externalUrl: undefined,
-            cancelled: false,
-            chat: false,
-            cardRequiredOnJoin: false
-          };
+    var newrecord$3 = Caml_obj.obj_dup(newrecord);
+    newrecord$3.chat = true;
+    return newrecord$3;
   }
+  if (state === "full") {
+    return newrecord$1;
+  }
+  if (state === "leaveWithWaitlist") {
+    var newrecord$4 = Caml_obj.obj_dup(newrecord$1);
+    newrecord$4.joinedMinutesAgo = 2 * 24 * 60;
+    newrecord$4.isJoined = true;
+    return newrecord$4;
+  }
+  if (state === "signedOut") {
+    var newrecord$5 = Caml_obj.obj_dup(base);
+    newrecord$5.signedIn = false;
+    return newrecord$5;
+  }
+  if (state === "gracePeriod") {
+    var newrecord$6 = Caml_obj.obj_dup(newrecord);
+    newrecord$6.cancelDeadlineHours = 96;
+    newrecord$6.joinedMinutesAgo = 12;
+    return newrecord$6;
+  }
+  if (state === "unpaidNoCard") {
+    return newrecord$2;
+  }
+  if (state === "unpaidSavedCard") {
+    var newrecord$7 = Caml_obj.obj_dup(newrecord$2);
+    newrecord$7.savedCard = visa;
+    return newrecord$7;
+  }
+  if (state === "savedCardError") {
+    var newrecord$8 = Caml_obj.obj_dup(newrecord$2);
+    newrecord$8.savedCardError = "Your card was declined. Use a different card to hold your spot.";
+    newrecord$8.savedCard = visa;
+    return newrecord$8;
+  }
+  if (state === "waitlisted") {
+    var newrecord$9 = Caml_obj.obj_dup(newrecord$1);
+    newrecord$9.waitlistPosition = 2;
+    newrecord$9.waitlistCount = 3;
+    newrecord$9.joinedMinutesAgo = 90;
+    newrecord$9.isWaitlisted = true;
+    newrecord$9.isJoined = true;
+    return newrecord$9;
+  }
+  if (state === "notJoined") {
+    return base;
+  }
+  if (state === "joined") {
+    return newrecord;
+  }
+  if (state === "deadlinePassed") {
+    var newrecord$10 = Caml_obj.obj_dup(newrecord);
+    newrecord$10.cancelDeadlineHours = 96;
+    return newrecord$10;
+  }
+  if (state === "externalEvent") {
+    var newrecord$11 = Caml_obj.obj_dup(base);
+    newrecord$11.externalUrl = "https://labola.jp/r/event/4821/";
+    newrecord$11.shadow = true;
+    newrecord$11.cancelDeadlineHours = undefined;
+    newrecord$11.maxRsvps = 16;
+    newrecord$11.confirmedCount = 8;
+    return newrecord$11;
+  }
+  if (state === "notJoinedPriced") {
+    var newrecord$12 = Caml_obj.obj_dup(base);
+    newrecord$12.cardRequiredOnJoin = true;
+    newrecord$12.price = 1500;
+    return newrecord$12;
+  }
+  if (state === "cancelled") {
+    var newrecord$13 = Caml_obj.obj_dup(newrecord);
+    newrecord$13.cancelled = true;
+    return newrecord$13;
+  }
+  if (state === "pending") {
+    var newrecord$14 = Caml_obj.obj_dup(base);
+    newrecord$14.joinedMinutesAgo = 45;
+    newrecord$14.isPending = true;
+    newrecord$14.isJoined = true;
+    return newrecord$14;
+  }
+  var newrecord$15 = Caml_obj.obj_dup(base);
+  newrecord$15.price = 1500;
+  newrecord$15.savedCard = visa;
+  return newrecord$15;
 }
 
 function EventStickyFooterStory(props) {
@@ -516,6 +257,7 @@ function EventStickyFooterStory(props) {
                     isFull: p.isFull,
                     confirmedCount: p.confirmedCount,
                     waitlistCount: p.waitlistCount,
+                    waitlistPosition: p.waitlistPosition,
                     maxRsvps: p.maxRsvps,
                     tz: "Asia/Tokyo",
                     queryFragmentRefs: data.fragmentRefs,
@@ -535,6 +277,12 @@ function EventStickyFooterStory(props) {
 }
 
 var query = EventStickyFooterStoryQuery_graphql.node;
+
+var joined = newrecord;
+
+var full = newrecord$1;
+
+var unpaid = newrecord$2;
 
 var make = EventStickyFooterStory;
 

@@ -1062,6 +1062,11 @@ let make = (
   let (antiTeams: NonEmptyArray.t<array<Player.t<rsvpNode>>>, setAntiTeams) = React.useState(() =>
     NonEmptyArray.empty
   )
+  // Names given in the team editor, by team position. Teams are stored as
+  // player lists only, so the names last for the session; a team without one
+  // shows as "Team N".
+  let (teamNames: array<string>, setTeamNames) = React.useState(() => [])
+  let (antiTeamNames: array<string>, setAntiTeamNames) = React.useState(() => [])
 
   // Team management modal state
   let (teamManagementOpen, setTeamManagementOpen) = React.useState(() => false)
@@ -2154,6 +2159,8 @@ let make = (
     setIsDirty(_ => false)
     setTeams(_ => NonEmptyArray.empty)
     setAntiTeams(_ => NonEmptyArray.empty)
+    setTeamNames(_ => [])
+    setAntiTeamNames(_ => [])
     setPlayerOverrides(_ => Js.Dict.empty())
 
     setShowClearAllStorage(_ => false)
@@ -2376,6 +2383,17 @@ let make = (
       newSet
     })
 
+    // Names stay with the teams that still have someone in them.
+    let keepNames = (names, teams: NonEmptyArray.t<array<Player.t<rsvpNode>>>) =>
+      names->Array.filterWithIndex((_, i) =>
+        teams
+        ->NonEmptyArray.toArray
+        ->Array.get(i)
+        ->Option.mapOr(true, team => team->Array.some(p => p.id != playerId))
+      )
+    setTeamNames(names => names->keepNames(teams))
+    setAntiTeamNames(names => names->keepNames(antiTeams))
+
     // Remove from teams if present
     let updatedTeams =
       teams
@@ -2422,7 +2440,7 @@ let make = (
     ->Array.mapWithIndex((team, index) => {
       {
         TeamManagementModal.id: index,
-        name: ts`Team ${(index + 1)->Int.toString}`,
+        name: teamNames->Array.get(index)->Option.getOr(ts`Team ${(index + 1)->Int.toString}`),
         playerIds: team->Array.map(p => p.id),
       }
     })
@@ -2438,44 +2456,50 @@ let make = (
           ->Array.mapWithIndex((team, index) => {
             {
               TeamManagementModal.id: index,
-              name: ts`Anti-Team ${(index + 1)->Int.toString}`,
+              name: antiTeamNames
+              ->Array.get(index)
+              ->Option.getOr(ts`Anti-Team ${(index + 1)->Int.toString}`),
               playerIds: team->Array.map(p => p.id),
             }
           })}
           players={playersWithCounts}
           onSave={(updatedTeams, updatedAntiTeams) => {
             // Handle Teams
-            let newTeams = updatedTeams->Array.filterMap(teamData => {
+            let namedTeams = updatedTeams->Array.filterMap(teamData => {
               let teamPlayers =
                 teamData.playerIds->Array.filterMap(id =>
                   playersWithCounts->Array.find(p => p.id == id)
                 )
 
               if teamPlayers->Array.length > 0 {
-                Some(teamPlayers)
+                Some((teamPlayers, teamData.name))
               } else {
                 None
               }
             })
+            let newTeams = namedTeams->Array.map(fst)
 
             setTeams(_ => newTeams->NonEmptyArray.fromArray)
+            setTeamNames(_ => namedTeams->Array.map(snd))
             EventManagerPersistence.saveTeams(data.id, newTeams)
 
             // Handle Anti-Teams
-            let newAntiTeams = updatedAntiTeams->Array.filterMap(teamData => {
+            let namedAntiTeams = updatedAntiTeams->Array.filterMap(teamData => {
               let teamPlayers =
                 teamData.playerIds->Array.filterMap(id =>
                   playersWithCounts->Array.find(p => p.id == id)
                 )
 
               if teamPlayers->Array.length > 0 {
-                Some(teamPlayers)
+                Some((teamPlayers, teamData.name))
               } else {
                 None
               }
             })
+            let newAntiTeams = namedAntiTeams->Array.map(fst)
 
             setAntiTeams(_ => newAntiTeams->NonEmptyArray.fromArray)
+            setAntiTeamNames(_ => namedAntiTeams->Array.map(snd))
             EventManagerPersistence.saveAntiTeams(data.id, newAntiTeams)
 
             setTeamManagementOpen(_ => false)

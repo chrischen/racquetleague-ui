@@ -13,19 +13,36 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
-msgid "Add {0}Guest{1}"
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:138
+msgid "{previewCount, plural, one {{0}} other {{1}}}"
 msgstr ""
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:139
+msgid "Add {0} Guest"
+msgstr ""
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:140
+msgid "Add {0} Guests"
+msgstr ""
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:135
+#~ msgid "Add {0}Guest{1}"
+#~ msgstr ""
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:47
 msgid "Add Guest Players"
+msgstr ""
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:141
+msgid "Add Guests"
 msgstr ""
 
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:76
 msgid "Alex Johnson"
 msgstr ""
 
-#: src/components/organisms/AddGuestPlayersModal.re.mjs:127
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:130
 msgid "Cancel"
 msgstr ""
 
@@ -49,6 +66,14 @@ msgstr ""
 msgid "John Smith"
 msgstr ""
 
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:98
+msgid "Preview ({0} guest)"
+msgstr ""
+
 #: src/components/organisms/AddGuestPlayersModal.re.mjs:97
-msgid "Preview ({0} guest{1})"
+#~ msgid "Preview ({0} guest{1})"
+#~ msgstr ""
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
+msgid "Preview ({0} guests)"
 msgstr ""

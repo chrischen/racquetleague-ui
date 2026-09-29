@@ -13,8 +13,8 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PkEventRow.re.mjs:720
-#: src/components/organisms/PkEventRow.re.mjs:808
+#: src/components/organisms/PkEventRow.re.mjs:742
+#: src/components/organisms/PkEventRow.re.mjs:823
 msgid "[missing title]"
 msgstr "[タイトルがありません]"
 
@@ -35,7 +35,7 @@ msgstr "上級プレイヤー"
 msgid "Beginner"
 msgstr "初心者"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "自己紹介"
 
@@ -47,11 +47,11 @@ msgstr "自己紹介は必須です"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/components/organisms/PkEventRow.re.mjs:724
+#: src/components/organisms/PkEventRow.re.mjs:746
 msgid "Canceled"
 msgstr "キャンセル済み"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "プロフィールフォームを閉じる"
 
@@ -59,11 +59,11 @@ msgstr "プロフィールフォームを閉じる"
 msgid "Complete Beginner"
 msgstr "完全な初心者"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "プレイヤープロフィールを完成させる"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr ""
@@ -76,12 +76,12 @@ msgstr "確認"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "プロフィールを保存できませんでした。もう一度お試しください。"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "表示名"
 
@@ -93,11 +93,11 @@ msgstr "表示名は必須です"
 msgid "doubles"
 msgstr "ダブルス"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "メールアドレス"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -117,15 +117,16 @@ msgstr "イベントタグ: {tag}"
 msgid "External event"
 msgstr "外部イベント"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "イベントの更新と通知用"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "性別"
 
@@ -133,7 +134,7 @@ msgstr "性別"
 msgid "Highly skilled players"
 msgstr "高技能プレイヤー"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "他のプレイヤーへの表示"
 
@@ -145,7 +146,7 @@ msgstr "中級者"
 msgid "Intermediate+"
 msgstr "中級者+"
 
-#: src/components/organisms/PkEventRow.re.mjs:591
+#: src/components/organisms/PkEventRow.re.mjs:622
 msgid "Join"
 msgstr "参加"
 
@@ -153,19 +154,19 @@ msgstr "参加"
 msgid "Joined"
 msgstr "参加"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "プレイヤープロフィールをコミュニティに役立つ正確な情報に保ちましょう。"
 
-#: src/components/organisms/PkEventRow.re.mjs:590
+#: src/components/organisms/PkEventRow.re.mjs:621
 msgid "Leave"
 msgstr "退出"
 
-#: src/components/organisms/PkEventRow.re.mjs:993
+#: src/components/organisms/PkEventRow.re.mjs:1008
 msgid "Leave event"
 msgstr "イベントを退出"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "レベル"
 
@@ -173,7 +174,7 @@ msgstr "レベル"
 msgid "Lower intermediate and above"
 msgstr "初中級以上"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "男性"
 
@@ -185,7 +186,7 @@ msgstr "試合結果はDUPRに提出されます。"
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "後で"
 
@@ -211,8 +212,8 @@ msgstr "プレイヤー"
 msgid "players"
 msgstr "プレイヤー"
 
-#: src/components/atoms/EventTag.re.mjs:89
-#: src/components/atoms/EventTag.re.mjs:91
+#: src/components/atoms/EventTag.re.mjs:95
+#: src/components/atoms/EventTag.re.mjs:97
 msgid "Private"
 msgstr "非公開"
 
@@ -234,6 +235,10 @@ msgstr "暫定"
 msgid "Rated"
 msgstr "レーティング戦"
 
+#: src/components/atoms/EventTag.re.mjs:83
+msgid "Recreational"
+msgstr "レクリエーション"
+
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
 "Recreational play that will not be submitted to competitive ratings nor DUPR."
@@ -243,7 +248,7 @@ msgstr "競技レーティングやDUPRに提出されないレクリエーシ�
 msgid "Results will be submitted to competitive ratings."
 msgstr "結果は競技レーティングに提出されます。"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "プロフィールを保存"
 
@@ -251,7 +256,7 @@ msgstr "プロフィールを保存"
 msgid "Self-rated"
 msgstr "自己評価"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -267,7 +272,11 @@ msgstr "シングルス"
 msgid "Skills practice and drills focused on technique improvement"
 msgstr "技術向上に焦点を当てたスキル練習とドリル"
 
-#: src/components/organisms/PkEventRow.re.mjs:994
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "メールアドレスの形式ではないようです。"
+
+#: src/components/organisms/PkEventRow.re.mjs:1009
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -285,7 +294,7 @@ msgstr "このイベントは非公開です。主催者の許可なく共有し
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
 
-#: src/components/organisms/PkEventRow.re.mjs:591
+#: src/components/organisms/PkEventRow.re.mjs:622
 msgid "Waitlist"
 msgstr "キャンセル待ち"
 
@@ -293,7 +302,7 @@ msgstr "キャンセル待ち"
 msgid "Waitlisted"
 msgstr "キャンセル待ち中"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "イベント参加に必要な情報を入力してください"
 
@@ -304,6 +313,10 @@ msgstr "イベント参加に必要な情報を入力してください"
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "メールアドレスは変更できません"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "イベントの更新と通知用"
 
 #: src/components/organisms/ProfileModal.re.mjs:397
 #~ msgid "Prefer not to say"
@@ -316,11 +329,3 @@ msgstr "イベント参加に必要な情報を入力してください"
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "他の人に表示される名前です"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "メールアドレスの形式ではないようです。"

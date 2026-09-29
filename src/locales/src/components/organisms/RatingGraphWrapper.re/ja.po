@@ -17,7 +17,7 @@ msgstr ""
 msgid "Rating History"
 msgstr "レーティング履歴"
 
-#: src/components/molecules/RatingGraph.re.mjs:40
+#: src/components/molecules/RatingGraph.re.mjs:70
 msgid "Rating:"
 msgstr "評価："
 

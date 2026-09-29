@@ -30,8 +30,8 @@ function PlayerAvatar(props) {
   var __size = props.size;
   var size = __size !== undefined ? __size : "medium";
   var className = __className !== undefined ? __className : "";
-  var pictureUrl = Core__Option.flatMap(props.userFragmentRefs, (function (fragmentRefs) {
-          return use(fragmentRefs).picture;
+  var pictureUrl = Core__Option.flatMap(useOpt(props.userFragmentRefs), (function (userData) {
+          return userData.picture;
         }));
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsx(AvatarWithProgressBar.make, {

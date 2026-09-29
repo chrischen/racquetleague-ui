@@ -13,30 +13,30 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ScoreModal.re.mjs:112
+#: src/components/organisms/ScoreModal.re.mjs:116
 msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
-#: src/components/organisms/ScoreModal.re.mjs:257
+#: src/components/organisms/ScoreModal.re.mjs:261
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "比分相同 — 将记录为平局"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Losing Team (Team {0})"
 msgstr "输球队（队伍 {0}）"
 
-#: src/components/organisms/ScoreModal.re.mjs:266
+#: src/components/organisms/ScoreModal.re.mjs:270
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/organisms/ScoreModal.re.mjs:274
+#: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "保存比分"
 
-#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/ScoreModal.re.mjs:80
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"

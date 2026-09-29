@@ -21,7 +21,7 @@ msgstr "Bật"
 msgid "Match Count"
 msgstr "Số trận đấu"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:199
 msgid "no players yet"
 msgstr "chưa có người chơi"
 

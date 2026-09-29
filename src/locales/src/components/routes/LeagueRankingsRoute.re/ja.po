@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:664
+#: src/components/organisms/RatingList.re.mjs:693
 msgid "...load higher rated players"
 msgstr "... より高い評価のプレイヤーを読み込む"
 
@@ -25,7 +25,7 @@ msgstr "すべて"
 msgid "All Clubs"
 msgstr "すべてのクラブ"
 
-#: src/components/organisms/RatingList.re.mjs:773
+#: src/components/organisms/RatingList.re.mjs:802
 msgid "All players loaded"
 msgstr "全プレイヤーを読み込みました"
 
@@ -38,16 +38,16 @@ msgstr "競技ダブルス"
 msgid "Competitive Singles"
 msgstr "競技シングルス"
 
-#: src/components/organisms/RatingList.re.mjs:699
+#: src/components/organisms/RatingList.re.mjs:728
 msgid "Days #1"
 msgstr "日程 #1"
 
-#: src/components/organisms/RatingList.re.mjs:202
-#: src/components/organisms/RatingList.re.mjs:223
+#: src/components/organisms/RatingList.re.mjs:226
+#: src/components/organisms/RatingList.re.mjs:247
 msgid "Draft"
 msgstr "ドラフト"
 
-#: src/components/organisms/RatingList.re.mjs:731
+#: src/components/organisms/RatingList.re.mjs:760
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "ドラフト締切 · 上位8名が出場資格"
 
@@ -56,7 +56,7 @@ msgstr "ドラフト締切 · 上位8名が出場資格"
 msgid "Draft starts Tuesday, September 15, 2026"
 msgstr "ドラフト開始：2026年9月15日（火）"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:724
 msgid "Est. DUPR"
 msgstr "推定DUPR"
 
@@ -72,11 +72,11 @@ msgstr "性別で絞り込む"
 msgid "Live Standings"
 msgstr "ライブ順位"
 
-#: src/components/organisms/RatingList.re.mjs:638
+#: src/components/organisms/RatingList.re.mjs:667
 msgid "Load more players..."
 msgstr "もっとプレイヤーを読み込む..."
 
-#: src/components/organisms/RatingList.re.mjs:614
+#: src/components/organisms/RatingList.re.mjs:643
 msgid "Loading next standings"
 msgstr "次の順位を読み込み中"
 
@@ -88,7 +88,7 @@ msgstr "ランキングを読み込んでいます..."
 msgid "Men"
 msgstr "男性"
 
-#: src/components/organisms/RatingList.re.mjs:754
+#: src/components/organisms/RatingList.re.mjs:783
 msgid "No players found"
 msgstr "プレイヤーが見つかりません"
 
@@ -96,7 +96,7 @@ msgstr "プレイヤーが見つかりません"
 msgid "Over ￥200,000 in prizes"
 msgstr "賞金総額￥200,000以上"
 
-#: src/components/organisms/RatingList.re.mjs:687
+#: src/components/organisms/RatingList.re.mjs:716
 msgid "Player"
 msgstr "プレイヤー"
 
@@ -124,7 +124,7 @@ msgstr "プレーオフドラフト"
 msgid "Presented by"
 msgstr "提供："
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:720
 msgid "Rating"
 msgstr "評価"
 
@@ -179,11 +179,11 @@ msgstr ""
 "参加するには、トロフィーアイコン付きのイベント（競技レーティングイベント）に"
 "参加してレーティングを取得してください。"
 
-#: src/components/organisms/RatingList.re.mjs:758
+#: src/components/organisms/RatingList.re.mjs:787
 msgid "Try broadening your search or filters."
 msgstr "検索条件やフィルターを広げてお試しください。"
 
-#: src/components/organisms/RatingList.re.mjs:424
+#: src/components/organisms/RatingList.re.mjs:448
 msgid "View my profile"
 msgstr "マイプロフィールを見る"
 
@@ -191,11 +191,11 @@ msgstr "マイプロフィールを見る"
 msgid "Women"
 msgstr "女性"
 
-#: src/components/organisms/RatingList.re.mjs:360
+#: src/components/organisms/RatingList.re.mjs:384
 msgid "You"
 msgstr "あなた"
 
-#: src/components/organisms/RatingList.re.mjs:308
+#: src/components/organisms/RatingList.re.mjs:332
 msgid "Your standing"
 msgstr "あなたの順位"
 

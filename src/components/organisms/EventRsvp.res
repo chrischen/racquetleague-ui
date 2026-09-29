@@ -120,12 +120,12 @@ let make = (
           switch rsvp.paid {
           | Some(1) =>
             <span
-              className="ml-2 inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
+              className="ml-2 inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">
               {t`Paid`}
             </span>
           | _ =>
             <span
-              className="ml-2 inline-flex items-center rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
+              className="ml-2 inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-full bg-yellow-100 px-2 py-0.5 text-xs font-medium text-yellow-800">
               {t`Not paid`}
             </span>
           }

@@ -13,33 +13,34 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr ""

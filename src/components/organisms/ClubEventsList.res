@@ -90,6 +90,7 @@ module Day = {
   @react.component
   let make = (
     ~label: string,
+    ~triggerLabel: string,
     ~dateDetails: string,
     ~date: Js.Date.t,
     ~events: array<ClubEventsListFragment_graphql.Types.fragment_events_edges_node>,
@@ -158,7 +159,7 @@ module Day = {
         onCreateEvent={intent => onHostEvent(isoDate, intent, ~tags=levelTags)}
         renderHeader
         requireProfile
-        triggerLabel={ts`Add to ${label->String.toLowerCase}`}
+        triggerLabel
         triggerIcon={<Lucide.Plus size=11 />}
         ?clubSlug
         ?hostOptions
@@ -379,17 +380,22 @@ let make = (
       ReactIntl.dateTimeFormatOptions(~month=#short, ~day=#numeric, ()),
     )
 
-  let getBucketMeta = (key: string): (string, string, Js.Date.t) =>
+  // (heading, date details, date, the day's "Add to <day>" trigger). The
+  // trigger is its own message per kind of day, so weekday names keep their
+  // capital in English ("Add to Friday") instead of lowercasing the heading.
+  let getBucketMeta = (key: string): (string, string, Js.Date.t, string) =>
     switch key {
     | "today" => (
         ts`Today`,
         formatDate(bucketSetup.dateFromOffset(0.)),
         bucketSetup.dateFromOffset(0.),
+        ts`Add to today`,
       )
     | "tomorrow" => (
         ts`Tomorrow`,
         formatDate(bucketSetup.dateFromOffset(1.)),
         bucketSetup.dateFromOffset(1.),
+        ts`Add to tomorrow`,
       )
     | _ =>
       let (isNextWeek, dayIndex, date) = EventsListUtils.getBucketDateDetails(
@@ -407,14 +413,14 @@ let make = (
       | 6 => ts`Saturday`
       | _ => ""
       }
-      let label = if n == -1 {
-        ts`Yesterday`
+      let (label, triggerLabel) = if n == -1 {
+        (ts`Yesterday`, ts`Add to yesterday`)
       } else if isNextWeek {
-        ts`Next ${dayName}`
+        (ts`Next ${dayName}`, ts`Add to next ${dayName}`)
       } else {
-        dayName
+        (dayName, ts`Add to ${dayName}`)
       }
-      (label, formatDate(date), date)
+      (label, formatDate(date), date, triggerLabel)
     }
 
   let eventDates =
@@ -435,11 +441,12 @@ let make = (
     bucketEventsDict
     ->Js.Dict.get(key)
     ->Option.map(bucketEvents => {
-      let (label, dateDetails, date) = getBucketMeta(key)
+      let (label, dateDetails, date, triggerLabel) = getBucketMeta(key)
       (
         key,
         <Day
           label
+          triggerLabel
           dateDetails
           date
           events=bucketEvents

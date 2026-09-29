@@ -78,11 +78,7 @@ msgstr "移除此 RSVP"
 msgid "Retry charge"
 msgstr "重试扣款"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "查看全部"
-
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "收起"
 
@@ -97,3 +93,7 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:313
 msgid "View Profile"
 msgstr "查看资料"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "查看全部"

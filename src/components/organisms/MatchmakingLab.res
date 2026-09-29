@@ -976,10 +976,10 @@ let make = () => {
               (),
             )}>
             <span style={ReactDOM.Style.make(~color=ratingBlue, ())}> {"|"->React.string} </span>
-            {ts` rating · `->React.string}
+            {(" " ++ ts`rating ·` ++ " ")->React.string}
             <span style={ReactDOM.Style.make(~color=truthRed, ())}> {"|"->React.string} </span>
-            {ts` true skill`->React.string}
-            {ts` · players marked ↑ ↑↑ ↓ are improving or slipping as the session runs`
+            {(" " ++ ts`true skill`)->React.string}
+            {(" " ++ ts`· players marked ↑ ↑↑ ↓ are improving or slipping as the session runs`)
             ->React.string}
             {switch scenarioFlag(r.scenario) {
             | Some(label) =>
@@ -1534,9 +1534,9 @@ let make = () => {
                   : ts`± is the standard error over ${Int.toString(
                       seedCount,
                     )} seeds. Bold marks a value nothing else is within error of.`)->React.string}
-                {ts` Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Int.toString(
+                {(" " ++ ts`Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Int.toString(
                     Js.Math.min_int(round, summaryWindow(~round)),
-                  )} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better).`->React.string}
+                  )} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better).`)->React.string}
               </div>
             </>
           }

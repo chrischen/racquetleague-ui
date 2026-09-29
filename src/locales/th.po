@@ -8837,6 +8837,171 @@ msgstr "ลิงก์นี้หมดอายุแล้ว โปรด�
 msgid "This link is incomplete. Open it from the email again."
 msgstr "ลิงก์นี้ไม่สมบูรณ์ โปรดเปิดจากอีเมลอีกครั้ง"
 
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+msgid "24 players · 4 courts"
+msgstr "ผู้เล่น 24 คน · 4 สนาม"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:138
+msgid "{previewCount, plural, one {{0}} other {{1}}}"
+msgstr "{previewCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:139
+msgid "Add {0} Guest"
+msgstr "เพิ่มผู้เล่นรับเชิญ {0} คน"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:140
+msgid "Add {0} Guests"
+msgstr "เพิ่มผู้เล่นรับเชิญ {0} คน"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:141
+msgid "Add Guests"
+msgstr "เพิ่มผู้เล่นรับเชิญ"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:98
+msgid "Preview ({0} guest)"
+msgstr "ตัวอย่าง (ผู้เล่นรับเชิญ {0} คน)"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
+msgid "Preview ({0} guests)"
+msgstr "ตัวอย่าง (ผู้เล่นรับเชิญ {0} คน)"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:458
+msgid "{position} in queue"
+msgstr "อันดับ {position} ในคิว"
+
+#: src/components/organisms/ClubEventsList.re.mjs:452
+msgid "Add to {dayName}"
+msgstr "เพิ่มใน{dayName}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:449
+msgid "Add to next {dayName}"
+msgstr "เพิ่มใน{dayName}หน้า"
+
+#: src/components/organisms/ClubEventsList.re.mjs:404
+msgid "Add to today"
+msgstr "เพิ่มในวันนี้"
+
+#: src/components/organisms/ClubEventsList.re.mjs:411
+msgid "Add to tomorrow"
+msgstr "เพิ่มในพรุ่งนี้"
+
+#: src/components/organisms/ClubEventsList.re.mjs:445
+msgid "Add to yesterday"
+msgstr "เพิ่มในเมื่อวาน"
+
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
+msgstr "ไม่สามารถโหลดแบบฟอร์มบัตรได้ ตรวจสอบการเชื่อมต่อหรือปิดตัวบล็อกเนื้อหา แล้วลองใหม่อีกครั้ง"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "ไม่สามารถโหลดแบบฟอร์มบัตรได้ ปิดหน้านี้แล้วลองใหม่อีกครั้ง"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText} {minutesText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "ปรับลำดับวางผู้เล่น"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:159
+msgid "Delete seed adjustment"
+msgstr "ลบการปรับลำดับวาง"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "จัดการทีม"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "ชื่อผู้เล่น"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "การตั้งค่าผู้เล่น"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "ชนะ"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play {dayName}"
+msgstr "เล่น{dayName}"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play next {dayName}"
+msgstr "เล่น{dayName}หน้า"
+
+#: src/components/organisms/PkEventsList.re.mjs:435
+msgid "Play tomorrow"
+msgstr "เล่นพรุ่งนี้"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "อีเมลบัญชีใหม่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "เปิดลิงก์เพื่อใช้เป็นอีเมลบัญชีของคุณ จนกว่าจะเปิด จะไม่มีอะไรเปลี่ยนแปลง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "ส่งลิงก์"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "เราได้ส่งลิงก์ไปที่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "เราจะส่งลิงก์ไปยังที่อยู่ใหม่ ที่อยู่ปัจจุบันของคุณจะยังคงเป็นอีเมลรับการจอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "บัญชีของคุณยังไม่มีอีเมล ที่อยู่แรกที่คุณยืนยันที่นี่จะเป็นอีเมลบัญชีของคุณ"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+msgid "Courts · thickness = count"
+msgstr "คอร์ต · ความหนา = จำนวน"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:185
+msgid "Account email changed"
+msgstr "เปลี่ยนอีเมลบัญชีแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:247
+msgid "is now your account email."
+msgstr "เป็นอีเมลบัญชีของคุณแล้ว"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:75
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "ลิงก์นี้ใช้ไม่ได้ โปรดเปิดจากอีเมลอีกครั้ง หรือขอลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:81
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "ลิงก์นี้ถูกใช้ไปแล้ว หรืออีเมลบัญชีของคุณถูกเปลี่ยนหลังจากส่งลิงก์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:79
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "ลิงก์นี้หมดอายุแล้ว โปรดขอลิงก์ใหม่จากการตั้งค่าโปรไฟล์"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "คุณลงชื่อเข้าใช้บัญชีอื่นอยู่ โปรดออกจากระบบ แล้วเปิดลิงก์อีกครั้ง"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:189
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "บัญชีของคุณใช้ที่อยู่ใหม่แล้ว ที่อยู่เดิมจะถูกเก็บไว้เป็นอีเมลรับการจอง ซึ่งคุณสามารถลบได้ในการตั้งค่าโปรไฟล์"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -8921,11 +9086,6 @@ msgstr "ลิงก์นี้ไม่สมบูรณ์ โปรดเ�
 #, fuzzy
 #~ msgid "· % chance the game ends level · same strategy, three rooms"
 #~ msgstr "· % โอกาสที่เกมจะจบแบบเสมอกัน · เส้นทึบ: Competitive+ · เส้นประ: สุ่ม, หลีกเลี่ยงคู่ซ้ำ"
-
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
-#~ msgstr "ผู้เล่น 24 คน · 4 สนาม"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029
 #, fuzzy

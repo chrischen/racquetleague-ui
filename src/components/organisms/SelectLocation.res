@@ -56,7 +56,12 @@ let make = (~locations) => {
                 )
                 ->React.array}
               </ul>
-              <a href="#" onClick={_ => setShowCreateLocation(prev => !prev)}>
+              <a
+                href="#"
+                onClick={e => {
+                  ReactEvent.Mouse.preventDefault(e)
+                  setShowCreateLocation(prev => !prev)
+                }}>
                 {(showCreateLocation ? "- " : "+ ")->React.string}
                 {t`add new location`}
               </a>

@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:664
+#: src/components/organisms/RatingList.re.mjs:693
 msgid "...load higher rated players"
 msgstr "...tải người chơi xếp hạng cao hơn"
 
@@ -25,7 +25,7 @@ msgstr "Tất cả"
 msgid "All Clubs"
 msgstr "Tất cả câu lạc bộ"
 
-#: src/components/organisms/RatingList.re.mjs:773
+#: src/components/organisms/RatingList.re.mjs:802
 msgid "All players loaded"
 msgstr "Đã tải tất cả người chơi"
 
@@ -38,16 +38,16 @@ msgstr "Đôi thi đấu"
 msgid "Competitive Singles"
 msgstr "Đơn thi đấu"
 
-#: src/components/organisms/RatingList.re.mjs:699
+#: src/components/organisms/RatingList.re.mjs:728
 msgid "Days #1"
 msgstr "Ngày #1"
 
-#: src/components/organisms/RatingList.re.mjs:202
-#: src/components/organisms/RatingList.re.mjs:223
+#: src/components/organisms/RatingList.re.mjs:226
+#: src/components/organisms/RatingList.re.mjs:247
 msgid "Draft"
 msgstr "Nháp"
 
-#: src/components/organisms/RatingList.re.mjs:731
+#: src/components/organisms/RatingList.re.mjs:760
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "Hạn chót nháp · Top 8 vào vòng chính"
 
@@ -56,7 +56,7 @@ msgstr "Hạn chót nháp · Top 8 vào vòng chính"
 msgid "Draft starts Tuesday, September 15, 2026"
 msgstr "Draft bắt đầu vào Thứ Ba, ngày 15 tháng 9 năm 2026"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:724
 msgid "Est. DUPR"
 msgstr "DUPR ước tính"
 
@@ -72,11 +72,11 @@ msgstr "Lọc theo giới tính"
 msgid "Live Standings"
 msgstr "Bảng xếp hạng trực tiếp"
 
-#: src/components/organisms/RatingList.re.mjs:638
+#: src/components/organisms/RatingList.re.mjs:667
 msgid "Load more players..."
 msgstr "Tải thêm người chơi..."
 
-#: src/components/organisms/RatingList.re.mjs:614
+#: src/components/organisms/RatingList.re.mjs:643
 msgid "Loading next standings"
 msgstr "Đang tải bảng xếp hạng tiếp theo"
 
@@ -88,7 +88,7 @@ msgstr "Đang tải bảng xếp hạng..."
 msgid "Men"
 msgstr "Nam"
 
-#: src/components/organisms/RatingList.re.mjs:754
+#: src/components/organisms/RatingList.re.mjs:783
 msgid "No players found"
 msgstr "Không tìm thấy người chơi"
 
@@ -96,7 +96,7 @@ msgstr "Không tìm thấy người chơi"
 msgid "Over ￥200,000 in prizes"
 msgstr "Giải thưởng trị giá hơn ¥200,000"
 
-#: src/components/organisms/RatingList.re.mjs:687
+#: src/components/organisms/RatingList.re.mjs:716
 msgid "Player"
 msgstr "Người chơi"
 
@@ -125,7 +125,7 @@ msgstr "Vòng Chung Kết Draft"
 msgid "Presented by"
 msgstr "Được tài trợ bởi"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:720
 msgid "Rating"
 msgstr "Xếp hạng"
 
@@ -183,11 +183,11 @@ msgstr ""
 "Để tham gia, hãy đăng ký bất kỳ sự kiện nào có biểu tượng cúp (sự kiện thi "
 "đấu có xếp hạng) để nhận điểm xếp hạng."
 
-#: src/components/organisms/RatingList.re.mjs:758
+#: src/components/organisms/RatingList.re.mjs:787
 msgid "Try broadening your search or filters."
 msgstr "Hãy mở rộng tìm kiếm hoặc bộ lọc của bạn."
 
-#: src/components/organisms/RatingList.re.mjs:424
+#: src/components/organisms/RatingList.re.mjs:448
 msgid "View my profile"
 msgstr "Xem hồ sơ của tôi"
 
@@ -195,11 +195,11 @@ msgstr "Xem hồ sơ của tôi"
 msgid "Women"
 msgstr "Nữ"
 
-#: src/components/organisms/RatingList.re.mjs:360
+#: src/components/organisms/RatingList.re.mjs:384
 msgid "You"
 msgstr "Bạn"
 
-#: src/components/organisms/RatingList.re.mjs:308
+#: src/components/organisms/RatingList.re.mjs:332
 msgid "Your standing"
 msgstr "Thứ hạng của bạn"
 

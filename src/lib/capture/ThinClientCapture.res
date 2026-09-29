@@ -12,5 +12,7 @@ let make = (~onStatus as _: CaptureSession.status => unit): CaptureSession.t => 
   },
   start: _stream => Promise.resolve(Error(CaptureSession.NotImplemented)),
   takeClip: (~seconds as _=?) => Promise.resolve(Error(CaptureSession.ClipUnavailable)),
+  takeSegment: (~afterUs as _, ~includeOpen as _) =>
+    Promise.resolve(Error(CaptureSession.ClipUnavailable)),
   stop: () => (),
 }

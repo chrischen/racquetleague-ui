@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:191
+#: src/components/organisms/ClubActivitySelector.re.mjs:203
 msgid "+ Add new club..."
 msgstr "+ เพิ่มคลับใหม่..."
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:243
+#: src/components/organisms/ClubActivitySelector.re.mjs:255
 msgid "Activity"
 msgstr "กิจกรรม"
 
@@ -29,11 +29,11 @@ msgstr "คำอธิบายสั้นๆ เกี่ยวกับค�
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:174
+#: src/components/organisms/ClubActivitySelector.re.mjs:186
 msgid "Club"
 msgstr "คลับ"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:362
+#: src/components/organisms/ClubActivitySelector.re.mjs:374
 msgid "Club & Activity"
 msgstr "คลับและกิจกรรม"
 
@@ -61,7 +61,7 @@ msgstr "กิจกรรมเริ่มต้นของคลับ"
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:276
+#: src/components/organisms/ClubActivitySelector.re.mjs:288
 msgid "Done"
 msgstr "เสร็จ"
 
@@ -69,10 +69,10 @@ msgstr "เสร็จ"
 msgid "e.g., City Ballers Club"
 msgstr "เช่น คลับซิตี้บอลเลอร์"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:324
+#: src/components/organisms/ClubActivitySelector.re.mjs:336
 msgid "No club"
 msgstr "ไม่มีคลับ"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:181
+#: src/components/organisms/ClubActivitySelector.re.mjs:193
 msgid "No club / Independent event"
 msgstr "ไม่มีคลับ / กิจกรรมอิสระ"

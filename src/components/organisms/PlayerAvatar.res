@@ -28,10 +28,8 @@ let make = (
   ~className: string="",
   ~style: option<ReactDOM.Style.t>=?,
 ) => {
-  let pictureUrl = userFragmentRefs->Option.flatMap(fragmentRefs => {
-    let userData = Fragment.use(fragmentRefs)
-    userData.picture
-  })
+  // useOpt keeps the hook unconditional whether or not a user ref is passed.
+  let pictureUrl = Fragment.useOpt(userFragmentRefs)->Option.flatMap(userData => userData.picture)
 
   <div className style=?style>
     <AvatarWithProgressBar ?pictureUrl name skillLevel size containerClassName=className />

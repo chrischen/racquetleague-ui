@@ -86,7 +86,7 @@ export const LocationClub: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await userEvent.click(await canvas.findByRole("button", { name: /Add to saturday/ }));
+    await userEvent.click(await canvas.findByRole("button", { name: /Add to Saturday/ }));
     const legend = await canvas.findByText("Skill level");
     await waitFor(() => expect(legend).toBeVisible());
   },

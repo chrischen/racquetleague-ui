@@ -54,12 +54,32 @@ msgid "all level"
 msgstr "所有级别"
 
 #: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hour"
+msgstr "{0} 小时"
+
+#: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours"
 msgstr "{0} 小时"
 
-#: src/components/organisms/EventHeader.re.mjs:56
-msgid "{0} hours and {1} minutes"
-msgstr "{0} 小时 {1} 分钟"
+#: src/components/organisms/EventHeader.re.mjs:58
+msgid "{0} minute"
+msgstr "{0} 分钟"
+
+#: src/components/organisms/EventHeader.re.mjs:59
+msgid "{0} minutes"
+msgstr "{0} 分钟"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText} {minutesText}"
+
+#: src/components/organisms/EventHeader.re.mjs:57
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
 
 #: src/components/organisms/GoingRsvps.re.mjs:105
 msgid "+{0} more"
@@ -98,7 +118,7 @@ msgstr "您确定要将这个人从活动中移除吗？"
 msgid "Beginner"
 msgstr "初级"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "个人简介"
 
@@ -114,7 +134,7 @@ msgstr "取消"
 msgid "cancel event"
 msgstr "取消活动"
 
-#: src/components/organisms/EventHeader.re.mjs:79
+#: src/components/organisms/EventHeader.re.mjs:89
 msgid "CANCELED"
 msgstr "已取消"
 
@@ -134,7 +154,7 @@ msgstr "收取款项"
 msgid "Clear preview"
 msgstr "清除预览"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "关闭个人资料表单"
 
@@ -146,11 +166,11 @@ msgstr "折叠"
 msgid "Complete Beginner"
 msgstr "完全初学者"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "完善您的球员档案"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "在与球员和主办方分享空闲时间之前，请先完善您的个人资料。"
@@ -161,12 +181,12 @@ msgstr "确认"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "无法保存您的个人资料，请重试。"
 
-#: src/components/organisms/MatchCard.re.mjs:396
+#: src/components/organisms/MatchCard.re.mjs:399
 msgid "Court {0}"
 msgstr "场地 {0}"
 
@@ -178,21 +198,21 @@ msgstr "场地 {0} - 编辑中"
 msgid "Courts:"
 msgstr "场地数："
 
-#: src/components/organisms/EventHeader.re.mjs:175
+#: src/components/organisms/EventHeader.re.mjs:185
 msgid "Date TBD"
 msgstr "日期待定"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
-#: src/components/organisms/MatchCard.re.mjs:437
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "Delete match"
 msgstr "删除比赛"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:444
 msgid "Delete this match?"
 msgstr "删除这场比赛？"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "显示名称"
 
@@ -208,15 +228,15 @@ msgstr "双打"
 msgid "edit event"
 msgstr "编辑活动"
 
-#: src/components/organisms/MatchCard.re.mjs:450
+#: src/components/organisms/MatchCard.re.mjs:453
 msgid "Edit match"
 msgstr "编辑比赛"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "电子邮件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -228,11 +248,11 @@ msgstr ""
 msgid "Email is required"
 msgstr "请输入电子邮件"
 
-#: src/components/organisms/ScoreModal.re.mjs:112
+#: src/components/organisms/ScoreModal.re.mjs:116
 msgid "Enter Match Score"
 msgstr "输入比赛比分"
 
-#: src/components/organisms/ScoreModal.re.mjs:257
+#: src/components/organisms/ScoreModal.re.mjs:261
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "比分相同 — 将记录为平局"
 
@@ -252,15 +272,16 @@ msgstr "找不到活动"
 msgid "Event tag: {tag}"
 msgstr "活动标签：{tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "用于活动更新和通知"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用于活动更新和通知。我们会发送确认链接给您。"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "性别"
 
@@ -276,7 +297,7 @@ msgstr "谷歌日历"
 msgid "Highly skilled players"
 msgstr "高技能球员"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "其他球员看到您的方式"
 
@@ -304,11 +325,11 @@ msgstr "从等待列表加入"
 msgid "joined the event"
 msgstr "加入了活动"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球员档案准确，为社区提供有用信息。"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Last Round"
 msgstr "上一轮"
 
@@ -316,7 +337,7 @@ msgstr "上一轮"
 msgid "left the event"
 msgstr "退出了活动"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "级别"
 
@@ -336,7 +357,7 @@ msgstr "场地详情"
 msgid "Login to Join"
 msgstr "登录加入"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Losing Team (Team {0})"
 msgstr "输球队（队伍 {0}）"
 
@@ -344,7 +365,7 @@ msgstr "输球队（队伍 {0}）"
 msgid "Lower intermediate and above"
 msgstr "中级初级及以上"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "男性"
 
@@ -369,11 +390,11 @@ msgstr "未找到球员"
 msgid "No restriction on skill level. Open to all players."
 msgstr "没有技能等级限制。对所有球员开放。"
 
-#: src/components/organisms/ScoreModal.re.mjs:266
+#: src/components/organisms/ScoreModal.re.mjs:270
 msgid "No Score"
 msgstr "无比分"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "暂不"
 
@@ -414,8 +435,8 @@ msgstr "预览智能报名"
 msgid "Previewing…"
 msgstr "预览中…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "非公开"
 
@@ -437,14 +458,18 @@ msgstr "职业球员"
 msgid "provisional"
 msgstr "临时"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "计分赛"
 
-#: src/components/organisms/MatchCard.re.mjs:404
+#: src/components/organisms/MatchCard.re.mjs:407
 msgid "Rebalance match"
 msgstr "重新平衡比赛"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "休闲"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -463,7 +488,7 @@ msgstr "从活动中移除"
 msgid "Remove this RSVP"
 msgstr "移除此 RSVP"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Repeat"
 msgstr "重复"
 
@@ -506,17 +531,13 @@ msgstr "立即运行智能报名"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "保存个人资料"
 
-#: src/components/organisms/ScoreModal.re.mjs:274
+#: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "保存比分"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "查看全部"
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
@@ -526,13 +547,13 @@ msgstr "自评"
 msgid "Send"
 msgstr "发送"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
 msgstr "分享一些关于您自己的信息，让组织者或其他球员了解为何应该邀请您。"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "收起"
 
@@ -561,7 +582,7 @@ msgstr "状态信息"
 msgid "sync calendar"
 msgstr "同步日历"
 
-#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/ScoreModal.re.mjs:80
 msgid "Team {0}"
 msgstr "第 {0} 队"
 
@@ -573,8 +594,12 @@ msgstr "队伍 1"
 msgid "TEAM 2"
 msgstr "队伍 2"
 
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "这看起来不像邮箱地址。"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-#: src/components/organisms/MatchCard.re.mjs:442
+#: src/components/organisms/MatchCard.re.mjs:445
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -616,7 +641,7 @@ msgstr ""
 "此用户将从已参加/候补名单中移除。如果您将其重新加入，原有位置将丢失。确定要限"
 "制其报名吗？"
 
-#: src/components/organisms/EventHeader.re.mjs:211
+#: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
 msgstr "时间待定"
 
@@ -631,11 +656,11 @@ msgstr "输入状态信息让大家看到...比如'我将于19:00到达'。"
 msgid "uncancel event"
 msgstr "取消取消活动"
 
-#: src/components/organisms/EventHeader.re.mjs:117
+#: src/components/organisms/EventHeader.re.mjs:127
 msgid "Unknown club"
 msgstr "未知俱乐部"
 
-#: src/components/organisms/EventHeader.re.mjs:247
+#: src/components/organisms/EventHeader.re.mjs:257
 msgid "Unknown location"
 msgstr "未知地点"
 
@@ -652,12 +677,12 @@ msgid "View Profile"
 msgstr "查看资料"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
-#: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/MatchCard.re.mjs:589
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "等待列表"
 
@@ -673,11 +698,11 @@ msgstr "已被邀请参加活动"
 msgid "was removed from the event by admin"
 msgstr "已被管理员从活动中移除"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "在您参加此活动之前，我们需要一些信息"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Winning Team (Team {0})"
 msgstr "获胜队（队伍 {0}）"
 
@@ -706,6 +731,10 @@ msgstr ""
 "您的评分 {0} ~ {1}（DUPR {2} ~ {3}）过低。您将被放在待审核列表中，直到评分限"
 "制降低。请参加其他 JPL 评级活动来提高您的评分。"
 
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0} 小时 {1} 分钟"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 #~ msgid "Complete your profile"
 #~ msgstr "完善个人资料"
@@ -713,6 +742,10 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "电子邮件不能更改"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用于活动更新和通知"
 
 #: src/components/organisms/RSVPSection.re.mjs:424
 #~ msgid "Join"
@@ -751,6 +784,10 @@ msgstr ""
 #~ msgid "Score"
 #~ msgstr "比分"
 
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "查看全部"
+
 #: src/components/organisms/RSVPSection.re.mjs:516
 #~ msgid "Show all"
 #~ msgstr "查看全部"
@@ -762,11 +799,3 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "这是其他人会看到的名字"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "用于活动更新和通知。我们会发送确认链接给您。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "这看起来不像邮箱地址。"

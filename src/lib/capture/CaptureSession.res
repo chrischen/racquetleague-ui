@@ -73,6 +73,20 @@ type clip = {
   // the clip's real playback timeline, for mapping analysis time (frame/fps)
   // onto it (see FrameTimeline). Empty when a backend cannot provide it.
   frameTimes: array<float>,
+  // The first frame's capture time on the session's stream clock (seconds) —
+  // where the clip sits in a live analysis stream (auto-clip / Challenge).
+  startSeconds: float,
+}
+
+// A slice of the ring for live analysis: whole GOPs, video only, muxed.
+type segment = {
+  segmentBlob: blob,
+  // First frame's capture time on the stream clock (seconds).
+  segmentStartSeconds: float,
+  // The last included GOP's keyframe time (µs) — pass it back as ``afterUs``
+  // to continue exactly where this segment ended.
+  lastGopUs: float,
+  segmentDurationSeconds: float,
 }
 
 type startError =
@@ -103,6 +117,12 @@ type t = {
   // the full ring. The cut lands on a GOP boundary, so the result can be
   // slightly longer than asked.
   takeClip: (~seconds: float=?) => promise<result<clip, clipError>>,
+  // The GOPs captured after ``afterUs`` (µs, from a previous segment's
+  // ``lastGopUs``; any negative value for the first call), muxed video-only
+  // for the live analysis stream. Closed GOPs only unless ``includeOpen`` (a
+  // Challenge wants the freshest frames; the server ignores re-sent ones).
+  // Error(BufferEmpty) when nothing new has closed yet.
+  takeSegment: (~afterUs: float, ~includeOpen: bool) => promise<result<segment, clipError>>,
   // Idempotent teardown. Does NOT stop the MediaStream tracks.
   stop: unit => unit,
 }

@@ -9079,6 +9079,171 @@ msgstr "このリンクは有効期限が切れています。プロフィール
 msgid "This link is incomplete. Open it from the email again."
 msgstr "リンクが不完全です。メールからもう一度開いてください。"
 
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+msgid "24 players · 4 courts"
+msgstr "24人 · 4コート"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:138
+msgid "{previewCount, plural, one {{0}} other {{1}}}"
+msgstr "{previewCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:139
+msgid "Add {0} Guest"
+msgstr "ゲスト{0}名を追加"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:140
+msgid "Add {0} Guests"
+msgstr "ゲスト{0}名を追加"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:141
+msgid "Add Guests"
+msgstr "ゲストを追加"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:98
+msgid "Preview ({0} guest)"
+msgstr "プレビュー（ゲスト{0}名）"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
+msgid "Preview ({0} guests)"
+msgstr "プレビュー（ゲスト{0}名）"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:458
+msgid "{position} in queue"
+msgstr "待ち{position}番目"
+
+#: src/components/organisms/ClubEventsList.re.mjs:452
+msgid "Add to {dayName}"
+msgstr "{dayName}に追加"
+
+#: src/components/organisms/ClubEventsList.re.mjs:449
+msgid "Add to next {dayName}"
+msgstr "次の{dayName}に追加"
+
+#: src/components/organisms/ClubEventsList.re.mjs:404
+msgid "Add to today"
+msgstr "今日に追加"
+
+#: src/components/organisms/ClubEventsList.re.mjs:411
+msgid "Add to tomorrow"
+msgstr "明日に追加"
+
+#: src/components/organisms/ClubEventsList.re.mjs:445
+msgid "Add to yesterday"
+msgstr "昨日に追加"
+
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
+msgstr "カードフォームを読み込めませんでした。接続を確認するか、コンテンツブロッカーをオフにして、もう一度お試しください。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "カードフォームを読み込めませんでした。これを閉じて、もう一度お試しください。"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText}{minutesText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "シードを調整"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:159
+msgid "Delete seed adjustment"
+msgstr "シード調整を削除"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "チーム管理"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "プレーヤー名"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "プレーヤー設定"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "勝利"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play {dayName}"
+msgstr "{dayName}にプレー"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play next {dayName}"
+msgstr "次の{dayName}にプレー"
+
+#: src/components/organisms/PkEventsList.re.mjs:435
+msgid "Play tomorrow"
+msgstr "明日プレー"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "新しいアカウントのメールアドレス"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "リンクを開くと、アカウントのメールアドレスになります。それまでは何も変わりません。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "リンクを送信"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "リンクを送信しました:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "新しいアドレスにリンクをメールで送ります。現在のアドレスは受信用メールアドレスとして残ります。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "アカウントにはまだメールアドレスがありません。ここで最初に確認したアドレスがアカウントのメールアドレスになります。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+msgid "Courts · thickness = count"
+msgstr "コート · 太さ＝回数"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:185
+msgid "Account email changed"
+msgstr "アカウントのメールアドレスを変更しました"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:247
+msgid "is now your account email."
+msgstr "がアカウントのメールアドレスになりました。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:75
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "このリンクは使えません。メールからもう一度開くか、プロフィール設定から新しいリンクをリクエストしてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:81
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "このリンクはすでに使用済みか、送信後にアカウントのメールアドレスが変更されています。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:79
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "このリンクは有効期限が切れています。プロフィール設定から新しいリンクをリクエストしてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "別のアカウントでログインしています。ログアウトしてから、もう一度リンクを開いてください。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:189
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "アカウントは新しいメールアドレスを使うようになりました。以前のアドレスは受信用メールアドレスとして残り、プロフィール設定から削除できます。"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -9223,11 +9388,6 @@ msgstr "リンクが不完全です。メールからもう一度開いてくだ
 #, fuzzy
 #~ msgid "· % chance the game ends level · same strategy, three rooms"
 #~ msgstr "· ゲームが互角で終わる確率(%) · 実線:Competitive+ · 破線:ランダム(組み合わせ重複回避)"
-
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
-#~ msgstr "24人 · 4コート"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029
 #, fuzzy

@@ -97,14 +97,14 @@ module Message = {
     }
 
     <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700">
+      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
         {(ts`Status message`)->React.string}
       </label>
       <form onSubmit={onSubmit} className="mt-1 flex gap-2">
         <input
           value=editedMessage
           onChange={e => setEditedMessage(ReactEvent.Form.target(e)["value"])}
-          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-[#222326] dark:text-gray-100 dark:ring-[#3a3b40] dark:placeholder:text-gray-500"
           placeholder={ts`Type a status message for people to see... such as 'I will arrive at 19:00.'`}
         />
         <button
@@ -128,17 +128,22 @@ let make = (
   let data = Fragment.use(queryRef)
   let messages = data.messagesByTopic->Fragment.getConnectionNodes
 
-  <div className="bg-white rounded-lg shadow-sm p-4 md:p-5 mt-4">
-    <h2 className="text-lg font-semibold mb-4"> {t`Activity`} </h2>
+  <div
+    className="bg-white rounded-lg shadow-sm p-4 md:p-5 mt-4 dark:bg-[#1e1f23] dark:ring-1 dark:ring-[#2a2b30]">
+    <h2 className="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">
+      {t`Activity`}
+    </h2>
     {viewerHasRsvp
     ->Option.map(has => has ? <Message eventId /> : React.null)
     ->Option.getOr(React.null)}
     {messages->Array.length == 0
       ? <div className="text-center py-8">
-          <div className="text-gray-400 mb-2">
+          <div className="text-gray-400 dark:text-gray-500 mb-2">
             <Lucide.MessageCircle className="size-12 mx-auto opacity-50" />
           </div>
-          <p className="text-gray-500 text-sm"> {(ts`No activity yet`)->React.string} </p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
+            {(ts`No activity yet`)->React.string}
+          </p>
         </div>
       : <div className="space-y-4">
           {messages
@@ -151,30 +156,45 @@ let make = (
 
             let (iconElem, iconWrapperClass) = switch activityTypeOpt->Option.getOr("") {
             | "host_message" => (
-                <Lucide.MessageCircle className="size-4 text-indigo-600" />,
-                "bg-indigo-100",
+                <Lucide.MessageCircle className="size-4 text-indigo-600 dark:text-indigo-400" />,
+                "bg-indigo-100 dark:bg-indigo-900/30",
               )
             | "user_message" => (
-                <Lucide.MessageCircle className="size-4 text-slate-600" />,
-                "bg-slate-100",
+                <Lucide.MessageCircle className="size-4 text-slate-600 dark:text-slate-300" />,
+                "bg-slate-100 dark:bg-slate-700/40",
               )
-            | "rsvp_created" => (<Lucide.Check className="size-4 text-green-600" />, "bg-green-100")
+            | "rsvp_created" => (
+                <Lucide.Check className="size-4 text-green-600 dark:text-green-400" />,
+                "bg-green-100 dark:bg-green-900/30",
+              )
             | "rsvp_added" => (
-                <Lucide.UserPlus className="size-4 text-green-600" />,
-                "bg-green-100",
+                <Lucide.UserPlus className="size-4 text-green-600 dark:text-green-400" />,
+                "bg-green-100 dark:bg-green-900/30",
               )
             | "rsvp_invited" => (
-                <Lucide.Mail className="size-4 text-violet-600" />,
-                "bg-violet-100",
+                <Lucide.Mail className="size-4 text-violet-600 dark:text-violet-400" />,
+                "bg-violet-100 dark:bg-violet-900/30",
               )
             | "rsvp_promoted" => (
-                <Lucide.ArrowUpCircle className="size-4 text-blue-600" />,
-                "bg-blue-100",
+                <Lucide.ArrowUpCircle className="size-4 text-blue-600 dark:text-blue-400" />,
+                "bg-blue-100 dark:bg-blue-900/30",
               )
-            | "rsvp_deleted" => (<Lucide.X className="size-4 text-red-600" />, "bg-red-100")
-            | "rsvp_removed" => (<Lucide.X className="size-4 text-orange-600" />, "bg-orange-100")
-            | "update" => (<Lucide.Bell className="size-4 text-blue-600" />, "bg-blue-100")
-            | _ => (<Lucide.User className="size-4 text-gray-600" />, "bg-gray-100")
+            | "rsvp_deleted" => (
+                <Lucide.X className="size-4 text-red-600 dark:text-red-400" />,
+                "bg-red-100 dark:bg-red-900/30",
+              )
+            | "rsvp_removed" => (
+                <Lucide.X className="size-4 text-orange-600 dark:text-orange-400" />,
+                "bg-orange-100 dark:bg-orange-900/30",
+              )
+            | "update" => (
+                <Lucide.Bell className="size-4 text-blue-600 dark:text-blue-400" />,
+                "bg-blue-100 dark:bg-blue-900/30",
+              )
+            | _ => (
+                <Lucide.User className="size-4 text-gray-600 dark:text-gray-300" />,
+                "bg-gray-100 dark:bg-gray-700/40",
+              )
             }
 
             let mainMessageText = switch activityTypeOpt {
@@ -191,9 +211,13 @@ let make = (
 
             let actorNameEl = switch activityTypeOpt {
             | Some("host_message") =>
-              <span className="font-medium text-indigo-600"> {React.string(actorUserName)} </span>
+              <span className="font-medium text-indigo-600 dark:text-indigo-400">
+                {React.string(actorUserName)}
+              </span>
             | _ =>
-              <span className="font-medium text-gray-900"> {React.string(actorUserName)} </span>
+              <span className="font-medium text-gray-900 dark:text-gray-100">
+                {React.string(actorUserName)}
+              </span>
             }
 
             // time color class (only varies for rsvp_deleted and rsvp_removed)
@@ -203,14 +227,14 @@ let make = (
               | messageCreatedAtDate =>
                 let diffHours = differenceInHours(eventStartDate, messageCreatedAtDate)
                 if diffHours < 24 {
-                  "text-red-600 font-medium"
+                  "text-red-600 dark:text-red-400 font-medium"
                 } else if diffHours < 48 {
-                  "text-yellow-600 font-medium"
+                  "text-yellow-600 dark:text-yellow-500 font-medium"
                 } else {
-                  "text-gray-500"
+                  "text-gray-500 dark:text-gray-400"
                 }
               }
-            | _ => "text-gray-500"
+            | _ => "text-gray-500 dark:text-gray-400"
             }
 
             let dt = message.createdAt->Js.Json.string->Util.Datetime.parse->Util.Datetime.toDate
@@ -222,8 +246,10 @@ let make = (
               <div className="flex-1">
                 {mainMessageText == ""
                   ? React.null
-                  : <p className="text-gray-700"> {React.string(mainMessageText)} </p>}
-                <p className="text-xs text-gray-500 mt-1">
+                  : <p className="text-gray-700 dark:text-gray-300">
+                      {React.string(mainMessageText)}
+                    </p>}
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   {actorNameEl}
                   {React.string(" • ")}
                   <span className={timeClassName}>

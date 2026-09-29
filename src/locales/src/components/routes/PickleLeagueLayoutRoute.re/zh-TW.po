@@ -33,7 +33,7 @@ msgstr "（登出）"
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"加入主畫面\\\""
 
-#: src/components/organisms/LeagueNav.re.mjs:114
+#: src/components/organisms/LeagueNav.re.mjs:137
 msgid "About"
 msgstr "關於"
 
@@ -45,7 +45,7 @@ msgstr "版權所有 球拍聯盟貢獻者"
 msgid "Enable now"
 msgstr "立即啟用"
 
-#: src/components/organisms/LeagueNav.re.mjs:110
+#: src/components/organisms/LeagueNav.re.mjs:133
 msgid "Find Games"
 msgstr "尋找比賽"
 
@@ -75,24 +75,24 @@ msgstr "安裝 Pkuru.com 應用程式"
 msgid "login with Line"
 msgstr "使用 Line 登入"
 
-#: src/components/organisms/LeagueNav.re.mjs:126
+#: src/components/organisms/LeagueNav.re.mjs:149
 msgid "Logout"
 msgstr "登出"
 
-#: src/components/organisms/LeagueNav.re.mjs:253
+#: src/components/organisms/LeagueNav.re.mjs:270
 msgid "Open main menu"
 msgstr "開啟主選單"
 
-#: src/components/organisms/LeagueNav.re.mjs:200
+#: src/components/organisms/LeagueNav.re.mjs:223
 msgid "Open user menu"
 msgstr "開啟使用者選單"
 
-#: src/components/organisms/LeagueNav.re.mjs:206
-#: src/components/organisms/LeagueNav.re.mjs:301
+#: src/components/organisms/LeagueNav.re.mjs:226
+#: src/components/organisms/LeagueNav.re.mjs:315
 msgid "Profile picture"
 msgstr "個人資料照片"
 
-#: src/components/organisms/LeagueNav.re.mjs:106
+#: src/components/organisms/LeagueNav.re.mjs:129
 msgid "Rankings"
 msgstr "排名"
 
@@ -108,12 +108,12 @@ msgstr "掌握最新動態"
 msgid "Tap the Share button"
 msgstr "點按分享按鈕"
 
-#: src/components/organisms/LeagueNav.re.mjs:175
-#: src/components/organisms/LeagueNav.re.mjs:326
+#: src/components/organisms/LeagueNav.re.mjs:198
+#: src/components/organisms/LeagueNav.re.mjs:337
 msgid "View notifications"
 msgstr "查看通知"
 
-#: src/components/organisms/LeagueNav.re.mjs:122
+#: src/components/organisms/LeagueNav.re.mjs:145
 msgid "Your Profile"
 msgstr "您的個人資料"
 

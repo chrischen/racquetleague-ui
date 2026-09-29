@@ -1,4 +1,4 @@
-%%raw("import { t } from '@lingui/macro'")
+%%raw("import { t, plural } from '@lingui/macro'")
 open Lingui.Util
 open LangProvider.Router
 
@@ -47,12 +47,28 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
     )
   )
   let durationText = duration->Option.map(duration => {
-    let hours = Js.Math.floor_float(duration /. 60.)
+    let hours = Js.Math.floor_float(duration /. 60.)->Float.toInt
     let minutes = mod(duration->Float.toInt, 60)
+    let hoursText = Lingui.UtilString.plural(
+      hours,
+      {
+        one: ts`${hours->Int.toString} hour`,
+        other: ts`${hours->Int.toString} hours`,
+      },
+    )
+    let minutesText = Lingui.UtilString.plural(
+      minutes,
+      {
+        one: ts`${minutes->Int.toString} minute`,
+        other: ts`${minutes->Int.toString} minutes`,
+      },
+    )
     if minutes == 0 {
-      ts`${hours->Float.toString} hours`
+      hoursText
+    } else if hours == 0 {
+      minutesText
     } else {
-      ts`${hours->Float.toString} hours and ${minutes->Int.toString} minutes`
+      ts`${hoursText} and ${minutesText}`
     }
   })
 
@@ -71,9 +87,9 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
 
   <WaitForMessages>
     {() =>
-      <div className="bg-white shadow-md">
-        <div className="p-4 md:p-6 border-b">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+      <div className="bg-white shadow-md dark:bg-[#1e1f23]">
+        <div className="p-4 md:p-6 border-b dark:border-[#2a2b30]">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
             <div className="flex items-center gap-x-3">
               {data.deleted
               ->Option.map(_ => <span className="mr-2"> {(ts`CANCELED`)->React.string} </span>)
@@ -92,9 +108,10 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
               </span>
             </div>
           </h1>
-          <div className="flex flex-col sm:flex-row sm:items-center mt-1 text-gray-600">
+          <div
+            className="flex flex-col sm:flex-row sm:items-center mt-1 text-gray-600 dark:text-gray-400">
             <div className="flex items-center">
-              <Lucide.Users className="mr-1" />
+              <Lucide.Users className="mr-1 flex-shrink-0" />
               <span>
                 {data.club
                 ->Option.flatMap(club =>
@@ -119,16 +136,20 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
               displayTags
             })
             ->Option.filter(tags => tags->Array.length > 0)
-            ->Option.map(tags => <EventTag.TagList tags className="mt-2 sm:mt-0 sm:ml-3" />)
+            ->Option.map(tags =>
+              <EventTag.TagList tags className="mt-2 sm:mt-0 sm:ml-3 flex-wrap items-center" />
+            )
             ->Option.getOr(React.null)}
           </div>
         </div>
-        <div className="p-4 md:p-6 bg-blue-50 border-b">
+        <div className="p-4 md:p-6 bg-blue-50 border-b dark:bg-blue-900/20 dark:border-[#2a2b30]">
           <div className="md:flex md:justify-between">
             <div className="flex items-start mb-3 md:mb-0">
-              <Lucide.CalendarClock className="text-blue-600 mt-1 mr-3 flex-shrink-0" />
+              <Lucide.CalendarClock
+                className="text-blue-600 dark:text-blue-400 mt-1 mr-3 flex-shrink-0"
+              />
               <div>
-                <div className="font-semibold text-gray-900">
+                <div className="font-semibold text-gray-900 dark:text-gray-100">
                   {data.startDate
                   ->Option.map(startDate =>
                     <ReactIntl.FormattedDate
@@ -154,7 +175,7 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
                     />
                   </AddToCalendar>
                 </div>
-                <div className="text-lg font-bold text-blue-700">
+                <div className="text-lg font-bold text-blue-700 dark:text-blue-300">
                   {data.startDate
                   ->Option.flatMap(startDate =>
                     data.endDate->Option.map(endDate => <>
@@ -181,9 +202,9 @@ let make = (~event: RescriptRelay.fragmentRefs<[> #EventHeader_event]>) => {
               </div>
             </div>
             <div className="flex items-center">
-              <Lucide.MapPin className="text-blue-600 mr-3 flex-shrink-0" />
+              <Lucide.MapPin className="text-blue-600 dark:text-blue-400 mr-3 flex-shrink-0" />
               <div>
-                <div className="font-semibold text-gray-900">
+                <div className="font-semibold text-gray-900 dark:text-gray-100">
                   {data.location
                   ->Option.flatMap(location =>
                     location.name->Option.map(name =>

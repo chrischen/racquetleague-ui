@@ -13,32 +13,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchesView.re.mjs:232
+#: src/components/organisms/MatchesView.re.mjs:234
 msgid "{0} player selected"
 msgstr "已选择 {0} 位球员"
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:235
 msgid "{0} players selected"
 msgstr "已选择 {0} 位球员"
 
-#: src/components/organisms/MatchesView.re.mjs:231
+#: src/components/organisms/MatchesView.re.mjs:233
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{0}"
 
-#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/MatchesView.re.mjs:259
 msgid "# of courts"
 msgstr "球场数量"
 
-#: src/components/organisms/MatchesView.re.mjs:656
+#: src/components/organisms/MatchesView.re.mjs:660
 msgid "Actions"
 msgstr "操作"
 
-#: src/components/organisms/MatchesView.re.mjs:133
+#: src/components/organisms/MatchesView.re.mjs:135
 msgid "Add/Remove Players"
 msgstr "添加/移除球员"
 
-#: src/components/organisms/MatchesView.re.mjs:622
-#: src/components/organisms/MatchesView.re.mjs:625
+#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:629
 msgid "and"
 msgstr "和"
 
@@ -46,11 +46,11 @@ msgstr "和"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/MatchesView.re.mjs:645
+#: src/components/organisms/MatchesView.re.mjs:649
 msgid "Choose Match"
 msgstr "选择比赛"
 
-#: src/components/organisms/MatchesView.re.mjs:553
+#: src/components/organisms/MatchesView.re.mjs:557
 msgid "CHOOSE MATCH"
 msgstr "选择比赛"
 
@@ -58,7 +58,7 @@ msgstr "选择比赛"
 msgid "Close panel"
 msgstr "关闭面板"
 
-#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:630
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "球场 {0}: {team1} 对战 {team2}"
 
@@ -70,7 +70,7 @@ msgstr "输入分数"
 msgid "Loading"
 msgstr "加载中"
 
-#: src/components/organisms/MatchesView.re.mjs:612
+#: src/components/organisms/MatchesView.re.mjs:616
 msgid "Matches"
 msgstr "比赛"
 
@@ -84,12 +84,12 @@ msgstr "分数"
 msgid "predicted winner"
 msgstr "预测胜者"
 
-#: src/components/organisms/MatchesView.re.mjs:597
+#: src/components/organisms/MatchesView.re.mjs:601
 msgid "Queue"
 msgstr "队列"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Queue All"
 msgstr "全部入队"
 
@@ -97,16 +97,16 @@ msgstr "全部入队"
 msgid "Save"
 msgstr "保存"
 
-#: src/components/organisms/MatchesView.re.mjs:500
+#: src/components/organisms/MatchesView.re.mjs:504
 msgid "START SESSION"
 msgstr "开始会话"
 
-#: src/components/organisms/MatchesView.re.mjs:519
+#: src/components/organisms/MatchesView.re.mjs:523
 msgid "SUBMIT RESULTS"
 msgstr "提交结果"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Unqueue All"
 msgstr "全部移出队列"
 

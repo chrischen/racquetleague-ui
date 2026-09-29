@@ -44,9 +44,17 @@ export const Expanded: Story = {
   },
 };
 
-/** Two players: both shown, with "See all". */
+/** Two players: both shown, and nothing to expand. */
 export const FewPlayers: Story = {
   parameters: { relay: { mocks: { Event: { rsvps: connection(rsvps(2)) } } } },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // The entries fade in.
+    const yuki = await canvas.findByText("Yuki");
+    await waitFor(() => expect(yuki).toBeVisible());
+    await expect(canvas.queryByText("See all")).toBeNull();
+    await expect(canvas.queryByText(/more$/)).toBeNull();
+  },
 };
 
 /** A full event: 12 of 12 going; the rest are on the waitlist, and pending

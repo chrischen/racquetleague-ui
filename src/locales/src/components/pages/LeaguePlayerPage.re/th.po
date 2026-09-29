@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
@@ -33,6 +33,10 @@ msgstr "กลับไปที่ลีก"
 msgid "Balanced partner tendency"
 msgstr "แนวโน้มความสมดุลกับคู่เล่น"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "ชนะ"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:482
 msgid "Best Doubles Partners"
 msgstr "คู่ดับเบิลที่ดีที่สุด"
@@ -49,8 +53,7 @@ msgstr "วันที่อันดับ 1"
 msgid "doubles"
 msgstr "คู่"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "เสมอ"
 
@@ -71,7 +74,7 @@ msgstr "ยกระดับคู่เล่นที่อ่อนแอก
 msgid "Estimated DUPR"
 msgstr "DUPR ที่คาดการณ์"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "สมดุล"
 
@@ -83,7 +86,7 @@ msgstr "โรงยิม"
 msgid "Hard Court"
 msgstr "คอร์ตแข็ง"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
@@ -91,8 +94,7 @@ msgstr "โหลดแมทช์เพิ่มเติม..."
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "แพ้"
 
@@ -142,7 +144,7 @@ msgstr "ชั่วคราว"
 msgid "Rating History"
 msgstr "ประวัติเรตติ้ง"
 
-#: src/components/molecules/RatingGraph.re.mjs:40
+#: src/components/molecules/RatingGraph.re.mjs:70
 msgid "Rating:"
 msgstr "คะแนน:"
 
@@ -168,7 +170,7 @@ msgid ""
 "higher confidence."
 msgstr "พื้นที่แรเงาแสดงถึงความไม่แน่นอนของเรตติ้ง แถบที่แคบกว่าบ่งบอกถึงความมั่นใจที่สูงขึ้น"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 
@@ -176,8 +178,7 @@ msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 msgid "Weak Against"
 msgstr "เสียเปรียบ"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "ชนะ"
 

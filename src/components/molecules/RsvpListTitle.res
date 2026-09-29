@@ -5,7 +5,7 @@ let make = (
   ~max: option<int>=?,
   ~className: option<string>=?,
 ) => {
-  let baseClass = "font-medium text-gray-900"
+  let baseClass = "font-medium text-gray-900 dark:text-gray-100"
   let computedClassName = switch className {
   | Some(extra) if extra != "" => baseClass ++ " " ++ extra
   | _ => baseClass

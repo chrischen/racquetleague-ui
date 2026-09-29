@@ -17,6 +17,6 @@ msgstr ""
 msgid "guest list"
 msgstr "ゲストリスト"
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"

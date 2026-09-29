@@ -153,8 +153,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
+msgid "Courts · thickness = count"
 msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -210,8 +214,12 @@ msgid "Save"
 msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"

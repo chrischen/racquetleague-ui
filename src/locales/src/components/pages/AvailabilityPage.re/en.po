@@ -148,7 +148,7 @@ msgstr ""
 msgid "Beginner"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr ""
 
@@ -173,11 +173,11 @@ msgstr ""
 msgid "Complete Beginner"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid "Complete your profile before sharing availability with players and hosts."
 msgstr ""
 
@@ -187,8 +187,8 @@ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr ""
 
@@ -205,8 +205,12 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
+msgid "Courts · thickness = count"
 msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -228,7 +232,7 @@ msgstr ""
 msgid "Current location is not supported by this browser."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr ""
 
@@ -244,11 +248,11 @@ msgstr ""
 msgid "doubles"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid "Email address is unavailable. Please use a different email or login with the email you are trying to use here."
 msgstr ""
 
@@ -264,7 +268,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr ""
 
@@ -273,14 +277,18 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr ""
+#~ msgid "For event updates and notifications"
+#~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "For event updates and notifications. We'll email you a link to confirm it."
+
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr ""
 
@@ -292,7 +300,7 @@ msgstr ""
 msgid "Intermediate+"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr ""
 
@@ -300,7 +308,7 @@ msgstr ""
 msgid "Let hosts schedule events when most of you are free"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr ""
 
@@ -325,7 +333,7 @@ msgstr ""
 #~ msgid "Long opening"
 #~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr ""
 
@@ -345,7 +353,7 @@ msgstr ""
 msgid "Near me · {radius} km"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr ""
 
@@ -394,13 +402,17 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr ""
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr ""
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
 msgid "Schedule"
@@ -422,7 +434,7 @@ msgstr ""
 msgid "Set your availability for the next 2 weeks. Your events and available windows share a footprint; thicker cyan lines mean more courts."
 msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid "Share a little about yourself so organizers or other players can see why they should invite you."
 msgstr ""
 
@@ -445,6 +457,10 @@ msgstr ""
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:813
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr ""
+
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "That doesn't look like an email address."
 
 #: src/components/molecules/LocationFilterControl.re.mjs:120
 msgid "Tokyo"
@@ -470,7 +486,7 @@ msgstr ""
 #~ msgid "View {segCourtsPhrase} & reserve"
 #~ msgstr ""
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr ""
 
@@ -497,11 +513,3 @@ msgstr ""
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:675
 msgid "Your time"
 msgstr ""
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "For event updates and notifications. We'll email you a link to confirm it."
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "That doesn't look like an email address."

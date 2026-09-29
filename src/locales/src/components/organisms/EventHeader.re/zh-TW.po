@@ -14,12 +14,32 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hour"
+msgstr "{0} 小時"
+
+#: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours"
 msgstr "{0} 小時"
 
-#: src/components/organisms/EventHeader.re.mjs:56
-msgid "{0} hours and {1} minutes"
-msgstr "{0} 小時 {1} 分鐘"
+#: src/components/organisms/EventHeader.re.mjs:58
+msgid "{0} minute"
+msgstr "{0} 分鐘"
+
+#: src/components/organisms/EventHeader.re.mjs:59
+msgid "{0} minutes"
+msgstr "{0} 分鐘"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText} {minutesText}"
+
+#: src/components/organisms/EventHeader.re.mjs:57
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
@@ -29,11 +49,11 @@ msgstr "進階球員"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/EventHeader.re.mjs:79
+#: src/components/organisms/EventHeader.re.mjs:89
 msgid "CANCELED"
 msgstr "已取消"
 
-#: src/components/organisms/EventHeader.re.mjs:175
+#: src/components/organisms/EventHeader.re.mjs:185
 msgid "Date TBD"
 msgstr "日期待定"
 
@@ -61,8 +81,8 @@ msgstr "比賽將提交至 DUPR。"
 msgid "No restriction on skill level. Open to all players."
 msgstr "技能等級無限制。對所有球員開放。"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "非公開"
 
@@ -70,10 +90,14 @@ msgstr "非公開"
 msgid "Professional players"
 msgstr "職業球員"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "計分賽"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "休閒"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -98,18 +122,22 @@ msgid ""
 "from the organizer."
 msgstr "此活動為私人活動。未經主辦單位許可，請勿分享此活動。"
 
-#: src/components/organisms/EventHeader.re.mjs:211
+#: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
 msgstr "時間待定"
 
-#: src/components/organisms/EventHeader.re.mjs:117
+#: src/components/organisms/EventHeader.re.mjs:127
 msgid "Unknown club"
 msgstr "未知俱樂部"
 
-#: src/components/organisms/EventHeader.re.mjs:247
+#: src/components/organisms/EventHeader.re.mjs:257
 msgid "Unknown location"
 msgstr "未知地點"
 
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中上等級及以上"
+
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0} 小時 {1} 分鐘"

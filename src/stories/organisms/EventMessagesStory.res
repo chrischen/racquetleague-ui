@@ -23,7 +23,7 @@ let make = (
   ~viewerHasRsvp: option<bool>=?,
 ) => {
   let data = Query.use(~variables=())
-  <div className="max-w-xl bg-gray-50 p-4">
+  <div className="max-w-xl bg-gray-50 p-4 dark:bg-[#18191c]">
     <EventMessages
       queryRef=data.fragmentRefs
       eventStartDate={Date.fromString(eventStartDate)}

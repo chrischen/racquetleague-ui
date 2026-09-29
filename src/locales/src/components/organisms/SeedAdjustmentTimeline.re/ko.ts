@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zbuZZJ\":\"시드 조정됨\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"AWd12w\":[[\"0\"],\"명\"],\"1IFjjP\":[[\"0\"],\"명\"],\"1XIkUf\":[[\"count\",\"plural\",{\"one\":[[\"0\"]],\"other\":[[\"1\"]]}]],\"7+MzvQ\":\"시드 조정 삭제\",\"zbuZZJ\":\"시드 조정됨\"}");

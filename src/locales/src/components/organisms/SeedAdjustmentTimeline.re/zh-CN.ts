@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zbuZZJ\":\"种子已调整\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"AWd12w\":[[\"0\"],\" 位球员\"],\"1IFjjP\":[[\"0\"],\" 位球员\"],\"1XIkUf\":[[\"count\",\"plural\",{\"one\":[[\"0\"]],\"other\":[[\"1\"]]}]],\"7+MzvQ\":\"删除种子调整\",\"zbuZZJ\":\"种子已调整\"}");

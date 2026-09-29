@@ -340,14 +340,17 @@ function PkEventMessages$Section(props) {
                                 }),
                             className: "mb-4 flex items-center justify-between gap-3"
                           }),
-                      JsxRuntime.jsx("div", {
-                            children: visible.map(function (message) {
-                                  return JsxRuntime.jsx(PkEventMessages$ActivityRow, {
-                                              message: message
-                                            }, message.id);
-                                }),
-                            className: "space-y-3.5"
-                          }),
+                      totalCount === 0 ? JsxRuntime.jsx("p", {
+                              children: prominent ? t`No messages yet` : t`No activity yet`,
+                              className: "text-sm text-gray-500 dark:text-gray-400"
+                            }) : JsxRuntime.jsx("div", {
+                              children: visible.map(function (message) {
+                                    return JsxRuntime.jsx(PkEventMessages$ActivityRow, {
+                                                message: message
+                                              }, message.id);
+                                  }),
+                              className: "space-y-3.5"
+                            }),
                       totalCount > 5 ? JsxRuntime.jsx("button", {
                               children: showAll ? t`Show less` : t`View all ${totalCountStr} updates`,
                               className: "mt-3 text-xs font-semibold text-[#5f8618] underline-offset-2 transition-colors hover:text-[#476412] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] dark:text-[#bdf25d] dark:hover:text-[#d3ff85]",

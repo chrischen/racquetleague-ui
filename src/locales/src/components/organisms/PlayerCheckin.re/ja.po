@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:149
+#: src/components/organisms/PlayerCheckin.re.mjs:154
 msgid "{0} of {1} checked in"
 msgstr "{1}人中{0}人がチェックイン済み"
 
@@ -21,17 +21,21 @@ msgstr "{1}人中{0}人がチェックイン済み"
 msgid "{0} ratings"
 msgstr "{0} 件の評価"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:313
+#: src/components/organisms/PlayerCheckin.re.mjs:323
 msgid "$"
 msgstr "¥"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:342
+#: src/components/organisms/PlayerCheckin.re.mjs:355
 msgid "Add guest"
 msgstr "ゲストを追加"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:349
+#: src/components/organisms/PlayerCheckin.re.mjs:362
 msgid "Add guest players"
 msgstr "ゲストプレイヤーを追加"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "シードを調整"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
@@ -61,19 +65,23 @@ msgstr "グローバル評価"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "スキャンできない場合は、クラブページからイベントを探してください。"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:360
+#: src/components/organisms/PlayerCheckin.re.mjs:374
 msgid "Invite player"
 msgstr "プレイヤーを招待"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:365
+#: src/components/organisms/PlayerCheckin.re.mjs:379
 msgid "Invite player with QR code"
 msgstr "QRコードでプレイヤーを招待"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "チーム管理"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
 msgstr "μ"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:325
 msgid "Not paid"
 msgstr "未払い"
 
@@ -83,13 +91,17 @@ msgstr ""
 "スマートフォンのカメラを開き、このコードをスキャンしてイベントに参加してくだ"
 "さい。"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:325
 msgid "Paid"
 msgstr "支払い済み"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:145
+#: src/components/organisms/PlayerCheckin.re.mjs:150
 msgid "Player Check-in"
 msgstr "プレイヤーチェックイン"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "プレーヤー設定"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid ""

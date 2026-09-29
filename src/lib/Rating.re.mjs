@@ -58,9 +58,33 @@ function fromInt($$int) {
   }
 }
 
+var decode = Json_Decode$JsonCombinators.custom(function (json) {
+      var n = Js_json.classify(json);
+      if (typeof n === "object") {
+        switch (n.TAG) {
+          case "JSONString" :
+              switch (n._0) {
+                case "Female" :
+                    return "Female";
+                case "Male" :
+                    return "Male";
+                default:
+                  
+              }
+              break;
+          case "JSONNumber" :
+              return fromInt(n._0 | 0);
+          default:
+            
+        }
+      }
+      return Json_Decode$JsonCombinators.$$Error.expected("gender (0, 1, \"Male\" or \"Female\")", json);
+    });
+
 var Gender = {
   toInt: toInt,
-  fromInt: fromInt
+  fromInt: fromInt,
+  decode: decode
 };
 
 function makeGuest(name) {
@@ -317,14 +341,13 @@ function decodePlayer() {
                     var sigma = field.required("sigma", Json_Decode$JsonCombinators.$$float);
                     return make(mu, sigma);
                   });
-              var decodeGender = Json_Decode$JsonCombinators.map(Json_Decode$JsonCombinators.$$int, fromInt);
               var id = field.required("id", Json_Decode$JsonCombinators.string);
               var intId = field.required("intId", Json_Decode$JsonCombinators.$$int);
               var name = field.required("name", Json_Decode$JsonCombinators.string);
               var rating = field.required("rating", decodeRating);
               var ratingOrdinal = field.required("ratingOrdinal", Json_Decode$JsonCombinators.$$float);
               var paid = field.required("paid", Json_Decode$JsonCombinators.bool);
-              var gender = field.required("gender", decodeGender);
+              var gender = field.required("gender", decode);
               var count = Core__Option.getOr(field.optional("count", Json_Decode$JsonCombinators.$$int), 0);
               return {
                       data: undefined,
@@ -1186,8 +1209,6 @@ var decodeRating = Json_Decode$JsonCombinators.object(function (field) {
       return make(mu, sigma);
     });
 
-var decodeGender = Json_Decode$JsonCombinators.map(Json_Decode$JsonCombinators.$$int, fromInt);
-
 var decodePlayer$1 = Json_Decode$JsonCombinators.object(function (field) {
       var id = field.required("id", Json_Decode$JsonCombinators.string);
       var intId = field.required("intId", Json_Decode$JsonCombinators.$$int);
@@ -1195,7 +1216,7 @@ var decodePlayer$1 = Json_Decode$JsonCombinators.object(function (field) {
       var rating = field.required("rating", decodeRating);
       var ratingOrdinal = field.required("ratingOrdinal", Json_Decode$JsonCombinators.$$float);
       var paid = field.required("paid", Json_Decode$JsonCombinators.bool);
-      var gender = field.required("gender", decodeGender);
+      var gender = field.required("gender", decode);
       var count = Core__Option.getOr(field.optional("count", Json_Decode$JsonCombinators.$$int), 0);
       return {
               data: undefined,
@@ -1217,7 +1238,7 @@ var decodeEventManagerPlayer = Json_Decode$JsonCombinators.object(function (fiel
       var rating = field.required("rating", decodeRating);
       var ratingOrdinal = field.required("ratingOrdinal", Json_Decode$JsonCombinators.$$float);
       var paid = field.required("paid", Json_Decode$JsonCombinators.bool);
-      var gender = field.required("gender", decodeGender);
+      var gender = field.required("gender", decode);
       var count = Core__Option.getOr(field.optional("count", Json_Decode$JsonCombinators.$$int), 0);
       return {
               data: undefined,
@@ -1276,7 +1297,7 @@ function parsePlayersFromStorage(jsonString) {
 
 var PlayerDecoder = {
   decodeRating: decodeRating,
-  decodeGender: decodeGender,
+  decodeGender: decode,
   decodePlayer: decodePlayer$1,
   decodeEventManagerPlayer: decodeEventManagerPlayer,
   parsePlayersFromStorage: parsePlayersFromStorage
@@ -1343,24 +1364,11 @@ function addBreakPlayersFrom(breakPlayers, players, breakCount) {
 }
 
 function savePlayers(t, namespace) {
-  var t$1 = t.map(function (p) {
-        return {
-                data: undefined,
-                id: p.id,
-                intId: p.intId,
-                name: p.name,
-                rating: p.rating,
-                ratingOrdinal: p.ratingOrdinal,
-                paid: p.paid,
-                gender: p.gender,
-                count: p.count
-              };
-      });
-  var t$2 = Core__Array.reduce(t$1, {}, (function (acc, player) {
-          acc[player.id] = player;
+  var t$1 = Core__Array.reduce(t, {}, (function (acc, player) {
+          acc[player.id] = toJson(player);
           return acc;
         }));
-  localStorage.setItem(namespace + "-playersState", Core__Option.getOr(JSON.stringify(t$2), ""));
+  localStorage.setItem(namespace + "-playersState", JSON.stringify(t$1));
 }
 
 function loadPlayers(players, namespace) {

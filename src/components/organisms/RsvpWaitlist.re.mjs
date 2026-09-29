@@ -35,6 +35,7 @@ var Fragment = {
 };
 
 function RsvpWaitlist(props) {
+  var maxRating = props.maxRating;
   var activitySlug = props.activitySlug;
   var viewer = props.viewer;
   var eventData = use(props.event);
@@ -68,7 +69,7 @@ function RsvpWaitlist(props) {
                                         rsvp: rsvp.fragmentRefs,
                                         viewer: viewer,
                                         activitySlug: activitySlug,
-                                        maxRating: 0.0,
+                                        maxRating: maxRating,
                                         eventId: eventData.id,
                                         isAdmin: eventData.viewerIsAdmin,
                                         eventPrice: eventData.price

@@ -1,4 +1,4 @@
-%%raw("import { t } from '@lingui/macro'")
+%%raw("import { t, plural } from '@lingui/macro'")
 
 open Lingui.Util
 open Rating
@@ -55,7 +55,7 @@ module TeamEditor = {
           <button
             onClick={_ => onCancel()}
             className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
-            ariaLabel="Close">
+            ariaLabel={ts`Close`}>
             <Lucide.X className="w-5 h-5 text-slate-600" />
           </button>
         </div>
@@ -73,7 +73,7 @@ module TeamEditor = {
                 let value = ReactEvent.Form.target(e)["value"]
                 setName(_ => value)
               }}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder={ts`Enter team name`}
             />
           </div>
@@ -230,7 +230,7 @@ let make = (
           <button
             onClick={_ => onClose()}
             className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
-            ariaLabel="Close">
+            ariaLabel={ts`Close`}>
             <Lucide.X className="w-5 h-5 text-slate-600" />
           </button>
         </div>
@@ -278,11 +278,16 @@ let make = (
                         {team.name->React.string}
                       </div>
                       <div className="text-sm text-slate-600">
-                        {`${team.playerIds
-                          ->Array.length
-                          ->Int.toString} player${team.playerIds->Array.length != 1
-                            ? "s"
-                            : ""}`->React.string}
+                        {
+                          let count = team.playerIds->Array.length
+                          Lingui.Util.plural(
+                            count,
+                            {
+                              one: ts`${count->Int.toString} player`,
+                              other: ts`${count->Int.toString} players`,
+                            },
+                          )
+                        }
                       </div>
                     </div>
                     <button

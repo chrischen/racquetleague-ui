@@ -400,7 +400,7 @@ function VerticalAvailabilityGrid$VerticalDayColumn(props) {
                                               height: heightPct.toString() + "%",
                                               top: topPct.toString() + "%"
                                             },
-                                            title: ev.title + " \xb7 " + TimeWindow.hourLabelIntl(intl, ev.startHour) + "\xe2\x80\x93" + TimeWindow.hourLabelIntl(intl, ev.endHour)
+                                            title: ev.title + " · " + TimeWindow.hourLabelIntl(intl, ev.startHour) + "–" + TimeWindow.hourLabelIntl(intl, ev.endHour)
                                           }, ev.id);
                               }
                             }),
@@ -662,7 +662,7 @@ function VerticalAvailabilityGrid(props) {
                                                                     className: "h-4 w-9 text-cyan-500/45 dark:text-cyan-400/40",
                                                                     viewBox: "0 0 36 16"
                                                                   }),
-                                                              t`Courts \xc2\xb7 thickness = count`
+                                                              t`Courts · thickness = count`
                                                             ],
                                                             className: "inline-flex items-center gap-1.5"
                                                           }),
@@ -930,7 +930,7 @@ function VerticalAvailabilityGrid(props) {
                                                             size: 14,
                                                             strokeWidth: 2.5
                                                           }),
-                                                      Core__Option.getOr(isSaving, false) ? t`Saving\xe2\x80\xa6` : t`Save`
+                                                      Core__Option.getOr(isSaving, false) ? t`Saving…` : t`Save`
                                                     ],
                                                     className: "inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black rounded-md transition-colors shadow-sm flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed",
                                                     disabled: Core__Option.getOr(isSaving, false),

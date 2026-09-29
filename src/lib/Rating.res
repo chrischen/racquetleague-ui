@@ -37,6 +37,16 @@ module Gender = {
     | _ => Male
     }
   }
+  // Stored players carry the gender as its int (Player.toJson); players saved
+  // by Players.savePlayers before it used toJson carry the variant's name.
+  let decode: Json.Decode.t<t> = Json.Decode.custom(json =>
+    switch json->Js.Json.classify {
+    | JSONNumber(n) => fromInt(n->Float.toInt)
+    | JSONString("Male") => Male
+    | JSONString("Female") => Female
+    | _ => Json.Decode.Error.expected("gender (0, 1, \"Male\" or \"Female\")", json)
+    }
+  )
 }
 type user = {
   name: string,
@@ -366,7 +376,7 @@ module Player = {
         Rating.make(mu, sigma)
       })
 
-      let decodeGender = Json.Decode.int->Json.Decode.map(Gender.fromInt)
+      let decodeGender = Gender.decode
 
       let id = field.required("id", Json.Decode.string)
       let intId = field.required("intId", Json.Decode.int)
@@ -1125,7 +1135,7 @@ module PlayerDecoder = {
     Rating.make(mu, sigma)
   })
 
-  let decodeGender: Json.Decode.t<Gender.t> = Json.Decode.int->Json.Decode.map(Gender.fromInt)
+  let decodeGender: Json.Decode.t<Gender.t> = Gender.decode
 
   let decodePlayer: Json.Decode.t<Player.t<rsvpNode>> = Json.Decode.object(field => {
     let id = field.required("id", Json.Decode.string)
@@ -1261,15 +1271,14 @@ module Players = {
     ->Array.concat(breakPlayers)
   }
   let savePlayers = (t: t<'a>, namespace: string) => {
-    let t = t->Array.map(p => {...p, data: None})
     let t = t->Array.reduce(Js.Dict.empty(), (acc, player) => {
-      acc->Js.Dict.set(player.id, player)
+      acc->Js.Dict.set(player.id, player->Player.toJson)
       acc
     })
 
     Dom.Storage2.localStorage->Dom.Storage2.setItem(
       namespace ++ "-playersState",
-      t->Js.Json.stringifyAny->Option.getOr(""),
+      t->Js.Json.object_->Js.Json.stringify,
     )
   }
   let loadPlayers = (players: array<Player.t<'a>>, namespace: string): array<Player.t<'a>> => {

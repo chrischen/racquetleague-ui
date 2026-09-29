@@ -439,7 +439,7 @@ let make = (
                     },
                   ) ++
                   peak
-                  ->Option.map(((s, e)) => ts` · peak ${formatHour(s)}–${formatHour(e)}`)
+                  ->Option.map(((s, e)) => " " ++ ts`· peak ${formatHour(s)}–${formatHour(e)}`)
                   ->Option.getOr(""))->React.string}
                 </span>
                 <Lucide.ChevronDown
@@ -538,7 +538,7 @@ let make = (
                   },
                 ) ++
                 peak
-                ->Option.map(((s, e)) => ts` · peak ${formatHour(s)}–${formatHour(e)}`)
+                ->Option.map(((s, e)) => " " ++ ts`· peak ${formatHour(s)}–${formatHour(e)}`)
                 ->Option.getOr(""))->React.string}
                 <Lucide.ChevronDown
                   size=11

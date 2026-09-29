@@ -79,10 +79,10 @@ msgid "Retry charge"
 msgstr ""
 
 #: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr ""
+#~ msgid "See all"
+#~ msgstr ""
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr ""
 

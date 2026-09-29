@@ -21,7 +21,7 @@ msgstr "활성화"
 msgid "Match Count"
 msgstr "경기 횟수"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:199
 msgid "no players yet"
 msgstr "아직 플레이어가 없습니다"
 

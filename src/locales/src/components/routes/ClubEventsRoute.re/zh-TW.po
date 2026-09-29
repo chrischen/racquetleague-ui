@@ -277,6 +277,11 @@ msgstr "分享連結"
 #~ msgid "For event updates and notifications"
 #~ msgstr "用於活動更新和通知"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid ""
+#~ "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
+
 #: src/components/organisms/ProfileModal.re.mjs:491
 #~ msgid "Gender"
 #~ msgstr "性別"
@@ -459,6 +464,10 @@ msgstr "分享連結"
 #~ "invite you."
 #~ msgstr "告訴其他人你有意願打球，時間重疊的球員可以邀請你。"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid "That doesn't look like an email address."
+#~ msgstr "這看起來不像電子郵件地址。"
+
 #: src/components/molecules/AIResponseCard.re.mjs:45
 #~ msgid "Title:"
 #~ msgstr "標題："
@@ -482,11 +491,3 @@ msgstr "分享連結"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 #~ msgid "When do you want to play?"
 #~ msgstr "你想什麼時候打球？"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "這看起來不像電子郵件地址。"

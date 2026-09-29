@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:149
+#: src/components/organisms/PlayerCheckin.re.mjs:154
 msgid "{0} of {1} checked in"
 msgstr "{0}/{1} 체크인"
 
@@ -21,17 +21,21 @@ msgstr "{0}/{1} 체크인"
 msgid "{0} ratings"
 msgstr "{0}개의 평점"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:313
+#: src/components/organisms/PlayerCheckin.re.mjs:323
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:342
+#: src/components/organisms/PlayerCheckin.re.mjs:355
 msgid "Add guest"
 msgstr "게스트 추가"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:349
+#: src/components/organisms/PlayerCheckin.re.mjs:362
 msgid "Add guest players"
 msgstr "게스트 플레이어 추가"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "선수 시드 조정"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
@@ -61,19 +65,23 @@ msgstr "글로벌 평점"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "스캔에 문제가 있으신가요? 클럽 페이지에서 이벤트를 찾아보세요."
 
-#: src/components/organisms/PlayerCheckin.re.mjs:360
+#: src/components/organisms/PlayerCheckin.re.mjs:374
 msgid "Invite player"
 msgstr "플레이어 초대"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:365
+#: src/components/organisms/PlayerCheckin.re.mjs:379
 msgid "Invite player with QR code"
 msgstr "QR 코드로 플레이어 초대"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "팀 관리"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
 msgstr "뮤"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:325
 msgid "Not paid"
 msgstr "미납"
 
@@ -81,13 +89,17 @@ msgstr "미납"
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "휴대폰 카메라를 열고 이 코드를 스캔하여 이벤트에 참가하세요."
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:325
 msgid "Paid"
 msgstr "납부됨"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:145
+#: src/components/organisms/PlayerCheckin.re.mjs:150
 msgid "Player Check-in"
 msgstr "플레이어 체크인"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "선수 설정"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid ""

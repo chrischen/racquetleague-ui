@@ -359,9 +359,178 @@ let sideFrac = 0.12
 let footFrac = 0.10
 let minCropFrac = 0.15 // never crop tighter than this fraction of an axis
 
-let cropRegion = (placed: array<placedAnchor>, nativeW: int, nativeH: int): option<ClipCrop.rect> => {
+// ── Staged court fit ─────────────────────────────────────────────────────────
+// The court only follows the anchors once they actually determine it.
+// Shifting the default quad by the anchors' mean offset (the old 1-3 anchor
+// behaviour) dragged the whole court around — often pushing other handles off
+// screen — while the user was still placing the first points. Now:
+//   Unfitted     fewer than 3 usable anchors: only dragged handles move; the
+//                rest stay on the default court.
+//   Affine       3+ anchors including a triple NOT on one court line (and not
+//                squashed onto a line in the image): a least-squares affine
+//                fit moves the rest roughly into place.
+//   Perspective  4+ anchors including a quad with no 3 on a line: the full
+//                homography. Only this stage can be confirmed (the server's
+//                pose solve needs 4 points in general position).
+
+type fitStage = Unfitted | Affine | Perspective
+type courtFit = {stage: fitStage, h: array<float>}
+
+// The default fit: a plausible perspective trapezoid of the baseline quad.
+let defaultPairs = (nativeW: float, nativeH: float): array<
+  ((float, float), (float, float)),
+> => [
+  ((-.halfWid, halfLen), (0.18 *. nativeW, 0.86 *. nativeH)),
+  ((halfWid, halfLen), (0.82 *. nativeW, 0.86 *. nativeH)),
+  ((halfWid, -.halfLen), (0.68 *. nativeW, 0.34 *. nativeH)),
+  ((-.halfWid, -.halfLen), (0.32 *. nativeW, 0.34 *. nativeH)),
+]
+
+let defaultFit = (nativeW: float, nativeH: float) =>
+  solveHomography(defaultPairs(nativeW, nativeH))->Option.getExn // fixed quad: never singular
+
+// Twice the signed area of a triangle.
+let area2 = ((ax, ay): (float, float), (bx, by): (float, float), (cx, cy): (float, float)) =>
+  (bx -. ax) *. (cy -. ay) -. (by -. ay) *. (cx -. ax)
+
+// Court triangles that are not colinear are >= ~6.5 m² (2x area) — e.g.
+// NET L, NK L, NK C — while colinear landmarks are exactly 0.
+let worldMinArea2 = 1.0
+// Image shape: 2x area / longest side² (0 = on a line, ~0.87 = equilateral).
+let imageMinShape = 0.04
+let imageMinSpanPx = 8.
+
+// The triple's orientation sign when it can anchor a fit, 0 when it cannot.
+let tripleSign = (a: placedAnchor, b: placedAnchor, c: placedAnchor): float => {
+  let w = area2(worldOf(a.name), worldOf(b.name), worldOf(c.name))
+  let pa = (a.x, a.y)
+  let pb = (b.x, b.y)
+  let pc = (c.x, c.y)
+  let i = area2(pa, pb, pc)
+  let d2 = ((x1, y1), (x2, y2)) => (x2 -. x1) *. (x2 -. x1) +. (y2 -. y1) *. (y2 -. y1)
+  let longest = Math.max(d2(pa, pb), Math.max(d2(pb, pc), d2(pa, pc)))
+  let usable =
+    Math.abs(w) >= worldMinArea2 &&
+    longest >= imageMinSpanPx *. imageMinSpanPx &&
+    Math.abs(i) /. longest >= imageMinShape
+  // Positive when the image keeps the court's orientation, negative when
+  // mirrored; a homography's four triples must all agree.
+  usable ? w *. i > 0. ? 1. : -1. : 0.
+}
+
+let hasAffineBasis = (placed: array<placedAnchor>): bool => {
+  let n = placed->Array.length
+  let found = ref(false)
+  for i in 0 to n - 3 {
+    for j in i + 1 to n - 2 {
+      for k in j + 1 to n - 1 {
+        if !found.contents {
+          let g = Array.getUnsafe(placed, _)
+          found := tripleSign(g(i), g(j), g(k)) != 0.
+        }
+      }
+    }
+  }
+  found.contents
+}
+
+// Some 4 anchors with no 3 on a line and a consistent orientation.
+let hasPerspectiveBasis = (placed: array<placedAnchor>): bool => {
+  let n = placed->Array.length
+  let found = ref(false)
+  let g = Array.getUnsafe(placed, _)
+  for i in 0 to n - 4 {
+    for j in i + 1 to n - 3 {
+      for k in j + 1 to n - 2 {
+        for l in k + 1 to n - 1 {
+          if !found.contents {
+            let s = [
+              tripleSign(g(i), g(j), g(k)),
+              tripleSign(g(i), g(j), g(l)),
+              tripleSign(g(i), g(k), g(l)),
+              tripleSign(g(j), g(k), g(l)),
+            ]
+            found :=
+              s->Array.every(v => v == 1.) || s->Array.every(v => v == -1.)
+          }
+        }
+      }
+    }
+  }
+  found.contents
+}
+
+// Least-squares affine map world -> image, as a 3x3 with bottom row 0 0 1
+// (so every point is "in front": w = 1).
+let solveAffine = (pairs: array<((float, float), (float, float))>): option<array<float>> => {
+  // Normal equations: M * [a b c] = rx and M * [d e f] = ry.
+  let m = Array.make(~length=9, 0.)
+  let rx = Array.make(~length=3, 0.)
+  let ry = Array.make(~length=3, 0.)
+  pairs->Array.forEach((((wx, wy), (px, py))) => {
+    let v = [wx, wy, 1.]
+    for r in 0 to 2 {
+      let vr = v->Array.getUnsafe(r)
+      rx->Array.setUnsafe(r, rx->Array.getUnsafe(r) +. vr *. px)
+      ry->Array.setUnsafe(r, ry->Array.getUnsafe(r) +. vr *. py)
+      for c in 0 to 2 {
+        m->Array.setUnsafe(r * 3 + c, m->Array.getUnsafe(r * 3 + c) +. vr *. v->Array.getUnsafe(c))
+      }
+    }
+  })
+  let at = (r, c) => m->Array.getUnsafe(r * 3 + c)
+  let det3 = (c0: array<float>, c1: array<float>, c2: array<float>) => {
+    let e = (col: array<float>, r) => col->Array.getUnsafe(r)
+    e(c0, 0) *. (e(c1, 1) *. e(c2, 2) -. e(c2, 1) *. e(c1, 2)) -.
+    e(c1, 0) *. (e(c0, 1) *. e(c2, 2) -. e(c2, 1) *. e(c0, 2)) +.
+    e(c2, 0) *. (e(c0, 1) *. e(c1, 2) -. e(c1, 1) *. e(c0, 2))
+  }
+  let col = c => [at(0, c), at(1, c), at(2, c)]
+  let d = det3(col(0), col(1), col(2))
+  if Math.abs(d) < 1e-9 {
+    None
+  } else {
+    // Cramer's rule.
+    let solve = rhs => (
+      det3(rhs, col(1), col(2)) /. d,
+      det3(col(0), rhs, col(2)) /. d,
+      det3(col(0), col(1), rhs) /. d,
+    )
+    let (a, b, c) = solve(rx)
+    let (dd, e, f) = solve(ry)
+    Some([a, b, c, dd, e, f, 0., 0., 1.])
+  }
+}
+
+let courtFit = (placed: array<placedAnchor>, ~nativeW: float, ~nativeH: float): courtFit => {
   let pairs = placed->Array.map(a => (worldOf(a.name), (a.x, a.y)))
-  switch pairs->Array.length >= 4 ? solveHomography(pairs) : None {
+  let perspective =
+    placed->Array.length >= 4 && hasPerspectiveBasis(placed) ? solveHomography(pairs) : None
+  switch perspective {
+  | Some(h) => {stage: Perspective, h}
+  | None =>
+    switch hasAffineBasis(placed) ? solveAffine(pairs) : None {
+    | Some(h) => {stage: Affine, h}
+    | None => {stage: Unfitted, h: defaultFit(nativeW, nativeH)}
+    }
+  }
+}
+
+// Where a handle is drawn: anchored handles sit where the user put them;
+// the rest ride the fit (the untouched default court while Unfitted) and
+// vanish when the fit puts them beyond the horizon.
+let handlePosition = (fit: courtFit, placed: array<placedAnchor>, name: string): option<(
+  float,
+  float,
+)> =>
+  switch placed->Array.find(a => a.name == name) {
+  | Some(a) => Some((a.x, a.y))
+  | None => projectVisible(fit.h, worldOf(name))
+  }
+
+let cropRegion = (placed: array<placedAnchor>, nativeW: int, nativeH: int): option<ClipCrop.rect> => {
+  let fit = courtFit(placed, ~nativeW=Int.toFloat(nativeW), ~nativeH=Int.toFloat(nativeH))
+  switch fit.stage == Perspective ? Some(fit.h) : None {
   | None => None
   | Some(h) => {
       let fw = Int.toFloat(nativeW)
@@ -409,20 +578,180 @@ let cropRegion = (placed: array<placedAnchor>, nativeW: int, nativeH: int): opti
   }
 }
 
+// ── Solve payload ────────────────────────────────────────────────────────────
+// Exactly what Confirm persists — and what the live preview solves, so the
+// preview shows the calibration the analysis will actually use. Challenge
+// clips are cropped to the analysis region before upload, so the server's
+// court pkl must live in that region's pixel space (it is matched to clips
+// by frame size); `offset` maps that space back onto the native frame.
+
+type solvePayload = {
+  width: int,
+  height: int,
+  corners: array<DinkHunt.courtCorner>,
+  offset: (float, float),
+}
+
+let solvePayload = (placed: array<placedAnchor>, ~nativeW: int, ~nativeH: int): solvePayload => {
+  let corners = placed->Array.map((a): DinkHunt.courtCorner => {name: a.name, x: a.x, y: a.y})
+  switch cropRegion(placed, nativeW, nativeH) {
+  | Some(r) => {
+      width: r.width,
+      height: r.height,
+      corners: corners->Array.map(c => {
+        ...c,
+        x: c.x -. Int.toFloat(r.x),
+        y: c.y -. Int.toFloat(r.y),
+      }),
+      offset: (Int.toFloat(r.x), Int.toFloat(r.y)),
+    }
+  | None => {width: nativeW, height: nativeH, corners, offset: (0., 0.)}
+  }
+}
+
+// Identity of a payload (to 0.1 px): a preview is only shown for the exact
+// anchors it was solved from.
+let payloadKey = (p: solvePayload) =>
+  p.width->Int.toString ++
+  "x" ++
+  p.height->Int.toString ++
+  p.corners
+  ->Array.map(c => c.name ++ "@" ++ Float.toFixed(c.x, ~digits=1) ++ "," ++ Float.toFixed(c.y, ~digits=1))
+  ->Array.join(";")
+
+// ── Lens-corrected reprojection ──────────────────────────────────────────────
+// The server's solved camera (DinkHunt.kioskCamera) projects any court point
+// onto the WARPED frame — the same model tools/graphql_server.KioskCamera
+// documents and lib.lens.distort_points applies:
+//   c = M·(x, y, 0) + t;  u = K·c / c_z;  warped = distort(u; lensK, k1)
+// Unlike the kiosk's own straight-line fit, this bends court lines the way a
+// wide lens does, so it is the visual proof that the correction fits.
+
+let lensAnchorsNeeded = 6 // lib.lens: fewer anchors pin k1 to 0
+
+let mat3 = (m: array<float>, (x, y, z): (float, float, float)): (float, float, float) => {
+  let e = Array.getUnsafe(m, _)
+  (
+    e(0) *. x +. e(1) *. y +. e(2) *. z,
+    e(3) *. x +. e(4) *. y +. e(5) *. z,
+    e(6) *. x +. e(7) *. y +. e(8) *. z,
+  )
+}
+
+// Court ground point -> warped pixel in the payload's space, or None when it
+// is behind the camera or beyond the lens model's valid range. For barrel
+// warp (k1 < 0) r·(1 + k1·r²) turns back past r² = 1/(3|k1|): points out
+// there "fold" INTO the frame at wrong positions — exactly the clipped
+// off-screen corners — so they are reported as not visible.
+let lensProject = (cam: DinkHunt.kioskCamera, (wx, wy): (float, float)): option<(float, float)> => {
+  let (cx, cy, cz) = mat3(cam.m, (wx, wy, 0.))
+  let t = Array.getUnsafe(cam.t, _)
+  let (cx, cy, cz) = (cx +. t(0), cy +. t(1), cz +. t(2))
+  if cz <= 1e-6 {
+    None
+  } else {
+    let (ux, uy, uw) = mat3(cam.k, (cx, cy, cz))
+    let (ux, uy) = (ux /. uw, uy /. uw)
+    let l = Array.getUnsafe(cam.lensK, _)
+    let (fx, fy, lcx, lcy) = (l(0), l(4), l(2), l(5))
+    let xn = (ux -. lcx) /. fx
+    let yn = (uy -. lcy) /. fy
+    let r2 = xn *. xn +. yn *. yn
+    if cam.k1 < 0. && 1. +. 3. *. cam.k1 *. r2 <= 0. {
+      None
+    } else {
+      let factor = 1. +. cam.k1 *. r2
+      Some((xn *. factor *. fx +. lcx, yn *. factor *. fy +. lcy))
+    }
+  }
+}
+
+// A court segment as warped-pixel polylines (split where points leave the
+// model's valid range), shifted by `offset` into the native frame.
+let lensPolylines = (
+  cam: DinkHunt.kioskCamera,
+  ~offset: (float, float),
+  (wa, wb): ((float, float), (float, float)),
+): array<array<(float, float)>> => {
+  let samples = 40
+  let (ox, oy) = offset
+  let ((ax, ay), (bx, by)) = (wa, wb)
+  let runs = []
+  let current = ref([])
+  for i in 0 to samples {
+    let f = Int.toFloat(i) /. Int.toFloat(samples)
+    switch lensProject(cam, (ax +. (bx -. ax) *. f, ay +. (by -. ay) *. f)) {
+    | Some((x, y)) => current.contents->Array.push((x +. ox, y +. oy))
+    | None =>
+      if current.contents->Array.length >= 2 {
+        runs->Array.push(current.contents)
+      }
+      current := []
+    }
+  }
+  if current.contents->Array.length >= 2 {
+    runs->Array.push(current.contents)
+  }
+  runs
+}
+
+// Which un-anchored handles would help the lens estimate most: ones the user
+// can actually see (inside the frame, clear of the edges — a clipped corner
+// dragged to the edge is wrong data), farthest from the frame centre, where
+// a wide lens bends lines the most.
+let lensSuggestions = (
+  fit: courtFit,
+  placed: array<placedAnchor>,
+  ~nativeW: float,
+  ~nativeH: float,
+): array<string> => {
+  let missing = lensAnchorsNeeded - placed->Array.length
+  if fit.stage != Perspective || missing <= 0 {
+    []
+  } else {
+    let margin = 0.04
+    anchors
+    ->Array.filterMap(((name, _)) =>
+      if placed->Array.some(a => a.name == name) {
+        None
+      } else {
+        handlePosition(fit, placed, name)->Option.flatMap(((x, y)) => {
+          let (u, v) = (x /. nativeW, y /. nativeH)
+          if u < margin || u > 1. -. margin || v < margin || v > 1. -. margin {
+            None
+          } else {
+            let (du, dv) = (u -. 0.5, (v -. 0.5) *. nativeH /. nativeW)
+            Some((name, du *. du +. dv *. dv))
+          }
+        })
+      }
+    )
+    ->Array.toSorted(((_, a), (_, b)) => b -. a)
+    ->Array.slice(~start=0, ~end=missing)
+    ->Array.map(((name, _)) => name)
+  }
+}
+
 type status = Idle | Saving | Failed(string)
 
-// The default fit: a plausible perspective trapezoid of the baseline quad.
-let defaultPairs = (nativeW: float, nativeH: float): array<
-  ((float, float), (float, float)),
-> => [
-  ((-.halfWid, halfLen), (0.18 *. nativeW, 0.86 *. nativeH)),
-  ((halfWid, halfLen), (0.82 *. nativeW, 0.86 *. nativeH)),
-  ((halfWid, -.halfLen), (0.68 *. nativeW, 0.34 *. nativeH)),
-  ((-.halfWid, -.halfLen), (0.32 *. nativeW, 0.34 *. nativeH)),
-]
+// The live lens preview (the server's non-saving solve of the current
+// anchors), tagged with the payload it was solved from.
+type previewOutcome =
+  | Solved(DinkHunt.kioskCamera, string) // camera, server message
+  | Rejected(string) // the server refused these anchors
+  | Unavailable(string) // server down / too old / no camera
+type preview = {key: string, offset: (float, float), outcome: previewOutcome}
 
+// `toolbarHost` is where the instructions + Confirm/Reset/Skip render (via a
+// portal): the page row ABOVE the video, so no control ever sits over the
+// frame being calibrated. None renders no toolbar (the host mounts in the
+// same commit, so that is only ever a pre-paint instant).
 @react.component
-let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
+let make = (
+  ~stream: option<UserMedia.t>,
+  ~toolbarHost: option<Dom.element>,
+  ~onDone: unit => unit,
+) => {
   let (nativeW, nativeH) = switch stream->Option.flatMap(UserMedia.videoSize) {
   | Some((w, h)) => (w->Int.toFloat, h->Int.toFloat)
   | None => (1920., 1080.)
@@ -452,39 +781,96 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
   let loupeCanvasRef = React.useRef(Nullable.null)
   let loupeVideoRef = React.useRef(Nullable.null)
 
-  // The live fit, python-style: >=4 anchors -> homography from the anchors;
-  // fewer -> the default quad translated by the anchors' mean offset.
-  let fit = {
-    let anchorPairs = placed->Array.map(a => (worldOf(a.name), (a.x, a.y)))
-    switch anchorPairs->Array.length >= 4 ? solveHomography(anchorPairs) : None {
-    | Some(h) => h
-    | None => {
-        let base = defaultPairs(nativeW, nativeH)
-        let h0 = solveHomography(base)->Option.getExn // fixed quad: never singular
-        switch placed->Array.length {
-        | 0 => h0
-        | _ => {
-            let (dx, dy) = placed->Array.reduce((0., 0.), ((ax, ay), a) => {
-              let (px, py) = projectWith(h0, worldOf(a.name))
-              (ax +. (a.x -. px), ay +. (a.y -. py))
-            })
-            let n = placed->Array.length->Int.toFloat
-            solveHomography(
-              base->Array.map(((w, (px, py))) => (w, (px +. dx /. n, py +. dy /. n))),
-            )->Option.getOr(h0)
+  // The staged fit (see courtFit): the court stays put until the anchors
+  // actually determine it.
+  let courtState = courtFit(placed, ~nativeW, ~nativeH)
+  let fit = courtState.h
+
+  // ── Live lens preview ──────────────────────────────────────────────────────
+  // Once the full fit exists, each settled drag asks the analysis server to
+  // solve pose + lens (without saving) and reprojects the court through the
+  // result — the bent lines are the visual proof the correction fits.
+  let payload = solvePayload(placed, ~nativeW=nativeW->Float.toInt, ~nativeH=nativeH->Float.toInt)
+  let currentKey = payloadKey(payload)
+  let (preview, setPreview) = React.useState(() => (None: option<preview>))
+  let (previewPending, setPreviewPending) = React.useState(() => false)
+  let isDragging = dragging->Option.isSome
+  let wantsPreview = courtState.stage == Perspective && !isDragging
+  React.useEffect3(() => {
+    let upToDate = preview->Option.mapOr(false, p => p.key == currentKey)
+    if wantsPreview && !upToDate {
+      let cancelled = ref(false)
+      setPreviewPending(_ => true)
+      let requested = payload
+      let key = currentKey
+      // Debounced: settle on the anchors before spending a ~0.3 s solve.
+      let timer = setTimeout(() => {
+        let run = async () => {
+          let outcome = switch await DinkHunt.previewKioskCourt(
+            ~width=requested.width,
+            ~height=requested.height,
+            ~corners=requested.corners,
+          ) {
+          | Ok(result) =>
+            switch (result.ok, result.camera->Option.flatMap(Nullable.toOption)) {
+            | (true, Some(camera)) => Solved(camera, result.message)
+            | (true, None) => Unavailable("the analysis server sent no camera")
+            | (false, _) => Rejected(result.message)
+            }
+          | Error(message) =>
+            Unavailable(
+              String.includes(message, "Cannot query field")
+                ? "restart the analysis server to enable it"
+                : message,
+            )
+          }
+          if !cancelled.contents {
+            setPreview(_ => Some({key, offset: requested.offset, outcome}))
+            setPreviewPending(_ => false)
           }
         }
-      }
+        run()->ignore
+      }, 350)
+      Some(
+        () => {
+          cancelled := true
+          clearTimeout(timer)
+          setPreviewPending(_ => false)
+        },
+      )
+    } else {
+      None
     }
-  }
+  }, (currentKey, wantsPreview, courtState.stage))
 
-  // Anchored handles sit where the user put them; the rest ride the fit and
-  // vanish (no handle, no label) when the fit puts them beyond the horizon.
-  let positionOf = (name: string): option<(float, float)> =>
-    switch placed->Array.find(a => a.name == name) {
-    | Some(a) => Some((a.x, a.y))
-    | None => projectVisible(fit, worldOf(name))
+  // The lens camera, only while it matches the anchors on screen.
+  let lens = switch preview {
+  | Some({key, offset, outcome: Solved(camera, _)}) if key == currentKey && !isDragging =>
+    Some((camera, offset))
+  | _ => None
+  }
+  let lensPoint = (name: string) =>
+    lens->Option.flatMap(((camera, (ox, oy))) =>
+      lensProject(camera, worldOf(name))->Option.map(((x, y)) => (x +. ox, y +. oy))
+    )
+  // Anchored handles sit where the user put them; inferred ones follow the
+  // lens-corrected reprojection when there is one, else the straight fit.
+  let positionOf = (name: string) =>
+    switch (lens, placed->Array.some(a => a.name == name)) {
+    | (Some(_), false) => lensPoint(name)
+    | _ => handlePosition(courtState, placed, name)
     }
+  // Court lines as polylines: lens-corrected curves when available.
+  let courtPolylines = () =>
+    switch lens {
+    | Some((camera, offset)) =>
+      segments->Array.flatMap(segment => lensPolylines(camera, ~offset, segment))
+    | None =>
+      segments->Array.filterMap(((wa, wb)) =>
+        projectSegment(fit, wa, wb)->Option.map(((pa, pb)) => [pa, pb])
+      )
+    }
+  let suggested = lensSuggestions(courtState, placed, ~nativeW, ~nativeH)
 
   let contentBox = (rect: domRect) => {
     let scale = Math.min(rect.width /. nativeW, rect.height /. nativeH)
@@ -556,22 +942,8 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
   let confirm = () => {
     setSaveStatus(_ => Saving)
     let run = async () => {
-      let corners = placed->Array.map((a): DinkHunt.courtCorner => {name: a.name, x: a.x, y: a.y})
-      // Challenge clips are cropped to the analysis region before upload, so
-      // the server's court pkl must live in that region's pixel space (it is
-      // matched to clips by frame size).
-      let (width, height, corners) = switch cropRegion(
-        placed,
-        nativeW->Float.toInt,
-        nativeH->Float.toInt,
-      ) {
-      | Some(r) => (
-          r.width,
-          r.height,
-          corners->Array.map(c => {...c, x: c.x -. Int.toFloat(r.x), y: c.y -. Int.toFloat(r.y)}),
-        )
-      | None => (nativeW->Float.toInt, nativeH->Float.toInt, corners)
-      }
+      // The same payload the live preview solves (see solvePayload).
+      let {width, height, corners} = payload
       switch await DinkHunt.setKioskCourt(~width, ~height, ~corners) {
       | Ok(result) if result.ok => {
           storePlaced(~width=nativeW->Float.toInt, ~height=nativeH->Float.toInt, placed)
@@ -617,21 +989,25 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
               ctx->ctxLineTo(x2, y2)
               ctx->strokePath
             }
-            // The fitted court lines through this neighbourhood.
-            ctx->setStrokeStyle("rgba(190, 242, 100, 0.7)")
-            ctx->setLineWidth(1. *. dpr)
-            ctx->setLineDash([4. *. dpr, 4. *. dpr])
-            segments->Array.forEach(((wa, wb)) =>
-              switch projectSegment(fit, wa, wb) {
-              | Some((pa, pb)) => {
-                  let (x1, y1) = toLoupe(pa)
-                  let (x2, y2) = toLoupe(pb)
-                  line(x1, y1, x2, y2)
-                }
-              | None => ()
-              }
-            )
-            ctx->setLineDash([])
+            // The fitted court lines through this neighbourhood — only once
+            // there IS a fit; the default court's lines would just mislead.
+            // Lens-corrected curves when the preview has them (drawn solid —
+            // they are what the analysis will use), else the straight fit.
+            if courtState.stage != Unfitted {
+              ctx->setStrokeStyle("rgba(190, 242, 100, 0.8)")
+              ctx->setLineWidth(1. *. dpr)
+              ctx->setLineDash(lens->Option.isSome ? [] : [4. *. dpr, 4. *. dpr])
+              courtPolylines()->Array.forEach(polyline =>
+                polyline->Array.forEachWithIndex((point, i) =>
+                  if i > 0 {
+                    let (x1, y1) = toLoupe(polyline->Array.getUnsafe(i - 1))
+                    let (x2, y2) = toLoupe(point)
+                    line(x1, y1, x2, y2)
+                  }
+                )
+              )
+              ctx->setLineDash([])
+            }
             // The native pixel the point falls in, outlined.
             let (qx, qy) = toLoupe((Math.floor(x), Math.floor(y)))
             ctx->setStrokeStyle("rgba(255, 255, 255, 0.55)")
@@ -683,9 +1059,10 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
     }
 
   // The loupe follows the live feed: redraw every animation frame while a
-  // handle is selected (placed/zoom in the deps keep the closure current).
+  // handle is selected (placed/zoom/preview in the deps keep the closure
+  // current — a lens preview arriving swaps in the corrected lines).
   let loupeTarget = selected->Option.flatMap(name => positionOf(name)->Option.map(p => (name, p)))
-  React.useEffect3(() => {
+  React.useEffect5(() => {
     switch loupeTarget {
     | None => None
     | Some((name, (x, y))) => {
@@ -698,7 +1075,7 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
         Some(() => handle.contents->Option.forEach(cancelAnimationFrame))
       }
     }
-  }, (selected, zoom, placed))
+  }, (selected, zoom, placed, preview, isDragging))
 
   let fmt = Float.toString
   let anchored = placed->Array.length
@@ -718,12 +1095,147 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
   // while centres/net posts only reach ~270px — reach along the court's
   // length is what stabilises it, not more points on the same lines.
   let unstable =
-    anchored >= 4 &&
+    courtState.stage == Perspective &&
       anchors->Array.some(((name, w)) =>
         String.includes(name, "baseline") &&
         !(placed->Array.some(a => a.name == name)) &&
         projectVisible(fit, w) == None
       )
+
+  let (stageLabel, hint) = switch courtState.stage {
+  | Unfitted => (
+      "NO FIT · " ++ anchored->Int.toString ++ " ANCHORED",
+      "Drag points onto their painted marks — only the points you move will move. " ++
+      "The court follows once 3 of them are not on one court line.",
+    )
+  | Affine => (
+      "ROUGH FIT",
+      "Anchor one more point (no 3 on one line) for the full perspective fit.",
+    )
+  | Perspective => (
+      switch lens {
+      | Some((camera, _)) if camera.k1 != 0. => "FULL FIT · LENS CORRECTED"
+      | _ => "FULL FIT"
+      },
+      "Drag any point to refine. Use the kitchen (NK/FK) points when the baselines are out of frame.",
+    )
+  }
+  // Lens guidance + feedback, once the full fit exists: how many more anchors
+  // the lens estimate needs, then what the server's preview solve found.
+  let lensStatus: option<(string, string)> = if courtState.stage != Perspective {
+    None
+  } else {
+    let need = lensAnchorsNeeded - anchored
+    let latest = preview->Option.flatMap(p => p.key == currentKey ? Some(p.outcome) : None)
+    let fitPx = (camera: DinkHunt.kioskCamera) => Float.toFixed(camera.rmsPx, ~digits=1) ++ " px"
+    Some(
+      switch (need > 0, isDragging || previewPending, latest) {
+      | (true, _, _) => (
+          "text-amber-300",
+          "Lens correction needs " ++
+          lensAnchorsNeeded->Int.toString ++
+          " anchors (" ++
+          anchored->Int.toString ++
+          " so far): anchor " ++
+          need->Int.toString ++
+          " more. The amber +LENS points, near the frame edges where the lens bends lines most, help most.",
+        )
+      | (false, true, _) | (false, false, None) => ("text-kiosk-muted", "Lens: solving…")
+      | (false, false, Some(Solved(camera, _))) if camera.k1 != 0. => (
+          "text-kiosk-accent",
+          "Lens corrected (k1 " ++
+          Float.toFixed(camera.k1, ~digits=3) ++
+          ", fit " ++
+          fitPx(camera) ++ "). Solid lines are the corrected court; dashed white is the uncorrected fit.",
+        )
+      | (false, false, Some(Solved(camera, _))) => (
+          "text-kiosk-muted",
+          "Lens: no correction applied — the straight-line fit is within drag noise, " ++
+          "or correcting didn't improve it enough (fit " ++
+          fitPx(camera) ++ ").",
+        )
+      | (false, false, Some(Rejected(message))) => ("text-amber-300", "Lens preview: " ++ message)
+      | (false, false, Some(Unavailable(message))) => (
+          "text-kiosk-muted",
+          "Lens preview unavailable — " ++ message ++ ".",
+        )
+      },
+    )
+  }
+  let toolbar =
+    <div
+      className="flex flex-wrap items-center gap-x-4 gap-y-2 border-2 border-kiosk-border bg-kiosk-surface px-4 py-2">
+      <div className="min-w-0 flex-1">
+        <p className="flex flex-wrap items-baseline gap-x-3">
+          <span className="font-extrabold text-white"> {React.string("Court setup")} </span>
+          <span
+            className={"font-mono text-xs font-semibold " ++ (
+              courtState.stage == Perspective ? "text-kiosk-accent" : "text-amber-300"
+            )}>
+            {React.string(stageLabel)}
+          </span>
+        </p>
+        // FIXED-HEIGHT text slots: this toolbar sits above the video, so any
+        // change in its height moves (and rescales) the frame — measured 20 px
+        // mid-drag when the lens line swapped two lines for one, putting the
+        // handle 17 px off under the finger. Hint and message each keep two
+        // lines whatever they say; the message slot shows the most urgent of
+        // save failure > unstable fit > lens status.
+        <p className="line-clamp-2 min-h-[2.5rem] text-sm text-kiosk-muted" title=hint>
+          {React.string(hint)}
+        </p>
+        {
+          let (tone, message) = switch (saveStatus, unstable, lensStatus) {
+          | (Failed(message), _, _) => ("text-red-300", message)
+          | (_, true, _) => (
+              "text-amber-300",
+              "Fit is unstable — a baseline projects beyond the horizon. " ++
+              "Anchor any baseline corners you can see (FAR L/R or NEAR L/R).",
+            )
+          | (_, false, Some((tone, text))) => (tone, text)
+          | (_, false, None) => ("text-kiosk-muted", "")
+          }
+          <p
+            className={"mt-1 line-clamp-2 min-h-[2.5rem] text-sm font-semibold " ++ tone}
+            title=message>
+            {React.string(message)}
+          </p>
+        }
+      </div>
+      <div className="flex shrink-0 gap-2">
+        <button
+          type_="button"
+          disabled={saveStatus == Saving || courtState.stage != Perspective}
+          onClick={_ => confirm()}
+          // Fixed width: its label changes as points are placed, and a width
+          // change would re-wrap the text beside it (see the slots above).
+          className="flex min-h-12 w-[19rem] items-center justify-center border-2 border-kiosk-accent bg-kiosk-accent px-3 font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark disabled:opacity-50">
+          <span className="truncate">
+            {React.string(
+              saveStatus == Saving
+                ? "Solving pose…"
+                : courtState.stage == Perspective
+                ? "Confirm court (" ++ anchored->Int.toString ++ " anchored)"
+                : anchored < 4
+                ? "Anchor " ++ (4 - anchored)->Int.toString ++ " more"
+                : "Need 4 not on one line",
+            )}
+          </span>
+        </button>
+        <button
+          type_="button"
+          onClick={_ => setPlaced(_ => [])}
+          className="flex min-h-12 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white active:bg-kiosk-border">
+          {React.string("Reset")}
+        </button>
+        <button
+          type_="button"
+          onClick={_ => onDone()}
+          className="flex min-h-12 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white active:bg-kiosk-border">
+          {React.string("Skip")}
+        </button>
+      </div>
+    </div>
 
   <div
     ref={ReactDOM.Ref.domRef(containerRef)}
@@ -755,25 +1267,63 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
         if isSelfTarget(event) {
           setSelected(_ => None)
         }}>
-      // Court wireframe, projected through the live fit.
-      {segments
-      ->Array.mapWithIndex((((wa, wb)), index) =>
-        switch projectSegment(fit, wa, wb) {
-        | Some(((x1, y1), (x2, y2))) =>
-          <line
-            key={index->Int.toString}
-            x1={fmt(x1)}
-            y1={fmt(y1)}
-            x2={fmt(x2)}
-            y2={fmt(y2)}
-            stroke="#bef264"
-            strokeWidth="3"
-            strokeOpacity="0.8"
-          />
+      // Court wireframe, projected through the live fit. This SVG spans the
+      // whole container, letterbox bars included, so the lines sit in a nested
+      // viewport the size of the video frame, which clips what runs past it.
+      <svg x="0" y="0" width={fmt(nativeW)} height={fmt(nativeH)} overflow="hidden">
+        {segments
+        ->Array.mapWithIndex((((wa, wb)), index) =>
+          switch projectSegment(fit, wa, wb) {
+          | Some(((x1, y1), (x2, y2))) =>
+            <line
+              key={index->Int.toString}
+              x1={fmt(x1)}
+              y1={fmt(y1)}
+              x2={fmt(x2)}
+              y2={fmt(y2)}
+              stroke={lens->Option.isSome ? "#ffffff" : "#bef264"}
+              strokeWidth={lens->Option.isSome ? "2" : "3"}
+              // Faint dashed guide while nothing is fitted (it is just the
+              // default court); dashed while rough (affine); solid when full.
+              // Once the lens-corrected court is drawn below, this straight
+              // fit stays as a faint white reference: where the two part
+              // (toward the frame edges) is the lens correction at work.
+              strokeOpacity={switch (lens, courtState.stage) {
+              | (Some(_), _) => "0.4"
+              | (None, Unfitted) => "0.3"
+              | (None, Affine) => "0.6"
+              | (None, Perspective) => "0.8"
+              }}
+              strokeDasharray={lens->Option.isSome
+                ? "10 10"
+                : courtState.stage == Perspective
+                ? ""
+                : "14 10"}
+            />
+          | None => React.null
+          }
+        )
+        ->React.array}
+        {switch lens {
+        | Some(_) =>
+          courtPolylines()
+          ->Array.mapWithIndex((polyline, index) =>
+            <polyline
+              key={"lens" ++ index->Int.toString}
+              points={polyline
+              ->Array.map(((x, y)) => fmt(x) ++ "," ++ fmt(y))
+              ->Array.join(" ")}
+              fill="none"
+              stroke="#bef264"
+              strokeWidth="3.5"
+              strokeOpacity="0.95"
+              strokeLinejoin="round"
+            />
+          )
+          ->React.array
         | None => React.null
-        }
-      )
-      ->React.array}
+        }}
+      </svg>
       // The analysis region: what a Challenge clip is cropped to.
       {switch crop {
       | Some(r) =>
@@ -826,7 +1376,22 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
                 opacity={halo ? "0.6" : "1"}
                 className="pointer-events-none"
               />
+            let isSuggested = suggested->Array.includes(name)
             <g key=name opacity={isPlaced ? "1" : "0.8"}>
+              // Lens guidance: a pulsing amber ring on the visible points that
+              // would help the lens estimate most (see lensSuggestions).
+              {isSuggested
+                ? <circle
+                    cx={fmt(x)}
+                    cy={fmt(y)}
+                    r={fmt(ringR +. 10. /. sc)}
+                    fill="none"
+                    stroke="#fbbf24"
+                    strokeWidth={fmt(strokeW *. 1.5)}
+                    strokeDasharray={fmt(4. /. sc)}
+                    className="pointer-events-none animate-pulse"
+                  />
+                : React.null}
               {isSelected
                 ? <circle
                     cx={fmt(x)}
@@ -887,7 +1452,7 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
               <text
                 x={fmt(x +. ringR +. 6. /. sc)}
                 y={fmt(y -. ringR -. 2. /. sc)}
-                fill={isPlaced ? "#ffffff" : "#d9f99d"}
+                fill={isPlaced ? "#ffffff" : isSuggested ? "#fbbf24" : "#d9f99d"}
                 stroke="#000000"
                 strokeWidth={fmt(3. /. sc)}
                 paintOrder="stroke"
@@ -895,7 +1460,7 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
                 fontWeight="800"
                 fontFamily="monospace"
                 className="pointer-events-none select-none">
-                {React.string(anchorLabel(name))}
+                {React.string(anchorLabel(name) ++ (isSuggested ? " +LENS" : ""))}
               </text>
             </g>
           }
@@ -956,64 +1521,12 @@ let make = (~stream: option<UserMedia.t>, ~onDone: unit => unit) => {
       }
     | None => React.null
     }}
-    <div
-      className="pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-black/85 to-transparent p-4 pb-10">
-      <div className="pointer-events-auto mx-auto flex max-w-3xl flex-col gap-3">
-        <div>
-          <h2 className="text-xl font-extrabold text-white"> {React.string("Court setup")} </h2>
-          <p className="mt-1 text-sm text-white/80">
-            {React.string(
-              "Drag any 4+ points onto their painted marks — the rest follow. " ++
-              "Use the kitchen (NK/FK) points when the baselines are out of frame.",
-            )}
-          </p>
-        </div>
-        {unstable
-          ? <p
-              className="border-2 border-amber-400/40 bg-amber-500/15 px-3 py-2 text-sm font-semibold text-amber-200">
-              {React.string(
-                "Fit is unstable — a baseline projects beyond the horizon. " ++
-                "Anchor any baseline corners you can see (FAR L/R or NEAR L/R); " ++
-                "kitchen centres and net posts help less.",
-              )}
-            </p>
-          : React.null}
-        {switch saveStatus {
-        | Failed(message) =>
-          <p
-            className="border-2 border-red-400/40 bg-red-500/20 px-3 py-2 text-sm font-semibold text-red-200">
-            {React.string(message)}
-          </p>
-        | _ => React.null
-        }}
-        <div className="flex gap-3">
-          <button
-            type_="button"
-            disabled={saveStatus == Saving || anchored < 4}
-            onClick={_ => confirm()}
-            className="flex min-h-14 flex-1 items-center justify-center gap-2 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark disabled:opacity-50">
-            {React.string(
-              saveStatus == Saving
-                ? "Solving pose…"
-                : anchored < 4
-                ? "Anchor " ++ (4 - anchored)->Int.toString ++ " more"
-                : "Confirm court (" ++ anchored->Int.toString ++ " anchored)",
-            )}
-          </button>
-          <button
-            type_="button"
-            onClick={_ => setPlaced(_ => [])}
-            className="flex min-h-14 items-center justify-center border-2 border-white/40 bg-black/40 px-4 text-lg font-extrabold text-white active:bg-white/10">
-            {React.string("Reset")}
-          </button>
-          <button
-            type_="button"
-            onClick={_ => onDone()}
-            className="flex min-h-14 items-center justify-center border-2 border-white/40 bg-black/40 px-4 text-lg font-extrabold text-white active:bg-white/10">
-            {React.string("Skip")}
-          </button>
-        </div>
-      </div>
-    </div>
+    // The toolbar lives OUTSIDE the video (see toolbarHost) so it never
+    // covers the landmarks. Portals still bubble React events to this root,
+    // which only uses them to end drags — harmless.
+    {switch toolbarHost {
+    | Some(host) => ReactDOM.createPortal(toolbar, host)
+    | None => React.null
+    }}
   </div>
 }

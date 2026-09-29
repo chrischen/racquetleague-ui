@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zbuZZJ\":\"Seeds Adjusted\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"AWd12w\":[[\"0\"],\" player\"],\"1IFjjP\":[[\"0\"],\" players\"],\"1XIkUf\":[[\"count\",\"plural\",{\"one\":[[\"0\"]],\"other\":[[\"1\"]]}]],\"7+MzvQ\":\"Delete seed adjustment\",\"zbuZZJ\":\"Seeds Adjusted\"}");

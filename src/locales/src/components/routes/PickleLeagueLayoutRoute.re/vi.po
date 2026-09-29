@@ -33,7 +33,7 @@ msgstr "(đăng xuất)"
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
 
-#: src/components/organisms/LeagueNav.re.mjs:114
+#: src/components/organisms/LeagueNav.re.mjs:137
 msgid "About"
 msgstr "Giới thiệu"
 
@@ -45,7 +45,7 @@ msgstr "bản quyền thuộc về các cộng tác viên racquet league"
 msgid "Enable now"
 msgstr "Bật ngay"
 
-#: src/components/organisms/LeagueNav.re.mjs:110
+#: src/components/organisms/LeagueNav.re.mjs:133
 msgid "Find Games"
 msgstr "Tìm trò chơi"
 
@@ -75,24 +75,24 @@ msgstr "Cài đặt ứng dụng Pkuru.com"
 msgid "login with Line"
 msgstr "đăng nhập bằng Line"
 
-#: src/components/organisms/LeagueNav.re.mjs:126
+#: src/components/organisms/LeagueNav.re.mjs:149
 msgid "Logout"
 msgstr "Đăng xuất"
 
-#: src/components/organisms/LeagueNav.re.mjs:253
+#: src/components/organisms/LeagueNav.re.mjs:270
 msgid "Open main menu"
 msgstr "Mở menu chính"
 
-#: src/components/organisms/LeagueNav.re.mjs:200
+#: src/components/organisms/LeagueNav.re.mjs:223
 msgid "Open user menu"
 msgstr "Mở menu người dùng"
 
-#: src/components/organisms/LeagueNav.re.mjs:206
-#: src/components/organisms/LeagueNav.re.mjs:301
+#: src/components/organisms/LeagueNav.re.mjs:226
+#: src/components/organisms/LeagueNav.re.mjs:315
 msgid "Profile picture"
 msgstr "Ảnh hồ sơ"
 
-#: src/components/organisms/LeagueNav.re.mjs:106
+#: src/components/organisms/LeagueNav.re.mjs:129
 msgid "Rankings"
 msgstr "Bảng xếp hạng"
 
@@ -108,12 +108,12 @@ msgstr "Luôn cập nhật tin tức"
 msgid "Tap the Share button"
 msgstr "Nhấn nút Chia sẻ"
 
-#: src/components/organisms/LeagueNav.re.mjs:175
-#: src/components/organisms/LeagueNav.re.mjs:326
+#: src/components/organisms/LeagueNav.re.mjs:198
+#: src/components/organisms/LeagueNav.re.mjs:337
 msgid "View notifications"
 msgstr "Xem thông báo"
 
-#: src/components/organisms/LeagueNav.re.mjs:122
+#: src/components/organisms/LeagueNav.re.mjs:145
 msgid "Your Profile"
 msgstr "Hồ sơ của bạn"
 

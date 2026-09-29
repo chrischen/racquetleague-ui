@@ -63,9 +63,9 @@ let seed = (eventId: string, state: queueState) => {
   switch state {
   | #fresh => ()
   | #underway =>
-    // No walk-ins: AiTetsu saves them (Players.savePlayers) with the gender as
-    // "Male"/"Female" but reads it back as a number, so saved guests never load.
     let players = plainPlayers()
+    // One walk-in, saved the way AiTetsu saves its session players.
+    [guest(~name="Kaito Mori", ~intId=21)]->Rating.Players.savePlayers(eventId)
     session(players)->Session.saveState(eventId)
     history(players)->Rating.CompletedMatches.saveMatches(eventId)
     // Check-in is stored as who is NOT here: the four long-name players.

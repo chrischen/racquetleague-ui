@@ -13,32 +13,32 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchesView.re.mjs:232
+#: src/components/organisms/MatchesView.re.mjs:234
 msgid "{0} player selected"
 msgstr "Đã chọn {0} người chơi"
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:235
 msgid "{0} players selected"
 msgstr "Đã chọn {0} người chơi"
 
-#: src/components/organisms/MatchesView.re.mjs:231
+#: src/components/organisms/MatchesView.re.mjs:233
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 
-#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/MatchesView.re.mjs:259
 msgid "# of courts"
 msgstr "Số sân"
 
-#: src/components/organisms/MatchesView.re.mjs:656
+#: src/components/organisms/MatchesView.re.mjs:660
 msgid "Actions"
 msgstr "Hành động"
 
-#: src/components/organisms/MatchesView.re.mjs:133
+#: src/components/organisms/MatchesView.re.mjs:135
 msgid "Add/Remove Players"
 msgstr "Thêm/Xóa người chơi"
 
-#: src/components/organisms/MatchesView.re.mjs:622
-#: src/components/organisms/MatchesView.re.mjs:625
+#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:629
 msgid "and"
 msgstr "và"
 
@@ -46,11 +46,11 @@ msgstr "và"
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/organisms/MatchesView.re.mjs:645
+#: src/components/organisms/MatchesView.re.mjs:649
 msgid "Choose Match"
 msgstr "Chọn trận đấu"
 
-#: src/components/organisms/MatchesView.re.mjs:553
+#: src/components/organisms/MatchesView.re.mjs:557
 msgid "CHOOSE MATCH"
 msgstr "CHỌN TRẬN ĐẤU"
 
@@ -58,7 +58,7 @@ msgstr "CHỌN TRẬN ĐẤU"
 msgid "Close panel"
 msgstr "Đóng bảng"
 
-#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:630
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "Sân {0}: {team1} đấu với {team2}"
 
@@ -70,7 +70,7 @@ msgstr "Nhập điểm số"
 msgid "Loading"
 msgstr "Đang tải"
 
-#: src/components/organisms/MatchesView.re.mjs:612
+#: src/components/organisms/MatchesView.re.mjs:616
 msgid "Matches"
 msgstr "Trận đấu"
 
@@ -84,12 +84,12 @@ msgstr "Điểm"
 msgid "predicted winner"
 msgstr "người chiến thắng dự đoán"
 
-#: src/components/organisms/MatchesView.re.mjs:597
+#: src/components/organisms/MatchesView.re.mjs:601
 msgid "Queue"
 msgstr "Hàng đợi"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Queue All"
 msgstr "Xếp hàng tất cả"
 
@@ -97,16 +97,16 @@ msgstr "Xếp hàng tất cả"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/MatchesView.re.mjs:500
+#: src/components/organisms/MatchesView.re.mjs:504
 msgid "START SESSION"
 msgstr "BẮT ĐẦU PHIÊN"
 
-#: src/components/organisms/MatchesView.re.mjs:519
+#: src/components/organisms/MatchesView.re.mjs:523
 msgid "SUBMIT RESULTS"
 msgstr "NỘP KẾT QUẢ"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Unqueue All"
 msgstr "Hủy xếp hàng tất cả"
 

@@ -30,6 +30,10 @@ external unsafeFromJson: Js.Json.t => 'a = "%identity"
 
 type clipUpload = {path: string, calibrated: bool}
 type gqlError = {message: string}
+type gqlEnvelope = {
+  data: Js.Nullable.t<Dict.t<Js.Json.t>>,
+  errors: Js.Nullable.t<array<gqlError>>,
+}
 type gqlData = {groundBounces: array<bounce>}
 type gqlResponse = {data: Js.Nullable.t<gqlData>, errors: Js.Nullable.t<array<gqlError>>}
 
@@ -135,23 +139,50 @@ let challengeBounces = async (blob: CaptureSession.blob): result<
 // ── Court calibration ────────────────────────────────────────────────────────
 
 type courtCorner = {name: string, x: float, y: float}
-type courtResult = {ok: bool, solved: bool, message: string}
-type courtGqlData = {setKioskCourt: courtResult}
-type courtGqlResponse = {
-  data: Js.Nullable.t<courtGqlData>,
-  errors: Js.Nullable.t<array<gqlError>>,
+
+// The solved camera (tools/graphql_server.KioskCamera), in the kiosk's own
+// corner labelling, for reprojecting ANY court ground point onto the warped
+// frame — see KioskCourtCalib.lensProject. Row-major 3x3s; `m` is
+// world->camera and may be a reflection (the server folds a left/right
+// relabel into it).
+type kioskCamera = {
+  k: array<float>, // pose intrinsics
+  m: array<float>,
+  t: array<float>,
+  lensK: array<float>, // the lens model's intrinsics
+  k1: float, // single radial term; 0 = no lens correction
+  rmsPx: float, // anchor reprojection rms, raw pixels
 }
 
-// Persist the kiosk camera's court corners on the analysis server (it writes
-// the court pkl that gets attached to every spooled clip) and solve the pose
-// immediately so bad drags fail loudly here, not hours later on a clip.
-let setKioskCourt = async (
+type courtResult = {
+  ok: bool,
+  solved: bool,
+  message: string,
+  camera?: Js.Nullable.t<kioskCamera>, // absent/null when the solve failed
+}
+
+// Confirm asks only for the original fields so it keeps working against an
+// analysis server that predates `camera` (the user restarts it on their own
+// schedule); the preview asks for the camera.
+let courtFields = "ok solved message"
+let courtFieldsWithCamera = "ok solved message camera { k m t lensK k1 rmsPx }"
+
+// POST one calibration request and pull `field` out of `data`.
+let courtRequest = async (
+  ~operation: string,
+  ~field: string,
+  ~fields: string,
   ~width: int,
   ~height: int,
   ~corners: array<courtCorner>,
 ): result<courtResult, string> =>
   try {
-    let query = "mutation($w: Int!, $h: Int!, $c: [CornerInput!]!) { setKioskCourt(width: $w, height: $h, corners: $c) { ok solved message } }"
+    let query =
+      operation ++
+      "($w: Int!, $h: Int!, $c: [CornerInput!]!) { " ++
+      field ++
+      "(width: $w, height: $h, corners: $c) { " ++
+      fields ++ " } }"
     let response = await fetch(
       base ++ "/graphql",
       {
@@ -163,18 +194,43 @@ let setKioskCourt = async (
         }),
       },
     )
-    let payload: courtGqlResponse = unsafeFromJson(await response->json)
+    let payload: gqlEnvelope = unsafeFromJson(await response->json)
     switch payload.errors->Js.Nullable.toOption {
     | Some(errors) if errors->Array.length > 0 => Error((errors->Array.getUnsafe(0)).message)
     | _ =>
-      switch payload.data->Js.Nullable.toOption {
-      | Some(data) => Ok(data.setKioskCourt)
+      switch payload.data->Js.Nullable.toOption->Option.flatMap(data => data->Dict.get(field)) {
+      | Some(result) => Ok(unsafeFromJson(result))
       | None => Error("empty GraphQL response")
       }
     }
   } catch {
   | _ => Error("dinkhunt server unreachable at " ++ base)
   }
+
+// Persist the kiosk camera's court corners on the analysis server (it writes
+// the court pkl that gets attached to every spooled clip) and solve the pose
+// immediately so bad drags fail loudly here, not hours later on a clip.
+let setKioskCourt = (~width, ~height, ~corners) =>
+  courtRequest(
+    ~operation="mutation",
+    ~field="setKioskCourt",
+    ~fields=courtFields,
+    ~width,
+    ~height,
+    ~corners,
+  )
+
+// The same solve WITHOUT saving: live feedback while the user drags (the
+// kiosk reprojects the court through the returned lens-corrected camera).
+let previewKioskCourt = (~width, ~height, ~corners) =>
+  courtRequest(
+    ~operation="query",
+    ~field="previewKioskCourt",
+    ~fields=courtFieldsWithCamera,
+    ~width,
+    ~height,
+    ~corners,
+  )
 
 
 // ── Test mode (fixed clip, no camera needed) ─────────────────────────────────

@@ -42,23 +42,30 @@ let make = (~event) => {
   let rsvps = data.rsvps->Fragment.getConnectionNodes
   let (expanded, setExpanded) = React.useState(() => false)
 
-  <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 flex flex-col">
+  <div
+    className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 flex flex-col dark:bg-[#1e1f23] dark:ring-white/10">
     <dl className="flex flex-wrap">
       <div className="flex-auto pl-6 pt-3">
-        <dt className="text-sm font-semibold leading-6 text-gray-900"> {t`guest list`} </dt>
+        <dt className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
+          {t`guest list`}
+        </dt>
       </div>
     </dl>
     <dl className={Util.cx([expanded ? "" : "hidden", "flex flex-wrap"])}>
-      <div className="mt-4 w-full flex flex-col gap-x-4 border-t border-gray-900/5 px-6 pt-4">
+      <div className="mt-4 w-full flex flex-col gap-x-4 border-t border-gray-900/5 px-6 pt-4 dark:border-white/10">
         {<>
-          <ul className="">
+          <ul className="dark:text-gray-100">
             {switch rsvps {
             | [] => t`no players yet`
             | rsvps =>
               rsvps
-              ->Array.filterMap(edge => edge.user->Option.flatMap(user => user.fullName))
-              ->Array.map(fullName => {
-                <li> {fullName->React.string} </li>
+              ->Array.filterMap(edge =>
+                edge.user->Option.flatMap(user =>
+                  user.fullName->Option.map(fullName => (user.id, fullName))
+                )
+              )
+              ->Array.map(((userId, fullName)) => {
+                <li key=userId> {fullName->React.string} </li>
               })
               ->React.array
             }}
@@ -67,7 +74,7 @@ let make = (~event) => {
       </div>
     </dl>
     <UiAction
-      className="p-3 w-full flex flex-col items-center hover:bg-gray-100"
+      className="p-3 w-full flex flex-col items-center hover:bg-gray-100 dark:hover:bg-white/5"
       onClick={_ => setExpanded(expanded => !expanded)}>
       {expanded ? React.null : <HeroIcons.Users className="inline w-5 h-5" />}
       {expanded

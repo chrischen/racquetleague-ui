@@ -86,12 +86,14 @@ let make = (
             />
           let wouldBeAdmitted =
             previewAdmittedIds->Option.map(ids => ids->Array.includes(edge.id))->Option.getOr(false)
+          // The badge sits in the flow, straddling the ring, so the entry is
+          // at least as wide as the badge and the card sits below it.
           wouldBeAdmitted
             ? <div
                 key={edge.id}
-                className="relative rounded-xl ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900">
+                className="relative flex flex-col items-start rounded-xl ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900">
                 <span
-                  className="absolute -top-2 left-2 z-10 rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-semibold text-white">
+                  className="relative z-10 -mt-2 ml-2 whitespace-nowrap rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-semibold text-white">
                   {t`Would be admitted`}
                 </span>
                 card

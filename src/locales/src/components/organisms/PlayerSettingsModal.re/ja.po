@@ -17,6 +17,10 @@ msgstr ""
 msgid "Cancel"
 msgstr "キャンセル"
 
+#: src/components/organisms/PlayerSettingsModal.re.mjs:63
+msgid "Close"
+msgstr "閉じる"
+
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
 msgstr "ゲストを削除"
@@ -40,6 +44,10 @@ msgstr "名前"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:85
 msgid "Player ID"
 msgstr "プレイヤーID"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "プレーヤー名"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:53
 msgid "Player Settings"

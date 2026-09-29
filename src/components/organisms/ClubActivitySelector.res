@@ -41,12 +41,28 @@ type selection = {
   isAddingClub: bool,
 }
 
+// The club selected at first: the given one, else (for a new event) the
+// viewer's first admin club. An existing event without a club stays without
+// one, or saving it would move it into that club.
+let resolveInitialClub = (
+  ~initialClubId: option<string>,
+  ~clubIds: array<string>,
+  ~fallbackToFirstClub: bool,
+) =>
+  switch initialClubId {
+  | Some(_) => initialClubId
+  | None => fallbackToFirstClub ? clubIds->Array.get(0) : None
+  }
+
 @react.component
 let make = (
   ~query: RescriptRelay.fragmentRefs<[> #ClubActivitySelector_query]>,
   ~initialClubId: option<string>=?,
   ~initialActivitySlug: option<string>=?,
   ~initialActivityId: option<string>=?,
+  // With no initialClubId, start on the viewer's first admin club (creating
+  // an event) or on "No club" (editing or copying one that has none).
+  ~fallbackToFirstClub: bool=true,
   ~onChange: selection => unit,
   ~triggerShake: int=0,
 ) => {
@@ -75,8 +91,11 @@ let make = (
     ->Option.orElse(initialActivityId)
     ->Option.orElse(defaultActivityId)
 
-  let resolvedInitialClub =
-    initialClubId->Option.orElse(clubs->Array.get(0)->Option.map(c => c.id))
+  let resolvedInitialClub = resolveInitialClub(
+    ~initialClubId,
+    ~clubIds=clubs->Array.map(c => c.id),
+    ~fallbackToFirstClub,
+  )
 
   let (selectedClub, setSelectedClub) = React.useState(() => resolvedInitialClub)
   let (selectedActivity, setSelectedActivity) = React.useState(() => resolvedInitialActivity)

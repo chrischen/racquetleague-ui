@@ -13,6 +13,18 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:379
+msgid "{0} player"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:380
+msgid "{0} players"
+msgstr ""
+
+#: src/components/organisms/TeamManagementModal.re.mjs:378
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr ""
+
 #: src/components/organisms/TeamManagementModal.re.mjs:337
 msgid "Anti-Teams"
 msgstr ""
@@ -21,15 +33,20 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: src/components/organisms/TeamManagementModal.re.mjs:52
+#: src/components/organisms/TeamManagementModal.re.mjs:314
+msgid "Close"
+msgstr ""
+
 #: src/components/organisms/TeamManagementModal.re.mjs:302
 msgid "Create and manage player teams"
 msgstr ""
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Anti-Team"
 msgstr ""
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Team"
 msgstr ""
 
@@ -41,11 +58,11 @@ msgstr ""
 msgid "Create your first team to get started"
 msgstr ""
 
-#: src/components/organisms/TeamManagementModal.re.mjs:402
+#: src/components/organisms/TeamManagementModal.re.mjs:404
 msgid "Delete team"
 msgstr ""
 
-#: src/components/organisms/TeamManagementModal.re.mjs:390
+#: src/components/organisms/TeamManagementModal.re.mjs:392
 msgid "Edit team"
 msgstr ""
 
@@ -73,7 +90,7 @@ msgstr ""
 msgid "No teams yet"
 msgstr ""
 
-#: src/components/organisms/TeamManagementModal.re.mjs:443
+#: src/components/organisms/TeamManagementModal.re.mjs:445
 msgid "Save & Close"
 msgstr ""
 

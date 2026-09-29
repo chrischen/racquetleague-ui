@@ -5,7 +5,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 
 function RsvpListTitle(props) {
   var className = props.className;
-  var baseClass = "font-medium text-gray-900";
+  var baseClass = "font-medium text-gray-900 dark:text-gray-100";
   var computedClassName = className !== undefined && className !== "" ? baseClass + " " + className : baseClass;
   return JsxRuntime.jsxs("h3", {
               children: [

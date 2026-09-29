@@ -23,10 +23,12 @@ let make = (
   ~getUserFragmentRefs: 'a => option<RescriptRelay.fragmentRefs<[> #PlayerRow_user]>>,
   ~onClick: option<unit => unit>=?,
   ~debug: bool=false,
-  ~incrementDisplayCount: bool=false,
 ) => {
-  // If incrementDisplayCount is true, add 1 to show this player is in the current/upcoming match
-  let playCount = incrementDisplayCount ? player.count : player.count
+  // The count as stored: a match stores its players with that match already
+  // counted (Match.incrementPlayCounts when the round is generated;
+  // SolverRounds mirrors it), so adding 1 here would show a first-round
+  // player as "2".
+  let playCount = player.count
 
   // Determine if player name should be bold (no winner or their team wins)
   let isBold = switch winner {

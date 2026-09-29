@@ -13,64 +13,64 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:664
+#: src/components/organisms/RatingList.re.mjs:693
 msgid "...load higher rated players"
 msgstr "...상위 레이팅 플레이어 불러오기"
 
-#: src/components/organisms/RatingList.re.mjs:773
+#: src/components/organisms/RatingList.re.mjs:802
 msgid "All players loaded"
 msgstr "모든 플레이어 로드됨"
 
-#: src/components/organisms/RatingList.re.mjs:699
+#: src/components/organisms/RatingList.re.mjs:728
 msgid "Days #1"
 msgstr "Days #1"
 
-#: src/components/organisms/RatingList.re.mjs:202
-#: src/components/organisms/RatingList.re.mjs:223
+#: src/components/organisms/RatingList.re.mjs:226
+#: src/components/organisms/RatingList.re.mjs:247
 msgid "Draft"
 msgstr "드래프트"
 
-#: src/components/organisms/RatingList.re.mjs:731
+#: src/components/organisms/RatingList.re.mjs:760
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "드래프트 마감 · 상위 8명 진출"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:724
 msgid "Est. DUPR"
 msgstr "예상 DUPR"
 
-#: src/components/organisms/RatingList.re.mjs:638
+#: src/components/organisms/RatingList.re.mjs:667
 msgid "Load more players..."
 msgstr "플레이어 더 불러오기..."
 
-#: src/components/organisms/RatingList.re.mjs:614
+#: src/components/organisms/RatingList.re.mjs:643
 msgid "Loading next standings"
 msgstr "다음 순위 로딩 중"
 
-#: src/components/organisms/RatingList.re.mjs:754
+#: src/components/organisms/RatingList.re.mjs:783
 msgid "No players found"
 msgstr "플레이어를 찾을 수 없습니다"
 
-#: src/components/organisms/RatingList.re.mjs:687
+#: src/components/organisms/RatingList.re.mjs:716
 msgid "Player"
 msgstr "플레이어"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:720
 msgid "Rating"
 msgstr "레이팅"
 
-#: src/components/organisms/RatingList.re.mjs:758
+#: src/components/organisms/RatingList.re.mjs:787
 msgid "Try broadening your search or filters."
 msgstr "검색어 또는 필터를 넓혀보세요."
 
-#: src/components/organisms/RatingList.re.mjs:424
+#: src/components/organisms/RatingList.re.mjs:448
 msgid "View my profile"
 msgstr "내 프로필 보기"
 
-#: src/components/organisms/RatingList.re.mjs:360
+#: src/components/organisms/RatingList.re.mjs:384
 msgid "You"
 msgstr "나"
 
-#: src/components/organisms/RatingList.re.mjs:308
+#: src/components/organisms/RatingList.re.mjs:332
 msgid "Your standing"
 msgstr "내 순위"
 

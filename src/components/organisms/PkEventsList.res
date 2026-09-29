@@ -119,6 +119,9 @@ module Day = {
     // PkEventsAvailabilityDay_query arguments).
     ~showInlineCourts: bool=false,
     ~requireProfile: (unit => unit) => unit=action => action(),
+    // The availability row's collapsed trigger copy; None keeps its default
+    // ("Play today"), so days other than today must name themselves.
+    ~triggerLabel: option<string>=?,
   ) => {
     let isoDate = {
       let y = date->Js.Date.getFullYear->Float.toInt->Int.toString
@@ -256,6 +259,7 @@ module Day = {
               )}
             renderHeader
             requireProfile
+            ?triggerLabel
           />
           {if !showInlineCourts {
             // Inline court availabilities are experimental (testing only) and
@@ -437,17 +441,21 @@ let make = (
       ReactIntl.dateTimeFormatOptions(~month=#short, ~day=#numeric, ()),
     )
 
-  let getBucketMeta = (key: string): (string, string, Js.Date.t) =>
+  // (heading, date details, date, availability trigger copy). The trigger
+  // copy is None for today, which keeps the row's default ("Play today").
+  let getBucketMeta = (key: string): (string, string, Js.Date.t, option<string>) =>
     switch key {
     | "today" => (
         ts`Today`,
         formatDate(bucketSetup.dateFromOffset(0.)),
         bucketSetup.dateFromOffset(0.),
+        None,
       )
     | "tomorrow" => (
         ts`Tomorrow`,
         formatDate(bucketSetup.dateFromOffset(1.)),
         bucketSetup.dateFromOffset(1.),
+        Some(ts`Play tomorrow`),
       )
     | _ =>
       let (isNextWeek, dayIndex, date) = EventsListUtils.getBucketDateDetails(
@@ -472,7 +480,8 @@ let make = (
       } else {
         dayName
       }
-      (label, formatDate(date), date)
+      let triggerLabel = isNextWeek ? ts`Play next ${dayName}` : ts`Play ${dayName}`
+      (label, formatDate(date), date, Some(triggerLabel))
     }
 
   let bucketEventsDict = EventsListUtils.bucketEvents(
@@ -504,7 +513,7 @@ let make = (
       if filteredEvents->Array.length == 0 {
         None
       } else {
-        let (label, dateDetails, date) = getBucketMeta(key)
+        let (label, dateDetails, date, triggerLabel) = getBucketMeta(key)
         Some((
           key,
           <Day
@@ -522,6 +531,7 @@ let make = (
             ?shouldHideEvent
             showInlineCourts
             requireProfile={availabilityGate.require}
+            ?triggerLabel
           />,
         ))
       }

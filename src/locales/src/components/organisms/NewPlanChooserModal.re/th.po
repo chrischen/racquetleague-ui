@@ -33,27 +33,27 @@ msgstr "ปิด"
 msgid "Copy {address}"
 msgstr "คัดลอก {address}"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+#: src/components/organisms/NewPlanChooserModal.re.mjs:365
 msgid "Create an event"
 msgstr "สร้างกิจกรรม"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+#: src/components/organisms/NewPlanChooserModal.re.mjs:367
 msgid "Create an event yourself, or from a court booking email."
 msgstr "สร้างกิจกรรมด้วยตัวเอง หรือสร้างจากอีเมลการจองคอร์ต"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+#: src/components/organisms/NewPlanChooserModal.re.mjs:383
 msgid "Create Event Manually"
 msgstr "สร้างกิจกรรมด้วยตนเอง"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+#: src/components/organisms/NewPlanChooserModal.re.mjs:337
 msgid "Create events by email"
 msgstr "สร้างกิจกรรมทางอีเมล"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+#: src/components/organisms/NewPlanChooserModal.re.mjs:387
 msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "กรอกรายละเอียดกิจกรรมเอง หรือให้ผู้ช่วยกรอกให้"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+#: src/components/organisms/NewPlanChooserModal.re.mjs:351
 msgid ""
 "Events are added privately to {myEvents}. Make an event public whenever you "
 "need to find players."
@@ -70,11 +70,11 @@ msgstr "ส่งต่ออีเมลยืนยันการจองไ
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/organisms/NewPlanChooserModal.re.mjs:354
 msgid "My Events"
 msgstr "กิจกรรมของฉัน"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+#: src/components/organisms/NewPlanChooserModal.re.mjs:366
 msgid "New plan"
 msgstr "แผนใหม่"
 

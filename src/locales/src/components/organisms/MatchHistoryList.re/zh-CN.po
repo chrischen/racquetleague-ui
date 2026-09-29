@@ -13,33 +13,34 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "击败"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "平局"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "势均力敌"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "负"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "爆冷"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "胜"

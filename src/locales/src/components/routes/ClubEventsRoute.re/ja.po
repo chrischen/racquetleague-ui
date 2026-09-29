@@ -281,6 +281,11 @@ msgstr "リンクを共有"
 #~ msgid "For event updates and notifications"
 #~ msgstr "イベントの更新と通知用"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid ""
+#~ "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
+
 #: src/components/organisms/ProfileModal.re.mjs:491
 #~ msgid "Gender"
 #~ msgstr "性別"
@@ -467,6 +472,10 @@ msgstr "リンクを共有"
 #~ msgstr ""
 #~ "プレー希望を伝えましょう。時間が重なるプレーヤーからお誘いが届きます。"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid "That doesn't look like an email address."
+#~ msgstr "メールアドレスの形式ではないようです。"
+
 #: src/components/molecules/AIResponseCard.re.mjs:45
 #~ msgid "Title:"
 #~ msgstr "タイトル:"
@@ -490,11 +499,3 @@ msgstr "リンクを共有"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 #~ msgid "When do you want to play?"
 #~ msgstr "いつプレーしたいですか？"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "イベントの更新と通知用です。確認用のリンクをメールでお送りします。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "メールアドレスの形式ではないようです。"

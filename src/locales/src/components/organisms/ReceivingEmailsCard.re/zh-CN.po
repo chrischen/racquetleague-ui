@@ -13,29 +13,29 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:386
 msgid "Account email"
 msgstr "账户邮箱"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:540
 msgid "Add"
 msgstr "添加"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:522
 msgid "Add a receiving email"
 msgstr "添加收件邮箱"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:406
 msgid "Awaiting confirmation"
 msgstr "等待确认"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:557
 msgid ""
 "Bookings forwarded from it will no longer be added to your account. You can "
 "add it again later."
 msgstr "从此地址转发的预订将不再添加到您的账户。您可以稍后再添加。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:376
 msgid ""
 "Bookings you forward to chris@pkuru.com are added to your account when they "
 "come from one of these addresses. Add the other addresses you receive "
@@ -45,74 +45,108 @@ msgstr ""
 "收预订确认邮件的其他地址。"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:496
 msgid "Cancel"
 msgstr "取消"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:389
+msgid "Change"
+msgstr "更改"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:41
 msgid "Confirm"
 msgstr "确认"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:403
 msgid "Confirmed"
 msgstr "已确认"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:479
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:529
 msgid "name@example.com"
 msgstr "name@example.com"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "新的账户邮箱"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "打开链接即可设为您的账户邮箱。在此之前不会有任何更改。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
 msgstr "请在登录 pkuru 的状态下打开链接，以完成添加地址。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
 msgstr "收件邮箱"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:447
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:556
 msgid "Remove this receiving email?"
 msgstr "要移除此收件邮箱吗？"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:411
 msgid "Resend"
 msgstr "重新发送"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "发送链接"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:164
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:171
 msgid "Something went wrong. Please try again."
 msgstr "出现错误，请重试。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:154
 msgid "That address isn't on your account any more."
 msgstr "此地址已不在您的账户中。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:152
 msgid "That doesn't look like an email address."
 msgstr "这看起来不像邮箱地址。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:158
 msgid "That's already your account email."
 msgstr "这已经是您的账户邮箱。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:156
 msgid "Too many emails sent. Please wait a minute and try again."
 msgstr "发送次数过多，请稍后再试。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
 msgstr "邮件发送失败。请稍后点击 \\\"重新发送\\\"。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
 msgstr "我们已将确认链接发送至"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "我们已将链接发送至"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid ""
+"We'll email a link to the new address. Your current address stays on as a "
+"receiving email."
+msgstr "我们会将链接发送到新地址。您当前的地址会保留为收件邮箱。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr "最多可添加 5 个收件邮箱。请先移除一个再添加。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "您已添加过此地址。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid ""
+"Your account has no email yet. The first address you confirm here becomes "
+"your account email."
+msgstr "您的账户还没有邮箱。您在此确认的第一个地址将成为账户邮箱。"

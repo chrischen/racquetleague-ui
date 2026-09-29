@@ -89,7 +89,7 @@ msgid "Clear"
 msgstr "Xóa"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
+msgid "Courts · thickness = count"
 msgstr "Sân · độ dày = số lượng"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
@@ -130,7 +130,7 @@ msgid "Save"
 msgstr "Lưu"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "Đang lưu…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -242,6 +242,10 @@ msgstr "Giờ của bạn"
 #~ msgid "Courts"
 #~ msgstr "Sân"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "Sân · độ dày = số lượng"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "Sân trống trong giờ của bạn"
@@ -258,6 +262,10 @@ msgstr "Giờ của bạn"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "mở"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "Đang lưu…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""

@@ -53,7 +53,7 @@ msgid "18,900 rounds solved"
 msgstr "แก้โจทย์แล้ว 18,900 รอบ"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1385
-msgid "24 players · 4 court"
+msgid "24 players · 4 courts"
 msgstr "ผู้เล่น 24 คน · 4 สนาม"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1388
@@ -1155,9 +1155,8 @@ msgstr ""
 #~ msgid "· % chance the game ends level, by true skill · higher is better"
 #~ msgstr "· % โอกาสที่เกมจบเสมอ โดยทักษะจริง · ยิ่งสูงยิ่งดี"
 
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+#~ msgid "24 players · 4 court"
 #~ msgstr "ผู้เล่น 24 คน · 4 สนาม"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029

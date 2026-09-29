@@ -54,13 +54,15 @@ export const BeforeCheckIn: Story = {
   },
 };
 
-/** Everyone is here and seeded: 18 checked in (two walk-ins), three courts, ready to generate. */
+/** Everyone is here and seeded: 18 checked in (two walk-ins), three courts, ready to generate.
+    The check-ins are restored after the first render, and with 18 here the panel folds away. */
 export const ReadyToGenerate: Story = {
   args: { state: "readyToGenerate" },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(await canvas.findByText("18 of 22 checked in", {}, mounted)).toBeVisible();
     await expect(canvas.getByRole("button", { name: "Generate" })).toBeEnabled();
+    await waitFor(() => expect(canvas.queryByRole("button", { name: /Add guest/ })).toBeNull());
   },
 };
 

@@ -106,6 +106,7 @@ function UpdateLocationEventForm(props) {
                       initialActivityId: Core__Option.map(eventData.activity, (function (a) {
                               return a.id;
                             })),
+                      fallbackToFirstClub: false,
                       onChange: (function (sel) {
                           setClubSelection(function (param) {
                                 return sel;

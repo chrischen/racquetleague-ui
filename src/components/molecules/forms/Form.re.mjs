@@ -17,21 +17,20 @@ function Form$PrefixedInput(props) {
   var autoComplete = props.autoComplete;
   var __type_ = props.type_;
   var id = props.id;
-  var name = props.name;
   var step = props.step;
   var className = props.className;
   var type_ = __type_ !== undefined ? __type_ : "text";
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
+    tmp = JsxRuntime.jsx("input", (newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100"), newrecord.defaultValue = defaultValue, newrecord));
   } else {
     tmp = JsxRuntime.jsx("input", {
           defaultValue: defaultValue,
-          className: Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"),
+          className: Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100"),
           id: id,
           autoComplete: autoComplete,
-          name: name,
+          name: props.name,
           placeholder: placeholder,
           step: step,
           type: type_,
@@ -44,8 +43,8 @@ function Form$PrefixedInput(props) {
               children: [
                 JsxRuntime.jsx("label", {
                       children: props.label,
-                      className: "block text-sm font-medium leading-6 text-gray-900",
-                      htmlFor: name
+                      className: "block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100",
+                      htmlFor: id
                     }),
                 JsxRuntime.jsx("div", {
                       children: JsxRuntime.jsxs("div", {
@@ -81,23 +80,22 @@ function Form$Input(props) {
   var __type_ = props.type_;
   var id = props.id;
   var step = props.step;
-  var name = props.name;
   var className = props.className;
   var onClick = props.onClick;
   var type_ = __type_ !== undefined ? __type_ : "text";
   var tmp;
   if (register !== undefined) {
     var newrecord = Caml_obj.obj_dup(register);
-    tmp = JsxRuntime.jsx("input", (newrecord.onClick = onClick, newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.pattern = pattern, newrecord.inputMode = inputMode, newrecord.disabled = disabled, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"), newrecord.defaultValue = defaultValue, newrecord));
+    tmp = JsxRuntime.jsx("input", (newrecord.onClick = onClick, newrecord.onBlur = onBlur, newrecord.value = value, newrecord.type = type_, newrecord.step = step, newrecord.placeholder = placeholder, newrecord.pattern = pattern, newrecord.inputMode = inputMode, newrecord.disabled = disabled, newrecord.autoComplete = autoComplete, newrecord.id = id, newrecord.className = Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100"), newrecord.defaultValue = defaultValue, newrecord));
   } else {
     tmp = JsxRuntime.jsx("input", {
           defaultValue: defaultValue,
-          className: Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"),
+          className: Core__Option.getOr(className, "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100"),
           id: id,
           autoComplete: autoComplete,
           disabled: disabled,
           inputMode: inputMode,
-          name: name,
+          name: props.name,
           pattern: pattern,
           placeholder: placeholder,
           step: step,
@@ -113,8 +111,8 @@ function Form$Input(props) {
                 Core__Option.getOr(Core__Option.map(props.label, (function (label) {
                             return JsxRuntime.jsx("label", {
                                         children: label,
-                                        className: "block text-sm font-medium leading-6 text-gray-900",
-                                        htmlFor: name
+                                        className: "block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100",
+                                        htmlFor: id
                                       });
                           })), null),
                 JsxRuntime.jsx("div", {
@@ -132,7 +130,7 @@ function Form$Input(props) {
                 Core__Option.getOr(Core__Option.map(props.hint, (function (hint) {
                             return JsxRuntime.jsx("p", {
                                         children: hint,
-                                        className: "mt-3 text-sm leading-6 text-gray-600"
+                                        className: "mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400"
                                       });
                           })), null)
               ]
@@ -178,8 +176,8 @@ function Form$Select(props) {
               children: [
                 JsxRuntime.jsx("label", {
                       children: props.label,
-                      className: "block text-sm font-medium leading-6 text-gray-900",
-                      htmlFor: name
+                      className: "block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100",
+                      htmlFor: id
                     }),
                 tmp
               ]
@@ -219,8 +217,8 @@ function Form$TextArea(props) {
               children: [
                 JsxRuntime.jsx("label", {
                       children: props.label,
-                      className: "block text-sm font-medium leading-6 text-gray-900",
-                      htmlFor: "about"
+                      className: "block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100",
+                      htmlFor: id
                     }),
                 JsxRuntime.jsx("div", {
                       children: tmp,
@@ -229,7 +227,7 @@ function Form$TextArea(props) {
                 Core__Option.getOr(Core__Option.map(props.hint, (function (hint) {
                             return JsxRuntime.jsx("p", {
                                         children: hint,
-                                        className: "mt-3 text-sm leading-6 text-gray-600"
+                                        className: "mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400"
                                       });
                           })), null)
               ]
@@ -302,7 +300,7 @@ function Form$Footer(props) {
                 Core__Option.getOr(Core__Option.map(props.onCancel, (function (onCancel) {
                             return JsxRuntime.jsx("button", {
                                         children: t`cancel`,
-                                        className: "text-sm font-semibold leading-6 text-gray-900",
+                                        className: "text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100",
                                         type: "button",
                                         onClick: onCancel
                                       });

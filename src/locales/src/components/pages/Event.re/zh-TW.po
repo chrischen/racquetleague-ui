@@ -243,7 +243,7 @@ msgstr "尚無活動"
 msgid "No players found"
 msgstr "找不到球員"
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr "還沒有球員"
 
@@ -284,8 +284,8 @@ msgstr "預覽智慧報名"
 msgid "Previewing…"
 msgstr "預覽中…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "非公開"
 
@@ -293,10 +293,14 @@ msgstr "非公開"
 msgid "Professional players"
 msgstr "職業球員"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "計分賽"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "休閒"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -346,15 +350,11 @@ msgstr "立即執行智慧 RSVP"
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "查看全部"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "傳送"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "顯示更少"
 
@@ -459,7 +459,7 @@ msgstr "查看活動"
 msgid "View Profile"
 msgstr "查看個人資料"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "等待列表"
 
@@ -507,3 +507,7 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:310
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "執行智慧 RSVP（最佳配對，測試）"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "查看全部"

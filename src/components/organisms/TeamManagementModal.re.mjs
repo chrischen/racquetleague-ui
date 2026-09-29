@@ -4,7 +4,7 @@ import * as React from "react";
 import * as LucideReact from "lucide-react";
 import * as JsxRuntime from "react/jsx-runtime";
 
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 ;
 
 function TeamManagementModal$TeamEditor(props) {
@@ -49,7 +49,7 @@ function TeamManagementModal$TeamEditor(props) {
                                     children: JsxRuntime.jsx(LucideReact.X, {
                                           className: "w-5 h-5 text-slate-600"
                                         }),
-                                    "aria-label": "Close",
+                                    "aria-label": t`Close`,
                                     className: "p-2 hover:bg-slate-100 rounded-lg transition-colors",
                                     onClick: (function (param) {
                                         onCancel();
@@ -67,7 +67,7 @@ function TeamManagementModal$TeamEditor(props) {
                                             className: "block text-sm font-medium text-slate-700 mb-1"
                                           }),
                                       JsxRuntime.jsx("input", {
-                                            className: "w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500",
+                                            className: "w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500",
                                             placeholder: t`Enter team name`,
                                             type: "text",
                                             value: name,
@@ -311,7 +311,7 @@ function TeamManagementModal(props) {
                                       children: JsxRuntime.jsx(LucideReact.X, {
                                             className: "w-5 h-5 text-slate-600"
                                           }),
-                                      "aria-label": "Close",
+                                      "aria-label": t`Close`,
                                       className: "p-2 hover:bg-slate-100 rounded-lg transition-colors",
                                       onClick: (function (param) {
                                           onClose();
@@ -365,6 +365,7 @@ function TeamManagementModal(props) {
                                       className: "text-center py-12"
                                     }) : JsxRuntime.jsx("div", {
                                       children: currentTeams.map(function (team) {
+                                            var count = team.playerIds.length;
                                             return JsxRuntime.jsxs("div", {
                                                         children: [
                                                           JsxRuntime.jsxs("div", {
@@ -374,9 +375,10 @@ function TeamManagementModal(props) {
                                                                         className: "font-semibold text-slate-800"
                                                                       }),
                                                                   JsxRuntime.jsx("div", {
-                                                                        children: team.playerIds.length.toString() + " player" + (
-                                                                          team.playerIds.length !== 1 ? "s" : ""
-                                                                        ),
+                                                                        children: plural(count, {
+                                                                              one: t`${count.toString()} player`,
+                                                                              other: t`${count.toString()} players`
+                                                                            }),
                                                                         className: "text-sm text-slate-600"
                                                                       })
                                                                 ],

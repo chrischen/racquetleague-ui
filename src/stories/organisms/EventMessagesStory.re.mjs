@@ -53,7 +53,7 @@ function EventMessagesStory(props) {
                     eventId: StoryFixturesEventPage.eventId,
                     viewerHasRsvp: props.viewerHasRsvp
                   }),
-              className: "max-w-xl bg-gray-50 p-4"
+              className: "max-w-xl bg-gray-50 p-4 dark:bg-[#18191c]"
             });
 }
 

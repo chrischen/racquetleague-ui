@@ -33,28 +33,28 @@ msgstr "닫기"
 msgid "Copy {address}"
 msgstr "{address} 복사"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+#: src/components/organisms/NewPlanChooserModal.re.mjs:365
 msgid "Create an event"
 msgstr "이벤트 만들기"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+#: src/components/organisms/NewPlanChooserModal.re.mjs:367
 msgid "Create an event yourself, or from a court booking email."
 msgstr "이벤트를 직접 만들거나 코트 예약 이메일로 만드세요."
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+#: src/components/organisms/NewPlanChooserModal.re.mjs:383
 msgid "Create Event Manually"
 msgstr "직접 이벤트 만들기"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+#: src/components/organisms/NewPlanChooserModal.re.mjs:337
 msgid "Create events by email"
 msgstr "이메일로 이벤트 만들기"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+#: src/components/organisms/NewPlanChooserModal.re.mjs:387
 msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr ""
 "이벤트 세부 정보를 직접 입력하거나 어시스턴트에게 채워 달라고 요청하세요."
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+#: src/components/organisms/NewPlanChooserModal.re.mjs:351
 msgid ""
 "Events are added privately to {myEvents}. Make an event public whenever you "
 "need to find players."
@@ -74,11 +74,11 @@ msgstr ""
 msgid "Google Calendar"
 msgstr "Google 캘린더"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/organisms/NewPlanChooserModal.re.mjs:354
 msgid "My Events"
 msgstr "내 이벤트"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+#: src/components/organisms/NewPlanChooserModal.re.mjs:366
 msgid "New plan"
 msgstr "새 계획"
 

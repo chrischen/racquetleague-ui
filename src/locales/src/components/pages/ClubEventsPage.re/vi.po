@@ -163,6 +163,13 @@ msgstr "Chia sẻ liên kết"
 #~ msgid "For event updates and notifications"
 #~ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid ""
+#~ "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgstr ""
+#~ "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết "
+#~ "để xác nhận."
+
 #: src/components/organisms/ProfileModal.re.mjs:491
 #~ msgid "Gender"
 #~ msgstr "Giới tính"
@@ -275,6 +282,10 @@ msgstr "Chia sẻ liên kết"
 #~ "Cho người khác biết bạn muốn chơi. Người có khung giờ trùng có thể mời "
 #~ "bạn."
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid "That doesn't look like an email address."
+#~ msgstr "Đây có vẻ không phải là địa chỉ email."
+
 #: src/components/organisms/NewPlanModal.re.mjs:55
 #~ msgid "Today"
 #~ msgstr "Hôm nay"
@@ -291,11 +302,3 @@ msgstr "Chia sẻ liên kết"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 #~ msgid "When do you want to play?"
 #~ msgstr "Bạn muốn chơi lúc nào?"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để xác nhận."
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "Đây có vẻ không phải là địa chỉ email."

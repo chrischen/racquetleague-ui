@@ -194,7 +194,13 @@ function SelectPlayersList(props) {
                                                           })
                                                     ]
                                                   }, player.id);
-                                      }) : t`no players yet`,
+                                      }) : JsxRuntime.jsx("tr", {
+                                        children: JsxRuntime.jsx("td", {
+                                              children: t`no players yet`,
+                                              className: "py-2 pl-4 text-sm leading-6 text-gray-500 sm:pl-6 lg:pl-8",
+                                              colSpan: 3
+                                            })
+                                      }),
                                 className: "divide-y divide-black/5"
                               })
                         ],

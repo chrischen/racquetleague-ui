@@ -38,7 +38,7 @@ msgstr "取消"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/MatchCard.re.mjs:396
+#: src/components/organisms/MatchCard.re.mjs:399
 msgid "Court {0}"
 msgstr "場地 {0}"
 
@@ -47,24 +47,24 @@ msgid "Court {0} - Editing"
 msgstr "場地 {0} - 編輯中"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
-#: src/components/organisms/MatchCard.re.mjs:437
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "Delete match"
 msgstr "刪除比賽"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:444
 msgid "Delete this match?"
 msgstr "刪除這場比賽？"
 
-#: src/components/organisms/MatchCard.re.mjs:450
+#: src/components/organisms/MatchCard.re.mjs:453
 msgid "Edit match"
 msgstr "編輯比賽"
 
-#: src/components/organisms/ScoreModal.re.mjs:112
+#: src/components/organisms/ScoreModal.re.mjs:116
 msgid "Enter Match Score"
 msgstr "輸入比賽比分"
 
-#: src/components/organisms/ScoreModal.re.mjs:257
+#: src/components/organisms/ScoreModal.re.mjs:261
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "分數相同 — 此場將記錄為平局"
 
@@ -72,11 +72,11 @@ msgstr "分數相同 — 此場將記錄為平局"
 msgid "Full Screen View"
 msgstr "全螢幕檢視"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Last Round"
 msgstr "上一輪"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Losing Team (Team {0})"
 msgstr "輸球隊（隊伍 {0}）"
 
@@ -92,11 +92,11 @@ msgstr "場比賽"
 msgid "No available players"
 msgstr "沒有可用的球員"
 
-#: src/components/organisms/ScoreModal.re.mjs:266
+#: src/components/organisms/ScoreModal.re.mjs:270
 msgid "No Score"
 msgstr "無比分"
 
-#: src/components/organisms/MatchCard.re.mjs:404
+#: src/components/organisms/MatchCard.re.mjs:407
 msgid "Rebalance match"
 msgstr "重新平衡比賽"
 
@@ -104,7 +104,7 @@ msgstr "重新平衡比賽"
 msgid "Rebalance this round with current players"
 msgstr "用當前球員重新平衡這個回合"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Repeat"
 msgstr "重複"
 
@@ -133,7 +133,7 @@ msgstr "第 {0} 回合"
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/ScoreModal.re.mjs:274
+#: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "保存比分"
 
@@ -141,7 +141,7 @@ msgstr "保存比分"
 msgid "Skill: {0}"
 msgstr "技能：{0}"
 
-#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/ScoreModal.re.mjs:80
 msgid "Team {0}"
 msgstr "第 {0} 隊"
 
@@ -154,19 +154,19 @@ msgid "TEAM 2"
 msgstr "隊伍 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-#: src/components/organisms/MatchCard.re.mjs:442
+#: src/components/organisms/MatchCard.re.mjs:445
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
 msgstr "該比賽將從此輪次中移除。您可以使用輪次重置圖示恢復原定比賽。"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
-#: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/MatchCard.re.mjs:589
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Winning Team (Team {0})"
 msgstr "獲勝隊（隊伍 {0}）"
 

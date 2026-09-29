@@ -27,14 +27,12 @@ var Fragment = {
 };
 
 function PlayerRow(props) {
-  var __incrementDisplayCount = props.incrementDisplayCount;
   var __debug = props.debug;
   var onClick = props.onClick;
   var getUserFragmentRefs = props.getUserFragmentRefs;
   var winner = props.winner;
   var player = props.player;
   var debug = __debug !== undefined ? __debug : false;
-  __incrementDisplayCount !== undefined ? __incrementDisplayCount : false;
   var playCount = player.count;
   var isBold = winner !== undefined ? winner === props.teamSide : true;
   var containerClassName = props.isEditing ? "flex items-center gap-2 bg-white p-2 rounded border border-slate-200 hover:border-blue-500 hover:bg-blue-50 transition-all cursor-pointer" : "flex items-center gap-1.5 flex-1 min-w-0";

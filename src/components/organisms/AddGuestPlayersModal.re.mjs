@@ -4,7 +4,7 @@ import * as React from "react";
 import * as LucideReact from "lucide-react";
 import * as JsxRuntime from "react/jsx-runtime";
 
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 ;
 
 function AddGuestPlayersModal(props) {
@@ -72,7 +72,7 @@ function AddGuestPlayersModal(props) {
                                             className: "block text-sm font-medium text-slate-700 mb-2"
                                           }),
                                       JsxRuntime.jsx("textarea", {
-                                            className: "w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm",
+                                            className: "w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm",
                                             placeholder: t`John Smith` + "\n" + t`Jane Doe` + "\n" + t`Alex Johnson`,
                                             rows: 8,
                                             value: namesText,
@@ -94,7 +94,10 @@ function AddGuestPlayersModal(props) {
                                                       className: "w-4 h-4 text-slate-600"
                                                     }),
                                                 JsxRuntime.jsx("span", {
-                                                      children: t`Preview (${previewCount.toString()} guest${previewCount !== 1 ? "s" : ""})`,
+                                                      children: plural(previewCount, {
+                                                            one: t`Preview (${previewCount.toString()} guest)`,
+                                                            other: t`Preview (${previewCount.toString()} guests)`
+                                                          }),
                                                       className: "text-sm font-semibold text-slate-700"
                                                     })
                                               ],
@@ -132,7 +135,10 @@ function AddGuestPlayersModal(props) {
                                       })
                                   }),
                               JsxRuntime.jsx("button", {
-                                    children: t`Add ${previewCount > 0 ? previewCount.toString() + " " : ""}Guest${previewCount !== 1 ? "s" : ""}`,
+                                    children: previewCount > 0 ? plural(previewCount, {
+                                            one: t`Add ${previewCount.toString()} Guest`,
+                                            other: t`Add ${previewCount.toString()} Guests`
+                                          }) : t`Add Guests`,
                                     className: previewCount === 0 ? "px-6 py-2 rounded-lg font-medium transition-colors shadow-md bg-slate-300 text-slate-500 cursor-not-allowed" : "px-6 py-2 rounded-lg font-medium transition-colors shadow-md bg-blue-600 text-white hover:bg-blue-700",
                                     disabled: previewCount === 0,
                                     type: "button",

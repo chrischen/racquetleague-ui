@@ -76,12 +76,14 @@ export const SyncCalendarMenu: Story = {
   },
 };
 
-/** Signed out: the email steps need an account, so only the manual button. */
+/** Signed out: the email steps need an account, so only the manual button
+ * (no empty "Create events by email" section). */
 export const SignedOut: Story = {
   parameters: { relay: { query, mocks: { Query: { viewer: null } } } },
   play: async ({ canvasElement }) => {
     const body = await openDialog(canvasElement);
     await expect(await body.findByRole("button", { name: /Create Event Manually/ })).toBeVisible();
+    await waitFor(() => expect(body.queryByText(/Create events by email/)).toBeNull());
     await expect(body.queryByText(FORWARDING)).toBeNull();
   },
 };

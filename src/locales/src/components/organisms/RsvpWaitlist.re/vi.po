@@ -82,6 +82,6 @@ msgstr ""
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "Danh sách chờ"

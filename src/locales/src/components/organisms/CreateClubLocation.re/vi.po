@@ -25,7 +25,7 @@ msgstr "cần có địa chỉ"
 msgid "Akabane Elementary School"
 msgstr "Trường tiểu học Akabane"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "hủy"
 
@@ -56,6 +56,6 @@ msgstr "tên"
 msgid "name is required"
 msgstr "cần có tên"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "lưu"

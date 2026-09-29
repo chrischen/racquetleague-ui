@@ -80,11 +80,11 @@ function PendingRsvps(props) {
                                             children: [
                                               JsxRuntime.jsx("span", {
                                                     children: t`Would be admitted`,
-                                                    className: "absolute -top-2 left-2 z-10 rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-semibold text-white"
+                                                    className: "relative z-10 -mt-2 ml-2 whitespace-nowrap rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-semibold text-white"
                                                   }),
                                               card
                                             ],
-                                            className: "relative rounded-xl ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900"
+                                            className: "relative flex flex-col items-start rounded-xl ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900"
                                           }, edge.id);
                               } else {
                                 return card;

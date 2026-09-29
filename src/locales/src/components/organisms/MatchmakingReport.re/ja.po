@@ -49,7 +49,7 @@ msgid "18,900 rounds solved"
 msgstr "18,900ラウンドを解析"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1385
-msgid "24 players · 4 court"
+msgid "24 players · 4 courts"
 msgstr "24人 · 4コート"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1388
@@ -1194,9 +1194,8 @@ msgstr ""
 #~ msgid "· % chance the game ends level, by true skill · higher is better"
 #~ msgstr "· スキルに基づきゲームが同点で終わる確率（%）· 高いほど良い"
 
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+#~ msgid "24 players · 4 court"
 #~ msgstr "24人 · 4コート"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029

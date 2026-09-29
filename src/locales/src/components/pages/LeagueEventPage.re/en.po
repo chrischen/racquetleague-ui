@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr ""
 
@@ -25,11 +25,11 @@ msgstr ""
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:232
+#: src/components/organisms/MatchesView.re.mjs:234
 msgid "{0} player selected"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:235
 msgid "{0} players selected"
 msgstr ""
 
@@ -41,7 +41,7 @@ msgstr ""
 #~ msgid "{maxRsvps, plural, one {player} other {players}}"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:231
+#: src/components/organisms/MatchesView.re.mjs:233
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr ""
 
@@ -49,12 +49,12 @@ msgstr ""
 #~ msgid "{waitlistCount, plural, one {player} other {players}}"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/MatchesView.re.mjs:259
 #: src/components/organisms/AiTetsu.re.mjs:353
 msgid "# of courts"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:656
+#: src/components/organisms/MatchesView.re.mjs:660
 msgid "Actions"
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr ""
 msgid "Add Player"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:133
+#: src/components/organisms/MatchesView.re.mjs:135
 msgid "Add/Remove Players"
 msgstr ""
 
@@ -82,12 +82,16 @@ msgstr ""
 msgid "Analyzed {0} matches."
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:622
-#: src/components/organisms/MatchesView.re.mjs:625
+#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:629
 msgid "and"
 msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr ""
+
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr ""
 
@@ -104,11 +108,11 @@ msgstr ""
 msgid "Checkin All Players"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:645
+#: src/components/organisms/MatchesView.re.mjs:649
 msgid "Choose Match"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:553
+#: src/components/organisms/MatchesView.re.mjs:557
 msgid "CHOOSE MATCH"
 msgstr ""
 
@@ -140,7 +144,7 @@ msgstr ""
 #~ msgid "court {0}"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:630
 msgid "Court {0}: {team1} versus {team2}"
 msgstr ""
 
@@ -169,8 +173,7 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr ""
 
@@ -190,7 +193,7 @@ msgstr ""
 msgid "Enter Score"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr ""
 
@@ -239,7 +242,7 @@ msgstr ""
 #~ msgid "leave event"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:279
+#: src/components/organisms/SelectMatch.re.mjs:284
 msgid "left team players"
 msgstr ""
 
@@ -247,7 +250,7 @@ msgstr ""
 #~ msgid "load More"
 #~ msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr ""
 
@@ -281,12 +284,11 @@ msgstr ""
 #~ msgid "Loser Points"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:298
+#: src/components/organisms/SelectMatch.re.mjs:303
 msgid "Losers"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr ""
 
@@ -302,7 +304,7 @@ msgstr ""
 msgid "Match History"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:612
+#: src/components/organisms/MatchesView.re.mjs:616
 msgid "Matches"
 msgstr ""
 
@@ -326,7 +328,7 @@ msgstr ""
 msgid "Mixed"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:136
+#: src/components/organisms/SelectMatch.re.mjs:59
 msgid "no players yet"
 msgstr ""
 
@@ -347,7 +349,7 @@ msgstr ""
 msgid "Played last round"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:91
+#: src/components/organisms/SelectMatch.re.mjs:95
 msgid "Player"
 msgstr ""
 
@@ -402,12 +404,12 @@ msgstr ""
 #~ msgid "Quality"
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:597
+#: src/components/organisms/MatchesView.re.mjs:601
 msgid "Queue"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Queue All"
 msgstr ""
 
@@ -415,7 +417,7 @@ msgstr ""
 msgid "Queue All Players"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:328
+#: src/components/organisms/SelectMatch.re.mjs:333
 msgid "Queue Match"
 msgstr ""
 
@@ -435,7 +437,7 @@ msgstr ""
 msgid "Recommended Match"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:303
+#: src/components/organisms/SelectMatch.re.mjs:308
 msgid "right team players"
 msgstr ""
 
@@ -443,7 +445,7 @@ msgstr ""
 #~ msgid "Round Robin"
 #~ msgstr ""
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr ""
 
@@ -495,7 +497,7 @@ msgstr ""
 msgid "Start Session"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:500
+#: src/components/organisms/MatchesView.re.mjs:504
 msgid "START SESSION"
 msgstr ""
 
@@ -503,7 +505,7 @@ msgstr ""
 msgid "Submit Rated"
 msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:519
+#: src/components/organisms/MatchesView.re.mjs:523
 msgid "SUBMIT RESULTS"
 msgstr ""
 
@@ -536,12 +538,12 @@ msgstr ""
 #~ msgid "Unique combination of matches."
 #~ msgstr ""
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Unqueue All"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr ""
 
@@ -549,8 +551,7 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr ""
 
@@ -565,6 +566,6 @@ msgstr ""
 #~ msgid "Winner Points"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:274
+#: src/components/organisms/SelectMatch.re.mjs:279
 msgid "Winners"
 msgstr ""

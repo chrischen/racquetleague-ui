@@ -33,27 +33,27 @@ msgstr "Đóng"
 msgid "Copy {address}"
 msgstr "Sao chép {address}"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+#: src/components/organisms/NewPlanChooserModal.re.mjs:365
 msgid "Create an event"
 msgstr "Tạo sự kiện"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+#: src/components/organisms/NewPlanChooserModal.re.mjs:367
 msgid "Create an event yourself, or from a court booking email."
 msgstr "Tự tạo sự kiện, hoặc tạo từ email đặt sân."
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+#: src/components/organisms/NewPlanChooserModal.re.mjs:383
 msgid "Create Event Manually"
 msgstr "Tạo sự kiện thủ công"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+#: src/components/organisms/NewPlanChooserModal.re.mjs:337
 msgid "Create events by email"
 msgstr "Tạo sự kiện qua email"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+#: src/components/organisms/NewPlanChooserModal.re.mjs:387
 msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr "Tự nhập thông tin sự kiện hoặc nhờ trợ lý điền giúp."
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+#: src/components/organisms/NewPlanChooserModal.re.mjs:351
 msgid ""
 "Events are added privately to {myEvents}. Make an event public whenever you "
 "need to find players."
@@ -73,11 +73,11 @@ msgstr ""
 msgid "Google Calendar"
 msgstr "Google Calendar"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/organisms/NewPlanChooserModal.re.mjs:354
 msgid "My Events"
 msgstr "Sự kiện của tôi"
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+#: src/components/organisms/NewPlanChooserModal.re.mjs:366
 msgid "New plan"
 msgstr "Kế hoạch mới"
 

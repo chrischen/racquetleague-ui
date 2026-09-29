@@ -6,7 +6,6 @@ import { make as RatingGraphWrapperStory, playerId, query } from "./RatingGraphW
 // (ordinal, mu - 3 sigma) after each match, with a band for the uncertainty.
 // It reads the player's entry in each match's playerMetadata JSON (rating
 // before the match plus the change) and renders nothing when there is none.
-// The card is not dark-mode aware (white in both themes).
 type Step = { at: string; muDiff: number };
 
 /** Match nodes for a run of results, starting from `mu`/`sigma`. */

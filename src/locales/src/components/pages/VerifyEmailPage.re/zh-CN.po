@@ -13,24 +13,31 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:129
+#: src/components/pages/VerifyEmailPage.re.mjs:185
+msgid "Account email changed"
+msgstr "账户邮箱已更改"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:175
 msgid "Confirming your email…"
 msgstr "正在确认您的邮箱…"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:166
+#: src/components/pages/VerifyEmailPage.re.mjs:266
 msgid "Couldn't confirm this email"
 msgstr "无法确认此邮箱"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:140
+#: src/components/pages/VerifyEmailPage.re.mjs:208
+#: src/components/pages/VerifyEmailPage.re.mjs:237
 msgid "Email confirmed"
 msgstr "邮箱已确认"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:156
-#: src/components/pages/VerifyEmailPage.re.mjs:175
+#: src/components/pages/VerifyEmailPage.re.mjs:194
+#: src/components/pages/VerifyEmailPage.re.mjs:224
+#: src/components/pages/VerifyEmailPage.re.mjs:253
+#: src/components/pages/VerifyEmailPage.re.mjs:275
 msgid "Go to profile settings"
 msgstr "前往个人资料设置"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:150
+#: src/components/pages/VerifyEmailPage.re.mjs:218
 msgid ""
 "is now one of your receiving emails. Bookings you forward from it to "
 "chris@pkuru.com will be added to your events."
@@ -38,15 +45,21 @@ msgstr ""
 "现在是您的收件邮箱之一。您从此地址转发到 chris@pkuru.com 的预订将添加到您的活"
 "动中。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:63
+#: src/components/pages/VerifyEmailPage.re.mjs:247
+msgid "is now your account email."
+msgstr "现在是您的账户邮箱。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:67
+#: src/components/pages/VerifyEmailPage.re.mjs:83
 msgid "Something went wrong. Please try again."
 msgstr "出现错误，请重试。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:55
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+#: src/components/pages/VerifyEmailPage.re.mjs:73
 msgid "This address is already used by another pkuru account."
 msgstr "此地址已被另一个 pkuru 账户使用。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:59
+#: src/components/pages/VerifyEmailPage.re.mjs:63
 msgid ""
 "This link doesn't work for this account. Make sure you're signed in to the "
 "account that added the address, or send a new link from your profile "
@@ -55,38 +68,39 @@ msgstr ""
 "此链接不适用于此账户。请确认您已登录添加此地址的账户，或从个人资料设置发送新"
 "链接。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:57
-msgid "This link has expired. Send a new one from your profile settings."
-msgstr "此链接已过期。请从个人资料设置发送新链接。"
-
-#: src/components/pages/VerifyEmailPage.re.mjs:61
-msgid "This link is incomplete. Open it from the email again."
-msgstr "此链接不完整。请从邮件中重新打开。"
-
-#: src/components/pages/VerifyEmailPage.re.mjs
-msgid "Account email changed"
-msgstr "账户邮箱已更改"
-
-#: src/components/pages/VerifyEmailPage.re.mjs
-msgid "is now your account email."
-msgstr "现在是您的账户邮箱。"
-
-#: src/components/pages/VerifyEmailPage.re.mjs
-msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+#: src/components/pages/VerifyEmailPage.re.mjs:75
+msgid ""
+"This link doesn't work. Open it from the email again, or ask for a new one "
+"from your profile settings."
 msgstr "此链接无法使用。请从邮件重新打开，或从个人资料设置获取新链接。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs
-msgid "This link has already been used, or your account email has changed since it was sent."
+#: src/components/pages/VerifyEmailPage.re.mjs:81
+msgid ""
+"This link has already been used, or your account email has changed since it "
+"was sent."
 msgstr "此链接已被使用，或您的账户邮箱在链接发送后已更改。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:79
 msgid "This link has expired. Ask for a new one from your profile settings."
 msgstr "此链接已过期。请从个人资料设置获取新链接。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs
-msgid "You're signed in to a different account. Sign out, then open the link again."
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "此链接已过期。请从个人资料设置发送新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:65
+msgid "This link is incomplete. Open it from the email again."
+msgstr "此链接不完整。请从邮件中重新打开。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
+msgid ""
+"You're signed in to a different account. Sign out, then open the link again."
 msgstr "您当前登录的是其他账户。请先退出登录，再重新打开链接。"
 
-#: src/components/pages/VerifyEmailPage.re.mjs
-msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
-msgstr "您的账户现在使用新地址。之前的地址会保留为收件邮箱，您可以在个人资料设置中移除。"
+#: src/components/pages/VerifyEmailPage.re.mjs:189
+msgid ""
+"Your account now uses the new address. Your previous address is kept as a "
+"receiving email, which you can remove in your profile settings."
+msgstr ""
+"您的账户现在使用新地址。之前的地址会保留为收件邮箱，您可以在个人资料设置中移"
+"除。"

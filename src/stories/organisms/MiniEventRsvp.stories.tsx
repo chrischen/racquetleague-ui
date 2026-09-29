@@ -39,9 +39,12 @@ export const UnratedPlayers: Story = {
   },
 };
 
-/** A player with no picture: the image is empty, so the browser shows its alt text. */
+/** A player with no picture: the initial of their name, not an empty image. */
 export const NoPicture: Story = {
   parameters: {
     relay: { mocks: { Event: { rsvps: connection(rsvps(11).filter((_, i) => i >= 8)) } } },
+  },
+  play: async ({ canvasElement }) => {
+    await expect(canvasElement.querySelector('img[src=""], img:not([src])')).toBeNull();
   },
 };

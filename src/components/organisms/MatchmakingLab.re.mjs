@@ -1202,15 +1202,15 @@ function MatchmakingLab(props) {
                                             color: ratingBlue
                                           }
                                         }),
-                                    t` rating · `,
+                                    " " + t`rating ·` + " ",
                                     JsxRuntime.jsx("span", {
                                           children: "|",
                                           style: {
                                             color: truthRed
                                           }
                                         }),
-                                    t` true skill`,
-                                    t` · players marked ↑ ↑↑ ↓ are improving or slipping as the session runs`,
+                                    " " + t`true skill`,
+                                    " " + t`· players marked ↑ ↑↑ ↓ are improving or slipping as the session runs`,
                                     label !== undefined ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                                             children: [
                                               " · ",
@@ -1658,7 +1658,7 @@ function MatchmakingLab(props) {
                                             seedCount < 2 ? t`Single seed — no error bars, so treat any ordering here as provisional. Raise the seed count to tell real differences from noise.` : (
                                                 coLeaders > 1 ? t`± is the standard error over ${seedCount.toString()} seeds. ${coLeaders.toString()} strategies are tied for best on ladder error — their gaps are inside the error bars, so the ordering between them is not a result.` : t`± is the standard error over ${seedCount.toString()} seeds. Bold marks a value nothing else is within error of.`
                                               ),
-                                            t` Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Math.min(round, summaryWindow(round)).toString()} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better).`
+                                            " " + t`Ranked by the three columns combined, weighted equally. Rows below the dashed line matchmake from hidden true skill — they mark the ceiling and are excluded from the ranking. All three are rolling averages over the last ${Math.min(round, summaryWindow(round)).toString()} rounds, so they say how each strategy is doing now rather than how it did overall — drag the round slider to watch them move. places off = how far the average player sits from their true rank (lower better) · quality = how even the game is by true skill, 100% = perfectly even (higher better) · blowouts = share of games decided by 9+ (lower better).`
                                           ],
                                           className: "mt-2 pt-2",
                                           style: {

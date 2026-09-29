@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...加载之前的比赛"
 
@@ -33,6 +33,10 @@ msgstr "返回联赛"
 msgid "Balanced partner tendency"
 msgstr "搭档倾向均衡"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "击败"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:482
 msgid "Best Doubles Partners"
 msgstr "最佳双打搭档"
@@ -49,8 +53,7 @@ msgstr "位居第一的天数"
 msgid "doubles"
 msgstr "双打"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "平局"
 
@@ -71,7 +74,7 @@ msgstr "能提升较弱搭档的水平"
 msgid "Estimated DUPR"
 msgstr "预估 DUPR"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "势均力敌"
 
@@ -83,7 +86,7 @@ msgstr "室内球馆"
 msgid "Hard Court"
 msgstr "硬地球场"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "加载更多比赛..."
 
@@ -91,8 +94,7 @@ msgstr "加载更多比赛..."
 msgid "Loading..."
 msgstr "加载中..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "负"
 
@@ -142,7 +144,7 @@ msgstr "临时"
 msgid "Rating History"
 msgstr "评分历史"
 
-#: src/components/molecules/RatingGraph.re.mjs:40
+#: src/components/molecules/RatingGraph.re.mjs:70
 msgid "Rating:"
 msgstr "评分："
 
@@ -168,7 +170,7 @@ msgid ""
 "higher confidence."
 msgstr "阴影区域表示评分的不确定性。较窄的带表示更高的置信度。"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "爆冷"
 
@@ -176,8 +178,7 @@ msgstr "爆冷"
 msgid "Weak Against"
 msgstr "弱势对阵"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "胜"
 

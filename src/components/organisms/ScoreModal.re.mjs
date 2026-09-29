@@ -10,6 +10,8 @@ import * as JsxRuntime from "react/jsx-runtime";
 import { t } from '@lingui/macro'
 ;
 
+var playerRowDark = "dark:[&_span.text-slate-800]:text-gray-100 dark:[&_span.text-slate-600]:text-gray-300 dark:[&_span.text-pink-700]:text-pink-300 dark:[&_span.text-pink-600]:text-pink-400 dark:[&_.text-slate-500]:text-gray-400";
+
 function ScoreModal(props) {
   var getUserFragmentRefs = props.getUserFragmentRefs;
   var onClose = props.onClose;
@@ -68,7 +70,7 @@ function ScoreModal(props) {
     return JsxRuntime.jsxs("div", {
                 children: [
                   isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
-                          className: "w-5 h-5 text-amber-600"
+                          className: "w-5 h-5 text-amber-600 dark:text-amber-400"
                         }) : (
                       isWinningSide ? JsxRuntime.jsx(LucideReact.Trophy, {
                               className: "w-5 h-5 text-yellow-500 fill-yellow-500"
@@ -78,8 +80,8 @@ function ScoreModal(props) {
                         children: isDraw ? t`Team ${teamNumber.toString()}` : (
                             isWinningSide ? t`Winning Team (Team ${teamNumber.toString()})` : t`Losing Team (Team ${teamNumber.toString()})`
                           ),
-                        className: isDraw ? "text-lg font-bold text-slate-700" : (
-                            isWinningSide ? "text-lg font-bold text-green-700" : "text-lg font-bold text-slate-600"
+                        className: isDraw ? "text-lg font-bold text-slate-700 dark:text-gray-200" : (
+                            isWinningSide ? "text-lg font-bold text-green-700 dark:text-green-400" : "text-lg font-bold text-slate-600 dark:text-gray-300"
                           )
                       })
                 ],
@@ -87,15 +89,17 @@ function ScoreModal(props) {
               });
   };
   var match$4 = isDraw ? [
-      "bg-slate-100",
-      "text-slate-700",
+      "bg-slate-100 dark:bg-[#2a2b30]",
+      "text-slate-700 dark:text-gray-200",
       "bg-slate-600"
     ] : [
-      "bg-green-100",
-      "text-green-700",
+      "bg-green-100 dark:bg-green-900/30",
+      "text-green-700 dark:text-green-400",
       "bg-green-600"
     ];
   var accentSelected = match$4[2];
+  var numberButtonBase = "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 dark:border-[#2a2b30]";
+  var numberButtonIdle = numberButtonBase + " bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200 dark:bg-[#1e1f23] dark:text-gray-200 dark:hover:bg-[#2a2b30] dark:active:bg-[#3a3b40]";
   return JsxRuntime.jsx("div", {
               children: JsxRuntime.jsxs("div", {
                     children: [
@@ -104,29 +108,29 @@ function ScoreModal(props) {
                               JsxRuntime.jsxs("div", {
                                     children: [
                                       isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
-                                              className: "w-6 h-6 text-amber-600"
+                                              className: "w-6 h-6 text-amber-600 dark:text-amber-400"
                                             }) : JsxRuntime.jsx(LucideReact.Trophy, {
                                               className: "w-6 h-6 text-yellow-500"
                                             }),
                                       JsxRuntime.jsx("h2", {
                                             children: t`Enter Match Score`,
-                                            className: "text-xl font-bold text-slate-800"
+                                            className: "text-xl font-bold text-slate-800 dark:text-gray-100"
                                           })
                                     ],
                                     className: "flex items-center gap-3"
                                   }),
                               JsxRuntime.jsx("button", {
                                     children: JsxRuntime.jsx(LucideReact.X, {
-                                          className: "w-5 h-5 text-slate-600"
+                                          className: "w-5 h-5 text-slate-600 dark:text-gray-400"
                                         }),
                                     "aria-label": "Close",
-                                    className: "p-2 hover:bg-slate-100 rounded-lg transition-colors",
+                                    className: "p-2 hover:bg-slate-100 dark:hover:bg-[#2a2b30] rounded-lg transition-colors",
                                     onClick: (function (param) {
                                         onClose();
                                       })
                                   })
                             ],
-                            className: "sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between"
+                            className: "sticky top-0 bg-white dark:bg-[#1e1f23] border-b border-slate-200 dark:border-[#2a2b30] px-6 py-4 flex items-center justify-between"
                           }),
                       JsxRuntime.jsxs("div", {
                             children: [
@@ -164,7 +168,7 @@ function ScoreModal(props) {
                                                             })), false);
                                                   return JsxRuntime.jsx("button", {
                                                               children: num.toString(),
-                                                              className: isSelected ? "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 " + accentSelected + " text-white" : "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200",
+                                                              className: isSelected ? numberButtonBase + " " + accentSelected + " text-white" : numberButtonIdle,
                                                               onClick: (function (param) {
                                                                   if (winningTeam === "Team1") {
                                                                     return setTeam1Score(function (param) {
@@ -178,7 +182,7 @@ function ScoreModal(props) {
                                                                 })
                                                             }, num.toString());
                                                 }),
-                                            className: "grid grid-cols-8 gap-0 border border-slate-300 overflow-hidden rounded-lg"
+                                            className: "grid grid-cols-8 gap-0 border border-slate-300 dark:border-[#3a3b40] overflow-hidden rounded-lg"
                                           })
                                     ],
                                     className: "space-y-3"
@@ -204,9 +208,9 @@ function ScoreModal(props) {
                                                         children: Core__Option.getOr(Core__Option.map(losingScore, (function (s) {
                                                                     return s.toString();
                                                                   })), "—"),
-                                                        className: "text-3xl font-bold text-slate-700"
+                                                        className: "text-3xl font-bold text-slate-700 dark:text-gray-200"
                                                       }),
-                                                  className: "inline-block px-4 py-2 bg-slate-100 rounded-lg"
+                                                  className: "inline-block px-4 py-2 bg-slate-100 dark:bg-[#2a2b30] rounded-lg"
                                                 }),
                                             className: "text-center mb-2"
                                           }),
@@ -220,8 +224,8 @@ function ScoreModal(props) {
                                                             })), false);
                                                   return JsxRuntime.jsx("button", {
                                                               children: num.toString(),
-                                                              className: isDisabled ? "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-slate-50 text-slate-300 cursor-not-allowed" : (
-                                                                  isSelected ? "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-slate-600 text-white" : "h-12 flex items-center justify-center text-base font-bold transition-all border-r border-b border-slate-200 bg-white text-slate-700 hover:bg-slate-100 active:bg-slate-200"
+                                                              className: isDisabled ? numberButtonBase + " bg-slate-50 text-slate-300 dark:bg-[#1a1a1e] dark:text-gray-600 cursor-not-allowed" : (
+                                                                  isSelected ? numberButtonBase + " bg-slate-600 text-white" : numberButtonIdle
                                                                 ),
                                                               disabled: isDisabled,
                                                               onClick: (function (param) {
@@ -239,13 +243,13 @@ function ScoreModal(props) {
                                                                 })
                                                             }, num.toString());
                                                 }),
-                                            className: "grid grid-cols-8 gap-0 border border-slate-300 overflow-hidden rounded-lg"
+                                            className: "grid grid-cols-8 gap-0 border border-slate-300 dark:border-[#3a3b40] overflow-hidden rounded-lg"
                                           })
                                     ],
                                     className: "space-y-3"
                                   })
                             ],
-                            className: "p-6 space-y-6"
+                            className: "p-6 space-y-6 " + playerRowDark
                           }),
                       JsxRuntime.jsxs("div", {
                             children: [
@@ -256,7 +260,7 @@ function ScoreModal(props) {
                                             }),
                                         t`Equal scores — this will be recorded as a draw`
                                       ],
-                                      className: "mr-auto flex items-center gap-1.5 text-sm font-medium text-amber-700"
+                                      className: "mr-auto flex items-center gap-1.5 text-sm font-medium text-amber-700 dark:text-amber-400"
                                     }) : null,
                               JsxRuntime.jsxs("button", {
                                     children: [
@@ -265,24 +269,24 @@ function ScoreModal(props) {
                                           }),
                                       t`No Score`
                                     ],
-                                    className: "px-4 py-2 rounded-lg font-medium bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors flex items-center gap-2",
+                                    className: "px-4 py-2 rounded-lg font-medium bg-amber-100 text-amber-900 hover:bg-amber-200 dark:bg-amber-900/30 dark:text-amber-300 dark:hover:bg-amber-900/50 transition-colors flex items-center gap-2",
                                     onClick: (function (param) {
                                         handleNoScore();
                                       })
                                   }),
                               JsxRuntime.jsx("button", {
                                     children: t`Save Score`,
-                                    className: canSubmit ? "px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 shadow-md" : "px-6 py-2 rounded-lg font-medium transition-colors bg-slate-300 text-slate-500 cursor-not-allowed",
+                                    className: canSubmit ? "px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 shadow-md" : "px-6 py-2 rounded-lg font-medium transition-colors bg-slate-300 text-slate-500 dark:bg-[#2a2b30] dark:text-gray-500 cursor-not-allowed",
                                     disabled: !canSubmit,
                                     onClick: (function (param) {
                                         handleSubmit();
                                       })
                                   })
                             ],
-                            className: "sticky bottom-0 bg-slate-50 border-t border-slate-200 px-6 py-4 flex items-center justify-end gap-3"
+                            className: "sticky bottom-0 bg-slate-50 dark:bg-[#222326] border-t border-slate-200 dark:border-[#2a2b30] px-6 py-4 flex items-center justify-end gap-3"
                           })
                     ],
-                    className: "select-none bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                    className: "select-none bg-white dark:bg-[#1e1f23] rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
                   }),
               className: "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
             });
@@ -291,6 +295,7 @@ function ScoreModal(props) {
 var make = ScoreModal;
 
 export {
+  playerRowDark ,
   make ,
 }
 /*  Not a pure module */

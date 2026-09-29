@@ -115,7 +115,7 @@ export const ClubSchedule: Story = {
   args: { localDate: "2026-10-17", label: "Saturday", eventCount: 2, host: "club" },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await userEvent.click(await canvas.findByRole("button", { name: /Add to saturday/ }));
+    await userEvent.click(await canvas.findByRole("button", { name: /Add to Saturday/ }));
     // The saved 9 AM–1 PM is drafted: one window, so it can be hosted.
     const host = await canvas.findByRole("button", { name: /Host event/ });
     await waitFor(() => expect(host).toBeEnabled());
@@ -127,7 +127,7 @@ export const LocationClubLevels: Story = {
   args: { localDate: "2026-10-17", label: "Saturday", eventCount: 1, host: "locationClub" },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await userEvent.click(await canvas.findByRole("button", { name: /Add to saturday/ }));
+    await userEvent.click(await canvas.findByRole("button", { name: /Add to Saturday/ }));
     const legend = await canvas.findByText("Skill level");
     await waitFor(() => expect(legend).toBeVisible());
   },

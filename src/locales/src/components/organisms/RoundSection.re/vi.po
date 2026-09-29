@@ -38,7 +38,7 @@ msgstr "Hủy"
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: src/components/organisms/MatchCard.re.mjs:396
+#: src/components/organisms/MatchCard.re.mjs:399
 msgid "Court {0}"
 msgstr "Sân {0}"
 
@@ -47,24 +47,24 @@ msgid "Court {0} - Editing"
 msgstr "Sân {0} - Đang chỉnh sửa"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
-#: src/components/organisms/MatchCard.re.mjs:437
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "Delete match"
 msgstr "Xóa trận đấu"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:444
 msgid "Delete this match?"
 msgstr "Xóa trận đấu này?"
 
-#: src/components/organisms/MatchCard.re.mjs:450
+#: src/components/organisms/MatchCard.re.mjs:453
 msgid "Edit match"
 msgstr "Chỉnh sửa trận đấu"
 
-#: src/components/organisms/ScoreModal.re.mjs:112
+#: src/components/organisms/ScoreModal.re.mjs:116
 msgid "Enter Match Score"
 msgstr "Nhập điểm số trận đấu"
 
-#: src/components/organisms/ScoreModal.re.mjs:257
+#: src/components/organisms/ScoreModal.re.mjs:261
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là hòa"
 
@@ -72,11 +72,11 @@ msgstr "Điểm số bằng nhau — trận này sẽ được ghi nhận là h�
 msgid "Full Screen View"
 msgstr "Xem Toàn Màn Hình"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Last Round"
 msgstr "Vòng cuối"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Losing Team (Team {0})"
 msgstr "Đội thua (Đội {0})"
 
@@ -92,11 +92,11 @@ msgstr "trận đấu"
 msgid "No available players"
 msgstr "Không có người chơi khả dụng"
 
-#: src/components/organisms/ScoreModal.re.mjs:266
+#: src/components/organisms/ScoreModal.re.mjs:270
 msgid "No Score"
 msgstr "Không có điểm"
 
-#: src/components/organisms/MatchCard.re.mjs:404
+#: src/components/organisms/MatchCard.re.mjs:407
 msgid "Rebalance match"
 msgstr "Cân bằng lại trận đấu"
 
@@ -104,7 +104,7 @@ msgstr "Cân bằng lại trận đấu"
 msgid "Rebalance this round with current players"
 msgstr "Cân bằng lại vòng này với người chơi hiện tại"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Repeat"
 msgstr "Lặp lại"
 
@@ -133,7 +133,7 @@ msgstr "Vòng {0}"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/ScoreModal.re.mjs:274
+#: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "Lưu điểm số"
 
@@ -141,7 +141,7 @@ msgstr "Lưu điểm số"
 msgid "Skill: {0}"
 msgstr "Kỹ năng: {0}"
 
-#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/ScoreModal.re.mjs:80
 msgid "Team {0}"
 msgstr "Đội {0}"
 
@@ -154,7 +154,7 @@ msgid "TEAM 2"
 msgstr "ĐỘI 2"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-#: src/components/organisms/MatchCard.re.mjs:442
+#: src/components/organisms/MatchCard.re.mjs:445
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -163,12 +163,12 @@ msgstr ""
 "lịch ban đầu bằng biểu tượng đặt lại vòng."
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
-#: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/MatchCard.re.mjs:589
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Winning Team (Team {0})"
 msgstr "Đội thắng (Đội {0})"
 

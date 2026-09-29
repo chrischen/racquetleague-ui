@@ -1382,7 +1382,7 @@ function MatchmakingReport(props) {
                                     children: t`18,900 rounds solved`
                                   }),
                               JsxRuntime.jsx("span", {
-                                    children: t`24 players · 4 court`
+                                    children: t`24 players · 4 courts`
                                   }),
                               JsxRuntime.jsx("span", {
                                     children: t`7 seeds per club`

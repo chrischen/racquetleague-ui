@@ -26,7 +26,7 @@ msgstr ""
 #~ msgstr ""
 
 #: src/components/organisms/PkEventMessages.re.mjs:328
-#: src/components/organisms/PkEventMessages.re.mjs:462
+#: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
 msgstr ""
 
@@ -50,19 +50,24 @@ msgstr ""
 msgid "left the event"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:364
+#: src/components/organisms/PkEventMessages.re.mjs:367
 msgid "Message everyone in this event"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:366
+#: src/components/organisms/PkEventMessages.re.mjs:369
 msgid "Message everyone in this event…"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:466
+#: src/components/organisms/PkEventMessages.re.mjs:344
+msgid "No activity yet"
+msgstr ""
+
+#: src/components/organisms/PkEventMessages.re.mjs:344
+#: src/components/organisms/PkEventMessages.re.mjs:469
 msgid "No messages yet"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:386
+#: src/components/organisms/PkEventMessages.re.mjs:389
 msgid "Send message"
 msgstr ""
 
@@ -70,11 +75,11 @@ msgstr ""
 #~ msgid "Show all {0} items"
 #~ msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:352
+#: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr ""
 
-#: src/components/organisms/PkEventMessages.re.mjs:352
+#: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "View all {totalCountStr} updates"
 msgstr ""
 

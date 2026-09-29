@@ -117,6 +117,30 @@ function initialsOf(name) {
   return single.slice(0, 2).toUpperCase();
 }
 
+function rankOf(atTop, index) {
+  if (atTop) {
+    return index + 1 | 0;
+  }
+  
+}
+
+function viewerRank(ordinals, viewerOrdinal, viewerLoaded, atTop, complete) {
+  if (atTop && (viewerLoaded || complete || ordinals.some(function (o) {
+            return o < viewerOrdinal;
+          }))) {
+    return 1 + ordinals.filter(function (o) {
+                return o > viewerOrdinal;
+              }).length | 0;
+  }
+  
+}
+
+function rankText(rank) {
+  return Core__Option.mapOr(rank, "—", (function (r) {
+                return r.toString();
+              }));
+}
+
 function RatingList$RatingItem(props) {
   var minRating = props.minRating;
   var maxRating = props.maxRating;
@@ -126,7 +150,7 @@ function RatingList$RatingItem(props) {
   var progress = ordinal !== undefined ? (
       maxRating === minRating ? 100 : (ordinal - minRating) / (maxRating - minRating) * 100
     ) : 0;
-  var isLeader = progress >= 100;
+  var isLeader = Core__Option.isSome(rank) && progress >= 100;
   var qualifies = props.draftEnabled && Core__Option.getOr(Core__Option.map(props.genderRank, (function (r) {
               return r <= 8;
             })), false);
@@ -156,7 +180,7 @@ function RatingList$RatingItem(props) {
                                       }),
                                   JsxRuntime.jsx("div", {
                                         children: JsxRuntime.jsx("span", {
-                                              children: rank.toString(),
+                                              children: rankText(rank),
                                               className: Core.cx("font-black italic text-2xl md:text-3xl leading-none tabular-nums transition-colors", isLeader ? "text-yellow-500 dark:text-yellow-400" : "text-gray-400 dark:text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white")
                                             }),
                                         className: "relative w-10 md:w-14 flex-shrink-0 text-center"
@@ -331,7 +355,7 @@ function RatingList$CurrentUserStanding(props) {
                             }),
                         JsxRuntime.jsx("div", {
                               children: JsxRuntime.jsx("span", {
-                                    children: props.rank.toString(),
+                                    children: rankText(props.rank),
                                     className: "text-2xl font-black italic leading-none tabular-nums text-[#64851d] md:text-3xl dark:text-[#bdf25d]"
                                   }),
                               className: "relative w-10 flex-shrink-0 text-center md:w-14"
@@ -461,6 +485,7 @@ function RatingList(props) {
   var allRatings = getConnectionNodes(data.ratings);
   var pageInfo = data.ratings.pageInfo;
   var hasPrevious = pageInfo.hasPreviousPage;
+  var atTop = !hasPrevious;
   var sentinelRef = React.useRef(null);
   var loadMoreInPlace = function () {
     var endCursor = pageInfo.endCursor;
@@ -492,7 +517,7 @@ function RatingList(props) {
   var filtered = allRatings.map(function (node, index) {
           return [
                   node,
-                  index + 1 | 0
+                  rankOf(atTop, index)
                 ];
         }).filter(function (param) {
         var node = param[0];
@@ -540,9 +565,13 @@ function RatingList(props) {
         }));
   var viewerStanding;
   if (viewerUserId !== undefined && viewerOrdinal !== undefined) {
-    var rank = 1 + allRatings.filter(function (node) {
-          return Core__Option.getOr(node.ordinal, 0) > viewerOrdinal;
-        }).length | 0;
+    var rank = viewerRank(allRatings.map(function (node) {
+              return Core__Option.getOr(node.ordinal, 0);
+            }), viewerOrdinal, allRatings.some(function (node) {
+              return Caml_obj.equal(Core__Option.map(node.user, (function (u) {
+                                return u.id;
+                              })), viewerUserId);
+            }), atTop, !hasNext);
     var progress = connMax === connMin ? 100 : (viewerOrdinal - connMin) / (connMax - connMin) * 100;
     viewerStanding = [
       viewerUserId,
@@ -795,6 +824,9 @@ export {
   $$IntersectionObserver ,
   draftSize ,
   initialsOf ,
+  rankOf ,
+  viewerRank ,
+  rankText ,
   RatingItem ,
   CurrentUserStanding ,
   make ,

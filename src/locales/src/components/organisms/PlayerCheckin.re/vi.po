@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:149
+#: src/components/organisms/PlayerCheckin.re.mjs:154
 msgid "{0} of {1} checked in"
 msgstr "{0} trong {1} đã check-in"
 
@@ -21,17 +21,21 @@ msgstr "{0} trong {1} đã check-in"
 msgid "{0} ratings"
 msgstr "{0} đánh giá"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:313
+#: src/components/organisms/PlayerCheckin.re.mjs:323
 msgid "$"
 msgstr "$"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:342
+#: src/components/organisms/PlayerCheckin.re.mjs:355
 msgid "Add guest"
 msgstr "Thêm khách"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:349
+#: src/components/organisms/PlayerCheckin.re.mjs:362
 msgid "Add guest players"
 msgstr "Thêm người chơi khách"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "Điều chỉnh hạt giống người chơi"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:138
 msgid "Adjust Player Seeds"
@@ -61,19 +65,23 @@ msgstr "Xếp hạng toàn cầu"
 msgid "Having trouble scanning? Try to find the event from the club page."
 msgstr "Gặp sự cố khi quét mã? Hãy thử tìm sự kiện từ trang câu lạc bộ."
 
-#: src/components/organisms/PlayerCheckin.re.mjs:360
+#: src/components/organisms/PlayerCheckin.re.mjs:374
 msgid "Invite player"
 msgstr "Mời người chơi"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:365
+#: src/components/organisms/PlayerCheckin.re.mjs:379
 msgid "Invite player with QR code"
 msgstr "Mời người chơi bằng mã QR"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "Quản lý đội"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:63
 msgid "mu"
 msgstr "mu"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:325
 msgid "Not paid"
 msgstr "Chưa thanh toán"
 
@@ -81,13 +89,17 @@ msgstr "Chưa thanh toán"
 msgid "Open your phone camera, scan this code, and join the event."
 msgstr "Mở camera điện thoại, quét mã này và tham gia sự kiện."
 
-#: src/components/organisms/PlayerCheckin.re.mjs:315
+#: src/components/organisms/PlayerCheckin.re.mjs:325
 msgid "Paid"
 msgstr "Đã thanh toán"
 
-#: src/components/organisms/PlayerCheckin.re.mjs:145
+#: src/components/organisms/PlayerCheckin.re.mjs:150
 msgid "Player Check-in"
 msgstr "Check-in người chơi"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "Cài đặt người chơi"
 
 #: src/components/organisms/SeedAdjustModal.re.mjs:190
 msgid ""

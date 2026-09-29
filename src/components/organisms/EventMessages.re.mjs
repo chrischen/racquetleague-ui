@@ -116,12 +116,12 @@ function EventMessages$Message(props) {
               children: [
                 JsxRuntime.jsx("label", {
                       children: t`Status message`,
-                      className: "block text-sm font-medium text-gray-700"
+                      className: "block text-sm font-medium text-gray-700 dark:text-gray-300"
                     }),
                 JsxRuntime.jsxs("form", {
                       children: [
                         JsxRuntime.jsx("input", {
-                              className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+                              className: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 dark:bg-[#222326] dark:text-gray-100 dark:ring-[#3a3b40] dark:placeholder:text-gray-500",
                               placeholder: t`Type a status message for people to see... such as 'I will arrive at 19:00.'`,
                               value: editedMessage,
                               onChange: (function (e) {
@@ -155,7 +155,7 @@ function EventMessages(props) {
               children: [
                 JsxRuntime.jsx("h2", {
                       children: t`Activity`,
-                      className: "text-lg font-semibold mb-4"
+                      className: "text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100"
                     }),
                 Core__Option.getOr(Core__Option.map(props.viewerHasRsvp, (function (has) {
                             if (has) {
@@ -172,11 +172,11 @@ function EventMessages(props) {
                                 children: JsxRuntime.jsx(LucideReact.MessageCircle, {
                                       className: "size-12 mx-auto opacity-50"
                                     }),
-                                className: "text-gray-400 mb-2"
+                                className: "text-gray-400 dark:text-gray-500 mb-2"
                               }),
                           JsxRuntime.jsx("p", {
                                 children: t`No activity yet`,
-                                className: "text-gray-500 text-sm"
+                                className: "text-gray-500 dark:text-gray-400 text-sm"
                               })
                         ],
                         className: "text-center py-8"
@@ -198,81 +198,81 @@ function EventMessages(props) {
                                 case "host_message" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.MessageCircle, {
-                                            className: "size-4 text-indigo-600"
+                                            className: "size-4 text-indigo-600 dark:text-indigo-400"
                                           }),
-                                      "bg-indigo-100"
+                                      "bg-indigo-100 dark:bg-indigo-900/30"
                                     ];
                                     break;
                                 case "rsvp_added" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.UserPlus, {
-                                            className: "size-4 text-green-600"
+                                            className: "size-4 text-green-600 dark:text-green-400"
                                           }),
-                                      "bg-green-100"
+                                      "bg-green-100 dark:bg-green-900/30"
                                     ];
                                     break;
                                 case "rsvp_created" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.Check, {
-                                            className: "size-4 text-green-600"
+                                            className: "size-4 text-green-600 dark:text-green-400"
                                           }),
-                                      "bg-green-100"
+                                      "bg-green-100 dark:bg-green-900/30"
                                     ];
                                     break;
                                 case "rsvp_deleted" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.X, {
-                                            className: "size-4 text-red-600"
+                                            className: "size-4 text-red-600 dark:text-red-400"
                                           }),
-                                      "bg-red-100"
+                                      "bg-red-100 dark:bg-red-900/30"
                                     ];
                                     break;
                                 case "rsvp_invited" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.Mail, {
-                                            className: "size-4 text-violet-600"
+                                            className: "size-4 text-violet-600 dark:text-violet-400"
                                           }),
-                                      "bg-violet-100"
+                                      "bg-violet-100 dark:bg-violet-900/30"
                                     ];
                                     break;
                                 case "rsvp_promoted" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.ArrowUpCircle, {
-                                            className: "size-4 text-blue-600"
+                                            className: "size-4 text-blue-600 dark:text-blue-400"
                                           }),
-                                      "bg-blue-100"
+                                      "bg-blue-100 dark:bg-blue-900/30"
                                     ];
                                     break;
                                 case "rsvp_removed" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.X, {
-                                            className: "size-4 text-orange-600"
+                                            className: "size-4 text-orange-600 dark:text-orange-400"
                                           }),
-                                      "bg-orange-100"
+                                      "bg-orange-100 dark:bg-orange-900/30"
                                     ];
                                     break;
                                 case "update" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.Bell, {
-                                            className: "size-4 text-blue-600"
+                                            className: "size-4 text-blue-600 dark:text-blue-400"
                                           }),
-                                      "bg-blue-100"
+                                      "bg-blue-100 dark:bg-blue-900/30"
                                     ];
                                     break;
                                 case "user_message" :
                                     match$1 = [
                                       JsxRuntime.jsx(LucideReact.MessageCircle, {
-                                            className: "size-4 text-slate-600"
+                                            className: "size-4 text-slate-600 dark:text-slate-300"
                                           }),
-                                      "bg-slate-100"
+                                      "bg-slate-100 dark:bg-slate-700/40"
                                     ];
                                     break;
                                 default:
                                   match$1 = [
                                     JsxRuntime.jsx(LucideReact.User, {
-                                          className: "size-4 text-gray-600"
+                                          className: "size-4 text-gray-600 dark:text-gray-300"
                                         }),
-                                    "bg-gray-100"
+                                    "bg-gray-100 dark:bg-gray-700/40"
                                   ];
                               }
                               var mainMessageText;
@@ -307,7 +307,7 @@ function EventMessages(props) {
                               if (activityTypeOpt === "host_message") {
                                 actorNameEl = JsxRuntime.jsx("span", {
                                       children: actorUserName,
-                                      className: "font-medium text-indigo-600"
+                                      className: "font-medium text-indigo-600 dark:text-indigo-400"
                                     });
                               } else {
                                 exit = 1;
@@ -315,7 +315,7 @@ function EventMessages(props) {
                               if (exit === 1) {
                                 actorNameEl = JsxRuntime.jsx("span", {
                                       children: actorUserName,
-                                      className: "font-medium text-gray-900"
+                                      className: "font-medium text-gray-900 dark:text-gray-100"
                                     });
                               }
                               var timeClassName;
@@ -327,16 +327,16 @@ function EventMessages(props) {
                                       exit$1 = 1;
                                       break;
                                   default:
-                                    timeClassName = "text-gray-500";
+                                    timeClassName = "text-gray-500 dark:text-gray-400";
                                 }
                               } else {
-                                timeClassName = "text-gray-500";
+                                timeClassName = "text-gray-500 dark:text-gray-400";
                               }
                               if (exit$1 === 1) {
                                 var messageCreatedAtDate = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
                                 var diffHours = DateFns.differenceInHours(eventStartDate, messageCreatedAtDate);
-                                timeClassName = diffHours < 24 ? "text-red-600 font-medium" : (
-                                    diffHours < 48 ? "text-yellow-600 font-medium" : "text-gray-500"
+                                timeClassName = diffHours < 24 ? "text-red-600 dark:text-red-400 font-medium" : (
+                                    diffHours < 48 ? "text-yellow-600 dark:text-yellow-500 font-medium" : "text-gray-500 dark:text-gray-400"
                                   );
                               }
                               var dt = Util.Datetime.toDate(Util.Datetime.parse(message.createdAt));
@@ -353,7 +353,7 @@ function EventMessages(props) {
                                                   children: [
                                                     mainMessageText === "" ? null : JsxRuntime.jsx("p", {
                                                             children: mainMessageText,
-                                                            className: "text-gray-700"
+                                                            className: "text-gray-700 dark:text-gray-300"
                                                           }),
                                                     JsxRuntime.jsxs("p", {
                                                           children: [
@@ -374,7 +374,7 @@ function EventMessages(props) {
                                                                   className: timeClassName
                                                                 })
                                                           ],
-                                                          className: "text-xs text-gray-500 mt-1"
+                                                          className: "text-xs text-gray-500 dark:text-gray-400 mt-1"
                                                         })
                                                   ],
                                                   className: "flex-1"
@@ -386,7 +386,7 @@ function EventMessages(props) {
                         className: "space-y-4"
                       })
               ],
-              className: "bg-white rounded-lg shadow-sm p-4 md:p-5 mt-4"
+              className: "bg-white rounded-lg shadow-sm p-4 md:p-5 mt-4 dark:bg-[#1e1f23] dark:ring-1 dark:ring-[#2a2b30]"
             });
 }
 

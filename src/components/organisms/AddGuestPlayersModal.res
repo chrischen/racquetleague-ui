@@ -1,4 +1,4 @@
-%%raw("import { t } from '@lingui/macro'")
+%%raw("import { t, plural } from '@lingui/macro'")
 
 @react.component
 let make = (~onAdd: array<string> => unit, ~onClose: unit => unit) => {
@@ -54,7 +54,7 @@ let make = (~onAdd: array<string> => unit, ~onClose: unit => unit) => {
           <textarea
             value={namesText}
             onChange={e => setNamesText(ReactEvent.Form.target(e)["value"])}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
             placeholder={(ts`John Smith`) ++
             "\n" ++
             (ts([`Jane Doe`], [])) ++
@@ -72,11 +72,13 @@ let make = (~onAdd: array<string> => unit, ~onClose: unit => unit) => {
               <div className="flex items-center gap-2 mb-2">
                 <Lucide.Users className="w-4 h-4 text-slate-600" />
                 <span className="text-sm font-semibold text-slate-700">
-                  {(
-                    ts`Preview (${previewCount->Int.toString} guest${previewCount !== 1
-                      ? "s"
-                      : ""})`
-                  )->React.string}
+                  {Lingui.Util.plural(
+                    previewCount,
+                    {
+                      one: ts`Preview (${previewCount->Int.toString} guest)`,
+                      other: ts`Preview (${previewCount->Int.toString} guests)`,
+                    },
+                  )}
                 </span>
               </div>
               <div className="space-y-1 max-h-32 overflow-y-auto">
@@ -113,11 +115,15 @@ let make = (~onAdd: array<string> => unit, ~onClose: unit => unit) => {
           className={previewCount === 0
             ? "px-6 py-2 rounded-lg font-medium transition-colors shadow-md bg-slate-300 text-slate-500 cursor-not-allowed"
             : "px-6 py-2 rounded-lg font-medium transition-colors shadow-md bg-blue-600 text-white hover:bg-blue-700"}>
-          {(
-            ts`Add ${previewCount > 0
-              ? previewCount->Int.toString ++ " "
-              : ""}Guest${previewCount !== 1 ? "s" : ""}`
-          )->React.string}
+          {previewCount > 0
+            ? Lingui.Util.plural(
+                previewCount,
+                {
+                  one: ts`Add ${previewCount->Int.toString} Guest`,
+                  other: ts`Add ${previewCount->Int.toString} Guests`,
+                },
+              )
+            : (ts`Add Guests`)->React.string}
         </button>
       </div>
     </div>

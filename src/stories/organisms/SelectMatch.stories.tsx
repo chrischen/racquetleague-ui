@@ -28,16 +28,15 @@ export const Typical: Story = {
   },
 };
 
-/**
- * Nobody queued. The component means to say "no players yet" in each list,
- * but the text sits inside framer-motion's AnimatePresence, which drops it,
- * so both lists render empty.
- */
+/** Nobody queued: each list says "no players yet". */
 export const Empty: Story = {
   args: { state: "empty" },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("left team players")).toBeVisible();
+    const empty = canvas.getAllByText("no players yet");
+    await expect(empty).toHaveLength(2);
+    for (const text of empty) await expect(text).toBeVisible();
     await expect(canvas.queryAllByRole("listitem")).toHaveLength(0);
   },
 };

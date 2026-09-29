@@ -117,24 +117,6 @@ function GoingRsvps(props) {
                                         });
                                   })
                               }) : null,
-                        !expanded && confirmedRsvps.length <= 3 && confirmedRsvps.length > 0 ? JsxRuntime.jsxs("div", {
-                                children: [
-                                  JsxRuntime.jsx("span", {
-                                        children: t`See all`,
-                                        className: "text-sm font-medium"
-                                      }),
-                                  JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                        size: 16,
-                                        className: "ml-1"
-                                      })
-                                ],
-                                className: "flex items-center cursor-pointer text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 rounded-full px-3 py-1",
-                                onClick: (function (param) {
-                                    setExpanded(function (param) {
-                                          return true;
-                                        });
-                                  })
-                              }) : null,
                         expanded ? JsxRuntime.jsx("div", {
                                 children: JsxRuntime.jsx("a", {
                                       children: t`Show less`,

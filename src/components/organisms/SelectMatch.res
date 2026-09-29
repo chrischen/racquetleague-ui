@@ -14,6 +14,9 @@ module SortAction = {
     </UiAction>
   }
 }
+// RsvpUser has no dark variants of its own yet: on this list's dark surface,
+// lighten its name and rating-bar track from outside.
+let rsvpUserDark = "dark:[&_.text-gray-900]:text-gray-100 dark:[&_.bg-gray-200]:bg-[#2a2b30]"
 module SelectEventPlayersList = {
   @react.component
   let make = (
@@ -26,13 +29,21 @@ module SelectEventPlayersList = {
     ~maxRating=1.,
     ~playerNumberOffset=0,
   ) => {
-    <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
-      <div className="mt-4 gap-x-4 border-t border-gray-900/5 px-6 py-4">
+    <div
+      className={`rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 dark:bg-[#1e1f23] dark:ring-white/10 ${rsvpUserDark}`}>
+      <div className="mt-4 gap-x-4 border-t border-gray-900/5 dark:border-white/5 px-6 py-4">
         {<>
+          // Outside AnimatePresence, which renders only React elements and
+          // silently dropped this text (t`` is a string at runtime).
+          {players->Array.length == 0
+            ? <p className="text-sm leading-6 text-gray-500 dark:text-gray-400">
+                {t`no players yet`}
+              </p>
+            : React.null}
           <ul className="w-full">
             <FramerMotion.AnimatePresence>
               {switch players {
-              | [] => t`no players yet`
+              | [] => React.null
               | players =>
                 players
                 ->Array.mapWithIndex((player, i) => {
@@ -62,7 +73,7 @@ module SelectEventPlayersList = {
                     </div>
                     <div
                       className={Util.cx([
-                        "text-sm w-full font-medium leading-6 text-gray-900",
+                        "text-sm w-full font-medium leading-6 text-gray-900 dark:text-gray-100",
                         disabled ? "opacity-50" : "",
                       ])}>
                       <a

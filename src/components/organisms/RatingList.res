@@ -91,12 +91,38 @@ let initialsOf = (name: string) => {
   }
 }
 
+// Ranks are only known when the loaded window starts at the top of the table.
+// The connection's cursors are keyset cursors (a rating's ordinal and id) with
+// no offset, and nothing in the schema gives a rank, so a window opened with
+// ?after= or ?before= can't number its rows: they show no rank rather than
+// counting again from 1.
+let rankOf = (~atTop, index) => atTop ? Some(index + 1) : None
+
+// The viewer's overall rank: the players who outrank them, plus one. Only
+// known when the window starts at the top and reaches down past the viewer:
+// their own row is loaded, a lower-rated player's is, or nothing is left to
+// load. Until then the loaded players are only part of those above them.
+let viewerRank = (
+  ~ordinals: array<float>,
+  ~viewerOrdinal: float,
+  ~viewerLoaded: bool,
+  ~atTop: bool,
+  ~complete: bool,
+): option<int> =>
+  if atTop && (viewerLoaded || complete || ordinals->Array.some(o => o < viewerOrdinal)) {
+    Some(1 + ordinals->Array.filter(o => o > viewerOrdinal)->Array.length)
+  } else {
+    None
+  }
+
+let rankText = (rank: option<int>) => rank->Option.mapOr("—", r => r->Int.toString)
+
 module RatingItem = {
   open Lingui.Util
   @react.component
   let make = (
     ~rating,
-    ~rank,
+    ~rank: option<int>,
     ~genderRank: option<int>,
     ~maxRating,
     ~minRating,
@@ -108,7 +134,9 @@ module RatingItem = {
       maxRating == minRating ? 100. : (ordinal -. minRating) /. (maxRating -. minRating) *. 100.
     | None => 0.
     }
-    let isLeader = progress >= 100.
+    // Only the real top of the (filtered) table is crowned, not the first row
+    // of a later page.
+    let isLeader = rank->Option.isSome && progress >= 100.
     let qualifies = draftEnabled && genderRank->Option.map(r => r <= draftSize)->Option.getOr(false)
     let progressPct = progress->Float.toFixed(~digits=2) ++ "%"
     // Estimated DUPR from the player's mu, matching the rest of the app.
@@ -154,7 +182,7 @@ module RatingItem = {
                 ? "text-yellow-500 dark:text-yellow-400"
                 : "text-gray-400 dark:text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white",
             ])}>
-            {rank->Int.toString->React.string}
+            {rank->rankText->React.string}
           </span>
         </div>
         // Player
@@ -263,7 +291,7 @@ module CurrentUserStanding = {
   open Lingui.Util
   @react.component
   let make = (
-    ~rank,
+    ~rank: option<int>,
     ~ordinal: float,
     ~dupr: option<string>,
     ~days: option<float>,
@@ -294,7 +322,7 @@ module CurrentUserStanding = {
         <div className="relative w-10 flex-shrink-0 text-center md:w-14">
           <span
             className="text-2xl font-black italic leading-none tabular-nums text-[#64851d] md:text-3xl dark:text-[#bdf25d]">
-            {rank->Int.toString->React.string}
+            {rank->rankText->React.string}
           </span>
         </div>
         <div className="relative ml-2 flex min-w-0 flex-1 items-center gap-3 md:gap-4">
@@ -385,6 +413,8 @@ let make = (
   let allRatings = data.ratings->Fragment.getConnectionNodes
   let pageInfo = data.ratings.pageInfo
   let hasPrevious = pageInfo.hasPreviousPage
+  // Whether the loaded window starts at #1, so its rows' ranks are known.
+  let atTop = !hasPrevious
 
   // Sentinel observed for infinite-scroll auto-loading.
   let sentinelRef: React.ref<Js.Nullable.t<Dom.element>> = React.useRef(Js.Nullable.null)
@@ -424,7 +454,7 @@ let make = (
   let searchQuery = search->String.trim->String.toLowerCase
   let filtered =
     allRatings
-    ->Array.mapWithIndex((node, index) => (node, index + 1))
+    ->Array.mapWithIndex((node, index) => (node, rankOf(~atTop, index)))
     ->Array.filter(((node, _rank)) => {
       // The viewer is pinned to the "Your standing" row, so keep them out of
       // the main list to avoid a duplicate.
@@ -449,9 +479,8 @@ let make = (
 
   // "Your standing" row: overall season rank/progress across the whole loaded
   // connection (independent of the active filters). Rank is the count of loaded
-  // players who outrank the viewer, +1 — exact once all higher-rated players
-  // are loaded (pagination runs top-down), which is guaranteed once the
-  // viewer's own row has loaded.
+  // players who outrank the viewer, +1 — shown only once that count is exact
+  // (see viewerRank).
   let connOrdinals = allRatings->Array.filterMap(node => node.ordinal)
   let connMax = switch connOrdinals->Array.get(0) {
   | Some(first) => connOrdinals->Array.reduce(first, (acc, next) => next > acc ? next : acc)
@@ -461,8 +490,13 @@ let make = (
   let viewerDupr = viewerMu->Option.map(mu => Rating.guessDupr(mu)->Float.toFixed(~digits=2))
   let viewerStanding = switch (viewerUserId, viewerOrdinal) {
   | (Some(userId), Some(ordinal)) =>
-    let rank =
-      1 + allRatings->Array.filter(node => node.ordinal->Option.getOr(0.) > ordinal)->Array.length
+    let rank = viewerRank(
+      ~ordinals=allRatings->Array.map(node => node.ordinal->Option.getOr(0.)),
+      ~viewerOrdinal=ordinal,
+      ~viewerLoaded=allRatings->Array.some(node => node.user->Option.map(u => u.id) == Some(userId)),
+      ~atTop,
+      ~complete=!hasNext,
+    )
     let progress = connMax == connMin ? 100. : (ordinal -. connMin) /. (connMax -. connMin) *. 100.
     Some((userId, rank, ordinal, viewerDupr, progress))
   | _ => None

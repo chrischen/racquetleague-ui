@@ -17,7 +17,7 @@ msgstr ""
 #~ msgid "...load higher rated players"
 #~ msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr ""
 
@@ -35,6 +35,10 @@ msgstr ""
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:410
 msgid "Balanced partner tendency"
+msgstr ""
+
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
 msgstr ""
 
 #: src/components/pages/LeaguePlayerPage.re.mjs:482
@@ -57,8 +61,7 @@ msgstr ""
 msgid "doubles"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr ""
 
@@ -79,7 +82,7 @@ msgstr ""
 msgid "Estimated DUPR"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr ""
 
@@ -103,7 +106,7 @@ msgstr ""
 #~ msgid "Indoor Court (Outdoor Ball)"
 #~ msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr ""
 
@@ -119,8 +122,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr ""
 
@@ -193,7 +195,7 @@ msgstr ""
 msgid "Rating History"
 msgstr ""
 
-#: src/components/molecules/RatingGraph.re.mjs:40
+#: src/components/molecules/RatingGraph.re.mjs:70
 msgid "Rating:"
 msgstr ""
 
@@ -225,7 +227,7 @@ msgstr ""
 msgid "The shaded area represents rating uncertainty. Narrower bands indicate higher confidence."
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr ""
 
@@ -233,8 +235,7 @@ msgstr ""
 msgid "Weak Against"
 msgstr ""
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr ""
 

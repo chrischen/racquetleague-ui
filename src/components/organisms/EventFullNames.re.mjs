@@ -76,7 +76,7 @@ function EventFullNames(props) {
                       children: JsxRuntime.jsx("div", {
                             children: JsxRuntime.jsx("dt", {
                                   children: t`guest list`,
-                                  className: "text-sm font-semibold leading-6 text-gray-900"
+                                  className: "text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
                                 }),
                             className: "flex-auto pl-6 pt-3"
                           }),
@@ -88,17 +88,22 @@ function EventFullNames(props) {
                                   children: Caml_option.some(JsxRuntime.jsx("ul", {
                                             children: rsvps.length !== 0 ? Core__Array.filterMap(rsvps, (function (edge) {
                                                         return Core__Option.flatMap(edge.user, (function (user) {
-                                                                      return user.fullName;
+                                                                      return Core__Option.map(user.fullName, (function (fullName) {
+                                                                                    return [
+                                                                                            user.id,
+                                                                                            fullName
+                                                                                          ];
+                                                                                  }));
                                                                     }));
-                                                      })).map(function (fullName) {
+                                                      })).map(function (param) {
                                                     return JsxRuntime.jsx("li", {
-                                                                children: fullName
-                                                              });
+                                                                children: param[1]
+                                                              }, param[0]);
                                                   }) : t`no players yet`,
-                                            className: ""
+                                            className: "dark:text-gray-100"
                                           }))
                                 }),
-                            className: "mt-4 w-full flex flex-col gap-x-4 border-t border-gray-900/5 px-6 pt-4"
+                            className: "mt-4 w-full flex flex-col gap-x-4 border-t border-gray-900/5 px-6 pt-4 dark:border-white/10"
                           }),
                       className: Core.cx(expanded ? "" : "hidden", "flex flex-wrap")
                     }),
@@ -108,7 +113,7 @@ function EventFullNames(props) {
                                 return !expanded;
                               });
                         }),
-                      className: "p-3 w-full flex flex-col items-center hover:bg-gray-100",
+                      className: "p-3 w-full flex flex-col items-center hover:bg-gray-100 dark:hover:bg-white/5",
                       children: [
                         expanded ? null : JsxRuntime.jsx(Solid.UsersIcon, {
                                 className: "inline w-5 h-5"
@@ -121,7 +126,7 @@ function EventFullNames(props) {
                       ]
                     })
               ],
-              className: "rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 flex flex-col"
+              className: "rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5 flex flex-col dark:bg-[#1e1f23] dark:ring-white/10"
             });
 }
 

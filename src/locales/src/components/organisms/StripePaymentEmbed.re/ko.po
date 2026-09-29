@@ -13,39 +13,51 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:99
+#: src/components/organisms/StripePaymentEmbed.re.mjs:125
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Complete payment"
 msgstr "결제 완료"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Could not save your card"
 msgstr "카드를 저장하지 못했습니다"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Pay now"
 msgstr "지금 결제"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Payment failed"
 msgstr "결제 실패"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:86
+#: src/components/organisms/StripePaymentEmbed.re.mjs:95
 msgid "Processing…"
 msgstr "처리 중…"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Save card"
 msgstr "카드 저장"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Save your card"
 msgstr "카드 저장하기"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid ""
+"The card form could not be loaded. Check your connection or turn off any "
+"content blocker, then try again."
+msgstr ""
+"카드 양식을 불러올 수 없습니다. 연결 상태를 확인하거나 콘텐츠 차단 기능을 끈 "
+"후 다시 시도하세요."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "카드 양식을 불러올 수 없습니다. 닫은 후 다시 시도하세요."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge {amountLabel} "
 "later."
@@ -53,7 +65,7 @@ msgstr ""
 "카드는 지금 저장되며, 결제되지 않습니다. 주최자가 나중에 {amountLabel}을 청구"
 "합니다."
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge the "
 "participation fee later."

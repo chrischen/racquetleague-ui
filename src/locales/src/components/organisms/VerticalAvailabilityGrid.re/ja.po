@@ -89,8 +89,8 @@ msgid "Clear"
 msgstr "クリア"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
-msgstr "コート・厚さ＝数"
+msgid "Courts · thickness = count"
+msgstr "コート · 太さ＝回数"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -129,7 +129,7 @@ msgid "Save"
 msgstr "保存"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "保存中…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -240,6 +240,10 @@ msgstr "あなたの時間"
 #~ msgid "Courts"
 #~ msgstr "コート"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "コート・厚さ＝数"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "あなたの時間帯で利用可能なコート"
@@ -256,6 +260,10 @@ msgstr "あなたの時間"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "空き"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "保存中…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""

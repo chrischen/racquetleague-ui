@@ -157,3 +157,27 @@ describe("ClipRing.takeClip", () => {
     expect(clip.durationUs).toBeLessThanOrEqual(TARGET + 3 * SEC);
   });
 });
+
+describe("segmentAfter (live-analysis uploads)", () => {
+  // Labeled args compile positionally: segmentAfter(ring, afterUs, includeOpen).
+  it("returns only closed GOPs after the cursor, rebased, and advances cleanly", () => {
+    const ring = fill(ClipRing.make(KEEP, MAX_BYTES), { seconds: 7, gopSeconds: 2 });
+    // GOPs start at 0, 2, 4, 6 s; the 6 s GOP is still open.
+    const first = ClipRing.segmentAfter(ring, -1, false);
+    expect(first.baseUs).toBe(0);
+    expect(first.chunks[0].timestampUs).toBe(0);
+    expect(first.chunks[0].isKey).toBe(true);
+    expect(first.chunks.length).toBe(3 * 60); // 0-6 s at 30 fps, open GOP excluded
+    // The cursor is a GOP's own start (what the kiosk loop carries), not a
+    // round number: at 30 fps frame 120 is 4,000,000.0000000005 µs.
+    const lastStart = ring.gops[2].startUs;
+    expect(ClipRing.segmentAfter(ring, lastStart, false)).toBeUndefined();
+    const withOpen = ClipRing.segmentAfter(ring, lastStart, true);
+    expect(withOpen.baseUs).toBe(ring.gops[3].startUs);
+    expect(withOpen.chunks.length).toBe(30);
+  });
+
+  it("is empty on an empty ring", () => {
+    expect(ClipRing.segmentAfter(ClipRing.make(KEEP, MAX_BYTES), -1, true)).toBeUndefined();
+  });
+});

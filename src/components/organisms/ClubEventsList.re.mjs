@@ -206,7 +206,7 @@ function ClubEventsList$Day(props) {
                         }),
                       renderHeader: renderHeader,
                       requireProfile: props.requireProfile,
-                      triggerLabel: t`Add to ${label.toLowerCase()}`,
+                      triggerLabel: props.triggerLabel,
                       triggerIcon: Caml_option.some(JsxRuntime.jsx(LucideReact.Plus, {
                                 size: 11
                               })),
@@ -400,13 +400,15 @@ function ClubEventsList(props) {
           return [
                   t`Today`,
                   formatDate(bucketSetup.dateFromOffset(0)),
-                  bucketSetup.dateFromOffset(0)
+                  bucketSetup.dateFromOffset(0),
+                  t`Add to today`
                 ];
       case "tomorrow" :
           return [
                   t`Tomorrow`,
                   formatDate(bucketSetup.dateFromOffset(1)),
-                  bucketSetup.dateFromOffset(1)
+                  bucketSetup.dateFromOffset(1),
+                  t`Add to tomorrow`
                 ];
       default:
         var match = EventsListUtils.getBucketDateDetails(bucketSetup, key);
@@ -438,13 +440,23 @@ function ClubEventsList(props) {
           default:
             dayName = "";
         }
-        var label = n === -1 ? t`Yesterday` : (
-            match[0] ? t`Next ${dayName}` : dayName
+        var match$1 = n === -1 ? [
+            t`Yesterday`,
+            t`Add to yesterday`
+          ] : (
+            match[0] ? [
+                t`Next ${dayName}`,
+                t`Add to next ${dayName}`
+              ] : [
+                dayName,
+                t`Add to ${dayName}`
+              ]
           );
         return [
-                label,
+                match$1[0],
                 formatDate(date),
-                date
+                date,
+                match$1[1]
               ];
     }
   };
@@ -463,6 +475,7 @@ function ClubEventsList(props) {
                                 key,
                                 JsxRuntime.jsx(ClubEventsList$Day, {
                                       label: match[0],
+                                      triggerLabel: match[3],
                                       dateDetails: match[1],
                                       date: match[2],
                                       events: bucketEvents,

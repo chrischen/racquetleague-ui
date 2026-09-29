@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { expect, within } from "storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 import { portrait } from "./StoryFixturesProfile.gen";
 import { make as LeagueNavStory, query } from "./LeagueNavStory.gen";
 
@@ -8,9 +8,6 @@ import { make as LeagueNavStory, query } from "./LeagueNavStory.gen";
 // account menu. Signed out, the account menu is the LINE login button. The
 // phone layout (hamburger and panel) only appears below 640px wide. Every
 // link gets the locale prefix (/en/...), so the stories sit under /en too.
-// There is no story with the account menu open: opening it logs React's
-// "Function components cannot be given refs" (Headless UI's MenuItem hands a
-// ref to LangProvider.Router.NavLink, which does not forward it).
 const meta = {
   title: "Organisms/LeagueNav",
   component: LeagueNavStory,
@@ -40,16 +37,25 @@ export const SignedIn: Story = {
   },
 };
 
-/**
- * Signed in without a profile picture. The menu button only ever shows the
- * picture, so it is there (and focusable) but has nothing visible in it.
- */
+/** The account menu open: the profile and logout links, locale-prefixed. */
+export const AccountMenu: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(await canvas.findByRole("button", { name: /Open user menu/ }));
+    const profile = await canvas.findByRole("menuitem", { name: "Your Profile" });
+    await expect(profile.getAttribute("href")).toMatch(/^\/en\/league\/p\//);
+    await expect(canvas.getByRole("menuitem", { name: "Logout" })).toHaveAttribute("href", "/en/signout");
+  },
+};
+
+/** Signed in without a profile picture: the menu button shows the initial. */
 export const SignedInNoPicture: Story = {
   parameters: { relay: { mocks: { User: { picture: null } } } },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    await expect(await canvas.findByRole("button", { name: "Open user menu" })).toBeInTheDocument();
+    const button = await canvas.findByRole("button", { name: "Open user menu" });
     await expect(canvas.queryByAltText("Profile picture")).toBeNull();
+    await expect(within(button).getByText("K")).toBeVisible();
   },
 };
 

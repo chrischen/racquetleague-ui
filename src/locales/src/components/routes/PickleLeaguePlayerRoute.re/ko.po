@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...이전 경기 불러오기"
 
@@ -33,6 +33,10 @@ msgstr "리그로 돌아가기"
 msgid "Balanced partner tendency"
 msgstr "균형잡힌 파트너 경향"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "승리"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:482
 msgid "Best Doubles Partners"
 msgstr "최고의 복식 파트너"
@@ -49,8 +53,7 @@ msgstr "#1 유지 일수"
 msgid "doubles"
 msgstr "복식"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "무승부"
 
@@ -71,7 +74,7 @@ msgstr "약한 파트너를 끌어올림"
 msgid "Estimated DUPR"
 msgstr "예상 DUPR"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "균등"
 
@@ -83,7 +86,7 @@ msgstr "체육관"
 msgid "Hard Court"
 msgstr "하드 코트"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "경기 더 불러오기..."
 
@@ -91,8 +94,7 @@ msgstr "경기 더 불러오기..."
 msgid "Loading..."
 msgstr "로딩 중..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "패"
 
@@ -142,7 +144,7 @@ msgstr "잠정"
 msgid "Rating History"
 msgstr "레이팅 기록"
 
-#: src/components/molecules/RatingGraph.re.mjs:40
+#: src/components/molecules/RatingGraph.re.mjs:70
 msgid "Rating:"
 msgstr "평점:"
 
@@ -169,7 +171,7 @@ msgid ""
 msgstr ""
 "음영 영역은 레이팅 불확실성을 나타냅니다. 좁은 띠일수록 신뢰도가 높습니다."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "이변"
 
@@ -177,8 +179,7 @@ msgstr "이변"
 msgid "Weak Against"
 msgstr "약점 상대"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "승"
 

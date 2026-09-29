@@ -78,6 +78,12 @@ function EventTag(props) {
               className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap"
             });
         break;
+    case "rec" :
+        content = JsxRuntime.jsx("span", {
+              children: t`Recreational`,
+              className: "px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap"
+            });
+        break;
     case "unlisted" :
         content = JsxRuntime.jsxs("span", {
               children: [
@@ -128,6 +134,12 @@ function EventTag$TagList(props) {
                                               }) : t`Rated`
                                       ],
                                       className: "inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/40 text-[10px] font-medium whitespace-nowrap"
+                                    });
+                                break;
+                            case "rec" :
+                                content = JsxRuntime.jsx("span", {
+                                      children: t`Recreational`,
+                                      className: "px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap"
                                     });
                                 break;
                             case "unlisted" :

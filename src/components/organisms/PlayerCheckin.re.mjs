@@ -80,10 +80,15 @@ function PlayerCheckin(props) {
         players,
         initialPlayers
       ]);
+  var userHasTakenOver = React.useRef(false);
   React.useEffect((function () {
           if (checkedInCount < 4) {
             setIsExpanded(function (param) {
                   return true;
+                });
+          } else if (!userHasTakenOver.current) {
+            setIsExpanded(function (param) {
+                  return false;
                 });
           }
           
@@ -152,6 +157,7 @@ function PlayerCheckin(props) {
                                     ],
                                     className: "flex items-center gap-3 hover:opacity-80 transition-opacity",
                                     onClick: (function (param) {
+                                        userHasTakenOver.current = true;
                                         setIsExpanded(function (prev) {
                                               return !prev;
                                             });
@@ -164,7 +170,7 @@ function PlayerCheckin(props) {
                                                   className: "w-4 h-4"
                                                 }),
                                             className: "p-2 rounded-lg transition-colors flex items-center gap-1 bg-slate-600 text-white hover:bg-slate-700",
-                                            title: "Manage teams",
+                                            title: t`Manage teams`,
                                             onClick: (function (param) {
                                                 onOpenTeamManagement();
                                               })
@@ -179,7 +185,7 @@ function PlayerCheckin(props) {
                                                   })
                                             ],
                                             className: "p-2 rounded-lg transition-colors flex items-center gap-1 bg-blue-600 text-white hover:bg-blue-700",
-                                            title: "Adjust player seeds",
+                                            title: t`Adjust player seeds`,
                                             onClick: (function (param) {
                                                 setShowSeedModal(function (param) {
                                                       return true;
@@ -192,6 +198,7 @@ function PlayerCheckin(props) {
                                                 }),
                                             className: "p-2 hover:bg-slate-100 rounded-lg transition-colors",
                                             onClick: (function (param) {
+                                                userHasTakenOver.current = true;
                                                 setIsExpanded(function (prev) {
                                                       return !prev;
                                                     });
@@ -235,17 +242,6 @@ function PlayerCheckin(props) {
                                                         layout: true,
                                                         children: Caml_option.some(JsxRuntime.jsxs("div", {
                                                                   children: [
-                                                                    JsxRuntime.jsx("button", {
-                                                                          children: JsxRuntime.jsx(LucideReact.Settings, {
-                                                                                className: "w-3 h-3 text-slate-500"
-                                                                              }),
-                                                                          className: "absolute top-1 right-1 p-1 hover:bg-slate-200 rounded transition-colors z-10",
-                                                                          title: "Player settings",
-                                                                          onClick: (function (e) {
-                                                                              e.stopPropagation();
-                                                                              onOpenPlayerSettings(player);
-                                                                            })
-                                                                        }),
                                                                     JsxRuntime.jsxs("button", {
                                                                           children: [
                                                                             JsxRuntime.jsx(PlayerAvatar.make, {
@@ -275,6 +271,7 @@ function PlayerCheckin(props) {
                                                                           ],
                                                                           className: "flex items-center gap-2 hover:opacity-80 transition-opacity w-full",
                                                                           onClick: (function (param) {
+                                                                              userHasTakenOver.current = true;
                                                                               onToggleCheckin(player.id);
                                                                             })
                                                                         }),
@@ -309,14 +306,30 @@ function PlayerCheckin(props) {
                                                                                                     className: isPositive ? "flex items-center gap-0.5 text-xs font-bold text-green-600" : "flex items-center gap-0.5 text-xs font-bold text-red-600"
                                                                                                   });
                                                                                       })), null),
-                                                                            JsxRuntime.jsx("button", {
-                                                                                  children: t`$`,
-                                                                                  className: player.paid ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700 text-white text-xs font-bold" : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold",
-                                                                                  title: player.paid ? t`Paid` : t`Not paid`,
-                                                                                  onClick: (function (e) {
-                                                                                      e.stopPropagation();
-                                                                                      onTogglePaid(player.id);
-                                                                                    })
+                                                                            JsxRuntime.jsxs("div", {
+                                                                                  children: [
+                                                                                    JsxRuntime.jsx("button", {
+                                                                                          children: JsxRuntime.jsx(LucideReact.Settings, {
+                                                                                                className: "w-3 h-3 text-slate-500"
+                                                                                              }),
+                                                                                          className: "p-1 hover:bg-slate-200 rounded transition-colors",
+                                                                                          title: t`Player settings`,
+                                                                                          onClick: (function (e) {
+                                                                                              e.stopPropagation();
+                                                                                              onOpenPlayerSettings(player);
+                                                                                            })
+                                                                                        }),
+                                                                                    JsxRuntime.jsx("button", {
+                                                                                          children: t`$`,
+                                                                                          className: player.paid ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 bg-green-600 hover:bg-green-700 text-white text-xs font-bold" : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold",
+                                                                                          title: player.paid ? t`Paid` : t`Not paid`,
+                                                                                          onClick: (function (e) {
+                                                                                              e.stopPropagation();
+                                                                                              onTogglePaid(player.id);
+                                                                                            })
+                                                                                        })
+                                                                                  ],
+                                                                                  className: "flex items-center gap-1 flex-shrink-0 ml-auto"
                                                                                 })
                                                                           ],
                                                                           className: "flex items-center justify-between gap-2 px-1"
@@ -348,6 +361,7 @@ function PlayerCheckin(props) {
                                               className: "flex-1 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-green-500 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2",
                                               title: t`Add guest players`,
                                               onClick: (function (param) {
+                                                  userHasTakenOver.current = true;
                                                   onOpenAddGuests();
                                                 })
                                             }),

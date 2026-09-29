@@ -89,8 +89,8 @@ msgid "Clear"
 msgstr "ล้าง"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
-msgstr "คอร์ท · ความหนา = จำนวน"
+msgid "Courts · thickness = count"
+msgstr "คอร์ต · ความหนา = จำนวน"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -129,7 +129,7 @@ msgid "Save"
 msgstr "บันทึก"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "กำลังบันทึก…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -240,6 +240,10 @@ msgstr "เวลาของคุณ"
 #~ msgid "Courts"
 #~ msgstr "สนาม"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "คอร์ท · ความหนา = จำนวน"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "สนามที่ว่างในช่วงเวลาของคุณ"
@@ -256,6 +260,10 @@ msgstr "เวลาของคุณ"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "เปิด"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "กำลังบันทึก…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""

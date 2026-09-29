@@ -8,9 +8,11 @@ import { t } from '@lingui/macro'
 
 function RoundHeader(props) {
   var canGoBack = props.canGoBack;
+  var canAdvance = props.canAdvance;
   var onPreviousRound = props.onPreviousRound;
   var onAdvanceRound = props.onAdvanceRound;
   var previousButtonClass = canGoBack ? "p-2 rounded-lg transition-colors bg-slate-200 text-slate-700 hover:bg-slate-300" : "p-2 rounded-lg transition-colors bg-slate-100 text-slate-400 cursor-not-allowed";
+  var advanceButtonClass = canAdvance ? "px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2" : "px-6 py-2 rounded-lg font-medium transition-colors bg-slate-100 text-slate-400 cursor-not-allowed flex items-center gap-2";
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -46,8 +48,8 @@ function RoundHeader(props) {
                                       className: "w-5 h-5"
                                     })
                               ],
-                              className: "px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2",
-                              disabled: !props.canAdvance,
+                              className: advanceButtonClass,
+                              disabled: !canAdvance,
                               onClick: (function (param) {
                                   onAdvanceRound();
                                 })

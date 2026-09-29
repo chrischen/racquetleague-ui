@@ -71,7 +71,8 @@ function SelectLocation(props) {
                                                             t`add new location`
                                                           ],
                                                           href: "#",
-                                                          onClick: (function (param) {
+                                                          onClick: (function (e) {
+                                                              e.preventDefault();
                                                               setShowCreateLocation(function (prev) {
                                                                     return !prev;
                                                                   });

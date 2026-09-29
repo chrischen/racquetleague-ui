@@ -72,6 +72,33 @@ let autoGrow: Dom.element => unit = %raw(`function (el) {
   el.style.height = Math.min(el.scrollHeight, 120) + "px"
 }`)
 
+let messageId = (m: AITypes.chatMessage) =>
+  switch m {
+  | UserMessage({id}) => id
+  | AgentMessage({id}) => id
+  }
+
+// Drop optimistic local rows (they get replaced by the server's real-id
+// echo). A no-op when there are none (e.g. an approve/deny turn).
+let keepNonLocal = msgs => msgs->Array.filter(m => !(messageId(m)->String.startsWith("local-")))
+
+// The message list after a `chat` turn: the persisted rows replace the
+// optimistic local echo. When the server persisted nothing and returned an
+// error, nothing replaces the prompt's optimistic bubble, so it stays (the
+// textarea was already cleared) with the error below it, as it does when the
+// request itself fails.
+let afterChatTurn = (
+  prev: array<AITypes.chatMessage>,
+  ~newMessages: array<AITypes.chatMessage>,
+  ~error: option<string>,
+  ~errorId: unit => string,
+) =>
+  switch (error, newMessages) {
+  | (Some(content), []) =>
+    Array.concat(prev, [AITypes.AgentMessage({id: errorId(), content, action: None})])
+  | _ => Array.concat(keepNonLocal(prev), newMessages)
+  }
+
 @react.component
 let make = (
   ~onSingleEventSuggested: AITypes.eventDetails => unit,
@@ -122,16 +149,6 @@ let make = (
     localIdCounterRef.current = localIdCounterRef.current + 1
     "local-" ++ localIdCounterRef.current->Int.toString
   }
-
-  let messageId = (m: AITypes.chatMessage) =>
-    switch m {
-    | UserMessage({id}) => id
-    | AgentMessage({id}) => id
-    }
-
-  // Drop optimistic local rows (they get replaced by the server's real-id
-  // echo). A no-op when there are none (e.g. an approve/deny turn).
-  let keepNonLocal = msgs => msgs->Array.filter(m => !(messageId(m)->String.startsWith("local-")))
 
   let snapToBottom = () =>
     switch chatContainerRef.current->Nullable.toOption {
@@ -201,12 +218,7 @@ let make = (
       chat.messages->Belt.Array.keepMap(m => AIChatMessage.fromFragmentRef(m.fragmentRefs))
     let suggestedEvents = toSuggestedEvents(chat.suggestedEvents)
 
-    let finalNew = switch (chat.error, Array.length(newMessages)) {
-    | (Some(err), 0) => [AgentMessage({id: nextLocalId(), content: err, action: None})]
-    | _ => newMessages
-    }
-
-    setMessages(prev => Array.concat(keepNonLocal(prev), finalNew))
+    setMessages(prev => afterChatTurn(prev, ~newMessages, ~error=chat.error, ~errorId=nextLocalId))
 
     switch clearOverlayFor {
     | Some(pid) => setOverlay(prev => prev->Belt.Map.String.remove(pid))

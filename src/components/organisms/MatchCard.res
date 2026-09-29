@@ -324,19 +324,19 @@ let make = (
     switch matchHistory {
     | LastRound => "border-red-500"
     | PreviousRound => "border-amber-400"
-    | NoHistory => "border-slate-200"
+    | NoHistory => "border-slate-200 dark:border-[#2a2b30]"
     }
   }
 
   // Get team background color based on history and winner status
   let getTeamBgColor = (teamHistory: history, isWinner: bool) => {
     if isWinner {
-      "bg-green-50"
+      "bg-green-50 dark:bg-green-900/30"
     } else {
       switch teamHistory {
-      | LastRound => "bg-red-50"
-      | PreviousRound => "bg-amber-50"
-      | NoHistory => "bg-white"
+      | LastRound => "bg-red-50 dark:bg-red-900/30"
+      | PreviousRound => "bg-amber-50 dark:bg-amber-900/20"
+      | NoHistory => "bg-white dark:bg-[#1e1f23]"
       }
     }
   }
@@ -346,9 +346,20 @@ let make = (
     switch teamHistory {
     | LastRound => "border-b-red-500 lg:border-b-0"
     | PreviousRound => "border-b-amber-400 lg:border-b-0"
-    | NoHistory => "border-b-slate-200 lg:border-b-0"
+    | NoHistory => "border-b-slate-200 dark:border-b-[#2a2b30] lg:border-b-0"
     }
   }
+
+  // A team's icon slot plus, side by side (lg), its score stacked underneath:
+  // on the card's outer edge, clear of the centred VS divider and out of the
+  // names' way. Below lg the wrapper is `contents`: the icon and score join
+  // the row and `order-last` puts the score back at the row's end.
+  let scoreColumnClass = "contents lg:flex lg:flex-col lg:items-center lg:flex-shrink-0"
+  let scoreClass = "order-last lg:order-none text-lg lg:leading-6 font-bold text-slate-800 dark:text-gray-100 flex-shrink-0"
+  // Rows below sm, a wrapping row at sm, a column at lg. `lg:flex-nowrap`
+  // matters: a wrapping column sizes to its widest name, so names ran under
+  // the score instead of truncating.
+  let playersClass = "flex flex-col sm:flex-row sm:flex-wrap lg:flex-col lg:flex-nowrap gap-1.5 flex-1 min-w-0"
 
   // Render based on view state
   switch view {
@@ -372,18 +383,18 @@ let make = (
     // Display mode - new TypeScript design with prediction bars
     <>
       <div
-        className={`bg-white rounded-lg border-2 shadow-sm overflow-hidden ${getMatchBorderColor()}`}>
+        className={`bg-white dark:bg-[#1e1f23] rounded-lg border-2 shadow-sm overflow-hidden ${getMatchBorderColor()}`}>
         <div
-          className="bg-slate-100 px-2 py-1 border-b border-blue-200 flex items-center justify-between">
+          className="bg-slate-100 dark:bg-[#2a2b30] px-2 py-1 border-b border-blue-200 dark:border-[#3a3b40] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-slate-600">
+            <span className="text-xs font-semibold text-slate-600 dark:text-gray-300">
               {t`Court ${courtNumber->Int.toString}`}
             </span>
             {onRebalance
             ->Option.map(rebalanceFn =>
               <button
                 onClick={_ => rebalanceFn()}
-                className="p-1 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors"
+                className="p-1 text-slate-600 hover:text-blue-600 hover:bg-blue-50 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-900/30 rounded transition-colors"
                 ariaLabel={ts`Rebalance match`}>
                 <Lucide.Shuffle className="w-3.5 h-3.5" />
               </button>
@@ -393,13 +404,13 @@ let make = (
               ? <div className="flex items-center gap-1">
                   <Lucide.AlertTriangle
                     className={matchHistory == LastRound
-                      ? "w-3 h-3 text-red-600"
-                      : "w-3 h-3 text-amber-600"}
+                      ? "w-3 h-3 text-red-600 dark:text-red-400"
+                      : "w-3 h-3 text-amber-600 dark:text-amber-400"}
                   />
                   <span
                     className={matchHistory == LastRound
-                      ? "text-xs font-medium text-red-600"
-                      : "text-xs font-medium text-amber-600"}>
+                      ? "text-xs font-medium text-red-600 dark:text-red-400"
+                      : "text-xs font-medium text-amber-600 dark:text-amber-400"}>
                     {matchHistory == LastRound ? t`Last Round` : t`Repeat`}
                   </span>
                 </div>
@@ -412,7 +423,7 @@ let make = (
               <ConfirmButton
                 button={<button
                   type_="button"
-                  className="p-1 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors"
+                  className="p-1 text-slate-600 hover:text-red-600 hover:bg-red-50 dark:text-gray-400 dark:hover:text-red-400 dark:hover:bg-red-900/30 rounded transition-colors"
                   ariaLabel={ts`Delete match`}>
                   <Lucide.Trash2 className="w-3.5 h-3.5" />
                 </button>}
@@ -424,7 +435,7 @@ let make = (
             ->Option.getOr(React.null)}
             <button
               onClick={_ => setView(_ => SubmitMatch)}
-              className="p-1 text-slate-600 hover:text-blue-600 hover:bg-slate-200 rounded transition-colors"
+              className="p-1 text-slate-600 hover:text-blue-600 hover:bg-slate-200 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-[#3a3b40] rounded transition-colors"
               ariaLabel={ts`Edit match`}>
               <Lucide.Edit2 className="w-3.5 h-3.5" />
             </button>
@@ -482,31 +493,36 @@ let make = (
               onPointerMove={h1.onPointerMove}
               onPointerLeave={h1.onPointerLeave}
               style={ReactDOM.Style.make(~userSelect="none", ())}
-              className={`p-2 lg:pr-2 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 border-b lg:border-b-0 overflow-hidden ${getTeamBgColor(
+              className={`p-2 lg:pr-2.5 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 border-b lg:border-b-0 overflow-hidden ${getTeamBgColor(
                   team1History,
                   currentWinner == Some(Left),
-                )} ${getTeamBorderColor(team1History)} hover:bg-slate-50`}>
-              <div className="flex items-center gap-2 min-w-0">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
-                  {currentWinner == Some(Left)
-                    ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                    : isDraw
-                    ? <Lucide.Equal className="w-5 h-5 text-amber-600" />
-                    : unscored && team1Serves
-                    ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
-                    : unscored && team1History == LastRound
-                    ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600" />
-                    : unscored && team1History == PreviousRound
-                    ? <Lucide.AlertTriangle className="w-4 h-4 text-amber-600" />
+                )} ${getTeamBorderColor(team1History)} hover:bg-slate-50 dark:hover:bg-[#2a2b30]`}>
+              <div className="flex items-center gap-2 lg:gap-1.5 min-w-0">
+                <div className={scoreColumnClass}>
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    {currentWinner == Some(Left)
+                      ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                      : isDraw
+                      ? <Lucide.Equal className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                      : unscored && team1Serves
+                      ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
+                      : unscored && team1History == LastRound
+                      ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400" />
+                      : unscored && team1History == PreviousRound
+                      ? <Lucide.AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                      : React.null}
+                  </div>
+                  {!hideScores && (scoreLeftValue != 0. || scoreRightValue != 0.)
+                    ? <div className={scoreClass}>
+                        {scoreLeftValue->Float.toString->React.string}
+                      </div>
                     : React.null}
                 </div>
-                <div
-                  className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-col gap-1.5 flex-1 min-w-0">
+                <div className={`${playersClass} ${ScoreModal.playerRowDark}`}>
                   {team1
                   ->Array.map(player => {
                     let winner =
                       currentWinner->Option.map(w => w == Left ? PlayerRow.Left : PlayerRow.Right)
-                    // Always increment display count - players are in this match regardless of score status
                     <PlayerRow
                       key={player.id}
                       player
@@ -516,16 +532,10 @@ let make = (
                       skillLevel={normalizeSkillLevel(player.rating.mu)}
                       getUserFragmentRefs
                       debug
-                      incrementDisplayCount={true}
                     />
                   })
                   ->React.array}
                 </div>
-                {!hideScores && (scoreLeftValue != 0. || scoreRightValue != 0.)
-                  ? <div className="text-lg font-bold text-slate-800 flex-shrink-0">
-                      {scoreLeftValue->Float.toString->React.string}
-                    </div>
-                  : React.null}
               </div>
             </div>
           }
@@ -533,12 +543,16 @@ let make = (
           <div
             className="relative lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-0 lg:bottom-0 lg:w-px flex items-center justify-center">
             <div
-              className="lg:hidden absolute inset-0 flex items-center justify-center border-b border-slate-200">
-              <span className="bg-white px-2 text-xs font-bold text-slate-400"> {t`VS`} </span>
+              className="lg:hidden absolute inset-0 flex items-center justify-center border-b border-slate-200 dark:border-[#2a2b30]">
+              <span
+                className="bg-white dark:bg-[#1e1f23] px-2 text-xs font-bold text-slate-400 dark:text-gray-500">
+                {t`VS`}
+              </span>
             </div>
             <div
-              className="hidden lg:flex relative w-full h-full bg-slate-200 items-center justify-center">
-              <span className="absolute bg-white px-1 text-xs font-bold text-slate-400">
+              className="hidden lg:flex relative w-full h-full bg-slate-200 dark:bg-[#2a2b30] items-center justify-center">
+              <span
+                className="absolute bg-white dark:bg-[#1e1f23] px-0.5 text-xs font-bold text-slate-400 dark:text-gray-500">
                 {t`VS`}
               </span>
             </div>
@@ -559,31 +573,36 @@ let make = (
               onPointerMove={h2.onPointerMove}
               onPointerLeave={h2.onPointerLeave}
               style={ReactDOM.Style.make(~userSelect="none", ())}
-              className={`p-2 lg:pl-2 lg:pr-2 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 overflow-hidden ${getTeamBgColor(
+              className={`p-2 lg:pl-2.5 lg:pr-2 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 overflow-hidden ${getTeamBgColor(
                   team2History,
                   currentWinner == Some(Right),
-                )} hover:bg-slate-50`}>
-              <div className="flex items-center gap-2 min-w-0">
-                <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 lg:order-3">
-                  {currentWinner == Some(Right)
-                    ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                    : isDraw
-                    ? <Lucide.Equal className="w-5 h-5 text-amber-600" />
-                    : unscored && !team1Serves
-                    ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
-                    : unscored && team2History == LastRound
-                    ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600" />
-                    : unscored && team2History == PreviousRound
-                    ? <Lucide.AlertTriangle className="w-4 h-4 text-amber-600" />
+                )} hover:bg-slate-50 dark:hover:bg-[#2a2b30]`}>
+              <div className="flex items-center gap-2 lg:gap-1.5 min-w-0">
+                <div className={`${scoreColumnClass} lg:order-2`}>
+                  <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
+                    {currentWinner == Some(Right)
+                      ? <Lucide.Trophy className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                      : isDraw
+                      ? <Lucide.Equal className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+                      : unscored && !team1Serves
+                      ? <Lucide.Circle className="w-4 h-4 text-blue-500 fill-blue-500" />
+                      : unscored && team2History == LastRound
+                      ? <Lucide.AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400" />
+                      : unscored && team2History == PreviousRound
+                      ? <Lucide.AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                      : React.null}
+                  </div>
+                  {!hideScores && (scoreLeftValue != 0. || scoreRightValue != 0.)
+                    ? <div className={scoreClass}>
+                        {scoreRightValue->Float.toString->React.string}
+                      </div>
                     : React.null}
                 </div>
-                <div
-                  className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-col gap-1.5 flex-1 min-w-0 lg:order-1">
+                <div className={`${playersClass} ${ScoreModal.playerRowDark} lg:order-1`}>
                   {team2
                   ->Array.map(player => {
                     let winner =
                       currentWinner->Option.map(w => w == Left ? PlayerRow.Left : PlayerRow.Right)
-                    // Always increment display count - players are in this match regardless of score status
                     <PlayerRow
                       key={player.id}
                       player
@@ -593,16 +612,10 @@ let make = (
                       skillLevel={normalizeSkillLevel(player.rating.mu)}
                       getUserFragmentRefs
                       debug
-                      incrementDisplayCount={true}
                     />
                   })
                   ->React.array}
                 </div>
-                {!hideScores && (scoreLeftValue != 0. || scoreRightValue != 0.)
-                  ? <div className="text-lg font-bold text-slate-800 flex-shrink-0 lg:order-2">
-                      {scoreRightValue->Float.toString->React.string}
-                    </div>
-                  : React.null}
               </div>
             </div>
           }

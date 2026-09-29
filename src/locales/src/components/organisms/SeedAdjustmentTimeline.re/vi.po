@@ -13,6 +13,22 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:120
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:127
+msgid "{0} player"
+msgstr "{0} người chơi"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:128
+msgid "{0} players"
+msgstr "{0} người chơi"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:126
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:159
+msgid "Delete seed adjustment"
+msgstr "Xóa điều chỉnh hạt giống"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:121
 msgid "Seeds Adjusted"
 msgstr "Đã điều chỉnh hạt giống"

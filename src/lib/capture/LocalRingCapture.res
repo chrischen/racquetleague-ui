@@ -447,6 +447,7 @@ let takeClip = async (state, ~seconds: option<float>=?): result<
               durationSeconds: clip.durationUs /. 1_000_000.,
               hasAudio: audio->Option.isSome,
               frameTimes: clip.chunks->Array.map(chunk => chunk.timestampUs /. 1_000_000.),
+              startSeconds: clip.baseUs /. 1_000_000.,
               encoded: Some({
                 CaptureSession.codec: codec,
                 width: state.width,
@@ -457,6 +458,50 @@ let takeClip = async (state, ~seconds: option<float>=?): result<
             })
           | Error(message) => Error(CaptureSession.MuxFailed(message))
           }
+        }
+      }
+    }
+  | _ => Error(CaptureSession.NotStarted)
+  }
+
+// The live analysis stream's slice of the ring: whole GOPs after ``afterUs``,
+// muxed video-only (no flush — closed GOPs are complete by definition; an
+// ``includeOpen`` caller takes the open GOP as far as it has been encoded).
+let takeSegment = async (state, ~afterUs: float, ~includeOpen: bool): result<
+  CaptureSession.segment,
+  CaptureSession.clipError,
+> =>
+  switch (state.videoCodec, state.running) {
+  | (Some(codec), true) =>
+    switch ClipRing.segmentAfter(state.ring, ~afterUs, ~includeOpen) {
+    | None => Error(CaptureSession.BufferEmpty)
+    | Some(clip) => {
+        let videoChunks = clip.chunks->Array.map(chunk => {
+          CaptureSession.bytes: chunk.payload,
+          timestampUs: chunk.timestampUs,
+          durationUs: chunk.durationUs,
+          isKey: chunk.isKey,
+        })
+        let video: MuxBindings.muxVideoConfig = {
+          codec,
+          width: state.width,
+          height: state.height,
+          description: ?state.videoDecoderConfig->Option.flatMap(config => config.description),
+        }
+        let lastGopUs =
+          clip.chunks
+          ->Array.filter(chunk => chunk.isKey)
+          ->Array.last
+          ->Option.mapOr(clip.baseUs, chunk => chunk.timestampUs +. clip.baseUs)
+        switch await MuxBindings.muxClip(~video, ~videoChunks, ~audio=None, ~audioChunks=[]) {
+        | Ok(blob) =>
+          Ok({
+            CaptureSession.segmentBlob: blob,
+            segmentStartSeconds: clip.baseUs /. 1_000_000.,
+            lastGopUs,
+            segmentDurationSeconds: clip.durationUs /. 1_000_000.,
+          })
+        | Error(message) => Error(CaptureSession.MuxFailed(message))
         }
       }
     }
@@ -634,6 +679,7 @@ let make = (~onStatus: CaptureSession.status => unit): CaptureSession.t => {
     capabilities,
     start: stream => start(state, ~onStatus, stream),
     takeClip: (~seconds=?) => takeClip(state, ~seconds?),
+    takeSegment: (~afterUs, ~includeOpen) => takeSegment(state, ~afterUs, ~includeOpen),
     stop: () => stop(state),
   }
 }

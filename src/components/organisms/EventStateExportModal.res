@@ -66,7 +66,7 @@ let make = (~text: string, ~onClose: unit => unit) => {
           value={text}
           onFocus={_ => selectAll()}
           rows={14}
-          className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-xs"
+          className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-xs"
         />
       </div>
       <div

@@ -17,27 +17,27 @@ msgstr ""
 msgid "Accept {0} events"
 msgstr "{0} 件のイベントを承認"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:603
+#: src/components/organisms/AIAssistantEmbed.re.mjs:610
 msgid "Action proposal"
 msgstr "アクションの提案"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:274
+#: src/components/organisms/AIAssistantEmbed.re.mjs:281
 msgid "An error occurred. Please try again."
 msgstr "エラーが発生しました。もう一度お試しください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:512
+#: src/components/organisms/AIAssistantEmbed.re.mjs:519
 msgid "Approve"
 msgstr "承認"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+#: src/components/organisms/AIAssistantEmbed.re.mjs:706
 msgid "Approve or deny the pending action to continue."
 msgstr "続行するには、保留中のアクションを承認または拒否してください。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:470
+#: src/components/organisms/AIAssistantEmbed.re.mjs:477
 msgid "Approved"
 msgstr "承認済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:428
+#: src/components/organisms/AIAssistantEmbed.re.mjs:435
 msgid ""
 "Ask the assistant to fill in event details. Your conversation will appear "
 "here."
@@ -45,7 +45,7 @@ msgstr ""
 "アシスタントにイベント詳細の入力を依頼してください。会話はここに表示されま"
 "す。"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:464
+#: src/components/organisms/AIAssistantEmbed.re.mjs:471
 msgid "Awaiting approval"
 msgstr "承認待ち"
 
@@ -54,19 +54,19 @@ msgstr "承認待ち"
 msgid "Date:"
 msgstr "日付:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:476
+#: src/components/organisms/AIAssistantEmbed.re.mjs:483
 msgid "Denied"
 msgstr "拒否済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:568
+#: src/components/organisms/AIAssistantEmbed.re.mjs:575
 msgid "Deny"
 msgstr "拒否"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:689
+#: src/components/organisms/AIAssistantEmbed.re.mjs:696
 msgid "Describe the event"
 msgstr "イベントを説明"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:699
+#: src/components/organisms/AIAssistantEmbed.re.mjs:706
 msgid "Describe your event and I’ll fill out the form…"
 msgstr "イベントの内容を教えてください。フォームを入力します…"
 
@@ -78,15 +78,15 @@ msgstr "説明:"
 msgid "Event Details"
 msgstr "イベント詳細"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:484
+#: src/components/organisms/AIAssistantEmbed.re.mjs:491
 msgid "Executed"
 msgstr "実行済み"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:487
+#: src/components/organisms/AIAssistantEmbed.re.mjs:494
 msgid "Execution failed"
 msgstr "実行失敗"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:735
+#: src/components/organisms/AIAssistantEmbed.re.mjs:742
 msgid "Fill event form from description"
 msgstr "説明からイベントフォームを入力"
 
@@ -94,11 +94,11 @@ msgstr "説明からイベントフォームを入力"
 msgid "Fill form"
 msgstr "フォームを入力"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:770
+#: src/components/organisms/AIAssistantEmbed.re.mjs:777
 msgid "Hide AI chat history"
 msgstr "AIチャット履歴を非表示"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:424
+#: src/components/organisms/AIAssistantEmbed.re.mjs:431
 msgid "Loading conversation history..."
 msgstr "会話履歴を読み込み中..."
 
@@ -107,11 +107,11 @@ msgstr "会話履歴を読み込み中..."
 msgid "Location:"
 msgstr "場所:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:620
+#: src/components/organisms/AIAssistantEmbed.re.mjs:627
 msgid "Operation:"
 msgstr "操作："
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:770
+#: src/components/organisms/AIAssistantEmbed.re.mjs:777
 msgid "Show AI chat history"
 msgstr "AIチャット履歴を表示"
 
@@ -119,7 +119,7 @@ msgstr "AIチャット履歴を表示"
 msgid "Suggested Events"
 msgstr "提案されたイベント"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:540
+#: src/components/organisms/AIAssistantEmbed.re.mjs:547
 msgid "The action completed with GraphQL errors."
 msgstr "アクションはGraphQLエラーで完了しました。"
 
@@ -127,7 +127,7 @@ msgstr "アクションはGraphQLエラーで完了しました。"
 msgid "Title:"
 msgstr "タイトル:"
 
-#: src/components/organisms/AIAssistantEmbed.re.mjs:291
+#: src/components/organisms/AIAssistantEmbed.re.mjs:298
 msgid "Too many automated steps were requested. Please continue manually."
 msgstr "自動ステップの要求が多すぎます。手動で続行してください。"
 

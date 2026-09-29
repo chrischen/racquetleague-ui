@@ -13,45 +13,55 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:99
+#: src/components/organisms/StripePaymentEmbed.re.mjs:125
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Complete payment"
 msgstr "完成付款"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Could not save your card"
 msgstr "无法保存您的银行卡"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Pay now"
 msgstr "立即付款"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Payment failed"
 msgstr "付款失败"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:86
+#: src/components/organisms/StripePaymentEmbed.re.mjs:95
 msgid "Processing…"
 msgstr "处理中…"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Save card"
 msgstr "保存银行卡"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Save your card"
 msgstr "保存您的银行卡"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid ""
+"The card form could not be loaded. Check your connection or turn off any "
+"content blocker, then try again."
+msgstr "无法加载银行卡表单。请检查网络连接或关闭内容拦截程序后重试。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "无法加载银行卡表单。请关闭后重试。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge {amountLabel} "
 "later."
 msgstr "您的银行卡现已保存，暂未扣款。主办方稍后将收取 {amountLabel}。"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge the "
 "participation fee later."

@@ -8833,6 +8833,171 @@ msgstr "此链接已过期。请从个人资料设置发送新链接。"
 msgid "This link is incomplete. Open it from the email again."
 msgstr "此链接不完整。请从邮件中重新打开。"
 
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+msgid "24 players · 4 courts"
+msgstr "24 名球员 · 4 片场地"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:138
+msgid "{previewCount, plural, one {{0}} other {{1}}}"
+msgstr "{previewCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:139
+msgid "Add {0} Guest"
+msgstr "添加 {0} 位访客"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:140
+msgid "Add {0} Guests"
+msgstr "添加 {0} 位访客"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:141
+msgid "Add Guests"
+msgstr "添加访客"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:98
+msgid "Preview ({0} guest)"
+msgstr "预览（{0} 位访客）"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
+msgid "Preview ({0} guests)"
+msgstr "预览（{0} 位访客）"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:458
+msgid "{position} in queue"
+msgstr "队列第 {position} 位"
+
+#: src/components/organisms/ClubEventsList.re.mjs:452
+msgid "Add to {dayName}"
+msgstr "添加到{dayName}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:449
+msgid "Add to next {dayName}"
+msgstr "添加到下{dayName}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:404
+msgid "Add to today"
+msgstr "添加到今天"
+
+#: src/components/organisms/ClubEventsList.re.mjs:411
+msgid "Add to tomorrow"
+msgstr "添加到明天"
+
+#: src/components/organisms/ClubEventsList.re.mjs:445
+msgid "Add to yesterday"
+msgstr "添加到昨天"
+
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用于活动更新和通知。我们会发送确认链接给您。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
+msgstr "无法加载银行卡表单。请检查网络连接或关闭内容拦截程序后重试。"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "无法加载银行卡表单。请关闭后重试。"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText} {minutesText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "调整选手种子"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:159
+msgid "Delete seed adjustment"
+msgstr "删除种子调整"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "管理队伍"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "选手姓名"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "选手设置"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "击败"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play {dayName}"
+msgstr "{dayName}打球"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play next {dayName}"
+msgstr "下{dayName}打球"
+
+#: src/components/organisms/PkEventsList.re.mjs:435
+msgid "Play tomorrow"
+msgstr "明天打球"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "新的账户邮箱"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "打开链接即可设为您的账户邮箱。在此之前不会有任何更改。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "发送链接"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "我们已将链接发送至"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "我们会将链接发送到新地址。您当前的地址会保留为收件邮箱。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "您的账户还没有邮箱。您在此确认的第一个地址将成为账户邮箱。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+msgid "Courts · thickness = count"
+msgstr "球场 · 粗细 = 数量"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:185
+msgid "Account email changed"
+msgstr "账户邮箱已更改"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:247
+msgid "is now your account email."
+msgstr "现在是您的账户邮箱。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:75
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "此链接无法使用。请从邮件重新打开，或从个人资料设置获取新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:81
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "此链接已被使用，或您的账户邮箱在链接发送后已更改。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:79
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "此链接已过期。请从个人资料设置获取新链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "您当前登录的是其他账户。请先退出登录，再重新打开链接。"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:189
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "您的账户现在使用新地址。之前的地址会保留为收件邮箱，您可以在个人资料设置中移除。"
+
 #: src/components/organisms/EventManager.re.mjs:204
 #, fuzzy
 #~ msgid "Current Round: {0}"
@@ -8922,11 +9087,6 @@ msgstr "此链接不完整。请从邮件中重新打开。"
 #, fuzzy
 #~ msgid "· % chance the game ends level · same strategy, three rooms"
 #~ msgstr "· 比赛以平局收场的概率 · 实线：Competitive+ · 虚线：随机、避免重复"
-
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
-#~ msgstr "24 名球员 · 4 片场地"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029
 #, fuzzy

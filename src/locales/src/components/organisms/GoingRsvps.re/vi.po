@@ -78,11 +78,7 @@ msgstr "Xóa RSVP này"
 msgid "Retry charge"
 msgstr "Thử thu tiền lại"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "Xem tất cả"
-
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "Thu gọn"
 
@@ -97,3 +93,7 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:313
 msgid "View Profile"
 msgstr "Xem hồ sơ"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "Xem tất cả"

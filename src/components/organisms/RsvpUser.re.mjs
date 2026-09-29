@@ -5,6 +5,7 @@ import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as Core from "@linaria/core";
 import * as FramerMotion from "framer-motion";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as AvatarWithProgress from "../molecules/AvatarWithProgress.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -37,7 +38,9 @@ function RsvpUser(props) {
                                         src: picture
                                       });
                           })), JsxRuntime.jsx("div", {
-                          className: "h-12 w-12 flex-none rounded-full bg-gray-50"
+                          children: AvatarWithProgress.initialOf(user.name),
+                          "aria-hidden": true,
+                          className: Core.cx(highlight ? "h-14 w-14" : "h-12 w-12", "flex-none rounded-full bg-slate-300 flex items-center justify-center text-lg font-semibold text-slate-600 select-none")
                         })),
                 JsxRuntime.jsxs("div", {
                       children: [

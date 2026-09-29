@@ -61,6 +61,8 @@ var PlayerView = {
 };
 
 function MatchesView$Queue(props) {
+  var maxRating = props.maxRating;
+  var minRating = props.minRating;
   var sessionState = props.sessionState;
   var onGoToCheckin = props.onGoToCheckin;
   var selectedPlayers = props.selectedPlayers;
@@ -112,8 +114,8 @@ function MatchesView$Queue(props) {
                                               }),
                                             children: JsxRuntime.jsx(MatchesView$PlayerView, {
                                                   player: player,
-                                                  minRating: 0.0,
-                                                  maxRating: 1.0,
+                                                  minRating: minRating,
+                                                  maxRating: maxRating,
                                                   status: status,
                                                   sessionState: sessionState
                                                 }, player.id)
@@ -487,7 +489,9 @@ function MatchesView(props) {
                         return "Checkin";
                       });
                 }),
-              sessionState: props.sessionState
+              sessionState: props.sessionState,
+              minRating: minRating,
+              maxRating: maxRating
             });
         break;
     

@@ -17,19 +17,20 @@ msgstr ""
 msgid "add new location"
 msgstr "เพิ่มสถานที่ใหม่"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:158
+#: src/components/organisms/CreateLocationForm.re.mjs:152
 msgid "address"
 msgstr "ที่อยู่"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:76
+#: src/components/organisms/CreateLocationForm.re.mjs:158
 msgid "address is required"
 msgstr "ต้องระบุที่อยู่"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:147
+#: src/components/organisms/CreateLocationForm.re.mjs:139
 msgid "Akabane Elementary School"
 msgstr "โรงเรียนประถม Akabane"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -37,7 +38,7 @@ msgstr "ยกเลิก"
 msgid "choose the location where this event will be held."
 msgstr "เลือกสถานที่ที่จะจัดกิจกรรมนี้"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:177
+#: src/components/organisms/CreateLocationForm.re.mjs:176
 msgid "details"
 msgstr "รายละเอียด"
 
@@ -45,28 +46,29 @@ msgstr "รายละเอียด"
 msgid "event location"
 msgstr "สถานที่จัดกิจกรรม"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:180
+#: src/components/organisms/CreateLocationForm.re.mjs:179
 msgid ""
 "Instructions or information that will apply to all events held at this "
 "location."
 msgstr "คำแนะนำหรือข้อมูลที่จะใช้กับกิจกรรมทั้งหมดที่จัดขึ้นใน สถานที่นี้"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:138
+#: src/components/organisms/CreateLocationForm.re.mjs:130
 msgid "location"
 msgstr "สถานที่"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:167
+#: src/components/organisms/CreateLocationForm.re.mjs:166
 msgid "maps link"
 msgstr "ลิงก์แผนที่"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:144
+#: src/components/organisms/CreateLocationForm.re.mjs:136
 msgid "name"
 msgstr "ชื่อ"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:73
+#: src/components/organisms/CreateLocationForm.re.mjs:143
 msgid "name is required"
 msgstr "ต้องระบุชื่อ"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "บันทึก"

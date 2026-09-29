@@ -1022,7 +1022,9 @@ function CreateLocationEventForm(props) {
   } else if (datePart !== "") {
     var match$17 = splitStartDate(endWallClockFor(startWallClock, clockEnd));
     var day = DateFns.format(DateFns.parseISO(datePart), "EEE, MMM d");
-    scheduleSummary = locationName + " · " + day + ", " + formatWallTime(clockStart) + "–" + formatWallTime(match$17[1]) + " · " + ClockRangePicker.formatDuration(durationMinutes);
+    scheduleSummary = (
+      locationName !== "" ? locationName + " · " : ""
+    ) + (day + ", " + formatWallTime(clockStart) + "–" + formatWallTime(match$17[1]) + " · " + ClockRangePicker.formatDuration(durationMinutes));
   } else {
     scheduleSummary = locationName !== "" ? locationName : t`Venue, date, start and end time`;
   }

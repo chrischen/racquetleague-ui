@@ -38,9 +38,12 @@ module Stripe = {
     ) => React.element = "Elements"
   }
 
+  // The Payment Element fails to load on a bad or expired client secret.
+  type loadErrorEvent = {elementType: string, error: error}
+
   module PaymentElement = {
     @module("@stripe/react-stripe-js") @react.component
-    external make: unit => React.element = "PaymentElement"
+    external make: (~onLoadError: loadErrorEvent => unit=?) => React.element = "PaymentElement"
   }
 }
 
@@ -53,11 +56,19 @@ type mode = Setup | Payment
 
 module CheckoutForm = {
   @react.component
-  let make = (~mode: mode, ~onSuccess: string => unit, ~onClose: unit => unit) => {
+  let make = (
+    ~mode: mode,
+    ~onSuccess: string => unit,
+    ~onClose: unit => unit,
+    // Stripe.js itself never loaded (blocked or offline).
+    ~stripeUnavailable: bool=false,
+  ) => {
     let stripe = Stripe.useStripe()->Js.Nullable.toOption
     let elements = Stripe.useElements()->Js.Nullable.toOption
     let (error, setError) = React.useState(() => None)
     let (processing, setProcessing) = React.useState(() => false)
+    // The card fields failed to load, so there is nothing to submit.
+    let (loadFailed, setLoadFailed) = React.useState(() => false)
 
     let handleSubmit = async (e: ReactEvent.Form.t) => {
       ReactEvent.Form.preventDefault(e)
@@ -93,10 +104,21 @@ module CheckoutForm = {
     }
 
     <form onSubmit={e => handleSubmit(e)->ignore} className="space-y-4">
-      <Stripe.PaymentElement />
+      <Stripe.PaymentElement onLoadError={_ => setLoadFailed(_ => true)} />
       {switch error {
       | Some(error) => <p className="mt-2 text-sm text-red-500 dark:text-red-400"> {error} </p>
       | None => React.null
+      }}
+      {if stripeUnavailable {
+        <p role="alert" className="mt-2 text-sm text-red-500 dark:text-red-400">
+          {Lingui.Util.t`The card form could not be loaded. Check your connection or turn off any content blocker, then try again.`}
+        </p>
+      } else if loadFailed {
+        <p role="alert" className="mt-2 text-sm text-red-500 dark:text-red-400">
+          {Lingui.Util.t`The card form could not be loaded. Close this and try again.`}
+        </p>
+      } else {
+        React.null
       }}
       <div className="flex gap-3 justify-end pt-2">
         <button
@@ -108,7 +130,7 @@ module CheckoutForm = {
         </button>
         <button
           type_="submit"
-          disabled={stripe->Option.isNone || processing}
+          disabled={stripe->Option.isNone || processing || loadFailed}
           className="px-4 py-2 text-sm font-semibold rounded-md bg-amber-500 text-white hover:bg-amber-600 disabled:opacity-60 inline-flex items-center gap-1.5 transition-colors">
           {if processing {
             Lingui.Util.t`Processing…`
@@ -138,6 +160,7 @@ let make = (
   ~onClose: unit => unit,
 ) => {
   let {i18n: {locale}} = Lingui.useLingui()
+  let isDark = DarkMode.use()
   let stripePromise = React.useMemo1(
     () =>
       Stripe.load(
@@ -145,9 +168,23 @@ let make = (
         ~options=?stripeAccountId->Option.map(stripeAccount => {
           Stripe.stripeAccount: stripeAccount,
         }),
-      ),
+      )
+      // Stripe.js failed to load: <Elements> takes null for "no Stripe".
+      ->Promise.catch(_ => Promise.resolve(Js.Nullable.null)),
     [stripeAccountId],
   )
+  let (stripeUnavailable, setStripeUnavailable) = React.useState(() => false)
+  React.useEffect1(() => {
+    let active = ref(true)
+    stripePromise
+    ->Promise.thenResolve(stripe =>
+      if active.contents {
+        setStripeUnavailable(_ => stripe->Js.Nullable.isNullable)
+      }
+    )
+    ->ignore
+    Some(() => active := false)
+  }, [stripePromise])
 
   <div
     className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/60 sm:p-4"
@@ -187,9 +224,12 @@ let make = (
         options={{
           clientSecret,
           locale,
-          appearance: {theme: "stripe", variables: {colorPrimary: "#a3e635"}},
+          appearance: {
+            theme: isDark ? "night" : "stripe",
+            variables: {colorPrimary: "#a3e635"},
+          },
         }}>
-        <CheckoutForm mode onSuccess onClose />
+        <CheckoutForm mode onSuccess onClose stripeUnavailable />
       </Stripe.Elements>
     </div>
   </div>

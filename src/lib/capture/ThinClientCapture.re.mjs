@@ -22,6 +22,12 @@ function make(param) {
                           _0: "ClipUnavailable"
                         });
             }),
+          takeSegment: (function (param, param$1) {
+              return Promise.resolve({
+                          TAG: "Error",
+                          _0: "ClipUnavailable"
+                        });
+            }),
           stop: (function () {
               
             })

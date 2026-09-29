@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"Thêm vào Màn hình chính\\\""
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:386
 msgid "Account email"
 msgstr "Email tài khoản"
 
@@ -25,11 +25,11 @@ msgstr "Email tài khoản"
 msgid "Active"
 msgstr "Đang hoạt động"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:540
 msgid "Add"
 msgstr "Thêm"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:522
 msgid "Add a receiving email"
 msgstr "Thêm email nhận"
 
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Australia"
 msgstr "Úc"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:406
 msgid "Awaiting confirmation"
 msgstr "Đang chờ xác nhận"
 
@@ -78,7 +78,7 @@ msgstr "Người mới bắt đầu"
 msgid "Biography"
 msgstr "Tiểu sử"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:557
 msgid ""
 "Bookings forwarded from it will no longer be added to your account. You can "
 "add it again later."
@@ -86,7 +86,7 @@ msgstr ""
 "Các đặt chỗ được chuyển tiếp từ địa chỉ này sẽ không còn được thêm vào tài "
 "khoản của bạn. Bạn có thể thêm lại sau."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:376
 msgid ""
 "Bookings you forward to chris@pkuru.com are added to your account when they "
 "come from one of these addresses. Add the other addresses you receive "
@@ -102,8 +102,13 @@ msgstr "Canada"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:496
 msgid "Cancel"
 msgstr "Hủy"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:389
+msgid "Change"
+msgstr "Thay đổi"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -113,7 +118,7 @@ msgstr "Hoàn toàn mới bắt đầu"
 msgid "Confirm"
 msgstr "Xác nhận"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:403
 msgid "Confirmed"
 msgstr "Đã xác nhận"
 
@@ -285,9 +290,14 @@ msgstr "Đăng nhập bằng DUPR"
 msgid "Male"
 msgstr "Nam"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:479
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:529
 msgid "name@example.com"
 msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "Email tài khoản mới"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:357
 msgid "No Stripe account is connected."
@@ -318,7 +328,12 @@ msgstr ""
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr ""
+"Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
 msgstr ""
 "Hãy mở liên kết khi đang đăng nhập pkuru để hoàn tất việc thêm địa chỉ."
@@ -356,19 +371,19 @@ msgstr ""
 msgid "Receive push notifications for event reminders and updates."
 msgstr "Nhận thông báo đẩy về nhắc nhở và cập nhật sự kiện."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
 msgstr "Email nhận"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:447
 msgid "Remove"
 msgstr "Xóa"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:556
 msgid "Remove this receiving email?"
 msgstr "Xóa email nhận này?"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:411
 msgid "Resend"
 msgstr "Gửi lại"
 
@@ -391,6 +406,10 @@ msgstr "đang tìm đối tác đánh đôi"
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "Tự đánh giá"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "Gửi liên kết"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -420,8 +439,8 @@ msgstr "đơn"
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "Một số sự kiện yêu cầu tên hợp pháp của bạn như trên thẻ căn cước."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:164
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:171
 msgid "Something went wrong. Please try again."
 msgstr "Đã xảy ra lỗi. Vui lòng thử lại."
 
@@ -449,11 +468,11 @@ msgstr "hãy cho chúng tôi biết một chút về bản thân bạn"
 msgid "Tell us a little about yourself..."
 msgstr "Hãy cho chúng tôi biết một chút về bạn..."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:154
 msgid "That address isn't on your account any more."
 msgstr "Địa chỉ đó không còn trong tài khoản của bạn."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:152
 msgid "That doesn't look like an email address."
 msgstr "Đây có vẻ không phải là địa chỉ email."
 
@@ -465,11 +484,11 @@ msgstr "Tài khoản DUPR đó đã được liên kết với người chơi kh
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "Phiên đăng nhập DUPR đã hết hạn. Vui lòng thử lại."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:158
 msgid "That's already your account email."
 msgstr "Đó đã là email tài khoản của bạn."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:156
 msgid "Too many emails sent. Please wait a minute and try again."
 msgstr "Đã gửi quá nhiều email. Vui lòng đợi một chút rồi thử lại."
 
@@ -491,15 +510,27 @@ msgstr ""
 "khoản nền tảng: người tham gia lưu thẻ khi RSVP, nhưng bạn không thể thu "
 "tiền. Hãy thu phí tại sự kiện."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
 msgstr "Chúng tôi không thể gửi email. Hãy thử \\\"Gửi lại\\\" sau giây lát."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
 msgstr "Chúng tôi đã gửi liên kết xác nhận đến"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "Chúng tôi đã gửi liên kết đến"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid ""
+"We'll email a link to the new address. Your current address stays on as a "
+"receiving email."
+msgstr ""
+"Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm "
+"email nhận."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr ""
 "Bạn có thể thêm tối đa 5 email nhận. Hãy xóa một email để thêm email khác."
@@ -512,9 +543,17 @@ msgstr ""
 "Bạn đã từ chối chia sẻ dữ liệu DUPR nên không có gì được liên kết. Hãy đăng "
 "nhập lại và chọn Ủy quyền để liên kết."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "Bạn đã thêm địa chỉ này rồi."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid ""
+"Your account has no email yet. The first address you confirm here becomes "
+"your account email."
+msgstr ""
+"Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở "
+"thành email tài khoản."
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""
@@ -607,31 +646,3 @@ msgstr "Tài khoản Stripe của bạn đã được kết nối."
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr ""
 #~ "Tài khoản Stripe của bạn đã được kết nối nhưng chưa hoàn tất đăng ký."
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Change"
-msgstr "Thay đổi"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "New account email"
-msgstr "Email tài khoản mới"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Open it to make it your account email. Until then, nothing changes."
-msgstr "Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Send link"
-msgstr "Gửi liên kết"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "We sent a link to"
-msgstr "Chúng tôi đã gửi liên kết đến"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
-msgstr "Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm email nhận."
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Your account has no email yet. The first address you confirm here becomes your account email."
-msgstr "Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở thành email tài khoản."

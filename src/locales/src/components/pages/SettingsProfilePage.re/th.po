@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:386
 msgid "Account email"
 msgstr "อีเมลบัญชี"
 
@@ -25,11 +25,11 @@ msgstr "อีเมลบัญชี"
 msgid "Active"
 msgstr "ใช้งานอยู่"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:540
 msgid "Add"
 msgstr "เพิ่ม"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:522
 msgid "Add a receiving email"
 msgstr "เพิ่มอีเมลรับการจอง"
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Australia"
 msgstr "ออสเตรเลีย"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:406
 msgid "Awaiting confirmation"
 msgstr "รอการยืนยัน"
 
@@ -77,13 +77,13 @@ msgstr "ผู้เริ่มต้น"
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:557
 msgid ""
 "Bookings forwarded from it will no longer be added to your account. You can "
 "add it again later."
 msgstr "การจองที่ส่งต่อจากที่อยู่นี้จะไม่ถูกเพิ่มในบัญชีของคุณอีก คุณสามารถเพิ่มกลับได้ภายหลัง"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:376
 msgid ""
 "Bookings you forward to chris@pkuru.com are added to your account when they "
 "come from one of these addresses. Add the other addresses you receive "
@@ -98,8 +98,13 @@ msgstr "แคนาดา"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:496
 msgid "Cancel"
 msgstr "ยกเลิก"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:389
+msgid "Change"
+msgstr "เปลี่ยน"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -109,7 +114,7 @@ msgstr "ผู้เริ่มต้นสมบูรณ์"
 msgid "Confirm"
 msgstr "ยืนยัน"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:403
 msgid "Confirmed"
 msgstr "ยืนยันแล้ว"
 
@@ -281,9 +286,14 @@ msgstr "เข้าสู่ระบบด้วย DUPR"
 msgid "Male"
 msgstr "ชาย"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:479
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:529
 msgid "name@example.com"
 msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "อีเมลบัญชีใหม่"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:357
 msgid "No Stripe account is connected."
@@ -314,7 +324,11 @@ msgstr ""
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "เปิดลิงก์เพื่อใช้เป็นอีเมลบัญชีของคุณ จนกว่าจะเปิด จะไม่มีอะไรเปลี่ยนแปลง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
 msgstr "เปิดลิงก์ขณะลงชื่อเข้าใช้ pkuru เพื่อเพิ่มที่อยู่ให้เสร็จสิ้น"
 
@@ -351,19 +365,19 @@ msgstr ""
 msgid "Receive push notifications for event reminders and updates."
 msgstr "รับการแจ้งเตือนแบบพุชสำหรับการเตือนและอัปเดตกิจกรรม"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
 msgstr "อีเมลรับการจอง"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:447
 msgid "Remove"
 msgstr "ลบ"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:556
 msgid "Remove this receiving email?"
 msgstr "ลบอีเมลรับการจองนี้หรือไม่"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:411
 msgid "Resend"
 msgstr "ส่งอีกครั้ง"
 
@@ -386,6 +400,10 @@ msgstr "กำลังมองหาคู่คู่"
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "ประเมินตนเอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "ส่งลิงก์"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -413,8 +431,8 @@ msgstr "เดี่ยว"
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "กิจกรรมบางกิจกรรมต้องการชื่อจริงของคุณตามที่แสดงในบัตรประจำตัว"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:164
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:171
 msgid "Something went wrong. Please try again."
 msgstr "เกิดข้อผิดพลาด โปรดลองอีกครั้ง"
 
@@ -442,11 +460,11 @@ msgstr "เล่าให้ฟังเกี่ยวกับตัวคุ
 msgid "Tell us a little about yourself..."
 msgstr "บอกเราเกี่ยวกับตัวคุณสักหน่อย..."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:154
 msgid "That address isn't on your account any more."
 msgstr "ที่อยู่นี้ไม่ได้อยู่ในบัญชีของคุณแล้ว"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:152
 msgid "That doesn't look like an email address."
 msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
 
@@ -458,11 +476,11 @@ msgstr "บัญชี DUPR นี้เชื่อมต่อกับผู
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "การลงชื่อเข้าใช้ DUPR หมดอายุแล้ว กรุณาลองใหม่อีกครั้ง"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:158
 msgid "That's already your account email."
 msgstr "นี่คืออีเมลบัญชีของคุณอยู่แล้ว"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:156
 msgid "Too many emails sent. Please wait a minute and try again."
 msgstr "ส่งอีเมลมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง"
 
@@ -483,15 +501,25 @@ msgstr ""
 "จนกว่าการตั้งค่าบัญชีจะเสร็จสมบูรณ์ กิจกรรมแบบมีค่าใช้จ่ายของคุณจะใช้บัญชีแพลตฟอร์ม "
 "โดยผู้เข้าร่วมจะบันทึกบัตรเมื่อตอบรับ แต่คุณไม่สามารถเรียกเก็บเงินได้ ให้เก็บค่าธรรมเนียมที่หน้างาน"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
 msgstr "เราไม่สามารถส่งอีเมลได้ กรุณาลอง \\\\\\\"ส่งอีกครั้ง\\\\\\\" ในอีกสักครู่"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
 msgstr "เราได้ส่งลิงก์ยืนยันไปที่"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "เราได้ส่งลิงก์ไปที่"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid ""
+"We'll email a link to the new address. Your current address stays on as a "
+"receiving email."
+msgstr "เราจะส่งลิงก์ไปยังที่อยู่ใหม่ ที่อยู่ปัจจุบันของคุณจะยังคงเป็นอีเมลรับการจอง"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr "คุณเพิ่มอีเมลรับการจองได้สูงสุด 5 รายการ ลบหนึ่งรายการเพื่อเพิ่มใหม่"
 
@@ -503,9 +531,15 @@ msgstr ""
 "คุณปฏิเสธการแชร์ข้อมูล DUPR ของคุณ จึงไม่มีการเชื่อมโยงใดๆ ลงชื่อเข้าใช้อีกครั้งและเลือก "
 "\"อนุญาต\" เพื่อเชื่อมโยง"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "คุณเพิ่มที่อยู่นี้แล้ว"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid ""
+"Your account has no email yet. The first address you confirm here becomes "
+"your account email."
+msgstr "บัญชีของคุณยังไม่มีอีเมล ที่อยู่แรกที่คุณยืนยันที่นี่จะเป็นอีเมลบัญชีของคุณ"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""
@@ -584,31 +618,3 @@ msgstr "บัญชี Stripe ของคุณเชื่อมต่อแ�
 #: src/components/organisms/SettingsProfileForm.re.mjs:350
 #~ msgid "Your Stripe account is connected but onboarding is not yet complete."
 #~ msgstr "บัญชี Stripe ของคุณเชื่อมต่อแล้ว แต่ยังดำเนินการไม่เสร็จสมบูรณ์"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Change"
-msgstr "เปลี่ยน"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "New account email"
-msgstr "อีเมลบัญชีใหม่"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Open it to make it your account email. Until then, nothing changes."
-msgstr "เปิดลิงก์เพื่อใช้เป็นอีเมลบัญชีของคุณ จนกว่าจะเปิด จะไม่มีอะไรเปลี่ยนแปลง"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Send link"
-msgstr "ส่งลิงก์"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "We sent a link to"
-msgstr "เราได้ส่งลิงก์ไปที่"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
-msgstr "เราจะส่งลิงก์ไปยังที่อยู่ใหม่ ที่อยู่ปัจจุบันของคุณจะยังคงเป็นอีเมลรับการจอง"
-
-#: src/components/organisms/ReceivingEmailsCard.re.mjs
-msgid "Your account has no email yet. The first address you confirm here becomes your account email."
-msgstr "บัญชีของคุณยังไม่มีอีเมล ที่อยู่แรกที่คุณยืนยันที่นี่จะเป็นอีเมลบัญชีของคุณ"

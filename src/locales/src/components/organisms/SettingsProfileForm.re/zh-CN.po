@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"添加到主屏幕\\\""
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:386
 msgid "Account email"
 msgstr "账户邮箱"
 
@@ -25,11 +25,11 @@ msgstr "账户邮箱"
 msgid "Active"
 msgstr "进行中"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:540
 msgid "Add"
 msgstr "添加"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:522
 msgid "Add a receiving email"
 msgstr "添加收件邮箱"
 
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Australia"
 msgstr "澳大利亚"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:406
 msgid "Awaiting confirmation"
 msgstr "等待确认"
 
@@ -75,13 +75,13 @@ msgstr "初级"
 msgid "Biography"
 msgstr "个人简介"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:557
 msgid ""
 "Bookings forwarded from it will no longer be added to your account. You can "
 "add it again later."
 msgstr "从此地址转发的预订将不再添加到您的账户。您可以稍后再添加。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:376
 msgid ""
 "Bookings you forward to chris@pkuru.com are added to your account when they "
 "come from one of these addresses. Add the other addresses you receive "
@@ -96,8 +96,13 @@ msgstr "加拿大"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:496
 msgid "Cancel"
 msgstr "取消"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:389
+msgid "Change"
+msgstr "更改"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -107,7 +112,7 @@ msgstr "完全初学者"
 msgid "Confirm"
 msgstr "确认"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:403
 msgid "Confirmed"
 msgstr "已确认"
 
@@ -279,9 +284,14 @@ msgstr "使用 DUPR 登录"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:479
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:529
 msgid "name@example.com"
 msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "新的账户邮箱"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:357
 msgid "No Stripe account is connected."
@@ -310,7 +320,11 @@ msgstr "通知已被屏蔽。如需启用，请前往设备或浏览器设置，
 msgid "NR"
 msgstr "无评级"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "打开链接即可设为您的账户邮箱。在此之前不会有任何更改。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
 msgstr "请在登录 pkuru 的状态下打开链接，以完成添加地址。"
 
@@ -345,19 +359,19 @@ msgstr "推送通知已被屏蔽。请检查该网站的浏览器或设备通知
 msgid "Receive push notifications for event reminders and updates."
 msgstr "接收赛事提醒和更新的推送通知。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
 msgstr "收件邮箱"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:447
 msgid "Remove"
 msgstr "移除"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:556
 msgid "Remove this receiving email?"
 msgstr "要移除此收件邮箱吗？"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:411
 msgid "Resend"
 msgstr "重新发送"
 
@@ -380,6 +394,10 @@ msgstr "寻找双打搭档"
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "自评"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "发送链接"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -406,8 +424,8 @@ msgstr "单打"
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "某些活动需要您的真实姓名，如身份证上所示。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:164
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:171
 msgid "Something went wrong. Please try again."
 msgstr "出现错误，请重试。"
 
@@ -435,11 +453,11 @@ msgstr "简单介绍一下您自己"
 msgid "Tell us a little about yourself..."
 msgstr "告诉我们一些关于您自己的信息..."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:154
 msgid "That address isn't on your account any more."
 msgstr "此地址已不在您的账户中。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:152
 msgid "That doesn't look like an email address."
 msgstr "这看起来不像邮箱地址。"
 
@@ -451,11 +469,11 @@ msgstr "该 DUPR 账号已关联到其他球员。"
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "该 DUPR 登录已过期，请重试。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:158
 msgid "That's already your account email."
 msgstr "这已经是您的账户邮箱。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:156
 msgid "Too many emails sent. Please wait a minute and try again."
 msgstr "发送次数过多，请稍后再试。"
 
@@ -476,15 +494,25 @@ msgstr ""
 "在完成入驻流程之前，您的付费活动将使用平台账户运行：参与者报名时会保存银行"
 "卡，但您无法扣款。请在活动现场收取费用。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
 msgstr "邮件发送失败。请稍后点击 \\\"重新发送\\\"。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
 msgstr "我们已将确认链接发送至"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "我们已将链接发送至"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid ""
+"We'll email a link to the new address. Your current address stays on as a "
+"receiving email."
+msgstr "我们会将链接发送到新地址。您当前的地址会保留为收件邮箱。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr "最多可添加 5 个收件邮箱。请先移除一个再添加。"
 
@@ -494,9 +522,15 @@ msgid ""
 "and choose Authorize to link."
 msgstr "您拒绝共享 DUPR 数据，因此未进行任何关联。请重新登录并选择"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "您已添加过此地址。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid ""
+"Your account has no email yet. The first address you confirm here becomes "
+"your account email."
+msgstr "您的账户还没有邮箱。您在此确认的第一个地址将成为账户邮箱。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...โหลดแมทช์ก่อนหน้า"
 
@@ -21,11 +21,11 @@ msgstr "...โหลดแมทช์ก่อนหน้า"
 msgid "{0} {breakPlayersDesc} are not playing"
 msgstr "{0} {breakPlayersDesc} ไม่ได้เล่น"
 
-#: src/components/organisms/MatchesView.re.mjs:232
+#: src/components/organisms/MatchesView.re.mjs:234
 msgid "{0} player selected"
 msgstr "เลือกผู้เล่น {0} คน"
 
-#: src/components/organisms/MatchesView.re.mjs:233
+#: src/components/organisms/MatchesView.re.mjs:235
 msgid "{0} players selected"
 msgstr "เลือกผู้เล่น {0} คน"
 
@@ -33,16 +33,16 @@ msgstr "เลือกผู้เล่น {0} คน"
 msgid "{breakPlayersCount, plural, one {player} other {players}}"
 msgstr "ผู้เล่น"
 
-#: src/components/organisms/MatchesView.re.mjs:231
+#: src/components/organisms/MatchesView.re.mjs:233
 msgid "{selectedPlayersCount, plural, one {{0}} other {{1}}}"
 msgstr "{0}"
 
-#: src/components/organisms/MatchesView.re.mjs:257
+#: src/components/organisms/MatchesView.re.mjs:259
 #: src/components/organisms/AiTetsu.re.mjs:353
 msgid "# of courts"
 msgstr "จำนวนคอร์ต"
 
-#: src/components/organisms/MatchesView.re.mjs:656
+#: src/components/organisms/MatchesView.re.mjs:660
 msgid "Actions"
 msgstr "การกระทำ"
 
@@ -58,7 +58,7 @@ msgstr "เพิ่มผู้เล่นแขก"
 msgid "Add Player"
 msgstr "เพิ่มผู้เล่น"
 
-#: src/components/organisms/MatchesView.re.mjs:133
+#: src/components/organisms/MatchesView.re.mjs:135
 msgid "Add/Remove Players"
 msgstr "เพิ่ม/ลบผู้เล่น"
 
@@ -70,12 +70,16 @@ msgstr "ตัวเลือกขั้นสูง"
 msgid "Analyzed {0} matches."
 msgstr "วิเคราะห์แมทช์แล้ว {0} แมทช์"
 
-#: src/components/organisms/MatchesView.re.mjs:622
-#: src/components/organisms/MatchesView.re.mjs:625
+#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:629
 msgid "and"
 msgstr "และ"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "ชนะ"
+
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "ยกเลิก"
 
@@ -88,11 +92,11 @@ msgstr "ยกเลิก"
 msgid "Checkin All Players"
 msgstr "เช็คอินผู้เล่นทั้งหมด"
 
-#: src/components/organisms/MatchesView.re.mjs:645
+#: src/components/organisms/MatchesView.re.mjs:649
 msgid "Choose Match"
 msgstr "เลือกแมทช์"
 
-#: src/components/organisms/MatchesView.re.mjs:553
+#: src/components/organisms/MatchesView.re.mjs:557
 msgid "CHOOSE MATCH"
 msgstr "เลือกแมทช์"
 
@@ -108,7 +112,7 @@ msgstr "ปิดแผง"
 msgid "Competitive"
 msgstr "แข่งขัน"
 
-#: src/components/organisms/MatchesView.re.mjs:626
+#: src/components/organisms/MatchesView.re.mjs:630
 msgid "Court {0}: {team1} versus {team2}"
 msgstr "คอร์ต {0}: {team1} เทียบ {team2}"
 
@@ -125,8 +129,7 @@ msgstr "สร้างทีม"
 msgid "Done"
 msgstr "เสร็จ"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "เสมอ"
 
@@ -134,7 +137,7 @@ msgstr "เสมอ"
 msgid "Enter Score"
 msgstr "ป้อนคะแนน"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "สมดุล"
 
@@ -162,11 +165,11 @@ msgstr "ตั้งค่าเรตติ้งเริ่มต้น"
 msgid "Leaderboard"
 msgstr "กระดานผู้นำ"
 
-#: src/components/organisms/SelectMatch.re.mjs:279
+#: src/components/organisms/SelectMatch.re.mjs:284
 msgid "left team players"
 msgstr "ผู้เล่นทีมซ้าย"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "โหลดแมทช์เพิ่มเติม..."
 
@@ -184,12 +187,11 @@ msgstr "กำลังโหลดแมทช์..."
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
-#: src/components/organisms/SelectMatch.re.mjs:298
+#: src/components/organisms/SelectMatch.re.mjs:303
 msgid "Losers"
 msgstr "ผู้แพ้"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "แพ้"
 
@@ -201,7 +203,7 @@ msgstr "ทีมแมนนวล"
 msgid "Match History"
 msgstr "ประวัติแมทช์"
 
-#: src/components/organisms/MatchesView.re.mjs:612
+#: src/components/organisms/MatchesView.re.mjs:616
 msgid "Matches"
 msgstr "แมทช์"
 
@@ -217,7 +219,7 @@ msgstr "แมทช์ถูกจัดตามทักษะโดยผส
 msgid "Mixed"
 msgstr "ผสม"
 
-#: src/components/organisms/SelectMatch.re.mjs:136
+#: src/components/organisms/SelectMatch.re.mjs:59
 msgid "no players yet"
 msgstr "ยังไม่มีผู้เล่น"
 
@@ -236,7 +238,7 @@ msgstr "โหมดออฟไลน์"
 msgid "Played last round"
 msgstr "เล่นรอบที่แล้ว"
 
-#: src/components/organisms/SelectMatch.re.mjs:91
+#: src/components/organisms/SelectMatch.re.mjs:95
 msgid "Player"
 msgstr "ผู้เล่น"
 
@@ -276,12 +278,12 @@ msgstr "คะแนน"
 msgid "predicted winner"
 msgstr "ผู้ชนะที่คาดการณ์"
 
-#: src/components/organisms/MatchesView.re.mjs:597
+#: src/components/organisms/MatchesView.re.mjs:601
 msgid "Queue"
 msgstr "คิว"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Queue All"
 msgstr "จัดคิวทั้งหมด"
 
@@ -289,7 +291,7 @@ msgstr "จัดคิวทั้งหมด"
 msgid "Queue All Players"
 msgstr "จัดคิวผู้เล่นทั้งหมด"
 
-#: src/components/organisms/SelectMatch.re.mjs:328
+#: src/components/organisms/SelectMatch.re.mjs:333
 msgid "Queue Match"
 msgstr "จัดคิวแมทช์"
 
@@ -301,11 +303,11 @@ msgstr "สุ่ม"
 msgid "Recommended Match"
 msgstr "แมทช์ที่แนะนำ"
 
-#: src/components/organisms/SelectMatch.re.mjs:303
+#: src/components/organisms/SelectMatch.re.mjs:308
 msgid "right team players"
 msgstr "ผู้เล่นทีมขวา"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "บันทึก"
 
@@ -342,7 +344,7 @@ msgstr ""
 msgid "Start Session"
 msgstr "เริ่มเซสชั่น"
 
-#: src/components/organisms/MatchesView.re.mjs:500
+#: src/components/organisms/MatchesView.re.mjs:504
 msgid "START SESSION"
 msgstr "เริ่มเซสชั่น"
 
@@ -350,7 +352,7 @@ msgstr "เริ่มเซสชั่น"
 msgid "Submit Rated"
 msgstr "ส่งผลที่มีเรตติ้ง"
 
-#: src/components/organisms/MatchesView.re.mjs:519
+#: src/components/organisms/MatchesView.re.mjs:523
 msgid "SUBMIT RESULTS"
 msgstr "ส่งผลลัพธ์"
 
@@ -370,17 +372,16 @@ msgstr "ทีมนี้เคยเล่นกันมาก่อน"
 msgid "Totally random teams."
 msgstr "ทีมสุ่มสิ้นเชิง"
 
-#: src/components/organisms/MatchesView.re.mjs:211
-#: src/components/organisms/MatchesView.re.mjs:290
+#: src/components/organisms/MatchesView.re.mjs:213
+#: src/components/organisms/MatchesView.re.mjs:292
 msgid "Unqueue All"
 msgstr "ยกเลิกคิวทั้งหมด"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "ผลลัพธ์ที่คาดไม่ถึง"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "ชนะ"
 
@@ -391,7 +392,7 @@ msgstr "ชนะ"
 msgid "Winner"
 msgstr "ผู้ชนะ"
 
-#: src/components/organisms/SelectMatch.re.mjs:274
+#: src/components/organisms/SelectMatch.re.mjs:279
 msgid "Winners"
 msgstr "ผู้ชนะ"
 

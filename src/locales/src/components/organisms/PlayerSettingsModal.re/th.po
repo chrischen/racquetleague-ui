@@ -17,6 +17,10 @@ msgstr ""
 msgid "Cancel"
 msgstr "ยกเลิก"
 
+#: src/components/organisms/PlayerSettingsModal.re.mjs:63
+msgid "Close"
+msgstr "ปิด"
+
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
 msgstr "ลบแขก"
@@ -40,6 +44,10 @@ msgstr "ชื่อ"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:85
 msgid "Player ID"
 msgstr "รหัสผู้เล่น"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "ชื่อผู้เล่น"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:53
 msgid "Player Settings"

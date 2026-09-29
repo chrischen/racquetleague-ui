@@ -339,7 +339,7 @@ function CourtPseudoEventRow(props) {
                                                         size: 10,
                                                         strokeWidth: 2.5
                                                       }),
-                                                  t`You: ` + slotAvailability.map(function (i) {
+                                                  t`You:` + " " + slotAvailability.map(function (i) {
                                                           return TimeWindow.hourLabelIntl(intl, i.start) + "–" + TimeWindow.hourLabelIntl(intl, i.end);
                                                         }).join(", ")
                                                 ],
@@ -422,7 +422,7 @@ function CourtPseudoEventRow(props) {
                                                                     className: "text-xs font-semibold text-gray-900 dark:text-gray-100"
                                                                   }),
                                                               JsxRuntime.jsx("p", {
-                                                                    children: t`Drag or resize within ` + TimeWindow.hourLabelIntl(intl, band.start) + "–" + TimeWindow.hourLabelIntl(intl, band.end),
+                                                                    children: t`Drag or resize within` + " " + TimeWindow.hourLabelIntl(intl, band.start) + "–" + TimeWindow.hourLabelIntl(intl, band.end),
                                                                     className: "font-mono text-[9px] text-gray-500 dark:text-gray-400"
                                                                   })
                                                             ]

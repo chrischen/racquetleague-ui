@@ -41,21 +41,44 @@ function KioskCourtCalibStory(props) {
                   video.srcObject = stream;
                 }));
         }), []);
+  var match$1 = React.useState(function () {
+        
+      });
+  var setToolbarHost = match$1[1];
+  var toolbarRef = React.useCallback((function (el) {
+          setToolbarHost(function (param) {
+                if (el == null) {
+                  return ;
+                } else {
+                  return Caml_option.some(el);
+                }
+              });
+        }), []);
   return JsxRuntime.jsxs("div", {
               children: [
-                JsxRuntime.jsx("video", {
-                      ref: Caml_option.some(videoRef),
-                      className: "absolute inset-0 h-full w-full object-contain",
-                      autoPlay: true,
-                      muted: true,
-                      playsInline: true
+                JsxRuntime.jsx("div", {
+                      ref: Caml_option.some(toolbarRef),
+                      className: "shrink-0 p-2"
                     }),
-                JsxRuntime.jsx(KioskCourtCalib.make, {
-                      stream: Caml_option.some(stream),
-                      onDone: onDone
+                JsxRuntime.jsxs("div", {
+                      children: [
+                        JsxRuntime.jsx("video", {
+                              ref: Caml_option.some(videoRef),
+                              className: "absolute inset-0 h-full w-full object-contain",
+                              autoPlay: true,
+                              muted: true,
+                              playsInline: true
+                            }),
+                        JsxRuntime.jsx(KioskCourtCalib.make, {
+                              stream: Caml_option.some(stream),
+                              toolbarHost: match$1[0],
+                              onDone: onDone
+                            })
+                      ],
+                      className: "relative min-h-0 flex-1"
                     })
               ],
-              className: "relative h-dvh w-full overflow-hidden bg-black"
+              className: "flex h-dvh w-full flex-col overflow-hidden bg-black"
             });
 }
 

@@ -50,9 +50,13 @@ export const NoRating: Story = {
   args: { name: "Yuki", secondaryText: undefined, ratingPercent: undefined, sigmaPercent: undefined },
 };
 
-/** No picture: a plain grey disc instead, larger than the avatar it replaces. */
+/** No picture: the name's initial, at the avatar's size, inside the ring. */
 export const NoPicture: Story = {
   args: { name: "Tom", withPicture: false, secondaryText: "3.27" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole("img", { name: "Tom" })).toHaveTextContent("T");
+  },
 };
 
 /** A long LINE name. */

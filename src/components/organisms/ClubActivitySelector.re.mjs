@@ -34,9 +34,21 @@ var QueryFragment = {
   useOpt: useOpt
 };
 
+function resolveInitialClub(initialClubId, clubIds, fallbackToFirstClub) {
+  if (initialClubId !== undefined) {
+    return initialClubId;
+  } else if (fallbackToFirstClub) {
+    return clubIds[0];
+  } else {
+    return ;
+  }
+}
+
 function ClubActivitySelector(props) {
   var __triggerShake = props.triggerShake;
   var onChange = props.onChange;
+  var __fallbackToFirstClub = props.fallbackToFirstClub;
+  var fallbackToFirstClub = __fallbackToFirstClub !== undefined ? __fallbackToFirstClub : true;
   var triggerShake = __triggerShake !== undefined ? __triggerShake : 0;
   var formQuery = use(props.query);
   var clubs = Core__Option.getOr(Core__Option.map(formQuery.viewer, (function (v) {
@@ -60,9 +72,9 @@ function ClubActivitySelector(props) {
                     })), (function (a) {
                   return a.id;
                 })), props.initialActivityId), defaultActivityId);
-  var resolvedInitialClub = Core__Option.orElse(props.initialClubId, Core__Option.map(clubs[0], (function (c) {
-              return c.id;
-            })));
+  var resolvedInitialClub = resolveInitialClub(props.initialClubId, clubs.map(function (c) {
+            return c.id;
+          }), fallbackToFirstClub);
   var match = React.useState(function () {
         return resolvedInitialClub;
       });
@@ -371,6 +383,7 @@ var make = ClubActivitySelector;
 
 export {
   QueryFragment ,
+  resolveInitialClub ,
   make ,
 }
 /*  Not a pure module */

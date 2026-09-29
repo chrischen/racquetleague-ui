@@ -35,13 +35,13 @@ let make = (
     ->Option.getOr(React.null)
 
   <div className={Util.cx(["flex items-center"])}>
-    {user.picture
-    ->Option.map(picture =>
-      <AvatarWithProgress
-        src={picture} alt={user.name} progress=?progressOpt sigmaProgress=?sigmaProgressOpt
-      />
-    )
-    ->Option.getOr(<div className="h-12 w-12 flex-none rounded-full bg-gray-50" />)}
+    // No picture: AvatarWithProgress shows the initial at the same size.
+    <AvatarWithProgress
+      src={user.picture->Option.getOr("")}
+      alt={user.name}
+      progress=?progressOpt
+      sigmaProgress=?sigmaProgressOpt
+    />
     <span className="text-sm ml-2">
       {nameElement}
       {secondaryTextElement}

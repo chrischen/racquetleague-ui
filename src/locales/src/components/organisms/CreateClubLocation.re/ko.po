@@ -25,7 +25,7 @@ msgstr "주소가 필요합니다"
 msgid "Akabane Elementary School"
 msgstr "아카바네 초등학교"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "취소"
 
@@ -55,6 +55,6 @@ msgstr "이름"
 msgid "name is required"
 msgstr "이름이 필요합니다"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "저장"

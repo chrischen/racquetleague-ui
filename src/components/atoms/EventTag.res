@@ -50,6 +50,11 @@ let make = (~tag: string, ~responsive: bool=false) => {
         ? <span className="hidden md:inline"> {(ts`Rated`)->React.string} </span>
         : (ts`Rated`)->React.string}
     </span>
+  | "rec" =>
+    <span
+      className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
+      {(ts`Recreational`)->React.string}
+    </span>
   | _ =>
     <span
       className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
@@ -87,6 +92,11 @@ module TagList = {
               {responsive
                 ? <span className="hidden md:inline"> {(ts`Rated`)->React.string} </span>
                 : (ts`Rated`)->React.string}
+            </span>
+          | "rec" =>
+            <span
+              className="px-2 py-0.5 bg-gray-100 dark:bg-[#2a2b30] text-gray-600 dark:text-gray-400 rounded text-[10px] font-medium whitespace-nowrap">
+              {(ts`Recreational`)->React.string}
             </span>
           | _ =>
             <span

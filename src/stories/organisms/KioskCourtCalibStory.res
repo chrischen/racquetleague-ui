@@ -36,14 +36,20 @@ let make = (
     videoRef.current->Nullable.forEach(video => video->UserMedia.setSrcObject(Nullable.make(stream)))
     None
   })
-  <div className="relative h-dvh w-full overflow-hidden bg-black">
-    <video
-      ref={ReactDOM.Ref.domRef(videoRef)}
-      autoPlay=true
-      muted=true
-      playsInline=true
-      className="absolute inset-0 h-full w-full object-contain"
-    />
-    <KioskCourtCalib stream=Some(stream) onDone />
+  // As in the kiosk, the toolbar portals into a row ABOVE the video.
+  let (toolbarHost, setToolbarHost) = React.useState(() => (None: option<Dom.element>))
+  let toolbarRef = React.useCallback0(el => setToolbarHost(_ => el->Nullable.toOption))
+  <div className="flex h-dvh w-full flex-col overflow-hidden bg-black">
+    <div ref={ReactDOM.Ref.callbackDomRef(toolbarRef)} className="shrink-0 p-2" />
+    <div className="relative min-h-0 flex-1">
+      <video
+        ref={ReactDOM.Ref.domRef(videoRef)}
+        autoPlay=true
+        muted=true
+        playsInline=true
+        className="absolute inset-0 h-full w-full object-contain"
+      />
+      <KioskCourtCalib stream=Some(stream) toolbarHost onDone />
+    </div>
   </div>
 }

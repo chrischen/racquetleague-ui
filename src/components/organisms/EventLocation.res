@@ -12,7 +12,7 @@ let make = (~location, ~hideAddress: bool=false) => {
   let location = Fragment.use(location)
   let defaultLink = location.links->Option.flatMap(links => links->Array.get(0))
   <>
-    <div className="font-bold flex items-center lg:text-xl leading-8 text-gray-700">
+    <div className="font-bold flex items-center lg:text-xl leading-8 text-gray-700 dark:text-gray-300">
       {location.name->Option.map(React.string)->Option.getOr(React.null)}
     </div>
     // <div className="flex items-center mt-0 ml-2 lg:text-xl leading-8 text-gray-700">
@@ -23,7 +23,7 @@ let make = (~location, ~hideAddress: bool=false) => {
     {!hideAddress
       ? location.address
         ->Option.map(address =>
-          <p className="lg:text-sm leading-8 text-gray-700">
+          <p className="lg:text-sm leading-8 text-gray-700 dark:text-gray-300">
             {defaultLink
             ->Option.map(link =>
               <a href={link} target="_blank" rel="noopener noreferrer"> {address->React.string} </a>
@@ -34,7 +34,7 @@ let make = (~location, ~hideAddress: bool=false) => {
         ->Option.getOr(""->React.string)
       : React.null}
     {!hideAddress
-      ? <p className="truncate">
+      ? <div>
           {location.links
           ->Option.map(links =>
             links
@@ -46,7 +46,7 @@ let make = (~location, ~hideAddress: bool=false) => {
               <a
                 key={link}
                 href={link}
-                className="mt-4 lg:text-sm leading-8 italic text-gray-700 truncate"
+                className="block lg:text-sm leading-8 italic text-gray-700 dark:text-gray-400 truncate"
                 target="_blank"
                 rel="noopener noreferrer">
                 {truncatedLink->React.string}
@@ -55,13 +55,13 @@ let make = (~location, ~hideAddress: bool=false) => {
             ->React.array
           )
           ->Option.getOr(React.null)}
-        </p>
+        </div>
       : React.null}
     {location.details
     ->Option.map(details =>
       <div className="mt-4">
         <PreformattedParagraph
-          text=details className="mb-2 last:mb-0 lg:text-xl leading-8 text-gray-700"
+          text=details className="mb-2 last:mb-0 lg:text-xl leading-8 text-gray-700 dark:text-gray-300"
         />
       </div>
     )

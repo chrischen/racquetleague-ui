@@ -53,6 +53,22 @@ module MenuInstance = {
 
 type navItem = {name: string, href: string}
 
+// The viewer's picture, or with none their initial (an icon without a name),
+// so the account menu button is never empty.
+let accountAvatar = (~picture: option<string>, ~name: option<string>, ~sizeClass, ~alt) =>
+  switch picture {
+  | Some(picture) => <img className={sizeClass ++ " rounded-full"} src=picture alt />
+  | None =>
+    <span
+      ariaHidden=true
+      className={sizeClass ++ " flex items-center justify-center rounded-full bg-gray-100 text-sm font-medium text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300"}>
+      {switch name->Option.map(n => n->String.trim->String.slice(~start=0, ~end=1)->String.toUpperCase) {
+      | Some(initial) if initial != "" => initial->React.string
+      | _ => <Lucide.User size=16 \"aria-hidden"="true" />
+      }}
+    </span>
+  }
+
 @module("react-router-dom")
 external useLoaderData: unit => WaitForMessages.data<LeaguePage.loaderData> = "useLoaderData"
 @genType @react.component
@@ -61,6 +77,7 @@ let make = (~query) => {
   open HeroIcons
   let ts = Lingui.UtilString.t
   let query = Fragment.use(query)
+  let localePath = useLocalePath()
 
   let _loginEls = {
     query.viewer
@@ -107,7 +124,9 @@ let make = (~query) => {
       <header>
         <nav>
           <div className="min-h-full">
-            <Disclosure \"as"="nav" className="border-b border-gray-200 bg-white">
+            <Disclosure
+              \"as"="nav"
+              className="border-b border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]">
               {({\"open": open_}) =>
                 <Layout.Container className="">
                   // <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -137,8 +156,8 @@ let make = (~query) => {
                             className={({isActive, _}) =>
                               Util.cx([
                                 isActive
-                                  ? "border-leaguePrimary text-gray-900"
-                                  : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700",
+                                  ? "border-leaguePrimary text-gray-900 dark:text-gray-100"
+                                  : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-200",
                                 "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium",
                               ])}
                             // ariaCurrent={item.current ? #page : #"false"}>
@@ -156,7 +175,7 @@ let make = (~query) => {
                       <LangSwitch />
                       <button
                         type_="button"
-                        className="relative rounded-full bg-white ml-3 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                        className="relative rounded-full bg-white ml-3 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:hover:text-gray-300 dark:focus:ring-offset-[#1e1f23]">
                         <span className="absolute -inset-1.5" />
                         <span className="sr-only"> {t`View notifications`} </span>
                         <BellIcon className="h-6 w-6" \"aria-hidden"="true" />
@@ -167,19 +186,15 @@ let make = (~query) => {
                           viewer.user->Option.map(user =>
                             <div>
                               <MenuButton
-                                className="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                className="relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:focus:ring-offset-[#1e1f23]">
                                 <span className="absolute -inset-1.5" />
                                 <span className="sr-only"> {t`Open user menu`} </span>
-                                {user.picture
-                                ->Option.map(
-                                  picture =>
-                                    <img
-                                      className="h-8 w-8 rounded-full"
-                                      src=picture
-                                      alt={ts`Profile picture`}
-                                    />,
-                                )
-                                ->Option.getOr(React.null)}
+                                {accountAvatar(
+                                  ~picture=user.picture,
+                                  ~name=user.lineUsername,
+                                  ~sizeClass="h-8 w-8",
+                                  ~alt=ts`Profile picture`,
+                                )}
                               </MenuButton>
                             </div>
                           )
@@ -193,19 +208,23 @@ let make = (~query) => {
                           leaveFrom="transform opacity-100 scale-100"
                           leaveTo="transform opacity-0 scale-95">
                           <MenuItems
-                            className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-[#1e1f23] dark:ring-white/10">
                             {userNavigation->Array.map(item =>
                               <MenuItem key={item.name}>
+                                // MenuItem hands its child a ref, so this is
+                                // react-router's own NavLink, which forwards
+                                // it (LangProvider's wrapper doesn't); the
+                                // locale prefix is added here instead.
                                 {({focus}) =>
-                                  <NavLink
-                                    to={item.href}
+                                  <Router.NavLink
+                                    to={localePath(item.href)}
                                     className={_ =>
                                       Util.cx([
-                                        focus ? "bg-gray-100" : "",
-                                        "block px-4 py-2 text-sm text-gray-700",
+                                        focus ? "bg-gray-100 dark:bg-[#2a2b30]" : "",
+                                        "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300",
                                       ])}>
                                     {item.name->React.string}
-                                  </NavLink>}
+                                  </Router.NavLink>}
                               </MenuItem>
                             )}
                           </MenuItems>
@@ -214,7 +233,7 @@ let make = (~query) => {
                     </div>
                     <div className="-mr-2 flex items-center sm:hidden">
                       <DisclosureButton
-                        className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                        className="relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:hover:bg-[#2a2b30] dark:hover:text-gray-300 dark:focus:ring-offset-[#1e1f23]">
                         <span className="absolute -inset-0.5" />
                         <span className="sr-only"> {t`Open main menu`} </span>
                         {open_
@@ -242,8 +261,8 @@ let make = (~query) => {
                             className={({isActive, _}) =>
                               Util.cx([
                                 isActive
-                                  ? "border-red-500 bg-red-50 text-red-700"
-                                  : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800",
+                                  ? "border-red-500 bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400"
+                                  : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:bg-[#2a2b30] dark:hover:text-gray-200",
                                 "block border-l-4 py-2 pl-3 pr-4 text-base font-medium",
                               ])}
                             // ariaCurrent={item.current ? #page : #"false"}>
@@ -254,25 +273,21 @@ let make = (~query) => {
                         // </DisclosureButton>
                         ->React.array}
                       </div>
-                      <div className="border-t border-gray-200 pb-3 pt-4">
+                      <div className="border-t border-gray-200 pb-3 pt-4 dark:border-[#2a2b30]">
                         {query.viewer
                         ->Option.flatMap(viewer =>
                           viewer.user->Option.map(user =>
                             <div className="flex items-center px-4">
                               <div className="flex-shrink-0">
-                                {user.picture
-                                ->Option.map(
-                                  picture =>
-                                    <img
-                                      className="h-10 w-10 rounded-full"
-                                      src=picture
-                                      alt={ts`Profile picture`}
-                                    />,
-                                )
-                                ->Option.getOr(React.null)}
+                                {accountAvatar(
+                                  ~picture=user.picture,
+                                  ~name=user.lineUsername,
+                                  ~sizeClass="h-10 w-10",
+                                  ~alt=ts`Profile picture`,
+                                )}
                               </div>
                               <div className="ml-3">
-                                <div className="text-base font-medium text-gray-800">
+                                <div className="text-base font-medium text-gray-800 dark:text-gray-100">
                                   {user.lineUsername->Option.getOr("")->React.string}
                                 </div>
                                 <div className="text-sm font-medium text-gray-500">
@@ -281,7 +296,7 @@ let make = (~query) => {
                               </div>
                               <button
                                 type_="button"
-                                className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:hover:text-gray-300 dark:focus:ring-offset-[#1e1f23]">
                                 <span className="absolute -inset-1.5" />
                                 <span className="sr-only"> {t`View notifications`} </span>
                                 <BellIcon className="h-6 w-6" \"aria-hidden"="true" />
@@ -304,7 +319,7 @@ let make = (~query) => {
                                     to={item.href}
                                     onClick={_ => close()}
                                     className={({isActive: _, _}) =>
-                                      "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"}>
+                                      "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-[#2a2b30] dark:hover:text-gray-200"}>
                                     {item.name->React.string}
                                   </NavLink>,
                                 // </DisclosureButton>,

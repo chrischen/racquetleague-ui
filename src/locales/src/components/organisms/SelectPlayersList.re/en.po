@@ -21,7 +21,7 @@ msgstr ""
 msgid "Match Count"
 msgstr ""
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:199
 msgid "no players yet"
 msgstr ""
 

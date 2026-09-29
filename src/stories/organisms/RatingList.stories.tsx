@@ -56,6 +56,9 @@ export const YourStanding: Story = {
     const canvas = within(canvasElement);
     await expect(await canvas.findByText("Your standing")).toBeVisible();
     await expect(canvas.getAllByRole("listitem")).toHaveLength(RANKED.length - 1);
+    // The whole table is loaded, so the pinned row's rank is exact.
+    const rank = RANKED.findIndex((p) => p.id === "user-chris") + 1;
+    await expect(canvasElement.querySelector("aside span.italic")?.textContent).toBe(String(rank));
   },
 };
 
@@ -127,8 +130,8 @@ export const MorePages: Story = {
 
 /**
  * Opened on a later page (?after= in the URL): a link back up to the higher
- * rated players. Ranks count from the first loaded row, so they start at 1
- * again here.
+ * rated players. The cursor carries no offset and the schema no rank, so the
+ * rows show no rank (rather than counting from 1 again) and nobody is crowned.
  */
 export const LaterPage: Story = {
   parameters: {
@@ -143,5 +146,9 @@ export const LaterPage: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(await canvas.findByRole("link", { name: "...load higher rated players" })).toBeVisible();
+    // The rank column: the italic number at the start of each row.
+    const ranks = [...canvasElement.querySelectorAll("li span.italic")].map((el) => el.textContent);
+    await expect(ranks.length).toBe(RANKED.length - 8);
+    await expect(ranks.every((r) => r === "—")).toBe(true);
   },
 };

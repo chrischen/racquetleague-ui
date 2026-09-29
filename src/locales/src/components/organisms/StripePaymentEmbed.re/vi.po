@@ -13,39 +13,51 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:99
+#: src/components/organisms/StripePaymentEmbed.re.mjs:125
 msgid "Cancel"
 msgstr "Hủy"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Complete payment"
 msgstr "Hoàn tất thanh toán"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Could not save your card"
 msgstr "Không thể lưu thẻ của bạn"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Pay now"
 msgstr "Thanh toán ngay"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Payment failed"
 msgstr "Thanh toán thất bại"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:86
+#: src/components/organisms/StripePaymentEmbed.re.mjs:95
 msgid "Processing…"
 msgstr "Đang xử lý…"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Save card"
 msgstr "Lưu thẻ"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Save your card"
 msgstr "Lưu thẻ của bạn"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid ""
+"The card form could not be loaded. Check your connection or turn off any "
+"content blocker, then try again."
+msgstr ""
+"Không thể tải biểu mẫu thẻ. Hãy kiểm tra kết nối hoặc tắt trình chặn nội "
+"dung, rồi thử lại."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "Không thể tải biểu mẫu thẻ. Hãy đóng cửa sổ này và thử lại."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge {amountLabel} "
 "later."
@@ -53,7 +65,7 @@ msgstr ""
 "Thẻ của bạn được lưu ngay bây giờ, chưa bị trừ tiền. Người tổ chức sẽ thu "
 "{amountLabel} sau."
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge the "
 "participation fee later."

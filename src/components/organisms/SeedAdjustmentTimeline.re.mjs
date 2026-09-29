@@ -10,7 +10,7 @@ import * as JsxRuntime from "react/jsx-runtime";
 import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragment.re.mjs";
 import * as SeedAdjustmentTimeline_user_graphql from "../../__generated__/SeedAdjustmentTimeline_user_graphql.re.mjs";
 
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 ;
 
 var convertFragment = SeedAdjustmentTimeline_user_graphql.Internal.convertFragment;
@@ -91,6 +91,7 @@ function SeedAdjustmentTimeline(props) {
   var downCount = changes.filter(function (c) {
         return c.differential < 0;
       }).length;
+  var count = changes.length;
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("div", {
@@ -122,9 +123,10 @@ function SeedAdjustmentTimeline(props) {
                                                                 }),
                                                             JsxRuntime.jsxs("p", {
                                                                   children: [
-                                                                    changes.length.toString() + " player" + (
-                                                                      changes.length !== 1 ? "s" : ""
-                                                                    ),
+                                                                    plural(count, {
+                                                                          one: t`${count.toString()} player`,
+                                                                          other: t`${count.toString()} players`
+                                                                        }),
                                                                     upCount > 0 ? JsxRuntime.jsx("span", {
                                                                             children: "↑" + upCount.toString(),
                                                                             className: "ml-1 text-green-600"
@@ -154,7 +156,7 @@ function SeedAdjustmentTimeline(props) {
                                                                   className: "w-3.5 h-3.5 text-red-600"
                                                                 }),
                                                             className: "p-1.5 hover:bg-red-100 rounded transition-colors",
-                                                            title: "Delete seed adjustment",
+                                                            title: t`Delete seed adjustment`,
                                                             onClick: handleDelete
                                                           }) : null,
                                                     JsxRuntime.jsx("button", {

@@ -349,7 +349,7 @@ msgstr ""
 msgid "No players found"
 msgstr ""
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr ""
 
@@ -394,8 +394,8 @@ msgstr ""
 msgid "Previewing…"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr ""
 
@@ -403,9 +403,13 @@ msgstr ""
 msgid "Professional players"
 msgstr ""
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
+msgstr ""
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
 msgstr ""
 
 #: src/components/pages/Event.re.mjs:198
@@ -480,8 +484,8 @@ msgid "Save"
 msgstr ""
 
 #: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr ""
+#~ msgid "See all"
+#~ msgstr ""
 
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
@@ -491,7 +495,7 @@ msgstr ""
 #~ msgid "Show all"
 #~ msgstr ""
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr ""
 
@@ -597,7 +601,7 @@ msgstr ""
 #~ msgid "waitlist"
 #~ msgstr ""
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr ""
 

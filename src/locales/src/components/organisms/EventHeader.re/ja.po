@@ -14,12 +14,32 @@ msgstr ""
 "X-Generator: Poedit 3.4.2\n"
 
 #: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hour"
+msgstr "{0}時間"
+
+#: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours"
 msgstr "{0}時間"
 
-#: src/components/organisms/EventHeader.re.mjs:56
-msgid "{0} hours and {1} minutes"
-msgstr "{0}時間{1}分"
+#: src/components/organisms/EventHeader.re.mjs:58
+msgid "{0} minute"
+msgstr "{0}分"
+
+#: src/components/organisms/EventHeader.re.mjs:59
+msgid "{0} minutes"
+msgstr "{0}分"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText}{minutesText}"
+
+#: src/components/organisms/EventHeader.re.mjs:57
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{minutes, plural, one {{0}} other {{1}}}"
 
 #: src/components/atoms/EventTag.re.mjs:38
 msgid "Advanced players"
@@ -29,11 +49,11 @@ msgstr "上級プレイヤー"
 msgid "Apple iCal"
 msgstr "Apple iCal"
 
-#: src/components/organisms/EventHeader.re.mjs:79
+#: src/components/organisms/EventHeader.re.mjs:89
 msgid "CANCELED"
 msgstr "キャンセル"
 
-#: src/components/organisms/EventHeader.re.mjs:175
+#: src/components/organisms/EventHeader.re.mjs:185
 msgid "Date TBD"
 msgstr "日程未定"
 
@@ -61,8 +81,8 @@ msgstr "試合結果はDUPRに提出されます。"
 msgid "No restriction on skill level. Open to all players."
 msgstr "スキルレベルに制限なし。すべてのプレイヤーに開放。"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "非公開"
 
@@ -70,10 +90,14 @@ msgstr "非公開"
 msgid "Professional players"
 msgstr "プロプレイヤー"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "レーティング戦"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "レクリエーション"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -98,18 +122,22 @@ msgid ""
 "from the organizer."
 msgstr "このイベントは非公開です。主催者の許可なく共有しないでください。"
 
-#: src/components/organisms/EventHeader.re.mjs:211
+#: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
 msgstr "時間未定"
 
-#: src/components/organisms/EventHeader.re.mjs:117
+#: src/components/organisms/EventHeader.re.mjs:127
 msgid "Unknown club"
 msgstr "不明なクラブ"
 
-#: src/components/organisms/EventHeader.re.mjs:247
+#: src/components/organisms/EventHeader.re.mjs:257
 msgid "Unknown location"
 msgstr "不明な場所"
 
 #: src/components/atoms/EventTag.re.mjs:36
 msgid "Upper intermediate and above"
 msgstr "中上級以上"
+
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0}時間{1}分"

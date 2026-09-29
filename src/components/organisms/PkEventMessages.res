@@ -304,9 +304,13 @@ module Section = {
             </div>
           </div>
         </div>
-        <div className="space-y-3.5">
-          {visible->Array.map(message => <ActivityRow key=message.id message />)->React.array}
-        </div>
+        {totalCount == 0
+          ? <p className="text-sm text-gray-500 dark:text-gray-400">
+              {prominent ? t`No messages yet` : t`No activity yet`}
+            </p>
+          : <div className="space-y-3.5">
+              {visible->Array.map(message => <ActivityRow key=message.id message />)->React.array}
+            </div>}
         {totalCount > 5
           ? <button
               type_="button"

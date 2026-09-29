@@ -152,10 +152,13 @@ let make = (~matches, ~userId: string) => {
       if ratingHistory->Array.length == 0 {
         React.null
       } else {
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
+        <div
+          className="bg-white dark:bg-[#1e1f23] rounded-xl shadow-sm border border-gray-200 dark:border-[#2a2b30] p-6 mb-6">
           <div className="mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-1"> {t`Rating History`} </h2>
-            <p className="text-sm text-gray-600">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+              {t`Rating History`}
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {t`The shaded area represents rating uncertainty. Narrower bands indicate higher confidence.`}
             </p>
           </div>

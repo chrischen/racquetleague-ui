@@ -39,11 +39,14 @@ export const VenuePicked: Story = {
   },
 };
 
-/** "+ add new location" opens the form for a venue by hand. */
+/** "+ add new location" opens the form for a venue by hand (and leaves the
+ * URL alone). */
 export const AddingVenue: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
+    const hash = window.location.hash;
     await userEvent.click(canvas.getByText(/add new location/));
+    await expect(window.location.hash).toBe(hash);
     // The form slides in, so wait for it to settle.
     const cancel = await canvas.findByRole("button", { name: /cancel/i });
     await waitFor(() => expect(cancel).toBeVisible());

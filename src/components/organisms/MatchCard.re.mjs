@@ -328,7 +328,7 @@ function MatchCard(props) {
   var getMatchBorderColor = function () {
     switch (matchHistory) {
       case "NoHistory" :
-          return "border-slate-200";
+          return "border-slate-200 dark:border-[#2a2b30]";
       case "PreviousRound" :
           return "border-amber-400";
       case "LastRound" :
@@ -338,22 +338,22 @@ function MatchCard(props) {
   };
   var getTeamBgColor = function (teamHistory, isWinner) {
     if (isWinner) {
-      return "bg-green-50";
+      return "bg-green-50 dark:bg-green-900/30";
     }
     switch (teamHistory) {
       case "NoHistory" :
-          return "bg-white";
+          return "bg-white dark:bg-[#1e1f23]";
       case "PreviousRound" :
-          return "bg-amber-50";
+          return "bg-amber-50 dark:bg-amber-900/20";
       case "LastRound" :
-          return "bg-red-50";
+          return "bg-red-50 dark:bg-red-900/30";
       
     }
   };
   var getTeamBorderColor = function (teamHistory) {
     switch (teamHistory) {
       case "NoHistory" :
-          return "border-b-slate-200 lg:border-b-0";
+          return "border-b-slate-200 dark:border-b-[#2a2b30] lg:border-b-0";
       case "PreviousRound" :
           return "border-b-amber-400 lg:border-b-0";
       case "LastRound" :
@@ -361,6 +361,9 @@ function MatchCard(props) {
       
     }
   };
+  var scoreColumnClass = "contents lg:flex lg:flex-col lg:items-center lg:flex-shrink-0";
+  var scoreClass = "order-last lg:order-none text-lg lg:leading-6 font-bold text-slate-800 dark:text-gray-100 flex-shrink-0";
+  var playersClass = "flex flex-col sm:flex-row sm:flex-wrap lg:flex-col lg:flex-nowrap gap-1.5 flex-1 min-w-0";
   if (match$1[0] !== "Default") {
     return JsxRuntime.jsx(MatchCardEdit.make, {
                 match: match,
@@ -394,7 +397,7 @@ function MatchCard(props) {
                                       children: [
                                         JsxRuntime.jsx("span", {
                                               children: t`Court ${courtNumber.toString()}`,
-                                              className: "text-xs font-semibold text-slate-600"
+                                              className: "text-xs font-semibold text-slate-600 dark:text-gray-300"
                                             }),
                                         Core__Option.getOr(Core__Option.map(props.onRebalance, (function (rebalanceFn) {
                                                     return JsxRuntime.jsx("button", {
@@ -402,7 +405,7 @@ function MatchCard(props) {
                                                                       className: "w-3.5 h-3.5"
                                                                     }),
                                                                 "aria-label": t`Rebalance match`,
-                                                                className: "p-1 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors",
+                                                                className: "p-1 text-slate-600 hover:text-blue-600 hover:bg-blue-50 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-blue-900/30 rounded transition-colors",
                                                                 onClick: (function (param) {
                                                                     rebalanceFn();
                                                                   })
@@ -411,11 +414,11 @@ function MatchCard(props) {
                                         matchHistory !== "NoHistory" ? JsxRuntime.jsxs("div", {
                                                 children: [
                                                   JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                        className: matchHistory === "LastRound" ? "w-3 h-3 text-red-600" : "w-3 h-3 text-amber-600"
+                                                        className: matchHistory === "LastRound" ? "w-3 h-3 text-red-600 dark:text-red-400" : "w-3 h-3 text-amber-600 dark:text-amber-400"
                                                       }),
                                                   JsxRuntime.jsx("span", {
                                                         children: matchHistory === "LastRound" ? t`Last Round` : t`Repeat`,
-                                                        className: matchHistory === "LastRound" ? "text-xs font-medium text-red-600" : "text-xs font-medium text-amber-600"
+                                                        className: matchHistory === "LastRound" ? "text-xs font-medium text-red-600 dark:text-red-400" : "text-xs font-medium text-amber-600 dark:text-amber-400"
                                                       })
                                                 ],
                                                 className: "flex items-center gap-1"
@@ -435,7 +438,7 @@ function MatchCard(props) {
                                                                             className: "w-3.5 h-3.5"
                                                                           }),
                                                                       "aria-label": t`Delete match`,
-                                                                      className: "p-1 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded transition-colors",
+                                                                      className: "p-1 text-slate-600 hover:text-red-600 hover:bg-red-50 dark:text-gray-400 dark:hover:text-red-400 dark:hover:bg-red-900/30 rounded transition-colors",
                                                                       type: "button"
                                                                     }),
                                                                 title: t`Delete this match?`,
@@ -448,7 +451,7 @@ function MatchCard(props) {
                                                     className: "w-3.5 h-3.5"
                                                   }),
                                               "aria-label": t`Edit match`,
-                                              className: "p-1 text-slate-600 hover:text-blue-600 hover:bg-slate-200 rounded transition-colors",
+                                              className: "p-1 text-slate-600 hover:text-blue-600 hover:bg-slate-200 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:bg-[#3a3b40] rounded transition-colors",
                                               onClick: (function (param) {
                                                   setView(function (param) {
                                                         return "SubmitMatch";
@@ -459,7 +462,7 @@ function MatchCard(props) {
                                       className: "flex items-center gap-1"
                                     })
                               ],
-                              className: "bg-slate-100 px-2 py-1 border-b border-blue-200 flex items-center justify-between"
+                              className: "bg-slate-100 dark:bg-[#2a2b30] px-2 py-1 border-b border-blue-200 dark:border-[#3a3b40] flex items-center justify-between"
                             }),
                         JsxRuntime.jsxs("div", {
                               children: [
@@ -498,27 +501,36 @@ function MatchCard(props) {
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
-                                              JsxRuntime.jsx("div", {
-                                                    children: Caml_obj.equal(currentWinner, "Left") ? JsxRuntime.jsx(LucideReact.Trophy, {
-                                                            className: "w-5 h-5 text-yellow-500 fill-yellow-500"
-                                                          }) : (
-                                                        isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
-                                                                className: "w-5 h-5 text-amber-600"
-                                                              }) : (
-                                                            unscored && team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
-                                                                    className: "w-4 h-4 text-blue-500 fill-blue-500"
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("div", {
+                                                            children: Caml_obj.equal(currentWinner, "Left") ? JsxRuntime.jsx(LucideReact.Trophy, {
+                                                                    className: "w-5 h-5 text-yellow-500 fill-yellow-500"
                                                                   }) : (
-                                                                unscored && team1History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                        className: "w-4 h-4 text-red-600"
+                                                                isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
+                                                                        className: "w-5 h-5 text-amber-600 dark:text-amber-400"
                                                                       }) : (
-                                                                    unscored && team1History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                            className: "w-4 h-4 text-amber-600"
-                                                                          }) : null
+                                                                    unscored && team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
+                                                                            className: "w-4 h-4 text-blue-500 fill-blue-500"
+                                                                          }) : (
+                                                                        unscored && team1History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                                className: "w-4 h-4 text-red-600 dark:text-red-400"
+                                                                              }) : (
+                                                                            unscored && team1History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                                    className: "w-4 h-4 text-amber-600 dark:text-amber-400"
+                                                                                  }) : null
+                                                                          )
+                                                                      )
                                                                   )
-                                                              )
-                                                          )
-                                                      ),
-                                                    className: "w-5 h-5 flex items-center justify-center flex-shrink-0"
+                                                              ),
+                                                            className: "w-5 h-5 flex items-center justify-center flex-shrink-0"
+                                                          }),
+                                                      !hideScores && (scoreLeftValue !== 0 || scoreRightValue !== 0) ? JsxRuntime.jsx("div", {
+                                                              children: scoreLeftValue.toString(),
+                                                              className: scoreClass
+                                                            }) : null
+                                                    ],
+                                                    className: scoreColumnClass
                                                   }),
                                               JsxRuntime.jsx("div", {
                                                     children: team1.map(function (player) {
@@ -536,20 +548,15 @@ function MatchCard(props) {
                                                                       teamSide: "Left",
                                                                       skillLevel: normalizeSkillLevel(player.rating.mu),
                                                                       getUserFragmentRefs: getUserFragmentRefs,
-                                                                      debug: debug,
-                                                                      incrementDisplayCount: true
+                                                                      debug: debug
                                                                     }, player.id);
                                                         }),
-                                                    className: "flex flex-col sm:flex-row sm:flex-wrap lg:flex-col gap-1.5 flex-1 min-w-0"
-                                                  }),
-                                              !hideScores && (scoreLeftValue !== 0 || scoreRightValue !== 0) ? JsxRuntime.jsx("div", {
-                                                      children: scoreLeftValue.toString(),
-                                                      className: "text-lg font-bold text-slate-800 flex-shrink-0"
-                                                    }) : null
+                                                    className: playersClass + " " + ScoreModal.playerRowDark
+                                                  })
                                             ],
-                                            className: "flex items-center gap-2 min-w-0"
+                                            className: "flex items-center gap-2 lg:gap-1.5 min-w-0"
                                           }),
-                                      className: "p-2 lg:pr-2 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 border-b lg:border-b-0 overflow-hidden " + getTeamBgColor(team1History, Caml_obj.equal(currentWinner, "Left")) + " " + getTeamBorderColor(team1History) + " hover:bg-slate-50",
+                                      className: "p-2 lg:pr-2.5 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 border-b lg:border-b-0 overflow-hidden " + getTeamBgColor(team1History, Caml_obj.equal(currentWinner, "Left")) + " " + getTeamBorderColor(team1History) + " hover:bg-slate-50 dark:hover:bg-[#2a2b30]",
                                       style: {
                                         userSelect: "none"
                                       },
@@ -573,16 +580,16 @@ function MatchCard(props) {
                                         JsxRuntime.jsx("div", {
                                               children: JsxRuntime.jsx("span", {
                                                     children: t`VS`,
-                                                    className: "bg-white px-2 text-xs font-bold text-slate-400"
+                                                    className: "bg-white dark:bg-[#1e1f23] px-2 text-xs font-bold text-slate-400 dark:text-gray-500"
                                                   }),
-                                              className: "lg:hidden absolute inset-0 flex items-center justify-center border-b border-slate-200"
+                                              className: "lg:hidden absolute inset-0 flex items-center justify-center border-b border-slate-200 dark:border-[#2a2b30]"
                                             }),
                                         JsxRuntime.jsx("div", {
                                               children: JsxRuntime.jsx("span", {
                                                     children: t`VS`,
-                                                    className: "absolute bg-white px-1 text-xs font-bold text-slate-400"
+                                                    className: "absolute bg-white dark:bg-[#1e1f23] px-0.5 text-xs font-bold text-slate-400 dark:text-gray-500"
                                                   }),
-                                              className: "hidden lg:flex relative w-full h-full bg-slate-200 items-center justify-center"
+                                              className: "hidden lg:flex relative w-full h-full bg-slate-200 dark:bg-[#2a2b30] items-center justify-center"
                                             })
                                       ],
                                       className: "relative lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-0 lg:bottom-0 lg:w-px flex items-center justify-center"
@@ -590,27 +597,36 @@ function MatchCard(props) {
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs("div", {
                                             children: [
-                                              JsxRuntime.jsx("div", {
-                                                    children: Caml_obj.equal(currentWinner, "Right") ? JsxRuntime.jsx(LucideReact.Trophy, {
-                                                            className: "w-5 h-5 text-yellow-500 fill-yellow-500"
-                                                          }) : (
-                                                        isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
-                                                                className: "w-5 h-5 text-amber-600"
-                                                              }) : (
-                                                            unscored && !team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
-                                                                    className: "w-4 h-4 text-blue-500 fill-blue-500"
+                                              JsxRuntime.jsxs("div", {
+                                                    children: [
+                                                      JsxRuntime.jsx("div", {
+                                                            children: Caml_obj.equal(currentWinner, "Right") ? JsxRuntime.jsx(LucideReact.Trophy, {
+                                                                    className: "w-5 h-5 text-yellow-500 fill-yellow-500"
                                                                   }) : (
-                                                                unscored && team2History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                        className: "w-4 h-4 text-red-600"
+                                                                isDraw ? JsxRuntime.jsx(LucideReact.Equal, {
+                                                                        className: "w-5 h-5 text-amber-600 dark:text-amber-400"
                                                                       }) : (
-                                                                    unscored && team2History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
-                                                                            className: "w-4 h-4 text-amber-600"
-                                                                          }) : null
+                                                                    unscored && !team1Serves ? JsxRuntime.jsx(LucideReact.Circle, {
+                                                                            className: "w-4 h-4 text-blue-500 fill-blue-500"
+                                                                          }) : (
+                                                                        unscored && team2History === "LastRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                                className: "w-4 h-4 text-red-600 dark:text-red-400"
+                                                                              }) : (
+                                                                            unscored && team2History === "PreviousRound" ? JsxRuntime.jsx(LucideReact.AlertTriangle, {
+                                                                                    className: "w-4 h-4 text-amber-600 dark:text-amber-400"
+                                                                                  }) : null
+                                                                          )
+                                                                      )
                                                                   )
-                                                              )
-                                                          )
-                                                      ),
-                                                    className: "w-5 h-5 flex items-center justify-center flex-shrink-0 lg:order-3"
+                                                              ),
+                                                            className: "w-5 h-5 flex items-center justify-center flex-shrink-0"
+                                                          }),
+                                                      !hideScores && (scoreLeftValue !== 0 || scoreRightValue !== 0) ? JsxRuntime.jsx("div", {
+                                                              children: scoreRightValue.toString(),
+                                                              className: scoreClass
+                                                            }) : null
+                                                    ],
+                                                    className: scoreColumnClass + " lg:order-2"
                                                   }),
                                               JsxRuntime.jsx("div", {
                                                     children: team2.map(function (player) {
@@ -628,20 +644,15 @@ function MatchCard(props) {
                                                                       teamSide: "Right",
                                                                       skillLevel: normalizeSkillLevel(player.rating.mu),
                                                                       getUserFragmentRefs: getUserFragmentRefs,
-                                                                      debug: debug,
-                                                                      incrementDisplayCount: true
+                                                                      debug: debug
                                                                     }, player.id);
                                                         }),
-                                                    className: "flex flex-col sm:flex-row sm:flex-wrap lg:flex-col gap-1.5 flex-1 min-w-0 lg:order-1"
-                                                  }),
-                                              !hideScores && (scoreLeftValue !== 0 || scoreRightValue !== 0) ? JsxRuntime.jsx("div", {
-                                                      children: scoreRightValue.toString(),
-                                                      className: "text-lg font-bold text-slate-800 flex-shrink-0 lg:order-2"
-                                                    }) : null
+                                                    className: playersClass + " " + ScoreModal.playerRowDark + " lg:order-1"
+                                                  })
                                             ],
-                                            className: "flex items-center gap-2 min-w-0"
+                                            className: "flex items-center gap-2 lg:gap-1.5 min-w-0"
                                           }),
-                                      className: "p-2 lg:pl-2 lg:pr-2 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 overflow-hidden " + getTeamBgColor(team2History, Caml_obj.equal(currentWinner, "Right")) + " hover:bg-slate-50",
+                                      className: "p-2 lg:pl-2.5 lg:pr-2 cursor-pointer transition-all flex-1 lg:flex-none lg:w-1/2 overflow-hidden " + getTeamBgColor(team2History, Caml_obj.equal(currentWinner, "Right")) + " hover:bg-slate-50 dark:hover:bg-[#2a2b30]",
                                       style: {
                                         userSelect: "none"
                                       },
@@ -664,7 +675,7 @@ function MatchCard(props) {
                               className: "flex flex-col lg:flex-row relative"
                             })
                       ],
-                      className: "bg-white rounded-lg border-2 shadow-sm overflow-hidden " + getMatchBorderColor()
+                      className: "bg-white dark:bg-[#1e1f23] rounded-lg border-2 shadow-sm overflow-hidden " + getMatchBorderColor()
                     }),
                 Core__Option.getOr(Core__Option.map(match$2[0], (function (winningTeam) {
                             return JsxRuntime.jsx(ScoreModal.make, {

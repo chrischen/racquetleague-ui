@@ -61,6 +61,12 @@ export const Recreational: Story = {
       },
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(await canvas.findByText("Recreational")).toBeVisible();
+    await expect(canvas.queryByText("rec")).toBeNull();
+    await expect(canvas.getByText(/\(1 hour and 30 minutes\)/)).toBeVisible();
+  },
 };
 
 /** Unlisted: the "Private" tag warns players not to share it. */

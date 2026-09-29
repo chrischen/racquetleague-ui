@@ -21,7 +21,7 @@ msgstr "有効にする"
 msgid "Match Count"
 msgstr "試合数"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:199
 msgid "no players yet"
 msgstr "まだプレイヤーはいません"
 

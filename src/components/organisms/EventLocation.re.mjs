@@ -38,7 +38,7 @@ function EventLocation(props) {
                       children: Core__Option.getOr(Core__Option.map($$location.name, (function (prim) {
                                   return prim;
                                 })), null),
-                      className: "font-bold flex items-center lg:text-xl leading-8 text-gray-700"
+                      className: "font-bold flex items-center lg:text-xl leading-8 text-gray-700 dark:text-gray-300"
                     }),
                 hideAddress ? null : Core__Option.getOr(Core__Option.map($$location.address, (function (address) {
                               return JsxRuntime.jsx("p", {
@@ -50,29 +50,28 @@ function EventLocation(props) {
                                                                   target: "_blank"
                                                                 });
                                                     })), address),
-                                          className: "lg:text-sm leading-8 text-gray-700"
+                                          className: "lg:text-sm leading-8 text-gray-700 dark:text-gray-300"
                                         });
                             })), ""),
-                hideAddress ? null : JsxRuntime.jsx("p", {
+                hideAddress ? null : JsxRuntime.jsx("div", {
                         children: Core__Option.getOr(Core__Option.map($$location.links, (function (links) {
                                     return links.map(function (link) {
                                                 var truncatedLink = link.length > 50 ? link.substring(0, 50) + "..." : link;
                                                 return JsxRuntime.jsx("a", {
                                                             children: truncatedLink,
-                                                            className: "mt-4 lg:text-sm leading-8 italic text-gray-700 truncate",
+                                                            className: "block lg:text-sm leading-8 italic text-gray-700 dark:text-gray-400 truncate",
                                                             href: link,
                                                             rel: "noopener noreferrer",
                                                             target: "_blank"
                                                           }, link);
                                               });
-                                  })), null),
-                        className: "truncate"
+                                  })), null)
                       }),
                 Core__Option.getOr(Core__Option.map($$location.details, (function (details) {
                             return JsxRuntime.jsx("div", {
                                         children: JsxRuntime.jsx(PreformattedParagraph.make, {
                                               text: details,
-                                              className: "mb-2 last:mb-0 lg:text-xl leading-8 text-gray-700"
+                                              className: "mb-2 last:mb-0 lg:text-xl leading-8 text-gray-700 dark:text-gray-300"
                                             }),
                                         className: "mt-4"
                                       });

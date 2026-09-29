@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zbuZZJ\":\"Đã điều chỉnh hạt giống\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"AWd12w\":[[\"0\"],\" người chơi\"],\"1IFjjP\":[[\"0\"],\" người chơi\"],\"1XIkUf\":[[\"count\",\"plural\",{\"one\":[[\"0\"]],\"other\":[[\"1\"]]}]],\"7+MzvQ\":\"Xóa điều chỉnh hạt giống\",\"zbuZZJ\":\"Đã điều chỉnh hạt giống\"}");

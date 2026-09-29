@@ -1015,8 +1015,9 @@ let make = (
     let (_, endTime) = splitStartDate(endWallClockFor(startWallClock, clockEnd))
     let day = datePart->DateFns.parseISO->DateFns.formatWithPattern("EEE, MMM d")
     // The zone is named in the field itself, so the summary spends its width on
-    // the duration instead.
-    `${locationName} · ${day}, ${formatWallTime(clockStart)}–${formatWallTime(
+    // the duration instead. No venue yet: lead with the day, not a bare " · ".
+    (locationName != "" ? locationName ++ " · " : "") ++
+    `${day}, ${formatWallTime(clockStart)}–${formatWallTime(
         endTime,
       )} · ${ClockRangePicker.formatDuration(durationMinutes)}`
   | None => locationName != "" ? locationName : ts`Venue, date, start and end time`

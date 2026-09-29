@@ -13,6 +13,18 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:379
+msgid "{0} player"
+msgstr "{0} người chơi"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:380
+msgid "{0} players"
+msgstr "{0} người chơi"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:378
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:337
 msgid "Anti-Teams"
 msgstr "Các đội phản"
@@ -21,15 +33,20 @@ msgstr "Các đội phản"
 msgid "Cancel"
 msgstr "Hủy"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:52
+#: src/components/organisms/TeamManagementModal.re.mjs:314
+msgid "Close"
+msgstr "Đóng"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:302
 msgid "Create and manage player teams"
 msgstr "Tạo và quản lý các đội người chơi"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Anti-Team"
 msgstr "Tạo đội phản"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Team"
 msgstr "Tạo đội"
 
@@ -41,11 +58,11 @@ msgstr "Tạo đội phản đầu tiên của bạn để ngăn người chơi 
 msgid "Create your first team to get started"
 msgstr "Tạo đội đầu tiên của bạn để bắt đầu"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:402
+#: src/components/organisms/TeamManagementModal.re.mjs:404
 msgid "Delete team"
 msgstr "Xóa đội"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:390
+#: src/components/organisms/TeamManagementModal.re.mjs:392
 msgid "Edit team"
 msgstr "Chỉnh sửa đội"
 
@@ -73,7 +90,7 @@ msgstr "Chưa có đội phản"
 msgid "No teams yet"
 msgstr "Chưa có đội"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:443
+#: src/components/organisms/TeamManagementModal.re.mjs:445
 msgid "Save & Close"
 msgstr "Lưu & Đóng"
 

@@ -78,11 +78,7 @@ msgstr "이 RSVP 제거"
 msgid "Retry charge"
 msgstr "결제 재시도"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "전체 보기"
-
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "간략히 보기"
 
@@ -97,3 +93,7 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:313
 msgid "View Profile"
 msgstr "프로필 보기"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "전체 보기"

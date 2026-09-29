@@ -17,19 +17,20 @@ msgstr ""
 msgid "add new location"
 msgstr "thêm địa điểm mới"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:158
+#: src/components/organisms/CreateLocationForm.re.mjs:152
 msgid "address"
 msgstr "địa chỉ"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:76
+#: src/components/organisms/CreateLocationForm.re.mjs:158
 msgid "address is required"
 msgstr "cần có địa chỉ"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:147
+#: src/components/organisms/CreateLocationForm.re.mjs:139
 msgid "Akabane Elementary School"
 msgstr "Trường tiểu học Akabane"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "hủy"
 
@@ -37,7 +38,7 @@ msgstr "hủy"
 msgid "choose the location where this event will be held."
 msgstr "chọn địa điểm nơi sự kiện này sẽ được tổ chức."
 
-#: src/components/organisms/CreateLocationForm.re.mjs:177
+#: src/components/organisms/CreateLocationForm.re.mjs:176
 msgid "details"
 msgstr "chi tiết"
 
@@ -45,29 +46,30 @@ msgstr "chi tiết"
 msgid "event location"
 msgstr "địa điểm sự kiện"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:180
+#: src/components/organisms/CreateLocationForm.re.mjs:179
 msgid ""
 "Instructions or information that will apply to all events held at this "
 "location."
 msgstr ""
 "Hướng dẫn hoặc thông tin sẽ áp dụng cho tất cả sự kiện tại địa điểm này."
 
-#: src/components/organisms/CreateLocationForm.re.mjs:138
+#: src/components/organisms/CreateLocationForm.re.mjs:130
 msgid "location"
 msgstr "địa điểm"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:167
+#: src/components/organisms/CreateLocationForm.re.mjs:166
 msgid "maps link"
 msgstr "liên kết bản đồ"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:144
+#: src/components/organisms/CreateLocationForm.re.mjs:136
 msgid "name"
 msgstr "tên"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:73
+#: src/components/organisms/CreateLocationForm.re.mjs:143
 msgid "name is required"
 msgstr "cần có tên"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "lưu"

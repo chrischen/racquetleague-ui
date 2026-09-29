@@ -13,11 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:191
+#: src/components/organisms/ClubActivitySelector.re.mjs:203
 msgid "+ Add new club..."
 msgstr "+ 新增俱樂部..."
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:243
+#: src/components/organisms/ClubActivitySelector.re.mjs:255
 msgid "Activity"
 msgstr "活動"
 
@@ -29,11 +29,11 @@ msgstr "俱樂部的簡要描述..."
 msgid "Cancel"
 msgstr "取消"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:174
+#: src/components/organisms/ClubActivitySelector.re.mjs:186
 msgid "Club"
 msgstr "俱樂部"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:362
+#: src/components/organisms/ClubActivitySelector.re.mjs:374
 msgid "Club & Activity"
 msgstr "俱樂部與活動"
 
@@ -61,7 +61,7 @@ msgstr "預設俱樂部活動"
 msgid "Description"
 msgstr "描述"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:276
+#: src/components/organisms/ClubActivitySelector.re.mjs:288
 msgid "Done"
 msgstr "完成"
 
@@ -69,10 +69,10 @@ msgstr "完成"
 msgid "e.g., City Ballers Club"
 msgstr "例如：城市球員俱樂部"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:324
+#: src/components/organisms/ClubActivitySelector.re.mjs:336
 msgid "No club"
 msgstr "無俱樂部"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:181
+#: src/components/organisms/ClubActivitySelector.re.mjs:193
 msgid "No club / Independent event"
 msgstr "無俱樂部 / 獨立活動"

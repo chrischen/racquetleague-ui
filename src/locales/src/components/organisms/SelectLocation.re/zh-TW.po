@@ -17,19 +17,20 @@ msgstr ""
 msgid "add new location"
 msgstr "新增地點"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:158
+#: src/components/organisms/CreateLocationForm.re.mjs:152
 msgid "address"
 msgstr "地址"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:76
+#: src/components/organisms/CreateLocationForm.re.mjs:158
 msgid "address is required"
 msgstr "地址是必填項目"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:147
+#: src/components/organisms/CreateLocationForm.re.mjs:139
 msgid "Akabane Elementary School"
 msgstr "赤羽小學"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "取消"
 
@@ -37,7 +38,7 @@ msgstr "取消"
 msgid "choose the location where this event will be held."
 msgstr "選擇舉辦此活動的地點。"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:177
+#: src/components/organisms/CreateLocationForm.re.mjs:176
 msgid "details"
 msgstr "詳細資料"
 
@@ -45,28 +46,29 @@ msgstr "詳細資料"
 msgid "event location"
 msgstr "活動地點"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:180
+#: src/components/organisms/CreateLocationForm.re.mjs:179
 msgid ""
 "Instructions or information that will apply to all events held at this "
 "location."
 msgstr "適用於在此地點舉辦的所有活動的指示或資訊。"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:138
+#: src/components/organisms/CreateLocationForm.re.mjs:130
 msgid "location"
 msgstr "地點"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:167
+#: src/components/organisms/CreateLocationForm.re.mjs:166
 msgid "maps link"
 msgstr "地圖連結"
 
-#: src/components/organisms/CreateLocationForm.re.mjs:144
+#: src/components/organisms/CreateLocationForm.re.mjs:136
 msgid "name"
 msgstr "名稱"
 
 #: src/components/organisms/CreateLocationForm.re.mjs:73
+#: src/components/organisms/CreateLocationForm.re.mjs:143
 msgid "name is required"
 msgstr "名稱是必填項目"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "儲存"

@@ -395,9 +395,9 @@ module VerticalDayColumn = {
                 (),
               )}
               title={ev.title ++
-              " \xb7 " ++
+              " · " ++
               TimeWindow.hourLabelIntl(intl, ev.startHour) ++
-              "\xe2\x80\x93" ++
+              "–" ++
               TimeWindow.hourLabelIntl(intl, ev.endHour)}>
               <span
                 className="max-h-full overflow-hidden whitespace-nowrap font-mono text-[8px] font-semibold text-amber-950 dark:text-amber-200"
@@ -640,7 +640,7 @@ let make = (
                     d="M1 14c6 0 8.5-.2 11-1 3.4-1.1 4.2-8.6 9.5-10.2 2.7-.8 6.4-.8 13.5-.8v13H1z"
                   />
                 </svg>
-                {t`Courts \xc2\xb7 thickness = count`}
+                {t`Courts · thickness = count`}
               </span>
               <span className="inline-flex items-center gap-1.5">
                 <span
@@ -843,7 +843,7 @@ let make = (
               disabled={isSaving->Option.getOr(false)}
               className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-semibold bg-[#bdf25d] hover:bg-[#aee050] text-black rounded-md transition-colors shadow-sm flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
               <Lucide.Check size=14 strokeWidth=2.5 />
-              {isSaving->Option.getOr(false) ? t`Saving\xe2\x80\xa6` : t`Save`}
+              {isSaving->Option.getOr(false) ? t`Saving…` : t`Save`}
             </button>
           </div>
         </div>

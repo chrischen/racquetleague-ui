@@ -34,7 +34,11 @@ module ComposedChart = {
 
 module CartesianGrid = {
   @module("recharts") @react.component
-  external make: (~strokeDasharray: string=?, ~stroke: string=?) => React.element = "CartesianGrid"
+  external make: (
+    ~strokeDasharray: string=?,
+    ~stroke: string=?,
+    ~strokeOpacity: float=?,
+  ) => React.element = "CartesianGrid"
 }
 
 module XAxis = {
@@ -57,7 +61,7 @@ module YAxis = {
     ~stroke: string=?,
     ~style: style=?,
     ~tickLine: bool=?,
-    ~domain: array<string>=?,
+    ~domain: array<float>=?,
     ~tickFormatter: float => string=?,
   ) => React.element = "YAxis"
 }
@@ -67,11 +71,13 @@ module Tooltip = {
   external make: (~content: React.element) => React.element = "Tooltip"
 }
 
+// Used for the uncertainty band: Recharts draws an Area whose value is a
+// [low, high] pair as a range.
 module Area = {
   @module("recharts") @react.component
   external make: (
     ~\"type": string,
-    ~dataKey: string,
+    ~dataKey: ratingDataPoint => array<float>,
     ~stroke: string=?,
     ~fill: string=?,
     ~fillOpacity: float=?,
@@ -98,6 +104,22 @@ module Line = {
   ) => React.element = "Line"
 }
 
+// The Y axis range: the data's range plus a tenth of it either side, and at
+// least minYSpan tall so a nearly flat history isn't magnified into noise.
+let minYSpan = 4.0
+let yDomain = (data: array<ratingDataPoint>): (float, float) => {
+  let values = data->Array.flatMap(p => [p.rating, p.lowerBound, p.upperBound])
+  switch values->Array.get(0) {
+  | None => (0.0, minYSpan)
+  | Some(first) =>
+    let lo = values->Array.reduce(first, Math.min)
+    let hi = values->Array.reduce(first, Math.max)
+    let span = hi -. lo
+    let pad = Math.max(span *. 0.1, (minYSpan -. span) /. 2.0)
+    (lo -. pad, hi +. pad)
+  }
+}
+
 // Custom Tooltip Component
 module CustomTooltip = {
   type payloadItem = {payload: ratingDataPoint}
@@ -110,15 +132,18 @@ module CustomTooltip = {
       ->Array.get(0)
       ->Option.map(p => {
         let data = p.payload
-        <div className="bg-white px-4 py-3 rounded-lg shadow-lg border border-gray-200">
-          <p className="text-sm font-medium text-gray-900 mb-1"> {data.date->React.string} </p>
-          <p className="text-sm text-gray-700">
+        <div
+          className="bg-white dark:bg-[#1e1f23] px-4 py-3 rounded-lg shadow-lg border border-gray-200 dark:border-[#2a2b30]">
+          <p className="text-sm font-medium text-gray-900 dark:text-gray-100 mb-1">
+            {data.date->React.string}
+          </p>
+          <p className="text-sm text-gray-700 dark:text-gray-300">
             {t`Rating: `}
-            <span className="font-semibold text-blue-600">
+            <span className="font-semibold text-blue-600 dark:text-blue-400">
               {data.rating->Float.toString->React.string}
             </span>
           </p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
             {`Uncertainty: ±${data.uncertainty->Float.toString}`->React.string}
           </p>
         </div>
@@ -131,6 +156,7 @@ module CustomTooltip = {
 
 @react.component
 let make = (~data: array<ratingDataPoint>) => {
+  let (yMin, yMax) = yDomain(data)
   <div className="w-full h-80">
     <ResponsiveContainer width="100%" height="100%">
       <ComposedChart
@@ -147,26 +173,25 @@ let make = (~data: array<ratingDataPoint>) => {
             <stop offset="95%" stopColor="#3B82F6" stopOpacity="0.05" />
           </linearGradient>
         </defs>
-        <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+        // Mid grey at low opacity reads as a faint grid on light and dark cards
+        <CartesianGrid strokeDasharray="3 3" stroke="#9CA3AF" strokeOpacity={0.3} />
         <XAxis dataKey="date" stroke="#9CA3AF" style={{fontSize: "12px"}} tickLine={false} />
         <YAxis
           stroke="#9CA3AF"
           style={{fontSize: "12px"}}
           tickLine={false}
-          domain={["dataMin - 50", "dataMax + 50"]}
+          domain={[yMin, yMax]}
           tickFormatter={value => value->Float.toFixed(~digits=1)}
         />
         <Tooltip content={<CustomTooltip active=None payload=None />} />
-        // Uncertainty band
+        // Uncertainty band, drawn as a range rather than masked with the
+        // card's colour, so it works on light and dark cards alike
         <Area
           \"type"="monotone"
-          dataKey="upperBound"
+          dataKey={p => [p.lowerBound, p.upperBound]}
           stroke="none"
           fill="url(#uncertaintyGradient)"
           fillOpacity={1.0}
-        />
-        <Area
-          \"type"="monotone" dataKey="lowerBound" stroke="none" fill="#ffffff" fillOpacity={1.0}
         />
         // Rating line
         <Line

@@ -994,8 +994,15 @@ module Inner = {
           viewerJoinTime
           isPaidEvent
           isFull
-          confirmedCount={confirmedPlayers->Array.length}
+          confirmedCount={EventStickyFooter.goingCountOf(
+            ~mainListCount=confirmedPlayers->Array.length,
+            ~maxRsvps,
+          )}
           waitlistCount={waitlistPlayers->Array.length}
+          waitlistPosition=?{EventStickyFooter.waitlistPositionOf(
+            ~waitlistRsvpIds=waitlistPlayers->Array.map(p => p.id),
+            ~viewerRsvpId=viewerRsvpNode->Option.map(n => n.id),
+          )}
           maxRsvps
           tz
           queryFragmentRefs

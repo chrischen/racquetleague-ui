@@ -243,7 +243,7 @@ msgstr "Chưa có hoạt động"
 msgid "No players found"
 msgstr "Không tìm thấy người chơi"
 
-#: src/components/organisms/EventFullNames.re.mjs:97
+#: src/components/organisms/EventFullNames.re.mjs:102
 msgid "no players yet"
 msgstr "chưa có người chơi"
 
@@ -284,8 +284,8 @@ msgstr "Xem trước Smart RSVP"
 msgid "Previewing…"
 msgstr "Đang xem trước…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "Riêng tư"
 
@@ -293,10 +293,14 @@ msgstr "Riêng tư"
 msgid "Professional players"
 msgstr "Người chơi chuyên nghiệp"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "Có xếp hạng"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "Giải trí"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -346,15 +350,11 @@ msgstr "Chạy Smart RSVP ngay"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "Xem tất cả"
-
 #: src/components/organisms/EventMessages.re.mjs:132
 msgid "Send"
 msgstr "Gửi"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "Thu gọn"
 
@@ -466,7 +466,7 @@ msgstr "xem sự kiện"
 msgid "View Profile"
 msgstr "Xem hồ sơ"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "Danh sách chờ"
 
@@ -515,3 +515,7 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:310
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "Chạy Smart RSVP (phù hợp nhất, thử nghiệm)"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "Xem tất cả"

@@ -1128,7 +1128,7 @@ let make = () => {
           (),
         )}>
         <span> {t`18,900 rounds solved`} </span>
-        <span> {t`24 players · 4 court`} </span>
+        <span> {t`24 players · 4 courts`} </span>
         <span> {t`7 seeds per club`} </span>
         <span> {t`every round a real ILP solve`} </span>
       </div>

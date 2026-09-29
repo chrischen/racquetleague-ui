@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/RatingList.re.mjs:664
+#: src/components/organisms/RatingList.re.mjs:693
 msgid "...load higher rated players"
 msgstr ""
 
@@ -25,7 +25,7 @@ msgstr ""
 msgid "All Clubs"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:773
+#: src/components/organisms/RatingList.re.mjs:802
 msgid "All players loaded"
 msgstr ""
 
@@ -38,16 +38,16 @@ msgstr ""
 msgid "Competitive Singles"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:699
+#: src/components/organisms/RatingList.re.mjs:728
 msgid "Days #1"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:202
-#: src/components/organisms/RatingList.re.mjs:223
+#: src/components/organisms/RatingList.re.mjs:226
+#: src/components/organisms/RatingList.re.mjs:247
 msgid "Draft"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:731
+#: src/components/organisms/RatingList.re.mjs:760
 msgid "Draft cutoff · Top 8 qualify"
 msgstr ""
 
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Draft starts Tuesday, September 15, 2026"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:724
 msgid "Est. DUPR"
 msgstr ""
 
@@ -76,11 +76,11 @@ msgstr ""
 msgid "Live Standings"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:638
+#: src/components/organisms/RatingList.re.mjs:667
 msgid "Load more players..."
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:614
+#: src/components/organisms/RatingList.re.mjs:643
 msgid "Loading next standings"
 msgstr ""
 
@@ -96,7 +96,7 @@ msgstr ""
 msgid "Men"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:754
+#: src/components/organisms/RatingList.re.mjs:783
 msgid "No players found"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr ""
 #~ msgid "Play doubles games with different partners and receive an individual rating. Prizes are awarded monthly to top players."
 #~ msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:687
+#: src/components/organisms/RatingList.re.mjs:716
 msgid "Player"
 msgstr ""
 
@@ -132,7 +132,7 @@ msgstr ""
 #~ msgid "Prizes"
 #~ msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:720
 msgid "Rating"
 msgstr ""
 
@@ -182,11 +182,11 @@ msgstr ""
 #~ msgid "Top Player Awards"
 #~ msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:758
+#: src/components/organisms/RatingList.re.mjs:787
 msgid "Try broadening your search or filters."
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:424
+#: src/components/organisms/RatingList.re.mjs:448
 msgid "View my profile"
 msgstr ""
 
@@ -198,10 +198,10 @@ msgstr ""
 msgid "Women"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:360
+#: src/components/organisms/RatingList.re.mjs:384
 msgid "You"
 msgstr ""
 
-#: src/components/organisms/RatingList.re.mjs:308
+#: src/components/organisms/RatingList.re.mjs:332
 msgid "Your standing"
 msgstr ""

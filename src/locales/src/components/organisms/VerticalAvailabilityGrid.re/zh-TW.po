@@ -89,8 +89,8 @@ msgid "Clear"
 msgstr "清除"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
-msgstr "場地 · 粗細 = 數量"
+msgid "Courts · thickness = count"
+msgstr "球場 · 粗細 = 次數"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -129,7 +129,7 @@ msgid "Save"
 msgstr "儲存"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "儲存中…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -240,6 +240,10 @@ msgstr "您的時間"
 #~ msgid "Courts"
 #~ msgstr "場地"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "場地 · 粗細 = 數量"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "您的時段內可用場地"
@@ -256,6 +260,10 @@ msgstr "您的時間"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "開放"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "儲存中…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""

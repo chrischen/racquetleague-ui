@@ -8387,6 +8387,171 @@ msgstr "Liên kết này đã hết hạn. Hãy gửi liên kết mới từ cà
 msgid "This link is incomplete. Open it from the email again."
 msgstr "Liên kết này chưa đầy đủ. Hãy mở lại từ email."
 
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+msgid "24 players · 4 courts"
+msgstr "24 người chơi · 4 sân"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:97
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:138
+msgid "{previewCount, plural, one {{0}} other {{1}}}"
+msgstr "{previewCount, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:139
+msgid "Add {0} Guest"
+msgstr "Thêm {0} khách"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:140
+msgid "Add {0} Guests"
+msgstr "Thêm {0} khách"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:141
+msgid "Add Guests"
+msgstr "Thêm khách"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:98
+msgid "Preview ({0} guest)"
+msgstr "Xem trước ({0} khách)"
+
+#: src/components/organisms/AddGuestPlayersModal.re.mjs:99
+msgid "Preview ({0} guests)"
+msgstr "Xem trước ({0} khách)"
+
+#: src/components/organisms/EventStickyFooter.re.mjs:458
+msgid "{position} in queue"
+msgstr "Vị trí {position} trong hàng chờ"
+
+#: src/components/organisms/ClubEventsList.re.mjs:452
+msgid "Add to {dayName}"
+msgstr "Thêm vào {dayName}"
+
+#: src/components/organisms/ClubEventsList.re.mjs:449
+msgid "Add to next {dayName}"
+msgstr "Thêm vào {dayName} tới"
+
+#: src/components/organisms/ClubEventsList.re.mjs:404
+msgid "Add to today"
+msgstr "Thêm vào hôm nay"
+
+#: src/components/organisms/ClubEventsList.re.mjs:411
+msgid "Add to tomorrow"
+msgstr "Thêm vào ngày mai"
+
+#: src/components/organisms/ClubEventsList.re.mjs:445
+msgid "Add to yesterday"
+msgstr "Thêm vào hôm qua"
+
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid "For event updates and notifications. We'll email you a link to confirm it."
+msgstr "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để xác nhận."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid "The card form could not be loaded. Check your connection or turn off any content blocker, then try again."
+msgstr "Không thể tải biểu mẫu thẻ. Hãy kiểm tra kết nối hoặc tắt trình chặn nội dung, rồi thử lại."
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "Không thể tải biểu mẫu thẻ. Hãy đóng cửa sổ này và thử lại."
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText} và {minutesText}"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:188
+msgid "Adjust player seeds"
+msgstr "Điều chỉnh hạt giống người chơi"
+
+#: src/components/organisms/SeedAdjustmentTimeline.re.mjs:159
+msgid "Delete seed adjustment"
+msgstr "Xóa điều chỉnh hạt giống"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:173
+msgid "Manage teams"
+msgstr "Quản lý đội"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "Tên người chơi"
+
+#: src/components/organisms/PlayerCheckin.re.mjs:316
+msgid "Player settings"
+msgstr "Cài đặt người chơi"
+
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "THẮNG"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play {dayName}"
+msgstr "Chơi {dayName}"
+
+#: src/components/organisms/PkEventsList.re.mjs:471
+msgid "Play next {dayName}"
+msgstr "Chơi {dayName} tới"
+
+#: src/components/organisms/PkEventsList.re.mjs:435
+msgid "Play tomorrow"
+msgstr "Chơi ngày mai"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "Email tài khoản mới"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr "Mở liên kết để đặt làm email tài khoản. Trước đó, không có gì thay đổi."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "Gửi liên kết"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "Chúng tôi đã gửi liên kết đến"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid "We'll email a link to the new address. Your current address stays on as a receiving email."
+msgstr "Chúng tôi sẽ gửi liên kết đến địa chỉ mới. Địa chỉ hiện tại vẫn được giữ làm email nhận."
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid "Your account has no email yet. The first address you confirm here becomes your account email."
+msgstr "Tài khoản của bạn chưa có email. Địa chỉ đầu tiên bạn xác nhận ở đây sẽ trở thành email tài khoản."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+msgid "Courts · thickness = count"
+msgstr "Sân · độ dày = số lượng"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:185
+msgid "Account email changed"
+msgstr "Đã đổi email tài khoản"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:247
+msgid "is now your account email."
+msgstr "giờ là email tài khoản của bạn."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:75
+msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
+msgstr "Liên kết này không dùng được. Hãy mở lại từ email hoặc yêu cầu liên kết mới từ cài đặt hồ sơ."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:81
+msgid "This link has already been used, or your account email has changed since it was sent."
+msgstr "Liên kết này đã được sử dụng, hoặc email tài khoản của bạn đã thay đổi kể từ khi liên kết được gửi."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:79
+msgid "This link has expired. Ask for a new one from your profile settings."
+msgstr "Liên kết này đã hết hạn. Hãy yêu cầu liên kết mới từ cài đặt hồ sơ."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
+msgid "You're signed in to a different account. Sign out, then open the link again."
+msgstr "Bạn đang đăng nhập vào một tài khoản khác. Hãy đăng xuất rồi mở lại liên kết."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:189
+msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
+msgstr "Tài khoản của bạn giờ dùng địa chỉ mới. Địa chỉ trước đó được giữ làm email nhận, bạn có thể xóa trong cài đặt hồ sơ."
+
 #: src/components/organisms/SettingsProfileForm.re.mjs:270
 #, fuzzy
 #~ msgid "Some events require your legal name as shown on an ID card.omeventsequoegashownour passporta"
@@ -8436,11 +8601,6 @@ msgstr "Liên kết này chưa đầy đủ. Hãy mở lại từ email."
 #, fuzzy
 #~ msgid "· % chance the game ends level · same strategy, three rooms"
 #~ msgstr "· % khả năng trận đấu kết thúc sát nút · nét liền: Competitive+ · nét đứt: ngẫu nhiên, tránh lặp lại"
-
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#, fuzzy
-#~ msgid "24 players · 4 courts"
-#~ msgstr "24 người chơi · 4 sân"
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1029
 #, fuzzy

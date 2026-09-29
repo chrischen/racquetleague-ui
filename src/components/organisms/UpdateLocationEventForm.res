@@ -80,6 +80,9 @@ let make = (~event, ~location, ~query, ~isCopy=false, ~viewerStripeChargesEnable
       query
       initialClubId=?{eventData.club->Option.map(c => c.id)}
       initialActivityId=?{eventData.activity->Option.map(a => a.id)}
+      // An event without a club keeps "No club" rather than taking the
+      // viewer's first admin club, which saving would attach it to.
+      fallbackToFirstClub=false
       onChange={sel => setClubSelection(_ => sel)}
       triggerShake=shakeCounter
     />

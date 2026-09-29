@@ -33,27 +33,27 @@ msgstr ""
 msgid "Copy {address}"
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:324
+#: src/components/organisms/NewPlanChooserModal.re.mjs:365
 msgid "Create an event"
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:326
+#: src/components/organisms/NewPlanChooserModal.re.mjs:367
 msgid "Create an event yourself, or from a court booking email."
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:342
+#: src/components/organisms/NewPlanChooserModal.re.mjs:383
 msgid "Create Event Manually"
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:377
+#: src/components/organisms/NewPlanChooserModal.re.mjs:337
 msgid "Create events by email"
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:346
+#: src/components/organisms/NewPlanChooserModal.re.mjs:387
 msgid "Enter the event details yourself or ask the assistant to fill them in."
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:399
+#: src/components/organisms/NewPlanChooserModal.re.mjs:351
 msgid "Events are added privately to {myEvents}. Make an event public whenever you need to find players."
 msgstr ""
 
@@ -65,11 +65,11 @@ msgstr ""
 msgid "Google Calendar"
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:402
+#: src/components/organisms/NewPlanChooserModal.re.mjs:354
 msgid "My Events"
 msgstr ""
 
-#: src/components/organisms/NewPlanChooserModal.re.mjs:325
+#: src/components/organisms/NewPlanChooserModal.re.mjs:366
 msgid "New plan"
 msgstr ""
 

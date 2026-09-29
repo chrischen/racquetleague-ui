@@ -117,6 +117,7 @@ function hasOpenSpots(edge) {
 }
 
 function PkEventsList$Day(props) {
+  var triggerLabel = props.triggerLabel;
   var __requireProfile = props.requireProfile;
   var __showInlineCourts = props.showInlineCourts;
   var onAvailabilityRefetchNeeded = props.onAvailabilityRefetchNeeded;
@@ -279,7 +280,8 @@ function PkEventsList$Day(props) {
                                                   ]), undefined);
                                         }),
                                       renderHeader: renderHeader,
-                                      requireProfile: requireProfile
+                                      requireProfile: requireProfile,
+                                      triggerLabel: triggerLabel
                                     }),
                                 showInlineCourts ? JsxRuntime.jsx(PkEventsDayFeed.make, {
                                         data: availabilityData,
@@ -422,17 +424,20 @@ function PkEventsList(props) {
           return [
                   t`Today`,
                   formatDate(bucketSetup.dateFromOffset(0)),
-                  bucketSetup.dateFromOffset(0)
+                  bucketSetup.dateFromOffset(0),
+                  undefined
                 ];
       case "tomorrow" :
           return [
                   t`Tomorrow`,
                   formatDate(bucketSetup.dateFromOffset(1)),
-                  bucketSetup.dateFromOffset(1)
+                  bucketSetup.dateFromOffset(1),
+                  t`Play tomorrow`
                 ];
       default:
         var match = EventsListUtils.getBucketDateDetails(bucketSetup, key);
         var date = match[2];
+        var isNextWeek = match[0];
         var n = Core__Option.getOr(Core__Int.fromString(key, undefined), 0);
         var dayName;
         switch (match[1]) {
@@ -461,12 +466,14 @@ function PkEventsList(props) {
             dayName = "";
         }
         var label = n === -1 ? t`Yesterday` : (
-            match[0] ? t`Next ${dayName}` : dayName
+            isNextWeek ? t`Next ${dayName}` : dayName
           );
+        var triggerLabel = isNextWeek ? t`Play next ${dayName}` : t`Play ${dayName}`;
         return [
                 label,
                 formatDate(date),
-                date
+                date,
+                triggerLabel
               ];
     }
   };
@@ -506,7 +513,8 @@ function PkEventsList(props) {
                                       onAvailabilityRefetchNeeded: onAvailabilityRefetchNeeded,
                                       shouldHideEvent: shouldHideEvent,
                                       showInlineCourts: showInlineCourts,
-                                      requireProfile: availabilityGate.require
+                                      requireProfile: availabilityGate.require,
+                                      triggerLabel: match[3]
                                     })
                               ];
                       }));

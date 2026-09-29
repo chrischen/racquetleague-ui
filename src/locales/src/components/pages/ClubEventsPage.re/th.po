@@ -276,6 +276,11 @@ msgstr "แชร์ลิงก์"
 #~ msgid "For event updates and notifications"
 #~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid ""
+#~ "For event updates and notifications. We'll email you a link to confirm it."
+#~ msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
+
 #: src/components/organisms/ProfileModal.re.mjs:491
 #~ msgid "Gender"
 #~ msgstr "เพศ"
@@ -458,6 +463,10 @@ msgstr "แชร์ลิงก์"
 #~ "invite you."
 #~ msgstr "บอกให้ผู้อื่นรู้ว่าคุณพร้อมเล่น ผู้เล่นที่ว่างตรงกันสามารถชวนคุณได้"
 
+#: src/components/organisms/ProfileModal.re.mjs:
+#~ msgid "That doesn't look like an email address."
+#~ msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
+
 #: src/components/molecules/AIResponseCard.re.mjs:45
 #~ msgid "Title:"
 #~ msgstr "ชื่อ:"
@@ -481,11 +490,3 @@ msgstr "แชร์ลิงก์"
 #: src/components/organisms/NewPlanModal.re.mjs:207
 #~ msgid "When do you want to play?"
 #~ msgstr "คุณอยากเล่นเมื่อไหร่?"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

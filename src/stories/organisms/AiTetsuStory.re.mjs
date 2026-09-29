@@ -102,6 +102,7 @@ function seed(eventId, state) {
     return ;
   }
   var players = StoryFixturesMatch.plainPlayers();
+  Rating.Players.savePlayers([StoryFixturesMatch.guest("Kaito Mori", undefined, undefined, 21)], eventId);
   Session.saveState(StoryFixturesMatch.session(players), eventId);
   Rating.CompletedMatches.saveMatches(history(players), eventId);
   var absent = [

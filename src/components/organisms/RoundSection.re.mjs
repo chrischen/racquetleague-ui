@@ -141,7 +141,7 @@ function RoundSection$AverageQualityDebug(props) {
   return JsxRuntime.jsx("span", {
               children: "Avg Q: " + averageQuality.toFixed(3),
               className: "text-xs font-mono " + (
-                props.isCurrentRound ? "text-blue-600" : "text-slate-400"
+                props.isCurrentRound ? "text-blue-600 dark:text-blue-400" : "text-slate-400 dark:text-gray-500"
               )
             });
 }
@@ -521,7 +521,7 @@ function RoundSection(props) {
                                 children: [
                                   JsxRuntime.jsx("h2", {
                                         children: t`Round ${roundNumber.toString()}`,
-                                        className: "text-xl font-bold text-blue-900"
+                                        className: "text-xl font-bold text-blue-900 dark:text-blue-200"
                                       }),
                                   JsxRuntime.jsx("span", {
                                         children: t`ACTIVE ROUND`,
@@ -531,7 +531,7 @@ function RoundSection(props) {
                                           children: JsxRuntime.jsx(LucideReact.Maximize2, {
                                                 className: "w-5 h-5"
                                               }),
-                                          className: "p-1.5 text-blue-700 hover:text-blue-900 hover:bg-blue-100 rounded-lg transition-colors",
+                                          className: "p-1.5 text-blue-700 hover:text-blue-900 hover:bg-blue-100 dark:text-blue-300 dark:hover:text-blue-200 dark:hover:bg-blue-900/40 rounded-lg transition-colors",
                                           title: t`Full Screen View`,
                                           onClick: (function (e) {
                                               e.stopPropagation();
@@ -542,7 +542,7 @@ function RoundSection(props) {
                                         }) : null,
                                   JsxRuntime.jsx("span", {
                                         children: t`${matchCount.toString()} ${matchText}`,
-                                        className: "text-sm text-blue-700"
+                                        className: "text-sm text-blue-700 dark:text-blue-300"
                                       }),
                                   debug ? JsxRuntime.jsx(RoundSection$AverageQualityDebug, {
                                           matches: matches,
@@ -555,9 +555,9 @@ function RoundSection(props) {
                                 children: [
                                   Core__Option.isSome(onRebalance) ? JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(LucideReact.Shuffle, {
-                                                className: "w-5 h-5 text-blue-600"
+                                                className: "w-5 h-5 text-blue-600 dark:text-blue-400"
                                               }),
-                                          className: "p-2 hover:bg-blue-100 rounded-lg transition-colors cursor-pointer",
+                                          className: "p-2 hover:bg-blue-100 dark:hover:bg-blue-900/40 rounded-lg transition-colors cursor-pointer",
                                           role: "button",
                                           tabIndex: 0,
                                           title: t`Rebalance this round with current players`,
@@ -583,13 +583,13 @@ function RoundSection(props) {
                                             JsxRuntime.jsxs("div", {
                                                   children: [
                                                     JsxRuntime.jsx(LucideReact.Mars, {
-                                                          className: "w-4 h-4 text-blue-600"
+                                                          className: "w-4 h-4 text-blue-600 dark:text-blue-400"
                                                         }),
                                                     JsxRuntime.jsx(LucideReact.Venus, {
-                                                          className: "w-4 h-4 text-pink-600"
+                                                          className: "w-4 h-4 text-pink-600 dark:text-pink-400"
                                                         })
                                                   ],
-                                                  className: "p-2 hover:bg-purple-100 rounded-lg transition-colors cursor-pointer flex items-center gap-0.5",
+                                                  className: "p-2 hover:bg-purple-100 dark:hover:bg-purple-900/40 rounded-lg transition-colors cursor-pointer flex items-center gap-0.5",
                                                   role: "button",
                                                   tabIndex: 0,
                                                   title: t`Reset this round with mixed gender pairs`,
@@ -612,9 +612,9 @@ function RoundSection(props) {
                                                 }),
                                             JsxRuntime.jsx("div", {
                                                   children: JsxRuntime.jsx(LucideReact.RotateCcw, {
-                                                        className: "w-5 h-5 text-red-600"
+                                                        className: "w-5 h-5 text-red-600 dark:text-red-400"
                                                       }),
-                                                  className: "p-2 hover:bg-red-100 rounded-lg transition-colors cursor-pointer",
+                                                  className: "p-2 hover:bg-red-100 dark:hover:bg-red-900/40 rounded-lg transition-colors cursor-pointer",
                                                   role: "button",
                                                   tabIndex: 0,
                                                   title: t`Reset this round with all checked-in players`,
@@ -648,17 +648,17 @@ function RoundSection(props) {
                                 children: [
                                   JsxRuntime.jsx("h2", {
                                         children: t`Round ${roundNumber.toString()}`,
-                                        className: "text-xl font-bold text-slate-800 flex-shrink-0"
+                                        className: "text-xl font-bold text-slate-800 dark:text-gray-100 flex-shrink-0"
                                       }),
                                   JsxRuntime.jsx("span", {
                                         children: t`${matchCount.toString()} ${matchText}`,
-                                        className: "text-sm text-slate-500 flex-shrink-0"
+                                        className: "text-sm text-slate-500 dark:text-gray-400 flex-shrink-0"
                                       })
                                 ],
                                 className: "flex items-center gap-3 min-w-0"
                               }),
                           JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                className: "w-5 h-5 text-slate-600 transition-transform flex-shrink-0 " + (
+                                className: "w-5 h-5 text-slate-600 dark:text-gray-400 transition-transform flex-shrink-0 " + (
                                   isExpanded ? "rotate-180" : ""
                                 )
                               })
@@ -699,9 +699,9 @@ function RoundSection(props) {
                                                     remainingCount > 0 ? JsxRuntime.jsx("div", {
                                                             children: JsxRuntime.jsx("span", {
                                                                   children: "+" + remainingCount.toString(),
-                                                                  className: "text-xs font-bold text-slate-600"
+                                                                  className: "text-xs font-bold text-slate-600 dark:text-gray-100"
                                                                 }),
-                                                            className: "w-6 h-6 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center",
+                                                            className: "w-6 h-6 rounded-full bg-slate-300 dark:bg-gray-600 border-2 border-white dark:border-[#1e1f23] flex items-center justify-center",
                                                             style: {
                                                               zIndex: "0"
                                                             }
@@ -710,7 +710,7 @@ function RoundSection(props) {
                                                   className: "flex items-center -space-x-2"
                                                 }),
                                             JsxRuntime.jsx(LucideReact.ChevronDown, {
-                                                  className: "w-3 h-3 text-slate-400 transition-transform " + (
+                                                  className: "w-3 h-3 text-slate-400 dark:text-gray-500 transition-transform " + (
                                                     showAllNotPlaying ? "rotate-180" : ""
                                                   )
                                                 })
@@ -736,12 +736,12 @@ function RoundSection(props) {
                                                                 JsxRuntime.jsx("div", {
                                                                       children: JsxRuntime.jsx("div", {
                                                                             children: player.name,
-                                                                            className: "text-xs font-medium text-slate-800 truncate"
+                                                                            className: "text-xs font-medium text-slate-800 dark:text-gray-100 truncate"
                                                                           }),
                                                                       className: "flex-1 min-w-0"
                                                                     })
                                                               ],
-                                                              className: "flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200"
+                                                              className: "flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200 dark:bg-[#1e1f23] dark:border-[#2a2b30]"
                                                             }, player.id);
                                                 }),
                                             className: "mt-2 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2"
@@ -761,7 +761,7 @@ function RoundSection(props) {
                                       });
                           })), null)
               ],
-              className: isCurrentRound ? "mb-6 rounded-xl transition-all bg-blue-50 border-4 border-blue-500 p-4 shadow-xl" : "mb-6 rounded-xl transition-all opacity-50 p-1"
+              className: isCurrentRound ? "mb-6 rounded-xl transition-all bg-blue-50 dark:bg-blue-950/30 border-4 border-blue-500 p-4 shadow-xl" : "mb-6 rounded-xl transition-all opacity-50 p-1"
             });
 }
 

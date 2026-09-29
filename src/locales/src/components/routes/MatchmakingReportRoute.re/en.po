@@ -61,12 +61,12 @@ msgid "18,900 rounds solved"
 msgstr ""
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1385
-msgid "24 players · 4 court"
-msgstr ""
-
-#: src/components/organisms/MatchmakingReport.re.mjs:1026
-#~ msgid "24 players · 4 courts"
+#~ msgid "24 players · 4 court"
 #~ msgstr ""
+
+#: src/components/organisms/MatchmakingReport.re.mjs:1385
+msgid "24 players · 4 courts"
+msgstr ""
 
 #: src/components/organisms/MatchmakingReport.re.mjs:1388
 msgid "7 seeds per club"

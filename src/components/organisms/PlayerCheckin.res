@@ -57,10 +57,18 @@ let make = (
     })
   }, (players, initialPlayers))
 
-  // Collapse the section when 4 or more players are checked in
+  // Open while fewer than 4 players are checked in, collapsed from 4 up.
+  // Check-ins can arrive after the first render (EventManager restores them
+  // from its store), so the collapse follows the count until the user opens
+  // or closes the panel, checks someone in or out, or adds guests here; from
+  // then on only a drop below 4 opens it by itself.
+  let userHasTakenOver = React.useRef(false)
+  let takeOver = () => userHasTakenOver.current = true
   React.useEffect1(() => {
     if checkedInCount < 4 {
       setIsExpanded(_ => true)
+    } else if !userHasTakenOver.current {
+      setIsExpanded(_ => false)
     }
     None
   }, [checkedInCount])
@@ -96,7 +104,10 @@ let make = (
     <div className="px-6 py-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <button
-          onClick={_ => setIsExpanded(prev => !prev)}
+          onClick={_ => {
+            takeOver()
+            setIsExpanded(prev => !prev)
+          }}
           className="flex items-center gap-3 hover:opacity-80 transition-opacity">
           <Lucide.UserCheck className="w-5 h-5 text-blue-600 flex-shrink-0" />
           <h2 className="text-lg font-semibold text-slate-800"> {t`Player Check-in`} </h2>
@@ -108,18 +119,21 @@ let make = (
           <button
             onClick={_ => onOpenTeamManagement()}
             className="p-2 rounded-lg transition-colors flex items-center gap-1 bg-slate-600 text-white hover:bg-slate-700"
-            title="Manage teams">
+            title={ts`Manage teams`}>
             <Lucide.Users className="w-4 h-4" />
           </button>
           <button
             onClick={_ => setShowSeedModal(_ => true)}
             className={"p-2 rounded-lg transition-colors flex items-center gap-1 bg-blue-600 text-white hover:bg-blue-700"}
-            title="Adjust player seeds">
+            title={ts`Adjust player seeds`}>
             <Lucide.ArrowUpNarrowWide className="w-4 h-4" />
             <Lucide.User className="w-4 h-4" />
           </button>
           <button
-            onClick={_ => setIsExpanded(prev => !prev)}
+            onClick={_ => {
+              takeOver()
+              setIsExpanded(prev => !prev)
+            }}
             className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
             <Lucide.ChevronDown
               className={isExpanded
@@ -158,16 +172,10 @@ let make = (
                   exit={opacity: 0., scale: 0.8}>
                   <div className={buttonClass}>
                     <button
-                      onClick={e => {
-                        e->ReactEvent.Mouse.stopPropagation
-                        onOpenPlayerSettings(player)
+                      onClick={_ => {
+                        takeOver()
+                        onToggleCheckin(player.id)
                       }}
-                      className="absolute top-1 right-1 p-1 hover:bg-slate-200 rounded transition-colors z-10"
-                      title="Player settings">
-                      <Lucide.Settings className="w-3 h-3 text-slate-500" />
-                    </button>
-                    <button
-                      onClick={_ => onToggleCheckin(player.id)}
                       className="flex items-center gap-2 hover:opacity-80 transition-opacity w-full">
                       <PlayerAvatar
                         userFragmentRefs={player.data->Option.flatMap(getUserFragmentRefs)}
@@ -212,17 +220,28 @@ let make = (
                         </div>
                       })
                       ->Option.getOr(React.null)}
-                      <button
-                        onClick={e => {
-                          e->ReactEvent.Mouse.stopPropagation
-                          onTogglePaid(player.id)
-                        }}
-                        className={player.paid
-                          ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-green-600 hover:bg-green-700 text-white text-xs font-bold"
-                          : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 ml-auto bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold"}
-                        title={player.paid ? ts`Paid` : ts`Not paid`}>
-                        {t`$`}
-                      </button>
+                      <div className="flex items-center gap-1 flex-shrink-0 ml-auto">
+                        <button
+                          onClick={e => {
+                            e->ReactEvent.Mouse.stopPropagation
+                            onOpenPlayerSettings(player)
+                          }}
+                          className="p-1 hover:bg-slate-200 rounded transition-colors"
+                          title={ts`Player settings`}>
+                          <Lucide.Settings className="w-3 h-3 text-slate-500" />
+                        </button>
+                        <button
+                          onClick={e => {
+                            e->ReactEvent.Mouse.stopPropagation
+                            onTogglePaid(player.id)
+                          }}
+                          className={player.paid
+                            ? "px-1.5 py-0.5 rounded transition-all flex-shrink-0 bg-green-600 hover:bg-green-700 text-white text-xs font-bold"
+                            : "px-1.5 py-0.5 rounded transition-all flex-shrink-0 bg-slate-300 hover:bg-slate-400 text-slate-600 text-xs font-bold"}
+                          title={player.paid ? ts`Paid` : ts`Not paid`}>
+                          {t`$`}
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </FramerMotion.Li>
@@ -231,7 +250,10 @@ let make = (
             </FramerMotion.AnimatePresence>
             <li className="col-span-2 flex h-12 items-stretch gap-2">
               <button
-                onClick={_ => onOpenAddGuests()}
+                onClick={_ => {
+                  takeOver()
+                  onOpenAddGuests()
+                }}
                 className="flex-1 rounded-lg border-2 border-dashed border-slate-300 bg-slate-50 px-3 text-slate-600 transition-colors hover:border-green-500 hover:bg-green-50 hover:text-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                 title={ts`Add guest players`}>
                 <span className="flex items-center justify-center gap-2">

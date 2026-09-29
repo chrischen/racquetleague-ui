@@ -21,7 +21,7 @@ msgstr "啟用"
 msgid "Match Count"
 msgstr "比賽次數"
 
-#: src/components/organisms/SelectPlayersList.re.mjs:197
+#: src/components/organisms/SelectPlayersList.re.mjs:199
 msgid "no players yet"
 msgstr "還沒有球員"
 

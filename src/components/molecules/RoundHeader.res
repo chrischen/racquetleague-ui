@@ -14,6 +14,9 @@ let make = (
   let previousButtonClass = canGoBack
     ? "p-2 rounded-lg transition-colors bg-slate-200 text-slate-700 hover:bg-slate-300"
     : "p-2 rounded-lg transition-colors bg-slate-100 text-slate-400 cursor-not-allowed"
+  let advanceButtonClass = canAdvance
+    ? "px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2"
+    : "px-6 py-2 rounded-lg font-medium transition-colors bg-slate-100 text-slate-400 cursor-not-allowed flex items-center gap-2"
 
   <div
     className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between sticky top-0 z-10 shadow-sm">
@@ -34,7 +37,7 @@ let make = (
       <button
         onClick={_ => onAdvanceRound()}
         disabled={!canAdvance}
-        className="px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 flex items-center gap-2">
+        className={advanceButtonClass}>
         {t`Advance to Next Round`}
         <Lucide.ChevronRight className="w-5 h-5" />
       </button>

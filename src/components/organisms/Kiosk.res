@@ -207,6 +207,13 @@ module CameraView = {
     ~streamingEnabled: bool,
     ~elapsed: int,
     ~stream: option<UserMedia.t>,
+    // Off when other controls float over the bottom of the view (a live
+    // session's action cards and status row), which this label would show
+    // through.
+    ~showSessionInfo: bool=true,
+    // Off during court calibration: the corner badges sit exactly where the
+    // far court corners and the loupe go.
+    ~showBadges: bool=true,
   ) => {
     let videoRef = React.useRef(Nullable.null)
 
@@ -264,35 +271,42 @@ module CameraView = {
           />
         </>
       }}
-      <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4 sm:p-5">
-        <div
-          className="flex min-h-12 items-center gap-2 border border-white/20 bg-kiosk-bg/90 px-4 font-mono text-xs font-semibold text-white backdrop-blur-sm">
-          <Lucide.Camera \"aria-hidden"="true" size=16 />
-          {React.string("COURT CAM 01")}
-        </div>
-        <div
-          className={cx([
-            "flex min-h-12 items-center gap-2 border px-4 font-mono text-xs font-semibold",
-            streamingEnabled
-              ? "border-red-300 bg-red-500 text-white"
-              : "border-white/20 bg-kiosk-bg/90 text-white",
-          ])}>
-          {streamingEnabled
-            ? <Lucide.Radio \"aria-hidden"="true" size=15 />
-            : <Lucide.Circle \"aria-hidden"="true" className="fill-red-500 text-red-500" size=10 />}
-          {React.string((streamingEnabled ? "LIVE" : "REC") ++ " · " ++ minutes ++ ":" ++ seconds)}
-        </div>
-      </div>
-      <div
-        className="absolute bottom-4 left-4 right-4 flex items-end justify-between sm:bottom-5 sm:left-5 sm:right-5">
-        <div className="border-l-4 border-kiosk-accent bg-kiosk-bg/90 px-4 py-3 backdrop-blur-sm">
-          <p className="text-xs font-medium text-kiosk-muted"> {t`ACTIVE SESSION`} </p>
-          <p className="mt-0.5 font-bold text-white"> sessionLabel </p>
-        </div>
-        <div className="hidden border border-white/20 bg-kiosk-bg/90 px-3 py-2 text-xs text-white/80 sm:block">
-          {React.string("1080p · 60 FPS")}
-        </div>
-      </div>
+      {showBadges
+        ? <div className="absolute inset-x-0 top-0 flex items-center justify-between p-4 sm:p-5">
+            <div
+              className="flex min-h-12 items-center gap-2 border border-white/20 bg-kiosk-bg/90 px-4 font-mono text-xs font-semibold text-white backdrop-blur-sm">
+              <Lucide.Camera \"aria-hidden"="true" size=16 />
+              {React.string("COURT CAM 01")}
+            </div>
+            <div
+              className={cx([
+                "flex min-h-12 items-center gap-2 border px-4 font-mono text-xs font-semibold",
+                streamingEnabled
+                  ? "border-red-300 bg-red-500 text-white"
+                  : "border-white/20 bg-kiosk-bg/90 text-white",
+              ])}>
+              {streamingEnabled
+                ? <Lucide.Radio \"aria-hidden"="true" size=15 />
+                : <Lucide.Circle \"aria-hidden"="true" className="fill-red-500 text-red-500" size=10 />}
+              {React.string(
+                (streamingEnabled ? "LIVE" : "REC") ++ " · " ++ minutes ++ ":" ++ seconds,
+              )}
+            </div>
+          </div>
+        : React.null}
+      {showSessionInfo
+        ? <div
+            className="absolute bottom-4 left-4 right-4 flex items-end justify-between sm:bottom-5 sm:left-5 sm:right-5">
+            <div className="border-l-4 border-kiosk-accent bg-kiosk-bg/90 px-4 py-3 backdrop-blur-sm">
+              <p className="text-xs font-medium text-kiosk-muted"> {t`ACTIVE SESSION`} </p>
+              <p className="mt-0.5 font-bold text-white"> sessionLabel </p>
+            </div>
+            <div
+              className="hidden border border-white/20 bg-kiosk-bg/90 px-3 py-2 text-xs text-white/80 sm:block">
+              {React.string("1080p · 60 FPS")}
+            </div>
+          </div>
+        : React.null}
     </div>
   }
 }
@@ -1452,6 +1466,8 @@ module SessionWorkspace = {
     ~reviewClip: option<clipState>,
     ~challenge: option<challengeState>,
     ~calibOpen: bool,
+    // Where the calibration toolbar renders: the row above the video.
+    ~calibToolbarHost: option<Dom.element>,
     ~onCalibDone: unit => unit,
     ~onCalibOpen: unit => unit,
     ~testMode: bool,
@@ -1524,10 +1540,18 @@ module SessionWorkspace = {
             ])}>
             <div className="relative h-full min-h-0">
               <CameraView
-                sessionLabel streamingEnabled={isLiveSession && streamingEnabled} elapsed stream
+                sessionLabel
+                streamingEnabled={isLiveSession && streamingEnabled}
+                elapsed
+                stream
+                // The live controls below float over the view's bottom edge.
+                showSessionInfo={!isLiveSession}
+                showBadges={!(isLiveSession && calibOpen)}
               />
               {isLiveSession && calibOpen
-                ? <KioskCourtCalib stream onDone={() => onCalibDone()} />
+                ? <KioskCourtCalib
+                    stream toolbarHost=calibToolbarHost onDone={() => onCalibDone()}
+                  />
                 : React.null}
               // The live controls FLOAT over the bottom of the video instead
               // of stacking below it: on short screens the stacked layout
@@ -1635,6 +1659,11 @@ let make = () => {
   // Court calibration overlay: opens when a live session starts (prefilled
   // from the last confirmed corners), reopenable from the session controls.
   let (calibOpen, setCalibOpen) = React.useState(() => false)
+  // The DOM node the calibration toolbar portals into. A STABLE callback ref
+  // (useCallback0) so React only calls it on mount/unmount — a fresh closure
+  // each render would detach/attach, set state, and re-render in a loop.
+  let (calibToolbarHost, setCalibToolbarHost) = React.useState(() => (None: option<Dom.element>))
+  let calibToolbarRef = React.useCallback0(el => setCalibToolbarHost(_ => el->Nullable.toOption))
   let (clipping, setClipping) = React.useState(() => false)
   let clipsRef: React.ref<array<clipState>> = React.useRef([])
 
@@ -2114,6 +2143,8 @@ let make = () => {
   // The active capture screen locks to the viewport (video flexes to fill,
   // controls hug the bottom); every other screen scrolls normally.
   let fullScreenSession = stage == Active
+  // Court setup is showing (it only renders over a live session's feed).
+  let calibrating = calibOpen && category == Live && stage == Active
 
   <div
     className={cx([
@@ -2157,7 +2188,13 @@ let make = () => {
       ])}>
       {inSession
         ? <>
-            <button
+            {calibrating
+              ? // Court setup's toolbar portals in here, so nothing covers
+                // the frame being calibrated (the back button returns after).
+                <div
+                  ref={ReactDOM.Ref.callbackDomRef(calibToolbarRef)} className="mb-3 shrink-0"
+                />
+              : <button
               type_="button"
               onClick={_ => category == Live ? handleEndLive() : resetSession()}
               className={cx([
@@ -2166,7 +2203,7 @@ let make = () => {
               ])}>
               <Lucide.ArrowLeft \"aria-hidden"="true" size=23 />
               {category == Live ? t`End session and exit` : t`Back to modes`}
-            </button>
+            </button>}
             <SessionWorkspace
               category
               analysisMode=selectedAnalysisMode
@@ -2178,6 +2215,7 @@ let make = () => {
               reviewClip
               challenge
               calibOpen
+              calibToolbarHost
               onCalibDone={() => setCalibOpen(_ => false)}
               onCalibOpen={() => setCalibOpen(_ => true)}
               testMode

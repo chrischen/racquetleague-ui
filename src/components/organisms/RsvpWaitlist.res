@@ -78,7 +78,7 @@ let make = (
             rsvp={rsvp.fragmentRefs}
             viewer
             activitySlug
-            maxRating={0.0}
+            maxRating
             isAdmin=eventData.viewerIsAdmin
             eventPrice=?eventData.price
           />}

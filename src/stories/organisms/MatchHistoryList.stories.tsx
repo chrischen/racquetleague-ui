@@ -6,8 +6,9 @@ import { make as MatchHistoryListStory, query } from "./MatchHistoryListStory.ge
 // Match cards for a player's league page or an event's results: both teams
 // with each player's rating change and a ring for their skill within the
 // match, the score and result, and a bar under the card for the pre-match
-// favourite (blue; amber when the favourite lost, an "Even" tab when there is
-// no favourite). From a player's page their team is on the left.
+// favourite (blue; amber when the favourite lost, an "Even" tab when neither
+// side was over 55% to win). From a player's page their team is on the left
+// and the result is theirs (WIN/LOSS); without a player the winners are.
 // Players come from the shared roster in StoryFixturesProfile.res.
 
 /** [user id, mu before the match, sigma before, change in mu] */
@@ -24,7 +25,7 @@ const match = (
   createdAt: string,
   winners: Seat[],
   losers: Seat[],
-  score: [number, number],
+  score: [number, number] | null,
   namespace = "doubles:comp",
 ) => {
   // Each player's rating before the match and its change, keyed by user id.
@@ -92,6 +93,10 @@ const EVENT_NIGHT = [
   match("match-698", "2026-09-24T11:10:00.000Z",
     [["user-ryo", 35.8, 2.4, 0], ["user-jess", 27.2, 3.8, 0]],
     [["user-lucas", 32.8, 3.1, 0], ["user-mai", 33.2, 2.6, 0]], [-1, -1]),
+  // A match recorded without a score: no score, the recorded winners won.
+  match("match-697", "2026-09-24T10:50:00.000Z",
+    [["user-kenji", 41.5, 2.1, 0.2], ["user-haruka", 36.4, 2.5, 0.18]],
+    [["user-chris", 33.9, 2.8, -0.2], ["user-taro", 26.4, 4.1, -0.16]], null),
 ];
 
 const meta = {
@@ -117,13 +122,23 @@ export const PlayerHistory: Story = {
 };
 
 /**
- * An event's results, with no player to anchor the cards. The left side is
- * then always the team recorded as losing, so scored matches all read LOSS;
- * the unscored draw shows its -1 sentinel as the score.
+ * An event's results, with no player to anchor the cards. They read neutrally:
+ * the team that won on the score is on the left, "left BEAT right", and the
+ * unscored draw and the match recorded without a score show none.
  */
 export const EventResults: Story = {
   args: { perspective: "event" },
   parameters: { relay: { mocks: { Query: { matches: connection(EVENT_NIGHT) } } } },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect((await canvas.findAllByText("BEAT")).length).toBeGreaterThan(0);
+    await expect(canvas.queryByText("LOSS")).toBeNull();
+    await expect(canvas.queryByText("WIN")).toBeNull();
+    await expect(canvas.getAllByText("DRAW").length).toBeGreaterThan(0);
+    await expect(canvas.queryByText("-1")).toBeNull();
+    // No made-up score for the match without one.
+    await expect(canvas.queryByText("21")).toBeNull();
+  },
 };
 
 /** Links to earlier and later pages of matches around the loaded window. */

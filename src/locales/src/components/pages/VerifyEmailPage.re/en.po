@@ -13,71 +13,76 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/pages/VerifyEmailPage.re.mjs:129
-msgid "Confirming your email…"
-msgstr "Confirming your email…"
-
-#: src/components/pages/VerifyEmailPage.re.mjs:166
-msgid "Couldn't confirm this email"
-msgstr "Couldn't confirm this email"
-
-#: src/components/pages/VerifyEmailPage.re.mjs:140
-msgid "Email confirmed"
-msgstr "Email confirmed"
-
-#: src/components/pages/VerifyEmailPage.re.mjs:156
-#: src/components/pages/VerifyEmailPage.re.mjs:175
-msgid "Go to profile settings"
-msgstr "Go to profile settings"
-
-#: src/components/pages/VerifyEmailPage.re.mjs:150
-msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
-msgstr "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
-
-#: src/components/pages/VerifyEmailPage.re.mjs:63
-msgid "Something went wrong. Please try again."
-msgstr "Something went wrong. Please try again."
-
-#: src/components/pages/VerifyEmailPage.re.mjs:55
-msgid "This address is already used by another pkuru account."
-msgstr "This address is already used by another pkuru account."
-
-#: src/components/pages/VerifyEmailPage.re.mjs:59
-msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
-msgstr "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
-
-#: src/components/pages/VerifyEmailPage.re.mjs:57
-msgid "This link has expired. Send a new one from your profile settings."
-msgstr "This link has expired. Send a new one from your profile settings."
-
-#: src/components/pages/VerifyEmailPage.re.mjs:61
-msgid "This link is incomplete. Open it from the email again."
-msgstr "This link is incomplete. Open it from the email again."
-
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:185
 msgid "Account email changed"
 msgstr "Account email changed"
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:175
+msgid "Confirming your email…"
+msgstr "Confirming your email…"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:266
+msgid "Couldn't confirm this email"
+msgstr "Couldn't confirm this email"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:208
+#: src/components/pages/VerifyEmailPage.re.mjs:237
+msgid "Email confirmed"
+msgstr "Email confirmed"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:194
+#: src/components/pages/VerifyEmailPage.re.mjs:224
+#: src/components/pages/VerifyEmailPage.re.mjs:253
+#: src/components/pages/VerifyEmailPage.re.mjs:275
+msgid "Go to profile settings"
+msgstr "Go to profile settings"
+
+#: src/components/pages/VerifyEmailPage.re.mjs:218
+msgid "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+msgstr "is now one of your receiving emails. Bookings you forward from it to chris@pkuru.com will be added to your events."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:247
 msgid "is now your account email."
 msgstr "is now your account email."
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:67
+#: src/components/pages/VerifyEmailPage.re.mjs:83
+msgid "Something went wrong. Please try again."
+msgstr "Something went wrong. Please try again."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:59
+#: src/components/pages/VerifyEmailPage.re.mjs:73
+msgid "This address is already used by another pkuru account."
+msgstr "This address is already used by another pkuru account."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:63
+msgid "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+msgstr "This link doesn't work for this account. Make sure you're signed in to the account that added the address, or send a new link from your profile settings."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:75
 msgid "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
 msgstr "This link doesn't work. Open it from the email again, or ask for a new one from your profile settings."
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:81
 msgid "This link has already been used, or your account email has changed since it was sent."
 msgstr "This link has already been used, or your account email has changed since it was sent."
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:79
 msgid "This link has expired. Ask for a new one from your profile settings."
 msgstr "This link has expired. Ask for a new one from your profile settings."
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:61
+msgid "This link has expired. Send a new one from your profile settings."
+msgstr "This link has expired. Send a new one from your profile settings."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:65
+msgid "This link is incomplete. Open it from the email again."
+msgstr "This link is incomplete. Open it from the email again."
+
+#: src/components/pages/VerifyEmailPage.re.mjs:77
 msgid "You're signed in to a different account. Sign out, then open the link again."
 msgstr "You're signed in to a different account. Sign out, then open the link again."
 
-#: src/components/pages/VerifyEmailPage.re.mjs
+#: src/components/pages/VerifyEmailPage.re.mjs:189
 msgid "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."
 msgstr "Your account now uses the new address. Your previous address is kept as a receiving email, which you can remove in your profile settings."

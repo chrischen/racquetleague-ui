@@ -4,6 +4,7 @@ import * as Util from "../shared/Util.re.mjs";
 import * as Rating from "../../lib/Rating.re.mjs";
 import * as Js_dict from "rescript/lib/es6/js_dict.js";
 import * as Js_json from "rescript/lib/es6/js_json.js";
+import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
@@ -226,6 +227,65 @@ var MatchHistoryListUserFragment = {
   useOpt: useOpt$3
 };
 
+function isUnscored(leftScore, rightScore) {
+  if (leftScore < 0.0) {
+    return rightScore < 0.0;
+  } else {
+    return false;
+  }
+}
+
+function winnersOnLeft(viewerInWinners, winnersScore, losersScore) {
+  if (viewerInWinners !== undefined) {
+    return viewerInWinners;
+  } else {
+    return winnersScore >= losersScore;
+  }
+}
+
+function readFromLeft(viewerInWinners, score) {
+  if (score !== undefined && score.length === 2) {
+    var winnersScore = score[0];
+    var losersScore = score[1];
+    var winnersLeft = winnersOnLeft(viewerInWinners, winnersScore, losersScore);
+    var match = winnersLeft ? [
+        winnersScore,
+        losersScore
+      ] : [
+        losersScore,
+        winnersScore
+      ];
+    var rightScore = match[1];
+    var leftScore = match[0];
+    return {
+            winnersLeft: winnersLeft,
+            isWin: leftScore > rightScore,
+            isLoss: leftScore < rightScore,
+            shownScore: isUnscored(leftScore, rightScore) ? undefined : [
+                leftScore,
+                rightScore
+              ]
+          };
+  }
+  var winnersLeft$1 = Core__Option.getOr(viewerInWinners, true);
+  return {
+          winnersLeft: winnersLeft$1,
+          isWin: winnersLeft$1,
+          isLoss: !winnersLeft$1,
+          shownScore: undefined
+        };
+}
+
+function favoredSide(leftTeamProbability) {
+  if (Math.max(leftTeamProbability, 1.0 - leftTeamProbability) < 0.55) {
+    return "even";
+  } else if (leftTeamProbability > 0.5) {
+    return "left";
+  } else {
+    return "right";
+  }
+}
+
 function MatchHistoryList$PlayerBadge(props) {
   var normalizedSkill = props.normalizedSkill;
   var __isYou = props.isYou;
@@ -252,7 +312,7 @@ function MatchHistoryList$PlayerBadge(props) {
                                     className: "text-xs font-semibold"
                                   })
                             ],
-                            className: change > 0.0 ? "flex items-center gap-0.5 text-emerald-600" : "flex items-center gap-0.5 text-rose-600"
+                            className: change > 0.0 ? "flex items-center gap-0.5 text-emerald-600 dark:text-emerald-400" : "flex items-center gap-0.5 text-rose-600 dark:text-rose-400"
                           }));
           }
         }));
@@ -265,7 +325,7 @@ function MatchHistoryList$PlayerBadge(props) {
                         children: [
                           JsxRuntime.jsx("span", {
                                 children: firstName,
-                                className: isYou ? "text-sm font-semibold text-gray-900" : "text-sm text-gray-700"
+                                className: isYou ? "text-sm font-semibold text-gray-900 dark:text-gray-100" : "text-sm text-gray-700 dark:text-gray-300"
                               }),
                           JsxRuntime.jsx(AvatarWithProgressBar.make, {
                                 pictureUrl: player.picture,
@@ -293,7 +353,7 @@ function MatchHistoryList$PlayerBadge(props) {
                               }),
                           JsxRuntime.jsx("span", {
                                 children: firstName,
-                                className: isYou ? "text-sm font-semibold text-gray-900" : "text-sm text-gray-700"
+                                className: isYou ? "text-sm font-semibold text-gray-900 dark:text-gray-100" : "text-sm text-gray-700 dark:text-gray-300"
                               })
                         ],
                         className: "flex items-center gap-2 hover:opacity-80 transition-opacity"
@@ -310,7 +370,6 @@ var PlayerBadge = {
 };
 
 function MatchHistoryList$Match(props) {
-  var user = props.user;
   var match = use$1(props.match);
   var winners = match.winners;
   var losers = match.losers;
@@ -318,44 +377,28 @@ function MatchHistoryList$Match(props) {
   var _isCompetitive = Core__Option.getOr(Core__Option.map(match.namespace, (function (ns) {
               return ns === "competitive";
             })), false);
-  var userInWinners = Core__Option.isSome(Core__Option.flatMap(user, (function (user) {
-              var user$1 = use$3(user);
-              return Core__Option.flatMap(winners, (function (__x) {
-                            return Core__Array.findMap(__x, (function (x) {
-                                          if (x.id === user$1.id) {
-                                            return user$1.id;
-                                          }
-                                          
-                                        }));
-                          }));
-            })));
-  var match$1 = Core__Option.getOr(Core__Option.flatMap(match.score, (function (s) {
-              if (s.length !== 2) {
-                return ;
-              }
-              var left = s[0];
-              var right = s[1];
-              return [
-                      left,
-                      right
-                    ];
-            })), [
-        21.0,
-        18.0
-      ]);
-  var losersScore = match$1[1];
-  var winnersScore = match$1[0];
-  var match$2 = userInWinners ? [
-      winnersScore,
-      losersScore
-    ] : [
-      losersScore,
-      winnersScore
-    ];
-  var rightScore = match$2[1];
-  var leftScore = match$2[0];
-  var isWin = leftScore > rightScore;
-  var isLoss = leftScore < rightScore;
+  var viewerId = Core__Option.map(useOpt$3(props.user), (function (u) {
+          return u.id;
+        }));
+  var viewerInWinners = Core__Option.flatMap(viewerId, (function (viewerId) {
+          if (Core__Option.getOr(winners, []).some(function (x) {
+                  return x.id === viewerId;
+                })) {
+            return true;
+          } else if (Core__Option.getOr(losers, []).some(function (x) {
+                  return x.id === viewerId;
+                })) {
+            return false;
+          } else {
+            return ;
+          }
+        }));
+  var fromViewer = Core__Option.isSome(viewerInWinners);
+  var match$1 = readFromLeft(viewerInWinners, match.score);
+  var shownScore = match$1.shownScore;
+  var isLoss = match$1.isLoss;
+  var isWin = match$1.isWin;
+  var winnersLeft = match$1.winnersLeft;
   var allPlayerIds = Core__Option.getOr(Core__Option.map(winners, (function (w) {
                 return w.map(function (p) {
                             return p.id;
@@ -365,9 +408,9 @@ function MatchHistoryList$Match(props) {
                               return p.id;
                             });
                 })), []));
-  var match$3 = getMinMaxMu(metadata, allPlayerIds);
-  var maxMu = match$3[1];
-  var minMu = match$3[0];
+  var match$2 = getMinMaxMu(metadata, allPlayerIds);
+  var maxMu = match$2[1];
+  var minMu = match$2[0];
   var winnersRatings = Core__Option.map(winners, (function (w) {
           return Core__Array.filterMap(w.map(function (p) {
                           return Core__Option.map(get(metadata, p.id), (function (r) {
@@ -392,7 +435,7 @@ function MatchHistoryList$Match(props) {
                         return x;
                       }));
         }));
-  var match$4;
+  var match$3;
   if (winnersRatings !== undefined) {
     if (losersRatings !== undefined) {
       if (winnersRatings.length > 0 && losersRatings.length > 0) {
@@ -402,7 +445,7 @@ function MatchHistoryList$Match(props) {
             ]);
         var winnersProb = Core__Option.getOr(winProbs[0], 0.5);
         var losersProb = Core__Option.getOr(winProbs[1], 0.5);
-        match$4 = winnersProb > losersProb ? [
+        match$3 = winnersProb > losersProb ? [
             true,
             winnersProb
           ] : [
@@ -410,36 +453,34 @@ function MatchHistoryList$Match(props) {
             losersProb
           ];
       } else {
-        match$4 = [
+        match$3 = [
           false,
           0.5
         ];
       }
     } else {
-      match$4 = [
+      match$3 = [
         false,
         0.5
       ];
     }
   } else {
-    match$4 = [
+    match$3 = [
       false,
       0.5
     ];
   }
-  var favoredWinProb = match$4[1];
-  var winnersFavored = match$4[0];
-  var leftTeamFavored = userInWinners ? winnersFavored : !winnersFavored;
+  var favoredWinProb = match$3[1];
+  var winnersFavored = match$3[0];
+  var leftTeamFavored = winnersLeft ? winnersFavored : !winnersFavored;
   var leftTeamProbability = leftTeamFavored ? favoredWinProb : 1.0 - favoredWinProb;
   var rightTeamProbability = 1.0 - leftTeamProbability;
-  var favoredTeam = leftTeamProbability > 0.5 ? "left" : (
-      leftTeamProbability < 0.5 ? "right" : "even"
-    );
+  var favoredTeam = favoredSide(leftTeamProbability);
   var wasUpset = favoredTeam === "left" && isLoss || favoredTeam === "right" && isWin;
   var favoredProbability = Math.max(leftTeamProbability, rightTeamProbability);
   var barWidthPercentage = (favoredProbability - 0.5) / 0.5 * 100.0;
   var barPointsRight = leftTeamProbability < 0.5;
-  var showPill = favoredProbability > 0.55;
+  var showPill = favoredTeam !== "even";
   var renderWinnerBadges = function (players, align) {
     return Core__Option.getOr(Core__Option.map(players, (function (team) {
                       return team.map(function (player, _idx) {
@@ -454,10 +495,7 @@ function MatchHistoryList$Match(props) {
                                               player: player.fragmentRefs,
                                               ratingChange: ratingChange,
                                               align: align,
-                                              isYou: Core__Option.getOr(Core__Option.flatMap(user, (function (u) {
-                                                          var u$1 = use$3(u);
-                                                          return u$1.id === player.id;
-                                                        })), false),
+                                              isYou: Caml_obj.equal(viewerId, player.id),
                                               normalizedSkill: normalizedSkill
                                             }, player.id);
                                 });
@@ -477,15 +515,17 @@ function MatchHistoryList$Match(props) {
                                               player: player.fragmentRefs,
                                               ratingChange: ratingChange,
                                               align: align,
-                                              isYou: Core__Option.getOr(Core__Option.flatMap(user, (function (u) {
-                                                          var u$1 = use$3(u);
-                                                          return u$1.id === player.id;
-                                                        })), false),
+                                              isYou: Caml_obj.equal(viewerId, player.id),
                                               normalizedSkill: normalizedSkill
                                             }, player.id);
                                 });
                     })), null);
   };
+  var resultLabel = isWin ? (
+      fromViewer ? t`WIN` : t`BEAT`
+    ) : (
+      isLoss ? t`LOSS` : t`DRAW`
+    );
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsxs("div", {
@@ -495,42 +535,42 @@ function MatchHistoryList$Match(props) {
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("div", {
-                                              children: userInWinners ? renderWinnerBadges(winners, "left") : renderLoserBadges(losers, "left"),
+                                              children: winnersLeft ? renderWinnerBadges(winners, "left") : renderLoserBadges(losers, "left"),
                                               className: "flex-1 space-y-2"
                                             }),
                                         JsxRuntime.jsx("div", {
-                                              children: leftScore.toFixed(0),
-                                              className: "text-3xl font-bold text-gray-900 tabular-nums"
+                                              children: Core__Option.mapOr(shownScore, "", (function (param) {
+                                                      return param[0].toFixed(0);
+                                                    })),
+                                              className: "text-3xl font-bold text-gray-900 dark:text-gray-100 tabular-nums"
                                             })
                                       ],
                                       className: "flex items-center justify-between gap-3 rounded-lg p-3 -m-3 mb-0 " + (
-                                        isWin ? "bg-emerald-50/50" : (
-                                            isLoss ? "bg-rose-50/50" : "bg-gray-50/50"
+                                        isWin ? "bg-emerald-50/50 dark:bg-emerald-500/10" : (
+                                            isLoss ? "bg-rose-50/50 dark:bg-rose-500/10" : "bg-gray-50/50 dark:bg-white/5"
                                           )
                                       )
                                     }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("div", {
-                                              className: "flex-1 h-px bg-gray-200"
+                                              className: "flex-1 h-px bg-gray-200 dark:bg-gray-700"
                                             }),
                                         JsxRuntime.jsxs("div", {
                                               children: [
                                                 _isCompetitive ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                         className: "w-3 h-3"
                                                       }) : null,
-                                                isWin ? t`WIN` : (
-                                                    isLoss ? t`LOSS` : t`DRAW`
-                                                  )
+                                                resultLabel
                                               ],
                                               className: "px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 " + (
-                                                isWin ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : (
-                                                    isLoss ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-gray-100 text-gray-700 border border-gray-200"
+                                                isWin ? "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800" : (
+                                                    isLoss ? "bg-rose-50 text-rose-700 border border-rose-200 dark:bg-rose-900/30 dark:text-rose-400 dark:border-rose-800" : "bg-gray-100 text-gray-700 border border-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
                                                   )
                                               )
                                             }),
                                         JsxRuntime.jsx("div", {
-                                              className: "flex-1 h-px bg-gray-200"
+                                              className: "flex-1 h-px bg-gray-200 dark:bg-gray-700"
                                             })
                                       ],
                                       className: "flex items-center justify-center gap-3"
@@ -538,17 +578,19 @@ function MatchHistoryList$Match(props) {
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("div", {
-                                              children: userInWinners ? renderLoserBadges(losers, "left") : renderWinnerBadges(winners, "left"),
+                                              children: winnersLeft ? renderLoserBadges(losers, "left") : renderWinnerBadges(winners, "left"),
                                               className: "flex-1 space-y-2"
                                             }),
                                         JsxRuntime.jsx("div", {
-                                              children: rightScore.toFixed(0),
-                                              className: "text-3xl font-bold text-gray-900 tabular-nums"
+                                              children: Core__Option.mapOr(shownScore, "", (function (param) {
+                                                      return param[1].toFixed(0);
+                                                    })),
+                                              className: "text-3xl font-bold text-gray-900 dark:text-gray-100 tabular-nums"
                                             })
                                       ],
                                       className: "flex items-center justify-between gap-3 rounded-lg p-3 -m-3 mt-0 " + (
-                                        isLoss ? "bg-emerald-50/50" : (
-                                            isWin ? "bg-rose-50/50" : "bg-gray-50/50"
+                                        isLoss ? "bg-emerald-50/50 dark:bg-emerald-500/10" : (
+                                            isWin ? "bg-rose-50/50 dark:bg-rose-500/10" : "bg-gray-50/50 dark:bg-white/5"
                                           )
                                       )
                                     })
@@ -558,38 +600,36 @@ function MatchHistoryList$Match(props) {
                         JsxRuntime.jsxs("div", {
                               children: [
                                 JsxRuntime.jsx("div", {
-                                      children: userInWinners ? renderWinnerBadges(winners, "left") : renderLoserBadges(losers, "left"),
+                                      children: winnersLeft ? renderWinnerBadges(winners, "left") : renderLoserBadges(losers, "left"),
                                       className: "flex-1 space-y-2 rounded-lg p-3 " + (
-                                        isWin ? "bg-emerald-50/50" : (
-                                            isLoss ? "bg-rose-50/50" : "bg-gray-50/50"
+                                        isWin ? "bg-emerald-50/50 dark:bg-emerald-500/10" : (
+                                            isLoss ? "bg-rose-50/50 dark:bg-rose-500/10" : "bg-gray-50/50 dark:bg-white/5"
                                           )
                                       )
                                     }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
-                                        JsxRuntime.jsxs("div", {
-                                              children: [
-                                                leftScore.toFixed(0),
-                                                JsxRuntime.jsx("span", {
-                                                      children: "-",
-                                                      className: "text-gray-400 mx-2"
-                                                    }),
-                                                rightScore.toFixed(0)
-                                              ],
-                                              className: "text-2xl font-bold text-gray-900 tabular-nums"
-                                            }),
+                                        shownScore !== undefined ? JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  shownScore[0].toFixed(0),
+                                                  JsxRuntime.jsx("span", {
+                                                        children: "-",
+                                                        className: "text-gray-400 mx-2"
+                                                      }),
+                                                  shownScore[1].toFixed(0)
+                                                ],
+                                                className: "text-2xl font-bold text-gray-900 dark:text-gray-100 tabular-nums"
+                                              }) : null,
                                         JsxRuntime.jsxs("div", {
                                               children: [
                                                 _isCompetitive ? JsxRuntime.jsx(LucideReact.Trophy, {
                                                         className: "w-3 h-3"
                                                       }) : null,
-                                                isWin ? t`WIN` : (
-                                                    isLoss ? t`LOSS` : t`DRAW`
-                                                  )
+                                                resultLabel
                                               ],
                                               className: "px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5 " + (
-                                                isWin ? "bg-emerald-50 text-emerald-700 border border-emerald-200" : (
-                                                    isLoss ? "bg-rose-50 text-rose-700 border border-rose-200" : "bg-gray-100 text-gray-700 border border-gray-200"
+                                                isWin ? "bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800" : (
+                                                    isLoss ? "bg-rose-50 text-rose-700 border border-rose-200 dark:bg-rose-900/30 dark:text-rose-400 dark:border-rose-800" : "bg-gray-100 text-gray-700 border border-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700"
                                                   )
                                               )
                                             })
@@ -597,10 +637,10 @@ function MatchHistoryList$Match(props) {
                                       className: "flex flex-col items-center gap-2 sm:min-w-[120px]"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      children: userInWinners ? renderLoserBadges(losers, "right") : renderWinnerBadges(winners, "right"),
+                                      children: winnersLeft ? renderLoserBadges(losers, "right") : renderWinnerBadges(winners, "right"),
                                       className: "flex-1 space-y-2 rounded-lg p-3 " + (
-                                        isLoss ? "bg-emerald-50/50" : (
-                                            isWin ? "bg-rose-50/50" : "bg-gray-50/50"
+                                        isLoss ? "bg-emerald-50/50 dark:bg-emerald-500/10" : (
+                                            isWin ? "bg-rose-50/50 dark:bg-rose-500/10" : "bg-gray-50/50 dark:bg-white/5"
                                           )
                                       )
                                     })
@@ -611,15 +651,15 @@ function MatchHistoryList$Match(props) {
                               children: Core__Option.getOr(Core__Option.map(match.createdAt, (function (date) {
                                           return Util.Datetime.toDate(date).toLocaleDateString();
                                         })), null),
-                              className: "mt-3 text-xs text-gray-500"
+                              className: "mt-3 text-xs text-gray-500 dark:text-gray-400"
                             })
                       ],
-                      className: "p-4"
+                      className: "p-4 pb-6"
                     }),
                 JsxRuntime.jsxs("div", {
                       children: [
                         JsxRuntime.jsx("div", {
-                              className: "absolute left-1/2 top-0 bottom-0 w-px bg-gray-300"
+                              className: "absolute left-1/2 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-600"
                             }),
                         favoredTeam !== "even" ? JsxRuntime.jsx("div", {
                                 children: showPill ? JsxRuntime.jsx("div", {
@@ -666,10 +706,10 @@ function MatchHistoryList$Match(props) {
                                 className: "absolute left-1/2 bottom-full mb-0.5 -translate-x-1/2"
                               }) : null
                       ],
-                      className: "h-1 w-full bg-gray-100 relative"
+                      className: "h-1 w-full bg-gray-100 dark:bg-gray-800 relative"
                     })
               ],
-              className: "bg-white rounded-xl border border-gray-200 overflow-hidden"
+              className: "bg-white dark:bg-[#1e1f23] rounded-xl border border-gray-200 dark:border-[#2a2b30] overflow-hidden"
             }, match.id);
 }
 
@@ -723,6 +763,8 @@ function MatchHistoryList(props) {
             });
 }
 
+var evenBelow = 0.55;
+
 var make = MatchHistoryList;
 
 var $$default = MatchHistoryList;
@@ -734,6 +776,11 @@ export {
   PlayerRating ,
   PlayerMetadata ,
   MatchHistoryListUserFragment ,
+  isUnscored ,
+  winnersOnLeft ,
+  readFromLeft ,
+  evenBelow ,
+  favoredSide ,
   PlayerBadge ,
   Match ,
   make ,

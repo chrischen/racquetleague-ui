@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/organisms/RatingList.re.mjs:664
+#: src/components/organisms/RatingList.re.mjs:693
 msgid "...load higher rated players"
 msgstr "...加载更高评分的球员"
 
@@ -25,7 +25,7 @@ msgstr "全部"
 msgid "All Clubs"
 msgstr "所有俱乐部"
 
-#: src/components/organisms/RatingList.re.mjs:773
+#: src/components/organisms/RatingList.re.mjs:802
 msgid "All players loaded"
 msgstr "所有球员已加载"
 
@@ -38,16 +38,16 @@ msgstr "竞技双打"
 msgid "Competitive Singles"
 msgstr "竞技单打"
 
-#: src/components/organisms/RatingList.re.mjs:699
+#: src/components/organisms/RatingList.re.mjs:728
 msgid "Days #1"
 msgstr "第 1 天"
 
-#: src/components/organisms/RatingList.re.mjs:202
-#: src/components/organisms/RatingList.re.mjs:223
+#: src/components/organisms/RatingList.re.mjs:226
+#: src/components/organisms/RatingList.re.mjs:247
 msgid "Draft"
 msgstr "草稿"
 
-#: src/components/organisms/RatingList.re.mjs:731
+#: src/components/organisms/RatingList.re.mjs:760
 msgid "Draft cutoff · Top 8 qualify"
 msgstr "草稿截止 · 前8名晋级"
 
@@ -56,7 +56,7 @@ msgstr "草稿截止 · 前8名晋级"
 msgid "Draft starts Tuesday, September 15, 2026"
 msgstr "选秀于2026年9月15日（周二）开始"
 
-#: src/components/organisms/RatingList.re.mjs:695
+#: src/components/organisms/RatingList.re.mjs:724
 msgid "Est. DUPR"
 msgstr "预计 DUPR"
 
@@ -72,11 +72,11 @@ msgstr "按性别筛选"
 msgid "Live Standings"
 msgstr "实时排名"
 
-#: src/components/organisms/RatingList.re.mjs:638
+#: src/components/organisms/RatingList.re.mjs:667
 msgid "Load more players..."
 msgstr "加载更多球员..."
 
-#: src/components/organisms/RatingList.re.mjs:614
+#: src/components/organisms/RatingList.re.mjs:643
 msgid "Loading next standings"
 msgstr "加载下一排名"
 
@@ -88,7 +88,7 @@ msgstr "加载排名..."
 msgid "Men"
 msgstr "男子"
 
-#: src/components/organisms/RatingList.re.mjs:754
+#: src/components/organisms/RatingList.re.mjs:783
 msgid "No players found"
 msgstr "未找到球员"
 
@@ -96,7 +96,7 @@ msgstr "未找到球员"
 msgid "Over ￥200,000 in prizes"
 msgstr "奖品总价值超过￥200,000"
 
-#: src/components/organisms/RatingList.re.mjs:687
+#: src/components/organisms/RatingList.re.mjs:716
 msgid "Player"
 msgstr "球员"
 
@@ -122,7 +122,7 @@ msgstr "季后赛选秀"
 msgid "Presented by"
 msgstr "由...呈现"
 
-#: src/components/organisms/RatingList.re.mjs:691
+#: src/components/organisms/RatingList.re.mjs:720
 msgid "Rating"
 msgstr "评分"
 
@@ -173,11 +173,11 @@ msgid ""
 "events) to receive a rating."
 msgstr "参与方式：报名任意带有奖杯图标的赛事（竞技评级赛事）即可获得评级。"
 
-#: src/components/organisms/RatingList.re.mjs:758
+#: src/components/organisms/RatingList.re.mjs:787
 msgid "Try broadening your search or filters."
 msgstr "请尝试扩大搜索范围或调整筛选条件。"
 
-#: src/components/organisms/RatingList.re.mjs:424
+#: src/components/organisms/RatingList.re.mjs:448
 msgid "View my profile"
 msgstr "查看我的主页"
 
@@ -185,11 +185,11 @@ msgstr "查看我的主页"
 msgid "Women"
 msgstr "女子"
 
-#: src/components/organisms/RatingList.re.mjs:360
+#: src/components/organisms/RatingList.re.mjs:384
 msgid "You"
 msgstr "我"
 
-#: src/components/organisms/RatingList.re.mjs:308
+#: src/components/organisms/RatingList.re.mjs:332
 msgid "Your standing"
 msgstr "我的排名"
 

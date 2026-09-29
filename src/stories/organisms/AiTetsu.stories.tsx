@@ -12,8 +12,7 @@ import { must } from "../support";
 // session's own match history. Start Session switches to the black full-screen
 // session (MatchesView), which opens on check-in. The session is restored from
 // localStorage, which the wrapper fills first: a Thursday night with 20 RSVPs
-// (StoryFixturesMatch), 16 checked in, and round 1 and 2 results. (No walk-ins:
-// AiTetsu cannot read back the walk-ins it saves; see AiTetsuStory.res.)
+// (StoryFixturesMatch) plus a walk-in, 17 checked in, and round 1 and 2 results.
 const EVENT = {
   ...eventMock,
   tags: [],
@@ -97,12 +96,13 @@ export const FreshSession: Story = {
   },
 };
 
-/** Two rounds in: round 1 submitted to the server, and six results in the session's own history. */
+/** Two rounds in: round 1 submitted to the server, six results in the session's own history, and the walk-in back on the leaderboard. */
 export const Underway: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(await canvas.findByText("Match History")).toBeVisible();
     await waitFor(() => expect(canvas.getAllByText("Cancel")).toHaveLength(6));
+    await expect(canvas.getByText("Kaito Mori")).toBeVisible();
   },
 };
 
@@ -126,7 +126,7 @@ export const TeamBuilder: Story = {
   },
 };
 
-/** Start Session: the black full-screen session opens on check-in, 16 of 20 here. */
+/** Start Session: the black full-screen session opens on check-in, 17 of 21 here. */
 export const SessionCheckIn: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

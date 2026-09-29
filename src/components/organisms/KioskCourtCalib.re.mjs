@@ -4,6 +4,7 @@ import * as React from "react";
 import * as Caml_obj from "rescript/lib/es6/caml_obj.js";
 import * as DinkHunt from "../../lib/DinkHunt.re.mjs";
 import * as UserMedia from "../../lib/UserMedia.re.mjs";
+import * as ReactDom from "react-dom";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Float from "@rescript/core/src/Core__Float.re.mjs";
@@ -471,7 +472,209 @@ function storePlaced(width, height, placed) {
   
 }
 
-function cropRegion(placed, nativeW, nativeH) {
+function defaultPairs(nativeW, nativeH) {
+  return [
+          [
+            [
+              - 3.05,
+              6.705
+            ],
+            [
+              0.18 * nativeW,
+              0.86 * nativeH
+            ]
+          ],
+          [
+            [
+              3.05,
+              6.705
+            ],
+            [
+              0.82 * nativeW,
+              0.86 * nativeH
+            ]
+          ],
+          [
+            [
+              3.05,
+              - 6.705
+            ],
+            [
+              0.68 * nativeW,
+              0.34 * nativeH
+            ]
+          ],
+          [
+            [
+              - 3.05,
+              - 6.705
+            ],
+            [
+              0.32 * nativeW,
+              0.34 * nativeH
+            ]
+          ]
+        ];
+}
+
+function defaultFit(nativeW, nativeH) {
+  return Core__Option.getExn(solveHomography(defaultPairs(nativeW, nativeH)), undefined);
+}
+
+function area2(param, param$1, param$2) {
+  var ay = param[1];
+  var ax = param[0];
+  return (param$1[0] - ax) * (param$2[1] - ay) - (param$1[1] - ay) * (param$2[0] - ax);
+}
+
+function tripleSign(a, b, c) {
+  var w = area2(worldOf(a.name), worldOf(b.name), worldOf(c.name));
+  var pa_0 = a.x;
+  var pa_1 = a.y;
+  var pa = [
+    pa_0,
+    pa_1
+  ];
+  var pb_0 = b.x;
+  var pb_1 = b.y;
+  var pb = [
+    pb_0,
+    pb_1
+  ];
+  var pc_0 = c.x;
+  var pc_1 = c.y;
+  var pc = [
+    pc_0,
+    pc_1
+  ];
+  var i = area2(pa, pb, pc);
+  var d2 = function (param, param$1) {
+    var y2 = param$1[1];
+    var x2 = param$1[0];
+    var y1 = param[1];
+    var x1 = param[0];
+    return (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
+  };
+  var longest = Math.max(d2(pa, pb), Math.max(d2(pb, pc), d2(pa, pc)));
+  var usable = Math.abs(w) >= 1.0 && longest >= 8 * 8 && Math.abs(i) / longest >= 0.04;
+  if (usable) {
+    if (w * i > 0) {
+      return 1;
+    } else {
+      return -1;
+    }
+  } else {
+    return 0;
+  }
+}
+
+function hasAffineBasis(placed) {
+  var n = placed.length;
+  var found = false;
+  for(var i = 0 ,i_finish = n - 3 | 0; i <= i_finish; ++i){
+    for(var j = i + 1 | 0 ,j_finish = n - 2 | 0; j <= j_finish; ++j){
+      for(var k = j + 1 | 0; k < n; ++k){
+        if (!found) {
+          found = tripleSign(placed[i], placed[j], placed[k]) !== 0;
+        }
+        
+      }
+    }
+  }
+  return found;
+}
+
+function hasPerspectiveBasis(placed) {
+  var n = placed.length;
+  var found = false;
+  for(var i = 0 ,i_finish = n - 4 | 0; i <= i_finish; ++i){
+    for(var j = i + 1 | 0 ,j_finish = n - 3 | 0; j <= j_finish; ++j){
+      for(var k = j + 1 | 0 ,k_finish = n - 2 | 0; k <= k_finish; ++k){
+        for(var l = k + 1 | 0; l < n; ++l){
+          if (!found) {
+            var s = [
+              tripleSign(placed[i], placed[j], placed[k]),
+              tripleSign(placed[i], placed[j], placed[l]),
+              tripleSign(placed[i], placed[k], placed[l]),
+              tripleSign(placed[j], placed[k], placed[l])
+            ];
+            found = s.every(function (v) {
+                  return v === 1;
+                }) || s.every(function (v) {
+                  return v === -1;
+                });
+          }
+          
+        }
+      }
+    }
+  }
+  return found;
+}
+
+function solveAffine(pairs) {
+  var m = Core__Array.make(9, 0);
+  var rx = Core__Array.make(3, 0);
+  var ry = Core__Array.make(3, 0);
+  pairs.forEach(function (param) {
+        var match = param[1];
+        var py = match[1];
+        var px = match[0];
+        var match$1 = param[0];
+        var v = [
+          match$1[0],
+          match$1[1],
+          1
+        ];
+        for(var r = 0; r <= 2; ++r){
+          var vr = v[r];
+          rx[r] = rx[r] + vr * px;
+          ry[r] = ry[r] + vr * py;
+          for(var c = 0; c <= 2; ++c){
+            m[Math.imul(r, 3) + c | 0] = m[Math.imul(r, 3) + c | 0] + vr * v[c];
+          }
+        }
+      });
+  var at = function (r, c) {
+    return m[Math.imul(r, 3) + c | 0];
+  };
+  var det3 = function (c0, c1, c2) {
+    return c0[0] * (c1[1] * c2[2] - c2[1] * c1[2]) - c1[0] * (c0[1] * c2[2] - c2[1] * c0[2]) + c2[0] * (c0[1] * c1[2] - c1[1] * c0[2]);
+  };
+  var col = function (c) {
+    return [
+            at(0, c),
+            at(1, c),
+            at(2, c)
+          ];
+  };
+  var d = det3(col(0), col(1), col(2));
+  if (Math.abs(d) < 1e-9) {
+    return ;
+  }
+  var solve = function (rhs) {
+    return [
+            det3(rhs, col(1), col(2)) / d,
+            det3(col(0), rhs, col(2)) / d,
+            det3(col(0), col(1), rhs) / d
+          ];
+  };
+  var match = solve(rx);
+  var match$1 = solve(ry);
+  return [
+          match[0],
+          match[1],
+          match[2],
+          match$1[0],
+          match$1[1],
+          match$1[2],
+          0,
+          0,
+          1
+        ];
+}
+
+function courtFit(placed, nativeW, nativeH) {
   var pairs = placed.map(function (a) {
         return [
                 worldOf(a.name),
@@ -481,7 +684,44 @@ function cropRegion(placed, nativeW, nativeH) {
                 ]
               ];
       });
-  var h = pairs.length >= 4 ? solveHomography(pairs) : undefined;
+  var perspective = placed.length >= 4 && hasPerspectiveBasis(placed) ? solveHomography(pairs) : undefined;
+  if (perspective !== undefined) {
+    return {
+            stage: "Perspective",
+            h: perspective
+          };
+  }
+  var h = hasAffineBasis(placed) ? solveAffine(pairs) : undefined;
+  if (h !== undefined) {
+    return {
+            stage: "Affine",
+            h: h
+          };
+  } else {
+    return {
+            stage: "Unfitted",
+            h: defaultFit(nativeW, nativeH)
+          };
+  }
+}
+
+function handlePosition(fit, placed, name) {
+  var a = placed.find(function (a) {
+        return a.name === name;
+      });
+  if (a !== undefined) {
+    return [
+            a.x,
+            a.y
+          ];
+  } else {
+    return projectVisible(fit.h, worldOf(name));
+  }
+}
+
+function cropRegion(placed, nativeW, nativeH) {
+  var fit = courtFit(placed, nativeW, nativeH);
+  var h = fit.stage === "Perspective" ? fit.h : undefined;
   if (h === undefined) {
     return ;
   }
@@ -541,53 +781,170 @@ function cropRegion(placed, nativeW, nativeH) {
   }
 }
 
-function defaultPairs(nativeW, nativeH) {
+function solvePayload(placed, nativeW, nativeH) {
+  var corners = placed.map(function (a) {
+        return {
+                name: a.name,
+                x: a.x,
+                y: a.y
+              };
+      });
+  var r = cropRegion(placed, nativeW, nativeH);
+  if (r !== undefined) {
+    return {
+            width: r.width,
+            height: r.height,
+            corners: corners.map(function (c) {
+                  return {
+                          name: c.name,
+                          x: c.x - r.x,
+                          y: c.y - r.y
+                        };
+                }),
+            offset: [
+              r.x,
+              r.y
+            ]
+          };
+  } else {
+    return {
+            width: nativeW,
+            height: nativeH,
+            corners: corners,
+            offset: [
+              0,
+              0
+            ]
+          };
+  }
+}
+
+function payloadKey(p) {
+  return p.width.toString() + "x" + p.height.toString() + p.corners.map(function (c) {
+                return c.name + "@" + c.x.toFixed(1) + "," + c.y.toFixed(1);
+              }).join(";");
+}
+
+function mat3(m, param) {
+  var z = param[2];
+  var y = param[1];
+  var x = param[0];
   return [
-          [
-            [
-              - 3.05,
-              6.705
-            ],
-            [
-              0.18 * nativeW,
-              0.86 * nativeH
-            ]
-          ],
-          [
-            [
-              3.05,
-              6.705
-            ],
-            [
-              0.82 * nativeW,
-              0.86 * nativeH
-            ]
-          ],
-          [
-            [
-              3.05,
-              - 6.705
-            ],
-            [
-              0.68 * nativeW,
-              0.34 * nativeH
-            ]
-          ],
-          [
-            [
-              - 3.05,
-              - 6.705
-            ],
-            [
-              0.32 * nativeW,
-              0.34 * nativeH
-            ]
-          ]
+          m[0] * x + m[1] * y + m[2] * z,
+          m[3] * x + m[4] * y + m[5] * z,
+          m[6] * x + m[7] * y + m[8] * z
         ];
+}
+
+function lensProject(cam, param) {
+  var match = mat3(cam.m, [
+        param[0],
+        param[1],
+        0
+      ]);
+  var cx = match[0] + cam.t[0];
+  var cy = match[1] + cam.t[1];
+  var cz = match[2] + cam.t[2];
+  if (cz <= 1e-6) {
+    return ;
+  }
+  var match$1 = mat3(cam.k, [
+        cx,
+        cy,
+        cz
+      ]);
+  var uw = match$1[2];
+  var ux = match$1[0] / uw;
+  var uy = match$1[1] / uw;
+  var fx = cam.lensK[0];
+  var fy = cam.lensK[4];
+  var lcx = cam.lensK[2];
+  var lcy = cam.lensK[5];
+  var xn = (ux - lcx) / fx;
+  var yn = (uy - lcy) / fy;
+  var r2 = xn * xn + yn * yn;
+  if (cam.k1 < 0 && 1 + 3 * cam.k1 * r2 <= 0) {
+    return ;
+  }
+  var factor = 1 + cam.k1 * r2;
+  return [
+          xn * factor * fx + lcx,
+          yn * factor * fy + lcy
+        ];
+}
+
+function lensPolylines(cam, offset, param) {
+  var wb = param[1];
+  var wa = param[0];
+  var oy = offset[1];
+  var ox = offset[0];
+  var by = wb[1];
+  var bx = wb[0];
+  var ay = wa[1];
+  var ax = wa[0];
+  var runs = [];
+  var current = [];
+  for(var i = 0; i <= 40; ++i){
+    var f = i / 40;
+    var match = lensProject(cam, [
+          ax + (bx - ax) * f,
+          ay + (by - ay) * f
+        ]);
+    if (match !== undefined) {
+      current.push([
+            match[0] + ox,
+            match[1] + oy
+          ]);
+    } else {
+      if (current.length >= 2) {
+        runs.push(current);
+      }
+      current = [];
+    }
+  }
+  if (current.length >= 2) {
+    runs.push(current);
+  }
+  return runs;
+}
+
+function lensSuggestions(fit, placed, nativeW, nativeH) {
+  var missing = 6 - placed.length | 0;
+  if (fit.stage !== "Perspective" || missing <= 0) {
+    return [];
+  } else {
+    return Core__Array.filterMap(anchors, (function (param) {
+                        var name = param[0];
+                        if (placed.some(function (a) {
+                                return a.name === name;
+                              })) {
+                          return ;
+                        } else {
+                          return Core__Option.flatMap(handlePosition(fit, placed, name), (function (param) {
+                                        var u = param[0] / nativeW;
+                                        var v = param[1] / nativeH;
+                                        if (u < 0.04 || u > 1 - 0.04 || v < 0.04 || v > 1 - 0.04) {
+                                          return ;
+                                        }
+                                        var du = u - 0.5;
+                                        var dv = (v - 0.5) * nativeH / nativeW;
+                                        return [
+                                                name,
+                                                du * du + dv * dv
+                                              ];
+                                      }));
+                        }
+                      })).toSorted(function (param, param$1) {
+                    return param$1[1] - param[1];
+                  }).slice(0, missing).map(function (param) {
+                return param[0];
+              });
+  }
 }
 
 function KioskCourtCalib(props) {
   var onDone = props.onDone;
+  var toolbarHost = props.toolbarHost;
   var stream = props.stream;
   var match = Core__Option.flatMap(stream, UserMedia.videoSize);
   var match$1 = match !== undefined ? [
@@ -644,64 +1001,153 @@ function KioskCourtCalib(props) {
   var screenScale = match$7[0];
   var loupeCanvasRef = React.useRef(null);
   var loupeVideoRef = React.useRef(null);
-  var anchorPairs = placed.map(function (a) {
-        return [
-                worldOf(a.name),
-                [
-                  a.x,
-                  a.y
-                ]
-              ];
+  var courtState = courtFit(placed, nativeW, nativeH);
+  var fit = courtState.h;
+  var payload = solvePayload(placed, nativeW | 0, nativeH | 0);
+  var currentKey = payloadKey(payload);
+  var match$8 = React.useState(function () {
+        
       });
-  var h = anchorPairs.length >= 4 ? solveHomography(anchorPairs) : undefined;
-  var fit;
-  if (h !== undefined) {
-    fit = h;
-  } else {
-    var base = defaultPairs(nativeW, nativeH);
-    var h0 = Core__Option.getExn(solveHomography(base), undefined);
-    var match$8 = placed.length;
-    if (match$8 !== 0) {
-      var match$9 = Core__Array.reduce(placed, [
-            0,
-            0
-          ], (function (param, a) {
-              var match = projectWith(h0, worldOf(a.name));
-              return [
-                      param[0] + (a.x - match[0]),
-                      param[1] + (a.y - match[1])
-                    ];
-            }));
-      var dy = match$9[1];
-      var dx = match$9[0];
-      var n = placed.length;
-      fit = Core__Option.getOr(solveHomography(base.map(function (param) {
-                    var match = param[1];
-                    return [
-                            param[0],
-                            [
-                              match[0] + dx / n,
-                              match[1] + dy / n
-                            ]
-                          ];
-                  })), h0);
-    } else {
-      fit = h0;
+  var setPreview = match$8[1];
+  var preview = match$8[0];
+  var match$9 = React.useState(function () {
+        return false;
+      });
+  var setPreviewPending = match$9[1];
+  var isDragging = Core__Option.isSome(dragging);
+  var wantsPreview = courtState.stage === "Perspective" && !isDragging;
+  React.useEffect((function () {
+          var upToDate = Core__Option.mapOr(preview, false, (function (p) {
+                  return p.key === currentKey;
+                }));
+          if (!(wantsPreview && !upToDate)) {
+            return ;
+          }
+          var cancelled = {
+            contents: false
+          };
+          setPreviewPending(function (param) {
+                return true;
+              });
+          var timer = setTimeout((function () {
+                  var run = async function () {
+                    var result = await DinkHunt.previewKioskCourt(payload.width, payload.height, payload.corners);
+                    var outcome;
+                    if (result.TAG === "Ok") {
+                      var result$1 = result._0;
+                      var match = result$1.ok;
+                      var match$1 = Core__Option.flatMap(result$1.camera, (function (prim) {
+                              if (prim == null) {
+                                return ;
+                              } else {
+                                return Caml_option.some(prim);
+                              }
+                            }));
+                      outcome = match ? (
+                          match$1 !== undefined ? ({
+                                TAG: "Solved",
+                                _0: match$1,
+                                _1: result$1.message
+                              }) : ({
+                                TAG: "Unavailable",
+                                _0: "the analysis server sent no camera"
+                              })
+                        ) : ({
+                            TAG: "Rejected",
+                            _0: result$1.message
+                          });
+                    } else {
+                      var message = result._0;
+                      outcome = {
+                        TAG: "Unavailable",
+                        _0: message.includes("Cannot query field") ? "restart the analysis server to enable it" : message
+                      };
+                    }
+                    if (!cancelled.contents) {
+                      setPreview(function (param) {
+                            return {
+                                    key: currentKey,
+                                    offset: payload.offset,
+                                    outcome: outcome
+                                  };
+                          });
+                      return setPreviewPending(function (param) {
+                                  return false;
+                                });
+                    }
+                    
+                  };
+                  run();
+                }), 350);
+          return (function () {
+                    cancelled.contents = true;
+                    clearTimeout(timer);
+                    setPreviewPending(function (param) {
+                          return false;
+                        });
+                  });
+        }), [
+        currentKey,
+        wantsPreview,
+        courtState.stage
+      ]);
+  var lens;
+  if (preview !== undefined) {
+    var match$10 = preview.outcome;
+    switch (match$10.TAG) {
+      case "Solved" :
+          lens = preview.key === currentKey && !isDragging ? [
+              match$10._0,
+              preview.offset
+            ] : undefined;
+          break;
+      case "Rejected" :
+      case "Unavailable" :
+          lens = undefined;
+          break;
+      
     }
+  } else {
+    lens = undefined;
   }
   var positionOf = function (name) {
-    var a = placed.find(function (a) {
+    var match = placed.some(function (a) {
           return a.name === name;
         });
-    if (a !== undefined) {
-      return [
-              a.x,
-              a.y
-            ];
+    if (lens !== undefined && !match) {
+      return Core__Option.flatMap(lens, (function (param) {
+                    var match = param[1];
+                    var oy = match[1];
+                    var ox = match[0];
+                    return Core__Option.map(lensProject(param[0], worldOf(name)), (function (param) {
+                                  return [
+                                          param[0] + ox,
+                                          param[1] + oy
+                                        ];
+                                }));
+                  }));
     } else {
-      return projectVisible(fit, worldOf(name));
+      return handlePosition(courtState, placed, name);
     }
   };
+  var courtPolylines = function () {
+    if (lens === undefined) {
+      return Core__Array.filterMap(segments, (function (param) {
+                    return Core__Option.map(projectSegment(fit, param[0], param[1]), (function (param) {
+                                  return [
+                                          param[0],
+                                          param[1]
+                                        ];
+                                }));
+                  }));
+    }
+    var offset = lens[1];
+    var camera = lens[0];
+    return segments.flatMap(function (segment) {
+                return lensPolylines(camera, offset, segment);
+              });
+  };
+  var suggested = lensSuggestions(courtState, placed, nativeW, nativeH);
   var contentBox = function (rect) {
     var scale = Math.min(rect.width / nativeW, rect.height / nativeH);
     var w = nativeW * scale;
@@ -768,30 +1214,7 @@ function KioskCourtCalib(props) {
           return "Saving";
         });
     var run = async function () {
-      var corners = placed.map(function (a) {
-            return {
-                    name: a.name,
-                    x: a.x,
-                    y: a.y
-                  };
-          });
-      var r = cropRegion(placed, nativeW | 0, nativeH | 0);
-      var match = r !== undefined ? [
-          r.width,
-          r.height,
-          corners.map(function (c) {
-                return {
-                        name: c.name,
-                        x: c.x - r.x,
-                        y: c.y - r.y
-                      };
-              })
-        ] : [
-          nativeW | 0,
-          nativeH | 0,
-          corners
-        ];
-      var result = await DinkHunt.setKioskCourt(match[0], match[1], match[2]);
+      var result = await DinkHunt.setKioskCourt(payload.width, payload.height, payload.corners);
       if (result.TAG === "Ok") {
         var result$1 = result._0;
         if (result$1.ok) {
@@ -861,22 +1284,25 @@ function KioskCourtCalib(props) {
       ctx.lineTo(x2, y2);
       ctx.stroke();
     };
-    ctx.strokeStyle = "rgba(190, 242, 100, 0.7)";
-    ctx.lineWidth = 1 * dpr;
-    ctx.setLineDash([
-          4 * dpr,
-          4 * dpr
-        ]);
-    segments.forEach(function (param) {
-          var match = projectSegment(fit, param[0], param[1]);
-          if (match === undefined) {
-            return ;
-          }
-          var match$1 = toLoupe(match[0]);
-          var match$2 = toLoupe(match[1]);
-          line(match$1[0], match$1[1], match$2[0], match$2[1]);
-        });
-    ctx.setLineDash([]);
+    if (courtState.stage !== "Unfitted") {
+      ctx.strokeStyle = "rgba(190, 242, 100, 0.8)";
+      ctx.lineWidth = 1 * dpr;
+      ctx.setLineDash(Core__Option.isSome(lens) ? [] : [
+              4 * dpr,
+              4 * dpr
+            ]);
+      courtPolylines().forEach(function (polyline) {
+            polyline.forEach(function (point, i) {
+                  if (i <= 0) {
+                    return ;
+                  }
+                  var match = toLoupe(polyline[i - 1 | 0]);
+                  var match$1 = toLoupe(point);
+                  line(match[0], match[1], match$1[0], match$1[1]);
+                });
+          });
+      ctx.setLineDash([]);
+    }
     var match$2 = toLoupe([
           Math.floor(x),
           Math.floor(y)
@@ -949,7 +1375,9 @@ function KioskCourtCalib(props) {
         }), [
         selected,
         zoom,
-        placed
+        placed,
+        preview,
+        isDragging
       ]);
   var anchored = placed.length;
   var sc = screenScale > 0 ? screenScale : 1;
@@ -960,7 +1388,7 @@ function KioskCourtCalib(props) {
   var hitR = 26 / sc;
   var dotR = 0.75 / sc;
   var crop = cropRegion(placed, nativeW | 0, nativeH | 0);
-  var unstable = anchored >= 4 && anchors.some(function (param) {
+  var unstable = courtState.stage === "Perspective" && anchors.some(function (param) {
         var name = param[0];
         if (name.includes("baseline") && !placed.some(function (a) {
                 return a.name === name;
@@ -970,28 +1398,207 @@ function KioskCourtCalib(props) {
           return false;
         }
       });
-  var tmp;
+  var match$11 = courtState.stage;
+  var match$12;
+  switch (match$11) {
+    case "Unfitted" :
+        match$12 = [
+          "NO FIT · " + anchored.toString() + " ANCHORED",
+          "Drag points onto their painted marks — only the points you move will move. The court follows once 3 of them are not on one court line."
+        ];
+        break;
+    case "Affine" :
+        match$12 = [
+          "ROUGH FIT",
+          "Anchor one more point (no 3 on one line) for the full perspective fit."
+        ];
+        break;
+    case "Perspective" :
+        match$12 = [
+          lens !== undefined && lens[0].k1 !== 0 ? "FULL FIT · LENS CORRECTED" : "FULL FIT",
+          "Drag any point to refine. Use the kitchen (NK/FK) points when the baselines are out of frame."
+        ];
+        break;
+    
+  }
+  var hint = match$12[1];
+  var lensStatus;
+  if (courtState.stage !== "Perspective") {
+    lensStatus = undefined;
+  } else {
+    var need = 6 - anchored | 0;
+    var latest = Core__Option.flatMap(preview, (function (p) {
+            if (p.key === currentKey) {
+              return p.outcome;
+            }
+            
+          }));
+    var fitPx = function (camera) {
+      return camera.rmsPx.toFixed(1) + " px";
+    };
+    var match$13 = need > 0;
+    var match$14 = isDragging || match$9[0];
+    var tmp;
+    if (match$13) {
+      tmp = [
+        "text-amber-300",
+        "Lens correction needs " + (6).toString() + " anchors (" + anchored.toString() + " so far): anchor " + need.toString() + " more. The amber +LENS points, near the frame edges where the lens bends lines most, help most."
+      ];
+    } else if (match$14 || latest === undefined) {
+      tmp = [
+        "text-kiosk-muted",
+        "Lens: solving…"
+      ];
+    } else {
+      switch (latest.TAG) {
+        case "Solved" :
+            var camera = latest._0;
+            tmp = camera.k1 !== 0 ? [
+                "text-kiosk-accent",
+                "Lens corrected (k1 " + camera.k1.toFixed(3) + ", fit " + fitPx(camera) + "). Solid lines are the corrected court; dashed white is the uncorrected fit."
+              ] : [
+                "text-kiosk-muted",
+                "Lens: no correction applied — the straight-line fit is within drag noise, or correcting didn't improve it enough (fit " + fitPx(camera) + ")."
+              ];
+            break;
+        case "Rejected" :
+            tmp = [
+              "text-amber-300",
+              "Lens preview: " + latest._0
+            ];
+            break;
+        case "Unavailable" :
+            tmp = [
+              "text-kiosk-muted",
+              "Lens preview unavailable — " + latest._0 + "."
+            ];
+            break;
+        
+      }
+    }
+    lensStatus = tmp;
+  }
+  var match$15;
+  var exit = 0;
+  if (typeof saveStatus !== "object") {
+    exit = 1;
+  } else {
+    match$15 = [
+      "text-red-300",
+      saveStatus._0
+    ];
+  }
+  if (exit === 1) {
+    match$15 = unstable ? [
+        "text-amber-300",
+        "Fit is unstable — a baseline projects beyond the horizon. Anchor any baseline corners you can see (FAR L/R or NEAR L/R)."
+      ] : (
+        lensStatus !== undefined ? [
+            lensStatus[0],
+            lensStatus[1]
+          ] : [
+            "text-kiosk-muted",
+            ""
+          ]
+      );
+  }
+  var message = match$15[1];
+  var toolbar = JsxRuntime.jsxs("div", {
+        children: [
+          JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsxs("p", {
+                        children: [
+                          JsxRuntime.jsx("span", {
+                                children: "Court setup",
+                                className: "font-extrabold text-white"
+                              }),
+                          JsxRuntime.jsx("span", {
+                                children: match$12[0],
+                                className: "font-mono text-xs font-semibold " + (
+                                  courtState.stage === "Perspective" ? "text-kiosk-accent" : "text-amber-300"
+                                )
+                              })
+                        ],
+                        className: "flex flex-wrap items-baseline gap-x-3"
+                      }),
+                  JsxRuntime.jsx("p", {
+                        children: hint,
+                        className: "line-clamp-2 min-h-[2.5rem] text-sm text-kiosk-muted",
+                        title: hint
+                      }),
+                  JsxRuntime.jsx("p", {
+                        children: message,
+                        className: "mt-1 line-clamp-2 min-h-[2.5rem] text-sm font-semibold " + match$15[0],
+                        title: message
+                      })
+                ],
+                className: "min-w-0 flex-1"
+              }),
+          JsxRuntime.jsxs("div", {
+                children: [
+                  JsxRuntime.jsx("button", {
+                        children: JsxRuntime.jsx("span", {
+                              children: saveStatus === "Saving" ? "Solving pose…" : (
+                                  courtState.stage === "Perspective" ? "Confirm court (" + anchored.toString() + " anchored)" : (
+                                      anchored < 4 ? "Anchor " + (4 - anchored | 0).toString() + " more" : "Need 4 not on one line"
+                                    )
+                                ),
+                              className: "truncate"
+                            }),
+                        className: "flex min-h-12 w-[19rem] items-center justify-center border-2 border-kiosk-accent bg-kiosk-accent px-3 font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark disabled:opacity-50",
+                        disabled: saveStatus === "Saving" || courtState.stage !== "Perspective",
+                        type: "button",
+                        onClick: (function (param) {
+                            confirm();
+                          })
+                      }),
+                  JsxRuntime.jsx("button", {
+                        children: "Reset",
+                        className: "flex min-h-12 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white active:bg-kiosk-border",
+                        type: "button",
+                        onClick: (function (param) {
+                            setPlaced(function (param) {
+                                  return [];
+                                });
+                          })
+                      }),
+                  JsxRuntime.jsx("button", {
+                        children: "Skip",
+                        className: "flex min-h-12 items-center justify-center border-2 border-kiosk-border bg-kiosk-raised px-4 font-extrabold text-white active:bg-kiosk-border",
+                        type: "button",
+                        onClick: (function (param) {
+                            onDone();
+                          })
+                      })
+                ],
+                className: "flex shrink-0 gap-2"
+              })
+        ],
+        className: "flex flex-wrap items-center gap-x-4 gap-y-2 border-2 border-kiosk-border bg-kiosk-surface px-4 py-2"
+      });
+  var tmp$1;
   if (loupeTarget !== undefined) {
-    var match$10 = loupeTarget[1];
+    var match$16 = loupeTarget[1];
     var el = containerRef.current;
-    var match$11;
+    var match$17;
     if (el == null) {
-      match$11 = [
+      match$17 = [
         0,
         0
       ];
     } else {
       var rect = el.getBoundingClientRect();
-      var match$12 = contentBox(rect);
-      match$11 = [
-        match$12[0] - rect.left,
-        match$12[1] - rect.top
+      var match$18 = contentBox(rect);
+      match$17 = [
+        match$18[0] - rect.left,
+        match$18[1] - rect.top
       ];
     }
-    var hx = match$11[0] + match$10[0] * sc;
-    var hy = match$11[1] + match$10[1] * sc;
+    var hx = match$17[0] + match$16[0] * sc;
+    var hy = match$17[1] + match$16[1] * sc;
     var onLeft = !(hx < 240 + 24 && hy < 240 + 64);
-    tmp = JsxRuntime.jsxs("div", {
+    tmp$1 = JsxRuntime.jsxs("div", {
           children: [
             JsxRuntime.jsx("canvas", {
                   ref: Caml_option.some(loupeCanvasRef),
@@ -1048,13 +1655,8 @@ function KioskCourtCalib(props) {
           )
         });
   } else {
-    tmp = null;
+    tmp$1 = null;
   }
-  var tmp$1;
-  tmp$1 = typeof saveStatus !== "object" ? null : JsxRuntime.jsx("p", {
-          children: saveStatus._0,
-          className: "border-2 border-red-400/40 bg-red-500/20 px-3 py-2 text-sm font-semibold text-red-200"
-        });
   return JsxRuntime.jsxs("div", {
               children: [
                 JsxRuntime.jsx("video", {
@@ -1066,22 +1668,64 @@ function KioskCourtCalib(props) {
                     }),
                 JsxRuntime.jsxs("svg", {
                       children: [
-                        segments.map(function (param, index) {
-                              var match = projectSegment(fit, param[0], param[1]);
-                              if (match === undefined) {
-                                return null;
-                              }
-                              var match$1 = match[1];
-                              var match$2 = match[0];
-                              return JsxRuntime.jsx("line", {
-                                          stroke: "#bef264",
-                                          strokeOpacity: "0.8",
-                                          strokeWidth: "3",
-                                          x1: match$2[0].toString(),
-                                          x2: match$1[0].toString(),
-                                          y1: match$2[1].toString(),
-                                          y2: match$1[1].toString()
-                                        }, index.toString());
+                        JsxRuntime.jsxs("svg", {
+                              children: [
+                                segments.map(function (param, index) {
+                                      var match = projectSegment(fit, param[0], param[1]);
+                                      if (match === undefined) {
+                                        return null;
+                                      }
+                                      var match$1 = match[1];
+                                      var match$2 = match[0];
+                                      var match$3 = courtState.stage;
+                                      var tmp;
+                                      if (lens !== undefined) {
+                                        tmp = "0.4";
+                                      } else {
+                                        switch (match$3) {
+                                          case "Unfitted" :
+                                              tmp = "0.3";
+                                              break;
+                                          case "Affine" :
+                                              tmp = "0.6";
+                                              break;
+                                          case "Perspective" :
+                                              tmp = "0.8";
+                                              break;
+                                          
+                                        }
+                                      }
+                                      return JsxRuntime.jsx("line", {
+                                                  stroke: Core__Option.isSome(lens) ? "#ffffff" : "#bef264",
+                                                  strokeDasharray: Core__Option.isSome(lens) ? "10 10" : (
+                                                      courtState.stage === "Perspective" ? "" : "14 10"
+                                                    ),
+                                                  strokeOpacity: tmp,
+                                                  strokeWidth: Core__Option.isSome(lens) ? "2" : "3",
+                                                  x1: match$2[0].toString(),
+                                                  x2: match$1[0].toString(),
+                                                  y1: match$2[1].toString(),
+                                                  y2: match$1[1].toString()
+                                                }, index.toString());
+                                    }),
+                                lens !== undefined ? courtPolylines().map(function (polyline, index) {
+                                        return JsxRuntime.jsx("polyline", {
+                                                    fill: "none",
+                                                    points: polyline.map(function (param) {
+                                                            return param[0].toString() + "," + param[1].toString();
+                                                          }).join(" "),
+                                                    stroke: "#bef264",
+                                                    strokeLinejoin: "round",
+                                                    strokeOpacity: "0.95",
+                                                    strokeWidth: "3.5"
+                                                  }, "lens" + index.toString());
+                                      }) : null
+                              ],
+                              height: nativeH.toString(),
+                              width: nativeW.toString(),
+                              overflow: "hidden",
+                              x: "0",
+                              y: "0"
                             }),
                         crop !== undefined ? JsxRuntime.jsxs("g", {
                                 children: [
@@ -1138,8 +1782,19 @@ function KioskCourtCalib(props) {
                                             halo ? "h" : ""
                                           ));
                               };
+                              var isSuggested = suggested.includes(name);
                               return JsxRuntime.jsxs("g", {
                                           children: [
+                                            isSuggested ? JsxRuntime.jsx("circle", {
+                                                    className: "pointer-events-none animate-pulse",
+                                                    cx: x.toString(),
+                                                    cy: y.toString(),
+                                                    fill: "none",
+                                                    r: (ringR + 10 / sc).toString(),
+                                                    stroke: "#fbbf24",
+                                                    strokeDasharray: (4 / sc).toString(),
+                                                    strokeWidth: (strokeW * 1.5).toString()
+                                                  }) : null,
                                             isSelected ? JsxRuntime.jsx("circle", {
                                                     className: "pointer-events-none",
                                                     cx: x.toString(),
@@ -1203,9 +1858,13 @@ function KioskCourtCalib(props) {
                                                   stroke: "none"
                                                 }),
                                             JsxRuntime.jsx("text", {
-                                                  children: anchorLabel(name),
+                                                  children: anchorLabel(name) + (
+                                                    isSuggested ? " +LENS" : ""
+                                                  ),
                                                   className: "pointer-events-none select-none",
-                                                  fill: isPlaced ? "#ffffff" : "#d9f99d",
+                                                  fill: isPlaced ? "#ffffff" : (
+                                                      isSuggested ? "#fbbf24" : "#d9f99d"
+                                                    ),
                                                   fontFamily: "monospace",
                                                   fontSize: (13 / sc).toString(),
                                                   fontWeight: "800",
@@ -1232,66 +1891,8 @@ function KioskCourtCalib(props) {
                       preserveAspectRatio: "xMidYMid meet",
                       viewBox: "0 0 " + nativeW.toString() + " " + nativeH.toString()
                     }),
-                tmp,
-                JsxRuntime.jsx("div", {
-                      children: JsxRuntime.jsxs("div", {
-                            children: [
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("h2", {
-                                            children: "Court setup",
-                                            className: "text-xl font-extrabold text-white"
-                                          }),
-                                      JsxRuntime.jsx("p", {
-                                            children: "Drag any 4+ points onto their painted marks — the rest follow. Use the kitchen (NK/FK) points when the baselines are out of frame.",
-                                            className: "mt-1 text-sm text-white/80"
-                                          })
-                                    ]
-                                  }),
-                              unstable ? JsxRuntime.jsx("p", {
-                                      children: "Fit is unstable — a baseline projects beyond the horizon. Anchor any baseline corners you can see (FAR L/R or NEAR L/R); kitchen centres and net posts help less.",
-                                      className: "border-2 border-amber-400/40 bg-amber-500/15 px-3 py-2 text-sm font-semibold text-amber-200"
-                                    }) : null,
-                              tmp$1,
-                              JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx("button", {
-                                            children: saveStatus === "Saving" ? "Solving pose…" : (
-                                                anchored < 4 ? "Anchor " + (4 - anchored | 0).toString() + " more" : "Confirm court (" + anchored.toString() + " anchored)"
-                                              ),
-                                            className: "flex min-h-14 flex-1 items-center justify-center gap-2 border-2 border-kiosk-accent bg-kiosk-accent px-5 text-lg font-extrabold text-kiosk-bg transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-accentDark disabled:opacity-50",
-                                            disabled: saveStatus === "Saving" || anchored < 4,
-                                            type: "button",
-                                            onClick: (function (param) {
-                                                confirm();
-                                              })
-                                          }),
-                                      JsxRuntime.jsx("button", {
-                                            children: "Reset",
-                                            className: "flex min-h-14 items-center justify-center border-2 border-white/40 bg-black/40 px-4 text-lg font-extrabold text-white active:bg-white/10",
-                                            type: "button",
-                                            onClick: (function (param) {
-                                                setPlaced(function (param) {
-                                                      return [];
-                                                    });
-                                              })
-                                          }),
-                                      JsxRuntime.jsx("button", {
-                                            children: "Skip",
-                                            className: "flex min-h-14 items-center justify-center border-2 border-white/40 bg-black/40 px-4 text-lg font-extrabold text-white active:bg-white/10",
-                                            type: "button",
-                                            onClick: (function (param) {
-                                                onDone();
-                                              })
-                                          })
-                                    ],
-                                    className: "flex gap-3"
-                                  })
-                            ],
-                            className: "pointer-events-auto mx-auto flex max-w-3xl flex-col gap-3"
-                          }),
-                      className: "pointer-events-none absolute inset-x-0 top-0 bg-gradient-to-b from-black/85 to-transparent p-4 pb-10"
-                    })
+                tmp$1,
+                toolbarHost !== undefined ? ReactDom.createPortal(toolbar, Caml_option.valFromOption(toolbarHost)) : null
               ],
               ref: Caml_option.some(containerRef),
               className: "absolute inset-0 z-20 touch-none select-none",
@@ -1364,6 +1965,14 @@ var footFrac = 0.10;
 
 var minCropFrac = 0.15;
 
+var worldMinArea2 = 1.0;
+
+var imageMinShape = 0.04;
+
+var imageMinSpanPx = 8;
+
+var lensAnchorsNeeded = 6;
+
 var make = KioskCourtCalib;
 
 export {
@@ -1393,8 +2002,26 @@ export {
   sideFrac ,
   footFrac ,
   minCropFrac ,
-  cropRegion ,
   defaultPairs ,
+  defaultFit ,
+  area2 ,
+  worldMinArea2 ,
+  imageMinShape ,
+  imageMinSpanPx ,
+  tripleSign ,
+  hasAffineBasis ,
+  hasPerspectiveBasis ,
+  solveAffine ,
+  courtFit ,
+  handlePosition ,
+  cropRegion ,
+  solvePayload ,
+  payloadKey ,
+  lensAnchorsNeeded ,
+  mat3 ,
+  lensProject ,
+  lensPolylines ,
+  lensSuggestions ,
   make ,
 }
 /* react Not a pure module */

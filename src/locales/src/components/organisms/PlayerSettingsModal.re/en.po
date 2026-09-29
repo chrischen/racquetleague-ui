@@ -17,6 +17,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
+#: src/components/organisms/PlayerSettingsModal.re.mjs:63
+msgid "Close"
+msgstr ""
+
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
 msgstr ""
@@ -39,6 +43,10 @@ msgstr ""
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:85
 msgid "Player ID"
+msgstr ""
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
 msgstr ""
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:53

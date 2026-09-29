@@ -158,11 +158,7 @@ msgstr "지금 스마트 RSVP 실행"
 msgid "Save"
 msgstr "저장"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "전체 보기"
-
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "간략히 보기"
 
@@ -212,7 +208,7 @@ msgstr "상태 메시지를 입력하세요... 예: '19:00에 도착할 예정�
 msgid "View Profile"
 msgstr "프로필 보기"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "대기자 명단"
 
@@ -245,3 +241,7 @@ msgstr ""
 #: src/components/organisms/RSVPSection.re.mjs:310
 #~ msgid "Run Smart RSVP (best-fit, test)"
 #~ msgstr "스마트 RSVP 실행(최적 매칭, 테스트)"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "전체 보기"

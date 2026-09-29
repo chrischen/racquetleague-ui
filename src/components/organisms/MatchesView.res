@@ -53,6 +53,8 @@ module Queue = {
     ~selectedPlayers: Set.t<string>,
     ~onGoToCheckin: unit => unit,
     ~sessionState: Session.t,
+    ~minRating,
+    ~maxRating,
   ) => {
     // let maxRating =
     //   players->Array.reduce(0., (acc, next) => next.rating.mu > acc ? next.rating.mu : acc)
@@ -85,8 +87,6 @@ module Queue = {
       // detect: #both,
     }
     let bind = UseLongPress.use(Some(handleLongPress), Some(options))
-    let maxRating = 1.0
-    let minRating = 0.0
 
     <div className={Util.cx(["grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"])}>
       {players
@@ -384,6 +384,8 @@ let make = (
             }}
             onGoToCheckin={() => setView(_ => Checkin)}
             sessionState
+            minRating
+            maxRating
           />
         | Matches =>
           <DndKit.DndContext onDragEnd={_ => ()}>

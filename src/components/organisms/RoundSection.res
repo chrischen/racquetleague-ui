@@ -150,7 +150,10 @@ module AverageQualityDebug = {
       0.
     }
 
-    <span className={`text-xs font-mono ${isCurrentRound ? "text-blue-600" : "text-slate-400"}`}>
+    <span
+      className={`text-xs font-mono ${isCurrentRound
+          ? "text-blue-600 dark:text-blue-400"
+          : "text-slate-400 dark:text-gray-500"}`}>
       {`Avg Q: ${averageQuality->Float.toFixed(~digits=3)}`->React.string}
     </span>
   }
@@ -491,7 +494,7 @@ let make = (
 
   <div
     className={isCurrentRound
-      ? "mb-6 rounded-xl transition-all bg-blue-50 border-4 border-blue-500 p-4 shadow-xl"
+      ? "mb-6 rounded-xl transition-all bg-blue-50 dark:bg-blue-950/30 border-4 border-blue-500 p-4 shadow-xl"
       : "mb-6 rounded-xl transition-all opacity-50 p-1"}>
     // Header
     {!isCurrentRound
@@ -499,22 +502,22 @@ let make = (
           onClick={_ => setIsExpanded(prev => !prev)}
           className="w-full flex items-center justify-between gap-3 mb-3 hover:opacity-80 transition-opacity">
           <div className="flex items-center gap-3 min-w-0">
-            <h2 className="text-xl font-bold text-slate-800 flex-shrink-0">
+            <h2 className="text-xl font-bold text-slate-800 dark:text-gray-100 flex-shrink-0">
               {(t`Round ${roundNumber->Int.toString}`)->React.string}
             </h2>
-            <span className="text-sm text-slate-500 flex-shrink-0">
+            <span className="text-sm text-slate-500 dark:text-gray-400 flex-shrink-0">
               {(t`${matchCount->Int.toString} ${matchText}`)->React.string}
             </span>
           </div>
           <Lucide.ChevronDown
-            className={`w-5 h-5 text-slate-600 transition-transform flex-shrink-0 ${isExpanded
+            className={`w-5 h-5 text-slate-600 dark:text-gray-400 transition-transform flex-shrink-0 ${isExpanded
                 ? "rotate-180"
                 : ""}`}
           />
         </button>
       : <div className="flex items-center justify-between gap-3 mb-3 flex-wrap">
           <div className="flex items-center gap-3 flex-wrap">
-            <h2 className="text-xl font-bold text-blue-900">
+            <h2 className="text-xl font-bold text-blue-900 dark:text-blue-200">
               {(t`Round ${roundNumber->Int.toString}`)->React.string}
             </h2>
             <span
@@ -527,12 +530,12 @@ let make = (
                     e->ReactEvent.Mouse.stopPropagation
                     onFullScreen->Option.forEach(fn => fn())
                   }}
-                  className="p-1.5 text-blue-700 hover:text-blue-900 hover:bg-blue-100 rounded-lg transition-colors"
+                  className="p-1.5 text-blue-700 hover:text-blue-900 hover:bg-blue-100 dark:text-blue-300 dark:hover:text-blue-200 dark:hover:bg-blue-900/40 rounded-lg transition-colors"
                   title={t`Full Screen View`}>
                   <Lucide.Maximize2 className="w-5 h-5" />
                 </button>
               : React.null}
-            <span className="text-sm text-blue-700">
+            <span className="text-sm text-blue-700 dark:text-blue-300">
               {(t`${matchCount->Int.toString} ${matchText}`)->React.string}
             </span>
             {debug ? <AverageQualityDebug matches isCurrentRound /> : React.null}
@@ -544,7 +547,7 @@ let make = (
                     e->ReactEvent.Mouse.stopPropagation
                     onRebalance->Option.forEach(fn => fn())
                   }}
-                  className="p-2 hover:bg-blue-100 rounded-lg transition-colors cursor-pointer"
+                  className="p-2 hover:bg-blue-100 dark:hover:bg-blue-900/40 rounded-lg transition-colors cursor-pointer"
                   title={t`Rebalance this round with current players`}
                   role="button"
                   tabIndex={0}
@@ -555,7 +558,7 @@ let make = (
                       onRebalance->Option.forEach(fn => fn())
                     }
                   }}>
-                  <Lucide.Shuffle className="w-5 h-5 text-blue-600" />
+                  <Lucide.Shuffle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 </div>
               : React.null}
             {onReset->Option.isSome
@@ -565,7 +568,7 @@ let make = (
                       e->ReactEvent.Mouse.stopPropagation
                       onReset->Option.forEach(fn => fn(true))
                     }}
-                    className="p-2 hover:bg-purple-100 rounded-lg transition-colors cursor-pointer flex items-center gap-0.5"
+                    className="p-2 hover:bg-purple-100 dark:hover:bg-purple-900/40 rounded-lg transition-colors cursor-pointer flex items-center gap-0.5"
                     title={t`Reset this round with mixed gender pairs`}
                     role="button"
                     tabIndex={0}
@@ -578,15 +581,15 @@ let make = (
                         onReset->Option.forEach(fn => fn(true))
                       }
                     }}>
-                    <Lucide.Mars className="w-4 h-4 text-blue-600" />
-                    <Lucide.Venus className="w-4 h-4 text-pink-600" />
+                    <Lucide.Mars className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    <Lucide.Venus className="w-4 h-4 text-pink-600 dark:text-pink-400" />
                   </div>
                   <div
                     onClick={e => {
                       e->ReactEvent.Mouse.stopPropagation
                       onReset->Option.forEach(fn => fn(false))
                     }}
-                    className="p-2 hover:bg-red-100 rounded-lg transition-colors cursor-pointer"
+                    className="p-2 hover:bg-red-100 dark:hover:bg-red-900/40 rounded-lg transition-colors cursor-pointer"
                     title={t`Reset this round with all checked-in players`}
                     role="button"
                     tabIndex={0}
@@ -599,7 +602,7 @@ let make = (
                         onReset->Option.forEach(fn => fn(false))
                       }
                     }}>
-                    <Lucide.RotateCcw className="w-5 h-5 text-red-600" />
+                    <Lucide.RotateCcw className="w-5 h-5 text-red-600 dark:text-red-400" />
                   </div>
                 </>
               : React.null}
@@ -639,16 +642,16 @@ let make = (
                     ->React.array}
                     {remainingCount > 0
                       ? <div
-                          className="w-6 h-6 rounded-full bg-slate-300 border-2 border-white flex items-center justify-center"
+                          className="w-6 h-6 rounded-full bg-slate-300 dark:bg-gray-600 border-2 border-white dark:border-[#1e1f23] flex items-center justify-center"
                           style={ReactDOM.Style.make(~zIndex="0", ())}>
-                          <span className="text-xs font-bold text-slate-600">
+                          <span className="text-xs font-bold text-slate-600 dark:text-gray-100">
                             {`+${remainingCount->Int.toString}`->React.string}
                           </span>
                         </div>
                       : React.null}
                   </div>
                   <Lucide.ChevronDown
-                    className={`w-3 h-3 text-slate-400 transition-transform ${showAllNotPlaying
+                    className={`w-3 h-3 text-slate-400 dark:text-gray-500 transition-transform ${showAllNotPlaying
                         ? "rotate-180"
                         : ""}`}
                   />
@@ -661,7 +664,7 @@ let make = (
                       ->Array.map(player => {
                         <div
                           key={player.id}
-                          className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200">
+                          className="flex items-center gap-2 p-2 rounded-lg bg-slate-50 border border-slate-200 dark:bg-[#1e1f23] dark:border-[#2a2b30]">
                           <PlayerAvatar
                             userFragmentRefs={player.data->Option.flatMap(getUserFragmentRefs)}
                             name={player.name}
@@ -670,7 +673,7 @@ let make = (
                             className="w-7 h-7 flex-shrink-0"
                           />
                           <div className="flex-1 min-w-0">
-                            <div className="text-xs font-medium text-slate-800 truncate">
+                            <div className="text-xs font-medium text-slate-800 dark:text-gray-100 truncate">
                               {player.name->React.string}
                             </div>
                           </div>

@@ -96,7 +96,7 @@ msgstr "所有級別"
 msgid "Beginner"
 msgstr "初學者"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "個人簡介"
 
@@ -113,7 +113,7 @@ msgstr "變更"
 msgid "Clear"
 msgstr "清除"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "關閉個人資料表單"
 
@@ -121,19 +121,19 @@ msgstr "關閉個人資料表單"
 msgid "Complete Beginner"
 msgstr "完全初學者"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "完善您的球員個人資料"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "在與球員和主辦方分享時間之前，請先完善您的個人資料。"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "無法儲存您的個人資料，請再試一次。"
 
@@ -142,8 +142,8 @@ msgid "Court"
 msgstr "場地"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
-msgstr "場地 · 粗細 = 數量"
+msgid "Courts · thickness = count"
+msgstr "球場 · 粗細 = 次數"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -161,7 +161,7 @@ msgstr "建立賽事"
 msgid "Current location is not supported by this browser."
 msgstr "目前的瀏覽器不支援定位功能。"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "顯示名稱"
 
@@ -177,11 +177,11 @@ msgstr "完成"
 msgid "doubles"
 msgstr "雙打"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "電子郵件地址"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -201,19 +201,20 @@ msgstr "活動篩選"
 msgid "Events"
 msgstr "活動"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "女性"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "用於活動更新和通知"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "性別"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "其他球員看到您的方式"
 
@@ -225,7 +226,7 @@ msgstr "中級"
 msgid "Intermediate+"
 msgstr "中級+"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "保持您的球員個人資料準確且對社群有用。"
 
@@ -233,7 +234,7 @@ msgstr "保持您的球員個人資料準確且對社群有用。"
 msgid "Let hosts schedule events when most of you are free"
 msgstr "讓主辦人在大多數人有空時安排活動"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "等級"
 
@@ -253,7 +254,7 @@ msgstr "位置存取遭拒。請允許存取或選擇場地。"
 msgid "Location:"
 msgstr "地點："
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "男性"
 
@@ -269,7 +270,7 @@ msgstr "附近"
 msgid "Near me · {radius} km"
 msgstr "附近 · {radius} 公里"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "暫不設定"
 
@@ -310,12 +311,12 @@ msgstr "預訂"
 msgid "Save"
 msgstr "儲存"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "儲存個人資料"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "儲存中…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -334,7 +335,7 @@ msgstr ""
 "設定您未來 2 週的空閒時間。您的活動與可用時段共用同一區塊；青色線條越粗，表示"
 "可用場地越多。"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -352,6 +353,10 @@ msgstr "單打"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "點擊空白時段以新增・拖曳以移動・拉動邊緣以調整大小"
 
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "這看起來不像電子郵件地址。"
+
 #: src/components/molecules/LocationFilterControl.re.mjs:120
 msgid "Tokyo"
 msgstr "東京"
@@ -364,7 +369,7 @@ msgstr "使用附近位置"
 msgid "Use option"
 msgstr "使用此選項"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "在您參加此活動之前，我們需要一些資訊"
 
@@ -452,6 +457,10 @@ msgstr "您的時間"
 #~ msgid "Courts"
 #~ msgstr "場地"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "場地 · 粗細 = 數量"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "您的時段內可用場地"
@@ -459,6 +468,10 @@ msgstr "您的時間"
 #: src/components/molecules/LocationFilter.re.mjs:110
 #~ msgid "Filter by location"
 #~ msgstr "依地點篩選"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "用於活動更新和通知"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
@@ -476,6 +489,10 @@ msgstr "您的時間"
 #: src/components/molecules/LocationFilter.re.mjs:36
 #~ msgid "Pick a location or use your current location."
 #~ msgstr "選擇地點或使用目前位置。"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "儲存中…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""
@@ -522,11 +539,3 @@ msgstr "您的時間"
 #: src/components/molecules/LocationFilter.re.mjs:28
 #~ msgid "Within {0} km · {1}, {2}"
 #~ msgstr "{0} 公里以內 · {1}，{2}"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "用於活動更新和通知。我們會寄送確認連結給您。"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "這看起來不像電子郵件地址。"

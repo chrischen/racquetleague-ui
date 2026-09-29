@@ -78,11 +78,7 @@ msgstr "ลบการยืนยันนี้"
 msgid "Retry charge"
 msgstr "ลองเรียกเก็บเงินอีกครั้ง"
 
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "ดูทั้งหมด"
-
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
@@ -97,3 +93,7 @@ msgstr ""
 #: src/components/organisms/RsvpOptions.re.mjs:313
 msgid "View Profile"
 msgstr "ดูโปรไฟล์"
+
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "ดูทั้งหมด"

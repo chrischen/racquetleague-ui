@@ -16,7 +16,7 @@ import * as RescriptRelay_Fragment from "rescript-relay/src/RescriptRelay_Fragme
 import * as EventHeader_event_graphql from "../../__generated__/EventHeader_event_graphql.re.mjs";
 import * as DifferenceInMinutes from "date-fns/differenceInMinutes";
 
-import { t } from '@lingui/macro'
+import { t, plural } from '@lingui/macro'
 ;
 
 var convertFragment = EventHeader_event_graphql.Internal.convertFragment;
@@ -48,12 +48,22 @@ function EventHeader(props) {
                       }));
         }));
   var durationText = Core__Option.map(duration, (function (duration) {
-          var hours = Math.floor(duration / 60);
+          var hours = Math.floor(duration / 60) | 0;
           var minutes = (duration | 0) % 60;
+          var hoursText = plural(hours, {
+                one: t`${hours.toString()} hour`,
+                other: t`${hours.toString()} hours`
+              });
+          var minutesText = plural(minutes, {
+                one: t`${minutes.toString()} minute`,
+                other: t`${minutes.toString()} minutes`
+              });
           if (minutes === 0) {
-            return t`${hours.toString()} hours`;
+            return hoursText;
+          } else if (hours === 0) {
+            return minutesText;
           } else {
-            return t`${hours.toString()} hours and ${minutes.toString()} minutes`;
+            return t`${hoursText} and ${minutesText}`;
           }
         }));
   var activityComponent = Core__Option.getOr(Core__Option.flatMap(data.activity, (function (activity) {
@@ -97,14 +107,14 @@ function EventHeader(props) {
                                                     ],
                                                     className: "flex items-center gap-x-3"
                                                   }),
-                                              className: "text-2xl md:text-3xl font-bold text-gray-900"
+                                              className: "text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100"
                                             }),
                                         JsxRuntime.jsxs("div", {
                                               children: [
                                                 JsxRuntime.jsxs("div", {
                                                       children: [
                                                         JsxRuntime.jsx(LucideReact.Users, {
-                                                              className: "mr-1"
+                                                              className: "mr-1 flex-shrink-0"
                                                             }),
                                                         JsxRuntime.jsx("span", {
                                                               children: Core__Option.getOr(Core__Option.flatMap(data.club, (function (club) {
@@ -143,14 +153,14 @@ function EventHeader(props) {
                                                               })), (function (tags) {
                                                             return JsxRuntime.jsx(EventTag.TagList.make, {
                                                                         tags: tags,
-                                                                        className: "mt-2 sm:mt-0 sm:ml-3"
+                                                                        className: "mt-2 sm:mt-0 sm:ml-3 flex-wrap items-center"
                                                                       });
                                                           })), null)
                                               ],
-                                              className: "flex flex-col sm:flex-row sm:items-center mt-1 text-gray-600"
+                                              className: "flex flex-col sm:flex-row sm:items-center mt-1 text-gray-600 dark:text-gray-400"
                                             })
                                       ],
-                                      className: "p-4 md:p-6 border-b"
+                                      className: "p-4 md:p-6 border-b dark:border-[#2a2b30]"
                                     }),
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs("div", {
@@ -158,7 +168,7 @@ function EventHeader(props) {
                                               JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx(LucideReact.CalendarClock, {
-                                                            className: "text-blue-600 mt-1 mr-3 flex-shrink-0"
+                                                            className: "text-blue-600 dark:text-blue-400 mt-1 mr-3 flex-shrink-0"
                                                           }),
                                                       JsxRuntime.jsxs("div", {
                                                             children: [
@@ -188,7 +198,7 @@ function EventHeader(props) {
                                                                                     }))
                                                                           })
                                                                     ],
-                                                                    className: "font-semibold text-gray-900"
+                                                                    className: "font-semibold text-gray-900 dark:text-gray-100"
                                                                   }),
                                                               JsxRuntime.jsxs("div", {
                                                                     children: [
@@ -219,7 +229,7 @@ function EventHeader(props) {
                                                                                             });
                                                                                 })), null)
                                                                     ],
-                                                                    className: "text-lg font-bold text-blue-700"
+                                                                    className: "text-lg font-bold text-blue-700 dark:text-blue-300"
                                                                   })
                                                             ]
                                                           })
@@ -229,7 +239,7 @@ function EventHeader(props) {
                                               JsxRuntime.jsxs("div", {
                                                     children: [
                                                       JsxRuntime.jsx(LucideReact.MapPin, {
-                                                            className: "text-blue-600 mr-3 flex-shrink-0"
+                                                            className: "text-blue-600 dark:text-blue-400 mr-3 flex-shrink-0"
                                                           }),
                                                       JsxRuntime.jsx("div", {
                                                             children: JsxRuntime.jsx("div", {
@@ -245,7 +255,7 @@ function EventHeader(props) {
                                                                                             }
                                                                                           }));
                                                                             })), t`Unknown location`),
-                                                                  className: "font-semibold text-gray-900"
+                                                                  className: "font-semibold text-gray-900 dark:text-gray-100"
                                                                 })
                                                           })
                                                     ],
@@ -254,10 +264,10 @@ function EventHeader(props) {
                                             ],
                                             className: "md:flex md:justify-between"
                                           }),
-                                      className: "p-4 md:p-6 bg-blue-50 border-b"
+                                      className: "p-4 md:p-6 bg-blue-50 border-b dark:bg-blue-900/20 dark:border-[#2a2b30]"
                                     })
                               ],
-                              className: "bg-white shadow-md"
+                              className: "bg-white shadow-md dark:bg-[#1e1f23]"
                             });
                 })
             });

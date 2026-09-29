@@ -33,16 +33,12 @@ function AvatarRsvpUser(props) {
             })), null);
   return JsxRuntime.jsxs("div", {
               children: [
-                Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
-                            return JsxRuntime.jsx(AvatarWithProgress.make, {
-                                        src: picture,
-                                        alt: user.name,
-                                        progress: progressOpt,
-                                        sigmaProgress: sigmaProgressOpt
-                                      });
-                          })), JsxRuntime.jsx("div", {
-                          className: "h-12 w-12 flex-none rounded-full bg-gray-50"
-                        })),
+                JsxRuntime.jsx(AvatarWithProgress.make, {
+                      src: Core__Option.getOr(user.picture, ""),
+                      alt: user.name,
+                      progress: progressOpt,
+                      sigmaProgress: sigmaProgressOpt
+                    }),
                 JsxRuntime.jsxs("span", {
                       children: [
                         nameElement,

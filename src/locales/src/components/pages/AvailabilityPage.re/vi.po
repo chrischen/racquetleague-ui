@@ -96,7 +96,7 @@ msgstr "Tất cả cấp độ"
 msgid "Beginner"
 msgstr "Người mới bắt đầu"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "Tiểu sử"
 
@@ -113,7 +113,7 @@ msgstr "Thay đổi"
 msgid "Clear"
 msgstr "Xóa"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "Đóng biểu mẫu hồ sơ"
 
@@ -121,11 +121,11 @@ msgstr "Đóng biểu mẫu hồ sơ"
 msgid "Complete Beginner"
 msgstr "Hoàn toàn mới bắt đầu"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "Hoàn thiện hồ sơ cầu thủ của bạn"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr ""
@@ -134,8 +134,8 @@ msgstr ""
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "Không thể lưu hồ sơ của bạn. Vui lòng thử lại."
 
@@ -144,7 +144,7 @@ msgid "Court"
 msgstr "Sân"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
+msgid "Courts · thickness = count"
 msgstr "Sân · độ dày = số lượng"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
@@ -164,7 +164,7 @@ msgstr "Tạo sự kiện"
 msgid "Current location is not supported by this browser."
 msgstr "Trình duyệt này không hỗ trợ vị trí hiện tại."
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "Tên hiển thị"
 
@@ -180,11 +180,11 @@ msgstr "Xong"
 msgid "doubles"
 msgstr "đôi"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "Địa chỉ email"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -204,19 +204,22 @@ msgstr "Bộ lọc sự kiện"
 msgid "Events"
 msgstr "Các sự kiện"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "Nữ"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "Để nhận cập nhật và thông báo về sự kiện"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr ""
+"Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để "
+"xác nhận."
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "Giới tính"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "Cách người chơi khác nhìn thấy bạn"
 
@@ -228,7 +231,7 @@ msgstr "Trung cấp"
 msgid "Intermediate+"
 msgstr "Trung cấp+"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho cộng đồng."
 
@@ -236,7 +239,7 @@ msgstr "Giữ hồ sơ cầu thủ của bạn chính xác và hữu ích cho c�
 msgid "Let hosts schedule events when most of you are free"
 msgstr "Để chủ tổ chức lên lịch sự kiện khi phần lớn mọi người rảnh"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "Trình độ"
 
@@ -258,7 +261,7 @@ msgstr ""
 msgid "Location:"
 msgstr "Địa điểm:"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "Nam"
 
@@ -274,7 +277,7 @@ msgstr "Gần tôi"
 msgid "Near me · {radius} km"
 msgstr "Gần tôi · {radius} km"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "Không phải bây giờ"
 
@@ -315,12 +318,12 @@ msgstr "Đặt sân"
 msgid "Save"
 msgstr "Lưu"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "Lưu hồ sơ"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "Đang lưu…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -339,7 +342,7 @@ msgstr ""
 "Đặt lịch rảnh của bạn cho 2 tuần tới. Sự kiện và khung giờ rảnh được hiển "
 "thị chung; đường cyan càng dày nghĩa là càng nhiều sân."
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -360,6 +363,10 @@ msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr ""
 "Nhấn vào ô trống để thêm · kéo để di chuyển · kéo cạnh để thay đổi kích thước"
 
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "Đây có vẻ không phải là địa chỉ email."
+
 #: src/components/molecules/LocationFilterControl.re.mjs:120
 msgid "Tokyo"
 msgstr "Tokyo"
@@ -372,7 +379,7 @@ msgstr "Dùng vị trí gần tôi"
 msgid "Use option"
 msgstr "Dùng tùy chọn này"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr ""
 "Chúng tôi cần một vài thông tin trước khi bạn có thể tham gia sự kiện này"
@@ -461,6 +468,10 @@ msgstr "Giờ của bạn"
 #~ msgid "Courts"
 #~ msgstr "Sân"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "Sân · độ dày = số lượng"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "Sân trống trong giờ của bạn"
@@ -468,6 +479,10 @@ msgstr "Giờ của bạn"
 #: src/components/molecules/LocationFilter.re.mjs:110
 #~ msgid "Filter by location"
 #~ msgstr "Lọc theo địa điểm"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "Để nhận cập nhật và thông báo về sự kiện"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
@@ -485,6 +500,10 @@ msgstr "Giờ của bạn"
 #: src/components/molecules/LocationFilter.re.mjs:36
 #~ msgid "Pick a location or use your current location."
 #~ msgstr "Chọn một địa điểm hoặc sử dụng vị trí hiện tại của bạn."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "Đang lưu…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""
@@ -533,11 +552,3 @@ msgstr "Giờ của bạn"
 #: src/components/molecules/LocationFilter.re.mjs:28
 #~ msgid "Within {0} km · {1}, {2}"
 #~ msgstr "Trong vòng {0} km · {1}, {2}"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "Dùng cho cập nhật sự kiện và thông báo. Chúng tôi sẽ gửi email liên kết để xác nhận."
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "Đây có vẻ không phải là địa chỉ email."

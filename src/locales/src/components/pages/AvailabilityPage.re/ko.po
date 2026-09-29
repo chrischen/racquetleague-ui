@@ -96,7 +96,7 @@ msgstr "모든 레벨"
 msgid "Beginner"
 msgstr "초급"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "자기소개"
 
@@ -113,7 +113,7 @@ msgstr "변경"
 msgid "Clear"
 msgstr "지우기"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "프로필 양식 닫기"
 
@@ -121,19 +121,19 @@ msgstr "프로필 양식 닫기"
 msgid "Complete Beginner"
 msgstr "완전 초급"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "플레이어 프로필을 완성하세요"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "플레이어 및 호스트와 일정을 공유하기 전에 프로필을 완성해주세요."
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "프로필을 저장하지 못했습니다. 다시 시도해주세요."
 
@@ -142,8 +142,8 @@ msgid "Court"
 msgstr "코트"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
-msgstr "코트 · 두께 = 수량"
+msgid "Courts · thickness = count"
+msgstr "코트 · 굵기 = 횟수"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -161,7 +161,7 @@ msgstr "이벤트 만들기"
 msgid "Current location is not supported by this browser."
 msgstr "현재 위치는 이 브라우저에서 지원되지 않습니다."
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "표시 이름"
 
@@ -177,11 +177,11 @@ msgstr "완료"
 msgid "doubles"
 msgstr "복식"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "이메일 주소"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -201,19 +201,20 @@ msgstr "이벤트 필터"
 msgid "Events"
 msgstr "이벤트"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "여성"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "이벤트 업데이트 및 알림용"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "이벤트 업데이트 및 알림용입니다. 확인 링크를 이메일로 보내 드립니다."
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "성별"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "다른 플레이어에게 보여지는 모습"
 
@@ -225,7 +226,7 @@ msgstr "중급"
 msgid "Intermediate+"
 msgstr "중급+"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하게 유지하세요."
 
@@ -233,7 +234,7 @@ msgstr "커뮤니티에 도움이 되도록 플레이어 프로필을 정확하�
 msgid "Let hosts schedule events when most of you are free"
 msgstr "대부분 가능한 시간에 호스트가 이벤트를 예약하도록 합니다"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "레벨"
 
@@ -253,7 +254,7 @@ msgstr "위치 접근이 거부되었습니다. 접근을 허용하거나 장소
 msgid "Location:"
 msgstr "장소:"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "남성"
 
@@ -269,7 +270,7 @@ msgstr "내 근처"
 msgid "Near me · {radius} km"
 msgstr "내 근처 · {radius}km"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "나중에"
 
@@ -310,12 +311,12 @@ msgstr "예약"
 msgid "Save"
 msgstr "저장"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "프로필 저장"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "저장 중…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -334,7 +335,7 @@ msgstr ""
 "향후 2주간 가능한 시간을 설정하세요. 일정과 가능한 시간대가 함께 표시되며, 굵"
 "은 청록색 선일수록 더 많은 코트를 의미합니다."
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
@@ -354,6 +355,10 @@ msgstr "단식"
 msgid "Tap empty time to add · drag to move · grab edges to resize"
 msgstr "빈 시간 탭하여 추가 · 드래그하여 이동 · 가장자리를 잡아 크기 조절"
 
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "이메일 주소 형식이 아닌 것 같습니다."
+
 #: src/components/molecules/LocationFilterControl.re.mjs:120
 msgid "Tokyo"
 msgstr "도쿄"
@@ -366,7 +371,7 @@ msgstr "내 근처 사용"
 msgid "Use option"
 msgstr "옵션 사용"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "이 이벤트에 참가하기 전에 몇 가지 정보가 필요합니다"
 
@@ -454,6 +459,10 @@ msgstr "내 시간"
 #~ msgid "Courts"
 #~ msgstr "코트"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "코트 · 두께 = 수량"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "내 시간에 이용 가능한 코트"
@@ -461,6 +470,10 @@ msgstr "내 시간"
 #: src/components/molecules/LocationFilter.re.mjs:110
 #~ msgid "Filter by location"
 #~ msgstr "위치로 필터링"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "이벤트 업데이트 및 알림용"
 
 #: src/components/molecules/CourtAvailabilityGroups.re.mjs:167
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:410
@@ -478,6 +491,10 @@ msgstr "내 시간"
 #: src/components/molecules/LocationFilter.re.mjs:36
 #~ msgid "Pick a location or use your current location."
 #~ msgstr "위치를 선택하거나 현재 위치를 사용하세요."
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "저장 중…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""
@@ -526,11 +543,3 @@ msgstr "내 시간"
 #: src/components/molecules/LocationFilter.re.mjs:28
 #~ msgid "Within {0} km · {1}, {2}"
 #~ msgstr "{0}km 이내 · {1}, {2}"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "이벤트 업데이트 및 알림용입니다. 확인 링크를 이메일로 보내 드립니다."
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "이메일 주소 형식이 아닌 것 같습니다."

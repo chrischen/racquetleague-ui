@@ -25,7 +25,7 @@ msgstr ""
 #~ msgid "Go Back"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:279
+#: src/components/organisms/SelectMatch.re.mjs:284
 msgid "left team players"
 msgstr ""
 
@@ -38,15 +38,15 @@ msgstr ""
 #~ msgid "Loading"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:298
+#: src/components/organisms/SelectMatch.re.mjs:303
 msgid "Losers"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:136
+#: src/components/organisms/SelectMatch.re.mjs:59
 msgid "no players yet"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:91
+#: src/components/organisms/SelectMatch.re.mjs:95
 msgid "Player"
 msgstr ""
 
@@ -65,11 +65,11 @@ msgstr ""
 #~ msgid "predicted winner"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:328
+#: src/components/organisms/SelectMatch.re.mjs:333
 msgid "Queue Match"
 msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:303
+#: src/components/organisms/SelectMatch.re.mjs:308
 msgid "right team players"
 msgstr ""
 
@@ -82,6 +82,6 @@ msgstr ""
 #~ msgid "Winner"
 #~ msgstr ""
 
-#: src/components/organisms/SelectMatch.re.mjs:274
+#: src/components/organisms/SelectMatch.re.mjs:279
 msgid "Winners"
 msgstr ""

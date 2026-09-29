@@ -1177,21 +1177,31 @@ function EventManager(props) {
   var setAntiTeams = match$34[1];
   var antiTeams = match$34[0];
   var match$35 = React.useState(function () {
-        return false;
+        return [];
       });
-  var setTeamManagementOpen = match$35[1];
+  var setTeamNames = match$35[1];
+  var teamNames = match$35[0];
   var match$36 = React.useState(function () {
-        
+        return [];
       });
-  var setPlayerSettingsOpen = match$36[1];
+  var setAntiTeamNames = match$36[1];
+  var antiTeamNames = match$36[0];
   var match$37 = React.useState(function () {
         return false;
       });
-  var setShowFullScreenRound = match$37[1];
+  var setTeamManagementOpen = match$37[1];
   var match$38 = React.useState(function () {
+        
+      });
+  var setPlayerSettingsOpen = match$38[1];
+  var match$39 = React.useState(function () {
         return false;
       });
-  var setShowPrintableDraws = match$38[1];
+  var setShowFullScreenRound = match$39[1];
+  var match$40 = React.useState(function () {
+        return false;
+      });
+  var setShowPrintableDraws = match$40[1];
   var teamConstraints = React.useMemo((function () {
           var teamsArray = Util.NonEmptyArray.toArray(teams);
           if (teamsArray.length > 0) {
@@ -2113,6 +2123,12 @@ function EventManager(props) {
     setAntiTeams(function (param) {
           return Util.NonEmptyArray.empty;
         });
+    setTeamNames(function (param) {
+          return [];
+        });
+    setAntiTeamNames(function (param) {
+          return [];
+        });
     setPlayerOverrides(function (param) {
           return {};
         });
@@ -2293,14 +2309,14 @@ function EventManager(props) {
   var teamsAsData = Util.NonEmptyArray.toArray(teams).map(function (team, index) {
         return {
                 id: index,
-                name: t`Team ${(index + 1 | 0).toString()}`,
+                name: Core__Option.getOr(teamNames[index], t`Team ${(index + 1 | 0).toString()}`),
                 playerIds: team.map(function (p) {
                       return p.id;
                     })
               };
       });
   var tmp;
-  if (match$37[0]) {
+  if (match$39[0]) {
     var currentRoundMatches = Core__Option.getOr(rounds[currentRoundInt - 1 | 0], []);
     tmp = JsxRuntime.jsx(FullScreenRoundView.make, {
           matches: currentRoundMatches,
@@ -2737,12 +2753,12 @@ function EventManager(props) {
   }
   return JsxRuntime.jsxs(JsxRuntime.Fragment, {
               children: [
-                match$35[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
+                match$37[0] ? JsxRuntime.jsx(TeamManagementModal.make, {
                         teams: teamsAsData,
                         antiTeams: Util.NonEmptyArray.toArray(antiTeams).map(function (team, index) {
                               return {
                                       id: index,
-                                      name: t`Anti-Team ${(index + 1 | 0).toString()}`,
+                                      name: Core__Option.getOr(antiTeamNames[index], t`Anti-Team ${(index + 1 | 0).toString()}`),
                                       playerIds: team.map(function (p) {
                                             return p.id;
                                           })
@@ -2750,34 +2766,56 @@ function EventManager(props) {
                             }),
                         players: playersWithCounts,
                         onSave: (function (updatedTeams, updatedAntiTeams) {
-                            var newTeams = Core__Array.filterMap(updatedTeams, (function (teamData) {
+                            var namedTeams = Core__Array.filterMap(updatedTeams, (function (teamData) {
                                     var teamPlayers = Core__Array.filterMap(teamData.playerIds, (function (id) {
                                             return playersWithCounts.find(function (p) {
                                                         return p.id === id;
                                                       });
                                           }));
                                     if (teamPlayers.length > 0) {
-                                      return teamPlayers;
+                                      return [
+                                              teamPlayers,
+                                              teamData.name
+                                            ];
                                     }
                                     
                                   }));
+                            var newTeams = namedTeams.map(function (prim) {
+                                  return prim[0];
+                                });
                             setTeams(function (param) {
                                   return Util.NonEmptyArray.fromArray(newTeams);
                                 });
+                            setTeamNames(function (param) {
+                                  return namedTeams.map(function (prim) {
+                                              return prim[1];
+                                            });
+                                });
                             EventManagerPersistence.saveTeams(data.id, newTeams);
-                            var newAntiTeams = Core__Array.filterMap(updatedAntiTeams, (function (teamData) {
+                            var namedAntiTeams = Core__Array.filterMap(updatedAntiTeams, (function (teamData) {
                                     var teamPlayers = Core__Array.filterMap(teamData.playerIds, (function (id) {
                                             return playersWithCounts.find(function (p) {
                                                         return p.id === id;
                                                       });
                                           }));
                                     if (teamPlayers.length > 0) {
-                                      return teamPlayers;
+                                      return [
+                                              teamPlayers,
+                                              teamData.name
+                                            ];
                                     }
                                     
                                   }));
+                            var newAntiTeams = namedAntiTeams.map(function (prim) {
+                                  return prim[0];
+                                });
                             setAntiTeams(function (param) {
                                   return Util.NonEmptyArray.fromArray(newAntiTeams);
+                                });
+                            setAntiTeamNames(function (param) {
+                                  return namedAntiTeams.map(function (prim) {
+                                              return prim[1];
+                                            });
                                 });
                             EventManagerPersistence.saveAntiTeams(data.id, newAntiTeams);
                             setTeamManagementOpen(function (param) {
@@ -2793,7 +2831,7 @@ function EventManager(props) {
                                 });
                           })
                       }) : null,
-                Core__Option.getOr(Core__Option.map(match$36[0], (function (player) {
+                Core__Option.getOr(Core__Option.map(match$38[0], (function (player) {
                             var isGuest = Core__Option.isNone(player.data);
                             if (isGuest) {
                               return JsxRuntime.jsx(PlayerSettingsModal.make, {
@@ -2816,6 +2854,21 @@ function EventManager(props) {
                                                     var newSet = new Set(Array.from(prev.values()));
                                                     newSet.delete(playerId);
                                                     return newSet;
+                                                  });
+                                              var keepNames = function (names, teams) {
+                                                return names.filter(function (param, i) {
+                                                            return Core__Option.mapOr(Util.NonEmptyArray.toArray(teams)[i], true, (function (team) {
+                                                                          return team.some(function (p) {
+                                                                                      return p.id !== playerId;
+                                                                                    });
+                                                                        }));
+                                                          });
+                                              };
+                                              setTeamNames(function (names) {
+                                                    return keepNames(names, teams);
+                                                  });
+                                              setAntiTeamNames(function (names) {
+                                                    return keepNames(names, antiTeams);
                                                   });
                                               var updatedTeams = Util.NonEmptyArray.toArray(teams).map(function (team) {
                                                       return team.filter(function (p) {
@@ -3097,7 +3150,7 @@ function EventManager(props) {
                       ],
                       className: "min-h-screen bg-slate-50 flex flex-col"
                     }),
-                match$38[0] ? JsxRuntime.jsx(PrintableDraws.make, {
+                match$40[0] ? JsxRuntime.jsx(PrintableDraws.make, {
                         rounds: rounds.map(function (roundMatches, roundIdx) {
                               return {
                                       roundNumber: roundIdx + 1 | 0,

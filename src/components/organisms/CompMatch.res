@@ -53,8 +53,8 @@ module MatchMini = {
             highlight
             ->Option.map(h =>
               switch h {
-              | Left | Both => "bg-yellow-100"
-              | Left2 | Both2 => "bg-red-200"
+              | Left | Both => "bg-yellow-100 dark:bg-yellow-900/40"
+              | Left2 | Both2 => "bg-red-200 dark:bg-red-900/40"
               | _ => ""
               }
             )
@@ -64,7 +64,7 @@ module MatchMini = {
             {team1->Array.map(p => <PlayerMini key={p.id} player=p session />)->React.array}
           </span>
         </div>
-        <div className="col-span-1 text-center text-2xl text-gray-800 font-bold">
+        <div className="col-span-1 text-center text-2xl text-gray-800 dark:text-gray-200 font-bold">
           {" VS "->React.string}
         </div>
         <div
@@ -73,8 +73,8 @@ module MatchMini = {
             highlight
             ->Option.map(h =>
               switch h {
-              | Right | Both => "bg-yellow-100"
-              | Right2 | Both2 => "bg-red-200"
+              | Right | Both => "bg-yellow-100 dark:bg-yellow-900/40"
+              | Right2 | Both2 => "bg-red-200 dark:bg-red-900/40"
               | _ => ""
               }
             )
@@ -274,7 +274,7 @@ let make = (
         ->Array.find(tab => tab.strategy == strategy)
         ->Option.map(s => s.name)
         ->Option.getOr("")}
-        className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500">
+        className="block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-[#1e1f23] dark:border-[#3a3b40] dark:text-gray-100">
         {strats
         ->Array.map(tab =>
           <option key={tab.name} value={tab.name}> {tab.name->React.string} </option>
@@ -293,7 +293,7 @@ let make = (
             className={Util.cx([
               strategy == tab.strategy
                 ? "bg-indigo-100 text-indigo-700"
-                : "text-gray-500 hover:text-gray-700",
+                : "text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200",
               "rounded-md px-3 py-2 text-sm font-medium",
             ])}>
             {tab.name->React.string}
@@ -312,16 +312,16 @@ let make = (
       />
       <Label> {t`Gender Mixed Doubles`} </Label>
     </CheckboxField>
-    <p className="mt-2 text-base leading-7 text-gray-600">
+    <p className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-400">
       {t`Analyzed ${intl->ReactIntl.Intl.formatNumber(matchesCount->Int.toFloat)} matches.`}
       {" "->React.string}
       {tab->Option.map(tab => tab.details->React.string)->Option.getOr(React.null)}
     </p>
-    <p className="mt-2 text-base leading-7 text-gray-600 mb-2">
-      <span className="px-2 py-1 bg-yellow-100"> {"..."->React.string} </span>
+    <p className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-400 mb-2">
+      <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/40"> {"..."->React.string} </span>
       {" = "->React.string}
       {t`This team has played before`}
-      <span className="ml-2 px-2 py-1 bg-red-100"> {"..."->React.string} </span>
+      <span className="ml-2 px-2 py-1 bg-red-100 dark:bg-red-900/40"> {"..."->React.string} </span>
       {" = "->React.string}
       {t`Played last round`}
     </p>
@@ -396,7 +396,7 @@ let make = (
       | (_, true) => Some(MatchMini.Yellow)
       | (false, false) => None
       }
-      <div className="border-zinc-600 rounded ring-1 mb-2 bg-green-100">
+      <div className="border-zinc-600 rounded ring-1 mb-2 bg-green-100 dark:bg-green-900/30">
         <h3 className="text-lg font-semibold p-2"> {t`Recommended Match`} </h3>
         <MatchMini
           onSelect=?{onSelectMatch->Option.map(f => match => {
@@ -468,7 +468,7 @@ let make = (
           ?border
         />
         {quality->Float.toFixed(~digits=3)->React.string}
-        <div className="overflow-hidden rounded-full bg-gray-200 mt-1">
+        <div className="overflow-hidden rounded-full bg-gray-200 dark:bg-[#2a2b30] mt-1">
           <FramerMotion.Div
             className="h-2 rounded-full bg-red-400"
             initial={width: "0%"}

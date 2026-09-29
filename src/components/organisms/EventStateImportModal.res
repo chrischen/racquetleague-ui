@@ -50,7 +50,7 @@ let make = (
           <textarea
             value={text}
             onChange={e => setText(ReactEvent.Form.target(e)["value"])}
-            className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-xs"
+            className="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-xs"
             placeholder={ts`{"format":"pkuru-event-history", ...}`}
             rows={10}
           />

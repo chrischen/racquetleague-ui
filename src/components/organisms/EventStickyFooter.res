@@ -59,6 +59,18 @@ type savedCardShape = {
   last4: string,
 }
 
+// The viewer's place on the waitlist (1 = next in, in join order), if their
+// RSVP is on it.
+let waitlistPositionOf = (~waitlistRsvpIds: array<string>, ~viewerRsvpId: option<string>) =>
+  viewerRsvpId
+  ->Option.flatMap(id => waitlistRsvpIds->Array.findIndexOpt(w => w == id))
+  ->Option.map(i => i + 1)
+
+// Players holding a spot, for the footer's "going/max": the main list up to
+// capacity. Whoever is past capacity is on the waitlist, not going.
+let goingCountOf = (~mainListCount: int, ~maxRsvps: int) =>
+  maxRsvps > 0 ? Math.Int.min(mainListCount, maxRsvps) : mainListCount
+
 // Footer rows span the bar's full width (tint, borders) while their content
 // stays aligned with the page's card column. Inside the events drawer, which
 // is narrower than the column, this is a no-op.
@@ -92,6 +104,8 @@ let make = (
   ~isFull: bool,
   ~confirmedCount: int,
   ~waitlistCount: int,
+  // The viewer's place on the waitlist (1 = next in), when waitlisted.
+  ~waitlistPosition: option<int>=?,
   ~maxRsvps: int,
   ~tz: string,
   ~queryFragmentRefs: RescriptRelay.fragmentRefs<[> #UseProfileGate_query]>,
@@ -449,15 +463,23 @@ let make = (
                         ])}>
                         {(isWaitlisted ? ts`On waitlist` : ts`You're in`)->React.string}
                       </span>
-                      <span className="text-gray-400 dark:text-gray-500">
-                        {(" \u00B7 " ++ (
-                          isWaitlisted
-                            ? "#" ++ Int.toString(waitlistCount) ++ " in queue"
-                            : Int.toString(confirmedCount) ++ (
-                                maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : ""
-                              )
-                        ))->React.string}
-                      </span>
+                      {switch (isWaitlisted, waitlistPosition) {
+                      | (true, None) => React.null
+                      | (true, Some(pos)) =>
+                        // "#" goes in the value: Lingui reads a message
+                        // fragment that is only "#" as a plural octothorpe.
+                        let position = "#" ++ Int.toString(pos)
+                        <span className="text-gray-400 dark:text-gray-500">
+                          {(" \u00B7 " ++ ts`${position} in queue`)->React.string}
+                        </span>
+                      | (false, _) =>
+                        <span className="text-gray-400 dark:text-gray-500">
+                          {(" \u00B7 " ++
+                          Int.toString(confirmedCount) ++ (
+                            maxRsvps > 0 ? "/" ++ Int.toString(maxRsvps) : ""
+                          ))->React.string}
+                        </span>
+                      }}
                     </div>
                   </div>
                   <button

@@ -54,12 +54,32 @@ msgid "all level"
 msgstr "ทุกระดับ"
 
 #: src/components/organisms/EventHeader.re.mjs:54
+msgid "{0} hour"
+msgstr "{0} ชั่วโมง"
+
+#: src/components/organisms/EventHeader.re.mjs:55
 msgid "{0} hours"
 msgstr "{0} ชั่วโมง"
 
-#: src/components/organisms/EventHeader.re.mjs:56
-msgid "{0} hours and {1} minutes"
-msgstr "{0} ชั่วโมง {1} นาที"
+#: src/components/organisms/EventHeader.re.mjs:58
+msgid "{0} minute"
+msgstr "{0} นาที"
+
+#: src/components/organisms/EventHeader.re.mjs:59
+msgid "{0} minutes"
+msgstr "{0} นาที"
+
+#: src/components/organisms/EventHeader.re.mjs:53
+msgid "{hours, plural, one {{0}} other {{1}}}"
+msgstr "{hours, plural, one {{0}} other {{1}}}"
+
+#: src/components/organisms/EventHeader.re.mjs:66
+msgid "{hoursText} and {minutesText}"
+msgstr "{hoursText} {minutesText}"
+
+#: src/components/organisms/EventHeader.re.mjs:57
+msgid "{minutes, plural, one {{0}} other {{1}}}"
+msgstr "{0}"
 
 #: src/components/organisms/GoingRsvps.re.mjs:105
 msgid "+{0} more"
@@ -98,7 +118,7 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
@@ -114,7 +134,7 @@ msgstr "ยกเลิก"
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
 
-#: src/components/organisms/EventHeader.re.mjs:79
+#: src/components/organisms/EventHeader.re.mjs:89
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
@@ -134,7 +154,7 @@ msgstr "เรียกเก็บเงิน"
 msgid "Clear preview"
 msgstr "ล้างตัวอย่าง"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "ปิดฟอร์มโปรไฟล์"
 
@@ -146,11 +166,11 @@ msgstr "ย่อ"
 msgid "Complete Beginner"
 msgstr "ผู้เริ่มต้นสมบูรณ์"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
@@ -161,12 +181,12 @@ msgstr "ยืนยัน"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
-#: src/components/organisms/MatchCard.re.mjs:396
+#: src/components/organisms/MatchCard.re.mjs:399
 msgid "Court {0}"
 msgstr "สนาม {0}"
 
@@ -178,21 +198,21 @@ msgstr "สนาม {0} - กำลังแก้ไข"
 msgid "Courts:"
 msgstr "คอร์ท:"
 
-#: src/components/organisms/EventHeader.re.mjs:175
+#: src/components/organisms/EventHeader.re.mjs:185
 msgid "Date TBD"
 msgstr "วันที่ยังไม่กำหนด"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
-#: src/components/organisms/MatchCard.re.mjs:437
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "Delete match"
 msgstr "ลบการแข่งขัน"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:444
 msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "ชื่อที่แสดง"
 
@@ -208,15 +228,15 @@ msgstr "คู่"
 msgid "edit event"
 msgstr "แก้ไขกิจกรรม"
 
-#: src/components/organisms/MatchCard.re.mjs:450
+#: src/components/organisms/MatchCard.re.mjs:453
 msgid "Edit match"
 msgstr "แก้ไขการแข่งขัน"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -226,11 +246,11 @@ msgstr "ที่อยู่อีเมลนี้ไม่ว่าง ก�
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
 
-#: src/components/organisms/ScoreModal.re.mjs:112
+#: src/components/organisms/ScoreModal.re.mjs:116
 msgid "Enter Match Score"
 msgstr "ป้อนคะแนนแมตช์"
 
-#: src/components/organisms/ScoreModal.re.mjs:257
+#: src/components/organisms/ScoreModal.re.mjs:261
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "คะแนนเท่ากัน — จะถูกบันทึกเป็นเสมอ"
 
@@ -250,15 +270,16 @@ msgstr "ไม่พบกิจกรรม"
 msgid "Event tag: {tag}"
 msgstr "แท็กกิจกรรม: {tag}"
 
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "เพศ"
 
@@ -274,7 +295,7 @@ msgstr "Google Calendar"
 msgid "Highly skilled players"
 msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
 
@@ -302,11 +323,11 @@ msgstr "เข้าร่วมจากรายชื่อคอย"
 msgid "joined the event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
@@ -314,7 +335,7 @@ msgstr "รอบที่แล้ว"
 msgid "left the event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "ระดับ"
 
@@ -334,7 +355,7 @@ msgstr "รายละเอียดสถานที่"
 msgid "Login to Join"
 msgstr "เข้าสู่ระบบเพื่อเข้าร่วม"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Losing Team (Team {0})"
 msgstr "ทีมแพ้ (ทีม {0})"
 
@@ -342,7 +363,7 @@ msgstr "ทีมแพ้ (ทีม {0})"
 msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "ชาย"
 
@@ -367,11 +388,11 @@ msgstr "ไม่พบผู้เล่น"
 msgid "No restriction on skill level. Open to all players."
 msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
 
-#: src/components/organisms/ScoreModal.re.mjs:266
+#: src/components/organisms/ScoreModal.re.mjs:270
 msgid "No Score"
 msgstr "ไม่มีคะแนน"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
 
@@ -412,8 +433,8 @@ msgstr "ดูตัวอย่าง Smart RSVP"
 msgid "Previewing…"
 msgstr "กำลังแสดงตัวอย่าง…"
 
-#: src/components/atoms/EventTag.re.mjs:141
-#: src/components/atoms/EventTag.re.mjs:143
+#: src/components/atoms/EventTag.re.mjs:153
+#: src/components/atoms/EventTag.re.mjs:155
 msgid "Private"
 msgstr "ไม่เปิดเผย"
 
@@ -435,14 +456,18 @@ msgstr "ผู้เล่นมืออาชีพ"
 msgid "provisional"
 msgstr "ชั่วคราว"
 
-#: src/components/atoms/EventTag.re.mjs:126
-#: src/components/atoms/EventTag.re.mjs:128
+#: src/components/atoms/EventTag.re.mjs:132
+#: src/components/atoms/EventTag.re.mjs:134
 msgid "Rated"
 msgstr "มีการจัดอันดับ"
 
-#: src/components/organisms/MatchCard.re.mjs:404
+#: src/components/organisms/MatchCard.re.mjs:407
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
+
+#: src/components/atoms/EventTag.re.mjs:141
+msgid "Recreational"
+msgstr "นันทนาการ"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -461,7 +486,7 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Repeat"
 msgstr "ซ้ำ"
 
@@ -504,17 +529,13 @@ msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
-#: src/components/organisms/ScoreModal.re.mjs:274
+#: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "บันทึกคะแนน"
-
-#: src/components/organisms/GoingRsvps.re.mjs:123
-msgid "See all"
-msgstr "ดูทั้งหมด"
 
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
@@ -524,13 +545,13 @@ msgstr "ประเมินตนเอง"
 msgid "Send"
 msgstr "ส่ง"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
-#: src/components/organisms/GoingRsvps.re.mjs:140
+#: src/components/organisms/GoingRsvps.re.mjs:122
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
@@ -559,7 +580,7 @@ msgstr "ข้อความสถานะ"
 msgid "sync calendar"
 msgstr "ซิงค์ปฏิทิน"
 
-#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/ScoreModal.re.mjs:80
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
@@ -571,8 +592,12 @@ msgstr "ทีม 1"
 msgid "TEAM 2"
 msgstr "ทีม 2"
 
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-#: src/components/organisms/MatchCard.re.mjs:442
+#: src/components/organisms/MatchCard.re.mjs:445
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
@@ -618,7 +643,7 @@ msgstr ""
 "ผู้ใช้คนนี้จะถูกลบออกจากรายชื่อไป/รายชื่อคอย ตำแหน่งของพวกเขาจะหายไป "
 "หากคุณย้ายพวกเขากลับมา คุณแน่ใจหรือไม่ว่าต้องการจำกัด RSVP ของพวกเขา?"
 
-#: src/components/organisms/EventHeader.re.mjs:211
+#: src/components/organisms/EventHeader.re.mjs:221
 msgid "Time TBD"
 msgstr "เวลายังไม่กำหนด"
 
@@ -633,11 +658,11 @@ msgstr "พิมพ์ข้อความสถานะสำหรับใ
 msgid "uncancel event"
 msgstr "เลิกยกเลิกกิจกรรม"
 
-#: src/components/organisms/EventHeader.re.mjs:117
+#: src/components/organisms/EventHeader.re.mjs:127
 msgid "Unknown club"
 msgstr "คลับที่ไม่ทราบ"
 
-#: src/components/organisms/EventHeader.re.mjs:247
+#: src/components/organisms/EventHeader.re.mjs:257
 msgid "Unknown location"
 msgstr "สถานที่ที่ไม่ทราบ"
 
@@ -654,12 +679,12 @@ msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
-#: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/MatchCard.re.mjs:589
 msgid "VS"
 msgstr "VS"
 
-#: src/components/organisms/RsvpWaitlist.re.mjs:60
+#: src/components/organisms/RsvpWaitlist.re.mjs:61
 msgid "Waitlist"
 msgstr "รายชื่อคอย"
 
@@ -675,11 +700,11 @@ msgstr "ได้รับเชิญเข้าร่วมกิจกรร
 msgid "was removed from the event by admin"
 msgstr "ถูกลบออกจากกิจกรรมโดยผู้ดูแลระบบ"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
@@ -709,6 +734,10 @@ msgstr ""
 "รายชื่อรอจนกว่าขีดจำกัดเรตติ้งจะลดลง กรุณาเข้าร่วมกิจกรรม JPL "
 "อื่นที่มีการให้คะแนนเพื่อเพิ่มเรตติ้งของคุณ"
 
+#: src/components/organisms/EventHeader.re.mjs:56
+#~ msgid "{0} hours and {1} minutes"
+#~ msgstr "{0} ชั่วโมง {1} นาที"
+
 #: src/components/organisms/ProfileModal.re.mjs:335
 #~ msgid "Complete your profile"
 #~ msgstr "เติมข้อมูลโปรไฟล์ของคุณ"
@@ -716,6 +745,10 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
 #: src/components/organisms/RSVPSection.re.mjs:424
 #~ msgid "Join"
@@ -754,6 +787,10 @@ msgstr ""
 #~ msgid "Score"
 #~ msgstr "คะแนน"
 
+#: src/components/organisms/GoingRsvps.re.mjs:123
+#~ msgid "See all"
+#~ msgstr "ดูทั้งหมด"
+
 #: src/components/organisms/RSVPSection.re.mjs:516
 #~ msgid "Show all"
 #~ msgstr "แสดงทั้งหมด"
@@ -765,11 +802,3 @@ msgstr ""
 #: src/components/organisms/ProfileModal.re.mjs:278
 #~ msgid "This is how others will see you"
 #~ msgstr "นี่คือสิ่งที่คนอื่นจะเห็นคุณ"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

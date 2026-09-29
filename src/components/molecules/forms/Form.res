@@ -20,7 +20,7 @@ module PrefixedInput = {
     ~defaultValue: option<string>=?,
   ) => {
     <>
-      <label htmlFor=?name className="block text-sm font-medium leading-6 text-gray-900">
+      <label htmlFor=id className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">
         {label}
       </label>
       <div className="mt-2">
@@ -40,7 +40,7 @@ module PrefixedInput = {
               id
               ?autoComplete
               className={className->Option.getOr(
-                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100",
               )}
               ?placeholder
               ?onBlur
@@ -56,7 +56,7 @@ module PrefixedInput = {
               ?onChange
               ?autoComplete
               className={className->Option.getOr(
-                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100",
               )}
               ?placeholder
               ?onBlur
@@ -94,7 +94,7 @@ module Input = {
     <>
       {label
       ->Option.map(label =>
-        <label htmlFor=?name className="block text-sm font-medium leading-6 text-gray-900">
+        <label htmlFor=id className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">
           {label}
         </label>
       )
@@ -114,7 +114,7 @@ module Input = {
               id
               ?autoComplete
               className={className->Option.getOr(
-                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100",
               )}
               ?placeholder
               ?onBlur
@@ -134,7 +134,7 @@ module Input = {
               ?onChange
               ?autoComplete
               className={className->Option.getOr(
-                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6",
+                "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 dark:text-gray-100",
               )}
               ?placeholder
               ?onBlur
@@ -150,7 +150,7 @@ module Input = {
       </div>
       {hint
       ->Option.map(hint => {
-        <p className="mt-3 text-sm leading-6 text-gray-600"> {hint} </p>
+        <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400"> {hint} </p>
       })
       ->Option.getOr(React.null)}
     </>
@@ -173,7 +173,7 @@ module Select = {
     ~defaultValue: option<string>=?,
   ) => {
     <>
-      <label htmlFor=name className="block text-sm font-medium leading-6 text-gray-900">
+      <label htmlFor=id className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">
         {label}
       </label>
       {switch register {
@@ -224,7 +224,7 @@ module TextArea = {
     ~register: option<JsxDOM.domProps>=?,
   ) => {
     <>
-      <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
+      <label htmlFor=id className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-100">
         {label}
       </label>
       <div className="mt-2">
@@ -253,7 +253,7 @@ module TextArea = {
       </div>
       {hint
       ->Option.map(hint => {
-        <p className="mt-3 text-sm leading-6 text-gray-600"> {hint} </p>
+        <p className="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-400"> {hint} </p>
       })
       ->Option.getOr(React.null)}
     </>
@@ -294,7 +294,9 @@ module Footer = {
       {onCancel
       ->Option.map(onCancel =>
         <button
-          type_="button" onClick=onCancel className="text-sm font-semibold leading-6 text-gray-900">
+          type_="button"
+          onClick=onCancel
+          className="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100">
           {t`cancel`}
         </button>
       )

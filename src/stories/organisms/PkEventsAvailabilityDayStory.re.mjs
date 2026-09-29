@@ -127,7 +127,7 @@ function PkEventsAvailabilityDayStory(props) {
                       isLoggedIn: isLoggedIn,
                       onCreateEvent: onCreateEvent$1,
                       renderHeader: renderHeader,
-                      triggerLabel: "Add to " + label.toLowerCase(),
+                      triggerLabel: "Add to " + label,
                       triggerIcon: Caml_option.some(JsxRuntime.jsx(LucideReact.Plus, {
                                 size: 11
                               })),

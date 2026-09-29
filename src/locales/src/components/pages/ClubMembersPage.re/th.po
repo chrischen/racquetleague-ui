@@ -13,16 +13,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
-#: src/components/pages/ClubMembersPage.re.mjs:320
+#: src/components/pages/ClubMembersPage.re.mjs:319
 msgid "Admin"
 msgstr "แอดมิน"
 
-#: src/components/pages/ClubMembersPage.re.mjs:222
+#: src/components/pages/ClubMembersPage.re.mjs:221
 msgid "Approve"
 msgstr "อนุมัติ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:233
-#: src/components/pages/ClubMembersPage.re.mjs:270
+#: src/components/pages/ClubMembersPage.re.mjs:232
+#: src/components/pages/ClubMembersPage.re.mjs:269
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบ {0} ออกจากคลับ?"
 
@@ -30,7 +30,7 @@ msgstr "คุณแน่ใจหรือไม่ว่าต้องกา
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/components/pages/ClubMembersPage.re.mjs:552
+#: src/components/pages/ClubMembersPage.re.mjs:537
 msgid "club not found"
 msgstr "ไม่พบคลับ"
 
@@ -38,41 +38,41 @@ msgstr "ไม่พบคลับ"
 msgid "Confirm"
 msgstr "ยืนยัน"
 
-#: src/components/pages/ClubMembersPage.re.mjs:544
+#: src/components/pages/ClubMembersPage.re.mjs:529
 msgid "Loading members..."
 msgstr "กำลังโหลดสมาชิก..."
 
-#: src/components/pages/ClubMembersPage.re.mjs:257
+#: src/components/pages/ClubMembersPage.re.mjs:256
 msgid "Make admin"
 msgstr "ตั้งเป็นผู้ดูแล"
 
-#: src/components/pages/ClubMembersPage.re.mjs:531
+#: src/components/pages/ClubMembersPage.re.mjs:517
 msgid "Members"
 msgstr "สมาชิก"
 
-#: src/components/pages/ClubMembersPage.re.mjs:477
+#: src/components/pages/ClubMembersPage.re.mjs:474
 msgid "No members found"
 msgstr "ไม่พบสมาชิก"
 
-#: src/components/pages/ClubMembersPage.re.mjs:316
+#: src/components/pages/ClubMembersPage.re.mjs:315
 msgid "Owner"
 msgstr "เจ้าของ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:215
-#: src/components/pages/ClubMembersPage.re.mjs:452
+#: src/components/pages/ClubMembersPage.re.mjs:214
+#: src/components/pages/ClubMembersPage.re.mjs:449
 msgid "Pending"
 msgstr "รอการอนุมัติ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:230
-#: src/components/pages/ClubMembersPage.re.mjs:267
+#: src/components/pages/ClubMembersPage.re.mjs:229
+#: src/components/pages/ClubMembersPage.re.mjs:266
 msgid "Remove"
 msgstr "ลบ"
 
-#: src/components/pages/ClubMembersPage.re.mjs:250
+#: src/components/pages/ClubMembersPage.re.mjs:249
 msgid "Remove admin"
 msgstr "ถอดจากผู้ดูแล"
 
-#: src/components/pages/ClubMembersPage.re.mjs:232
-#: src/components/pages/ClubMembersPage.re.mjs:269
+#: src/components/pages/ClubMembersPage.re.mjs:231
+#: src/components/pages/ClubMembersPage.re.mjs:268
 msgid "Remove member?"
 msgstr "ลบสมาชิกหรือไม่?"

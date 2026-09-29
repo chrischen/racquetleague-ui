@@ -8,6 +8,7 @@ import * as LogoutLink from "../molecules/LogoutLink.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LangProvider from "../shared/LangProvider.re.mjs";
+import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as WaitForMessages from "../shared/i18n/WaitForMessages.re.mjs";
 import * as ReactRouterDom from "react-router-dom";
@@ -88,8 +89,30 @@ var MenuInstance = {
   make: make
 };
 
+function accountAvatar(picture, name, sizeClass, alt) {
+  if (picture !== undefined) {
+    return JsxRuntime.jsx("img", {
+                className: sizeClass + " rounded-full",
+                alt: alt,
+                src: picture
+              });
+  }
+  var initial = Core__Option.map(name, (function (n) {
+          return n.trim().slice(0, 1).toUpperCase();
+        }));
+  return JsxRuntime.jsx("span", {
+              children: initial !== undefined && initial !== "" ? initial : JsxRuntime.jsx(LucideReact.User, {
+                      size: 16,
+                      "aria-hidden": "true"
+                    }),
+              "aria-hidden": true,
+              className: sizeClass + " flex items-center justify-center rounded-full bg-gray-100 text-sm font-medium text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300"
+            });
+}
+
 function LeagueNav(props) {
   var query = use(props.query);
+  var localePath = LangProvider.Router.useLocalePath();
   Core__Option.getOr(Core__Option.map(query.viewer, (function (viewer) {
               return JsxRuntime.jsx(React.Suspense, {
                           children: Caml_option.some(JsxRuntime.jsx(LeagueNav$Viewer, {
@@ -136,7 +159,7 @@ function LeagueNav(props) {
                                     children: JsxRuntime.jsx("div", {
                                           children: JsxRuntime.jsx(React$1.Disclosure, {
                                                 as: "nav",
-                                                className: "border-b border-gray-200 bg-white",
+                                                className: "border-b border-gray-200 bg-white dark:border-[#2a2b30] dark:bg-[#1e1f23]",
                                                 children: (function (param) {
                                                     return JsxRuntime.jsxs(Layout.Container.make, {
                                                                 children: [
@@ -154,7 +177,7 @@ function LeagueNav(props) {
                                                                                                           to: item.href,
                                                                                                           children: item.name,
                                                                                                           className: (function (param) {
-                                                                                                              return Core.cx(param.isActive ? "border-leaguePrimary text-gray-900" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700", "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium");
+                                                                                                              return Core.cx(param.isActive ? "border-leaguePrimary text-gray-900 dark:text-gray-100" : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-200", "inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium");
                                                                                                             })
                                                                                                         }, item.name);
                                                                                             }),
@@ -180,7 +203,7 @@ function LeagueNav(props) {
                                                                                                 "aria-hidden": "true"
                                                                                               })
                                                                                         ],
-                                                                                        className: "relative rounded-full bg-white ml-3 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
+                                                                                        className: "relative rounded-full bg-white ml-3 p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:hover:text-gray-300 dark:focus:ring-offset-[#1e1f23]",
                                                                                         type: "button"
                                                                                       }),
                                                                                   JsxRuntime.jsxs(React$1.Menu, {
@@ -191,7 +214,7 @@ function LeagueNav(props) {
                                                                                                       return Core__Option.map(viewer.user, (function (user) {
                                                                                                                     return JsxRuntime.jsx("div", {
                                                                                                                                 children: JsxRuntime.jsxs(React$1.MenuButton, {
-                                                                                                                                      className: "relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
+                                                                                                                                      className: "relative flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:focus:ring-offset-[#1e1f23]",
                                                                                                                                       children: [
                                                                                                                                         JsxRuntime.jsx("span", {
                                                                                                                                               className: "absolute -inset-1.5"
@@ -200,13 +223,7 @@ function LeagueNav(props) {
                                                                                                                                               children: t`Open user menu`,
                                                                                                                                               className: "sr-only"
                                                                                                                                             }),
-                                                                                                                                        Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
-                                                                                                                                                    return JsxRuntime.jsx("img", {
-                                                                                                                                                                className: "h-8 w-8 rounded-full",
-                                                                                                                                                                alt: t`Profile picture`,
-                                                                                                                                                                src: picture
-                                                                                                                                                              });
-                                                                                                                                                  })), null)
+                                                                                                                                        accountAvatar(user.picture, user.lineUsername, "h-8 w-8", t`Profile picture`)
                                                                                                                                       ]
                                                                                                                                     })
                                                                                                                               });
@@ -220,16 +237,16 @@ function LeagueNav(props) {
                                                                                                 leaveFrom: "transform opacity-100 scale-100",
                                                                                                 leaveTo: "transform opacity-0 scale-95",
                                                                                                 children: JsxRuntime.jsx(React$1.MenuItems, {
-                                                                                                      className: "absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+                                                                                                      className: "absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-[#1e1f23] dark:ring-white/10",
                                                                                                       children: userNavigation.map(function (item) {
                                                                                                             return JsxRuntime.jsx(React$1.MenuItem, {
                                                                                                                         children: (function (param) {
                                                                                                                             var focus = param.focus;
-                                                                                                                            return JsxRuntime.jsx(LangProvider.Router.NavLink.make, {
-                                                                                                                                        to: item.href,
+                                                                                                                            return JsxRuntime.jsx(ReactRouterDom.NavLink, {
+                                                                                                                                        to: localePath(item.href),
                                                                                                                                         children: item.name,
                                                                                                                                         className: (function (param) {
-                                                                                                                                            return Core.cx(focus ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700");
+                                                                                                                                            return Core.cx(focus ? "bg-gray-100 dark:bg-[#2a2b30]" : "", "block px-4 py-2 text-sm text-gray-700 dark:text-gray-300");
                                                                                                                                           })
                                                                                                                                       });
                                                                                                                           })
@@ -244,7 +261,7 @@ function LeagueNav(props) {
                                                                               }),
                                                                           JsxRuntime.jsx("div", {
                                                                                 children: JsxRuntime.jsxs(React$1.DisclosureButton, {
-                                                                                      className: "relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
+                                                                                      className: "relative inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:hover:bg-[#2a2b30] dark:hover:text-gray-300 dark:focus:ring-offset-[#1e1f23]",
                                                                                       children: [
                                                                                         JsxRuntime.jsx("span", {
                                                                                               className: "absolute -inset-0.5"
@@ -279,7 +296,7 @@ function LeagueNav(props) {
                                                                                                                   to: item.href,
                                                                                                                   children: item.name,
                                                                                                                   className: (function (param) {
-                                                                                                                      return Core.cx(param.isActive ? "border-red-500 bg-red-50 text-red-700" : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800", "block border-l-4 py-2 pl-3 pr-4 text-base font-medium");
+                                                                                                                      return Core.cx(param.isActive ? "border-red-500 bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400" : "border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:bg-[#2a2b30] dark:hover:text-gray-200", "block border-l-4 py-2 pl-3 pr-4 text-base font-medium");
                                                                                                                     }),
                                                                                                                   onClick: (function (param) {
                                                                                                                       close();
@@ -295,20 +312,14 @@ function LeagueNav(props) {
                                                                                                                             return JsxRuntime.jsxs("div", {
                                                                                                                                         children: [
                                                                                                                                           JsxRuntime.jsx("div", {
-                                                                                                                                                children: Core__Option.getOr(Core__Option.map(user.picture, (function (picture) {
-                                                                                                                                                            return JsxRuntime.jsx("img", {
-                                                                                                                                                                        className: "h-10 w-10 rounded-full",
-                                                                                                                                                                        alt: t`Profile picture`,
-                                                                                                                                                                        src: picture
-                                                                                                                                                                      });
-                                                                                                                                                          })), null),
+                                                                                                                                                children: accountAvatar(user.picture, user.lineUsername, "h-10 w-10", t`Profile picture`),
                                                                                                                                                 className: "flex-shrink-0"
                                                                                                                                               }),
                                                                                                                                           JsxRuntime.jsxs("div", {
                                                                                                                                                 children: [
                                                                                                                                                   JsxRuntime.jsx("div", {
                                                                                                                                                         children: Core__Option.getOr(user.lineUsername, ""),
-                                                                                                                                                        className: "text-base font-medium text-gray-800"
+                                                                                                                                                        className: "text-base font-medium text-gray-800 dark:text-gray-100"
                                                                                                                                                       }),
                                                                                                                                                   JsxRuntime.jsx("div", {
                                                                                                                                                         children: "",
@@ -331,7 +342,7 @@ function LeagueNav(props) {
                                                                                                                                                         "aria-hidden": "true"
                                                                                                                                                       })
                                                                                                                                                 ],
-                                                                                                                                                className: "relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2",
+                                                                                                                                                className: "relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:bg-transparent dark:hover:text-gray-300 dark:focus:ring-offset-[#1e1f23]",
                                                                                                                                                 type: "button"
                                                                                                                                               })
                                                                                                                                         ],
@@ -347,7 +358,7 @@ function LeagueNav(props) {
                                                                                                                                                           to: item.href,
                                                                                                                                                           children: item.name,
                                                                                                                                                           className: (function (param) {
-                                                                                                                                                              return "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800";
+                                                                                                                                                              return "block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 dark:text-gray-400 dark:hover:bg-[#2a2b30] dark:hover:text-gray-200";
                                                                                                                                                             }),
                                                                                                                                                           onClick: (function (param) {
                                                                                                                                                               close();
@@ -359,7 +370,7 @@ function LeagueNav(props) {
                                                                                                         className: "mt-3 space-y-1"
                                                                                                       })
                                                                                                 ],
-                                                                                                className: "border-t border-gray-200 pb-3 pt-4"
+                                                                                                className: "border-t border-gray-200 pb-3 pt-4 dark:border-[#2a2b30]"
                                                                                               })
                                                                                         ]
                                                                                       });
@@ -387,6 +398,7 @@ export {
   ViewerFragment ,
   Viewer ,
   MenuInstance ,
+  accountAvatar ,
   make$1 as make,
   $$default as default,
 }

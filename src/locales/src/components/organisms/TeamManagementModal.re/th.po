@@ -13,6 +13,18 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 3.4.2\n"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:379
+msgid "{0} player"
+msgstr "{0} คน"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:380
+msgid "{0} players"
+msgstr "{0} คน"
+
+#: src/components/organisms/TeamManagementModal.re.mjs:378
+msgid "{count, plural, one {{0}} other {{1}}}"
+msgstr "{count, plural, one {{0}} other {{1}}}"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:337
 msgid "Anti-Teams"
 msgstr "แอนตี้ทีม"
@@ -21,15 +33,20 @@ msgstr "แอนตี้ทีม"
 msgid "Cancel"
 msgstr "ยกเลิก"
 
+#: src/components/organisms/TeamManagementModal.re.mjs:52
+#: src/components/organisms/TeamManagementModal.re.mjs:314
+msgid "Close"
+msgstr "ปิด"
+
 #: src/components/organisms/TeamManagementModal.re.mjs:302
 msgid "Create and manage player teams"
 msgstr "สร้างและจัดการทีมผู้เล่น"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Anti-Team"
 msgstr "สร้างแอนตี้ทีม"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:435
+#: src/components/organisms/TeamManagementModal.re.mjs:437
 msgid "Create Team"
 msgstr "สร้างทีม"
 
@@ -41,11 +58,11 @@ msgstr "สร้างแอนตี้ทีมแรกของคุณเ
 msgid "Create your first team to get started"
 msgstr "สร้างทีมแรกของคุณเพื่อเริ่มต้น"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:402
+#: src/components/organisms/TeamManagementModal.re.mjs:404
 msgid "Delete team"
 msgstr "ลบทีม"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:390
+#: src/components/organisms/TeamManagementModal.re.mjs:392
 msgid "Edit team"
 msgstr "แก้ไขทีม"
 
@@ -73,7 +90,7 @@ msgstr "ยังไม่มีแอนตี้ทีม"
 msgid "No teams yet"
 msgstr "ยังไม่มีทีม"
 
-#: src/components/organisms/TeamManagementModal.re.mjs:443
+#: src/components/organisms/TeamManagementModal.re.mjs:445
 msgid "Save & Close"
 msgstr "บันทึกและปิด"
 

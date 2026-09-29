@@ -7,14 +7,16 @@ import { make as StripePaymentEmbedStory } from "./StripePaymentEmbedStory.gen";
 // to charge after the event (the flow in use); "payment" charges it now.
 // Stripe itself is replaced by a stand-in (see StripePaymentEmbedStory.res):
 // no Stripe.js, no network, a labelled skeleton where the card fields go, and
-// `outcome` decides how confirming the card turns out.
+// `outcome` decides how confirming the card turns out. The theme toolbar is
+// passed on as the app's dark mode, which picks Stripe's "night" theme.
 const meta = {
   title: "Organisms/StripePaymentEmbed",
   component: StripePaymentEmbedStory,
+  render: (args, { globals }) => <StripePaymentEmbedStory {...args} dark={globals.theme === "dark"} />,
   parameters: { layout: "fullscreen" },
   argTypes: {
     mode: { control: "inline-radio", options: ["setup", "payment"] },
-    outcome: { control: "select", options: ["saves", "declines", "failsSilently", "hangs", "blocked"] },
+    outcome: { control: "select", options: ["saves", "declines", "failsSilently", "hangs", "blocked", "loadError"] },
   },
   args: { mode: "setup", outcome: "saves", amountLabel: "¥1,500", onSuccess: fn(), onClose: fn() },
 } satisfies Meta<typeof StripePaymentEmbedStory>;
@@ -99,10 +101,23 @@ export const PaymentFailed: Story = {
 };
 
 /** Stripe.js never loaded (blocked by the network or an extension): no card
- * fields, and Save stays disabled with nothing telling the player why. */
+ * fields, Save stays disabled, and the sheet says why. */
 export const StripeBlocked: Story = {
   args: { outcome: "blocked" },
   play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(await canvas.findByRole("alert")).toHaveTextContent(/could not be loaded/);
+    await expect(await confirmButton(canvasElement, "Save card")).toBeDisabled();
+  },
+};
+
+/** The card fields failed to load (a bad or expired client secret): an error
+ * in place of the fields, and Save is disabled. */
+export const LoadError: Story = {
+  args: { outcome: "loadError" },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(await canvas.findByRole("alert")).toHaveTextContent(/Close this and try again/);
     await expect(await confirmButton(canvasElement, "Save card")).toBeDisabled();
   },
 };

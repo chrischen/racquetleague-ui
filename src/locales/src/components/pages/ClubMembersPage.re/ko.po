@@ -13,16 +13,16 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/pages/ClubMembersPage.re.mjs:320
+#: src/components/pages/ClubMembersPage.re.mjs:319
 msgid "Admin"
 msgstr "관리자"
 
-#: src/components/pages/ClubMembersPage.re.mjs:222
+#: src/components/pages/ClubMembersPage.re.mjs:221
 msgid "Approve"
 msgstr "승인"
 
-#: src/components/pages/ClubMembersPage.re.mjs:233
-#: src/components/pages/ClubMembersPage.re.mjs:270
+#: src/components/pages/ClubMembersPage.re.mjs:232
+#: src/components/pages/ClubMembersPage.re.mjs:269
 msgid "Are you sure you want to remove {0} from the club?"
 msgstr "{0}을(를) 클럽에서 제거하시겠습니까?"
 
@@ -30,7 +30,7 @@ msgstr "{0}을(를) 클럽에서 제거하시겠습니까?"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/components/pages/ClubMembersPage.re.mjs:552
+#: src/components/pages/ClubMembersPage.re.mjs:537
 msgid "club not found"
 msgstr "클럽을 찾을 수 없습니다"
 
@@ -38,41 +38,41 @@ msgstr "클럽을 찾을 수 없습니다"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/components/pages/ClubMembersPage.re.mjs:544
+#: src/components/pages/ClubMembersPage.re.mjs:529
 msgid "Loading members..."
 msgstr "멤버 불러오는 중..."
 
-#: src/components/pages/ClubMembersPage.re.mjs:257
+#: src/components/pages/ClubMembersPage.re.mjs:256
 msgid "Make admin"
 msgstr "관리자로 지정"
 
-#: src/components/pages/ClubMembersPage.re.mjs:531
+#: src/components/pages/ClubMembersPage.re.mjs:517
 msgid "Members"
 msgstr "멤버"
 
-#: src/components/pages/ClubMembersPage.re.mjs:477
+#: src/components/pages/ClubMembersPage.re.mjs:474
 msgid "No members found"
 msgstr "멤버를 찾을 수 없습니다"
 
-#: src/components/pages/ClubMembersPage.re.mjs:316
+#: src/components/pages/ClubMembersPage.re.mjs:315
 msgid "Owner"
 msgstr "소유자"
 
-#: src/components/pages/ClubMembersPage.re.mjs:215
-#: src/components/pages/ClubMembersPage.re.mjs:452
+#: src/components/pages/ClubMembersPage.re.mjs:214
+#: src/components/pages/ClubMembersPage.re.mjs:449
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/components/pages/ClubMembersPage.re.mjs:230
-#: src/components/pages/ClubMembersPage.re.mjs:267
+#: src/components/pages/ClubMembersPage.re.mjs:229
+#: src/components/pages/ClubMembersPage.re.mjs:266
 msgid "Remove"
 msgstr "제거"
 
-#: src/components/pages/ClubMembersPage.re.mjs:250
+#: src/components/pages/ClubMembersPage.re.mjs:249
 msgid "Remove admin"
 msgstr "관리자 해제"
 
-#: src/components/pages/ClubMembersPage.re.mjs:232
-#: src/components/pages/ClubMembersPage.re.mjs:269
+#: src/components/pages/ClubMembersPage.re.mjs:231
+#: src/components/pages/ClubMembersPage.re.mjs:268
 msgid "Remove member?"
 msgstr "멤버를 제거하시겠습니까?"

@@ -63,7 +63,12 @@ let make = (
       </thead>
       <tbody className="divide-y divide-black/5">
         {switch players {
-        | [] => t`no players yet`
+        | [] =>
+          <tr>
+            <td colSpan=3 className="py-2 pl-4 text-sm leading-6 text-gray-500 sm:pl-6 lg:pl-8">
+              {t`no players yet`}
+            </td>
+          </tr>
         | players =>
           players
           ->Array.map(player => {

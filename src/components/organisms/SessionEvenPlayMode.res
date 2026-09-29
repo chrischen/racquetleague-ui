@@ -22,14 +22,15 @@ let make = (~breakCount: int, ~breakPlayersCount: int, ~onChangeBreakCount: int 
   )
   let onSubmit = (data: inputs) => {
     onChangeBreakCount(data.numberOnBreak->Float.toInt)
-    setValue(NumberOnBreak, Value(""))
+    // Keep showing the saved value (an empty field saves 0).
+    setValue(NumberOnBreak, Value(data.numberOnBreak->Float.toInt->Int.toFloat))
   }
 
   <div className="grid grid-cols-1 items-start gap-4">
 
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input
-        className="w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
+        className="w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6 dark:text-gray-100"
         label={t`How many players should rest? (currently ${breakPlayersCount->Int.toString} players are resting)`}
         type_="text"
         id="numberOnBreak"

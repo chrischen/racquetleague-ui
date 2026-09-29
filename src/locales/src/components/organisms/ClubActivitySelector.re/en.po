@@ -13,11 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:191
+#: src/components/organisms/ClubActivitySelector.re.mjs:203
 msgid "+ Add new club..."
 msgstr ""
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:243
+#: src/components/organisms/ClubActivitySelector.re.mjs:255
 msgid "Activity"
 msgstr ""
 
@@ -29,11 +29,11 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:174
+#: src/components/organisms/ClubActivitySelector.re.mjs:186
 msgid "Club"
 msgstr ""
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:362
+#: src/components/organisms/ClubActivitySelector.re.mjs:374
 msgid "Club & Activity"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:276
+#: src/components/organisms/ClubActivitySelector.re.mjs:288
 msgid "Done"
 msgstr ""
 
@@ -69,10 +69,10 @@ msgstr ""
 msgid "e.g., City Ballers Club"
 msgstr ""
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:324
+#: src/components/organisms/ClubActivitySelector.re.mjs:336
 msgid "No club"
 msgstr ""
 
-#: src/components/organisms/ClubActivitySelector.re.mjs:181
+#: src/components/organisms/ClubActivitySelector.re.mjs:193
 msgid "No club / Independent event"
 msgstr ""

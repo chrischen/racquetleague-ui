@@ -188,19 +188,19 @@ function RoundRobinDrawsPreview(props) {
                                             }),
                                         t`Round Robin Draws`
                                       ],
-                                      className: "text-lg font-bold text-gray-900 flex items-center gap-2"
+                                      className: "text-lg font-bold text-gray-900 flex items-center gap-2 dark:text-gray-100"
                                     }),
                                 JsxRuntime.jsxs("div", {
                                       children: [
                                         JsxRuntime.jsx("span", {
                                               children: t`Courts:`,
-                                              className: "text-sm text-gray-600 font-medium"
+                                              className: "text-sm text-gray-600 font-medium dark:text-gray-400"
                                             }),
                                         JsxRuntime.jsx("button", {
                                               children: JsxRuntime.jsx(LucideReact.Minus, {
                                                     className: "w-4 h-4"
                                                   }),
-                                              className: courtCount <= 1 ? "p-1.5 rounded text-gray-300 cursor-not-allowed" : "p-1.5 rounded text-gray-600 hover:bg-gray-100",
+                                              className: courtCount <= 1 ? "p-1.5 rounded text-gray-300 cursor-not-allowed dark:text-gray-600" : "p-1.5 rounded text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#2a2b30]",
                                               disabled: courtCount <= 1,
                                               onClick: (function (param) {
                                                   setCourtCount(function (c) {
@@ -210,13 +210,13 @@ function RoundRobinDrawsPreview(props) {
                                             }),
                                         JsxRuntime.jsx("div", {
                                               children: courtCount.toString(),
-                                              className: "w-8 text-center text-lg font-semibold text-gray-900"
+                                              className: "w-8 text-center text-lg font-semibold text-gray-900 dark:text-gray-100"
                                             }),
                                         JsxRuntime.jsx("button", {
                                               children: JsxRuntime.jsx(LucideReact.Plus, {
                                                     className: "w-4 h-4"
                                                   }),
-                                              className: courtCount >= maxCourts ? "p-1.5 rounded text-gray-300 cursor-not-allowed" : "p-1.5 rounded text-gray-600 hover:bg-gray-100",
+                                              className: courtCount >= maxCourts ? "p-1.5 rounded text-gray-300 cursor-not-allowed dark:text-gray-600" : "p-1.5 rounded text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#2a2b30]",
                                               disabled: courtCount >= maxCourts,
                                               onClick: (function (param) {
                                                   setCourtCount(function (c) {
@@ -228,7 +228,7 @@ function RoundRobinDrawsPreview(props) {
                                       className: "flex items-center gap-2"
                                     })
                               ],
-                              className: "p-5 border-b border-gray-200 flex justify-between items-center"
+                              className: "p-5 border-b border-gray-200 flex justify-between items-center dark:border-[#2a2b30]"
                             }),
                         JsxRuntime.jsxs("div", {
                               children: [
@@ -264,11 +264,11 @@ function RoundRobinDrawsPreview(props) {
                                                                 children: [
                                                                   JsxRuntime.jsx("span", {
                                                                         children: roundNum.toString(),
-                                                                        className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold"
+                                                                        className: "inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold dark:bg-blue-900/40 dark:text-blue-300"
                                                                       }),
                                                                   JsxRuntime.jsx("h3", {
                                                                         children: t`Round ${roundNum.toString()}`,
-                                                                        className: "text-sm font-semibold text-gray-700"
+                                                                        className: "text-sm font-semibold text-gray-700 dark:text-gray-300"
                                                                       })
                                                                 ],
                                                                 className: "flex items-center gap-2 mb-3"
@@ -289,7 +289,7 @@ function RoundRobinDrawsPreview(props) {
                                                                                   className: matchClassName
                                                                                 }, matchEntity.id);
                                                                     }),
-                                                                className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3"
+                                                                className: "grid grid-cols-[repeat(auto-fill,minmax(min(18rem,100%),1fr))] gap-3"
                                                               })
                                                         ],
                                                         className: roundClassName
@@ -298,7 +298,7 @@ function RoundRobinDrawsPreview(props) {
                                       className: "p-4 space-y-6 pointer-events-none select-none"
                                     }),
                                 JsxRuntime.jsx("div", {
-                                      className: "absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none"
+                                      className: "absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none dark:from-[#1e1f23] dark:via-[#1e1f23]/80"
                                     }),
                                 JsxRuntime.jsx("div", {
                                       children: JsxRuntime.jsxs(LangProvider.Router.Link.make, {
@@ -317,7 +317,7 @@ function RoundRobinDrawsPreview(props) {
                               className: "relative"
                             })
                       ],
-                      className: "bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden"
+                      className: "bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden dark:bg-[#1e1f23] dark:border-[#2a2b30]"
                     }),
                 className: className
               });

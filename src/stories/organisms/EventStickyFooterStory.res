@@ -60,6 +60,8 @@ type preset = {
   isFull: bool,
   confirmedCount: int,
   waitlistCount: int,
+  // The viewer's place on the waitlist, when on it.
+  waitlistPosition: option<int>,
   maxRsvps: int,
   // The cancellation deadline, in hours before the start.
   cancelDeadlineHours: option<int>,
@@ -87,6 +89,7 @@ let base = {
   isFull: false,
   confirmedCount: 9,
   waitlistCount: 0,
+  waitlistPosition: None,
   maxRsvps: 12,
   cancelDeadlineHours: Some(24),
   shadow: false,
@@ -117,6 +120,7 @@ let presetOf = (state: state) =>
       isJoined: true,
       isWaitlisted: true,
       waitlistCount: 3,
+      waitlistPosition: Some(2),
       joinedMinutesAgo: Some(90.),
     }
   | #pending => {...base, isJoined: true, isPending: true, joinedMinutesAgo: Some(45.)}
@@ -198,6 +202,7 @@ let make = (
         isFull=p.isFull
         confirmedCount=p.confirmedCount
         waitlistCount=p.waitlistCount
+        waitlistPosition=?p.waitlistPosition
         maxRsvps=p.maxRsvps
         tz="Asia/Tokyo"
         queryFragmentRefs=data.fragmentRefs

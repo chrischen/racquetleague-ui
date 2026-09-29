@@ -122,12 +122,14 @@ export const LeaveWithWaitlist: Story = {
   },
 };
 
-/** On the waitlist of a full event: no deadline notice, "Leave waitlist". */
+/** Second of three on the waitlist of a full event: the viewer's own place
+ * in the queue, no deadline notice, "Leave waitlist". */
 export const Waitlisted: Story = {
   args: { state: "waitlisted" },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByText("On waitlist")).toBeVisible();
+    await expect(canvas.getByText(/#2 in queue/)).toBeVisible();
     await expect(canvas.getByRole("button", { name: "Leave waitlist" })).toBeEnabled();
   },
 };

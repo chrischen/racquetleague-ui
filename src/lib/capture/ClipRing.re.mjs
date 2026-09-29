@@ -160,6 +160,39 @@ function takeClip(ring, targetDurationUs) {
               }));
 }
 
+function segmentAfter(ring, afterUs, includeOpenOpt) {
+  var includeOpen = includeOpenOpt !== undefined ? includeOpenOpt : false;
+  var n = ring.gops.length;
+  var closed = includeOpen ? n : Math.max(0, n - 1 | 0);
+  var gops = ring.gops.slice(0, closed).filter(function (gop) {
+        return gop.startUs > afterUs;
+      });
+  var match = gops[0];
+  var match$1 = Core__Array.last(gops);
+  if (match === undefined) {
+    return ;
+  }
+  if (match$1 === undefined) {
+    return ;
+  }
+  var chunks = gops.flatMap(function (gop) {
+        return gop.chunks;
+      });
+  return {
+          chunks: chunks.map(function (chunk) {
+                return {
+                        timestampUs: chunk.timestampUs - match.startUs,
+                        durationUs: chunk.durationUs,
+                        isKey: chunk.isKey,
+                        byteLength: chunk.byteLength,
+                        payload: chunk.payload
+                      };
+              }),
+          durationUs: match$1.endUs - match.startUs,
+          baseUs: match.startUs
+        };
+}
+
 export {
   make ,
   lastGop ,
@@ -170,5 +203,6 @@ export {
   totalBytes ,
   chunkCount ,
   takeClip ,
+  segmentAfter ,
 }
 /* No side effect */

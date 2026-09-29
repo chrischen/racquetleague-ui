@@ -457,6 +457,37 @@ function PkEventRow(props) {
             return minutes.toString() + "m";
           }
         }));
+  var intl = ReactIntl.useIntl();
+  var startTimeParts = Core__Option.map(startDate, (function (startDate) {
+          var tmp = {};
+          if (timezone !== undefined) {
+            tmp.timeZone = timezone;
+          }
+          return intl.formatTimeToParts(Util.Datetime.toDate(startDate), tmp);
+        }));
+  var hasDayPeriod = Core__Option.mapOr(startTimeParts, false, (function (parts) {
+          return parts.some(function (p) {
+                      return p.type === "dayPeriod";
+                    });
+        }));
+  var startTime = function (dayPeriodClass) {
+    return Core__Option.getOr(Core__Option.map(startTimeParts, (function (parts) {
+                      return parts.filter(function (p) {
+                                    if (p.type !== "literal") {
+                                      return true;
+                                    } else {
+                                      return p.value.trim() !== "";
+                                    }
+                                  }).map(function (p, i) {
+                                  return JsxRuntime.jsx("span", {
+                                              children: p.value,
+                                              className: p.type === "dayPeriod" ? (
+                                                  i === 0 ? "mr-0.5 " : "ml-0.5 "
+                                                ) + dayPeriodClass : undefined
+                                            }, i.toString());
+                                });
+                    })), null);
+  };
   var navigate = LangProvider.Router.useNavigate();
   var locale = React.useContext(LangProvider.LocaleContext.context);
   var match$1 = React.useState(function () {
@@ -704,17 +735,8 @@ function PkEventRow(props) {
             JsxRuntime.jsxs("div", {
                   children: [
                     JsxRuntime.jsx("span", {
-                          children: Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                      return Core__Option.getOr(Core__Option.map(timezone, (function (tz) {
-                                                        return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                    value: Util.Datetime.toDate(startDate),
-                                                                    timeZone: tz
-                                                                  });
-                                                      })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                      value: Util.Datetime.toDate(startDate)
-                                                    }));
-                                    })), null),
-                          className: "font-mono text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 w-12 md:w-16"
+                          children: startTime("text-[9px]"),
+                          className: "font-mono text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 w-12 md:w-16 whitespace-nowrap"
                         }),
                     JsxRuntime.jsx("h4", {
                           children: Core__Option.getOr(title, t`[missing title]`),
@@ -783,17 +805,10 @@ function PkEventRow(props) {
                           JsxRuntime.jsxs("div", {
                                 children: [
                                   JsxRuntime.jsx("span", {
-                                        children: Core__Option.getOr(Core__Option.map(startDate, (function (startDate) {
-                                                    return Core__Option.getOr(Core__Option.map(timezone, (function (tz) {
-                                                                      return JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                                  value: Util.Datetime.toDate(startDate),
-                                                                                  timeZone: tz
-                                                                                });
-                                                                    })), JsxRuntime.jsx(ReactIntl.FormattedTime, {
-                                                                    value: Util.Datetime.toDate(startDate)
-                                                                  }));
-                                                  })), null),
-                                        className: "font-mono font-bold text-base dark:text-gray-100"
+                                        children: startTime("text-[9px] md:text-[10px]"),
+                                        className: "font-mono font-bold whitespace-nowrap dark:text-gray-100 " + (
+                                          hasDayPeriod ? "text-[13px] md:text-base" : "text-base"
+                                        )
                                       }),
                                   JsxRuntime.jsx("span", {
                                         children: Core__Option.getOr(durationStr, ""),

@@ -17,7 +17,7 @@ msgstr ""
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"ホーム画面に追加\\\""
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:268
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:386
 msgid "Account email"
 msgstr "アカウントのメール"
 
@@ -25,11 +25,11 @@ msgstr "アカウントのメール"
 msgid "Active"
 msgstr "有効"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:355
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:540
 msgid "Add"
 msgstr "追加"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:337
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:522
 msgid "Add a receiving email"
 msgstr "受信用メールアドレスを追加"
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Australia"
 msgstr "オーストラリア"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:276
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:406
 msgid "Awaiting confirmation"
 msgstr "確認待ち"
 
@@ -77,7 +77,7 @@ msgstr "初心者"
 msgid "Biography"
 msgstr "自己紹介"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:372
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:557
 msgid ""
 "Bookings forwarded from it will no longer be added to your account. You can "
 "add it again later."
@@ -85,7 +85,7 @@ msgstr ""
 "このアドレスから転送された予約はアカウントに追加されなくなります。後でもう一"
 "度追加できます。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:262
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:376
 msgid ""
 "Bookings you forward to chris@pkuru.com are added to your account when they "
 "come from one of these addresses. Add the other addresses you receive "
@@ -100,8 +100,13 @@ msgstr "カナダ"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/organisms/DuprConnectCard.re.mjs:440
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:496
 msgid "Cancel"
 msgstr "キャンセル"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:389
+msgid "Change"
+msgstr "変更"
 
 #: src/components/molecules/LevelPicker.re.mjs:22
 msgid "Complete Beginner"
@@ -111,7 +116,7 @@ msgstr "完全な初心者"
 msgid "Confirm"
 msgstr "確認"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:273
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:403
 msgid "Confirmed"
 msgstr "確認済み"
 
@@ -283,9 +288,14 @@ msgstr "DUPRでログイン"
 msgid "Male"
 msgstr "男性"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:344
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:479
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:529
 msgid "name@example.com"
 msgstr "name@example.com"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:466
+msgid "New account email"
+msgstr "新しいアカウントのメールアドレス"
 
 #: src/components/organisms/SettingsProfileForm.re.mjs:357
 msgid "No Stripe account is connected."
@@ -316,7 +326,13 @@ msgstr ""
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:242
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:348
+msgid "Open it to make it your account email. Until then, nothing changes."
+msgstr ""
+"リンクを開くと、アカウントのメールアドレスになります。それまでは何も変わりま"
+"せん。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:339
 msgid "Open it while signed in to pkuru to finish adding the address."
 msgstr "pkuruにログインした状態でリンクを開くと、アドレスの追加が完了します。"
 
@@ -353,19 +369,19 @@ msgstr ""
 msgid "Receive push notifications for event reminders and updates."
 msgstr "イベントのリマインダーや更新情報をプッシュ通知で受け取る。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:254
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:368
 msgid "Receiving emails"
 msgstr "受信用メールアドレス"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:317
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:447
 msgid "Remove"
 msgstr "削除"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:371
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:556
 msgid "Remove this receiving email?"
 msgstr "この受信用メールアドレスを削除しますか？"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:281
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:411
 msgid "Resend"
 msgstr "再送信"
 
@@ -388,6 +404,10 @@ msgstr "ダブルスパートナーを探しています"
 #: src/components/molecules/RatingSourceChip.re.mjs:37
 msgid "Self-rated"
 msgstr "自己評価"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:490
+msgid "Send link"
+msgstr "リンクを送信"
 
 #: src/components/organisms/SeekingPartnerInput.re.mjs:41
 msgid ""
@@ -417,8 +437,8 @@ msgstr "シングルス"
 msgid "Some events require your legal name as shown on an ID card."
 msgstr "一部のイベントでは、IDカードに表示されている通りの法的名前が必要です。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:142
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:149
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:164
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:171
 msgid "Something went wrong. Please try again."
 msgstr "問題が発生しました。もう一度お試しください。"
 
@@ -446,11 +466,11 @@ msgstr "自己紹介をしてください"
 msgid "Tell us a little about yourself..."
 msgstr "自己紹介を入力してください..."
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:132
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:154
 msgid "That address isn't on your account any more."
 msgstr "そのアドレスはもうアカウントにありません。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:130
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:152
 msgid "That doesn't look like an email address."
 msgstr "メールアドレスの形式ではないようです。"
 
@@ -462,11 +482,11 @@ msgstr "そのDUPRアカウントは既に別のプレーヤーと連携され�
 msgid "That DUPR sign-in has expired. Please try again."
 msgstr "DUPRのサインインの有効期限が切れました。もう一度お試しください。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:136
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:158
 msgid "That's already your account email."
 msgstr "それはすでにアカウントのメールアドレスです。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:134
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:156
 msgid "Too many emails sent. Please wait a minute and try again."
 msgstr "送信回数が多すぎます。少し待ってからもう一度お試しください。"
 
@@ -488,16 +508,28 @@ msgstr ""
 "用されます。参加者はRSVP時にカードを保存しますが、請求はできません。参加費は"
 "イベント当日に集金してください。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:138
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:160
 msgid "We couldn't send the email. Try \\\"Resend\\\" in a moment."
 msgstr ""
 "メールを送信できませんでした。しばらくしてから「再送信」をお試しください。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:241
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:338
 msgid "We sent a confirmation link to"
 msgstr "確認リンクを送信しました:"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:140
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:347
+msgid "We sent a link to"
+msgstr "リンクを送信しました:"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:471
+msgid ""
+"We'll email a link to the new address. Your current address stays on as a "
+"receiving email."
+msgstr ""
+"新しいアドレスにリンクをメールで送ります。現在のアドレスは受信用メールアドレ"
+"スとして残ります。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:162
 msgid "You can add up to 5 receiving emails. Remove one to add another."
 msgstr ""
 "受信用メールアドレスは5件まで追加できます。追加するには1件削除してください。"
@@ -510,9 +542,17 @@ msgstr ""
 "DUPRデータの共有を拒否したため、連携されませんでした。もう一度サインインし、"
 "「承認」を選択して連携してください。"
 
-#: src/components/organisms/ReceivingEmailsCard.re.mjs:128
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:150
 msgid "You've already added that address."
 msgstr "そのアドレスはすでに追加されています。"
+
+#: src/components/organisms/ReceivingEmailsCard.re.mjs:380
+msgid ""
+"Your account has no email yet. The first address you confirm here becomes "
+"your account email."
+msgstr ""
+"アカウントにはまだメールアドレスがありません。ここで最初に確認したアドレスが"
+"アカウントのメールアドレスになります。"
 
 #: src/components/organisms/DuprConnectCard.re.mjs:528
 msgid ""

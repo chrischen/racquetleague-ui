@@ -188,9 +188,13 @@ var ModeCard = {
 };
 
 function Kiosk$CameraView(props) {
+  var __showBadges = props.showBadges;
+  var __showSessionInfo = props.showSessionInfo;
   var stream = props.stream;
   var elapsed = props.elapsed;
   var streamingEnabled = props.streamingEnabled;
+  var showSessionInfo = __showSessionInfo !== undefined ? __showSessionInfo : true;
+  var showBadges = __showBadges !== undefined ? __showBadges : true;
   var videoRef = React.useRef(null);
   React.useEffect((function () {
           var video = videoRef.current;
@@ -242,59 +246,59 @@ function Kiosk$CameraView(props) {
                               })
                         ]
                       }),
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx(LucideReact.Camera, {
-                                      size: 16,
-                                      "aria-hidden": "true"
-                                    }),
-                                "COURT CAM 01"
-                              ],
-                              className: "flex min-h-12 items-center gap-2 border border-white/20 bg-kiosk-bg/90 px-4 font-mono text-xs font-semibold text-white backdrop-blur-sm"
-                            }),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                streamingEnabled ? JsxRuntime.jsx(LucideReact.Radio, {
-                                        size: 15,
-                                        "aria-hidden": "true"
-                                      }) : JsxRuntime.jsx(LucideReact.Circle, {
-                                        size: 10,
-                                        className: "fill-red-500 text-red-500",
+                showBadges ? JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx(LucideReact.Camera, {
+                                        size: 16,
                                         "aria-hidden": "true"
                                       }),
-                                (
-                                  streamingEnabled ? "LIVE" : "REC"
-                                ) + " · " + minutes + ":" + seconds
-                              ],
-                              className: Core.cx("flex min-h-12 items-center gap-2 border px-4 font-mono text-xs font-semibold", streamingEnabled ? "border-red-300 bg-red-500 text-white" : "border-white/20 bg-kiosk-bg/90 text-white")
-                            })
-                      ],
-                      className: "absolute inset-x-0 top-0 flex items-center justify-between p-4 sm:p-5"
-                    }),
-                JsxRuntime.jsxs("div", {
-                      children: [
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsx("p", {
-                                      children: t`ACTIVE SESSION`,
-                                      className: "text-xs font-medium text-kiosk-muted"
-                                    }),
-                                JsxRuntime.jsx("p", {
-                                      children: props.sessionLabel,
-                                      className: "mt-0.5 font-bold text-white"
-                                    })
-                              ],
-                              className: "border-l-4 border-kiosk-accent bg-kiosk-bg/90 px-4 py-3 backdrop-blur-sm"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: "1080p · 60 FPS",
-                              className: "hidden border border-white/20 bg-kiosk-bg/90 px-3 py-2 text-xs text-white/80 sm:block"
-                            })
-                      ],
-                      className: "absolute bottom-4 left-4 right-4 flex items-end justify-between sm:bottom-5 sm:left-5 sm:right-5"
-                    })
+                                  "COURT CAM 01"
+                                ],
+                                className: "flex min-h-12 items-center gap-2 border border-white/20 bg-kiosk-bg/90 px-4 font-mono text-xs font-semibold text-white backdrop-blur-sm"
+                              }),
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  streamingEnabled ? JsxRuntime.jsx(LucideReact.Radio, {
+                                          size: 15,
+                                          "aria-hidden": "true"
+                                        }) : JsxRuntime.jsx(LucideReact.Circle, {
+                                          size: 10,
+                                          className: "fill-red-500 text-red-500",
+                                          "aria-hidden": "true"
+                                        }),
+                                  (
+                                    streamingEnabled ? "LIVE" : "REC"
+                                  ) + " · " + minutes + ":" + seconds
+                                ],
+                                className: Core.cx("flex min-h-12 items-center gap-2 border px-4 font-mono text-xs font-semibold", streamingEnabled ? "border-red-300 bg-red-500 text-white" : "border-white/20 bg-kiosk-bg/90 text-white")
+                              })
+                        ],
+                        className: "absolute inset-x-0 top-0 flex items-center justify-between p-4 sm:p-5"
+                      }) : null,
+                showSessionInfo ? JsxRuntime.jsxs("div", {
+                        children: [
+                          JsxRuntime.jsxs("div", {
+                                children: [
+                                  JsxRuntime.jsx("p", {
+                                        children: t`ACTIVE SESSION`,
+                                        className: "text-xs font-medium text-kiosk-muted"
+                                      }),
+                                  JsxRuntime.jsx("p", {
+                                        children: props.sessionLabel,
+                                        className: "mt-0.5 font-bold text-white"
+                                      })
+                                ],
+                                className: "border-l-4 border-kiosk-accent bg-kiosk-bg/90 px-4 py-3 backdrop-blur-sm"
+                              }),
+                          JsxRuntime.jsx("div", {
+                                children: "1080p · 60 FPS",
+                                className: "hidden border border-white/20 bg-kiosk-bg/90 px-3 py-2 text-xs text-white/80 sm:block"
+                              })
+                        ],
+                        className: "absolute bottom-4 left-4 right-4 flex items-end justify-between sm:bottom-5 sm:left-5 sm:right-5"
+                      }) : null
               ],
               className: Core.cx("relative h-full w-full overflow-hidden border-2 border-kiosk-border", Core__Option.isSome(stream) ? "bg-black" : "bg-kiosk-court min-h-[330px]")
             });
@@ -1794,10 +1798,13 @@ function Kiosk$SessionWorkspace(props) {
                                             sessionLabel: sessionLabel,
                                             streamingEnabled: isLiveSession && streamingEnabled,
                                             elapsed: props.elapsed,
-                                            stream: stream
+                                            stream: stream,
+                                            showSessionInfo: !isLiveSession,
+                                            showBadges: !(isLiveSession && calibOpen)
                                           }),
                                       isLiveSession && calibOpen ? JsxRuntime.jsx(KioskCourtCalib.make, {
                                               stream: stream,
+                                              toolbarHost: props.calibToolbarHost,
                                               onDone: (function () {
                                                   onCalibDone();
                                                 })
@@ -2074,11 +2081,25 @@ function Kiosk(props) {
         return false;
       });
   var setCalibOpen = match$18[1];
+  var calibOpen = match$18[0];
   var match$19 = React.useState(function () {
+        
+      });
+  var setCalibToolbarHost = match$19[1];
+  var calibToolbarRef = React.useCallback((function (el) {
+          setCalibToolbarHost(function (param) {
+                if (el == null) {
+                  return ;
+                } else {
+                  return Caml_option.some(el);
+                }
+              });
+        }), []);
+  var match$20 = React.useState(function () {
         return false;
       });
-  var setClipping = match$19[1];
-  var clipping = match$19[0];
+  var setClipping = match$20[1];
+  var clipping = match$20[0];
   var clipsRef = React.useRef([]);
   React.useEffect((function () {
           var id = localStorage.getItem(cameraStorageKey);
@@ -2753,6 +2774,7 @@ function Kiosk(props) {
           return status.bufferedSeconds >= 2;
         }));
   var fullScreenSession = stage === "Active";
+  var calibrating = calibOpen && category === "Live" && stage === "Active";
   var tmp;
   if (notice !== undefined) {
     var tmp$1;
@@ -2864,24 +2886,27 @@ function Kiosk(props) {
                 JsxRuntime.jsx("main", {
                       children: inSession ? JsxRuntime.jsxs(JsxRuntime.Fragment, {
                               children: [
-                                JsxRuntime.jsxs("button", {
-                                      children: [
-                                        JsxRuntime.jsx(LucideReact.ArrowLeft, {
-                                              size: 23,
-                                              "aria-hidden": "true"
-                                            }),
-                                        category === "Live" ? t`End session and exit` : t`Back to modes`
-                                      ],
-                                      className: Core.cx("flex min-h-16 shrink-0 items-center gap-3 border-2 border-kiosk-border bg-kiosk-surface px-5 font-bold text-kiosk-muted transition-[background-color,color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-raised active:text-white", fullScreenSession ? "mb-4 self-start" : "mb-5"),
-                                      type: "button",
-                                      onClick: (function (param) {
-                                          if (category === "Live") {
-                                            return handleEndLive();
-                                          } else {
-                                            return resetSession();
-                                          }
-                                        })
-                                    }),
+                                calibrating ? JsxRuntime.jsx("div", {
+                                        ref: Caml_option.some(calibToolbarRef),
+                                        className: "mb-3 shrink-0"
+                                      }) : JsxRuntime.jsxs("button", {
+                                        children: [
+                                          JsxRuntime.jsx(LucideReact.ArrowLeft, {
+                                                size: 23,
+                                                "aria-hidden": "true"
+                                              }),
+                                          category === "Live" ? t`End session and exit` : t`Back to modes`
+                                        ],
+                                        className: Core.cx("flex min-h-16 shrink-0 items-center gap-3 border-2 border-kiosk-border bg-kiosk-surface px-5 font-bold text-kiosk-muted transition-[background-color,color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-raised active:text-white", fullScreenSession ? "mb-4 self-start" : "mb-5"),
+                                        type: "button",
+                                        onClick: (function (param) {
+                                            if (category === "Live") {
+                                              return handleEndLive();
+                                            } else {
+                                              return resetSession();
+                                            }
+                                          })
+                                      }),
                                 JsxRuntime.jsx(Kiosk$SessionWorkspace, {
                                       category: category,
                                       analysisMode: selectedAnalysisMode,
@@ -2892,7 +2917,8 @@ function Kiosk(props) {
                                       stream: stream,
                                       reviewClip: reviewClip,
                                       challenge: challenge,
-                                      calibOpen: match$18[0],
+                                      calibOpen: calibOpen,
+                                      calibToolbarHost: match$19[0],
                                       onCalibDone: (function () {
                                           setCalibOpen(function (param) {
                                                 return false;

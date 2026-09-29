@@ -82,7 +82,7 @@ let make = (
         isLoggedIn
         onCreateEvent
         renderHeader
-        triggerLabel={`Add to ${label->String.toLowerCase}`}
+        triggerLabel={`Add to ${label}`}
         triggerIcon={<Lucide.Plus size=11 />}
         clubSlug={host == #locationClub ? "picklr" : "tokyo-pickleball"}
         hostOptions=?{host == #locationClub

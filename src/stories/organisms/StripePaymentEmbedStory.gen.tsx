@@ -10,14 +10,16 @@ export type outcome =
   | "declines"
   | "failsSilently"
   | "hangs"
-  | "blocked";
+  | "blocked"
+  | "loadError";
 
-export type props<mode,outcome,amountLabel,onSuccess,onClose> = {
+export type props<mode,outcome,amountLabel,onSuccess,onClose,dark> = {
   readonly mode?: mode; 
   readonly outcome?: outcome; 
   readonly amountLabel?: amountLabel; 
   readonly onSuccess?: onSuccess; 
-  readonly onClose?: onClose
+  readonly onClose?: onClose; 
+  readonly dark?: dark
 };
 
 export const make: React.ComponentType<{
@@ -27,5 +29,6 @@ export const make: React.ComponentType<{
   readonly outcome?: outcome; 
   readonly amountLabel?: string; 
   readonly onSuccess?: (_1:string) => void; 
-  readonly onClose?: () => void
+  readonly onClose?: () => void; 
+  readonly dark?: boolean
 }> = StripePaymentEmbedStoryJS.make as any;

@@ -30,7 +30,7 @@ let make = (~eventId: string, ~onPlayerAdd: inputsUser => unit) => {
     <QRCode value={"https://www.pkuru.com/events/" ++ eventId} />
     <form onSubmit={handleSubmit(onSubmit)}>
       <Input
-        className="w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6"
+        className="w-24 sm:w-32 md:w-48  flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 text-2xl sm:text-5xl sm:leading-6 dark:text-gray-100"
         label={t`Player Name`}
         type_="text"
         id="name"

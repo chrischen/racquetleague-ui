@@ -89,8 +89,8 @@ msgid "Clear"
 msgstr "지우기"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
-msgid "Courts Â· thickness = count"
-msgstr "코트 · 두께 = 수량"
+msgid "Courts · thickness = count"
+msgstr "코트 · 굵기 = 횟수"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:885
 msgid "Courts and openings covering your full window"
@@ -129,7 +129,7 @@ msgid "Save"
 msgstr "저장"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
-msgid "Savingâ¦"
+msgid "Saving…"
 msgstr "저장 중…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:616
@@ -240,6 +240,10 @@ msgstr "내 시간"
 #~ msgid "Courts"
 #~ msgstr "코트"
 
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:665
+#~ msgid "Courts Â· thickness = count"
+#~ msgstr "코트 · 두께 = 수량"
+
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:837
 #~ msgid "Courts available during your time"
 #~ msgstr "내 시간에 이용 가능한 코트"
@@ -256,6 +260,10 @@ msgstr "내 시간"
 #: src/components/molecules/CourtAvailabilityBandOverlay.re.mjs:67
 #~ msgid "open"
 #~ msgstr "열림"
+
+#: src/components/organisms/VerticalAvailabilityGrid.re.mjs:933
+#~ msgid "Savingâ¦"
+#~ msgstr "저장 중…"
 
 #: src/components/organisms/VerticalAvailabilityGrid.re.mjs:601
 #~ msgid ""

@@ -25,7 +25,7 @@ msgstr "地址是必填項目"
 msgid "Akabane Elementary School"
 msgstr "赤羽小學"
 
-#: src/components/molecules/forms/Form.re.mjs:304
+#: src/components/molecules/forms/Form.re.mjs:302
 msgid "cancel"
 msgstr "取消"
 
@@ -55,6 +55,6 @@ msgstr "名稱"
 msgid "name is required"
 msgstr "名稱是必填項目"
 
-#: src/components/molecules/forms/Form.re.mjs:311
+#: src/components/molecules/forms/Form.re.mjs:309
 msgid "save"
 msgstr "儲存"

@@ -494,7 +494,7 @@ function PlayIntentRow(props) {
                                                     one: t`${userDays$1.length.toString()} person`,
                                                     other: t`${userDays$1.length.toString()} people`
                                                   }) + Core__Option.getOr(Core__Option.map(peak, (function (param) {
-                                                          return t` · peak ${formatHour(param[0])}–${formatHour(param[1])}`;
+                                                          return " " + t`· peak ${formatHour(param[0])}–${formatHour(param[1])}`;
                                                         })), "")
                                             ],
                                             className: "inline-flex items-center gap-1.5 font-medium"
@@ -632,7 +632,7 @@ function PlayIntentRow(props) {
                                           one: t`${demandCount.toString()} person wants to play`,
                                           other: t`${demandCount.toString()} people want to play`
                                         }) + Core__Option.getOr(Core__Option.map(peak, (function (param) {
-                                                return t` · peak ${formatHour(param[0])}–${formatHour(param[1])}`;
+                                                return " " + t`· peak ${formatHour(param[0])}–${formatHour(param[1])}`;
                                               })), ""),
                                     JsxRuntime.jsx(LucideReact.ChevronDown, {
                                           size: 11,

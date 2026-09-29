@@ -174,11 +174,11 @@ function RatingGraphWrapper(props) {
                                         children: [
                                           JsxRuntime.jsx("h2", {
                                                 children: t`Rating History`,
-                                                className: "text-xl font-bold text-gray-900 mb-1"
+                                                className: "text-xl font-bold text-gray-900 dark:text-gray-100 mb-1"
                                               }),
                                           JsxRuntime.jsx("p", {
                                                 children: t`The shaded area represents rating uncertainty. Narrower bands indicate higher confidence.`,
-                                                className: "text-sm text-gray-600"
+                                                className: "text-sm text-gray-600 dark:text-gray-400"
                                               })
                                         ],
                                         className: "mb-6"
@@ -187,7 +187,7 @@ function RatingGraphWrapper(props) {
                                         data: ratingHistory
                                       })
                                 ],
-                                className: "bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6"
+                                className: "bg-white dark:bg-[#1e1f23] rounded-xl shadow-sm border border-gray-200 dark:border-[#2a2b30] p-6 mb-6"
                               });
                   }
                 })

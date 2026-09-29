@@ -6,6 +6,7 @@ import * as DateFns from "date-fns";
 import * as InstallPwa from "../shared/InstallPwa.re.mjs";
 import * as ReactIntl from "react-intl";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
@@ -63,6 +64,24 @@ var LeaveEventMutation = {
   use: use$1
 };
 
+function waitlistPositionOf(waitlistRsvpIds, viewerRsvpId) {
+  return Core__Option.map(Core__Option.flatMap(viewerRsvpId, (function (id) {
+                    return Core__Array.findIndexOpt(waitlistRsvpIds, (function (w) {
+                                  return w === id;
+                                }));
+                  })), (function (i) {
+                return i + 1 | 0;
+              }));
+}
+
+function goingCountOf(mainListCount, maxRsvps) {
+  if (maxRsvps > 0) {
+    return Math.min(mainListCount, maxRsvps);
+  } else {
+    return mainListCount;
+  }
+}
+
 function EventStickyFooter$Row(props) {
   var __className = props.className;
   var className = __className !== undefined ? __className : "";
@@ -88,6 +107,7 @@ function EventStickyFooter(props) {
   var charging = props.charging;
   var tz = props.tz;
   var maxRsvps = props.maxRsvps;
+  var waitlistPosition = props.waitlistPosition;
   var waitlistCount = props.waitlistCount;
   var confirmedCount = props.confirmedCount;
   var isFull = props.isFull;
@@ -430,6 +450,25 @@ function EventStickyFooter(props) {
       } else {
         tmp$4 = null;
       }
+      var tmp$5;
+      if (isWaitlisted) {
+        if (waitlistPosition !== undefined) {
+          var position = "#" + waitlistPosition.toString();
+          tmp$5 = JsxRuntime.jsx("span", {
+                children: " \u00B7 " + t`${position} in queue`,
+                className: "text-gray-400 dark:text-gray-500"
+              });
+        } else {
+          tmp$5 = null;
+        }
+      } else {
+        tmp$5 = JsxRuntime.jsx("span", {
+              children: " \u00B7 " + confirmedCount.toString() + (
+                maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
+              ),
+              className: "text-gray-400 dark:text-gray-500"
+            });
+      }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
               tmp$4,
@@ -481,14 +520,7 @@ function EventStickyFooter(props) {
                                             children: isWaitlisted ? t`On waitlist` : t`You're in`,
                                             className: Core.cx("font-semibold uppercase tracking-wider", isWaitlisted ? "text-amber-600 dark:text-amber-400" : "text-gray-900 dark:text-gray-100")
                                           }),
-                                      JsxRuntime.jsx("span", {
-                                            children: " \u00B7 " + (
-                                              isWaitlisted ? "#" + waitlistCount.toString() + " in queue" : confirmedCount.toString() + (
-                                                  maxRsvps > 0 ? "/" + maxRsvps.toString() : ""
-                                                )
-                                            ),
-                                            className: "text-gray-400 dark:text-gray-500"
-                                          })
+                                      tmp$5
                                     ],
                                     className: "font-mono text-xs truncate"
                                   })
@@ -510,12 +542,12 @@ function EventStickyFooter(props) {
             ]
           });
     } else {
-      var tmp$5;
+      var tmp$6;
       if (Core__Option.isSome(cancelDeadlineDate)) {
         var mins$1 = Core__Option.filter(cancelMinutesLeft, (function (m) {
                 return m > 0;
               }));
-        tmp$5 = JsxRuntime.jsxs(EventStickyFooter$Row, {
+        tmp$6 = JsxRuntime.jsxs(EventStickyFooter$Row, {
               className: "bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200/60 dark:border-amber-800/30",
               inner: "px-5 py-2.5 flex items-center gap-2",
               children: [
@@ -539,22 +571,22 @@ function EventStickyFooter(props) {
               ]
             });
       } else {
-        tmp$5 = null;
+        tmp$6 = null;
       }
-      var tmp$6;
+      var tmp$7;
       if (isFull) {
-        tmp$6 = t`Join waitlist (#${(waitlistCount + 1 | 0).toString()})`;
+        tmp$7 = t`Join waitlist (#${(waitlistCount + 1 | 0).toString()})`;
       } else if (props.isPaidEvent) {
         var currencyStr$1 = Core__Option.getOr(Core__Option.map($$event.currency, PaymentIndicator.getCurrencySymbol), "¥");
-        tmp$6 = t`Claim spot · ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
+        tmp$7 = t`Claim spot · ${Core__Option.getOr(Core__Option.map($$event.price, (function (p) {
                     return currencyStr$1 + p.toString();
                   })), "")}`;
       } else {
-        tmp$6 = t`Claim spot`;
+        tmp$7 = t`Claim spot`;
       }
       tmp = JsxRuntime.jsxs(JsxRuntime.Fragment, {
             children: [
-              tmp$5,
+              tmp$6,
               JsxRuntime.jsxs(EventStickyFooter$Row, {
                     inner: "px-5 py-3 flex items-center justify-between",
                     children: [
@@ -586,7 +618,7 @@ function EventStickyFooter(props) {
                             className: "font-mono text-xs font-medium text-gray-600 dark:text-gray-400 uppercase tracking-wider flex items-center gap-1"
                           }),
                       JsxRuntime.jsx("button", {
-                            children: tmp$6,
+                            children: tmp$7,
                             className: Core.cx("px-4 py-2 text-sm font-semibold rounded-md transition-colors border", isFull ? "bg-white dark:bg-transparent border-gray-200 dark:border-[#3a3b40] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#2a2b30]" : "bg-[#bdf25d] text-black hover:bg-[#aee050] border-transparent"),
                             disabled: match$1[1],
                             onClick: (function (param) {
@@ -672,6 +704,8 @@ var make = EventStickyFooter;
 export {
   JoinEventMutation ,
   LeaveEventMutation ,
+  waitlistPositionOf ,
+  goingCountOf ,
   Row ,
   make ,
 }

@@ -915,6 +915,9 @@ var installSidecar = (function (base, mode, makeClip, analysis, court) {
       if (path.startsWith("/graphql")) {
         const query = JSON.parse(init?.body ?? "{}").query ?? "";
         if (query.includes("setKioskCourt")) return json({ data: { setKioskCourt: court } });
+        // The live lens preview: same answer, no camera (the calibration then
+        // keeps its straight-line fit and says the preview is unavailable).
+        if (query.includes("previewKioskCourt")) return json({ data: { previewKioskCourt: court } });
         const found = analysis(mode !== "noBounces");
         if (query.includes("challenge(")) return json({ data: { challenge: found } });
         if (query.includes("groundBounces")) return json({ data: { groundBounces: found.bounces } });

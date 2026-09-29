@@ -146,31 +146,36 @@ let make = (~eventId: string, ~managerHref: string, ~className: string="mt-6") =
         React.null
       } else {
         <div className>
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-            <div className="p-5 border-b border-gray-200 flex justify-between items-center">
-              <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+          <div
+            className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden dark:bg-[#1e1f23] dark:border-[#2a2b30]">
+            <div
+              className="p-5 border-b border-gray-200 flex justify-between items-center dark:border-[#2a2b30]">
+              <h2
+                className="text-lg font-bold text-gray-900 flex items-center gap-2 dark:text-gray-100">
                 <Lucide.Shuffle className="w-5 h-5 text-blue-500" />
                 {t`Round Robin Draws`}
               </h2>
               <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-600 font-medium"> {t`Courts:`} </span>
+                <span className="text-sm text-gray-600 font-medium dark:text-gray-400">
+                  {t`Courts:`}
+                </span>
                 <button
                   onClick={_ => setCourtCount(c => Math.Int.max(1, c - 1))}
                   disabled={courtCount <= 1}
                   className={courtCount <= 1
-                    ? "p-1.5 rounded text-gray-300 cursor-not-allowed"
-                    : "p-1.5 rounded text-gray-600 hover:bg-gray-100"}>
+                    ? "p-1.5 rounded text-gray-300 cursor-not-allowed dark:text-gray-600"
+                    : "p-1.5 rounded text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#2a2b30]"}>
                   <Lucide.Minus className="w-4 h-4" />
                 </button>
-                <div className="w-8 text-center text-lg font-semibold text-gray-900">
+                <div className="w-8 text-center text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {courtCount->Int.toString->React.string}
                 </div>
                 <button
                   onClick={_ => setCourtCount(c => Math.Int.min(maxCourts, c + 1))}
                   disabled={courtCount >= maxCourts}
                   className={courtCount >= maxCourts
-                    ? "p-1.5 rounded text-gray-300 cursor-not-allowed"
-                    : "p-1.5 rounded text-gray-600 hover:bg-gray-100"}>
+                    ? "p-1.5 rounded text-gray-300 cursor-not-allowed dark:text-gray-600"
+                    : "p-1.5 rounded text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-[#2a2b30]"}>
                   <Lucide.Plus className="w-4 h-4" />
                 </button>
               </div>
@@ -204,14 +209,17 @@ let make = (~eventId: string, ~managerHref: string, ~className: string="mt-6") =
                   <div key={roundNum->Int.toString} className=roundClassName>
                     <div className="flex items-center gap-2 mb-3">
                       <span
-                        className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold">
+                        className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold dark:bg-blue-900/40 dark:text-blue-300">
                         {roundNum->Int.toString->React.string}
                       </span>
-                      <h3 className="text-sm font-semibold text-gray-700">
+                      <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300">
                         {t`Round ${roundNum->Int.toString}`}
                       </h3>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                    // As many columns as the card's own width fits (not the
+                    // viewport's): MatchCard puts the teams side by side at
+                    // lg, and a narrower column clips the players' names.
+                    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(18rem,100%),1fr))] gap-3">
                       {roundMatches
                       ->Array.mapWithIndex((matchEntity, matchIndex) => {
                         let {id: matchId, match} = matchEntity
@@ -233,7 +241,7 @@ let make = (~eventId: string, ~managerHref: string, ~className: string="mt-6") =
               </div>
               // Fade-out gradient overlay
               <div
-                className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none"
+                className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none dark:from-[#1e1f23] dark:via-[#1e1f23]/80"
               />
               // View Full Draws button
               <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-6">

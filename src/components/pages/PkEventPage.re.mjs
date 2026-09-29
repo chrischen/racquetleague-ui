@@ -1192,8 +1192,13 @@ function PkEventPage$Inner(props) {
                       isPaidEvent: isPaidEvent,
                       savedCardFlow: true,
                       isFull: isFull,
-                      confirmedCount: confirmedPlayers.length,
+                      confirmedCount: EventStickyFooter.goingCountOf(confirmedPlayers.length, maxRsvps),
                       waitlistCount: waitlistPlayers.length,
+                      waitlistPosition: EventStickyFooter.waitlistPositionOf(waitlistPlayers.map(function (p) {
+                                return p.id;
+                              }), Core__Option.map(viewerRsvpNode, (function (n) {
+                                  return n.id;
+                                }))),
                       maxRsvps: maxRsvps,
                       tz: tz,
                       queryFragmentRefs: queryFragmentRefs,

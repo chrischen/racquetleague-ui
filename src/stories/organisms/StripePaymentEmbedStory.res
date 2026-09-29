@@ -6,13 +6,15 @@
 // existing `window.Stripe` instead), so nothing is fetched from Stripe and no
 // Stripe object is created. The stand-in mounts a plainly labelled skeleton
 // where the card fields would be, and answers confirmSetup/confirmPayment
-// with the outcome the story picks.
+// with the outcome the story picks. Its caption names the Elements theme it
+// was given, and `#loadError` fails the card fields the way Stripe does for a
+// bad or expired client secret (a `loaderror` event, no fields).
 //
 // Caveat: @stripe/stripe-js caches the Stripe.js it found for the whole page,
 // so if a story using the real library rendered earlier in the same preview
 // session, that one wins until the preview reloads.
 
-type outcome = [#saves | #declines | #failsSilently | #hangs | #blocked]
+type outcome = [#saves | #declines | #failsSilently | #hangs | #blocked | #loadError]
 
 let currentOutcome: ref<outcome> = ref(#saves)
 
@@ -24,12 +26,12 @@ let installStandIn: (unit => outcome) => unit = %raw(`
       '<div style="font-size:13px;margin-bottom:6px;opacity:.75">' + label + "</div>" +
       '<div style="height:44px;border:1px solid rgba(128,128,128,.35);border-radius:6px;background:rgba(128,128,128,.06)"></div>' +
       "</div>";
-    const skeleton =
+    const skeleton = (theme) =>
       '<div data-story-stand-in="payment-element" style="display:flex;flex-direction:column;gap:12px">' +
       '<div style="display:flex;gap:12px">' + field("Card number", 1) + "</div>" +
       '<div style="display:flex;gap:12px">' + field("Expiration date", 1) + field("Security code", 1) + "</div>" +
       '<div style="display:flex;gap:12px">' + field("Country", 1) + "</div>" +
-      '<div style="font-size:11px;opacity:.55">Stand-in for Stripe’s Payment Element (Storybook)</div>' +
+      '<div style="font-size:11px;opacity:.55">Stand-in for Stripe’s Payment Element (Storybook), theme: ' + theme + "</div>" +
       "</div>";
     const answer = (kind, id) => {
       switch (outcome()) {
@@ -46,31 +48,54 @@ let installStandIn: (unit => outcome) => unit = %raw(`
     const StandIn = function () {
       if (outcome() === "blocked") return null;
       return {
-        elements: () => ({
-          create: () => {
-            let node = null;
-            const listeners = {};
-            return {
-              mount(domNode) {
-                node = domNode;
-                node.innerHTML = skeleton;
-                (listeners.ready ?? []).forEach((cb) => cb({ elementType: "payment" }));
-              },
-              on(event, cb) {
-                (listeners[event] ??= []).push(cb);
-              },
-              off(event, cb) {
-                listeners[event] = (listeners[event] ?? []).filter((x) => x !== cb);
-              },
-              update() {},
-              destroy() {
-                if (node) node.innerHTML = "";
-              },
-            };
-          },
-          update() {},
-          getElement: () => null,
-        }),
+        elements: (options) => {
+          let theme = options?.appearance?.theme ?? "stripe";
+          const mounted = new Set();
+          const paint = (node) => {
+            if (outcome() !== "loadError") node.innerHTML = skeleton(theme);
+          };
+          return {
+            create: () => {
+              let node = null;
+              const listeners = {};
+              return {
+                mount(domNode) {
+                  node = domNode;
+                  mounted.add(node);
+                  paint(node);
+                  (listeners.ready ?? []).forEach((cb) => cb({ elementType: "payment" }));
+                },
+                on(event, cb) {
+                  (listeners[event] ??= []).push(cb);
+                  // Stripe reports a bad client secret after mounting, by which
+                  // time the handler is attached.
+                  if (event === "loaderror" && outcome() === "loadError")
+                    setTimeout(() =>
+                      cb({
+                        elementType: "payment",
+                        error: { type: "invalid_request_error", message: "No such setupintent: 'seti_1StoryFixture0000000000'" },
+                      }),
+                    );
+                },
+                off(event, cb) {
+                  listeners[event] = (listeners[event] ?? []).filter((x) => x !== cb);
+                },
+                update() {},
+                destroy() {
+                  if (node) {
+                    node.innerHTML = "";
+                    mounted.delete(node);
+                  }
+                },
+              };
+            },
+            update(next) {
+              if (next?.appearance?.theme) theme = next.appearance.theme;
+              mounted.forEach(paint);
+            },
+            getElement: () => null,
+          };
+        },
         createToken: async () => ({}),
         createPaymentMethod: async () => ({}),
         confirmCardPayment: async () => ({}),
@@ -99,21 +124,26 @@ let make = (
   ~amountLabel: option<string>=?,
   ~onSuccess=(_: string) => (),
   ~onClose=() => (),
+  // The app's dark mode (PkuruLayout provides it; Storybook's theme toolbar
+  // only sets the class), which picks the Elements theme.
+  ~dark: bool=false,
 ) => {
   // Read when the component loads Stripe (on mount) and when it confirms.
   currentOutcome := outcome
-  switch mode {
-  | #setup =>
-    <StripePaymentEmbed clientSecret=setupSecret mode=Setup ?amountLabel onSuccess onClose />
-  | #payment =>
-    // Payments live on the organizer's connected account.
-    <StripePaymentEmbed
-      clientSecret=paymentSecret
-      stripeAccountId=connectedAccount
-      mode=Payment
-      ?amountLabel
-      onSuccess
-      onClose
-    />
-  }
+  <DarkMode.Provider value=dark>
+    {switch mode {
+    | #setup =>
+      <StripePaymentEmbed clientSecret=setupSecret mode=Setup ?amountLabel onSuccess onClose />
+    | #payment =>
+      // Payments live on the organizer's connected account.
+      <StripePaymentEmbed
+        clientSecret=paymentSecret
+        stripeAccountId=connectedAccount
+        mode=Payment
+        ?amountLabel
+        onSuccess
+        onClose
+      />
+    }}
+  </DarkMode.Provider>
 }

@@ -1,5 +1,4 @@
-import * as React from "react";
-import type { Decorator, Meta, StoryObj } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, waitFor, within } from "storybook/test";
 import { make as SelectPlayersListStory, query } from "./SelectPlayersListStory.gen";
 import { eventMock } from "./StoryFixturesMatch.gen";
@@ -22,34 +21,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-// With no players the table puts its "no players yet" text straight into
-// <tbody> (a bug in the component, reported rather than fixed here), which
-// React logs as a DOM-nesting error. This mutes exactly that message while the
-// Empty story is mounted, so the smoke test still fails on anything else.
-let restoreConsole: (() => void) | undefined;
-const muteTbodyTextWarning: Decorator = (Story) => {
-  React.useState(() => {
-    if (restoreConsole) return;
-    const original = console.error;
-    console.error = (...args: unknown[]) => {
-      if (
-        typeof args[0] === "string" &&
-        args[0].includes("validateDOMNesting") &&
-        args[1] === "Text nodes" &&
-        args[2] === "tbody"
-      )
-        return;
-      original(...args);
-    };
-    restoreConsole = () => {
-      console.error = original;
-      restoreConsole = undefined;
-    };
-  });
-  React.useEffect(() => () => restoreConsole?.(), []);
-  return <Story />;
-};
 
 // Rows fade and scale in (framer-motion), so wait for them to finish before
 // asserting visibility.
@@ -97,7 +68,6 @@ export const WithGuests: Story = {
 /** Before anyone has joined. */
 export const Empty: Story = {
   args: { state: "empty" },
-  decorators: [muteTbodyTextWarning],
   play: async ({ canvasElement }) => {
     await expect(await within(canvasElement).findByText("no players yet")).toBeVisible();
   },

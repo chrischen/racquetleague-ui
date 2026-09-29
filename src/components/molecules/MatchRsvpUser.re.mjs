@@ -5,6 +5,7 @@ import * as LangProvider from "../shared/LangProvider.re.mjs";
 import * as LucideReact from "lucide-react";
 import * as Core from "@linaria/core";
 import * as JsxRuntime from "react/jsx-runtime";
+import * as AvatarWithProgress from "./AvatarWithProgress.re.mjs";
 
 import { css, cx } from '@linaria/core'
 ;
@@ -86,7 +87,9 @@ function MatchRsvpUser(props) {
                                                 src: picture
                                               });
                                   })), JsxRuntime.jsx("div", {
-                                  className: Core.cx(compact ? "h-8 w-8" : "h-16 w-16", "flex-none rounded-full bg-gray-50")
+                                  children: AvatarWithProgress.initialOf(user.name),
+                                  "aria-hidden": true,
+                                  className: Core.cx(compact ? "h-8 w-8 text-xs" : "h-16 w-16 text-2xl", "flex-none rounded-full bg-slate-300 flex items-center justify-center font-semibold text-slate-600 select-none")
                                 })),
                         JsxRuntime.jsx("div", {
                               children: player.intId.toString(),

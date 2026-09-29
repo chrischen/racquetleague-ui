@@ -21,7 +21,7 @@ export const FourResting: Story = {};
 /** Off: optimise match quality instead of evening out play counts. */
 export const Off: Story = { args: { breakCount: 0, breakPlayersCount: 2 } };
 
-/** Change it to 2 and save. */
+/** Change it to 2 and save: the field keeps showing 2. */
 export const ChangeRestCount: Story = {
   play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);
@@ -30,5 +30,6 @@ export const ChangeRestCount: Story = {
     await userEvent.type(input, "2");
     await userEvent.click(canvas.getByRole("button", { name: "save" }));
     await waitFor(() => expect(args.onChangeBreakCount).toHaveBeenCalledWith(2));
+    await expect(input).toHaveValue("2");
   },
 };

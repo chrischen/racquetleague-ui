@@ -163,154 +163,154 @@ function NewPlanChooserModal$EmailSteps(props) {
         className: "break-words font-semibold"
       });
   var forwardingAddress = Lingui.slot("forwardingAddress");
-  return JsxRuntime.jsxs(JsxRuntime.Fragment, {
-              children: [
-                JsxRuntime.jsxs("li", {
-                      children: [
-                        JsxRuntime.jsx(NewPlanChooserModal$StepNumber, {
-                              children: "1"
-                            }),
-                        JsxRuntime.jsxs("div", {
-                              children: [
-                                JsxRuntime.jsxs("div", {
-                                      children: [
-                                        JsxRuntime.jsx(LucideReact.Forward, {
-                                              size: 16,
-                                              className: "mt-0.5 flex-shrink-0 text-gray-400",
-                                              "aria-hidden": "true"
-                                            }),
-                                        JsxRuntime.jsx("p", {
-                                              children: Lingui.fillSlots(t`Forward your booking confirmation to ${forwardingAddress} from your email ${yourEmail}.`, [
-                                                    [
-                                                      "forwardingAddress",
-                                                      copyable(viewer.eventsForwardingAddress)
-                                                    ],
-                                                    [
-                                                      "yourEmail",
-                                                      emailElement
-                                                    ]
-                                                  ]),
-                                              className: stepTextClass
-                                            })
-                                      ],
-                                      className: "flex items-start gap-2"
-                                    }),
-                                Core__Option.getOr(Core__Option.map(viewer.eventsInboxAddress, (function (inboxAddress) {
-                                            var bookingAddress = Lingui.slot("bookingAddress");
-                                            return JsxRuntime.jsxs("div", {
-                                                        children: [
-                                                          JsxRuntime.jsx(LucideReact.AtSign, {
-                                                                size: 16,
-                                                                className: "mt-0.5 flex-shrink-0 text-gray-400",
-                                                                "aria-hidden": "true"
-                                                              }),
-                                                          JsxRuntime.jsx("p", {
-                                                                children: Lingui.fillSlots(t`Or use this email ${bookingAddress} when booking. We’ll forward the confirmation to ${yourEmail}.`, [
-                                                                      [
-                                                                        "bookingAddress",
-                                                                        copyable(inboxAddress)
-                                                                      ],
-                                                                      [
-                                                                        "yourEmail",
-                                                                        emailElement
-                                                                      ]
-                                                                    ]),
-                                                                className: stepTextClass
-                                                              })
+  return props.frame(JsxRuntime.jsxs(JsxRuntime.Fragment, {
+                  children: [
+                    JsxRuntime.jsxs("li", {
+                          children: [
+                            JsxRuntime.jsx(NewPlanChooserModal$StepNumber, {
+                                  children: "1"
+                                }),
+                            JsxRuntime.jsxs("div", {
+                                  children: [
+                                    JsxRuntime.jsxs("div", {
+                                          children: [
+                                            JsxRuntime.jsx(LucideReact.Forward, {
+                                                  size: 16,
+                                                  className: "mt-0.5 flex-shrink-0 text-gray-400",
+                                                  "aria-hidden": "true"
+                                                }),
+                                            JsxRuntime.jsx("p", {
+                                                  children: Lingui.fillSlots(t`Forward your booking confirmation to ${forwardingAddress} from your email ${yourEmail}.`, [
+                                                        [
+                                                          "forwardingAddress",
+                                                          copyable(viewer.eventsForwardingAddress)
                                                         ],
-                                                        className: "flex items-start gap-2"
-                                                      });
-                                          })), null),
-                                JsxRuntime.jsx("p", {
-                                      children: t`You can include any additional event details like the level, max players, price, etc. in the email that you forward.`,
-                                      className: "rounded-lg bg-gray-50 px-3 py-2.5 text-xs leading-relaxed text-gray-600 dark:bg-[#191a1d] dark:text-gray-300"
-                                    })
-                              ],
-                              className: "min-w-0 flex-1 space-y-3"
-                            })
-                      ],
-                      className: "flex gap-3 p-4"
-                    }),
-                JsxRuntime.jsxs("li", {
-                      children: [
-                        JsxRuntime.jsx(NewPlanChooserModal$StepNumber, {
-                              children: "2"
-                            }),
-                        JsxRuntime.jsx("div", {
-                              children: JsxRuntime.jsxs("div", {
-                                    children: [
-                                      JsxRuntime.jsx(LucideReact.CalendarDays, {
-                                            size: 17,
-                                            className: "mt-0.5 flex-shrink-0 text-gray-400",
-                                            "aria-hidden": "true"
-                                          }),
-                                      JsxRuntime.jsxs("div", {
-                                            children: [
-                                              JsxRuntime.jsx("p", {
-                                                    children: t`Sync your Pkuru calendar so new events appear automatically in your calendar app.`,
-                                                    className: stepTextClass
-                                                  }),
-                                              JsxRuntime.jsxs("button", {
-                                                    children: [
-                                                      calendarSynced ? JsxRuntime.jsx(LucideReact.CalendarCheck, {
-                                                              size: 16,
-                                                              "aria-hidden": "true"
-                                                            }) : JsxRuntime.jsx(LucideReact.CalendarDays, {
-                                                              size: 16,
-                                                              "aria-hidden": "true"
-                                                            }),
-                                                      calendarSynced ? t`Calendar synced` : t`Sync calendar`
-                                                    ],
-                                                    "aria-expanded": calendarMenuOpen,
-                                                    className: "mt-3 inline-flex h-9 items-center gap-2 rounded-lg px-3 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 " + (
-                                                      calendarSynced ? "bg-[#bdf25d]/20 text-[#4d6f12] dark:text-[#bdf25d]" : "bg-[#bdf25d] text-black hover:bg-[#aee050]"
-                                                    ),
-                                                    type: "button",
-                                                    onClick: (function (param) {
-                                                        setCalendarMenuOpen(function (isOpen) {
-                                                              return !isOpen;
-                                                            });
-                                                      })
-                                                  }),
-                                              calendarMenuOpen ? JsxRuntime.jsx("div", {
-                                                      children: AddToCalendar.providers(user.id).map(function (provider) {
-                                                            return JsxRuntime.jsxs("a", {
-                                                                        children: [
-                                                                          JsxRuntime.jsx("span", {
-                                                                                children: provider.initials,
-                                                                                className: "flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-purple-500 text-[11px] font-semibold text-white"
-                                                                              }),
-                                                                          provider.label
-                                                                        ],
-                                                                        className: "flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-100 focus:bg-gray-100 focus:outline-none dark:text-gray-100 dark:hover:bg-[#2a2b30] dark:focus:bg-[#2a2b30]",
-                                                                        href: provider.url,
-                                                                        rel: "noopener noreferrer",
-                                                                        target: provider.url.startsWith("https:") ? "_blank" : undefined,
-                                                                        onClick: (function (param) {
-                                                                            setCalendarSynced(function (param) {
-                                                                                  return true;
-                                                                                });
-                                                                            setCalendarMenuOpen(function (param) {
-                                                                                  return false;
-                                                                                });
-                                                                          })
-                                                                      }, provider.label);
-                                                          }),
-                                                      className: "mt-2 w-full max-w-[16rem] rounded-xl border border-gray-200 bg-white p-1 shadow-sm dark:border-[#3a3b40] dark:bg-[#1e1f23]"
-                                                    }) : null
-                                            ],
-                                            className: "min-w-0"
-                                          })
-                                    ],
-                                    className: "flex items-start gap-2"
-                                  }),
-                              className: "min-w-0 flex-1"
-                            })
-                      ],
-                      className: "flex gap-3 p-4"
-                    })
-              ]
-            });
+                                                        [
+                                                          "yourEmail",
+                                                          emailElement
+                                                        ]
+                                                      ]),
+                                                  className: stepTextClass
+                                                })
+                                          ],
+                                          className: "flex items-start gap-2"
+                                        }),
+                                    Core__Option.getOr(Core__Option.map(viewer.eventsInboxAddress, (function (inboxAddress) {
+                                                var bookingAddress = Lingui.slot("bookingAddress");
+                                                return JsxRuntime.jsxs("div", {
+                                                            children: [
+                                                              JsxRuntime.jsx(LucideReact.AtSign, {
+                                                                    size: 16,
+                                                                    className: "mt-0.5 flex-shrink-0 text-gray-400",
+                                                                    "aria-hidden": "true"
+                                                                  }),
+                                                              JsxRuntime.jsx("p", {
+                                                                    children: Lingui.fillSlots(t`Or use this email ${bookingAddress} when booking. We’ll forward the confirmation to ${yourEmail}.`, [
+                                                                          [
+                                                                            "bookingAddress",
+                                                                            copyable(inboxAddress)
+                                                                          ],
+                                                                          [
+                                                                            "yourEmail",
+                                                                            emailElement
+                                                                          ]
+                                                                        ]),
+                                                                    className: stepTextClass
+                                                                  })
+                                                            ],
+                                                            className: "flex items-start gap-2"
+                                                          });
+                                              })), null),
+                                    JsxRuntime.jsx("p", {
+                                          children: t`You can include any additional event details like the level, max players, price, etc. in the email that you forward.`,
+                                          className: "rounded-lg bg-gray-50 px-3 py-2.5 text-xs leading-relaxed text-gray-600 dark:bg-[#191a1d] dark:text-gray-300"
+                                        })
+                                  ],
+                                  className: "min-w-0 flex-1 space-y-3"
+                                })
+                          ],
+                          className: "flex gap-3 p-4"
+                        }),
+                    JsxRuntime.jsxs("li", {
+                          children: [
+                            JsxRuntime.jsx(NewPlanChooserModal$StepNumber, {
+                                  children: "2"
+                                }),
+                            JsxRuntime.jsx("div", {
+                                  children: JsxRuntime.jsxs("div", {
+                                        children: [
+                                          JsxRuntime.jsx(LucideReact.CalendarDays, {
+                                                size: 17,
+                                                className: "mt-0.5 flex-shrink-0 text-gray-400",
+                                                "aria-hidden": "true"
+                                              }),
+                                          JsxRuntime.jsxs("div", {
+                                                children: [
+                                                  JsxRuntime.jsx("p", {
+                                                        children: t`Sync your Pkuru calendar so new events appear automatically in your calendar app.`,
+                                                        className: stepTextClass
+                                                      }),
+                                                  JsxRuntime.jsxs("button", {
+                                                        children: [
+                                                          calendarSynced ? JsxRuntime.jsx(LucideReact.CalendarCheck, {
+                                                                  size: 16,
+                                                                  "aria-hidden": "true"
+                                                                }) : JsxRuntime.jsx(LucideReact.CalendarDays, {
+                                                                  size: 16,
+                                                                  "aria-hidden": "true"
+                                                                }),
+                                                          calendarSynced ? t`Calendar synced` : t`Sync calendar`
+                                                        ],
+                                                        "aria-expanded": calendarMenuOpen,
+                                                        className: "mt-3 inline-flex h-9 items-center gap-2 rounded-lg px-3 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#94c93a] focus-visible:ring-offset-2 " + (
+                                                          calendarSynced ? "bg-[#bdf25d]/20 text-[#4d6f12] dark:text-[#bdf25d]" : "bg-[#bdf25d] text-black hover:bg-[#aee050]"
+                                                        ),
+                                                        type: "button",
+                                                        onClick: (function (param) {
+                                                            setCalendarMenuOpen(function (isOpen) {
+                                                                  return !isOpen;
+                                                                });
+                                                          })
+                                                      }),
+                                                  calendarMenuOpen ? JsxRuntime.jsx("div", {
+                                                          children: AddToCalendar.providers(user.id).map(function (provider) {
+                                                                return JsxRuntime.jsxs("a", {
+                                                                            children: [
+                                                                              JsxRuntime.jsx("span", {
+                                                                                    children: provider.initials,
+                                                                                    className: "flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-purple-500 text-[11px] font-semibold text-white"
+                                                                                  }),
+                                                                              provider.label
+                                                                            ],
+                                                                            className: "flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-100 focus:bg-gray-100 focus:outline-none dark:text-gray-100 dark:hover:bg-[#2a2b30] dark:focus:bg-[#2a2b30]",
+                                                                            href: provider.url,
+                                                                            rel: "noopener noreferrer",
+                                                                            target: provider.url.startsWith("https:") ? "_blank" : undefined,
+                                                                            onClick: (function (param) {
+                                                                                setCalendarSynced(function (param) {
+                                                                                      return true;
+                                                                                    });
+                                                                                setCalendarMenuOpen(function (param) {
+                                                                                      return false;
+                                                                                    });
+                                                                              })
+                                                                          }, provider.label);
+                                                              }),
+                                                          className: "mt-2 w-full max-w-[16rem] rounded-xl border border-gray-200 bg-white p-1 shadow-sm dark:border-[#3a3b40] dark:bg-[#1e1f23]"
+                                                        }) : null
+                                                ],
+                                                className: "min-w-0"
+                                              })
+                                        ],
+                                        className: "flex items-start gap-2"
+                                      }),
+                                  className: "min-w-0 flex-1"
+                                })
+                          ],
+                          className: "flex gap-3 p-4"
+                        })
+                  ]
+                }));
 }
 
 var EmailSteps = {
@@ -319,7 +319,48 @@ var EmailSteps = {
 
 function NewPlanChooserModal(props) {
   var onCreateEvent = props.onCreateEvent;
-  var myEvents = Lingui.slot("myEvents");
+  var emailGuide = function (steps) {
+    var myEvents = Lingui.slot("myEvents");
+    return JsxRuntime.jsxs("section", {
+                children: [
+                  JsxRuntime.jsx("header", {
+                        children: JsxRuntime.jsxs("div", {
+                              children: [
+                                JsxRuntime.jsx("span", {
+                                      children: JsxRuntime.jsx(LucideReact.Mail, {
+                                            size: 16,
+                                            "aria-hidden": "true"
+                                          }),
+                                      className: "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300"
+                                    }),
+                                JsxRuntime.jsx("h3", {
+                                      children: t`Create events by email`,
+                                      className: "text-base font-semibold text-gray-900 dark:text-gray-100",
+                                      id: "email-event-guide-title"
+                                    })
+                              ],
+                              className: "flex items-center gap-2.5"
+                            }),
+                        className: "border-b border-gray-100 px-4 py-3.5 dark:border-[#34353a]"
+                      }),
+                  JsxRuntime.jsx("ol", {
+                        children: steps,
+                        className: "divide-y divide-gray-100 dark:divide-[#34353a]"
+                      }),
+                  JsxRuntime.jsx("p", {
+                        children: Lingui.fillSlots(t`Events are added privately to ${myEvents}. Make an event public whenever you need to find players.`, [[
+                                "myEvents",
+                                JsxRuntime.jsx("strong", {
+                                      children: t`My Events`
+                                    })
+                              ]]),
+                        className: "border-t border-[#94c93a]/25 bg-[#bdf25d]/10 px-4 py-3 text-xs leading-relaxed text-gray-700 dark:border-[#bdf25d]/15 dark:bg-[#bdf25d]/[0.06] dark:text-gray-300"
+                      })
+                ],
+                "aria-labelledby": "email-event-guide-title",
+                className: "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]"
+              });
+  };
   return JsxRuntime.jsx(RouteModal.make, {
               title: t`Create an event`,
               eyebrow: Caml_option.some(t`New plan`),
@@ -361,52 +402,16 @@ function NewPlanChooserModal(props) {
                                 onCreateEvent();
                               })
                           }),
-                      JsxRuntime.jsxs("section", {
-                            children: [
-                              JsxRuntime.jsx("header", {
-                                    children: JsxRuntime.jsxs("div", {
-                                          children: [
-                                            JsxRuntime.jsx("span", {
-                                                  children: JsxRuntime.jsx(LucideReact.Mail, {
-                                                        size: 16,
-                                                        "aria-hidden": "true"
-                                                      }),
-                                                  className: "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100 text-gray-600 dark:bg-[#2a2b30] dark:text-gray-300"
-                                                }),
-                                            JsxRuntime.jsx("h3", {
-                                                  children: t`Create events by email`,
-                                                  className: "text-base font-semibold text-gray-900 dark:text-gray-100",
-                                                  id: "email-event-guide-title"
-                                                })
-                                          ],
-                                          className: "flex items-center gap-2.5"
-                                        }),
-                                    className: "border-b border-gray-100 px-4 py-3.5 dark:border-[#34353a]"
-                                  }),
-                              JsxRuntime.jsx("ol", {
-                                    children: JsxRuntime.jsx(React.Suspense, {
-                                          children: Caml_option.some(JsxRuntime.jsx(NewPlanChooserModal$EmailSteps, {})),
-                                          fallback: Caml_option.some(JsxRuntime.jsx("li", {
-                                                    children: JsxRuntime.jsx("div", {
-                                                          className: "h-24 animate-pulse rounded-lg bg-gray-100 dark:bg-[#2a2b30]"
-                                                        }),
-                                                    className: "p-4"
-                                                  }))
-                                        }),
-                                    className: "divide-y divide-gray-100 dark:divide-[#34353a]"
-                                  }),
-                              JsxRuntime.jsx("p", {
-                                    children: Lingui.fillSlots(t`Events are added privately to ${myEvents}. Make an event public whenever you need to find players.`, [[
-                                            "myEvents",
-                                            JsxRuntime.jsx("strong", {
-                                                  children: t`My Events`
-                                                })
-                                          ]]),
-                                    className: "border-t border-[#94c93a]/25 bg-[#bdf25d]/10 px-4 py-3 text-xs leading-relaxed text-gray-700 dark:border-[#bdf25d]/15 dark:bg-[#bdf25d]/[0.06] dark:text-gray-300"
-                                  })
-                            ],
-                            "aria-labelledby": "email-event-guide-title",
-                            className: "overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-[#3a3b40] dark:bg-[#222326]"
+                      JsxRuntime.jsx(React.Suspense, {
+                            children: Caml_option.some(JsxRuntime.jsx(NewPlanChooserModal$EmailSteps, {
+                                      frame: emailGuide
+                                    })),
+                            fallback: Caml_option.some(emailGuide(JsxRuntime.jsx("li", {
+                                          children: JsxRuntime.jsx("div", {
+                                                className: "h-24 animate-pulse rounded-lg bg-gray-100 dark:bg-[#2a2b30]"
+                                              }),
+                                          className: "p-4"
+                                        })))
                           })
                     ],
                     className: "space-y-5"

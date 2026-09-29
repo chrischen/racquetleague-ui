@@ -1,1 +1,1 @@
-/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"zbuZZJ\":\"ซีดที่ปรับแล้ว\"}");
+/*eslint-disable*/import type{Messages}from"@lingui/core";export const messages:Messages=JSON.parse("{\"AWd12w\":[[\"0\"],\" คน\"],\"1IFjjP\":[[\"0\"],\" คน\"],\"1XIkUf\":[[\"count\",\"plural\",{\"one\":[[\"0\"]],\"other\":[[\"1\"]]}]],\"7+MzvQ\":\"ลบการปรับลำดับวาง\",\"zbuZZJ\":\"ซีดที่ปรับแล้ว\"}");

@@ -170,3 +170,25 @@ let takeClip = (ring: t<'a>, ~targetDurationUs: float): option<clip<'a>> =>
       })
     }
   }
+
+// The GOPs pushed after ``afterUs`` (their keyframe strictly later), as one
+// rebased clip — the kiosk's live-analysis upload. By default only CLOSED GOPs
+// (a newer keyframe exists, so no more frames will join them); ``includeOpen``
+// adds the GOP still being filled, for a caller that needs the freshest frames
+// now and tolerates re-sending some of them later. None when nothing qualifies.
+let segmentAfter = (ring: t<'a>, ~afterUs: float, ~includeOpen: bool=false): option<clip<'a>> => {
+  let n = ring.gops->Array.length
+  let closed = includeOpen ? n : Math.Int.max(0, n - 1)
+  let gops = ring.gops->Array.slice(~start=0, ~end=closed)->Array.filter(gop => gop.startUs > afterUs)
+  switch (gops->Array.get(0), gops->Array.last) {
+  | (Some(first), Some(last)) => {
+      let chunks = gops->Array.flatMap(gop => gop.chunks)
+      Some({
+        chunks: chunks->Array.map(chunk => {...chunk, timestampUs: chunk.timestampUs -. first.startUs}),
+        durationUs: last.endUs -. first.startUs,
+        baseUs: first.startUs,
+      })
+    }
+  | _ => None
+  }
+}

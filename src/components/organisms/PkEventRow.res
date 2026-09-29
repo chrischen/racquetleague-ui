@@ -377,6 +377,37 @@ let make = (
     }
   })
 
+  // The start time, as FormattedTime renders it, split into parts: a 12-hour
+  // clock's day period ("AM", "오전") is set small on the digits' line, since
+  // at full size "10:00 AM" wraps in the narrow time column.
+  let intl = ReactIntl.useIntl()
+  let startTimeParts =
+    startDate->Option.map(startDate =>
+      intl->ReactIntl.Intl.formatTimeWithOptionsToParts(
+        startDate->Util.Datetime.toDate,
+        ReactIntl.dateTimeFormatOptions(~timeZone=?timezone, ()),
+      )
+    )
+  let hasDayPeriod =
+    startTimeParts->Option.mapOr(false, parts => parts->Array.some(p => p.type_ == "dayPeriod"))
+  let startTime = (~dayPeriodClass) =>
+    startTimeParts
+    ->Option.map(parts =>
+      parts
+      ->Array.filter(p => p.type_ != "literal" || p.value->String.trim != "")
+      ->Array.mapWithIndex((p, i) =>
+        <span
+          key={Int.toString(i)}
+          className=?{p.type_ == "dayPeriod"
+            ? Some((i == 0 ? "mr-0.5 " : "ml-0.5 ") ++ dayPeriodClass)
+            : None}>
+          {p.value->React.string}
+        </span>
+      )
+      ->React.array
+    )
+    ->Option.getOr(React.null)
+
   let navigate = LangProvider.Router.useNavigate()
   let locale = React.useContext(LangProvider.LocaleContext.context)
   let (hovered, setHovered) = React.useState(() => false)
@@ -576,16 +607,8 @@ let make = (
             className="px-4 md:px-6 py-2.5 flex items-center gap-3 md:gap-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-[#1e1f23] transition-colors"
             onClick={_ => setShowCanceledDetails(prev => !prev)}>
             <span
-              className="font-mono text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 w-12 md:w-16">
-              {startDate
-              ->Option.map(startDate =>
-                timezone
-                ->Option.map(tz =>
-                  <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} timeZone={tz} />
-                )
-                ->Option.getOr(<ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />)
-              )
-              ->Option.getOr(React.null)}
+              className="font-mono text-xs text-gray-400 dark:text-gray-500 flex-shrink-0 w-12 md:w-16 whitespace-nowrap">
+              {startTime(~dayPeriodClass="text-[9px]")}
             </span>
             <h4
               className="flex-1 min-w-0 text-sm line-through text-gray-400 dark:text-gray-500 truncate">
@@ -681,20 +704,11 @@ let make = (
             className="bg-white dark:bg-[#222326]">
             <div className="px-4 md:px-6 py-3 flex items-start gap-3 md:gap-6 cursor-pointer">
               <div className="w-12 md:w-16 flex-shrink-0 flex flex-col items-start pt-0.5">
-                <span className="font-mono font-bold text-base dark:text-gray-100">
-                  {startDate
-                  ->Option.map(startDate =>
-                    timezone
-                    ->Option.map(tz =>
-                      <ReactIntl.FormattedTime
-                        value={startDate->Util.Datetime.toDate} timeZone={tz}
-                      />
-                    )
-                    ->Option.getOr(
-                      <ReactIntl.FormattedTime value={startDate->Util.Datetime.toDate} />,
-                    )
-                  )
-                  ->Option.getOr(React.null)}
+                <span
+                  className={"font-mono font-bold whitespace-nowrap dark:text-gray-100 " ++ (
+                    hasDayPeriod ? "text-[13px] md:text-base" : "text-base"
+                  )}>
+                  {startTime(~dayPeriodClass="text-[9px] md:text-[10px]")}
                 </span>
                 <span className="font-mono text-[10px] text-gray-400 mt-1">
                   {durationStr->Option.getOr("")->React.string}

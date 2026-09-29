@@ -1,5 +1,4 @@
-import * as React from "react";
-import type { Decorator, Meta, StoryObj } from "@storybook/react-vite";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, userEvent, within } from "storybook/test";
 import { connection, rsvps } from "./StoryFixturesEvent.gen";
 import { make as EventFullNamesStory, query } from "./EventFullNamesStory.gen";
@@ -7,32 +6,9 @@ import { make as EventFullNamesStory, query } from "./EventFullNamesStory.gen";
 // The collapsible guest list on the classic event page: players' full names
 // (not their LINE names), for organizers who need to register the group with
 // the venue. Collapsed by default; the chevron opens it.
-// EventFullNames renders its <li> rows without a `key` (a bug in the
-// component, reported rather than fixed here), which React logs as an error
-// on every mount. This mutes exactly that warning while one of these stories
-// is mounted, so the smoke test still fails on anything else.
-let restoreConsole: (() => void) | undefined;
-const muteMissingKeyWarning: Decorator = (Story) => {
-  React.useState(() => {
-    if (restoreConsole) return;
-    const original = console.error;
-    console.error = (...args: unknown[]) => {
-      if (typeof args[0] === "string" && args[0].includes('unique "key" prop')) return;
-      original(...args);
-    };
-    restoreConsole = () => {
-      console.error = original;
-      restoreConsole = undefined;
-    };
-  });
-  React.useEffect(() => () => restoreConsole?.(), []);
-  return <Story />;
-};
-
 const meta = {
   title: "Organisms/EventFullNames",
   component: EventFullNamesStory,
-  decorators: [muteMissingKeyWarning],
   parameters: {
     relay: { query, mocks: { Query: { event: {} }, Event: { rsvps: connection(rsvps(8)) } } },
   },

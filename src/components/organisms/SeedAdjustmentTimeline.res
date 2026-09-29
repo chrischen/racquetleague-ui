@@ -1,4 +1,4 @@
-%%raw("import { t } from '@lingui/macro'")
+%%raw("import { t, plural } from '@lingui/macro'")
 
 // SeedAdjustmentTimeline Component - Timeline display for seed/rating adjustments
 //
@@ -106,9 +106,16 @@ let make = (
                   {(ts`Seeds Adjusted`)->React.string}
                 </h3>
                 <p className="text-xs text-slate-600">
-                  {`${changes->Array.length->Int.toString} player${changes->Array.length != 1
-                      ? "s"
-                      : ""}`->React.string}
+                  {
+                    let count = changes->Array.length
+                    Lingui.Util.plural(
+                      count,
+                      {
+                        one: ts`${count->Int.toString} player`,
+                        other: ts`${count->Int.toString} players`,
+                      },
+                    )
+                  }
                   {upCount > 0
                     ? <span className="ml-1 text-green-600">
                         {`↑${upCount->Int.toString}`->React.string}
@@ -127,7 +134,7 @@ let make = (
                 ? <button
                     onClick={handleDelete}
                     className="p-1.5 hover:bg-red-100 rounded transition-colors"
-                    title="Delete seed adjustment">
+                    title={ts`Delete seed adjustment`}>
                     <Lucide.Trash2 className="w-3.5 h-3.5 text-red-600" />
                   </button>
                 : React.null}

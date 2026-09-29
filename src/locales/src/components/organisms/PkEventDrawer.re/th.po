@@ -94,6 +94,10 @@ msgstr "กลางแจ้ง {n} แห่ง"
 msgid "{openingCount, plural, one {{0}} other {{1}}}"
 msgstr "{openingCount, plural, one {{0}} other {{1}}}"
 
+#: src/components/organisms/EventStickyFooter.re.mjs:458
+msgid "{position} in queue"
+msgstr "อันดับ {position} ในคิว"
+
 #: src/components/organisms/PkRSVPSection.re.mjs:867
 msgid "♂/♀ SKILL"
 msgstr "♂/♀ ทักษะ"
@@ -172,7 +176,7 @@ msgstr "อ้างอิงจากการเล่นที่บันท
 msgid "Beginner"
 msgstr "ผู้เริ่มต้น"
 
-#: src/components/organisms/ProfileModal.re.mjs:533
+#: src/components/organisms/ProfileModal.re.mjs:550
 msgid "Biography"
 msgstr "ประวัติส่วนตัว"
 
@@ -186,7 +190,7 @@ msgstr "จองผ่าน {0}"
 
 #: src/components/molecules/ConfirmDialog.re.mjs:33
 #: src/components/molecules/EditableSection.re.mjs:88
-#: src/components/organisms/StripePaymentEmbed.re.mjs:99
+#: src/components/organisms/StripePaymentEmbed.re.mjs:125
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -194,7 +198,7 @@ msgstr "ยกเลิก"
 msgid "cancel event"
 msgstr "ยกเลิกกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:317
 msgid "Cancel RSVP"
 msgstr "ยกเลิก RSVP"
 
@@ -202,21 +206,21 @@ msgstr "ยกเลิก RSVP"
 msgid "CANCELED"
 msgstr "ยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:417
-#: src/components/organisms/EventStickyFooter.re.mjs:528
+#: src/components/organisms/EventStickyFooter.re.mjs:437
+#: src/components/organisms/EventStickyFooter.re.mjs:560
 msgid "Cancellation deadline"
 msgstr "กำหนดเวลายกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:536
+#: src/components/organisms/EventStickyFooter.re.mjs:568
 msgid "Cancellation deadline passed."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:425
+#: src/components/organisms/EventStickyFooter.re.mjs:445
 msgid ""
 "Cancellation deadline passed. Contact the organizer on this page to cancel."
 msgstr "เลยกำหนดเวลายกเลิกแล้ว ติดต่อผู้จัดงานที่หน้านี้เพื่อยกเลิก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:297
+#: src/components/organisms/EventStickyFooter.re.mjs:317
 msgid "Cancelling..."
 msgstr "กำลังยกเลิก..."
 
@@ -232,7 +236,7 @@ msgstr "รับชำระเงิน"
 msgid "Card on file"
 msgstr "บัตรที่บันทึกไว้"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:245
+#: src/components/organisms/EventStickyFooter.re.mjs:265
 msgid ""
 "Card on file: {cardLabel}. Nothing is charged now — the organizer charges "
 "the fee after the event."
@@ -240,7 +244,7 @@ msgstr ""
 "บัตรที่บันทึกไว้: {cardLabel} ยังไม่มีการเรียกเก็บเงินในขณะนี้ — "
 "ผู้จัดจะเรียกเก็บค่าธรรมเนียมหลังจบกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:306
 msgid "Card required to confirm your spot"
 msgstr "ต้องมีบัตรเพื่อยืนยันที่นั่งของคุณ"
 
@@ -252,12 +256,12 @@ msgstr "เรียกเก็บเงินไม่สำเร็จ"
 msgid "Charge payment"
 msgstr "เรียกเก็บเงิน"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:553
-#: src/components/organisms/EventStickyFooter.re.mjs:661
+#: src/components/organisms/EventStickyFooter.re.mjs:585
+#: src/components/organisms/EventStickyFooter.re.mjs:693
 msgid "Claim spot"
 msgstr "จองที่"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:549
+#: src/components/organisms/EventStickyFooter.re.mjs:581
 msgid "Claim spot · {0}"
 msgstr "จองสปอต · {0}"
 
@@ -269,7 +273,7 @@ msgstr "ล้างตัวอย่าง"
 msgid "Click to edit"
 msgstr "คลิกเพื่อแก้ไข"
 
-#: src/components/organisms/ProfileModal.re.mjs:466
+#: src/components/organisms/ProfileModal.re.mjs:483
 msgid "Close profile form"
 msgstr "ปิดฟอร์มโปรไฟล์"
 
@@ -285,15 +289,15 @@ msgstr "ปิดการเชิญแบบสไลด์"
 msgid "Complete Beginner"
 msgstr "ผู้เริ่มต้นสมบูรณ์"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Complete payment"
 msgstr "ชำระเงินให้เสร็จสิ้น"
 
-#: src/components/organisms/ProfileModal.re.mjs:450
+#: src/components/organisms/ProfileModal.re.mjs:467
 msgid "Complete your player profile"
 msgstr "กรอกข้อมูลโปรไฟล์นักกีฬาของคุณ"
 
-#: src/components/organisms/ProfileModal.re.mjs:312
+#: src/components/organisms/ProfileModal.re.mjs:329
 msgid ""
 "Complete your profile before sharing availability with players and hosts."
 msgstr "กรอกข้อมูลโปรไฟล์ให้ครบก่อนแชร์ตารางว่างกับผู้เล่นและเจ้าภาพ"
@@ -323,14 +327,14 @@ msgstr "คัดลอกแล้ว!"
 msgid "copy event"
 msgstr "คัดลอกกิจกรรม"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Could not save your card"
 msgstr "ไม่สามารถบันทึกบัตรของคุณได้"
 
 #: src/components/organisms/ProfileModal.re.mjs:263
 #: src/components/organisms/ProfileModal.re.mjs:272
-#: src/components/organisms/ProfileModal.re.mjs:292
-#: src/components/organisms/ProfileModal.re.mjs:302
+#: src/components/organisms/ProfileModal.re.mjs:313
+#: src/components/organisms/ProfileModal.re.mjs:319
 msgid "Could not save your profile. Please try again."
 msgstr "ไม่สามารถบันทึกโปรไฟล์ได้ กรุณาลองอีกครั้ง"
 
@@ -338,7 +342,7 @@ msgstr "ไม่สามารถบันทึกโปรไฟล์ได
 msgid "Court"
 msgstr "คอร์ท"
 
-#: src/components/organisms/MatchCard.re.mjs:396
+#: src/components/organisms/MatchCard.re.mjs:399
 msgid "Court {0}"
 msgstr "สนาม {0}"
 
@@ -364,16 +368,16 @@ msgid "Create event"
 msgstr "สร้างอีเวนต์"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:63
-#: src/components/organisms/MatchCard.re.mjs:437
+#: src/components/organisms/MatchCard.re.mjs:440
 msgid "Delete match"
 msgstr "ลบการแข่งขัน"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:67
-#: src/components/organisms/MatchCard.re.mjs:441
+#: src/components/organisms/MatchCard.re.mjs:444
 msgid "Delete this match?"
 msgstr "ลบการแข่งขันนี้หรือไม่?"
 
-#: src/components/organisms/ProfileModal.re.mjs:483
+#: src/components/organisms/ProfileModal.re.mjs:500
 msgid "Display name"
 msgstr "ชื่อที่แสดง"
 
@@ -410,7 +414,7 @@ msgstr "แก้ไขกิจกรรม"
 msgid "Edit in place"
 msgstr "แก้ไขในหน้านี้"
 
-#: src/components/organisms/MatchCard.re.mjs:450
+#: src/components/organisms/MatchCard.re.mjs:453
 msgid "Edit match"
 msgstr "แก้ไขการแข่งขัน"
 
@@ -426,11 +430,11 @@ msgstr "ช่องที่แก้ไขได้จะไฮไลต์ไ
 msgid "Editing"
 msgstr "กำลังแก้ไข"
 
-#: src/components/organisms/ProfileModal.re.mjs:370
+#: src/components/organisms/ProfileModal.re.mjs:387
 msgid "Email address"
 msgstr "ที่อยู่อีเมล"
 
-#: src/components/organisms/ProfileModal.re.mjs:287
+#: src/components/organisms/ProfileModal.re.mjs:304
 msgid ""
 "Email address is unavailable. Please use a different email or login with the "
 "email you are trying to use here."
@@ -440,11 +444,11 @@ msgstr "ที่อยู่อีเมลนี้ไม่ว่าง ก�
 msgid "Email is required"
 msgstr "ต้องกรอกอีเมล"
 
-#: src/components/organisms/ScoreModal.re.mjs:112
+#: src/components/organisms/ScoreModal.re.mjs:116
 msgid "Enter Match Score"
 msgstr "ป้อนคะแนนแมตช์"
 
-#: src/components/organisms/ScoreModal.re.mjs:257
+#: src/components/organisms/ScoreModal.re.mjs:261
 msgid "Equal scores — this will be recorded as a draw"
 msgstr "คะแนนเท่ากัน — จะถูกบันทึกเป็นเสมอ"
 
@@ -457,11 +461,11 @@ msgid "even"
 msgstr "เท่าเทียม"
 
 #: src/components/organisms/PkEventMessages.re.mjs:328
-#: src/components/organisms/PkEventMessages.re.mjs:462
+#: src/components/organisms/PkEventMessages.re.mjs:465
 msgid "Event chat"
 msgstr "แชทของอีเวนต์"
 
-#: src/components/pages/PkEventPage.re.mjs:1260
+#: src/components/pages/PkEventPage.re.mjs:1265
 msgid "Event not found"
 msgstr "ไม่พบกิจกรรม"
 
@@ -477,24 +481,25 @@ msgstr "อัปเดตกิจกรรมแล้ว"
 msgid "Everyone reviewed"
 msgstr "ตรวจสอบครบทุกคนแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:181
+#: src/components/organisms/EventStickyFooter.re.mjs:201
 msgid "External event"
 msgstr "กิจกรรมภายนอก"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
-#: src/components/organisms/ProfileModal.re.mjs:507
+#: src/components/organisms/ProfileModal.re.mjs:524
 msgid "Female"
 msgstr "หญิง"
 
-#: src/components/organisms/ProfileModal.re.mjs:363
-msgid "For event updates and notifications"
-msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
+#: src/components/organisms/ProfileModal.re.mjs:380
+msgid ""
+"For event updates and notifications. We'll email you a link to confirm it."
+msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
 
 #: src/components/pages/PkEventPage.re.mjs:386
 msgid "Free"
 msgstr "ฟรี"
 
-#: src/components/organisms/ProfileModal.re.mjs:497
+#: src/components/organisms/ProfileModal.re.mjs:514
 msgid "Gender"
 msgstr "เพศ"
 
@@ -515,7 +520,7 @@ msgstr "ผู้เล่นที่มีทักษะสูงมาก"
 msgid "Hosted by"
 msgstr "จัดโดย"
 
-#: src/components/organisms/ProfileModal.re.mjs:486
+#: src/components/organisms/ProfileModal.re.mjs:503
 msgid "How other players will see you"
 msgstr "สิ่งที่ผู้เล่นคนอื่นจะเห็น"
 
@@ -560,7 +565,7 @@ msgstr "ผู้เล่นที่ได้รับเชิญถูกย
 msgid "Invites · {0}"
 msgstr "คำเชิญ · {0}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:186
+#: src/components/organisms/EventStickyFooter.re.mjs:206
 msgid "Join on {externalSource2}"
 msgstr "เข้าร่วมผ่าน {externalSource2}"
 
@@ -568,15 +573,15 @@ msgstr "เข้าร่วมผ่าน {externalSource2}"
 msgid "Join this event to take part in the chat"
 msgstr "เข้าร่วมอีเวนต์นี้เพื่อร่วมแชท"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:661
+#: src/components/organisms/EventStickyFooter.re.mjs:693
 msgid "Join waitlist"
 msgstr "เข้าร่วมรายการรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:546
+#: src/components/organisms/EventStickyFooter.re.mjs:578
 msgid "Join waitlist (#{0})"
 msgstr "เข้าร่วมรายชื่อคอย (#{0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:264
+#: src/components/organisms/EventStickyFooter.re.mjs:284
 msgid "Join with saved card"
 msgstr "เข้าร่วมด้วยบัตรที่บันทึกไว้"
 
@@ -588,7 +593,7 @@ msgstr "เข้าร่วมจากรายชื่อคอย"
 msgid "joined the event"
 msgstr "เข้าร่วมกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:262
+#: src/components/organisms/EventStickyFooter.re.mjs:282
 msgid "Joining..."
 msgstr "กำลังเข้าร่วม..."
 
@@ -600,24 +605,24 @@ msgstr "เก็บไว้"
 msgid "Keep {0} pending"
 msgstr "เก็บ {0} ไว้ในรายการรอ"
 
-#: src/components/organisms/ProfileModal.re.mjs:315
+#: src/components/organisms/ProfileModal.re.mjs:332
 msgid "Keep your player profile accurate and useful to the community."
 msgstr "รักษาโปรไฟล์นักกีฬาของคุณให้ถูกต้องและเป็นประโยชน์ต่อชุมชน"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Last Round"
 msgstr "รอบที่แล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:500
-#: src/components/organisms/EventStickyFooter.re.mjs:612
+#: src/components/organisms/EventStickyFooter.re.mjs:532
+#: src/components/organisms/EventStickyFooter.re.mjs:644
 msgid "Leave event"
 msgstr "ออกจากกิจกรรม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:500
+#: src/components/organisms/EventStickyFooter.re.mjs:532
 msgid "Leave waitlist"
 msgstr "ออกจากรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:499
+#: src/components/organisms/EventStickyFooter.re.mjs:531
 msgid "Leaving..."
 msgstr "กำลังออก..."
 
@@ -629,7 +634,7 @@ msgstr "ออกจากกิจกรรม"
 msgid "less"
 msgstr "ย่อ"
 
-#: src/components/organisms/ProfileModal.re.mjs:548
+#: src/components/organisms/ProfileModal.re.mjs:565
 msgid "Level"
 msgstr "ระดับ"
 
@@ -638,8 +643,8 @@ msgstr "ระดับ"
 msgid "LEVEL RESTRICTION"
 msgstr "ข้อจำกัดระดับ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:266
-#: src/components/organisms/EventStickyFooter.re.mjs:307
+#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:327
 msgid "Loading..."
 msgstr "กำลังโหลด..."
 
@@ -647,7 +652,7 @@ msgstr "กำลังโหลด..."
 msgid "Location"
 msgstr "สถานที่"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Losing Team (Team {0})"
 msgstr "ทีมแพ้ (ทีม {0})"
 
@@ -656,7 +661,7 @@ msgid "Lower intermediate and above"
 msgstr "ระดับกลางขั้นต้นขึ้นไป"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:135
-#: src/components/organisms/ProfileModal.re.mjs:503
+#: src/components/organisms/ProfileModal.re.mjs:520
 msgid "Male"
 msgstr "ชาย"
 
@@ -668,11 +673,11 @@ msgstr "การแข่งขันจะถูกส่งไปยัง DU
 msgid "MEDIAN"
 msgstr "มัธยฐาน"
 
-#: src/components/organisms/PkEventMessages.re.mjs:364
+#: src/components/organisms/PkEventMessages.re.mjs:367
 msgid "Message everyone in this event"
 msgstr "ส่งข้อความถึงทุกคนในอีเวนต์นี้"
 
-#: src/components/organisms/PkEventMessages.re.mjs:366
+#: src/components/organisms/PkEventMessages.re.mjs:369
 msgid "Message everyone in this event…"
 msgstr "ส่งข้อความถึงทุกคนในอีเวนต์นี้…"
 
@@ -684,6 +689,10 @@ msgstr "หลากหลาย"
 #: src/components/organisms/RsvpOptions.re.mjs:346
 msgid "Move to Pending List"
 msgstr "ย้ายไปรายชื่อรอ"
+
+#: src/components/organisms/PkEventMessages.re.mjs:344
+msgid "No activity yet"
+msgstr "ยังไม่มีกิจกรรม"
 
 #: src/components/organisms/EventLocationAvailability.re.mjs:452
 msgid "No court at {venue} covers the full event window."
@@ -697,7 +706,8 @@ msgstr "ไม่มีคอร์ทว่าง"
 msgid "No message left with the request"
 msgstr "ไม่มีข้อความแนบมากับคำขอ"
 
-#: src/components/organisms/PkEventMessages.re.mjs:466
+#: src/components/organisms/PkEventMessages.re.mjs:344
+#: src/components/organisms/PkEventMessages.re.mjs:469
 msgid "No messages yet"
 msgstr "ยังไม่มีข้อความ"
 
@@ -717,7 +727,7 @@ msgstr "ไม่พบผู้เล่น"
 msgid "No restriction on skill level. Open to all players."
 msgstr "ไม่จำกัดระดับทักษะ เปิดให้ผู้เล่นทุกคน"
 
-#: src/components/organisms/ScoreModal.re.mjs:266
+#: src/components/organisms/ScoreModal.re.mjs:270
 msgid "No Score"
 msgstr "ไม่มีคะแนน"
 
@@ -725,7 +735,7 @@ msgstr "ไม่มีคะแนน"
 msgid "Not available"
 msgstr "ไม่ว่าง"
 
-#: src/components/organisms/ProfileModal.re.mjs:584
+#: src/components/organisms/ProfileModal.re.mjs:601
 msgid "Not now"
 msgstr "ไม่ใช่ตอนนี้"
 
@@ -746,11 +756,11 @@ msgstr "หมายเหตุจากผู้จัด"
 msgid "NR"
 msgstr "NR"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:481
+#: src/components/organisms/EventStickyFooter.re.mjs:520
 msgid "On waitlist"
 msgstr "อยู่ในรายชื่อรอ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:194
+#: src/components/organisms/EventStickyFooter.re.mjs:214
 msgid "Open {externalSource2}"
 msgstr "เปิด {externalSource2}"
 
@@ -770,11 +780,11 @@ msgstr "เวลาอื่นที่ {venue}"
 msgid "Participants"
 msgstr "ผู้เข้าร่วม"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:274
+#: src/components/organisms/EventStickyFooter.re.mjs:294
 msgid "Pay {priceStr}"
 msgstr "ชำระเงิน {priceStr}"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Pay now"
 msgstr "ชำระเงินตอนนี้"
 
@@ -786,11 +796,11 @@ msgstr "ชำระเงินได้รับอนุมัติแล้
 msgid "Payment charged"
 msgstr "เรียกเก็บเงินแล้ว"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:64
+#: src/components/organisms/StripePaymentEmbed.re.mjs:73
 msgid "Payment failed"
 msgstr "การชำระเงินล้มเหลว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:286
+#: src/components/organisms/EventStickyFooter.re.mjs:306
 msgid "Payment required to confirm your spot"
 msgstr "ต้องชำระเงินเพื่อยืนยันที่นั่งของคุณ"
 
@@ -798,7 +808,7 @@ msgstr "ต้องชำระเงินเพื่อยืนยันท
 msgid "Pending · {0}"
 msgstr "รอดำเนินการ · {0}"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:378
+#: src/components/organisms/EventStickyFooter.re.mjs:398
 msgid "Pending approval"
 msgstr "รอการอนุมัติ"
 
@@ -830,8 +840,8 @@ msgstr "ดูตัวอย่าง Smart RSVP"
 msgid "Previewing…"
 msgstr "กำลังแสดงตัวอย่าง…"
 
-#: src/components/atoms/EventTag.re.mjs:89
-#: src/components/atoms/EventTag.re.mjs:91
+#: src/components/atoms/EventTag.re.mjs:95
+#: src/components/atoms/EventTag.re.mjs:97
 msgid "Private"
 msgstr "ไม่เปิดเผย"
 
@@ -840,7 +850,7 @@ msgstr "ไม่เปิดเผย"
 msgid "Pro"
 msgstr "โปร"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:86
+#: src/components/organisms/StripePaymentEmbed.re.mjs:95
 msgid "Processing…"
 msgstr "กำลังดำเนินการ…"
 
@@ -866,9 +876,13 @@ msgstr "มีการจัดอันดับ"
 msgid "Rating"
 msgstr "เรตติ้ง"
 
-#: src/components/organisms/MatchCard.re.mjs:404
+#: src/components/organisms/MatchCard.re.mjs:407
 msgid "Rebalance match"
 msgstr "ปรับสมดุลการแข่งขัน"
+
+#: src/components/atoms/EventTag.re.mjs:83
+msgid "Recreational"
+msgstr "นันทนาการ"
 
 #: src/components/atoms/EventTag.re.mjs:52
 msgid ""
@@ -900,7 +914,7 @@ msgstr "ลบจากกิจกรรม"
 msgid "Remove this RSVP"
 msgstr "ลบการยืนยันนี้"
 
-#: src/components/organisms/MatchCard.re.mjs:417
+#: src/components/organisms/MatchCard.re.mjs:420
 msgid "Repeat"
 msgstr "ซ้ำ"
 
@@ -957,8 +971,8 @@ msgstr "เรียกใช้ Smart RSVP ตอนนี้"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:268
-#: src/components/organisms/StripePaymentEmbed.re.mjs:87
+#: src/components/organisms/EventStickyFooter.re.mjs:288
+#: src/components/organisms/StripePaymentEmbed.re.mjs:96
 msgid "Save card"
 msgstr "บันทึกบัตร"
 
@@ -966,15 +980,15 @@ msgstr "บันทึกบัตร"
 msgid "Save notes"
 msgstr "บันทึกหมายเหตุ"
 
-#: src/components/organisms/ProfileModal.re.mjs:598
+#: src/components/organisms/ProfileModal.re.mjs:615
 msgid "Save profile"
 msgstr "บันทึกโปรไฟล์"
 
-#: src/components/organisms/ScoreModal.re.mjs:274
+#: src/components/organisms/ScoreModal.re.mjs:278
 msgid "Save Score"
 msgstr "บันทึกคะแนน"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:142
+#: src/components/organisms/StripePaymentEmbed.re.mjs:191
 msgid "Save your card"
 msgstr "บันทึกบัตรของคุณ"
 
@@ -990,7 +1004,7 @@ msgstr "กึ่งอาชีพ"
 msgid "Send invite"
 msgstr "ส่งคำเชิญ"
 
-#: src/components/organisms/PkEventMessages.re.mjs:386
+#: src/components/organisms/PkEventMessages.re.mjs:389
 msgid "Send message"
 msgstr "ส่งข้อความ"
 
@@ -1002,13 +1016,13 @@ msgstr "ส่งแล้ว"
 msgid "Share"
 msgstr "แชร์"
 
-#: src/components/organisms/ProfileModal.re.mjs:536
+#: src/components/organisms/ProfileModal.re.mjs:553
 msgid ""
 "Share a little about yourself so organizers or other players can see why "
 "they should invite you."
 msgstr "แนะนำตัวเองเล็กน้อยเพื่อให้ผู้จัดหรือผู้เล่นคนอื่นรู้ว่าทำไมควรเชิญคุณ"
 
-#: src/components/organisms/PkEventMessages.re.mjs:352
+#: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "Show less"
 msgstr "แสดงน้อยลง"
 
@@ -1065,7 +1079,7 @@ msgstr "สไลด์ซ้ายเพื่อข้าม · ขวาเ�
 msgid "Swipe review"
 msgstr "ตรวจสอบด้วยการสไวป์"
 
-#: src/components/organisms/ScoreModal.re.mjs:78
+#: src/components/organisms/ScoreModal.re.mjs:80
 msgid "Team {0}"
 msgstr "ทีม {0}"
 
@@ -1077,15 +1091,30 @@ msgstr "ทีม 1"
 msgid "TEAM 2"
 msgstr "ทีม 2"
 
+#: src/components/organisms/ProfileModal.re.mjs:308
+msgid "That doesn't look like an email address."
+msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:112
+msgid ""
+"The card form could not be loaded. Check your connection or turn off any "
+"content blocker, then try again."
+msgstr ""
+"ไม่สามารถโหลดแบบฟอร์มบัตรได้ ตรวจสอบการเชื่อมต่อหรือปิดตัวบล็อกเนื้อหา แล้วลองใหม่อีกครั้ง"
+
+#: src/components/organisms/StripePaymentEmbed.re.mjs:117
+msgid "The card form could not be loaded. Close this and try again."
+msgstr "ไม่สามารถโหลดแบบฟอร์มบัตรได้ ปิดหน้านี้แล้วลองใหม่อีกครั้ง"
+
 #: src/components/organisms/MatchCardEdit.re.mjs:68
-#: src/components/organisms/MatchCard.re.mjs:442
+#: src/components/organisms/MatchCard.re.mjs:445
 msgid ""
 "The match will be removed from this round. You can restore the originally "
 "scheduled matches using the round reset icon."
 msgstr ""
 "การแข่งขันนี้จะถูกลบออกจากรอบนี้ คุณสามารถกู้คืนการแข่งขันที่กำหนดไว้เดิมได้โดยใช้ไอคอนรีเซ็ตรอบ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:613
+#: src/components/organisms/EventStickyFooter.re.mjs:645
 msgid ""
 "There are players on the waitlist. If you leave, your spot will be given to "
 "the next person. Are you sure?"
@@ -1141,7 +1170,7 @@ msgstr "เลิกยกเลิกกิจกรรม"
 msgid "Upper intermediate and above"
 msgstr "ระดับกลางขั้นบนขึ้นไป"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:307
+#: src/components/organisms/EventStickyFooter.re.mjs:327
 msgid "Use a different card"
 msgstr "ใช้บัตรอื่น"
 
@@ -1157,7 +1186,7 @@ msgstr "ใช้ตัวเลือกนี้"
 msgid "Use time"
 msgstr "ใช้เวลานี้"
 
-#: src/components/organisms/PkEventMessages.re.mjs:352
+#: src/components/organisms/PkEventMessages.re.mjs:355
 msgid "View all {totalCountStr} updates"
 msgstr "ดูอัปเดตทั้งหมด {totalCountStr} รายการ"
 
@@ -1183,8 +1212,8 @@ msgid "View Profile"
 msgstr "ดูโปรไฟล์"
 
 #: src/components/organisms/MatchCardEdit.re.mjs:113
-#: src/components/organisms/MatchCard.re.mjs:575
 #: src/components/organisms/MatchCard.re.mjs:582
+#: src/components/organisms/MatchCard.re.mjs:589
 msgid "VS"
 msgstr "VS"
 
@@ -1204,19 +1233,19 @@ msgstr "ถูกเพิ่มเข้ากิจกรรมโดยผู
 msgid "was invited to the event"
 msgstr "ได้รับเชิญเข้าร่วมกิจกรรม"
 
-#: src/components/organisms/ProfileModal.re.mjs:309
+#: src/components/organisms/ProfileModal.re.mjs:326
 msgid "We need a few details before you can join this event"
 msgstr "เราต้องการข้อมูลบางอย่างก่อนที่คุณจะเข้าร่วมกิจกรรมนี้"
 
-#: src/components/organisms/ScoreModal.re.mjs:79
+#: src/components/organisms/ScoreModal.re.mjs:81
 msgid "Winning Team (Team {0})"
 msgstr "ทีมชนะ (ทีม {0})"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:392
+#: src/components/organisms/EventStickyFooter.re.mjs:412
 msgid "Withdraw RSVP"
 msgstr "ยกเลิก RSVP"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:392
+#: src/components/organisms/EventStickyFooter.re.mjs:412
 msgid "Withdrawing..."
 msgstr "กำลังยกเลิก..."
 
@@ -1224,25 +1253,25 @@ msgstr "กำลังยกเลิก..."
 msgid "Would be admitted"
 msgstr "จะได้รับการตอบรับ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:481
+#: src/components/organisms/EventStickyFooter.re.mjs:520
 msgid "You're in"
 msgstr "คุณเข้าร่วมแล้ว"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:247
+#: src/components/organisms/EventStickyFooter.re.mjs:267
 msgid ""
 "Your card is saved now, not charged — the organizer charges the fee after "
 "the event."
 msgstr ""
 "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน — ผู้จัดจะเรียกเก็บค่าธรรมเนียมหลังจบกิจกรรม"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge {amountLabel} "
 "later."
 msgstr ""
 "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บ {amountLabel} ในภายหลัง"
 
-#: src/components/organisms/StripePaymentEmbed.re.mjs:151
+#: src/components/organisms/StripePaymentEmbed.re.mjs:200
 msgid ""
 "Your card is saved now, not charged. The organizer will charge the "
 "participation fee later."
@@ -1256,7 +1285,7 @@ msgstr ""
 "เรตติ้งของคุณ {viewerOrdinal2Str} ~ {viewerMuStr} (DUPR {viewerDuprLo} ~ "
 "{viewerDuprHi}) ต่ำกว่าขั้นต่ำ คุณจะถูกใส่ในรายชื่อรอดำเนินการ"
 
-#: src/components/organisms/EventStickyFooter.re.mjs:382
+#: src/components/organisms/EventStickyFooter.re.mjs:402
 msgid "Your RSVP is awaiting admin approval"
 msgstr "RSVP ของคุณกำลังรอการอนุมัติจากผู้ดูแล"
 
@@ -1302,6 +1331,10 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #: src/components/organisms/ProfileModal.re.mjs:303
 #~ msgid "Email cannot be changed"
 #~ msgstr "ไม่สามารถเปลี่ยนอีเมลได้"
+
+#: src/components/organisms/ProfileModal.re.mjs:363
+#~ msgid "For event updates and notifications"
+#~ msgstr "สำหรับการอัปเดตและการแจ้งเตือนกิจกรรม"
 
 #: src/components/organisms/PlayerInviteSwipeDeck.re.mjs:332
 #~ msgid "Invite to {0}"
@@ -1427,11 +1460,3 @@ msgstr "RSVP ของคุณกำลังรอการอนุมัต�
 #~ "participation fee after the event."
 #~ msgstr ""
 #~ "บัตรของคุณถูกบันทึกไว้แล้ว ยังไม่มีการเรียกเก็บเงิน ผู้จัดจะเรียกเก็บค่าเข้าร่วมหลังจบกิจกรรม"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "For event updates and notifications. We'll email you a link to confirm it."
-msgstr "สำหรับการอัปเดตกิจกรรมและการแจ้งเตือน เราจะส่งลิงก์ยืนยันไปทางอีเมล"
-
-#: src/components/organisms/ProfileModal.re.mjs
-msgid "That doesn't look like an email address."
-msgstr "ดูเหมือนไม่ใช่ที่อยู่อีเมล"

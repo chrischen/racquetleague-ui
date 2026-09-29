@@ -33,7 +33,7 @@ msgstr "(ออกจากระบบ)"
 msgid "\\\"Add to Home Screen\\\""
 msgstr "\\\"เพิ่มไปยังหน้าจอหลัก\\\""
 
-#: src/components/organisms/LeagueNav.re.mjs:114
+#: src/components/organisms/LeagueNav.re.mjs:137
 msgid "About"
 msgstr "เกี่ยวกับ"
 
@@ -45,7 +45,7 @@ msgstr "ลิขสิทธิ์โดยผู้ร่วมงาน the r
 msgid "Enable now"
 msgstr "เปิดใช้งานเดี๋ยวนี้"
 
-#: src/components/organisms/LeagueNav.re.mjs:110
+#: src/components/organisms/LeagueNav.re.mjs:133
 msgid "Find Games"
 msgstr "ค้นหาเกม"
 
@@ -75,24 +75,24 @@ msgstr "ติดตั้งแอป Pkuru.com"
 msgid "login with Line"
 msgstr "เข้าสู่ระบบด้วย Line"
 
-#: src/components/organisms/LeagueNav.re.mjs:126
+#: src/components/organisms/LeagueNav.re.mjs:149
 msgid "Logout"
 msgstr "ออกจากระบบ"
 
-#: src/components/organisms/LeagueNav.re.mjs:253
+#: src/components/organisms/LeagueNav.re.mjs:270
 msgid "Open main menu"
 msgstr "เปิดเมนูหลัก"
 
-#: src/components/organisms/LeagueNav.re.mjs:200
+#: src/components/organisms/LeagueNav.re.mjs:223
 msgid "Open user menu"
 msgstr "เปิดเมนูผู้ใช้"
 
-#: src/components/organisms/LeagueNav.re.mjs:206
-#: src/components/organisms/LeagueNav.re.mjs:301
+#: src/components/organisms/LeagueNav.re.mjs:226
+#: src/components/organisms/LeagueNav.re.mjs:315
 msgid "Profile picture"
 msgstr "รูปโปรไฟล์"
 
-#: src/components/organisms/LeagueNav.re.mjs:106
+#: src/components/organisms/LeagueNav.re.mjs:129
 msgid "Rankings"
 msgstr "อันดับ"
 
@@ -108,12 +108,12 @@ msgstr "ติดตามทุกความเคลื่อนไหว"
 msgid "Tap the Share button"
 msgstr "แตะปุ่มแชร์"
 
-#: src/components/organisms/LeagueNav.re.mjs:175
-#: src/components/organisms/LeagueNav.re.mjs:326
+#: src/components/organisms/LeagueNav.re.mjs:198
+#: src/components/organisms/LeagueNav.re.mjs:337
 msgid "View notifications"
 msgstr "ดูการแจ้งเตือน"
 
-#: src/components/organisms/LeagueNav.re.mjs:122
+#: src/components/organisms/LeagueNav.re.mjs:145
 msgid "Your Profile"
 msgstr "โปรไฟล์ของคุณ"
 

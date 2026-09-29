@@ -5,6 +5,7 @@ import * as UserMedia from "../UserMedia.re.mjs";
 import * as WebCodecs from "./WebCodecs.re.mjs";
 import * as SampleRing from "./SampleRing.re.mjs";
 import * as Caml_option from "rescript/lib/es6/caml_option.js";
+import * as Core__Array from "@rescript/core/src/Core__Array.re.mjs";
 import * as MuxBindings from "./MuxBindings.re.mjs";
 import * as Core__Option from "@rescript/core/src/Core__Option.re.mjs";
 import * as Caml_js_exceptions from "rescript/lib/es6/caml_js_exceptions.js";
@@ -442,7 +443,76 @@ async function takeClip(state, seconds) {
               },
               frameTimes: clip.chunks.map(function (chunk) {
                     return chunk.timestampUs / 1000000;
-                  })
+                  }),
+              startSeconds: clip.baseUs / 1000000
+            }
+          };
+  } else {
+    return {
+            TAG: "Error",
+            _0: {
+              TAG: "MuxFailed",
+              _0: blob._0
+            }
+          };
+  }
+}
+
+async function takeSegment(state, afterUs, includeOpen) {
+  var match = state.videoCodec;
+  var match$1 = state.running;
+  if (match === undefined) {
+    return {
+            TAG: "Error",
+            _0: "NotStarted"
+          };
+  }
+  if (!match$1) {
+    return {
+            TAG: "Error",
+            _0: "NotStarted"
+          };
+  }
+  var clip = ClipRing.segmentAfter(state.ring, afterUs, includeOpen);
+  if (clip === undefined) {
+    return {
+            TAG: "Error",
+            _0: "BufferEmpty"
+          };
+  }
+  var videoChunks = clip.chunks.map(function (chunk) {
+        return {
+                bytes: chunk.payload,
+                timestampUs: chunk.timestampUs,
+                durationUs: chunk.durationUs,
+                isKey: chunk.isKey
+              };
+      });
+  var video_width = state.width;
+  var video_height = state.height;
+  var video_description = Core__Option.flatMap(state.videoDecoderConfig, (function (config) {
+          return config.description;
+        }));
+  var video = {
+    codec: match,
+    width: video_width,
+    height: video_height,
+    description: video_description
+  };
+  var lastGopUs = Core__Option.mapOr(Core__Array.last(clip.chunks.filter(function (chunk) {
+                return chunk.isKey;
+              })), clip.baseUs, (function (chunk) {
+          return chunk.timestampUs + clip.baseUs;
+        }));
+  var blob = await MuxBindings.muxClip(video, videoChunks, undefined, []);
+  if (blob.TAG === "Ok") {
+    return {
+            TAG: "Ok",
+            _0: {
+              segmentBlob: blob._0,
+              segmentStartSeconds: clip.baseUs / 1000000,
+              lastGopUs: lastGopUs,
+              segmentDurationSeconds: clip.durationUs / 1000000
             }
           };
   } else {
@@ -667,6 +737,9 @@ function make(onStatus) {
           takeClip: (function (seconds) {
               return takeClip(state, seconds);
             }),
+          takeSegment: (function (afterUs, includeOpen) {
+              return takeSegment(state, afterUs, includeOpen);
+            }),
           stop: (function () {
               stop(state);
             })
@@ -709,6 +782,7 @@ export {
   ensureAudioEncoder ,
   startAudio ,
   takeClip ,
+  takeSegment ,
   stop ,
   capabilities ,
   start ,

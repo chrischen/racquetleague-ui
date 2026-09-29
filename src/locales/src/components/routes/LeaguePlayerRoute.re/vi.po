@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: @lingui/cli\n"
 "Plural-Forms: \n"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:698
+#: src/components/organisms/MatchHistoryList.re.mjs:738
 msgid "...load previous matches"
 msgstr "...tải trận đấu trước"
 
@@ -33,6 +33,10 @@ msgstr "Quay lại giải đấu"
 msgid "Balanced partner tendency"
 msgstr "Xu hướng đối tác cân bằng"
 
+#: src/components/organisms/MatchHistoryList.re.mjs:525
+msgid "BEAT"
+msgstr "THẮNG"
+
 #: src/components/pages/LeaguePlayerPage.re.mjs:482
 msgid "Best Doubles Partners"
 msgstr "Đối tác đôi tốt nhất"
@@ -49,8 +53,7 @@ msgstr "Số ngày ở vị trí #1"
 msgid "doubles"
 msgstr "đôi"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "DRAW"
 msgstr "HÒA"
 
@@ -71,7 +74,7 @@ msgstr "Nâng cao đối tác yếu hơn"
 msgid "Estimated DUPR"
 msgstr "DUPR ước tính"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:660
+#: src/components/organisms/MatchHistoryList.re.mjs:700
 msgid "Even"
 msgstr "Đều"
 
@@ -83,7 +86,7 @@ msgstr "Nhà thi đấu"
 msgid "Hard Court"
 msgstr "Sân cứng"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:715
+#: src/components/organisms/MatchHistoryList.re.mjs:755
 msgid "Load more matches..."
 msgstr "Tải thêm trận đấu..."
 
@@ -91,8 +94,7 @@ msgstr "Tải thêm trận đấu..."
 msgid "Loading..."
 msgstr "Đang tải..."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:523
-#: src/components/organisms/MatchHistoryList.re.mjs:587
+#: src/components/organisms/MatchHistoryList.re.mjs:527
 msgid "LOSS"
 msgstr "THUA"
 
@@ -142,7 +144,7 @@ msgstr "tạm thời"
 msgid "Rating History"
 msgstr "Lịch sử xếp hạng"
 
-#: src/components/molecules/RatingGraph.re.mjs:40
+#: src/components/molecules/RatingGraph.re.mjs:70
 msgid "Rating:"
 msgstr "Đánh giá:"
 
@@ -170,7 +172,7 @@ msgstr ""
 "Vùng tô bóng thể hiện độ không chắc chắn của xếp hạng. Dải hẹp hơn cho thấy "
 "độ tin cậy cao hơn."
 
-#: src/components/organisms/MatchHistoryList.re.mjs:631
+#: src/components/organisms/MatchHistoryList.re.mjs:671
 msgid "Upset"
 msgstr "Bất ngờ"
 
@@ -178,8 +180,7 @@ msgstr "Bất ngờ"
 msgid "Weak Against"
 msgstr "Yếu chống lại"
 
-#: src/components/organisms/MatchHistoryList.re.mjs:522
-#: src/components/organisms/MatchHistoryList.re.mjs:586
+#: src/components/organisms/MatchHistoryList.re.mjs:525
 msgid "WIN"
 msgstr "THẮNG"
 

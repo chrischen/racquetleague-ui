@@ -1,5 +1,14 @@
 // AvatarWithProgress component in ReScript React
 // Props: src, alt, optional progress (0-100, default 100), optional sigmaProgress for uncertainty display
+// An empty src (no picture) shows the initial of alt instead.
+
+// The letter or digit a picture-less avatar shows for a name: the first one
+// in it (so "[Line username missing]" gives "L"), or "?" when there is none.
+let initialOf = (name: string) =>
+  switch name->String.match(%re("/[\p{L}\p{N}]/u")) {
+  | Some(m) => m->RegExp.Result.fullMatch->String.toUpperCase
+  | None => "?"
+  }
 
 @react.component
 let make = (
@@ -75,11 +84,26 @@ let make = (
         cy={(size->Int.toFloat /. 2.)->Belt.Float.toString}
       />
     </svg>
-    <img
-      src
-      alt
-      className="rounded-full w-full h-full object-cover"
-      style={padding: strokeWidth->Belt.Float.toString ++ "px"}
-    />
+    // No picture: the name's initial, as AvatarWithProgressBar shows.
+    {src == ""
+      ? <div
+          role="img"
+          ariaLabel=alt
+          className="absolute rounded-full bg-slate-300 flex items-center justify-center text-slate-600 font-semibold leading-none select-none"
+          style={
+            top: strokeWidth->Belt.Float.toString ++ "px",
+            left: strokeWidth->Belt.Float.toString ++ "px",
+            right: strokeWidth->Belt.Float.toString ++ "px",
+            bottom: strokeWidth->Belt.Float.toString ++ "px",
+            fontSize: (size->Int.toFloat *. 0.4)->Belt.Float.toString ++ "px",
+          }>
+          {initialOf(alt)->React.string}
+        </div>
+      : <img
+          src
+          alt
+          className="rounded-full w-full h-full object-cover"
+          style={padding: strokeWidth->Belt.Float.toString ++ "px"}
+        />}
   </div>
 }

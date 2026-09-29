@@ -17,6 +17,10 @@ msgstr ""
 msgid "Cancel"
 msgstr "취소"
 
+#: src/components/organisms/PlayerSettingsModal.re.mjs:63
+msgid "Close"
+msgstr "닫기"
+
 #: src/components/organisms/PlayerSettingsModal.re.mjs:160
 msgid "Delete Guest"
 msgstr "게스트 삭제"
@@ -40,6 +44,10 @@ msgstr "이름"
 #: src/components/organisms/PlayerSettingsModal.re.mjs:85
 msgid "Player ID"
 msgstr "플레이어 ID"
+
+#: src/components/organisms/PlayerSettingsModal.re.mjs:105
+msgid "Player name"
+msgstr "선수 이름"
 
 #: src/components/organisms/PlayerSettingsModal.re.mjs:53
 msgid "Player Settings"
