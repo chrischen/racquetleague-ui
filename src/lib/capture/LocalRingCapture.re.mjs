@@ -323,7 +323,7 @@ function startAudio(state, stream) {
   }
 }
 
-async function takeClip(state, seconds) {
+async function takeClip(state, seconds, range) {
   var match = state.videoEncoder;
   var match$1 = state.videoCodec;
   var match$2 = state.running;
@@ -376,14 +376,14 @@ async function takeClip(state, seconds) {
       ]);
   state.flushing = false;
   var windowUs = seconds !== undefined ? Math.min(20000000, Math.max(1, seconds) * 1000000) : 20000000;
-  var clip = ClipRing.takeClip(state.ring, windowUs);
-  if (clip === undefined) {
+  var picked = range !== undefined ? ClipRing.takeRange(state.ring, range[0] * 1000000, range[1] * 1000000) : ClipRing.takeClip(state.ring, windowUs);
+  if (picked === undefined) {
     return {
             TAG: "Error",
             _0: "BufferEmpty"
           };
   }
-  var videoChunks = clip.chunks.map(function (chunk) {
+  var videoChunks = picked.chunks.map(function (chunk) {
         return {
                 bytes: chunk.payload,
                 timestampUs: chunk.timestampUs,
@@ -402,7 +402,7 @@ async function takeClip(state, seconds) {
     height: video_height,
     description: video_description
   };
-  var audioInRange = SampleRing.selectRange(state.audioRing, clip.baseUs, clip.baseUs + clip.durationUs);
+  var audioInRange = SampleRing.selectRange(state.audioRing, picked.baseUs, picked.baseUs + picked.durationUs);
   var match$3 = state.audioContainerCodec;
   var match$4 = state.audioCodecString;
   var match$5 = audioInRange.length > 0;
@@ -430,7 +430,7 @@ async function takeClip(state, seconds) {
             _0: {
               blob: blob._0,
               mimeType: "video/mp4",
-              durationSeconds: clip.durationUs / 1000000,
+              durationSeconds: picked.durationUs / 1000000,
               hasAudio: Core__Option.isSome(audio),
               encoded: {
                 codec: match$1,
@@ -441,10 +441,10 @@ async function takeClip(state, seconds) {
                       })),
                 chunks: videoChunks
               },
-              frameTimes: clip.chunks.map(function (chunk) {
+              frameTimes: picked.chunks.map(function (chunk) {
                     return chunk.timestampUs / 1000000;
                   }),
-              startSeconds: clip.baseUs / 1000000
+              startSeconds: picked.baseUs / 1000000
             }
           };
   } else {
@@ -512,7 +512,9 @@ async function takeSegment(state, afterUs, includeOpen) {
               segmentBlob: blob._0,
               segmentStartSeconds: clip.baseUs / 1000000,
               lastGopUs: lastGopUs,
-              segmentDurationSeconds: clip.durationUs / 1000000
+              segmentDurationSeconds: clip.durationUs / 1000000,
+              segmentWidth: state.width,
+              segmentHeight: state.height
             }
           };
   } else {
@@ -734,8 +736,8 @@ function make(onStatus) {
           start: (function (stream) {
               return start(state, onStatus, stream);
             }),
-          takeClip: (function (seconds) {
-              return takeClip(state, seconds);
+          takeClip: (function (seconds, range) {
+              return takeClip(state, seconds, range);
             }),
           takeSegment: (function (afterUs, includeOpen) {
               return takeSegment(state, afterUs, includeOpen);

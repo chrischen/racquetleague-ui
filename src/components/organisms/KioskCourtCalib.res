@@ -124,6 +124,10 @@ let anchors: array<(string, (float, float))> = [
   ("far_kitchen_right", (halfWid, -.kitchenDepth)),
   ("near_kitchen_centre", (0., kitchenDepth)),
   ("far_kitchen_centre", (0., -.kitchenDepth)),
+  // Baseline mid-points: where the centreline meets each baseline (a painted
+  // T, so precise). lib/court.py knows them as the same names.
+  ("near_baseline_centre", (0., halfLen)),
+  ("far_baseline_centre", (0., -.halfLen)),
   // Net post bases: precise, visible in any side-of-court framing.
   ("net_left", (-.halfWid, 0.)),
   ("net_right", (halfWid, 0.)),
@@ -147,6 +151,8 @@ let anchorLabel = name =>
   | "far_kitchen_right" => "FK R"
   | "near_kitchen_centre" => "NK C"
   | "far_kitchen_centre" => "FK C"
+  | "near_baseline_centre" => "NEAR C"
+  | "far_baseline_centre" => "FAR C"
   | "net_left" => "NET L"
   | "net_right" => "NET R"
   | _ => name

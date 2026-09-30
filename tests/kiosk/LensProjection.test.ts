@@ -29,7 +29,7 @@ const names = Object.keys(fixture.cases[0].truth);
 
 describe("KioskCourtCalib.lensProject (server parity)", () => {
   for (const c of fixture.cases) {
-    it(`${c.label}: matches the server's reprojection of all 12 landmarks`, () => {
+    it(`${c.label}: matches the server's reprojection of every landmark`, () => {
       for (const name of names) {
         const got = Calib.lensProject(c.camera, Calib.worldOf(name));
         const want = c.expected[name];

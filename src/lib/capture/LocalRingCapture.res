@@ -355,7 +355,7 @@ let startAudio = (state, stream) =>
     }
   }
 
-let takeClip = async (state, ~seconds: option<float>=?): result<
+let takeClip = async (state, ~seconds: option<float>=?, ~range: option<(float, float)>=?): result<
   CaptureSession.clip,
   CaptureSession.clipError,
 > =>
@@ -396,7 +396,12 @@ let takeClip = async (state, ~seconds: option<float>=?): result<
       | Some(value) => Math.min(targetDurationUs, Math.max(1., value) *. 1_000_000.)
       | None => targetDurationUs
       }
-      switch ClipRing.takeClip(state.ring, ~targetDurationUs=windowUs) {
+      let picked = switch range {
+      | Some((fromS, toS)) =>
+        ClipRing.takeRange(state.ring, ~fromUs=fromS *. 1_000_000., ~toUs=toS *. 1_000_000.)
+      | None => ClipRing.takeClip(state.ring, ~targetDurationUs=windowUs)
+      }
+      switch picked {
       | None => Error(CaptureSession.BufferEmpty)
       | Some(clip) => {
           let videoChunks = clip.chunks->Array.map(chunk => {
@@ -500,6 +505,8 @@ let takeSegment = async (state, ~afterUs: float, ~includeOpen: bool): result<
             segmentStartSeconds: clip.baseUs /. 1_000_000.,
             lastGopUs,
             segmentDurationSeconds: clip.durationUs /. 1_000_000.,
+            segmentWidth: state.width,
+            segmentHeight: state.height,
           })
         | Error(message) => Error(CaptureSession.MuxFailed(message))
         }
@@ -678,7 +685,7 @@ let make = (~onStatus: CaptureSession.status => unit): CaptureSession.t => {
   {
     capabilities,
     start: stream => start(state, ~onStatus, stream),
-    takeClip: (~seconds=?) => takeClip(state, ~seconds?),
+    takeClip: (~seconds=?, ~range=?) => takeClip(state, ~seconds?, ~range?),
     takeSegment: (~afterUs, ~includeOpen) => takeSegment(state, ~afterUs, ~includeOpen),
     stop: () => stop(state),
   }

@@ -181,3 +181,36 @@ describe("segmentAfter (live-analysis uploads)", () => {
     expect(ClipRing.segmentAfter(ClipRing.make(KEEP, MAX_BYTES), -1, true)).toBeUndefined();
   });
 });
+
+describe("takeRange (auto-clip spans in stream time)", () => {
+  // 60 s of 30 fps footage, keyframes every 2 s, starting at t = 100 s.
+  const ring = () => fill(ClipRing.make(KEEP, MAX_BYTES), { startUs: 100 * SEC, seconds: 60 });
+
+  it("cuts [from, to] starting on the keyframe at or before `from`", () => {
+    // the ring keeps the last ~24 s: 136..160 s
+    const clip = ClipRing.takeRange(ring(), 141.3 * SEC, 152.5 * SEC);
+    expect(clip.chunks[0].isKey).toBe(true);
+    expect(clip.baseUs).toBeCloseTo(140 * SEC, -3); // keyframe at 140 s <= 141.3 s
+    const lastAbs = clip.baseUs + clip.chunks[clip.chunks.length - 1].timestampUs;
+    expect(lastAbs).toBeLessThanOrEqual(152.5 * SEC);
+    expect(lastAbs).toBeGreaterThan(152.5 * SEC - SEC / 30 - 1);
+    expect(clip.chunks[0].timestampUs).toBe(0);
+  });
+
+  it("does not run on to the newest frame the way a tail clip would", () => {
+    const clip = ClipRing.takeRange(ring(), 141.3 * SEC, 150 * SEC);
+    expect(clip.durationUs).toBeLessThan(11 * SEC); // not 141..160
+  });
+
+  it("starts at the oldest ringed keyframe when `from` was already evicted", () => {
+    const r = ring();
+    const oldestKey = r.gops[0].startUs;
+    const clip = ClipRing.takeRange(r, 110 * SEC, 150 * SEC);
+    expect(clip.baseUs).toBe(oldestKey);
+    expect(clip.baseUs).toBeGreaterThan(110 * SEC); // the caller can see the start was lost
+  });
+
+  it("is undefined when the window lies entirely before the ring", () => {
+    expect(ClipRing.takeRange(ring(), 100 * SEC, 120 * SEC)).toBeUndefined();
+  });
+});

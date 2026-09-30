@@ -676,8 +676,9 @@ type ImportReservationEmailResult implements HasErrors {
 
 type ImportedReservation {
   """
-  True when the email cancelled the booking: the viewer's court event is
-     cancelled, or the viewer left the shared session.
+  True when the email cancelled the booking: the court event is cancelled
+     (the viewer's own, or one they booked), or the viewer left a shared session
+     or a court someone else booked.
   """
   cancelled: Boolean!
 
@@ -691,8 +692,8 @@ type ImportedReservation {
   event: Event
 
   """
-  True when someone else had already imported this session and the viewer
-     joined their event.
+  True when someone else had already imported this session or court and
+     the viewer joined their event.
   """
   joined: Boolean!
   kind: ReservationKind!
@@ -1116,8 +1117,9 @@ type Mutation {
   """
   Add an address to receive booking emails at. A link to confirm it is
    emailed to it; it counts once the link is used, signed in as this account.
-   Error codes: INVALID_EMAIL, SAME_AS_PRIMARY, ALREADY_ADDED, TOO_MANY,
-   RATE_LIMITED, SEND_FAILED, NOT_LOGGED_IN.
+   An account with no email takes it as its email instead. Error codes:
+   INVALID_EMAIL, SAME_AS_PRIMARY, ALREADY_ADDED, TOO_MANY, RATE_LIMITED,
+   SEND_FAILED, NOT_LOGGED_IN.
   """
   addAlternateEmail(email: String!): AlternateEmailResult!
   addRsvpToEvent(eventId: ID!, userId: ID!): JoinEventResult!
@@ -1223,7 +1225,7 @@ type Mutation {
    booked court with the viewer RSVPed; a cancellation email cancels it.
   """
   importReservationEmail(input: ImportReservationEmailInput!): ImportReservationEmailResult!
-  inviteToEvent(eventId: ID!, userId: ID!): JoinEventResult!
+  inviteToEvent(eventId: ID!, message: String!, userId: ID!): JoinEventResult!
   joinClub(input: JoinClubInput!): CreateClubResult!
   joinEvent(eventId: ID!): JoinEventResult!
   leaveEvent(eventId: ID!): LeaveEventResult!
@@ -1296,6 +1298,15 @@ type Mutation {
   updateMembershipStatus(input: UpdateMembershipStatusInput!): UpdateMembershipStatusResult!
   updateProfile(input: UpdateProfileInput!): UpdateProfileResult!
   updateRsvpListType(input: UpdateRsvpListTypeInput!): UpdateRsvpListTypeResult!
+
+  """
+  Set the viewer's name. An email (ProfileModal asks for one when the
+   account has none) is not written here: it is sent the same confirmation link
+   as a receiving email, and becomes the account email once confirmed (see
+   EmailVerification). Changing an existing account email is better-auth's
+   changeEmail. Error codes for the email: INVALID_EMAIL, SAME_AS_PRIMARY,
+   TOO_MANY, RATE_LIMITED, SEND_FAILED.
+  """
   updateViewerContact(input: UpdateViewerContactInput!): UpdateViewerContactResult!
 
   """Set the current user's home coordinates."""
@@ -1561,9 +1572,11 @@ type ReservationImportFailure {
 }
 
 """
-What was booked: `court`, a court the viewer rented, which is their own
- event; or `event`, a session the venue runs (open play, a clinic), which is
- one event shared by everyone who imported a booking for it.
+What was booked: `court`, a court rented by the viewer or by another
+ player they joined - one event for all its players where the provider gives
+ them all one confirmation number (Picklr), else the viewer's own; or
+ `event`, a session the venue runs (open play, a clinic), which is one event
+ shared by everyone who imported a booking for it.
 """
 enum ReservationKind {
   court
@@ -1896,7 +1909,10 @@ type VerifyEmailResult implements HasErrors {
   address: String
   errors: [Error!]
 
-  """The viewer, whose `alternateEmails` now include it."""
+  """
+  The viewer, whose `alternateEmails` now include it, or whose `email` it
+   now is if the account had none.
+  """
   viewer: User
 }
 

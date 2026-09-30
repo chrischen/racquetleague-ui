@@ -11,7 +11,8 @@ let make = (~onStatus as _: CaptureSession.status => unit): CaptureSession.t => 
     detail: Some("Thin-client mode is not implemented yet"),
   },
   start: _stream => Promise.resolve(Error(CaptureSession.NotImplemented)),
-  takeClip: (~seconds as _=?) => Promise.resolve(Error(CaptureSession.ClipUnavailable)),
+  takeClip: (~seconds as _=?, ~range as _=?) =>
+    Promise.resolve(Error(CaptureSession.ClipUnavailable)),
   takeSegment: (~afterUs as _, ~includeOpen as _) =>
     Promise.resolve(Error(CaptureSession.ClipUnavailable)),
   stop: () => (),

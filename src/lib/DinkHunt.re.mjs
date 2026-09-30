@@ -272,6 +272,97 @@ function testChallengeAnalysis() {
   return challengeAnalysis(testClipName);
 }
 
+async function streamSegment(blob, session, t0, crop) {
+  try {
+    var cropParam = crop !== undefined ? "&crop=" + [
+            crop.x,
+            crop.y,
+            crop.width,
+            crop.height
+          ].map(function (v) {
+              return v.toString();
+            }).join(",") : "";
+    var response = await fetch(base + "/stream?session=" + session + "&t0=" + t0.toString() + cropParam, {
+          method: "POST",
+          headers: {
+            "Content-Type": "video/mp4"
+          },
+          body: blob
+        });
+    if (response.ok) {
+      return {
+              TAG: "Ok",
+              _0: await response.json()
+            };
+    }
+    var body = await response.json();
+    return {
+            TAG: "Error",
+            _0: body.error
+          };
+  }
+  catch (exn){
+    return {
+            TAG: "Error",
+            _0: "dinkhunt server unreachable at " + base
+          };
+  }
+}
+
+async function challengeStreamAnalysis(session, start, end_) {
+  try {
+    var response = await fetch(base + "/graphql", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+                query: "query($s: String!, $a: Float!, $b: Float!) { challengeStream(session: $s, start: $a, end: $b) { width height fps bounces { i t frame world pixel footprint } paths { t x y } frameTimes } }",
+                variables: {
+                  s: session,
+                  a: start,
+                  b: end_
+                }
+              })
+        });
+    var payload = await response.json();
+    var errors = payload.errors;
+    var exit = 0;
+    if (errors == null) {
+      exit = 1;
+    } else {
+      if (errors.length > 0) {
+        return {
+                TAG: "Error",
+                _0: errors[0].message
+              };
+      }
+      exit = 1;
+    }
+    if (exit === 1) {
+      var data = payload.data;
+      if (data == null) {
+        return {
+                TAG: "Error",
+                _0: "empty GraphQL response"
+              };
+      } else {
+        return {
+                TAG: "Ok",
+                _0: data.challengeStream
+              };
+      }
+    }
+    
+  }
+  catch (exn){
+    return {
+            TAG: "Error",
+            _0: "dinkhunt server unreachable at " + base
+          };
+  }
+}
+
 export {
   base ,
   uploadClip ,
@@ -287,5 +378,7 @@ export {
   urlDuration ,
   fetchTestClip ,
   testChallengeAnalysis ,
+  streamSegment ,
+  challengeStreamAnalysis ,
 }
 /* No side effect */

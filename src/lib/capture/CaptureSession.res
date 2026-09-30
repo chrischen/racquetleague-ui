@@ -87,6 +87,9 @@ type segment = {
   // to continue exactly where this segment ended.
   lastGopUs: float,
   segmentDurationSeconds: float,
+  // The encoded (native) frame size — what the court crop is computed in.
+  segmentWidth: int,
+  segmentHeight: int,
 }
 
 type startError =
@@ -116,7 +119,11 @@ type t = {
   // Challenge asks for a few seconds, not the whole buffer); omitted means
   // the full ring. The cut lands on a GOP boundary, so the result can be
   // slightly longer than asked.
-  takeClip: (~seconds: float=?) => promise<result<clip, clipError>>,
+  // ``range`` instead cuts an absolute (from, to) window of the stream clock
+  // (seconds) — for a span the analysis server chose (auto-clip). It starts on
+  // the keyframe at or before ``from``; when ``from`` has already left the
+  // ring the clip starts later (compare the result's ``startSeconds``).
+  takeClip: (~seconds: float=?, ~range: (float, float)=?) => promise<result<clip, clipError>>,
   // The GOPs captured after ``afterUs`` (µs, from a previous segment's
   // ``lastGopUs``; any negative value for the first call), muxed video-only
   // for the live analysis stream. Closed GOPs only unless ``includeOpen`` (a

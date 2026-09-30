@@ -265,3 +265,86 @@ let fetchTestClip = async (): result<CaptureSession.blob, string> =>
 
 let testChallengeAnalysis = (): promise<result<challengeAnalysis, string>> =>
   challengeAnalysis(testClipName)
+
+
+// ── Live analysis stream (auto-clip + instant Challenge) ────────────────────
+//   POST /stream   one ring segment (whole GOPs, native frames) with the
+//                  session id, its first frame's stream time and the court
+//                  crop; the server replies with the rally heat and, when a
+//                  heated rally has died down, the span to clip.
+
+type clipSpan = {start: float, end: float}
+type streamReply = {
+  heat: float, // this window's reading, 0..1
+  avg: float, // rolling heat
+  threshold: float, // rolling heat that arms a clip
+  phase: string, // "idle" | "hot"
+  exchanges: int,
+  speed: Js.Nullable.t<float>, // m/s
+  clip: Js.Nullable.t<clipSpan>, // stream-clock seconds
+  processing_s: float,
+}
+type streamError = {error: string}
+
+let streamSegment = async (
+  blob: CaptureSession.blob,
+  ~session: string,
+  ~t0: float,
+  ~crop: option<ClipCrop.rect>,
+): result<streamReply, string> =>
+  try {
+    let cropParam = switch crop {
+    | Some(r) =>
+      "&crop=" ++ [r.x, r.y, r.width, r.height]->Array.map(v => Int.toString(v))->Array.join(",")
+    | None => ""
+    }
+    let response = await fetch(
+      base ++ "/stream?session=" ++ session ++ "&t0=" ++ t0->Float.toString ++ cropParam,
+      {"method": "POST", "headers": {"Content-Type": "video/mp4"}, "body": blob},
+    )
+    if response->ok {
+      Ok(unsafeFromJson(await response->json))
+    } else {
+      let body: streamError = unsafeFromJson(await response->json)
+      Error(body.error)
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+
+type challengeStreamGqlData = {challengeStream: challengeAnalysis}
+type challengeStreamGqlResponse = {
+  data: Js.Nullable.t<challengeStreamGqlData>,
+  errors: Js.Nullable.t<array<gqlError>>,
+}
+
+// A Challenge over [start, end] of the live stream (stream-clock seconds) —
+// answered from detections already made, no upload or sweep. Result times are
+// real seconds from ``start`` (frameTimes empty: identity timeline).
+let challengeStreamAnalysis = async (~session: string, ~start: float, ~end_: float): result<
+  challengeAnalysis,
+  string,
+> =>
+  try {
+    let query = "query($s: String!, $a: Float!, $b: Float!) { challengeStream(session: $s, start: $a, end: $b) { width height fps bounces { i t frame world pixel footprint } paths { t x y } frameTimes } }"
+    let response = await fetch(
+      base ++ "/graphql",
+      {
+        "method": "POST",
+        "headers": {"Content-Type": "application/json"},
+        "body": Js.Json.stringifyAny({"query": query, "variables": {"s": session, "a": start, "b": end_}}),
+      },
+    )
+    let payload: challengeStreamGqlResponse = unsafeFromJson(await response->json)
+    switch payload.errors->Js.Nullable.toOption {
+    | Some(errors) if errors->Array.length > 0 => Error((errors->Array.getUnsafe(0)).message)
+    | _ =>
+      switch payload.data->Js.Nullable.toOption {
+      | Some(data) => Ok(data.challengeStream)
+      | None => Error("empty GraphQL response")
+      }
+    }
+  } catch {
+  | _ => Error("dinkhunt server unreachable at " ++ base)
+  }
+

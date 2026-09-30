@@ -115,6 +115,20 @@ var anchors = [
     ]
   ],
   [
+    "near_baseline_centre",
+    [
+      0,
+      6.705
+    ]
+  ],
+  [
+    "far_baseline_centre",
+    [
+      0,
+      - 6.705
+    ]
+  ],
+  [
     "net_left",
     [
       - 3.05,
@@ -143,6 +157,8 @@ function worldOf(name) {
 
 function anchorLabel(name) {
   switch (name) {
+    case "far_baseline_centre" :
+        return "FAR C";
     case "far_baseline_left" :
         return "FAR L";
     case "far_baseline_right" :
@@ -153,6 +169,8 @@ function anchorLabel(name) {
         return "FK L";
     case "far_kitchen_right" :
         return "FK R";
+    case "near_baseline_centre" :
+        return "NEAR C";
     case "near_baseline_left" :
         return "NEAR L";
     case "near_baseline_right" :

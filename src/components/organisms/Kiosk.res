@@ -21,17 +21,61 @@ type liveAction = RallyClip | Challenge
 type analysisMode = DropShot | ServeSpeed
 type resultMode = LiveResult(liveAction) | AnalysisResult(analysisMode)
 type stage = Ready | Active | Processing | Result
-type notice = ClipSaved | LiveEnded | CameraError | ClipFailed | ClipDownloaded | TestClipMissing
+// FeliCa test reader (Settings → FeliCa reader): a Sony RC-S300 over WebUSB;
+// a scanned card pops up its IDm.
+type felicaStatus =
+  | FelicaOff
+  | FelicaConnecting
+  | FelicaListening(string) // reader name
+  | FelicaFailed(string)
+type felicaScan = {card: Felica.card, at: string}
+let felicaStorageKey = "kiosk.felicaTest"
+
+type notice =
+  | ClipSaved
+  | LiveEnded
+  | CameraError
+  | ClipFailed
+  | ClipDownloaded
+  | TestClipMissing
+  | AutoClipSaved
 
 // A muxed rally clip held as an object URL for playback + download. Clips are
 // auto-saved into a per-session history; URLs are released when a clip is
 // deleted, evicted, or the session ends.
+// ── Auto-clip debug record ──────────────────────────────────────────────────
+// Everything needed to replay WHY an auto clip was cut where it was: the heat
+// readings around it and what was asked for vs. delivered, all on the stream
+// clock (seconds, the ring's performance.now() domain). Distinguishes "the
+// detection missed the heated moment" (heat never rose while it played) from
+// "the clip missed it" (heat rose, but outside the delivered range).
+type heatSample = {
+  t: float, // stream time the reading covers up to (its segment's end)
+  heat: float, // this window's reading, 0..1
+  avg: float, // rolling heat — what arms a clip
+  threshold: float,
+  hot: bool, // server phase == "hot"
+  exchanges: int, // back-and-forths in the scored window
+  speed: option<float>, // m/s
+  receivedAt: float, // stream time the reply arrived (latency = receivedAt - t)
+  processingS: float, // server time spent on the segment
+}
+type autoClipDebug = {
+  samples: array<heatSample>,
+  requestedStart: float, // the span the server asked to clip
+  requestedEnd: float,
+  clipStart: float, // what the ring delivered (first frame)
+  clipEnd: float,
+  decidedAt: float, // stream time the clip decision arrived
+}
+
 type clipState = {
   url: string,
   durationSeconds: float,
   hasAudio: bool,
   capturedAt: string, // "HH:MM" label for the history strip
   frameTimes: array<float>, // real per-frame timestamps (s); empty = unknown
+  debug: option<autoClipDebug>, // auto clips only
 }
 
 // A Challenge run: the buffered clip plus the dinkhunt shot-finder's ground
@@ -113,6 +157,22 @@ let cameraStorageKey = "kiosk.cameraDeviceId"
 // Test mode: no camera needed — sessions start without a stream and the
 // Challenge action runs against the server's fixed test_challenge.mov.
 let testModeStorageKey = "kiosk.testMode"
+let autoClipStorageKey = "kiosk.autoClip"
+
+// ── Auto-clip (live analysis stream) ────────────────────────────────────────
+// With auto-clip on, every closed GOP of the ring is uploaded to the dinkhunt
+// server, which scores the rally "heat" and replies with a span to clip once a
+// heated rally has died down (lib/rally_heat.py). The ring's timestamps are in
+// the performance.now() domain, so "now" on the stream clock is performanceNow.
+@val @scope("performance") external performanceNow: unit => float = "now"
+let sleep = (ms: int) =>
+  Promise.make((resolve, _reject) => {
+    let _ = setTimeout(() => resolve(), ms)
+  })
+let newStreamSessionId = () =>
+  "kiosk-" ++ Date.now()->Float.toString ++ "-" ++ Math.random()->Float.toString->String.sliceToEnd(~start=2)
+// A stream counts as live for Challenge when it answered this recently (ms).
+let streamLiveWindowMs = 15_000.
 
 @val @scope("localStorage") external getStoredItem: string => Nullable.t<string> = "getItem"
 @val @scope("localStorage") external setStoredItem: (string, string) => unit = "setItem"
@@ -356,6 +416,305 @@ module ClipPlayer = {
               {t`no audio`}
             </>}
       </span>
+    </div>
+  }
+}
+
+module AutoClipReplay = {
+  // Review of an AUTO clip with its debug record: the clip plus the heat
+  // timeline it was cut from, all on the stream clock, with a playhead that
+  // follows the video. Answers "did the detection see the heated moment" (the
+  // rolling heat rises while it plays) vs "did the clip miss it" (the heat
+  // rose outside the delivered range, or the start had left the ring).
+  @get external currentTime: Dom.element => float = "currentTime"
+  @set external setCurrentTime: (Dom.element, float) => unit = "currentTime"
+  @val external requestAnimationFrame: (float => unit) => int = "requestAnimationFrame"
+  @val external cancelAnimationFrame: int => unit = "cancelAnimationFrame"
+  type rect = {left: float, width: float}
+  @send external getBoundingClientRect: Dom.element => rect = "getBoundingClientRect"
+  // Download the debug record as JSON. The file is made ON CLICK (an object
+  // URL made at mount and revoked on unmount dies under StrictMode's
+  // mount/unmount/mount, cancelling the download) and revoked a minute later.
+  let downloadJson: ('a, string) => unit = %raw(`(value, filename) => {
+    const url = URL.createObjectURL(
+      new Blob([JSON.stringify(value, null, 1)], { type: "application/json" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  }`)
+
+  // Chart geometry (SVG user units).
+  let chartW = 1000.
+  let chartH = 190.
+  let padX = 16.
+  let plotTop = 24.
+  let plotH = 120.
+
+  @react.component
+  let make = (~clip: clipState, ~debug: autoClipDebug) => {
+    let videoRef = React.useRef(Nullable.null)
+    let chartRef = React.useRef(Nullable.null)
+    let (now, setNow) = React.useState(() => 0.)
+    React.useEffect0(() => {
+      let handle = ref(None)
+      let rec tick = _ => {
+        switch videoRef.current->Nullable.toOption {
+        | Some(el) => {
+            let t = el->currentTime
+            setNow(previous => Math.abs(previous -. t) > 0.01 ? t : previous)
+          }
+        | None => ()
+        }
+        handle := Some(requestAnimationFrame(tick))
+      }
+      handle := Some(requestAnimationFrame(tick))
+      Some(() => handle.contents->Option.forEach(cancelAnimationFrame))
+    })
+    let saveDebug = () =>
+      downloadJson(
+        {
+          "kind": "kiosk-auto-clip-debug",
+          "clipCapturedAt": clip.capturedAt,
+          "clipDurationSeconds": clip.durationSeconds,
+          "debug": debug,
+        },
+        "courtside-autoclip-debug-" ++ Date.now()->Float.toString ++ ".json",
+      )
+
+    let samples = debug.samples
+    let firstT = samples->Array.get(0)->Option.mapOr(debug.requestedStart, s => s.t)
+    let t0 = Math.min(firstT, Math.min(debug.requestedStart, debug.clipStart)) -. 1.
+    let t1 = Math.max(debug.decidedAt, debug.clipEnd) +. 1.
+    let x = t => padX +. (t -. t0) /. Math.max(t1 -. t0, 0.1) *. (chartW -. 2. *. padX)
+    let y = v => plotTop +. (1. -. Math.min(1., Math.max(0., v))) *. plotH
+    let fmt = v => v->Float.toFixed(~digits=1)
+    let playT = debug.clipStart +. now
+    let polyline = (value: heatSample => float) =>
+      samples->Array.map(s => fmt(x(s.t)) ++ "," ++ fmt(y(value(s))))->Array.join(" ")
+    // The reading covering the playhead: the first window ending at or after it.
+    let atPlayhead =
+      samples->Array.find(s => s.t >= playT)->Option.orElse(samples->Array.last)
+    let rel = t => {
+      let d = t -. debug.clipStart
+      (d >= 0. ? "+" : "−") ++ Math.abs(d)->Float.toFixed(~digits=1) ++ " s"
+    }
+    let startLost = debug.clipStart > debug.requestedStart +. 0.5
+    let endShort = debug.clipEnd < debug.requestedEnd -. 0.5
+    let latency = debug.decidedAt -. debug.requestedEnd
+    let seekTo = (clientX: float) =>
+      switch (chartRef.current->Nullable.toOption, videoRef.current->Nullable.toOption) {
+      | (Some(chart), Some(video)) => {
+          let r = chart->getBoundingClientRect
+          let u = (clientX -. r.left) /. Math.max(r.width, 1.) *. chartW
+          let t = t0 +. (u -. padX) /. (chartW -. 2. *. padX) *. (t1 -. t0)
+          video->setCurrentTime(Math.max(0., Math.min(clip.durationSeconds, t -. debug.clipStart)))
+        }
+      | _ => ()
+      }
+
+    <div>
+      <div className="relative aspect-video overflow-hidden border-2 border-kiosk-border bg-black">
+        <video
+          ref={ReactDOM.Ref.domRef(videoRef)}
+          src=clip.url
+          controls=true
+          playsInline=true
+          autoPlay=true
+          muted=true
+          className="absolute inset-0 h-full w-full object-contain"
+        />
+      </div>
+      <div className="mt-3 border-2 border-kiosk-border bg-kiosk-bg p-3">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <p className="font-mono text-xs font-semibold text-kiosk-muted"> {t`HEAT DEBUG`} </p>
+          <button
+            type_="button"
+            onClick={_ => saveDebug()}
+            className="font-mono text-xs font-semibold text-kiosk-accent underline">
+            {t`Download debug JSON`}
+          </button>
+        </div>
+        <svg
+          ref={ReactDOM.Ref.domRef(chartRef)}
+          viewBox={"0 0 " ++ fmt(chartW) ++ " " ++ fmt(chartH)}
+          className="mt-2 w-full cursor-crosshair"
+          onClick={event => seekTo(ReactEvent.Mouse.clientX(event)->Int.toFloat)}>
+          // Delivered clip range.
+          <rect
+            x={fmt(x(debug.clipStart))}
+            y={fmt(plotTop)}
+            width={fmt(Math.max(0., x(debug.clipEnd) -. x(debug.clipStart)))}
+            height={fmt(plotH)}
+            fill="#bef264"
+            fillOpacity="0.10"
+          />
+          // "Hot" phase stretches (each reading covers back to the previous one).
+          {samples
+          ->Array.mapWithIndex((s, i) =>
+            s.hot
+              ? {
+                  let from = i > 0 ? (samples->Array.getUnsafe(i - 1)).t : s.t -. 1.
+                  <rect
+                    key={"hot" ++ i->Int.toString}
+                    x={fmt(x(from))}
+                    y={fmt(plotTop)}
+                    width={fmt(Math.max(1., x(s.t) -. x(from)))}
+                    height={fmt(plotH)}
+                    fill="#ef4444"
+                    fillOpacity="0.16"
+                  />
+                }
+              : React.null
+          )
+          ->React.array}
+          <line
+            x1={fmt(padX)} y1={fmt(y(0.))} x2={fmt(chartW -. padX)} y2={fmt(y(0.))} stroke="#ffffff" strokeOpacity="0.25"
+          />
+          <polyline
+            points={polyline(s => s.threshold)}
+            fill="none"
+            stroke="#f87171"
+            strokeWidth="1.5"
+            strokeDasharray="6 5"
+          />
+          <polyline points={polyline(s => s.heat)} fill="none" stroke="#ffffff" strokeOpacity="0.45" strokeWidth="1.5" />
+          <polyline points={polyline(s => s.avg)} fill="none" stroke="#bef264" strokeWidth="3" strokeLinejoin="round" />
+          {samples
+          ->Array.mapWithIndex((s, i) =>
+            <circle key={"s" ++ i->Int.toString} cx={fmt(x(s.t))} cy={fmt(y(s.avg))} r="3" fill="#bef264" />
+          )
+          ->React.array}
+          // Requested span (what the server asked for).
+          {[("requested start", debug.requestedStart), ("requested end", debug.requestedEnd)]
+          ->Array.map(((label, t)) =>
+            <g key=label>
+              <line
+                x1={fmt(x(t))}
+                y1={fmt(plotTop -. 8.)}
+                x2={fmt(x(t))}
+                y2={fmt(plotTop +. plotH)}
+                stroke="#ffffff"
+                strokeWidth="1.5"
+                strokeDasharray="3 4"
+              />
+            </g>
+          )
+          ->React.array}
+          <text x={fmt(x(debug.requestedStart))} y="12" fill="#ffffff" fontSize="12" fontFamily="monospace">
+            {React.string("requested ▸")}
+          </text>
+          // When the decision arrived.
+          <line
+            x1={fmt(x(debug.decidedAt))}
+            y1={fmt(plotTop -. 8.)}
+            x2={fmt(x(debug.decidedAt))}
+            y2={fmt(plotTop +. plotH)}
+            stroke="#fbbf24"
+            strokeWidth="2"
+          />
+          <text
+            x={fmt(x(debug.decidedAt) -. 4.)}
+            y="12"
+            fill="#fbbf24"
+            fontSize="12"
+            fontFamily="monospace"
+            textAnchor="end">
+            {React.string("decided")}
+          </text>
+          // Playhead.
+          <line
+            x1={fmt(x(playT))}
+            y1={fmt(plotTop -. 4.)}
+            x2={fmt(x(playT))}
+            y2={fmt(plotTop +. plotH +. 4.)}
+            stroke="#ffffff"
+            strokeWidth="2.5"
+          />
+          // Axis: seconds from the clip's first frame.
+          // ("decided" is labelled at the top; on the axis it collided with the clip end.)
+          {[debug.clipStart, debug.clipEnd]
+          ->Array.mapWithIndex((t, i) =>
+            <text
+              key={"ax" ++ i->Int.toString}
+              x={fmt(x(t))}
+              y={fmt(plotTop +. plotH +. 20.)}
+              fill="#9ca3af"
+              fontSize="12"
+              fontFamily="monospace"
+              textAnchor="middle">
+              {React.string(rel(t))}
+            </text>
+          )
+          ->React.array}
+          <text x={fmt(padX)} y={fmt(chartH -. 8.)} fill="#9ca3af" fontSize="11" fontFamily="monospace">
+            {React.string(
+              "green: rolling heat  white: window heat  red dashed: threshold  red shade: hot  green shade: clip",
+            )}
+          </text>
+        </svg>
+        <p className="mt-2 font-mono text-xs text-white">
+          {React.string(
+            switch atPlayhead {
+            | Some(s) =>
+              "@ " ++
+              rel(playT) ++
+              " · heat " ++
+              s.heat->Float.toFixed(~digits=2) ++
+              " · rolling " ++
+              s.avg->Float.toFixed(~digits=2) ++
+              " / " ++
+              s.threshold->Float.toFixed(~digits=2) ++
+              (s.hot ? " · HOT" : "") ++
+              " · " ++
+              s.exchanges->Int.toString ++
+              " exchanges" ++
+              s.speed->Option.mapOr("", v => " · " ++ v->Float.toFixed(~digits=1) ++ " m/s") ++
+              " · reply latency " ++
+              (s.receivedAt -. s.t)->Float.toFixed(~digits=1) ++
+              " s (server " ++
+              s.processingS->Float.toFixed(~digits=1) ++ " s)"
+            | None => "no heat readings recorded"
+            },
+          )}
+        </p>
+        <p className="mt-1 font-mono text-xs text-kiosk-muted">
+          {React.string(
+            "requested " ++
+            rel(debug.requestedStart) ++
+            " → " ++
+            rel(debug.requestedEnd) ++
+            " (" ++
+            (debug.requestedEnd -. debug.requestedStart)->Float.toFixed(~digits=1) ++
+            " s) · delivered " ++
+            rel(debug.clipStart) ++
+            " → " ++
+            rel(debug.clipEnd) ++
+            " · decided " ++
+            latency->Float.toFixed(~digits=1) ++ " s after the span ended",
+          )}
+        </p>
+        {startLost
+          ? <p className="mt-1 font-mono text-xs font-semibold text-red-300">
+              {React.string(
+                "START LOST: the requested start had already left the buffer — " ++
+                (debug.clipStart -. debug.requestedStart)->Float.toFixed(~digits=1) ++
+                " s of the rally's beginning is missing.",
+              )}
+            </p>
+          : React.null}
+        {endShort
+          ? <p className="mt-1 font-mono text-xs font-semibold text-amber-300">
+              {React.string(
+                "END SHORT: the buffer ended " ++
+                (debug.requestedEnd -. debug.clipEnd)->Float.toFixed(~digits=1) ++ " s before the requested end.",
+              )}
+            </p>
+          : React.null}
+      </div>
     </div>
   }
 }
@@ -1050,6 +1409,54 @@ module LiveStreamShare = {
   }
 }
 
+module FelicaCardModal = {
+  // The test pop-up for a scanned FeliCa card. Closes on tap, on Close, or
+  // by itself after 15 s; a new scan replaces it.
+  @react.component
+  let make = (~scan: felicaScan, ~onClose: unit => unit) => {
+    React.useEffect1(() => {
+      let timer = setTimeout(() => onClose(), 15_000)
+      Some(() => clearTimeout(timer))
+    }, [scan])
+    let system = scan.card.systemCode->Nullable.toOption
+    <div
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+      onClick={_ => onClose()}>
+      <div
+        role="dialog"
+        ariaModal=true
+        ariaLabel="FeliCa card"
+        className="w-full max-w-lg border-2 border-kiosk-accent bg-kiosk-surface p-6 text-center shadow-2xl"
+        onClick={event => event->ReactEvent.Mouse.stopPropagation}>
+        <p className="font-mono text-xs font-semibold text-kiosk-accent"> {t`FELICA CARD · TEST`} </p>
+        <div className="mt-4 flex justify-center text-kiosk-accent">
+          <Lucide.CreditCard \"aria-hidden"="true" className="h-12 w-12" />
+        </div>
+        <p className="mt-3 text-sm text-kiosk-muted"> {React.string(Felica.describeSystem(system))} </p>
+        <p className="mt-5 font-mono text-xs font-semibold text-kiosk-muted"> {React.string("IDm")} </p>
+        <p className="mt-1 select-all font-mono text-3xl font-extrabold tracking-wider text-white">
+          {React.string(Felica.groupIdm(scan.card.idm))}
+        </p>
+        <p className="mt-4 font-mono text-xs text-kiosk-muted">
+          {React.string(
+            "PMm " ++
+            Felica.groupIdm(scan.card.pmm) ++
+            system->Option.mapOr("", code => " · system " ++ code) ++
+            " · " ++
+            scan.at,
+          )}
+        </p>
+        <button
+          type_="button"
+          onClick={_ => onClose()}
+          className="mt-6 flex min-h-12 w-full items-center justify-center border-2 border-kiosk-accent bg-kiosk-accent px-5 font-extrabold text-kiosk-bg active:bg-kiosk-accentDark">
+          {t`Close`}
+        </button>
+      </div>
+    </div>
+  }
+}
+
 module SettingsPanel = {
   @react.component
   let make = (
@@ -1060,6 +1467,9 @@ module SettingsPanel = {
     ~onSelectMode: CaptureSession.mode => unit,
     ~testMode: bool,
     ~onToggleTestMode: unit => unit,
+    ~felicaStatus: felicaStatus,
+    ~onConnectFelica: unit => unit,
+    ~onDisconnectFelica: unit => unit,
     ~onClose: unit => unit,
   ) => {
     let optionClass = selected =>
@@ -1223,6 +1633,56 @@ module SettingsPanel = {
             </button>
           </div>
         </div>
+        <div className="mt-8">
+          <p className="font-mono text-sm font-semibold text-kiosk-muted">
+            {t`FELICA READER (TEST)`}
+          </p>
+          <p className="mt-1 text-sm text-kiosk-muted">
+            {t`Sony RC-S300 over USB. Tapping a transit IC card (Suica, PASMO, ICOCA, …) or a phone with one set as its Express Transit card pops up the card ID.`}
+          </p>
+          {if !Felica.isSupported() {
+            <p className="mt-3 text-sm font-semibold text-amber-300">
+              {t`This browser has no WebUSB — use Chrome or Edge on this computer.`}
+            </p>
+          } else {
+            let button = (label, onClick, primary) =>
+              <button
+                type_="button"
+                onClick={_ => onClick()}
+                className={cx([
+                  "flex min-h-12 shrink-0 items-center gap-2 border-2 px-4 font-extrabold transition-[background-color,transform] duration-150 ease-out active:translate-y-1",
+                  primary
+                    ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+                    : "border-kiosk-border bg-kiosk-raised text-white active:bg-kiosk-border",
+                ])}>
+                <Lucide.CreditCard \"aria-hidden"="true" />
+                label
+              </button>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              {switch felicaStatus {
+              | FelicaOff => button(t`Connect reader`, onConnectFelica, true)
+              | FelicaConnecting =>
+                <p className="font-mono text-sm font-semibold text-kiosk-muted"> {t`Connecting…`} </p>
+              | FelicaListening(name) =>
+                <>
+                  <p className="min-w-0 flex-1 font-mono text-sm font-semibold text-kiosk-accent">
+                    {React.string("● " ++ name ++ " · ")}
+                    {t`waiting for a card`}
+                  </p>
+                  {button(t`Turn off`, onDisconnectFelica, false)}
+                </>
+              | FelicaFailed(message) =>
+                <>
+                  <p className="min-w-0 flex-1 text-sm font-semibold text-red-300">
+                    {React.string(message)}
+                  </p>
+                  {button(t`Retry`, onConnectFelica, true)}
+                  {button(t`Turn off`, onDisconnectFelica, false)}
+                </>
+              }}
+            </div>
+          }}
+        </div>
       </div>
     </div>
   }
@@ -1238,7 +1698,32 @@ module LiveActionControls = {
     ~testMode: bool,
     ~clips: array<clipState>,
     ~onReview: clipState => unit,
+    ~autoClip: bool,
+    ~onToggleAutoClip: unit => unit,
+    ~heat: option<DinkHunt.streamReply>,
+    ~streamError: option<string>,
+    ~autoClips: array<clipState>,
   ) => {
+    let clipStrip = (label, items: array<clipState>) =>
+      items->Array.length == 0
+        ? React.null
+        : <div className="mt-3 flex items-center gap-3 overflow-x-auto">
+            <p className="shrink-0 font-mono text-xs font-semibold text-kiosk-muted"> label </p>
+            {items
+            ->Array.map(clip =>
+              <button
+                key=clip.url
+                type_="button"
+                onClick={_ => onReview(clip)}
+                className="flex min-h-14 shrink-0 items-center gap-2 whitespace-nowrap border-2 border-kiosk-border bg-kiosk-raised px-4 font-mono text-sm font-semibold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border">
+                <Lucide.Play \"aria-hidden"="true" className="fill-current text-kiosk-accent" size=16 />
+                {React.string(
+                  clip.durationSeconds->Float.toFixed(~digits=0) ++ " s · " ++ clip.capturedAt,
+                )}
+              </button>
+            )
+            ->React.array}
+          </div>
     // Rendered INSIDE the camera overlay (bottom of the video, over a scrim):
     // no box of its own, compact rows, so the video keeps the screen.
     <section>
@@ -1298,27 +1783,56 @@ module LiveActionControls = {
         })
         ->React.array}
       </div>
-      {clips->Array.length == 0
-        ? React.null
-        : <div className="mt-3 flex items-center gap-3 overflow-x-auto">
-            <p className="shrink-0 font-mono text-xs font-semibold text-kiosk-muted">
-              {t`RECENT CLIPS`}
-            </p>
-            {clips
-            ->Array.map(clip =>
-              <button
-                key=clip.url
-                type_="button"
-                onClick={_ => onReview(clip)}
-                className="flex min-h-14 shrink-0 items-center gap-2 whitespace-nowrap border-2 border-kiosk-border bg-kiosk-raised px-4 font-mono text-sm font-semibold text-white transition-[background-color,transform] duration-150 ease-out active:translate-y-1 active:bg-kiosk-border">
-                <Lucide.Play \"aria-hidden"="true" className="fill-current text-kiosk-accent" size=16 />
-                {React.string(
-                  clip.durationSeconds->Float.toFixed(~digits=0) ++ " s · " ++ clip.capturedAt,
-                )}
-              </button>
-            )
-            ->React.array}
-          </div>}
+      <div className="mt-3 flex flex-wrap items-center gap-3">
+        <button
+          type_="button"
+          onClick={_ => onToggleAutoClip()}
+          ariaPressed={autoClip ? #"true" : #"false"}
+          disabled={!clipEnabled}
+          className={cx([
+            "flex min-h-12 shrink-0 items-center gap-2 border-2 px-4 font-mono text-sm font-extrabold transition-[background-color,transform] duration-150 ease-out active:translate-y-1",
+            autoClip
+              ? "border-kiosk-accent bg-kiosk-accent text-kiosk-bg"
+              : "border-kiosk-border bg-kiosk-raised text-white",
+            !clipEnabled ? "cursor-not-allowed opacity-40 active:translate-y-0" : "",
+          ])}>
+          <Lucide.Activity \"aria-hidden"="true" size=18 strokeWidth=2.4 />
+          {autoClip ? t`AUTO-CLIP ON` : t`AUTO-CLIP OFF`}
+        </button>
+        {!autoClip
+          ? React.null
+          : switch (streamError, heat) {
+            | (Some(message), _) =>
+              <p className="font-mono text-xs font-semibold text-red-300"> {React.string(message)} </p>
+            | (None, None) =>
+              <p className="font-mono text-xs font-semibold text-kiosk-muted"> {t`STARTING…`} </p>
+            | (None, Some(reading)) => {
+                let pct = v => (Math.min(1., Math.max(0., v)) *. 100.)->Float.toFixed(~digits=0)
+                <div className="flex min-w-48 flex-1 items-center gap-3">
+                  <div className="relative h-3 flex-1 border border-kiosk-border bg-kiosk-bg">
+                    <div
+                      className={cx([
+                        "h-full",
+                        reading.phase == "hot" ? "bg-red-500" : "bg-kiosk-accent",
+                      ])}
+                      style={ReactDOM.Style.make(~width=pct(reading.avg) ++ "%", ())}
+                    />
+                    <div
+                      className="absolute inset-y-0 w-0.5 bg-white"
+                      style={ReactDOM.Style.make(~left=pct(reading.threshold) ++ "%", ())}
+                    />
+                  </div>
+                  <p className="shrink-0 font-mono text-xs font-semibold text-white">
+                    {React.string(
+                      "HEAT " ++ pct(reading.avg) ++ "%" ++ (reading.phase == "hot" ? " · HOT" : ""),
+                    )}
+                  </p>
+                </div>
+              }
+            }}
+      </div>
+      {clipStrip(t`AUTO CLIPS`, autoClips)}
+      {clipStrip(t`RECENT CLIPS`, clips)}
     </section>
   }
 }
@@ -1351,7 +1865,10 @@ module ResultPanel = {
               ~digits=0,
             )}-second clip · ${clip.capturedAt}`}
           ?eyebrow>
-          <ClipPlayer clip />
+          {switch clip.debug {
+          | Some(debug) => <AutoClipReplay clip debug />
+          | None => <ClipPlayer clip />
+          }}
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             <button
               type_="button"
@@ -1475,6 +1992,11 @@ module SessionWorkspace = {
     ~clipping: bool,
     ~bufferStatus: option<CaptureSession.status>,
     ~clipEnabled: bool,
+    ~autoClip: bool,
+    ~onToggleAutoClip: unit => unit,
+    ~heat: option<DinkHunt.streamReply>,
+    ~streamError: option<string>,
+    ~autoClips: array<clipState>,
     ~onLiveAction: liveAction => unit,
     ~onReviewClip: clipState => unit,
     ~onDeleteClip: unit => unit,
@@ -1572,6 +2094,11 @@ module SessionWorkspace = {
                         testMode
                         clips
                         onReview=onReviewClip
+                        autoClip
+                        onToggleAutoClip
+                        heat
+                        streamError
+                        autoClips
                       />
                       <div className="mt-3 flex items-center justify-between gap-3">
                         <div className="flex items-center gap-3">
@@ -1666,6 +2193,119 @@ let make = () => {
   let calibToolbarRef = React.useCallback0(el => setCalibToolbarHost(_ => el->Nullable.toOption))
   let (clipping, setClipping) = React.useState(() => false)
   let clipsRef: React.ref<array<clipState>> = React.useRef([])
+  // Auto-clip: the live analysis stream, its latest heat, and the clips it saved
+  // (their own strip, so they never push out clips saved by hand).
+  let (autoClip, setAutoClip) = React.useState(() => false)
+  let (autoClips, setAutoClips) = React.useState(() => ([]: array<clipState>))
+  let autoClipsRef: React.ref<array<clipState>> = React.useRef([])
+  let (heat, setHeat) = React.useState(() => (None: option<DinkHunt.streamReply>))
+  let (streamError, setStreamError) = React.useState(() => (None: option<string>))
+  let streamSessionId = React.useRef(newStreamSessionId())
+  let streamCursorUs = React.useRef(-1.)
+  let streamLiveAt = React.useRef(neg_infinity)
+  // The upload in flight, so a Challenge's tail upload never overtakes it (the
+  // server skips frames older than the newest it has seen).
+  let streamInFlight: React.ref<option<promise<unit>>> = React.useRef(None)
+  // Every heat reading of the current stream (last ~2 min), for the debug
+  // record attached to each auto clip.
+  let heatHistory: React.ref<array<heatSample>> = React.useRef([])
+
+  // ── FeliCa test reader ────────────────────────────────────────────────────
+  // Once connected (one chooser prompt, from Settings), the reader is polled
+  // for as long as the kiosk page is open, in every stage; a scanned card
+  // pops FelicaCardModal. "kiosk.felicaTest" remembers it's on, and Chrome
+  // remembers the device grant, so a reload resumes without prompting.
+  let (felicaStatus, setFelicaStatus) = React.useState(() => FelicaOff)
+  let (felicaDevice, setFelicaDevice) = React.useState(() => (None: option<Felica.device>))
+  let (felicaScan, setFelicaScan) = React.useState(() => (None: option<felicaScan>))
+  // The running watch loop: a new one waits for the previous to release the
+  // device (StrictMode mounts effects twice; two loops would fight over it).
+  let felicaRun: React.ref<promise<unit>> = React.useRef(Promise.resolve())
+  let felicaOn = () => getStoredItem(felicaStorageKey)->Nullable.toOption == Some("1")
+
+  React.useEffect1(() => {
+    switch felicaDevice {
+    | None => None
+    | Some(device) => {
+        let controller = Felica.makeAbortController()
+        let name = device->Felica.productName->Nullable.toOption->Option.getOr("RC-S300")
+        let cancelled = ref(false)
+        let run = async () => {
+          await felicaRun.current
+          if !cancelled.contents {
+            setFelicaStatus(_ => FelicaListening(name))
+            try {
+              await Felica.watchCards(
+                device,
+                card =>
+                  setFelicaScan(_ => Some({card, at: Date.make()->Date.toLocaleTimeString})),
+                controller->Felica.signal,
+              )
+            } catch {
+            | exn =>
+              if !cancelled.contents {
+                setFelicaStatus(_ => FelicaFailed(Felica.errorMessage(exn)))
+                setFelicaDevice(_ => None)
+              }
+            }
+          }
+        }
+        felicaRun.current = run()
+        Some(
+          () => {
+            cancelled := true
+            controller->Felica.abort
+          },
+        )
+      }
+    }
+  }, [felicaDevice])
+
+  // Resume on load (no prompt: the grant persists) and when the reader is
+  // plugged back in.
+  React.useEffect0(() => {
+    if felicaOn() && Felica.isSupported() {
+      let resume = async () =>
+        switch await Felica.grantedReader() {
+        | Some(device) => setFelicaDevice(_ => Some(device))
+        | None =>
+          setFelicaStatus(_ => FelicaFailed("Reader not found — plug it in, or reconnect it here."))
+        }
+      resume()->ignore
+    }
+    Felica.isSupported()
+      ? Some(
+          Felica.onReaderConnected(device =>
+            if felicaOn() {
+              setFelicaDevice(_ => Some(device))
+            }
+          ),
+        )
+      : None
+  })
+
+  // From the Settings button: the device chooser needs this user gesture.
+  let connectFelica = () => {
+    setFelicaStatus(_ => FelicaConnecting)
+    let run = async () =>
+      try {
+        let device = switch await Felica.grantedReader() {
+        | Some(device) => device
+        | None => await Felica.requestReader()
+        }
+        setStoredItem(felicaStorageKey, "1")
+        setFelicaDevice(_ => Some(device))
+      } catch {
+      | exn => setFelicaStatus(_ => FelicaFailed(Felica.errorMessage(exn)))
+      }
+    run()->ignore
+  }
+
+  let disconnectFelica = () => {
+    setStoredItem(felicaStorageKey, "0")
+    setFelicaDevice(_ => None)
+    setFelicaStatus(_ => FelicaOff)
+  }
 
   // Restore the persisted camera and capture-mode choices. Runs in an effect
   // because the page is SSR'd and localStorage only exists in the browser.
@@ -1676,6 +2316,10 @@ let make = () => {
     }
     switch getStoredItem(testModeStorageKey)->Nullable.toOption {
     | Some("1") => setTestMode(_ => true)
+    | _ => ()
+    }
+    switch getStoredItem(autoClipStorageKey)->Nullable.toOption {
+    | Some("1") => setAutoClip(_ => true)
     | _ => ()
     }
     switch getStoredItem(CaptureSession.modeStorageKey)
@@ -1786,7 +2430,18 @@ let make = () => {
     clipsRef.current = clips
     None
   }, [clips])
-  React.useEffect0(() => Some(() => clipsRef.current->Array.forEach(releaseClip)))
+  React.useEffect1(() => {
+    autoClipsRef.current = autoClips
+    None
+  }, [autoClips])
+  React.useEffect0(() =>
+    Some(
+      () => {
+        clipsRef.current->Array.forEach(releaseClip)
+        autoClipsRef.current->Array.forEach(releaseClip)
+      },
+    )
+  )
 
   let stopCamera = () => setStream(_ => None)
 
@@ -1797,6 +2452,10 @@ let make = () => {
     // Clip history is per-session; release the blobs when it ends. (Releasing
     // twice under StrictMode double-invoke is harmless.)
     setClips(previous => {
+      previous->Array.forEach(releaseClip)
+      []
+    })
+    setAutoClips(previous => {
       previous->Array.forEach(releaseClip)
       []
     })
@@ -1941,6 +2600,150 @@ let make = () => {
     }
   }
 
+  // Save EXACTLY the span the server asked for. (Taking "the last N seconds"
+  // when the answer arrives appended the reply latency as dead tail and —
+  // capped at the ring's 20 s — cut long rallies' starts: the heated moment.)
+  // The clip carries a debug record so the review can replay the heat.
+  let saveAutoClip = async (session: CaptureSession.t, span: DinkHunt.clipSpan) => {
+    let decidedAt = performanceNow() /. 1000.
+    switch await session.takeClip(~range=(span.start, span.end)) {
+    | Ok(result) => {
+        let debug = {
+          samples: heatHistory.current->Array.filter(sample =>
+            sample.t >= span.start -. 10. && sample.t <= decidedAt +. 1.
+          ),
+          requestedStart: span.start,
+          requestedEnd: span.end,
+          clipStart: result.startSeconds,
+          clipEnd: result.startSeconds +. result.durationSeconds,
+          decidedAt,
+        }
+        if result.startSeconds > span.start +. 0.5 {
+          Js.Console.warn2(
+            "[kiosk] auto-clip start already left the ring:",
+            {"requestedStart": span.start, "clipStart": result.startSeconds, "decidedAt": decidedAt},
+          )
+        }
+        let clip = {
+          url: CaptureSession.createObjectURL(result.blob),
+          durationSeconds: result.durationSeconds,
+          hasAudio: result.hasAudio,
+          capturedAt: timeLabel(),
+          frameTimes: result.frameTimes,
+          debug: Some(debug),
+        }
+        setAutoClips(previous => {
+          let next = [clip]->Array.concat(previous)
+          if next->Array.length > maxClipHistory {
+            next->Array.sliceToEnd(~start=maxClipHistory)->Array.forEach(releaseClip)
+            next->Array.slice(~start=0, ~end=maxClipHistory)
+          } else {
+            next
+          }
+        })
+        setNotice(_ => Some(AutoClipSaved))
+      }
+    | Error(error) => Js.Console.error2("[kiosk] auto-clip takeClip failed:", error)
+    }
+  }
+
+  // One segment to the live stream, cropped like a Challenge; acts on the reply.
+  let uploadSegment = async (session: CaptureSession.t, seg: CaptureSession.segment) => {
+    let crop =
+      KioskCourtCalib.loadStoredPlaced(~width=seg.segmentWidth, ~height=seg.segmentHeight)->Option.flatMap(
+        placed => KioskCourtCalib.cropRegion(placed, seg.segmentWidth, seg.segmentHeight),
+      )
+    switch await DinkHunt.streamSegment(
+      seg.segmentBlob,
+      ~session=streamSessionId.current,
+      ~t0=seg.segmentStartSeconds,
+      ~crop,
+    ) {
+    | Ok(reply) => {
+        streamLiveAt.current = performanceNow()
+        setStreamError(_ => None)
+        setHeat(_ => Some(reply))
+        let sample = {
+          t: seg.segmentStartSeconds +. seg.segmentDurationSeconds,
+          heat: reply.heat,
+          avg: reply.avg,
+          threshold: reply.threshold,
+          hot: reply.phase == "hot",
+          exchanges: reply.exchanges,
+          speed: reply.speed->Js.Nullable.toOption,
+          receivedAt: performanceNow() /. 1000.,
+          processingS: reply.processing_s,
+        }
+        heatHistory.current =
+          heatHistory.current
+          ->Array.filter(previous => previous.t > sample.t -. 120.)
+          ->Array.concat([sample])
+        switch reply.clip->Js.Nullable.toOption {
+        | Some(span) => await saveAutoClip(session, span)
+        | None => ()
+        }
+        true
+      }
+    | Error(message) => {
+        setStreamError(_ => Some(message))
+        false
+      }
+    }
+  }
+
+  // The auto-clip loop: upload every GOP as it closes. Each upload waits for the
+  // previous reply, so a slow server gets longer segments rather than a queue.
+  React.useEffect2(() => {
+    if !autoClip || !clippingReady {
+      None
+    } else {
+      // A fresh stream per capture session; the ring's backlog is not analysed
+      // (the first segment only positions the cursor).
+      streamSessionId.current = newStreamSessionId()
+      heatHistory.current = []
+      streamCursorUs.current = -1.
+      setHeat(_ => None)
+      let cancelled = ref(false)
+      let run = async () => {
+        let first = ref(true)
+        while !cancelled.contents {
+          switch sessionRef.current {
+          | None => await sleep(1000)
+          | Some(session) =>
+            switch await session.takeSegment(~afterUs=streamCursorUs.current, ~includeOpen=false) {
+            | Error(_) => await sleep(400)
+            | Ok(seg) =>
+              streamCursorUs.current = seg.lastGopUs
+              if first.contents {
+                first := false
+              } else {
+                let upload = uploadSegment(session, seg)
+                streamInFlight.current = Some(upload->Promise.thenResolve(_ => ()))
+                let ok = await upload
+                streamInFlight.current = None
+                if !ok {
+                  await sleep(2000)
+                }
+              }
+            }
+          }
+        }
+      }
+      run()->ignore
+      Some(() => cancelled := true)
+    }
+  }, (autoClip, clippingReady))
+
+  let handleToggleAutoClip = () => {
+    let next = !autoClip
+    setAutoClip(_ => next)
+    setStoredItem(autoClipStorageKey, next ? "1" : "0")
+    if !next {
+      setHeat(_ => None)
+      setStreamError(_ => None)
+    }
+  }
+
   let handleLiveAction = (action: liveAction) =>
     switch action {
     // Auto-save: the clip muxes in the background and drops into the history
@@ -1959,6 +2762,7 @@ let make = () => {
                   hasAudio: result.hasAudio,
                   capturedAt: timeLabel(),
                   frameTimes: result.frameTimes,
+                  debug: None,
                 }
                 setClips(previous => {
                   let next = [clip]->Array.concat(previous)
@@ -2013,6 +2817,7 @@ let make = () => {
                   | Ok(a) => a.frameTimes
                   | Error(_) => []
                   },
+                  debug: None,
                 }
                 let (bounces, paths, frameW, frameH, fps, error) = switch analysis {
                 | Ok(a) => (a.bounces, a.paths, a.width, a.height, a.fps, None)
@@ -2031,6 +2836,22 @@ let make = () => {
           } else {
           switch sessionRef.current {
           | Some(session) =>
+            // With auto-clip streaming, the server has already detected the
+            // buffer: send only the not-yet-uploaded tail (after any upload in
+            // flight, never overtaking it) and answer from the stream.
+            let streamLive = autoClip && performanceNow() -. streamLiveAt.current < streamLiveWindowMs
+            if streamLive {
+              switch streamInFlight.current {
+              | Some(pending) => await pending
+              | None => ()
+              }
+              switch await session.takeSegment(~afterUs=streamCursorUs.current, ~includeOpen=true) {
+              | Ok(seg) => {
+                  let _ = await uploadSegment(session, seg)
+                }
+              | Error(_) => ()
+              }
+            }
             switch await session.takeClip(~seconds=challengeSeconds) {
             | Ok(result) => {
                 let clip = {
@@ -2038,7 +2859,10 @@ let make = () => {
                   durationSeconds: result.durationSeconds,
                   hasAudio: result.hasAudio,
                   capturedAt: timeLabel(),
-                  frameTimes: result.frameTimes,
+                  // Stream answers are in real seconds from the clip's start:
+                  // an empty frame table is the identity timeline.
+                  frameTimes: streamLive ? [] : result.frameTimes,
+                  debug: None,
                 }
                 // Crop to the court's analysis region (the same rectangle the
                 // calibration was sent in) before upload; the full clip stays
@@ -2052,19 +2876,33 @@ let make = () => {
                     placed => KioskCourtCalib.cropRegion(placed, enc.width, enc.height),
                   )
                 )
-                let analysisBlob = switch (crop, result.encoded) {
-                | (Some(rect), Some(enc)) => await ClipCrop.crop(enc, rect)
-                | _ => Ok(result.blob)
-                }
-                let (bounces, paths, frameW, frameH, fps, error) = switch analysisBlob {
-                | Error(message) => ([], [], nativeW, nativeH, 30., Some("crop failed: " ++ message))
-                | Ok(blob) =>
-                  switch await DinkHunt.challengeBounces(blob) {
-                  | Ok((_upload, a)) => {
+                let (bounces, paths, frameW, frameH, fps, error) = if streamLive {
+                  switch await DinkHunt.challengeStreamAnalysis(
+                    ~session=streamSessionId.current,
+                    ~start=result.startSeconds,
+                    ~end_=result.startSeconds +. result.durationSeconds,
+                  ) {
+                  | Ok(a) => {
                       let a = reprojectAnalysis(a, crop)
                       (a.bounces, a.paths, nativeW, nativeH, a.fps, None)
                     }
                   | Error(message) => ([], [], nativeW, nativeH, 30., Some(message))
+                  }
+                } else {
+                  let analysisBlob = switch (crop, result.encoded) {
+                  | (Some(rect), Some(enc)) => await ClipCrop.crop(enc, rect)
+                  | _ => Ok(result.blob)
+                  }
+                  switch analysisBlob {
+                  | Error(message) => ([], [], nativeW, nativeH, 30., Some("crop failed: " ++ message))
+                  | Ok(blob) =>
+                    switch await DinkHunt.challengeBounces(blob) {
+                    | Ok((_upload, a)) => {
+                        let a = reprojectAnalysis(a, crop)
+                        (a.bounces, a.paths, nativeW, nativeH, a.fps, None)
+                      }
+                    | Error(message) => ([], [], nativeW, nativeH, 30., Some(message))
+                    }
                   }
                 }
                 setChallenge(_ => Some({clip, bounces, paths, frameW, frameH, fps, error}))
@@ -2099,7 +2937,10 @@ let make = () => {
     switch reviewClip {
     | Some(clip) => {
         releaseClip(clip)
+        // Auto clips live in their own strip — remove from both, or a
+        // deleted auto clip lingered in the list with a revoked URL.
         setClips(previous => previous->Array.filter(existing => existing.url != clip.url))
+        setAutoClips(previous => previous->Array.filter(existing => existing.url != clip.url))
       }
     | None => ()
     }
@@ -2223,6 +3064,11 @@ let make = () => {
               clipping
               bufferStatus=captureStatus
               clipEnabled
+              autoClip
+              onToggleAutoClip=handleToggleAutoClip
+              heat
+              streamError
+              autoClips
               onLiveAction=handleLiveAction
               onReviewClip=handleReviewClip
               onDeleteClip=handleDeleteClip
@@ -2397,6 +3243,9 @@ let make = () => {
     </main>
     {settingsOpen
       ? <SettingsPanel
+          felicaStatus
+          onConnectFelica=connectFelica
+          onDisconnectFelica=disconnectFelica
           testMode
           onToggleTestMode={() => {
             let next = !testMode
@@ -2411,6 +3260,10 @@ let make = () => {
           onClose={() => setSettingsOpen(_ => false)}
         />
       : React.null}
+    {switch felicaScan {
+    | Some(scan) => <FelicaCardModal scan onClose={() => setFelicaScan(_ => None)} />
+    | None => React.null
+    }}
     {switch notice {
     | Some(notice) =>
       <div
@@ -2419,6 +3272,7 @@ let make = () => {
         <Lucide.CheckCircle2 \"aria-hidden"="true" className="text-kiosk-accent" size=22 />
         {switch notice {
         | ClipSaved => t`Clip saved · live capture continues`
+        | AutoClipSaved => t`Heated rally auto-clipped`
         | LiveEnded => t`Live session ended`
         | CameraError => t`Camera unavailable — check permissions and try again`
         | ClipFailed => t`Could not create the clip — the buffer keeps recording`

@@ -160,6 +160,42 @@ function takeClip(ring, targetDurationUs) {
               }));
 }
 
+function takeRange(ring, fromUs, toUs) {
+  var startIndex = {
+    contents: 0
+  };
+  ring.gops.forEach(function (gop, i) {
+        if (gop.startUs <= fromUs) {
+          startIndex.contents = i;
+          return ;
+        }
+        
+      });
+  var chunks = ring.gops.slice(startIndex.contents).flatMap(function (gop) {
+          return gop.chunks;
+        }).filter(function (chunk) {
+        return chunk.timestampUs <= toUs;
+      });
+  var match = chunks[0];
+  var match$1 = Core__Array.last(chunks);
+  if (match !== undefined && match$1 !== undefined && match.isKey) {
+    return {
+            chunks: chunks.map(function (chunk) {
+                  return {
+                          timestampUs: chunk.timestampUs - match.timestampUs,
+                          durationUs: chunk.durationUs,
+                          isKey: chunk.isKey,
+                          byteLength: chunk.byteLength,
+                          payload: chunk.payload
+                        };
+                }),
+            durationUs: match$1.timestampUs + match$1.durationUs - match.timestampUs,
+            baseUs: match.timestampUs
+          };
+  }
+  
+}
+
 function segmentAfter(ring, afterUs, includeOpenOpt) {
   var includeOpen = includeOpenOpt !== undefined ? includeOpenOpt : false;
   var n = ring.gops.length;
@@ -203,6 +239,7 @@ export {
   totalBytes ,
   chunkCount ,
   takeClip ,
+  takeRange ,
   segmentAfter ,
 }
 /* No side effect */

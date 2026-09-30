@@ -171,6 +171,36 @@ let takeClip = (ring: t<'a>, ~targetDurationUs: float): option<clip<'a>> =>
     }
   }
 
+// An absolute window [fromUs, toUs] of the stream, rebased — for a clip the
+// analysis server specified in stream time (auto-clip), rather than "the last
+// N seconds" (which, taken when the server's answer ARRIVES, adds that
+// latency as dead tail and, capped at the ring length, cuts the rally's
+// start). Starts on the newest keyframe at or before ``fromUs`` (or the oldest
+// ringed one, when ``fromUs`` has already been evicted) and ends with the last
+// frame at or before ``toUs``. None when nothing ringed falls in the window.
+let takeRange = (ring: t<'a>, ~fromUs: float, ~toUs: float): option<clip<'a>> => {
+  let startIndex = ref(0)
+  ring.gops->Array.forEachWithIndex((gop, i) =>
+    if gop.startUs <= fromUs {
+      startIndex := i
+    }
+  )
+  let chunks =
+    ring.gops
+    ->Array.sliceToEnd(~start=startIndex.contents)
+    ->Array.flatMap(gop => gop.chunks)
+    ->Array.filter(chunk => chunk.timestampUs <= toUs)
+  switch (chunks->Array.get(0), chunks->Array.last) {
+  | (Some(first), Some(last)) if first.isKey =>
+    Some({
+      chunks: chunks->Array.map(chunk => {...chunk, timestampUs: chunk.timestampUs -. first.timestampUs}),
+      durationUs: last.timestampUs +. last.durationUs -. first.timestampUs,
+      baseUs: first.timestampUs,
+    })
+  | _ => None
+  }
+}
+
 // The GOPs pushed after ``afterUs`` (their keyframe strictly later), as one
 // rebased clip — the kiosk's live-analysis upload. By default only CLOSED GOPs
 // (a newer keyframe exists, so no more frames will join them); ``includeOpen``
